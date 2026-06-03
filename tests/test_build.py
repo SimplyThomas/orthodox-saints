@@ -220,9 +220,13 @@ class SeedIntegrationTests(unittest.TestCase):
         self.assertEqual(errs, [], "committed seed has validation errors:\n" +
                          "\n".join(errs))
 
-    def test_seed_has_372_saints(self):
+    def test_seed_never_shrinks_below_initial(self):
+        # The spine walk (CLAUDE.md §8) grows the dataset over time, so an exact
+        # count would break on every data PR. Guard against catastrophic data
+        # loss instead: the committed seed must never fall below its 372-saint
+        # floor (84 originals + the Sep 1-10 comprehensive set).
         _header, rows = build.load_saints()
-        self.assertEqual(len(rows), 372)
+        self.assertGreaterEqual(len(rows), 372)
 
 
 if __name__ == "__main__":
