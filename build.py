@@ -132,13 +132,20 @@ def load_saints() -> tuple[list[str], list[dict[str, str]]]:
 # --------------------------------------------------------------------------- #
 # ID assignment (CLAUDE.md §6): blank IDs get the next sequential OS-####.
 # --------------------------------------------------------------------------- #
-def assign_ids(header: list[str], rows: list[dict[str, str]]) -> bool:
-    existing = [r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()]
+def next_id_seed(rows: list[dict[str, str]]) -> int:
+    """Highest existing OS-#### number across rows (0 if none)."""
     max_num = 0
-    for sid in existing:
-        m = re.match(r"^OS-(\d+)$", sid)
+    for r in rows:
+        m = re.match(r"^OS-(\d+)$", r["Saint ID"].strip())
         if m:
             max_num = max(max_num, int(m.group(1)))
+    return max_num
+
+
+def assign_ids(rows: list[dict[str, str]]) -> bool:
+    """Assign the next sequential OS-#### to any blank Saint ID. Mutates rows
+    in place; returns True if any ID was assigned. Pure (no file I/O)."""
+    max_num = next_id_seed(rows)
     assigned = False
     for r in rows:
         if not r["Saint ID"].strip():
@@ -146,13 +153,15 @@ def assign_ids(header: list[str], rows: list[dict[str, str]]) -> bool:
             r["Saint ID"] = f"OS-{max_num:04d}"
             assigned = True
             print(f"  assigned {r['Saint ID']}  {r['Name']}")
-    if assigned:
-        with open(SAINTS_CSV, "w", encoding="utf-8", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=header)
-            w.writeheader()
-            w.writerows(rows)
-        print(f"  wrote stable IDs back to {SAINTS_CSV.relative_to(ROOT)}")
     return assigned
+
+
+def write_saints(header: list[str], rows: list[dict[str, str]]) -> None:
+    with open(SAINTS_CSV, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=header)
+        w.writeheader()
+        w.writerows(rows)
+    print(f"  wrote stable IDs back to {SAINTS_CSV.relative_to(ROOT)}")
 
 
 # --------------------------------------------------------------------------- #
@@ -403,7 +412,8 @@ def main() -> int:
     header, rows = load_saints()
 
     if not args.check_only:
-        assign_ids(header, rows)
+        if assign_ids(rows):
+            write_saints(header, rows)
 
     conn = build_db(header, rows, vocab)
     errors, warnings = validate(header, rows, vocab)
