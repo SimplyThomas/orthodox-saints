@@ -1,0 +1,31 @@
+# Dependabot keeps the project's infrastructure up to date automatically.
+# It opens PRs against `main`; the CI workflow (ci.yml) validates each one as the
+# merge gate. See https://docs.github.com/code-security/dependabot
+version: 2
+updates:
+  # GitHub Actions used by ci.yml / deploy.yml — grouped into one PR per run.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      github-actions:
+        patterns: ["*"]
+
+  # Python dependencies (requirements.txt — openpyxl, etc.).
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: deps
+
+  # The build-environment base image (Dockerfile — python:*-slim).
+  - package-ecosystem: docker
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: docker

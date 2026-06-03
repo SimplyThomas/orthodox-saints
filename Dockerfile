@@ -1,7 +1,7 @@
 # Build environment for the Orthodox Saints Database.
-# Mirrors CI (Python 3.11). Source is mounted at runtime via docker-compose so
+# Mirrors CI (Python 3.14). Source is mounted at runtime via docker-compose so
 # edits are live and generated output (public/, dist/) lands back on the host.
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 WORKDIR /app
 
