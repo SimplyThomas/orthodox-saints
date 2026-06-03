@@ -27,7 +27,7 @@ const $ = (sel) => document.querySelector(sel);
 // ---------------------------------------------------------------- load
 async function init() {
   try {
-    const res = await fetch("data.json", { cache: "no-cache" });
+    const res = await fetch("./data.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     SAINTS = await res.json();
   } catch (err) {

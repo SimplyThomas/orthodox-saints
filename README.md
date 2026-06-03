@@ -1,4 +1,6 @@
-# Orthodox Saints Database
+# Cloud of Witnesses
+
+*A searchable database of Orthodox saints — find a patron or intercessor.*
 
 A searchable, open-source database of **canonical Eastern Orthodox saints**, built so that
 catechumens, inquirers, and the faithful can find a **patron saint or intercessor** for a

@@ -189,7 +189,10 @@ Static, no backend, no browser-storage APIs. It must:
   `#/saint/OS-0192`) so saints are shareable/bookmarkable. Detail shows Brief Life, all
   populated facets, Feast Day(s), the composed Short Prayer, Customs (only if present),
   Works, Sources, and **link-out buttons** for Hymn / Icon / Video.
-- Masthead: simple gold cross ornament (☦). No external/unlicensed imagery.
+- Masthead: heading reads **"Cloud of Witnesses"** (the app's display name) alongside a
+  simple gold cross ornament (☦); the HTML `<title>` is also "Cloud of Witnesses", and the
+  descriptive subtitle is the masthead tagline + `<meta name="description">`. No
+  external/unlicensed imagery.
 - Search index: use MiniSearch or FlexSearch (loaded from a CDN or vendored). Naive
   filtering is fine now; switch to a prebuilt index when the dataset grows large.
 - Keep CSS in `styles.css`; keep it clean, readable, mobile-friendly.

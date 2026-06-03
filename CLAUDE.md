@@ -12,6 +12,12 @@ A searchable, open-source database of **canonical Eastern Orthodox saints**, bui
 that catechumens, inquirers, and faithful can find a **patron saint or intercessor**
 for a particular need, life situation, vocation, or background.
 
+The app's display name is **Cloud of Witnesses**: the SPA masthead heading and the HTML
+`<title>` read "Cloud of Witnesses" (alongside the gold cross ornament ☦). The
+descriptive subtitle — "A searchable database of Orthodox saints — find a patron or
+intercessor." — is used as the masthead tagline, the `<meta name="description">`, and the
+GitHub repo description.
+
 - **Audience:** people new to Orthodoxy looking for a saint to relate to or pray with.
 - **The core value** is the *finder*: matching a person's situation (an illness, a
   job, grief, a region, a life experience) to saints via controlled-vocabulary facets.
