@@ -1,0 +1,13 @@
+# Keep the build context tiny — only requirements.txt is COPYed into the image;
+# everything else is mounted at runtime.
+.git
+.github
+.venv
+venv
+public
+dist
+__pycache__
+*.pyc
+*.sqlite
+.DS_Store
+node_modules

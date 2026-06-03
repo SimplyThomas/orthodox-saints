@@ -1,0 +1,29 @@
+Data License — Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+This license applies to the database content in the `data/` directory
+(`data/saints.csv` and `data/vocabulary.csv`) and to artifacts derived from it
+(e.g. `public/data.json`, the Excel export). The project's source code is
+licensed separately under the MIT License (see `LICENSE`).
+
+Copyright (c) 2026 Thomas Krug and contributors.
+
+You are free to:
+  - Share — copy and redistribute the material in any medium or format.
+  - Adapt — remix, transform, and build upon the material for any purpose,
+    even commercially.
+
+Under the following terms:
+  - Attribution — You must give appropriate credit, provide a link to this
+    license, and indicate if changes were made.
+  - ShareAlike — If you remix, transform, or build upon the material, you must
+    distribute your contributions under the same license as the original.
+  - No additional restrictions — You may not apply legal terms or technological
+    measures that legally restrict others from doing anything the license permits.
+
+The full legal code is available at:
+  https://creativecommons.org/licenses/by-sa/4.0/legalcode
+A human-readable summary is available at:
+  https://creativecommons.org/licenses/by-sa/4.0/
+
+DISCLAIMER: This dataset is a work in progress and is NOT an authoritative or
+official liturgical resource. It awaits review by competent clergy and sources.

@@ -1,0 +1,10 @@
+public/*
+!public/.gitkeep
+dist/*
+!dist/.gitkeep
+__pycache__/
+*.pyc
+*.sqlite
+.DS_Store
+.venv/
+venv/

@@ -1,0 +1,15 @@
+# Containerized build environment. Use via the `docker-*` Makefile targets, e.g.
+#   make docker-validate   make docker-build   make docker-serve
+#
+# The repo is mounted at /app so source edits are live and generated output
+# (public/, dist/) and ID write-backs land on the host. Run the Makefile targets
+# (they pass --user so files stay owned by you, not root).
+services:
+  saints:
+    build: .
+    image: saints-db-build
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"

@@ -1,0 +1,38 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - run: python build.py            # validates; fails the deploy if data is bad
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r web/* _site/
+          cp public/data.json _site/
+          # copy any prebuilt index / optional sqlite if present
+          [ -f public/search-index.json ] && cp public/search-index.json _site/ || true
+          # publish the Excel export for download from the site
+          [ -f dist/Orthodox_Saints_Database.xlsx ] && cp dist/Orthodox_Saints_Database.xlsx _site/ || true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+      - id: deploy
+        uses: actions/deploy-pages@v4
