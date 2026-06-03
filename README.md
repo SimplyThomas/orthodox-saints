@@ -43,6 +43,7 @@ Other targets:
 
 ```bash
 make validate   # validate only (exit non-zero on any violation) — the CI gate
+make test       # run the build.py unit suite
 make xlsx       # emit only the Excel export
 make clean      # remove generated output
 ```
@@ -70,12 +71,14 @@ mapping in `docker-compose.yml`.
    To use a new controlled-vocabulary term, **add it to `data/vocabulary.csv` first**.
 2. Leave the **Saint ID** blank on a new row — the build assigns the next stable
    `OS-####` and writes it back. IDs are permanent and never reused or renumbered.
-3. Run `make validate` — it must report **CLEAN** (zero violations) before you open a PR.
-4. Open a pull request. CI runs `python build.py --check-only` as the merge gate; the
-   site deploys automatically when changes land on `main`.
+3. Run `make validate` — it must report **CLEAN** (zero violations) before you open a PR
+   (and `make test` if you changed `build.py`).
+4. Open a pull request. `main` is branch-protected: CI (unit tests + `build.py --check-only`)
+   must pass before merge, and the site deploys automatically when changes land on `main`.
 
-See [`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing
-strategy, guardrails, and authoring conventions).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow and
+[`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing strategy,
+guardrails, and authoring conventions).
 
 ## Licenses
 

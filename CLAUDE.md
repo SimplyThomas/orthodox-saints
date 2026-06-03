@@ -88,11 +88,17 @@ Use the Makefile targets (or the underlying python directly):
 
 - `make build`   → `python build.py` : validate + emit all artifacts into `public/` and `dist/`.
 - `make validate`→ `python build.py --check-only` : validate only, exit non-zero on any violation. (Used by CI on PRs.)
+- `make test`    → `python -m unittest discover -s tests` : run the build.py unit suite. (Also runs in CI.)
 - `make serve`   → build, then serve `web/` + `public/` locally (e.g. `python -m http.server` from a combined dir) for manual review.
 - `make xlsx`    → emit only the Excel export.
 
 `build.py` must support `--check-only` (no file output, just validation + exit code) so
 CI can gate pull requests cheaply.
+
+**No local Python?** The same targets exist prefixed with `docker-` (`make docker-validate`,
+`make docker-test`, `make docker-build`, `make docker-serve`) and run inside the
+containerized build environment (`Dockerfile` / `docker-compose.yml`). They write output
+back to the host owned by you. See README for details.
 
 ---
 
@@ -274,22 +280,33 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
 - **Hosting:** GitHub Pages (public repo). **CI/CD:** GitHub Actions. Public-repo Actions
   minutes and Pages are free; the build is seconds long.
 - The deploy workflow builds (which validates) and publishes `web/` + `public/`. A
-  separate PR workflow runs `--check-only` as a merge gate.
+  separate PR workflow (`ci.yml`) runs the unit tests + `--check-only` as the `main`
+  merge gate (enforced by branch protection). A CodeQL workflow scans the code, and
+  Dependabot keeps Actions / pip / the Docker base image current (patch+minor auto-merge).
+  GitHub Actions are pinned to commit SHAs.
 
 ---
 
 ## 12. Working agreement (definition of done for a session)
 
+`main` is **branch-protected**: direct pushes are rejected. All changes — data, code,
+docs, even Dependabot's — land via a **pull request** that the CI check (`validate`: unit
+tests + data validation) must pass before merge. Merges are **squash** (linear history).
+
 1. Edits go to `data/saints.csv` / `data/vocabulary.csv` (source of truth) — never to
    generated files.
 2. **To add a vocabulary term:** add it to `data/vocabulary.csv` FIRST, then use it.
-3. Run `make validate` — it must be **CLEAN** (zero violations) before committing.
-4. Run `make build` and sanity-check `public/data.json` (record count, no errors).
+3. Run `make validate` (or `make docker-validate`) — it must be **CLEAN** (zero violations).
+   Run `make test` if you touched `build.py`.
+4. Run `make build` and sanity-check `public/data.json` (record count, no errors). The
+   build prints a **finder-coverage** report; CI posts it to the PR's job summary.
 5. New saints: confirm blank IDs were assigned and written back to the CSV.
-6. Commit with a clear message (e.g. `data: spine walk — add January 1 commemorations (OS-0373..)`).
-7. Note any canonization/judgment calls and anything needing clergy review in the commit
-   body or PR description.
-8. Push; confirm the Actions run is green and Pages deployed.
+6. Work on a branch; commit with a clear message
+   (e.g. `data: spine walk — add January 1 commemorations (OS-0373..)`).
+7. Open a PR. Note any canonization/judgment calls and anything needing clergy review in
+   the PR description (the PR template has a checklist).
+8. Wait for the **CI check to go green**, then squash-merge. The Deploy workflow then
+   builds + publishes to Pages on `main`; confirm it's green.
 
 ## 13. Do NOT
 - Do not commit anything in `public/` or `dist/`.
