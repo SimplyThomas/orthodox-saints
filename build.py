@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import shutil
 import sqlite3
@@ -285,6 +286,48 @@ def validate(header: list[str], rows: list[dict[str, str]],
 
 
 # --------------------------------------------------------------------------- #
+# Finder-coverage report (CLAUDE.md §10: the finder's quality axis)
+# --------------------------------------------------------------------------- #
+# Facets that drive the finder; reported as fill % so changes are visible.
+COVERAGE_COLUMNS = [
+    "Commonly Asked Intercessions",
+    "Life Experience",
+    "Vocation",
+    "Virtue",
+    "Brief Life",
+    "Customs & Traditions",
+]
+
+
+def coverage_stats(rows: list[dict[str, str]]) -> list[tuple[str, int, int, float]]:
+    total = len(rows)
+    stats = []
+    for col in COVERAGE_COLUMNS:
+        filled = sum(1 for r in rows if r[col].strip())
+        pct = (100.0 * filled / total) if total else 0.0
+        stats.append((col, filled, total, pct))
+    return stats
+
+
+def report_coverage(rows: list[dict[str, str]]) -> None:
+    """Print finder-coverage stats; also write a Markdown table to the GitHub
+    Actions job summary when running in CI ($GITHUB_STEP_SUMMARY)."""
+    stats = coverage_stats(rows)
+    print("Finder coverage:")
+    for col, filled, total, pct in stats:
+        print(f"  {col:32s} {filled:4d}/{total}  ({pct:5.1f}%)")
+
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        lines = [f"## Finder coverage ({len(rows)} saints)", "",
+                 "| Facet | Filled | Coverage |", "|---|---:|---:|"]
+        for col, filled, total, pct in stats:
+            lines.append(f"| {col} | {filled}/{total} | {pct:.1f}% |")
+        with open(summary, "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+
+
+# --------------------------------------------------------------------------- #
 # Derived link fields
 # --------------------------------------------------------------------------- #
 def derive_links(name: str, hymn: str, icon: str, video: str) -> tuple[str, str, str]:
@@ -435,6 +478,8 @@ def main() -> int:
 
     print(f"VALIDATION CLEAN — {len(rows)} saints, "
           f"{len(warnings)} warning(s), 0 errors.")
+
+    report_coverage(rows)
 
     if args.check_only:
         return 0

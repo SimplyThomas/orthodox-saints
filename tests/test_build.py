@@ -184,6 +184,32 @@ class ToRecordTests(unittest.TestCase):
         self.assertIn("Healing", rec["search"])
 
 
+class CoverageTests(unittest.TestCase):
+    def test_coverage_stats_counts_filled(self):
+        rows = [valid_row(**{"Commonly Asked Intercessions": "Healing"}),
+                valid_row(**{"Commonly Asked Intercessions": ""})]
+        stats = dict((c, (f, t, p)) for c, f, t, p in build.coverage_stats(rows))
+        filled, total, pct = stats["Commonly Asked Intercessions"]
+        self.assertEqual((filled, total), (1, 2))
+        self.assertAlmostEqual(pct, 50.0)
+
+    def test_report_writes_job_summary(self):
+        import tempfile
+        rows = [valid_row(**{"Vocation": "Physician"})]
+        with tempfile.NamedTemporaryFile("w+", suffix=".md", delete=False) as tf:
+            path = tf.name
+        try:
+            os.environ["GITHUB_STEP_SUMMARY"] = path
+            build.report_coverage(rows)
+            with open(path) as f:
+                content = f.read()
+            self.assertIn("## Finder coverage", content)
+            self.assertIn("| Vocation |", content)
+        finally:
+            os.environ.pop("GITHUB_STEP_SUMMARY", None)
+            os.unlink(path)
+
+
 class SeedIntegrationTests(unittest.TestCase):
     """The committed seed data must always validate clean."""
 
