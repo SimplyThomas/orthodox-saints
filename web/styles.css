@@ -1,12 +1,15 @@
 :root {
-  --gold: #b8860b;
-  --gold-light: #d4af37;
+  --navy: #234C7A;        /* header / footer */
+  --navy-text: #f5ebd8;   /* text on navy */
+  --gold: #D4AF37;        /* highlights & borders */
+  --gold-light: #e2c75a;  /* lighter gold (focus glow) */
   --ink: #2b2620;
   --muted: #6b6258;
-  --bg: #faf7f0;
+  --bg: #F5EBD8;          /* page background */
   --card: #ffffff;
-  --line: #e6ded0;
-  --accent: #6b1f1f;
+  --line: #e3d7bf;        /* hairline on cream */
+  --accent: #4A6F96;      /* links / accent buttons */
+  --accent-hover: #5B7FA6;/* hover states */
   --radius: 10px;
   --maxw: 1100px;
 }
@@ -22,13 +25,15 @@ body {
 }
 
 a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
 
 /* ---------- Masthead ---------- */
 .masthead {
   text-align: center;
   padding: 1.8rem 1rem 1.4rem;
-  background: linear-gradient(180deg, #fffdf8, var(--bg));
-  border-bottom: 2px solid var(--gold);
+  background: var(--navy);
+  color: var(--navy-text);
+  border-bottom: 3px solid var(--gold);
 }
 .masthead .cross {
   font-size: 2.6rem;
@@ -40,7 +45,7 @@ a { color: var(--accent); }
   font-size: 1.9rem;
   letter-spacing: 0.5px;
 }
-.tagline { margin: 0; color: var(--muted); font-style: italic; }
+.tagline { margin: 0; color: rgba(245,235,216,0.85); font-style: italic; }
 
 /* ---------- Layout ---------- */
 main { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1rem 3rem; }
@@ -98,7 +103,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1rem 3rem; }
   display: inline-block; font-size: 0.78rem; background: #f3ead7;
   color: #6b4e0b; border-radius: 999px; padding: 0.1rem 0.6rem; margin: 0.12rem 0.2rem 0 0;
 }
-.tag.intercession { background: #efe1e1; color: var(--accent); }
+.tag.intercession { background: #dde7f1; color: #2f4d6b; }
 .empty { color: var(--muted); padding: 2rem 0; text-align: center; }
 
 /* ---------- Detail ---------- */
@@ -132,10 +137,14 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1rem 3rem; }
 
 /* ---------- Footer ---------- */
 .sitefooter {
-  max-width: var(--maxw); margin: 0 auto; padding: 1.5rem 1rem 2.5rem;
-  border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem;
-  text-align: center;
+  margin: 2.5rem 0 0; padding: 1.6rem 1rem 2.2rem;
+  background: var(--navy); color: var(--navy-text); font-size: 0.85rem;
+  text-align: center; border-top: 3px solid var(--gold);
 }
+.sitefooter p { max-width: var(--maxw); margin: 0.3rem auto; }
+.sitefooter a { color: var(--gold); }
+.sitefooter a:hover { color: var(--gold-light); }
+.sitefooter strong { color: #fff; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 760px) {

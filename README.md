@@ -83,5 +83,8 @@ guardrails, and authoring conventions).
 ## Licenses
 
 - **Code:** MIT — see [`LICENSE`](LICENSE).
-- **Data** (`data/` and derived artifacts): Creative Commons Attribution-ShareAlike 4.0
-  International (CC BY-SA 4.0) — see [`LICENSE-data`](LICENSE-data).
+- **Data** (`data/` and derived artifacts): dedicated to the public domain under
+  Creative Commons Zero 1.0 (CC0 1.0) — see [`LICENSE-data`](LICENSE-data). Use it freely,
+  even commercially, with no attribution required (a link back is appreciated). The CC0
+  dedication covers only data authored here; linked third-party material (hymn
+  translations, icon images, vendor photos) is not included.

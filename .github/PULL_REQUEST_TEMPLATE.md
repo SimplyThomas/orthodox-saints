@@ -12,6 +12,7 @@
 - [ ] `make test` passes (if `build.py` changed).
 - [ ] New saints were added with **blank** Saint IDs (the build assigns `OS-####`).
 - [ ] `Sources` filled on every new/changed row; no fabricated facts; no copyrighted hymns/images.
+- [ ] I dedicate my data contributions to the public domain under CC0 1.0 (see `LICENSE-data`).
 
 ## Notes for review
 

@@ -427,7 +427,7 @@ def emit_xlsx(header: list[str], rows: list[dict[str, str]],
         "This dataset is a work in progress and is NOT an authoritative or official",
         "liturgical resource. It awaits review by competent clergy and sources.",
         "",
-        "Code: MIT License. Data: CC BY-SA 4.0.",
+        "Code: MIT License. Data: CC0 1.0 (public domain dedication).",
     ]
     for line in notes:
         rm.append([line])
