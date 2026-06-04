@@ -118,6 +118,16 @@ class ValidationTests(unittest.TestCase):
         errs = errors_for([valid_row(**{"Rank / Type": "Martyr; Nope"})])
         self.assertTrue(any("Nope" in e for e in errs))
 
+    def test_wrong_column_term_gets_cross_category_hint(self):
+        # "Healing" is a valid Intercession but not a Rank — the error should say so.
+        errs = errors_for([valid_row(**{"Rank / Type": "Healing"})])
+        self.assertTrue(any("Healing" in e and "Commonly Asked Intercessions" in e
+                            and "wrong column?" in e for e in errs))
+
+    def test_truly_unknown_term_gets_no_hint(self):
+        errs = errors_for([valid_row(**{"Rank / Type": "Bogus"})])
+        self.assertTrue(any("Bogus" in e and "wrong column?" not in e for e in errs))
+
     def test_missing_required_field(self):
         errs = errors_for([valid_row(**{"Name": ""})])
         self.assertTrue(any("missing required field 'Name'" in e for e in errs))
