@@ -246,7 +246,7 @@ truly exhaustive** for the whole pan-Orthodox calendar — the spine gives compl
     new *Feast Day(s)*, fill missing facets. **Never create a second row.**
   - **If absent and proper to that jurisdiction:** add a new row (blank ID → build assigns).
 
-### How the existing 372 saints fit
+### How the existing seed fits (the original 372)
 The original 84 representative saints and the comprehensive **Sep 1–10** entries were built
 under the *old* merged-Wikipedia method, so those days are partly *ahead* (Phase 2 already
 partly done). They are **seed, not waste.** When the Phase 1 spine walk reaches a saint that
@@ -255,9 +255,14 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **372 saints** (original 84 + September 1–10 comprehensive).
-- **Next action: begin the Phase 1 spine walk at January 1**, reconciling against existing
-  entries by identity as you go.
+- Data: **573 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
+  **January (Jan 1–31)** spine walk (OS-0373..OS-0573), landed in five weekly PRs.
+- **Next action: continue the Phase 1 spine walk at February 1**, a week at a time,
+  reconciling against existing entries by identity as you go (use `make find NAME="…"`).
+- Authoring aids added since the seed: `make find` (search-before-add); `python build.py
+  --no-xlsx` (assign IDs + emit `data.json` on host Python, no Docker); a "wrong column?"
+  hint on misplaced vocab terms. The SPA now has a patron-saint quiz (`?quiz=1`) whose match
+  quality scales with **Commonly Asked Intercessions** coverage — keep filling that facet.
 
 When fetching: `en.wikipedia.org` is reachable; `commons.wikimedia.org` is not. Confirm the
 chosen spine's URL pattern is fetchable in your environment before a long run.
