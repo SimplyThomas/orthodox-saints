@@ -256,11 +256,12 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **1102 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
+- Data: **1305 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
   **January (Jan 1–31)** walk (OS-0373..OS-0573), **February (Feb 1–29)** (OS-0574..OS-0745),
-  **March (Mar 1–31)** (OS-0746..OS-0913), **April (Apr 1–30)** (OS-0914..OS-1073), and
-  **May 1–2** (OS-1074..OS-1102), each landed in weekly PRs.
-- **Next action: continue the Phase 1 spine walk at May 3**, a week at a time,
+  **March (Mar 1–31)** (OS-0746..OS-0913), **April (Apr 1–30)** (OS-0914..OS-1073), the full
+  **May (May 1–31)**, and **June 1–6** (May/June IDs run OS-1074..OS-1305, interleaved with
+  feast-date reconciliations to existing rows), each landed in weekly PRs.
+- **Next action: continue the Phase 1 spine walk at June 7**, a week at a time,
   reconciling against existing entries by identity as you go (use `make find NAME="…"`).
 - **Sourcing for May onward:** the user gathers per-day facts via a ChatGPT prompt (a
   spreadsheet with plain-language columns) and uploads them; Claude cross-checks each batch
