@@ -18,6 +18,12 @@
     <div id="loading" class="loading">Loading the saints&hellip;</div>
 
     <section id="browser" hidden>
+      <div class="topbar">
+        <button type="button" id="open-quiz" class="quiz-launch">
+          &#10022; Take the quiz &mdash; find your patron saint
+        </button>
+      </div>
+
       <div class="searchbar">
         <input type="search" id="q" placeholder="Search by name, need, place, virtue&hellip;" autocomplete="off" aria-label="Search saints">
         <button type="button" id="clear-all" class="link-btn">Clear all</button>
@@ -31,6 +37,19 @@
           <ol id="results" class="results"></ol>
         </div>
       </div>
+    </section>
+
+    <section id="quiz" class="quiz" hidden>
+      <button type="button" id="quiz-back" class="link-btn">&larr; Back to browse</button>
+      <h2>Find your patron saint</h2>
+      <p class="quiz-intro">Choose what speaks to you &mdash; pick as many as you like, and leave any
+        question blank to skip it. We'll match you with saints whose lives and intercessions echo yours.</p>
+      <div id="quiz-questions"></div>
+      <div class="quiz-actions">
+        <button type="button" id="quiz-submit" class="quiz-launch">Show my matches</button>
+        <button type="button" id="quiz-reset" class="link-btn">Reset answers</button>
+      </div>
+      <div id="quiz-results" class="quiz-results" role="status"></div>
     </section>
   </main>
 

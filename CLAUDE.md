@@ -302,7 +302,9 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
   precomputed `search` haystack per saint (built into `data.json`) plus controlled-vocabulary
   facet filters — no search library or browser storage APIs, no backend. (A real index such as
   MiniSearch/FlexSearch is a future option, not a current dependency; don't add one without a
-  measured need.)
+  measured need.) The SPA also has a **patron-saint quiz** (`?quiz=1`): a guided finder that
+  scores saints by overlap with the user's chosen facets (intercessions weigh most) — its
+  match quality scales directly with facet coverage, so keep filling Intercessions (§10).
 - **Scaling note — `data.json` is loaded whole, client-side.** The SPA fetches the entire
   dataset on load and filters in the browser. At the current ~1.3 KB/saint that is comfortable
   to a few thousand saints (≈573 ⇒ ~100 KB gzipped). The first real ceiling is roughly

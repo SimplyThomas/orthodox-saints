@@ -160,6 +160,46 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1rem 3rem; }
 .sitefooter a:hover { color: var(--gold-light); }
 .sitefooter strong { color: #fff; }
 
+/* ---------- Quiz ---------- */
+.topbar { display: flex; justify-content: center; margin-bottom: 1rem; }
+.quiz-launch {
+  font: inherit; font-weight: 700; cursor: pointer;
+  background: var(--accent); color: #fff; border: none;
+  border-radius: var(--radius); padding: 0.7rem 1.3rem; letter-spacing: 0.3px;
+}
+.quiz-launch:hover { background: var(--accent-hover); }
+
+.quiz { max-width: 860px; margin: 0 auto; }
+.quiz > h2 { margin: 0.6rem 0 0.2rem; }
+.quiz-intro { color: var(--muted); margin: 0 0 1.2rem; }
+.quiz-q { margin: 0 0 1.3rem; }
+.quiz-q h3 { font-size: 1.05rem; margin: 0 0 0.55rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.chip {
+  font: inherit; font-size: 0.9rem; cursor: pointer;
+  background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.85rem;
+  transition: background .1s, border-color .1s, color .1s;
+}
+.chip:hover { border-color: var(--accent); }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.quiz-actions { display: flex; align-items: center; gap: 1rem; margin: 0.5rem 0 1.5rem; }
+.quiz-results-h { border-top: 2px solid var(--gold); padding-top: 1rem; margin-top: 0.5rem; }
+.quiz-hint { color: var(--muted); }
+.quiz-card {
+  border: 1px solid var(--line); border-left: 4px solid var(--gold);
+  border-radius: var(--radius); background: var(--card);
+  padding: 0.8rem 1rem; margin-bottom: 0.7rem; cursor: pointer;
+  transition: box-shadow .12s, transform .12s;
+}
+.quiz-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.quiz-card h4 { margin: 0 0 0.2rem; font-size: 1.1rem; }
+.quiz-card .meta { color: var(--muted); font-size: 0.88rem; }
+.quiz-card .why { margin-top: 0.45rem; }
+.quiz-card .why-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.5px; margin-right: 0.3rem; }
+
 /* ---------- Mobile ---------- */
 @media (max-width: 760px) {
   .layout { grid-template-columns: 1fr; }
