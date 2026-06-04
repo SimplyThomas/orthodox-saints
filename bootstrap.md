@@ -17,7 +17,7 @@ the steps in bootstrap.md in order. Pause after Step 8 so I can enable GitHub Pa
   - `data/saints.csv` — 372 saints, 26 columns (provided with this bootstrap).
   - `data/vocabulary.csv` — controlled vocabulary in `category,term` long form (provided).
 - Decide the licenses up front (defaults in brackets): code license [**MIT**];
-  data license [**CC BY-SA 4.0**].
+  data license [**CC0 1.0** — public domain dedication].
 - Sourcing is **decided**: a single synaxarion as the **spine** (walked Jan 1 → Dec 31),
   then merge other jurisdictions by identity (see `CLAUDE.md` §8). Default spine: the OCA
   daily "Lives of the Saints" (oca.org) — confirm or swap per `CLAUDE.md` §8. This affects
@@ -49,7 +49,7 @@ README.md
 requirements.txt
 .gitignore
 LICENSE                # code license (MIT)
-LICENSE-data           # data license (CC BY-SA 4.0)
+LICENSE-data           # data dedication (CC0 1.0)
 CLAUDE.md              # already provided — keep at repo root
 data/                  # already has saints.csv, vocabulary.csv
 web/  index.html  app.js  styles.css
@@ -266,7 +266,7 @@ jobs:
   (edit `data/saints.csv`, run `make validate`, open a PR), the licenses, and a clear
   **disclaimer** that the data awaits clergy/source review and is not an official
   liturgical resource.
-- `LICENSE` (MIT) for code; `LICENSE-data` (CC BY-SA 4.0) for `data/`.
+- `LICENSE` (MIT) for code; `LICENSE-data` (CC0 1.0) for `data/`.
 
 **PAUSE HERE** and tell the user to enable Pages: GitHub repo → Settings → Pages →
 Build and deployment → Source = **GitHub Actions**.

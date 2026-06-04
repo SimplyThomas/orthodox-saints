@@ -1,29 +1,35 @@
-Data License — Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+Data Dedication — Creative Commons Zero 1.0 Universal (CC0 1.0)
 
-This license applies to the database content in the `data/` directory
+This dedication applies to the database content in the `data/` directory
 (`data/saints.csv` and `data/vocabulary.csv`) and to artifacts derived from it
 (e.g. `public/data.json`, the Excel export). The project's source code is
 licensed separately under the MIT License (see `LICENSE`).
 
-Copyright (c) 2026 Thomas Krug and contributors.
+To the greatest extent permitted by law, Thomas Krug and contributors have
+waived all copyright and related or neighboring rights to this database content
+and dedicated it to the public domain worldwide. You may copy, modify,
+distribute, and use the data, even for commercial purposes, all without asking
+permission and without any obligation of attribution.
 
-You are free to:
-  - Share — copy and redistribute the material in any medium or format.
-  - Adapt — remix, transform, and build upon the material for any purpose,
-    even commercially.
+Attribution is not required, but is appreciated — a link back to the project
+helps others find and improve it.
 
-Under the following terms:
-  - Attribution — You must give appropriate credit, provide a link to this
-    license, and indicate if changes were made.
-  - ShareAlike — If you remix, transform, or build upon the material, you must
-    distribute your contributions under the same license as the original.
-  - No additional restrictions — You may not apply legal terms or technological
-    measures that legally restrict others from doing anything the license permits.
+Scope:
+  - This dedication covers only the structured data authored by this project:
+    facts, the controlled vocabulary, our own brief lives, and our composed
+    (public-domain) short prayers.
+  - It does NOT grant any rights in third-party material that the project merely
+    links to — hymn/troparion translations, icon images, vendor product photos,
+    or external biographies. Those remain the property of their owners; the site
+    links out to them and never reproduces them.
+  - This dataset is a work in progress and is NOT an authoritative or official
+    liturgical resource; it awaits review by competent clergy and sources.
 
-The full legal code is available at:
-  https://creativecommons.org/licenses/by-sa/4.0/legalcode
-A human-readable summary is available at:
-  https://creativecommons.org/licenses/by-sa/4.0/
+Full legal text: Creative Commons CC0 1.0 Universal Public Domain Dedication —
+  https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Human-readable summary —
+  https://creativecommons.org/publicdomain/zero/1.0/
 
-DISCLAIMER: This dataset is a work in progress and is NOT an authoritative or
-official liturgical resource. It awaits review by competent clergy and sources.
+To the extent possible under law, the authors have waived all copyright and
+related or neighboring rights to this work. This work is published from the
+United States.
