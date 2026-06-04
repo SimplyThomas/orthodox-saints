@@ -41,9 +41,11 @@ async function init() {
   $("#browser").hidden = false;
 
   buildFacets();
+  buildQuiz();
   wireEvents();
   render();
   routeFromURL();
+  if (new URL(window.location).searchParams.get("quiz") !== null) openQuiz();
 }
 
 // ---------------------------------------------------------------- values
@@ -376,6 +378,163 @@ function wireEvents() {
     if (e.target.id === "detail") closeDetail(true); // click backdrop
   });
   window.addEventListener("popstate", routeFromURL);
+
+  $("#open-quiz").addEventListener("click", openQuiz);
+  $("#quiz-back").addEventListener("click", closeQuiz);
+  $("#quiz-submit").addEventListener("click", renderQuizResults);
+  $("#quiz-reset").addEventListener("click", () => {
+    QUIZ.forEach((g) => quizSel[g.key].clear());
+    document.querySelectorAll("#quiz-questions .chip.on").forEach((c) => c.classList.remove("on"));
+    $("#quiz-results").innerHTML = "";
+  });
+}
+
+// ---------------------------------------------------------------- quiz
+// A guided patron-finder: each question maps to a facet; the saint's overlap
+// with the chosen values is scored (intercessions/experience weigh most).
+const QUIZ = [
+  { key: "intercession", weight: 3, q: "What would you most like a saint to pray for?" },
+  { key: "experience",   weight: 2, q: "Have you walked through any of these?" },
+  { key: "vocation",     weight: 2, q: "What is your work or calling?" },
+  { key: "family",       weight: 2, q: "Your state in life?" },
+  { key: "virtue",       weight: 1, q: "Which virtue do you most desire to grow in?" },
+  { key: "tradition",    weight: 1, q: "Drawn to a particular tradition? (optional)" },
+];
+const quizSel = {};
+QUIZ.forEach((g) => (quizSel[g.key] = new Set()));
+
+// Distinct values present in the data for a facet, most-common first.
+function optionsFor(key) {
+  const counts = new Map();
+  for (const s of SAINTS)
+    for (const v of valuesOf(s, key)) counts.set(v, (counts.get(v) || 0) + 1);
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([v]) => v);
+}
+
+function buildQuiz() {
+  const host = $("#quiz-questions");
+  host.innerHTML = "";
+  for (const group of QUIZ) {
+    const block = document.createElement("div");
+    block.className = "quiz-q";
+    const h = document.createElement("h3");
+    h.textContent = group.q;
+    block.appendChild(h);
+
+    const chips = document.createElement("div");
+    chips.className = "chips";
+    for (const val of optionsFor(group.key)) {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.textContent = val;
+      chip.addEventListener("click", () => {
+        if (quizSel[group.key].has(val)) {
+          quizSel[group.key].delete(val);
+          chip.classList.remove("on");
+        } else {
+          quizSel[group.key].add(val);
+          chip.classList.add("on");
+        }
+      });
+      chips.appendChild(chip);
+    }
+    block.appendChild(chips);
+    host.appendChild(block);
+  }
+}
+
+function quizMatches() {
+  const out = [];
+  for (const s of SAINTS) {
+    let score = 0;
+    const reasons = [];
+    for (const { key, weight } of QUIZ) {
+      const chosen = quizSel[key];
+      if (!chosen.size) continue;
+      for (const v of valuesOf(s, key)) {
+        if (chosen.has(v)) { score += weight; reasons.push(v); }
+      }
+    }
+    if (score > 0) out.push({ s, score, reasons });
+  }
+  out.sort((a, b) => b.score - a.score || a.s.name.localeCompare(b.s.name));
+  return out;
+}
+
+function renderQuizResults() {
+  const box = $("#quiz-results");
+  box.innerHTML = "";
+  const anyChosen = QUIZ.some((g) => quizSel[g.key].size);
+  if (!anyChosen) {
+    box.innerHTML = "<p class='quiz-hint'>Pick at least one answer above, then try again.</p>";
+    return;
+  }
+  const matches = quizMatches().slice(0, 5);
+  if (!matches.length) {
+    box.innerHTML = "<p class='quiz-hint'>No saints matched those answers yet — try broadening your choices.</p>";
+    return;
+  }
+  const heading = document.createElement("h3");
+  heading.className = "quiz-results-h";
+  heading.textContent = "Your patrons";
+  box.appendChild(heading);
+
+  for (const { s, reasons } of matches) {
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+
+    const h = document.createElement("h4");
+    h.textContent = s.name;
+    card.appendChild(h);
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = [s.rank?.join(", "), s.century, s.origin?.join(", "), s.feast]
+      .filter(Boolean).join("  ·  ");
+    card.appendChild(meta);
+
+    const why = document.createElement("div");
+    why.className = "why";
+    const lbl = document.createElement("span");
+    lbl.className = "why-label";
+    lbl.textContent = "Why: ";
+    why.appendChild(lbl);
+    for (const r of [...new Set(reasons)]) {
+      const t = document.createElement("span");
+      t.className = "tag";
+      t.textContent = r;
+      why.appendChild(t);
+    }
+    card.appendChild(why);
+
+    const open = () => openDetail(s.id, true);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+    box.appendChild(card);
+  }
+}
+
+function openQuiz() {
+  $("#browser").hidden = true;
+  $("#quiz").hidden = false;
+  const url = new URL(window.location);
+  url.searchParams.set("quiz", "1");
+  history.replaceState({}, "", url);
+  window.scrollTo(0, 0);
+}
+function closeQuiz() {
+  $("#quiz").hidden = true;
+  $("#browser").hidden = false;
+  const url = new URL(window.location);
+  url.searchParams.delete("quiz");
+  history.replaceState({}, "", url);
 }
 
 init();
