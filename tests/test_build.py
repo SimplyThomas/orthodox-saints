@@ -261,5 +261,41 @@ class SeedIntegrationTests(unittest.TestCase):
         self.assertGreaterEqual(len(rows), 372)
 
 
+class NameVariantTests(unittest.TestCase):
+    LOOKUP = {"lucia": ["Lucia", "Lucy"], "lucy": ["Lucia", "Lucy"],
+              "john": ["John", "Ivan"], "ivan": ["John", "Ivan"]}
+
+    def test_fold_strips_accents_and_case(self):
+        self.assertEqual(build.fold("Étienne"), "etienne")
+        self.assertEqual(build.fold("Lucy"), "lucy")
+
+    def test_variant_forms_adds_only_missing(self):
+        row = valid_row(Name="St. Lucia of Syracuse")
+        self.assertEqual(build.variant_forms(row, self.LOOKUP), ["Lucy"])
+
+    def test_variant_forms_uses_also_known_as(self):
+        # Already lists Ivan -> nothing new to add for the John group via AKA,
+        # but the canonical "John" form should still surface.
+        row = valid_row(Name="Holy Apostle Ivan", **{"Also Known As": ""})
+        self.assertEqual(build.variant_forms(row, self.LOOKUP), ["John"])
+
+    def test_variant_forms_empty_when_no_match(self):
+        self.assertEqual(build.variant_forms(valid_row(Name="Hermione"), self.LOOKUP), [])
+
+    def test_to_record_expands_search_and_sets_variants(self):
+        rec = build.to_record(valid_row(Name="St. Lucia"),
+                              vendors=[], name_variants=self.LOOKUP)
+        self.assertEqual(rec["variants"], ["Lucy"])
+        self.assertIn("lucy", rec["search"].lower())
+
+    def test_to_record_no_variants_key_when_none(self):
+        rec = build.to_record(valid_row(Name="Hermione"),
+                              vendors=[], name_variants=self.LOOKUP)
+        self.assertNotIn("variants", rec)
+
+    def test_committed_variant_map_is_valid(self):
+        self.assertEqual(build.validate_name_variants(), [])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
