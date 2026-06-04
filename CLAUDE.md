@@ -256,12 +256,16 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **913 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
-  **January (Jan 1–31)** spine walk (OS-0373..OS-0573), the full **February (Feb 1–29)** walk
-  (OS-0574..OS-0745), and the full **March (Mar 1–31)** walk (OS-0746..OS-0913), each landed
-  in weekly PRs.
-- **Next action: continue the Phase 1 spine walk at April 1**, a week at a time,
+- Data: **1102 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
+  **January (Jan 1–31)** walk (OS-0373..OS-0573), **February (Feb 1–29)** (OS-0574..OS-0745),
+  **March (Mar 1–31)** (OS-0746..OS-0913), **April (Apr 1–30)** (OS-0914..OS-1073), and
+  **May 1–2** (OS-1074..OS-1102), each landed in weekly PRs.
+- **Next action: continue the Phase 1 spine walk at May 3**, a week at a time,
   reconciling against existing entries by identity as you go (use `make find NAME="…"`).
+- **Sourcing for May onward:** the user gathers per-day facts via a ChatGPT prompt (a
+  spreadsheet with plain-language columns) and uploads them; Claude cross-checks each batch
+  against the OCA synaxarion, dedups/reconciles, maps to controlled vocab, assigns IDs, and
+  PRs. (Apr 1–21 were done by Claude's own OCA research fan-out; Apr 22+ via the uploaded sheets.)
 - Authoring aids added since the seed: `make find` (search-before-add); `python build.py
   --no-xlsx` (assign IDs + emit `data.json` on host Python, no Docker); a "wrong column?"
   hint on misplaced vocab terms. The SPA now has a patron-saint quiz (`?quiz=1`) whose match
