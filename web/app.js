@@ -150,6 +150,7 @@ async function init() {
 
   // motif injection
   $("#hero-dome").innerHTML = domeMark(520, "var(--byz)");
+  $("#hero-cross").innerHTML = byzCross(30, "var(--gold)");
   $("#quiz-dome").innerHTML = domeMark(560, "var(--byz)");
   $("#quiz-cross").innerHTML = byzCross(30, "var(--gold)");
   $("#footer-cross").insertAdjacentHTML("afterbegin", byzCross(14, "var(--gold)"));
