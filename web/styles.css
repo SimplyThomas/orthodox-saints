@@ -163,9 +163,11 @@ a:hover { color: var(--celest); }
   position: relative; text-align: center; overflow: hidden;
   padding: 72px clamp(16px, 4vw, 56px) 56px; background: var(--ivory);
 }
-.hero .dome-bg {
-  position: absolute; top: 36px; left: 50%; transform: translateX(-50%);
-  opacity: .08; pointer-events: none; width: min(560px, 72vw);
+/* Dome silhouette — identical geometry on every hero so the text never
+   overlaps it (sized by this container; the SVG fills it at width:100%). */
+.dome-bg {
+  position: absolute; top: 28px; left: 50%; transform: translateX(-50%);
+  opacity: .09; pointer-events: none; width: min(460px, 66vw);
 }
 .hero-inner { position: relative; max-width: 820px; margin: 0 auto; }
 .hero .cross { margin: 0 auto 20px; }
@@ -325,7 +327,6 @@ a:hover { color: var(--celest); }
    ============================================================ */
 .quiz-wrap { background: var(--ivory); }
 .quiz-hero { position: relative; text-align: center; overflow: hidden; padding: 72px clamp(16px,4vw,56px) 40px; }
-.quiz-hero .dome-bg { position: absolute; top: 36px; left: 50%; transform: translateX(-50%); opacity: .08; width: min(560px,72vw); pointer-events: none; }
 .quiz-hero .inner { position: relative; max-width: 760px; margin: 0 auto; }
 .quiz-hero .cross { margin: 0 auto 20px; }
 .quiz-hero .eyebrow { margin-bottom: 16px; }
@@ -380,7 +381,6 @@ a:hover { color: var(--celest); }
    ============================================================ */
 .america { background: var(--ivory); }
 .am-hero { position: relative; text-align: center; overflow: hidden; padding: 56px clamp(16px,4vw,56px) 40px; }
-.am-hero .dome-bg { position: absolute; top: 28px; left: 50%; transform: translateX(-50%); opacity: .09; width: min(460px,66vw); pointer-events: none; }
 .am-hero .inner { position: relative; }
 .am-hero .cross { margin: 0 auto 18px; }
 .am-hero .eyebrow { margin-bottom: 16px; }
