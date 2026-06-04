@@ -211,6 +211,21 @@ function tagsRow(label, values) {
   return row(label, wrap);
 }
 
+// Works by/about are [{t: title, u: search-url}] — render each as a link.
+function worksRow(label, items) {
+  const wrap = document.createElement("div");
+  for (const it of items) {
+    const a = document.createElement("a");
+    a.href = it.u;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = "worklink";
+    a.textContent = it.t;
+    wrap.appendChild(a);
+  }
+  return row(label, wrap);
+}
+
 function openDetail(id, push) {
   const s = byId.get(id);
   if (!s) return;
@@ -272,8 +287,8 @@ function openDetail(id, push) {
 
   if (s.customs) cardEl.appendChild(textRow("Customs & Traditions", s.customs));
   if (s.notes) cardEl.appendChild(textRow("Notes", s.notes));
-  if (s.works && s.works.length) cardEl.appendChild(tagsRow("Works by the Saint", s.works));
-  if (s.about && s.about.length) cardEl.appendChild(tagsRow("Works About the Saint", s.about));
+  if (s.works && s.works.length) cardEl.appendChild(worksRow("Works by the Saint", s.works));
+  if (s.about && s.about.length) cardEl.appendChild(worksRow("Works About the Saint", s.about));
   if (s.sources) cardEl.appendChild(textRow("Sources", s.sources));
 
   const links = document.createElement("div");
@@ -288,6 +303,24 @@ function openDetail(id, push) {
     links.appendChild(a);
   }
   cardEl.appendChild(links);
+
+  if (s.vendors && s.vendors.length) {
+    const v = document.createElement("div");
+    v.className = "vendors";
+    const lbl = document.createElement("span");
+    lbl.className = "vendors-label";
+    lbl.textContent = "Find an icon from these vendors:";
+    v.appendChild(lbl);
+    for (const vendor of s.vendors) {
+      const a = document.createElement("a");
+      a.href = vendor.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = vendor.vendor;
+      v.appendChild(a);
+    }
+    cardEl.appendChild(v);
+  }
 
   const idline = document.createElement("p");
   idline.className = "detail-id";

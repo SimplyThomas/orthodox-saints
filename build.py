@@ -35,6 +35,7 @@ DIST = ROOT / "dist"
 
 SAINTS_CSV = DATA / "saints.csv"
 VOCAB_CSV = DATA / "vocabulary.csv"
+VENDORS_CSV = DATA / "vendors.csv"
 
 # The canonical 26-column header, exact and in order (CLAUDE.md §5).
 HEADER = [
@@ -348,10 +349,40 @@ def derive_links(name: str, hymn: str, icon: str, video: str) -> tuple[str, str,
     return hymn, icon, video
 
 
+def work_link(title: str, name: str) -> dict:
+    """A Works-by/about entry rendered as {title, search-URL}. We never host the
+    text; we link to a Google search for it (copyright-safe, §9)."""
+    q = urllib.parse.quote_plus(f'"{title}" {name}')
+    return {"t": title, "u": f"https://www.google.com/search?q={q}"}
+
+
+def load_vendors() -> list[dict[str, str]]:
+    """Icon vendors to link out to (data/vendors.csv: vendor,url_template).
+    {q} in the template is replaced by the URL-encoded saint name. Links only —
+    no vendor imagery is reproduced (§9); images await an affiliate agreement."""
+    if not VENDORS_CSV.exists():
+        return []
+    out = []
+    with VENDORS_CSV.open(encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            if row.get("vendor", "").strip() and row.get("url_template", "").strip():
+                out.append({"vendor": row["vendor"].strip(),
+                            "url_template": row["url_template"].strip()})
+    return out
+
+
+def vendor_links(name: str, vendors: list[dict[str, str]]) -> list[dict]:
+    q = urllib.parse.quote_plus(name)
+    return [{"vendor": v["vendor"], "url": v["url_template"].replace("{q}", q)}
+            for v in vendors]
+
+
 # --------------------------------------------------------------------------- #
 # Emit data.json
 # --------------------------------------------------------------------------- #
-def to_record(r: dict[str, str]) -> dict:
+def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None) -> dict:
+    if vendors is None:
+        vendors = load_vendors()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -364,6 +395,10 @@ def to_record(r: dict[str, str]) -> dict:
     rec["hymn"], rec["icon"], rec["video"] = derive_links(
         r["Name"], r["Hymn / Apolytikion"], r["Icon"], r["Video / Media"]
     )
+    # Works by/about -> {title, search-URL}; plus per-saint icon-vendor links.
+    rec["works"] = [work_link(t, r["Name"]) for t in rec["works"]]
+    rec["about"] = [work_link(t, r["Name"]) for t in rec["about"]]
+    rec["vendors"] = vendor_links(r["Name"], vendors)
     # Search haystack: name + aka + brief + notes + customs + all facet values.
     facets = []
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
@@ -373,7 +408,8 @@ def to_record(r: dict[str, str]) -> dict:
 
 
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
-    records = [to_record(r) for r in rows]
+    vendors = load_vendors()
+    records = [to_record(r, vendors) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
