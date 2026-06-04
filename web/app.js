@@ -150,9 +150,7 @@ async function init() {
 
   // motif injection
   $("#hero-dome").innerHTML = domeMark(460, "var(--byz)");
-  $("#hero-cross").innerHTML = byzCross(30, "var(--gold)");
   $("#quiz-dome").innerHTML = domeMark(460, "var(--byz)");
-  $("#quiz-cross").innerHTML = byzCross(30, "var(--gold)");
   $("#footer-cross").insertAdjacentHTML("afterbegin", byzCross(14, "var(--gold)"));
   $("#hero-search-ico").innerHTML = searchGlyph(22, "var(--celest)");
   $("#header-search .ico").innerHTML = searchGlyph(16, "var(--celest)");
@@ -811,7 +809,6 @@ function buildAmerica() {
     <section class="am-hero">
       <div class="dome-bg">${domeMark(460, "var(--byz)")}</div>
       <div class="inner">
-        <div class="cross">${byzCross(26, "var(--gold)")}</div>
         <div class="eyebrow">The Faith Planted in the New World</div>
         <h1>Saints of America</h1>
         <p>From the shores of Alaska to the cities of the East, these holy men and women carried
