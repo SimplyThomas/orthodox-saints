@@ -43,7 +43,8 @@ GitHub repo description.
 ├── Makefile                   ← convenience targets (build, validate, serve, xlsx)
 ├── data/
 │   ├── saints.csv             ← SOURCE OF TRUTH (one row per saint, 26 columns)
-│   └── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
+│   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
+│   └── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── web/                       ← the SPA (static; fetches generated data at runtime)
 │   ├── index.html
@@ -145,7 +146,11 @@ back to the host owned by you. See README for details.
 
 Columns 18/19/25 are **derived at build time** from the Name (Google/Google-Images/
 YouTube search URLs), exactly as the original site did. Only fill them in the CSV if a
-specific curated link should override the derived default.
+specific curated link should override the derived default. Columns 23/24 (Works by/about)
+are rendered in the SPA as **Google-search links** for each entry — enter a plain title
+(e.g. `On the Holy Spirit`), never a URL. The build also attaches per-saint **icon-vendor**
+links from `data/vendors.csv`; these are **links only** — no vendor imagery is reproduced
+(§9), pending an affiliate/permission agreement.
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and

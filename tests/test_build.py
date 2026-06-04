@@ -173,6 +173,28 @@ class DeriveLinksTests(unittest.TestCase):
         self.assertEqual((hymn, icon, video), ("https://h", "https://i", "https://v"))
 
 
+class WorksAndVendorsTests(unittest.TestCase):
+    def test_work_link_shape_and_query(self):
+        w = build.work_link("On the Holy Spirit", "St. Basil")
+        self.assertEqual(w["t"], "On the Holy Spirit")
+        self.assertIn("google.com/search", w["u"])
+        self.assertIn("Holy+Spirit", w["u"])
+        self.assertIn("Basil", w["u"])
+
+    def test_vendor_links_substitute_name(self):
+        vendors = [{"vendor": "Test Shop", "url_template": "https://x/?q={q}"}]
+        links = build.vendor_links("St. Test", vendors)
+        self.assertEqual(links, [{"vendor": "Test Shop", "url": "https://x/?q=St.+Test"}])
+
+    def test_to_record_works_become_link_objects(self):
+        rec = build.to_record(
+            valid_row(**{"Works by the Saint": "Book A; Book B"}),
+            vendors=[{"vendor": "V", "url_template": "https://v/{q}"}])
+        self.assertEqual([w["t"] for w in rec["works"]], ["Book A", "Book B"])
+        self.assertTrue(all("u" in w for w in rec["works"]))
+        self.assertEqual(rec["vendors"], [{"vendor": "V", "url": "https://v/Test+Martyr"}])
+
+
 class ToRecordTests(unittest.TestCase):
     def test_arrays_singles_and_derived(self):
         rec = build.to_record(valid_row(**{

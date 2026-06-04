@@ -133,6 +133,20 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 1.2rem 1rem 3rem; }
   border-radius: var(--radius); padding: 0.45rem 0.9rem; background: #fbf6ec;
 }
 .linkouts a:hover { background: #f3ead7; }
+
+/* Works by/about — inline search links */
+.worklink { color: var(--accent); text-decoration: underline; margin: 0 0.7rem 0.15rem 0; display: inline-block; }
+.worklink:hover { color: var(--accent-hover); }
+
+/* Icon-vendor link-outs */
+.vendors { margin: 1rem 0 0.2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.vendors-label { width: 100%; font-size: 0.82rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.5px; }
+.vendors a {
+  text-decoration: none; border: 1px solid var(--gold); color: var(--accent);
+  border-radius: var(--radius); padding: 0.35rem 0.8rem; font-size: 0.9rem; background: #fffdf6;
+}
+.vendors a:hover { background: #fbf3da; color: var(--accent-hover); }
 .detail-id { color: var(--muted); font-size: 0.8rem; margin-top: 1.2rem; }
 
 /* ---------- Footer ---------- */
