@@ -536,7 +536,7 @@ function openDetail(id, push) {
     ["Church Status", s.church],
     ["Family / Life State", s.family],
     ["Vocation", s.vocation],
-    ["Commonly Asked Intercessions", s.intercession, "intercession"],
+    ["Commonly Asked Intercessions", s.intercession],
     ["Life Experience", s.experience],
     ["Virtue", s.virtue],
     ["Region of Origin", s.origin],
@@ -573,11 +573,6 @@ function openDetail(id, push) {
   }
 
   if (s.sources) cardEl.appendChild(textRow("Sources", s.sources));
-
-  const idline = document.createElement("p");
-  idline.className = "detail-id";
-  idline.textContent = s.id;
-  cardEl.appendChild(idline);
 
   panel.appendChild(cardEl);
   panel.hidden = false;

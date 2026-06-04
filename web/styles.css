@@ -179,7 +179,7 @@ a:hover { color: var(--celest); }
   text-transform: uppercase; color: var(--gold-deep); margin-top: 14px;
 }
 .hero .search { max-width: 780px; margin: 0 auto; }
-.hero .search button { border-radius: 0; margin: 0; }
+.hero .search button { border-radius: 0; margin: 0 4px 0 0; }
 .browse-by { display: flex; gap: 12px; justify-content: center; margin-top: 26px; flex-wrap: wrap; }
 .browse-by .label { font-size: 13px; color: var(--ink-soft); align-self: center; margin-right: 4px; }
 
@@ -470,7 +470,6 @@ a:hover { color: var(--celest); }
 .linkouts a:hover { background: rgba(212,175,55,.22); color: var(--celest); }
 .worklink { color: var(--celest); text-decoration: underline; margin: 0 .7rem .2rem 0; display: inline-block; }
 .worklink:hover { color: var(--byz); }
-.detail-id { color: var(--ink-soft); font-size: .78rem; margin-top: 1.4rem; letter-spacing: .04em; }
 
 /* ============================================================
    Footer
