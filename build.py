@@ -230,6 +230,13 @@ def validate(header: list[str], rows: list[dict[str, str]],
     seen_ids: dict[str, str] = {}
     norm_names: dict[str, list[str]] = {}
 
+    # term -> the categories where it IS a valid vocabulary term. Used to turn a
+    # "wrong column" mistake into an actionable hint (the most common authoring slip).
+    term_categories: dict[str, list[str]] = {}
+    for cat, terms in vocab.items():
+        for t in terms:
+            term_categories.setdefault(t, []).append(cat)
+
     for r in rows:
         sid = r["Saint ID"].strip()
         tag = sid or f"(blank id, Name={r['Name']!r})"
@@ -267,7 +274,10 @@ def validate(header: list[str], rows: list[dict[str, str]],
             values = [raw] if col in SINGLE_VALUE else split_multi(raw)
             for v in values:
                 if v not in vocab.get(col, set()):
-                    errors.append(f"{tag}: unknown term in '{col}': {v!r}.")
+                    other = [c for c in term_categories.get(v, []) if c != col]
+                    hint = (f" (it IS a valid '{' / '.join(sorted(other))}' term "
+                            "— wrong column?)") if other else ""
+                    errors.append(f"{tag}: unknown term in '{col}': {v!r}.{hint}")
 
         # Warning: near-duplicate name
         key = re.sub(r"[^a-z0-9]", "", r["Name"].lower())
@@ -447,6 +457,8 @@ def main() -> int:
                     help="validate only; no output files")
     ap.add_argument("--xlsx-only", action="store_true",
                     help="emit only the Excel export")
+    ap.add_argument("--no-xlsx", action="store_true",
+                    help="skip the Excel export (lets the full build run without openpyxl)")
     ap.add_argument("--sqlite", action="store_true",
                     help="also emit public/saints.sqlite")
     args = ap.parse_args()
@@ -491,7 +503,8 @@ def main() -> int:
     records = emit_data_json(rows)
     copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
-    emit_xlsx(header, rows, vocab)
+    if not args.no_xlsx:
+        emit_xlsx(header, rows, vocab)
     if args.sqlite:
         emit_sqlite(conn)
 

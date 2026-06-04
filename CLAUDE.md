@@ -91,9 +91,17 @@ Use the Makefile targets (or the underlying python directly):
 - `make test`    → `python -m unittest discover -s tests` : run the build.py unit suite. (Also runs in CI.)
 - `make serve`   → build, then serve `web/` + `public/` locally (e.g. `python -m http.server` from a combined dir) for manual review.
 - `make xlsx`    → emit only the Excel export.
+- `make find NAME="…"` → search-before-add helper (§6): lists existing saints that may be
+  the same person under a variant spelling, so you reconcile instead of duplicating.
 
 `build.py` must support `--check-only` (no file output, just validation + exit code) so
 CI can gate pull requests cheaply.
+
+**Authoring locally without `openpyxl`:** `python build.py --no-xlsx` assigns IDs, validates,
+and writes `public/data.json` while skipping the Excel export — so the full author→validate
+loop runs on plain host Python. (Only the `.xlsx` needs `openpyxl`; use `make docker-build`
+for a release build with the spreadsheet.) An unknown controlled-vocab term that is valid in a
+*different* column produces a "wrong column?" hint — the most common authoring slip.
 
 **No local Python?** The same targets exist prefixed with `docker-` (`make docker-validate`,
 `make docker-test`, `make docker-build`, `make docker-serve`) and run inside the
@@ -139,6 +147,15 @@ Columns 18/19/25 are **derived at build time** from the Name (Google/Google-Imag
 YouTube search URLs), exactly as the original site did. Only fill them in the CSV if a
 specific curated link should override the derived default.
 
+**Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
+- A term valid in one column is **not** valid in another. Common slips: *Parenting* and
+  *Convert* are **Life Experience** / **Church Status** respectively, **not** Intercessions;
+  there is no *Parenting* or *Convert* intercession. The build now prints a "wrong column?"
+  hint when this happens.
+- **Old-Testament figures** (prophets, patriarchs): set **Era = Old Testament** and leave
+  **Century blank** — the only BC century term is `1st BC`, so don't force a century.
+- To add a genuinely missing term, add it to `data/vocabulary.csv` **first** (§12.2).
+
 ---
 
 ## 6. Saint identity & deduplication (critical)
@@ -155,6 +172,7 @@ specific curated link should override the derived default.
 - **Before adding any saint, search the existing data** (Name + Also Known As, by
   normalized name / century / region) to confirm they're not already present under a
   variant spelling. Cross-tradition transliteration is the main duplication risk.
+  Use `make find NAME="…"` for this — it ranks candidate existing rows by name overlap.
 - The build flags exact duplicate Names and likely near-duplicates; investigate every flag.
 
 ---
@@ -275,8 +293,17 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
 ## 11. Tech stack
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
-- **SPA:** plain HTML/CSS/JS in `web/`. Client-side search via a prebuilt index
-  (MiniSearch or FlexSearch). No backend, no browser storage APIs.
+- **SPA:** plain HTML/CSS/JS in `web/`. Search is a **client-side substring filter** over a
+  precomputed `search` haystack per saint (built into `data.json`) plus controlled-vocabulary
+  facet filters — no search library or browser storage APIs, no backend. (A real index such as
+  MiniSearch/FlexSearch is a future option, not a current dependency; don't add one without a
+  measured need.)
+- **Scaling note — `data.json` is loaded whole, client-side.** The SPA fetches the entire
+  dataset on load and filters in the browser. At the current ~1.3 KB/saint that is comfortable
+  to a few thousand saints (≈573 ⇒ ~100 KB gzipped). The first real ceiling is roughly
+  **~5,000 enriched saints / a few MB gzipped first-load**; past that, split a lightweight list
+  index (id/name/feast/facets) from per-saint detail fetched on demand. Flag it then; don't
+  pre-optimize now.
 - **Hosting:** GitHub Pages (public repo). **CI/CD:** GitHub Actions. Public-repo Actions
   minutes and Pages are free; the build is seconds long.
 - The deploy workflow builds (which validates) and publishes `web/` + `public/`. A
