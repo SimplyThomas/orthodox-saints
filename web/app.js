@@ -554,38 +554,25 @@ function openDetail(id, push) {
   if (s.notes) cardEl.appendChild(textRow("Notes", s.notes));
   if (s.works && s.works.length) cardEl.appendChild(worksRow("Works by the Saint", s.works));
   if (s.about && s.about.length) cardEl.appendChild(worksRow("Works About the Saint", s.about));
-  if (s.sources) cardEl.appendChild(textRow("Sources", s.sources));
 
-  const links = document.createElement("div");
-  links.className = "linkouts";
-  for (const [text, url] of [["Hymn / Apolytikion", s.hymn], ["Icon", s.icon], ["Video / Media", s.video]]) {
-    if (!url) continue;
-    const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.textContent = text;
-    links.appendChild(a);
-  }
-  cardEl.appendChild(links);
-
-  if (s.vendors && s.vendors.length) {
-    const v = document.createElement("div");
-    v.className = "vendors";
-    const lbl = document.createElement("span");
-    lbl.className = "vendors-label";
-    lbl.textContent = "Find an icon from these vendors:";
-    v.appendChild(lbl);
-    for (const vendor of s.vendors) {
+  // Links — Hymn / Icon / Video search-outs.
+  const linkDefs = [["Hymn / Apolytikion", s.hymn], ["Icon", s.icon], ["Video / Media", s.video]]
+    .filter(([, url]) => url);
+  if (linkDefs.length) {
+    const links = document.createElement("div");
+    links.className = "linkouts";
+    for (const [text, url] of linkDefs) {
       const a = document.createElement("a");
-      a.href = vendor.url;
+      a.href = url;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.textContent = vendor.vendor;
-      v.appendChild(a);
+      a.textContent = text;
+      links.appendChild(a);
     }
-    cardEl.appendChild(v);
+    cardEl.appendChild(row2("Links", links));
   }
+
+  if (s.sources) cardEl.appendChild(textRow("Sources", s.sources));
 
   const idline = document.createElement("p");
   idline.className = "detail-id";

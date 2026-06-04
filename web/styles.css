@@ -462,17 +462,14 @@ a:hover { color: var(--celest); }
 .facet-row .label { font-weight: 600; display: block; font-size: .72rem; text-transform: uppercase;
   letter-spacing: .1em; color: var(--gold-deep); margin-bottom: .2rem; }
 .facet-row .tag { margin: .14rem .24rem 0 0; }
-.linkouts { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.4rem 0 .4rem; }
-.linkouts a, .vendors a {
+.linkouts { display: flex; flex-wrap: wrap; gap: .6rem; margin: .4rem 0 .2rem; }
+.linkouts a {
   text-decoration: none; border: 1px solid var(--gold); color: var(--byz-deep);
   border-radius: 6px; padding: .45rem .95rem; background: var(--ivory); transition: background .12s, color .12s;
 }
-.linkouts a:hover, .vendors a:hover { background: rgba(212,175,55,.22); color: var(--celest); }
+.linkouts a:hover { background: rgba(212,175,55,.22); color: var(--celest); }
 .worklink { color: var(--celest); text-decoration: underline; margin: 0 .7rem .2rem 0; display: inline-block; }
 .worklink:hover { color: var(--byz); }
-.vendors { margin: 1.2rem 0 .2rem; display: flex; flex-wrap: wrap; gap: .55rem; align-items: center; }
-.vendors-label { width: 100%; font-size: .72rem; color: var(--gold-deep); text-transform: uppercase; letter-spacing: .1em; }
-.vendors a { font-size: .9rem; }
 .detail-id { color: var(--ink-soft); font-size: .78rem; margin-top: 1.4rem; letter-spacing: .04em; }
 
 /* ============================================================
