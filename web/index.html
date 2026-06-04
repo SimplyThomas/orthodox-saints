@@ -7,64 +7,151 @@
   <meta name="description" content="Find Orthodox saints by feast day, vocation, region, virtue, and intercession.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="masthead">
-    <div class="cross" aria-hidden="true">&#9766;</div>
-    <h1>Cloud of Witnesses</h1>
-    <p class="tagline">Find Orthodox saints by feast day, vocation, region, virtue, and intercession.</p>
+  <header class="site-header">
+    <span class="brand" id="brand" role="link" tabindex="0" aria-label="Cloud of Witnesses — home">
+      <img src="assets/logo.png" alt="Cloud of Witnesses">
+    </span>
+    <nav class="site-nav" aria-label="Primary">
+      <button type="button" data-view="home" class="active">Saints</button>
+      <button type="button" data-view="america">America</button>
+      <button type="button" data-view="quiz">Patron Quiz</button>
+    </nav>
+    <span class="spacer"></span>
+    <button type="button" class="header-search" id="header-search" aria-label="Search saints">
+      <span class="ico" aria-hidden="true"></span><span>Quick search&hellip;</span>
+    </button>
   </header>
 
   <main id="app">
     <div id="loading" class="loading">Loading the saints&hellip;</div>
 
-    <section id="browser" hidden>
-      <div class="topbar">
-        <button type="button" id="open-quiz" class="quiz-launch">
-          &#10022; Take the quiz &mdash; find your patron saint
-        </button>
-      </div>
-
-      <div class="searchbar">
-        <input type="search" id="q" placeholder="Search by name, need, place, virtue&hellip;" autocomplete="off" aria-label="Search saints">
-        <button type="button" id="clear-all" class="link-btn">Clear all</button>
-      </div>
-
-      <div class="layout">
-        <aside id="facets" class="facets" aria-label="Filters"></aside>
-
-        <div class="results-pane">
-          <p id="count" class="count" role="status"></p>
-          <ol id="results" class="results"></ol>
+    <!-- ============ HOME / BROWSE ============ -->
+    <div id="home" hidden>
+      <section class="hero">
+        <div class="dome-bg" id="hero-dome" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <img class="hero-logo" src="assets/logo.png" alt="Cloud of Witnesses">
+          <div class="eyebrow">A Searchable Communion of the Saints</div>
+          <blockquote>
+            &ldquo;Therefore, since we are surrounded by so great a cloud of witnesses, let us also lay
+            aside every weight, and sin which clings so closely, and let us run with endurance the race
+            that is set before&nbsp;us&hellip;&rdquo;
+            <cite>Hebrews 12 : 1</cite>
+          </blockquote>
+          <div class="search" role="search">
+            <span class="ico" id="hero-search-ico" aria-hidden="true"></span>
+            <input type="search" id="q" placeholder="Search saints, feasts, and commemorations&hellip;"
+                   autocomplete="off" aria-label="Search saints">
+            <button type="button" class="btn btn--gold" id="hero-search-btn">Search</button>
+          </div>
+          <div class="browse-by">
+            <span class="label">Browse by</span>
+            <button type="button" class="chip" data-browse="rank">Type</button>
+            <button type="button" class="chip" data-browse="intercession">Intercession</button>
+            <button type="button" class="chip" data-browse="origin">Region</button>
+            <button type="button" class="chip" data-browse="century">Century</button>
+            <button type="button" class="chip" data-browse="experience">Life Experience</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="quiz" class="quiz" hidden>
-      <button type="button" id="quiz-back" class="link-btn">&larr; Back to browse</button>
-      <h2>Find your patron saint</h2>
-      <p class="quiz-intro">Choose what speaks to you &mdash; pick as many as you like, and leave any
-        question blank to skip it. We'll match you with saints whose lives and intercessions echo yours.</p>
-      <div id="quiz-questions"></div>
-      <div class="quiz-actions">
-        <button type="button" id="quiz-submit" class="quiz-launch">Show my matches</button>
-        <button type="button" id="quiz-reset" class="link-btn">Reset answers</button>
+      <section class="cloud-band" id="cloud-band">
+        <div class="cloud-grid">
+          <div id="sotd"></div>
+          <div class="divider" aria-hidden="true"></div>
+          <div>
+            <div class="featured-head">
+              <div class="eyebrow">From the Cloud</div>
+              <span class="stat" id="catalog-stat"></span>
+            </div>
+            <div class="featured-grid" id="featured"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="finder" id="finder">
+        <div class="finder-layout">
+          <aside class="facets" aria-label="Filters">
+            <div class="facets-head">
+              <span class="eyebrow">Refine</span>
+              <button type="button" id="clear-all" class="link-btn" hidden>Clear all</button>
+            </div>
+            <div id="facets"></div>
+          </aside>
+
+          <section class="results-pane">
+            <div class="results-head">
+              <div>
+                <h2 id="results-title">All saints</h2>
+                <div class="count" id="count" role="status"></div>
+              </div>
+              <div class="sortbox">
+                <span>Sort</span>
+                <select id="sort" aria-label="Sort results">
+                  <option value="feast">Feast day</option>
+                  <option value="name">Name (A–Z)</option>
+                  <option value="century">Earliest first</option>
+                </select>
+              </div>
+            </div>
+            <div class="active-chips" id="active-chips"></div>
+            <ol class="results" id="results"></ol>
+            <div class="pager" id="pager"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ QUIZ ============ -->
+    <div id="quiz" class="quiz-wrap" hidden>
+      <section class="quiz-hero">
+        <div class="dome-bg" id="quiz-dome" aria-hidden="true"></div>
+        <div class="inner">
+          <div class="cross" id="quiz-cross" aria-hidden="true"></div>
+          <div class="eyebrow">A Short Pilgrimage of the Heart</div>
+          <h1>Find Your Patron Saint</h1>
+          <p>Choose what speaks to you &mdash; a companion in the great cloud of witnesses whose life
+             and intercessions may shed light on your own.</p>
+        </div>
+      </section>
+      <div class="quiz-back">
+        <button type="button" id="quiz-back" class="link-btn">&larr; Back to the saints</button>
       </div>
-      <div id="quiz-results" class="quiz-results" role="status"></div>
-    </section>
+      <section class="quiz-body">
+        <p class="quiz-intro">Pick as many as you like in each question, and leave any blank to skip it.
+           We&rsquo;ll match you with saints whose lives and intercessions echo yours.</p>
+        <div id="quiz-questions"></div>
+        <div class="quiz-actions">
+          <button type="button" id="quiz-submit" class="btn btn--gold">Show my patrons</button>
+          <button type="button" id="quiz-reset" class="link-btn">Reset answers</button>
+        </div>
+        <div id="quiz-results" class="quiz-results" role="status"></div>
+      </section>
+    </div>
+
+    <!-- ============ SAINTS OF AMERICA ============ -->
+    <div id="america" class="america" hidden></div>
   </main>
 
   <section id="detail" class="detail" hidden></section>
 
   <footer class="sitefooter">
+    <span class="brandline" id="footer-cross">CLOUD OF WITNESSES</span>
+    <span class="spacer"></span>
+    <span>An open reference of the saints &amp; the Church calendar</span>
+  </footer>
+  <div class="legal">
     <p>This dataset is a work in progress and is <strong>not</strong> an authoritative or
        official liturgical resource; it awaits review by competent clergy and sources.</p>
     <p>Code: MIT &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a> (public domain) &middot;
        <a id="xlsx-link" href="Orthodox_Saints_Database.xlsx">Excel export</a></p>
-  </footer>
+  </div>
 
+  <script src="america-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
