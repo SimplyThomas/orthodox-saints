@@ -44,7 +44,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── data/
 │   ├── saints.csv             ← SOURCE OF TRUTH (one row per saint, 26 columns)
 │   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
-│   └── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
+│   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
+│   └── name_variants.csv      ← given-name equivalence groups (group,names) for search
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── web/                       ← the SPA (static; fetches generated data at runtime)
 │   ├── index.html
@@ -307,7 +308,10 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
   precomputed `search` haystack per saint (built into `data.json`) plus controlled-vocabulary
   facet filters — no search library or browser storage APIs, no backend. (A real index such as
   MiniSearch/FlexSearch is a future option, not a current dependency; don't add one without a
-  measured need.) The SPA also has a **patron-saint quiz** (`?quiz=1`): a guided finder that
+  measured need.) The build expands each saint's haystack with **name variants** from
+  `data/name_variants.csv` (nickname + cross-language given-name groups), so e.g. "Lucy" finds
+  Lucia and "Ivan" finds John; a result names the variant it matched on. The SPA also has a
+  **patron-saint quiz** (`?quiz=1`): a guided finder that
   scores saints by overlap with the user's chosen facets (intercessions weigh most) — its
   match quality scales directly with facet coverage, so keep filling Intercessions (§10).
 - **Scaling note — `data.json` is loaded whole, client-side.** The SPA fetches the entire

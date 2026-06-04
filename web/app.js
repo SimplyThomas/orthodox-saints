@@ -377,6 +377,16 @@ function renderActiveChips() {
   }
 }
 
+// When a saint surfaced because the query matched a name variant (a nickname or
+// other-language form) rather than their displayed name, name that variant.
+function matchedVia(s) {
+  if (!query || !s.variants || !s.variants.length) return "";
+  const q = query.toLowerCase();
+  const visible = (s.name + " " + (s.aka || []).join(" ")).toLowerCase();
+  if (visible.includes(q)) return "";
+  return s.variants.find((v) => v.toLowerCase().includes(q)) || "";
+}
+
 function row(s) {
   const sn = splitName(s.name);
   const li = document.createElement("li");
@@ -384,10 +394,12 @@ function row(s) {
   li.tabIndex = 0;
   li.setAttribute("role", "button");
   const place = valuesOf(s, "origin").join(" · ");
+  const via = matchedVia(s);
   li.innerHTML = `
     <div class="portrait">${saintIcon(58, 72, "blue")}</div>
     <div class="main">
       <div class="title-line"><h3>${esc(sn.title)}</h3>${sn.epithet ? `<span class="epithet">${esc(sn.epithet)}</span>` : ""}</div>
+      ${via ? `<div class="match-via">matched &ldquo;${esc(via)}&rdquo;</div>` : ""}
       <p class="bio">${esc(s.brief || s.notes || "")}</p>
       <div class="row-tags">
         <span class="tag ${rankSlug(s)}"><i></i>${esc(primaryRank(s))}</span>

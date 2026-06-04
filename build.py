@@ -24,6 +24,7 @@ import re
 import shutil
 import sqlite3
 import sys
+import unicodedata
 import urllib.parse
 from pathlib import Path
 
@@ -36,6 +37,7 @@ DIST = ROOT / "dist"
 SAINTS_CSV = DATA / "saints.csv"
 VOCAB_CSV = DATA / "vocabulary.csv"
 VENDORS_CSV = DATA / "vendors.csv"
+NAME_VARIANTS_CSV = DATA / "name_variants.csv"
 
 # The canonical 26-column header, exact and in order (CLAUDE.md §5).
 HEADER = [
@@ -220,6 +222,8 @@ def validate(header: list[str], rows: list[dict[str, str]],
     errors: list[str] = []
     warnings: list[str] = []
 
+    errors.extend(validate_name_variants())
+
     if header != HEADER:
         errors.append(
             "Header/column mismatch against the canonical 26-column header.\n"
@@ -378,11 +382,104 @@ def vendor_links(name: str, vendors: list[dict[str, str]]) -> list[dict]:
 
 
 # --------------------------------------------------------------------------- #
+# Name variants (data/name_variants.csv): equivalence groups of given-name
+# forms — English nicknames + cross-language/transliteration variants. The
+# build expands each saint's search haystack with the other forms in any group
+# their Name / Also Known As belongs to, so e.g. searching "Lucy" finds Lucia
+# and "Ivan" finds John, without hand-editing every row.
+# --------------------------------------------------------------------------- #
+def fold(s: str) -> str:
+    """Lowercase + strip diacritics, so 'Étienne' and 'etienne' compare equal."""
+    nfkd = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in nfkd if not unicodedata.combining(c)).lower()
+
+
+def name_tokens(text: str) -> set[str]:
+    """Folded alphabetic word tokens of a name string."""
+    return {fold(t) for t in re.findall(r"[^\W\d_]+", text, flags=re.UNICODE)}
+
+
+def load_name_variants() -> dict[str, list[str]]:
+    """form (folded) -> the full list of display forms in that form's group."""
+    lookup: dict[str, list[str]] = {}
+    if not NAME_VARIANTS_CSV.exists():
+        return lookup
+    with NAME_VARIANTS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.reader(f)
+        header = next(reader, None)
+        if header != ["group", "names"]:
+            sys.exit(f"FATAL: {NAME_VARIANTS_CSV} header must be 'group,names', got {header!r}")
+        for row in reader:
+            if not row or not any(c.strip() for c in row):
+                continue
+            forms = split_multi(row[1]) if len(row) > 1 else []
+            for form in forms:
+                lookup[fold(form)] = forms
+    return lookup
+
+
+def validate_name_variants() -> list[str]:
+    """A form must sit in exactly one group; each group needs >= 2 forms."""
+    errs: list[str] = []
+    if not NAME_VARIANTS_CSV.exists():
+        return errs
+    with NAME_VARIANTS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.reader(f)
+        header = next(reader, None)
+        if header != ["group", "names"]:
+            return [f"name_variants.csv header must be 'group,names', got {header!r}"]
+        groups: set[str] = set()
+        seen: dict[str, str] = {}
+        for i, row in enumerate(reader, 2):
+            if not row or not any(c.strip() for c in row):
+                continue
+            grp = row[0].strip()
+            forms = split_multi(row[1]) if len(row) > 1 else []
+            if not grp:
+                errs.append(f"name_variants.csv line {i}: empty group key")
+            elif grp in groups:
+                errs.append(f"name_variants.csv: duplicate group '{grp}'")
+            groups.add(grp)
+            if len(forms) < 2:
+                errs.append(f"name_variants.csv group '{grp}': needs at least 2 forms")
+            for form in forms:
+                key = fold(form)
+                if key in seen and seen[key] != grp:
+                    errs.append(f"name_variants.csv: form '{form}' is in both "
+                                f"'{seen[key]}' and '{grp}' (a form must belong to one group)")
+                seen[key] = grp
+    return errs
+
+
+def variant_forms(r: dict[str, str], lookup: dict[str, list[str]]) -> list[str]:
+    """Extra display-name forms a saint can be found by, beyond what already
+    appears in their Name / Also Known As."""
+    if not lookup:
+        return []
+    present = name_tokens(r["Name"])
+    for a in split_multi(r["Also Known As"]):
+        present |= name_tokens(a)
+    added: list[str] = []
+    seen: set[str] = set()
+    for tok in present:
+        for form in lookup.get(tok, []):
+            ff = fold(form)
+            if ff in present or ff in seen:
+                continue
+            seen.add(ff)
+            added.append(form)
+    return sorted(added)
+
+
+# --------------------------------------------------------------------------- #
 # Emit data.json
 # --------------------------------------------------------------------------- #
-def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None) -> dict:
+def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
+              name_variants: dict[str, list[str]] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
+    if name_variants is None:
+        name_variants = load_name_variants()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -404,12 +501,26 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None) ->
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
         facets.append(r[col])
     rec["search"] = " ".join(p for p in facets + [r["Name"]] if p).strip()
+    # Name-variant expansion: make the saint findable by nickname / other-language
+    # forms. The display forms power a "matched via" hint; the folded forms keep
+    # the (accent-naive, lowercased) client substring search working for them.
+    added = variant_forms(r, name_variants)
+    if added:
+        rec["variants"] = added
+        extra = []
+        for form in added:
+            extra.append(form)
+            folded = fold(form)
+            if folded != form.lower():
+                extra.append(folded)
+        rec["search"] = (rec["search"] + " " + " ".join(extra)).strip()
     return rec
 
 
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     vendors = load_vendors()
-    records = [to_record(r, vendors) for r in rows]
+    name_variants = load_name_variants()
+    records = [to_record(r, vendors, name_variants) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
