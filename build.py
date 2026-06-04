@@ -424,6 +424,9 @@ def copy_web():
     for src in WEB.iterdir():
         if src.is_file():
             shutil.copy2(src, PUBLIC / src.name)
+        elif src.is_dir():
+            # e.g. web/assets/ (logo images) — copy the whole subtree.
+            shutil.copytree(src, PUBLIC / src.name, dirs_exist_ok=True)
 
 
 # --------------------------------------------------------------------------- #
