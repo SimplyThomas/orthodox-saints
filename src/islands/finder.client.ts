@@ -23,6 +23,7 @@ import {
 import { splitName } from "../lib/names";
 import { esc, cssEscape, withBase } from "../lib/format";
 import { byzCross, saintAvatar } from "../lib/icons";
+import { track } from "../lib/analytics";
 
 const dataEl = document.getElementById("finder-data");
 if (dataEl) {
@@ -215,11 +216,20 @@ if (dataEl) {
     renderPager(pages);
   }
 
+  // Debounce the analytics ping so a typed query reports once, not per keystroke.
+  let searchTimer: ReturnType<typeof setTimeout> | undefined;
+  function trackSearch(q: string) {
+    clearTimeout(searchTimer);
+    if (!q) return;
+    searchTimer = setTimeout(() => track("Search", { query: q }), 600);
+  }
+
   function wireEvents() {
     $<HTMLInputElement>("#q")?.addEventListener("input", (e) => {
       query = (e.target as HTMLInputElement).value.trim();
       page = 0;
       render();
+      trackSearch(query);
     });
     $("#hero-search-btn")?.addEventListener("click", () => scrollToFinder());
     $("#q")?.addEventListener("keydown", (e) => {
@@ -236,8 +246,10 @@ if (dataEl) {
       const t = e.target as HTMLInputElement;
       if (t.tagName !== "INPUT" || !t.dataset.key) return;
       const set = selected[t.dataset.key];
-      if (t.checked) set.add(t.value);
-      else set.delete(t.value);
+      if (t.checked) {
+        set.add(t.value);
+        track("Filter", { facet: t.dataset.key, value: t.value });
+      } else set.delete(t.value);
       page = 0;
       render();
     });

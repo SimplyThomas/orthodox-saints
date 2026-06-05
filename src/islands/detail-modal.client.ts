@@ -5,6 +5,7 @@
    popstate are supported. Without JS, the links navigate normally. */
 
 import { withBase } from "../lib/format";
+import { track } from "../lib/analytics";
 
 const panel = document.getElementById("detail");
 if (panel) {
@@ -38,6 +39,10 @@ if (panel) {
     panel!.innerHTML = html;
     const card = panel!.querySelector(".detail-card");
     if (card) {
+      track("Saint Viewed", {
+        saint_id: id,
+        name: (card as HTMLElement).dataset.name || id,
+      });
       const close = document.createElement("button");
       close.type = "button";
       close.className = "close link-btn";

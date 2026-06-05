@@ -17,6 +17,14 @@ const {
 const pageTitle =
   title === "Cloud of Witnesses" ? title : `${title} — Cloud of Witnesses`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Plausible Analytics (privacy-friendly, cookie-less). Loaded production-only so
+// the dev server never pollutes the dashboard. The `data-domain` identifies the
+// Plausible site; override via the PUBLIC_PLAUSIBLE_DOMAIN env var for staging.
+// `script.tagged-events.js` exposes the global `plausible()` used by lib/analytics.ts.
+const plausibleDomain =
+  import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ??
+  "simplythomas.github.io/orthodox-saints";
 ---
 
 <!doctype html>
@@ -33,6 +41,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
       rel="stylesheet"
     />
+    {
+      import.meta.env.PROD && (
+        <script
+          defer
+          data-domain={plausibleDomain}
+          src="https://plausible.io/js/script.tagged-events.js"
+        />
+      )
+    }
   </head>
   <body>
     <SiteHeader active={active} />
