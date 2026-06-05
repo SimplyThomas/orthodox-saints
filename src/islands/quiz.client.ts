@@ -51,50 +51,45 @@ if (dataEl && questionsEl) {
     const sn = splitName(top.s.name);
     const reasons = [...new Set(top.reasons)].slice(0, 8);
 
-    const wrap = document.createElement("div");
-    wrap.innerHTML = `<div class="eyebrow quiz-results-h" style="border:0;padding:0;margin-bottom:18px">Your patron saint</div>`;
-
-    const card = document.createElement("a");
-    card.className = "patron-card";
-    card.dataset.saint = top.s.id;
-    card.href = withBase(`saint/${top.s.id}`);
-    card.innerHTML = `
-      <div class="frame">${saintIcon(170, 210, "gold", true, true)}</div>
-      <div>
-        <h2>${esc(sn.title)}</h2>
-        <div class="epithet">${esc(sn.epithet || (top.s.aka && top.s.aka[0]) || "")}</div>
-        <div class="pmeta">
-          <span class="tag ${rankSlug(top.s)}" style="background:rgba(212,175,55,.18);color:var(--gold-soft)"><i></i>${esc(primaryRank(top.s))}</span>
-          <span>Feast · ${esc(firstFeast(top.s))}</span><span>${esc(centuryLabel(top.s))}</span>
+    // Build cards as fully-escaped HTML strings (every interpolation passes
+    // through esc(), including hrefs and the rank slug) rather than assigning
+    // .href/.dataset from data — this is the same safe pattern the finder uses.
+    const cardHtml = `
+      <a class="patron-card" data-saint="${esc(top.s.id)}" href="${esc(withBase(`saint/${top.s.id}`))}">
+        <div class="frame">${saintIcon(170, 210, "gold", true, true)}</div>
+        <div>
+          <h2>${esc(sn.title)}</h2>
+          <div class="epithet">${esc(sn.epithet || (top.s.aka && top.s.aka[0]) || "")}</div>
+          <div class="pmeta">
+            <span class="tag ${esc(rankSlug(top.s))}" style="background:rgba(212,175,55,.18);color:var(--gold-soft)"><i></i>${esc(primaryRank(top.s))}</span>
+            <span>Feast · ${esc(firstFeast(top.s))}</span><span>${esc(centuryLabel(top.s))}</span>
+          </div>
+          <p class="bio">${esc(top.s.brief || top.s.notes || "")}</p>
+          <div class="why">
+            <span class="why-label">Why</span>
+            ${reasons.map((r) => `<span class="tag intercession">${esc(r)}</span>`).join("")}
+          </div>
         </div>
-        <p class="bio">${esc(top.s.brief || top.s.notes || "")}</p>
-        <div class="why">
-          <span class="why-label">Why</span>
-          ${reasons.map((r) => `<span class="tag intercession">${esc(r)}</span>`).join("")}
-        </div>
-      </div>`;
-    wrap.appendChild(card);
+      </a>`;
 
+    let runnersHtml = "";
     if (runners.length) {
-      const rl = document.createElement("div");
-      rl.className = "runners-label";
-      rl.textContent = "You also walk closely with";
-      wrap.appendChild(rl);
-      const rrow = document.createElement("div");
-      rrow.className = "runners";
-      for (const { s } of runners) {
-        const rsn = splitName(s.name);
-        const r = document.createElement("a");
-        r.className = "runner";
-        r.dataset.saint = s.id;
-        r.href = withBase(`saint/${s.id}`);
-        r.innerHTML = `${saintIcon(40, 50, "blue")}<div>
-          <div class="rn-name">${esc(rsn.title)}</div>
-          <div class="rn-sub">${esc(rsn.epithet || "")}${rsn.epithet ? " · " : ""}${esc(firstFeast(s))}</div></div>`;
-        rrow.appendChild(r);
-      }
-      wrap.appendChild(rrow);
+      const cards = runners
+        .map(({ s }) => {
+          const rsn = splitName(s.name);
+          return `<a class="runner" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">${saintIcon(40, 50, "blue")}<div>
+            <div class="rn-name">${esc(rsn.title)}</div>
+            <div class="rn-sub">${esc(rsn.epithet || "")}${rsn.epithet ? " · " : ""}${esc(firstFeast(s))}</div></div></a>`;
+        })
+        .join("");
+      runnersHtml = `<div class="runners-label">You also walk closely with</div><div class="runners">${cards}</div>`;
     }
+
+    const wrap = document.createElement("div");
+    wrap.innerHTML =
+      `<div class="eyebrow quiz-results-h" style="border:0;padding:0;margin-bottom:18px">Your patron saint</div>` +
+      cardHtml +
+      runnersHtml;
     box.appendChild(wrap);
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
