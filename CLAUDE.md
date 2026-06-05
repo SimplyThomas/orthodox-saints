@@ -339,8 +339,12 @@ simply stay.
   hint on misplaced vocab terms. The SPA now has a patron-saint quiz (`?quiz=1`) whose match
   quality scales with **Commonly Asked Intercessions** coverage — keep filling that facet.
 
-When fetching: `en.wikipedia.org` is reachable; `commons.wikimedia.org` is not. Confirm the
-chosen spine's URL pattern is fetchable in your environment before a long run.
+When fetching: `en.wikipedia.org`, `commons.wikimedia.org` (incl. its API at
+`/w/api.php`), and the image CDN `upload.wikimedia.org` are all reachable
+(verified 2026-06-05) — so saint-portrait icons can be sourced and downloaded
+directly from Wikimedia Commons (see §5 "Saint portraits" and §9). Reachability
+can still change between environments; confirm a URL pattern is fetchable before
+a long run.
 
 ---
 
