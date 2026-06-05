@@ -1,0 +1,42 @@
+---
+import { SAINTS } from "../lib/data";
+import { FACETS, OPEN_BY_DEFAULT, facetCounts } from "../lib/filter";
+
+// Facet option counts are computed across all saints at build time (static).
+const groups = FACETS.map((f) => ({
+  facet: f,
+  options: facetCounts(SAINTS, f.key),
+})).filter((g) => g.options.length > 0);
+---
+
+<aside class="facets" aria-label="Filters">
+  <div class="facets-head">
+    <span class="eyebrow">Refine</span>
+    <button type="button" id="clear-all" class="link-btn" hidden
+      >Clear all</button
+    >
+  </div>
+  <div id="facets">
+    {
+      groups.map(({ facet, options }) => (
+        <details
+          class="facet-group"
+          data-key={facet.key}
+          open={OPEN_BY_DEFAULT.has(facet.key)}
+        >
+          <summary>{facet.label}</summary>
+          <div class="facet-options">
+            {options.map(([val, n]) => (
+              <label>
+                <input type="checkbox" value={val} data-key={facet.key} />
+                <span class="box" aria-hidden="true" />
+                <span class="name">{val}</span>
+                <span class="fcount">{n}</span>
+              </label>
+            ))}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</aside>

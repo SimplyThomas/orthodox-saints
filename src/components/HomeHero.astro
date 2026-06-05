@@ -1,0 +1,49 @@
+---
+import DomeMark from "./icons/DomeMark.astro";
+import SearchGlyph from "./icons/SearchGlyph.astro";
+import logo from "../assets/logo.png";
+---
+
+<section class="hero">
+  <div class="dome-bg" id="hero-dome" aria-hidden="true">
+    <DomeMark w={460} color="var(--byz)" />
+  </div>
+  <div class="hero-inner">
+    <img class="hero-logo" src={logo.src} alt="Cloud of Witnesses" />
+    <div class="eyebrow">A Searchable Communion of the Saints</div>
+    <blockquote>
+      &ldquo;Therefore, since we are surrounded by so great a cloud of
+      witnesses, let us also lay aside every weight, and sin which clings so
+      closely, and let us run with endurance the race that is set
+      before&nbsp;us&hellip;&rdquo;
+      <cite>Hebrews 12 : 1</cite>
+    </blockquote>
+    <div class="search" role="search">
+      <span class="ico" id="hero-search-ico" aria-hidden="true">
+        <SearchGlyph size={22} color="var(--celest)" />
+      </span>
+      <input
+        type="search"
+        id="q"
+        placeholder="Search saints, feasts, and commemorations…"
+        autocomplete="off"
+        aria-label="Search saints"
+      />
+      <button type="button" class="btn btn--gold" id="hero-search-btn"
+        >Search</button
+      >
+    </div>
+    <div class="browse-by">
+      <span class="label">Browse by</span>
+      <button type="button" class="chip" data-browse="rank">Type</button>
+      <button type="button" class="chip" data-browse="intercession"
+        >Intercession</button
+      >
+      <button type="button" class="chip" data-browse="origin">Region</button>
+      <button type="button" class="chip" data-browse="century">Century</button>
+      <button type="button" class="chip" data-browse="experience"
+        >Life Experience</button
+      >
+    </div>
+  </div>
+</section>

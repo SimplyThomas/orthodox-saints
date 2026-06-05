@@ -1,0 +1,11 @@
+---
+import { domeMark } from "../../lib/icons";
+
+interface Props {
+  w?: number;
+  color?: string;
+}
+const { w = 200, color = "#D4AF37" } = Astro.props;
+---
+
+<Fragment set:html={domeMark(w, color)} />

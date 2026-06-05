@@ -1,0 +1,28 @@
+---
+import { withBase } from "../lib/format";
+import ByzCross from "./icons/ByzCross.astro";
+---
+
+<footer class="sitefooter">
+  <span class="brandline" id="footer-cross"
+    ><ByzCross size={14} color="var(--gold)" />CLOUD OF WITNESSES</span
+  >
+  <span class="spacer"></span>
+  <span>An open reference of the saints &amp; the Church calendar</span>
+</footer>
+<div class="legal">
+  <p>
+    This dataset is a work in progress and is <strong>not</strong> an authoritative
+    or official liturgical resource; it awaits review by competent clergy and sources.
+  </p>
+  <p>
+    Code: MIT &middot; Data: <a
+      href="https://creativecommons.org/publicdomain/zero/1.0/"
+      target="_blank"
+      rel="noopener noreferrer">CC0 1.0</a
+    > (public domain) &middot;
+    <a id="xlsx-link" href={withBase("Orthodox_Saints_Database.xlsx")}
+      >Excel export</a
+    >
+  </p>
+</div>

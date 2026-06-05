@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AmericaFeature from "../components/AmericaFeature.astro";
+import DetailModal from "../components/DetailModal.astro";
+---
+
+<BaseLayout
+  active="america"
+  title="Saints of America"
+  description="Orthodox saints who planted and tended the faith in North America — from Alaska to the Atlantic."
+>
+  <div class="america">
+    <AmericaFeature />
+  </div>
+  <DetailModal />
+</BaseLayout>

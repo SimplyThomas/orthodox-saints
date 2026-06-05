@@ -29,3 +29,15 @@ updates:
       interval: weekly
     commit-message:
       prefix: docker
+
+  # Node/Astro frontend (package.json — Astro, ESLint, Prettier, Playwright).
+  # Grouped into one PR per run; CI (frontend job) validates each.
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: deps
+    groups:
+      npm:
+        patterns: ["*"]

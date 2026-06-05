@@ -8,3 +8,12 @@ __pycache__/
 .DS_Store
 .venv/
 venv/
+
+# Node / Astro frontend (build outputs and tooling caches)
+node_modules/
+_site/
+.astro/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.playwright/

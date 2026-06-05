@@ -1,0 +1,11 @@
+---
+import { searchGlyph } from "../../lib/icons";
+
+interface Props {
+  size?: number;
+  color?: string;
+}
+const { size = 22, color = "currentColor" } = Astro.props;
+---
+
+<Fragment set:html={searchGlyph(size, color)} />
