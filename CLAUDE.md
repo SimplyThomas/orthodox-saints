@@ -133,6 +133,37 @@ for a release build with the spreadsheet.) An unknown controlled-vocab term that
 containerized build environment (`Dockerfile` / `docker-compose.yml`). They write output
 back to the host owned by you. See README for details.
 
+**Environment variables / `.env`.** Optional developer secrets are stored in a `.env` file
+at the repo root (git-ignored — see `.env.example` for the template). Currently only the
+Wikimedia bot credentials live there:
+
+| Variable | Purpose |
+|---|---|
+| `WIKIMEDIA_BOT_USER` | MediaWiki bot username: `WikimediaAccount@BotName` (e.g. `SimplyThomas@Cloud_of_Witnesses`) |
+| `WIKIMEDIA_BOT_PASSWORD` | Bot password generated at `Special:BotPasswords` on the relevant wiki |
+
+Icon-download scripts load these with:
+```python
+from dotenv import load_dotenv; load_dotenv()
+import os
+bot_user = os.getenv("WIKIMEDIA_BOT_USER")
+bot_pass = os.getenv("WIKIMEDIA_BOT_PASSWORD")
+```
+(`pip install python-dotenv` if not present — authoring-only dep, not in `requirements.txt`.)
+Authenticated bots receive higher API rate limits. The two-step MediaWiki login flow:
+```python
+import requests
+S = requests.Session()
+# Step 1 — get login token
+R = S.get("https://commons.wikimedia.org/w/api.php",
+          params={"action":"query","meta":"tokens","type":"login","format":"json"})
+token = R.json()["query"]["tokens"]["logintoken"]
+# Step 2 — log in (sets session cookies for all subsequent S.get/S.post calls)
+S.post("https://commons.wikimedia.org/w/api.php", data={
+    "action": "login", "lgname": bot_user, "lgpassword": bot_pass,
+    "lgtoken": token, "format": "json"})
+```
+
 ---
 
 ## 5. Data model — the 26 columns
@@ -188,23 +219,27 @@ instead, add one row to `data/saint_images.csv`
   **requires** a `credit`; the detail page shows an attribution caption linking `source`.
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
-- **After downloading any new icon(s), resize to ≤ 800 px on the longest edge at JPEG
-  quality 80** to keep file sizes web-friendly. `mogrify` (ImageMagick) is the canonical
-  tool, but if it is not installed the equivalent Python (Pillow ≥ 12) one-liner is:
-  ```
-  python - << 'EOF'
-  from PIL import Image; import os
-  for f in sorted(os.listdir("static/icons")):
-      if not f.lower().endswith(('.jpg','.jpeg','.png')): continue
-      p = f"static/icons/{f}"
+- **After downloading any new icon(s), resize at JPEG quality 80** to keep file sizes
+  web-friendly. The canonical approach: **scale width to ≤ 800 px, then top-crop height to
+  ≤ 800 px** — this preserves the face/head region rather than cropping symmetrically.
+  Python (Pillow ≥ 12):
+  ```python
+  from PIL import Image
+  from pathlib import Path
+  MAX = 800
+  for p in sorted(Path("static/icons").glob("*.jpg")):
       with Image.open(p) as img:
           if img.mode in ('RGBA','P','LA'): img = img.convert('RGB')
-          if img.width > 800 or img.height > 800: img.thumbnail((800,800), Image.LANCZOS)
+          w, h = img.size
+          if w > MAX:                        # scale width down to MAX (never upscale)
+              img = img.resize((MAX, round(h * MAX / w)), Image.LANCZOS)
+          if img.height > MAX:               # top-crop: keep face, drop bottom
+              img = img.crop((0, 0, img.width, MAX))
           img.save(p, 'JPEG', quality=80, optimize=True)
-      print(f"{f}: {Image.open(p).size}")
-  EOF
+      print(f"{p.name}: {w}x{h} -> {Image.open(p).size}")
   ```
-  (`.gif` files are skipped automatically — Pillow's save path only covers JPEG/PNG.)
+  (`.gif` files: glob `*.jpg` skips them. Convert to `.jpg` manually and update
+  `saint_images.csv` if you need a gif resized.)
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
