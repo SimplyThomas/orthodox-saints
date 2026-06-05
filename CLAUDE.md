@@ -47,15 +47,24 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   └── name_variants.csv      ← given-name equivalence groups (group,names) for search
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
-├── web/                       ← the SPA (static; fetches generated data at runtime)
-│   ├── index.html
-│   ├── app.js
-│   └── styles.css
-├── public/                    ← BUILD OUTPUT, git-ignored (data.json, search index, site)
-├── dist/                      ← BUILD OUTPUT, git-ignored (Orthodox_Saints_Database.xlsx)
+├── package.json               ← Astro frontend deps + scripts (Node 24+)
+├── astro.config.mjs           ← Astro config (site, base:/orthodox-saints, outDir:_site)
+├── src/                       ← THE FRONTEND (Astro static-site generator)
+│   ├── pages/                 ← routes: index, saint/[id], quiz, america, 404 (file-based)
+│   ├── layouts/BaseLayout.astro
+│   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
+│   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
+│   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
+│   ├── styles/global.css      ← global styles (was web/styles.css)
+│   └── assets/logo.png
+├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
+├── static/                    ← Astro publicDir (kept off public/, which is Python-owned)
+├── public/                    ← build.py OUTPUT, git-ignored (data.json — Astro imports it at build)
+├── dist/                      ← build.py OUTPUT, git-ignored (Orthodox_Saints_Database.xlsx)
+├── _site/                     ← Astro OUTPUT, git-ignored (the deployed static site)
 └── .github/workflows/
-    ├── ci.yml                 ← runs build+validate on every PR (the gate; no deploy)
-    └── deploy.yml             ← on push to main: build → deploy to GitHub Pages
+    ├── ci.yml                 ← PR gate: python (tests+validate) AND frontend (lint+build+e2e)
+    └── deploy.yml             ← on push to main: python build → astro build → deploy to Pages
 ```
 
 **Source of truth is text** (`data/*.csv`), committed and reviewable in pull requests.
@@ -68,18 +77,20 @@ Everything in `public/` and `dist/` is generated and **must not be committed**.
 ```
 data/saints.csv ──┐
                   ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
-data/vocabulary.csv┘                                       ├─ public/data.json   (for the SPA)
+data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
                                                            ├─ public/saints.sqlite (optional artifact)
                                                            └─ dist/Orthodox_Saints_Database.xlsx
-web/ (static SPA)  ── fetches ──► public/data.json
-GitHub Actions     ── build → deploy public/ + web/ ──► GitHub Pages
+src/ (Astro SSG)   ── imports public/data.json at BUILD TIME ──► _site/ (static HTML per page + per saint)
+GitHub Actions     ── python build.py → astro build → deploy _site/ ──► GitHub Pages
 ```
 
 - **SQLite is a build-time tool only.** It is created fresh from the CSV on every run,
   used for validation and querying, then discarded (or published as a read-only
   artifact). It is **never** the source of truth and is **never** committed.
-- The SPA loads `data.json` at runtime; data is **not** embedded in the HTML (this is
-  what lets the site scale to a full calendar without a giant HTML file).
+- **Astro consumes `public/data.json` at build time** (a static `import`, not a runtime
+  fetch) and pre-renders one HTML page per route **and one per saint** (`/saint/OS-####`).
+  The home/quiz pages inline a trimmed finder index for their client islands; per-saint
+  pages ship only their own record. `python build.py` MUST run before `astro build`.
 - The build **fails loudly** on any validation error. A failing build must never deploy.
 
 ---
@@ -88,13 +99,19 @@ GitHub Actions     ── build → deploy public/ + web/ ──► GitHub Pages
 
 Use the Makefile targets (or the underlying python directly):
 
-- `make build`   → `python build.py` : validate + emit all artifacts into `public/` and `dist/`.
+- `make build`   → `python build.py` : validate + emit all data artifacts into `public/` and `dist/`.
 - `make validate`→ `python build.py --check-only` : validate only, exit non-zero on any violation. (Used by CI on PRs.)
 - `make test`    → `python -m unittest discover -s tests` : run the build.py unit suite. (Also runs in CI.)
-- `make serve`   → build, then serve `web/` + `public/` locally (e.g. `python -m http.server` from a combined dir) for manual review.
 - `make xlsx`    → emit only the Excel export.
 - `make find NAME="…"` → search-before-add helper (§6): lists existing saints that may be
   the same person under a variant spelling, so you reconcile instead of duplicating.
+
+**Frontend (Astro; needs Node 24+).** Run `make web-install` (`npm ci`) once, then:
+- `make serve` / `make web-dev` → `python build.py --no-xlsx && npm run dev` : the live Astro dev server.
+- `make web-build` → `python build.py --no-xlsx && npm run build` : the static site into `_site/`.
+- `make web-lint` → `npm run lint` : ESLint + Prettier `--check` over `src/` + `e2e/`. (CI gate.)
+- `make web-test` → `npm test` : Playwright smoke tests against the built site. (CI gate.)
+  These call `npm` directly so they also work on Windows/PowerShell without `make`.
 
 `build.py` must support `--check-only` (no file output, just validation + exit code) so
 CI can gate pull requests cheaply.
@@ -327,37 +344,41 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
 ## 11. Tech stack
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
-- **SPA:** plain HTML/CSS/JS in `web/`. Search is a **client-side substring filter** over a
-  precomputed `search` haystack per saint (built into `data.json`) plus controlled-vocabulary
-  facet filters — no search library or browser storage APIs, no backend. (A real index such as
-  MiniSearch/FlexSearch is a future option, not a current dependency; don't add one without a
-  measured need.) The build expands each saint's haystack with **name variants** from
-  `data/name_variants.csv` (nickname + cross-language given-name groups), so e.g. "Lucy" finds
-  Lucia and "Ivan" finds John; a result names the variant it matched on. The SPA also has a
-  **patron-saint quiz** (`?quiz=1`): a guided finder that
-  scores saints by overlap with the user's chosen facets (intercessions weigh most) — its
-  match quality scales directly with facet coverage, so keep filling Intercessions (§10).
-- **Scaling note — `data.json` is loaded whole, client-side.** The SPA fetches the entire
-  dataset on load and filters in the browser. At the current ~1.3 KB/saint that is comfortable
-  to a few thousand saints (≈573 ⇒ ~100 KB gzipped). The first real ceiling is roughly
-  **~5,000 enriched saints / a few MB gzipped first-load**; past that, split a lightweight list
-  index (id/name/feast/facets) from per-saint detail fetched on demand. Flag it then; don't
-  pre-optimize now.
-- **Hosting:** GitHub Pages (public repo). **CI/CD:** GitHub Actions. Public-repo Actions
-  minutes and Pages are free; the build is seconds long.
-- The deploy workflow builds (which validates) and publishes `web/` + `public/`. A
-  separate PR workflow (`ci.yml`) runs the unit tests + `--check-only` as the `main`
-  merge gate (enforced by branch protection). A CodeQL workflow scans the code, and
-  Dependabot keeps Actions / pip / the Docker base image current (patch+minor auto-merge).
-  GitHub Actions are pinned to commit SHAs.
+- **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing in
+  `src/pages/`; `.astro` components render at build time; shared logic lives in `src/lib/`
+  (TS, extracted from the old `web/app.js`); the only client JS is the **islands** in
+  `src/islands/` (vanilla TS — **no React/Vue**). Global styles are `src/styles/global.css`.
+  Adding a page = add a file under `src/pages/` (this is how Calendar/Browse/About will land).
+- **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
+  `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
+  browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
+  without a measured need.) The build still expands each haystack with **name variants** from
+  `data/name_variants.csv` (so "Lucy" finds Lucia, "Ivan" finds John; a result names the
+  matched variant). The **patron-saint quiz** is now its own route (`/quiz`); it scores saints
+  by facet overlap (intercessions weigh most) — match quality scales with facet coverage (§10).
+- **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
+  indexable, shareable; each ships only its own record). The finder home/quiz pages still inline
+  the (trimmed) dataset for client filtering — comfortable to **~5,000 enriched saints** per the
+  old estimate. Past that, split the inlined home index to on-demand fetch (per-saint pages are
+  already lean — half the work is done). See the `TODO(scale)` in `src/pages/index.astro`.
+- **Hosting:** GitHub Pages project site at `/orthodox-saints/` (base path). Astro `base` makes
+  links/assets base-correct; **always build internal URLs via `withBase()` in `src/lib/format.ts`**
+  — Astro does NOT auto-prefix hand-written `href`/`src`. **CI/CD:** GitHub Actions (free).
+- The deploy workflow runs `python build.py` → `astro build` → publishes `_site/`. The PR
+  workflow (`ci.yml`) has two required gates: **`validate`** (python unit tests + `--check-only`)
+  and **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`). A CodeQL
+  workflow scans the code; Dependabot keeps Actions / pip / Docker / **npm** current
+  (patch+minor auto-merge). GitHub Actions are pinned to commit SHAs.
 
 ---
 
 ## 12. Working agreement (definition of done for a session)
 
 `main` is **branch-protected**: direct pushes are rejected. All changes — data, code,
-docs, even Dependabot's — land via a **pull request** that the CI check (`validate`: unit
-tests + data validation) must pass before merge. Merges are **squash** (linear history).
+docs, even Dependabot's — land via a **pull request** that the CI checks must pass before
+merge: **`validate`** (python unit tests + data validation) and, when you touch the
+frontend, **`frontend`** (lint + `astro build` + Playwright e2e). Merges are **squash**
+(linear history).
 
 1. Edits go to `data/saints.csv` / `data/vocabulary.csv` (source of truth) — never to
    generated files.
@@ -367,6 +388,8 @@ tests + data validation) must pass before merge. Merges are **squash** (linear h
 4. Run `make build` and sanity-check `public/data.json` (record count, no errors). The
    build prints a **finder-coverage** report; CI posts it to the PR's job summary.
 5. New saints: confirm blank IDs were assigned and written back to the CSV.
+   **If you touched the frontend (`src/`):** run `make web-lint` and `make web-test` — both
+   must be green (they are required CI gates).
 6. Work on a branch; commit with a clear message
    (e.g. `data: spine walk — add January 1 commemorations (OS-0373..)`).
 7. Open a PR. Note any canonization/judgment calls and anything needing clergy review in

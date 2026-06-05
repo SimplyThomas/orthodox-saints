@@ -1,0 +1,29 @@
+---
+import FacetSidebar from "./FacetSidebar.astro";
+---
+
+<section class="finder" id="finder">
+  <div class="finder-layout">
+    <FacetSidebar />
+
+    <section class="results-pane">
+      <div class="results-head">
+        <div>
+          <h2 id="results-title">All saints</h2>
+          <div class="count" id="count" role="status"></div>
+        </div>
+        <div class="sortbox">
+          <span>Sort</span>
+          <select id="sort" aria-label="Sort results">
+            <option value="feast">Feast day</option>
+            <option value="name">Name (A–Z)</option>
+            <option value="century">Earliest first</option>
+          </select>
+        </div>
+      </div>
+      <div class="active-chips" id="active-chips"></div>
+      <ol class="results" id="results"></ol>
+      <div class="pager" id="pager"></div>
+    </section>
+  </div>
+</section>

@@ -18,34 +18,42 @@ job, grief, a place, a life experience — to saints through controlled-vocabula
 ```
 data/saints.csv ──┐
                   ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
-data/vocabulary.csv┘                                       ├─ public/data.json   (for the SPA)
+data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
                                                            ├─ public/saints.sqlite (optional)
                                                            └─ dist/Orthodox_Saints_Database.xlsx
-web/ (static SPA)  ── fetches ──► public/data.json
-GitHub Actions     ── build → deploy public/ + web/ ──► GitHub Pages
+src/ (Astro SSG)   ── imports public/data.json at build ──► _site/ (static HTML per page + per saint)
+GitHub Actions     ── python build.py → astro build → deploy _site/ ──► GitHub Pages
 ```
 
 The CSVs in `data/` are the **source of truth** — text, committed, reviewable in pull
 requests. SQLite is a build-time validation/query engine, created fresh each run and
-discarded. Everything in `public/` and `dist/` is **generated and never committed**.
+discarded. The **frontend is [Astro](https://astro.build)** in `src/` (static-site
+generator; pre-renders one page per route and one per saint). Everything in `public/`,
+`dist/`, and `_site/` is **generated and never committed**.
 
-## Build locally
+## Build the data locally
 
 Requires **Python 3.11+**.
 
 ```bash
 pip install -r requirements.txt
-make build      # validate + emit public/data.json, the site, and the Excel export
-make serve      # build, then serve at http://localhost:8000
-```
-
-Other targets:
-
-```bash
-make validate   # validate only (exit non-zero on any violation) — the CI gate
+make build      # validate + emit public/data.json and the Excel export
+make validate   # validate only (exit non-zero on any violation) — a CI gate
 make test       # run the build.py unit suite
 make xlsx       # emit only the Excel export
 make clean      # remove generated output
+```
+
+## Run the site locally
+
+Requires **Node 24+** (the data build above produces `public/data.json`, which Astro reads).
+
+```bash
+make web-install   # npm ci  (first time only)
+make serve         # python build.py --no-xlsx && npm run dev  — the live site
+make web-build     # build the static site into _site/
+make web-lint      # ESLint + Prettier  (a CI gate)
+make web-test      # Playwright smoke tests  (a CI gate)
 ```
 
 ## Build with Docker (no local Python or deps needed)
