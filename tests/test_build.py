@@ -297,5 +297,108 @@ class NameVariantTests(unittest.TestCase):
         self.assertEqual(build.validate_name_variants(), [])
 
 
+class SaintImageTests(unittest.TestCase):
+    """data/saint_images.csv loader, license rules, validation, and join."""
+
+    def test_license_ok_accepts_open_and_rejects_others(self):
+        for good in ("PD", "PD-art", "PD-old", "CC0",
+                     "CC-BY", "CC-BY-SA", "CC-BY-4.0", "CC-BY-SA-3.0"):
+            self.assertTrue(build.license_ok(good), good)
+        for bad in ("", "All rights reserved", "CC-BY-NC", "CC-BY-ND",
+                    "Fair use", "© 2020", "GFDL-only"):
+            self.assertFalse(build.license_ok(bad), bad)
+
+    def test_only_cc_by_requires_credit(self):
+        self.assertTrue(build.license_requires_credit("CC-BY-4.0"))
+        self.assertTrue(build.license_requires_credit("CC-BY-SA"))
+        self.assertFalse(build.license_requires_credit("PD"))
+        self.assertFalse(build.license_requires_credit("CC0"))
+
+    def test_to_record_joins_image_and_attribution(self):
+        images = {"OS-0001": {"path": "icons/test.jpg", "license": "CC-BY-4.0",
+                              "credit": "A. Iconographer", "source": "https://ex"}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={}, images=images)
+        self.assertEqual(rec["image"], "icons/test.jpg")
+        self.assertEqual(rec["imageLicense"], "CC-BY-4.0")
+        self.assertEqual(rec["imageCredit"], "A. Iconographer")
+        self.assertEqual(rec["imageSource"], "https://ex")
+
+    def test_to_record_no_image_key_when_absent(self):
+        rec = build.to_record(valid_row(), vendors=[], name_variants={}, images={})
+        self.assertNotIn("image", rec)
+
+    def _run_image_validation(self, rows_csv, files):
+        """Validate a synthetic saint_images.csv (list of dict rows) against a
+        temp static/ dir containing `files`. Returns (errors, warnings)."""
+        import csv as _csv
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons").mkdir()
+        for f in files:
+            (tmp / f).parent.mkdir(parents=True, exist_ok=True)
+            (tmp / f).write_bytes(b"\x89PNG\r\n")  # any bytes; only existence matters
+        csv_path = tmp / "saint_images.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.SAINT_IMAGES_HEADER)
+            w.writeheader()
+            w.writerows(rows_csv)
+        old_csv, old_static = build.SAINT_IMAGES_CSV, build.STATIC
+        try:
+            build.SAINT_IMAGES_CSV, build.STATIC = csv_path, tmp
+            return build.validate_saint_images({"OS-0001", "OS-0002"})
+        finally:
+            build.SAINT_IMAGES_CSV, build.STATIC = old_csv, old_static
+
+    def _img(self, **over):
+        row = {"saint_id": "OS-0001", "image_path": "icons/a.jpg",
+               "license": "PD", "credit": "", "source": "https://src"}
+        row.update(over)
+        return row
+
+    def test_clean_image_row_validates(self):
+        errs, warns = self._run_image_validation([self._img()], ["icons/a.jpg"])
+        self.assertEqual(errs, [])
+
+    def test_unknown_saint_id_errors(self):
+        errs, _ = self._run_image_validation(
+            [self._img(saint_id="OS-9999")], ["icons/a.jpg"])
+        self.assertTrue(any("matches no saint" in e for e in errs))
+
+    def test_missing_file_errors(self):
+        errs, _ = self._run_image_validation([self._img()], files=[])
+        self.assertTrue(any("not found" in e for e in errs))
+
+    def test_bad_license_errors(self):
+        errs, _ = self._run_image_validation(
+            [self._img(license="All rights reserved")], ["icons/a.jpg"])
+        self.assertTrue(any("not an accepted open license" in e for e in errs))
+
+    def test_cc_by_without_credit_errors(self):
+        errs, _ = self._run_image_validation(
+            [self._img(license="CC-BY-4.0", credit="")], ["icons/a.jpg"])
+        self.assertTrue(any("requires a 'credit'" in e for e in errs))
+
+    def test_duplicate_saint_image_errors(self):
+        errs, _ = self._run_image_validation(
+            [self._img(image_path="icons/a.jpg"),
+             self._img(image_path="icons/a.jpg")], ["icons/a.jpg"])
+        self.assertTrue(any("duplicate image row" in e for e in errs))
+
+    def test_missing_source_warns_not_errors(self):
+        errs, warns = self._run_image_validation(
+            [self._img(source="")], ["icons/a.jpg"])
+        self.assertEqual(errs, [])
+        self.assertTrue(any("no 'source'" in w for w in warns))
+
+    def test_committed_image_file_validates(self):
+        # The committed data/saint_images.csv (header-only or real rows) must pass.
+        errs, _ = build.validate_saint_images(
+            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        self.assertEqual(errs, [], "committed saint_images.csv has errors:\n" +
+                         "\n".join(errs))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

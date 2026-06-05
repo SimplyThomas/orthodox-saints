@@ -3,6 +3,8 @@
    extraction) by the quick-look modal island, so the detail markup lives in ONE
    place. Mirrors app.js openDetail(). Astro auto-escapes interpolations. */
 import type { Saint } from "../lib/types";
+import { saintAvatar } from "../lib/icons";
+import { primaryRank } from "../lib/saints";
 
 interface Props {
   saint: Saint;
@@ -11,6 +13,11 @@ interface Props {
 }
 const { saint, as = "h2" } = Astro.props;
 const NameHeading = as;
+
+// Tiered portrait: real icon when one is set, else the type-coloured monogram.
+const portrait = saintAvatar(saint, 132, 162, { type: primaryRank(saint) });
+// Attribution caption — shown only for a real (self-hosted) icon.
+const showCredit = !!saint.image && !!(saint.imageCredit || saint.imageLicense);
 
 // [label, value, isArray] facet rows, in display order (app.js facetDefs).
 const facetDefs: [string, string | string[]][] = [
@@ -39,13 +46,38 @@ const linkDefs: [string, string][] = (
 ---
 
 <div class="detail-card" id="saint-detail" data-id={saint.id}>
-  <NameHeading>{saint.name}</NameHeading>
-
-  {
-    saint.aka.length > 0 && (
-      <p class="aka">Also known as: {saint.aka.join("; ")}</p>
-    )
-  }
+  <div class="detail-head">
+    <figure class="detail-portrait">
+      <Fragment set:html={portrait} />
+      {
+        showCredit && (
+          <figcaption class="detail-credit">
+            Icon:{" "}
+            {saint.imageSource ? (
+              <a
+                href={saint.imageSource}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {saint.imageCredit || "source"}
+              </a>
+            ) : (
+              saint.imageCredit
+            )}
+            {saint.imageLicense && <span> · {saint.imageLicense}</span>}
+          </figcaption>
+        )
+      }
+    </figure>
+    <div class="detail-head-text">
+      <NameHeading>{saint.name}</NameHeading>
+      {
+        saint.aka.length > 0 && (
+          <p class="aka">Also known as: {saint.aka.join("; ")}</p>
+        )
+      }
+    </div>
+  </div>
 
   {saint.prayer && <p class="prayer">{saint.prayer}</p>}
 

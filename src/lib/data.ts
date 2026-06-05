@@ -35,6 +35,7 @@ export function toFinderSaint(s: Saint): FinderSaint {
     notes: s.notes,
     search: s.search,
     ...(s.variants ? { variants: s.variants } : {}),
+    ...(s.image ? { image: s.image } : {}),
   };
 }
 
