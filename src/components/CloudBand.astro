@@ -1,0 +1,71 @@
+---
+import { SAINTS } from "../lib/data";
+import {
+  valuesOf,
+  rankSlug,
+  primaryRank,
+  firstFeast,
+  centuryLabel,
+} from "../lib/saints";
+import { splitName } from "../lib/names";
+import { withBase } from "../lib/format";
+import { saintIcon } from "../lib/icons";
+
+// Notable featured saints (those with a brief life + intercessions), date-independent.
+const enriched = SAINTS.filter((s) => s.brief && s.intercession.length);
+const pool = enriched.length >= 4 ? enriched : SAINTS.filter((s) => s.brief);
+const featured = pool.slice(0, 4);
+
+// Catalog stat.
+const trads = new Set<string>();
+SAINTS.forEach((s) => valuesOf(s, "tradition").forEach((t) => trads.add(t)));
+const catalogStat = `${SAINTS.length} saints catalogued${
+  trads.size ? ` · ${trads.size} traditions` : ""
+}`;
+---
+
+<section class="cloud-band" id="cloud-band">
+  <div class="cloud-grid">
+    {
+      /* Saint of the day — needs the visitor's real "today", filled by the island. */
+    }
+    <div id="sotd"></div>
+    <div class="divider" aria-hidden="true"></div>
+    <div>
+      <div class="featured-head">
+        <div class="eyebrow">From the Cloud</div>
+        <span class="stat" id="catalog-stat">{catalogStat}</span>
+      </div>
+      <div class="featured-grid" id="featured">
+        {
+          featured.map((s) => {
+            const sn = splitName(s.name);
+            return (
+              <a
+                class="feat-card"
+                data-saint={s.id}
+                href={withBase(`saint/${s.id}`)}
+              >
+                <div class="portrait" set:html={saintIcon(84, 104, "blue")} />
+                <div class="body">
+                  <h4>{sn.title}</h4>
+                  <div class="epithet">
+                    {sn.epithet || (s.aka && s.aka[0]) || ""}
+                  </div>
+                  <span class={`tag ${rankSlug(s)}`}>
+                    <i />
+                    {primaryRank(s)}
+                  </span>
+                  <div class="feat-meta">
+                    <span>{firstFeast(s)}</span>
+                    <span>{centuryLabel(s)}</span>
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

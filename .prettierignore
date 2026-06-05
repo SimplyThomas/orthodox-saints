@@ -1,0 +1,20 @@
+# Build outputs / vendored
+_site/
+dist/
+public/
+node_modules/
+.astro/
+static/
+package-lock.json
+
+# Python data pipeline + source data (not Prettier's concern)
+data/
+*.py
+
+# Pre-existing repo docs and CI (out of scope for the frontend migration)
+*.md
+.github/
+Makefile
+Dockerfile
+docker-compose.yml
+*.csv

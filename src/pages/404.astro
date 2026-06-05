@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/format";
+import ByzCross from "../components/icons/ByzCross.astro";
+---
+
+<BaseLayout
+  title="Not Found"
+  description="The page you are looking for could not be found."
+>
+  <div class="notfound">
+    <ByzCross size={30} color="var(--line-gold)" />
+    <h1>Not Found</h1>
+    <p>The page you are looking for is not here.</p>
+    <p><a class="link-btn" href={withBase("")}>&larr; Back to the saints</a></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .notfound {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  .notfound h1 {
+    font-family: var(--serif);
+    color: var(--byz-deep);
+    font-size: 2.2rem;
+    margin: 1rem 0 0.4rem;
+  }
+  .notfound p {
+    color: var(--ink-soft);
+  }
+</style>

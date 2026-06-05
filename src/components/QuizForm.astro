@@ -1,0 +1,38 @@
+---
+import { SAINTS } from "../lib/data";
+import { QUIZ, optionsFor } from "../lib/quiz";
+
+// Quiz options are the most-common facet values, computed at build time.
+const questions = QUIZ.map((g, i) => ({
+  group: g,
+  i,
+  options: optionsFor(SAINTS, g.key).slice(0, 28),
+}));
+---
+
+<div id="quiz-questions">
+  {
+    questions.map(({ group, i, options }) => (
+      <div class="quiz-q">
+        <div class="q-head">
+          <span class="q-num">
+            Question {i + 1} of {QUIZ.length}
+          </span>
+          <h3>{group.q}</h3>
+        </div>
+        <div class="chips">
+          {options.map((val) => (
+            <button
+              type="button"
+              class="chip"
+              data-key={group.key}
+              data-val={val}
+            >
+              {val}
+            </button>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>
