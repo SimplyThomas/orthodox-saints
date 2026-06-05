@@ -256,12 +256,14 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **1473 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
-  **January–June (Jan 1 → Jun 30)** spine walk and **July 1–4**, each landed in weekly PRs.
-  IDs run to OS-1473, interleaved throughout with feast-date reconciliations to existing rows
-  (the half-year is complete — the whole fixed calendar Jan 1 through Jun 30 is covered).
-- **Next action: continue the Phase 1 spine walk at July 5**, a week at a time,
+- Data: **1623 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
+  **January–July (Jan 1 → Jul 31)** spine walk and **Aug 1**, each landed in weekly PRs.
+  IDs run to OS-1623, interleaved throughout with feast-date reconciliations to existing rows
+  (the whole fixed calendar Jan 1 through Jul 31 is covered — seven months).
+- **Next action: continue the Phase 1 spine walk at August 2**, a week at a time,
   reconciling against existing entries by identity as you go (use `make find NAME="…"`).
+  NOTE: from ~late August the walk re-enters the original seed's comprehensive Sep 1–10
+  entries, so expect many more "already present" reconciliations and fewer net-new rows there.
 - **Sourcing for May onward:** the user gathers per-day facts via a ChatGPT prompt (a
   spreadsheet with plain-language columns) and uploads them; Claude cross-checks each batch
   against the OCA synaxarion, dedups/reconciles, maps to controlled vocab, assigns IDs, and
