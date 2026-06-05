@@ -256,14 +256,19 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **1623 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
-  **January–July (Jan 1 → Jul 31)** spine walk and **Aug 1**, each landed in weekly PRs.
-  IDs run to OS-1623, interleaved throughout with feast-date reconciliations to existing rows
-  (the whole fixed calendar Jan 1 through Jul 31 is covered — seven months).
-- **Next action: continue the Phase 1 spine walk at August 2**, a week at a time,
+- Data: **1813 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
+  **January–August (Jan 1 → Aug 31)** spine walk, each landed in weekly PRs.
+  IDs run to OS-1813, interleaved throughout with feast-date reconciliations to existing rows
+  (the whole fixed calendar Jan 1 through Aug 31 is covered — eight months).
+- **Next action: continue the Phase 1 spine walk at September 1**, a week at a time,
   reconciling against existing entries by identity as you go (use `make find NAME="…"`).
-  NOTE: from ~late August the walk re-enters the original seed's comprehensive Sep 1–10
-  entries, so expect many more "already present" reconciliations and fewer net-new rows there.
+  NOTE: **Sep 1–10 is the original seed's comprehensive zone** — expect many "already present"
+  reconciliations and relatively few net-new rows there.
+- **Phase-2 gaps flagged during the Aug walk** (major saints deferred to their principal
+  feasts later in the walk, or missing from the Slavic recension): Alexander Nevsky (Nov 23),
+  Peter, Metropolitan of Moscow (Dec 21), Job of Pochaev (Oct 28) — to be added when the walk
+  reaches those dates; Arsenius of Paros (Jan 31) and Joseph Samakos the Sanctified (Jan 22)
+  may need adding when merging the Greek calendar.
 - **Sourcing for May onward:** the user gathers per-day facts via a ChatGPT prompt (a
   spreadsheet with plain-language columns) and uploads them; Claude cross-checks each batch
   against the OCA synaxarion, dedups/reconciles, maps to controlled vocab, assigns IDs, and
