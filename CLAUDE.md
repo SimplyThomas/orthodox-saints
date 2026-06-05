@@ -45,7 +45,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── saints.csv             ← SOURCE OF TRUTH (one row per saint, 26 columns)
 │   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
-│   └── name_variants.csv      ← given-name equivalence groups (group,names) for search
+│   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
+│   └── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site, base:/orthodox-saints, outDir:_site)
@@ -59,6 +60,7 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   └── assets/logo.png
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
 ├── static/                    ← Astro publicDir (kept off public/, which is Python-owned)
+│   └── icons/                 ← self-hosted saint portraits (referenced by data/saint_images.csv)
 ├── public/                    ← build.py OUTPUT, git-ignored (data.json — Astro imports it at build)
 ├── dist/                      ← build.py OUTPUT, git-ignored (Orthodox_Saints_Database.xlsx)
 ├── _site/                     ← Astro OUTPUT, git-ignored (the deployed static site)
@@ -153,7 +155,7 @@ back to the host owned by you. See README for details.
 | 16 | Feast Day(s) | free, multi | e.g. `Sep 4; Dec 10`. Drives calendar + dedup. |
 | 17 | Short Prayer (Intercession) | free | Claude-composed universal form. See §10. |
 | 18 | Hymn / Apolytikion | derived link | Leave blank; build derives a search URL. |
-| 19 | Icon | derived link | Leave blank; build derives a search URL. |
+| 19 | Icon | derived link | A Google-Images *search* link. NOT the displayed portrait — that is the self-hosted `image` from `data/saint_images.csv` (see below). |
 | 20 | Brief Life | free | 1–3 sentences. |
 | 21 | Notes | free | |
 | 22 | Customs & Traditions | free | Church-connected customs only (see §9). |
@@ -169,6 +171,19 @@ are rendered in the SPA as **Google-search links** for each entry — enter a pl
 (e.g. `On the Holy Spirit`), never a URL. The build also attaches per-saint **icon-vendor**
 links from `data/vendors.csv`; these are **links only** — no vendor imagery is reproduced
 (§9), pending an affiliate/permission agreement.
+
+**Saint portraits (the tiered `SaintAvatar`).** Every saint renders an auto **monogram**
+(given-name initial, colour-coded by rank) — zero per-saint work. To show a **real icon**
+instead, add one row to `data/saint_images.csv`
+(`saint_id,image_path,license,credit,source`):
+- `image_path` is **self-hosted** under `static/icons/` (e.g. `icons/nicholas.jpg`); the
+  file must exist (the build checks) and deploys with the site. (An absolute `https://` URL
+  also works but self-hosting is preferred — no broken hotlinks.)
+- `license` MUST be an accepted **open** license — `PD` / `PD-art` / `PD-old` / `CC0` /
+  `CC-BY*` / `CC-BY-SA*`. Anything else **fails the build** (§9). `CC-BY*` additionally
+  **requires** a `credit`; the detail page shows an attribution caption linking `source`.
+- The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
+  no other field changes. Source images need clergy/licence review before launch (§9).
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
@@ -317,7 +332,11 @@ chosen spine's URL pattern is fetchable in your environment before a long run.
 - **Copyright.** Never reproduce hymns, troparia, kontakia, or any copyrighted
   translation — **link out** instead (the derived Hymn search URL does this). Images:
   only public-domain or openly-licensed; a source link is **not** permission. When in
-  doubt, omit the image and use the simple cross masthead.
+  doubt, omit the image and use the simple cross masthead. Saint portraits added via
+  `data/saint_images.csv` are enforced at build time — only `PD`/`PD-art`/`PD-old`/`CC0`/
+  `CC-BY*`/`CC-BY-SA*` licenses pass, `CC-BY*` must carry a `credit`, and the file must
+  exist under `static/`; anything else **fails the build**. The licence gate is necessary
+  but not sufficient — each portrait still needs provenance/clergy review before launch.
 - **Canonization caution.** If a person's formal glorification is uncertain (recently
   reposed elders, locally-venerated figures, "repose of…" entries), **skip and note it**
   rather than assert sainthood. Flag these to the user.

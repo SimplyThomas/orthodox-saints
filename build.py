@@ -33,11 +33,30 @@ DATA = ROOT / "data"
 WEB = ROOT / "web"
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
+STATIC = ROOT / "static"  # Astro publicDir; self-hosted icons live in static/icons/
 
 SAINTS_CSV = DATA / "saints.csv"
 VOCAB_CSV = DATA / "vocabulary.csv"
 VENDORS_CSV = DATA / "vendors.csv"
 NAME_VARIANTS_CSV = DATA / "name_variants.csv"
+SAINT_IMAGES_CSV = DATA / "saint_images.csv"
+
+# Real saint portraits (data/saint_images.csv) join to saints by Saint ID. Only
+# OPEN, reusable licenses are accepted — an unlicensed image must never deploy
+# (CLAUDE.md §9). Attribution licenses (CC-BY*) additionally require a credit.
+SAINT_IMAGES_HEADER = ["saint_id", "image_path", "license", "credit", "source"]
+OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}  # public-domain / no-rights
+
+
+def license_ok(lic: str) -> bool:
+    """True if the license is an accepted open license (public-domain family or
+    any Creative Commons Attribution variant: CC-BY / CC-BY-SA)."""
+    lic = lic.strip()
+    return lic in OPEN_LICENSES or bool(re.match(r"^CC-BY(-SA)?(-\d(\.\d)?)?$", lic))
+
+
+def license_requires_credit(lic: str) -> bool:
+    return lic.strip().upper().startswith("CC-BY")
 
 # The canonical 26-column header, exact and in order (CLAUDE.md §5).
 HEADER = [
@@ -224,6 +243,12 @@ def validate(header: list[str], rows: list[dict[str, str]],
 
     errors.extend(validate_name_variants())
 
+    img_errors, img_warnings = validate_saint_images(
+        {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
+    )
+    errors.extend(img_errors)
+    warnings.extend(img_warnings)
+
     if header != HEADER:
         errors.append(
             "Header/column mismatch against the canonical 26-column header.\n"
@@ -382,6 +407,91 @@ def vendor_links(name: str, vendors: list[dict[str, str]]) -> list[dict]:
 
 
 # --------------------------------------------------------------------------- #
+# Self-hosted saint portraits (data/saint_images.csv). One row per saint, keyed
+# by Saint ID, pointing at an image under static/ (Astro publicDir). The build
+# joins these into the record as `image` (+ credit/license/source) and the
+# frontend's tiered SaintAvatar shows the real icon instead of the monogram.
+# Licensing is enforced here so an unlicensed image can never deploy (§9).
+# --------------------------------------------------------------------------- #
+def load_saint_images() -> dict[str, dict[str, str]]:
+    """saint_id -> {path, license, credit, source}. Empty if the file is absent."""
+    out: dict[str, dict[str, str]] = {}
+    if not SAINT_IMAGES_CSV.exists():
+        return out
+    with SAINT_IMAGES_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_IMAGES_HEADER:
+            sys.exit(f"FATAL: {SAINT_IMAGES_CSV} header must be "
+                     f"{SAINT_IMAGES_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            sid = (row.get("saint_id") or "").strip()
+            if not sid:
+                continue
+            out[sid] = {
+                "path": (row.get("image_path") or "").strip(),
+                "license": (row.get("license") or "").strip(),
+                "credit": (row.get("credit") or "").strip(),
+                "source": (row.get("source") or "").strip(),
+            }
+    return out
+
+
+def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Validate data/saint_images.csv against §9: known saint, an existing local
+    file, an accepted open license, and a credit when the license requires one."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not SAINT_IMAGES_CSV.exists():
+        return errors, warnings
+    with SAINT_IMAGES_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_IMAGES_HEADER:
+            return ([f"saint_images.csv header must be {SAINT_IMAGES_HEADER}, "
+                     f"got {reader.fieldnames!r}"], warnings)
+        seen: set[str] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            sid = (row.get("saint_id") or "").strip()
+            path = (row.get("image_path") or "").strip()
+            lic = (row.get("license") or "").strip()
+            credit = (row.get("credit") or "").strip()
+            source = (row.get("source") or "").strip()
+            where = f"saint_images.csv line {i}"
+
+            if not sid:
+                errors.append(f"{where}: empty saint_id.")
+            elif not ID_RE.match(sid):
+                errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
+            elif sid not in valid_ids:
+                errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+            elif sid in seen:
+                errors.append(f"{where}: duplicate image row for {sid} "
+                              "(one portrait per saint).")
+            seen.add(sid)
+
+            if not path:
+                errors.append(f"{where} ({sid}): empty image_path.")
+            elif not (STATIC / path).is_file():
+                errors.append(f"{where} ({sid}): image_path {path!r} not found "
+                              f"under static/ (expected {(STATIC / path)}).")
+
+            if not lic:
+                errors.append(f"{where} ({sid}): empty license. Self-hosted images "
+                              "must declare an open license (§9).")
+            elif not license_ok(lic):
+                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
+                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA).")
+            elif license_requires_credit(lic) and not credit:
+                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
+                              "(attribution).")
+
+            if not source:
+                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
+
+
+# --------------------------------------------------------------------------- #
 # Name variants (data/name_variants.csv): equivalence groups of given-name
 # forms — English nicknames + cross-language/transliteration variants. The
 # build expands each saint's search haystack with the other forms in any group
@@ -475,11 +585,14 @@ def variant_forms(r: dict[str, str], lookup: dict[str, list[str]]) -> list[str]:
 # Emit data.json
 # --------------------------------------------------------------------------- #
 def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
-              name_variants: dict[str, list[str]] | None = None) -> dict:
+              name_variants: dict[str, list[str]] | None = None,
+              images: dict[str, dict[str, str]] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
         name_variants = load_name_variants()
+    if images is None:
+        images = load_saint_images()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -496,6 +609,19 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     rec["works"] = [work_link(t, r["Name"]) for t in rec["works"]]
     rec["about"] = [work_link(t, r["Name"]) for t in rec["about"]]
     rec["vendors"] = vendor_links(r["Name"], vendors)
+    # Self-hosted real portrait (data/saint_images.csv), if one exists for this
+    # saint. `image` is a static/-relative path the frontend base-prefixes; the
+    # tiered SaintAvatar then shows it instead of the monogram. Attribution
+    # (credit/license/source) rides along for the detail-page caption.
+    img = images.get(r["Saint ID"].strip())
+    if img and img.get("path"):
+        rec["image"] = img["path"]
+        if img.get("license"):
+            rec["imageLicense"] = img["license"]
+        if img.get("credit"):
+            rec["imageCredit"] = img["credit"]
+        if img.get("source"):
+            rec["imageSource"] = img["source"]
     # Search haystack: name + aka + brief + notes + customs + all facet values.
     facets = []
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
@@ -520,7 +646,8 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     vendors = load_vendors()
     name_variants = load_name_variants()
-    records = [to_record(r, vendors, name_variants) for r in rows]
+    images = load_saint_images()
+    records = [to_record(r, vendors, name_variants, images) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:

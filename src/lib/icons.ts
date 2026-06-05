@@ -3,6 +3,7 @@
    client islands (innerHTML). Thin .astro wrappers live in components/icons/. */
 
 import { monogramLetter } from "./names";
+import { withBase } from "./format";
 
 export function byzCross(
   size = 22,
@@ -108,9 +109,11 @@ export function saintAvatar(
   const type = opts.type ?? s.type ?? (s.rank && s.rank[0]) ?? "";
   const awaiting = !!opts.awaiting;
 
-  // Real-icon tier: cover-fit image inside the arched gold frame.
+  // Real-icon tier: cover-fit image inside the arched gold frame. A self-hosted
+  // path (static/-relative) is base-prefixed; an absolute URL is used as-is.
   if (s.image) {
-    const url = String(s.image).replace(/['"\\)]/g, "");
+    const raw = String(s.image).replace(/['"\\)]/g, "");
+    const url = /^(https?:)?\/\//.test(raw) ? raw : withBase(raw);
     const clip = `path('${AVATAR_ARCH}')`;
     return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;clip-path:${clip};-webkit-clip-path:${clip};background:#efe3cb center/cover no-repeat url('${url}')"></div></div>`;
   }

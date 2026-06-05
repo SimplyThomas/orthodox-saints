@@ -47,6 +47,12 @@ export interface Saint {
   /** present only when name-variant expansion added forms */
   variants?: string[];
   vendors: VendorLink[];
+  /** self-hosted real portrait (static/-relative path); absent → monogram */
+  image?: string;
+  /** image attribution, present only when `image` is */
+  imageLicense?: string;
+  imageCredit?: string;
+  imageSource?: string;
 }
 
 /** The trimmed projection shipped to the finder island (no heavy detail fields). */
@@ -72,4 +78,6 @@ export interface FinderSaint {
   notes: string;
   search: string;
   variants?: string[];
+  /** self-hosted real portrait (static/-relative path); absent → monogram */
+  image?: string;
 }
