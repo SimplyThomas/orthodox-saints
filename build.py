@@ -243,9 +243,16 @@ def validate(header: list[str], rows: list[dict[str, str]],
 
     errors.extend(validate_name_variants())
 
-    img_errors, img_warnings = validate_saint_images(
-        {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
-    )
+    # Always validate saint_images.csv against the committed saints.csv, not just
+    # the rows under test — ensures IDs in image rows resolve to real saints even
+    # when validate() is called with a synthetic (unit-test) subset.
+    try:
+        _, _all_saints = load_saints()
+        _img_valid_ids = {r["Saint ID"].strip() for r in _all_saints
+                         if r["Saint ID"].strip()}
+    except Exception:
+        _img_valid_ids = {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
+    img_errors, img_warnings = validate_saint_images(_img_valid_ids)
     errors.extend(img_errors)
     warnings.extend(img_warnings)
 
