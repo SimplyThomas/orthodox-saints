@@ -184,6 +184,23 @@ instead, add one row to `data/saint_images.csv`
   **requires** a `credit`; the detail page shows an attribution caption linking `source`.
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
+- **After downloading any new icon(s), resize to ≤ 800 px on the longest edge at JPEG
+  quality 80** to keep file sizes web-friendly. `mogrify` (ImageMagick) is the canonical
+  tool, but if it is not installed the equivalent Python (Pillow ≥ 12) one-liner is:
+  ```
+  python - << 'EOF'
+  from PIL import Image; import os
+  for f in sorted(os.listdir("static/icons")):
+      if not f.lower().endswith(('.jpg','.jpeg','.png')): continue
+      p = f"static/icons/{f}"
+      with Image.open(p) as img:
+          if img.mode in ('RGBA','P','LA'): img = img.convert('RGB')
+          if img.width > 800 or img.height > 800: img.thumbnail((800,800), Image.LANCZOS)
+          img.save(p, 'JPEG', quality=80, optimize=True)
+      print(f"{f}: {Image.open(p).size}")
+  EOF
+  ```
+  (`.gif` files are skipped automatically — Pillow's save path only covers JPEG/PNG.)
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
