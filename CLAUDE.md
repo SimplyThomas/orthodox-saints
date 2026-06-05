@@ -107,6 +107,10 @@ Use the Makefile targets (or the underlying python directly):
 - `make xlsx`    → emit only the Excel export.
 - `make find NAME="…"` → search-before-add helper (§6): lists existing saints that may be
   the same person under a variant spelling, so you reconcile instead of duplicating.
+- `make report` (`make report TOP=100`) → `python build.py --report` : ranks saints that
+  **lack a real icon** by a data-derived priority score, so each icon batch (§5 "Saint
+  portraits") is self-directing — run it and paste the top N into the batch prompt instead
+  of hand-picking. Local authoring aid only; writes no files and is not a CI gate.
 
 **Frontend (Astro; needs Node 24+).** Run `make web-install` (`npm ci`) once, then:
 - `make serve` / `make web-dev` → `python build.py --no-xlsx && npm run dev` : the live Astro dev server.

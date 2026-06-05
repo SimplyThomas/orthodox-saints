@@ -242,6 +242,58 @@ class CoverageTests(unittest.TestCase):
             os.unlink(path)
 
 
+class PriorityReportTests(unittest.TestCase):
+    """Icon-priority scorer/ranking (issue #83): rank icon-less saints."""
+
+    def test_score_weights_factors(self):
+        score, parts = build.priority_score(valid_row(**{
+            "Tradition of Veneration": "Russian; Greek; Pan-Orthodox",  # 3 -> 6
+            "Commonly Asked Intercessions": "Healing",                  # +3
+            "Vocation": "Physician",                                    # +1
+            "Life Experience": "Illness",                              # +1
+            "Feast Day(s)": "Jan 1; Sep 4",                            # +2
+        }))
+        self.assertEqual(score, 13)
+        self.assertEqual(parts["traditions"], 3)
+        self.assertTrue(parts["intercession"])
+        self.assertEqual(parts["feasts"], 2)
+
+    def test_score_bare_stub_is_low(self):
+        # Minimal row: no traditions, no facets, one feast -> just feast_count.
+        score, parts = build.priority_score(valid_row())
+        self.assertEqual(score, 1)
+        self.assertFalse(parts["intercession"])
+
+    def test_ranking_excludes_covered_saints(self):
+        rows = [valid_row(**{"Saint ID": "OS-0001", "Name": "Has Icon"}),
+                valid_row(**{"Saint ID": "OS-0002", "Name": "No Icon"})]
+        images = {"OS-0001": {"path": "icons/a.jpg"}}
+        ranked = build.priority_ranking(rows, images)
+        ids = [r["Saint ID"] for _s, r, _p in ranked]
+        self.assertEqual(ids, ["OS-0002"])
+
+    def test_ranking_sorts_by_score_then_id(self):
+        rows = [
+            valid_row(**{"Saint ID": "OS-0001", "Commonly Asked Intercessions": ""}),
+            valid_row(**{"Saint ID": "OS-0002",
+                         "Commonly Asked Intercessions": "Healing"}),
+            valid_row(**{"Saint ID": "OS-0003", "Commonly Asked Intercessions": ""}),
+        ]
+        ranked = build.priority_ranking(rows, {})
+        ids = [r["Saint ID"] for _s, r, _p in ranked]
+        # OS-0002 (has intercession) first; the two ties broken by Saint ID.
+        self.assertEqual(ids, ["OS-0002", "OS-0001", "OS-0003"])
+
+    def test_ranking_against_committed_seed_is_nonempty(self):
+        _header, rows = build.load_saints()
+        images = build.load_saint_images()
+        ranked = build.priority_ranking(rows, images)
+        self.assertTrue(ranked)
+        # Scores are non-increasing (descending order).
+        scores = [s for s, _r, _p in ranked]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+
 class SeedIntegrationTests(unittest.TestCase):
     """The committed seed data must always validate clean."""
 

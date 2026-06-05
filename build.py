@@ -12,6 +12,7 @@ Usage:
     python build.py --check-only    validate only, exit non-zero on any violation
     python build.py --xlsx-only     emit only the Excel export
     python build.py --sqlite        also emit public/saints.sqlite (read-only artifact)
+    python build.py --report        rank icon-less saints by priority (authoring aid)
 """
 
 from __future__ import annotations
@@ -372,6 +373,79 @@ def report_coverage(rows: list[dict[str, str]]) -> None:
             lines.append(f"| {col} | {filled}/{total} | {pct:.1f}% |")
         with open(summary, "a", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
+
+
+# --------------------------------------------------------------------------- #
+# Priority report (CLAUDE.md §5/§10): rank icon-less saints for the next batch.
+# A data-derived proxy for "importance" so each portrait batch is self-directing
+# instead of hand-picked. Local authoring aid only — never a CI gate, no output
+# file. See issue #83.
+# --------------------------------------------------------------------------- #
+# Weighted sum of facets all derivable from data/saints.csv. Weights are a
+# starting point (issue #83): tradition breadth and a filled Intercession facet
+# (the finder's engine, §10) dominate; secondary finder signals and calendar
+# surface area break ties.
+def priority_score(r: dict[str, str]) -> tuple[int, dict[str, object]]:
+    """Composite importance score for an (uncovered) saint, plus the component
+    parts used to render the report row."""
+    traditions = len(split_multi(r["Tradition of Veneration"]))
+    has_intercession = 1 if r["Commonly Asked Intercessions"].strip() else 0
+    has_vocation = 1 if r["Vocation"].strip() else 0
+    has_experience = 1 if r["Life Experience"].strip() else 0
+    # Count fixed-date feasts; a movable-only feast still counts as one.
+    feast_count = len(FEAST_RE.findall(r["Feast Day(s)"]) or [None])
+
+    score = (2 * traditions + 3 * has_intercession + has_vocation
+             + has_experience + feast_count)
+    parts = {
+        "traditions": traditions,
+        "intercession": bool(has_intercession),
+        "vocation": bool(has_vocation),
+        "experience": bool(has_experience),
+        "feasts": feast_count,
+    }
+    return score, parts
+
+
+def priority_ranking(rows: list[dict[str, str]],
+                     images: dict[str, dict[str, str]]
+                     ) -> list[tuple[int, dict[str, str], dict[str, object]]]:
+    """Saints WITHOUT a real icon, ranked by priority_score descending.
+    Ties broken by Saint ID so the ordering is stable/reproducible."""
+    covered = {sid for sid, img in images.items() if img.get("path")}
+    ranked = []
+    for r in rows:
+        if r["Saint ID"].strip() in covered:
+            continue
+        score, parts = priority_score(r)
+        ranked.append((score, r, parts))
+    ranked.sort(key=lambda t: (-t[0], t[1]["Saint ID"]))
+    return ranked
+
+
+def report_priority(rows: list[dict[str, str]], top: int | None = None) -> None:
+    """Print a ranked, human-readable table of icon-less saints (issue #83).
+    `top` limits the rows shown (None = all)."""
+    images = load_saint_images()
+    ranked = priority_ranking(rows, images)
+    shown = ranked if top is None else ranked[:top]
+
+    covered = sum(1 for img in images.values() if img.get("path"))
+    print(f"Icon-priority report - {len(ranked)} saints without a real icon "
+          f"({covered} of {len(rows)} covered). "
+          f"Showing top {len(shown)}.\n")
+    header = (f"{'Rank':>4}  {'OS-ID':<8} {'Name':<40} {'Score':>5}  "
+              f"{'Trad':>4}  {'Interc':<6}  {'Vocat':<5}  {'Exp':<3}  {'Feasts':>6}")
+    print(header)
+    print("-" * len(header))
+    for i, (score, r, parts) in enumerate(shown, 1):
+        name = r["Name"]
+        if len(name) > 40:
+            name = name[:37] + "..."
+        print(f"{i:>4}  {r['Saint ID']:<8} {name:<40} {score:>5}  "
+              f"{parts['traditions']:>4}  {'yes' if parts['intercession'] else 'no':<6}  "
+              f"{'yes' if parts['vocation'] else 'no':<5}  "
+              f"{'yes' if parts['experience'] else 'no':<3}  {parts['feasts']:>6}")
 
 
 # --------------------------------------------------------------------------- #
@@ -745,10 +819,25 @@ def main() -> int:
                     help="skip the Excel export (lets the full build run without openpyxl)")
     ap.add_argument("--sqlite", action="store_true",
                     help="also emit public/saints.sqlite")
+    ap.add_argument("--report", action="store_true",
+                    help="print a ranked table of saints lacking a real icon, then exit "
+                         "(local authoring aid; no files written)")
+    ap.add_argument("--top", type=int, default=50, metavar="N",
+                    help="rows to show in --report (0 = all; default 50)")
     args = ap.parse_args()
 
     vocab = load_vocab()
     header, rows = load_saints()
+
+    # The priority report is a read-only authoring aid: validate quietly so the
+    # ranking reflects the committed data, but never write files or assign IDs.
+    if args.report:
+        errors, _ = validate(header, rows, vocab)
+        if errors:
+            print(f"WARNING: {len(errors)} validation error(s) in the source data; "
+                  "the report below reflects the data as committed.", file=sys.stderr)
+        report_priority(rows, top=None if args.top == 0 else args.top)
+        return 0
 
     if not args.check_only:
         if assign_ids(rows):
