@@ -30,6 +30,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build              # astro build -> _site/ (imports public/data.json, base /orthodox-saints)
+        env:
+          # Umami Analytics website id (not secret — it ships in page source).
+          # Add it under Settings -> Secrets and variables -> Actions -> Variables.
+          # Empty/unset = the analytics script is simply omitted from the build.
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
       - name: Add the Excel export to the site
         run: cp dist/Orthodox_Saints_Database.xlsx _site/ 2>/dev/null || true
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
