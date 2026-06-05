@@ -9,7 +9,7 @@ import {
 } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { withBase } from "../lib/format";
-import { saintIcon } from "../lib/icons";
+import { saintAvatar } from "../lib/icons";
 
 // Notable featured saints (those with a brief life + intercessions), date-independent.
 const enriched = SAINTS.filter((s) => s.brief && s.intercession.length);
@@ -46,7 +46,10 @@ const catalogStat = `${SAINTS.length} saints catalogued${
                 data-saint={s.id}
                 href={withBase(`saint/${s.id}`)}
               >
-                <div class="portrait" set:html={saintIcon(84, 104, "blue")} />
+                <div
+                  class="portrait"
+                  set:html={saintAvatar(s, 84, 104, { type: primaryRank(s) })}
+                />
                 <div class="body">
                   <h4>{sn.title}</h4>
                   <div class="epithet">

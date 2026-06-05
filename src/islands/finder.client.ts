@@ -22,7 +22,7 @@ import {
 } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, cssEscape, withBase } from "../lib/format";
-import { byzCross, saintIcon } from "../lib/icons";
+import { byzCross, saintAvatar } from "../lib/icons";
 
 const dataEl = document.getElementById("finder-data");
 if (dataEl) {
@@ -54,7 +54,7 @@ if (dataEl) {
     const via = matchedVia(s);
     li.innerHTML = `
       <a class="saint-row" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
-        <div class="portrait">${saintIcon(58, 72, "blue")}</div>
+        <div class="portrait">${saintAvatar(s, 58, 72, { type: primaryRank(s) })}</div>
         <div class="main">
           <div class="title-line"><h3>${esc(sn.title)}</h3>${
             sn.epithet ? `<span class="epithet">${esc(sn.epithet)}</span>` : ""

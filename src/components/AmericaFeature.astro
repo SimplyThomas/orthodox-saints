@@ -7,7 +7,7 @@ import {
   findAmerican,
 } from "../lib/america";
 import { withBase } from "../lib/format";
-import { saintIcon } from "../lib/icons";
+import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
 import ByzCross from "./icons/ByzCross.astro";
 
@@ -48,7 +48,10 @@ const LeadTag = leadHit ? "a" : "div";
     data-saint={leadHit?.id}
     href={leadHit ? withBase(`saint/${leadHit.id}`) : undefined}
   >
-    <div class="frame" set:html={saintIcon(160, 196, "gold", true, true)} />
+    <div
+      class="frame"
+      set:html={saintAvatar({ name: lead.name }, 160, 196, { type: lead.cat })}
+    />
     <div>
       <span class="badge">{lead.badge}</span>
       <h2>{lead.name} <span class="epithet">{lead.epithet}</span></h2>
@@ -84,7 +87,12 @@ const LeadTag = leadHit ? "a" : "div";
             data-saint={hit?.id}
             href={hit ? withBase(`saint/${hit.id}`) : undefined}
           >
-            <div class="portrait" set:html={saintIcon(88, 108, "blue")} />
+            <div
+              class="portrait"
+              set:html={saintAvatar({ name: s.name }, 88, 108, {
+                type: s.cat,
+              })}
+            />
             <div class="body">
               <div class="card-head">
                 <h3>{s.name}</h3>
@@ -130,7 +138,9 @@ const LeadTag = leadHit ? "a" : "div";
             <div class="am-await-card">
               <div
                 class="portrait-await"
-                set:html={saintIcon(108, 132, "blue", false)}
+                set:html={saintAvatar({ name: s.name }, 108, 132, {
+                  awaiting: true,
+                })}
               />
               <div>
                 <div class="head">

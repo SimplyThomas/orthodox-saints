@@ -17,3 +17,6 @@ _site/
 test-results/
 playwright-report/
 .playwright/
+
+# Local design-reference bundle (prototypes + screenshots); not committed
+design_handoff_cloud_of_witnesses/

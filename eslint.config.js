@@ -6,7 +6,16 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["_site/", "dist/", "public/", "node_modules/", ".astro/", "web/"],
+    ignores: [
+      "_site/",
+      "dist/",
+      "public/",
+      "node_modules/",
+      ".astro/",
+      "web/",
+      // Design-reference bundle (React-via-Babel prototypes); not production code.
+      "design_handoff_cloud_of_witnesses/",
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
