@@ -45,7 +45,12 @@ const linkDefs: [string, string][] = (
 ).filter(([, url]) => url);
 ---
 
-<div class="detail-card" id="saint-detail" data-id={saint.id}>
+<div
+  class="detail-card"
+  id="saint-detail"
+  data-id={saint.id}
+  data-name={saint.name}
+>
   <div class="detail-head">
     <figure class="detail-portrait">
       <Fragment set:html={portrait} />

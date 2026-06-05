@@ -26,6 +26,18 @@ const desc =
   </div>
 </BaseLayout>
 
+<script>
+  // Direct page views don't go through the detail-modal island, so record the
+  // "Saint Viewed" event here too (reads the card's data- attributes).
+  import { track } from "../../lib/analytics";
+  const card = document.getElementById("saint-detail");
+  if (card)
+    track("Saint Viewed", {
+      saint_id: card.dataset.id || "",
+      name: card.dataset.name || "",
+    });
+</script>
+
 <style>
   .saint-page {
     max-width: 780px;

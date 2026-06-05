@@ -17,6 +17,17 @@ const {
 const pageTitle =
   title === "Cloud of Witnesses" ? title : `${title} — Cloud of Witnesses`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Umami Analytics (privacy-friendly, cookie-less, free Hobby tier). Loaded
+// production-only — and only once a website id is configured — so the dev server
+// never pollutes the dashboard and the script is absent until set up. The id is
+// not a secret (it ships in the page source); set PUBLIC_UMAMI_WEBSITE_ID in the
+// deploy environment after creating the site at cloud.umami.is. PUBLIC_UMAMI_SRC
+// overrides the script host (e.g. a self-hosted instance). The script exposes the
+// global `umami.track()` used by lib/analytics.ts.
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID ?? "";
+const umamiSrc =
+  import.meta.env.PUBLIC_UMAMI_SRC ?? "https://cloud.umami.is/script.js";
 ---
 
 <!doctype html>
@@ -33,6 +44,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
       rel="stylesheet"
     />
+    {
+      import.meta.env.PROD && umamiWebsiteId && (
+        <script defer src={umamiSrc} data-website-id={umamiWebsiteId} />
+      )
+    }
   </head>
   <body>
     <SiteHeader active={active} />

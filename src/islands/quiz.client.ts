@@ -9,6 +9,7 @@ import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
+import { track } from "../lib/analytics";
 
 const dataEl = document.getElementById("finder-data");
 const questionsEl = document.getElementById("quiz-questions");
@@ -47,6 +48,7 @@ if (dataEl && questionsEl) {
       return;
     }
     const top = matched[0];
+    track("Quiz Completed", { top_match: top.s.name });
     const runners = matched.slice(1, 4);
     const sn = splitName(top.s.name);
     const reasons = [...new Set(top.reasons)].slice(0, 8);
