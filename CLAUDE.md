@@ -273,19 +273,21 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **2280 saints**. Seed (original 84 + the comprehensive **Sep 1–10**) plus the full
-  **January–November (Jan 1 → Nov 30)** spine walk, each landed in weekly PRs.
-  IDs run to OS-2305 (with OS-1926 retired as a removed duplicate), interleaved throughout with
-  feast-date reconciliations to existing rows (the whole fixed calendar Jan 1 through Nov 30 is
-  covered — eleven months). **Only December remains.**
-- **Next action: continue the Phase 1 spine walk at December 1**, a week at a time,
-  reconciling against existing entries by identity as you go (use `make find NAME="…"`).
-  Deferred saints landing in Dec: Peter, Metropolitan of Moscow (Dec 21), Gurias of Kazan (Dec 5).
-- **Saints deferred to their principal feasts** (relic translations/uncoverings skipped; the
-  saint is added when the walk reaches their repose date): Peter, Metropolitan of Moscow (Dec 21),
-  Gurias of Kazan (Dec 5). *(Already landed: Job of Pochaev & Demetrius of Rostov (Oct 28),
-  Herman of Kazan (Nov 6), Maximus of Moscow & Alexander Nevsky (Nov 11 / Nov 23), Metrophanes
-  of Voronezh (Nov 23).)*
+- Data: **2441 saints**. **PHASE 1 (the spine walk) IS COMPLETE — the whole fixed calendar
+  Jan 1 → Dec 31, all twelve months, is covered.** Seed (original 84 + the comprehensive
+  **Sep 1–10**) plus the full single-recension OCA walk, each week landed in its own PR.
+  IDs run to OS-2480 (with OS-1926 retired as a removed duplicate), interleaved throughout with
+  feast-date reconciliations to existing rows.
+- **Next action: Phase 2 — merge other jurisdictions by identity** (§8): work the Greek,
+  Romanian, Serbian, Georgian, Antiochian, Bulgarian, and Western pre-schism calendars, enriching
+  existing rows (add the jurisdiction to *Tradition of Veneration*, add feast dates, fill missing
+  facets) and adding only saints proper to a jurisdiction and not yet present. **Alternatively,
+  prioritize enrichment** of the finder facets on existing rows (Intercessions ~18%, Vocation
+  ~22%) over breadth — that is the most important quality axis (§1, §10).
+- **All relic-translation deferrals landed at their principal feasts** during the walk (Job of
+  Pochaev & Demetrius of Rostov Oct 28; Herman of Kazan Nov 6; Maximus of Moscow Nov 11;
+  Alexander Nevsky & Metrophanes of Voronezh Nov 23; Gurias of Kazan Dec 5; Simeon of Verkhoturye
+  & Peter, Metropolitan of Moscow Dec 18 / Dec 21).
 - **Phase-2 gaps** (likely missing from the Slavic recension; add when merging the Greek
   calendar): Arsenius of Paros (Jan 31), Joseph Samakos the Sanctified (Jan 22).
 - **Conflations flagged for a future cleanup PR** (identity edits kept out of data PRs):
