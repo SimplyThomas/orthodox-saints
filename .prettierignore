@@ -7,6 +7,9 @@ node_modules/
 static/
 package-lock.json
 
+# Design-reference bundle (prototypes + screenshots); not production code
+design_handoff_cloud_of_witnesses/
+
 # Python data pipeline + source data (not Prettier's concern)
 data/
 *.py

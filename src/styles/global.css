@@ -425,10 +425,12 @@ a.runner {
   display: block;
   width: auto;
   height: clamp(92px, 13vw, 160px);
-  margin: 6px auto 16px;
+  margin: 2px auto 28px;
 }
+/* Eyebrow sits just above the wordmark (design: tight, slightly overlapping). */
 .hero .eyebrow {
-  margin-bottom: 30px;
+  margin-top: 6px;
+  margin-bottom: -8px;
 }
 .hero blockquote {
   font-family: var(--serif);
@@ -496,6 +498,7 @@ a.runner {
 }
 
 .sotd-card {
+  display: block;
   background: var(--byz);
   border-radius: 4px;
   padding: 28px 28px 26px;

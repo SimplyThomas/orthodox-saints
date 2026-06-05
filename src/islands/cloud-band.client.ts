@@ -4,10 +4,10 @@
    buildSaintOfDay(). */
 
 import type { FinderSaint } from "../lib/types";
-import { feastDates } from "../lib/saints";
+import { feastDates, primaryRank } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase, MONTHS_FULL, WEEKDAYS } from "../lib/format";
-import { saintIcon } from "../lib/icons";
+import { saintAvatar } from "../lib/icons";
 
 const host = document.getElementById("sotd");
 const dataEl = document.getElementById("finder-data");
@@ -56,7 +56,7 @@ if (host && dataEl) {
     <div class="eyebrow" style="margin-bottom:14px">Today · ${esc(dateLabel)}</div>
     <a class="sotd-card" data-saint="${esc(primary.id)}" href="${esc(withBase(`saint/${primary.id}`))}">
       <div class="sotd-top">
-        ${saintIcon(92, 116, "gold")}
+        ${saintAvatar(primary, 92, 116, { type: primaryRank(primary) })}
         <div>
           <div class="kicker">${esc(kicker)}</div>
           <h3>${esc(sn.title)}${

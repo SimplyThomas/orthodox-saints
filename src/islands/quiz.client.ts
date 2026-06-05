@@ -8,7 +8,7 @@ import { QUIZ, emptyQuizSelected, quizMatches } from "../lib/quiz";
 import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
-import { saintIcon } from "../lib/icons";
+import { saintAvatar } from "../lib/icons";
 
 const dataEl = document.getElementById("finder-data");
 const questionsEl = document.getElementById("quiz-questions");
@@ -56,7 +56,7 @@ if (dataEl && questionsEl) {
     // .href/.dataset from data — this is the same safe pattern the finder uses.
     const cardHtml = `
       <a class="patron-card" data-saint="${esc(top.s.id)}" href="${esc(withBase(`saint/${top.s.id}`))}">
-        <div class="frame">${saintIcon(170, 210, "gold", true, true)}</div>
+        <div class="frame">${saintAvatar(top.s, 170, 210, { type: primaryRank(top.s) })}</div>
         <div>
           <h2>${esc(sn.title)}</h2>
           <div class="epithet">${esc(sn.epithet || (top.s.aka && top.s.aka[0]) || "")}</div>
@@ -77,7 +77,7 @@ if (dataEl && questionsEl) {
       const cards = runners
         .map(({ s }) => {
           const rsn = splitName(s.name);
-          return `<a class="runner" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">${saintIcon(40, 50, "blue")}<div>
+          return `<a class="runner" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">${saintAvatar(s, 40, 50, { type: primaryRank(s) })}<div>
             <div class="rn-name">${esc(rsn.title)}</div>
             <div class="rn-sub">${esc(rsn.epithet || "")}${rsn.epithet ? " · " : ""}${esc(firstFeast(s))}</div></div></a>`;
         })

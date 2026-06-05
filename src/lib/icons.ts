@@ -2,6 +2,8 @@
    they can be used both at build time (.astro via set:html) and inside the
    client islands (innerHTML). Thin .astro wrappers live in components/icons/. */
 
+import { monogramLetter } from "./names";
+
 export function byzCross(
   size = 22,
   color = "currentColor",
@@ -33,43 +35,99 @@ export function domeMark(w = 200, color = "#D4AF37"): string {
     style="width:100%;height:auto" aria-hidden="true">${domes}</svg>`;
 }
 
-export function saintIcon(
-  w = 120,
-  h = 150,
-  tone: "blue" | "gold" = "blue",
-  halo = true,
-  round = false,
+/* ---- Production tiered saint avatar (the design's SaintAvatar) ----
+   Real icon when `image` is set; otherwise an auto monogram — the saint's
+   given-name initial under a small cross, on a ground colour-coded by rank/type.
+   `opts.awaiting` renders the not-yet-glorified treatment (neutral ground, no
+   cross) so such figures stay visually distinct from canonised saints. This
+   replaces the old repeating-figure `SaintIcon`, which is retired. */
+
+const AVATAR_FRAME = "#a9852a";
+const AVATAR_ARCH =
+  "M6 24 a54 54 0 0 1 108 0 V144 a6 6 0 0 1 -6 6 H12 a6 6 0 0 1 -6 -6 Z";
+
+interface AvatarColor {
+  bg: string;
+  ink: string;
+}
+
+/* Rank/type term → colour family, mirroring the `.tag.t-*` groupings in
+   global.css so a saint's monogram and category chip share one colour. Martyr
+   is checked before the monastic family so e.g. "Venerable-Martyr" reads red. */
+function avatarColors(type: string, awaiting: boolean): AvatarColor {
+  if (awaiting) return { bg: "#e7e2d6", ink: "#6a6256" };
+  const t = (type || "").toLowerCase();
+  const has = (...xs: string[]) => xs.some((x) => t.includes(x));
+  if (
+    has("apostle", "prophet", "evangelist", "confessor", "enlightener", "equal")
+  )
+    return { bg: "#f3ead2", ink: "#7a5a14" };
+  if (has("martyr", "passion-bearer")) return { bg: "#f1e2dd", ink: "#8d3a2f" };
+  if (
+    has("hierarch", "bishop", "archbishop", "patriarch", "metropolitan", "pope")
+  )
+    return { bg: "#e8eef4", ink: "#234c7a" };
+  if (
+    has("unmercenary", "fool", "wonderworker", "missionary", "priest", "deacon")
+  )
+    return { bg: "#e6edf2", ink: "#4a6f96" };
+  if (
+    has(
+      "monastic",
+      "righteous",
+      "venerable",
+      "ascetic",
+      "abbot",
+      "abbess",
+      "nun",
+      "monk",
+      "elder",
+      "hermit",
+      "stylite",
+    )
+  )
+    return { bg: "#e3ece6", ink: "#3d6157" };
+  return { bg: "#efe3cb", ink: "#234c7a" };
+}
+
+export interface AvatarSaint {
+  name: string;
+  rank?: string[];
+  /** primary rank/type override (e.g. America `cat`) */
+  type?: string;
+  /** optional real-icon URL; absent → monogram */
+  image?: string;
+}
+
+export function saintAvatar(
+  s: AvatarSaint,
+  w = 88,
+  h = 108,
+  opts: { type?: string; awaiting?: boolean } = {},
 ): string {
-  const T = {
-    blue: {
-      bg: "#efe3cb",
-      frame: "#a9852a",
-      halo: "#D4AF37",
-      fig: "#234C7A",
-      face: "#cdb98f",
-    },
-    gold: {
-      bg: "#1b3a5c",
-      frame: "#D4AF37",
-      halo: "#D4AF37",
-      fig: "#9bb6d4",
-      face: "#e6cd7e",
-    },
-  }[tone];
-  const cid = "arch" + tone + w + h + (halo ? "h" : "") + (round ? "r" : "");
-  const haloEls = halo
-    ? `<circle cx="60" cy="66" r="30" fill="none" stroke="${T.halo}" stroke-width="3"/>
-       <line x1="60" y1="40" x2="60" y2="92" stroke="${T.halo}" stroke-width="2.4"/>
-       <line x1="36" y1="66" x2="84" y2="66" stroke="${T.halo}" stroke-width="2.4"/>
-       <line x1="60" y1="112" x2="60" y2="132" stroke="${T.halo}" stroke-width="2.4"/>
-       <line x1="52" y1="120" x2="68" y2="120" stroke="${T.halo}" stroke-width="2.4"/>`
-    : `<circle cx="60" cy="66" r="30" fill="none" stroke="${T.frame}" stroke-width="1.5" opacity=".5"/>`;
-  return `<svg width="${w}" height="${h}" viewBox="0 0 120 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs><clipPath id="${cid}"><path d="M6 ${round ? 70 : 24} a54 54 0 0 1 108 0 V144 a6 6 0 0 1 -6 6 H12 a6 6 0 0 1 -6 -6 Z"/></clipPath></defs>
-    <rect x="1.5" y="1.5" width="117" height="147" rx="6" fill="${T.bg}" stroke="${T.frame}" stroke-width="2.5"/>
-    <g clip-path="url(#${cid})"><rect x="6" y="0" width="108" height="150" fill="${T.bg}"/>
-    ${haloEls}
-    <path d="M22 150 C24 116 38 100 60 100 C82 100 96 116 98 150 Z" fill="${T.fig}"/>
-    <circle cx="60" cy="66" r="19" fill="${T.face}"/>
-    <path d="M60 47 a19 19 0 0 0 -19 19 q19 6 38 0 a19 19 0 0 0 -19 -19" fill="${T.fig}" opacity=".55"/></g></svg>`;
+  const type = opts.type ?? s.type ?? (s.rank && s.rank[0]) ?? "";
+  const awaiting = !!opts.awaiting;
+
+  // Real-icon tier: cover-fit image inside the arched gold frame.
+  if (s.image) {
+    const url = String(s.image).replace(/['"\\)]/g, "");
+    const clip = `path('${AVATAR_ARCH}')`;
+    return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;clip-path:${clip};-webkit-clip-path:${clip};background:#efe3cb center/cover no-repeat url('${url}')"></div></div>`;
+  }
+
+  // Monogram tier.
+  const c = avatarColors(type, awaiting);
+  const letter = monogramLetter(s.name);
+  const id =
+    "sa" + Math.round(w) + Math.round(h) + letter + (awaiting ? "a" : "");
+  const cross = awaiting
+    ? ""
+    : `<line x1="60" y1="28" x2="60" y2="44" stroke="${AVATAR_FRAME}" stroke-width="2.2"/>
+       <line x1="52" y1="36" x2="68" y2="36" stroke="${AVATAR_FRAME}" stroke-width="2.2"/>`;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 120 150" style="display:block;flex-shrink:0" aria-hidden="true">
+    <defs><clipPath id="${id}"><path d="${AVATAR_ARCH}"/></clipPath></defs>
+    <rect x="1.5" y="1.5" width="117" height="147" rx="6" fill="${c.bg}" stroke="${AVATAR_FRAME}" stroke-width="2.5"/>
+    <g clip-path="url(#${id})"><rect x="6" y="0" width="108" height="150" fill="${c.bg}"/>
+    ${cross}
+    <text x="60" y="108" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="78" fill="${c.ink}">${letter}</text></g></svg>`;
 }
