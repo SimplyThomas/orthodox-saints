@@ -229,10 +229,7 @@ export function findAmerican(
 ): Saint | undefined {
   const fn = name
     .toLowerCase()
-    .replace(
-      /^(elder|hieromonk|archimandrite|archbishop|mother|fr\.?\s+)/,
-      "",
-    )
+    .replace(/^(elder|hieromonk|archimandrite|archbishop|mother|fr\.?\s+)/, "")
     .split(" ")[0];
   const epMatch = (epithet || "").toLowerCase().match(/[a-z]{4,}/);
   const ep = epMatch ? epMatch[0] : "";
