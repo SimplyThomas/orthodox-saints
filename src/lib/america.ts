@@ -30,21 +30,22 @@ export interface AwaitingSaint {
   years: string;
   place: string;
   contribution: string;
+  reposedYear?: string;
 }
 
-export const AMERICA_LEAD: AmericaSaint = {
-  name: "Herman",
-  epithet: "of Alaska",
-  cat: "Monastic",
-  years: "c. 1756 – 1837",
-  feast: "Dec 13",
-  glorified: "1970",
-  badge: "First-glorified Saint of North America",
-  contribution:
-    "Came with the 1794 Valaam mission to Kodiak; a humble monk who defended the Alaska Natives from exploitation and lived as a hermit on Spruce Island, the spiritual father of all American Orthodoxy.",
-};
-
-export const AMERICA_GLORIFIED: AmericaSaint[] = [
+// Movement I — They Came from Across the Sea
+export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
+  {
+    name: "Herman",
+    epithet: "of Alaska",
+    cat: "Monastic",
+    years: "c. 1756 – 1837",
+    feast: "Dec 13",
+    glorified: "1970",
+    badge: "First-glorified Saint of North America",
+    contribution:
+      "Came with the 1794 Valaam mission to Kodiak; a humble monk who defended the Alaska Natives from exploitation and lived as a hermit on Spruce Island, the spiritual father of all American Orthodoxy.",
+  },
   {
     name: "Innocent",
     epithet: "of Alaska",
@@ -96,15 +97,19 @@ export const AMERICA_GLORIFIED: AmericaSaint[] = [
       "A parish priest who guided tens of thousands of Carpatho-Russian immigrants home to Orthodoxy across the mining towns of the American Northeast.",
   },
   {
-    name: "Jacob",
-    epithet: "Netsvetov",
-    cat: "Enlightener",
-    years: "1802 – 1864",
-    feast: "Jul 26",
-    glorified: "1994",
+    name: "Nikolai",
+    epithet: "of Žiča",
+    cat: "Hierarch",
+    years: "1880 – 1956",
+    feast: "Mar 18",
+    glorified: "2003",
     contribution:
-      "The first Alaska Native ordained to the priesthood, who carried the Gospel and the translated services to his own peoples of the Yukon delta.",
+      "Serbian bishop, theologian and “New Chrysostom” who taught in America and reposed at St Tikhon’s Monastery in South Canaan, Pennsylvania.",
   },
+];
+
+// Movement II — Those Born of This Land
+export const AMERICA_MOVEMENT_II: AmericaSaint[] = [
   {
     name: "Peter",
     epithet: "the Aleut",
@@ -116,24 +121,14 @@ export const AMERICA_GLORIFIED: AmericaSaint[] = [
       "A young Aleut from Kodiak martyred in California for refusing to renounce the Orthodox faith — the proto-martyr of America.",
   },
   {
-    name: "Sebastian",
-    epithet: "Dabovich",
-    cat: "Missionary",
-    years: "1863 – 1940",
-    feast: "Nov 30",
-    glorified: "2015",
+    name: "Jacob",
+    epithet: "Netsvetov",
+    cat: "Enlightener",
+    years: "1802 – 1864",
+    feast: "Jul 26",
+    glorified: "1994",
     contribution:
-      "The first Orthodox priest born in the United States; a tireless missionary across the Americas called the “Apostle to the Americas.”",
-  },
-  {
-    name: "Nikolai",
-    epithet: "of Žiča",
-    cat: "Hierarch",
-    years: "1880 – 1956",
-    feast: "Mar 18",
-    glorified: "2003",
-    contribution:
-      "Serbian bishop, theologian and “New Chrysostom” who taught in America and reposed at St Tikhon’s Monastery in South Canaan, Pennsylvania.",
+      "The first Alaska Native ordained to the priesthood, who carried the Gospel and the translated services to his own peoples of the Yukon delta.",
   },
   {
     name: "Olga",
@@ -144,6 +139,16 @@ export const AMERICA_GLORIFIED: AmericaSaint[] = [
     glorified: "2023",
     contribution:
       "A Yup’ik matushka of Kwethluk, a midwife and mother known for her quiet care of the abused and the grieving — recently glorified by the Church in America.",
+  },
+  {
+    name: "Sebastian",
+    epithet: "Dabovich",
+    cat: "Missionary",
+    years: "1863 – 1940",
+    feast: "Nov 30",
+    glorified: "2015",
+    contribution:
+      "The first Orthodox priest born in the United States; a tireless missionary across the Americas called the “Apostle to the Americas.”",
   },
 ];
 
@@ -166,6 +171,52 @@ export const AMERICA_AWAITING: AwaitingSaint[] = [
     contribution:
       "An American convert and co-founder of the St Herman of Alaska Monastery in California whose writings opened the door of Orthodoxy to a whole generation of English-speaking seekers.",
   },
+  {
+    name: "Archbishop Dmitri",
+    epithet: "Royster",
+    role: "Missionary Hierarch",
+    years: "1923 – 2011",
+    place: "Dallas, Texas",
+    contribution:
+      "A Texan convert from a Baptist family who became founding bishop of the Diocese of the South, planting and nurturing scores of mission parishes across the American South.",
+  },
+  {
+    name: "Fr. Thomas Hopko",
+    epithet: "of St Vladimir’s",
+    role: "Priest & Theologian",
+    years: "1939 – 2015",
+    place: "Ellwood City, Pennsylvania",
+    contribution:
+      "A beloved teacher, preacher and dean of St Vladimir’s Seminary whose lectures, books and “55 maxims” formed generations of English-speaking Orthodox Christians.",
+  },
+  {
+    name: "Archimandrite Roman",
+    epithet: "Braga",
+    role: "Confessor & Elder",
+    years: "1922 – 2015",
+    place: "Holy Dormition Monastery, Rives Junction, Michigan",
+    contribution:
+      "A Romanian priest imprisoned and tortured under communism who, having found inner freedom in his cell, carried that joy to America and shaped monastic life in Michigan.",
+  },
+  {
+    name: "Fr. Michael",
+    epithet: "Gelsinger",
+    role: "Priest",
+    years: "",
+    reposedYear: "2019",
+    place: "the American South",
+    contribution:
+      "A pastor remembered with deep affection by many of the faithful across the American South, who held him in living memory long after his repose.",
+  },
+  {
+    name: "Mother Alexandra",
+    epithet: "Princess Ileana",
+    role: "Monastic Foundress",
+    years: "1909 – 1991",
+    place: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
+    contribution:
+      "Born Princess Ileana of Romania, she embraced monastic life in America and founded the Monastery of the Transfiguration in Pennsylvania — a haven of prayer for Orthodox women.",
+  },
 ];
 
 /* Resolve a curated America entry to a canonical saint row (by first name +
@@ -178,7 +229,7 @@ export function findAmerican(
 ): Saint | undefined {
   const fn = name
     .toLowerCase()
-    .replace(/^(elder|hieromonk)\s+/, "")
+    .replace(/^(elder|hieromonk|archimandrite|archbishop|mother|fr\.?\s+)/, "")
     .split(" ")[0];
   const epMatch = (epithet || "").toLowerCase().match(/[a-z]{4,}/);
   const ep = epMatch ? epMatch[0] : "";
