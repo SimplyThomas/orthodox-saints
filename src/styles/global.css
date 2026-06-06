@@ -1462,6 +1462,108 @@ a.runner {
   color: var(--celest);
 }
 
+/* hero tagline */
+.am-hero p.am-hero-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: var(--gold-deep);
+  margin: 8px auto 0;
+  line-height: 1.3;
+}
+
+/* essay */
+.am-essay {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 64px clamp(16px, 4vw, 56px);
+}
+.am-essay-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.am-essay-head {
+  font-size: clamp(24px, 3vw, 34px);
+  color: var(--byz-deep);
+  margin-bottom: 24px;
+}
+.am-essay-inner > p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+/* pull quote */
+.am-pullquote {
+  border-left: 3px solid var(--gold);
+  margin: 32px 0;
+  padding: 12px 24px;
+  background: rgba(212, 175, 55, 0.07);
+  border-radius: 0 4px 4px 0;
+}
+.am-pullquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--byz-deep);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+.am-pullquote cite {
+  font-size: 13px;
+  color: var(--celest);
+  font-style: normal;
+}
+
+/* movement headers */
+.am-movement-head {
+  margin: 48px 0 24px;
+}
+.am-movement-head--ii {
+  margin-top: 56px;
+}
+.am-movement-head h2 {
+  font-size: clamp(24px, 3.2vw, 34px);
+  color: var(--byz-deep);
+  margin: 4px 0 12px;
+}
+.am-movement-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--celest);
+  max-width: 680px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* closing section */
+.am-closing {
+  background: var(--byz);
+  padding: 72px clamp(16px, 4vw, 56px);
+  text-align: center;
+}
+.am-closing-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.am-closing .eyebrow {
+  color: var(--gold-soft);
+  margin-bottom: 20px;
+}
+.am-closing p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--ivory);
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.am-closing p:last-child {
+  margin-bottom: 0;
+}
+
 /* ============================================================
    DETAIL modal
    ============================================================ */

@@ -1,8 +1,8 @@
 ---
 import { SAINTS } from "../lib/data";
 import {
-  AMERICA_LEAD,
-  AMERICA_GLORIFIED,
+  AMERICA_MOVEMENT_I,
+  AMERICA_MOVEMENT_II,
   AMERICA_AWAITING,
   findAmerican,
 } from "../lib/america";
@@ -11,11 +11,13 @@ import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
 import ByzCross from "./icons/ByzCross.astro";
 
-const lead = AMERICA_LEAD;
-const leadHit = findAmerican(SAINTS, lead.name, lead.epithet);
+const movement1 = AMERICA_MOVEMENT_I.map((s) => ({
+  s,
+  hit: findAmerican(SAINTS, s.name, s.epithet),
+  catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
+}));
 
-// Resolve each glorified saint to a canonical row (build-time) for a real link.
-const glorified = AMERICA_GLORIFIED.map((s) => ({
+const movement2 = AMERICA_MOVEMENT_II.map((s) => ({
   s,
   hit: findAmerican(SAINTS, s.name, s.epithet),
   catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
@@ -23,63 +25,116 @@ const glorified = AMERICA_GLORIFIED.map((s) => ({
 
 const awaiting = AMERICA_AWAITING.map((s) => ({
   s,
-  reposed: (s.years.split("–").pop() || "").trim(),
+  reposed: s.reposedYear || (s.years.split("–").pop() || "").trim(),
 }));
-
-const LeadTag = leadHit ? "a" : "div";
 ---
 
 <section class="am-hero">
   <div class="dome-bg"><DomeMark w={460} color="var(--byz)" /></div>
   <div class="inner">
-    <div class="eyebrow">The Faith Planted in the New World</div>
-    <h1>Saints of America</h1>
+    <div class="eyebrow">The Holy People of America</div>
+    <h1>The Saints of America</h1>
+    <p class="am-hero-tagline">A Pilgrimage of Hope</p>
+  </div>
+</section>
+
+<section class="am-essay">
+  <div class="am-essay-inner">
+    <h2 class="am-essay-head">The Holy People of America</h2>
     <p>
-      From the shores of Alaska to the cities of the East, these holy men and
-      women carried Orthodoxy to this continent — and tended it through
-      hardship, mission, and martyrdom.
+      When first approaching Orthodoxy, it can seem as if it is far away. You
+      might wonder: Where has the Church been this whole time? Why does America
+      feel as though it has been left to wander in the desert?
+    </p>
+    <p>
+      The thing is, the Church has been here all along. Some might say she has
+      existed since before the foundations of the world. America, on the other
+      hand, is young. Though the Church has grown slowly here, she is here.
+    </p>
+    <blockquote class="am-pullquote">
+      <p>
+        "The kingdom of heaven is like leaven that a woman took and hid in
+        three measures of flour, till it was all leavened."
+      </p>
+      <cite>— Matthew 13:33</cite>
+    </blockquote>
+    <p>
+      Slowly, and often hidden from the world, Christ has been planting seeds
+      of holiness in this land. The holy people of America remind us that
+      Orthodoxy is not only something ancient and far away. It is alive here.
+      Saints crossed oceans, endured loneliness, built churches, prayed in
+      wilderness places, served the poor, and healed the wounded.
+    </p>
+    <p>Many of them never saw the fruits of their labor. They planted, and God gave the increase.</p>
+    <p>
+      On this page you will find a small gathering of witnesses — canonized
+      saints, righteous elders, missionaries, monastics, martyrs, mothers,
+      priests, and faithful servants whose lives show that God is still working
+      in this land.
     </p>
   </div>
 </section>
 
 <section class="am-section">
-  <LeadTag
-    class={`am-lead${leadHit ? " clickable" : ""}`}
-    data-saint={leadHit?.id}
-    href={leadHit ? withBase(`saint/${leadHit.id}`) : undefined}
-  >
-    <div
-      class="frame"
-      set:html={saintAvatar({ name: lead.name }, 160, 196, { type: lead.cat })}
-    />
-    <div>
-      <span class="badge">{lead.badge}</span>
-      <h2>{lead.name} <span class="epithet">{lead.epithet}</span></h2>
-      <div class="years">{lead.years}</div>
-      <p>{lead.contribution}</p>
-      <div class="facts">
-        <span><span class="k">Feast</span> · {lead.feast}</span>
-        <span class="sep"></span>
-        <span><span class="k">Glorified</span> · {lead.glorified}</span>
-      </div>
-    </div>
-  </LeadTag>
-
-  <div class="am-grid-head">
-    <div>
-      <div class="eyebrow" style="margin-bottom:8px">
-        Glorified by the Church
-      </div>
-      <h2>Saints of North America</h2>
-    </div>
-    <span class="stat"
-      >{glorified.length + 1} commemorated · Alaska to the Atlantic</span
-    >
+  <div class="am-movement-head">
+    <div class="eyebrow">Movement I</div>
+    <h2>They Came from Across the Sea</h2>
+    <p class="am-movement-tagline">
+      They left the old world behind — crossing oceans into loneliness — to
+      carry the faith to a continent that did not yet know it.
+    </p>
   </div>
 
   <div class="am-grid">
     {
-      glorified.map(({ s, hit, catSlug }) => {
+      movement1.map(({ s, hit, catSlug }) => {
+        const Tag = hit ? "a" : "div";
+        return (
+          <Tag
+            class={`am-card${hit ? " clickable" : ""}`}
+            data-saint={hit?.id}
+            href={hit ? withBase(`saint/${hit.id}`) : undefined}
+          >
+            <div
+              class="portrait"
+              set:html={saintAvatar({ name: s.name }, 88, 108, {
+                type: s.cat,
+              })}
+            />
+            <div class="body">
+              <div class="card-head">
+                <h3>{s.name}</h3>
+                <span class="years">{s.years}</span>
+              </div>
+              <div class="epithet">{s.epithet}</div>
+              <span class={`tag ${catSlug}`}>
+                <i />
+                {s.cat}
+              </span>
+              <p>{s.contribution}</p>
+              <div class="card-foot">
+                <span class="feast">Feast · {s.feast}</span>
+                <span class="glor">Glorified {s.glorified}</span>
+              </div>
+            </div>
+          </Tag>
+        );
+      })
+    }
+  </div>
+
+  <div class="am-movement-head am-movement-head--ii">
+    <div class="eyebrow">Movement II</div>
+    <h2>Those Born of This Land</h2>
+    <p class="am-movement-tagline">
+      The first fruits of Orthodoxy native to this soil — children of Alaska
+      and America who became holy where they were born.
+    </p>
+  </div>
+
+  <div class="am-grid">
+    {
+      movement2.map(({ s, hit, catSlug }) => {
         const Tag = hit ? "a" : "div";
         return (
           <Tag
@@ -123,12 +178,11 @@ const LeadTag = leadHit ? "a" : "div";
           <div class="eyebrow" style="margin-bottom:8px">
             Awaiting Glorification
           </div>
-          <h2>Remembered with Love</h2>
+          <h2>A Living Church Still Growing</h2>
           <p>
-            These reposed servants of God have not yet been formally glorified
-            by the Church. They are gathered here with reverence — held in
-            living memory by the faithful whose lives they shaped on this soil,
-            and are not presented as canonized saints.
+            The work is not finished. These reposed servants are held in living
+            memory by the faithful — remembered with love, though not yet
+            formally glorified by the Church.
           </p>
         </div>
       </div>
@@ -145,7 +199,7 @@ const LeadTag = leadHit ? "a" : "div";
               <div>
                 <div class="head">
                   <h3>{s.name}</h3>
-                  <span class="years">{s.years}</span>
+                  {s.years && <span class="years">{s.years}</span>}
                 </div>
                 <div class="epithet">{s.epithet}</div>
                 <div class="badges">
@@ -157,7 +211,7 @@ const LeadTag = leadHit ? "a" : "div";
                 </div>
                 <p>{s.contribution}</p>
                 <div class="repose">
-                  ✝ Reposed {reposed} · {s.place}
+                  ✝{reposed ? ` Reposed ${reposed} · ` : " "}{s.place}
                 </div>
               </div>
             </div>
@@ -165,5 +219,20 @@ const LeadTag = leadHit ? "a" : "div";
         }
       </div>
     </div>
+  </div>
+</section>
+
+<section class="am-closing">
+  <div class="am-closing-inner">
+    <div class="eyebrow">For the Lonely Convert</div>
+    <p>
+      Now you join their ranks. Let your mustard seed take root, that through
+      God's grace one more person might find truth, comfort, and refuge beneath
+      the wings of our Father.
+    </p>
+    <p>
+      The very fact that you are here is evidence that the seeds they planted
+      have borne fruit.
+    </p>
   </div>
 </section>
