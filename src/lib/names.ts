@@ -6,9 +6,18 @@ export function cleanName(name: string): string {
 }
 
 /* Split a display name into a head + italic epithet, e.g.
-   "Basil the Great" -> { title: "Basil", epithet: "the Great" }. */
+   "Basil the Great" -> { title: "Basil", epithet: "the Great" }.
+   A comma takes precedence: "Luke, Archbishop of Crimea" ->
+   { title: "Luke", epithet: "Archbishop of Crimea" }. */
 export function splitName(name: string): { title: string; epithet: string } {
   const n = cleanName(name);
+  const comma = n.indexOf(",");
+  if (comma !== -1) {
+    return {
+      title: n.slice(0, comma).trim(),
+      epithet: n.slice(comma + 1).trim(),
+    };
+  }
   const m = n.match(/^(.+?)(\s+(?:of|the)\s+.+)$/i);
   if (m) return { title: m[1].trim(), epithet: m[2].trim() };
   return { title: n, epithet: "" };
