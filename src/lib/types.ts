@@ -55,6 +55,23 @@ export interface Saint {
   imageSource?: string;
 }
 
+/** The light projection shipped to the home landing page (saint-of-the-day +
+    "From the Cloud" shuffle cards). No search haystack, no facet lists beyond
+    intercession — keeps the landing payload far smaller than the finder's. */
+export interface CardSaint {
+  id: string;
+  name: string;
+  aka: string[];
+  rank: string[];
+  intercession: string[];
+  era: string;
+  century: string;
+  feast: string;
+  brief: string;
+  notes: string;
+  image?: string;
+}
+
 /** The trimmed projection shipped to the finder island (no heavy detail fields). */
 export interface FinderSaint {
   id: string;

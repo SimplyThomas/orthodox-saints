@@ -1,0 +1,84 @@
+---
+/* A gilded "iconostasis" panel on the navy gallery ground: jewel-toned
+   gradient, inset gold frame, a faint sprouting-seed motif (the page's
+   mustard-seed theme), a light centered heading, and a horizontal scroll-snap
+   carousel of saint cards (slotted). Arrows are wired by the
+   america-carousel island. */
+interface Props {
+  title: string;
+  lede: string;
+  /** jewel tone of the panel */
+  tone: "garnet" | "forest" | "plum";
+  /** last panel — extra bottom padding before the next section */
+  tail?: boolean;
+}
+const { title, lede, tone, tail = false } = Astro.props;
+---
+
+<section class:list={["pga-movement", tone, { tail }]}>
+  <div class="panel">
+    <div class="seed" aria-hidden="true">
+      <svg
+        width="78"
+        height="78"
+        viewBox="0 0 30 30"
+        fill="none"
+        stroke="var(--gold)"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 27 V13"></path>
+        <path
+          d="M15 16 C10 16 6.5 13 6 8.5 C11 8.5 14.5 11.5 15 16 Z"
+          fill="var(--gold)"
+          fill-opacity=".14"></path>
+        <path
+          d="M15 14 C20 14 23.5 10.5 24 6 C19 6 15.5 9 15 14 Z"
+          fill="var(--gold)"
+          fill-opacity=".14"></path>
+        <circle cx="15" cy="27" r="1.3" fill="var(--gold)" stroke="none"
+        ></circle>
+      </svg>
+    </div>
+    <div class="inset" aria-hidden="true"></div>
+    <div class="panel-inner">
+      <div class="pga-heading">
+        <h2>{title}</h2>
+        <p class="lede">{lede}</p>
+        <div class="rule"><span class="dot"></span></div>
+      </div>
+      <div class="pga-carousel">
+        <div class="pga-track">
+          <slot />
+        </div>
+        <button type="button" class="pga-arrow prev" aria-label="Previous">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz)"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg
+          >
+        </button>
+        <button type="button" class="pga-arrow next" aria-label="Next">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz)"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

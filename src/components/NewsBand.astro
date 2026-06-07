@@ -1,0 +1,93 @@
+---
+/* "Saints in the News" — full-width band beneath the Today/From-the-Cloud grid.
+   NOTE: these headlines are SAMPLE PLACEHOLDERS from the design handoff; they
+   are hardcoded and do not update. Replace with a real feed (or hand-curated
+   items with real hrefs) before treating this section as factual. When an item
+   gains an `href`, render the card as a link. */
+interface NewsItem {
+  kicker: string;
+  headline: string;
+  source: string;
+  when: string;
+  href?: string;
+}
+const news: NewsItem[] = [
+  {
+    kicker: "Glorification",
+    headline: "Holy Synod glorifies three new martyrs of the twentieth century",
+    source: "Orthodox Times",
+    when: "2 days ago",
+  },
+  {
+    kicker: "Relics",
+    headline:
+      "Relics of St Nicholas to visit parishes across the Midwest this summer",
+    source: "OCA News",
+    when: "Jun 1",
+  },
+  {
+    kicker: "Pilgrimage",
+    headline: "Thousands gather on Spruce Island for the St Herman pilgrimage",
+    source: "Ancient Faith",
+    when: "May 27",
+  },
+  {
+    kicker: "Feature",
+    headline:
+      "Rediscovering the desert mothers: the ammas of early monasticism",
+    source: "Public Orthodoxy",
+    when: "May 21",
+  },
+];
+---
+
+<div class="news-band">
+  <div class="news-head">
+    <div>
+      <div class="eyebrow">Saints in the News</div>
+      <div class="stat">
+        Recent glorifications, relics, pilgrimages, and features from across the
+        Church
+      </div>
+    </div>
+    <span class="all-news">All news &rarr;</span>
+  </div>
+  <div class="news-grid">
+    {
+      news.map((n) => {
+        const Tag = n.href ? "a" : "article";
+        return (
+          <Tag
+            class="news-card"
+            href={n.href}
+            target={n.href ? "_blank" : undefined}
+            rel={n.href ? "noopener noreferrer" : undefined}
+          >
+            <div class="news-top">
+              <span class="kicker">{n.kicker}</span>
+              <span class="sp" />
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="var(--celest)"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 10L10 4M5 4h5v5" />
+              </svg>
+            </div>
+            <div class="news-h">{n.headline}</div>
+            <div class="sp" />
+            <div class="news-src">
+              <span class="src">{n.source}</span> · {n.when}
+            </div>
+          </Tag>
+        );
+      })
+    }
+  </div>
+</div>

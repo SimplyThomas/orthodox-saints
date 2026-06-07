@@ -2,34 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeHero from "../components/HomeHero.astro";
 import CloudBand from "../components/CloudBand.astro";
-import Finder from "../components/Finder.astro";
 import DetailModal from "../components/DetailModal.astro";
-import { FINDER_SAINTS } from "../lib/data";
+import { CARD_SAINTS } from "../lib/data";
 
-// Inline the trimmed finder index for the client island. Escaping "<" prevents
-// any "</script>" sequence in saint text from breaking out of the JSON block.
-// TODO(scale): this ships the full (trimmed) dataset on the home page. Per
-// CLAUDE.md §11 that is comfortable to ~5000 saints; past that, split to an
-// on-demand list index. Per-saint detail pages are already lean (one record).
-const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+// The home page is a landing page: hero search (submits to /search), saint of
+// the day, the "From the Cloud" shuffle, and the news band. The full faceted
+// finder lives on /search. Only the light card projection ships here — enough
+// for the saint-of-the-day island and the shuffle deck.
+const cardJson = JSON.stringify(CARD_SAINTS).replace(/</g, "\\u003c");
 ---
 
 <BaseLayout active="home">
   <div id="home">
     <HomeHero />
     <CloudBand />
-    <Finder />
   </div>
   <DetailModal />
 
   <script
     type="application/json"
-    id="finder-data"
-    set:html={finderJson}
+    id="card-data"
+    set:html={cardJson}
     is:inline
   />
   <script>
-    import "../islands/finder.client.ts";
     import "../islands/cloud-band.client.ts";
   </script>
 </BaseLayout>

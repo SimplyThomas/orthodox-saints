@@ -1,7 +1,20 @@
 ---
 import DomeMark from "./icons/DomeMark.astro";
 import SearchGlyph from "./icons/SearchGlyph.astro";
+import { withBase } from "../lib/format";
 import logo from "../assets/logo.png";
+
+// The hero search is a plain GET form: submitting lands on /search?q=… with
+// no JavaScript required. The browse-by chips are links that open the matching
+// facet group on the search page.
+const searchUrl = withBase("search");
+const browse = [
+  ["rank", "Type"],
+  ["intercession", "Intercession"],
+  ["origin", "Region"],
+  ["century", "Century"],
+  ["experience", "Life Experience"],
+] as const;
 ---
 
 <section class="hero">
@@ -18,32 +31,31 @@ import logo from "../assets/logo.png";
       before&nbsp;us&hellip;&rdquo;
       <cite>Hebrews 12 : 1</cite>
     </blockquote>
-    <div class="search" role="search">
+    <form class="search" role="search" action={searchUrl} method="get">
       <span class="ico" id="hero-search-ico" aria-hidden="true">
         <SearchGlyph size={22} color="var(--celest)" />
       </span>
       <input
         type="search"
+        name="q"
         id="q"
         placeholder="Search saints, feasts, and commemorations…"
         autocomplete="off"
         aria-label="Search saints"
       />
-      <button type="button" class="btn btn--gold" id="hero-search-btn"
+      <button type="submit" class="btn btn--gold" id="hero-search-btn"
         >Search</button
       >
-    </div>
+    </form>
     <div class="browse-by">
       <span class="label">Browse by</span>
-      <button type="button" class="chip" data-browse="rank">Type</button>
-      <button type="button" class="chip" data-browse="intercession"
-        >Intercession</button
-      >
-      <button type="button" class="chip" data-browse="origin">Region</button>
-      <button type="button" class="chip" data-browse="century">Century</button>
-      <button type="button" class="chip" data-browse="experience"
-        >Life Experience</button
-      >
+      {
+        browse.map(([key, label]) => (
+          <a class="chip" href={`${searchUrl}?browse=${key}`}>
+            {label}
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -1,8 +1,10 @@
 ---
 import { SAINTS } from "../lib/data";
 import { QUIZ, optionsFor } from "../lib/quiz";
+import EyebrowRule from "./EyebrowRule.astro";
 
-// Quiz options are the most-common facet values, computed at build time.
+// One question per screen. Options are the most-common facet values, computed
+// at build time; the island reveals one step at a time and tallies the picks.
 const questions = QUIZ.map((g, i) => ({
   group: g,
   i,
@@ -13,26 +15,71 @@ const questions = QUIZ.map((g, i) => ({
 <div id="quiz-questions">
   {
     questions.map(({ group, i, options }) => (
-      <div class="quiz-q">
-        <div class="q-head">
-          <span class="q-num">
-            Question {i + 1} of {QUIZ.length}
-          </span>
-          <h3>{group.q}</h3>
-        </div>
-        <div class="chips">
-          {options.map((val) => (
+      <section class="qz-screen qz-step" data-qstep={i} hidden>
+        <div class="qz-step-inner">
+          <div class="qz-progress">
+            <span class="qz-prog-label">
+              Question {i + 1} <span class="of">of {QUIZ.length}</span>
+            </span>
+            <div class="bar" aria-hidden="true">
+              <div
+                class="fill"
+                style={`width:${Math.round(((i + 1) / QUIZ.length) * 100)}%`}
+              />
+            </div>
+            <button type="button" class="qz-back" data-back>
+              &lsaquo; Back
+            </button>
+          </div>
+
+          <EyebrowRule label={group.kicker} />
+          <h2 class="qz-question">
+            {group.q}
+            {group.optional && <span class="opt"> &mdash; optional</span>}
+          </h2>
+
+          <div class="qz-opts">
+            {options.map((val) => (
+              <button
+                type="button"
+                class="qz-opt"
+                data-key={group.key}
+                data-val={val}
+                aria-pressed="false"
+              >
+                <span class="check" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--byz-ink)"
+                    stroke-width="3.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
+                {val}
+              </button>
+            ))}
+          </div>
+
+          <div class="qz-nav">
             <button
               type="button"
-              class="chip"
-              data-key={group.key}
-              data-val={val}
+              class="btn btn--gold qz-continue"
+              data-continue
             >
-              {val}
+              {i + 1 < QUIZ.length ? "Continue" : "Reveal my patron"}
             </button>
-          ))}
+          </div>
+          <p class="qz-note">
+            Pick as many as you like &mdash; or continue to skip.
+          </p>
         </div>
-      </div>
+      </section>
     ))
   }
 </div>

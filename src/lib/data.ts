@@ -2,7 +2,7 @@
    Python pipeline, build.py) at build time — it is NOT fetched at runtime. The
    Python build MUST run before `astro build`, or this import fails. */
 
-import type { Saint, FinderSaint } from "./types";
+import type { Saint, FinderSaint, CardSaint } from "./types";
 import raw from "../../public/data.json";
 
 export const SAINTS = raw as unknown as Saint[];
@@ -40,3 +40,24 @@ export function toFinderSaint(s: Saint): FinderSaint {
 }
 
 export const FINDER_SAINTS: FinderSaint[] = SAINTS.map(toFinderSaint);
+
+/* Lighter still: the card projection for the home landing page (saint of the
+   day + "From the Cloud" shuffle). Searching happens on /search, so the
+   landing page does not need the search haystack or the full facet lists. */
+export function toCardSaint(s: Saint): CardSaint {
+  return {
+    id: s.id,
+    name: s.name,
+    aka: s.aka,
+    rank: s.rank,
+    intercession: s.intercession,
+    era: s.era,
+    century: s.century,
+    feast: s.feast,
+    brief: s.brief,
+    notes: s.notes,
+    ...(s.image ? { image: s.image } : {}),
+  };
+}
+
+export const CARD_SAINTS: CardSaint[] = SAINTS.map(toCardSaint);

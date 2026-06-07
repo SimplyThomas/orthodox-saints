@@ -4,10 +4,12 @@ import SearchGlyph from "./icons/SearchGlyph.astro";
 import logo from "../assets/logo.png";
 
 interface Props {
-  active?: "home" | "america" | "quiz" | "";
+  active?: "home" | "search" | "america" | "quiz" | "about" | "";
 }
 const { active = "" } = Astro.props;
-const cls = (k: string) => (active === k ? "active" : undefined);
+// The /search results page highlights "Saints" too (it is the saints index).
+const cls = (k: string) =>
+  active === k || (k === "home" && active === "search") ? "active" : undefined;
 ---
 
 <header class="site-header">
@@ -18,11 +20,12 @@ const cls = (k: string) => (active === k ? "active" : undefined);
     <a href={withBase("")} class={cls("home")}>Saints</a>
     <a href={withBase("america")} class={cls("america")}>America</a>
     <a href={withBase("quiz")} class={cls("quiz")}>Patron Quiz</a>
+    <a href={withBase("about")} class={cls("about")}>About</a>
   </nav>
   <span class="spacer"></span>
   <a
     class="header-search"
-    href={`${withBase("")}#q`}
+    href={`${withBase("search")}#q`}
     aria-label="Search saints"
   >
     <span class="ico"><SearchGlyph size={16} color="var(--celest)" /></span
