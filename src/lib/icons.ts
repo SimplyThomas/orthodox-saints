@@ -3,7 +3,7 @@
    client islands (innerHTML). Thin .astro wrappers live in components/icons/. */
 
 import { monogramLetter } from "./names";
-import { withBase } from "./format";
+import { esc, withBase } from "./format";
 
 export function byzCross(
   size = 22,
@@ -111,16 +111,21 @@ export function saintAvatar(
 
   // Real-icon tier: cover-fit image inside the arched gold frame. A self-hosted
   // path (static/-relative) is base-prefixed; an absolute URL is used as-is.
+  // The value is build-generated, but it still gets the full treatment —
+  // URL-breaking chars stripped, then HTML-escaped via esc() — so the markup
+  // is inert even if the data channel were ever attacker-controlled (and so
+  // CodeQL can prove the innerHTML flows in the islands are sanitized).
   if (s.image) {
-    const raw = String(s.image).replace(/['"\\)]/g, "");
-    const url = /^(https?:)?\/\//.test(raw) ? raw : withBase(raw);
+    const raw = String(s.image).replace(/['"\\)\s<>]/g, "");
+    const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
     const clip = `path('${AVATAR_ARCH}')`;
     return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;clip-path:${clip};-webkit-clip-path:${clip};background:#efe3cb center/cover no-repeat url('${url}')"></div></div>`;
   }
 
-  // Monogram tier.
+  // Monogram tier. monogramLetter already returns a single [A-Za-z?] char;
+  // esc() makes that guarantee visible to the HTML sink (and to CodeQL).
   const c = avatarColors(type, awaiting);
-  const letter = monogramLetter(s.name);
+  const letter = esc(monogramLetter(s.name));
   const id =
     "sa" + Math.round(w) + Math.round(h) + letter + (awaiting ? "a" : "");
   const cross = awaiting
