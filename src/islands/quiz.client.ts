@@ -1,110 +1,191 @@
-/* Patron-quiz island. Wires the SSR'd chips, scores saints by weighted facet
-   overlap, and renders the patron + runners-up cards. Ported from app.js
-   buildQuiz wiring + renderQuizResults. Cards are real /saint links; the
-   detail-modal island handles the quick-look. */
+/* Patron-quiz island — the one-question-per-screen pilgrimage. The intro,
+   question steps, and result shell are SSR'd (QuizForm.astro); this island
+   reveals one screen at a time, tallies multi-select picks per question,
+   scores saints by weighted facet overlap (lib/quiz), and renders the
+   illuminated result panel. Cards are real /saint links; the detail-modal
+   island handles the quick-look on companions. */
 
 import type { FinderSaint } from "../lib/types";
 import { QUIZ, emptyQuizSelected, quizMatches } from "../lib/quiz";
-import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
+import {
+  rankSlug,
+  primaryRank,
+  firstFeast,
+  centuryLabel,
+  cleanName,
+} from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import { track } from "../lib/analytics";
 
 const dataEl = document.getElementById("finder-data");
-const questionsEl = document.getElementById("quiz-questions");
-if (dataEl && questionsEl) {
+const root = document.getElementById("quiz");
+if (dataEl && root) {
   const SAINTS: FinderSaint[] = JSON.parse(dataEl.textContent || "[]");
   const quizSel = emptyQuizSelected();
+  const resultsBox = document.getElementById("quiz-results")!;
 
-  // Chip toggles (delegated).
-  questionsEl.addEventListener("click", (e) => {
-    const chip = (e.target as Element).closest<HTMLButtonElement>(".chip");
-    if (!chip || !chip.dataset.key) return;
-    const set = quizSel[chip.dataset.key];
-    const val = chip.dataset.val || chip.textContent || "";
-    if (set.has(val)) {
-      set.delete(val);
-      chip.classList.remove("on");
-    } else {
-      set.add(val);
-      chip.classList.add("on");
-    }
-  });
+  const screens = [...root.querySelectorAll<HTMLElement>("[data-qstep]")];
+  type Step = "intro" | number | "result";
 
-  function renderQuizResults() {
-    const box = document.getElementById("quiz-results");
-    if (!box) return;
-    box.innerHTML = "";
-    if (!QUIZ.some((g) => quizSel[g.key].size)) {
-      box.innerHTML =
-        "<p class='quiz-hint'>Pick at least one answer above, then try again.</p>";
-      return;
-    }
-    const matched = quizMatches(SAINTS, quizSel);
-    if (!matched.length) {
-      box.innerHTML =
-        "<p class='quiz-hint'>No saints matched those answers yet — try broadening your choices.</p>";
-      return;
-    }
-    const top = matched[0];
-    track("Quiz Completed", { top_match: top.s.name });
-    const runners = matched.slice(1, 4);
-    const sn = splitName(top.s.name);
-    const reasons = [...new Set(top.reasons)].slice(0, 8);
-
-    // Build cards as fully-escaped HTML strings (every interpolation passes
-    // through esc(), including hrefs and the rank slug) rather than assigning
-    // .href/.dataset from data — this is the same safe pattern the finder uses.
-    const cardHtml = `
-      <a class="patron-card" data-saint="${esc(top.s.id)}" href="${esc(withBase(`saint/${top.s.id}`))}">
-        <div class="frame">${saintAvatar(top.s, 170, 210, { type: primaryRank(top.s) })}</div>
-        <div>
-          <h2>${esc(sn.title)}</h2>
-          <div class="epithet">${esc(sn.epithet || (top.s.aka && top.s.aka[0]) || "")}</div>
-          <div class="pmeta">
-            <span class="tag ${esc(rankSlug(top.s))}" style="background:rgba(212,175,55,.18);color:var(--gold-soft)"><i></i>${esc(primaryRank(top.s))}</span>
-            <span>Feast · ${esc(firstFeast(top.s))}</span><span>${esc(centuryLabel(top.s))}</span>
-          </div>
-          <p class="bio">${esc(top.s.brief || top.s.notes || "")}</p>
-          <div class="why">
-            <span class="why-label">Why</span>
-            ${reasons.map((r) => `<span class="tag intercession">${esc(r)}</span>`).join("")}
-          </div>
-        </div>
-      </a>`;
-
-    let runnersHtml = "";
-    if (runners.length) {
-      const cards = runners
-        .map(({ s }) => {
-          const rsn = splitName(s.name);
-          return `<a class="runner" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">${saintAvatar(s, 40, 50, { type: primaryRank(s) })}<div>
-            <div class="rn-name">${esc(rsn.title)}</div>
-            <div class="rn-sub">${esc(rsn.epithet || "")}${rsn.epithet ? " · " : ""}${esc(firstFeast(s))}</div></div></a>`;
-        })
-        .join("");
-      runnersHtml = `<div class="runners-label">You also walk closely with</div><div class="runners">${cards}</div>`;
-    }
-
-    const wrap = document.createElement("div");
-    wrap.innerHTML =
-      `<div class="eyebrow quiz-results-h" style="border:0;padding:0;margin-bottom:18px">Your patron saint</div>` +
-      cardHtml +
-      runnersHtml;
-    box.appendChild(wrap);
-    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  function show(step: Step) {
+    const key = String(step);
+    for (const s of screens) s.hidden = s.dataset.qstep !== key;
+    // Each step is its own page-like screen — start it at the top.
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  document
-    .getElementById("quiz-submit")
-    ?.addEventListener("click", renderQuizResults);
-  document.getElementById("quiz-reset")?.addEventListener("click", () => {
+  const eyebrowRule = (label: string) => `
+    <div class="eyebrow-rule">
+      <span class="ln" aria-hidden="true"></span><span class="dm" aria-hidden="true"></span>
+      <span class="lbl">${esc(label)}</span>
+      <span class="dm" aria-hidden="true"></span><span class="ln" aria-hidden="true"></span>
+    </div>`;
+
+  function renderResult() {
+    const anyPicked = QUIZ.some((g) => quizSel[g.key].size);
+    const matched = anyPicked ? quizMatches(SAINTS, quizSel) : [];
+
+    if (!matched.length) {
+      resultsBox.innerHTML = `
+        <div class="qz-empty">
+          ${eyebrowRule("A Gentle Word")}
+          <h2>Nothing yet to match</h2>
+          <p class="qz-lede">Make a few selections along the way, and
+            we&rsquo;ll point you toward a saint whose life echoes your own.</p>
+          <button type="button" class="btn btn--gold" id="quiz-again">Begin again</button>
+        </div>`;
+      document
+        .getElementById("quiz-again")
+        ?.addEventListener("click", () => show(0));
+      return;
+    }
+
+    const top = matched[0];
+    track("Quiz Completed", { top_match: top.s.name });
+    const others = matched.slice(1, 3);
+    const sn = splitName(top.s.name);
+    const patronOf = (top.s.intercession || []).length
+      ? top.s.intercession.join(" · ")
+      : [...new Set(top.reasons)].slice(0, 8).join(" · ");
+
+    const companions = others.length
+      ? `
+      <div class="qz-companions">
+        <p class="qz-comp-label">You also walk closely with</p>
+        <div class="qz-comp-row">
+          ${others
+            .map(({ s }) => {
+              const rsn = splitName(s.name);
+              return `
+              <a class="qz-comp" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
+                ${saintAvatar(s, 42, 52, { type: primaryRank(s) })}
+                <div>
+                  <div class="nm">${esc(rsn.title)}</div>
+                  <div class="sub">${esc(rsn.epithet || (s.aka && s.aka[0]) || "")}${
+                    rsn.epithet || (s.aka && s.aka[0]) ? " · " : ""
+                  }${esc(firstFeast(s))}</div>
+                </div>
+              </a>`;
+            })
+            .join("")}
+        </div>
+      </div>`
+      : "";
+
+    resultsBox.innerHTML = `
+      <div class="qz-result-head">${eyebrowRule("Your Patron Saint")}</div>
+
+      <div class="qz-panel qz-patron">
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
+        <div class="frame">${saintAvatar(top.s, 180, 222, { type: primaryRank(top.s) })}</div>
+        <div class="qz-patron-body">
+          <h1>${esc(sn.title)}</h1>
+          <div class="epithet">${esc(sn.epithet || (top.s.aka && top.s.aka[0]) || "")}</div>
+          <div class="pmeta">
+            <span class="tag ${esc(rankSlug(top.s))} on-blue"><i></i>${esc(primaryRank(top.s))}</span>
+            <span>Feast · ${esc(firstFeast(top.s))}</span>
+            <span>${esc(centuryLabel(top.s))}</span>
+          </div>
+          <p class="bio">${esc(top.s.brief || top.s.notes || "")}</p>
+          ${
+            patronOf
+              ? `<div class="patron-of"><span class="lbl">Patron of </span>${esc(patronOf)}</div>`
+              : ""
+          }
+        </div>
+      </div>
+
+      ${companions}
+
+      <div class="qz-actions">
+        <a class="btn btn--gold qz-read" href="${esc(withBase(`saint/${top.s.id}`))}">
+          Read the full entry
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button type="button" class="btn btn--ghost" id="quiz-retake">Retake the quiz</button>
+      </div>
+
+      <div class="rule qz-bene-rule"><span class="dot"></span></div>
+      <p class="qz-benediction">Holy ${esc(cleanName(top.s.name))}, pray to God for us.</p>`;
+
+    document.getElementById("quiz-retake")?.addEventListener("click", restart);
+  }
+
+  function restart() {
     QUIZ.forEach((g) => quizSel[g.key].clear());
-    questionsEl!
-      .querySelectorAll(".chip.on")
-      .forEach((c) => c.classList.remove("on"));
-    const box = document.getElementById("quiz-results");
-    if (box) box.innerHTML = "";
+    root!.querySelectorAll(".qz-opt.on").forEach((b) => {
+      b.classList.remove("on");
+      b.setAttribute("aria-pressed", "false");
+    });
+    resultsBox.innerHTML = "";
+    show("intro");
+  }
+
+  // ---- wiring (delegated) ----
+  document
+    .getElementById("quiz-begin")
+    ?.addEventListener("click", () => show(0));
+
+  root.addEventListener("click", (e) => {
+    const t = e.target as Element;
+
+    const opt = t.closest<HTMLButtonElement>(".qz-opt");
+    if (opt && opt.dataset.key) {
+      const set = quizSel[opt.dataset.key];
+      const val = opt.dataset.val || "";
+      if (set.has(val)) {
+        set.delete(val);
+        opt.classList.remove("on");
+        opt.setAttribute("aria-pressed", "false");
+      } else {
+        set.add(val);
+        opt.classList.add("on");
+        opt.setAttribute("aria-pressed", "true");
+      }
+      return;
+    }
+
+    const stepEl = t.closest<HTMLElement>(".qz-step");
+    const stepIdx = stepEl ? Number(stepEl.dataset.qstep) : NaN;
+
+    if (t.closest("[data-continue]") && !Number.isNaN(stepIdx)) {
+      if (stepIdx + 1 < QUIZ.length) show(stepIdx + 1);
+      else {
+        renderResult();
+        show("result");
+      }
+      return;
+    }
+
+    if (t.closest("[data-back]") && !Number.isNaN(stepIdx)) {
+      show(stepIdx > 0 ? stepIdx - 1 : "intro");
+    }
   });
 }

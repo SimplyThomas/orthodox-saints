@@ -4,25 +4,22 @@ import {
   AMERICA_MOVEMENT_I,
   AMERICA_MOVEMENT_II,
   AMERICA_AWAITING,
+  type AmericaSaint,
 } from "../lib/america";
 import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
-import ByzCross from "./icons/ByzCross.astro";
+import AmericaMovement from "./AmericaMovement.astro";
 
 const saintMap = new Map(SAINTS.map((s) => [s.id, s]));
 
-const movement1 = AMERICA_MOVEMENT_I.map((s) => ({
+const prep = (s: AmericaSaint) => ({
   s,
   hit: saintMap.get(s.id),
   catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
-}));
-
-const movement2 = AMERICA_MOVEMENT_II.map((s) => ({
-  s,
-  hit: saintMap.get(s.id),
-  catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
-}));
+});
+const movement1 = AMERICA_MOVEMENT_I.map(prep);
+const movement2 = AMERICA_MOVEMENT_II.map(prep);
 
 const awaiting = AMERICA_AWAITING.map((s) => ({
   s,
@@ -30,19 +27,27 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
 }));
 ---
 
+{/* ---------- hero (ivory) ---------- */}
 <section class="am-hero">
   <div class="dome-bg"><DomeMark w={460} color="var(--byz)" /></div>
   <div class="inner">
-    <div class="eyebrow">The Holy People of America</div>
-    <h1>The Saints of America</h1>
-    <p class="am-hero-tagline">A Pilgrimage of Hope</p>
+    <div class="eyebrow">The Saints of America</div>
+    <h1>A Pilgrimage of Hope</h1>
+    <p class="am-hero-tagline">The Holy People of America</p>
+    <blockquote class="am-verse">
+      &ldquo;The kingdom of heaven is like a grain of mustard seed that a man
+      took and sowed in his field. It is the smallest of all seeds, but when it
+      has grown it is larger than all the garden plants and becomes a tree, so
+      that the birds of the air come and make nests in its branches.&rdquo;
+      <cite>Matthew 13 : 31&ndash;32</cite>
+    </blockquote>
   </div>
 </section>
 
+{/* ---------- opening essay (paper) ---------- */}
 <section class="am-essay">
   <div class="am-essay-inner">
-    <h2 class="am-essay-head">The Holy People of America</h2>
-    <p>
+    <p class="dropcap">
       When first approaching Orthodoxy, it can seem as if it is far away. You
       might wonder: Where has the Church been this whole time? Why does America
       feel as though it has been left to wander in the desert?
@@ -52,71 +57,66 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
       existed since before the foundations of the world. America, on the other
       hand, is young. Though the Church has grown slowly here, she is here.
     </p>
-    <blockquote class="am-pullquote">
-      <p>
-        "The kingdom of heaven is like leaven that a woman took and hid in three
-        measures of flour, till it was all leavened."
-      </p>
-      <cite>— Matthew 13:33</cite>
-    </blockquote>
+    <figure class="am-scripture">
+      <blockquote>
+        &ldquo;The kingdom of heaven is like leaven that a woman took and hid in
+        three measures of flour, till it was all leavened.&rdquo;
+      </blockquote>
+      <figcaption>Matthew 13:33</figcaption>
+    </figure>
     <p>
       Slowly, and often hidden from the world, Christ has been planting seeds of
-      holiness in this land. The holy people of America remind us that Orthodoxy
-      is not only something ancient and far away. It is alive here. Saints
-      crossed oceans, endured loneliness, built churches, prayed in wilderness
-      places, served the poor, and healed the wounded.
+      holiness in this land.
     </p>
     <p>
-      Many of them never saw the fruits of their labor. They planted, and God
-      gave the increase.
+      The holy people of America remind us that Orthodoxy is not only something
+      ancient and far away. It is alive here. Saints crossed oceans, endured
+      loneliness, built churches, prayed in wilderness places, served the poor,
+      and healed the wounded.
     </p>
     <p>
-      On this page you will find a small gathering of witnesses — canonized
-      saints, righteous elders, missionaries, monastics, martyrs, mothers,
-      priests, and faithful servants whose lives show that God is still working
-      in this land.
+      On this page you will find a small gathering of witnesses &mdash;
+      canonized saints, righteous elders, missionaries, monastics, martyrs,
+      mothers, priests, and faithful servants whose lives show that God is still
+      working in this land.
     </p>
   </div>
 </section>
 
-<section class="am-section">
-  <div class="am-movement-head">
-    <div class="eyebrow">Movement I</div>
-    <h2>They Came from Across the Sea</h2>
-    <p class="am-movement-tagline">
-      They left the old world behind — crossing oceans into loneliness — to
-      carry the faith to a continent that did not yet know it.
-    </p>
-  </div>
-
-  <div class="am-grid">
+{
+  /* ---------- the gallery (deep navy ground, three gilded panels) ---------- */
+}
+<div class="am-gallery">
+  <AmericaMovement
+    title="They Came from Across the Sea"
+    lede="Saints that came to us from other places."
+    tone="garnet"
+  >
     {
       movement1.map(({ s, hit, catSlug }) => {
         const Tag = hit ? "a" : "div";
         return (
           <Tag
-            class={`am-card${hit ? " clickable" : ""}`}
+            class={`pga-card${hit ? " clickable" : ""}`}
             data-saint={hit?.id}
             href={hit ? withBase(`saint/${hit.id}`) : undefined}
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name: s.name }, 88, 108, {
+              set:html={saintAvatar({ name: s.name }, 84, 104, {
                 type: s.cat,
               })}
             />
             <div class="body">
-              <div class="card-head">
-                <h3>{s.name}</h3>
-                <span class="years">{s.years}</span>
-              </div>
-              <div class="epithet">{s.epithet}</div>
+              <h3>{s.name}</h3>
+              {s.epithet && <div class="epithet">{s.epithet}</div>}
+              <div class="years">{s.years}</div>
               <span class={`tag ${catSlug}`}>
                 <i />
                 {s.cat}
               </span>
               <p>{s.contribution}</p>
-              <div class="card-foot">
+              <div class="foot">
                 <span class="feast">Feast · {s.feast}</span>
                 <span class="glor">Glorified {s.glorified}</span>
               </div>
@@ -125,45 +125,38 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
         );
       })
     }
-  </div>
+  </AmericaMovement>
 
-  <div class="am-movement-head am-movement-head--ii">
-    <div class="eyebrow">Movement II</div>
-    <h2>Those Born of This Land</h2>
-    <p class="am-movement-tagline">
-      The first fruits of Orthodoxy native to this soil — children of Alaska and
-      America who became holy where they were born.
-    </p>
-  </div>
-
-  <div class="am-grid">
+  <AmericaMovement
+    title="Those Born of This Land"
+    lede="Saints from America"
+    tone="forest"
+  >
     {
       movement2.map(({ s, hit, catSlug }) => {
         const Tag = hit ? "a" : "div";
         return (
           <Tag
-            class={`am-card${hit ? " clickable" : ""}`}
+            class={`pga-card${hit ? " clickable" : ""}`}
             data-saint={hit?.id}
             href={hit ? withBase(`saint/${hit.id}`) : undefined}
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name: s.name }, 88, 108, {
+              set:html={saintAvatar({ name: s.name }, 84, 104, {
                 type: s.cat,
               })}
             />
             <div class="body">
-              <div class="card-head">
-                <h3>{s.name}</h3>
-                <span class="years">{s.years}</span>
-              </div>
-              <div class="epithet">{s.epithet}</div>
+              <h3>{s.name}</h3>
+              {s.epithet && <div class="epithet">{s.epithet}</div>}
+              <div class="years">{s.years}</div>
               <span class={`tag ${catSlug}`}>
                 <i />
                 {s.cat}
               </span>
               <p>{s.contribution}</p>
-              <div class="card-foot">
+              <div class="foot">
                 <span class="feast">Feast · {s.feast}</span>
                 <span class="glor">Glorified {s.glorified}</span>
               </div>
@@ -172,72 +165,68 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
         );
       })
     }
-  </div>
+  </AmericaMovement>
 
-  <div class="am-awaiting">
-    <div class="panel">
-      <div class="note">
-        <ByzCross size={22} color="var(--gold-deep)" />
-        <div>
-          <div class="eyebrow" style="margin-bottom:8px">
-            Awaiting Glorification
-          </div>
-          <h2>A Living Church Still Growing</h2>
-          <p>
-            The work is not finished. These reposed servants are held in living
-            memory by the faithful — remembered with love, though not yet
-            formally glorified by the Church.
-          </p>
-        </div>
-      </div>
-      <div class="pair">
-        {
-          awaiting.map(({ s, reposed }) => (
-            <div class="am-await-card">
-              <div
-                class="portrait-await"
-                set:html={saintAvatar({ name: s.name }, 108, 132, {
-                  awaiting: true,
-                })}
-              />
-              <div>
-                <div class="head">
-                  <h3>{s.name}</h3>
-                  {s.years && <span class="years">{s.years}</span>}
-                </div>
-                <div class="epithet">{s.epithet}</div>
-                <div class="badges">
-                  <span class="tag t-venerated">
-                    <i />
-                    {s.role}
-                  </span>
-                  <span class="tag t-venerated">Not yet glorified</span>
-                </div>
-                <p>{s.contribution}</p>
-                <div class="repose">
-                  ✝{reposed ? ` Reposed ${reposed} · ` : " "}
-                  {s.place}
-                </div>
-              </div>
+  <AmericaMovement
+    title="The Witnesses of Our Time"
+    lede="The work is not finished. These reposed servants are held in living memory by the faithful — remembered with love, though not yet formally glorified by the Church."
+    tone="plum"
+    tail
+  >
+    {
+      awaiting.map(({ s, reposed }) => (
+        <div class="pga-card">
+          <div
+            class="portrait"
+            set:html={saintAvatar({ name: s.name }, 84, 104, {
+              awaiting: true,
+            })}
+          />
+          <div class="body">
+            <h3>{s.name}</h3>
+            {s.epithet && <div class="epithet">{s.epithet}</div>}
+            <div class="years">
+              {s.years || (reposed ? `† Reposed ${reposed}` : "")}
             </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="badges">
+              <span class="tag t-venerated">
+                <i />
+                {s.role}
+              </span>
+              <span class="tag t-venerated solid">Not yet glorified</span>
+            </div>
+            <p>{s.contribution}</p>
+            <div class="foot">
+              <span class="place">{s.place}</span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </AmericaMovement>
+</div>
 
-<section class="am-closing">
-  <div class="am-closing-inner">
-    <div class="eyebrow">For the Lonely Convert</div>
+{/* ---------- the story continues (paper) ---------- */}
+<section class="am-continues">
+  <div class="am-essay-inner">
+    <div class="am-continues-head">
+      <h2>The Story Continues</h2>
+      <div class="rule"><span class="dot"></span></div>
+    </div>
     <p>
-      Now you join their ranks. Let your mustard seed take root, that through
-      God's grace one more person might find truth, comfort, and refuge beneath
-      the wings of our Father.
+      The holy people on this page are only a small glimpse of what God has
+      done&mdash;and continues to do&mdash;in America.
     </p>
     <p>
-      The very fact that you are here is evidence that the seeds they planted
-      have borne fruit.
+      Throughout North America, monasteries continue to flourish, relics
+      continue to be venerated, pilgrims continue to receive comfort, and lives
+      continue to be transformed through Christ and His Church.
+    </p>
+    <p>
+      The Kingdom often grows quietly, like leaven hidden in dough or a mustard
+      seed planted in the earth. Yet the very existence of Orthodox churches,
+      monasteries, saints, and faithful Christians throughout this land is
+      evidence that God has not forgotten America.
     </p>
   </div>
 </section>

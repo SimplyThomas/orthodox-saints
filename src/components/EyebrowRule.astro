@@ -1,0 +1,16 @@
+---
+/* Diamond-flanked eyebrow label — the Illuminated Manuscript heading rule
+   (short gold line · diamond · small-caps label · diamond · short gold line). */
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="eyebrow-rule">
+  <span class="ln" aria-hidden="true"></span>
+  <span class="dm" aria-hidden="true"></span>
+  <span class="lbl">{label}</span>
+  <span class="dm" aria-hidden="true"></span>
+  <span class="ln" aria-hidden="true"></span>
+</div>

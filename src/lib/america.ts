@@ -182,6 +182,7 @@ export const AMERICA_MOVEMENT_II: AmericaSaint[] = [
   },
 ];
 
+// "The Witnesses of Our Time" — order follows the design handoff roster.
 export const AMERICA_AWAITING: AwaitingSaint[] = [
   {
     name: "Elder Ephraim",
@@ -202,6 +203,15 @@ export const AMERICA_AWAITING: AwaitingSaint[] = [
       "An American convert and co-founder of the St Herman of Alaska Monastery in California whose writings opened the door of Orthodoxy to a whole generation of English-speaking seekers.",
   },
   {
+    name: "Archimandrite Roman",
+    epithet: "Braga",
+    role: "Confessor & Elder",
+    years: "1922 – 2015",
+    place: "Holy Dormition Monastery, Rives Junction, Michigan",
+    contribution:
+      "A Romanian priest imprisoned and tortured under communism who, having found inner freedom in his cell, carried that joy to America and shaped monastic life in Michigan.",
+  },
+  {
     name: "Archbishop Dmitri",
     epithet: "Royster",
     role: "Missionary Hierarch",
@@ -209,6 +219,15 @@ export const AMERICA_AWAITING: AwaitingSaint[] = [
     place: "Dallas, Texas",
     contribution:
       "A Texan convert from a Baptist family who became founding bishop of the Diocese of the South, planting and nurturing scores of mission parishes across the American South.",
+  },
+  {
+    name: "Mother Alexandra",
+    epithet: "Princess Ileana",
+    role: "Monastic Foundress",
+    years: "1909 – 1991",
+    place: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
+    contribution:
+      "Born Princess Ileana of Romania, she embraced monastic life in America and founded the Monastery of the Transfiguration in Pennsylvania — a haven of prayer for Orthodox women.",
   },
   {
     name: "Fr. Thomas Hopko",
@@ -220,13 +239,13 @@ export const AMERICA_AWAITING: AwaitingSaint[] = [
       "A beloved teacher, preacher and dean of St Vladimir's Seminary whose lectures, books and “55 maxims” formed generations of English-speaking Orthodox Christians.",
   },
   {
-    name: "Archimandrite Roman",
-    epithet: "Braga",
-    role: "Confessor & Elder",
-    years: "1922 – 2015",
-    place: "Holy Dormition Monastery, Rives Junction, Michigan",
+    name: "Fr. Michael Oleksa",
+    epithet: "",
+    role: "Priest & Educator",
+    years: "1947 – 2023",
+    place: "Alaska",
     contribution:
-      "A Romanian priest imprisoned and tortured under communism who, having found inner freedom in his cell, carried that joy to America and shaped monastic life in Michigan.",
+      "A missionary priest, teacher and storyteller who spent decades among the peoples of Alaska — a leading interpreter of Alaska Native cultures and of the deep Orthodox history rooted in that land.",
   },
   {
     name: "Fr. Michael",
@@ -239,12 +258,30 @@ export const AMERICA_AWAITING: AwaitingSaint[] = [
       "A pastor remembered with deep affection by many of the faithful across the American South, who held him in living memory long after his repose.",
   },
   {
-    name: "Mother Alexandra",
-    epithet: "Princess Ileana",
-    role: "Monastic Foundress",
-    years: "1909 – 1991",
-    place: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
+    name: "Fr. Alexander Schmemann",
+    epithet: "",
+    role: "Priest & Theologian",
+    years: "1921 – 1983",
+    place: "St Vladimir's Seminary, Crestwood, New York",
     contribution:
-      "Born Princess Ileana of Romania, she embraced monastic life in America and founded the Monastery of the Transfiguration in Pennsylvania — a haven of prayer for Orthodox women.",
+      "Dean of St Vladimir's Seminary and author of “For the Life of the World,” whose liturgical theology renewed the Eucharistic life of Orthodox Christians across America and far beyond.",
+  },
+  {
+    name: "Fr. Georges Florovsky",
+    epithet: "",
+    role: "Priest & Theologian",
+    years: "1893 – 1979",
+    place: "Princeton, New Jersey",
+    contribution:
+      "A Russian émigré priest, church historian and theologian who called the Church to a “neo-patristic synthesis” — a return to the Fathers — while teaching at St Vladimir's, Harvard and Princeton.",
+  },
+  {
+    name: "Fr. John Meyendorff",
+    epithet: "",
+    role: "Priest & Theologian",
+    years: "1926 – 1992",
+    place: "St Vladimir's Seminary, Crestwood, New York",
+    contribution:
+      "A patristic scholar of St Gregory Palamas and dean of St Vladimir's Seminary, whose learning and witness helped a self-governing Orthodox Church take root in America.",
   },
 ];

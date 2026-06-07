@@ -1,27 +1,16 @@
 ---
 import { SAINTS } from "../lib/data";
-import {
-  valuesOf,
-  rankSlug,
-  primaryRank,
-  firstFeast,
-  centuryLabel,
-} from "../lib/saints";
+import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
+import NewsBand from "./NewsBand.astro";
 
-// Notable featured saints (those with a brief life + intercessions), date-independent.
+// Server-rendered fallback picks (no-JS): notable saints with a brief life and
+// intercessions. The island re-deals a random handful on load and on Shuffle.
 const enriched = SAINTS.filter((s) => s.brief && s.intercession.length);
 const pool = enriched.length >= 4 ? enriched : SAINTS.filter((s) => s.brief);
 const featured = pool.slice(0, 4);
-
-// Catalog stat.
-const trads = new Set<string>();
-SAINTS.forEach((s) => valuesOf(s, "tradition").forEach((t) => trads.add(t)));
-const catalogStat = `${SAINTS.length} saints catalogued${
-  trads.size ? ` · ${trads.size} traditions` : ""
-}`;
 ---
 
 <section class="cloud-band" id="cloud-band">
@@ -33,8 +22,31 @@ const catalogStat = `${SAINTS.length} saints catalogued${
     <div class="divider" aria-hidden="true"></div>
     <div>
       <div class="featured-head">
-        <div class="eyebrow">From the Cloud</div>
-        <span class="stat" id="catalog-stat">{catalogStat}</span>
+        <div>
+          <div class="eyebrow">From the Cloud</div>
+          <div class="stat" id="cloud-sub">
+            A random handful from {SAINTS.length} saints &mdash; meet someone new
+          </div>
+        </div>
+        <button type="button" class="btn btn--ghost shuffle-btn" id="shuffle">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+            <path d="M21 3v5h-5"></path>
+            <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+            <path d="M3 21v-5h5"></path>
+          </svg>
+          Shuffle
+        </button>
       </div>
       <div class="featured-grid" id="featured">
         {
@@ -71,4 +83,5 @@ const catalogStat = `${SAINTS.length} saints catalogued${
       </div>
     </div>
   </div>
+  <NewsBand />
 </section>

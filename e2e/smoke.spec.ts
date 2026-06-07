@@ -15,8 +15,37 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   expect(logoResp.status()).toBe(200);
 });
 
-test("search filters the results", async ({ page }) => {
+test("home is a landing page: saint of the day, shuffle, news — no finder", async ({
+  page,
+}) => {
   await page.goto("./");
+  // Saint of the day renders client-side for the visitor's real date.
+  await expect(page.locator("#sotd .sotd-card")).toBeVisible();
+  // The shuffle deck deals four cards and re-deals on click.
+  await expect(page.locator("#featured .feat-card")).toHaveCount(4);
+  await page.click("#shuffle");
+  await expect(page.locator("#featured .feat-card")).toHaveCount(4);
+  // News band is present; the full results list is not on this page.
+  await expect(page.locator(".news-band .news-card")).toHaveCount(4);
+  await expect(page.locator("#results")).toHaveCount(0);
+});
+
+test("hero search submits to the /search page with the query", async ({
+  page,
+}) => {
+  await page.goto("./");
+  await page.fill("#q", "Nicholas");
+  await page.click("#hero-search-btn");
+  await page.waitForURL(/\/search\/?\?q=Nicholas/);
+  // The search page seeds its query from ?q= and filters.
+  await expect(page.locator("#results-title")).toContainText("Nicholas");
+  await expect(
+    page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
+  ).toBeVisible();
+});
+
+test("search page filters the results", async ({ page }) => {
+  await page.goto("./search/");
   // Results render client-side from the inlined finder data.
   await expect(page.locator("#results .saint-row").first()).toBeVisible();
 
@@ -42,7 +71,7 @@ test("search filters the results", async ({ page }) => {
 test("clicking a result opens the quick-look modal with the prayer", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./search/");
   await page.locator("#results .saint-row").first().click();
   const modal = page.locator("#detail");
   await expect(modal).toBeVisible();
@@ -69,27 +98,90 @@ test("static per-saint page is real, indexable HTML", async ({ page }) => {
   expect(canon).toContain("/orthodox-saints/saint/OS-0021/");
 });
 
-test("quiz produces a patron with reasons", async ({ page }) => {
+test("quiz walks one question per screen to an illuminated patron", async ({
+  page,
+}) => {
   await page.goto("./quiz/");
-  // Pick a chip in the first two questions.
-  await page.locator(".quiz-q").nth(0).locator(".chip").first().click();
-  await page.locator(".quiz-q").nth(1).locator(".chip").first().click();
-  await page.click("#quiz-submit");
-  const patron = page.locator("#quiz-results .patron-card");
+  // Intro screen with the begin button; questions are hidden.
+  await expect(page.locator(".qz-intro h1")).toContainText(
+    "Find Your Patron Saint",
+  );
+  await expect(page.locator('[data-qstep="0"]')).toBeHidden();
+  await page.click("#quiz-begin");
+
+  // Step 1: pick an option (multi-select toggles a gold check).
+  const step0 = page.locator('[data-qstep="0"]');
+  await expect(step0).toBeVisible();
+  await expect(step0.locator(".qz-prog-label")).toContainText("Question 1");
+  await step0.locator(".qz-opt").first().click();
+  await expect(step0.locator(".qz-opt.on")).toHaveCount(1);
+  await step0.locator("[data-continue]").click();
+
+  // Step 2: pick one more, then continue through the rest (skipping is allowed).
+  const step1 = page.locator('[data-qstep="1"]');
+  await expect(step1).toBeVisible();
+  await step1.locator(".qz-opt").first().click();
+  for (let i = 1; i < 6; i++) {
+    await page.locator(`[data-qstep="${i}"] [data-continue]`).click();
+  }
+
+  // Result: illuminated patron panel, actions, and the benediction.
+  const patron = page.locator(".qz-patron");
   await expect(patron).toBeVisible();
-  await expect(patron.locator(".why .tag")).not.toHaveCount(0);
+  await expect(patron.locator("h1")).not.toBeEmpty();
+  await expect(page.locator(".qz-benediction")).toContainText(
+    /pray to God for us/,
+  );
+  const readHref = await page.locator(".qz-read").getAttribute("href");
+  expect(readHref).toContain(`${BASE}saint/OS-`);
+});
+
+test("about page tells the story and offers the email pill", async ({
+  page,
+}) => {
+  const resp = await page.goto("./about/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".ab-hero h1")).toHaveText("About");
+  await expect(page.locator(".ab-scene")).toBeVisible();
+  const mail = await page.locator(".ab-email").getAttribute("href");
+  expect(mail).toBe("mailto:shelby.e.krug@gmail.com");
+});
+
+test("america page shows three gilded carousels with arrows", async ({
+  page,
+}) => {
+  const resp = await page.goto("./america/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".pga-movement")).toHaveCount(3);
+  await expect(page.locator(".pga-card").first()).toBeVisible();
+  // The witnesses panel keeps not-yet-glorified figures clearly set apart.
+  await expect(
+    page
+      .locator(".pga-movement.plum .pga-card .tag", {
+        hasText: "Not yet glorified",
+      })
+      .first(),
+  ).toBeVisible();
+  // Carousel arrows: the first panel's "next" arrow is active and scrolls.
+  const firstTrack = page.locator(".pga-movement.garnet .pga-track");
+  await expect(
+    page.locator(".pga-movement.garnet .pga-arrow.next"),
+  ).toHaveClass(/show/);
+  await page.locator(".pga-movement.garnet .pga-arrow.next").click();
+  await expect
+    .poll(async () => firstTrack.evaluate((el) => el.scrollLeft))
+    .toBeGreaterThan(0);
 });
 
 test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
-  for (const label of ["Saints", "America", "Patron Quiz"]) {
+  for (const label of ["Saints", "America", "Patron Quiz", "About"]) {
     const href = await page
       .getByRole("link", { name: label, exact: true })
       .getAttribute("href");
     expect(href).toContain(BASE);
   }
-  // America navigates without a 404.
-  const resp = await page.goto("./america/");
-  expect(resp?.status()).toBe(200);
-  await expect(page.locator(".am-grid .am-card").first()).toBeVisible();
+  // The header quick-search pill routes to the search page.
+  const qs = await page.locator(".header-search").getAttribute("href");
+  expect(qs).toContain(`${BASE}search`);
 });

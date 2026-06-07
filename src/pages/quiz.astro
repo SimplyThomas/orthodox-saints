@@ -3,50 +3,82 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import QuizForm from "../components/QuizForm.astro";
 import DetailModal from "../components/DetailModal.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
-import { withBase } from "../lib/format";
+import EyebrowRule from "../components/EyebrowRule.astro";
+import { QUIZ } from "../lib/quiz";
 import { FINDER_SAINTS } from "../lib/data";
 
 const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+
+const COUNT_WORDS = [
+  "Zero",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine",
+  "Ten",
+];
+const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
 ---
 
 <BaseLayout
   active="quiz"
   title="Find Your Patron Saint"
-  description="A guided finder that matches you with Orthodox saints whose lives and intercessions echo your own."
+  description="A short pilgrimage of the heart — a guided finder that matches you with Orthodox saints whose lives and intercessions echo your own."
 >
-  <div id="quiz" class="quiz-wrap">
-    <section class="quiz-hero">
-      <div class="dome-bg" id="quiz-dome" aria-hidden="true">
-        <DomeMark w={460} color="var(--byz)" />
-      </div>
-      <div class="inner">
-        <div class="eyebrow">A Short Pilgrimage of the Heart</div>
-        <h1>Find Your Patron Saint</h1>
-        <p>
+  <div id="quiz" class="quiz-flow">
+    {/* ============ INTRO ============ */}
+    <section class="qz-screen qz-intro" data-qstep="intro">
+      <div class="qz-intro-inner">
+        <div class="qz-title-block">
+          <div class="dome-bg" aria-hidden="true">
+            <DomeMark w={540} color="var(--byz)" />
+          </div>
+          <div class="qz-title-inner">
+            <EyebrowRule label="A Short Pilgrimage of the Heart" />
+            <h1>Find Your Patron Saint</h1>
+          </div>
+        </div>
+
+        <p class="qz-lede">
           Choose what speaks to you &mdash; a companion in the great cloud of
-          witnesses whose life and intercessions may shed light on your own.
+          witnesses whose life and intercessions may shed light upon your own.
         </p>
+
+        <div class="qz-panel qz-intro-panel">
+          <span class="corner tl" aria-hidden="true"></span>
+          <span class="corner tr" aria-hidden="true"></span>
+          <span class="corner bl" aria-hidden="true"></span>
+          <span class="corner br" aria-hidden="true"></span>
+          <p class="qz-instructions">
+            Pick as many as you like in each question, and leave any blank to
+            skip. We&rsquo;ll match you with saints whose lives and
+            intercessions echo your own.
+          </p>
+          <button type="button" id="quiz-begin" class="btn btn--gold qz-begin"
+            >Begin the pilgrimage</button
+          >
+          <div class="qz-meta">
+            <span>{countWord} questions</span>
+            <span class="dm" aria-hidden="true"></span>
+            <span>pick as many as you like</span>
+            <span class="dm" aria-hidden="true"></span>
+            <span>skip any</span>
+          </div>
+        </div>
       </div>
     </section>
-    <div class="quiz-back">
-      <a href={withBase("")} class="link-btn">&larr; Back to the saints</a>
-    </div>
-    <section class="quiz-body">
-      <p class="quiz-intro">
-        Pick as many as you like in each question, and leave any blank to skip
-        it. We&rsquo;ll match you with saints whose lives and intercessions echo
-        yours.
-      </p>
-      <QuizForm />
-      <div class="quiz-actions">
-        <button type="button" id="quiz-submit" class="btn btn--gold"
-          >Show my patrons</button
-        >
-        <button type="button" id="quiz-reset" class="link-btn"
-          >Reset answers</button
-        >
-      </div>
-      <div id="quiz-results" class="quiz-results" role="status"></div>
+
+    {/* ============ QUESTIONS (one per screen) ============ */}
+    <QuizForm />
+
+    {/* ============ RESULT ============ */}
+    <section class="qz-screen qz-result" data-qstep="result" hidden>
+      <div id="quiz-results" class="qz-result-inner" role="status"></div>
     </section>
   </div>
   <DetailModal />

@@ -6,27 +6,49 @@ import { facetCounts } from "./filter";
 export interface QuizGroup {
   key: string;
   weight: number;
+  /** short eyebrow label shown above the question in the step flow */
+  kicker: string;
   q: string;
+  optional?: boolean;
 }
 
 export const QUIZ: QuizGroup[] = [
   {
     key: "intercession",
     weight: 3,
+    kicker: "Intercession",
     q: "What would you most like a saint to pray for?",
   },
-  { key: "experience", weight: 2, q: "Have you walked through any of these?" },
-  { key: "vocation", weight: 2, q: "What is your work or calling?" },
-  { key: "family", weight: 2, q: "Your state in life?" },
+  {
+    key: "experience",
+    weight: 2,
+    kicker: "Your Story",
+    q: "Have you walked through any of these?",
+  },
+  {
+    key: "vocation",
+    weight: 2,
+    kicker: "Your Calling",
+    q: "What is your work or calling?",
+  },
+  {
+    key: "family",
+    weight: 2,
+    kicker: "Your Life",
+    q: "Your state in life?",
+  },
   {
     key: "virtue",
     weight: 1,
+    kicker: "Virtue",
     q: "Which virtue do you most desire to grow in?",
   },
   {
     key: "tradition",
     weight: 1,
-    q: "Drawn to a particular tradition? (optional)",
+    kicker: "Tradition",
+    q: "Drawn to a particular tradition?",
+    optional: true,
   },
 ];
 

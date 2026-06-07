@@ -1,6 +1,9 @@
-/* Finder island: faceted client-side search over the inlined finder data.
-   Ported from app.js (render/row/pager/chips/facets wiring). Rows are real
-   links to /saint/[id]; the detail-modal island intercepts clicks. */
+/* Finder island: faceted client-side search over the inlined finder data on
+   the /search page. Ported from app.js (render/row/pager/chips/facets wiring).
+   Rows are real links to /saint/[id]; the detail-modal island intercepts
+   clicks. Arriving with ?q= seeds the query (the home hero search submits
+   here); ?browse= opens that facet group; the typed query is mirrored back
+   into the URL so results are shareable. */
 
 import type { FinderSaint } from "../lib/types";
 import {
@@ -166,15 +169,23 @@ if (dataEl) {
     );
     page = 0;
     render();
+    syncURL();
+  }
+
+  // Mirror the query into ?q= (replace, not push) so results are shareable
+  // and survive a refresh. Other params (e.g. the modal's ?s=) are preserved.
+  function syncURL() {
+    const url = new URL(window.location.href);
+    if (query) url.searchParams.set("q", query);
+    else url.searchParams.delete("q");
+    url.searchParams.delete("browse");
+    history.replaceState(history.state, "", url);
   }
 
   function render() {
     const anyActive = !!query || activeCount(selected) > 0;
     const clearBtn = $<HTMLButtonElement>("#clear-all");
     if (clearBtn) clearBtn.hidden = !anyActive;
-    // Hide the editorial "today/featured" band while actively searching.
-    const band = $("#cloud-band");
-    if (band) (band as HTMLElement).hidden = anyActive;
 
     const matched = sortSaints(
       SAINTS.filter((s) => matches(s, query, selected)),
@@ -229,9 +240,9 @@ if (dataEl) {
       query = (e.target as HTMLInputElement).value.trim();
       page = 0;
       render();
+      syncURL();
       trackSearch(query);
     });
-    $("#hero-search-btn")?.addEventListener("click", () => scrollToFinder());
     $("#q")?.addEventListener("keydown", (e) => {
       if ((e as KeyboardEvent).key === "Enter") scrollToFinder();
     });
@@ -254,16 +265,6 @@ if (dataEl) {
       render();
     });
 
-    // Browse-by chips open the matching facet group and scroll to the finder.
-    $$(".browse-by .chip").forEach((c) =>
-      c.addEventListener("click", () => {
-        const key = (c as HTMLElement).dataset.browse;
-        const d = $<HTMLDetailsElement>(`#facets details[data-key="${key}"]`);
-        if (d) d.open = true;
-        scrollToFinder();
-      }),
-    );
-
     // Deep-link: focus the search box when arriving at #q.
     if (location.hash === "#q") {
       const q = $<HTMLInputElement>("#q");
@@ -272,6 +273,28 @@ if (dataEl) {
     }
   }
 
+  // Seed state from the URL: ?q= from the home hero search, ?browse= from the
+  // home "Browse by" chips (opens that facet group).
+  function initFromURL() {
+    const params = new URL(window.location.href).searchParams;
+    const q = (params.get("q") || "").trim();
+    if (q) {
+      query = q;
+      const input = $<HTMLInputElement>("#q");
+      if (input) input.value = q;
+      trackSearch(q);
+    }
+    const browse = params.get("browse");
+    if (browse) {
+      const d = $<HTMLDetailsElement>(`#facets details[data-key="${browse}"]`);
+      if (d) {
+        d.open = true;
+        d.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }
+
   wireEvents();
+  initFromURL();
   render();
 }
