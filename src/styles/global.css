@@ -1699,11 +1699,21 @@ a.runner {
   body {
     font-size: 16px;
   }
+  .site-header {
+    gap: 14px;
+    padding: 0 14px;
+  }
   .site-nav {
-    display: none;
+    margin-left: 0;
+    gap: 14px;
+    font-size: 14px;
   }
   .header-search {
     min-width: 0;
+    padding: 8px 10px;
+  }
+  .header-search span:not(.ico) {
+    display: none;
   }
   .featured-grid,
   .am-grid {
