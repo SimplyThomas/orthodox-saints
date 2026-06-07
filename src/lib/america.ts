@@ -45,6 +45,17 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
       "Came with the 1794 Valaam mission to Kodiak; a humble monk who defended the Alaska Natives from exploitation and lived as a hermit on Spruce Island, the spiritual father of all American Orthodoxy.",
   },
   {
+    id: "OS-1895",
+    name: "Juvenal",
+    epithet: "of Alaska",
+    cat: "Hieromartyr",
+    years: "d. 1796",
+    feast: "Sep 24",
+    glorified: "1980",
+    contribution:
+      "A hieromonk from the 1794 Valaam mission who journeyed into the Alaskan interior to bring the Gospel to native peoples; martyred around 1796 — the first of the Alaska missionaries to lay down his life for the faith.",
+  },
+  {
     id: "OS-0054",
     name: "Innocent",
     epithet: "of Alaska",
@@ -109,6 +120,17 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
     glorified: "2003",
     contribution:
       "Serbian bishop, theologian and “New Chrysostom” who taught in America and reposed at St Tikhon's Monastery in South Canaan, Pennsylvania.",
+  },
+  {
+    id: "OS-2338",
+    name: "Mardarije",
+    epithet: "of Libertyville",
+    cat: "Hierarch",
+    years: "1889 – 1935",
+    feast: "Dec 12",
+    glorified: "1961",
+    contribution:
+      "A Serbian missionary bishop who organized the early Serbian Orthodox Diocese of America and built the Monastery of St. Sava in Libertyville, Illinois — laying the foundation for Serbian Orthodoxy in the New World.",
   },
 ];
 
