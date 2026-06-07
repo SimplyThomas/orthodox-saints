@@ -15,6 +15,8 @@ export default [
       "web/",
       // Design-reference bundle (React-via-Babel prototypes); not production code.
       "design_handoff_cloud_of_witnesses/",
+      // Python virtualenv — not project code.
+      ".venv/",
     ],
   },
   js.configs.recommended,
