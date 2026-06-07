@@ -297,6 +297,7 @@ a.runner {
 }
 .search input {
   flex: 1;
+  min-width: 0;
   border: 0;
   outline: 0;
   font-family: var(--text);
