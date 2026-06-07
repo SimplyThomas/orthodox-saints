@@ -4,22 +4,23 @@ import {
   AMERICA_MOVEMENT_I,
   AMERICA_MOVEMENT_II,
   AMERICA_AWAITING,
-  findAmerican,
 } from "../lib/america";
 import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
 import ByzCross from "./icons/ByzCross.astro";
 
+const saintMap = new Map(SAINTS.map((s) => [s.id, s]));
+
 const movement1 = AMERICA_MOVEMENT_I.map((s) => ({
   s,
-  hit: findAmerican(SAINTS, s.name, s.epithet),
+  hit: saintMap.get(s.id),
   catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
 }));
 
 const movement2 = AMERICA_MOVEMENT_II.map((s) => ({
   s,
-  hit: findAmerican(SAINTS, s.name, s.epithet),
+  hit: saintMap.get(s.id),
   catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
 }));
 
