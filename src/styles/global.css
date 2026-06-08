@@ -834,6 +834,12 @@ a.qz-comp {
   color: var(--gold-deep);
   font-weight: 600;
 }
+.results-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .sortbox {
   display: flex;
   align-items: center;

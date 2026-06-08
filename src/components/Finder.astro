@@ -12,13 +12,25 @@ import FacetSidebar from "./FacetSidebar.astro";
           <h2 id="results-title">All saints</h2>
           <div class="count" id="count" role="status"></div>
         </div>
-        <div class="sortbox">
-          <span>Sort</span>
-          <select id="sort" aria-label="Sort results">
-            <option value="feast">Feast day</option>
-            <option value="name">Name (A–Z)</option>
-            <option value="century">Earliest first</option>
-          </select>
+        <div class="results-controls">
+          <div class="sortbox">
+            <span>Show</span>
+            <select id="per-page" aria-label="Saints per page">
+              <option value="12">12 per page</option>
+              <option value="24" selected>24 per page</option>
+              <option value="48">48 per page</option>
+              <option value="96">96 per page</option>
+              <option value="all">Show all</option>
+            </select>
+          </div>
+          <div class="sortbox">
+            <span>Sort</span>
+            <select id="sort" aria-label="Sort results">
+              <option value="feast">Feast day</option>
+              <option value="name">Name (A–Z)</option>
+              <option value="century">Earliest first</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="active-chips" id="active-chips"></div>

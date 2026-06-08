@@ -40,6 +40,9 @@ if (dataEl) {
   let query = "";
   let sortMode: SortMode = "feast";
   let page = 0;
+  // How many results per page. Defaults to PER_PAGE; the "Show" control lets the
+  // reader widen it (Infinity = show all on one page).
+  let perPage: number = PER_PAGE;
 
   // When a saint surfaced via a name variant (nickname / other-language form)
   // rather than their displayed name, name that variant.
@@ -204,7 +207,8 @@ if (dataEl) {
 
     renderActiveChips();
 
-    const pages = Math.max(1, Math.ceil(matched.length / PER_PAGE));
+    const size = perPage === Infinity ? Math.max(matched.length, 1) : perPage;
+    const pages = Math.max(1, Math.ceil(matched.length / size));
     if (page >= pages) page = pages - 1;
     const ol = $("#results");
     if (!ol) return;
@@ -221,7 +225,7 @@ if (dataEl) {
       return;
     }
     const frag = document.createDocumentFragment();
-    for (const s of matched.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE))
+    for (const s of matched.slice(page * size, page * size + size))
       frag.appendChild(row(s));
     ol.appendChild(frag);
     renderPager(pages);
@@ -250,6 +254,13 @@ if (dataEl) {
     $<HTMLSelectElement>("#sort")?.addEventListener("change", (e) => {
       sortMode = (e.target as HTMLSelectElement).value as SortMode;
       render();
+    });
+    $<HTMLSelectElement>("#per-page")?.addEventListener("change", (e) => {
+      const v = (e.target as HTMLSelectElement).value;
+      perPage = v === "all" ? Infinity : Number(v);
+      page = 0;
+      render();
+      scrollToFinder();
     });
 
     // Facet checkbox changes (delegated).
