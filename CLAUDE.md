@@ -362,7 +362,8 @@ simply stay.
 - Data: **2441 saints**. **PHASE 1 (the spine walk) IS COMPLETE — the whole fixed calendar
   Jan 1 → Dec 31, all twelve months, is covered.** Seed (original 84 + the comprehensive
   **Sep 1–10**) plus the full single-recension OCA walk, each week landed in its own PR.
-  IDs run to OS-2480 (with OS-1926 retired as a removed duplicate), interleaved throughout with
+  IDs run to OS-2480 (with OS-1926 and OS-2291 retired as removed duplicates; OS-2291 was a
+  duplicate St Porphyrios of Kafsokalivia merged into OS-0052), interleaved throughout with
   feast-date reconciliations to existing rows.
 - **Next action: Phase 2 — merge other jurisdictions by identity** (§8): work the Greek,
   Romanian, Serbian, Georgian, Antiochian, Bulgarian, and Western pre-schism calendars, enriching
