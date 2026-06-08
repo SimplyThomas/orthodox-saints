@@ -370,7 +370,7 @@ export const EPHRAIM_RELATED: RelatedFigure[] = [
   {
     name: "St Joseph the Hesychast",
     note: "His own elder and spiritual father on Mount Athos, from whom he received the hesychast tradition.",
-    external: "https://orthodoxwiki.org/Joseph_the_Hesychast",
+    href: "saint/OS-2584",
   },
   {
     name: "St Paisios the Athonite",
