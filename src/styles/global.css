@@ -2509,7 +2509,8 @@ a.news-card:hover .news-h {
   gap: 12px;
   justify-content: center;
   max-width: 720px;
-  margin: 30px auto 0;
+  /* sit clearly below the dome (arch) watermark behind the masthead */
+  margin: 116px auto 0;
   flex-wrap: wrap;
 }
 .np-search {
