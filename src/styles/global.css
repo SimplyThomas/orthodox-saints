@@ -509,7 +509,7 @@ a.qz-comp {
   display: block;
   width: auto;
   height: clamp(92px, 13vw, 160px);
-  margin: 2px auto 28px;
+  margin: 17px auto 28px;
 }
 /* Eyebrow sits just above the wordmark (design: tight, slightly overlapping). */
 .hero .eyebrow {
