@@ -1,0 +1,920 @@
+---
+/* Comprehensive historical profile of Father Seraphim Rose. Rendered by
+   witness/[slug].astro for the "seraphim-rose" slug in place of the simple
+   memorial template. Data + citations live in src/lib/seraphim.ts. Reverent,
+   factual, encyclopedic tone; no canonical/veneration framing (he is not
+   glorified). */
+import { withBase } from "../lib/format";
+import { saintAvatar } from "../lib/icons";
+import EyebrowRule from "./EyebrowRule.astro";
+import type { Witness } from "../lib/witnesses";
+import {
+  SERAPHIM_LIFE_TIMELINE,
+  SERAPHIM_WORKS,
+  SERAPHIM_BOOKS_ABOUT,
+  SERAPHIM_QUOTES,
+  SERAPHIM_RELATED,
+  SERAPHIM_AMERICA_TIMELINE,
+  SERAPHIM_GALLERY,
+  SERAPHIM_SOURCES,
+} from "../lib/seraphim";
+
+const { w } = Astro.props as { w: Witness };
+const portrait = saintAvatar({ name: w.name }, 120, 148, { awaiting: true });
+
+const themes = [...new Set(SERAPHIM_QUOTES.map((q) => q.theme))];
+const quotesByTheme = themes.map((t) => ({
+  theme: t,
+  items: SERAPHIM_QUOTES.filter((q) => q.theme === t),
+}));
+
+const THEMES = [
+  "Modern secularism",
+  "Nihilism",
+  "Spiritual warfare",
+  "Orthodox spirituality",
+  "The afterlife",
+  "The modern religious landscape",
+  "Patristic Christianity",
+];
+---
+
+<article class="sr">
+  {/* back bar */}
+  <div class="sr-back">
+    <a href={withBase("america")} class="sr-back-link">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+      >
+      Back to Saints of America
+    </a>
+  </div>
+
+  {/* head */}
+  <header class="sr-head">
+    <div class="sr-portrait" set:html={portrait} />
+    <div class="sr-headtext">
+      <EyebrowRule label="A Witness of Our Time" />
+      <h1 class="sr-name">{w.name}</h1>
+      <p class="sr-epithet">{w.epithet}</p>
+      <div class="sr-meta">
+        <span class="sr-role">{w.role}</span>
+        <span class="sr-dot"></span>
+        <span class="sr-years">1934 &ndash; 1982</span>
+      </div>
+      <p class="sr-place">{w.place}</p>
+    </div>
+  </header>
+
+  <div class="sr-notice">
+    <strong>Not yet glorified</strong> &mdash; held in the living memory of the faithful.
+    Father Seraphim is remembered with love and gratitude, but is not (or not yet)
+    formally glorified by the Church. No feast, liturgical veneration, or intercession
+    is implied here; what follows is an historical profile, subject to clergy and
+    source review.
+  </div>
+
+  {/* OVERVIEW */}
+  <section class="sr-sec">
+    <h2>Overview</h2>
+    <p>
+      Father Seraphim Rose (born Eugene Dennis Rose) was an American convert,
+      monk, and writer of the Russian Orthodox Church Outside Russia (ROCOR)
+      who, with Gleb Podmoshensky (later Fr Herman), built one of the most
+      widely-read bodies of English-language Orthodox literature of the
+      twentieth century. He was born on August 13, 1934, in San Diego,
+      California, into a Protestant family.
+    </p>
+    <p>
+      A gifted student, he graduated from Pomona College in 1956 and pursued the
+      study of philosophy, Chinese language, and Eastern religions, taking an
+      M.A. in Oriental Languages at the University of California, Berkeley
+      (1961) and studying Chinese under the scholar Gi-ming Shien. After a
+      period of atheism and disillusionment with modern secular culture, he
+      encountered Russian Orthodoxy in San Francisco and was received into the
+      Church by chrismation in 1962, coming under the guidance of <strong
+        >St John Maximovitch</strong
+      >.
+    </p>
+    <p>
+      With Gleb Podmoshensky he founded the St Herman of Alaska Brotherhood
+      (1963) and its publishing work — the magazine The Orthodox Word and St
+      Herman Press (1965). In 1969 the brotherhood withdrew to the wilderness
+      near Platina, California; Eugene was tonsured a monk with the name
+      Seraphim (after St Seraphim of Sarov), and was ordained a priest in 1977.
+      He reposed on September 2, 1982, and is buried at the St Herman of Alaska
+      Monastery in Platina.
+    </p>
+  </section>
+
+  {/* CONVERSION JOURNEY */}
+  <section class="sr-sec">
+    <h2>From Spiritual Seeker to Orthodox Monk</h2>
+    <p>
+      Father Seraphim's path to Orthodoxy ran through the intellectual currents
+      of mid-century America. As a young man he set aside the Protestantism of
+      his upbringing and searched for truth in philosophy and the religions of
+      the East &mdash; Buddhism and Taoism above all &mdash; studying Chinese
+      thought seriously enough to translate from the Tao Te Ching. He was marked
+      by a deep dissatisfaction with the secularism and relativism of modern
+      culture, which he later analyzed at length in his writing.
+    </p>
+    <p>
+      That search led him, by way of the writings of René Guénon and finally a
+      living encounter with the Russian émigré community in San Francisco, to
+      the Orthodox Church. Decisive in this was <strong
+        >St John Maximovitch</strong
+      >, the ROCOR Archbishop of San Francisco, whom Father Seraphim came to
+      revere as his spiritual father and who blessed the work he and Gleb
+      Podmoshensky would undertake. He was received into the Church in 1962.
+    </p>
+    <ol class="sr-timeline">
+      {
+        SERAPHIM_LIFE_TIMELINE.map((t) => (
+          <li>
+            <span class="sr-tl-when">{t.when}</span>
+            <div class="sr-tl-body">
+              <h4>{t.title}</h4>
+              <p>
+                {t.body}
+                {t.source && (
+                  <a
+                    class="sr-src"
+                    href={t.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    source ↗
+                  </a>
+                )}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  {/* SPIRITUAL LINEAGE */}
+  <section class="sr-sec">
+    <h2>Spiritual Lineage</h2>
+    <p>
+      Father Seraphim received the Orthodox tradition through the Russian Church
+      Abroad and, most directly, through <strong>St John Maximovitch</strong>.
+      His spirituality drew consciously on the inheritance of nineteenth-century
+      Russian Orthodoxy &mdash; particularly the tradition of the Optina Elders,
+      whose emphasis on eldership, the Jesus Prayer, and patristic continuity he
+      sought to transmit to English-speaking readers. Through his books and the
+      Platina brotherhood, that tradition reached a generation of American
+      converts.
+    </p>
+    <div class="sr-lineage" aria-label="Spiritual lineage">
+      <div class="sr-lin-node">
+        Optina Elders
+        <span class="sr-lin-sub">19th-century Russian eldership</span>
+      </div>
+      <div class="sr-lin-arrow" aria-hidden="true">↓</div>
+      <div class="sr-lin-node">Russian Orthodox Tradition</div>
+      <div class="sr-lin-arrow" aria-hidden="true">↓</div>
+      <div class="sr-lin-node">
+        <a href={withBase("saint/OS-0050")} class="sr-lin-link"
+          >St John Maximovitch</a
+        >
+        <span class="sr-lin-sub">Archbishop of San Francisco (†1966)</span>
+      </div>
+      <div class="sr-lin-arrow" aria-hidden="true">↓</div>
+      <div class="sr-lin-node sr-lin-current">
+        Father Seraphim Rose
+        <span class="sr-lin-sub">Monk and writer of Platina</span>
+      </div>
+      <div class="sr-lin-arrow" aria-hidden="true">↓</div>
+      <div class="sr-lin-node">American Orthodox Converts</div>
+    </div>
+  </section>
+
+  {/* ST HERMAN BROTHERHOOD */}
+  <section class="sr-sec">
+    <h2>The St Herman of Alaska Brotherhood</h2>
+    <p>
+      The St Herman of Alaska Brotherhood was founded in 1963 by Eugene Rose and
+      Gleb Podmoshensky, with the blessing of St John Maximovitch, as a
+      community of Orthodox booksellers and publishers. Named for the first
+      canonized saint of North America, it took as its mission the
+      evangelization of the English-speaking world through the printed word:
+      making the lives of the saints, the writings of the Fathers, and the
+      Orthodox spiritual tradition available in English, including through
+      translation of major Orthodox works.
+    </p>
+    <p>
+      From a San Francisco bookstore (opened 1964) the brotherhood grew into the
+      monastic community at Platina. Its publishing work continued after Father
+      Seraphim's repose in 1982, and the brotherhood remains active in printing,
+      translation, and missionary outreach &mdash; the reason it became a
+      significant institution in the development of English-speaking Orthodoxy.
+    </p>
+  </section>
+
+  {/* ORTHODOX WORD */}
+  <section class="sr-sec">
+    <h2>The Orthodox Word</h2>
+    <p>
+      The Orthodox Word, a bimonthly magazine, was begun in January 1965 by the
+      brotherhood, alongside St Herman Press. Its purpose was to present
+      Orthodox Christianity &mdash; the lives of saints, patristic texts in
+      translation, and accounts of Orthodox history and spirituality &mdash; to
+      an English-speaking readership that had little such material available at
+      the time. The magazine became one of the brotherhood's most enduring works
+      and continues in publication today.
+    </p>
+  </section>
+
+  {/* MONASTERY */}
+  <section class="sr-sec">
+    <h2>St Herman of Alaska Monastery, Platina, California</h2>
+    <p>
+      In 1969 the brotherhood left the city for the wilderness near Platina, in
+      the mountains of northern California; the first monks were tonsured in
+      1970, marking the beginning of the St Herman of Alaska Monastery. (Some
+      reference works date the monastery's founding to 1968; the monastery's own
+      account gives the move in 1969 and the first tonsures in 1970.) The remote
+      setting was deliberate &mdash; a place of prayer and ascetic labour apart
+      from modern distraction.
+    </p>
+    <p>
+      Father Seraphim is buried at the monastery, on the spot of his last public
+      talk, and his grave is a place of pilgrimage. The monastery continues the
+      brotherhood's life of prayer together with its publishing and missionary
+      outreach.
+    </p>
+  </section>
+
+  {/* WORKS BY */}
+  <section class="sr-sec">
+    <h2>Works by Father Seraphim Rose</h2>
+    <div class="sr-tablewrap">
+      <table class="sr-table">
+        <thead>
+          <tr
+            ><th>Title</th><th>Type</th><th>Publication</th><th>Description</th
+            ></tr
+          >
+        </thead>
+        <tbody>
+          {
+            SERAPHIM_WORKS.map((bk) => (
+              <tr>
+                <td>
+                  {bk.source ? (
+                    <a
+                      href={bk.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {bk.title}
+                    </a>
+                  ) : (
+                    bk.title
+                  )}
+                </td>
+                <td>{bk.type}</td>
+                <td>
+                  {bk.publisher}
+                  {bk.year ? `, ${bk.year}` : ""}
+                </td>
+                <td>{bk.desc}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="sr-fineprint">
+      Note: two titles often attributed to Father Seraphim are not his own
+      works.
+      <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father
+      Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with
+      his chapter on UFOs within <em
+        >Orthodoxy and the Religion of the Future</em
+      >; neither is listed above.
+    </p>
+  </section>
+
+  {/* BOOKS ABOUT */}
+  <section class="sr-sec">
+    <h2>Books About Father Seraphim Rose</h2>
+    <div class="sr-tablewrap">
+      <table class="sr-table">
+        <thead>
+          <tr
+            ><th>Title</th><th>Author</th><th>Type</th><th>Detail</th><th
+              >Significance</th
+            ></tr
+          >
+        </thead>
+        <tbody>
+          {
+            SERAPHIM_BOOKS_ABOUT.map((bk) => (
+              <tr>
+                <td>
+                  {bk.source ? (
+                    <a
+                      href={bk.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {bk.title}
+                    </a>
+                  ) : (
+                    bk.title
+                  )}
+                </td>
+                <td>{bk.author}</td>
+                <td>{bk.type}</td>
+                <td>{bk.detail}</td>
+                <td>{bk.desc}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {/* MAJOR THEMES */}
+  <section class="sr-sec">
+    <h2>Major Themes in His Writings</h2>
+    <p>
+      Father Seraphim's writings return to a consistent set of concerns, which
+      may be set out historically rather than polemically:
+    </p>
+    <ul class="sr-themes">
+      {THEMES.map((t) => <li>{t}</li>)}
+    </ul>
+    <p>
+      Across these themes runs a single argument: that the spiritual crisis of
+      the modern West &mdash; which he traced from nihilism through secularism
+      to a coming “religion of the future” &mdash; is answered not by novelty
+      but by the patristic Christianity preserved in the Orthodox Church. His
+      book on the soul after death and his commentary on Genesis applied the
+      same patristic lens to the questions of the afterlife and of creation.
+    </p>
+  </section>
+
+  {/* SELECTED TEACHINGS */}
+  <section class="sr-sec">
+    <h2>Selected Teachings</h2>
+    <p class="sr-fineprint">
+      Drawn from his published works and letters. Widely-circulated sayings that
+      could not be tied to a specific source have been omitted.
+    </p>
+    {
+      quotesByTheme.map((g) => (
+        <div class="sr-qgroup">
+          <h3>{g.theme}</h3>
+          {g.items.map((q) => (
+            <blockquote class="sr-quote">
+              <p>“{q.text}”</p>
+              <cite>{q.work}</cite>
+            </blockquote>
+          ))}
+        </div>
+      ))
+    }
+  </section>
+
+  {/* HISTORICAL SIGNIFICANCE */}
+  <section class="sr-sec">
+    <h2>Historical Significance</h2>
+    <p>
+      Father Seraphim's significance lies chiefly in the field of
+      English-language Orthodox publishing. Through The Orthodox Word, St Herman
+      Press, and his own books, he helped make the Orthodox spiritual and
+      patristic tradition available to readers who had no access to it in their
+      own language, at a time when little existed. His apologetic works
+      addressed converts and inquirers shaped by modern Western thought, and his
+      books have remained continuously in print and widely read in the decades
+      since his repose.
+    </p>
+    <p>
+      His influence on Orthodox monasticism in America came through the Platina
+      brotherhood and the communities connected to it. Assessments of his
+      thought vary, and some of his positions have been debated within Orthodox
+      circles; what is not disputed is the scale of his readership and his place
+      in the twentieth-century history of Orthodoxy in North America.
+    </p>
+  </section>
+
+  {/* WHY AMERICANS READ */}
+  <section class="sr-sec">
+    <h2>Why Americans Continue to Read Father Seraphim</h2>
+    <p>
+      Several features of Father Seraphim's life help explain his enduring
+      readership among English-speaking Christians. He was American-born and
+      formed by modern Western culture; he confronted directly the questions of
+      secularism, relativism, and meaning that occupy that culture; and his own
+      search ran through philosophy and the religions of the East before
+      arriving at Orthodoxy. Because he wrote in English and from within that
+      experience, many later converts have found in his biography a path that
+      resembles their own.
+    </p>
+  </section>
+
+  {/* RELATED WITNESSES */}
+  <section class="sr-sec">
+    <h2>Related Witnesses</h2>
+    <ul class="sr-related">
+      {
+        SERAPHIM_RELATED.map((r) => (
+          <li>
+            {r.href ? (
+              <a href={withBase(r.href)}>{r.name}</a>
+            ) : (
+              <span class="sr-related-name">{r.name}</span>
+            )}
+            <span class="sr-related-note"> &mdash; {r.note}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {/* ORTHODOXY IN AMERICA TIMELINE */}
+  <section class="sr-sec">
+    <h2>Orthodoxy in America: Father Seraphim's Place in the Story</h2>
+    <p>
+      Father Seraphim's work belongs to the longer history of Orthodox
+      Christianity in North America &mdash; and represents a distinct phase of
+      it: the communication of Orthodoxy, in English, to modern Americans.
+    </p>
+    <ol class="sr-timeline sr-timeline--america">
+      {
+        SERAPHIM_AMERICA_TIMELINE.map((t) => (
+          <li>
+            <span class="sr-tl-when">{t.when}</span>
+            <div class="sr-tl-body">
+              <h4>{t.title}</h4>
+              <p>
+                {t.body}
+                {t.source && (
+                  <a
+                    class="sr-src"
+                    href={t.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    source ↗
+                  </a>
+                )}
+              </p>
+              {t.figures && t.figures.length > 0 && (
+                <div class="sr-tl-figures">
+                  {t.figures.map((f) =>
+                    f.href ? (
+                      <a class="sr-chip" href={withBase(f.href)}>
+                        {f.name}
+                      </a>
+                    ) : (
+                      <span class="sr-chip sr-chip--plain">{f.name}</span>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  {/* GALLERY SUGGESTIONS */}
+  <section class="sr-sec">
+    <h2>Gallery Suggestions</h2>
+    <p class="sr-fineprint">
+      Recommended imagery for a future illustrated edition of this profile (none
+      reproduced here pending licensing and review):
+    </p>
+    <ul class="sr-gallery">
+      {
+        SERAPHIM_GALLERY.map((g) => (
+          <li>
+            <span class="sr-gal-subject">{g.subject}</span>
+            <span class="sr-gal-caption">{g.caption}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {/* SOURCES */}
+  <section class="sr-sec sr-sources">
+    <h2>Sources</h2>
+    <ol>
+      {
+        SERAPHIM_SOURCES.map((s) => (
+          <li>
+            <a href={s.url} target="_blank" rel="noopener noreferrer">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="sr-fineprint">
+      Additional citations appear inline beside the timelines, tables, and
+      bibliographies above. This profile is a historical account compiled from
+      the sources listed and remains subject to clergy and source review.
+    </p>
+  </section>
+</article>
+
+<style>
+  .sr {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 28px clamp(16px, 4vw, 30px) 80px;
+  }
+  .sr-back {
+    margin-bottom: 22px;
+  }
+  .sr-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--celest);
+    text-decoration: none;
+  }
+  .sr-back-link:hover {
+    color: var(--byz-deep);
+  }
+
+  .sr-head {
+    display: flex;
+    gap: clamp(16px, 4vw, 30px);
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .sr-portrait {
+    flex-shrink: 0;
+  }
+  .sr-name {
+    font-size: clamp(30px, 5vw, 44px);
+    color: var(--byz-deep);
+    line-height: 1.04;
+    margin: 10px 0 4px;
+    font-weight: 600;
+  }
+  .sr-epithet {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--celest);
+    margin: 0 0 10px;
+  }
+  .sr-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sr-role {
+    font-family: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-deep);
+  }
+  .sr-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--celest);
+    opacity: 0.6;
+  }
+  .sr-years {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--celest);
+  }
+  .sr-place {
+    font-size: 14.5px;
+    color: var(--celest);
+    margin: 8px 0 0;
+  }
+
+  .sr-notice {
+    background: #f4ecdd;
+    border: 1px solid var(--gold-deep);
+    border-left-width: 4px;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #5a4a2a;
+    margin-bottom: 32px;
+  }
+  .sr-notice strong {
+    color: var(--gold-deep);
+  }
+
+  .sr-sec {
+    margin: 0 0 38px;
+  }
+  .sr-sec h2 {
+    font-size: clamp(20px, 3vw, 25px);
+    color: var(--byz-deep);
+    font-weight: 600;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold-soft);
+  }
+  .sr-sec h3 {
+    font-size: 16px;
+    color: var(--byz-deep);
+    margin: 18px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .sr-sec p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.72;
+    color: #2b2b2b;
+    margin: 0 0 16px;
+  }
+  .sr-fineprint {
+    font-size: 13.5px !important;
+    font-style: italic;
+    color: var(--celest);
+    line-height: 1.55 !important;
+  }
+  .sr-fineprint a {
+    color: var(--byz-deep);
+  }
+
+  .sr-lineage {
+    margin: 20px auto;
+    max-width: 460px;
+    text-align: center;
+  }
+  .sr-lin-node {
+    background: linear-gradient(168deg, #27537f 0%, #1e426a 100%);
+    border: 1px solid var(--gold-deep);
+    border-radius: 10px;
+    color: var(--ivory);
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .sr-lin-current {
+    background: linear-gradient(168deg, #2f6a4a 0%, #234f38 100%);
+  }
+  .sr-lin-link {
+    color: var(--gold-soft);
+    text-decoration: none;
+  }
+  .sr-lin-link:hover {
+    text-decoration: underline;
+  }
+  .sr-lin-sub {
+    display: block;
+    font-weight: 400;
+    font-size: 12.5px;
+    color: #cdd9e6;
+    margin-top: 3px;
+  }
+  .sr-lin-current .sr-lin-sub {
+    color: #cfe6da;
+  }
+  .sr-lin-arrow {
+    color: var(--gold-deep);
+    font-size: 22px;
+    line-height: 1.1;
+    margin: 4px 0;
+  }
+
+  .sr-timeline {
+    list-style: none;
+    margin: 18px 0 8px;
+    padding: 0;
+    border-left: 2px solid var(--gold-soft);
+  }
+  .sr-timeline li {
+    position: relative;
+    padding: 0 0 20px 22px;
+  }
+  .sr-timeline li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold-deep);
+    border: 2px solid var(--ivory);
+  }
+  .sr-tl-when {
+    font-family: var(--text);
+    font-weight: 700;
+    color: var(--byz-deep);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .sr-tl-body h4 {
+    margin: 2px 0 4px;
+    font-size: 16px;
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .sr-tl-body p {
+    font-size: 15.5px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+  }
+  .sr-tl-figures {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .sr-chip {
+    font-family: var(--text);
+    font-size: 12.5px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #eaf0f6;
+    color: var(--byz-deep);
+    text-decoration: none;
+    border: 1px solid #d3e0ec;
+  }
+  a.sr-chip:hover {
+    background: var(--gold-soft);
+  }
+  .sr-chip--plain {
+    background: transparent;
+    color: var(--celest);
+    border-style: dashed;
+  }
+  .sr-src {
+    font-family: var(--text);
+    font-size: 12px;
+    margin-left: 8px;
+    color: var(--celest);
+    white-space: nowrap;
+  }
+
+  .sr-tablewrap {
+    overflow-x: auto;
+    border: 1px solid #e2d9c4;
+    border-radius: 8px;
+  }
+  .sr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 560px;
+  }
+  .sr-table th {
+    background: #f4ecdd;
+    color: var(--byz-deep);
+    text-align: left;
+    font-weight: 600;
+    padding: 9px 12px;
+    border-bottom: 2px solid var(--gold-soft);
+    font-family: var(--text);
+  }
+  .sr-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #ece4d3;
+    vertical-align: top;
+    color: #333;
+    line-height: 1.5;
+  }
+  .sr-table tr:last-child td {
+    border-bottom: none;
+  }
+  .sr-table a {
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+
+  .sr-themes {
+    columns: 2;
+    gap: 24px;
+    margin: 0 0 16px;
+    padding-left: 18px;
+  }
+  .sr-themes li {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: #2b2b2b;
+    margin-bottom: 4px;
+  }
+
+  .sr-qgroup {
+    margin-bottom: 8px;
+  }
+  .sr-quote {
+    margin: 0 0 14px;
+    padding: 4px 0 4px 18px;
+    border-left: 3px solid var(--gold-deep);
+  }
+  .sr-quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #2b2b2b;
+    margin: 0 0 4px !important;
+  }
+  .sr-quote cite {
+    font-family: var(--text);
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--celest);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .sr-related {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .sr-related li {
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+  .sr-related a {
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .sr-related-name {
+    font-weight: 600;
+    color: #444;
+  }
+  .sr-related-note {
+    color: #555;
+  }
+
+  .sr-gallery {
+    padding-left: 0;
+    margin: 0;
+  }
+  .sr-gallery li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  .sr-gal-subject {
+    display: block;
+    font-weight: 600;
+    color: var(--byz-deep);
+    font-family: var(--text);
+    font-size: 14px;
+  }
+  .sr-gal-caption {
+    font-style: italic;
+    color: var(--celest);
+    font-size: 14px;
+  }
+
+  .sr-sources ol {
+    padding-left: 20px;
+  }
+  .sr-sources li {
+    margin-bottom: 7px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .sr-sources a {
+    color: var(--byz-deep);
+  }
+
+  @media (max-width: 560px) {
+    .sr-head {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .sr-meta {
+      justify-content: center;
+    }
+    .sr-themes {
+      columns: 1;
+    }
+  }
+</style>

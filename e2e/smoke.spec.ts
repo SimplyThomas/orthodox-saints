@@ -228,10 +228,12 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
 }) => {
   await page.goto("./america/");
   // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
-  const card = page.locator('.pga-card[href*="/witness/seraphim-rose"]');
+  // (Roman Braga uses the simple memorial template — Ephraim & Seraphim have
+  // their own comprehensive profiles, tested separately.)
+  const card = page.locator('.pga-card[href*="/witness/roman-braga"]');
   await expect(card).toBeVisible();
   await card.click();
-  await page.waitForURL(/\/witness\/seraphim-rose/);
+  await page.waitForURL(/\/witness\/roman-braga/);
   // Memorial framing — and clearly NOT a saint/veneration page.
   await expect(page.locator(".wt-name")).toBeVisible();
   await expect(page.locator(".wt-notice")).toContainText("Not yet glorified");
@@ -267,6 +269,37 @@ test("Elder Ephraim has a comprehensive, sourced profile — still set apart", a
   await expect(related).toBeVisible();
   // Back link returns to America.
   await page.locator(".ep-back-link").click();
+  await page.waitForURL(/\/america\/?$/);
+});
+
+test("Father Seraphim Rose has a comprehensive, sourced profile — still set apart", async ({
+  page,
+}) => {
+  const resp = await page.goto("./witness/seraphim-rose/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".sr-name")).toHaveText("Hieromonk Seraphim");
+  for (const h of [
+    "From Spiritual Seeker to Orthodox Monk",
+    "The Orthodox Word",
+    "Works by Father Seraphim Rose",
+    "Sources",
+  ]) {
+    await expect(page.locator(".sr-sec h2", { hasText: h })).toBeVisible();
+  }
+  // Still a memorial, not a veneration page.
+  await expect(page.locator(".sr-notice")).toContainText("Not yet glorified");
+  expect(await page.getByText("pray to God for us").count()).toBe(0);
+  // Sourced, with a working lineage link to St John Maximovitch's saint page.
+  expect(await page.locator(".sr-sources a").count()).toBeGreaterThanOrEqual(6);
+  await expect(
+    page.locator('.sr-lin-link[href*="/saint/OS-0050"]'),
+  ).toBeVisible();
+  // Related Witnesses links across to Elder Ephraim's witness profile.
+  await expect(
+    page.locator('.sr-related a[href*="/witness/ephraim-of-arizona"]'),
+  ).toBeVisible();
+  // Back link returns to America.
+  await page.locator(".sr-back-link").click();
   await page.waitForURL(/\/america\/?$/);
 });
 
