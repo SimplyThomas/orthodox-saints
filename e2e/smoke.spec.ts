@@ -71,25 +71,25 @@ test("search page filters the results", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("clicking a result opens the quick-look modal with the prayer", async ({
-  page,
-}) => {
+test("clicking a result navigates to the full saint page", async ({ page }) => {
   await page.goto("./search/");
-  await page.locator("#results .saint-row").first().click();
-  const modal = page.locator("#detail");
-  await expect(modal).toBeVisible();
-  await expect(modal.locator(".detail-card .prayer")).toBeVisible();
-  // The URL carries the ?s= deep link.
-  expect(page.url()).toContain("s=OS-");
-  // Escape closes it.
-  await page.keyboard.press("Escape");
-  await expect(modal).toBeHidden();
+  const first = page.locator("#results .saint-row").first();
+  const href = await first.getAttribute("href");
+  expect(href).toMatch(/\/saint\/OS-/);
+  await first.click();
+  // The quick-look modal is gone; the detail is its own data-driven page.
+  await page.waitForURL(/\/saint\/OS-/);
+  await expect(page.locator(".saintview .sv-name")).toBeVisible();
+  await expect(page.locator(".saintview .sv-rail")).toBeVisible();
 });
 
 test("static per-saint page is real, indexable HTML", async ({ page }) => {
   const resp = await page.goto("./saint/OS-0021/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("Basil");
+  // The full data-driven view: icon rail + the liturgical address.
+  await expect(page.locator(".saintview .sv-rail")).toBeVisible();
+  await expect(page.locator(".sv-address")).toBeVisible();
   const desc = await page
     .locator('meta[name="description"]')
     .getAttribute("content");
@@ -139,15 +139,17 @@ test("quiz walks one question per screen to an illuminated patron", async ({
   expect(readHref).toContain(`${BASE}saint/OS-`);
 });
 
-test("about page tells the story and offers the email pill", async ({
+test("about page tells the story; the personal email is removed", async ({
   page,
 }) => {
   const resp = await page.goto("./about/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".ab-hero h1")).toHaveText("About");
   await expect(page.locator(".ab-scene")).toBeVisible();
-  const mail = await page.locator(".ab-email").getAttribute("href");
-  expect(mail).toBe("mailto:shelby.e.krug@gmail.com");
+  // The personal email has been removed pending a project address; the contact
+  // card now carries a placeholder note rather than a mailto link.
+  await expect(page.locator(".ab-contact .ab-email")).toBeVisible();
+  expect(await page.locator("a[href^='mailto:']").count()).toBe(0);
 });
 
 test("america page shows three gilded carousels with arrows", async ({
@@ -176,10 +178,45 @@ test("america page shows three gilded carousels with arrows", async ({
     .toBeGreaterThan(0);
 });
 
+test("news index lists dispatches and opens an article", async ({ page }) => {
+  const resp = await page.goto("./news/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".np-h1")).toHaveText("Saints in the News");
+  // The lead story and the feed river render.
+  await expect(page.locator(".np-lead")).toBeVisible();
+  expect(
+    await page.locator(".np-river .news-feed-card").count(),
+  ).toBeGreaterThan(4);
+  // A category chip filters the river.
+  const before = await page
+    .locator(".np-river .news-feed-card:visible")
+    .count();
+  await page.locator(".np-hero .news-chip", { hasText: "Healings" }).click();
+  await expect
+    .poll(async () => page.locator(".np-river .news-feed-card:visible").count())
+    .toBeLessThan(before);
+
+  // The lead article opens at its own route with the full body + source box.
+  const article = await page.goto("./news/nektarios-child/");
+  expect(article?.status()).toBe(200);
+  await expect(page.locator(".na-h1")).toContainText("Saint Nektarios");
+  await expect(page.locator(".na-pull")).toBeVisible();
+  await expect(page.locator(".na-src")).toBeVisible();
+});
+
 test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
-  for (const label of ["Saints", "America", "Patron Quiz", "About"]) {
-    const href = await page
+  const nav = page.locator(".site-nav");
+  for (const label of [
+    "Saints",
+    "Calendar",
+    "Browse",
+    "America",
+    "News",
+    "Patron Quiz",
+    "About",
+  ]) {
+    const href = await nav
       .getByRole("link", { name: label, exact: true })
       .getAttribute("href");
     expect(href?.startsWith(BASE)).toBe(true);

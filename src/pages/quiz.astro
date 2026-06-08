@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import QuizForm from "../components/QuizForm.astro";
-import DetailModal from "../components/DetailModal.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
 import { QUIZ } from "../lib/quiz";
@@ -81,7 +80,6 @@ const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
       <div id="quiz-results" class="qz-result-inner" role="status"></div>
     </section>
   </div>
-  <DetailModal />
 
   <script
     type="application/json"

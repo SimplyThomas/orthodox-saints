@@ -1,28 +1,115 @@
 ---
 import { withBase } from "../lib/format";
-import ByzCross from "./icons/ByzCross.astro";
+
+// Reverent dark colophon: brand block + navigation + connect, over a thin
+// legal bar that keeps the standing clergy-review / licensing disclaimer.
+const cols: { head: string; links: { label: string; href: string }[] }[] = [
+  {
+    head: "Explore",
+    links: [
+      { label: "Saints", href: withBase("") },
+      { label: "The Calendar", href: withBase("calendar") },
+      { label: "Browse the Index", href: withBase("search") },
+      { label: "Saints of America", href: withBase("america") },
+      { label: "Saints in the News", href: withBase("news") },
+    ],
+  },
+  {
+    head: "The Project",
+    links: [
+      { label: "About", href: withBase("about") },
+      { label: "Find Your Patron", href: withBase("quiz") },
+      { label: "Contribute", href: withBase("about") },
+      { label: "Corrections", href: withBase("about") },
+    ],
+  },
+];
+const year = new Date().getFullYear();
 ---
 
-<footer class="sitefooter">
-  <span class="brandline" id="footer-cross"
-    ><ByzCross size={14} color="var(--gold)" />CLOUD OF WITNESSES</span
-  >
-  <span class="spacer"></span>
-  <span>An open reference of the saints &amp; the Church calendar</span>
+<footer class="cw-footer">
+  <div class="cw-footer-grid">
+    <div class="cw-foot-brand">
+      <span class="cw-foot-word">Cloud of Witnesses</span>
+      <p class="cw-foot-blurb">
+        A searchable communion of the saints &mdash; an open, freely given
+        reference of the saints and the Church calendar.
+      </p>
+      <p class="cw-foot-verse">
+        &ldquo;&hellip;since we are surrounded by so great a cloud of
+        witnesses&hellip;&rdquo;
+        <cite>Hebrews 12 : 1</cite>
+      </p>
+    </div>
+
+    {
+      cols.map((c) => (
+        <nav class="cw-foot-col" aria-label={c.head}>
+          <div class="eyebrow on-blue">{c.head}</div>
+          <div class="cw-foot-links">
+            {c.links.map((l) => (
+              <a href={l.href}>{l.label}</a>
+            ))}
+          </div>
+        </nav>
+      ))
+    }
+
+    <div class="cw-foot-col">
+      <div class="eyebrow on-blue">Connect</div>
+      <p class="cw-foot-note">
+        For corrections, contributions, icons, or just to say hello &mdash; a
+        project contact address is on its way.
+      </p>
+      <a
+        class="cw-foot-site"
+        href="https://orthodoxsaintfinder.com"
+        rel="noopener"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--celest-soft)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+        </svg>
+        orthodoxsaintfinder.com
+      </a>
+    </div>
+  </div>
+
+  <div class="cw-footer-legal">
+    <p class="cw-legal-disclaimer">
+      This dataset is a work in progress and is <strong>not</strong> an authoritative
+      or official liturgical resource; it awaits review by competent clergy and sources.
+    </p>
+    <div class="cw-legal-bar">
+      <span class="cw-copy">&copy; {year} CLOUD OF WITNESSES</span>
+      <span class="cw-dot">&middot;</span>
+      <span>Code: MIT</span>
+      <span class="cw-dot">&middot;</span>
+      <span>
+        Data: <a
+          href="https://creativecommons.org/publicdomain/zero/1.0/"
+          target="_blank"
+          rel="noopener noreferrer">CC0 1.0</a
+        >
+      </span>
+      <span class="cw-dot">&middot;</span>
+      <a id="xlsx-link" href={withBase("Orthodox_Saints_Database.xlsx")}
+        >Excel export</a
+      >
+      <span class="cw-foot-flex"></span>
+      <span class="cw-foot-maxim"
+        >Maintained with love, coffee, and the prayers of the saints.</span
+      >
+    </div>
+  </div>
 </footer>
-<div class="legal">
-  <p>
-    This dataset is a work in progress and is <strong>not</strong> an authoritative
-    or official liturgical resource; it awaits review by competent clergy and sources.
-  </p>
-  <p>
-    Code: MIT &middot; Data: <a
-      href="https://creativecommons.org/publicdomain/zero/1.0/"
-      target="_blank"
-      rel="noopener noreferrer">CC0 1.0</a
-    > (public domain) &middot;
-    <a id="xlsx-link" href={withBase("Orthodox_Saints_Database.xlsx")}
-      >Excel export</a
-    >
-  </p>
-</div>

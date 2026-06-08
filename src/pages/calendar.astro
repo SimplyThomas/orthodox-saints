@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import { withBase } from "../lib/format";
+import { SAINTS } from "../lib/data";
+
+// A lightweight count so the placeholder still reports the real corpus size
+// the calendar view will draw on.
+const total = SAINTS.length;
+---
+
+<BaseLayout
+  active="calendar"
+  title="The Calendar"
+  description="A day-by-day Orthodox calendar of the saints — coming soon to Cloud of Witnesses."
+>
+  <div class="cal-soon">
+    <section class="hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="hero-inner">
+        <div class="eyebrow-rule" aria-hidden="true">
+          <span class="ln"></span><span class="dm"></span>
+          <span class="lbl">The Church Year</span>
+          <span class="dm"></span><span class="ln"></span>
+        </div>
+        <h1 class="cal-title">The Calendar</h1>
+        <p class="cal-lede">
+          A day-by-day commemoration of the saints &mdash; the whole fixed
+          calendar, walked from January 1 to December 31.
+        </p>
+
+        <div class="cal-panel">
+          <div class="rule"><span class="dot"></span></div>
+          <p class="cal-soon-label">Coming soon</p>
+          <p class="cal-soon-body">
+            We&rsquo;re building a calendar view onto the
+            <strong>{total.toLocaleString()}</strong> commemorations already in the
+            database &mdash; browse the cloud by feast day, month, and movable cycle.
+            In the meantime, every saint is searchable today.
+          </p>
+          <div class="cal-actions">
+            <a class="btn btn--gold" href={withBase("search")}
+              >Browse the saints</a
+            >
+            <a class="btn btn--ghost" href={withBase("quiz")}
+              >Find your patron</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .cal-title {
+    font-size: clamp(44px, 7vw, 76px);
+    color: var(--byz-deep);
+    line-height: 0.98;
+    margin: 14px 0 16px;
+    font-weight: 600;
+  }
+  .cal-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2.6vw, 23px);
+    color: var(--celest);
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .cal-panel {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    background: linear-gradient(168deg, #27537f 0%, #1e426a 55%, #193758 100%);
+    border: 1px solid var(--gold-deep);
+    border-radius: 12px;
+    color: var(--ivory);
+    box-shadow: var(--shadow-card);
+    padding: 34px clamp(22px, 4vw, 48px) 32px;
+    text-align: center;
+  }
+  .cal-panel .rule {
+    max-width: 150px;
+    margin: 0 auto 16px;
+    color: var(--gold-soft);
+  }
+  .cal-soon-label {
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    font-size: 12.5px;
+    color: var(--gold-soft);
+    margin: 0 0 14px;
+  }
+  .cal-soon-body {
+    font-size: 16.5px;
+    color: #dbe5ef;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+  .cal-soon-body strong {
+    color: var(--gold-soft);
+  }
+  .cal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cal-actions .btn--ghost {
+    color: var(--gold-soft);
+    border-color: rgba(212, 175, 55, 0.45);
+  }
+  .cal-actions .btn--ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+</style>
