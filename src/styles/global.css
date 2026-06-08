@@ -541,12 +541,12 @@ a.qz-comp {
   display: block;
   width: auto;
   height: clamp(92px, 13vw, 160px);
-  margin: 32px auto 28px;
+  margin: 0 auto 28px;
 }
-/* Eyebrow sits just above the wordmark (design: tight, slightly overlapping). */
-.hero .eyebrow {
-  margin-top: 6px;
-  margin-bottom: -8px;
+/* The wordmark logo stands in for the page title, so the diamond eyebrow above
+   it gets the same gap the other pages give their eyebrow→title. */
+.hero .eyebrow-rule {
+  margin-bottom: 16px;
 }
 .hero blockquote {
   font-family: var(--serif);
@@ -3706,7 +3706,9 @@ a.news-card:hover .news-h {
 /* ---- Arch motif as a crown ABOVE the heading ----
    On the content-page heroes the dome silhouette flows in normal order (not as
    a behind-the-text watermark), so every blue title/lede sits cleanly BENEATH
-   the arches on all sizes. The home hero (logo) keeps its own treatment. */
+   the arches on all sizes. The home hero crowns its logo wordmark the same way
+   (.hero covers home + calendar). */
+.hero .dome-bg,
 .sr-hero .dome-bg,
 .np-hero .dome-bg,
 .ab-hero .dome-bg,
