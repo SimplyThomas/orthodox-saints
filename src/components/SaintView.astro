@@ -57,7 +57,7 @@ const linkGlyph = {
         stroke-linejoin="round"
         aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
       >
-      Back to the saints
+      <span class="sv-back-label">Back to the saints</span>
     </a>
     <span class="sv-sep">/</span>
     <span class="sv-crumb">{m.crumb}</span>
@@ -350,3 +350,29 @@ const linkGlyph = {
     </main>
   </div>
 </div>
+
+<script>
+  /* Context-aware back link: a saint reached from the Saints of America page
+     should send the reader back there, not to the default /search list. We key
+     off the real navigation referrer (same-origin only), so the link reflects
+     where the visitor actually came from — no URL params, and direct/search
+     arrivals keep the default. The america href is derived from the existing
+     base-prefixed href so it survives any future base-path change. */
+  const link = document.querySelector<HTMLAnchorElement>(".sv-back-link");
+  const label = link?.querySelector<HTMLElement>(".sv-back-label");
+  if (link && label && document.referrer) {
+    try {
+      const ref = new URL(document.referrer);
+      if (
+        ref.origin === location.origin &&
+        /\/america\/?$/.test(ref.pathname)
+      ) {
+        const def = link.getAttribute("href") || "/search";
+        link.setAttribute("href", def.replace(/search\/?$/, "america"));
+        label.textContent = "Back to Saints of America";
+      }
+    } catch {
+      /* malformed referrer — keep the default link */
+    }
+  }
+</script>

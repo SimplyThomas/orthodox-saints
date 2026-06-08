@@ -1,12 +1,14 @@
-﻿/* Saints of America — a curated web feature, NOT part of the canonical saints
-   dataset (data/saints.csv). Orthodox saints who planted and tended the faith in
-   North America, plus reposed servants widely venerated but not yet formally
-   glorified. Bios are short and factual; ported from the Cloud of Witnesses
-   design handoff. This roster awaits clergy/source review before it is treated
-   as authoritative (see CLAUDE.md §9). The "awaiting glorification" figures are
-   deliberately set apart and are NOT presented as canonized saints, and are
-   kept here permanently rather than in data/saints.csv — if and when any are
-   glorified they should be added to the canonical dataset at that time. */
+﻿/* Saints of America — a curated web feature listing GLORIFIED Orthodox saints who
+   planted and tended the faith in North America. Each maps by `id` to a canonical
+   record in data/saints.csv; the America page reads name/feast/portrait from there
+   (single source of truth) and layers these page-only editorial fields (cat,
+   years, glorified year, contribution) on top. Bios are short and factual, ported
+   from the Cloud of Witnesses design handoff, and await clergy/source review
+   before being treated as authoritative (see CLAUDE.md §9).
+
+   The departed who are NOT (or not yet) glorified — the "Witnesses of Our Time" —
+   are kept entirely separate in src/lib/witnesses.ts, with their own memorial
+   pages, so they never appear as canonized saints. */
 
 export interface AmericaSaint {
   id: string; // canonical OS-#### from data/saints.csv — permanent link to the saint page
@@ -20,15 +22,9 @@ export interface AmericaSaint {
   badge?: string;
 }
 
-export interface AwaitingSaint {
-  name: string;
-  epithet: string;
-  role: string;
-  years: string;
-  place: string;
-  contribution: string;
-  reposedYear?: string;
-}
+// The "Witnesses of Our Time" (departed, not yet glorified) now live in their
+// own non-canonical database, src/lib/witnesses.ts, with their own memorial
+// pages at /witness/<slug>.
 
 // Movement I — They Came from Across the Sea
 export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
@@ -179,109 +175,5 @@ export const AMERICA_MOVEMENT_II: AmericaSaint[] = [
     glorified: "2015",
     contribution:
       "The first Orthodox priest born in the United States; a tireless missionary across the Americas called the “Apostle to the Americas.”",
-  },
-];
-
-// "The Witnesses of Our Time" — order follows the design handoff roster.
-export const AMERICA_AWAITING: AwaitingSaint[] = [
-  {
-    name: "Elder Ephraim",
-    epithet: "of Arizona",
-    role: "Athonite Elder",
-    years: "1928 – 2019",
-    place: "St Anthony's Monastery, Florence, Arizona",
-    contribution:
-      "A disciple of St Joseph the Hesychast who, coming from Mount Athos, founded some twenty Orthodox monasteries across the United States and Canada — reviving traditional monastic life on the continent.",
-  },
-  {
-    name: "Hieromonk Seraphim",
-    epithet: "Rose, of Platina",
-    role: "Monk & Writer",
-    years: "1934 – 1982",
-    place: "St Herman Monastery, Platina, California",
-    contribution:
-      "An American convert and co-founder of the St Herman of Alaska Monastery in California whose writings opened the door of Orthodoxy to a whole generation of English-speaking seekers.",
-  },
-  {
-    name: "Archimandrite Roman",
-    epithet: "Braga",
-    role: "Confessor & Elder",
-    years: "1922 – 2015",
-    place: "Holy Dormition Monastery, Rives Junction, Michigan",
-    contribution:
-      "A Romanian priest imprisoned and tortured under communism who, having found inner freedom in his cell, carried that joy to America and shaped monastic life in Michigan.",
-  },
-  {
-    name: "Archbishop Dmitri",
-    epithet: "Royster",
-    role: "Missionary Hierarch",
-    years: "1923 – 2011",
-    place: "Dallas, Texas",
-    contribution:
-      "A Texan convert from a Baptist family who became founding bishop of the Diocese of the South, planting and nurturing scores of mission parishes across the American South.",
-  },
-  {
-    name: "Mother Alexandra",
-    epithet: "Princess Ileana",
-    role: "Monastic Foundress",
-    years: "1909 – 1991",
-    place: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
-    contribution:
-      "Born Princess Ileana of Romania, she embraced monastic life in America and founded the Monastery of the Transfiguration in Pennsylvania — a haven of prayer for Orthodox women.",
-  },
-  {
-    name: "Fr. Thomas Hopko",
-    epithet: "of St Vladimir's",
-    role: "Priest & Theologian",
-    years: "1939 – 2015",
-    place: "Ellwood City, Pennsylvania",
-    contribution:
-      "A beloved teacher, preacher and dean of St Vladimir's Seminary whose lectures, books and “55 maxims” formed generations of English-speaking Orthodox Christians.",
-  },
-  {
-    name: "Fr. Michael Oleksa",
-    epithet: "",
-    role: "Priest & Educator",
-    years: "1947 – 2023",
-    place: "Alaska",
-    contribution:
-      "A missionary priest, teacher and storyteller who spent decades among the peoples of Alaska — a leading interpreter of Alaska Native cultures and of the deep Orthodox history rooted in that land.",
-  },
-  {
-    name: "Fr. Michael",
-    epithet: "Gelsinger",
-    role: "Priest",
-    years: "",
-    reposedYear: "2019",
-    place: "the American South",
-    contribution:
-      "A pastor remembered with deep affection by many of the faithful across the American South, who held him in living memory long after his repose.",
-  },
-  {
-    name: "Fr. Alexander Schmemann",
-    epithet: "",
-    role: "Priest & Theologian",
-    years: "1921 – 1983",
-    place: "St Vladimir's Seminary, Crestwood, New York",
-    contribution:
-      "Dean of St Vladimir's Seminary and author of “For the Life of the World,” whose liturgical theology renewed the Eucharistic life of Orthodox Christians across America and far beyond.",
-  },
-  {
-    name: "Fr. Georges Florovsky",
-    epithet: "",
-    role: "Priest & Theologian",
-    years: "1893 – 1979",
-    place: "Princeton, New Jersey",
-    contribution:
-      "A Russian émigré priest, church historian and theologian who called the Church to a “neo-patristic synthesis” — a return to the Fathers — while teaching at St Vladimir's, Harvard and Princeton.",
-  },
-  {
-    name: "Fr. John Meyendorff",
-    epithet: "",
-    role: "Priest & Theologian",
-    years: "1926 – 1992",
-    place: "St Vladimir's Seminary, Crestwood, New York",
-    contribution:
-      "A patristic scholar of St Gregory Palamas and dean of St Vladimir's Seminary, whose learning and witness helped a self-governing Orthodox Church take root in America.",
   },
 ];

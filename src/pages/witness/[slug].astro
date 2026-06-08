@@ -1,0 +1,232 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
+import { withBase } from "../../lib/format";
+import { saintAvatar } from "../../lib/icons";
+import { WITNESSES, type Witness } from "../../lib/witnesses";
+
+export const getStaticPaths = (() => {
+  return WITNESSES.map((w) => ({ params: { slug: w.slug }, props: { w } }));
+}) satisfies GetStaticPaths;
+
+const { w } = Astro.props as { w: Witness };
+const lifespan = w.years || (w.reposedYear ? `† Reposed ${w.reposedYear}` : "");
+const portrait = saintAvatar({ name: w.name }, 108, 134, { awaiting: true });
+const desc = `${w.name}${w.epithet ? " — " + w.epithet : ""}: ${w.bio[0]}`;
+---
+
+<BaseLayout active="america" title={w.name} description={desc}>
+  <article class="wt">
+    {/* back bar */}
+    <div class="wt-back">
+      <a href={withBase("america")} class="wt-back-link">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+        >
+        Back to Saints of America
+      </a>
+    </div>
+
+    {/* head */}
+    <header class="wt-head">
+      <div class="wt-portrait" set:html={portrait} />
+      <div class="wt-headtext">
+        <EyebrowRule label="A Witness of Our Time" />
+        <h1 class="wt-name">{w.name}</h1>
+        {w.epithet && <p class="wt-epithet">{w.epithet}</p>}
+        <div class="wt-meta">
+          <span class="wt-role">{w.role}</span>
+          {lifespan && <span class="wt-dot" />}
+          {lifespan && <span class="wt-years">{lifespan}</span>}
+        </div>
+        {w.place && <p class="wt-place">{w.place}</p>}
+      </div>
+    </header>
+
+    {/* the reverent set-apart notice */}
+    <div class="wt-notice">
+      <strong>Not yet glorified</strong> — held in the living memory of the faithful.
+      This servant of God is remembered with love and gratitude, but is not (or not
+      yet) formally glorified by the Church. No feast, liturgical veneration, or intercession
+      is implied here.
+    </div>
+
+    {/* memorial biography */}
+    <div class="wt-body">
+      {w.bio.map((p) => <p>{p}</p>)}
+    </div>
+
+    {/* sources / standing caveat */}
+    <div class="wt-sources">
+      {
+        w.sources && w.sources.length > 0 ? (
+          <>
+            <h2>Sources</h2>
+            <ul>
+              {w.sources.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p class="wt-caveat">
+            Sources for this memorial are still being gathered. Until reviewed,
+            these details are offered in good faith but are not yet
+            authoritative.
+          </p>
+        )
+      }
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .wt {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px clamp(16px, 4vw, 28px) 72px;
+  }
+  .wt-back {
+    margin-bottom: 22px;
+  }
+  .wt-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--celest);
+    text-decoration: none;
+  }
+  .wt-back-link:hover {
+    color: var(--byz-deep);
+  }
+
+  .wt-head {
+    display: flex;
+    gap: clamp(16px, 4vw, 30px);
+    align-items: center;
+    margin-bottom: 26px;
+  }
+  .wt-portrait {
+    flex-shrink: 0;
+  }
+  .wt-name {
+    font-size: clamp(28px, 5vw, 40px);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 10px 0 4px;
+    font-weight: 600;
+  }
+  .wt-epithet {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--celest);
+    margin: 0 0 10px;
+  }
+  .wt-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .wt-role {
+    font-family: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-deep);
+  }
+  .wt-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--celest);
+    opacity: 0.6;
+  }
+  .wt-years {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--celest);
+  }
+  .wt-place {
+    font-size: 14.5px;
+    color: var(--celest);
+    margin: 8px 0 0;
+  }
+
+  .wt-notice {
+    background: #f4ecdd;
+    border: 1px solid var(--gold-deep);
+    border-left-width: 4px;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #5a4a2a;
+    margin-bottom: 28px;
+  }
+  .wt-notice strong {
+    color: var(--gold-deep);
+  }
+
+  .wt-body p {
+    font-family: var(--serif);
+    font-size: 18.5px;
+    line-height: 1.7;
+    color: #2b2b2b;
+    margin: 0 0 18px;
+  }
+
+  .wt-sources {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .wt-sources h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--byz-deep);
+    margin: 0 0 10px;
+  }
+  .wt-sources ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .wt-sources li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3a3a3a;
+  }
+  .wt-caveat {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--celest);
+    margin: 0;
+  }
+
+  @media (max-width: 540px) {
+    .wt-head {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .wt-meta {
+      justify-content: center;
+    }
+  }
+</style>

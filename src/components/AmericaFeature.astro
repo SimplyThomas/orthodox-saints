@@ -3,9 +3,9 @@ import { SAINTS } from "../lib/data";
 import {
   AMERICA_MOVEMENT_I,
   AMERICA_MOVEMENT_II,
-  AMERICA_AWAITING,
   type AmericaSaint,
 } from "../lib/america";
+import { WITNESSES } from "../lib/witnesses";
 import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
@@ -14,15 +14,50 @@ import AmericaMovement from "./AmericaMovement.astro";
 
 const saintMap = new Map(SAINTS.map((s) => [s.id, s]));
 
-const prep = (s: AmericaSaint) => ({
-  s,
-  hit: saintMap.get(s.id),
-  catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
-});
+// Pull the card's name + feast from the canonical DB record (single source of
+// truth), cleaned for the gallery: drop the rank prefix and any trailing
+// descriptor clause from the name, and reduce the feast to its primary date.
+const RANK_PREFIX =
+  /^(St\.?|Saint|Holy|Blessed|Righteous|Venerable|Hiero(?:martyr|confessor)|Confessor|Martyr|Prophet|Apostles?|Equal-to-the-Apostles)\s+/i;
+function cleanName(dbName: string): string {
+  let n = dbName.split(",")[0].trim(); // drop ", Confessor and Defender…" tails
+  while (RANK_PREFIX.test(n)) n = n.replace(RANK_PREFIX, "").trim();
+  return n;
+}
+function cleanFeast(dbFeast: string): string {
+  return (dbFeast || "")
+    .split(";")[0] // primary feast only
+    .replace(/\(.*?\)/g, "") // drop "(also 1st Sat of Nov)" notes
+    .replace(/^\s*Glorification\s+/i, "")
+    .trim();
+}
+// The cleaned DB name usually already carries the locale ("Herman of Alaska"),
+// so keep the curated epithet only when the name doesn't already say it
+// (e.g. "Alexis Toth" still wants "of Wilkes-Barre").
+function keepEpithet(name: string, epithet: string): boolean {
+  if (!epithet) return false;
+  const n = name.toLowerCase();
+  if (/\b(of|the)\b/.test(n)) return false;
+  return !n.includes(epithet.toLowerCase().replace(/^(of|the)\s+/, ""));
+}
+
+const prep = (s: AmericaSaint) => {
+  const hit = saintMap.get(s.id);
+  const name = hit ? cleanName(hit.name) : s.name;
+  const feast = hit && hit.feast ? cleanFeast(hit.feast) : s.feast;
+  return {
+    s,
+    hit,
+    name,
+    feast,
+    epithet: keepEpithet(name, s.epithet) ? s.epithet : "",
+    catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
+  };
+};
 const movement1 = AMERICA_MOVEMENT_I.map(prep);
 const movement2 = AMERICA_MOVEMENT_II.map(prep);
 
-const awaiting = AMERICA_AWAITING.map((s) => ({
+const awaiting = WITNESSES.map((s) => ({
   s,
   reposed: s.reposedYear || (s.years.split("–").pop() || "").trim(),
 }));
@@ -94,7 +129,7 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
     tone="garnet"
   >
     {
-      movement1.map(({ s, hit, catSlug }) => {
+      movement1.map(({ s, hit, catSlug, name, feast, epithet }) => {
         const Tag = hit ? "a" : "div";
         return (
           <Tag
@@ -104,13 +139,13 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name: s.name }, 84, 104, {
+              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
                 type: s.cat,
               })}
             />
             <div class="body">
-              <h3>{s.name}</h3>
-              {s.epithet && <div class="epithet">{s.epithet}</div>}
+              <h3>{name}</h3>
+              {epithet && <div class="epithet">{epithet}</div>}
               <div class="years">{s.years}</div>
               <span class={`tag ${catSlug}`}>
                 <i />
@@ -118,7 +153,7 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
               </span>
               <p>{s.contribution}</p>
               <div class="foot">
-                <span class="feast">Feast · {s.feast}</span>
+                <span class="feast">Feast · {feast}</span>
                 <span class="glor">Glorified {s.glorified}</span>
               </div>
             </div>
@@ -134,7 +169,7 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
     tone="forest"
   >
     {
-      movement2.map(({ s, hit, catSlug }) => {
+      movement2.map(({ s, hit, catSlug, name, feast, epithet }) => {
         const Tag = hit ? "a" : "div";
         return (
           <Tag
@@ -144,13 +179,13 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name: s.name }, 84, 104, {
+              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
                 type: s.cat,
               })}
             />
             <div class="body">
-              <h3>{s.name}</h3>
-              {s.epithet && <div class="epithet">{s.epithet}</div>}
+              <h3>{name}</h3>
+              {epithet && <div class="epithet">{epithet}</div>}
               <div class="years">{s.years}</div>
               <span class={`tag ${catSlug}`}>
                 <i />
@@ -158,7 +193,7 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
               </span>
               <p>{s.contribution}</p>
               <div class="foot">
-                <span class="feast">Feast · {s.feast}</span>
+                <span class="feast">Feast · {feast}</span>
                 <span class="glor">Glorified {s.glorified}</span>
               </div>
             </div>
@@ -176,7 +211,7 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
   >
     {
       awaiting.map(({ s, reposed }) => (
-        <div class="pga-card">
+        <a class="pga-card clickable" href={withBase(`witness/${s.slug}`)}>
           <div
             class="portrait"
             set:html={saintAvatar({ name: s.name }, 84, 104, {
@@ -196,12 +231,12 @@ const awaiting = AMERICA_AWAITING.map((s) => ({
               </span>
               <span class="tag t-venerated solid">Not yet glorified</span>
             </div>
-            <p>{s.contribution}</p>
+            <p>{s.bio[0]}</p>
             <div class="foot">
               <span class="place">{s.place}</span>
             </div>
           </div>
-        </div>
+        </a>
       ))
     }
   </AmericaMovement>

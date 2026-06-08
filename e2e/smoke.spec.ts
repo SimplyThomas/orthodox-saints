@@ -94,6 +94,26 @@ test("clicking a result navigates to the full saint page", async ({ page }) => {
   await page.waitForURL(/\/saint\/OS-/);
   await expect(page.locator(".saintview .sv-name")).toBeVisible();
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
+  // Reached from /search, the back link points to the saints list.
+  await expect(page.locator(".sv-back-link .sv-back-label")).toHaveText(
+    "Back to the saints",
+  );
+});
+
+test("a saint reached from the America page links back to America", async ({
+  page,
+}) => {
+  await page.goto("./america/");
+  await page.locator(".pga-card.clickable").first().click();
+  await page.waitForURL(/\/saint\/OS-/);
+  // The back link is rewritten to point at the America page, by name and href.
+  const back = page.locator(".sv-back-link");
+  await expect(back.locator(".sv-back-label")).toHaveText(
+    "Back to Saints of America",
+  );
+  await expect(back).toHaveAttribute("href", /\/america\/?$/);
+  await back.click();
+  await page.waitForURL(/\/america\/?$/);
 });
 
 test("static per-saint page is real, indexable HTML", async ({ page }) => {
@@ -201,6 +221,25 @@ test("america page shows three gilded carousels with arrows", async ({
   await expect
     .poll(async () => firstTrack.evaluate((el) => el.scrollLeft))
     .toBeGreaterThan(m.stride * 2.5);
+});
+
+test("a Witness of Our Time opens a memorial page, set apart from the saints", async ({
+  page,
+}) => {
+  await page.goto("./america/");
+  // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
+  const card = page.locator('.pga-card[href*="/witness/"]').first();
+  await expect(card).toBeVisible();
+  await card.click();
+  await page.waitForURL(/\/witness\//);
+  // Memorial framing — and clearly NOT a saint/veneration page.
+  await expect(page.locator(".wt-name")).toBeVisible();
+  await expect(page.locator(".wt-notice")).toContainText("Not yet glorified");
+  await expect(page.locator(".sv-address")).toHaveCount(0); // no liturgical address
+  expect(await page.getByText("pray to God for us").count()).toBe(0);
+  // The back link returns to the America page.
+  await page.locator(".wt-back-link").click();
+  await page.waitForURL(/\/america\/?$/);
 });
 
 test("news index shows a coming-soon placeholder", async ({ page }) => {
