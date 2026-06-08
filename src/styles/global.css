@@ -53,6 +53,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* sticky footer: a flex column whose <main> grows so the footer always
+     sits at the bottom of the viewport on short pages (e.g. the quiz intro). */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#app {
+  flex: 1 0 auto;
 }
 h1,
 h2,
@@ -3292,8 +3300,11 @@ a.news-card:hover .news-h {
 }
 .sv-grid {
   display: grid;
-  grid-template-columns: 430px 1fr;
+  grid-template-columns: 430px minmax(0, 840px);
   align-items: start;
+  justify-content: center;
+  max-width: 1270px;
+  margin: 0 auto;
 }
 
 /* ---- icon rail ---- */
