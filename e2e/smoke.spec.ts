@@ -217,6 +217,22 @@ test("news index lists dispatches and opens an article", async ({ page }) => {
   await expect(page.locator(".na-src")).toBeVisible();
 });
 
+test("on mobile the nav collapses into a hamburger dropdown", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto("./");
+  const toggle = page.locator(".nav-toggle");
+  await expect(toggle).toBeVisible();
+  // Links are hidden in the closed dropdown, revealed on toggle, hidden on Escape.
+  const link = page.locator(".site-nav a", { hasText: "Calendar" });
+  await expect(link).toBeHidden();
+  await toggle.click();
+  await expect(link).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(link).toBeHidden();
+});
+
 test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
   const nav = page.locator(".site-nav");

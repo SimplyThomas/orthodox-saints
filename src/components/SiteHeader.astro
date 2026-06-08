@@ -34,21 +34,79 @@ const NAV: { key: string; label: string; href: string }[] = [
     <img src={logo.src} alt="Cloud of Witnesses" />
   </a>
   <span class="spacer"></span>
-  <nav class="site-nav" aria-label="Primary">
-    {
-      NAV.map((n) => (
-        <a href={n.href} class={active === n.key ? "active" : undefined}>
-          {n.label}
-        </a>
-      ))
-    }
-  </nav>
-  <a
-    class="header-search"
-    href={`${withBase("search")}#q`}
-    aria-label="Search saints"
+  <button
+    type="button"
+    class="nav-toggle"
+    aria-label="Menu"
+    aria-expanded="false"
+    aria-controls="site-menu"
   >
-    <span class="ico"><SearchGlyph size={16} color="var(--celest-soft)" /></span
-    ><span>Quick search&hellip;</span>
-  </a>
+    <svg
+      class="ico-menu"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <path d="M3 6h18M3 12h18M3 18h18"></path>
+    </svg>
+    <svg
+      class="ico-close"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <path d="M6 6l12 12M18 6 6 18"></path>
+    </svg>
+  </button>
+  <div class="site-menu" id="site-menu">
+    <nav class="site-nav" aria-label="Primary">
+      {
+        NAV.map((n) => (
+          <a href={n.href} class={active === n.key ? "active" : undefined}>
+            {n.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a
+      class="header-search"
+      href={`${withBase("search")}#q`}
+      aria-label="Search saints"
+    >
+      <span class="ico"
+        ><SearchGlyph size={16} color="var(--celest-soft)" /></span
+      ><span>Quick search&hellip;</span>
+    </a>
+  </div>
 </header>
+
+<script>
+  // Mobile dropdown: toggle the nav panel; close on link click or Escape.
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const toggle = header?.querySelector<HTMLButtonElement>(".nav-toggle");
+  if (header && toggle) {
+    const set = (open: boolean) => {
+      header.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+    toggle.addEventListener("click", () =>
+      set(!header.classList.contains("nav-open")),
+    );
+    header
+      .querySelectorAll(".site-menu a")
+      .forEach((a) => a.addEventListener("click", () => set(false)));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") set(false);
+    });
+  }
+</script>

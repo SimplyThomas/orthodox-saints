@@ -471,6 +471,33 @@ a.qz-comp {
   color: inherit;
 }
 
+/* Mobile menu: desktop keeps the inline layout (the wrapper is transparent to
+   flow via display:contents); the hamburger button is hidden until the mobile
+   breakpoint below. */
+.site-menu {
+  display: contents;
+}
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 8px;
+  color: var(--gold-soft);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.nav-toggle:hover {
+  border-color: var(--gold);
+}
+.nav-toggle .ico-close {
+  display: none;
+}
+
 .loading {
   text-align: center;
   color: var(--ink-soft);
@@ -3750,6 +3777,55 @@ a.news-card:hover .news-h {
     justify-content: center;
   }
 }
+/* Mobile masthead: collapse the nav + search into a hamburger dropdown so the
+   seven links don't stack/wrap across the bar. */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .site-header.nav-open .nav-toggle .ico-menu {
+    display: none;
+  }
+  .site-header.nav-open .nav-toggle .ico-close {
+    display: inline;
+  }
+  .site-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    background: var(--byz-ink);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 18px 40px rgba(15, 34, 56, 0.45);
+    padding: 8px clamp(16px, 4vw, 56px) 16px;
+  }
+  .site-header.nav-open .site-menu {
+    display: flex;
+  }
+  .site-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    font-size: 16px;
+  }
+  .site-nav a {
+    padding: 13px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .site-nav a.active {
+    border-bottom-color: var(--gold);
+  }
+  .header-search {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
 @media (max-width: 860px) {
   .ab-move {
     grid-template-columns: 1fr;
@@ -3787,20 +3863,8 @@ a.news-card:hover .news-h {
     font-size: 16px;
   }
   .site-header {
-    gap: 14px;
+    gap: 12px;
     padding: 0 14px;
-  }
-  .site-nav {
-    margin-left: 0;
-    gap: 14px;
-    font-size: 14px;
-  }
-  .header-search {
-    min-width: 0;
-    padding: 8px 10px;
-  }
-  .header-search span:not(.ico) {
-    display: none;
   }
   .featured-grid {
     grid-template-columns: 1fr 1fr;
