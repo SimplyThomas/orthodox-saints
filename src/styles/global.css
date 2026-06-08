@@ -2509,7 +2509,7 @@ a.news-card:hover .news-h {
   gap: 12px;
   justify-content: center;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 30px auto 0;
   flex-wrap: wrap;
 }
 .np-search {
