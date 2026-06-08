@@ -1,0 +1,455 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import ByzCross from "../components/icons/ByzCross.astro";
+
+// Contribute — a warm invitation to help. The form composes a pre-filled
+// mailto: (no backend/secrets); the visitor's mail app opens with everything
+// written, they attach files and press send. Ported from the Claude Design
+// "Contribute" mock into the project's Byzantine system + a vanilla island.
+const TYPES = [
+  { id: "research", label: "Saint research / biographies" },
+  { id: "photos", label: "Photographs of icons or churches" },
+  { id: "artwork", label: "Icons / artwork" },
+  { id: "translations", label: "Translations" },
+  { id: "missing", label: "A saint we’re missing" },
+  { id: "calendar", label: "Feast-day / calendar data" },
+  { id: "sources", label: "Sources & citations" },
+];
+---
+
+<BaseLayout
+  active=""
+  title="Contribute"
+  description="Help build Cloud of Witnesses — share saint research, photographs of icons, translations, sources, or a saint we’re missing."
+>
+  <div class="cb">
+    {/* ---------- hero ---------- */}
+    <section class="cb-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={440} color="var(--byz)" />
+      </div>
+      <div class="cb-hero-inner">
+        <div class="eyebrow">Add Your Stone to the Mosaic</div>
+        <h1 class="cb-title">Contribute</h1>
+        <p class="cb-lede">
+          This is a labor of love, and it grows richer with every hand that
+          helps. If you have research, photographs, icons, or a saint we’ve
+          missed &mdash; we’d be honored to receive it.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- body ---------- */}
+    <section class="cb-body">
+      <div class="cb-wrap">
+        {/* how it works */}
+        <div class="cb-how">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m3 7 9 6 9-6"></path>
+          </svg>
+          <p>
+            When you send, your email app opens with a message to us already
+            written &mdash; just review, attach any files, and hit send.
+            Everything below simply fills out that email for you.
+          </p>
+        </div>
+
+        {/* form */}
+        <form class="cb-card" id="cb-form" novalidate>
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
+
+          <div class="fld">
+            <div class="fld-lab">
+              <span class="eyebrow">What would you like to share?</span>
+              <span class="req">REQUIRED</span>
+            </div>
+            <div class="cb-chips" id="cb-types">
+              {
+                TYPES.map((t, i) => (
+                  <button
+                    type="button"
+                    class={`chip${i === 0 ? " on" : ""}`}
+                    data-type={t.id}
+                    data-label={t.label}
+                    set:html={t.label}
+                  />
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="cb-grid2">
+            <div class="fld">
+              <div class="fld-lab">
+                <span class="eyebrow">Your name</span><span class="req"
+                  >REQUIRED</span
+                >
+              </div>
+              <input
+                id="cb-name"
+                class="cb-input"
+                type="text"
+                placeholder="So we know who to thank"
+                autocomplete="name"
+              />
+              <div class="err" data-for="cb-name" hidden>
+                Please tell us your name.
+              </div>
+            </div>
+            <div class="fld">
+              <div class="fld-lab">
+                <span class="eyebrow">Your email</span><span class="req"
+                  >REQUIRED</span
+                >
+              </div>
+              <input
+                id="cb-email"
+                class="cb-input"
+                type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+              <div class="hint">So we can write back.</div>
+              <div class="err" data-for="cb-email" hidden>
+                A valid email lets us reply.
+              </div>
+            </div>
+          </div>
+
+          <div class="fld">
+            <div class="fld-lab">
+              <span class="eyebrow">Tell us about it</span><span class="req"
+                >REQUIRED</span
+              >
+            </div>
+            <textarea
+              id="cb-message"
+              class="cb-input cb-area"
+              rows="5"
+              placeholder="e.g. I have high-resolution photographs of the icons at our parish, and would love to share them for the saints’ pages…"
+            ></textarea>
+            <div class="hint">
+              What is it, where it’s from, and anything we should know.
+            </div>
+            <div class="err" data-for="cb-message" hidden>
+              A few words help us understand your contribution.
+            </div>
+          </div>
+
+          <div class="fld">
+            <div class="fld-lab">
+              <span class="eyebrow">Link to materials</span><span class="opt"
+                >OPTIONAL</span
+              >
+            </div>
+            <input
+              id="cb-link"
+              class="cb-input"
+              type="url"
+              placeholder="https:// …"
+            />
+            <div class="hint">
+              Email can’t carry large files &mdash; share a Drive, Dropbox, or
+              photo-album link, or just attach files to the email after it
+              opens.
+            </div>
+          </div>
+
+          <div class="cb-actions">
+            <button type="submit" class="btn btn--blue cb-send">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--ivory)"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+              Compose the email
+            </button>
+            <span class="cb-note"
+              >Opens your mail app. Nothing is sent until you press send.</span
+            >
+          </div>
+        </form>
+
+        {/* thanks */}
+        <div class="cb-thanks" id="cb-thanks" hidden>
+          <div class="cb-thanks-cross">
+            <ByzCross size={26} color="var(--gold-deep)" />
+          </div>
+          <div class="eyebrow">With Gratitude</div>
+          <h2>Your email is ready to send</h2>
+          <p>
+            We’ve opened your mail app with the message filled in. Attach any
+            photographs or files, then press <strong>send</strong> &mdash; and thank
+            you. Every contribution, however small, helps this little library grow.
+          </p>
+          <div class="rule"><span class="dot"></span></div>
+          <button type="button" class="btn btn--ghost" id="cb-again">
+            Share something else
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    import "../islands/contribute.client.ts";
+  </script>
+</BaseLayout>
+
+<style>
+  .cb-hero {
+    position: relative;
+    text-align: center;
+    padding: 58px clamp(20px, 5vw, 56px) 44px;
+    overflow: hidden;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .cb-hero .dome-bg {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .cb-hero-inner {
+    position: relative;
+  }
+  .cb-title {
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1;
+    margin: 14px 0 16px;
+    font-weight: 600;
+  }
+  .cb-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--page-lede-size);
+    color: var(--celest);
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+
+  .cb-body {
+    padding: 46px clamp(16px, 5vw, 56px) 64px;
+    background: var(--paper);
+  }
+  .cb-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .cb-how {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    background: var(--ivory);
+    border: 1px solid var(--line-gold);
+    border-radius: 8px;
+    padding: 15px 18px;
+    margin-bottom: 26px;
+  }
+  .cb-how svg {
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+  .cb-how p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .cb-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+    padding: 38px clamp(20px, 4vw, 36px) 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tick {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: 0 solid var(--gold);
+  }
+  .tick.tl {
+    top: 11px;
+    left: 11px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+  }
+  .tick.tr {
+    top: 11px;
+    right: 11px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+  }
+  .tick.bl {
+    bottom: 11px;
+    left: 11px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+  }
+  .tick.br {
+    bottom: 11px;
+    right: 11px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+  }
+
+  .fld {
+    display: block;
+  }
+  .fld-lab {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .req {
+    font-size: 11px;
+    color: #8d3a2f;
+    letter-spacing: 0.08em;
+  }
+  .opt {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+  .hint {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 7px;
+    line-height: 1.45;
+  }
+  .err {
+    font-size: 13px;
+    color: #8d3a2f;
+    margin-top: 7px;
+  }
+  .cb-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .cb-grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .cb-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--text);
+    font-size: 16.5px;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 13px 15px;
+    outline: none;
+  }
+  .cb-input:focus {
+    border-color: var(--gold);
+  }
+  .cb-area {
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .cb-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .cb-send {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    padding: 14px 26px;
+  }
+  .cb-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  .cb-thanks {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+    padding: 48px 44px 44px;
+    text-align: center;
+  }
+  .cb-thanks-cross {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.16);
+    border: 1px solid var(--line-gold);
+    margin-bottom: 22px;
+  }
+  .cb-thanks h2 {
+    font-size: 36px;
+    color: var(--byz-deep);
+    line-height: 1.1;
+    margin: 8px 0 14px;
+    font-weight: 600;
+  }
+  .cb-thanks p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .cb-thanks .rule {
+    max-width: 200px;
+    margin: 24px auto;
+  }
+
+  @media (max-width: 560px) {
+    .cb-grid2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

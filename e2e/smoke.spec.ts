@@ -357,3 +357,36 @@ test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   const qs = await page.locator(".header-search").getAttribute("href");
   expect(qs).toContain(`${BASE}search`);
 });
+
+test("contribute page renders, validates, and is linked from the footer", async ({
+  page,
+}) => {
+  const resp = await page.goto("./contribute/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".cb-title")).toHaveText("Contribute");
+  await expect(page.locator("#cb-types .chip")).toHaveCount(7);
+  // Empty submit reveals validation and does NOT navigate away (mailto guard).
+  await page.locator(".cb-send").click();
+  await expect(page.locator('.err[data-for="cb-name"]')).toBeVisible();
+  await expect(page).toHaveURL(/\/contribute\/?$/);
+  // Footer links here.
+  await expect(
+    page.locator('.cw-foot-links a[href$="/contribute"]'),
+  ).toHaveCount(1);
+});
+
+test("corrections page renders, validates, and is linked from the footer", async ({
+  page,
+}) => {
+  const resp = await page.goto("./corrections/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".cr-title")).toHaveText("Suggest a Correction");
+  await expect(page.locator("#cr-types .chip")).toHaveCount(6);
+  // Empty submit reveals validation (no GitHub tab opened on invalid input).
+  await page.locator(".cr-send").click();
+  await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
+  // Footer links here.
+  await expect(
+    page.locator('.cw-foot-links a[href$="/corrections"]'),
+  ).toHaveCount(1);
+});
