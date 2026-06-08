@@ -1731,8 +1731,10 @@ a.qz-comp {
 
 /* gilded ivory saint card */
 .pga-card {
-  flex: 0 0 min(358px, 82vw);
-  max-width: 358px;
+  /* exactly three cards per view (track gap is 20px → two gaps), so the third
+     card is never clipped; the arrow advances a full page (see the island). */
+  flex: 0 0 calc((100% - 40px) / 3);
+  max-width: none;
   scroll-snap-align: start;
   background: var(--paper);
   border: 1px solid var(--line-gold);
@@ -3879,6 +3881,9 @@ a.news-card:hover .news-h {
   }
 }
 @media (max-width: 860px) {
+  .pga-card {
+    flex-basis: calc((100% - 20px) / 2);
+  }
   .ab-move {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -3913,6 +3918,9 @@ a.news-card:hover .news-h {
 @media (max-width: 640px) {
   body {
     font-size: 16px;
+  }
+  .pga-card {
+    flex-basis: 100%;
   }
   .site-header {
     gap: 12px;
