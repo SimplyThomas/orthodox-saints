@@ -71,6 +71,19 @@ test("search page filters the results", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("search page lets the reader choose how many results show", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await expect(page.locator("#results .saint-row").first()).toBeVisible();
+  // Default page size, then narrow and widen it via the "Show" control.
+  await expect(page.locator("#results .saint-row")).toHaveCount(24);
+  await page.selectOption("#per-page", "12");
+  await expect(page.locator("#results .saint-row")).toHaveCount(12);
+  await page.selectOption("#per-page", "96");
+  await expect(page.locator("#results .saint-row")).toHaveCount(96);
+});
+
 test("clicking a result navigates to the full saint page", async ({ page }) => {
   await page.goto("./search/");
   const first = page.locator("#results .saint-row").first();
