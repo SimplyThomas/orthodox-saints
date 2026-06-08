@@ -1,6 +1,7 @@
 ---
 import DomeMark from "./icons/DomeMark.astro";
 import SearchGlyph from "./icons/SearchGlyph.astro";
+import EyebrowRule from "./EyebrowRule.astro";
 import { withBase } from "../lib/format";
 import logo from "../assets/logo.svg";
 
@@ -22,7 +23,7 @@ const browse = [
     <DomeMark w={460} color="var(--byz)" />
   </div>
   <div class="hero-inner">
-    <div class="eyebrow">An Orthodox Saint Finder</div>
+    <EyebrowRule label="An Orthodox Saint Finder" />
     <img class="hero-logo" src={logo.src} alt="Cloud of Witnesses" />
     <blockquote>
       &ldquo;Therefore, since we are surrounded by so great a cloud of
