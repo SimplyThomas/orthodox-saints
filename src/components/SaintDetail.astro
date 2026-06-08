@@ -96,6 +96,31 @@ const linkDefs: [string, string][] = (
   }
 
   {
+    saint.quote && (
+      <figure class="saint-quote">
+        <blockquote>{saint.quote}</blockquote>
+        <figcaption>
+          {saint.quoteSource ? (
+            <a
+              href={saint.quoteSource}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {saint.quoteWork || "Source"}
+            </a>
+          ) : (
+            saint.quoteWork
+          )}
+          {saint.quoteLocus && <span>, {saint.quoteLocus}</span>}
+          {saint.quoteTranslation && (
+            <span class="quote-trans"> · {saint.quoteTranslation}</span>
+          )}
+        </figcaption>
+      </figure>
+    )
+  }
+
+  {
     facetDefs.map(([label, val]) =>
       Array.isArray(val) ? (
         val.length > 0 && (

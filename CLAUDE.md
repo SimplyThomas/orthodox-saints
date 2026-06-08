@@ -46,7 +46,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
-│   └── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
+│   ├── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
+│   └── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
@@ -240,6 +241,20 @@ instead, add one row to `data/saint_images.csv`
   ```
   (`.gif` files: glob `*.jpg` skips them. Convert to `.jpg` manually and update
   `saint_images.csv` if you need a gif resized.)
+
+**Saint quotes (the detail-page quote block).** To show a saint's own words on their
+detail page, add one row to `data/saint_quotes.csv`
+(`saint_id,quote,work,locus,translation,source_url`):
+- **One quote per saint.** The `quote` is transcribed **verbatim** from a translation; the
+  saint's own words are public-domain, but a *modern translation* usually is **not** (§9).
+- `translation` MUST name an accepted **public-domain** source — the Ante-/Nicene-and-Post-
+  Nicene-Fathers series (`ANF` / `NPNF` / `NPNF1` / `NPNF2`), an explicit `(PD)` / `PD-old`,
+  or `CC0`. A modern in-copyright edition (Philokalia, SVS Press, …) has no such marker and
+  **fails the build** — link out instead, never reproduce it.
+- `source_url` (required) must let a reviewer verify the wording against its PD source;
+  `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
+  row simply render no quote block. The build joins the quote into the record as `quote`
+  (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and

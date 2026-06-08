@@ -452,5 +452,96 @@ class SaintImageTests(unittest.TestCase):
                          "\n".join(errs))
 
 
+class SaintQuoteTests(unittest.TestCase):
+    """data/saint_quotes.csv loader, PD-translation gate, validation, and join."""
+
+    def test_translation_ok_accepts_pd_and_rejects_copyrighted(self):
+        for good in ("ANF Vol 1", "NPNF1 vol 9", "NPNF2 Vol. 4",
+                     "NPNF", "Some 1890 ed. (PD)", "PD-old", "CC0"):
+            self.assertTrue(build.translation_ok(good), good)
+        for bad in ("", "St Vladimir's Seminary Press, 1998",
+                    "The Philokalia, Faber 1979", "© 2020 Holy Cross"):
+            self.assertFalse(build.translation_ok(bad), bad)
+
+    def test_to_record_joins_quote_and_citation(self):
+        quotes = {"OS-0001": {"quote": "A saying.", "work": "On Prayer",
+                              "locus": "§3", "translation": "NPNF2 (PD)",
+                              "source": "https://ex"}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images={}, quotes=quotes)
+        self.assertEqual(rec["quote"], "A saying.")
+        self.assertEqual(rec["quoteWork"], "On Prayer")
+        self.assertEqual(rec["quoteLocus"], "§3")
+        self.assertEqual(rec["quoteTranslation"], "NPNF2 (PD)")
+        self.assertEqual(rec["quoteSource"], "https://ex")
+
+    def test_to_record_no_quote_key_when_absent(self):
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images={}, quotes={})
+        self.assertNotIn("quote", rec)
+
+    def _run_quote_validation(self, rows_csv):
+        """Validate a synthetic saint_quotes.csv. Returns (errors, warnings)."""
+        import csv as _csv
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = tmp / "saint_quotes.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.SAINT_QUOTES_HEADER)
+            w.writeheader()
+            w.writerows(rows_csv)
+        old_csv = build.SAINT_QUOTES_CSV
+        try:
+            build.SAINT_QUOTES_CSV = csv_path
+            return build.validate_saint_quotes({"OS-0001", "OS-0002"})
+        finally:
+            build.SAINT_QUOTES_CSV = old_csv
+
+    def _q(self, **over):
+        row = {"saint_id": "OS-0001", "quote": "A genuine saying.",
+               "work": "On Prayer", "locus": "§3",
+               "translation": "NPNF2 (PD)", "source_url": "https://src"}
+        row.update(over)
+        return row
+
+    def test_clean_quote_row_validates(self):
+        errs, _ = self._run_quote_validation([self._q()])
+        self.assertEqual(errs, [])
+
+    def test_unknown_saint_id_errors(self):
+        errs, _ = self._run_quote_validation([self._q(saint_id="OS-9999")])
+        self.assertTrue(any("matches no saint" in e for e in errs))
+
+    def test_copyrighted_translation_errors(self):
+        errs, _ = self._run_quote_validation(
+            [self._q(translation="SVS Press 1998")])
+        self.assertTrue(any("public-domain source" in e for e in errs))
+
+    def test_empty_translation_errors(self):
+        errs, _ = self._run_quote_validation([self._q(translation="")])
+        self.assertTrue(any("empty translation" in e for e in errs))
+
+    def test_empty_quote_errors(self):
+        errs, _ = self._run_quote_validation([self._q(quote="")])
+        self.assertTrue(any("empty quote" in e for e in errs))
+
+    def test_missing_source_errors(self):
+        errs, _ = self._run_quote_validation([self._q(source_url="")])
+        self.assertTrue(any("empty source_url" in e for e in errs))
+
+    def test_duplicate_quote_errors(self):
+        errs, _ = self._run_quote_validation([self._q(), self._q()])
+        self.assertTrue(any("duplicate quote row" in e for e in errs))
+
+    def test_committed_quote_file_validates(self):
+        # The committed data/saint_quotes.csv (if present) must pass.
+        errs, _ = build.validate_saint_quotes(
+            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        self.assertEqual(errs, [], "committed saint_quotes.csv has errors:\n" +
+                         "\n".join(errs))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

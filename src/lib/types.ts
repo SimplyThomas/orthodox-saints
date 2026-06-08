@@ -53,6 +53,13 @@ export interface Saint {
   imageLicense?: string;
   imageCredit?: string;
   imageSource?: string;
+  /** verified public-domain quote from the saint; absent → no quote block */
+  quote?: string;
+  /** quote citation, present only when `quote` is */
+  quoteWork?: string;
+  quoteLocus?: string;
+  quoteTranslation?: string;
+  quoteSource?: string;
 }
 
 /** The light projection shipped to the home landing page (saint-of-the-day +

@@ -41,6 +41,7 @@ VOCAB_CSV = DATA / "vocabulary.csv"
 VENDORS_CSV = DATA / "vendors.csv"
 NAME_VARIANTS_CSV = DATA / "name_variants.csv"
 SAINT_IMAGES_CSV = DATA / "saint_images.csv"
+SAINT_QUOTES_CSV = DATA / "saint_quotes.csv"
 
 # Real saint portraits (data/saint_images.csv) join to saints by Saint ID. Only
 # OPEN, reusable licenses are accepted — an unlicensed image must never deploy
@@ -58,6 +59,25 @@ def license_ok(lic: str) -> bool:
 
 def license_requires_credit(lic: str) -> bool:
     return lic.strip().upper().startswith("CC-BY")
+
+
+# Saint quotes (data/saint_quotes.csv) join to saints by Saint ID. Each quote
+# MUST come from a public-domain translation — the saint's original words are
+# PD, but a modern English translation usually is not, and §9 forbids reproducing
+# a copyrighted translation. The translation field is gated like the image
+# license: it must name a PD source (ANF / NPNF / explicit (PD) / CC0); anything
+# else fails the build. One quote per saint (detail page shows a single quote).
+SAINT_QUOTES_HEADER = ["saint_id", "quote", "work", "locus", "translation", "source_url"]
+PD_TRANSLATION_RE = re.compile(r"\b(PD|PD-old|CC0|ANF|NPNF1?|NPNF2)\b", re.IGNORECASE)
+
+
+def translation_ok(t: str) -> bool:
+    """True if the translation names an accepted public-domain source — the
+    Ante-/Nicene-and-Post-Nicene-Fathers series (ANF / NPNF / NPNF1 / NPNF2),
+    an explicit public-domain marker (PD / PD-old), or CC0. A modern in-copyright
+    translation (e.g. a Philokalia or SVS Press edition) has no such marker and
+    fails, keeping copyrighted translations out of the data (§9)."""
+    return bool(PD_TRANSLATION_RE.search(t or ""))
 
 # The canonical 26-column header, exact and in order (CLAUDE.md §5).
 HEADER = [
@@ -256,6 +276,12 @@ def validate(header: list[str], rows: list[dict[str, str]],
     img_errors, img_warnings = validate_saint_images(_img_valid_ids)
     errors.extend(img_errors)
     warnings.extend(img_warnings)
+
+    # Validate saint_quotes.csv against the full committed saints.csv too, for the
+    # same reason as images (IDs must resolve even under a unit-test subset).
+    quote_errors, quote_warnings = validate_saint_quotes(_img_valid_ids)
+    errors.extend(quote_errors)
+    warnings.extend(quote_warnings)
 
     if header != HEADER:
         errors.append(
@@ -573,6 +599,95 @@ def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
 
 
 # --------------------------------------------------------------------------- #
+# Saint quotes (data/saint_quotes.csv). One verified quote per saint, keyed by
+# Saint ID. The build joins the quote into the record as `quote` and the saint
+# detail page renders it with a citation linking the public-domain source. Every
+# quote must be transcribed verbatim from a PD translation and the `translation`
+# field must name that PD source — enforced here so a copyrighted translation can
+# never deploy (§9). Saints without a quote simply render no quote block.
+# --------------------------------------------------------------------------- #
+def load_saint_quotes() -> dict[str, dict[str, str]]:
+    """saint_id -> {quote, work, locus, translation, source}. Empty if absent."""
+    out: dict[str, dict[str, str]] = {}
+    if not SAINT_QUOTES_CSV.exists():
+        return out
+    with SAINT_QUOTES_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_QUOTES_HEADER:
+            sys.exit(f"FATAL: {SAINT_QUOTES_CSV} header must be "
+                     f"{SAINT_QUOTES_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            sid = (row.get("saint_id") or "").strip()
+            if not sid:
+                continue
+            out[sid] = {
+                "quote": (row.get("quote") or "").strip(),
+                "work": (row.get("work") or "").strip(),
+                "locus": (row.get("locus") or "").strip(),
+                "translation": (row.get("translation") or "").strip(),
+                "source": (row.get("source_url") or "").strip(),
+            }
+    return out
+
+
+def validate_saint_quotes(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Validate data/saint_quotes.csv: known saint, one quote per saint, the quote
+    and a citing work/source present, and a public-domain translation (§9)."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not SAINT_QUOTES_CSV.exists():
+        return errors, warnings
+    with SAINT_QUOTES_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_QUOTES_HEADER:
+            return ([f"saint_quotes.csv header must be {SAINT_QUOTES_HEADER}, "
+                     f"got {reader.fieldnames!r}"], warnings)
+        seen: set[str] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            sid = (row.get("saint_id") or "").strip()
+            quote = (row.get("quote") or "").strip()
+            work = (row.get("work") or "").strip()
+            translation = (row.get("translation") or "").strip()
+            source = (row.get("source_url") or "").strip()
+            where = f"saint_quotes.csv line {i}"
+
+            if not sid:
+                errors.append(f"{where}: empty saint_id.")
+            elif not ID_RE.match(sid):
+                errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
+            elif sid not in valid_ids:
+                errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+            elif sid in seen:
+                errors.append(f"{where}: duplicate quote row for {sid} "
+                              "(one quote per saint).")
+            seen.add(sid)
+
+            if not quote:
+                errors.append(f"{where} ({sid}): empty quote.")
+            if not translation:
+                errors.append(f"{where} ({sid}): empty translation. A quote must "
+                              "name its public-domain translation (§9).")
+            elif not translation_ok(translation):
+                errors.append(f"{where} ({sid}): translation {translation!r} does not "
+                              "name an accepted public-domain source (ANF / NPNF / "
+                              "(PD) / CC0). Copyrighted translations must not be "
+                              "reproduced (§9) — link out instead.")
+            if not source:
+                errors.append(f"{where} ({sid}): empty source_url — a quote must be "
+                              "verifiable against its public-domain source.")
+            elif not source.lower().startswith(("http://", "https://")):
+                warnings.append(f"{where} ({sid}): source_url {source!r} is not a URL.")
+            if not work:
+                warnings.append(f"{where} ({sid}): no 'work' cited for the quote.")
+            if len(quote) > 500:
+                warnings.append(f"{where} ({sid}): quote is {len(quote)} chars — long "
+                                "for a 'famous quote' (consider trimming).")
+    return errors, warnings
+
+
+# --------------------------------------------------------------------------- #
 # Name variants (data/name_variants.csv): equivalence groups of given-name
 # forms — English nicknames + cross-language/transliteration variants. The
 # build expands each saint's search haystack with the other forms in any group
@@ -667,13 +782,16 @@ def variant_forms(r: dict[str, str], lookup: dict[str, list[str]]) -> list[str]:
 # --------------------------------------------------------------------------- #
 def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               name_variants: dict[str, list[str]] | None = None,
-              images: dict[str, dict[str, str]] | None = None) -> dict:
+              images: dict[str, dict[str, str]] | None = None,
+              quotes: dict[str, dict[str, str]] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
         name_variants = load_name_variants()
     if images is None:
         images = load_saint_images()
+    if quotes is None:
+        quotes = load_saint_quotes()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -703,6 +821,20 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             rec["imageCredit"] = img["credit"]
         if img.get("source"):
             rec["imageSource"] = img["source"]
+    # Verified public-domain quote (data/saint_quotes.csv), if one exists. The
+    # detail page renders `quote` with a citation; `quoteSource` links the PD
+    # source so the wording is verifiable (§9). Saints without one render nothing.
+    q = quotes.get(r["Saint ID"].strip())
+    if q and q.get("quote"):
+        rec["quote"] = q["quote"]
+        if q.get("work"):
+            rec["quoteWork"] = q["work"]
+        if q.get("locus"):
+            rec["quoteLocus"] = q["locus"]
+        if q.get("translation"):
+            rec["quoteTranslation"] = q["translation"]
+        if q.get("source"):
+            rec["quoteSource"] = q["source"]
     # Search haystack: name + aka + brief + notes + customs + all facet values.
     facets = []
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
@@ -728,7 +860,8 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     vendors = load_vendors()
     name_variants = load_name_variants()
     images = load_saint_images()
-    records = [to_record(r, vendors, name_variants, images) for r in rows]
+    quotes = load_saint_quotes()
+    records = [to_record(r, vendors, name_variants, images, quotes) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
