@@ -58,7 +58,7 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
-│   └── assets/logo.png
+│   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
 ├── static/                    ← Astro publicDir (kept off public/, which is Python-owned)
 │   └── icons/                 ← self-hosted saint portraits (referenced by data/saint_images.csv)

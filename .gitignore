@@ -23,3 +23,6 @@ design_handoff_cloud_of_witnesses/
 
 # Local secrets — never commit
 .env
+
+# Local Claude Code agent state
+.claude/
