@@ -1,8 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
 // Smoke tests run against the real built site via `astro preview`, which honors
-// the `/orthodox-saints/` base path — the only way to catch base-path regressions.
-const BASE = "/orthodox-saints/";
+// the configured base path — the only way to catch base-path regressions.
+// (Root "/" since the move to the orthodoxsaintfinder.com custom domain.)
+const BASE = "/";
 const PORT = 4321;
 
 export default defineConfig({

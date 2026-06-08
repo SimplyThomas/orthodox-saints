@@ -29,7 +29,7 @@ jobs:
           node-version: "24"
           cache: npm
       - run: npm ci
-      - run: npm run build              # astro build -> _site/ (imports public/data.json, base /orthodox-saints)
+      - run: npm run build              # astro build -> _site/ (imports public/data.json, custom domain orthodoxsaintfinder.com)
         env:
           # Umami Analytics website id (not secret — it ships in page source).
           # Add it under Settings -> Secrets and variables -> Actions -> Variables.

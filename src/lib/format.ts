@@ -56,7 +56,8 @@ export function cssEscape(s: string): string {
 
 /* Base-path-correct internal URL. Astro does NOT prefix `base` onto hand-written
    href/src strings, so every internal link must pass through this. BASE_URL is
-   "/orthodox-saints/" (Vite-inlined at build time); we normalize the slashes. */
+   "/" on the custom domain (Vite-inlined at build time; was "/orthodox-saints/"
+   on the project site — keep routing through here so a base change stays cheap). */
 export function withBase(path: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   return base + "/" + String(path).replace(/^\//, "");
