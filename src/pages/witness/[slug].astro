@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EyebrowRule from "../../components/EyebrowRule.astro";
+import EphraimProfile from "../../components/EphraimProfile.astro";
 import { withBase } from "../../lib/format";
 import { saintAvatar } from "../../lib/icons";
 import { WITNESSES, type Witness } from "../../lib/witnesses";
@@ -13,84 +14,98 @@ export const getStaticPaths = (() => {
 const { w } = Astro.props as { w: Witness };
 const lifespan = w.years || (w.reposedYear ? `† Reposed ${w.reposedYear}` : "");
 const portrait = saintAvatar({ name: w.name }, 108, 134, { awaiting: true });
-const desc = `${w.name}${w.epithet ? " — " + w.epithet : ""}: ${w.bio[0]}`;
+
+// Elder Ephraim of Arizona has a dedicated, comprehensive historical profile;
+// the other witnesses use the simple memorial template below.
+const isEphraim = w.slug === "ephraim-of-arizona";
+const desc = isEphraim
+  ? "Elder Ephraim of Arizona (1927/28–2019): Athonite hieromonk, abbot of Philotheou, and founder of a network of Orthodox monasteries across North America. A sourced historical profile."
+  : `${w.name}${w.epithet ? " — " + w.epithet : ""}: ${w.bio[0]}`;
+const title = isEphraim ? "Elder Ephraim of Arizona" : w.name;
 ---
 
-<BaseLayout active="america" title={w.name} description={desc}>
-  <article class="wt">
-    {/* back bar */}
-    <div class="wt-back">
-      <a href={withBase("america")} class="wt-back-link">
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
-        >
-        Back to Saints of America
-      </a>
-    </div>
-
-    {/* head */}
-    <header class="wt-head">
-      <div class="wt-portrait" set:html={portrait} />
-      <div class="wt-headtext">
-        <EyebrowRule label="A Witness of Our Time" />
-        <h1 class="wt-name">{w.name}</h1>
-        {w.epithet && <p class="wt-epithet">{w.epithet}</p>}
-        <div class="wt-meta">
-          <span class="wt-role">{w.role}</span>
-          {lifespan && <span class="wt-dot" />}
-          {lifespan && <span class="wt-years">{lifespan}</span>}
+<BaseLayout active="america" title={title} description={desc}>
+  {isEphraim && <EphraimProfile w={w} />}
+  {
+    !isEphraim && (
+      <article class="wt">
+        {/* back bar */}
+        <div class="wt-back">
+          <a href={withBase("america")} class="wt-back-link">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M14 6l-6 6 6 6" />
+            </svg>
+            Back to Saints of America
+          </a>
         </div>
-        {w.place && <p class="wt-place">{w.place}</p>}
-      </div>
-    </header>
 
-    {/* the reverent set-apart notice */}
-    <div class="wt-notice">
-      <strong>Not yet glorified</strong> — held in the living memory of the faithful.
-      This servant of God is remembered with love and gratitude, but is not (or not
-      yet) formally glorified by the Church. No feast, liturgical veneration, or intercession
-      is implied here.
-    </div>
+        {/* head */}
+        <header class="wt-head">
+          <div class="wt-portrait" set:html={portrait} />
+          <div class="wt-headtext">
+            <EyebrowRule label="A Witness of Our Time" />
+            <h1 class="wt-name">{w.name}</h1>
+            {w.epithet && <p class="wt-epithet">{w.epithet}</p>}
+            <div class="wt-meta">
+              <span class="wt-role">{w.role}</span>
+              {lifespan && <span class="wt-dot" />}
+              {lifespan && <span class="wt-years">{lifespan}</span>}
+            </div>
+            {w.place && <p class="wt-place">{w.place}</p>}
+          </div>
+        </header>
 
-    {/* memorial biography */}
-    <div class="wt-body">
-      {w.bio.map((p) => <p>{p}</p>)}
-    </div>
+        {/* the reverent set-apart notice */}
+        <div class="wt-notice">
+          <strong>Not yet glorified</strong> — held in the living memory of the
+          faithful. This servant of God is remembered with love and gratitude,
+          but is not (or not yet) formally glorified by the Church. No feast,
+          liturgical veneration, or intercession is implied here.
+        </div>
 
-    {/* sources / standing caveat */}
-    <div class="wt-sources">
-      {
-        w.sources && w.sources.length > 0 ? (
-          <>
-            <h2>Sources</h2>
-            <ul>
-              {w.sources.map((s) => (
-                <li>
-                  <a href={s.url} target="_blank" rel="noopener noreferrer">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : (
-          <p class="wt-caveat">
-            Sources for this memorial are still being gathered. Until reviewed,
-            these details are offered in good faith but are not yet
-            authoritative.
-          </p>
-        )
-      }
-    </div>
-  </article>
+        {/* memorial biography */}
+        <div class="wt-body">
+          {w.bio.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        {/* sources / standing caveat */}
+        <div class="wt-sources">
+          {w.sources && w.sources.length > 0 ? (
+            <>
+              <h2>Sources</h2>
+              <ul>
+                {w.sources.map((s) => (
+                  <li>
+                    <a href={s.url} target="_blank" rel="noopener noreferrer">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <p class="wt-caveat">
+              Sources for this memorial are still being gathered. Until
+              reviewed, these details are offered in good faith but are not yet
+              authoritative.
+            </p>
+          )}
+        </div>
+      </article>
+    )
+  }
 </BaseLayout>
 
 <style>
