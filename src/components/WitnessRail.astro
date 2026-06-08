@@ -1,0 +1,103 @@
+---
+/* The deep-blue icon rail for the "Witnesses of Our Time" profiles (Elder
+   Ephraim, Fr Seraphim). Mirrors the canonized-saint rail (SaintView) — big
+   portrait, gold type tag, an "At a glance" panel — but, because these figures
+   are NOT glorified, it carries a "Not yet glorified" badge in place of a feast
+   day, and never an intercession/address (CLAUDE.md §9). Reuses the global
+   .sv-rail / .sv-glance classes so it matches the saint pages visually. */
+import { saintAvatar } from "../lib/icons";
+import ByzCross from "./icons/ByzCross.astro";
+
+interface Props {
+  name: string;
+  role: string;
+  facts: [string, string][];
+  knownFor?: string;
+  statusNote?: string;
+}
+const {
+  name,
+  role,
+  facts,
+  knownFor,
+  statusNote = "Held in the living memory of the faithful",
+} = Astro.props;
+
+// Awaiting-style monogram (no cross) — the set-apart portrait, sized to fill
+// the rail's icon slot exactly as a canonized saint's portrait does.
+const portrait = saintAvatar({ name }, 286, 358, { awaiting: true });
+---
+
+<aside class="sv-rail">
+  <div class="sv-icon-frame">
+    <div class="sv-icon-inner" set:html={portrait} />
+  </div>
+
+  <div class="rule sv-rail-rule"><span class="dot"></span></div>
+
+  <div class="sv-rail-tag">
+    <span class="tag sv-tag-gold"><i></i>{role}</span>
+  </div>
+
+  <div class="wr-status" role="note">
+    <ByzCross size={20} color="var(--gold-soft)" />
+    <div>
+      <div class="wr-status-label">Not yet glorified</div>
+      <div class="wr-status-note">{statusNote}</div>
+    </div>
+  </div>
+
+  {
+    facts.length > 0 && (
+      <div class="sv-glance">
+        <div class="eyebrow on-blue">At a glance</div>
+        <dl>
+          {facts.map(([k, v]) => (
+            <div class="sv-fact">
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )
+  }
+
+  {
+    knownFor && (
+      <div class="sv-knownfor">
+        <div class="eyebrow on-blue">Known for</div>
+        <div class="sv-virtues">{knownFor}</div>
+      </div>
+    )
+  }
+</aside>
+
+<style>
+  /* "Not yet glorified" badge — matches the saint rail's feast block, but in a
+     deliberately distinct, reverent register (no feast/veneration framing). */
+  .wr-status {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 5px;
+    margin-bottom: 26px;
+  }
+  .wr-status-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+  .wr-status-note {
+    font-family: var(--serif);
+    font-size: 13.5px;
+    color: var(--ivory);
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+</style>

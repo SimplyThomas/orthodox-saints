@@ -250,7 +250,7 @@ test("Elder Ephraim has a comprehensive, sourced profile — still set apart", a
   const resp = await page.goto("./witness/ephraim-of-arizona/");
   expect(resp?.status()).toBe(200);
   // The rich profile renders its sections (not the simple memorial template).
-  await expect(page.locator(".ep-name")).toHaveText("Elder Ephraim");
+  await expect(page.locator(".sv-name")).toContainText("Elder Ephraim");
   for (const h of [
     "Spiritual Lineage",
     "Monasteries Associated with Elder Ephraim",
@@ -268,7 +268,7 @@ test("Elder Ephraim has a comprehensive, sourced profile — still set apart", a
   const related = page.locator('.ep-related a[href*="/saint/OS-"]').first();
   await expect(related).toBeVisible();
   // Back link returns to America.
-  await page.locator(".ep-back-link").click();
+  await page.locator(".sv-back-link").click();
   await page.waitForURL(/\/america\/?$/);
 });
 
@@ -277,7 +277,7 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
 }) => {
   const resp = await page.goto("./witness/seraphim-rose/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".sr-name")).toHaveText("Hieromonk Seraphim");
+  await expect(page.locator(".sv-name")).toContainText("Hieromonk Seraphim");
   for (const h of [
     "From Spiritual Seeker to Orthodox Monk",
     "The Orthodox Word",
@@ -299,7 +299,7 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
     page.locator('.sr-related a[href*="/witness/ephraim-of-arizona"]'),
   ).toBeVisible();
   // Back link returns to America.
-  await page.locator(".sr-back-link").click();
+  await page.locator(".sv-back-link").click();
   await page.waitForURL(/\/america\/?$/);
 });
 

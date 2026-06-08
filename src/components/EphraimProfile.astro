@@ -5,8 +5,7 @@
    factual, encyclopedic tone; no canonical/veneration framing (he is not
    glorified). */
 import { withBase } from "../lib/format";
-import { saintAvatar } from "../lib/icons";
-import EyebrowRule from "./EyebrowRule.astro";
+import WitnessRail from "./WitnessRail.astro";
 import type { Witness } from "../lib/witnesses";
 import {
   EPHRAIM_MONASTERIES,
@@ -21,7 +20,14 @@ import {
 } from "../lib/ephraim";
 
 const { w } = Astro.props as { w: Witness };
-const portrait = saintAvatar({ name: w.name }, 120, 148, { awaiting: true });
+
+const RAIL_FACTS: [string, string][] = [
+  ["Lived", "1927/28 – 2019"],
+  ["Born", "Volos, Greece"],
+  ["Reposed", "Florence, Arizona"],
+  ["Tradition", "Greek · Athonite"],
+  ["Era", "Modern · 20th–21st c."],
+];
 
 const themes = [...new Set(EPHRAIM_QUOTES.map((q) => q.theme))];
 const quotesByTheme = themes.map((t) => ({
@@ -30,10 +36,10 @@ const quotesByTheme = themes.map((t) => ({
 }));
 ---
 
-<article class="ep">
-  {/* back bar */}
-  <div class="ep-back">
-    <a href={withBase("america")} class="ep-back-link">
+<div class="saintview ep">
+  {/* breadcrumb back bar */}
+  <div class="sv-back">
+    <a href={withBase("america")} class="sv-back-link">
       <svg
         width="16"
         height="16"
@@ -45,559 +51,511 @@ const quotesByTheme = themes.map((t) => ({
         stroke-linejoin="round"
         aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
       >
-      Back to Saints of America
+      <span class="sv-back-label">Back to Saints of America</span>
     </a>
+    <span class="sv-sep">/</span>
+    <span class="sv-here">{w.name} {w.epithet}</span>
   </div>
 
-  {/* head */}
-  <header class="ep-head">
-    <div class="ep-portrait" set:html={portrait} />
-    <div class="ep-headtext">
-      <EyebrowRule label="A Witness of Our Time" />
-      <h1 class="ep-name">{w.name}</h1>
-      <p class="ep-epithet">{w.epithet}</p>
-      <div class="ep-meta">
-        <span class="ep-role">{w.role}</span>
-        <span class="ep-dot"></span>
-        <span class="ep-years">1927/28 &ndash; 2019</span>
+  <div class="sv-grid">
+    {/* ── blue rail: portrait + tags ── */}
+    <WitnessRail
+      name={w.name}
+      role={w.role}
+      facts={RAIL_FACTS}
+      knownFor="Athonite monasticism in North America"
+    />
+
+    {/* ── content ── */}
+    <main class="sv-main">
+      <div class="eyebrow sv-eyebrow">A Witness of Our Time</div>
+      <h1 class="sv-name">
+        {w.name}<span class="sv-epithet"> {w.epithet}</span>
+      </h1>
+      <div class="sv-also">Secular name Ioannis Moraitis</div>
+
+      <div class="ep-notice">
+        <strong>Not yet glorified</strong> &mdash; held in the living memory of the
+        faithful. Elder Ephraim is remembered with love and gratitude, but is not
+        (or not yet) formally glorified by the Church. No feast, liturgical veneration,
+        or intercession is implied here; what follows is an historical profile, subject
+        to clergy and source review.
       </div>
-      <p class="ep-place">{w.place}</p>
-    </div>
-  </header>
 
-  <div class="ep-notice">
-    <strong>Not yet glorified</strong> &mdash; held in the living memory of the faithful.
-    Elder Ephraim is remembered with love and gratitude, but is not (or not yet) formally
-    glorified by the Church. No feast, liturgical veneration, or intercession is implied
-    here; what follows is an historical profile, subject to clergy and source review.
-  </div>
+      {/* OVERVIEW */}
+      <section class="ep-sec">
+        <h2>Overview</h2>
+        <p>
+          Elder Ephraim of Arizona (secular name Ioannis Moraitis) was a Greek
+          Athonite hieromonk who, after thirty years of monastic life on Mount
+          Athos &mdash; including eighteen years as abbot of the Monastery of
+          Philotheou &mdash; established a network of Orthodox monasteries in
+          the United States and Canada in the closing decades of the twentieth
+          century. He was born on June 24 in Volos, Greece; sources differ as to
+          the year, giving either 1927 or 1928 (and accordingly his age at
+          repose as 92 or 91).
+        </p>
+        <p>
+          Raised in a poor and devout family &mdash; his mother was later
+          tonsured a nun &mdash; he arrived on Mount Athos on September 26,
+          1947, and placed himself under the guidance of <strong
+            >St Joseph the Hesychast</strong
+          >, a renewer of contemplative prayer on the Holy Mountain. He was
+          tonsured a monk in 1948, receiving the name Ephraim, and lived under
+          St Joseph's direction for some twelve years until the elder's repose
+          on August 15, 1959.
+        </p>
+        <p>
+          On October 1, 1973, Elder Ephraim became abbot of the Monastery of
+          Philotheou, which he repopulated; brotherhoods sent out from it also
+          revived the Athonite monasteries of Konstamonitou, Xeropotamou, and
+          Karakallou. He first travelled to North America in 1979 and, over the
+          following years, relocated there permanently, settling in 1995 at St
+          Anthony's Monastery in the Arizona desert, where he reposed on
+          December 7, 2019.
+        </p>
+      </section>
 
-  {/* OVERVIEW */}
-  <section class="ep-sec">
-    <h2>Overview</h2>
-    <p>
-      Elder Ephraim of Arizona (secular name Ioannis Moraitis) was a Greek
-      Athonite hieromonk who, after thirty years of monastic life on Mount Athos
-      &mdash; including eighteen years as abbot of the Monastery of Philotheou
-      &mdash; established a network of Orthodox monasteries in the United States
-      and Canada in the closing decades of the twentieth century. He was born on
-      June 24 in Volos, Greece; sources differ as to the year, giving either
-      1927 or 1928 (and accordingly his age at repose as 92 or 91).
-    </p>
-    <p>
-      Raised in a poor and devout family &mdash; his mother was later tonsured a
-      nun &mdash; he arrived on Mount Athos on September 26, 1947, and placed
-      himself under the guidance of <strong>St Joseph the Hesychast</strong>, a
-      renewer of contemplative prayer on the Holy Mountain. He was tonsured a
-      monk in 1948, receiving the name Ephraim, and lived under St Joseph's
-      direction for some twelve years until the elder's repose on August 15,
-      1959.
-    </p>
-    <p>
-      On October 1, 1973, Elder Ephraim became abbot of the Monastery of
-      Philotheou, which he repopulated; brotherhoods sent out from it also
-      revived the Athonite monasteries of Konstamonitou, Xeropotamou, and
-      Karakallou. He first travelled to North America in 1979 and, over the
-      following years, relocated there permanently, settling in 1995 at St
-      Anthony's Monastery in the Arizona desert, where he reposed on December 7,
-      2019.
-    </p>
-  </section>
+      {/* NORTH AMERICA */}
+      <section class="ep-sec">
+        <h2>Elder Ephraim and North America</h2>
+        <p>
+          Elder Ephraim's first journey to North America, in 1979, was
+          occasioned by a need for medical care in Canada. Visiting Orthodox
+          communities in Toronto, Montreal, and Vancouver, he was sought out by
+          clergy and laity for confession and spiritual counsel. By that time
+          Orthodox Christianity had been present on the continent for nearly two
+          centuries and was rich in parishes and institutions, yet traditional
+          Athonite-style monastic communities &mdash; ordered around the Jesus
+          Prayer, lengthy services, and eldership &mdash; were few.
+        </p>
+        <p>
+          In response to repeated requests from the faithful, Elder Ephraim
+          returned with growing frequency and eventually relocated to the United
+          States. His stated aim was to transplant the monastic life of the Holy
+          Mountain to American soil: communities of monks and nuns living the
+          cenobitic and hesychast tradition he had received from St Joseph. The
+          monasteries he founded became centres of confession, spiritual
+          direction, and pilgrimage, and contributed to a wider renewal of
+          interest in Orthodox monasticism among clergy, converts, and laypeople
+          across the continent.
+        </p>
+      </section>
 
-  {/* NORTH AMERICA */}
-  <section class="ep-sec">
-    <h2>Elder Ephraim and North America</h2>
-    <p>
-      Elder Ephraim's first journey to North America, in 1979, was occasioned by
-      a need for medical care in Canada. Visiting Orthodox communities in
-      Toronto, Montreal, and Vancouver, he was sought out by clergy and laity
-      for confession and spiritual counsel. By that time Orthodox Christianity
-      had been present on the continent for nearly two centuries and was rich in
-      parishes and institutions, yet traditional Athonite-style monastic
-      communities &mdash; ordered around the Jesus Prayer, lengthy services, and
-      eldership &mdash; were few.
-    </p>
-    <p>
-      In response to repeated requests from the faithful, Elder Ephraim returned
-      with growing frequency and eventually relocated to the United States. His
-      stated aim was to transplant the monastic life of the Holy Mountain to
-      American soil: communities of monks and nuns living the cenobitic and
-      hesychast tradition he had received from St Joseph. The monasteries he
-      founded became centres of confession, spiritual direction, and pilgrimage,
-      and contributed to a wider renewal of interest in Orthodox monasticism
-      among clergy, converts, and laypeople across the continent.
-    </p>
-  </section>
-
-  {/* SPIRITUAL LINEAGE */}
-  <section class="ep-sec">
-    <h2>Spiritual Lineage</h2>
-    <p>
-      Elder Ephraim was the direct disciple and spiritual son of <strong
-        >St Joseph the Hesychast</strong
-      > (1897&ndash;1959), under whose guidance he lived on Mount Athos for some twelve
-      years. From St Joseph he received the hesychast tradition &mdash; the disciplined
-      practice of the Jesus Prayer, watchfulness (nepsis), and obedience to a spiritual
-      father &mdash; which he in turn transmitted to his own monastic children. Through
-      Elder Ephraim, much of this twentieth-century Athonite spirituality became accessible
-      to Orthodox Christians in the English-speaking world.
-    </p>
-    <div class="ep-lineage" aria-label="Spiritual lineage">
-      <div class="ep-lin-node">
-        <a href={withBase("saint/OS-2584")} class="ep-lin-link"
-          >St Joseph the Hesychast</a
-        >
-        <span class="ep-lin-sub">Renewer of Athonite hesychasm (†1959)</span>
-      </div>
-      <div class="ep-lin-arrow" aria-hidden="true">↓</div>
-      <div class="ep-lin-node ep-lin-current">
-        Elder Ephraim of Arizona
-        <span class="ep-lin-sub"
-          >Abbot of Philotheou; founder in North America</span
-        >
-      </div>
-      <div class="ep-lin-arrow" aria-hidden="true">↓</div>
-      <div class="ep-lin-node">
-        North American Monastic Revival
-        <span class="ep-lin-sub"
-          >A network of monasteries across the continent</span
-        >
-      </div>
-    </div>
-    <p class="ep-fineprint">
-      St Joseph the Hesychast was glorified by the Ecumenical Patriarchate in
-      2020; see his <a href={withBase("saint/OS-2584")}
-        >profile in the database</a
-      >.
-    </p>
-  </section>
-
-  {/* FOUNDER OF COMMUNITIES + life timeline */}
-  <section class="ep-sec">
-    <h2>Founder of Monastic Communities</h2>
-    <p>
-      Before Elder Ephraim's arrival, organized Orthodox monasticism in North
-      America was limited; most communities were small or short-lived, and there
-      was no broad network of houses living the fully traditional Athonite
-      typikon. Beginning with the women's Monastery of the Nativity of the
-      Theotokos in Pennsylvania (1989), and continuing through St Anthony's in
-      Arizona (1995) and many houses thereafter, he and his disciples
-      established monasteries the length and breadth of the continent. By St
-      Anthony's Monastery's own count, seventeen communities were founded
-      through his work &mdash; ten for women and seven for men, fifteen in the
-      United States and two in Canada; some later sources give eighteen or
-      nineteen. These communities have continued their monastic life since his
-      repose.
-    </p>
-    <ol class="ep-timeline">
-      {
-        EPHRAIM_LIFE_TIMELINE.map((t) => (
-          <li>
-            <span class="ep-tl-when">{t.when}</span>
-            <div class="ep-tl-body">
-              <h4>{t.title}</h4>
-              <p>
-                {t.body}
-                {t.source && (
-                  <a
-                    class="ep-src"
-                    href={t.source}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    source ↗
-                  </a>
-                )}
-              </p>
-            </div>
-          </li>
-        ))
-      }
-    </ol>
-  </section>
-
-  {/* MONASTERIES TABLE */}
-  <section class="ep-sec">
-    <h2>Monasteries Associated with Elder Ephraim</h2>
-    <div class="ep-tablewrap">
-      <table class="ep-table">
-        <thead>
-          <tr><th>Name</th><th>Location</th><th>Founded</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          {
-            EPHRAIM_MONASTERIES.map((m) => (
-              <tr>
-                <td>
-                  {m.source ? (
-                    <a
-                      href={m.source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {m.name}
-                    </a>
-                  ) : (
-                    m.name
-                  )}
-                </td>
-                <td>{m.location}</td>
-                <td>{m.founded}</td>
-                <td>{[m.kind, m.note].filter(Boolean).join(" — ")}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
-    <p class="ep-fineprint">
-      These represent the principal houses of a larger work; St Anthony's
-      Monastery lists seventeen affiliated communities. Founding years marked
-      with a range or note are given variously by different sources, and several
-      are drawn from a single source &mdash; treat them as approximate.
-    </p>
-  </section>
-
-  {/* PILGRIMAGE & LEGACY */}
-  <section class="ep-sec">
-    <h2>Pilgrimage and Legacy</h2>
-    <p>
-      St Anthony's Monastery, set in the Sonoran Desert near Florence, Arizona,
-      became a destination of pilgrimage drawing visitors from across North
-      America and beyond. During Elder Ephraim's lifetime, the faithful
-      travelled to seek his confession and counsel; since his repose, pilgrims
-      continue to visit his monasteries and his grave. The communities he
-      founded function as centres of prayer, the sacrament of confession,
-      spiritual direction, and the daily round of monastic services, and they
-      remain points of contact between parish life and the monastic tradition.
-    </p>
-  </section>
-
-  {/* SELECTED TEACHINGS */}
-  <section class="ep-sec">
-    <h2>Selected Teachings</h2>
-    <p class="ep-fineprint">
-      The following are drawn from his published works. Widely-circulated
-      sayings that could not be tied to a specific source have been omitted.
-    </p>
-    {
-      quotesByTheme.map((g) => (
-        <div class="ep-qgroup">
-          <h3>{g.theme}</h3>
-          {g.items.map((q) => (
-            <blockquote class="ep-quote">
-              <p>“{q.text}”</p>
-              <cite>{q.work}</cite>
-            </blockquote>
-          ))}
+      {/* SPIRITUAL LINEAGE */}
+      <section class="ep-sec">
+        <h2>Spiritual Lineage</h2>
+        <p>
+          Elder Ephraim was the direct disciple and spiritual son of <strong
+            >St Joseph the Hesychast</strong
+          > (1897&ndash;1959), under whose guidance he lived on Mount Athos for some
+          twelve years. From St Joseph he received the hesychast tradition &mdash;
+          the disciplined practice of the Jesus Prayer, watchfulness (nepsis), and
+          obedience to a spiritual father &mdash; which he in turn transmitted to
+          his own monastic children. Through Elder Ephraim, much of this twentieth-century
+          Athonite spirituality became accessible to Orthodox Christians in the English-speaking
+          world.
+        </p>
+        <div class="ep-lineage" aria-label="Spiritual lineage">
+          <div class="ep-lin-node">
+            <a href={withBase("saint/OS-2584")} class="ep-lin-link"
+              >St Joseph the Hesychast</a
+            >
+            <span class="ep-lin-sub">Renewer of Athonite hesychasm (†1959)</span
+            >
+          </div>
+          <div class="ep-lin-arrow" aria-hidden="true">↓</div>
+          <div class="ep-lin-node ep-lin-current">
+            Elder Ephraim of Arizona
+            <span class="ep-lin-sub"
+              >Abbot of Philotheou; founder in North America</span
+            >
+          </div>
+          <div class="ep-lin-arrow" aria-hidden="true">↓</div>
+          <div class="ep-lin-node">
+            North American Monastic Revival
+            <span class="ep-lin-sub"
+              >A network of monasteries across the continent</span
+            >
+          </div>
         </div>
-      ))
-    }
-  </section>
+        <p class="ep-fineprint">
+          St Joseph the Hesychast was glorified by the Ecumenical Patriarchate
+          in 2020; see his <a href={withBase("saint/OS-2584")}
+            >profile in the database</a
+          >.
+        </p>
+      </section>
 
-  {/* WORKS BY */}
-  <section class="ep-sec">
-    <h2>Works by Elder Ephraim</h2>
-    <div class="ep-tablewrap">
-      <table class="ep-table">
-        <thead>
-          <tr
-            ><th>Title</th><th>Type</th><th>Publisher</th><th>Year</th><th
-              >Description</th
-            ></tr
-          >
-        </thead>
-        <tbody>
+      {/* FOUNDER OF COMMUNITIES + life timeline */}
+      <section class="ep-sec">
+        <h2>Founder of Monastic Communities</h2>
+        <p>
+          Before Elder Ephraim's arrival, organized Orthodox monasticism in
+          North America was limited; most communities were small or short-lived,
+          and there was no broad network of houses living the fully traditional
+          Athonite typikon. Beginning with the women's Monastery of the Nativity
+          of the Theotokos in Pennsylvania (1989), and continuing through St
+          Anthony's in Arizona (1995) and many houses thereafter, he and his
+          disciples established monasteries the length and breadth of the
+          continent. By St Anthony's Monastery's own count, seventeen
+          communities were founded through his work &mdash; ten for women and
+          seven for men, fifteen in the United States and two in Canada; some
+          later sources give eighteen or nineteen. These communities have
+          continued their monastic life since his repose.
+        </p>
+        <ol class="ep-timeline">
           {
-            EPHRAIM_WORKS.map((bk) => (
-              <tr>
-                <td>
-                  {bk.source ? (
-                    <a
-                      href={bk.source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {bk.title}
-                    </a>
-                  ) : (
-                    bk.title
-                  )}
-                </td>
-                <td>{bk.type}</td>
-                <td>{bk.publisher}</td>
-                <td>{bk.year}</td>
-                <td>{bk.desc}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
-    <p class="ep-fineprint">
-      Note: the title <em>The Path to Salvation</em>, sometimes attributed to
-      Elder Ephraim, is in fact the work of St Theophan the Recluse and is not
-      listed here.
-    </p>
-  </section>
-
-  {/* BOOKS ABOUT */}
-  <section class="ep-sec">
-    <h2>Books About Elder Ephraim</h2>
-    <div class="ep-tablewrap">
-      <table class="ep-table">
-        <thead>
-          <tr
-            ><th>Title</th><th>Author</th><th>Type</th><th>Detail</th><th
-              >Significance</th
-            ></tr
-          >
-        </thead>
-        <tbody>
-          {
-            EPHRAIM_BOOKS_ABOUT.map((bk) => (
-              <tr>
-                <td>
-                  {bk.source ? (
-                    <a
-                      href={bk.source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {bk.title}
-                    </a>
-                  ) : (
-                    bk.title
-                  )}
-                </td>
-                <td>{bk.author}</td>
-                <td>{bk.type}</td>
-                <td>{bk.detail}</td>
-                <td>{bk.desc}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  {/* HISTORICAL SIGNIFICANCE */}
-  <section class="ep-sec">
-    <h2>Historical Significance</h2>
-    <p>
-      Elder Ephraim's work is most often discussed in connection with the
-      revival of Orthodox monasticism in late-twentieth-century North America.
-      By establishing a network of houses living the Athonite tradition, he made
-      the hesychast spirituality of the Holy Mountain &mdash; its emphasis on
-      the Jesus Prayer, confession, and eldership &mdash; directly accessible to
-      an English-speaking Orthodox population that had previously encountered it
-      mainly through books. His monasteries drew clergy, monastics, converts,
-      and laypeople, and influenced parish spiritual life well beyond their
-      walls.
-    </p>
-    <p>
-      His ministry was not without controversy, and assessments of his influence
-      vary; what is not disputed is that the communities he founded have
-      endured, and that the practices and texts associated with them have shaped
-      a generation of Orthodox Christians on the continent.
-    </p>
-  </section>
-
-  {/* ORTHODOXY IN AMERICA TIMELINE */}
-  <section class="ep-sec">
-    <h2>Orthodoxy in America: The Story Into Which Elder Ephraim Entered</h2>
-    <p>
-      Elder Ephraim's work did not occur in isolation. It formed part of the
-      continuing growth of Orthodox Christianity in North America &mdash; a
-      story that began with missionaries from Russia and was carried forward by
-      generations of immigrants, bishops, and saints.
-    </p>
-    <ol class="ep-timeline ep-timeline--america">
-      {
-        AMERICA_TIMELINE.map((t) => (
-          <li>
-            <span class="ep-tl-when">{t.when}</span>
-            <div class="ep-tl-body">
-              <h4>{t.title}</h4>
-              <p>
-                {t.body}
-                {t.source && (
-                  <a
-                    class="ep-src"
-                    href={t.source}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    source ↗
-                  </a>
-                )}
-              </p>
-              {t.figures && t.figures.length > 0 && (
-                <div class="ep-tl-figures">
-                  {t.figures.map((f) =>
-                    f.href ? (
-                      <a class="ep-chip" href={withBase(f.href)}>
-                        {f.name}
+            EPHRAIM_LIFE_TIMELINE.map((t) => (
+              <li>
+                <span class="ep-tl-when">{t.when}</span>
+                <div class="ep-tl-body">
+                  <h4>{t.title}</h4>
+                  <p>
+                    {t.body}
+                    {t.source && (
+                      <a
+                        class="ep-src"
+                        href={t.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        source ↗
                       </a>
-                    ) : (
-                      <span class="ep-chip ep-chip--plain">{f.name}</span>
-                    ),
+                    )}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      {/* MONASTERIES TABLE */}
+      <section class="ep-sec">
+        <h2>Monasteries Associated with Elder Ephraim</h2>
+        <div class="ep-tablewrap">
+          <table class="ep-table">
+            <thead>
+              <tr
+                ><th>Name</th><th>Location</th><th>Founded</th><th>Notes</th
+                ></tr
+              >
+            </thead>
+            <tbody>
+              {
+                EPHRAIM_MONASTERIES.map((m) => (
+                  <tr>
+                    <td>
+                      {m.source ? (
+                        <a
+                          href={m.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {m.name}
+                        </a>
+                      ) : (
+                        m.name
+                      )}
+                    </td>
+                    <td>{m.location}</td>
+                    <td>{m.founded}</td>
+                    <td>{[m.kind, m.note].filter(Boolean).join(" — ")}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="ep-fineprint">
+          These represent the principal houses of a larger work; St Anthony's
+          Monastery lists seventeen affiliated communities. Founding years
+          marked with a range or note are given variously by different sources,
+          and several are drawn from a single source &mdash; treat them as
+          approximate.
+        </p>
+      </section>
+
+      {/* PILGRIMAGE & LEGACY */}
+      <section class="ep-sec">
+        <h2>Pilgrimage and Legacy</h2>
+        <p>
+          St Anthony's Monastery, set in the Sonoran Desert near Florence,
+          Arizona, became a destination of pilgrimage drawing visitors from
+          across North America and beyond. During Elder Ephraim's lifetime, the
+          faithful travelled to seek his confession and counsel; since his
+          repose, pilgrims continue to visit his monasteries and his grave. The
+          communities he founded function as centres of prayer, the sacrament of
+          confession, spiritual direction, and the daily round of monastic
+          services, and they remain points of contact between parish life and
+          the monastic tradition.
+        </p>
+      </section>
+
+      {/* SELECTED TEACHINGS */}
+      <section class="ep-sec">
+        <h2>Selected Teachings</h2>
+        <p class="ep-fineprint">
+          The following are drawn from his published works. Widely-circulated
+          sayings that could not be tied to a specific source have been omitted.
+        </p>
+        {
+          quotesByTheme.map((g) => (
+            <div class="ep-qgroup">
+              <h3>{g.theme}</h3>
+              {g.items.map((q) => (
+                <blockquote class="ep-quote">
+                  <p>“{q.text}”</p>
+                  <cite>{q.work}</cite>
+                </blockquote>
+              ))}
+            </div>
+          ))
+        }
+      </section>
+
+      {/* WORKS BY */}
+      <section class="ep-sec">
+        <h2>Works by Elder Ephraim</h2>
+        <div class="ep-tablewrap">
+          <table class="ep-table">
+            <thead>
+              <tr
+                ><th>Title</th><th>Type</th><th>Publisher</th><th>Year</th><th
+                  >Description</th
+                ></tr
+              >
+            </thead>
+            <tbody>
+              {
+                EPHRAIM_WORKS.map((bk) => (
+                  <tr>
+                    <td>
+                      {bk.source ? (
+                        <a
+                          href={bk.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {bk.title}
+                        </a>
+                      ) : (
+                        bk.title
+                      )}
+                    </td>
+                    <td>{bk.type}</td>
+                    <td>{bk.publisher}</td>
+                    <td>{bk.year}</td>
+                    <td>{bk.desc}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="ep-fineprint">
+          Note: the title <em>The Path to Salvation</em>, sometimes attributed
+          to Elder Ephraim, is in fact the work of St Theophan the Recluse and
+          is not listed here.
+        </p>
+      </section>
+
+      {/* BOOKS ABOUT */}
+      <section class="ep-sec">
+        <h2>Books About Elder Ephraim</h2>
+        <div class="ep-tablewrap">
+          <table class="ep-table">
+            <thead>
+              <tr
+                ><th>Title</th><th>Author</th><th>Type</th><th>Detail</th><th
+                  >Significance</th
+                ></tr
+              >
+            </thead>
+            <tbody>
+              {
+                EPHRAIM_BOOKS_ABOUT.map((bk) => (
+                  <tr>
+                    <td>
+                      {bk.source ? (
+                        <a
+                          href={bk.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {bk.title}
+                        </a>
+                      ) : (
+                        bk.title
+                      )}
+                    </td>
+                    <td>{bk.author}</td>
+                    <td>{bk.type}</td>
+                    <td>{bk.detail}</td>
+                    <td>{bk.desc}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* HISTORICAL SIGNIFICANCE */}
+      <section class="ep-sec">
+        <h2>Historical Significance</h2>
+        <p>
+          Elder Ephraim's work is most often discussed in connection with the
+          revival of Orthodox monasticism in late-twentieth-century North
+          America. By establishing a network of houses living the Athonite
+          tradition, he made the hesychast spirituality of the Holy Mountain
+          &mdash; its emphasis on the Jesus Prayer, confession, and eldership
+          &mdash; directly accessible to an English-speaking Orthodox population
+          that had previously encountered it mainly through books. His
+          monasteries drew clergy, monastics, converts, and laypeople, and
+          influenced parish spiritual life well beyond their walls.
+        </p>
+        <p>
+          His ministry was not without controversy, and assessments of his
+          influence vary; what is not disputed is that the communities he
+          founded have endured, and that the practices and texts associated with
+          them have shaped a generation of Orthodox Christians on the continent.
+        </p>
+      </section>
+
+      {/* ORTHODOXY IN AMERICA TIMELINE */}
+      <section class="ep-sec">
+        <h2>
+          Orthodoxy in America: The Story Into Which Elder Ephraim Entered
+        </h2>
+        <p>
+          Elder Ephraim's work did not occur in isolation. It formed part of the
+          continuing growth of Orthodox Christianity in North America &mdash; a
+          story that began with missionaries from Russia and was carried forward
+          by generations of immigrants, bishops, and saints.
+        </p>
+        <ol class="ep-timeline ep-timeline--america">
+          {
+            AMERICA_TIMELINE.map((t) => (
+              <li>
+                <span class="ep-tl-when">{t.when}</span>
+                <div class="ep-tl-body">
+                  <h4>{t.title}</h4>
+                  <p>
+                    {t.body}
+                    {t.source && (
+                      <a
+                        class="ep-src"
+                        href={t.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        source ↗
+                      </a>
+                    )}
+                  </p>
+                  {t.figures && t.figures.length > 0 && (
+                    <div class="ep-tl-figures">
+                      {t.figures.map((f) =>
+                        f.href ? (
+                          <a class="ep-chip" href={withBase(f.href)}>
+                            {f.name}
+                          </a>
+                        ) : (
+                          <span class="ep-chip ep-chip--plain">{f.name}</span>
+                        ),
+                      )}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-          </li>
-        ))
-      }
-    </ol>
-    <p class="ep-fineprint">
-      Elder Ephraim's labours continue the missionary work begun by St Herman,
-      St Innocent, St Raphael, St Tikhon, and the other witnesses who helped
-      plant Orthodoxy in this land.
-    </p>
-  </section>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="ep-fineprint">
+          Elder Ephraim's labours continue the missionary work begun by St
+          Herman, St Innocent, St Raphael, St Tikhon, and the other witnesses
+          who helped plant Orthodoxy in this land.
+        </p>
+      </section>
 
-  {/* RELATED WITNESSES */}
-  <section class="ep-sec">
-    <h2>Related Witnesses</h2>
-    <ul class="ep-related">
-      {
-        EPHRAIM_RELATED.map((r) => (
-          <li>
-            {r.href ? (
-              <a href={withBase(r.href)}>{r.name}</a>
-            ) : r.external ? (
-              <a href={r.external} target="_blank" rel="noopener noreferrer">
-                {r.name} ↗
-              </a>
-            ) : (
-              <span class="ep-related-name">{r.name}</span>
-            )}
-            <span class="ep-related-note"> &mdash; {r.note}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+      {/* RELATED WITNESSES */}
+      <section class="ep-sec">
+        <h2>Related Witnesses</h2>
+        <ul class="ep-related">
+          {
+            EPHRAIM_RELATED.map((r) => (
+              <li>
+                {r.href ? (
+                  <a href={withBase(r.href)}>{r.name}</a>
+                ) : r.external ? (
+                  <a
+                    href={r.external}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {r.name} ↗
+                  </a>
+                ) : (
+                  <span class="ep-related-name">{r.name}</span>
+                )}
+                <span class="ep-related-note"> &mdash; {r.note}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
-  {/* GALLERY SUGGESTIONS */}
-  <section class="ep-sec">
-    <h2>Gallery Suggestions</h2>
-    <p class="ep-fineprint">
-      Recommended imagery for a future illustrated edition of this profile (none
-      reproduced here pending licensing and review):
-    </p>
-    <ul class="ep-gallery">
-      {
-        EPHRAIM_GALLERY.map((g) => (
-          <li>
-            <span class="ep-gal-subject">{g.subject}</span>
-            <span class="ep-gal-caption">{g.caption}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+      {/* GALLERY SUGGESTIONS */}
+      <section class="ep-sec">
+        <h2>Gallery Suggestions</h2>
+        <p class="ep-fineprint">
+          Recommended imagery for a future illustrated edition of this profile
+          (none reproduced here pending licensing and review):
+        </p>
+        <ul class="ep-gallery">
+          {
+            EPHRAIM_GALLERY.map((g) => (
+              <li>
+                <span class="ep-gal-subject">{g.subject}</span>
+                <span class="ep-gal-caption">{g.caption}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
-  {/* SOURCES */}
-  <section class="ep-sec ep-sources">
-    <h2>Sources</h2>
-    <ol>
-      {
-        EPHRAIM_SOURCES.map((s, i) => (
-          <li id={`src-${i + 1}`}>
-            <a href={s.url} target="_blank" rel="noopener noreferrer">
-              {s.label}
-            </a>
-          </li>
-        ))
-      }
-    </ol>
-    <p class="ep-fineprint">
-      Additional citations appear inline beside the timelines, tables, and
-      bibliographies above. This profile is a historical account compiled from
-      the sources listed and remains subject to clergy and source review.
-    </p>
-  </section>
-</article>
+      {/* SOURCES */}
+      <section class="ep-sec ep-sources">
+        <h2>Sources</h2>
+        <ol>
+          {
+            EPHRAIM_SOURCES.map((s, i) => (
+              <li id={`src-${i + 1}`}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer">
+                  {s.label}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="ep-fineprint">
+          Additional citations appear inline beside the timelines, tables, and
+          bibliographies above. This profile is a historical account compiled
+          from the sources listed and remains subject to clergy and source
+          review.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
 
 <style>
-  .ep {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 28px clamp(16px, 4vw, 30px) 80px;
-  }
-  .ep-back {
-    margin-bottom: 22px;
-  }
-  .ep-back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--text);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--celest);
-    text-decoration: none;
-  }
-  .ep-back-link:hover {
-    color: var(--byz-deep);
-  }
-
-  .ep-head {
-    display: flex;
-    gap: clamp(16px, 4vw, 30px);
-    align-items: center;
-    margin-bottom: 24px;
-  }
-  .ep-portrait {
-    flex-shrink: 0;
-  }
-  .ep-name {
-    font-size: clamp(30px, 5vw, 44px);
-    color: var(--byz-deep);
-    line-height: 1.04;
-    margin: 10px 0 4px;
-    font-weight: 600;
-  }
-  .ep-epithet {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 20px;
-    color: var(--celest);
-    margin: 0 0 10px;
-  }
-  .ep-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .ep-role {
-    font-family: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gold-deep);
-  }
-  .ep-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--celest);
-    opacity: 0.6;
-  }
-  .ep-years {
-    font-family: var(--serif);
-    font-size: 16px;
-    color: var(--celest);
-  }
-  .ep-place {
-    font-size: 14.5px;
-    color: var(--celest);
-    margin: 8px 0 0;
+  /* The chrome (back bar, blue rail, name header) reuses the global .sv-*
+     saint-page styles; only the section content below keeps .ep-* styles. */
+  .sv-main > .ep-notice {
+    margin-top: 22px;
   }
 
   .ep-notice {
