@@ -221,7 +221,7 @@ test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
   const nav = page.locator(".site-nav");
   for (const label of [
-    "Saints",
+    "Home",
     "Calendar",
     "Browse",
     "America",
