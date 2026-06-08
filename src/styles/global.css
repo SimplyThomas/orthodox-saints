@@ -689,6 +689,9 @@ a.qz-comp {
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   cursor: pointer;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   transition:
     transform 0.14s,
     box-shadow 0.14s;
@@ -705,26 +708,45 @@ a.qz-comp {
   border-bottom: 1px solid var(--line);
 }
 .feat-card .body {
-  padding: 14px 14px 16px;
+  padding: 16px;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .feat-card h4 {
   font-size: 19px;
   color: var(--byz-deep);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 .feat-card .epithet {
   font-family: var(--serif);
   font-style: italic;
   font-size: 14px;
   color: var(--celest);
-  margin-bottom: 9px;
+  margin: 2px 0 9px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+/* the rank chip wraps inside the card instead of overflowing its edge */
+.feat-card .tag {
+  white-space: normal;
+  max-width: 100%;
+  text-align: left;
 }
 .feat-card .feat-meta {
   font-size: 12.5px;
   color: var(--ink-soft);
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 /* ============================================================
