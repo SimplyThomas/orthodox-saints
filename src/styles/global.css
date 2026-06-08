@@ -2541,8 +2541,7 @@ a.news-card:hover .news-h {
   gap: 12px;
   justify-content: center;
   max-width: 720px;
-  /* sit clearly below the dome (arch) watermark behind the masthead */
-  margin: 116px auto 0;
+  margin: 4px auto 0;
   flex-wrap: wrap;
 }
 .np-search {
@@ -3702,6 +3701,24 @@ a.news-card:hover .news-h {
   margin-top: 14px;
   font-size: 12.5px;
   color: var(--ink-soft);
+}
+
+/* ---- Arch motif as a crown ABOVE the heading ----
+   On the content-page heroes the dome silhouette flows in normal order (not as
+   a behind-the-text watermark), so every blue title/lede sits cleanly BENEATH
+   the arches on all sizes. The home hero (logo) keeps its own treatment. */
+.sr-hero .dome-bg,
+.np-hero .dome-bg,
+.ab-hero .dome-bg,
+.am-hero .dome-bg,
+.cal-soon .dome-bg,
+.qz-title-block .dome-bg {
+  position: static;
+  left: auto;
+  transform: none;
+  margin: 0 auto 4px;
+  width: min(260px, 52vw);
+  opacity: 0.14;
 }
 
 /* ============================================================
