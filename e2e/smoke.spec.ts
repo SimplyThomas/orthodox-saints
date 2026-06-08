@@ -228,10 +228,10 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
 }) => {
   await page.goto("./america/");
   // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
-  const card = page.locator('.pga-card[href*="/witness/"]').first();
+  const card = page.locator('.pga-card[href*="/witness/seraphim-rose"]');
   await expect(card).toBeVisible();
   await card.click();
-  await page.waitForURL(/\/witness\//);
+  await page.waitForURL(/\/witness\/seraphim-rose/);
   // Memorial framing — and clearly NOT a saint/veneration page.
   await expect(page.locator(".wt-name")).toBeVisible();
   await expect(page.locator(".wt-notice")).toContainText("Not yet glorified");
@@ -239,6 +239,34 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
   expect(await page.getByText("pray to God for us").count()).toBe(0);
   // The back link returns to the America page.
   await page.locator(".wt-back-link").click();
+  await page.waitForURL(/\/america\/?$/);
+});
+
+test("Elder Ephraim has a comprehensive, sourced profile — still set apart", async ({
+  page,
+}) => {
+  const resp = await page.goto("./witness/ephraim-of-arizona/");
+  expect(resp?.status()).toBe(200);
+  // The rich profile renders its sections (not the simple memorial template).
+  await expect(page.locator(".ep-name")).toHaveText("Elder Ephraim");
+  for (const h of [
+    "Spiritual Lineage",
+    "Monasteries Associated with Elder Ephraim",
+    "Selected Teachings",
+    "Sources",
+  ]) {
+    await expect(page.locator(".ep-sec h2", { hasText: h })).toBeVisible();
+  }
+  // Still a memorial, not a veneration page.
+  await expect(page.locator(".ep-notice")).toContainText("Not yet glorified");
+  expect(await page.getByText("pray to God for us").count()).toBe(0);
+  // Sourced: the monastery/works tables and Sources list carry real links.
+  expect(await page.locator(".ep-sources a").count()).toBeGreaterThanOrEqual(8);
+  // An internal lineage/related link resolves to a real saint page.
+  const related = page.locator('.ep-related a[href*="/saint/OS-"]').first();
+  await expect(related).toBeVisible();
+  // Back link returns to America.
+  await page.locator(".ep-back-link").click();
   await page.waitForURL(/\/america\/?$/);
 });
 
