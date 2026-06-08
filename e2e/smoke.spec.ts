@@ -180,15 +180,27 @@ test("america page shows three gilded carousels with arrows", async ({
       })
       .first(),
   ).toBeVisible();
-  // Carousel arrows: the first panel's "next" arrow is active and scrolls.
+  // Three full cards show per view at desktop width (none clipped).
   const firstTrack = page.locator(".pga-movement.garnet .pga-track");
+  const m = await firstTrack.evaluate((t) => {
+    const cards = [...t.querySelectorAll(".pga-card")];
+    const tr = t.getBoundingClientRect();
+    const fully = cards.filter((c) => {
+      const r = c.getBoundingClientRect();
+      return r.left >= tr.left - 1 && r.right <= tr.right + 1;
+    }).length;
+    const gap = parseFloat(getComputedStyle(t).columnGap);
+    return { fully, stride: cards[0].getBoundingClientRect().width + gap };
+  });
+  expect(m.fully).toBe(3);
+  // The "next" arrow advances a full page — three cards over.
   await expect(
     page.locator(".pga-movement.garnet .pga-arrow.next"),
   ).toHaveClass(/show/);
   await page.locator(".pga-movement.garnet .pga-arrow.next").click();
   await expect
     .poll(async () => firstTrack.evaluate((el) => el.scrollLeft))
-    .toBeGreaterThan(0);
+    .toBeGreaterThan(m.stride * 2.5);
 });
 
 test("news index lists dispatches and opens an article", async ({ page }) => {

@@ -17,11 +17,20 @@ for (const carousel of document.querySelectorAll<HTMLElement>(
       track.scrollLeft + track.clientWidth < track.scrollWidth - 6,
     );
   };
-  const scroll = (dir: number) =>
-    track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: "smooth" });
+  // Advance by a full page: how many whole cards are visible (3 on desktop,
+  // 2 on tablet, 1 on phone — derived from the live card width + gap), so each
+  // arrow press reveals that many brand-new saints and lands on a card edge.
+  const pageScroll = (dir: number) => {
+    const card = track.querySelector<HTMLElement>(".pga-card");
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 20;
+    const cardW = card ? card.getBoundingClientRect().width : track.clientWidth;
+    const stride = cardW + gap;
+    const perView = Math.max(1, Math.round(track.clientWidth / stride));
+    track.scrollBy({ left: dir * perView * stride, behavior: "smooth" });
+  };
 
-  prev.addEventListener("click", () => scroll(-1));
-  next.addEventListener("click", () => scroll(1));
+  prev.addEventListener("click", () => pageScroll(-1));
+  next.addEventListener("click", () => pageScroll(1));
   track.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
