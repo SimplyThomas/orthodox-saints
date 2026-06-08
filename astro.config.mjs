@@ -1,12 +1,13 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-// GitHub Pages PROJECT site: served under the `/orthodox-saints/` base path.
-// `site` + `base` make Astro emit correct canonical URLs and asset paths.
+// GitHub Pages with the custom domain orthodoxsaintfinder.com: served at the
+// root, so `base` is the default "/". `site` makes Astro emit correct absolute
+// canonical URLs. (orthodoxsaintregistry.com / patronsaintfinder.com 301 here;
+// the old simplythomas.github.io/orthodox-saints/ URLs redirect via Pages.)
 // `outDir: _site` keeps Astro's output separate from `dist/` (the xlsx export).
 export default defineConfig({
-  site: "https://simplythomas.github.io",
-  base: "/orthodox-saints",
+  site: "https://orthodoxsaintfinder.com",
   outDir: "./_site",
   // `public/` belongs to the Python pipeline (build.py writes data.json there and
   // copy_web() may dump the old SPA there). Point Astro's static dir elsewhere so

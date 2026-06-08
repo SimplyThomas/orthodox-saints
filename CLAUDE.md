@@ -49,7 +49,7 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   └── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
-├── astro.config.mjs           ← Astro config (site, base:/orthodox-saints, outDir:_site)
+├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
 │   ├── pages/                 ← routes: index, saint/[id], quiz, america, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
@@ -442,9 +442,12 @@ a long run.
   the (trimmed) dataset for client filtering — comfortable to **~5,000 enriched saints** per the
   old estimate. Past that, split the inlined home index to on-demand fetch (per-saint pages are
   already lean — half the work is done). See the `TODO(scale)` in `src/pages/index.astro`.
-- **Hosting:** GitHub Pages project site at `/orthodox-saints/` (base path). Astro `base` makes
-  links/assets base-correct; **always build internal URLs via `withBase()` in `src/lib/format.ts`**
-  — Astro does NOT auto-prefix hand-written `href`/`src`. **CI/CD:** GitHub Actions (free).
+- **Hosting:** GitHub Pages on the custom domain **`orthodoxsaintfinder.com`** (root base path
+  `/`; `orthodoxsaintregistry.com` and `patronsaintfinder.com` 301-redirect to it via Namecheap,
+  and the old `simplythomas.github.io/orthodox-saints/` URLs redirect via Pages). **Still build
+  every internal URL via `withBase()` in `src/lib/format.ts`** — Astro does NOT auto-prefix
+  hand-written `href`/`src`, and routing through `withBase()` keeps any future base change a
+  one-line edit. **CI/CD:** GitHub Actions (free).
 - The deploy workflow runs `python build.py` → `astro build` → publishes `_site/`. The PR
   workflow (`ci.yml`) has two required gates: **`validate`** (python unit tests + `--check-only`)
   and **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`). A CodeQL

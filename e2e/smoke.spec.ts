@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 
-const BASE = "/orthodox-saints/";
+// Root base path since the move to the orthodoxsaintfinder.com custom domain.
+// Internal hrefs must still be absolute-from-root (withBase), never relative.
+const BASE = "/";
+const SITE = "https://orthodoxsaintfinder.com";
 
 test("home loads with title and a resolvable logo", async ({ page }) => {
   const resp = await page.goto("./");
@@ -10,7 +13,7 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   // The logo must resolve under the base path (not 404) — guards the #1 base-path bug.
   const logo = page.locator("header .brand img");
   const src = await logo.getAttribute("src");
-  expect(src).toContain(BASE);
+  expect(src?.startsWith(BASE)).toBe(true);
   const logoResp = await page.request.get(new URL(src!, page.url()).href);
   expect(logoResp.status()).toBe(200);
 });
@@ -95,7 +98,7 @@ test("static per-saint page is real, indexable HTML", async ({ page }) => {
   const canon = await page
     .locator('link[rel="canonical"]')
     .getAttribute("href");
-  expect(canon).toContain("/orthodox-saints/saint/OS-0021/");
+  expect(canon).toBe(`${SITE}/saint/OS-0021/`);
 });
 
 test("quiz walks one question per screen to an illuminated patron", async ({
@@ -179,7 +182,7 @@ test("primary nav links are base-prefixed and resolve", async ({ page }) => {
     const href = await page
       .getByRole("link", { name: label, exact: true })
       .getAttribute("href");
-    expect(href).toContain(BASE);
+    expect(href?.startsWith(BASE)).toBe(true);
   }
   // The header quick-search pill routes to the search page.
   const qs = await page.locator(".header-search").getAttribute("href");
