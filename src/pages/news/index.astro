@@ -1,309 +1,124 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DomeMark from "../../components/icons/DomeMark.astro";
-import SearchGlyph from "../../components/icons/SearchGlyph.astro";
-import NewsPlate from "../../components/news/NewsPlate.astro";
-import NewsCard from "../../components/news/NewsCard.astro";
 import { withBase } from "../../lib/format";
-import {
-  NEWS,
-  NEWS_CATS,
-  NEWS_CAT,
-  NEWS_FEATURED,
-  NEWS_THISDAY,
-  NEWS_MOSTREAD,
-  NEWS_CENTURIES,
-} from "../../lib/news";
+import { SAINTS } from "../../lib/data";
 
-const feat = NEWS_FEATURED;
-const featCat = NEWS_CAT[feat.cat];
-const chips = ["All", ...NEWS_CATS.map((c) => c.name)];
-const toneFor = (i: number): "blue" | "ivory" =>
-  i % 3 === 1 ? "ivory" : "blue";
+// A lightweight count so the placeholder still reports the real corpus size
+// the news archive will draw on.
+const total = SAINTS.length;
 ---
 
 <BaseLayout
   active="news"
   title="Saints in the News"
-  description="A reverent archive of miracle accounts, glorifications, relics, apparitions and healings — reporting the mighty works of God through His saints."
+  description="Reporting the mighty works of God through His saints — coming soon to Cloud of Witnesses."
 >
-  <div class="news-page">
-    {/* ---------- HERO ---------- */}
-    <section class="np-hero">
+  <div class="news-soon">
+    <section class="hero">
       <div class="dome-bg" aria-hidden="true">
-        <DomeMark w={560} color="var(--byz)" />
+        <DomeMark w={460} color="var(--byz)" />
       </div>
-      <div class="np-hero-inner">
+      <div class="hero-inner">
         <div class="eyebrow-rule" aria-hidden="true">
           <span class="ln"></span><span class="dm"></span>
           <span class="lbl">The Living Archive</span>
           <span class="dm"></span><span class="ln"></span>
         </div>
-        <h1 class="np-h1">Saints in the News</h1>
-        <p class="np-lede">
-          Reporting the mighty works of God through His saints across the
-          centuries.
+        <h1 class="news-title">Saints in the News</h1>
+        <p class="news-lede">
+          A reverent archive of the mighty works of God through His saints
+          &mdash; glorifications, relics, and wonders across the centuries.
         </p>
 
-        <div class="np-searchrow">
-          <div class="search np-search" role="search">
-            <span class="ico" aria-hidden="true"
-              ><SearchGlyph size={21} color="var(--celest)" /></span
+        <div class="news-panel">
+          <div class="rule"><span class="dot"></span></div>
+          <p class="news-soon-label">Coming soon</p>
+          <p class="news-soon-body">
+            We&rsquo;re building a living archive alongside the
+            <strong>{total.toLocaleString()}</strong> saints already in the database
+            &mdash; reported with reverence and verified against the Church&rsquo;s
+            own discernment. In the meantime, every saint is searchable today.
+          </p>
+          <div class="news-actions">
+            <a class="btn btn--gold" href={withBase("search")}
+              >Browse the saints</a
             >
-            <input
-              type="search"
-              id="news-q"
-              placeholder="Search accounts, saints, places…"
-              autocomplete="off"
-              aria-label="Search the news"
-            />
-          </div>
-          <button type="button" class="btn btn--gold">Search</button>
-        </div>
-
-        <div class="np-chips">
-          {
-            chips.map((c) => (
-              <button
-                type="button"
-                class="chip news-chip"
-                data-cat={c}
-                data-on={c === "All" ? "true" : "false"}
-              >
-                {c}
-              </button>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    {/* ---------- LEAD STORY ---------- */}
-    <section class="np-featured">
-      <div class="np-band-head">
-        <span class="eyebrow">The Lead Story</span>
-        <span class="np-band-ln"></span>
-        <span class="np-band-when">Updated {feat.date}</span>
-      </div>
-      <a class="np-lead" href={withBase(`news/${feat.id}`)}>
-        <NewsPlate
-          saint={feat.saint}
-          tone="blue"
-          avatar={168}
-          slug={feat.plate}
-          fill
-        />
-        <div class="np-lead-body">
-          <div class="np-lead-tags">
-            <span class="np-kicker">{feat.kicker}</span>
-            <span
-              class="news-tag"
-              style={`color:${featCat.ink};background:${featCat.bg}`}
-              ><i></i>{featCat.name}</span
+            <a class="btn btn--ghost" href={withBase("quiz")}
+              >Find your patron</a
             >
           </div>
-          <h2 class="np-lead-h">{feat.headline}</h2>
-          <div class="news-meta">
-            <span class="nm-item">{feat.date}</span>
-            <span class="nm-item">{feat.location}</span>
-          </div>
-          <p class="np-lead-dek">{feat.dek}</p>
-          <p class="np-lead-sum">{feat.summary}</p>
-          <span class="btn btn--blue np-lead-btn">
-            Read the full account
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
-            >
-          </span>
         </div>
-      </a>
-    </section>
-
-    {/* ---------- THE DESKS ---------- */}
-    <section class="np-desks">
-      <div class="np-desks-head">
-        <div class="eyebrow">The Desks</div>
-        <h2>Browse the archive by subject</h2>
       </div>
-      <div class="np-desks-grid">
-        {
-          NEWS_CATS.map((c) => (
-            <button type="button" class="np-desk news-chip" data-cat={c.name}>
-              <span class="np-desk-bar" style={`background:${c.ink}`} />
-              <div class="np-desk-top">
-                <span class="np-desk-dot" style={`background:${c.ink}`} />
-                <span class="np-desk-count">{c.count} stories</span>
-              </div>
-              <h3>{c.name}</h3>
-              <p>{c.blurb}</p>
-            </button>
-          ))
-        }
-        <button
-          type="button"
-          class="np-desk np-desk-all news-chip"
-          data-cat="All"
-        >
-          <h3>The whole cloud</h3>
-          <p>Every dispatch, council, and wonder in one chronological river.</p>
-          <span class="np-desk-allcue">
-            Browse all stories
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
-            >
-          </span>
-        </button>
-      </div>
-    </section>
-
-    {/* ---------- FEED + RAIL ---------- */}
-    <section class="np-feedwrap">
-      <div class="np-feed-col">
-        <div class="np-feed-head">
-          <h2>Latest Dispatches</h2>
-          <span class="np-band-ln"></span>
-          <span class="np-feed-filed">Filed from across the Church</span>
-        </div>
-        <div class="np-river" id="news-river">
-          {NEWS.map((n, i) => <NewsCard n={n} tone={toneFor(i)} />)}
-        </div>
-        <p class="np-empty" id="news-empty" hidden>
-          No dispatches match — try another desk or search.
-        </p>
-      </div>
-
-      <aside class="np-rail">
-        <div class="np-rail-mod">
-          <div class="np-rail-eyebrow">
-            <span class="eyebrow">This Day in Orthodox History</span>
-            <span class="np-rail-ln"></span>
-          </div>
-          <div class="np-thisday">
-            <div class="np-thisday-top">
-              <span class="np-thisday-date">{NEWS_THISDAY.date}</span>
-              <span class="np-thisday-year">A.D. {NEWS_THISDAY.year}</span>
-            </div>
-            <h3>{NEWS_THISDAY.title}</h3>
-            <p>{NEWS_THISDAY.body}</p>
-          </div>
-        </div>
-
-        <div class="np-rail-mod">
-          <div class="np-rail-eyebrow">
-            <span class="eyebrow">Most Read</span>
-            <span class="np-rail-ln"></span>
-          </div>
-          <div class="np-mostread">
-            {
-              NEWS_MOSTREAD.map((m, i) => {
-                const c = NEWS_CAT[m.cat];
-                return (
-                  <div class="np-mr-row">
-                    <span class="np-mr-n">{i + 1}</span>
-                    <div>
-                      <h4>{m.title}</h4>
-                      <span
-                        class="news-tag news-tag--sm"
-                        style={`color:${c.ink};background:${c.bg}`}
-                      >
-                        <i />
-                        {c.name}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })
-            }
-          </div>
-        </div>
-
-        <div class="np-rail-mod">
-          <div class="np-rail-eyebrow">
-            <span class="eyebrow">Browse by Century</span>
-            <span class="np-rail-ln"></span>
-          </div>
-          <div class="np-centuries">
-            {
-              NEWS_CENTURIES.map((c) => (
-                <a class="np-century" href={withBase("search")}>
-                  <span class="np-century-dm" />
-                  <div>
-                    <div class="np-century-label">{c.label}</div>
-                    <div class="np-century-note">{c.note}</div>
-                  </div>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--celest)"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M9 6l6 6-6 6" />
-                  </svg>
-                </a>
-              ))
-            }
-          </div>
-        </div>
-      </aside>
     </section>
   </div>
-
-  <script>
-    // Category chips (hero + desks) and the search box filter the feed river.
-    const river = document.getElementById("news-river");
-    const empty = document.getElementById("news-empty");
-    const qInput = document.getElementById("news-q") as HTMLInputElement | null;
-    const cards = [
-      ...document.querySelectorAll<HTMLElement>(".news-feed-card"),
-    ];
-    const heroChips = [
-      ...document.querySelectorAll<HTMLElement>(".np-hero .news-chip"),
-    ];
-    let activeCat = "All";
-
-    function apply() {
-      const q = (qInput?.value || "").trim().toLowerCase();
-      let shown = 0;
-      for (const card of cards) {
-        const catOk = activeCat === "All" || card.dataset.catname === activeCat;
-        const textOk = !q || (card.dataset.search || "").includes(q);
-        const show = catOk && textOk;
-        card.style.display = show ? "" : "none";
-        if (show) shown++;
-      }
-      if (empty) empty.hidden = shown !== 0;
-      for (const chip of heroChips)
-        chip.dataset.on = String(chip.dataset.cat === activeCat);
-    }
-
-    for (const chip of document.querySelectorAll<HTMLElement>(".news-chip")) {
-      chip.addEventListener("click", () => {
-        activeCat = chip.dataset.cat || "All";
-        apply();
-        river?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    }
-    qInput?.addEventListener("input", apply);
-  </script>
 </BaseLayout>
+
+<style>
+  .news-title {
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1;
+    margin: 14px 0 16px;
+    font-weight: 600;
+  }
+  .news-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--page-lede-size);
+    color: var(--celest);
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .news-panel {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    background: linear-gradient(168deg, #27537f 0%, #1e426a 55%, #193758 100%);
+    border: 1px solid var(--gold-deep);
+    border-radius: 12px;
+    color: var(--ivory);
+    box-shadow: var(--shadow-card);
+    padding: 34px clamp(22px, 4vw, 48px) 32px;
+    text-align: center;
+  }
+  .news-panel .rule {
+    max-width: 150px;
+    margin: 0 auto 16px;
+    color: var(--gold-soft);
+  }
+  .news-soon-label {
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    font-size: 12.5px;
+    color: var(--gold-soft);
+    margin: 0 0 14px;
+  }
+  .news-soon-body {
+    font-size: 16.5px;
+    color: #dbe5ef;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+  .news-soon-body strong {
+    color: var(--gold-soft);
+  }
+  .news-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .news-actions .btn--ghost {
+    color: var(--gold-soft);
+    border-color: rgba(212, 175, 55, 0.45);
+  }
+  .news-actions .btn--ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+</style>
