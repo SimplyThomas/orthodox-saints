@@ -731,11 +731,17 @@ a.qz-comp {
   overflow-wrap: anywhere;
   max-width: 100%;
 }
-/* the rank chip wraps inside the card instead of overflowing its edge */
+/* the rank chip keeps its text inside the box: tighter tracking so common
+   ranks fit on one line, and overflow-wrap so a long single word (e.g.
+   HIEROMARTYR) breaks within the chip instead of spilling past its edge. */
 .feat-card .tag {
   white-space: normal;
+  overflow-wrap: anywhere;
   max-width: 100%;
   text-align: left;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  line-height: 1.35;
 }
 .feat-card .feat-meta {
   font-size: 12.5px;
