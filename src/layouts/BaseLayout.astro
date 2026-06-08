@@ -6,7 +6,15 @@ import SiteFooter from "../components/SiteFooter.astro";
 interface Props {
   title?: string;
   description?: string;
-  active?: "home" | "search" | "america" | "quiz" | "about" | "";
+  active?:
+    | "home"
+    | "search"
+    | "calendar"
+    | "america"
+    | "news"
+    | "quiz"
+    | "about"
+    | "";
 }
 const {
   title = "Cloud of Witnesses",

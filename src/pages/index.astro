@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeHero from "../components/HomeHero.astro";
 import CloudBand from "../components/CloudBand.astro";
-import DetailModal from "../components/DetailModal.astro";
 import { CARD_SAINTS } from "../lib/data";
 
 // The home page is a landing page: hero search (submits to /search), saint of
@@ -17,7 +16,6 @@ const cardJson = JSON.stringify(CARD_SAINTS).replace(/</g, "\\u003c");
     <HomeHero />
     <CloudBand />
   </div>
-  <DetailModal />
 
   <script
     type="application/json"

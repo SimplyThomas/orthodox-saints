@@ -1,0 +1,81 @@
+---
+/* Respectfully-framed image plate (a placeholder for a real photo/icon): a
+   tinted ground, a faint sacred watermark, the saint's icon centred, and a quiet
+   monospace slug naming what belongs here. Ready to swap in real photography. */
+import type { NewsSaintRef } from "../../lib/news";
+import { saintAvatar, domeMark, byzCross } from "../../lib/icons";
+
+interface Props {
+  saint?: NewsSaintRef;
+  tone?: "blue" | "ivory";
+  height?: number;
+  avatar?: number;
+  slug?: string;
+  motif?: "dome" | "cross";
+  radius?: number;
+  fill?: boolean;
+}
+const {
+  saint,
+  tone = "blue",
+  height = 240,
+  avatar = 96,
+  slug,
+  motif = "dome",
+  radius = 0,
+  fill = false,
+} = Astro.props;
+
+const T =
+  tone === "ivory"
+    ? {
+        bg: "linear-gradient(150deg,#efe3cb,#e7d9bd)",
+        markOp: 0.08,
+        mark: "var(--byz)",
+        slug: "var(--ink-soft)",
+        line: "rgba(168,133,42,.5)",
+      }
+    : {
+        bg: "linear-gradient(150deg,#1b3a5c,#234C7A 60%,#1d4068)",
+        markOp: 0.14,
+        mark: "var(--gold)",
+        slug: "var(--gold-soft)",
+        line: "rgba(212,175,55,.4)",
+      };
+
+const watermark =
+  motif === "cross"
+    ? byzCross(
+        Math.min(height * 0.9, 150),
+        tone === "ivory" ? "#234C7A" : "#D4AF37",
+        1.4,
+      )
+    : domeMark(
+        Math.min(height * 2.1, 460),
+        tone === "ivory" ? "#234C7A" : "#D4AF37",
+      );
+
+const aw = avatar;
+const ah = Math.round(avatar * 1.24);
+const portrait = saint
+  ? saintAvatar({ name: saint.name, type: saint.type }, aw, ah, {
+      type: saint.type,
+    })
+  : "";
+---
+
+<div
+  class="news-plate"
+  style={`height:${fill ? "100%" : height + "px"};background:${T.bg};${radius ? "border-radius:" + radius + "px;" : ""}`}
+>
+  <div class="np-mark" style={`opacity:${T.markOp}`} set:html={watermark} />
+  <div class="np-frame" style={`border-color:${T.line}`}></div>
+  {portrait && <div class="np-icon" set:html={portrait} />}
+  {
+    slug && (
+      <div class="np-slug" style={`color:${T.slug}`}>
+        {slug}
+      </div>
+    )
+  }
+</div>

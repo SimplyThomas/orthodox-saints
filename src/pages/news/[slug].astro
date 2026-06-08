@@ -1,0 +1,189 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ByzCross from "../../components/icons/ByzCross.astro";
+import NewsPlate from "../../components/news/NewsPlate.astro";
+import NewsCard from "../../components/news/NewsCard.astro";
+import { saintAvatar } from "../../lib/icons";
+import { withBase } from "../../lib/format";
+import { NEWS, NEWS_ALL, NEWS_CAT } from "../../lib/news";
+
+export const getStaticPaths = (() => {
+  return NEWS_ALL.map((n) => ({ params: { slug: n.id }, props: { n } }));
+}) satisfies GetStaticPaths;
+
+const { n } = Astro.props;
+const cat = NEWS_CAT[n.cat];
+const body = n.body && n.body.length ? n.body : [n.summary];
+const drop = body[0].charAt(0);
+const rest = body[0].slice(1);
+// where to slot the pull-quote: after the second paragraph
+const pqAfter = 1;
+const related = NEWS.filter((x) => x.id !== n.id && x.cat === n.cat).slice(
+  0,
+  3,
+);
+---
+
+<BaseLayout active="news" title={n.headline} description={n.dek || n.summary}>
+  <article class="na">
+    {/* breadcrumb */}
+    <div class="na-crumb">
+      <a href={withBase("news")} class="na-crumb-link">News</a>
+      <span>›</span>
+      <span class="na-crumb-link">{cat.name}</span>
+      <span>›</span>
+      <span>This account</span>
+    </div>
+
+    {/* head */}
+    <header class="na-head">
+      <span class="news-tag" style={`color:${cat.ink};background:${cat.bg}`}
+        ><i></i>{cat.name}</span
+      >
+      <h1 class="na-h1">{n.headline}</h1>
+      {n.dek && <p class="na-dek">{n.dek}</p>}
+      <div class="na-byline">
+        <span class="na-meta">{n.date}</span>
+        <span class="na-dot"></span>
+        <span class="na-meta">{n.location}</span>
+        <span class="na-dot"></span>
+        <span class="na-meta">By the <em>Cloud of Witnesses</em> desk</span>
+      </div>
+    </header>
+
+    {/* hero plate */}
+    <figure class="na-figure">
+      <NewsPlate
+        saint={n.saint}
+        tone="blue"
+        height={520}
+        avatar={196}
+        slug={n.plate || n.location.toUpperCase()}
+        motif={n.cat === "apparitions" ? "cross" : "dome"}
+        radius={5}
+      />
+      {n.caption && <figcaption>{n.caption}</figcaption>}
+    </figure>
+
+    {/* body */}
+    <div class="na-body">
+      <p class="na-p">
+        <span class="na-drop" aria-hidden="true">{drop}</span>{rest}
+      </p>
+      {
+        body.slice(1).map((para, i) => (
+          <Fragment>
+            <p class="na-p">{para}</p>
+            {i === pqAfter && n.pullQuote && (
+              <blockquote class="na-pull">
+                <p>{n.pullQuote.text}</p>
+                <footer>{n.pullQuote.attribution}</footer>
+              </blockquote>
+            )}
+          </Fragment>
+        ))
+      }
+      {
+        !n.body && (
+          <p class="na-note">
+            This account is being documented; a fuller report — with the
+            testimony and sources the Church’s discernment requires — will be
+            published as it is verified.
+          </p>
+        )
+      }
+    </div>
+
+    {/* sources */}
+    {
+      n.sources && n.sources.length > 0 && (
+        <div class="na-srcwrap">
+          <div class="na-src">
+            <div class="na-src-head">
+              <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
+              <h3>Sources &amp; Documentation</h3>
+            </div>
+            <p class="na-src-lede">
+              The Cloud of Witnesses reports nothing it cannot source. Each
+              account is held to the standard of the Church’s own discernment.
+            </p>
+            <div class="na-src-grid">
+              {n.sources.map((g) => (
+                <div>
+                  <div class="eyebrow na-src-eyebrow">{g.h}</div>
+                  <ul>
+                    {g.items.map((it) => (
+                      <li>
+                        <span class="na-src-dm" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    {/* related saints */}
+    {
+      n.relatedSaints && n.relatedSaints.length > 0 && (
+        <section class="na-related">
+          <div class="na-rel-head">
+            <span class="eyebrow">Related Saints</span>
+            <span class="na-rel-ln" />
+          </div>
+          <div class="na-rel-saints">
+            {n.relatedSaints.map((s) => (
+              <div class="na-rel-saint">
+                <div
+                  class="na-rel-av"
+                  set:html={saintAvatar(
+                    { name: s.name, type: s.type },
+                    74,
+                    92,
+                    {
+                      type: s.type,
+                    },
+                  )}
+                />
+                <div>
+                  <h4>{s.name}</h4>
+                  {s.epithet && <div class="na-rel-ep">{s.epithet}</div>}
+                  <span
+                    class="news-tag"
+                    style={`color:${NEWS_CAT[n.cat].ink};background:${NEWS_CAT[n.cat].bg}`}
+                  >
+                    <i />
+                    {s.type}
+                  </span>
+                  {s.note && <p class="na-rel-note">{s.note}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {/* related stories */}
+    {
+      related.length > 0 && (
+        <section class="na-related na-related-stories">
+          <div class="na-rel-head">
+            <span class="eyebrow">More from the {cat.name} desk</span>
+            <span class="na-rel-ln" />
+          </div>
+          <div class="na-rel-grid">
+            {related.map((r, i) => (
+              <NewsCard n={r} tone={i === 1 ? "ivory" : "blue"} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

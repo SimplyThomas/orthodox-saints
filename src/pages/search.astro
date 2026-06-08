@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Finder from "../components/Finder.astro";
-import DetailModal from "../components/DetailModal.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
 import SearchGlyph from "../components/icons/SearchGlyph.astro";
 import { FINDER_SAINTS } from "../lib/data";
 
@@ -11,6 +11,17 @@ import { FINDER_SAINTS } from "../lib/data";
 // CLAUDE.md §11 that is comfortable to ~5000 saints; past that, split to an
 // on-demand list index. Per-saint detail pages are already lean (one record).
 const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+const total = FINDER_SAINTS.length;
+
+// Quick "browse by type" chips under the hero search — each toggles the
+// matching Rank/Type facet (wired in the inline script below).
+const quickRanks = [
+  "Hierarch",
+  "Martyr",
+  "Monastic",
+  "Great-Martyr",
+  "Righteous",
+];
 ---
 
 <BaseLayout
@@ -19,25 +30,57 @@ const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
   description="Search and filter Orthodox saints by intercession, life experience, rank, vocation, region, tradition, era, and century."
 >
   <div id="search-page">
-    <section class="searchbar" aria-label="Search">
-      <div class="inner">
-        <div class="search" role="search">
+    {/* ---------- reverent hero with the brand hero-search ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <div class="eyebrow-rule" aria-hidden="true">
+          <span class="ln"></span><span class="dm"></span>
+          <span class="lbl">A Searchable Communion of the Saints</span>
+          <span class="dm"></span><span class="ln"></span>
+        </div>
+        <h1 class="sr-title">Seek, and You Shall Find</h1>
+        <p class="sr-lede">
+          Search {total.toLocaleString()} commemorations by name, feast, place, or
+          era &mdash; and refine by the witness of the Church.
+        </p>
+
+        <div class="search sr-search" role="search">
           <span class="ico" aria-hidden="true">
-            <SearchGlyph size={20} color="var(--celest)" />
+            <SearchGlyph size={22} color="var(--celest)" />
           </span>
           <input
             type="search"
             id="q"
-            placeholder="Search saints, feasts, and commemorations…"
+            placeholder="Search saints, feasts, places…"
             autocomplete="off"
             aria-label="Search saints"
           />
+          <button type="button" id="hero-search-btn" class="btn btn--gold"
+            >Search</button
+          >
+        </div>
+
+        <div class="sr-browse">
+          <span class="label">Browse by type</span>
+          {
+            quickRanks.map((t) => (
+              <button type="button" class="chip browse-chip" data-rank={t}>
+                {t}
+              </button>
+            ))
+          }
         </div>
       </div>
     </section>
-    <Finder />
+
+    {/* ---------- faceted index: gilt refine rail + reading list ---------- */}
+    <div class="sr-index">
+      <Finder />
+    </div>
   </div>
-  <DetailModal />
 
   <script
     type="application/json"
@@ -47,5 +90,45 @@ const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
   />
   <script>
     import "../islands/finder.client.ts";
+
+    // Wire the hero "browse by type" chips to the Rank/Type facet checkboxes.
+    // Checking a checkbox + dispatching a bubbling change lets the finder island
+    // handle it exactly as a click on the facet itself.
+    const facetsEl = document.getElementById("facets");
+    const chips = [
+      ...document.querySelectorAll<HTMLButtonElement>(".browse-chip"),
+    ];
+    function cb(val: string) {
+      return facetsEl?.querySelector<HTMLInputElement>(
+        `input[data-key="rank"][value="${CSS.escape(val)}"]`,
+      );
+    }
+    function syncChips() {
+      for (const chip of chips) {
+        const box = cb(chip.dataset.rank || "");
+        chip.dataset.on = String(!!box?.checked);
+      }
+    }
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        const box = cb(chip.dataset.rank || "");
+        if (!box) return;
+        box.closest("details")?.setAttribute("open", "");
+        box.checked = !box.checked;
+        box.dispatchEvent(new Event("change", { bubbles: true }));
+        syncChips();
+      });
+    }
+    facetsEl?.addEventListener("change", syncChips);
+    syncChips();
+
+    // The hero "Search" button just nudges focus to the live results.
+    document
+      .getElementById("hero-search-btn")
+      ?.addEventListener("click", () =>
+        document
+          .getElementById("finder")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      );
   </script>
 </BaseLayout>

@@ -1,7 +1,7 @@
 /* Finder island: faceted client-side search over the inlined finder data on
    the /search page. Ported from app.js (render/row/pager/chips/facets wiring).
-   Rows are real links to /saint/[id]; the detail-modal island intercepts
-   clicks. Arriving with ?q= seeds the query (the home hero search submits
+   Rows are real links to the full /saint/[id] page. Arriving with ?q= seeds
+   the query (the home hero search submits
    here); ?browse= opens that facet group; the typed query is mirrored back
    into the URL so results are shareable. */
 

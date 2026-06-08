@@ -1,10 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { SAINTS } from "../../lib/data";
-import { withBase } from "../../lib/format";
 import { firstFeast } from "../../lib/saints";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SaintDetail from "../../components/SaintDetail.astro";
+import SaintView from "../../components/SaintView.astro";
 
 export const getStaticPaths = (() => {
   return SAINTS.map((s) => ({ params: { id: s.id }, props: { saint: s } }));
@@ -18,17 +17,12 @@ const desc =
 ---
 
 <BaseLayout title={saint.name} description={desc}>
-  <div class="saint-page">
-    <a class="link-btn saint-back" href={withBase("")}
-      >&larr; Back to the saints</a
-    >
-    <SaintDetail saint={saint} as="h1" />
-  </div>
+  <SaintView saint={saint} />
 </BaseLayout>
 
 <script>
-  // Direct page views don't go through the detail-modal island, so record the
-  // "Saint Viewed" event here too (reads the card's data- attributes).
+  // The standalone saint page records the "Saint Viewed" event on load
+  // (reads the view's data- attributes).
   import { track } from "../../lib/analytics";
   const card = document.getElementById("saint-detail");
   if (card)
@@ -37,15 +31,3 @@ const desc =
       name: card.dataset.name || "",
     });
 </script>
-
-<style>
-  .saint-page {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2rem 1rem 3rem;
-  }
-  .saint-back {
-    display: inline-block;
-    margin-bottom: 1.1rem;
-  }
-</style>

@@ -2,8 +2,7 @@
    question steps, and result shell are SSR'd (QuizForm.astro); this island
    reveals one screen at a time, tallies multi-select picks per question,
    scores saints by weighted facet overlap (lib/quiz), and renders the
-   illuminated result panel. Cards are real /saint links; the detail-modal
-   island handles the quick-look on companions. */
+   illuminated result panel. Cards are real links to the full /saint page. */
 
 import type { FinderSaint } from "../lib/types";
 import { QUIZ, emptyQuizSelected, quizMatches } from "../lib/quiz";
