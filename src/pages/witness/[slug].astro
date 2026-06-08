@@ -73,7 +73,11 @@ const desc = `${w.name}${w.epithet ? " — " + w.epithet : ""}: ${w.bio[0]}`;
             <h2>Sources</h2>
             <ul>
               {w.sources.map((s) => (
-                <li>{s}</li>
+                <li>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">
+                    {s.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </>

@@ -10,8 +10,10 @@
    If and when any of these is formally glorified, they should be MOVED into the
    canonical dataset at that time and removed from here.
 
-   Bios are short and factual, ported from the design-handoff roster; sources are
-   still to be gathered. Until reviewed, each page carries that standing caveat. */
+   Bios are short and factual; each carries verified sources (authoritative
+   Orthodox bodies — monasteries, St Vladimir's Seminary, the OCA — plus
+   OrthodoxWiki/Wikipedia). A record without a `sources` entry still shows a
+   "sources being gathered" caveat and should not be treated as authoritative. */
 
 export interface Witness {
   /** permanent URL slug — /witness/<slug> */
@@ -27,8 +29,8 @@ export interface Witness {
   place: string;
   /** memorial biography, one entry per paragraph */
   bio: string[];
-  /** verifiable sources — to be filled before this is treated as authoritative */
-  sources?: string[];
+  /** verifiable sources (label + URL), shown as links on the memorial page */
+  sources?: { label: string; url: string }[];
 }
 
 export const WITNESSES: Witness[] = [
@@ -40,7 +42,17 @@ export const WITNESSES: Witness[] = [
     years: "1928 – 2019",
     place: "St Anthony's Monastery, Florence, Arizona",
     bio: [
-      "A disciple of St Joseph the Hesychast who, coming from Mount Athos, founded some twenty Orthodox monasteries across the United States and Canada — reviving traditional monastic life on the continent.",
+      "A disciple of St Joseph the Hesychast who, coming from Mount Athos, founded seventeen Orthodox monasteries across the United States and Canada — reviving traditional monastic life on the continent.",
+    ],
+    sources: [
+      {
+        label: "Wikipedia: Ephraim of Arizona",
+        url: "https://en.wikipedia.org/wiki/Ephraim_of_Arizona",
+      },
+      {
+        label: "OrthodoxWiki: Ephraim of Philotheou",
+        url: "https://orthodoxwiki.org/Ephraim_of_Philotheou",
+      },
     ],
   },
   {
@@ -53,6 +65,16 @@ export const WITNESSES: Witness[] = [
     bio: [
       "An American convert and co-founder of the St Herman of Alaska Monastery in California whose writings opened the door of Orthodoxy to a whole generation of English-speaking seekers.",
     ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Seraphim (Rose)",
+        url: "https://orthodoxwiki.org/Seraphim_(Rose)",
+      },
+      {
+        label: "Wikipedia: Seraphim Rose",
+        url: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+    ],
   },
   {
     slug: "roman-braga",
@@ -63,6 +85,16 @@ export const WITNESSES: Witness[] = [
     place: "Holy Dormition Monastery, Rives Junction, Michigan",
     bio: [
       "A Romanian priest imprisoned and tortured under communism who, having found inner freedom in his cell, carried that joy to America and shaped monastic life in Michigan.",
+    ],
+    sources: [
+      {
+        label: "OCA — In Memoriam: Archimandrite Roman Braga",
+        url: "https://www.oca.org/in-memoriam/archimandrite-roman-braga",
+      },
+      {
+        label: "OCA Diocese of the Midwest — 10th Anniversary of the Repose",
+        url: "https://domoca.org/10th-anniversary-of-the-repose-of-archimandrite-roman-braga-commemorated-in-michigan/",
+      },
     ],
   },
   {
@@ -75,6 +107,16 @@ export const WITNESSES: Witness[] = [
     bio: [
       "A Texan convert from a Baptist family who became founding bishop of the Diocese of the South, planting and nurturing scores of mission parishes across the American South.",
     ],
+    sources: [
+      {
+        label: "OCA — In Memoriam: His Eminence, Archbishop Dmitri",
+        url: "https://www.oca.org/in-memoriam/his-eminence-archbishop-dmitri",
+      },
+      {
+        label: "OrthodoxWiki: Dmitri (Royster) of Dallas",
+        url: "https://orthodoxwiki.org/Dmitri_(Royster)_of_Dallas",
+      },
+    ],
   },
   {
     slug: "mother-alexandra",
@@ -85,6 +127,16 @@ export const WITNESSES: Witness[] = [
     place: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
     bio: [
       "Born Princess Ileana of Romania, she embraced monastic life in America and founded the Monastery of the Transfiguration in Pennsylvania — a haven of prayer for Orthodox women.",
+    ],
+    sources: [
+      {
+        label: "Orthodox Monastery of the Transfiguration — Foundress",
+        url: "https://www.orthodoxmonasteryellwoodcity.org/about/foundress",
+      },
+      {
+        label: "OCA — Remembering Mother Alexandra",
+        url: "https://www.oca.org/news/headline-news/remembering-mother-alexandra",
+      },
     ],
   },
   {
@@ -97,6 +149,16 @@ export const WITNESSES: Witness[] = [
     bio: [
       "A beloved teacher, preacher and dean of St Vladimir's Seminary whose lectures, books and “55 maxims” formed generations of English-speaking Orthodox Christians.",
     ],
+    sources: [
+      {
+        label: "St Vladimir's Seminary — Protopresbyter Thomas Hopko",
+        url: "https://www.svots.edu/people/protopresbyter-thomas-hopko",
+      },
+      {
+        label: "OrthodoxWiki: Thomas Hopko",
+        url: "https://orthodoxwiki.org/Thomas_Hopko",
+      },
+    ],
   },
   {
     slug: "michael-oleksa",
@@ -108,17 +170,15 @@ export const WITNESSES: Witness[] = [
     bio: [
       "A missionary priest, teacher and storyteller who spent decades among the peoples of Alaska — a leading interpreter of Alaska Native cultures and of the deep Orthodox history rooted in that land.",
     ],
-  },
-  {
-    slug: "michael-gelsinger",
-    name: "Fr. Michael",
-    epithet: "Gelsinger",
-    role: "Priest",
-    years: "",
-    reposedYear: "2019",
-    place: "the American South",
-    bio: [
-      "A pastor remembered with deep affection by many of the faithful across the American South, who held him in living memory long after his repose.",
+    sources: [
+      {
+        label: "OCA — In Memoriam: Archpriest Michael Oleksa",
+        url: "https://www.oca.org/in-memoriam/archpriest-michael-oleksa",
+      },
+      {
+        label: "Wikipedia: Michael Oleksa",
+        url: "https://en.wikipedia.org/wiki/Michael_Oleksa",
+      },
     ],
   },
   {
@@ -131,6 +191,12 @@ export const WITNESSES: Witness[] = [
     bio: [
       "Dean of St Vladimir's Seminary and author of “For the Life of the World,” whose liturgical theology renewed the Eucharistic life of Orthodox Christians across America and far beyond.",
     ],
+    sources: [
+      {
+        label: "St Vladimir's Seminary — Protopresbyter Alexander Schmemann",
+        url: "https://www.svots.edu/content/protopresbyter-alexander-schmemann",
+      },
+    ],
   },
   {
     slug: "georges-florovsky",
@@ -142,6 +208,20 @@ export const WITNESSES: Witness[] = [
     bio: [
       "A Russian émigré priest, church historian and theologian who called the Church to a “neo-patristic synthesis” — a return to the Fathers — while teaching at St Vladimir's, Harvard and Princeton.",
     ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Georges Florovsky",
+        url: "https://orthodoxwiki.org/Georges_Florovsky",
+      },
+      {
+        label: "Wikipedia: Georges Florovsky",
+        url: "https://en.wikipedia.org/wiki/Georges_Florovsky",
+      },
+      {
+        label: "St Vladimir's Seminary Library — Fr. Georges Florovsky Papers",
+        url: "https://library.svots.edu/index.php/archival-collections/fr-georges-florovsky-papers",
+      },
+    ],
   },
   {
     slug: "john-meyendorff",
@@ -152,6 +232,21 @@ export const WITNESSES: Witness[] = [
     place: "St Vladimir's Seminary, Crestwood, New York",
     bio: [
       "A patristic scholar of St Gregory Palamas and dean of St Vladimir's Seminary, whose learning and witness helped a self-governing Orthodox Church take root in America.",
+    ],
+    sources: [
+      {
+        label:
+          "St Vladimir's Seminary — Remembering Protopresbyter John Meyendorff",
+        url: "https://www.svots.edu/headlines/remembering-protopresbyter-john-meyendorff-february-17-1926-july-22-1992",
+      },
+      {
+        label: "OrthodoxWiki: John Meyendorff",
+        url: "https://orthodoxwiki.org/John_Meyendorff",
+      },
+      {
+        label: "Wikipedia: John Meyendorff",
+        url: "https://en.wikipedia.org/wiki/John_Meyendorff",
+      },
     ],
   },
 ];
