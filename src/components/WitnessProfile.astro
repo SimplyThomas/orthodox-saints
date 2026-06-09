@@ -1,0 +1,409 @@
+---
+/* Reusable comprehensive profile for a "Witness of Our Time" — the departed who
+   are held in living memory but are NOT (or not yet) formally glorified. It is
+   the generic, data-driven counterpart to the bespoke EphraimProfile /
+   SeraphimProfile components: any Witness in src/lib/witnesses.ts that carries
+   the rich optional fields (overview, timeline, worksBy/About, related,
+   significance) renders through this template, matching their format.
+
+   Reverent, factual, encyclopedic tone; NO canonical/veneration framing, feast,
+   or intercession (CLAUDE.md §9). Every claim is sourced and remains subject to
+   clergy/source review. Reuses the global .sv-* saint-page chrome and the .ep-*
+   section styles. */
+import { withBase } from "../lib/format";
+import WitnessRail from "./WitnessRail.astro";
+import type { Witness } from "../lib/witnesses";
+
+const { w } = Astro.props as { w: Witness };
+
+const railFacts = w.railFacts ?? [];
+const overview = w.overview ?? [];
+const timeline = w.timeline ?? [];
+const worksBy = w.worksBy ?? [];
+const worksAbout = w.worksAbout ?? [];
+const related = w.related ?? [];
+const significance = w.significance ?? [];
+const sources = w.sources ?? [];
+---
+
+<div class="saintview ep">
+  {/* breadcrumb back bar */}
+  <div class="sv-back">
+    <a href={withBase("america")} class="sv-back-link">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+      >
+      <span class="sv-back-label">Back to Saints of America</span>
+    </a>
+    <span class="sv-sep">/</span>
+    <span class="sv-here">{w.name}{w.epithet ? ` ${w.epithet}` : ""}</span>
+  </div>
+
+  <div class="sv-grid">
+    {/* ── blue rail: portrait + tags ── */}
+    <WitnessRail
+      name={w.name}
+      role={w.role}
+      facts={railFacts}
+      knownFor={w.knownFor}
+    />
+
+    {/* ── content ── */}
+    <main class="sv-main">
+      <div class="eyebrow sv-eyebrow">A Witness of Our Time</div>
+      <h1 class="sv-name">
+        {w.name}{w.epithet && <span class="sv-epithet"> {w.epithet}</span>}
+      </h1>
+      {w.secularName && <div class="sv-also">{w.secularName}</div>}
+
+      <div class="ep-notice">
+        <strong>Not yet glorified</strong> &mdash; held in the living memory of the
+        faithful. This servant of God is remembered with love and gratitude, but is
+        not (or not yet) formally glorified by the Church. No feast, liturgical veneration,
+        or intercession is implied here; what follows is an historical profile, subject
+        to clergy and source review.
+      </div>
+
+      {/* OVERVIEW */}
+      {
+        overview.length > 0 && (
+          <section class="ep-sec">
+            <h2>Overview</h2>
+            {overview.map((p) => (
+              <p>{p}</p>
+            ))}
+          </section>
+        )
+      }
+
+      {/* LIFE TIMELINE */}
+      {
+        timeline.length > 0 && (
+          <section class="ep-sec">
+            <h2>Life in Brief</h2>
+            <ol class="ep-timeline">
+              {timeline.map((t) => (
+                <li>
+                  <span class="ep-tl-when">{t.when}</span>
+                  <div class="ep-tl-body">
+                    <h4>{t.title}</h4>
+                    <p>
+                      {t.body}
+                      {t.source && (
+                        <a
+                          class="ep-src"
+                          href={t.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          source ↗
+                        </a>
+                      )}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )
+      }
+
+      {/* WORKS BY */}
+      {
+        worksBy.length > 0 && (
+          <section class="ep-sec">
+            <h2>Works by {w.name}</h2>
+            <ul class="ep-works">
+              {worksBy.map((k) => (
+                <li>
+                  <span class="ep-work-title">
+                    {k.source ? (
+                      <a
+                        href={k.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {k.title}
+                      </a>
+                    ) : (
+                      k.title
+                    )}
+                  </span>
+                  {k.detail && (
+                    <span class="ep-work-detail"> &mdash; {k.detail}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {/* WORKS ABOUT */}
+      {
+        worksAbout.length > 0 && (
+          <section class="ep-sec">
+            <h2>About {w.name}</h2>
+            <ul class="ep-works">
+              {worksAbout.map((k) => (
+                <li>
+                  <span class="ep-work-title">
+                    {k.source ? (
+                      <a
+                        href={k.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {k.title}
+                      </a>
+                    ) : (
+                      k.title
+                    )}
+                  </span>
+                  {k.detail && (
+                    <span class="ep-work-detail"> &mdash; {k.detail}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {/* HISTORICAL SIGNIFICANCE */}
+      {
+        significance.length > 0 && (
+          <section class="ep-sec">
+            <h2>Historical Significance</h2>
+            {significance.map((p) => (
+              <p>{p}</p>
+            ))}
+          </section>
+        )
+      }
+
+      {/* RELATED WITNESSES */}
+      {
+        related.length > 0 && (
+          <section class="ep-sec">
+            <h2>Related Figures</h2>
+            <ul class="ep-related">
+              {related.map((r) => (
+                <li>
+                  {r.href ? (
+                    <a href={withBase(r.href)}>{r.name}</a>
+                  ) : r.external ? (
+                    <a
+                      href={r.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {r.name} ↗
+                    </a>
+                  ) : (
+                    <span class="ep-related-name">{r.name}</span>
+                  )}
+                  <span class="ep-related-note"> &mdash; {r.note}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {/* SOURCES */}
+      <section class="ep-sec ep-sources">
+        <h2>Sources</h2>
+        {
+          sources.length > 0 ? (
+            <ol>
+              {sources.map((s) => (
+                <li>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p class="ep-fineprint">
+              Sources for this profile are still being gathered. Until reviewed,
+              these details are offered in good faith but are not yet
+              authoritative.
+            </p>
+          )
+        }
+        <p class="ep-fineprint">
+          Additional citations appear inline beside the timeline above. This
+          profile is a historical account compiled from the sources listed and
+          remains subject to clergy and source review.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<style>
+  /* The chrome (back bar, blue rail, name header) reuses the global .sv-*
+     saint-page styles; the section content below mirrors the .ep-* styles of the
+     Elder Ephraim / Fr Seraphim profiles so the format matches. */
+  .sv-main > .ep-notice {
+    margin-top: 22px;
+  }
+
+  .ep-notice {
+    background: #f4ecdd;
+    border: 1px solid var(--gold-deep);
+    border-left-width: 4px;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #5a4a2a;
+    margin-bottom: 32px;
+  }
+  .ep-notice strong {
+    color: var(--gold-deep);
+  }
+
+  .ep-sec {
+    margin: 0 0 38px;
+  }
+  .ep-sec h2 {
+    font-size: clamp(20px, 3vw, 25px);
+    color: var(--byz-deep);
+    font-weight: 600;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold-soft);
+  }
+  .ep-sec p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.72;
+    color: #2b2b2b;
+    margin: 0 0 16px;
+  }
+  .ep-fineprint {
+    font-size: 13.5px !important;
+    font-style: italic;
+    color: var(--celest);
+    line-height: 1.55 !important;
+  }
+  .ep-fineprint a {
+    color: var(--byz-deep);
+  }
+
+  /* timeline */
+  .ep-timeline {
+    list-style: none;
+    margin: 18px 0 8px;
+    padding: 0;
+    border-left: 2px solid var(--gold-soft);
+  }
+  .ep-timeline li {
+    position: relative;
+    padding: 0 0 20px 22px;
+  }
+  .ep-timeline li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold-deep);
+    border: 2px solid var(--ivory);
+  }
+  .ep-tl-when {
+    font-family: var(--text);
+    font-weight: 700;
+    color: var(--byz-deep);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .ep-tl-body h4 {
+    margin: 2px 0 4px;
+    font-size: 16px;
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .ep-tl-body p {
+    font-size: 15.5px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+  }
+  .ep-src {
+    font-family: var(--text);
+    font-size: 12px;
+    margin-left: 8px;
+    color: var(--celest);
+    white-space: nowrap;
+  }
+
+  /* works lists */
+  .ep-works {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .ep-works li {
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+  .ep-work-title {
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .ep-work-title a {
+    color: var(--byz-deep);
+  }
+  .ep-work-detail {
+    color: #555;
+  }
+
+  /* related */
+  .ep-related {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .ep-related li {
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+  .ep-related a {
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .ep-related-name {
+    font-weight: 600;
+    color: #444;
+  }
+  .ep-related-note {
+    color: #555;
+  }
+
+  .ep-sources ol {
+    padding-left: 20px;
+  }
+  .ep-sources li {
+    margin-bottom: 7px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .ep-sources a {
+    color: var(--byz-deep);
+  }
+</style>
