@@ -1,6 +1,6 @@
-.PHONY: build validate test serve xlsx find report clean \
+.PHONY: build validate test serve xlsx find report download-icons icon-sheet clean \
         web-install web-dev web-build web-lint web-test \
-        docker-image docker-build docker-validate docker-test docker-xlsx docker-serve docker-shell docker-find docker-report
+        docker-image docker-build docker-validate docker-test docker-xlsx docker-serve docker-shell docker-find docker-report docker-download-icons
 
 # ---- Host Python (used by CI; needs `pip install -r requirements.txt`) ----
 build:    ; python build.py
@@ -9,6 +9,8 @@ test:     ; python -m unittest discover -s tests
 xlsx:     ; python build.py --xlsx-only
 find:     ; @python tools/find_saint.py "$(NAME)"   # search-before-add (CLAUDE.md §6): make find NAME="..."
 report:   ; @python build.py --report $(if $(TOP),--top $(TOP),)   # rank icon-less saints for the next batch (issue #83); make report TOP=100
+download-icons: ; python scripts/download_saint_icons.py  # Wikimedia Commons icon search/download/resize (authoring-only deps: pip install requests Pillow python-dotenv)
+icon-sheet: ; python scripts/make_icon_contact_sheet.py  # build dist/icon_contact_sheet.html to review downloaded icons
 clean:    ; rm -rf public/* dist/* _site .astro && touch public/.gitkeep dist/.gitkeep
 
 # ---- Node / Astro frontend (needs Node 24+; `make web-install` first) ----
@@ -32,6 +34,7 @@ docker-test:     docker-image ; $(DC) run --rm $(DUSER) saints python -m unittes
 docker-xlsx:     docker-image ; $(DC) run --rm $(DUSER) saints python build.py --xlsx-only
 docker-find:     docker-image ; $(DC) run --rm $(DUSER) saints python tools/find_saint.py "$(NAME)"
 docker-report:   docker-image ; $(DC) run --rm $(DUSER) saints python build.py --report $(if $(TOP),--top $(TOP),)
+docker-download-icons: docker-image ; $(DC) run --rm $(DUSER) saints python scripts/download_saint_icons.py
 docker-shell:    docker-image ; $(DC) run --rm $(DUSER) saints bash
 docker-serve:    docker-image ; $(DC) run --rm $(DUSER) --service-ports saints \
                      sh -c "python build.py && cd public && python -m http.server 8000"
