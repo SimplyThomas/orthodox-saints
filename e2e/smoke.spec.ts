@@ -228,19 +228,19 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
 }) => {
   await page.goto("./america/");
   // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
-  // (Roman Braga uses the simple memorial template — Ephraim & Seraphim have
-  // their own comprehensive profiles, tested separately.)
+  // (Roman Braga renders the generic comprehensive WitnessProfile; Ephraim &
+  // Seraphim have their own bespoke profiles, tested separately.)
   const card = page.locator('.pga-card[href*="/witness/roman-braga"]');
   await expect(card).toBeVisible();
   await card.click();
   await page.waitForURL(/\/witness\/roman-braga/);
   // Memorial framing — and clearly NOT a saint/veneration page.
-  await expect(page.locator(".wt-name")).toBeVisible();
-  await expect(page.locator(".wt-notice")).toContainText("Not yet glorified");
+  await expect(page.locator(".sv-name")).toBeVisible();
+  await expect(page.locator(".ep-notice")).toContainText("Not yet glorified");
   await expect(page.locator(".sv-address")).toHaveCount(0); // no liturgical address
   expect(await page.getByText("pray to God for us").count()).toBe(0);
   // The back link returns to the America page.
-  await page.locator(".wt-back-link").click();
+  await page.locator(".sv-back-link").click();
   await page.waitForURL(/\/america\/?$/);
 });
 
