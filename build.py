@@ -231,6 +231,22 @@ def feast_recognized(feast: str) -> bool:
     return bool(FEAST_RE.search(feast) or MOVABLE_RE.search(feast))
 
 
+# Max day per month. Feb 29 is allowed: the fixed calendar has Feb 29
+# commemorations (kept on Feb 28 in non-leap years).
+MONTH_MAX_DAY = {"Jan": 31, "Feb": 29, "Mar": 31, "Apr": 30, "May": 31,
+                 "Jun": 30, "Jul": 31, "Aug": 31, "Sep": 30, "Oct": 31,
+                 "Nov": 30, "Dec": 31}
+
+
+def feast_day_range_errors(feast: str) -> list[str]:
+    """Mon-D tokens whose day falls outside the month's real range.
+
+    FEAST_RE accepts any 1-2 digit day, so 'Feb 30' or 'Sep 0' would
+    otherwise ship silently (and sort to a nonsense feast_sort)."""
+    return [f"{mon} {day}" for mon, day in FEAST_RE.findall(feast)
+            if not 1 <= int(day) <= MONTH_MAX_DAY[mon]]
+
+
 # --------------------------------------------------------------------------- #
 # SQLite build (validation/query engine; discarded unless --sqlite)
 # --------------------------------------------------------------------------- #
@@ -329,6 +345,11 @@ def validate(header: list[str], rows: list[dict[str, str]],
                 f"{tag}: unparseable Feast Day(s) {r['Feast Day(s)']!r} "
                 "(need a 'Mon D' date or a recognized movable-feast term)."
             )
+        for bad in feast_day_range_errors(r["Feast Day(s)"]):
+            errors.append(
+                f"{tag}: impossible feast date {bad!r} (day out of range "
+                "for the month)."
+            )
 
         # Controlled-vocabulary terms
         for col in CONTROLLED:
@@ -345,15 +366,29 @@ def validate(header: list[str], rows: list[dict[str, str]],
 
         # Warning: near-duplicate name
         key = re.sub(r"[^a-z0-9]", "", r["Name"].lower())
-        norm_names.setdefault(key, []).append(sid or r["Name"])
+        norm_names.setdefault(key, []).append((sid or r["Name"], r["Notes"]))
 
         # Warning: finder-coverage nudge on non-stub saints
         is_stub = not r["Brief Life"].strip()
         if not is_stub and not r["Commonly Asked Intercessions"].strip():
             warnings.append(f"{tag}: no Commonly Asked Intercessions (finder coverage).")
 
-    for key, ids in norm_names.items():
-        if len(ids) > 1:
+    for key, group in norm_names.items():
+        if len(group) <= 1:
+            continue
+        # Documented-distinct: same-name saints verified as different people
+        # carry a Notes cross-reference to the other row's ID (e.g. "Distinct
+        # from ... (OS-0966)"). Suppress the warning when every member of the
+        # group is tied to another member that way, so the warning list stays
+        # a real to-investigate queue.
+        ids = [sid for sid, _ in group]
+        notes = {sid: note for sid, note in group}
+        documented = all(
+            any(other in notes[sid] or sid in notes[other]
+                for other in ids if other != sid)
+            for sid in ids
+        )
+        if not documented:
             warnings.append(f"possible duplicate saint (same normalized name): {ids}")
 
     return errors, warnings

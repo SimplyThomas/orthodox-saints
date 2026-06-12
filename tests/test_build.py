@@ -154,6 +154,32 @@ class ValidationTests(unittest.TestCase):
     def test_movable_feast_is_valid(self):
         self.assertEqual(errors_for([valid_row(**{"Feast Day(s)": "3rd Sunday of Pascha"})]), [])
 
+    def test_impossible_feast_day_is_an_error(self):
+        for feast in ("Feb 30", "Apr 31", "Jan 0", "Sep 4; Nov 31"):
+            errs = errors_for([valid_row(**{"Feast Day(s)": feast})])
+            self.assertTrue(any("impossible feast date" in e for e in errs),
+                            f"{feast!r} should be rejected: {errs}")
+
+    def test_month_boundary_feast_days_are_valid(self):
+        for feast in ("Jan 31", "Feb 29", "Apr 30", "Dec 31"):
+            self.assertEqual(errors_for([valid_row(**{"Feast Day(s)": feast})]),
+                             [], f"{feast!r} should be accepted")
+
+    def test_duplicate_name_warns(self):
+        rows = [valid_row(), valid_row(**{"Saint ID": "OS-0002"})]
+        _errs, warns = build.validate(build.HEADER, rows, TEST_VOCAB)
+        self.assertTrue(any("possible duplicate saint" in w for w in warns))
+
+    def test_documented_distinct_duplicate_name_is_suppressed(self):
+        # Same normalized name, but the rows cross-reference each other in
+        # Notes ("Distinct from ... (OS-####)") — verified-distinct, no warning.
+        rows = [
+            valid_row(**{"Notes": "Distinct from the other Test Martyr (OS-0002)."}),
+            valid_row(**{"Saint ID": "OS-0002"}),
+        ]
+        _errs, warns = build.validate(build.HEADER, rows, TEST_VOCAB)
+        self.assertFalse(any("possible duplicate saint" in w for w in warns))
+
     def test_header_mismatch_short_circuits(self):
         errs = errors_for([valid_row()], header=build.HEADER[:-1])
         self.assertTrue(any("Header/column mismatch" in e for e in errs))
