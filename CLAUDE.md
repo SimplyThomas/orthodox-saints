@@ -52,7 +52,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
-│   ├── pages/                 ← routes: index, saint/[id], quiz, america, 404 (file-based)
+│   ├── pages/                 ← routes: index, search, saint/[id], quiz, america, calendar
+│   │                            (placeholder), news (placeholder), witness/[slug], about,
+│   │                            contribute, corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
@@ -60,8 +62,13 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
+├── scripts/                   ← authoring aids: Wikimedia icon downloader + contact sheet
+│                                (see scripts/ICON_DOWNLOAD_README.md), OG-card generator
+├── tools/find_saint.py        ← the `make find` search-before-add helper
 ├── static/                    ← Astro publicDir (kept off public/, which is Python-owned)
-│   └── icons/                 ← self-hosted saint portraits (referenced by data/saint_images.csv)
+│   ├── icons/                 ← self-hosted saint portraits (referenced by data/saint_images.csv)
+│   ├── og-default.png         ← default OpenGraph share card (regen: scripts/make_og_image.mjs)
+│   └── robots.txt             ← points crawlers at /sitemap-index.xml
 ├── public/                    ← build.py OUTPUT, git-ignored (data.json — Astro imports it at build)
 ├── dist/                      ← build.py OUTPUT, git-ignored (Orthodox_Saints_Database.xlsx)
 ├── _site/                     ← Astro OUTPUT, git-ignored (the deployed static site)
@@ -283,6 +290,10 @@ detail page, add one row to `data/saint_quotes.csv`
   variant spelling. Cross-tradition transliteration is the main duplication risk.
   Use `make find NAME="…"` for this — it ranks candidate existing rows by name overlap.
 - The build flags exact duplicate Names and likely near-duplicates; investigate every flag.
+- **Documented-distinct convention:** when two same-name rows are *verified* to be different
+  people, record it in each row's Notes with a cross-reference to the other ID (e.g.
+  `Distinct from … (OS-0966).`). The build suppresses the duplicate-name warning for pairs
+  documented this way, so the warning list stays a true to-investigate queue.
 
 ---
 
@@ -359,42 +370,42 @@ missing facets) rather than re-adding. Saints already present beyond what the sp
 simply stay.
 
 ### Current status & next action
-- Data: **2441 saints**. **PHASE 1 (the spine walk) IS COMPLETE — the whole fixed calendar
-  Jan 1 → Dec 31, all twelve months, is covered.** Seed (original 84 + the comprehensive
-  **Sep 1–10**) plus the full single-recension OCA walk, each week landed in its own PR.
-  IDs run to OS-2480 (with OS-1926, OS-2291, OS-1815, OS-1712 and OS-1440 retired as removed
-  duplicates: OS-2291 = St Porphyrios of Kafsokalivia merged into OS-0052; OS-1815 = Joannicius II,
-  Patriarch of Serbia merged into OS-0172; OS-1712 = Archbishop Eustathius merged into OS-0386;
-  OS-1440 = Kirion II, Catholicos-Patriarch of Georgia merged into OS-0816),
-  interleaved throughout with feast-date reconciliations to existing rows.
-- **Next action: Phase 2 — merge other jurisdictions by identity** (§8): work the Greek,
-  Romanian, Serbian, Georgian, Antiochian, Bulgarian, and Western pre-schism calendars, enriching
-  existing rows (add the jurisdiction to *Tradition of Veneration*, add feast dates, fill missing
-  facets) and adding only saints proper to a jurisdiction and not yet present. **Alternatively,
-  prioritize enrichment** of the finder facets on existing rows (Intercessions ~18%, Vocation
-  ~22%) over breadth — that is the most important quality axis (§1, §10).
-- **All relic-translation deferrals landed at their principal feasts** during the walk (Job of
-  Pochaev & Demetrius of Rostov Oct 28; Herman of Kazan Nov 6; Maximus of Moscow Nov 11;
-  Alexander Nevsky & Metrophanes of Voronezh Nov 23; Gurias of Kazan Dec 5; Simeon of Verkhoturye
-  & Peter, Metropolitan of Moscow Dec 18 / Dec 21).
-- **Phase-2 gaps** (likely missing from the Slavic recension; add when merging the Greek
-  calendar): Arsenius of Paros (Jan 31), Joseph Samakos the Sanctified (Jan 22).
-- **Conflations flagged for a future cleanup PR** (identity edits kept out of data PRs):
-  OS-0136 Anthony & Theodosius of the Kiev Caves (joint row → split); OS-0057/OS-0189 duplicate
-  Prophet Moses (Sep 4); OS-0065/OS-0120 duplicate Mamas (Sep 2); OS-0317 joint John & George
-  of Georgia (Maisuradze/Mkheidze). Possible-same reconciliations to confirm: OS-0540 Dositheus
-  of Tbilisi (Jan 25 ↔ Sep 12), OS-0674 Joseph of Dionysiou (Feb 17 ↔ Sep 14), OS-1142 Thais
-  of Egypt (May 10 ↔ Oct 8), OS-1596 Melitina (Jul 28 ↔ Oct 29). Likely duplicate to merge:
-  OS-0490 / OS-1703 (both "Macarius/Makarios the Roman of Novgorod"). New row OS-2107 (Euthymius
-  the New of Thessalonica) may overlap OS-1165.
-- **Sourcing for May onward:** the user gathers per-day facts via a ChatGPT prompt (a
-  spreadsheet with plain-language columns) and uploads them; Claude cross-checks each batch
-  against the OCA synaxarion, dedups/reconciles, maps to controlled vocab, assigns IDs, and
-  PRs. (Apr 1–21 were done by Claude's own OCA research fan-out; Apr 22+ via the uploaded sheets.)
-- Authoring aids added since the seed: `make find` (search-before-add); `python build.py
-  --no-xlsx` (assign IDs + emit `data.json` on host Python, no Docker); a "wrong column?"
-  hint on misplaced vocab terms. The SPA now has a patron-saint quiz (`?quiz=1`) whose match
-  quality scales with **Commonly Asked Intercessions** coverage — keep filling that facet.
+- Data: **2,737 saints**; IDs run to **OS-2747**. **PHASE 1 (the spine walk) IS COMPLETE** —
+  the whole fixed calendar Jan 1 → Dec 31. **PHASE 2 (merge by identity) is well underway:**
+  modern Greek/Athonite glorifications (#136), Romanian (#138), Serbian (#140), Georgian
+  (#143), Bulgarian (#145), Antiochian (#146), Western pre-schism (#147), and
+  Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
+  merge is the full Greek (GOARCH) calendar.**
+- **Retired IDs** (removed duplicates; never reused): OS-1926; OS-2291 (→ OS-0052 Porphyrios);
+  OS-1815 (→ OS-0172 Joannicius II); OS-1712 (→ OS-0386 Eustathius); OS-1440 (→ OS-0816
+  Kirion II); and from the identity-cleanup PR: OS-0189 (→ OS-0057 Prophet Moses); OS-0120
+  (→ OS-0065 Mamas); OS-1703 (→ OS-0490 Macarius the Roman); OS-1399 (→ OS-0498
+  Inna/Pinna/Rimma); OS-2369 (→ OS-1641 Eleutherius the Cubicularius).
+- **The identity-cleanup PR landed — all previously-flagged conflations are resolved:**
+  Anthony & Theodosius of the Kyiv Caves split (OS-0136 Anthony + OS-2745 Theodosius);
+  Ioane & Giorgi-Ioane of Betania split (OS-0317 + OS-2746 — the OCA spine lists them
+  separately); Thais split (OS-1142 May 10 Blessed Taisia + OS-2747 Oct 8 the Penitent);
+  Melitine of Marcianopolis (OS-1850) now holds Sep 16 + Oct 29 (Greek usage) while OS-1596
+  remains a Jul 28-only OCA stub. Verified correct/distinct, no change needed: Dositheus of
+  Tbilisi (OS-0540), Joseph of Dionysiou (OS-0674), the two Eupsychii (OS-0966 / OS-1817),
+  the two Euthymii (OS-2021 Thessalonica / OS-1165 Iveron).
+- **Next action: continue Phase 2 (the Greek/GOARCH merge) and/or prioritize finder-facet
+  enrichment** (Intercessions ~17.5%, Vocation ~21.6%) — enrichment is the most important
+  quality axis (§1, §10) and has drifted *down* in percentage as Phase-2 breadth landed.
+- **Phase-2 gaps:** Joseph Samakos the Sanctified (Jan 22) is still missing. (Arsenius of
+  Paros has landed.)
+- **Icon pipeline status:** the Wikimedia Commons downloader (`scripts/`, PR #142) fetched
+  **~656 candidate portraits** into `static/icons/` (untracked), with the review queue in
+  `dist/image_review.csv` + `dist/icon_contact_sheet.html` — all `needs_review`; nothing
+  ships until a human verifies each (right saint, right license) and promotes it into
+  `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
+  do not clean it away.** Separately, the user is awaiting permission from icon vendors;
+  vendor imagery stays links-only until granted.
+- Authoring aids: `make find` (search-before-add); `python build.py --no-xlsx` (assign IDs +
+  emit `data.json` on host Python, no Docker); a "wrong column?" hint on misplaced vocab
+  terms; feast day-of-month range validation; duplicate-name warnings with the
+  documented-distinct suppression (§6). Quiz match quality scales with **Commonly Asked
+  Intercessions** coverage — keep filling that facet.
 
 When fetching: `en.wikipedia.org`, `commons.wikimedia.org` (incl. its API at
 `/w/api.php`), and the image CDN `upload.wikimedia.org` are all reachable
@@ -447,7 +458,12 @@ a long run.
   `src/pages/`; `.astro` components render at build time; shared logic lives in `src/lib/`
   (TS, extracted from the old `web/app.js`); the only client JS is the **islands** in
   `src/islands/` (vanilla TS — **no React/Vue**). Global styles are `src/styles/global.css`.
-  Adding a page = add a file under `src/pages/` (this is how Calendar/Browse/About will land).
+  Adding a page = add a file under `src/pages/`. Browse lives at `/search` (faceted finder);
+  About/Contribute/Corrections are live; Calendar and News are "coming soon" placeholder
+  routes awaiting build-out. **Witnesses of Our Time** (`src/lib/witnesses.ts`,
+  `/witness/[slug]`, surfaced on `/america`) is a separate **non-canonical memorial section**
+  for not-yet-glorified figures — kept strictly out of the saints finder/quiz per §9
+  canonization caution; memorial pages use no liturgical address.
 - **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
   `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
   browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
@@ -459,7 +475,13 @@ a long run.
   indexable, shareable; each ships only its own record). The finder home/quiz pages still inline
   the (trimmed) dataset for client filtering — comfortable to **~5,000 enriched saints** per the
   old estimate. Past that, split the inlined home index to on-demand fetch (per-saint pages are
-  already lean — half the work is done). See the `TODO(scale)` in `src/pages/index.astro`.
+  already lean — half the work is done). See the `TODO(scale)` in `src/pages/search.astro`.
+- **SEO:** `@astrojs/sitemap` emits `sitemap-index.xml` over every route (incl. all saint
+  pages); `static/robots.txt` points crawlers at it. `BaseLayout` emits OpenGraph/Twitter
+  meta on every page (default share card `static/og-default.png`; saint pages with a
+  self-hosted portrait share the portrait). Saint pages also emit Schema.org `Person`
+  JSON-LD. New pages get all of this from `BaseLayout` for free — pass `ogImage`/`ogType`
+  only to override.
 - **Hosting:** GitHub Pages on the custom domain **`orthodoxsaintfinder.com`** (root base path
   `/`; `orthodoxsaintregistry.com` and `patronsaintfinder.com` 301-redirect to it via Namecheap,
   and the old `simplythomas.github.io/orthodox-saints/` URLs redirect via Pages). **Still build
