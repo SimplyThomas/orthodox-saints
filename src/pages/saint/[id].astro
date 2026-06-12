@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { SAINTS } from "../../lib/data";
 import { firstFeast } from "../../lib/saints";
+import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SaintView from "../../components/SaintView.astro";
 
@@ -14,9 +15,31 @@ const desc =
   saint.brief ||
   saint.prayer ||
   `${saint.name}${saint.feast ? ` — commemorated ${firstFeast(saint)}` : ""}.`;
+
+// Schema.org Person markup for search engines. Only asserts fields we hold
+// directly; the portrait is included only when a self-hosted icon exists.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const personLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: saint.name,
+  ...(saint.aka.length ? { alternateName: saint.aka } : {}),
+  description: desc,
+  url: canonical,
+  ...(saint.image
+    ? { image: new URL(withBase(saint.image), Astro.site).href }
+    : {}),
+}).replace(/</g, "\\u003c");
 ---
 
-<BaseLayout title={saint.name} description={desc}>
+<BaseLayout
+  title={saint.name}
+  description={desc}
+  ogType="profile"
+  ogImage={saint.image}
+  ogImageAlt={saint.image ? `Icon of ${saint.name}` : undefined}
+>
+  <script type="application/ld+json" set:html={personLd} />
   <SaintView saint={saint} />
 </BaseLayout>
 

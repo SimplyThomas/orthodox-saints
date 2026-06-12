@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 // GitHub Pages with the custom domain orthodoxsaintfinder.com: served at the
 // root, so `base` is the default "/". `site` makes Astro emit correct absolute
@@ -16,4 +17,7 @@ export default defineConfig({
   publicDir: "./static",
   trailingSlash: "ignore",
   build: { format: "directory" },
+  // Emits sitemap-index.xml + sitemap-0.xml into _site/ (every static route,
+  // including all /saint/OS-#### pages). Referenced from static/robots.txt.
+  integrations: [sitemap()],
 });
