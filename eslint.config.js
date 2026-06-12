@@ -33,8 +33,8 @@ export default [
     },
   },
   {
-    // Node-context config files.
-    files: ["*.config.{js,mjs,ts}", "playwright.config.ts"],
+    // Node-context config files and authoring scripts.
+    files: ["*.config.{js,mjs,ts}", "playwright.config.ts", "scripts/**/*.mjs"],
     languageOptions: { globals: { ...globals.node } },
   },
 ];

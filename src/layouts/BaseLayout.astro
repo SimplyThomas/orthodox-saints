@@ -2,10 +2,17 @@
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import { withBase } from "../lib/format";
 
 interface Props {
   title?: string;
   description?: string;
+  /** site-relative path to a page-specific share image (e.g. a saint portrait);
+      defaults to the brand card. Rendered as an absolute URL in og:image. */
+  ogImage?: string;
+  ogImageAlt?: string;
+  /** OpenGraph object type; saint pages pass "profile". */
+  ogType?: "website" | "profile" | "article";
   active?:
     | "home"
     | "search"
@@ -19,12 +26,20 @@ interface Props {
 const {
   title = "Cloud of Witnesses",
   description = "Find Orthodox saints by feast day, vocation, region, virtue, and intercession.",
+  ogImage,
+  ogImageAlt = "Cloud of Witnesses — find Orthodox saints",
+  ogType = "website",
   active = "",
 } = Astro.props;
 
 const pageTitle =
   title === "Cloud of Witnesses" ? title : `${title} — Cloud of Witnesses`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(withBase(ogImage ?? "og-default.png"), Astro.site)
+  .href;
+// Portrait images (saint icons) read better as a small square card; the wide
+// brand card uses the large format.
+const twitterCard = ogImage ? "summary" : "summary_large_image";
 
 // Umami Analytics (privacy-friendly, cookie-less, free Hobby tier). Loaded
 // production-only — and only once a website id is configured — so the dev server
@@ -46,6 +61,17 @@ const umamiSrc =
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content="Cloud of Witnesses" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
