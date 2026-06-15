@@ -52,8 +52,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
-│   ├── pages/                 ← routes: index, search, saint/[id], quiz, america, calendar
-│   │                            (placeholder), news (placeholder), witness/[slug], about,
+│   ├── pages/                 ← routes: index, search, saint/[id], quiz, america, calendar,
+│   │                            news (placeholder), witness/[slug], about,
 │   │                            contribute, corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
@@ -459,8 +459,10 @@ a long run.
   (TS, extracted from the old `web/app.js`); the only client JS is the **islands** in
   `src/islands/` (vanilla TS — **no React/Vue**). Global styles are `src/styles/global.css`.
   Adding a page = add a file under `src/pages/`. Browse lives at `/search` (faceted finder);
-  About/Contribute/Corrections are live; Calendar and News are "coming soon" placeholder
-  routes awaiting build-out. **Witnesses of Our Time** (`src/lib/witnesses.ts`,
+  About/Contribute/Corrections and the **Calendar** (`/calendar` — every saint pre-rendered
+  on each fixed feast date, grouped by month, with a client-side today highlight and a
+  movable-cycle section) are live; News remains a "coming soon" placeholder awaiting
+  build-out. **Witnesses of Our Time** (`src/lib/witnesses.ts`,
   `/witness/[slug]`, surfaced on `/america`) is a separate **non-canonical memorial section**
   for not-yet-glorified figures — kept strictly out of the saints finder/quiz per §9
   canonization caution; memorial pages use no liturgical address.
