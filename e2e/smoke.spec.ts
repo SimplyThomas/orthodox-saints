@@ -320,6 +320,36 @@ test("news index shows a coming-soon placeholder", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("calendar renders all twelve months and highlights today", async ({
+  page,
+}) => {
+  const resp = await page.goto("./calendar/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".cal-title")).toHaveText("The Calendar");
+
+  // Every month section is pre-rendered, plus the movable section.
+  await expect(page.locator(".cal-month")).toHaveCount(13);
+  // January 1 is always populated (St. Basil et al.).
+  await expect(page.locator("#d-1-1 .cal-list li").first()).toBeVisible();
+
+  // Today is highlighted client-side and the jump button reveals + scrolls.
+  const today = page.locator(".cal-day.is-today");
+  await expect(today).toHaveCount(1);
+  await expect(page.locator("#cal-today-label")).toContainText("Today is");
+  await page.click("#cal-today-btn");
+  await expect(today).toBeInViewport();
+});
+
+test("calendar day links open the full saint page", async ({ page }) => {
+  await page.goto("./calendar/");
+  const first = page.locator("#d-1-1 .cal-list li a").first();
+  const href = await first.getAttribute("href");
+  expect(href).toMatch(/\/saint\/OS-\d{4,}$/);
+  await first.click();
+  await page.waitForURL(/\/saint\/OS-\d{4,}\/?$/);
+  await expect(page.locator("#saint-detail")).toBeVisible();
+});
+
 test("on mobile the nav collapses into a hamburger dropdown", async ({
   page,
 }) => {
