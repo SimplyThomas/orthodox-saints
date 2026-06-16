@@ -29,6 +29,8 @@ import unicodedata
 import urllib.parse
 from pathlib import Path
 
+import themes as themes_mod
+
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 WEB = ROOT / "web"
@@ -372,6 +374,14 @@ def validate(header: list[str], rows: list[dict[str, str]],
         is_stub = not r["Brief Life"].strip()
         if not is_stub and not r["Commonly Asked Intercessions"].strip():
             warnings.append(f"{tag}: no Commonly Asked Intercessions (finder coverage).")
+
+        # Validate optional Themes override column
+        for slug in themes_mod._split(r.get("Themes", "")):
+            if slug not in themes_mod.THEME_SLUGS:
+                errors.append(
+                    f"{tag}: unknown theme slug {slug!r} in Themes "
+                    f"(valid slugs are defined in themes.py)"
+                )
 
     for key, group in norm_names.items():
         if len(group) <= 1:
@@ -888,6 +898,11 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             if folded != form.lower():
                 extra.append(folded)
         rec["search"] = (rec["search"] + " " + " ".join(extra)).strip()
+    rec["themes"] = themes_mod.compute_themes(rec, r.get("Themes", ""))
+    if rec["themes"]:
+        label_words = " ".join(themes_mod.THEME_LABELS[s] for s in rec["themes"]
+                               if s in themes_mod.THEME_LABELS)
+        rec["search"] = (rec["search"] + " " + label_words).strip()
     return rec
 
 
@@ -902,6 +917,15 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, separators=(",", ":"))
     return records
+
+
+def emit_themes_json(records: list[dict]) -> None:
+    catalog = themes_mod.theme_catalog(records)
+    with open(PUBLIC / "themes.json", "w", encoding="utf-8") as f:
+        json.dump(catalog, f, ensure_ascii=False, separators=(",", ":"))
+    shown = sum(1 for c in catalog if c["count"] > 0)
+    print(f"  wrote {PUBLIC.relative_to(ROOT)}/themes.json "
+          f"({shown}/{len(catalog)} themes populated)")
 
 
 def copy_web():
@@ -1042,6 +1066,7 @@ def main() -> int:
         return 0
 
     records = emit_data_json(rows)
+    emit_themes_json(records)
     copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
