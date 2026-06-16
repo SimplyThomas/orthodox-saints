@@ -41,6 +41,7 @@ export interface Saint {
   about: WorkLink[];
   video: string;
   sources: string;
+  themes: string[];
   months: string[];
   feastSort: number;
   search: string;
