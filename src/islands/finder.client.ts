@@ -28,9 +28,7 @@ import { esc, cssEscape, withBase } from "../lib/format";
 import { byzCross, saintAvatar } from "../lib/icons";
 import { track } from "../lib/analytics";
 import { matchThemeAlias } from "../lib/theme-aliases";
-import { THEME_CATALOG } from "../lib/themes";
-
-const THEME_LABEL = new Map(THEME_CATALOG.map((t) => [t.slug, t.label]));
+import { themeBySlug } from "../lib/themes";
 
 const dataEl = document.getElementById("finder-data");
 if (dataEl) {
@@ -170,13 +168,13 @@ if (dataEl) {
     const el = document.getElementById("theme-suggest");
     if (!el) return;
     const slug = query.trim() ? matchThemeAlias(query) : null;
-    const label = slug ? THEME_LABEL.get(slug) : null;
+    const meta = slug ? themeBySlug.get(slug) : null;
     el.textContent = "";
-    if (slug && label) {
+    if (slug && meta && meta.count > 0) {
       el.append("Looking for a theme? ");
       const a = document.createElement("a");
       a.href = withBase("themes/" + slug);
-      a.textContent = `Browse the ${label} theme →`;
+      a.textContent = `Browse the ${meta.label} theme →`;
       el.append(a);
       el.hidden = false;
     } else {

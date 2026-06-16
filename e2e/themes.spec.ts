@@ -83,3 +83,12 @@ test("search recognizes 'in america' as the Saints of America theme", async ({
     /\/themes\/saints-of-america/,
   );
 });
+
+test("an override-only theme alias does not surface a 404 banner", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await page.fill("#q", "saints who defended icons");
+  // icon-defenders is override-only (count 0, no page) → banner must stay hidden
+  await expect(page.locator("#theme-suggest")).toBeHidden();
+});
