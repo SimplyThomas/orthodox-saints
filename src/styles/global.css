@@ -3891,12 +3891,19 @@ a.sv-rail-chip:hover {
   border-bottom: 1px solid rgba(212, 175, 55, 0.4);
 }
 .sv-plum-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px 72px;
+}
+.sv-plum-block {
+  flex: 0 1 auto;
+  min-width: 200px;
 }
 .sv-plum-notes {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
+  min-width: 0;
 }
 .sv-plum-notes p {
   font-size: 15px;
