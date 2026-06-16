@@ -30,15 +30,15 @@ test("Basil's timeline, holy family, and related saints render", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
-  // Timeline stays in the ivory story column.
+  // Timeline sits in the band beneath the columns (beside the quote).
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Timeline" }),
+    page.locator(".sv-tl-title", { hasText: "Timeline" }),
   ).toBeVisible();
-  expect(await page.locator(".sp-timeline li").count()).toBeGreaterThanOrEqual(
+  expect(await page.locator(".sv-timeline li").count()).toBeGreaterThanOrEqual(
     5,
   );
   await expect(
-    page.locator(".sp-timeline li", { hasText: "Consecrated Archbishop" }),
+    page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
   // Holy Family + Related Saints sit in the "after" region beneath the legacy band.

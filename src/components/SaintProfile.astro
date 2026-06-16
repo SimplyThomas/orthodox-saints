@@ -1,9 +1,8 @@
 ---
-/* The IVORY story column beside the rail: the saint's biography and timeline.
-   Contributions & Legacy (full-width band) and the "after" matter — Holy Family,
-   Related Saints, Customs, Notes — are rendered by SaintView beneath the columns;
-   the reference apparatus (lifespan, patronage, works, reading) is in the rail.
-   So none of those is repeated here. */
+/* The IVORY story column's biography ("Life"). The timeline now lives in a
+   full-width band (beside the quote) beneath the columns, rendered by SaintView;
+   Contributions & Legacy, the after-region, and the rail reference are likewise
+   SaintView's. So this component carries only the Life narrative. */
 import type { SaintProfile } from "../lib/saint-profiles";
 
 interface Props {
@@ -20,26 +19,6 @@ const { profile } = Astro.props;
       {profile.overview.map((p) => <p>{p}</p>)}
     </div>
   </section>
-
-  {/* ── Timeline ── */}
-  {
-    profile.timeline && profile.timeline.length > 0 && (
-      <section class="sp-sec sp-timeline-sec">
-        <h2>Timeline</h2>
-        <ul class="sp-timeline">
-          {profile.timeline.map((t) => (
-            <li>
-              <span class="sp-when">{t.when}</span>
-              <span class="sp-what">
-                <strong>{t.title}</strong>
-                {t.body && <span class="sp-tbody"> — {t.body}</span>}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
 </div>
 
 <style>
@@ -63,28 +42,5 @@ const { profile } = Astro.props;
   }
   .sp-bio p:last-child {
     margin-bottom: 0;
-  }
-  .sp-timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-left: 2px solid var(--line-gold);
-  }
-  .sp-timeline li {
-    display: flex;
-    gap: 0.9rem;
-    padding: 0.4rem 0 0.4rem 1rem;
-  }
-  .sp-when {
-    flex: 0 0 4.5rem;
-    font-family: var(--serif);
-    font-weight: 600;
-    color: var(--gold-deep);
-  }
-  .sp-what {
-    flex: 1;
-  }
-  .sp-tbody {
-    color: var(--ink-soft);
   }
 </style>

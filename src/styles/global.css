@@ -3672,19 +3672,56 @@ a.news-card:hover .news-h {
 a.sv-theme {
   text-decoration: none;
 }
-/* Quote — a full-width section between the columns and the legacy, carrying a
-   centered white card that matches the Customs & Traditions box. */
-.sv-quoteband {
+/* Timeline + Quote — a full-width band beneath the columns, above the legacy.
+   Timeline on the left, the quote (a white card matching the Customs box) beside it. */
+.sv-tlband {
   padding: 40px clamp(22px, 4vw, 64px);
 }
-.sv-quote {
+.sv-tlband-inner {
+  max-width: 1270px;
   margin: 0 auto;
-  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px 48px;
+  align-items: center;
+}
+.sv-tl-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--byz-deep);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-gold);
+}
+.sv-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--line-gold);
+}
+.sv-timeline li {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.4rem 0 0.4rem 1rem;
+}
+.sv-when {
+  flex: 0 0 4.5rem;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+.sv-what {
+  flex: 1;
+}
+.sv-tbody {
+  color: var(--ink-soft);
+}
+.sv-quote {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
   box-shadow: var(--shadow-soft);
-  padding: 40px clamp(24px, 4vw, 56px) 44px;
+  padding: 40px clamp(24px, 4vw, 48px) 44px;
   text-align: center;
 }
 .sv-quote-mark {
