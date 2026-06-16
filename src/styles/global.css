@@ -3736,19 +3736,21 @@ a.sv-theme {
 .sv-related-rank {
   color: var(--ink-soft);
 }
-/* Quote — the page's lead showpiece: a centered pull-quote under the heading. */
-.sv-quotewrap {
-  margin-top: 28px;
+/* Quote — a full-width band across the page, in the rail's deep Byzantine blue,
+   sitting between the two columns and the Contributions & Legacy band. */
+.sv-quoteband {
+  background: var(--byz-deep);
 }
 .sv-quote {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 820px;
+  padding: 50px clamp(22px, 4vw, 64px) 54px;
   text-align: center;
 }
 .sv-quote-mark {
   display: block;
   font-family: var(--serif);
-  font-size: 60px;
+  font-size: 64px;
   line-height: 0.5;
   color: var(--gold);
   margin-bottom: 16px;
@@ -3757,14 +3759,14 @@ a.sv-theme {
 .sv-quote blockquote {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(22px, 2.6vw, 29px);
+  font-size: clamp(23px, 2.8vw, 32px);
   font-style: italic;
   line-height: 1.42;
-  color: var(--byz-deep);
+  color: var(--ivory);
   text-wrap: pretty;
 }
 .sv-quote figcaption {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3772,10 +3774,10 @@ a.sv-theme {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: var(--gold-soft);
 }
 .sv-quote figcaption a {
-  color: var(--gold-deep);
+  color: var(--gold-soft);
   text-decoration: none;
 }
 .sv-quote-rule {
@@ -3787,7 +3789,7 @@ a.sv-theme {
 .sv-quote-trans {
   text-transform: none;
   letter-spacing: 0.01em;
-  color: var(--ink-soft);
+  color: var(--celest-soft);
 }
 .sv-customs {
   background: #fff;

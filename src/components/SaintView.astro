@@ -268,43 +268,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         )
       }
 
-      {
-        m.quote && (
-          <section class="sv-section sv-quotewrap">
-            <figure class="sv-quote">
-              <span class="sv-quote-mark" aria-hidden="true">
-                &ldquo;
-              </span>
-              <div>
-                <blockquote>{m.quote.text}</blockquote>
-                {(m.quote.cite || m.quote.source) && (
-                  <figcaption>
-                    <span class="sv-quote-rule" aria-hidden="true" />
-                    {m.quote.source ? (
-                      <a
-                        href={m.quote.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {m.quote.cite || "Source"}
-                      </a>
-                    ) : (
-                      m.quote.cite
-                    )}
-                    {m.quote.translation && (
-                      <span class="sv-quote-trans">
-                        {" "}
-                        · {m.quote.translation}
-                      </span>
-                    )}
-                  </figcaption>
-                )}
-              </div>
-            </figure>
-          </section>
-        )
-      }
-
       {m.brief && <p class="sv-lead">{m.brief}</p>}
 
       {
@@ -381,6 +344,41 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
     </main>
   </div>
+
+  {/* ── Quote — a full-width band across the page, above the legacy ── */}
+  {
+    m.quote && (
+      <section class="sv-quoteband">
+        <figure class="sv-quote">
+          <span class="sv-quote-mark" aria-hidden="true">
+            &ldquo;
+          </span>
+          <div>
+            <blockquote>{m.quote.text}</blockquote>
+            {(m.quote.cite || m.quote.source) && (
+              <figcaption>
+                <span class="sv-quote-rule" aria-hidden="true" />
+                {m.quote.source ? (
+                  <a
+                    href={m.quote.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {m.quote.cite || "Source"}
+                  </a>
+                ) : (
+                  m.quote.cite
+                )}
+                {m.quote.translation && (
+                  <span class="sv-quote-trans"> · {m.quote.translation}</span>
+                )}
+              </figcaption>
+            )}
+          </div>
+        </figure>
+      </section>
+    )
+  }
 
   {/* ── Contributions & Legacy — a full-width band beneath both columns ── */}
   {
