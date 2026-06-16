@@ -38,3 +38,18 @@ test("a theme page lists its saints and links to detail pages", async ({
   await page.locator('.th-card[href*="/themes/bishops"]').click();
   await page.waitForURL(/\/themes\/bishops\/?$/);
 });
+
+test("saint pages show clickable theme badges", async ({ page }) => {
+  await page.goto("./saint/OS-0021/");
+  const badges = page.locator(".sv-themes a.sv-theme");
+  expect(await badges.count()).toBeGreaterThan(0);
+  const bishops = page.locator('.sv-themes a[href*="/themes/bishops"]');
+  await expect(bishops).toBeVisible();
+  await bishops.click();
+  await page.waitForURL(/\/themes\/bishops\/?$/);
+});
+
+test("a non-profiled saint also shows theme badges", async ({ page }) => {
+  await page.goto("./saint/OS-0022/"); // Gregory the Theologian, no profile
+  await expect(page.locator(".sv-themes a.sv-theme").first()).toBeVisible();
+});

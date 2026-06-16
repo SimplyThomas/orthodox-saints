@@ -3597,6 +3597,14 @@ a.news-card:hover .news-h {
   flex-wrap: wrap;
   gap: 8px;
 }
+.sv-theme-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+a.sv-theme {
+  text-decoration: none;
+}
 .sv-quote {
   margin: 0;
   display: grid;
