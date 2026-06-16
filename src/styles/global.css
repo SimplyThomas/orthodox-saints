@@ -3567,6 +3567,25 @@ a.news-card:hover .news-h {
 .sv-rail-links svg {
   color: var(--celest-soft);
 }
+.sv-rail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.sv-rail-chip {
+  font-size: 12.5px;
+  font-family: var(--serif);
+  color: var(--gold-soft);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 4px 11px;
+  text-decoration: none;
+}
+a.sv-rail-chip:hover {
+  background: rgba(212, 175, 55, 0.22);
+  color: var(--ivory);
+}
 
 .sv-lifespan {
   font-family: var(--serif);
@@ -3632,21 +3651,7 @@ a.news-card:hover .news-h {
   color: var(--byz);
   line-height: 1.12;
 }
-.sv-exp {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.sv-theme-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-a.sv-theme {
-  text-decoration: none;
-}
-/* Timeline + Quote — a full-width band beneath the columns, above the legacy.
-   Timeline on the left, the quote (a white card matching the Customs box) beside it. */
+/* Timeline — a full-width band beneath the columns, above the legacy. */
 .sv-tlband {
   padding: 40px clamp(22px, 4vw, 64px);
 }

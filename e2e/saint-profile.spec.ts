@@ -109,12 +109,18 @@ test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", a
   ).toBeVisible();
 });
 
-test("Basil's patronage sits in the story column beside themes / life experience", async ({
+test("Basil's themes, life experience, and patronage sit in the icon rail", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  const rail = page.locator(".sv-rail");
+  // Themes badges (clickable) in the rail.
   await expect(
-    page.locator(".sv-patron .tag.intercession", { hasText: "Monastics" }),
+    rail.locator('.sv-themes a[href*="/themes/bishops"]'),
+  ).toBeVisible();
+  // Patronage chips in the rail.
+  await expect(
+    rail.locator(".sv-patron .sv-rail-chip", { hasText: "Monastics" }),
   ).toBeVisible();
 });
 
