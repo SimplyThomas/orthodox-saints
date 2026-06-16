@@ -3647,12 +3647,14 @@ a.sv-rail-chip:hover {
   margin-bottom: 14px;
   display: block;
 }
-/* Timeline — a full-width band beneath the columns, above the legacy. */
+/* Timeline — a white band that spans the full page width, beneath the columns. */
 .sv-tlband {
-  padding: 40px clamp(22px, 4vw, 64px);
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 44px clamp(22px, 4vw, 64px);
 }
 .sv-tlband-inner {
-  max-width: 1270px;
   margin: 0 auto;
 }
 .sv-tl-title {
@@ -3689,7 +3691,7 @@ a.sv-rail-chip:hover {
   height: 12px;
   border-radius: 50%;
   background: var(--gold);
-  border: 2px solid var(--ivory);
+  border: 2px solid #fff;
 }
 .sv-when {
   display: block;
