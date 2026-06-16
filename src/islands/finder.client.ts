@@ -27,6 +27,10 @@ import { splitName } from "../lib/names";
 import { esc, cssEscape, withBase } from "../lib/format";
 import { byzCross, saintAvatar } from "../lib/icons";
 import { track } from "../lib/analytics";
+import { matchThemeAlias } from "../lib/theme-aliases";
+import { THEME_CATALOG } from "../lib/themes";
+
+const THEME_LABEL = new Map(THEME_CATALOG.map((t) => [t.slug, t.label]));
 
 const dataEl = document.getElementById("finder-data");
 if (dataEl) {
@@ -162,6 +166,24 @@ if (dataEl) {
     host.appendChild(next);
   }
 
+  function renderThemeSuggest() {
+    const el = document.getElementById("theme-suggest");
+    if (!el) return;
+    const slug = query.trim() ? matchThemeAlias(query) : null;
+    const label = slug ? THEME_LABEL.get(slug) : null;
+    el.textContent = "";
+    if (slug && label) {
+      el.append("Looking for a theme? ");
+      const a = document.createElement("a");
+      a.href = withBase("themes/" + slug);
+      a.textContent = `Browse the ${label} theme →`;
+      el.append(a);
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  }
+
   function clearAll() {
     query = "";
     const q = $<HTMLInputElement>("#q");
@@ -206,6 +228,7 @@ if (dataEl) {
           : "");
 
     renderActiveChips();
+    renderThemeSuggest();
 
     const size = perPage === Infinity ? Math.max(matched.length, 1) : perPage;
     const pages = Math.max(1, Math.ceil(matched.length / size));

@@ -944,6 +944,14 @@ a.qz-comp {
   font-size: 15px;
   line-height: 1;
 }
+.theme-suggest {
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+}
+.theme-suggest a {
+  color: var(--byz);
+  font-weight: 600;
+}
 
 /* result rows */
 .results {

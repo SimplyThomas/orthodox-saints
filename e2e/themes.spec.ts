@@ -61,3 +61,25 @@ test("a non-profiled saint shows related saints by shared themes", async ({
   const rel = page.locator(".sv-related a[href*='/saint/OS-']");
   expect(await rel.count()).toBeGreaterThan(0);
 });
+
+test("search surfaces a theme suggestion for natural-language queries", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await page.fill("#q", "saints who were soldiers");
+  const sug = page.locator("#theme-suggest a");
+  await expect(sug).toBeVisible();
+  await expect(sug).toHaveAttribute("href", /\/themes\/soldiers/);
+  await expect(sug).toContainText("Soldiers");
+});
+
+test("search recognizes 'in america' as the Saints of America theme", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await page.fill("#q", "saints in america");
+  await expect(page.locator("#theme-suggest a")).toHaveAttribute(
+    "href",
+    /\/themes\/saints-of-america/,
+  );
+});
