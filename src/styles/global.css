@@ -3540,20 +3540,6 @@ a.news-card:hover .news-h {
   margin-bottom: 11px;
   display: block;
 }
-.sv-rail-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.sv-rail-chip {
-  font-size: 12.5px;
-  font-family: var(--serif);
-  color: var(--gold-soft);
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 999px;
-  padding: 4px 11px;
-}
 .sv-rail-links {
   list-style: none;
   margin: 0;
@@ -3661,21 +3647,6 @@ a.news-card:hover .news-h {
   color: var(--celest);
   margin-top: 10px;
 }
-.sv-address {
-  margin: 30px 0 8px;
-  padding: 22px 0;
-  border-top: 1px solid var(--line-gold);
-  border-bottom: 1px solid var(--line-gold);
-}
-.sv-address p {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 25px;
-  font-style: italic;
-  color: var(--byz-deep);
-  line-height: 1.28;
-  text-wrap: balance;
-}
 .sv-lead {
   font-size: 22px;
   line-height: 1.5;
@@ -3717,24 +3688,6 @@ a.news-card:hover .news-h {
 }
 a.sv-theme {
   text-decoration: none;
-}
-.sv-related-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.25rem;
-}
-.sv-related-list a {
-  color: var(--byz);
-  text-decoration: none;
-  font-weight: 600;
-}
-.sv-related-list a:hover {
-  color: var(--celest);
-}
-.sv-related-rank {
-  color: var(--ink-soft);
 }
 /* Quote — a full-width section between the columns and the legacy, carrying a
    centered white card that matches the Customs & Traditions box. */
@@ -3821,69 +3774,6 @@ a.sv-theme {
   color: var(--ink-soft);
   margin: 0;
 }
-.sv-works {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-}
-.sv-works .eyebrow {
-  margin-bottom: 14px;
-  display: block;
-}
-.sv-worklist {
-  display: flex;
-  flex-direction: column;
-}
-.sv-work {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-  padding: 11px 8px;
-  border-top: 1px solid var(--line);
-  text-decoration: none;
-  font-family: var(--serif);
-  font-size: 17px;
-  color: var(--byz-deep);
-  line-height: 1.25;
-}
-.sv-work:hover {
-  background: var(--ivory-2);
-}
-.sv-work svg {
-  flex-shrink: 0;
-  position: relative;
-  top: 3px;
-}
-.sv-work-empty {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--ink-soft);
-  padding-top: 8px;
-}
-.sv-links {
-  margin-top: 44px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.sv-linkbtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 14px;
-  text-decoration: none;
-  padding: 10px 16px;
-}
-.sv-sources {
-  margin-top: 14px;
-  font-size: 12.5px;
-  color: var(--ink-soft);
-}
-
 /* Contributions & Legacy — full-width band beneath the rail + story columns */
 .sv-legacy {
   background: var(--ivory-2);
@@ -4007,12 +3897,9 @@ a.sv-theme {
   }
   .sv-glance,
   .sv-knownfor,
-  .sv-feast {
+  .sv-feast,
+  .sv-rail-block {
     max-width: 520px;
-  }
-  .sv-works {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .np-lead {
     grid-template-columns: 1fr;
