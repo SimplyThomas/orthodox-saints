@@ -3377,7 +3377,7 @@ a.news-card:hover .news-h {
 .sv-grid {
   display: grid;
   grid-template-columns: 430px minmax(0, 840px);
-  align-items: start;
+  align-items: stretch;
   justify-content: center;
   max-width: 1270px;
   margin: 0 auto;
@@ -3387,7 +3387,7 @@ a.news-card:hover .news-h {
 .sv-rail {
   background: var(--byz-deep);
   color: var(--ivory);
-  padding: 52px clamp(24px, 3vw, 40px) 56px;
+  padding: 52px clamp(24px, 3vw, 40px) 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3507,6 +3507,17 @@ a.news-card:hover .news-h {
   text-align: right;
   font-family: var(--serif);
 }
+.sv-glance-int {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+}
+.sv-glance-int-label {
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--celest-soft);
+  margin-bottom: 9px;
+}
 .sv-knownfor {
   width: 100%;
   margin-top: 22px;
@@ -3529,9 +3540,62 @@ a.news-card:hover .news-h {
   margin-top: 4px;
 }
 
+/* ---- rail reference apparatus (patronage · links · works · further reading) ---- */
+.sv-rail-block {
+  width: 100%;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+}
+.sv-rail-block .eyebrow {
+  margin-bottom: 11px;
+  display: block;
+}
+/* Explore links — a row beneath Customs in the story column */
+.sv-explore-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.sv-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 16px;
+}
+.sv-rail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.sv-rail-chip {
+  font-size: 12.5px;
+  font-family: var(--serif);
+  color: var(--gold-soft);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 4px 11px;
+  text-decoration: none;
+}
+a.sv-rail-chip:hover {
+  background: rgba(212, 175, 55, 0.22);
+  color: var(--ivory);
+}
+
+.sv-lifespan {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--celest);
+  margin: 12px 0 0;
+}
+
 /* ---- story column ---- */
 .sv-main {
-  padding: 52px clamp(22px, 4vw, 64px) 64px;
+  padding: 52px clamp(22px, 4vw, 64px) 30px;
   max-width: 840px;
 }
 .sv-eyebrow {
@@ -3556,21 +3620,6 @@ a.news-card:hover .news-h {
   color: var(--celest);
   margin-top: 10px;
 }
-.sv-address {
-  margin: 30px 0 8px;
-  padding: 22px 0;
-  border-top: 1px solid var(--line-gold);
-  border-bottom: 1px solid var(--line-gold);
-}
-.sv-address p {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 25px;
-  font-style: italic;
-  color: var(--byz-deep);
-  line-height: 1.28;
-  text-wrap: balance;
-}
 .sv-lead {
   font-size: 22px;
   line-height: 1.5;
@@ -3585,77 +3634,107 @@ a.news-card:hover .news-h {
   margin-bottom: 14px;
   display: block;
 }
-.sv-intercessions {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 14px;
+/* Timeline — a white band that spans the full page width, set off from the
+   columns above by a gap. */
+.sv-tlband {
+  margin-top: 10px;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 44px clamp(22px, 4vw, 64px);
 }
-.sv-int-card {
-  background: var(--paper);
-  border: 1px solid var(--line-gold);
-  border-radius: 5px;
-  padding: 16px 18px;
+.sv-tlband-inner {
+  margin: 0 auto;
+}
+.sv-tl-title {
   font-family: var(--serif);
-  font-size: 20px;
-  color: var(--byz);
-  line-height: 1.12;
+  font-size: 1.3rem;
+  color: var(--byz-deep);
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-gold);
 }
-.sv-exp {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.sv-theme-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-a.sv-theme {
-  text-decoration: none;
-}
-.sv-related-list {
+/* Horizontal timeline: entries flow left → right along a gold track, each with
+   a node dot; they wrap to further rows on narrow screens. */
+.sv-timeline {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px 20px;
 }
-.sv-related-list a {
-  color: var(--byz);
-  text-decoration: none;
+.sv-timeline li {
+  flex: 1 1 150px;
+  min-width: 0;
+  position: relative;
+  padding-top: 17px;
+  border-top: 2px solid var(--line-gold);
+}
+.sv-timeline li::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid #fff;
+}
+.sv-when {
+  display: block;
+  font-family: var(--serif);
   font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  margin-bottom: 5px;
 }
-.sv-related-list a:hover {
-  color: var(--celest);
+.sv-tl-event {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--byz-deep);
+  line-height: 1.25;
+  margin-bottom: 4px;
 }
-.sv-related-rank {
+.sv-tbody {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: var(--ink-soft);
 }
 .sv-quote {
   margin: 0;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  column-gap: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow-soft);
+  padding: 40px clamp(24px, 4vw, 48px) 44px;
+  text-align: center;
 }
 .sv-quote-mark {
+  display: block;
   font-family: var(--serif);
-  font-size: 72px;
-  line-height: 0.9;
-  color: var(--line-gold);
+  font-size: 60px;
+  line-height: 0.5;
+  color: var(--gold);
+  margin-bottom: 14px;
   user-select: none;
 }
 .sv-quote blockquote {
   margin: 0;
   font-family: var(--serif);
-  font-size: 23px;
+  font-size: clamp(22px, 2.6vw, 30px);
   font-style: italic;
-  line-height: 1.44;
+  line-height: 1.42;
   color: var(--byz-deep);
   text-wrap: pretty;
 }
 .sv-quote figcaption {
-  margin-top: 12px;
+  margin-top: 16px;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   font-size: 12px;
@@ -3704,67 +3783,206 @@ a.sv-theme {
   color: var(--ink-soft);
   margin: 0;
 }
-.sv-works {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+/* Contributions & Legacy — full-width band beneath the rail + story columns */
+.sv-legacy-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--ivory);
+  text-align: center;
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
-.sv-works .eyebrow {
-  margin-bottom: 14px;
+.sv-legacy-title::after {
+  content: "";
   display: block;
+  width: 64px;
+  height: 2px;
+  background: var(--gold);
+  margin: 14px auto 0;
 }
-.sv-worklist {
+.sv-legacy-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+.sv-legacy-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-soft);
+}
+.sv-legacy-card h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--byz);
+  margin: 0 0 8px;
+}
+.sv-legacy-card p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.sv-legacy-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* "After" matter — coloured panels (echoing the America carousels) stacked
+   beneath the legacy: Works (garnet) · Further Reading (forest) · Family/
+   Related/Notes (plum) · then a plain Sources line. */
+.sv-after-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px clamp(22px, 4vw, 64px) 58px;
   display: flex;
   flex-direction: column;
+  gap: 22px;
 }
-.sv-work {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-  padding: 11px 8px;
-  border-top: 1px solid var(--line);
-  text-decoration: none;
-  font-family: var(--serif);
-  font-size: 17px;
-  color: var(--byz-deep);
-  line-height: 1.25;
-}
-.sv-work:hover {
-  background: var(--ivory-2);
-}
-.sv-work svg {
-  flex-shrink: 0;
+.sv-panel {
   position: relative;
-  top: 3px;
+  border-radius: 14px;
+  padding: 34px clamp(24px, 4vw, 48px) 38px;
+  color: var(--ivory);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
 }
-.sv-work-empty {
+.sv-panel::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  pointer-events: none;
+}
+.sv-panel > * {
+  position: relative;
+  z-index: 1;
+}
+.sv-panel--garnet {
+  background: linear-gradient(168deg, #6f3128 0%, #561f1a 55%, #431712 100%);
+}
+.sv-panel--forest {
+  background: linear-gradient(168deg, #33564a 0%, #244338 55%, #1b3329 100%);
+}
+.sv-panel--plum {
+  background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
+}
+.sv-panel--byz {
+  background: var(--byz-deep);
+}
+.sv-after h2:not(.sv-legacy-title) {
   font-family: var(--serif);
-  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ivory);
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+}
+.sv-plum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: center;
+  align-items: start;
+  gap: 28px 72px;
+}
+.sv-plum-block {
+  min-width: 0;
+}
+.sv-plum-notes {
+  grid-column: 1 / -1;
+}
+.sv-plum-notes p {
   font-size: 15px;
-  color: var(--ink-soft);
-  padding-top: 8px;
+  line-height: 1.62;
+  color: var(--celest-soft);
+  margin: 0;
 }
-.sv-links {
-  margin-top: 44px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.sv-fam-intro {
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+  color: var(--celest-soft);
 }
-.sv-linkbtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 14px;
-  text-decoration: none;
-  padding: 10px 16px;
-}
-.sv-sources {
-  margin-top: 14px;
+.sv-after-sources {
+  margin-top: 6px;
   font-size: 12.5px;
   color: var(--ink-soft);
+}
+
+/* Notable Works — titles flow into columns on the garnet panel */
+.sv-worklist-after {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-width: 330px;
+  column-gap: 44px;
+}
+.sv-worklist-after li {
+  break-inside: avoid;
+  padding: 5px 0;
+  line-height: 1.45;
+}
+.sv-worklist-after em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ivory);
+}
+.sv-work-desc {
+  color: var(--celest-soft);
+}
+.sv-worklist-after a {
+  font-family: var(--serif);
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+.sv-worklist-after a:hover {
+  color: var(--ivory);
+}
+
+/* Further Reading — groups laid side by side on the forest panel */
+.sv-reading-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4px 44px;
+}
+.sv-read-head {
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 10px 0 4px;
+}
+.sv-read-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sv-read-list li {
+  padding: 5px 0;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+.sv-read-list li:first-child {
+  border-top: 0;
+}
+.sv-read-list em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ivory);
+}
+.sv-read-list a {
+  font-family: var(--serif);
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+.sv-read-list a:hover {
+  color: var(--ivory);
+}
+.sv-read-by {
+  color: var(--celest-soft);
+  font-size: 0.92em;
 }
 
 /* ---- Arch motif as a crown ABOVE the heading ----
@@ -3799,12 +4017,9 @@ a.sv-theme {
   }
   .sv-glance,
   .sv-knownfor,
-  .sv-feast {
+  .sv-feast,
+  .sv-rail-block {
     max-width: 520px;
-  }
-  .sv-works {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .np-lead {
     grid-template-columns: 1fr;
@@ -3952,6 +4167,9 @@ a.sv-theme {
 @media (max-width: 640px) {
   body {
     font-size: 16px;
+  }
+  .sv-plum-grid {
+    grid-template-columns: 1fr;
   }
   .pga-card {
     flex-basis: 100%;

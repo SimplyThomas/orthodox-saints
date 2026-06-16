@@ -5,10 +5,9 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   expect(resp?.status()).toBe(200);
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
-  await expect(page.locator(".sv-address")).toBeVisible();
-  // Lifespan subtitle renders.
+  // Lifespan subtitle renders under the name.
   await expect(
-    page.locator(".sp-lifespan", { hasText: "Archbishop of Caesarea" }),
+    page.locator(".sv-lifespan", { hasText: "Archbishop of Caesarea" }),
   ).toBeVisible();
   // The rich profile adds a "Life" biography section with multiple paragraphs.
   await expect(page.locator(".sp-sec h2", { hasText: "Life" })).toBeVisible();
@@ -27,49 +26,45 @@ test("a saint without a profile renders no profile sections", async ({
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
-test("Basil's profile shows a timeline, holy family, and related saints", async ({
+test("Basil's timeline, holy family, and related saints render", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
-  // Timeline with dated entries.
+  // Timeline sits in the band beneath the columns (beside the quote).
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Timeline" }),
+    page.locator(".sv-tl-title", { hasText: "Timeline" }),
   ).toBeVisible();
-  expect(await page.locator(".sp-timeline li").count()).toBeGreaterThanOrEqual(
+  expect(await page.locator(".sv-timeline li").count()).toBeGreaterThanOrEqual(
     5,
   );
   await expect(
-    page.locator(".sp-timeline li", { hasText: "Consecrated Archbishop" }),
+    page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
-  // Holy Family of Cappadocia — with at least one internal saint link.
+  // Holy Family + Related Saints sit in the "after" region beneath the legacy band.
+  const after = page.locator(".sv-after");
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Holy Family of Cappadocia" }),
+    after.locator("h2", { hasText: "Holy Family of Cappadocia" }),
   ).toBeVisible();
   await expect(
-    page.locator('.sp-family a[href*="/saint/OS-0422"]'), // Gregory of Nyssa
+    after.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (family + related)
   ).toBeVisible();
-  // Naucratius is not in the dataset → plain name, no link.
+  // Naucratius is not in the dataset → plain name, never a link.
+  await expect(after.locator("li", { hasText: "Naucratius" })).toBeVisible();
   await expect(
-    page.locator(".sp-family", { hasText: "Naucratius" }),
-  ).toBeVisible();
-  // Naucratius has no dataset row → rendered as plain text, never a link.
-  await expect(
-    page.locator(".sp-family li", { hasText: "Naucratius" }).locator("a"),
+    after.locator("li", { hasText: "Naucratius" }).locator("a"),
   ).toHaveCount(0);
-
-  // Related Saints links resolve to real saint pages.
   await expect(
-    page.locator('.sp-related a[href*="/saint/OS-0023"]'), // John Chrysostom
+    after.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom
   ).toBeVisible();
 });
 
-test("Basil's profile shows contributions, legacy, and the 'Great' section", async ({
+test("Basil's contributions & legacy render in the full-width band", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Contributions & Legacy" }),
+    page.locator(".sv-legacy-title", { hasText: "Contributions & Legacy" }),
   ).toBeVisible();
   for (const h of [
     "Theology of the Holy Spirit",
@@ -77,53 +72,64 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
     "Legacy in Christian Charity",
     'Why He Is Called "the Great"',
   ]) {
-    await expect(page.locator(".sp-prose h3", { hasText: h })).toBeVisible();
+    await expect(
+      page.locator(".sv-legacy-card h3", { hasText: h }),
+    ).toBeVisible();
   }
-  // The Basiliad is described in the charity section.
+  // The Basiliad is described in the charity card.
   await expect(
-    page.locator(".sp-prose", { hasText: "Basiliad" }).first(),
+    page.locator(".sv-legacy-card", { hasText: "Basiliad" }).first(),
   ).toBeVisible();
 });
 
-test("Basil's profile shows works, further reading, and patronage", async ({
+test("Basil's Notable Works render beneath the legacy band", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  const works = page.locator(".sv-after .sv-works-after");
+  await expect(works.locator("h2", { hasText: "Notable Works" })).toBeVisible();
+  await expect(
+    works.locator("li", { hasText: "On the Holy Spirit" }),
+  ).toBeVisible();
+});
 
-  // Notable Works with descriptions (profile table, not the plain CSV link list).
+test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+  const reading = page.locator(".sv-after .sv-reading");
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Notable Works" }),
+    reading.locator("h2", { hasText: "Further Reading" }),
   ).toBeVisible();
   await expect(
-    page.locator(".sp-works li", { hasText: "On the Holy Spirit" }),
+    reading.locator(".sv-read-head", { hasText: "Ancient Sources" }),
   ).toBeVisible();
+  await expect(
+    reading.locator(".sv-read-by", { hasText: "Philip Rousseau" }),
+  ).toBeVisible();
+});
 
-  // Further Reading, grouped Ancient / Modern.
+test("Basil's themes, life experience, and patronage sit in the icon rail", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+  const rail = page.locator(".sv-rail");
+  // Themes badges (clickable) in the rail.
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Further Reading" }),
+    rail.locator('.sv-themes a[href*="/themes/bishops"]'),
   ).toBeVisible();
+  // Patronage chips in the rail.
   await expect(
-    page.locator(".sp-reading h3", { hasText: "Ancient Sources" }),
+    rail.locator(".sv-patron .sv-rail-chip", { hasText: "Monastics" }),
   ).toBeVisible();
-  await expect(
-    page.locator(".sp-reading li", { hasText: "Philip Rousseau" }),
-  ).toBeVisible();
-
-  // Patronage chips.
-  await expect(
-    page.locator(".sp-patron .sp-chip", { hasText: "Monastics" }),
-  ).toBeVisible();
-
-  // The plain CSV "Works by the Saint" block is superseded by the profile table.
-  await expect(page.locator(".sv-works")).toHaveCount(0);
 });
 
 test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
   await expect(page.locator(".sv-quote blockquote")).toBeVisible();
-  // Cited to the Hexaemeron, public-domain NPNF translation.
+  // Cited to On the Holy Spirit, public-domain NPNF translation.
   await expect(page.locator(".sv-quote figcaption")).toContainText(
-    "Hexaemeron",
+    "On the Holy Spirit",
   );
   await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
 });

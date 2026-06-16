@@ -3,11 +3,13 @@ import type { RelatedFigure } from "../lib/ephraim";
 import { withBase } from "../lib/format";
 interface Props {
   figures: RelatedFigure[];
+  /** light-on-dark variant, for use on the coloured panels */
+  light?: boolean;
 }
-const { figures } = Astro.props;
+const { figures, light = false } = Astro.props;
 ---
 
-<ul class="sp-figs">
+<ul class:list={["sp-figs", { "sp-figs--light": light }]}>
   {
     figures.map((f) => (
       <li>
@@ -45,5 +47,15 @@ const { figures } = Astro.props;
   }
   .sp-rel {
     color: var(--ink-soft);
+  }
+  /* light-on-dark, for the coloured panels */
+  .sp-figs--light a {
+    color: var(--gold-soft);
+  }
+  .sp-figs--light a:hover {
+    color: var(--ivory);
+  }
+  .sp-figs--light .sp-rel {
+    color: var(--celest-soft);
   }
 </style>

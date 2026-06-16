@@ -120,9 +120,8 @@ test("static per-saint page is real, indexable HTML", async ({ page }) => {
   const resp = await page.goto("./saint/OS-0021/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("Basil");
-  // The full data-driven view: icon rail + the liturgical address.
+  // The full data-driven view: deep-blue icon rail beside the story column.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
-  await expect(page.locator(".sv-address")).toBeVisible();
   const desc = await page
     .locator('meta[name="description"]')
     .getAttribute("content");

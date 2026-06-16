@@ -58,7 +58,7 @@ test("a non-profiled saint shows related saints by shared themes", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0022/"); // Gregory the Theologian (no curated related list)
-  const rel = page.locator(".sv-related a[href*='/saint/OS-']");
+  const rel = page.locator(".sv-after a[href*='/saint/OS-']");
   expect(await rel.count()).toBeGreaterThan(0);
 });
 
