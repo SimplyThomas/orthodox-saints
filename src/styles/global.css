@@ -3507,6 +3507,17 @@ a.news-card:hover .news-h {
   text-align: right;
   font-family: var(--serif);
 }
+.sv-glance-int {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+}
+.sv-glance-int-label {
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--celest-soft);
+  margin-bottom: 9px;
+}
 .sv-knownfor {
   width: 100%;
   margin-top: 22px;
@@ -3635,21 +3646,6 @@ a.sv-rail-chip:hover {
 .sv-section > .eyebrow {
   margin-bottom: 14px;
   display: block;
-}
-.sv-intercessions {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 14px;
-}
-.sv-int-card {
-  background: var(--paper);
-  border: 1px solid var(--line-gold);
-  border-radius: 5px;
-  padding: 16px 18px;
-  font-family: var(--serif);
-  font-size: 20px;
-  color: var(--byz);
-  line-height: 1.12;
 }
 /* Timeline — a full-width band beneath the columns, above the legacy. */
 .sv-tlband {
@@ -3919,7 +3915,6 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
 }
 
-/* Notable Works — full-width within the after-region; titles flow into columns */
 /* Notable Works — titles flow into columns on the garnet panel */
 .sv-worklist-after {
   list-style: none;

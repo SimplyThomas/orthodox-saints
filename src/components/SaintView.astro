@@ -138,17 +138,29 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       </div>
 
       {
-        m.facts.length > 0 && (
+        (m.facts.length > 0 || m.intercessions.length > 0) && (
           <div class="sv-glance">
             <div class="eyebrow on-blue">At a glance</div>
-            <dl>
-              {m.facts.map(([k, v]) => (
-                <div class="sv-fact">
-                  <dt>{k}</dt>
-                  <dd>{v}</dd>
+            {m.facts.length > 0 && (
+              <dl>
+                {m.facts.map(([k, v]) => (
+                  <div class="sv-fact">
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            {m.intercessions.length > 0 && (
+              <div class="sv-glance-int">
+                <div class="sv-glance-int-label">Come to them for</div>
+                <div class="sv-rail-chips">
+                  {m.intercessions.map((it) => (
+                    <span class="sv-rail-chip">{it}</span>
+                  ))}
                 </div>
-              ))}
-            </dl>
+              </div>
+            )}
           </div>
         )
       }
@@ -259,19 +271,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {m.brief && <p class="sv-lead">{m.brief}</p>}
-
-      {
-        m.intercessions.length > 0 && (
-          <section class="sv-section">
-            <div class="eyebrow">Come to them for · Intercessions</div>
-            <div class="sv-intercessions">
-              {m.intercessions.map((it) => (
-                <div class="sv-int-card">{it}</div>
-              ))}
-            </div>
-          </section>
-        )
-      }
 
       {
         m.quote && (
