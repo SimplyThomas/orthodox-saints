@@ -1,7 +1,9 @@
 ---
-/* Rich, optional encyclopedic article for a canonical saint. Rendered by
-   SaintView only when SAINT_PROFILES[saint.id] exists. Reuses the saint-page
-   visual idiom (ivory column, gold eyebrow rules) — additive to the existing view. */
+/* Rich, optional encyclopedic narrative for a canonical saint. Rendered by
+   SaintView only when SAINT_PROFILES[saint.id] exists, AFTER the quote/finder
+   facets. Carries the LIFE STORY (biography, contributions & legacy, timeline,
+   family); the reference apparatus (lifespan line, patronage, works, further
+   reading) is rendered by SaintView in the icon rail, so it is not repeated here. */
 import type { SaintProfile } from "../lib/saint-profiles";
 import FigureList from "./FigureList.astro";
 
@@ -12,8 +14,6 @@ const { profile } = Astro.props;
 ---
 
 <div class="saint-profile">
-  {profile.lifespan && <p class="sp-lifespan">{profile.lifespan}</p>}
-
   {/* ── Life (expanded biography) ── */}
   <section class="sp-sec sp-life">
     <h2>Life</h2>
@@ -22,19 +22,23 @@ const { profile } = Astro.props;
     </div>
   </section>
 
-  {/* ── Contributions / Legacy / "the Great" ── */}
+  {
+    /* ── Contributions / Legacy / "the Great" — a compact, scannable card grid ── */
+  }
   {
     profile.sections && profile.sections.length > 0 && (
       <section class="sp-sec sp-prose">
         <h2>Contributions &amp; Legacy</h2>
-        {profile.sections.map((s) => (
-          <article class="sp-block">
-            <h3>{s.heading}</h3>
-            {s.body.map((p) => (
-              <p>{p}</p>
-            ))}
-          </article>
-        ))}
+        <div class="sp-prose-grid">
+          {profile.sections.map((s) => (
+            <article class="sp-block">
+              <h3>{s.heading}</h3>
+              {s.body.map((p) => (
+                <p>{p}</p>
+              ))}
+            </article>
+          ))}
+        </div>
       </section>
     )
   }
@@ -72,7 +76,7 @@ const { profile } = Astro.props;
     )
   }
 
-  {/* ── Related Saints ── */}
+  {/* ── Related Saints (curated) ── */}
   {
     profile.related && profile.related.length > 0 && (
       <section class="sp-sec sp-related">
@@ -81,80 +85,60 @@ const { profile } = Astro.props;
       </section>
     )
   }
-
-  {/* ── Patronage ── */}
-  {
-    profile.patronage && profile.patronage.length > 0 && (
-      <section class="sp-sec sp-patron">
-        <h2>Patronage</h2>
-        <div class="sp-chips">
-          {profile.patronage.map((p) => (
-            <span class="sp-chip">{p}</span>
-          ))}
-        </div>
-      </section>
-    )
-  }
-
-  {/* ── Notable Works ── */}
-  {
-    profile.works && profile.works.length > 0 && (
-      <section class="sp-sec sp-works-rich">
-        <h2>Notable Works</h2>
-        <ul class="sp-works">
-          {profile.works.map((w) => (
-            <li>
-              <strong>{w.title}</strong>
-              <span class="sp-wdesc"> — {w.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  {/* ── Further Reading ── */}
-  {
-    profile.reading && profile.reading.length > 0 && (
-      <section class="sp-sec sp-reading">
-        <h2>Further Reading</h2>
-        {profile.reading.map((g) => (
-          <div class="sp-read-group">
-            <h3>{g.heading}</h3>
-            <ul class="sp-read-list">
-              {g.items.map((it) => (
-                <li>
-                  <em>{it.title}</em>
-                  {it.author && <span class="sp-author"> — {it.author}</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
-    )
-  }
 </div>
 
 <style>
   .saint-profile {
-    margin-top: 1.6rem;
+    margin-top: 0.5rem;
   }
   .sp-sec {
-    margin: 1.8rem 0;
+    margin: 1.4rem 0;
   }
   .sp-sec h2 {
     font-family: var(--serif);
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     color: var(--byz-deep);
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.7rem;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--line-gold);
   }
   .sp-bio p {
-    margin: 0 0 0.85rem;
-    line-height: 1.7;
+    margin: 0 0 0.8rem;
+    line-height: 1.65;
   }
+  .sp-bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Contributions & Legacy: dense, scannable cards (was a long stack of prose) */
+  .sp-prose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.7rem;
+  }
+  .sp-block {
+    margin: 0;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.75rem 0.9rem;
+  }
+  .sp-prose h3 {
+    font-family: var(--serif);
+    font-size: 1.04rem;
+    color: var(--byz);
+    margin: 0 0 0.3rem;
+  }
+  .sp-prose p {
+    margin: 0 0 0.45rem;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .sp-prose p:last-child {
+    margin-bottom: 0;
+  }
+
   .sp-timeline {
     list-style: none;
     margin: 0;
@@ -164,7 +148,7 @@ const { profile } = Astro.props;
   .sp-timeline li {
     display: flex;
     gap: 0.9rem;
-    padding: 0.45rem 0 0.45rem 1rem;
+    padding: 0.4rem 0 0.4rem 1rem;
   }
   .sp-when {
     flex: 0 0 4.5rem;
@@ -179,71 +163,7 @@ const { profile } = Astro.props;
     color: var(--ink-soft);
   }
   .sp-fam-intro {
-    line-height: 1.7;
+    line-height: 1.65;
     margin: 0 0 0.6rem;
-  }
-  .sp-prose .sp-block {
-    margin: 0 0 1.1rem;
-  }
-  .sp-prose h3 {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    color: var(--byz);
-    margin: 0 0 0.35rem;
-  }
-  .sp-prose p {
-    margin: 0 0 0.6rem;
-    line-height: 1.7;
-  }
-  .sp-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .sp-chip {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    color: var(--ink);
-  }
-  .sp-works {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .sp-works li {
-    padding: 0.3rem 0;
-    line-height: 1.6;
-  }
-  .sp-wdesc,
-  .sp-author {
-    color: var(--ink-soft);
-  }
-  .sp-read-group {
-    margin: 0 0 0.8rem;
-  }
-  .sp-read-group h3 {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--byz);
-    margin: 0 0 0.3rem;
-  }
-  .sp-read-list {
-    margin: 0;
-    padding-left: 1.1rem;
-  }
-  .sp-read-list li {
-    padding: 0.15rem 0;
-    line-height: 1.6;
-  }
-  .sp-lifespan {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    margin: 0 0 1rem;
   }
 </style>

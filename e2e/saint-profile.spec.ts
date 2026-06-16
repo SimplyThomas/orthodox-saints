@@ -6,9 +6,9 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
   await expect(page.locator(".sv-address")).toBeVisible();
-  // Lifespan subtitle renders.
+  // Lifespan subtitle renders under the name.
   await expect(
-    page.locator(".sp-lifespan", { hasText: "Archbishop of Caesarea" }),
+    page.locator(".sv-lifespan", { hasText: "Archbishop of Caesarea" }),
   ).toBeVisible();
   // The rich profile adds a "Life" biography section with multiple paragraphs.
   await expect(page.locator(".sp-sec h2", { hasText: "Life" })).toBeVisible();
@@ -85,37 +85,34 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
   ).toBeVisible();
 });
 
-test("Basil's profile shows works, further reading, and patronage", async ({
+test("Basil's rail carries works, further reading, and patronage", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
 
-  // Notable Works with descriptions (profile table, not the plain CSV link list).
+  // The reference apparatus lives in the blue icon rail, not the story column.
+  const rail = page.locator(".sv-rail");
+
+  // Works (profile titles).
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Notable Works" }),
-  ).toBeVisible();
-  await expect(
-    page.locator(".sp-works li", { hasText: "On the Holy Spirit" }),
+    rail.locator(".sv-rail-t", { hasText: "On the Holy Spirit" }),
   ).toBeVisible();
 
-  // Further Reading, grouped Ancient / Modern.
+  // Further reading, grouped Ancient / Modern.
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Further Reading" }),
+    rail.locator(".sv-rail-readhead", { hasText: "Ancient Sources" }),
   ).toBeVisible();
   await expect(
-    page.locator(".sp-reading h3", { hasText: "Ancient Sources" }),
-  ).toBeVisible();
-  await expect(
-    page.locator(".sp-reading li", { hasText: "Philip Rousseau" }),
+    rail.locator(".sv-rail-by", { hasText: "Philip Rousseau" }),
   ).toBeVisible();
 
   // Patronage chips.
   await expect(
-    page.locator(".sp-patron .sp-chip", { hasText: "Monastics" }),
+    rail.locator(".sv-rail-chip", { hasText: "Monastics" }),
   ).toBeVisible();
 
-  // The plain CSV "Works by the Saint" block is superseded by the profile table.
-  await expect(page.locator(".sv-works")).toHaveCount(0);
+  // The story column no longer carries a works block.
+  await expect(page.locator(".sv-main .sv-works")).toHaveCount(0);
 });
 
 test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
