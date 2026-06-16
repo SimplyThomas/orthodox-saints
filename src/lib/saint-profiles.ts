@@ -55,5 +55,92 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
       "Basil was equally known for organized works of mercy. On the outskirts of Caesarea he founded a large charitable complex — housing for travelers, care for the poor, and facilities for the sick — that later generations called the Basiliad, among the most significant philanthropic undertakings of the early Christian world.",
       "A prolific author and preacher, he produced theological treatises, scriptural commentary, monastic rules, letters, and homilies, and his influence reached into liturgy, social ethics, and pastoral practice. He reposed on January 1, 379. Together with Gregory the Theologian and John Chrysostom he is honored as one of the Three Holy Hierarchs, and the Divine Liturgy that bears his name is still celebrated in the Orthodox Church on appointed days through the year.",
     ],
+    timeline: [
+      {
+        when: "c. 329",
+        title: "Born in Cappadocia",
+        body: "Into a distinguished Christian family.",
+      },
+      {
+        when: "356",
+        title: "Embraced the ascetic life",
+        body: "After travels among the monastic communities of Egypt, Palestine, Syria, and Mesopotamia.",
+      },
+      {
+        when: "364",
+        title: "Ordained presbyter",
+        body: "Serving the Church of Caesarea.",
+      },
+      {
+        when: "370",
+        title: "Consecrated Archbishop of Caesarea",
+        body: "Leading the Church through the Arian controversy.",
+      },
+      {
+        when: "375",
+        title: "Completed On the Holy Spirit",
+        body: "His treatise on the divinity of the Holy Spirit.",
+      },
+      {
+        when: "379",
+        title: "Reposed in the Lord",
+        body: "Commemorated on January 1.",
+      },
+    ],
+    family: {
+      heading: "Holy Family of Cappadocia",
+      intro:
+        "Basil belonged to one of the most remarkable saintly families in Christian history; several of his close relations are themselves commemorated as saints.",
+      figures: [
+        {
+          name: "Saint Macrina the Elder",
+          note: "grandmother",
+          href: "saint/OS-2474",
+        },
+        {
+          name: "Saint Macrina the Younger",
+          note: "sister",
+          href: "saint/OS-1551",
+        },
+        {
+          name: "Saint Gregory of Nyssa",
+          note: "brother",
+          href: "saint/OS-0422",
+        },
+        {
+          name: "Saint Peter of Sebaste",
+          note: "brother",
+          href: "saint/OS-0420",
+        },
+        { name: "Saint Naucratius", note: "brother" },
+      ],
+    },
+    related: [
+      {
+        name: "Saint Gregory the Theologian",
+        note: "fellow Cappadocian Father",
+        href: "saint/OS-0022",
+      },
+      {
+        name: "Saint Gregory of Nyssa",
+        note: "his brother",
+        href: "saint/OS-0422",
+      },
+      {
+        name: "Saint Macrina the Younger",
+        note: "his sister",
+        href: "saint/OS-1551",
+      },
+      {
+        name: "Saint Peter of Sebaste",
+        note: "his brother",
+        href: "saint/OS-0420",
+      },
+      {
+        name: "Saint John Chrysostom",
+        note: "fellow Holy Hierarch",
+        href: "saint/OS-0023",
+      },
+    ],
   },
 };

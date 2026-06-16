@@ -3,6 +3,7 @@
    SaintView only when SAINT_PROFILES[saint.id] exists. Reuses the saint-page
    visual idiom (ivory column, gold eyebrow rules) — additive to the existing view. */
 import type { SaintProfile } from "../lib/saint-profiles";
+import { withBase } from "../lib/format";
 
 interface Props {
   profile: SaintProfile;
@@ -18,6 +19,71 @@ const { profile } = Astro.props;
       {profile.overview.map((p) => <p>{p}</p>)}
     </div>
   </section>
+
+  {/* ── Timeline ── */}
+  {
+    profile.timeline && profile.timeline.length > 0 && (
+      <section class="sp-sec">
+        <h2>Timeline</h2>
+        <ul class="sp-timeline">
+          {profile.timeline.map((t) => (
+            <li>
+              <span class="sp-when">{t.when}</span>
+              <span class="sp-what">
+                <strong>{t.title}</strong>
+                {t.body && <span class="sp-tbody"> — {t.body}</span>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Holy Family ── */}
+  {
+    profile.family && (
+      <section class="sp-sec sp-family">
+        <h2>{profile.family.heading}</h2>
+        {profile.family.intro && (
+          <p class="sp-fam-intro">{profile.family.intro}</p>
+        )}
+        <ul class="sp-figs">
+          {profile.family.figures.map((f) => (
+            <li>
+              {f.href ? (
+                <a href={withBase(f.href)}>{f.name}</a>
+              ) : (
+                <span>{f.name}</span>
+              )}
+              <span class="sp-rel"> · {f.note}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Related Saints ── */}
+  {
+    profile.related && profile.related.length > 0 && (
+      <section class="sp-sec sp-related">
+        <h2>Related Saints</h2>
+        <ul class="sp-figs">
+          {profile.related.map((f) => (
+            <li>
+              {f.href ? (
+                <a href={withBase(f.href)}>{f.name}</a>
+              ) : (
+                <span>{f.name}</span>
+              )}
+              <span class="sp-rel"> · {f.note}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 </div>
 
 <style>
@@ -38,5 +104,48 @@ const { profile } = Astro.props;
   .sp-bio p {
     margin: 0 0 0.85rem;
     line-height: 1.7;
+  }
+  .sp-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--line-gold);
+  }
+  .sp-timeline li {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.45rem 0 0.45rem 1rem;
+  }
+  .sp-when {
+    flex: 0 0 4.5rem;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--gold-deep);
+  }
+  .sp-tbody {
+    color: var(--ink-soft);
+  }
+  .sp-fam-intro {
+    line-height: 1.7;
+    margin: 0 0 0.6rem;
+  }
+  .sp-figs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sp-figs li {
+    padding: 0.25rem 0;
+  }
+  .sp-figs a {
+    color: var(--byz);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .sp-figs a:hover {
+    color: var(--celest);
+  }
+  .sp-rel {
+    color: var(--ink-soft);
   }
 </style>
