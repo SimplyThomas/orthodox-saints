@@ -3377,7 +3377,7 @@ a.news-card:hover .news-h {
 .sv-grid {
   display: grid;
   grid-template-columns: 430px minmax(0, 840px);
-  align-items: start;
+  align-items: stretch;
   justify-content: center;
   max-width: 1270px;
   margin: 0 auto;
