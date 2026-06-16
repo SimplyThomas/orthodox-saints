@@ -27,11 +27,11 @@ test("a saint without a profile renders no profile sections", async ({
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
-test("Basil's profile shows a timeline, holy family, and related saints", async ({
+test("Basil's timeline, holy family, and related saints render", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
-  // Timeline with dated entries.
+  // Timeline stays in the ivory story column.
   await expect(
     page.locator(".sp-sec h2", { hasText: "Timeline" }),
   ).toBeVisible();
@@ -42,25 +42,21 @@ test("Basil's profile shows a timeline, holy family, and related saints", async 
     page.locator(".sp-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
-  // Holy Family of Cappadocia — with at least one internal saint link.
+  // Holy Family + Related Saints sit in the "after" region beneath the legacy band.
+  const after = page.locator(".sv-after");
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Holy Family of Cappadocia" }),
+    after.locator("h2", { hasText: "Holy Family of Cappadocia" }),
   ).toBeVisible();
   await expect(
-    page.locator('.sp-family a[href*="/saint/OS-0422"]'), // Gregory of Nyssa
+    after.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (family + related)
   ).toBeVisible();
-  // Naucratius is not in the dataset → plain name, no link.
+  // Naucratius is not in the dataset → plain name, never a link.
+  await expect(after.locator("li", { hasText: "Naucratius" })).toBeVisible();
   await expect(
-    page.locator(".sp-family", { hasText: "Naucratius" }),
-  ).toBeVisible();
-  // Naucratius has no dataset row → rendered as plain text, never a link.
-  await expect(
-    page.locator(".sp-family li", { hasText: "Naucratius" }).locator("a"),
+    after.locator("li", { hasText: "Naucratius" }).locator("a"),
   ).toHaveCount(0);
-
-  // Related Saints links resolve to real saint pages.
   await expect(
-    page.locator('.sp-related a[href*="/saint/OS-0023"]'), // John Chrysostom
+    after.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom
   ).toBeVisible();
 });
 

@@ -1,11 +1,10 @@
 ---
-/* Rich, optional encyclopedic narrative for a canonical saint — the part that
-   sits in the IVORY story column beside the rail: biography, timeline, family.
-   Contributions & Legacy is rendered separately by SaintView as a full-width
-   band beneath both columns; the reference apparatus (lifespan, patronage,
-   works, further reading) lives in the icon rail. So neither is repeated here. */
+/* The IVORY story column beside the rail: the saint's biography and timeline.
+   Contributions & Legacy (full-width band) and the "after" matter — Holy Family,
+   Related Saints, Customs, Notes — are rendered by SaintView beneath the columns;
+   the reference apparatus (lifespan, patronage, works, reading) is in the rail.
+   So none of those is repeated here. */
 import type { SaintProfile } from "../lib/saint-profiles";
-import FigureList from "./FigureList.astro";
 
 interface Props {
   profile: SaintProfile;
@@ -38,29 +37,6 @@ const { profile } = Astro.props;
             </li>
           ))}
         </ul>
-      </section>
-    )
-  }
-
-  {/* ── Holy Family ── */}
-  {
-    profile.family && (
-      <section class="sp-sec sp-family">
-        <h2>{profile.family.heading}</h2>
-        {profile.family.intro && (
-          <p class="sp-fam-intro">{profile.family.intro}</p>
-        )}
-        <FigureList figures={profile.family.figures} />
-      </section>
-    )
-  }
-
-  {/* ── Related Saints (curated) ── */}
-  {
-    profile.related && profile.related.length > 0 && (
-      <section class="sp-sec sp-related">
-        <h2>Related Saints</h2>
-        <FigureList figures={profile.related} />
       </section>
     )
   }
@@ -110,9 +86,5 @@ const { profile } = Astro.props;
   }
   .sp-tbody {
     color: var(--ink-soft);
-  }
-  .sp-fam-intro {
-    line-height: 1.65;
-    margin: 0 0 0.6rem;
   }
 </style>

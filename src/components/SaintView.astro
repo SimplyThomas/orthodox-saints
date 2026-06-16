@@ -11,6 +11,7 @@ import { primaryRank } from "../lib/saints";
 import { esc, withBase } from "../lib/format";
 import { SAINT_PROFILES } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
+import FigureList from "./FigureList.astro";
 import { themeBySlug, relatedByThemes } from "../lib/themes";
 import { SAINTS } from "../lib/data";
 
@@ -21,11 +22,16 @@ const { saint } = Astro.props;
 const m = toSaintView(saint);
 const profile = SAINT_PROFILES[saint.id];
 
-// Curated related (from a rich profile) wins; otherwise derive by shared themes.
-const derivedRelated =
+// Curated related figures (from a profile) win; otherwise derive by shared
+// themes and present them through the same FigureList as the curated set.
+const relatedFigures =
   profile && profile.related && profile.related.length
-    ? []
-    : relatedByThemes(saint, SAINTS, 6);
+    ? profile.related
+    : relatedByThemes(saint, SAINTS, 6).map((s) => ({
+        name: s.name,
+        note: primaryRank(s),
+        href: "saint/" + s.id,
+      }));
 
 // Reference apparatus lives in the rail. A profile's rich works/reading supersede
 // the plain CSV-derived lists; otherwise the CSV search-link lists are shown.
@@ -370,44 +376,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {profile && <SaintProfile profile={profile} />}
-
-      {
-        m.customs && (
-          <section class="sv-section">
-            <div class="sv-customs">
-              <div class="eyebrow">Customs &amp; Traditions</div>
-              <p>{m.customs}</p>
-            </div>
-          </section>
-        )
-      }
-
-      {
-        m.notes && (
-          <section class="sv-section sv-notes">
-            <div class="eyebrow">Notes</div>
-            <p>{m.notes}</p>
-          </section>
-        )
-      }
-
-      {
-        derivedRelated.length > 0 && (
-          <section class="sv-section sv-related">
-            <div class="eyebrow">Related saints</div>
-            <ul class="sv-related-list">
-              {derivedRelated.map((s) => (
-                <li>
-                  <a href={withBase("saint/" + s.id)}>{s.name}</a>
-                  <span class="sv-related-rank"> · {primaryRank(s)}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
-
-      {m.sources && <div class="sv-sources">Sources: {m.sources}</div>}
     </main>
   </div>
 
@@ -427,6 +395,52 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
               </article>
             ))}
           </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    /* ── Holy Family · Related · Customs · Notes · Sources — beneath the legacy ── */
+  }
+  {
+    (profile?.family ||
+      relatedFigures.length > 0 ||
+      m.customs ||
+      m.notes ||
+      m.sources) && (
+      <section class="sv-after">
+        <div class="sv-after-inner">
+          {profile?.family && (
+            <div class="sv-after-block">
+              <h2>{profile.family.heading}</h2>
+              {profile.family.intro && (
+                <p class="sv-fam-intro">{profile.family.intro}</p>
+              )}
+              <FigureList figures={profile.family.figures} />
+            </div>
+          )}
+          {relatedFigures.length > 0 && (
+            <div class="sv-after-block">
+              <h2>Related Saints</h2>
+              <FigureList figures={relatedFigures} />
+            </div>
+          )}
+          {m.customs && (
+            <div class="sv-after-block sv-customs">
+              <div class="eyebrow">Customs &amp; Traditions</div>
+              <p>{m.customs}</p>
+            </div>
+          )}
+          {m.notes && (
+            <div class="sv-after-block sv-notes">
+              <h2>Notes</h2>
+              <p>{m.notes}</p>
+            </div>
+          )}
+          {m.sources && (
+            <div class="sv-after-sources">Sources: {m.sources}</div>
+          )}
         </div>
       </section>
     )
