@@ -210,5 +210,78 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
         ],
       },
     ],
+    patronage: [
+      "Monastics",
+      "Theologians",
+      "Educators",
+      "Hospital workers",
+      "Charitable ministries",
+      "Social service organizations",
+    ],
+    themes: [
+      "Theology",
+      "Church Fathers",
+      "Three Holy Hierarchs",
+      "Cappadocian Fathers",
+      "Monasticism",
+      "Christian Charity",
+      "Bishops",
+      "Defenders of Orthodoxy",
+      "Patristics",
+      "Education",
+    ],
+    works: [
+      {
+        title: "On the Holy Spirit",
+        desc: "Defense of the divinity of the Holy Spirit.",
+      },
+      { title: "Against Eunomius", desc: "Refutation of Eunomian Arianism." },
+      { title: "Hexaemeron", desc: "Homilies on the six days of creation." },
+      { title: "Longer Rules", desc: "Foundational monastic instructions." },
+      { title: "Shorter Rules", desc: "Practical monastic guidance." },
+      {
+        title: "Address to Young Men on the Right Use of Greek Literature",
+        desc: "Guidance on the Christian use of classical education.",
+      },
+      {
+        title: "Homilies on the Psalms",
+        desc: "Biblical commentary preached to his congregation.",
+      },
+      {
+        title: "Letters",
+        desc: "An extensive correspondence preserved from his ministry.",
+      },
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          {
+            title: "Funeral Oration on Basil the Great",
+            author: "Saint Gregory the Theologian",
+          },
+          { title: "Life of Macrina", author: "Saint Gregory of Nyssa" },
+          { title: "Ecclesiastical History", author: "Socrates Scholasticus" },
+          { title: "Ecclesiastical History", author: "Sozomen" },
+          { title: "Ecclesiastical History", author: "Theodoret of Cyrus" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          { title: "Basil of Caesarea", author: "Philip Rousseau" },
+          { title: "Basil of Caesarea", author: "Stephen Hildebrand" },
+          {
+            title: "On Social Justice",
+            author: "trans. and ed. C. Paul Schroeder",
+          },
+          {
+            title: "St. Basil the Great: On the Human Condition",
+            author: "Popular Patristics Series",
+          },
+          { title: "The Ascetical Works of Saint Basil" },
+        ],
+      },
+    ],
   },
 };

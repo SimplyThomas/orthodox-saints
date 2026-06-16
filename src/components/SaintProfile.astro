@@ -79,6 +79,75 @@ const { profile } = Astro.props;
       </section>
     )
   }
+
+  {/* ── Patronage ── */}
+  {
+    profile.patronage && profile.patronage.length > 0 && (
+      <section class="sp-sec sp-patron">
+        <h2>Patronage</h2>
+        <div class="sp-chips">
+          {profile.patronage.map((p) => (
+            <span class="sp-chip">{p}</span>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    /* ── Themes ── (plain badges in Feature A; Feature B repoints them to /themes/<slug>) */
+  }
+  {
+    profile.themes && profile.themes.length > 0 && (
+      <section class="sp-sec sp-themes">
+        <h2>Themes</h2>
+        <div class="sp-chips">
+          {profile.themes.map((t) => (
+            <span class="sp-badge">{t}</span>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {/* ── Notable Works ── */}
+  {
+    profile.works && profile.works.length > 0 && (
+      <section class="sp-sec sp-works-rich">
+        <h2>Notable Works</h2>
+        <ul class="sp-works">
+          {profile.works.map((w) => (
+            <li>
+              <strong>{w.title}</strong>
+              <span class="sp-wdesc"> — {w.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Further Reading ── */}
+  {
+    profile.reading && profile.reading.length > 0 && (
+      <section class="sp-sec sp-reading">
+        <h2>Further Reading</h2>
+        {profile.reading.map((g) => (
+          <div class="sp-read-group">
+            <h3>{g.heading}</h3>
+            <ul>
+              {g.items.map((it) => (
+                <li>
+                  <em>{it.title}</em>
+                  {it.author && <span class="sp-author"> — {it.author}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    )
+  }
 </div>
 
 <style>
@@ -139,5 +208,54 @@ const { profile } = Astro.props;
   .sp-prose p {
     margin: 0 0 0.6rem;
     line-height: 1.7;
+  }
+  .sp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .sp-chip,
+  .sp-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .sp-badge {
+    border-color: var(--line-gold);
+    color: var(--gold-deep);
+  }
+  .sp-works {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sp-works li {
+    padding: 0.3rem 0;
+    line-height: 1.6;
+  }
+  .sp-wdesc,
+  .sp-author {
+    color: var(--ink-soft);
+  }
+  .sp-read-group {
+    margin: 0 0 0.8rem;
+  }
+  .sp-read-group h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--byz);
+    margin: 0 0 0.3rem;
+  }
+  .sp-read-group ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+  .sp-read-group li {
+    padding: 0.15rem 0;
+    line-height: 1.6;
   }
 </style>

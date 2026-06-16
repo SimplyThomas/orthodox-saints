@@ -80,3 +80,39 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
     page.locator(".sp-prose", { hasText: "Basiliad" }).first(),
   ).toBeVisible();
 });
+
+test("Basil's profile shows works, further reading, patronage, and themes", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+
+  // Notable Works with descriptions (profile table, not the plain CSV link list).
+  await expect(
+    page.locator(".sp-sec h2", { hasText: "Notable Works" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".sp-works li", { hasText: "On the Holy Spirit" }),
+  ).toBeVisible();
+
+  // Further Reading, grouped Ancient / Modern.
+  await expect(
+    page.locator(".sp-sec h2", { hasText: "Further Reading" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".sp-reading h3", { hasText: "Ancient Sources" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".sp-reading li", { hasText: "Philip Rousseau" }),
+  ).toBeVisible();
+
+  // Patronage chips and Theme badges.
+  await expect(
+    page.locator(".sp-patron .sp-chip", { hasText: "Monastics" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".sp-themes .sp-badge", { hasText: "Church Fathers" }),
+  ).toBeVisible();
+
+  // The plain CSV "Works by the Saint" block is superseded by the profile table.
+  await expect(page.locator(".sv-works")).toHaveCount(0);
+});
