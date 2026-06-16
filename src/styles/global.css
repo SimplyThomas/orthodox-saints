@@ -3658,40 +3658,63 @@ a.sv-rail-chip:hover {
 .sv-tlband-inner {
   max-width: 1270px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px 48px;
-  align-items: center;
 }
 .sv-tl-title {
   font-family: var(--serif);
   font-size: 1.3rem;
   color: var(--byz-deep);
-  margin: 0 0 0.7rem;
+  margin: 0 0 1.2rem;
   padding-bottom: 0.3rem;
   border-bottom: 1px solid var(--line-gold);
 }
+/* Horizontal timeline: entries flow left → right along a gold track, each with
+   a node dot; they wrap to further rows on narrow screens. */
 .sv-timeline {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 2px solid var(--line-gold);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px 20px;
 }
 .sv-timeline li {
-  display: flex;
-  gap: 0.9rem;
-  padding: 0.4rem 0 0.4rem 1rem;
+  flex: 1 1 150px;
+  min-width: 0;
+  position: relative;
+  padding-top: 17px;
+  border-top: 2px solid var(--line-gold);
+}
+.sv-timeline li::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--ivory);
 }
 .sv-when {
-  flex: 0 0 4.5rem;
+  display: block;
   font-family: var(--serif);
   font-weight: 600;
+  font-size: 1.15rem;
   color: var(--gold-deep);
+  margin-bottom: 5px;
 }
-.sv-what {
-  flex: 1;
+.sv-tl-event {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--byz-deep);
+  line-height: 1.25;
+  margin-bottom: 4px;
 }
 .sv-tbody {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: var(--ink-soft);
 }
 .sv-quote {

@@ -334,17 +334,15 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         <div class="sv-tlband-inner">
           <div class="sv-tl">
             <h2 class="sv-tl-title">Timeline</h2>
-            <ul class="sv-timeline">
+            <ol class="sv-timeline">
               {profile.timeline.map((t) => (
                 <li>
                   <span class="sv-when">{t.when}</span>
-                  <span class="sv-what">
-                    <strong>{t.title}</strong>
-                    {t.body && <span class="sv-tbody"> — {t.body}</span>}
-                  </span>
+                  <strong class="sv-tl-event">{t.title}</strong>
+                  {t.body && <span class="sv-tbody">{t.body}</span>}
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
       </section>
