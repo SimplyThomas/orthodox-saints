@@ -3567,33 +3567,6 @@ a.news-card:hover .news-h {
 .sv-rail-links svg {
   color: var(--celest-soft);
 }
-.sv-rail-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.sv-rail-list li {
-  padding: 6px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  line-height: 1.4;
-}
-.sv-rail-list li:first-child {
-  border-top: 0;
-}
-.sv-rail-t {
-  font-family: var(--serif);
-  font-size: 14.5px;
-  color: var(--ivory);
-}
-.sv-rail-list a {
-  font-family: var(--serif);
-  font-size: 14.5px;
-  color: var(--gold-soft);
-  text-decoration: none;
-}
-.sv-rail-list a:hover {
-  color: var(--ivory);
-}
 
 .sv-lifespan {
   font-family: var(--serif);
@@ -3883,6 +3856,39 @@ a.sv-theme {
   border-top: 1px solid var(--line);
   font-size: 12.5px;
   color: var(--ink-soft);
+}
+
+/* Notable Works — full-width within the after-region; titles flow into columns */
+.sv-works-after {
+  grid-column: 1 / -1;
+}
+.sv-worklist-after {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-width: 330px;
+  column-gap: 44px;
+}
+.sv-worklist-after li {
+  break-inside: avoid;
+  padding: 5px 0;
+  line-height: 1.45;
+}
+.sv-worklist-after em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--byz-deep);
+}
+.sv-work-desc {
+  color: var(--ink-soft);
+}
+.sv-worklist-after a {
+  font-family: var(--serif);
+  color: var(--byz);
+  text-decoration: none;
+}
+.sv-worklist-after a:hover {
+  color: var(--celest);
 }
 
 /* Further Reading — full-width within the after-region; groups laid side by side */

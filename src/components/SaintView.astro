@@ -33,11 +33,11 @@ const relatedFigures =
         href: "saint/" + s.id,
       }));
 
-// Reference apparatus lives in the rail. A profile's rich works/reading supersede
-// the plain CSV-derived lists; otherwise the CSV search-link lists are shown.
-const railWorks = profile?.works?.length ? profile.works : null;
-const hasRailWorks = !!railWorks || m.works.length > 0;
-// Further reading sits in the "after" region beneath the legacy, not the rail.
+// Works (by the saint) and Further Reading (about the saint) both sit in the
+// "after" region beneath the legacy band. A profile's rich lists supersede the
+// plain CSV-derived ones; otherwise the CSV search-link lists are shown.
+const worksList = profile?.works?.length ? profile.works : null;
+const hasWorks = !!worksList || m.works.length > 0;
 const readingGroups = profile?.reading?.length ? profile.reading : null;
 const hasReading = !!readingGroups || m.about.length > 0;
 
@@ -192,29 +192,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
                   </a>
                 </li>
               ))}
-            </ul>
-          </div>
-        )
-      }
-
-      {
-        hasRailWorks && (
-          <div class="sv-rail-block">
-            <div class="eyebrow on-blue">Works</div>
-            <ul class="sv-rail-list">
-              {railWorks
-                ? railWorks.map((w) => (
-                    <li>
-                      <span class="sv-rail-t">{w.title}</span>
-                    </li>
-                  ))
-                : m.works.map((w) => (
-                    <li>
-                      <a href={w.u} target="_blank" rel="noopener noreferrer">
-                        {w.t}
-                      </a>
-                    </li>
-                  ))}
             </ul>
           </div>
         )
@@ -393,16 +370,40 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
   }
 
   {
-    /* ── Further Reading · Holy Family · Related · Notes · Sources — beneath the legacy ── */
+    /* ── Works · Further Reading · Holy Family · Related · Notes · Sources — beneath the legacy ── */
   }
   {
-    (hasReading ||
+    (hasWorks ||
+      hasReading ||
       profile?.family ||
       relatedFigures.length > 0 ||
       m.notes ||
       m.sources) && (
       <section class="sv-after">
         <div class="sv-after-inner">
+          {hasWorks && (
+            <div class="sv-after-block sv-works-after">
+              <h2>Notable Works</h2>
+              <ul class="sv-worklist-after">
+                {worksList
+                  ? worksList.map((w) => (
+                      <li>
+                        <em>{w.title}</em>
+                        {w.desc && (
+                          <span class="sv-work-desc"> — {w.desc}</span>
+                        )}
+                      </li>
+                    ))
+                  : m.works.map((w) => (
+                      <li>
+                        <a href={w.u} target="_blank" rel="noopener noreferrer">
+                          {w.t}
+                        </a>
+                      </li>
+                    ))}
+              </ul>
+            </div>
+          )}
           {hasReading && (
             <div class="sv-after-block sv-reading">
               <h2>Further Reading</h2>

@@ -82,14 +82,15 @@ test("Basil's contributions & legacy render in the full-width band", async ({
   ).toBeVisible();
 });
 
-test("Basil's rail carries the works list", async ({ page }) => {
+test("Basil's Notable Works render beneath the legacy band", async ({
+  page,
+}) => {
   await page.goto("./saint/OS-0021/");
-  // Works (profile titles) live in the blue icon rail.
+  const works = page.locator(".sv-after .sv-works-after");
+  await expect(works.locator("h2", { hasText: "Notable Works" })).toBeVisible();
   await expect(
-    page.locator(".sv-rail .sv-rail-t", { hasText: "On the Holy Spirit" }),
+    works.locator("li", { hasText: "On the Holy Spirit" }),
   ).toBeVisible();
-  // The story column no longer carries a works block.
-  await expect(page.locator(".sv-main .sv-works")).toHaveCount(0);
 });
 
 test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", async ({
