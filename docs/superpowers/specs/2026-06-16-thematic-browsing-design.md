@@ -298,14 +298,15 @@ and a handful of doctrine-specific Historical themes. Five requested names are m
 - Performance: `themes` adds a short string array per record; well within the ~5,000-saint inline
   ceiling noted in `search.astro`'s `TODO(scale)`.
 
-## 10. Open questions for review
+## 10. Resolved decisions (user-reviewed 2026-06-16)
 
-1. **Taxonomy judgment calls (⚑)** — especially the loose proxies (elderly→Grandparent,
-   former-criminals→Repentance, family-conflict→Difficult Marriage, theologians→Scholar) and the
-   merges. Keep, drop, or adjust any?
-2. **Override-only at launch** — comfortable that ~30 themes (most of *Family & Relationships*,
-   *Miracles* relics/icons/visions, doctrine-specific Historical) won't appear until curated?
-3. **Catalog location** — sibling `themes.json` (recommended) vs. embedding in `data.json`.
-4. **`/themes/[slug]` listing** — reuse the interactive finder island, or a simpler static pre-rendered
-   list (lighter, but no client re-sort/filter)? Recommendation: static list reusing the saint-row
-   markup, with a link to the full finder pre-filtered to that theme.
+1. **Loose proxies (⚑): KEEP.** Elderly→Grandparent, former-criminals→Repentance-from-grave-sin,
+   family-conflict→Difficult Marriage, theologians→Scholar render with best-effort membership now;
+   the mapping is data and tunable later. Merges as listed stand.
+2. **Override-only themes: SHIP but HIDDEN until curated.** All ~30 are defined in the taxonomy and
+   render only once the `Themes` override column gives them count > 0. No empty cards.
+3. **Catalog location: sibling `public/themes.json`** (records-array shape in `data.json` unchanged).
+4. **`/themes/[slug]` listing: STATIC pre-rendered saint-row list** (no per-page finder island), with a
+   "refine in the finder" link to `/search` pre-filtered to that theme.
+5. **Scope: BUILD ALL FOUR PHASES** (§8): foundation → browse pages + nav → saint-page badges/related →
+   search aliases.
