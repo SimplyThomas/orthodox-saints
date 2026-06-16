@@ -24,3 +24,17 @@ test("Themes nav item is present and base-prefixed", async ({ page }) => {
     .getAttribute("href");
   expect(href).toContain("/themes");
 });
+
+test("a theme page lists its saints and links to detail pages", async ({
+  page,
+}) => {
+  await page.goto("./themes/bishops/");
+  await expect(page.locator(".tl-head h1")).toContainText("Bishops");
+  await expect(page.locator(".tl-count")).toContainText(/\d+ saints/);
+  const first = page.locator(".tl-list a.tl-row").first();
+  const href = await first.getAttribute("href");
+  expect(href).toMatch(/\/saint\/OS-/);
+  await page.goto("./themes/");
+  await page.locator('.th-card[href*="/themes/bishops"]').click();
+  await page.waitForURL(/\/themes\/bishops\/?$/);
+});

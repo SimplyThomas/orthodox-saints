@@ -1,0 +1,116 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SAINTS } from "../../lib/data";
+import { THEME_CATALOG, themeBySlug } from "../../lib/themes";
+import { primaryRank, rankSlug } from "../../lib/saints";
+import { withBase } from "../../lib/format";
+
+export const getStaticPaths = (() => {
+  return THEME_CATALOG.filter((t) => t.count > 0).map((t) => ({
+    params: { slug: t.slug },
+    props: { slug: t.slug },
+  }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.props as { slug: string };
+const theme = themeBySlug.get(slug)!;
+const saints = SAINTS.filter((s) => (s.themes || []).includes(slug)).sort(
+  (a, b) => a.feastSort - b.feastSort || a.name.localeCompare(b.name),
+);
+---
+
+<BaseLayout
+  active="themes"
+  title={`${theme.label} — Saints`}
+  description={theme.desc}
+>
+  <div class="tl-head">
+    <a class="tl-back" href={withBase("themes")}>&larr; All themes</a>
+    <h1>{theme.label}</h1>
+    <p class="tl-desc">{theme.desc}</p>
+    <p class="tl-count">{saints.length} saints</p>
+  </div>
+
+  <ol class="tl-list">
+    {
+      saints.map((s) => (
+        <li>
+          <a class="tl-row" href={withBase("saint/" + s.id)}>
+            <span class={`tag ${rankSlug(s)}`}>
+              <i />
+              {primaryRank(s)}
+            </span>
+            <span class="tl-name">{s.name}</span>
+            <span class="tl-feast">{s.feast}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="tl-more">
+    <a href={withBase("search")}>Browse all saints in the finder &rarr;</a>
+  </p>
+</BaseLayout>
+
+<style>
+  .tl-head {
+    max-width: 60ch;
+    margin-bottom: 1.5rem;
+  }
+  .tl-back {
+    font-size: 0.85rem;
+    color: var(--celest);
+    text-decoration: none;
+  }
+  .tl-head h1 {
+    font-family: var(--serif);
+    color: var(--byz-deep);
+    font-size: 2.2rem;
+    margin: 0.4rem 0 0.2rem;
+  }
+  .tl-desc {
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 0.3rem;
+  }
+  .tl-count {
+    color: var(--gold-deep);
+    font-size: 0.9rem;
+  }
+  .tl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.3rem;
+  }
+  .tl-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .tl-row:hover {
+    background: var(--paper);
+  }
+  .tl-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    flex: 1;
+  }
+  .tl-feast {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+  .tl-more {
+    margin-top: 1.5rem;
+  }
+  .tl-more a {
+    color: var(--celest);
+  }
+</style>
