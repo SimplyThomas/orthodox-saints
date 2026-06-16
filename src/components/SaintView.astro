@@ -167,19 +167,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {
-        profile?.patronage && profile.patronage.length > 0 && (
-          <div class="sv-rail-block">
-            <div class="eyebrow on-blue">Patronage</div>
-            <div class="sv-rail-chips">
-              {profile.patronage.map((p) => (
-                <span class="sv-rail-chip">{p}</span>
-              ))}
-            </div>
-          </div>
-        )
-      }
-
-      {
         m.links.length > 0 && (
           <div class="sv-rail-block">
             <div class="eyebrow on-blue">Explore</div>
@@ -368,10 +355,15 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {
-        m.address && (
-          <div class="sv-address">
-            <p>{m.address}</p>
-          </div>
+        profile?.patronage && profile.patronage.length > 0 && (
+          <section class="sv-section sv-patron">
+            <div class="eyebrow">Patronage</div>
+            <div class="sv-exp">
+              {profile.patronage.map((p) => (
+                <span class="tag intercession">{p}</span>
+              ))}
+            </div>
+          </section>
         )
       }
 

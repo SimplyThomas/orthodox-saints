@@ -5,7 +5,6 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   expect(resp?.status()).toBe(200);
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
-  await expect(page.locator(".sv-address")).toBeVisible();
   // Lifespan subtitle renders under the name.
   await expect(
     page.locator(".sv-lifespan", { hasText: "Archbishop of Caesarea" }),
@@ -83,12 +82,10 @@ test("Basil's contributions & legacy render in the full-width band", async ({
   ).toBeVisible();
 });
 
-test("Basil's rail carries works, further reading, and patronage", async ({
-  page,
-}) => {
+test("Basil's rail carries works and further reading", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
 
-  // The reference apparatus lives in the blue icon rail, not the story column.
+  // The works / reading reference apparatus lives in the blue icon rail.
   const rail = page.locator(".sv-rail");
 
   // Works (profile titles).
@@ -104,13 +101,17 @@ test("Basil's rail carries works, further reading, and patronage", async ({
     rail.locator(".sv-rail-by", { hasText: "Philip Rousseau" }),
   ).toBeVisible();
 
-  // Patronage chips.
-  await expect(
-    rail.locator(".sv-rail-chip", { hasText: "Monastics" }),
-  ).toBeVisible();
-
   // The story column no longer carries a works block.
   await expect(page.locator(".sv-main .sv-works")).toHaveCount(0);
+});
+
+test("Basil's patronage sits in the story column beside themes / life experience", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+  await expect(
+    page.locator(".sv-patron .tag.intercession", { hasText: "Monastics" }),
+  ).toBeVisible();
 });
 
 test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
