@@ -3,7 +3,7 @@
    SaintView only when SAINT_PROFILES[saint.id] exists. Reuses the saint-page
    visual idiom (ivory column, gold eyebrow rules) — additive to the existing view. */
 import type { SaintProfile } from "../lib/saint-profiles";
-import { withBase } from "../lib/format";
+import FigureList from "./FigureList.astro";
 
 interface Props {
   profile: SaintProfile;
@@ -23,7 +23,7 @@ const { profile } = Astro.props;
   {/* ── Timeline ── */}
   {
     profile.timeline && profile.timeline.length > 0 && (
-      <section class="sp-sec">
+      <section class="sp-sec sp-timeline-sec">
         <h2>Timeline</h2>
         <ul class="sp-timeline">
           {profile.timeline.map((t) => (
@@ -48,18 +48,7 @@ const { profile } = Astro.props;
         {profile.family.intro && (
           <p class="sp-fam-intro">{profile.family.intro}</p>
         )}
-        <ul class="sp-figs">
-          {profile.family.figures.map((f) => (
-            <li>
-              {f.href ? (
-                <a href={withBase(f.href)}>{f.name}</a>
-              ) : (
-                <span>{f.name}</span>
-              )}
-              <span class="sp-rel"> · {f.note}</span>
-            </li>
-          ))}
-        </ul>
+        <FigureList figures={profile.family.figures} />
       </section>
     )
   }
@@ -69,18 +58,7 @@ const { profile } = Astro.props;
     profile.related && profile.related.length > 0 && (
       <section class="sp-sec sp-related">
         <h2>Related Saints</h2>
-        <ul class="sp-figs">
-          {profile.related.map((f) => (
-            <li>
-              {f.href ? (
-                <a href={withBase(f.href)}>{f.name}</a>
-              ) : (
-                <span>{f.name}</span>
-              )}
-              <span class="sp-rel"> · {f.note}</span>
-            </li>
-          ))}
-        </ul>
+        <FigureList figures={profile.related} />
       </section>
     )
   }
@@ -122,30 +100,14 @@ const { profile } = Astro.props;
     font-weight: 600;
     color: var(--gold-deep);
   }
+  .sp-what {
+    flex: 1;
+  }
   .sp-tbody {
     color: var(--ink-soft);
   }
   .sp-fam-intro {
     line-height: 1.7;
     margin: 0 0 0.6rem;
-  }
-  .sp-figs {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .sp-figs li {
-    padding: 0.25rem 0;
-  }
-  .sp-figs a {
-    color: var(--byz);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .sp-figs a:hover {
-    color: var(--celest);
-  }
-  .sp-rel {
-    color: var(--ink-soft);
   }
 </style>

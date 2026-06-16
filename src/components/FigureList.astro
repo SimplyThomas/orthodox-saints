@@ -1,0 +1,45 @@
+---
+import type { RelatedFigure } from "../lib/ephraim";
+import { withBase } from "../lib/format";
+interface Props {
+  figures: RelatedFigure[];
+}
+const { figures } = Astro.props;
+---
+
+<ul class="sp-figs">
+  {
+    figures.map((f) => (
+      <li>
+        {f.href ? (
+          <a href={withBase(f.href)}>{f.name}</a>
+        ) : (
+          <span>{f.name}</span>
+        )}
+        <span class="sp-rel"> · {f.note}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .sp-figs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sp-figs li {
+    padding: 0.25rem 0;
+  }
+  .sp-figs a {
+    color: var(--byz);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .sp-figs a:hover {
+    color: var(--celest);
+  }
+  .sp-rel {
+    color: var(--ink-soft);
+  }
+</style>

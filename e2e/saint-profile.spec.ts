@@ -49,6 +49,10 @@ test("Basil's profile shows a timeline, holy family, and related saints", async 
   await expect(
     page.locator(".sp-family", { hasText: "Naucratius" }),
   ).toBeVisible();
+  // Naucratius has no dataset row → rendered as plain text, never a link.
+  await expect(
+    page.locator(".sp-family li", { hasText: "Naucratius" }).locator("a"),
+  ).toHaveCount(0);
 
   // Related Saints links resolve to real saint pages.
   await expect(
