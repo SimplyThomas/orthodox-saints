@@ -376,6 +376,17 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {profile && <SaintProfile profile={profile} />}
+
+      {
+        m.customs && (
+          <section class="sv-section">
+            <div class="sv-customs">
+              <div class="eyebrow">Customs &amp; Traditions</div>
+              <p>{m.customs}</p>
+            </div>
+          </section>
+        )
+      }
     </main>
   </div>
 
@@ -404,11 +415,7 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
     /* ── Holy Family · Related · Customs · Notes · Sources — beneath the legacy ── */
   }
   {
-    (profile?.family ||
-      relatedFigures.length > 0 ||
-      m.customs ||
-      m.notes ||
-      m.sources) && (
+    (profile?.family || relatedFigures.length > 0 || m.notes || m.sources) && (
       <section class="sv-after">
         <div class="sv-after-inner">
           {profile?.family && (
@@ -424,12 +431,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
             <div class="sv-after-block">
               <h2>Related Saints</h2>
               <FigureList figures={relatedFigures} />
-            </div>
-          )}
-          {m.customs && (
-            <div class="sv-after-block sv-customs">
-              <div class="eyebrow">Customs &amp; Traditions</div>
-              <p>{m.customs}</p>
             </div>
           )}
           {m.notes && (
