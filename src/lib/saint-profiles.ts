@@ -39,7 +39,6 @@ export interface SaintProfile {
   family?: FamilyGroup;
   related?: RelatedFigure[];
   patronage?: string[];
-  themes?: string[];
   works?: ProfileWork[]; // supersedes the plain CSV Works/About on this saint's page
   reading?: ReadingGroup[];
 }
@@ -217,18 +216,6 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
       "Hospital workers",
       "Charitable ministries",
       "Social service organizations",
-    ],
-    themes: [
-      "Theology",
-      "Church Fathers",
-      "Three Holy Hierarchs",
-      "Cappadocian Fathers",
-      "Monasticism",
-      "Christian Charity",
-      "Bishops",
-      "Defenders of Orthodoxy",
-      "Patristics",
-      "Education",
     ],
     works: [
       {

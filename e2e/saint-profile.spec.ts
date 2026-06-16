@@ -85,7 +85,7 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
   ).toBeVisible();
 });
 
-test("Basil's profile shows works, further reading, patronage, and themes", async ({
+test("Basil's profile shows works, further reading, and patronage", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
@@ -109,12 +109,9 @@ test("Basil's profile shows works, further reading, patronage, and themes", asyn
     page.locator(".sp-reading li", { hasText: "Philip Rousseau" }),
   ).toBeVisible();
 
-  // Patronage chips and Theme badges.
+  // Patronage chips.
   await expect(
     page.locator(".sp-patron .sp-chip", { hasText: "Monastics" }),
-  ).toBeVisible();
-  await expect(
-    page.locator(".sp-themes .sp-badge", { hasText: "Church Fathers" }),
   ).toBeVisible();
 
   // The plain CSV "Works by the Saint" block is superseded by the profile table.

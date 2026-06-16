@@ -569,5 +569,31 @@ class SaintQuoteTests(unittest.TestCase):
                          "\n".join(errs))
 
 
+class ThemeIntegrationTests(unittest.TestCase):
+    def test_record_has_derived_themes(self):
+        r = valid_row(**{"Church Status": "Clergy - Bishop", "Rank / Type": "Hierarch"})
+        rec = build.to_record(r)
+        self.assertIn("themes", rec)
+        self.assertIn("bishops", rec["themes"])
+        self.assertIn("hierarchs", rec["themes"])
+
+    def test_theme_labels_in_search_haystack(self):
+        rec = build.to_record(valid_row(**{"Church Status": "Clergy - Bishop"}))
+        self.assertIn("bishops", rec["themes"])
+        self.assertIn("Bishops", rec["search"])
+
+    def test_unknown_override_slug_errors(self):
+        row = valid_row()
+        row["Themes"] = "bishops; not-a-real-theme"
+        errs = errors_for([row])
+        self.assertTrue(any("not-a-real-theme" in e for e in errs))
+
+    def test_known_override_slug_ok(self):
+        row = valid_row()
+        row["Themes"] = "church-fathers"
+        errs = errors_for([row])
+        self.assertEqual([e for e in errs if "church-fathers" in e], [])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

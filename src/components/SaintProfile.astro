@@ -96,20 +96,6 @@ const { profile } = Astro.props;
     )
   }
 
-  {/* ── Themes ── (plain in Feature A; Feature B will link to /themes/) */}
-  {
-    profile.themes && profile.themes.length > 0 && (
-      <section class="sp-sec sp-themes">
-        <h2>Themes</h2>
-        <div class="sp-chips">
-          {profile.themes.map((t) => (
-            <span class="sp-badge">{t}</span>
-          ))}
-        </div>
-      </section>
-    )
-  }
-
   {/* ── Notable Works ── */}
   {
     profile.works && profile.works.length > 0 && (
@@ -214,8 +200,7 @@ const { profile } = Astro.props;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  .sp-chip,
-  .sp-badge {
+  .sp-chip {
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
@@ -223,10 +208,6 @@ const { profile } = Astro.props;
     border: 1px solid var(--line);
     background: var(--paper);
     color: var(--ink);
-  }
-  .sp-badge {
-    border-color: var(--line-gold);
-    color: var(--gold-deep);
   }
   .sp-works {
     list-style: none;
