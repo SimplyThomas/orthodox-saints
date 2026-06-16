@@ -127,9 +127,9 @@ test("Basil's themes, life experience, and patronage sit in the icon rail", asyn
 test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
   await expect(page.locator(".sv-quote blockquote")).toBeVisible();
-  // Cited to the Hexaemeron, public-domain NPNF translation.
+  // Cited to On the Holy Spirit, public-domain NPNF translation.
   await expect(page.locator(".sv-quote figcaption")).toContainText(
-    "Hexaemeron",
+    "On the Holy Spirit",
   );
   await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
 });
