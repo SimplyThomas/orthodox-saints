@@ -3736,37 +3736,41 @@ a.sv-theme {
 .sv-related-rank {
   color: var(--ink-soft);
 }
-/* Quote — a full-width band across the page, in the rail's deep Byzantine blue,
-   sitting between the two columns and the Contributions & Legacy band. */
+/* Quote — a full-width section between the columns and the legacy, carrying a
+   centered white card that matches the Customs & Traditions box. */
 .sv-quoteband {
-  background: var(--byz-deep);
+  padding: 40px clamp(22px, 4vw, 64px);
 }
 .sv-quote {
   margin: 0 auto;
-  max-width: 820px;
-  padding: 50px clamp(22px, 4vw, 64px) 54px;
+  max-width: 900px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow-soft);
+  padding: 40px clamp(24px, 4vw, 56px) 44px;
   text-align: center;
 }
 .sv-quote-mark {
   display: block;
   font-family: var(--serif);
-  font-size: 64px;
+  font-size: 60px;
   line-height: 0.5;
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   user-select: none;
 }
 .sv-quote blockquote {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(23px, 2.8vw, 32px);
+  font-size: clamp(22px, 2.6vw, 30px);
   font-style: italic;
   line-height: 1.42;
-  color: var(--ivory);
+  color: var(--byz-deep);
   text-wrap: pretty;
 }
 .sv-quote figcaption {
-  margin-top: 18px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3774,10 +3778,10 @@ a.sv-theme {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-soft);
+  color: var(--gold-deep);
 }
 .sv-quote figcaption a {
-  color: var(--gold-soft);
+  color: var(--gold-deep);
   text-decoration: none;
 }
 .sv-quote-rule {
@@ -3789,7 +3793,7 @@ a.sv-theme {
 .sv-quote-trans {
   text-transform: none;
   letter-spacing: 0.01em;
-  color: var(--celest-soft);
+  color: var(--ink-soft);
 }
 .sv-customs {
   background: #fff;
