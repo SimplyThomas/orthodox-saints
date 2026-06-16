@@ -3387,7 +3387,7 @@ a.news-card:hover .news-h {
 .sv-rail {
   background: var(--byz-deep);
   color: var(--ivory);
-  padding: 52px clamp(24px, 3vw, 40px) 56px;
+  padding: 52px clamp(24px, 3vw, 40px) 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3595,7 +3595,7 @@ a.sv-rail-chip:hover {
 
 /* ---- story column ---- */
 .sv-main {
-  padding: 52px clamp(22px, 4vw, 64px) 64px;
+  padding: 52px clamp(22px, 4vw, 64px) 30px;
   max-width: 840px;
 }
 .sv-eyebrow {
@@ -3637,7 +3637,7 @@ a.sv-rail-chip:hover {
 /* Timeline — a white band that spans the full page width, set off from the
    columns above by a gap. */
 .sv-tlband {
-  margin-top: 30px;
+  margin-top: 10px;
   background: #fff;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
