@@ -64,6 +64,9 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  await expect(
+    page.locator(".sp-sec h2", { hasText: "Contributions & Legacy" }),
+  ).toBeVisible();
   for (const h of [
     "Theology of the Holy Spirit",
     "Father of Eastern Monasticism",

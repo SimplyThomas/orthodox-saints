@@ -24,6 +24,7 @@ const { profile } = Astro.props;
   {
     profile.sections && profile.sections.length > 0 && (
       <section class="sp-sec sp-prose">
+        <h2>Contributions &amp; Legacy</h2>
         {profile.sections.map((s) => (
           <article class="sp-block">
             <h3>{s.heading}</h3>
