@@ -1,9 +1,9 @@
 ---
-/* Rich, optional encyclopedic narrative for a canonical saint. Rendered by
-   SaintView only when SAINT_PROFILES[saint.id] exists, AFTER the quote/finder
-   facets. Carries the LIFE STORY (biography, contributions & legacy, timeline,
-   family); the reference apparatus (lifespan line, patronage, works, further
-   reading) is rendered by SaintView in the icon rail, so it is not repeated here. */
+/* Rich, optional encyclopedic narrative for a canonical saint — the part that
+   sits in the IVORY story column beside the rail: biography, timeline, family.
+   Contributions & Legacy is rendered separately by SaintView as a full-width
+   band beneath both columns; the reference apparatus (lifespan, patronage,
+   works, further reading) lives in the icon rail. So neither is repeated here. */
 import type { SaintProfile } from "../lib/saint-profiles";
 import FigureList from "./FigureList.astro";
 
@@ -21,27 +21,6 @@ const { profile } = Astro.props;
       {profile.overview.map((p) => <p>{p}</p>)}
     </div>
   </section>
-
-  {
-    /* ── Contributions / Legacy / "the Great" — a compact, scannable card grid ── */
-  }
-  {
-    profile.sections && profile.sections.length > 0 && (
-      <section class="sp-sec sp-prose">
-        <h2>Contributions &amp; Legacy</h2>
-        <div class="sp-prose-grid">
-          {profile.sections.map((s) => (
-            <article class="sp-block">
-              <h3>{s.heading}</h3>
-              {s.body.map((p) => (
-                <p>{p}</p>
-              ))}
-            </article>
-          ))}
-        </div>
-      </section>
-    )
-  }
 
   {/* ── Timeline ── */}
   {
@@ -109,36 +88,6 @@ const { profile } = Astro.props;
   .sp-bio p:last-child {
     margin-bottom: 0;
   }
-
-  /* Contributions & Legacy: dense, scannable cards (was a long stack of prose) */
-  .sp-prose-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 0.7rem;
-  }
-  .sp-block {
-    margin: 0;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 0.75rem 0.9rem;
-  }
-  .sp-prose h3 {
-    font-family: var(--serif);
-    font-size: 1.04rem;
-    color: var(--byz);
-    margin: 0 0 0.3rem;
-  }
-  .sp-prose p {
-    margin: 0 0 0.45rem;
-    font-size: 0.93rem;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .sp-prose p:last-child {
-    margin-bottom: 0;
-  }
-
   .sp-timeline {
     list-style: none;
     margin: 0;

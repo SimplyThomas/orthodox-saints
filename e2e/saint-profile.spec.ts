@@ -64,12 +64,12 @@ test("Basil's profile shows a timeline, holy family, and related saints", async 
   ).toBeVisible();
 });
 
-test("Basil's profile shows contributions, legacy, and the 'Great' section", async ({
+test("Basil's contributions & legacy render in the full-width band", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
   await expect(
-    page.locator(".sp-sec h2", { hasText: "Contributions & Legacy" }),
+    page.locator(".sv-legacy-title", { hasText: "Contributions & Legacy" }),
   ).toBeVisible();
   for (const h of [
     "Theology of the Holy Spirit",
@@ -77,11 +77,13 @@ test("Basil's profile shows contributions, legacy, and the 'Great' section", asy
     "Legacy in Christian Charity",
     'Why He Is Called "the Great"',
   ]) {
-    await expect(page.locator(".sp-prose h3", { hasText: h })).toBeVisible();
+    await expect(
+      page.locator(".sv-legacy-card h3", { hasText: h }),
+    ).toBeVisible();
   }
-  // The Basiliad is described in the charity section.
+  // The Basiliad is described in the charity card.
   await expect(
-    page.locator(".sp-prose", { hasText: "Basiliad" }).first(),
+    page.locator(".sv-legacy-card", { hasText: "Basiliad" }).first(),
   ).toBeVisible();
 });
 
