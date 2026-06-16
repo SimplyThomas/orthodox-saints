@@ -13,10 +13,14 @@ const { figures } = Astro.props;
       <li>
         {f.href ? (
           <a href={withBase(f.href)}>{f.name}</a>
+        ) : f.external ? (
+          <a href={f.external} target="_blank" rel="noopener noreferrer">
+            {f.name}
+          </a>
         ) : (
           <span>{f.name}</span>
         )}
-        <span class="sp-rel"> · {f.note}</span>
+        {f.note && <span class="sp-rel"> · {f.note}</span>}
       </li>
     ))
   }
