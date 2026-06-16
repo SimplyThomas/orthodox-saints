@@ -3718,6 +3718,7 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
 }
 .sv-quote {
+  margin: 0;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
