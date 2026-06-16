@@ -3797,20 +3797,14 @@ a.sv-rail-chip:hover {
   margin: 0;
 }
 /* Contributions & Legacy — full-width band beneath the rail + story columns */
-.sv-legacy {
-  background: var(--byz-deep);
-}
-.sv-legacy-inner {
-  max-width: 1270px;
-  margin: 0 auto;
-  padding: 46px clamp(22px, 4vw, 64px) 58px;
-}
 .sv-legacy-title {
   font-family: var(--serif);
-  font-size: clamp(26px, 3vw, 34px);
+  font-size: clamp(24px, 3vw, 32px);
   color: var(--ivory);
   text-align: center;
   margin: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 .sv-legacy-title::after {
   content: "";
@@ -3889,7 +3883,10 @@ a.sv-rail-chip:hover {
 .sv-panel--plum {
   background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
 }
-.sv-after h2 {
+.sv-panel--byz {
+  background: var(--byz-deep);
+}
+.sv-after h2:not(.sv-legacy-title) {
   font-family: var(--serif);
   font-size: 1.3rem;
   color: var(--ivory);

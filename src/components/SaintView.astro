@@ -349,33 +349,14 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
     )
   }
 
-  {/* ── Contributions & Legacy — a full-width band beneath both columns ── */}
   {
-    profile?.sections && profile.sections.length > 0 && (
-      <section class="sv-legacy">
-        <div class="sv-legacy-inner">
-          <h2 class="sv-legacy-title">Contributions &amp; Legacy</h2>
-          <div class="sv-legacy-grid">
-            {profile.sections.map((s) => (
-              <article class="sv-legacy-card">
-                <h3>{s.heading}</h3>
-                {s.body.map((p) => (
-                  <p>{p}</p>
-                ))}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  {
-    /* ── Coloured panels beneath the legacy (echoing the America carousels):
-       Works = garnet · Further Reading = forest · Family/Related/Notes = plum. ── */
+    /* ── Coloured panels beneath the columns (echoing the America carousels),
+       all sharing one width: Contributions & Legacy = blue · Works = garnet ·
+       Further Reading = forest · Family/Related/Notes = plum. ── */
   }
   {
-    (hasWorks ||
+    (profile?.sections?.length ||
+      hasWorks ||
       hasReading ||
       profile?.family ||
       relatedFigures.length > 0 ||
@@ -383,6 +364,21 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       m.sources) && (
       <section class="sv-after">
         <div class="sv-after-inner">
+          {profile?.sections && profile.sections.length > 0 && (
+            <section class="sv-panel sv-panel--byz sv-legacy-panel">
+              <h2 class="sv-legacy-title">Contributions &amp; Legacy</h2>
+              <div class="sv-legacy-grid">
+                {profile.sections.map((s) => (
+                  <article class="sv-legacy-card">
+                    <h3>{s.heading}</h3>
+                    {s.body.map((p) => (
+                      <p>{p}</p>
+                    ))}
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
           {hasWorks && (
             <section class="sv-panel sv-panel--garnet sv-works-after">
               <h2>Notable Works</h2>
