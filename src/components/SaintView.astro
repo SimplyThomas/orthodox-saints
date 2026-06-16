@@ -36,9 +36,10 @@ const relatedFigures =
 // Reference apparatus lives in the rail. A profile's rich works/reading supersede
 // the plain CSV-derived lists; otherwise the CSV search-link lists are shown.
 const railWorks = profile?.works?.length ? profile.works : null;
-const railReading = profile?.reading?.length ? profile.reading : null;
 const hasRailWorks = !!railWorks || m.works.length > 0;
-const hasRailReading = !!railReading || m.about.length > 0;
+// Further reading sits in the "after" region beneath the legacy, not the rail.
+const readingGroups = profile?.reading?.length ? profile.reading : null;
+const hasReading = !!readingGroups || m.about.length > 0;
 
 // The large rail icon. A real portrait fills a plain rounded rectangle (the
 // design's icon-slot) — NOT the arched monogram clip, whose path() coordinates
@@ -218,41 +219,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
           </div>
         )
       }
-
-      {
-        hasRailReading && (
-          <div class="sv-rail-block">
-            <div class="eyebrow on-blue">Further reading</div>
-            {railReading ? (
-              railReading.map((g) => (
-                <div class="sv-rail-readgroup">
-                  <div class="sv-rail-readhead">{g.heading}</div>
-                  <ul class="sv-rail-list">
-                    {g.items.map((it) => (
-                      <li>
-                        <span class="sv-rail-t">{it.title}</span>
-                        {it.author && (
-                          <span class="sv-rail-by"> · {it.author}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))
-            ) : (
-              <ul class="sv-rail-list">
-                {m.about.map((w) => (
-                  <li>
-                    <a href={w.u} target="_blank" rel="noopener noreferrer">
-                      {w.t}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        )
-      }
     </aside>
 
     {/* ── STORY COLUMN (quote-led; sought info up top; narrative below) ── */}
@@ -402,12 +368,50 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
   }
 
   {
-    /* ── Holy Family · Related · Customs · Notes · Sources — beneath the legacy ── */
+    /* ── Further Reading · Holy Family · Related · Notes · Sources — beneath the legacy ── */
   }
   {
-    (profile?.family || relatedFigures.length > 0 || m.notes || m.sources) && (
+    (hasReading ||
+      profile?.family ||
+      relatedFigures.length > 0 ||
+      m.notes ||
+      m.sources) && (
       <section class="sv-after">
         <div class="sv-after-inner">
+          {hasReading && (
+            <div class="sv-after-block sv-reading">
+              <h2>Further Reading</h2>
+              {readingGroups ? (
+                <div class="sv-reading-groups">
+                  {readingGroups.map((g) => (
+                    <div class="sv-read-group">
+                      <div class="sv-read-head">{g.heading}</div>
+                      <ul class="sv-read-list">
+                        {g.items.map((it) => (
+                          <li>
+                            <em>{it.title}</em>
+                            {it.author && (
+                              <span class="sv-read-by"> — {it.author}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul class="sv-read-list">
+                  {m.about.map((w) => (
+                    <li>
+                      <a href={w.u} target="_blank" rel="noopener noreferrer">
+                        {w.t}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
           {profile?.family && (
             <div class="sv-after-block">
               <h2>{profile.family.heading}</h2>

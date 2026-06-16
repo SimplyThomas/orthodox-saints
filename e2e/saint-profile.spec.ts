@@ -82,27 +82,30 @@ test("Basil's contributions & legacy render in the full-width band", async ({
   ).toBeVisible();
 });
 
-test("Basil's rail carries works and further reading", async ({ page }) => {
+test("Basil's rail carries the works list", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
-
-  // The works / reading reference apparatus lives in the blue icon rail.
-  const rail = page.locator(".sv-rail");
-
-  // Works (profile titles).
+  // Works (profile titles) live in the blue icon rail.
   await expect(
-    rail.locator(".sv-rail-t", { hasText: "On the Holy Spirit" }),
+    page.locator(".sv-rail .sv-rail-t", { hasText: "On the Holy Spirit" }),
   ).toBeVisible();
-
-  // Further reading, grouped Ancient / Modern.
-  await expect(
-    rail.locator(".sv-rail-readhead", { hasText: "Ancient Sources" }),
-  ).toBeVisible();
-  await expect(
-    rail.locator(".sv-rail-by", { hasText: "Philip Rousseau" }),
-  ).toBeVisible();
-
   // The story column no longer carries a works block.
   await expect(page.locator(".sv-main .sv-works")).toHaveCount(0);
+});
+
+test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+  const reading = page.locator(".sv-after .sv-reading");
+  await expect(
+    reading.locator("h2", { hasText: "Further Reading" }),
+  ).toBeVisible();
+  await expect(
+    reading.locator(".sv-read-head", { hasText: "Ancient Sources" }),
+  ).toBeVisible();
+  await expect(
+    reading.locator(".sv-read-by", { hasText: "Philip Rousseau" }),
+  ).toBeVisible();
 });
 
 test("Basil's patronage sits in the story column beside themes / life experience", async ({
