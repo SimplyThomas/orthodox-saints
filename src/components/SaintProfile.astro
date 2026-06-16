@@ -12,6 +12,8 @@ const { profile } = Astro.props;
 ---
 
 <div class="saint-profile">
+  {profile.lifespan && <p class="sp-lifespan">{profile.lifespan}</p>}
+
   {/* ── Life (expanded biography) ── */}
   <section class="sp-sec sp-life">
     <h2>Life</h2>
@@ -94,9 +96,7 @@ const { profile } = Astro.props;
     )
   }
 
-  {
-    /* ── Themes ── (plain badges in Feature A; Feature B repoints them to /themes/<slug>) */
-  }
+  {/* ── Themes ── (plain in Feature A; Feature B will link to /themes/) */}
   {
     profile.themes && profile.themes.length > 0 && (
       <section class="sp-sec sp-themes">
@@ -135,7 +135,7 @@ const { profile } = Astro.props;
         {profile.reading.map((g) => (
           <div class="sp-read-group">
             <h3>{g.heading}</h3>
-            <ul>
+            <ul class="sp-read-list">
               {g.items.map((it) => (
                 <li>
                   <em>{it.title}</em>
@@ -250,12 +250,19 @@ const { profile } = Astro.props;
     color: var(--byz);
     margin: 0 0 0.3rem;
   }
-  .sp-read-group ul {
+  .sp-read-list {
     margin: 0;
     padding-left: 1.1rem;
   }
-  .sp-read-group li {
+  .sp-read-list li {
     padding: 0.15rem 0;
     line-height: 1.6;
+  }
+  .sp-lifespan {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
   }
 </style>

@@ -6,6 +6,10 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
   await expect(page.locator(".sv-address")).toBeVisible();
+  // Lifespan subtitle renders.
+  await expect(
+    page.locator(".sp-lifespan", { hasText: "Archbishop of Caesarea" }),
+  ).toBeVisible();
   // The rich profile adds a "Life" biography section with multiple paragraphs.
   await expect(page.locator(".sp-sec h2", { hasText: "Life" })).toBeVisible();
   await expect(
