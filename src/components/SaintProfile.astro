@@ -20,6 +20,22 @@ const { profile } = Astro.props;
     </div>
   </section>
 
+  {/* ── Contributions / Legacy / "the Great" ── */}
+  {
+    profile.sections && profile.sections.length > 0 && (
+      <section class="sp-sec sp-prose">
+        {profile.sections.map((s) => (
+          <article class="sp-block">
+            <h3>{s.heading}</h3>
+            {s.body.map((p) => (
+              <p>{p}</p>
+            ))}
+          </article>
+        ))}
+      </section>
+    )
+  }
+
   {/* ── Timeline ── */}
   {
     profile.timeline && profile.timeline.length > 0 && (
@@ -109,5 +125,18 @@ const { profile } = Astro.props;
   .sp-fam-intro {
     line-height: 1.7;
     margin: 0 0 0.6rem;
+  }
+  .sp-prose .sp-block {
+    margin: 0 0 1.1rem;
+  }
+  .sp-prose h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--byz);
+    margin: 0 0 0.35rem;
+  }
+  .sp-prose p {
+    margin: 0 0 0.6rem;
+    line-height: 1.7;
   }
 </style>

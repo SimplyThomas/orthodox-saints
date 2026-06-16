@@ -142,5 +142,73 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
         href: "saint/OS-0023",
       },
     ],
+    sections: [
+      {
+        heading: "Defender of Nicene Orthodoxy",
+        body: [
+          "During the Arian controversies of the fourth century Basil stood at the center of the defense of the Nicene faith, and his writings helped give lasting shape to the Orthodox confession of the Holy Trinity.",
+        ],
+      },
+      {
+        heading: "Theology of the Holy Spirit",
+        body: [
+          "His treatise On the Holy Spirit remains among the most important works of patristic theology, setting out the Church's confession of the full divinity of the Holy Spirit alongside the Father and the Son.",
+        ],
+      },
+      {
+        heading: "Founder of Organized Christian Charity",
+        body: [
+          "Basil established extensive institutions for the poor, the sick, and the traveler on the edge of Caesarea. The complex later called the Basiliad became a model for Christian philanthropy in the centuries that followed.",
+        ],
+      },
+      {
+        heading: "Father of Eastern Monasticism",
+        body: [
+          "Though monasticism preceded him, Basil's rules and counsel organized and stabilized communal monastic life across the Eastern Christian world, and they remain influential in Orthodox monasteries to this day.",
+        ],
+      },
+      {
+        heading: "Liturgical Legacy",
+        body: [
+          "The Divine Liturgy of Saint Basil the Great is appointed for the Sundays of Great Lent, the eves of the Nativity and of Theophany when so appointed, Holy Thursday, Holy Saturday, and his feast on January 1.",
+        ],
+      },
+      {
+        heading: "Legacy in Theology",
+        body: [
+          "Basil's defense of the Nicene faith helped shape the Church's confession of the Holy Trinity at a decisive moment, and his work on the Holy Spirit fed directly into the doctrine affirmed by the Second Ecumenical Council in 381. With Gregory the Theologian and his brother Gregory of Nyssa he is numbered among the Cappadocian Fathers, whose thought continues to inform Orthodox teaching.",
+        ],
+      },
+      {
+        heading: "Legacy in Monasticism",
+        body: [
+          "His rules and guidance gave communal monastic life an enduring shape — prayer, obedience, manual labor, charity, and a life shared in common — that countless Orthodox monasteries have followed ever since.",
+        ],
+      },
+      {
+        heading: "Legacy in Liturgical Life",
+        body: [
+          "The Liturgy that bears his name remains one of the principal eucharistic services of the Orthodox Church, preserving prayers long associated with him and reflecting his emphasis on God's saving work through history.",
+        ],
+      },
+      {
+        heading: "Legacy in Christian Charity",
+        body: [
+          "Basil held care for the poor and the sick to be inseparable from the Christian life. The institutions he founded near Caesarea anticipated the later hospitals, hospices, and shelters of the Christian world; historians often point to the Basiliad as one of the earliest large-scale Christian charitable complexes.",
+        ],
+      },
+      {
+        heading: "Legacy in Education",
+        body: [
+          "A classically trained scholar, Basil encouraged Christians to seek wisdom while remaining grounded in the faith. His Address to Young Men on the Right Use of Greek Literature became one of the most influential early Christian treatments of education and of the relationship between faith and classical learning.",
+        ],
+      },
+      {
+        heading: 'Why He Is Called "the Great"',
+        body: [
+          "The title reflects not his theology alone but the breadth of his influence across the whole life of the Church. Few figures have left so lasting a mark on doctrine, worship, monasticism, education, and works of mercy at once, and for this he is remembered among the Three Holy Hierarchs and among the greatest teachers and pastors in Christian history.",
+        ],
+      },
+    ],
   },
 };

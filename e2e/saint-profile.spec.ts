@@ -59,3 +59,21 @@ test("Basil's profile shows a timeline, holy family, and related saints", async 
     page.locator('.sp-related a[href*="/saint/OS-0023"]'), // John Chrysostom
   ).toBeVisible();
 });
+
+test("Basil's profile shows contributions, legacy, and the 'Great' section", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0021/");
+  for (const h of [
+    "Theology of the Holy Spirit",
+    "Father of Eastern Monasticism",
+    "Legacy in Christian Charity",
+    'Why He Is Called "the Great"',
+  ]) {
+    await expect(page.locator(".sp-prose h3", { hasText: h })).toBeVisible();
+  }
+  // The Basiliad is described in the charity section.
+  await expect(
+    page.locator(".sp-prose", { hasText: "Basiliad" }).first(),
+  ).toBeVisible();
+});
