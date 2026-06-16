@@ -3551,32 +3551,19 @@ a.news-card:hover .news-h {
   margin-bottom: 11px;
   display: block;
 }
-.sv-rail-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.sv-rail-links li {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-.sv-rail-links li:first-child {
-  border-top: 0;
-}
-.sv-rail-links a {
+/* Explore links — a row beneath Customs in the story column */
+.sv-explore-row {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.sv-explore-link {
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 0;
-  font-family: var(--serif);
-  font-size: 15px;
-  color: var(--gold-soft);
+  gap: 9px;
+  font-size: 14px;
   text-decoration: none;
-}
-.sv-rail-links a:hover {
-  color: var(--ivory);
-}
-.sv-rail-links svg {
-  color: var(--celest-soft);
+  padding: 10px 16px;
 }
 .sv-rail-chips {
   display: flex;
@@ -3647,8 +3634,10 @@ a.sv-rail-chip:hover {
   margin-bottom: 14px;
   display: block;
 }
-/* Timeline — a white band that spans the full page width, beneath the columns. */
+/* Timeline — a white band that spans the full page width, set off from the
+   columns above by a gap. */
 .sv-tlband {
+  margin-top: 30px;
   background: #fff;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);

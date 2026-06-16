@@ -225,36 +225,6 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
           </div>
         )
       }
-
-      {
-        m.links.length > 0 && (
-          <div class="sv-rail-block">
-            <div class="eyebrow on-blue">Explore</div>
-            <ul class="sv-rail-links">
-              {m.links.map((l) => (
-                <li>
-                  <a href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label}
-                    <svg
-                      width="11"
-                      height="11"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 10 10 4M5 4h5v5" />
-                    </svg>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
     </aside>
 
     {/* ── STORY COLUMN (quote-led; sought info up top; narrative below) ── */}
@@ -317,6 +287,39 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
             <div class="sv-customs">
               <div class="eyebrow">Customs &amp; Traditions</div>
               <p>{m.customs}</p>
+            </div>
+          </section>
+        )
+      }
+
+      {
+        m.links.length > 0 && (
+          <section class="sv-section sv-explore">
+            <div class="eyebrow">Explore</div>
+            <div class="sv-explore-row">
+              {m.links.map((l) => (
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--ghost sv-explore-link"
+                >
+                  {l.label}
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    stroke="var(--celest)"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 10 10 4M5 4h5v5" />
+                  </svg>
+                </a>
+              ))}
             </div>
           </section>
         )
