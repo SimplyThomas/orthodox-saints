@@ -3605,6 +3605,24 @@ a.news-card:hover .news-h {
 a.sv-theme {
   text-decoration: none;
 }
+.sv-related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+.sv-related-list a {
+  color: var(--byz);
+  text-decoration: none;
+  font-weight: 600;
+}
+.sv-related-list a:hover {
+  color: var(--celest);
+}
+.sv-related-rank {
+  color: var(--ink-soft);
+}
 .sv-quote {
   margin: 0;
   display: grid;

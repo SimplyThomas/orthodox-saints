@@ -53,3 +53,11 @@ test("a non-profiled saint also shows theme badges", async ({ page }) => {
   await page.goto("./saint/OS-0022/"); // Gregory the Theologian, no profile
   await expect(page.locator(".sv-themes a.sv-theme").first()).toBeVisible();
 });
+
+test("a non-profiled saint shows related saints by shared themes", async ({
+  page,
+}) => {
+  await page.goto("./saint/OS-0022/"); // Gregory the Theologian (no curated related list)
+  const rel = page.locator(".sv-related a[href*='/saint/OS-']");
+  expect(await rel.count()).toBeGreaterThan(0);
+});

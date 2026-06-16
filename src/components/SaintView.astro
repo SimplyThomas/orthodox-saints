@@ -10,7 +10,8 @@ import { primaryRank } from "../lib/saints";
 import { esc, withBase } from "../lib/format";
 import { SAINT_PROFILES } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
-import { themeBySlug } from "../lib/themes";
+import { themeBySlug, relatedByThemes } from "../lib/themes";
+import { SAINTS } from "../lib/data";
 
 interface Props {
   saint: Saint;
@@ -18,6 +19,12 @@ interface Props {
 const { saint } = Astro.props;
 const m = toSaintView(saint);
 const profile = SAINT_PROFILES[saint.id];
+
+// Curated related (from a rich profile) wins; otherwise derive by shared themes.
+const derivedRelated =
+  profile && profile.related && profile.related.length
+    ? []
+    : relatedByThemes(saint, SAINTS, 6);
 
 // The large rail icon. A real portrait fills a plain rounded rectangle (the
 // design's icon-slot) — NOT the arched monogram clip, whose path() coordinates
@@ -371,6 +378,22 @@ const linkGlyph = {
                 </svg>
               </a>
             ))}
+          </section>
+        )
+      }
+
+      {
+        derivedRelated.length > 0 && (
+          <section class="sv-section sv-related">
+            <div class="eyebrow">Related saints</div>
+            <ul class="sv-related-list">
+              {derivedRelated.map((s) => (
+                <li>
+                  <a href={withBase("saint/" + s.id)}>{s.name}</a>
+                  <span class="sv-related-rank"> · {primaryRank(s)}</span>
+                </li>
+              ))}
+            </ul>
           </section>
         )
       }
