@@ -3798,8 +3798,7 @@ a.sv-rail-chip:hover {
 }
 /* Contributions & Legacy — full-width band beneath the rail + story columns */
 .sv-legacy {
-  background: var(--ivory-2);
-  border-top: 1px solid var(--line-gold);
+  background: var(--byz-deep);
 }
 .sv-legacy-inner {
   max-width: 1270px;
@@ -3809,7 +3808,7 @@ a.sv-rail-chip:hover {
 .sv-legacy-title {
   font-family: var(--serif);
   font-size: clamp(26px, 3vw, 34px);
-  color: var(--byz-deep);
+  color: var(--ivory);
   text-align: center;
   margin: 0;
 }
@@ -3850,47 +3849,81 @@ a.sv-rail-chip:hover {
   margin-bottom: 0;
 }
 
-/* "After" matter — Holy Family · Related · Customs · Notes · Sources — beneath the band */
+/* "After" matter — coloured panels (echoing the America carousels) stacked
+   beneath the legacy: Works (garnet) · Further Reading (forest) · Family/
+   Related/Notes (plum) · then a plain Sources line. */
 .sv-after-inner {
-  max-width: 1270px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 42px clamp(22px, 4vw, 64px) 56px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 26px 44px;
-  align-items: start;
+  padding: 40px clamp(22px, 4vw, 64px) 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.sv-panel {
+  position: relative;
+  border-radius: 14px;
+  padding: 34px clamp(24px, 4vw, 48px) 38px;
+  color: var(--ivory);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.sv-panel::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  pointer-events: none;
+}
+.sv-panel > * {
+  position: relative;
+  z-index: 1;
+}
+.sv-panel--garnet {
+  background: linear-gradient(168deg, #6f3128 0%, #561f1a 55%, #431712 100%);
+}
+.sv-panel--forest {
+  background: linear-gradient(168deg, #33564a 0%, #244338 55%, #1b3329 100%);
+}
+.sv-panel--plum {
+  background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
 }
 .sv-after h2 {
   font-family: var(--serif);
   font-size: 1.3rem;
-  color: var(--byz-deep);
-  margin: 0 0 0.7rem;
+  color: var(--ivory);
+  margin: 0 0 0.8rem;
   padding-bottom: 0.3rem;
-  border-bottom: 1px solid var(--line-gold);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
 }
-.sv-fam-intro {
-  line-height: 1.65;
-  margin: 0 0 0.6rem;
+.sv-plum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px 40px;
 }
-.sv-after .sv-notes p {
-  font-size: 15.5px;
+.sv-plum-notes {
+  grid-column: 1 / -1;
+}
+.sv-plum-notes p {
+  font-size: 15px;
   line-height: 1.62;
-  color: var(--ink-soft);
+  color: var(--celest-soft);
   margin: 0;
 }
+.sv-fam-intro {
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+  color: var(--celest-soft);
+}
 .sv-after-sources {
-  grid-column: 1 / -1;
-  margin-top: 4px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
+  margin-top: 6px;
   font-size: 12.5px;
   color: var(--ink-soft);
 }
 
 /* Notable Works — full-width within the after-region; titles flow into columns */
-.sv-works-after {
-  grid-column: 1 / -1;
-}
+/* Notable Works — titles flow into columns on the garnet panel */
 .sv-worklist-after {
   list-style: none;
   margin: 0;
@@ -3906,24 +3939,21 @@ a.sv-rail-chip:hover {
 .sv-worklist-after em {
   font-family: var(--serif);
   font-style: italic;
-  color: var(--byz-deep);
+  color: var(--ivory);
 }
 .sv-work-desc {
-  color: var(--ink-soft);
+  color: var(--celest-soft);
 }
 .sv-worklist-after a {
   font-family: var(--serif);
-  color: var(--byz);
+  color: var(--gold-soft);
   text-decoration: none;
 }
 .sv-worklist-after a:hover {
-  color: var(--celest);
+  color: var(--ivory);
 }
 
-/* Further Reading — full-width within the after-region; groups laid side by side */
-.sv-reading {
-  grid-column: 1 / -1;
-}
+/* Further Reading — groups laid side by side on the forest panel */
 .sv-reading-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -3933,7 +3963,7 @@ a.sv-rail-chip:hover {
   font-size: 11px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--gold-soft);
   margin: 10px 0 4px;
 }
 .sv-read-list {
@@ -3944,7 +3974,7 @@ a.sv-rail-chip:hover {
 .sv-read-list li {
   padding: 5px 0;
   line-height: 1.5;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
 }
 .sv-read-list li:first-child {
   border-top: 0;
@@ -3952,18 +3982,18 @@ a.sv-rail-chip:hover {
 .sv-read-list em {
   font-family: var(--serif);
   font-style: italic;
-  color: var(--byz-deep);
+  color: var(--ivory);
 }
 .sv-read-list a {
   font-family: var(--serif);
-  color: var(--byz);
+  color: var(--gold-soft);
   text-decoration: none;
 }
 .sv-read-list a:hover {
-  color: var(--celest);
+  color: var(--ivory);
 }
 .sv-read-by {
-  color: var(--ink-soft);
+  color: var(--celest-soft);
   font-size: 0.92em;
 }
 

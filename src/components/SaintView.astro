@@ -371,7 +371,8 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
   }
 
   {
-    /* ── Works · Further Reading · Holy Family · Related · Notes · Sources — beneath the legacy ── */
+    /* ── Coloured panels beneath the legacy (echoing the America carousels):
+       Works = garnet · Further Reading = forest · Family/Related/Notes = plum. ── */
   }
   {
     (hasWorks ||
@@ -383,7 +384,7 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       <section class="sv-after">
         <div class="sv-after-inner">
           {hasWorks && (
-            <div class="sv-after-block sv-works-after">
+            <section class="sv-panel sv-panel--garnet sv-works-after">
               <h2>Notable Works</h2>
               <ul class="sv-worklist-after">
                 {worksList
@@ -403,10 +404,10 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
                       </li>
                     ))}
               </ul>
-            </div>
+            </section>
           )}
           {hasReading && (
-            <div class="sv-after-block sv-reading">
+            <section class="sv-panel sv-panel--forest sv-reading">
               <h2>Further Reading</h2>
               {readingGroups ? (
                 <div class="sv-reading-groups">
@@ -437,28 +438,34 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
                   ))}
                 </ul>
               )}
-            </div>
+            </section>
           )}
-          {profile?.family && (
-            <div class="sv-after-block">
-              <h2>{profile.family.heading}</h2>
-              {profile.family.intro && (
-                <p class="sv-fam-intro">{profile.family.intro}</p>
-              )}
-              <FigureList figures={profile.family.figures} />
-            </div>
-          )}
-          {relatedFigures.length > 0 && (
-            <div class="sv-after-block">
-              <h2>Related Saints</h2>
-              <FigureList figures={relatedFigures} />
-            </div>
-          )}
-          {m.notes && (
-            <div class="sv-after-block sv-notes">
-              <h2>Notes</h2>
-              <p>{m.notes}</p>
-            </div>
+          {(profile?.family || relatedFigures.length > 0 || m.notes) && (
+            <section class="sv-panel sv-panel--plum">
+              <div class="sv-plum-grid">
+                {profile?.family && (
+                  <div class="sv-plum-block">
+                    <h2>{profile.family.heading}</h2>
+                    {profile.family.intro && (
+                      <p class="sv-fam-intro">{profile.family.intro}</p>
+                    )}
+                    <FigureList figures={profile.family.figures} light />
+                  </div>
+                )}
+                {relatedFigures.length > 0 && (
+                  <div class="sv-plum-block">
+                    <h2>Related Saints</h2>
+                    <FigureList figures={relatedFigures} light />
+                  </div>
+                )}
+                {m.notes && (
+                  <div class="sv-plum-block sv-plum-notes">
+                    <h2>Notes</h2>
+                    <p>{m.notes}</p>
+                  </div>
+                )}
+              </div>
+            </section>
           )}
           {m.sources && (
             <div class="sv-after-sources">Sources: {m.sources}</div>
