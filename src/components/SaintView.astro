@@ -48,7 +48,7 @@ let portrait: string;
 if (saint.image) {
   const raw = String(saint.image).replace(/['"\\)\s<>]/g, "");
   const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
-  portrait = `<div class="sv-icon-img" style="background:#efe3cb center/cover no-repeat url('${url}')"></div>`;
+  portrait = `<div class="sv-icon-img" style="background:#efe3cb center top/cover no-repeat url('${url}')"></div>`;
 } else {
   portrait = saintAvatar(saint, 286, 358, { type: primaryRank(saint) });
 }
