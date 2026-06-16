@@ -1,0 +1,42 @@
+---
+/* Rich, optional encyclopedic article for a canonical saint. Rendered by
+   SaintView only when SAINT_PROFILES[saint.id] exists. Reuses the saint-page
+   visual idiom (ivory column, gold eyebrow rules) — additive to the existing view. */
+import type { SaintProfile } from "../lib/saint-profiles";
+
+interface Props {
+  profile: SaintProfile;
+}
+const { profile } = Astro.props;
+---
+
+<div class="saint-profile">
+  {/* ── Life (expanded biography) ── */}
+  <section class="sp-sec sp-life">
+    <h2>Life</h2>
+    <div class="sp-bio">
+      {profile.overview.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+</div>
+
+<style>
+  .saint-profile {
+    margin-top: 1.6rem;
+  }
+  .sp-sec {
+    margin: 1.8rem 0;
+  }
+  .sp-sec h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    color: var(--byz-deep);
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .sp-bio p {
+    margin: 0 0 0.85rem;
+    line-height: 1.7;
+  }
+</style>
