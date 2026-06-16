@@ -120,3 +120,13 @@ test("Basil's profile shows works, further reading, patronage, and themes", asyn
   // The plain CSV "Works by the Saint" block is superseded by the profile table.
   await expect(page.locator(".sv-works")).toHaveCount(0);
 });
+
+test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
+  await page.goto("./saint/OS-0021/");
+  await expect(page.locator(".sv-quote blockquote")).toBeVisible();
+  // Cited to the Hexaemeron, public-domain NPNF translation.
+  await expect(page.locator(".sv-quote figcaption")).toContainText(
+    "Hexaemeron",
+  );
+  await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
+});
