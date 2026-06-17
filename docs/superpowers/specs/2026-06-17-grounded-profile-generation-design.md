@@ -50,8 +50,16 @@ addresses:
 A per-saint pipeline, batched and resumable, reusing the spine-walk / enrichment-sprint
 subagent patterns. Four stages per saint:
 
-1. **Gather** — fetch real source text per the tiered fetch list (§4) into a *cited
-   dossier*: each extracted fact tagged with its source URL. No prose written yet.
+1. **Gather** — build a *cited dossier*, each extracted fact tagged with its source. No
+   prose written yet. The dossier is seeded, **in this order**:
+   - **(a) the saint's own existing in-repo record first** — the `data/saints.csv` row
+     (`Brief Life`, `Notes`, `Customs`, facets, `Feast Day(s)`, `Sources`) and any existing
+     `SAINT_PROFILES` entry. This is the trusted baseline to expand from and the
+     verification anchor (§3.3a). It is the in-repo replacement for the URL the manual
+     ChatGPT prompt pastes — **no HTTP fetch of the live page is needed or wanted**, since
+     the deployed page is merely a render of this same data and may lag the working tree.
+   - **(b) external source text** per the tiered fetch list (§4), each fact tagged with its
+     source URL.
 2. **Write** — an agent produces a `SaintProfile` object (`overview`, `timeline`,
    `sections`, `family`, `related`, `patronage`, `works`, `reading`) in the established
    **factual/encyclopedic house voice** (Feature A §1). Hard rules:
