@@ -107,6 +107,25 @@ subagent patterns. Four stages per saint:
 This is the deep-research adversarial-verify pattern applied per saint; the verifier's
 job is to *refute*, defaulting to "flag" when uncertain.
 
+**Per-stage model tiering (cost/capability).** The stages have very different demands, so
+model is a **per-stage config**, not one model end-to-end:
+
+| Stage | Default model | Rationale |
+|---|---|---|
+| Gather | Haiku | mechanical fetch/extract/tag; cheap, high-volume |
+| Write | **Sonnet** (Opus for flagship/high-traffic saints) | the capability-sensitive step — house voice, weaving sources, hedging tradition |
+| Verify | **Sonnet** | the safety gate — needs reasoning; never drop to Haiku |
+| Emit | Haiku / plain code | structured, deterministic |
+
+Weaker Write models fail *safe* here because (a) the adversarial verifier + human-review
+gate means bad output is `flagged`, not published, and (b) the hard guardrails — the PD
+license gate on quotes/images, controlled-vocab facet validation, and the OCA-row-wins
+anchor — are **code, not model judgment**, so they hold regardless of the Write model.
+**Calibration:** before a large run, do a ~15-saint batch with Sonnet-Write and human-review
+the flag rate and prose quality; bump Write to Opus only if voice drift or weak hedging
+shows. All-Opus is overkill; all-Haiku risks the hallucinated-hagiography failure this
+design exists to prevent.
+
 ## 4. Tiered fetch list
 
 Sources are ordered by role. The pipeline fetches the anchor first, then enrichment, then
