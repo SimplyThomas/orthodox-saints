@@ -3,6 +3,8 @@ import FacetSidebar from "./FacetSidebar.astro";
 ---
 
 <section class="finder" id="finder">
+  {/* Backdrop for the mobile filter drawer (inert on desktop). */}
+  <div class="facets-overlay" id="facets-overlay"></div>
   <div class="finder-layout">
     <FacetSidebar />
 
@@ -13,6 +15,29 @@ import FacetSidebar from "./FacetSidebar.astro";
           <div class="count" id="count" role="status"></div>
         </div>
         <div class="results-controls">
+          <button
+            type="button"
+            id="filters-toggle"
+            class="filters-toggle"
+            aria-expanded="false"
+            aria-controls="facets-drawer"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 5h18M6 12h12M10 19h4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"></path>
+            </svg>
+            Filters
+            <span class="filter-count" id="filter-count"></span>
+          </button>
           <div class="sortbox">
             <span>Show</span>
             <select id="per-page" aria-label="Saints per page">
