@@ -5,43 +5,8 @@
    by SaintProfile.astro only when SAINT_PROFILES[id] exists. All prose is original,
    factual, and encyclopedic — no devotional language, no prayers, sourced facts.
    Subject to clergy/source review before launch (CLAUDE.md §9). */
-import type { TimelineEntry, RelatedFigure } from "./ephraim";
-
-/** A headed block of prose — Major Contributions, Legacy, "Why the Great". */
-export interface ProfileSection {
-  heading: string;
-  body: string[]; // one entry per paragraph
-}
-export interface ProfileWork {
-  title: string;
-  desc: string;
-}
-export interface ReadingItem {
-  title: string;
-  author?: string;
-}
-export interface ReadingGroup {
-  heading: string;
-  items: ReadingItem[];
-}
-export interface FamilyGroup {
-  heading: string;
-  intro?: string;
-  figures: RelatedFigure[]; // RelatedFigure.note carries the relation ("sister", …)
-}
-
-export interface SaintProfile {
-  id: string; // must match a row in data/saints.csv
-  lifespan?: string; // e.g. "c. 329 – 379 · Archbishop of Caesarea in Cappadocia"
-  overview: string[]; // expanded biography — presence triggers the rich render
-  timeline?: TimelineEntry[];
-  sections?: ProfileSection[];
-  family?: FamilyGroup;
-  related?: RelatedFigure[];
-  patronage?: string[];
-  works?: ProfileWork[]; // supersedes the plain CSV Works/About on this saint's page
-  reading?: ReadingGroup[];
-}
+import type { SaintProfile } from "./profile-types";
+export * from "./profile-types"; // re-export types for existing importers
 
 export const SAINT_PROFILES: Record<string, SaintProfile> = {
   "OS-0021": {
