@@ -31,7 +31,7 @@
 | `tools/profilegen/prompts/{gather,write,verify}.md` (**new**) | The agent stage prompts (the Write prompt derives from the user's ChatGPT prompt + spec §3.2). |
 | `tools/profilegen/schemas.py` (**new**) | JSON Schemas: the `SaintProfile` write-output and the verifier `verdict`. Exposed as JSON for the workflow. |
 | `scripts/profilegen.workflow.js` (**new**) | The Workflow orchestration: pipeline a batch through Gather→Write→Verify→Emit with per-stage models (live; used for calibration). |
-| `tools/profilegen/limits.py` (**new**) | Parse Claude Code headless output: is-it-a-limit, is-it-monthly-exhaustion, seconds-until-reset. |
+| `tools/profilegen/limits.py` (**new**) | Parse Claude Code headless output: is-it-a-limit, is-it-a-non-resetting-cap, seconds-until-reset. |
 | `tools/profilegen/run.py` (**new**) | Hands-off overnight runner: build batches, loop `claude -p` per batch, back off / wait-for-reset / stop-on-exhaustion, resumable. |
 | `tests/test_profilegen.py` (**new**) | Unit tests for every helper above. |
 | `Makefile` (**modify**) | `make profile-batch` (prioritize), `make profile-run` (overnight runner), helper passthroughs. |
@@ -1082,14 +1082,25 @@ The runner (Task 13) must react to whatever limit Claude Code reports. This pure
 classifies the output and computes how long to wait — small and unit-tested so the runner's
 control flow is trustworthy.
 
-**Background — why two kinds of limit (read before implementing).** Since the June 15, 2026
-billing change, headless `claude -p` / Agent-SDK usage on a Max subscription draws a
-**monthly API-rate credit pool** ($100/mo on Max 5x, $200 on Max 20x), *not* the interactive
-5-hour windows. That matters here: a **transient/window** limit clears on a timer (wait and
-resume), but **monthly credit-pool exhaustion does NOT refill overnight** (waiting is
-pointless — stop and notify). The runner must tell these apart, which is what `is_exhausted`
-is for. (Depending on how an account meters headless runs it may hit either kind; the runner
-handles both.)
+**Background — two kinds of limit (read before implementing).** Limits come in two flavours,
+and the runner must treat them differently:
+
+- **Short, self-resetting** — the **5-hour rolling window**. Clears on a timer, often with a
+  "resets at …" hint. → **wait and resume** (this is the "extra overnight sessions" case).
+- **Long / won't-reset-overnight** — the **weekly cap** (and, *if ever activated*, the
+  monthly Agent-SDK credit pool). Waiting overnight won't refill these. → **stop and notify**.
+
+`is_exhausted` distinguishes the second class so the runner doesn't burn the night waiting on
+a reset that isn't coming; `seconds_until_reset` handles the first.
+
+**Billing caveat (verify — it's been in flux).** Anthropic *announced* (May 2026) that
+headless `claude -p` / Agent-SDK usage would leave the subscription pools on **June 15, 2026**
+for a separate monthly API-rate credit pool ($100 Max 5x / $200 Max 20x) — then **paused that
+change on June 15 before it took effect** (per third-party reporting; not confirmed on an
+official page). So as of now, headless usage still draws the **normal subscription limits**
+(5-hour windows + weekly cap). Either way the runner is correct — it waits on short resets and
+stops on caps that won't clear overnight. **Confirm the current regime in your Console /
+`claude /status` before a long run.**
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -1110,6 +1121,9 @@ class LimitClassifyTests(unittest.TestCase):
 
     def test_success_is_not_a_limit(self):
         self.assertFalse(limits.is_limit('{"result": "wrote 12 profiles"}', 0))
+
+    def test_exhausted_detects_weekly_cap(self):
+        self.assertTrue(limits.is_exhausted("You've reached your weekly usage limit"))
 
     def test_exhausted_detects_monthly_credit(self):
         self.assertTrue(limits.is_exhausted("Your credit balance is too low"))
@@ -1153,7 +1167,7 @@ Create `tools/profilegen/limits.py`:
 
 ```python
 """Parse Claude Code headless output to drive the overnight runner's backoff:
-distinguish a limit from success, monthly credit exhaustion from a transient limit,
+distinguish a limit from success, a cap that won't reset overnight from a transient limit,
 and compute how long to wait when a reset time is given."""
 import re
 from datetime import datetime, timedelta
@@ -1165,7 +1179,7 @@ _LIMIT_RE = re.compile(
 )
 _EXHAUST_RE = re.compile(
     r"out of credit|credit balance is too low|insufficient credit|"
-    r"monthly (usage )?limit reached|quota exhausted",
+    r"weekly (usage )?limit|monthly (usage )?limit reached|quota exhausted",
     re.I,
 )
 _RETRY_AFTER_RE = re.compile(r"retry.?after[\"':\s]+(\d+)", re.I)
@@ -1179,7 +1193,7 @@ def is_limit(text: str, returncode: int) -> bool:
 
 
 def is_exhausted(text: str) -> bool:
-    """True for monthly credit-pool / quota exhaustion — waiting will NOT help."""
+    """True for a cap that won't reset overnight (weekly limit / monthly credit / quota)."""
     return bool(_EXHAUST_RE.search(text or ""))
 
 
@@ -1212,7 +1226,7 @@ def seconds_until_reset(text: str, now: datetime) -> int | None:
 - [ ] **Step 4: Run to confirm pass**
 
 Run: `python -m unittest tests.test_profilegen -k "Limit or Reset" -v`
-Expected: PASS (11 tests).
+Expected: PASS (12 tests).
 
 - [ ] **Step 5: Commit**
 
@@ -1231,23 +1245,24 @@ A single command you launch at night that walks the whole backlog: it builds bat
 the prioritized, profile-less saints and runs one headless `claude -p` per batch. It's
 **resumable** (prioritize excludes saints that already have a profile, and the prompt tells
 Claude to skip existing ones — so a fresh run continues where the last stopped), and
-**limit-aware** (back off / wait-for-reset on transient limits; stop on monthly exhaustion).
+**limit-aware** (back off / wait-for-reset on the 5-hour window; stop on a cap that won't
+reset overnight, e.g. the weekly limit).
 
 ### Run modes (document this; it's the §8 authoring workflow operationalized)
 
 | Mode | How | Billing | When |
 |---|---|---|---|
 | **Calibration** | live Workflow (`scripts/profilegen.workflow.js`, Task 9–10) | interactive Max limits | the first ~15 saints — watch quality closely |
-| **Bulk** | `python -m tools.profilegen.run` (this task) | headless → monthly credit pool, then API rates | the remaining backlog, unattended overnight |
+| **Bulk** | `python -m tools.profilegen.run` (this task) | headless → currently your normal subscription limits (the paused June-15 change would have moved this to a monthly credit pool — verify) | the remaining backlog, unattended overnight |
 
 ### Auth setup before an unattended run (critical)
 
 Headless runs on a Max login use your existing `claude` OAuth — **no API key**. But if
 `ANTHROPIC_API_KEY` is set it takes precedence and bills metered API rates instead of your
-included credit pool. So:
+subscription. So:
 
 ```bash
-unset ANTHROPIC_API_KEY            # otherwise it bypasses the Max credit pool
+unset ANTHROPIC_API_KEY            # otherwise it bills metered API rates, not your subscription
 claude setup-token                 # 1-year OAuth token, avoids mid-run expiry
 export CLAUDE_CODE_OAUTH_TOKEN=<paste>
 claude /status                     # confirm auth + remaining credit before launching
@@ -1260,8 +1275,9 @@ Create `tools/profilegen/run.py`:
 ```python
 """Hands-off overnight runner for grounded profile generation. Builds batches from the
 prioritized, profile-less saints and runs `claude -p` per batch, skipping saints that
-already have a profile (resumable). On a transient/window limit it backs off and resumes;
-on monthly credit-pool exhaustion it stops (waiting won't refill it). Launch overnight:
+already have a profile (resumable). On the short 5-hour-window reset it backs off and resumes;
+on a cap that won't reset overnight (weekly limit, or the credit pool if that change is ever
+activated) it stops (waiting won't help). Launch overnight:
 
     nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
 
@@ -1316,7 +1332,7 @@ def run_claude(ids: list[str]) -> tuple[str, int]:
 def main() -> int:
     if os.environ.get("ANTHROPIC_API_KEY"):
         log("WARNING: ANTHROPIC_API_KEY is set — headless runs bill metered API rates, "
-            "not your Max credit pool. `unset ANTHROPIC_API_KEY` to use the subscription.")
+            "not your subscription. `unset ANTHROPIC_API_KEY` to use the Max subscription.")
 
     todo = [sid for sid, _ in prioritize.ranked(10**9)]  # excludes already-profiled saints
     batches = [todo[i:i + BATCH_SIZE] for i in range(0, len(todo), BATCH_SIZE)]
@@ -1334,8 +1350,9 @@ def main() -> int:
                 log(f"batch {n} done")
                 break
             if limits.is_exhausted(out):
-                log("STOP: monthly credit pool exhausted — waiting won't refill it. "
-                    "Enable overflow billing or resume next cycle. Written profiles are saved.")
+                log("STOP: hit a cap that won't reset overnight (weekly limit, or the monthly "
+                    "credit pool if that change is active) — waiting won't help. Resume next "
+                    "cycle, or switch to the API/Batches for more throughput. Profiles saved.")
                 return 2
             wait = limits.seconds_until_reset(out, datetime.now())
             wait = min((wait if wait is not None else 60 * 2 ** min(attempt, 8)) + 30, MAX_WAIT)
@@ -1371,11 +1388,12 @@ profile-run: ## hands-off overnight runner (headless claude -p loop; resumable)
 In `CLAUDE.md` §8, after the pipeline note, add a short paragraph: calibration runs live
 (Workflow); the **bulk runs unattended** via `make profile-run` (or
 `nohup python -m tools.profilegen.run … & disown`). Note the auth setup (`unset
-ANTHROPIC_API_KEY`; `claude setup-token`), that it's **resumable** (re-run to continue), that
-it **backs off and resumes** on transient/window limits but **stops on monthly credit-pool
-exhaustion** (waiting won't refill it — enable overflow billing or resume next cycle), and
-that headless billing draws the Max **monthly credit pool** ($100 on Max 5x), not the 5-hour
-interactive windows.
+ANTHROPIC_API_KEY`; `claude setup-token`), that it's **resumable** (re-run to continue), and
+that it **backs off and resumes** on the short 5-hour-window reset but **stops on a cap that
+won't reset overnight** (the weekly limit — resume next cycle, or switch to the API/Batches
+for more throughput). Add the billing caveat: headless currently draws the **normal Max
+subscription limits** (5-hour + weekly); the announced June-15 move to a separate monthly
+credit pool was **paused** — confirm the current regime in your Console / `claude /status`.
 
 - [ ] **Step 5: Full suite + commit**
 
@@ -1400,8 +1418,9 @@ git commit -m "feat(profilegen): hands-off overnight runner (resumable, limit-aw
 - **§5 coverage log + region summary:** Task 7. ✅
 - **§8 authoring workflow (prioritize, batch, review, branch-per-batch):** Tasks 2, 10, 11. ✅
 - **§8 run modes — calibration (live) vs hands-off overnight bulk:** Tasks 12 (limit parser),
-  13 (resumable, limit-aware `claude -p` runner). Honest about the June-15 credit-pool
-  semantics: backs off/resumes on transient limits, stops on monthly exhaustion. ✅
+  13 (resumable, limit-aware `claude -p` runner). Regime-agnostic: waits/resumes on the short
+  5-hour-window reset, stops on caps that won't reset overnight (weekly limit; or the monthly
+  credit pool *if* the paused June-15 change is ever activated). ✅
 - **Guardrails are code:** facet vocab gate (Task 4), PD gate (Task 6), Plan 1 status gate +
   build validation — independent of the Write model. ✅
 
