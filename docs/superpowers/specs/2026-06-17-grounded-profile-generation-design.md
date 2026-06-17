@@ -1,7 +1,7 @@
 # Grounded Profile Generation at Scale — Design Spec
 
 **Date:** 2026-06-17
-**Status:** Proposed — awaiting user review
+**Status:** Approved (design) — all §10 decisions settled; ready for implementation plan
 **Area:** Authoring pipeline + data storage (`src/lib/saint-profiles.ts` / profile
 storage), `build.py` validation, an authoring workflow. No change to the profile
 *rendering* path.
@@ -269,14 +269,14 @@ file; validated CRLF-preserving CSV merges; branch each batch from fresh `origin
    (Title·Date·Description) and optional `type` to reading items (Title·Author·Type) to
    match the prompt's tables (recommended, additive/optional) vs. fold date/type into the
    existing `desc` text.
-6. **Rendered PR preview (§13):** review sheet only (recommended — zero infra, shows
-   verifier flags a live page can't) vs. *also* add Cloudflare/Netlify deploy previews for
-   visual fidelity (per-PR URL, but a second host). GitHub Pages has no native per-PR URL,
-   and the gh-pages-subfolder approach breaks the root-base-path/custom-domain setup.
+6. **Rendered PR preview (§13):** **DECIDED — review sheet only** (zero infra, shows
+   verifier flags a live page can't). Cloudflare/Netlify deploy previews are deferred as a
+   possible additive future change; GitHub Pages has no native per-PR URL, and the
+   gh-pages-subfolder approach breaks the root-base-path/custom-domain setup.
 
-**Decisions 1–5 are accepted as recommended** (per-saint files + barrel; ship `reviewed`
-only; finder-value batching; relics as a `sections` block; add optional `date`/`type`).
-Decision 6 is open pending the review-tooling discussion.
+**All decisions accepted as recommended:** per-saint files + generated barrel; ship
+`reviewed` only; finder-value batching; relics as a `sections` block; add optional
+`date`/`type`; review sheet only.
 
 ## 11. Guardrails (restated, binding)
 
