@@ -33,6 +33,8 @@ import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
+SRC = ROOT / "src"
+PROFILES_DIR = SRC / "content" / "profiles"   # per-saint rich profiles (YAML)
 WEB = ROOT / "web"
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
@@ -300,6 +302,10 @@ def validate(header: list[str], rows: list[dict[str, str]],
     quote_errors, quote_warnings = validate_saint_quotes(_img_valid_ids)
     errors.extend(quote_errors)
     warnings.extend(quote_warnings)
+
+    prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids)
+    errors.extend(prof_errors)
+    warnings.extend(prof_warnings)
 
     if header != HEADER:
         errors.append(
@@ -673,6 +679,37 @@ def load_saint_quotes() -> dict[str, dict[str, str]]:
                 "source": (row.get("source_url") or "").strip(),
             }
     return out
+
+
+PROFILE_FILE_RE = re.compile(r"^(OS-\d{4,})\.yaml$")
+PROFILE_ID_RE = re.compile(r"^id:\s*(OS-\d{4,})\s*$", re.M)
+
+
+def validate_saint_profiles(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Cross-check src/content/profiles/*.yaml against the saints: filename is
+    OS-####.yaml, names a real saint, and the file's `id:` matches the filename.
+    Shape validation is Zod's job at astro build; this is the Python data gate.
+    Empty/missing dir is allowed (no profiles yet)."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not PROFILES_DIR.is_dir():
+        return errors, warnings
+    for path in sorted(PROFILES_DIR.glob("*.yaml")):
+        m = PROFILE_FILE_RE.match(path.name)
+        if not m:
+            errors.append(f"profiles/{path.name}: name must be OS-####.yaml")
+            continue
+        sid = m.group(1)
+        if sid not in valid_ids:
+            errors.append(f"profiles/{path.name}: {sid} is not a known Saint ID")
+        body_id = PROFILE_ID_RE.search(path.read_text(encoding="utf-8"))
+        if not body_id:
+            errors.append(f"profiles/{path.name}: missing an `id:` field")
+        elif body_id.group(1) != sid:
+            errors.append(
+                f"profiles/{path.name}: id {body_id.group(1)} != filename {sid}"
+            )
+    return errors, warnings
 
 
 def validate_saint_quotes(valid_ids: set[str]) -> tuple[list[str], list[str]]:

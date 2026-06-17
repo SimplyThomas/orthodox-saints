@@ -6,7 +6,10 @@ Run from the repo root:  python -m unittest discover -s tests
 
 import os
 import sys
+import tempfile
 import unittest
+from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -593,6 +596,53 @@ class ThemeIntegrationTests(unittest.TestCase):
         row["Themes"] = "church-fathers"
         errs = errors_for([row])
         self.assertEqual([e for e in errs if "church-fathers" in e], [])
+
+
+class ValidateSaintProfilesTests(unittest.TestCase):
+    def _profile(self, d, name, sid):
+        (d / name).write_text(f"id: {sid}\nstatus: reviewed\noverview:\n  - x\n")
+
+    def test_flags_unknown_id(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            self._profile(d, "OS-0021.yaml", "OS-0021")
+            self._profile(d, "OS-9999.yaml", "OS-9999")
+            with mock.patch.object(build, "PROFILES_DIR", d):
+                errors, warnings = build.validate_saint_profiles({"OS-0021"})
+            self.assertTrue(any("OS-9999" in e for e in errors))
+            self.assertTrue(all("OS-0021" not in e for e in errors))
+
+    def test_clean_when_all_known(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            self._profile(d, "OS-0021.yaml", "OS-0021")
+            with mock.patch.object(build, "PROFILES_DIR", d):
+                errors, warnings = build.validate_saint_profiles({"OS-0021", "OS-0022"})
+            self.assertEqual(errors, [])
+
+    def test_flags_id_field_not_matching_filename(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            self._profile(d, "OS-0021.yaml", "OS-0099")  # body id != filename
+            with mock.patch.object(build, "PROFILES_DIR", d):
+                errors, warnings = build.validate_saint_profiles({"OS-0021", "OS-0099"})
+            self.assertTrue(any("OS-0021.yaml" in e for e in errors))
+
+    def test_flags_missing_id_field(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            (d / "OS-0021.yaml").write_text("status: reviewed\noverview:\n  - x\n")
+            with mock.patch.object(build, "PROFILES_DIR", d):
+                errors, warnings = build.validate_saint_profiles({"OS-0021"})
+            self.assertTrue(any("missing" in e and "id" in e for e in errors))
+
+    def test_flags_bad_filename(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            (d / "README.yaml").write_text("notes: not a profile\n")
+            with mock.patch.object(build, "PROFILES_DIR", d):
+                errors, warnings = build.validate_saint_profiles({"OS-0021"})
+            self.assertTrue(any("name must be OS-####.yaml" in e for e in errors))
 
 
 if __name__ == "__main__":

@@ -59,6 +59,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
+│   ├── content/profiles/      ← per-saint YAML rich profiles (OS-####.yaml) — a data Content Collection
+│   ├── content.config.ts      ← the `profiles` collection + its Zod schema (validated at build)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
@@ -467,6 +469,13 @@ a long run.
   `/witness/[slug]`, surfaced on `/america`) is a separate **non-canonical memorial section**
   for not-yet-glorified figures — kept strictly out of the saints finder/quiz per §9
   canonization caution; memorial pages use no liturgical address.
+- **Rich saint profiles** are one YAML file per saint in `src/content/profiles/OS-####.yaml`,
+  an Astro **data Content Collection** defined in `src/content.config.ts`; the **Zod schema
+  validates every profile at build time** (a bad/incomplete profile fails the build). Each
+  profile carries `status: draft|reviewed|flagged`; production ships only `reviewed` (drafts
+  render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
+  via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
+  `build.py` cross-checks every profile filename/id against the saints.
 - **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
   `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
   browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one

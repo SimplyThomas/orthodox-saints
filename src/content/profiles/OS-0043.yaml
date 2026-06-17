@@ -1,0 +1,101 @@
+id: OS-0043
+lifespan: 1754 – 1833 · Wonderworker and elder of Sarov
+overview:
+  - "Saint Seraphim of Sarov — born Prokhor Isidorovich Moshnin — is among the most beloved monastic saints of the Russian Church. He was born at Kursk, most commonly dated to 1754, into a pious merchant family; his parents, Isidore and Agathia Moshnin, were known for their devotion. Two well-known traditions attach to his childhood: a fall from a church bell-tower from which he came away unharmed, and a grave illness from which he recovered after the Kursk Root Icon of the Mother of God was brought to him."
+  - In 1778 he entered the monastery at Sarov, was tonsured with the name Seraphim in 1786, and was ordained in turn hierodeacon and hieromonk. After years in the community he withdrew to a forest hermitage near Sarov, where he gave himself to strict asceticism — prayer, silence, manual labor, and the reading of Scripture. When robbers attacked and badly injured him, he refused to seek revenge and forgave them; he later entered a long period of seclusion and silence.
+  - In 1825 he opened his door again and became known as a spiritual elder, a starets, to whom pilgrims came in great numbers for counsel, prayer, and healing. He was closely bound to the women's monastery at Diveyevo, which he guided spiritually, and his best-known teaching survives through Nicholas Motovilov's account of their conversation on the acquisition of the Holy Spirit — among the most influential texts of modern Orthodox spirituality.
+  - He reposed on January 2, 1833, found kneeling in prayer before an icon of the Mother of God. The Russian Church glorified him in 1903 amid great celebrations at Sarov attended by the imperial family and thousands of pilgrims. His relics, concealed during the Soviet anti-religious campaigns, were rediscovered in 1991 and are now enshrined at Diveyevo.
+timeline:
+  - when: "1754"
+    title: Born at Kursk
+    body: As Prokhor Moshnin, into a merchant family.
+  - when: "1778"
+    title: Entered Sarov Monastery
+    body: Beginning his monastic life.
+  - when: "1786"
+    title: Tonsured a monk
+    body: Receiving the name Seraphim.
+  - when: "1794"
+    title: Withdrew to a forest hermitage
+    body: For strict ascetic solitude near Sarov.
+  - when: "1804"
+    title: Attacked by robbers
+    body: Badly injured; he forgave his attackers.
+  - when: "1825"
+    title: Began receiving pilgrims as elder
+    body: Counseling monastics and laity alike.
+  - when: "1831"
+    title: Conversation with Motovilov
+    body: On the acquisition of the Holy Spirit.
+  - when: Jan 2, 1833
+    title: Reposed at Sarov
+    body: Found kneeling before an icon of the Mother of God.
+  - when: "1903"
+    title: Glorified
+    body: By the Russian Orthodox Church.
+  - when: "1991"
+    title: Relics rediscovered
+    body: After concealment in the Soviet period.
+sections:
+  - heading: The Revival of Russian Eldership
+    body:
+      - Seraphim's life belongs to the renewal of spiritual fatherhood in Russia, in which monastic elders offered counsel to monks and laypeople alike. He lived through the reigns from Empress Elizabeth to Tsar Nicholas I, an age of state pressure on monasteries, yet his ministry helped shape the popular Orthodox understanding of the starets as a guide of souls.
+  - heading: Teaching on the Holy Spirit
+    body:
+      - His conversation with Nicholas Motovilov became one of the most influential Orthodox accounts of the aim of the Christian life — the acquisition of the Holy Spirit. His counsel to 'acquire the Spirit of peace,' that thousands around may be saved, has become among the most recognizable sayings of modern Orthodox spirituality.
+  - heading: Diveyevo
+    body:
+      - Seraphim took a central role in the spiritual formation and guidance of the women's monastic community at Diveyevo, whose later history remained bound to his memory, and where his relics now rest.
+  - heading: Wonderworker of Sarov
+    body:
+      - He is widely called the Wonderworker of Sarov for the many healings and graces associated with his life and continuing veneration. Childhood healing through the Kursk Root Icon, the encounter recorded by Motovilov, and other wonders are central to his received tradition and are best presented as hagiographical tradition rather than documented history.
+related:
+  - name: Saint Sergius of Radonezh
+    note: father of Russian monasticism
+    href: saint/OS-0042
+  - name: Saint Herman of Alaska
+    note: Russian monastic of the same age
+    href: saint/OS-0044
+  - name: Saint Ambrose of Optina
+    note: beloved Russian elder
+    href: saint/OS-0074
+  - name: Saint Tikhon of Zadonsk
+    note: Russian bishop and spiritual writer
+    href: saint/OS-1696
+  - name: Saint Theophan the Recluse
+    note: Russian teacher of inner prayer
+    href: saint/OS-0429
+  - name: Saint John of Kronstadt
+    note: later Russian priest and wonderworker
+    href: saint/OS-0045
+  - name: New Hieromartyr Seraphim (Chichagov)
+    note: his biographer, later a New Martyr
+    href: saint/OS-2269
+  - name: Saint Xenia of St. Petersburg
+    note: beloved Russian saint of hidden holiness
+    href: saint/OS-0047
+patronage:
+  - Monastics and hermits
+  - Spiritual fathers
+  - Pilgrims
+  - Those seeking peace of soul
+  - The sick
+works:
+  - title: Spiritual Instructions
+    desc: Teachings preserved by his disciples.
+  - title: Conversation with Nicholas Motovilov
+    desc: Recorded by Motovilov; his teaching on the acquisition of the Holy Spirit.
+reading:
+  - heading: Primary / Early Sources
+    items:
+      - title: Conversation on the Acquisition of the Holy Spirit
+        author: Nicholas Motovilov
+      - title: Chronicle of the Seraphim-Diveyevo Monastery
+        author: Seraphim Chichagov
+  - heading: Modern Studies
+    items:
+      - title: St. Seraphim of Sarov
+        author: Constantine Cavarnos
+      - title: "The Joy of the Holy: Saint Seraphim of Sarov and Orthodox Spiritual Life"
+        author: Harry Boosalis
+status: reviewed

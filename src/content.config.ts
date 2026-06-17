@@ -1,0 +1,83 @@
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+
+const relatedFigure = z.object({
+  name: z.string(),
+  note: z.string(),
+  href: z.string().optional(), // internal "saint/OS-####"
+  external: z.string().optional(),
+});
+
+const profileSchema = z
+  .object({
+    id: z.string().regex(/^OS-\d{4,}$/),
+    status: z.enum(["draft", "reviewed", "flagged"]).default("draft"),
+    sources: z.array(z.string()).optional(),
+    generated: z.string().optional(), // ISO date
+    lifespan: z.string().optional(),
+    overview: z.array(z.string()).min(1),
+    timeline: z
+      .array(
+        z.object({
+          when: z.string(),
+          title: z.string(),
+          body: z.string(),
+          figures: z
+            .array(z.object({ name: z.string(), href: z.string().optional() }))
+            .optional(),
+          source: z.string().optional(),
+        }),
+      )
+      .optional(),
+    sections: z
+      .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
+      .optional(),
+    family: z
+      .object({
+        heading: z.string(),
+        intro: z.string().optional(),
+        figures: z.array(relatedFigure),
+      })
+      .optional(),
+    related: z.array(relatedFigure).optional(),
+    patronage: z.array(z.string()).optional(),
+    works: z
+      .array(
+        z.object({
+          title: z.string(),
+          desc: z.string(),
+          date: z.string().optional(),
+        }),
+      )
+      .optional(),
+    reading: z
+      .array(
+        z.object({
+          heading: z.string(),
+          items: z.array(
+            z.object({
+              title: z.string(),
+              author: z.string().optional(),
+              type: z.string().optional(),
+            }),
+          ),
+        }),
+      )
+      .optional(),
+  })
+  // Generated (draft/flagged) profiles must cite sources (spec §6).
+  .superRefine((p, ctx) => {
+    if (p.status !== "reviewed" && !(p.sources && p.sources.length)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `${p.id}: ${p.status} profiles must list at least one source`,
+      });
+    }
+  });
+
+const profiles = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/profiles" }),
+  schema: profileSchema,
+});
+
+export const collections = { profiles };
