@@ -1,6 +1,7 @@
 /* Pure month-grid date math for the calendar island. No DOM, no clock state —
    everything is a function of (year, month) so it can be unit-tested directly.
-   `month` is 1-12 throughout; weekday is 0=Sunday .. 6=Saturday. */
+   `month` is 1-12 throughout; weekday is 0=Sunday .. 6=Saturday.
+   Local-time Date constructors are intentional — a calendar shown in the visitor's local time, not UTC. */
 
 /** Number of days in the given month (handles leap February). */
 export function daysInMonth(year: number, month: number): number {

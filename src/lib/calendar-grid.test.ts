@@ -10,6 +10,9 @@ describe("daysInMonth", () => {
   it("handles leap February", () => {
     expect(daysInMonth(2024, 2)).toBe(29);
   });
+  it("handles December (month = 12) without rolling the year", () => {
+    expect(daysInMonth(2025, 12)).toBe(31);
+  });
 });
 
 describe("firstWeekday", () => {
@@ -32,5 +35,10 @@ describe("monthMatrix", () => {
     const mm = monthMatrix(2026, 2);
     expect(mm.leadingBlanks).toBe(0);
     expect(mm.days).toHaveLength(28);
+  });
+  it("describes leap February 2024: 4 leading blanks, 29 days", () => {
+    const mm = monthMatrix(2024, 2);
+    expect(mm.leadingBlanks).toBe(4); // Feb 1 2024 is Thursday
+    expect(mm.days).toHaveLength(29);
   });
 });
