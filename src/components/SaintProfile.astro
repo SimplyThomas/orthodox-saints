@@ -9,9 +9,17 @@ interface Props {
   profile: SaintProfile;
 }
 const { profile } = Astro.props;
+const isDraft = profile.status && profile.status !== "reviewed";
 ---
 
 <div class="saint-profile">
+  {
+    isDraft && (
+      <p class="profile-draft-banner" role="status">
+        Draft — pending review. Not yet verified for publication.
+      </p>
+    )
+  }
   {/* ── Life (expanded biography) ── */}
   <section class="sp-sec sp-life">
     <h2>Life</h2>
@@ -42,5 +50,13 @@ const { profile } = Astro.props;
   }
   .sp-bio p:last-child {
     margin-bottom: 0;
+  }
+  .profile-draft-banner {
+    margin: 0 0 1rem;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid #b58900;
+    background: #fdf6e3;
+    color: #5c4a00;
+    font-size: 0.9rem;
   }
 </style>
