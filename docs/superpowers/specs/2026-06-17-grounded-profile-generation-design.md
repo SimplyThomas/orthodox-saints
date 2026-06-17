@@ -269,6 +269,14 @@ file; validated CRLF-preserving CSV merges; branch each batch from fresh `origin
    (Title·Date·Description) and optional `type` to reading items (Title·Author·Type) to
    match the prompt's tables (recommended, additive/optional) vs. fold date/type into the
    existing `desc` text.
+6. **Rendered PR preview (§13):** review sheet only (recommended — zero infra, shows
+   verifier flags a live page can't) vs. *also* add Cloudflare/Netlify deploy previews for
+   visual fidelity (per-PR URL, but a second host). GitHub Pages has no native per-PR URL,
+   and the gh-pages-subfolder approach breaks the root-base-path/custom-domain setup.
+
+**Decisions 1–5 are accepted as recommended** (per-saint files + barrel; ship `reviewed`
+only; finder-value batching; relics as a `sections` block; add optional `date`/`type`).
+Decision 6 is open pending the review-tooling discussion.
 
 ## 11. Guardrails (restated, binding)
 
@@ -323,3 +331,29 @@ propose-only + the build's PD gates.
 **One difference worth stating:** the manual prompt trusts ChatGPT to *find* its own
 quotes and images; this pipeline treats those as **proposals that must pass the PD gate and
 human review** (§3.4), because attribution/filename fabrication is the highest-risk output.
+
+## 13. Review tooling — reducing review friction
+
+Reviewing a batch of generated profiles as raw `.ts`/`.json` is high-friction, and a
+*rendered site page* is the wrong primary tool: the live saint page deliberately hides the
+verifier flags, coverage verdict, and per-claim provenance — exactly what a reviewer needs.
+So the pipeline emits a purpose-built **batch review sheet**, mirroring the existing
+`dist/icon_contact_sheet.html` icon-review idiom, in two forms:
+
+1. **Markdown summary → the PR's Actions job summary** (clickable inline in the Checks tab,
+   no download — the same channel that already carries the finder-coverage report). Per
+   profile: `name` + `id`, **coverage verdict** (`full`/`thin`/`none`), **verifier flags**
+   (the offending claims, if any), the **overview prose**, and **sources per claim**.
+2. **`dist/profile_review_<batch>.html`** — a self-contained artifact with richer
+   formatting (flagged claims highlighted, sources linked), for local viewing.
+
+This puts prose, the verifier's reasoning, and provenance in one reviewer-facing view with
+**no new infrastructure**.
+
+**Optional visual fidelity (decision §10.6):** for true rendered pages, the clean option is
+**Cloudflare Pages / Netlify deploy previews** (per-PR subdomain at root, base path `/`
+intact, auto-commented link) — a second host alongside GitHub Pages production. GitHub
+Pages itself has **no native per-PR URL**, and the `gh-pages`-subfolder action breaks the
+root-base-path + custom-domain assumptions, so it is not recommended here. Note that any
+preview build must run in **draft-visible mode** (§6) so the generated `draft` profiles
+actually render.
