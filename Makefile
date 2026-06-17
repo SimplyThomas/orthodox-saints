@@ -1,5 +1,5 @@
 .PHONY: build validate test serve xlsx find report download-icons icon-sheet clean \
-        web-install web-dev web-build web-lint web-test \
+        web-install web-dev web-build web-lint web-test web-unit \
         docker-image docker-build docker-validate docker-test docker-xlsx docker-serve docker-shell docker-find docker-report docker-download-icons
 
 # ---- Host Python (used by CI; needs `pip install -r requirements.txt`) ----
@@ -20,6 +20,7 @@ web-dev:     ; python build.py --no-xlsx && npm run dev      # data.json, then A
 web-build:   ; python build.py --no-xlsx && npm run build    # data.json, then static _site/
 web-lint:    ; npm run lint
 web-test:    ; npm test                                       # Playwright smoke tests
+web-unit:    ; npm run test:unit                              # Vitest unit tests (src/lib)
 serve: web-dev   # `make serve` now runs the Astro dev server (the live site)
 
 # ---- Containerized build environment (no local Python/deps needed) ----

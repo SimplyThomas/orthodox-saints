@@ -124,6 +124,7 @@ Use the Makefile targets (or the underlying python directly):
 - `make serve` / `make web-dev` → `python build.py --no-xlsx && npm run dev` : the live Astro dev server.
 - `make web-build` → `python build.py --no-xlsx && npm run build` : the static site into `_site/`.
 - `make web-lint` → `npm run lint` : ESLint + Prettier `--check` over `src/` + `e2e/`. (CI gate.)
+- `make web-unit` → `npm run test:unit` : Vitest unit tests over `src/lib` pure logic. (CI gate.)
 - `make web-test` → `npm test` : Playwright smoke tests against the built site. (CI gate.)
   These call `npm` directly so they also work on Windows/PowerShell without `make`.
 

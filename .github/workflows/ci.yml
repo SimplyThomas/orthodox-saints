@@ -32,6 +32,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint                        # eslint + prettier --check
+      - run: npm run test:unit                   # vitest unit tests (pure lib logic)
       - run: npm run build                       # astro build must succeed
       - run: npx playwright install --with-deps chromium
       - run: npm test                            # playwright smoke tests (build base-path, modal, quiz)
