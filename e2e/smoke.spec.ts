@@ -177,7 +177,12 @@ test("about page tells the story; the personal email is removed", async ({
   const resp = await page.goto("./about/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".ab-hero h1")).toHaveText("About");
-  await expect(page.locator(".ab-scene")).toBeVisible();
+  // The conversation is now folded into the story as a numbered movement
+  // rather than a standalone box.
+  await expect(page.locator(".ab-move")).toHaveCount(4);
+  await expect(
+    page.getByText("And that was the beginning of this journey."),
+  ).toBeVisible();
   // The personal email has been removed pending a project address; the contact
   // card now carries a placeholder note rather than a mailto link.
   await expect(page.locator(".ab-contact .ab-email")).toBeVisible();
