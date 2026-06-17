@@ -1,9 +1,11 @@
 import unittest
 import tempfile
 from pathlib import Path as _P
+import yaml as _yaml
 from tools.profilegen import prioritize
 from tools.profilegen import dossier
 from tools.profilegen import facets
+from tools.profilegen import emit
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -111,3 +113,26 @@ class FacetMergeTests(unittest.TestCase):
             facets.merge(p, "OS-9999", {"Vocation": ["Bishop"]},
                          vocab={"Vocation": {"Bishop"}})
         self.assertEqual(p.read_bytes(), before)  # bytes unchanged
+
+
+class EmitTests(unittest.TestCase):
+    def test_writes_yaml_with_metadata(self):
+        d = _P(tempfile.mkdtemp())
+        profile = {"id": "OS-0042", "overview": ["A life."]}
+        path = emit.write_profile(
+            d, profile, sources=["https://oca.org/x"],
+            generated="2026-06-17", status="draft",
+        )
+        self.assertEqual(path.name, "OS-0042.yaml")
+        obj = _yaml.safe_load(path.read_text())
+        self.assertEqual(obj["id"], "OS-0042")
+        self.assertEqual(obj["status"], "draft")
+        self.assertEqual(obj["generated"], "2026-06-17")
+        self.assertEqual(obj["sources"], ["https://oca.org/x"])
+        self.assertEqual(obj["overview"], ["A life."])
+
+    def test_refuses_bad_id(self):
+        d = _P(tempfile.mkdtemp())
+        with self.assertRaises(ValueError):
+            emit.write_profile(d, {"id": "", "overview": ["x"]},
+                               sources=["s"], generated="2026-06-17")
