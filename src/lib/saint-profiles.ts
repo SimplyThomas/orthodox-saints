@@ -2021,4 +2021,568 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
       },
     ],
   },
+  "OS-1835": {
+    id: "OS-1835",
+    lifespan: "c. 773 – 837 · Abbot and confessor of Mount Atroa",
+    overview: [
+      "Saint Peter of Atroa (c. 773–837) is among the better-documented Byzantine monastic saints of the iconoclast period, his life recorded by his disciple and successor Saint Sabas in the Life of Saint Peter of Atroa. He was born around 773 in Asia Minor, most likely near Mount Olympus in Bithynia, and lived through one of the most turbulent theological conflicts in Byzantine history — the controversy over the holy icons.",
+      "Little reliable detail survives of his parents or childhood; the hagiography describes an early inclination to asceticism and an entry into monastic life while still young. He became a disciple of the ascetic Saint Paul of Atroa, founder of the monastic community at Mount Atroa in Bithynia, and under his guidance embraced a life of strict fasting, prayer, obedience, and labor. After Paul's repose, Peter emerged as a leading monk of the community and in time its abbot, with charge of monks spread among several dependent houses and hermitages.",
+      "His mature years fell within the second period of Byzantine iconoclasm (815–843), revived under the emperor Leo V. Peter openly upheld the veneration of icons and kept communion with the iconophile monastic movement, which drew the suspicion of the imperial authorities; he endured surveillance, harassment, and seasons of forced displacement, yet held to the Orthodox confession. The Life records extensive travels through Asia Minor, visiting monasteries, encouraging monks, organizing communities, and keeping contact with the leaders of the Church.",
+      "By the end of his life he oversaw a substantial monastic network reaching well beyond the original house at Atroa. He reposed in peace in 837, only a few years before the final restoration of the icons under the empress Theodora in 843, and was venerated almost at once within Byzantine monastic circles.",
+    ],
+    timeline: [
+      {
+        when: "c. 773",
+        title: "Born in Bithynia",
+        body: "In Asia Minor, near Mount Olympus.",
+      },
+      {
+        when: "c. 790s",
+        title: "Disciple of St. Paul of Atroa",
+        body: "Entering the monastic community at Mount Atroa.",
+      },
+      {
+        when: "Early 9th c.",
+        title: "Abbot of Atroa",
+        body: "Leading the community and its dependent houses.",
+      },
+      {
+        when: "815",
+        title: "Second iconoclasm begins",
+        body: "Under the emperor Leo V; Peter defends the icons.",
+      },
+      {
+        when: "815–837",
+        title: "Endured surveillance and displacement",
+        body: "While guiding a wide monastic network.",
+      },
+      {
+        when: "837",
+        title: "Reposed in peace",
+        body: "Six years before the Triumph of Orthodoxy.",
+      },
+    ],
+    sections: [
+      {
+        heading: "The Second Iconoclasm",
+        body: [
+          "Peter's mature ministry coincided with the second iconoclast period (815–843), when several emperors — Leo V, Michael II, and Theophilus — pressed against the veneration of icons. Monasteries became the chief centers of resistance, and many monks met imprisonment, exile, and persecution; Peter belonged to this iconophile monastic movement and shared in its sufferings.",
+        ],
+      },
+      {
+        heading: "Bithynian Monasticism",
+        body: [
+          "Mount Olympus and the surrounding country of Bithynia were among the most important centers of Byzantine monastic life. From Atroa, Peter supervised a network of houses and hermitages and traveled widely to encourage and organize monks — a pattern of pilgrimage and oversight that strengthened the bonds among Orthodox monasteries across Asia Minor.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Though less famous than Saint Theodore the Studite, Peter belongs to the same generation of monastic leaders who preserved Orthodox teaching through the iconoclast crisis and into the restoration of the icons in 843. His Life, written by his disciple Sabas, remains a valuable source for the organization of Byzantine monasteries and for the experience of iconophile resistance.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Venerable Theodore the Studite",
+        note: "leading defender of the icons",
+        href: "saint/OS-2180",
+      },
+      {
+        name: "Saint Nikephoros the Confessor",
+        note: "patriarch exiled for the icons",
+        href: "saint/OS-1273",
+      },
+      {
+        name: "Saint Methodius, Patriarch of Constantinople",
+        note: "presided over the restoration of icons",
+        href: "saint/OS-1354",
+      },
+      {
+        name: "Venerable Joannicius the Great",
+        note: "renowned contemporary ascetic",
+        href: "saint/OS-2142",
+      },
+      {
+        name: "Venerable Theophanes the Confessor",
+        note: "chronicler and defender of the icons",
+        href: "saint/OS-0318",
+      },
+      {
+        name: "Saint Theodore the Sykeote",
+        note: "earlier wonderworking ascetic of Asia Minor",
+        href: "saint/OS-1039",
+      },
+    ],
+    patronage: [
+      "Monastics and abbots",
+      "Spiritual fathers",
+      "Defenders of the holy icons",
+      "Pilgrims",
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          {
+            title: "Life of Saint Peter of Atroa",
+            author: "Saint Sabas of Atroa",
+          },
+          { title: "Byzantine Synaxaria and Menologia" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "Lives of the Saints",
+            author: "Orthodox Church in America",
+          },
+          { title: "Studies on Byzantine Iconoclasm" },
+        ],
+      },
+    ],
+  },
+  "OS-2581": {
+    id: "OS-2581",
+    lifespan:
+      "1st century · Synagogue ruler of Corinth, Apostle of the Seventy",
+    overview: [
+      "Saint Crispus is one of the better-attested members of the Seventy, for he appears by name in the New Testament — in the Acts of the Apostles (18:8) and in Saint Paul's First Epistle to the Corinthians (1:14). He was a prominent Jewish leader at Corinth, the ruler (archisynagogos) of the synagogue, and so one of the most influential religious figures of the city; his position implies a thorough training in the Scriptures, the law, and the governance of the synagogue.",
+      "He enters the record during Paul's mission at Corinth, about AD 50–52. Paul preached first in the synagogue until opposition arose, and amid that controversy Crispus came to believe that Jesus is the Messiah: Acts records that he 'believed in the Lord with all his household.' The conversion of one of the city's leading Jewish authorities was a significant event for the Corinthian mission.",
+      "Paul himself baptized Crispus — a fact Paul recalls in 1 Corinthians while addressing divisions in the Church, noting that he had baptized few there in person. Because Paul usually left baptizing to his coworkers, his particular mention suggests the weight of Crispus's conversion.",
+      "Orthodox tradition numbers Crispus among the Seventy Apostles whom Christ sent out, and later ecclesiastical tradition records that he became Bishop of Aegina, an island in the Saronic Gulf near Athens, devoting himself to missionary preaching and the planting of Christian communities. The New Testament does not mention this episcopate, and accounts of his repose vary — some peaceful, some under persecution — but the Church honors him among the Seventy, both individually on January 4 and with the whole apostolic circle.",
+    ],
+    timeline: [
+      {
+        when: "Early 1st c.",
+        title: "Ruler of the synagogue at Corinth",
+        body: "A leading Jewish authority of the city.",
+      },
+      {
+        when: "c. AD 50–52",
+        title: "Believed through Paul's preaching",
+        body: "With all his household (Acts 18:8).",
+      },
+      {
+        when: "c. AD 50–52",
+        title: "Baptized by Saint Paul",
+        body: "Recalled by Paul in 1 Corinthians 1:14.",
+      },
+      {
+        when: "Later tradition",
+        title: "Bishop of Aegina",
+        body: "Numbered among the Seventy Apostles.",
+      },
+      {
+        when: "Jan 4 / Jul 30",
+        title: "Commemorated",
+        body: "Individually and with the Synaxis of the Seventy.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "Crispus is unusual among the Seventy in being named in Scripture (Acts 18:8; 1 Corinthians 1:14). His later ministry — membership among the Seventy and the episcopate of Aegina — is preserved in the Synaxaria and in the tradition attributed to Dorotheus of Tyre, and cannot always be independently verified against the New Testament.",
+        ],
+      },
+      {
+        heading: "Conversion of a Synagogue Leader",
+        body: [
+          "Corinth, rebuilt by Julius Caesar as a Roman colony, was a prosperous commercial city with an influential Jewish community whose synagogue was often the first point of contact for Christian missionaries. That its ruler should believe, and be baptized by Paul's own hand, showed that the apostolic preaching reached not only the common people but the educated leadership of the synagogue.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Crispus's place is secured by the explicit witness of Scripture and his personal tie to the Apostle Paul. His traditional episcopate at Aegina made him part of the apostolic foundation of the Church in Greece, and he remains an example of conversion, leadership, and the continuity between synagogue and Church.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Apostles Peter and Paul",
+        note: "Paul converted and baptized him",
+        href: "saint/OS-0004",
+      },
+      {
+        name: "Apostle Sosthenes of the Seventy",
+        note: "another synagogue ruler of Corinth",
+        href: "saint/OS-0903",
+      },
+      {
+        name: "Apostle Aquila of the Seventy",
+        note: "Paul's coworker at Corinth",
+        href: "saint/OS-1527",
+      },
+      {
+        name: "Apostle Timothy of the Seventy",
+        note: "apostolic assistant of Paul",
+        href: "saint/OS-0512",
+      },
+      {
+        name: "Apostle Titus of the Seventy",
+        note: "apostolic missionary in the Greek world",
+        href: "saint/OS-1775",
+      },
+      {
+        name: "Hieromartyr Dionysius the Areopagite",
+        note: "another leading Greek convert of Paul",
+        href: "saint/OS-1942",
+      },
+    ],
+    patronage: [
+      "Converts to Christianity",
+      "Church leaders",
+      "Greece and Aegina",
+      "Students of Scripture",
+    ],
+    reading: [
+      {
+        heading: "Scripture",
+        items: [{ title: "Acts 18:8" }, { title: "1 Corinthians 1:14" }],
+      },
+      {
+        heading: "Reference",
+        items: [
+          {
+            title: "On the Seventy Apostles",
+            author: "attributed to Dorotheus of Tyre",
+          },
+          {
+            title: "Lives of the Saints (Jan 4)",
+            author: "Orthodox Church in America",
+          },
+        ],
+      },
+    ],
+  },
+  "OS-0388": {
+    id: "OS-0388",
+    lifespan:
+      "Early 4th century · A hermit and the jailer who confessed Christ with him",
+    overview: [
+      "Saints Zosimus and Athanasius are commemorated together on January 4 as confessors of the faith from the time of the persecution under Diocletian, in Cilicia of Asia Minor. Zosimus was a hermit and ascetic who had given himself to prayer, fasting, and solitude; Athanasius was a commentarisius — a prison official, or jailer — whose meeting with Zosimus changed his life.",
+      "Arrested during the persecution and brought before the authorities, Zosimus confessed Christ and was subjected to torture, which he endured with remarkable calm and steadfastness. Athanasius, the jailer set over him, was so moved by the constancy of the hermit under suffering that he came to believe and openly confessed Christ himself.",
+      "Tradition records that the two then withdrew together into the wilderness, where they passed the remainder of their lives in ascetic stillness and reposed in peace. Because they suffered for the faith yet were not put to death, the Church honors them not as martyrs but as confessors.",
+      "Little else is preserved of their origins, families, or the precise circumstances of their deaths; their memory survives chiefly through the synaxaria and the liturgical commemoration that has carried their witness in Orthodox tradition.",
+    ],
+    timeline: [
+      {
+        when: "Late 3rd c.",
+        title: "Zosimus the hermit",
+        body: "An ascetic of Cilicia given to solitude and prayer.",
+      },
+      {
+        when: "Under Diocletian",
+        title: "Arrested and tortured",
+        body: "Zosimus confesses Christ and endures with calm.",
+      },
+      {
+        when: "Under Diocletian",
+        title: "The jailer believes",
+        body: "Athanasius, moved by his constancy, confesses Christ.",
+      },
+      {
+        when: "After their release",
+        title: "Withdrew to the wilderness",
+        body: "Living out their lives as ascetics, reposing in peace.",
+      },
+      {
+        when: "January 4",
+        title: "Commemorated together",
+        body: "Honored as confessors of the faith.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "Surviving information is sparse, drawn from the synaxaria and later tradition rather than a contemporary biography, and several details of their lives remain uncertain. The consistent core is that Zosimus the hermit was arrested and tortured under Diocletian, that the jailer Athanasius was converted by his endurance, and that the two withdrew together to the wilderness.",
+        ],
+      },
+      {
+        heading: "Conversion by Witness",
+        body: [
+          "Their account belongs to a frequent pattern in the records of the early martyrs and confessors, in which the steadfastness of the one who suffers converts the very official set to guard or punish him. Zosimus's endurance under torture became the means by which Athanasius came to faith — a witness more persuasive than argument.",
+        ],
+      },
+      {
+        heading: "Confessors, Not Martyrs",
+        body: [
+          "Unlike the martyrs who died under sentence, Zosimus and Athanasius survived their sufferings and lived on in ascetic withdrawal; the Church therefore numbers them among the confessors — those who endured persecution and imprisonment for Christ without being put to death.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Great Martyr George the Trophy-bearer",
+        note: "great martyr of the same persecution",
+        href: "saint/OS-0012",
+      },
+      {
+        name: "Great Martyr and Healer Panteleimon",
+        note: "martyr under Diocletian",
+        href: "saint/OS-0014",
+      },
+      {
+        name: "Great Martyr Catherine of Alexandria",
+        note: "whose witness converted her onlookers",
+        href: "saint/OS-0015",
+      },
+      {
+        name: "Saint Anthony the Great",
+        note: "father of the desert hermits of that age",
+        href: "saint/OS-0026",
+      },
+    ],
+    patronage: [
+      "Hermits and ascetics",
+      "Confessors of the faith",
+      "Prison officers and converts",
+      "Those imprisoned for their faith",
+    ],
+    reading: [
+      {
+        heading: "Sources",
+        items: [
+          {
+            title: "Lives of the Saints (Jan 4)",
+            author: "Orthodox Church in America",
+          },
+          { title: "Byzantine Synaxaria and Menologia" },
+        ],
+      },
+    ],
+  },
+  "OS-0386": {
+    id: "OS-0386",
+    lifespan:
+      "13th century (Archbishop 1279 – c. 1286) · Successor of St. Sava",
+    overview: [
+      "Saint Eustathius I (Serbian: Jevstatije) served as Archbishop of Serbia from 1279 until his repose around 1286, during the height of the medieval Serbian state under the Nemanjić dynasty. He was born in the early thirteenth century in the Serbian lands; his secular name and the details of his family and childhood are not securely known, though tradition records a devout upbringing and an early turn toward the spiritual life.",
+      "As a young man he entered monastic life and made his way to Mount Athos, the principal center of Orthodox monasticism in the Balkans, joining the Serbian monastery of Hilandar founded by Saint Sava and Saint Simeon the Myrrh-gusher. At Hilandar he became known for discipline, learning, and humility, and in time served as its abbot, deepening his ties to both Athonite monasticism and the Serbian Church. His reputation led to his election as Bishop of Zeta, where he labored to strengthen church life and to maintain the bond between Serbia and the Holy Mountain.",
+      "After the repose of Archbishop Joanikije I, Eustathius was chosen Archbishop of Serbia in 1279, the fifth in succession from Saint Sava, founder of the autocephalous Serbian Church. His tenure fell during the reigns of Kings Dragutin and Milutin, amid the dynastic complexities of the age; he preserved ecclesiastical stability and kept strong relations with the Patriarchate of Constantinople and the monasteries of Mount Athos.",
+      "He reposed in 1286 and was buried with honor, soon venerated as a holy hierarch. Unlike saints remembered for dramatic wonders or martyrdom, Eustathius is honored for faithful leadership, pastoral wisdom, and monastic devotion, and is numbered among the distinguished succession of Serbian hierarch-saints who carried forward the work begun by Saint Sava.",
+    ],
+    timeline: [
+      {
+        when: "Early 13th c.",
+        title: "Born in the Serbian lands",
+        body: "Of a devout family; his secular name unknown.",
+      },
+      {
+        when: "Mid-13th c.",
+        title: "Monk of Hilandar on Mount Athos",
+        body: "Later serving as its abbot.",
+      },
+      {
+        when: "Before 1279",
+        title: "Bishop of Zeta",
+        body: "Strengthening church life and Athonite ties.",
+      },
+      {
+        when: "1279",
+        title: "Archbishop of Serbia",
+        body: "Fifth successor of Saint Sava.",
+      },
+      {
+        when: "c. 1286",
+        title: "Reposed in peace",
+        body: "Soon venerated as a holy hierarch.",
+      },
+    ],
+    sections: [
+      {
+        heading: "The Nemanjić Age",
+        body: [
+          "Eustathius lived during one of the most prosperous periods of medieval Serbia. The autocephaly granted through Saint Sava in 1219 had matured into a settled ecclesiastical institution, and Hilandar Monastery served as a spiritual and cultural bridge between Serbia and the wider Orthodox world. Though politically independent, Serbia remained deeply bound to Byzantine theology, liturgy, and monasticism.",
+        ],
+      },
+      {
+        heading: "Hilandar and the Holy Mountain",
+        body: [
+          "His Athonite formation reinforced the ties between Serbia and Mount Athos that Hilandar embodied. As archbishop he supervised dioceses, clergy, and monasteries throughout the Serbian lands, and his own monastic example encouraged the growth of Serbian monasticism while preserving communion with the broader Orthodox Church.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Eustathius is remembered as one of the significant medieval archbishops who consolidated the work of Saint Sava, his legacy especially visible in the enduring relationship between Hilandar and the Serbian Church. His ministry helped strengthen the institutional foundations on which the Serbian Church would later flourish.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saint Sava I of Serbia",
+        note: "founder of the Serbian Church",
+        href: "saint/OS-0449",
+      },
+      {
+        name: "Venerable Symeon the Myrrh-gusher",
+        note: "co-founder of Hilandar",
+        href: "saint/OS-0653",
+      },
+      {
+        name: "Saint Arsenius, Archbishop of Serbia",
+        note: "earlier successor of Saint Sava",
+        href: "saint/OS-2094",
+      },
+      {
+        name: "Saint Sava II of Serbia",
+        note: "earlier Serbian archbishop",
+        href: "saint/OS-0617",
+      },
+      {
+        name: "Saint Stephen Milutin of Serbia",
+        note: "king during his ministry",
+        href: "saint/OS-2116",
+      },
+      {
+        name: "Venerable Athanasius of Athos",
+        note: "father of organized Athonite monasticism",
+        href: "saint/OS-1477",
+      },
+    ],
+    patronage: [
+      "Bishops and archbishops",
+      "Serbia and Hilandar Monastery",
+      "Church administration",
+      "Monastic leadership",
+    ],
+    reading: [
+      {
+        heading: "Sources",
+        items: [
+          {
+            title: "Lives of the Saints (Jan 4)",
+            author: "Orthodox Church in America",
+          },
+          { title: "Serbian Orthodox Synaxarion" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "History of the Serbian Orthodox Church",
+            author: "Dimitrije Bogdanović",
+          },
+          { title: "Hilandar and Medieval Serbia" },
+        ],
+      },
+    ],
+  },
+  "OS-2666": {
+    id: "OS-2666",
+    lifespan: "† 1818 · Athonite monk and new-martyr of Bulgaria",
+    overview: [
+      "Saint Onuphrius of Gabrovo was a Bulgarian Orthodox monk and new-martyr who suffered under Ottoman rule in the early nineteenth century. He was born at Gabrovo in central Bulgaria, probably late in the eighteenth century, at a time when the Orthodox Christians of Bulgaria lived as a subordinate religious community within the Ottoman Empire. Born Matthew, he grew up in an Orthodox family and from youth was drawn to the faith.",
+      "Seeking a deeper spiritual life, he entered monasticism and became associated with the Serbian Athonite monastery of Hilandar on Mount Athos, a major center of Slavic Orthodox life, where he received his monastic formation and grew known for devotion and discipline. From the Holy Mountain he later traveled through the Balkans, and in time came to Tarnovo, the historic medieval capital of Bulgaria.",
+      "There the Ottoman authorities took notice of his Christian witness and pressed him to embrace Islam. Onuphrius steadfastly refused; after interrogation and imprisonment he was condemned to death and executed at Tarnovo in 1818, securing his place among the New Martyrs of the Ottoman era.",
+      "Local Christians preserved the memory of his confession, and his veneration spread within the Bulgarian Orthodox Church and among the Athonite communities. He is distinct from the earlier hieromartyr Damascene of Gabrovo, with whom his home town is also associated.",
+    ],
+    timeline: [
+      {
+        when: "Late 18th c.",
+        title: "Born at Gabrovo",
+        body: "Into an Orthodox family; named Matthew.",
+      },
+      {
+        when: "Young adulthood",
+        title: "Monk of Hilandar on Mount Athos",
+        body: "Receiving his monastic formation.",
+      },
+      {
+        when: "Later years",
+        title: "Traveled through the Balkans",
+        body: "Coming in time to Tarnovo.",
+      },
+      {
+        when: "1818",
+        title: "Confessed Christ before the authorities",
+        body: "Refusing to embrace Islam.",
+      },
+      {
+        when: "1818",
+        title: "Martyred at Tarnovo",
+        body: "After interrogation and imprisonment.",
+      },
+    ],
+    sections: [
+      {
+        heading: "The New Martyrs under Ottoman Rule",
+        body: [
+          "The Ottoman centuries produced many Orthodox New Martyrs across Greece, Bulgaria, Serbia, Romania, and the Middle East — most of them remembered for refusing conversion to Islam. Bulgaria's Christians held legal standing within the Rum millet but occupied a subordinate place, and the public confession of figures like Onuphrius strengthened the Orthodox communities that lived under that pressure.",
+        ],
+      },
+      {
+        heading: "The Reach of Athonite Spirituality",
+        body: [
+          "His formation at Hilandar links him to one of the most influential centers of Orthodox monasticism, which through Ottoman rule preserved Orthodox learning, manuscripts, and monastic life. His life shows the reach of Athonite spirituality far beyond the Holy Mountain, into the Bulgarian lands and the wider Balkans.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Within Bulgarian Orthodox memory Onuphrius stands for steadfastness and fidelity to Christ in a difficult age, and his feast forms part of the broader commemoration of the Orthodox who suffered under Ottoman rule. Several details of his witness are preserved in near-contemporary accounts, distinguishing him from saints of the period known only in fragments.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Hieromartyr Damascene the New of Gabrovo",
+        note: "fellow saint of his home town",
+        href: "saint/OS-0469",
+      },
+      {
+        name: "Saint Sophronius of Vratsa",
+        note: "figure of the Bulgarian spiritual revival",
+        href: "saint/OS-0812",
+      },
+      {
+        name: "New Martyr George of Sofia",
+        note: "Bulgarian new-martyr under Ottoman rule",
+        href: "saint/OS-0638",
+      },
+      {
+        name: "Great Martyr Nicholas of Sofia",
+        note: "Bulgarian new-martyr",
+        href: "saint/OS-1197",
+      },
+      {
+        name: "New Martyr Zlata of Meglen",
+        note: "new-martyr of the Balkans",
+        href: "saint/OS-2016",
+      },
+      {
+        name: "New Hieromartyr Cosmas of Aitolia",
+        note: "missionary of the Ottoman-era Balkans",
+        href: "saint/OS-1772",
+      },
+    ],
+    patronage: [
+      "Bulgaria and Gabrovo",
+      "Monastics",
+      "Those resisting coercion of conscience",
+      "Christians under persecution",
+    ],
+    reading: [
+      {
+        heading: "Sources",
+        items: [
+          { title: "Bulgarian Synaxarion and lists of Bulgarian saints" },
+          { title: "New Martyrs of the Ottoman period (collections)" },
+        ],
+      },
+      {
+        heading: "Academic",
+        items: [
+          { title: "The Bulgarian Church under Ottoman Rule" },
+          { title: "Mount Athos and the Balkans" },
+        ],
+      },
+    ],
+  },
 };
