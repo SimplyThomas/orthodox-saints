@@ -31,8 +31,8 @@
 | `tools/profilegen/prompts/{gather,write,verify}.md` (**new**) | The agent stage prompts (the Write prompt derives from the user's ChatGPT prompt + spec §3.2). |
 | `tools/profilegen/schemas.py` (**new**) | JSON Schemas: the `SaintProfile` write-output and the verifier `verdict`. Exposed as JSON for the workflow. |
 | `scripts/profilegen.workflow.js` (**new**) | The Workflow orchestration: pipeline a batch through Gather→Write→Verify→Emit with per-stage models (live; used for calibration). |
-| `tools/profilegen/limits.py` (**new**) | Parse Claude Code headless output: is-it-a-limit, is-it-a-non-resetting-cap, seconds-until-reset. |
-| `tools/profilegen/run.py` (**new**) | Hands-off overnight runner: build batches, loop `claude -p` per batch, back off / wait-for-reset / stop-on-exhaustion, resumable. |
+| `tools/profilegen/limits.py` (**new**) | Classify `claude -p --output-format json` output: `parse_error_type` / `is_terminal` / best-effort `retry_after_seconds`. |
+| `tools/profilegen/run.py` (**new**) | Hands-off overnight runner: loop `claude -p` per batch; stop on terminal errors, wait-a-window on rate limits, infer the weekly cap; `NOTIFY_CMD` + `state.json` + exit codes; resumable. |
 | `tests/test_profilegen.py` (**new**) | Unit tests for every helper above. |
 | `Makefile` (**modify**) | `make profile-batch` (prioritize), `make profile-run` (overnight runner), helper passthroughs. |
 | `CLAUDE.md` (**modify**) | Document the pipeline + the authoring loop. |
@@ -1078,82 +1078,79 @@ git commit -m "feat(profilegen): make targets + docs for the generation pipeline
 
 **Files:** Create `tools/profilegen/limits.py`; Test: `tests/test_profilegen.py`
 
-The runner (Task 13) must react to whatever limit Claude Code reports. This pure module
-classifies the output and computes how long to wait — small and unit-tested so the runner's
-control flow is trustworthy.
+The runner (Task 13) reacts to whatever Claude Code reports. This pure module reads the one
+machine-readable signal that actually exists and classifies it — small and unit-tested so the
+runner's control flow is trustworthy.
 
-**Background — two kinds of limit (read before implementing).** Limits come in two flavours,
-and the runner must treat them differently:
+**What Claude Code actually exposes (verified June 2026 — read before implementing).** This is
+narrower than you'd hope, and it shapes the whole design:
 
-- **Short, self-resetting** — the **5-hour rolling window**. Clears on a timer, often with a
-  "resets at …" hint. → **wait and resume** (this is the "extra overnight sessions" case).
-- **Long / won't-reset-overnight** — the **weekly cap** (and, *if ever activated*, the
-  monthly Agent-SDK credit pool). Waiting overnight won't refill these. → **stop and notify**.
+- `claude -p --output-format json` returns a structured **`error.type`** on failure
+  (`{"type":"error","error":{"type":"rate_limit_error",...}}`) — e.g. `rate_limit_error`,
+  `billing_error`, `authentication_error`. **Use this** (not regex on prose).
+- It does **NOT** expose a reset timestamp, a `retry-after`, or **any** way to tell a
+  **5-hour-window** limit from a **weekly-cap** limit — both surface as the same
+  `rate_limit_error`. The API's `anthropic-ratelimit-*` headers (which do carry reset times)
+  are **masked** by `claude -p`, and even they reflect the *per-minute* window, not the
+  5-hour/weekly subscription windows.
+- There is **no official way to query a personal Max subscription's remaining usage / reset
+  time**. `/usage` and `/status` are interactive, human-readable only; the Admin/Usage & Cost
+  and Rate-Limits APIs are **org/API-key only**, not subscription OAuth.
 
-`is_exhausted` distinguishes the second class so the runner doesn't burn the night waiting on
-a reset that isn't coming; `seconds_until_reset` handles the first.
-
-**Billing caveat (verify — it's been in flux).** Anthropic *announced* (May 2026) that
-headless `claude -p` / Agent-SDK usage would leave the subscription pools on **June 15, 2026**
-for a separate monthly API-rate credit pool ($100 Max 5x / $200 Max 20x) — then **paused that
-change on June 15 before it took effect** (per third-party reporting; not confirmed on an
-official page). So as of now, headless usage still draws the **normal subscription limits**
-(5-hour windows + weekly cap). Either way the runner is correct — it waits on short resets and
-stops on caps that won't clear overnight. **Confirm the current regime in your Console /
-`claude /status` before a long run.**
+**Consequence:** the runner can't "look up your limits" or read a precise reset — that
+capability doesn't exist for a Max subscription. So it (a) keys off `error.type`, (b) treats
+billing/auth as **stop-now**, and (c) for `rate_limit_error` **waits a full window** (long
+enough to guarantee a 5-hour window cleared) and retries — and if it's *still* rate-limited
+after a couple of full-window waits, infers the **weekly cap** and stops. This module supplies
+the classification; Task 13 supplies that control loop.
 
 - [ ] **Step 1: Write the failing tests**
 
 Add to `tests/test_profilegen.py`:
 
 ```python
-from datetime import datetime
 from tools.profilegen import limits
 
 
-class LimitClassifyTests(unittest.TestCase):
-    def test_nonzero_returncode_is_a_limit(self):
-        self.assertTrue(limits.is_limit("", 1))
+class ErrorTypeTests(unittest.TestCase):
+    def test_success_returns_none(self):
+        self.assertIsNone(limits.parse_error_type('{"type":"result","result":"wrote 12"}'))
 
-    def test_rate_limit_text_is_a_limit(self):
-        self.assertTrue(limits.is_limit("Error: 429 rate_limit_error", 0))
-        self.assertTrue(limits.is_limit("usage limit reached; resets at 3:00 PM", 0))
+    def test_rate_limit_error_from_json(self):
+        out = '{"type":"error","error":{"type":"rate_limit_error","message":"Request rejected (429)"}}'
+        self.assertEqual(limits.parse_error_type(out), "rate_limit_error")
 
-    def test_success_is_not_a_limit(self):
-        self.assertFalse(limits.is_limit('{"result": "wrote 12 profiles"}', 0))
+    def test_billing_error_from_json(self):
+        out = '{"type":"error","error":{"type":"billing_error","message":"x"}}'
+        self.assertEqual(limits.parse_error_type(out), "billing_error")
 
-    def test_exhausted_detects_weekly_cap(self):
-        self.assertTrue(limits.is_exhausted("You've reached your weekly usage limit"))
+    def test_stream_json_picks_the_error_line(self):
+        out = '{"type":"system"}\n{"type":"error","error":{"type":"rate_limit_error"}}\n'
+        self.assertEqual(limits.parse_error_type(out), "rate_limit_error")
 
-    def test_exhausted_detects_monthly_credit(self):
-        self.assertTrue(limits.is_exhausted("Your credit balance is too low"))
-        self.assertTrue(limits.is_exhausted("monthly usage limit reached"))
-
-    def test_exhausted_false_on_transient(self):
-        self.assertFalse(limits.is_exhausted("rate limit exceeded, try again in 60 seconds"))
-
-
-class ResetParseTests(unittest.TestCase):
-    NOW = datetime(2026, 6, 18, 13, 0, 0)  # 1:00 PM
-
-    def test_retry_after_seconds(self):
-        self.assertEqual(limits.seconds_until_reset("retry-after: 90", self.NOW), 90)
-
-    def test_try_again_in_hours(self):
-        self.assertEqual(limits.seconds_until_reset("try again in 2 hours", self.NOW), 7200)
-
-    def test_try_again_in_minutes(self):
-        self.assertEqual(limits.seconds_until_reset("try again in 45 minutes", self.NOW), 2700)
-
-    def test_resets_at_clock_time_later_today(self):
-        self.assertEqual(limits.seconds_until_reset("resets at 3:00 PM", self.NOW), 7200)
-
-    def test_resets_at_time_already_passed_rolls_to_next_day(self):
+    def test_text_fallback_detects_429(self):
         self.assertEqual(
-            limits.seconds_until_reset("limit resets at 11:00 AM", self.NOW), 22 * 3600)
+            limits.parse_error_type("API Error: Request rejected (429)"), "rate_limit_error")
 
-    def test_none_when_no_hint(self):
-        self.assertIsNone(limits.seconds_until_reset("some other error", self.NOW))
+
+class TerminalTests(unittest.TestCase):
+    def test_billing_and_auth_are_terminal(self):
+        self.assertTrue(limits.is_terminal("billing_error"))
+        self.assertTrue(limits.is_terminal("authentication_error"))
+
+    def test_rate_limit_is_not_terminal(self):
+        self.assertFalse(limits.is_terminal("rate_limit_error"))
+
+    def test_none_is_not_terminal(self):
+        self.assertFalse(limits.is_terminal(None))
+
+
+class RetryAfterTests(unittest.TestCase):
+    def test_explicit_retry_after(self):
+        self.assertEqual(limits.retry_after_seconds("retry-after: 90"), 90)
+
+    def test_absent_returns_none(self):  # the common case for subscription limits
+        self.assertIsNone(limits.retry_after_seconds("Request rejected (429)"))
 ```
 
 - [ ] **Step 2: Run to confirm failure**
@@ -1166,73 +1163,63 @@ Expected: FAIL — no module/attrs.
 Create `tools/profilegen/limits.py`:
 
 ```python
-"""Parse Claude Code headless output to drive the overnight runner's backoff:
-distinguish a limit from success, a cap that won't reset overnight from a transient limit,
-and compute how long to wait when a reset time is given."""
+"""Classify `claude -p --output-format json` output for the overnight runner.
+
+Verified June 2026: the headless JSON error carries a machine-readable `error.type`
+but NOT a reset timestamp and NOT a 5-hour-vs-weekly distinction — those aren't
+exposed to `claude -p`, and there's no usage API for a personal Max subscription.
+So the runner keys off `error.type`, stops on terminal errors, and for rate limits
+waits a configured full window (it cannot read the real reset time)."""
+import json
 import re
-from datetime import datetime, timedelta
 
-_LIMIT_RE = re.compile(
-    r"rate.?limit|usage limit|overloaded|\b429\b|resets? at|retry.?after|"
-    r"too many requests|out of credit|credit balance|insufficient|quota",
-    re.I,
-)
-_EXHAUST_RE = re.compile(
-    r"out of credit|credit balance is too low|insufficient credit|"
-    r"weekly (usage )?limit|monthly (usage )?limit reached|quota exhausted",
-    re.I,
-)
-_RETRY_AFTER_RE = re.compile(r"retry.?after[\"':\s]+(\d+)", re.I)
-_IN_DURATION_RE = re.compile(r"in\s+(\d+)\s*(second|minute|hour)s?", re.I)
-_RESETS_AT_RE = re.compile(r"resets?\s+at\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)?", re.I)
+# Errors where waiting will NOT help — stop the run immediately.
+TERMINAL_TYPES = {
+    "billing_error", "authentication_error", "permission_error", "not_found_error",
+}
 
 
-def is_limit(text: str, returncode: int) -> bool:
-    """True if the run hit any kind of limit (or otherwise failed)."""
-    return returncode != 0 or bool(_LIMIT_RE.search(text or ""))
-
-
-def is_exhausted(text: str) -> bool:
-    """True for a cap that won't reset overnight (weekly limit / monthly credit / quota)."""
-    return bool(_EXHAUST_RE.search(text or ""))
-
-
-def seconds_until_reset(text: str, now: datetime) -> int | None:
-    """Seconds to wait before retrying, parsed from the message, or None if no hint."""
-    text = text or ""
-    m = _RETRY_AFTER_RE.search(text)
-    if m:
-        return int(m.group(1))
-    m = _IN_DURATION_RE.search(text)
-    if m:
-        n, unit = int(m.group(1)), m.group(2).lower()
-        return n * {"second": 1, "minute": 60, "hour": 3600}[unit]
-    m = _RESETS_AT_RE.search(text)
-    if m:
-        raw_hour, minute, ampm = int(m.group(1)), int(m.group(2) or 0), (m.group(3) or "").lower()
-        if ampm == "pm":
-            hour = raw_hour % 12 + 12
-        elif ampm == "am":
-            hour = raw_hour % 12
-        else:
-            hour = raw_hour  # 24-hour clock, e.g. "15:00"
-        target = now.replace(hour=hour % 24, minute=minute, second=0, microsecond=0)
-        if target <= now:
-            target += timedelta(days=1)
-        return int((target - now).total_seconds())
+def parse_error_type(out: str) -> str | None:
+    """Return `error.type` from claude's JSON / stream-json output, or None on success.
+    Falls back to a text scan for a 429 when the output isn't clean JSON."""
+    for line in (out or "").splitlines():
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            obj = json.loads(line)
+        except ValueError:
+            continue
+        if isinstance(obj, dict) and obj.get("type") == "error":
+            return (obj.get("error") or {}).get("type") or "error"
+    if re.search(r"\b429\b|rate.?limit|too many requests", out or "", re.I):
+        return "rate_limit_error"
     return None
+
+
+def is_terminal(error_type: str | None) -> bool:
+    """True for errors that won't clear by waiting (billing / auth / permission / not-found)."""
+    return error_type in TERMINAL_TYPES
+
+
+def retry_after_seconds(out: str) -> int | None:
+    """Best-effort explicit retry-after, if the output happens to carry one. Usually None
+    for subscription (5-hour/weekly) limits — `claude -p` masks the rate-limit headers — so
+    the runner must fall back to a configured wait."""
+    m = re.search(r"retry.?after[\"':\s]+(\d+)", out or "", re.I)
+    return int(m.group(1)) if m else None
 ```
 
 - [ ] **Step 4: Run to confirm pass**
 
-Run: `python -m unittest tests.test_profilegen -k "Limit or Reset" -v`
-Expected: PASS (12 tests).
+Run: `python -m unittest tests.test_profilegen -k "ErrorType or Terminal or RetryAfter" -v`
+Expected: PASS (10 tests).
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add tools/profilegen/limits.py tests/test_profilegen.py
-git commit -m "feat(profilegen): limit/reset parser for the overnight runner"
+git commit -m "feat(profilegen): JSON error-type classifier for the overnight runner"
 ```
 
 ---
@@ -1241,12 +1228,30 @@ git commit -m "feat(profilegen): limit/reset parser for the overnight runner"
 
 **Files:** Create `tools/profilegen/run.py`; Modify `Makefile`, `CLAUDE.md`
 
-A single command you launch at night that walks the whole backlog: it builds batches from
-the prioritized, profile-less saints and runs one headless `claude -p` per batch. It's
-**resumable** (prioritize excludes saints that already have a profile, and the prompt tells
-Claude to skip existing ones — so a fresh run continues where the last stopped), and
-**limit-aware** (back off / wait-for-reset on the 5-hour window; stop on a cap that won't
-reset overnight, e.g. the weekly limit).
+A single command you launch at night that walks the whole backlog: it builds batches from the
+prioritized, profile-less saints and runs one headless `claude -p` per batch. It's
+**resumable** (prioritize excludes already-profiled saints and the prompt says skip existing
+ones — a fresh run continues where the last stopped), **limit-aware** (per Task 12's reality:
+stop on terminal errors; wait-a-full-window-and-retry on rate limits; infer the weekly cap
+when waiting stops helping), and gives **tangible feedback** for unattended runs (a
+`NOTIFY_CMD` hook fired on limit/stop/done, a `dist/profilegen/state.json` you can `cat`
+anytime, and meaningful exit codes).
+
+### What's achievable vs not (set expectations — verified June 2026)
+
+You asked for "query my limits, then resume at a time or kill on weekly." Two of those three
+aren't possible on a Max subscription, so here's what the runner does instead:
+
+| You wanted | Reality | What the runner does |
+|---|---|---|
+| Query remaining usage / exact reset | **No API for a Max subscription** (`/usage` is interactive-only; Usage/Rate-Limit APIs are org-key-only) | Can't look it up — waits a **full window** (`RESUME_AFTER`, ~5h, enough to guarantee a 5-hour window cleared) |
+| Resume exactly at the reset time | `claude -p` **doesn't expose** the reset timestamp | Resumes after `RESUME_AFTER`; logs/notifies the computed resume time |
+| Kill on the weekly limit | A 429 **can't be told apart** from a 5-hour limit | **Infers** it: still rate-limited after `WEEKLY_AFTER_WAITS` consecutive full-window waits → stop. Billing/auth errors stop immediately (those *are* distinguishable). |
+
+Net behaviour overnight: it generates, and each time it's rate-limited it sleeps ~5h and
+retries — so a 5-hour window gives you "extra sessions" automatically; once waiting no longer
+helps (the weekly wall) it stops clean and pings you. Tune `RESUME_AFTER` / `WEEKLY_AFTER_WAITS`
+to trade overnight reach against how fast it gives up.
 
 ### Run modes (document this; it's the §8 authoring workflow operationalized)
 
@@ -1274,20 +1279,31 @@ Create `tools/profilegen/run.py`:
 
 ```python
 """Hands-off overnight runner for grounded profile generation. Builds batches from the
-prioritized, profile-less saints and runs `claude -p` per batch, skipping saints that
-already have a profile (resumable). On the short 5-hour-window reset it backs off and resumes;
-on a cap that won't reset overnight (weekly limit, or the credit pool if that change is ever
-activated) it stops (waiting won't help). Launch overnight:
+prioritized, profile-less saints and runs `claude -p` per batch, skipping saints that already
+have a profile (resumable).
 
-    nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
+Limit handling (see tools/profilegen/limits.py for why it must be this way):
+  * terminal error (billing/auth)        -> stop now (exit 3)
+  * rate_limit_error                      -> wait RESUME_AFTER (a full 5-hour window) and retry
+  * still rate-limited after              -> infer the weekly cap and stop (exit 2)
+      WEEKLY_AFTER_WAITS such waits
+  * other error                           -> bounded backoff, then skip the batch
+A NOTIFY_CMD (if set) is run on limit/stop/done with the message as one argument; state is
+written to dist/profilegen/state.json each step.
 
-Env knobs: BATCH_SIZE (40), PROFILEGEN_MODEL (claude-opus-4-8), MAX_WAIT (21600),
-MAX_ATTEMPTS (12), DRY_RUN (unset). Resume after any stop by re-running the same command."""
+Launch:  nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
+Resume:  re-run the same command (prioritize excludes already-profiled saints).
+Exit:    0 done · 2 stopped (likely weekly cap) · 3 terminal error.
+
+Env: BATCH_SIZE(40) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
+WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')."""
+import json
 import os
+import shlex
 import subprocess
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 from tools.profilegen import limits, prioritize
@@ -1297,8 +1313,10 @@ PLAN = "docs/superpowers/plans/2026-06-17-generation-pipeline.md"
 RUN_DIR = ROOT / "dist" / "profilegen"
 BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "40"))
 MODEL = os.environ.get("PROFILEGEN_MODEL", "claude-opus-4-8")
-MAX_WAIT = int(os.environ.get("MAX_WAIT", str(6 * 3600)))   # cap any single wait at 6h
-MAX_ATTEMPTS = int(os.environ.get("MAX_ATTEMPTS", "12"))    # per batch before moving on
+RESUME_AFTER = int(os.environ.get("RESUME_AFTER", str(5 * 3600 + 600)))  # ~5h10m: clears a window
+WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))      # then assume weekly cap
+MAX_ERR = int(os.environ.get("MAX_ERR", "3"))                            # unknown errors per batch
+NOTIFY_CMD = os.environ.get("NOTIFY_CMD", "")
 DRY_RUN = bool(os.environ.get("DRY_RUN"))
 
 
@@ -1308,6 +1326,21 @@ def log(msg: str) -> None:
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     with open(RUN_DIR / "run.log", "a", encoding="utf-8") as f:
         f.write(line + "\n")
+
+
+def notify(msg: str) -> None:
+    log(msg)
+    if NOTIFY_CMD:
+        try:  # a broken notifier must never kill the run
+            subprocess.run(f"{NOTIFY_CMD} {shlex.quote(msg)}", shell=True, timeout=30)
+        except Exception as e:
+            log(f"(notify failed: {e})")
+
+
+def write_state(**kw) -> None:
+    RUN_DIR.mkdir(parents=True, exist_ok=True)
+    kw["updated"] = f"{datetime.now():%F %T}"
+    (RUN_DIR / "state.json").write_text(json.dumps(kw, indent=2), encoding="utf-8")
 
 
 def run_claude(ids: list[str]) -> tuple[str, int]:
@@ -1332,7 +1365,7 @@ def run_claude(ids: list[str]) -> tuple[str, int]:
 def main() -> int:
     if os.environ.get("ANTHROPIC_API_KEY"):
         log("WARNING: ANTHROPIC_API_KEY is set — headless runs bill metered API rates, "
-            "not your subscription. `unset ANTHROPIC_API_KEY` to use the Max subscription.")
+            "not your Max subscription. `unset ANTHROPIC_API_KEY` first.")
 
     todo = [sid for sid, _ in prioritize.ranked(10**9)]  # excludes already-profiled saints
     batches = [todo[i:i + BATCH_SIZE] for i in range(0, len(todo), BATCH_SIZE)]
@@ -1342,25 +1375,55 @@ def main() -> int:
             log(f"[dry-run] batch {n}: {b[0]}..{b[-1]} ({len(b)})")
         return 0
 
+    waits = 0  # consecutive full-window waits with no successful call between → weekly signal
     for n, batch in enumerate(batches, 1):
-        for attempt in range(1, MAX_ATTEMPTS + 1):
-            log(f"batch {n}/{len(batches)} ({len(batch)} ids) attempt {attempt}")
+        errs = 0
+        while True:
+            write_state(status="running", batch=n, total=len(batches), action="generating")
+            log(f"batch {n}/{len(batches)} ({len(batch)} ids)")
             out, rc = run_claude(batch)
-            if not limits.is_limit(out, rc):
+            etype = limits.parse_error_type(out) or ("error" if rc != 0 else None)
+
+            if etype is None:                       # success
+                waits = 0
                 log(f"batch {n} done")
                 break
-            if limits.is_exhausted(out):
-                log("STOP: hit a cap that won't reset overnight (weekly limit, or the monthly "
-                    "credit pool if that change is active) — waiting won't help. Resume next "
-                    "cycle, or switch to the API/Batches for more throughput. Profiles saved.")
-                return 2
-            wait = limits.seconds_until_reset(out, datetime.now())
-            wait = min((wait if wait is not None else 60 * 2 ** min(attempt, 8)) + 30, MAX_WAIT)
-            log(f"limit hit; sleeping {wait}s, then retrying batch {n}")
-            time.sleep(wait)
-        else:
-            log(f"batch {n} hit MAX_ATTEMPTS; moving on (re-run later to retry it)")
-    log("ALL DONE")
+
+            if limits.is_terminal(etype):           # billing / auth — waiting won't help
+                write_state(status="stopped", batch=n, total=len(batches), reason=etype)
+                notify(f"profilegen STOPPED on batch {n}: terminal error '{etype}'. "
+                       f"Fix it and re-run. Profiles already written are saved.")
+                return 3
+
+            if etype == "rate_limit_error":
+                if waits >= WEEKLY_AFTER_WAITS:     # waiting stopped helping → weekly cap
+                    write_state(status="stopped", batch=n, total=len(batches),
+                                reason="likely-weekly-cap")
+                    notify(f"profilegen STOPPED on batch {n}: still rate-limited after "
+                           f"{waits} full-window waits — almost certainly the weekly cap. "
+                           f"Resume next cycle, or switch to the API/Batches. Profiles saved.")
+                    return 2
+                wait = limits.retry_after_seconds(out) or RESUME_AFTER
+                resume_at = (datetime.now() + timedelta(seconds=wait)).strftime("%F %T")
+                waits += 1
+                write_state(status="sleeping", batch=n, total=len(batches),
+                            action="rate-limited", resume_at=resume_at,
+                            wait=f"{waits}/{WEEKLY_AFTER_WAITS}")
+                notify(f"profilegen rate-limited on batch {n}; sleeping until ~{resume_at} "
+                       f"(window-reset attempt {waits}/{WEEKLY_AFTER_WAITS}).")
+                time.sleep(wait)
+                continue
+
+            errs += 1                               # unknown, non-terminal error
+            if errs >= MAX_ERR:
+                log(f"batch {n}: {errs}× error '{etype}'; skipping (re-run later to retry).")
+                break
+            backoff = min(60 * 2 ** errs, 1800)
+            log(f"batch {n} error '{etype}'; backoff {backoff}s")
+            time.sleep(backoff)
+
+    write_state(status="done", total=len(batches))
+    notify("profilegen ALL DONE — backlog generated (skipped batches, if any, are logged).")
     return 0
 
 
@@ -1385,15 +1448,19 @@ profile-run: ## hands-off overnight runner (headless claude -p loop; resumable)
 
 - [ ] **Step 4: Document the run modes + auth in CLAUDE.md**
 
-In `CLAUDE.md` §8, after the pipeline note, add a short paragraph: calibration runs live
-(Workflow); the **bulk runs unattended** via `make profile-run` (or
-`nohup python -m tools.profilegen.run … & disown`). Note the auth setup (`unset
-ANTHROPIC_API_KEY`; `claude setup-token`), that it's **resumable** (re-run to continue), and
-that it **backs off and resumes** on the short 5-hour-window reset but **stops on a cap that
-won't reset overnight** (the weekly limit — resume next cycle, or switch to the API/Batches
-for more throughput). Add the billing caveat: headless currently draws the **normal Max
-subscription limits** (5-hour + weekly); the announced June-15 move to a separate monthly
-credit pool was **paused** — confirm the current regime in your Console / `claude /status`.
+In `CLAUDE.md` §8, after the pipeline note, add a short paragraph covering: calibration runs
+live (Workflow); the **bulk runs unattended** via `make profile-run` (or
+`nohup python -m tools.profilegen.run … & disown`); the auth setup (`unset ANTHROPIC_API_KEY`;
+`claude setup-token`); that it's **resumable** (re-run to continue). State the limit behaviour
+honestly: `claude -p` exposes no reset time and can't tell a 5-hour limit from a weekly one,
+and there's no usage API for a Max subscription — so the runner **waits a full window and
+retries** on a rate limit and **infers the weekly cap** (stops) only after `WEEKLY_AFTER_WAITS`
+fruitless waits; **billing/auth errors stop immediately**. Note the feedback surfaces:
+`NOTIFY_CMD` (e.g. `export NOTIFY_CMD='ntfy publish my-topic'` or `'notify-send'`),
+`dist/profilegen/state.json`, and exit codes (0 done / 2 likely-weekly / 3 terminal). Billing
+caveat: headless currently draws the **normal Max subscription limits**; the announced June-15
+move to a separate monthly credit pool was **paused** — confirm in your Console / `claude
+/status`.
 
 - [ ] **Step 5: Full suite + commit**
 
@@ -1417,10 +1484,11 @@ git commit -m "feat(profilegen): hands-off overnight runner (resumable, limit-aw
 - **§4 tiered fetch + no Oriental sources:** Task 8 gather prompt. ✅
 - **§5 coverage log + region summary:** Task 7. ✅
 - **§8 authoring workflow (prioritize, batch, review, branch-per-batch):** Tasks 2, 10, 11. ✅
-- **§8 run modes — calibration (live) vs hands-off overnight bulk:** Tasks 12 (limit parser),
-  13 (resumable, limit-aware `claude -p` runner). Regime-agnostic: waits/resumes on the short
-  5-hour-window reset, stops on caps that won't reset overnight (weekly limit; or the monthly
-  credit pool *if* the paused June-15 change is ever activated). ✅
+- **§8 run modes — calibration (live) vs hands-off overnight bulk:** Tasks 12 (JSON
+  error-type classifier) + 13 (resumable runner: stop on terminal errors, wait-a-window on
+  rate limits, infer the weekly cap when waiting stops helping; `NOTIFY_CMD` + `state.json` +
+  exit codes). Honest about the verified limits of `claude -p` on a Max subscription (no reset
+  time, no 5h-vs-weekly signal, no usage API). ✅
 - **Guardrails are code:** facet vocab gate (Task 4), PD gate (Task 6), Plan 1 status gate +
   build validation — independent of the Write model. ✅
 
