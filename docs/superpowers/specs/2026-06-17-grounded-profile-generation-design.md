@@ -41,6 +41,9 @@ addresses:
 - **No copying** of source wording, ever (CLAUDE.md §9). Sources are fact references.
 - Not a fully autonomous "generate all 2,700 and merge" run. Output lands in
   **PR-sized, human-reviewed batches**, like the existing enrichment sprints.
+- **No website/UX feature design.** The user's ChatGPT prompt ends with a "Website
+  Improvement Suggestions" section (family trees, interactive maps, etc.); those are
+  product ideas for a human, not profile data, and are out of scope here.
 
 ## 3. The grounded generation pipeline
 
@@ -58,18 +61,40 @@ subagent patterns. Four stages per saint:
    - Relatable human detail is allowed and encouraged **only where a source carries it**,
      and **hedged as tradition** ("by tradition…", "the synaxarion relates…") where the
      source itself hedges.
+   - **Separate documented history from later tradition** (the user's prompt §13): miracle
+     and tradition material is written in two named buckets — *Historically Documented* vs
+     *Traditional Accounts* — and never presents later tradition as established fact. This
+     is the rendering form of the hedging rule above.
 3. **Verify (adversarial, formalized)** — a separate agent checks each claim against:
    - **(a) the trusted CSV row** — the OCA-spine `Brief Life`/`Notes` is the anchor;
      **the row wins on conflict** (this is the rule the user discovered by hand — see the
      PR #165 Zosimus & Athanasius fabrication catch), and
    - **(b) the dossier** — anything unsupported is flagged.
    It also flags the **tell-tale hedging that signals fabrication** ("most likely 8th or
-   9th century," "sources do not clearly identify"). Output: `pass` or `flagged` + the
-   offending claims.
+   9th century," "sources do not clearly identify"). **Crucial distinction:** legitimate,
+   source-grounded uncertainty *is required* (the user's prompt rule "indicate uncertainty")
+   and must NOT be flagged — e.g. when a source itself says the dates are disputed. What the
+   verifier flags is hedging that has **no grounding in the dossier** — uncertainty invented
+   to smuggle in an unsupported narrative. The test is traceability: "the synaxarion gives
+   two dates" (grounded → keep) vs. "the date is most likely 8th century" with nothing in
+   the dossier saying so (ungrounded → flag). Output: `pass` or `flagged` + the offending
+   claims.
 4. **Emit** — write the profile entry with provenance metadata (§6) and **additive
    controlled-vocab facet enrichment** of the CSV row (only terms that exist in
    `data/vocabulary.csv`; never force a term). `flagged` profiles are written with
-   `status: flagged` and surfaced for human fixing — never auto-promoted.
+   `status: flagged` and surfaced for human fixing — never auto-promoted. The Emit stage
+   also **proposes, never commits, two gated artifacts** for human review (parallel to the
+   facet enrichment):
+   - a **PD quote** row for `saint_quotes.csv` *only* if a verbatim quote can be sourced
+     from the PD quote tier (CCEL/NPNF/ANF or Wikisource/KJV) — never from internet quote
+     collections (the user's prompt rule, and the build's PD gate enforces it anyway);
+   - a **PD image** row for `saint_images.csv` *only* if a Wikimedia Commons / PD file with
+     a **direct file link and an accepted open license** is found — feeding the existing
+     icon review queue (CLAUDE.md §5). Category-page-only or unlicensed hits are dropped.
+
+   Both are **proposals to verify, not trusted output** — image filenames and quote
+   attributions are exactly where the model fabricates, so the human + the build's PD gates
+   are the backstop.
 
 This is the deep-research adversarial-verify pattern applied per saint; the verifier's
 job is to *refute*, defaulting to "flag" when uncertain.
@@ -229,6 +254,13 @@ file; validated CRLF-preserving CSV merges; branch each batch from fresh `origin
    under §9) vs. ship `draft` with a visible disclaimer so content appears immediately.
 3. **First batch prioritization (§8.1):** finder value (recommended) vs. current
    `Brief Life`-stub gaps vs. strict calendar order.
+4. **Relics & Shrines (prompt §12, §12 mapping):** carry as a conventional `sections`
+   entry titled "Relics & Shrines" (recommended — no schema change) vs. add a typed
+   `relics?` field to `SaintProfile`.
+5. **Minor schema refinements (§12 mapping):** add optional `date` to `ProfileWork`
+   (Title·Date·Description) and optional `type` to reading items (Title·Author·Type) to
+   match the prompt's tables (recommended, additive/optional) vs. fold date/type into the
+   existing `desc` text.
 
 ## 11. Guardrails (restated, binding)
 
@@ -243,3 +275,43 @@ file; validated CRLF-preserving CSV merges; branch each batch from fresh `origin
 - **No Oriental Orthodox sources** (§4 "Do NOT fetch"; CLAUDE.md §1 scope).
 - Canonization caution for recently-reposed / locally-venerated figures (§9); flag, don't
   assert. Clergy/source review remains required before `reviewed`.
+
+## 12. Coverage mapping — the ChatGPT enrichment prompt → this spec
+
+The user's existing single-saint ChatGPT prompt (factual/encyclopedic, original wording,
+distinguish fact from tradition, cite sources, indicate uncertainty, prefer Orthodox then
+academic, include PD images) is the **basis for the Write-stage agent prompt** (§3.2). Its
+18 output sections map onto the `SaintProfile` schema and this spec as follows; nothing in
+the prompt is silently dropped.
+
+| Prompt section | Lands in | Status |
+|---|---|---|
+| 1 Expanded Biography | `overview` | ✅ |
+| 2 Historical Context | `sections` | ✅ |
+| 3 Major Contributions | `sections` | ✅ |
+| 4 Legacy (+ "why the Great") | `sections` | ✅ |
+| 5 Timeline | `timeline` | ✅ |
+| 6 Family & Related Saints | `family` + `related` (RelatedFigure.note) | ✅ |
+| 7 Works by the Saint | `works` (`title`+`desc`) | ⚠️ add optional `date` (§10.5) |
+| 8 Further Reading (works about) | `reading` (Ancient/Modern/Academic groups) | ⚠️ add optional `type` (§10.5) |
+| 9 Quotations | `saint_quotes.csv`, PD-gated, propose-only (§3.4) | ✅ |
+| 10 Patronage | `patronage` | ✅ |
+| 11 Feast Days & Commemorations | CSV `Feast Day(s)` (additive enrichment) | ✅ |
+| 12 Relics & Major Shrines | `sections` "Relics & Shrines" *or* new field | ⚠️ decision (§10.4) |
+| 13 Miracles & Traditions | `sections`, two-bucket Documented/Traditional (§3.2) | ✅ |
+| 14 Public-Domain Images | `saint_images.csv`, propose-only, PD-gated (§3.4) | ✅ |
+| 15 Sources | `sources[]` + tiered fetch (§4) | ✅ |
+| 16 Thematic Categories & Connections | additive CSV facets (§3.4) + Feature B themes | ✅ |
+| 17 Discovery Links ("you may also like") | `related` (with one-line `note`) | ✅ |
+| 18 Website Improvement Suggestions | — | ➖ out of scope (§2) |
+
+**Prompt rules → spec controls.** "Original wording / don't copy," "encyclopedic tone, no
+devotion," "cite all sources," "prefer Orthodox then academic" → §11 guardrails + §4 tiers.
+"Distinguish fact from tradition" → §3.2 two-bucket rule. "Indicate uncertainty" → §3.3
+crucial distinction (grounded uncertainty kept, ungrounded hedging flagged). "Verify quote
+attributions / no quote-collection sites" and "direct PD image file links only" → §3.4
+propose-only + the build's PD gates.
+
+**One difference worth stating:** the manual prompt trusts ChatGPT to *find* its own
+quotes and images; this pipeline treats those as **proposals that must pass the PD gate and
+human review** (§3.4), because attribution/filename fabrication is the highest-risk output.
