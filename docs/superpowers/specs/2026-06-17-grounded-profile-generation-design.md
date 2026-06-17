@@ -110,21 +110,20 @@ job is to *refute*, defaulting to "flag" when uncertain.
 **Per-stage model tiering (cost/capability).** The stages have very different demands, so
 model is a **per-stage config**, not one model end-to-end:
 
-| Stage | Default model | Rationale |
+| Stage | Model (DECIDED) | Rationale |
 |---|---|---|
-| Gather | Haiku | mechanical fetch/extract/tag; cheap, high-volume |
-| Write | **Sonnet** (Opus for flagship/high-traffic saints) | the capability-sensitive step — house voice, weaving sources, hedging tradition |
-| Verify | **Sonnet** | the safety gate — needs reasoning; never drop to Haiku |
-| Emit | Haiku / plain code | structured, deterministic |
+| Gather | **Haiku** | mechanical fetch/extract/tag; cheap, high-volume |
+| Write | **Opus** | the capability-sensitive step — house voice, weaving sources, hedging tradition; highest fabrication risk → highest capability |
+| Verify | **Sonnet** | the adversarial safety gate — reasoning-capable, independent of Write, cheaper than Opus |
+| Emit | **Haiku** / plain code | structured, deterministic — write the file, assemble facet/quote/image proposals |
 
-Weaker Write models fail *safe* here because (a) the adversarial verifier + human-review
-gate means bad output is `flagged`, not published, and (b) the hard guardrails — the PD
-license gate on quotes/images, controlled-vocab facet validation, and the OCA-row-wins
-anchor — are **code, not model judgment**, so they hold regardless of the Write model.
-**Calibration:** before a large run, do a ~15-saint batch with Sonnet-Write and human-review
-the flag rate and prose quality; bump Write to Opus only if voice drift or weak hedging
-shows. All-Opus is overkill; all-Haiku risks the hallucinated-hagiography failure this
-design exists to prevent.
+Model is a **per-stage config** (overridable per batch), not one model end-to-end. The
+capability concentrates in **Write (Opus)** where fabrication risk is highest; **Verify
+(Sonnet)** independently checks it; **Gather/Emit (Haiku)** are throughput work. The design
+still fails *safe* regardless: (a) the adversarial verifier + human-review gate means bad
+output is `flagged`, not published, and (b) the hard guardrails — the PD license gate on
+quotes/images, controlled-vocab facet validation, and the OCA-row-wins anchor — are **code,
+not model judgment**, so they hold no matter which model ran a stage.
 
 ## 4. Tiered fetch list
 
