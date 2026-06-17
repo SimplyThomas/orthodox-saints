@@ -467,6 +467,13 @@ a long run.
   `/witness/[slug]`, surfaced on `/america`) is a separate **non-canonical memorial section**
   for not-yet-glorified figures — kept strictly out of the saints finder/quiz per §9
   canonization caution; memorial pages use no liturgical address.
+- **Rich saint profiles** live one-per-file in `src/lib/profiles/OS-####.ts`
+  (`export default` a `SaintProfile`), aggregated by `src/lib/saint-profiles.ts`
+  via `import.meta.glob`. Types are in `src/lib/profile-types.ts`. Each profile
+  carries `status: draft|reviewed|flagged`; the production build ships only
+  `reviewed` (drafts render in dev / when `PUBLIC_SHOW_DRAFTS=true`, behind a
+  banner). `build.py` checks each filename names a real saint; Vitest
+  (`saint-profiles.test.ts`) checks status/sources/overview.
 - **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
   `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
   browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
