@@ -109,10 +109,38 @@ No more endless scroll. (Chosen direction "A" from brainstorming.)
 
 ## Testing
 
-- **Unit (new, lightweight):** the project has no JS unit runner today, so
-  `monthMatrix` correctness is covered indirectly by e2e rather than adding a
-  framework (YAGNI). If a runner is later added, `calendar-grid.ts` is ready for
-  direct tests.
+### Add a JS unit-test runner (Vitest)
+
+The repo has no JS unit runner today; the date-grid logic is the first piece
+that genuinely warrants one, and it won't be the last (`src/lib/` holds pure
+filter/quiz/name logic that is currently only exercised through Playwright,
+which is slow and brittle for pure functions). Add **Vitest** — it is the
+Vite-native runner and Astro is Vite-based, so it integrates with almost no
+config and supports TS out of the box.
+
+- **Dependency:** `vitest` as a devDependency.
+- **Config:** `vitest.config.ts` built from `getViteConfig` (from `astro/config`)
+  so tests share the project's resolution; `environment: 'node'`,
+  `include: ['src/**/*.test.ts']`.
+- **Convention:** colocate unit tests as `src/**/<name>.test.ts`; use explicit
+  imports (`import { describe, it, expect } from 'vitest'`) so no global types
+  or ESLint env changes are needed. Existing lint/format already covers `src/`,
+  so test files are linted and formatted like everything else.
+- **Scripts:** `"test:unit": "vitest run"` (and `"test:unit:watch": "vitest"`).
+  Leave `"test": "playwright test"` unchanged so existing e2e wiring/semantics
+  hold.
+- **Makefile:** add `web-unit: ; npm run test:unit`.
+- **CI:** add a `- run: npm run test:unit` step to the **frontend** job in
+  `ci.yml` (before the Playwright steps — it's fast and fail-fast). It runs
+  inside the already-required `frontend` gate, so no new required check to
+  configure.
+- **First tests — `src/lib/calendar-grid.test.ts`:** cover `monthMatrix`,
+  `firstWeekday`, `daysInMonth` against known dates (e.g. Oct 2026 starts
+  Thursday → 4 leading blanks, 31 days; Feb 2024 leap → 29; Feb 2025 → 28;
+  a Sunday-start month → 0 blanks). Pure functions, no DOM.
+
+### e2e
+
 - **e2e (`e2e/smoke.spec.ts`, update the two calendar tests):**
   - Page loads; `.cal-title` reads "The Calendar"; the grid renders with a
     `.cal-cell.is-today` (count 1) and a `.cal-cell.is-selected`.
