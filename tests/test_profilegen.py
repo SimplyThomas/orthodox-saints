@@ -157,3 +157,18 @@ class ProposalGateTests(unittest.TestCase):
         self.assertFalse(proposals.image_ok({
             "license": "All rights reserved", "source": "https://x",
             "image_path": "icons/x.jpg"}))
+
+
+from tools.profilegen import coverage
+
+
+class CoverageVerdictTests(unittest.TestCase):
+    def test_none_when_no_external_text(self):
+        self.assertEqual(coverage.verdict(dossier_chars=120, external_sources=0), "none")
+
+    def test_thin_when_little_external(self):
+        self.assertEqual(coverage.verdict(dossier_chars=300, external_sources=1), "thin")
+
+    def test_full_when_rich(self):
+        self.assertEqual(
+            coverage.verdict(dossier_chars=4000, external_sources=3), "full")
