@@ -1425,4 +1425,600 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
       },
     ],
   },
+  "OS-0377": {
+    id: "OS-0377",
+    lifespan:
+      "Late 11th – early 12th c. · Monk and chronicler of the Kiev Caves",
+    overview: [
+      "Saint Sylvester of the Kiev Caves was a monk of the famed Kiev Caves Monastery — the Kiev Pechersk Lavra — at the turn of the eleventh and twelfth centuries, remembered both for his ascetic life and for his part in preserving the early ecclesiastical history of Rus'. The date and place of his birth are unknown; he most likely came from Kievan Rus' and entered monastic life as the Lavra was becoming one of the most influential spiritual centers of Eastern Europe.",
+      "He took the habit in a community that, founded by Saints Anthony and Theodosius of the Caves, was known for strict asceticism, liturgical discipline, and the production of manuscripts — and which in his generation was bringing forth many of the saints who would shape the religious identity of Rus'. Within this culture of prayer and the pen, Sylvester's labor joined the copying and ordering of texts to the monastic life.",
+      "He is commonly identified with the monk Sylvester who revised and edited the Primary Chronicle (the Povest' vremennykh let), among the most important historical works of medieval Eastern Europe. A colophon on one recension records that a monk named Sylvester completed editorial work on the text in 1116 while serving at the Monastery of St. Michael at Vydubychi, near Kiev. Scholars continue to debate the precise relationship between the chronicler and the saint, but Orthodox tradition generally takes them to be the same man.",
+      "His significance lies less in missionary travel or episcopal office than in the preservation of the historical memory of the Christianization of Rus' and of the early Russian Church. He reposed in the early twelfth century, and is venerated among the saints of the Kiev Caves; his relics are traditionally associated with the Near (Antoniev) Caves of the Lavra.",
+    ],
+    timeline: [
+      {
+        when: "Late 11th c.",
+        title: "Born in Kievan Rus'",
+        body: "Date and birthplace unknown.",
+      },
+      {
+        when: "—",
+        title: "Entered monastic life",
+        body: "Among the scribes of the Kiev Caves Lavra.",
+      },
+      {
+        when: "1116",
+        title: "Revised the Primary Chronicle",
+        body: "At the Vydubychi monastery near Kiev, per the colophon.",
+      },
+      {
+        when: "Early 12th c.",
+        title: "Reposed",
+        body: "Relics associated with the Near Caves of the Lavra.",
+      },
+      {
+        when: "Jan 2 / Sep 28",
+        title: "Commemorated",
+        body: "On his feast and with the Fathers of the Near Caves.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "Information on Sylvester is limited next to the great founders Anthony and Theodosius; it comes chiefly from the Kiev Caves Patericon and later monastic tradition. His existence, monastic vocation, and literary work are generally accepted, though many details of his personal life remain uncertain.",
+        ],
+      },
+      {
+        heading: "The Monk as Keeper of History",
+        body: [
+          "Sylvester exemplifies the medieval Orthodox monastic as scribe, editor, and guardian of memory. The recording of history was understood as a way of preserving God's work among peoples, and through his association with the Primary Chronicle — the foundational narrative of Kievan Rus', and the principal source for Saints Vladimir, Olga, Boris, and Gleb — his labor helped form the historical consciousness of Eastern Slavic Orthodoxy.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "His legacy rests on both his monastic example and his tie to one of Eastern Europe's most important texts. He stands for the tradition of scholarly monasticism — those whose service to the Church came through writing and the transmission of knowledge rather than through preaching or office — and his work indirectly shaped centuries of Russian, Ukrainian, and Belarusian historical memory.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Venerable Nestor the Chronicler",
+        note: "fellow chronicler of the Kiev Caves",
+        href: "saint/OS-2085",
+      },
+      {
+        name: "Saint Anthony of the Kyiv Caves",
+        note: "founder of Kievan monasticism",
+        href: "saint/OS-0136",
+      },
+      {
+        name: "Saint Theodosius of the Kyiv Caves",
+        note: "organizer of communal monastic life",
+        href: "saint/OS-2745",
+      },
+      {
+        name: "Saint Vladimir the Great",
+        note: "baptizer of Rus', recorded in the Chronicle",
+        href: "saint/OS-0040",
+      },
+      {
+        name: "Saint Olga",
+        note: "forerunner of the Christianization of Rus'",
+        href: "saint/OS-0041",
+      },
+      {
+        name: "Passion-bearers Boris and Gleb",
+        note: "early saints of the Chronicle",
+        href: "saint/OS-0236",
+      },
+    ],
+    patronage: [
+      "Historians and chroniclers",
+      "Archivists and librarians",
+      "Writers and editors",
+      "Monastic scribes",
+      "Students of Church history",
+    ],
+    reading: [
+      {
+        heading: "Primary Sources",
+        items: [
+          { title: "Kiev Caves Patericon" },
+          { title: "The Primary Chronicle (Povest' vremennykh let)" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "The Russian Primary Chronicle",
+            author: "Cross & Sherbowitz-Wetzor",
+          },
+          {
+            title: "Lives of the Saints (Jan 2)",
+            author: "Orthodox Church in America",
+          },
+        ],
+      },
+    ],
+  },
+  "OS-0383": {
+    id: "OS-0383",
+    lifespan:
+      "1863 – 1953 · Georgian scholar and guardian of the nation's treasures",
+    overview: [
+      "Saint Euthymius (Ekvtime) Takaishvili, called 'the Man of God,' is unusual among Orthodox saints in being remembered not as a bishop, monk, missionary, or martyr, but as a scholar, historian, archaeologist, educator, and protector of Georgia's cultural and ecclesiastical heritage. He was born on January 5, 1863, in the village of Likhauri in Guria, western Georgia, then within the Russian Empire, into a noble but impoverished family. Orphaned of his father young and raised by relatives, he pursued learning with great determination, studying at the Kutaisi gymnasium and then at the Faculty of History and Philology of St. Petersburg University.",
+      "Returning to Georgia, he gave himself to the study of his nation's history, archaeology, manuscripts, architecture, and church culture, and became one of the founders of modern Georgian historical scholarship. Through many expeditions across the country he recorded ancient churches, monasteries, inscriptions, and artifacts that might otherwise have been lost to war or neglect, and his publications became foundational works for Georgian archaeology and history.",
+      "After the Russian Revolution and the brief independence of the Democratic Republic of Georgia (1918–1921) he served the new state in cultural and governmental roles. When Soviet forces invaded in 1921, the Georgian government evacuated a great collection of national treasures — manuscripts, icons, crosses, reliquaries, and historical objects — to keep them from seizure, and entrusted their care to Takaishvili.",
+      "For more than two decades in exile, chiefly in France, he guarded the collection through severe personal poverty, refusing again and again the chances he had to sell individual pieces for relief. His stewardship preserved an irreplaceable portion of Georgia's Christian and national heritage. After the Second World War the collection was returned intact to Georgia, and Takaishvili himself came home in 1945; he spent his last years in obscurity under Soviet rule and reposed in Tbilisi on February 21, 1953.",
+      "Recognizing his lifelong honesty, self-sacrifice, and service to Church and nation, the Georgian Orthodox Church canonized him in 2002 as Saint Euthymius the Man of God — the title pointing to the moral and spiritual character of his life rather than to any ecclesiastical office.",
+    ],
+    timeline: [
+      {
+        when: "Jan 5, 1863",
+        title: "Born in Likhauri, Guria",
+        body: "Into a noble but impoverished Georgian family.",
+      },
+      {
+        when: "1880s",
+        title: "Studied at St. Petersburg University",
+        body: "History and philology.",
+      },
+      {
+        when: "Late 19th c.",
+        title: "Founder of Georgian archaeology",
+        body: "Documenting churches, manuscripts, and monuments.",
+      },
+      {
+        when: "1921",
+        title: "Entrusted with the national treasures",
+        body: "Guarding them as the Soviets invaded Georgia.",
+      },
+      {
+        when: "1921–1945",
+        title: "Guarded the collection in exile",
+        body: "Through poverty in France, refusing to sell a single piece.",
+      },
+      {
+        when: "1945",
+        title: "Returned to Georgia",
+        body: "With the treasures restored intact.",
+      },
+      {
+        when: "Feb 21, 1953",
+        title: "Reposed in Tbilisi",
+        body: "In obscurity under Soviet rule.",
+      },
+      {
+        when: "2002",
+        title: "Canonized",
+        body: "By the Georgian Orthodox Church as 'the Man of God.'",
+      },
+    ],
+    sections: [
+      {
+        heading: "Holiness Through Scholarship and Stewardship",
+        body: [
+          "Takaishvili's canonization reflects the Orthodox recognition that holiness may be expressed through learning, honesty, and service to one's people. His refusal to profit from the national treasure, even in destitution, became one of the defining examples of integrity in modern Georgian history, and he remains a bridge between academic scholarship and Christian witness.",
+        ],
+      },
+      {
+        heading: "Preserving a Christian Heritage",
+        body: [
+          "His expeditions and publications, and above all his guardianship of the evacuated collection, mean that many of the manuscripts, icons, and church treasures of Georgia known today survive because of him. Across Russian imperial rule, brief independence, and Soviet occupation — each a threat to religious and historical memory — he labored to keep that heritage intact and to return it home.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Righteous Ilia Chavchavadze of Georgia",
+        note: "fellow modern Georgian saint and national figure",
+        href: "saint/OS-1558",
+      },
+      {
+        name: "Saint Ambrose the Confessor of Georgia",
+        note: "defender of the Church under Soviet rule",
+        href: "saint/OS-0837",
+      },
+      {
+        name: "Saint Gabriel (Urgebadze)",
+        note: "beloved modern Georgian saint",
+        href: "saint/OS-2592",
+      },
+      {
+        name: "Saint Nina, Enlightener of Georgia",
+        note: "apostle of the Georgian people",
+        href: "saint/OS-0039",
+      },
+      {
+        name: "Saint Euthymius the New of Iveron",
+        note: "Georgian monastic scholar and translator",
+        href: "saint/OS-1165",
+      },
+      {
+        name: "Venerable Maximus the Greek",
+        note: "scholar-monk and translator",
+        href: "saint/OS-0509",
+      },
+    ],
+    patronage: [
+      "Historians and archaeologists",
+      "Archivists and museum workers",
+      "Librarians and preservationists",
+      "Scholars and educators",
+      "Georgia and the Georgian diaspora",
+    ],
+    reading: [
+      {
+        heading: "Modern Sources",
+        items: [
+          {
+            title: "Life of St. Euthymius the Man of God",
+            author: "Georgian Patriarchate",
+          },
+          { title: "Studies on Ekvtime Takaishvili" },
+        ],
+      },
+      {
+        heading: "Academic",
+        items: [
+          { title: "Georgian Archaeology and Cultural Heritage Studies" },
+          { title: "Publications of the Georgian National Museum" },
+        ],
+      },
+    ],
+  },
+  "OS-0081": {
+    id: "OS-0081",
+    lifespan: "c. 419 – c. 512 · Consecrated virgin and patron of Paris",
+    overview: [
+      "Saint Genevieve — in French Geneviève, in Latin Genovefa — lived in Roman and post-Roman Gaul in the fifth and early sixth centuries, and is honored as the patron of Paris. Unlike many early saints her life is recorded in a relatively early biography, the Vita Sanctae Genovefae, written about eighteen years after her repose; though it carries the miraculous elements typical of late-antique hagiography, historians generally regard it as preserving real information about her life and influence.",
+      "She was born about 419–422 at Nanterre, west of Paris, to a Gallo-Roman family traditionally named Severus and Gerontia. The earliest account tells that, while she was still a child, Saint Germanus of Auxerre and Saint Lupus of Troyes passed through Nanterre on their way to Britain to combat Pelagianism, and that Germanus, recognizing her devotion, encouraged her to dedicate her life to God. Rather than enter a monastery — still uncommon in northern Gaul — she joined a community of consecrated virgins, women who lived in prayer, fasting, and charity while remaining within society.",
+      "She became known throughout the region for ascetic discipline, charitable works, and leadership, spending much of her life in and around Paris as it emerged as a center of Frankish power. Her most famous association is with the invasion of Gaul by Attila the Hun in 451: when fear spread through the city she urged the people not to flee but to trust in God, and Attila's forces ultimately bypassed Paris. Historians caution that the link between her counsel and Attila's movements cannot be established, but the tradition became central to her reputation as protector of the city. She is also remembered for organizing relief during famine, securing grain for Paris by expeditions along the Seine.",
+      "Under the rising Merovingian Franks she came to know the royal house, including King Clovis I and Queen Clotilde, supported the building of churches, and helped strengthen Christian life in the region. She reposed about 502 or 512 — the sources differ — and was buried in Paris, where her tomb quickly became a major place of pilgrimage. Her sainthood arose, as was usual before formal canonization, through local veneration and the Church's recognition in the centuries after her death; within Orthodoxy she is among the most prominent pre-schism women saints of the West.",
+    ],
+    timeline: [
+      {
+        when: "c. 419–422",
+        title: "Born at Nanterre",
+        body: "To a Gallo-Roman family near Paris.",
+      },
+      {
+        when: "c. 429",
+        title: "Encounter with St. Germanus of Auxerre",
+        body: "Who encouraged her to dedicate her life to God.",
+      },
+      {
+        when: "Youth",
+        title: "Consecrated a virgin",
+        body: "Joining a community of consecrated women.",
+      },
+      {
+        when: "451",
+        title: "The threat of Attila",
+        body: "She urged Paris to stand fast; the Huns bypassed the city.",
+      },
+      {
+        when: "Mid–late 5th c.",
+        title: "Famine relief for Paris",
+        body: "Securing grain along the Seine.",
+      },
+      {
+        when: "c. 502–512",
+        title: "Reposed in Paris",
+        body: "Her tomb became a great pilgrimage site.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Holy Woman in a Collapsing World",
+        body: [
+          "Genevieve lived through the decline of the Western Roman Empire, the Hunnic invasions, and the rise of the Franks, as the Church became the chief stabilizing institution of Gaul. She belongs to a generation of influential Christian women who exercised real moral and social authority without clerical office, and her life became one of the most influential Western models of consecrated female religious life.",
+        ],
+      },
+      {
+        heading: "Protector of the City",
+        body: [
+          "Through the crisis of Attila's advance, through famine, and through the political transition to Frankish rule, Genevieve stood as a figure of leadership and practical charity. She helped establish the enduring image of the holy woman as protector of a city, advocate for the poor, and moral guide in time of crisis — the role in which Paris has venerated her ever since.",
+        ],
+      },
+      {
+        heading: "A Note on History and Tradition",
+        body: [
+          "The documented core of her life — her consecrated vocation, her standing in Paris, her relief work, her ties to church and civic leaders — is distinguished in the sources from the miraculous traditions (prophetic insight, healings, the protection of Paris from Attila, the multiplication of food) that derive chiefly from the Vita Sanctae Genovefae and later hagiography.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Righteous Queen Clotilde",
+        note: "queen who helped establish Christian France",
+        href: "saint/OS-2691",
+      },
+      {
+        name: "Saint Lupus, Bishop of Troyes",
+        note: "companion of Germanus of Auxerre",
+        href: "saint/OS-2689",
+      },
+      {
+        name: "Saint Brigid of Kildare",
+        note: "influential woman saint of the West",
+        href: "saint/OS-0080",
+      },
+      {
+        name: "Venerable Radegund of Poitiers",
+        note: "Frankish royal saint devoted to charity",
+        href: "saint/OS-2692",
+      },
+      {
+        name: "Venerable Melania the Younger",
+        note: "ascetic woman of Late Antiquity",
+        href: "saint/OS-2438",
+      },
+      {
+        name: "Saint Caesarius of Arles",
+        note: "major church leader of the same era",
+        href: "saint/OS-1794",
+      },
+    ],
+    patronage: [
+      "The city of Paris and France",
+      "Consecrated virgins",
+      "Protection from disaster",
+      "Famine relief and public welfare",
+      "Women of faith",
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          { title: "Vita Sanctae Genovefae" },
+          { title: "History of the Franks", author: "Gregory of Tours" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "Sainted Women of the Dark Ages",
+            author: "Jo Ann McNamara",
+          },
+          { title: "Women in Late Antique Gaul" },
+        ],
+      },
+    ],
+  },
+  "OS-0382": {
+    id: "OS-0382",
+    lifespan: "† c. 314–320 · Soldier and martyr of Caesarea in Cappadocia",
+    overview: [
+      "Saint Gordius is unusually well attested for an early martyr, because Saint Basil the Great preached a homily in his honor that preserves the outline of his life and death — though, as a sermon for liturgical commemoration, it is also a work of rhetoric, and the later synaxaria largely summarize it. He was born near the end of the third century at Caesarea in Cappadocia, one of the major cities of Asia Minor and later the see of Saint Basil, into a Christian family.",
+      "As a young man Gordius entered the Roman army and, distinguished by courage and discipline, rose to the rank of centurion. During the persecution under Licinius, when Christians in military service were pressed to deny the faith or leave public office, Gordius — according to Basil — was removed from his post. Rather than remain in the city he withdrew into the wilderness, traditionally the Sinai or a mountain solitude, and there prepared himself through prayer, fasting, and silence.",
+      "At a public festival in Caesarea, connected with pagan games or races, Gordius came back from the wilderness and appeared in the stadium before the governor and the assembled crowds. He openly confessed himself a Christian and declared that he had returned deliberately to bear witness to Christ. Threatened with torture and death, he refused to renounce Christianity or to sacrifice to the gods; Basil's homily dwells on his calm and his readiness to suffer.",
+      "He was condemned and beheaded, his martyrdom traditionally placed in the early fourth century, around 314 or 320. The Church commemorates him as a martyr on January 3. Because Saint Basil preached upon him, his memory passed into the wider Cappadocian theological and liturgical tradition, and he became an example far beyond his own city of courage, ascetic preparation, and deliberate public confession.",
+    ],
+    timeline: [
+      {
+        when: "Late 3rd c.",
+        title: "Born at Caesarea in Cappadocia",
+        body: "Into a Christian family.",
+      },
+      {
+        when: "Early 4th c.",
+        title: "Rose to centurion",
+        body: "Distinguished in the Roman army.",
+      },
+      {
+        when: "Under Licinius",
+        title: "Removed from military rank",
+        body: "During the persecution; he withdrew to the wilderness.",
+      },
+      {
+        when: "c. 314–320",
+        title: "Public confession at Caesarea",
+        body: "He returned from solitude to confess Christ in the stadium.",
+      },
+      {
+        when: "c. 314–320",
+        title: "Martyred by beheading",
+        body: "Commemorated on January 3.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Soldier, Ascetic, Martyr",
+        body: [
+          "Gordius lived in the final generation of Roman persecution, when Christian soldiers came under suspicion for refusing the state's pagan rites; he represents the soldier who set loyalty to Christ above military rank. His withdrawal to the wilderness before his confession joins martyrdom to ascetic discipline — the early Christian link between spiritual training and public witness — and his return to Caesarea made his confession deliberate, not accidental.",
+        ],
+      },
+      {
+        heading: "Remembered Through Saint Basil",
+        body: [
+          "His memory survives above all because Saint Basil the Great preached on him at his shrine in Caesarea, recounting the martyrdom from the oral tradition of the city. Basil records a saying of Gordius — that when threatened with death he counted it a loss to be able to die for Christ only once. Because this comes through Basil's rhetorical homily rather than a verbatim record, it is best cited as preserved by Saint Basil. Through that homily Gordius became more than a local martyr, taking his place among the soldier-saints and the martyrs of Cappadocia.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saint Basil the Great",
+        note: "preached the homily that preserves his story",
+        href: "saint/OS-0021",
+      },
+      {
+        name: "Great Martyr George the Trophy-bearer",
+        note: "celebrated soldier-martyr",
+        href: "saint/OS-0012",
+      },
+      {
+        name: "Great Martyr Demetrius the Myrrh-streamer",
+        note: "soldier-martyr of public witness",
+        href: "saint/OS-0013",
+      },
+      {
+        name: "Great Martyr Theodore the Recruit",
+        note: "early military martyr",
+        href: "saint/OS-0018",
+      },
+      {
+        name: "Greatmartyr Theodore Stratelates",
+        note: "soldier-martyr and general",
+        href: "saint/OS-0615",
+      },
+      {
+        name: "Martyr Mamas of Caesarea",
+        note: "fellow martyr of Cappadocia",
+        href: "saint/OS-0065",
+      },
+    ],
+    patronage: [
+      "Soldiers and veterans",
+      "Those in public service under pressure",
+      "Cappadocia",
+      "Those preparing to suffer for the faith",
+      "Courage under persecution",
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          {
+            title: "Homily on the Holy Martyr Gordius",
+            author: "Saint Basil the Great",
+          },
+          { title: "Synaxarion entry for Martyr Gordius" },
+        ],
+      },
+      {
+        heading: "Reference",
+        items: [
+          {
+            title: "Martyr Gordius at Caesarea",
+            author: "Orthodox Church in America",
+          },
+          {
+            title: "Cult of Saints in Late Antiquity (Oxford)",
+          },
+        ],
+      },
+    ],
+  },
+  "OS-0381": {
+    id: "OS-0381",
+    lifespan: "5th century BC · Last of the Twelve Minor Prophets",
+    overview: [
+      "The Prophet Malachi — in Hebrew Mal'akhi, 'my messenger' — is the final prophet in the collection of the Twelve Minor Prophets and, by tradition, the last of the Old Testament prophets before the silence that preceded the coming of Christ. His name has long been debated as either a personal name or a title; Jewish and Christian tradition generally regards Malachi as an individual prophet. Almost nothing is known of his family, birthplace, or education, and the principal source for his life and teaching is the biblical Book of Malachi itself.",
+      "Orthodox tradition places him among the prophets who ministered after the return from the Babylonian captivity, in Judah during the fifth century BC, likely after Haggai and Zechariah. His ministry fell after the rebuilding of the Second Temple (completed in 516 BC), in a time when the hoped-for national renewal had not come and the people met economic hardship, religious indifference, and disappointment about the future.",
+      "His book lays bare the religious failures of that age: priests offering blemished sacrifices, careless worship, rising divorce, social injustice, and the doubt whether serving God brought any benefit at all. Malachi confronted both clergy and laity, calling them back to covenant faithfulness. Among his prophecies is the promise of a messenger who would prepare the way before the Lord — which the New Testament identifies with Saint John the Baptist — and the word that Elijah would come before the great and dreadful day of the Lord, a passage deeply influential in both Jewish and Christian tradition.",
+      "After his ministry Malachi passes from the record, and tradition places his repose in the fifth century BC. The Church venerates him as the last of the Old Testament prophets and one of the Twelve, a bridge between the age of prophecy and the coming of Christ; his feast is kept on January 3.",
+    ],
+    timeline: [
+      {
+        when: "5th c. BC",
+        title: "Born in Judah",
+        body: "Date and origin unknown.",
+      },
+      {
+        when: "after 516 BC",
+        title: "Ministry in the Second Temple period",
+        body: "After Haggai and Zechariah.",
+      },
+      {
+        when: "c. 460–430 BC",
+        title: "Prophetic activity in Judah",
+        body: "Calling priests and people to covenant faithfulness.",
+      },
+      {
+        when: "—",
+        title: "The Book of Malachi composed",
+        body: "The final book of the Twelve Minor Prophets.",
+      },
+      {
+        when: "January 3",
+        title: "Orthodox commemoration",
+        body: "Honored as the last Old Testament prophet.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "Malachi is known almost entirely from his own book; little reliable biographical detail survives outside Scripture, and the later traditions about him remain uncertain. His ministry is dated by its setting in the Persian period, after the return of the exiles and the rebuilding of the Temple.",
+        ],
+      },
+      {
+        heading: "Prophet of the Covenant",
+        body: [
+          "Malachi pressed for sincere worship and covenant fidelity, condemned priests who offered defective sacrifices, and gave some of the strongest Old Testament words against divorce and unfaithfulness. The reforms of Ezra and Nehemiah addressed many of the same concerns — mixed marriages, neglected tithes, broken covenant — in the same generation.",
+        ],
+      },
+      {
+        heading: "The Forerunner and the Day of the Lord",
+        body: [
+          "His prophecy of the messenger who prepares the way became foundational to the Christian understanding of Saint John the Baptist as the forerunner of Christ, and his word concerning Elijah and the day of the Lord shaped centuries of Jewish and Christian interpretation. As the last prophet in the traditional order of the Old Testament, Malachi stands at the threshold between the prophetic age and the Gospel.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Prophet Haggai",
+        note: "fellow post-exilic prophet",
+        href: "saint/OS-2372",
+      },
+      {
+        name: "Prophet Zechariah",
+        note: "contemporary prophet of the Second Temple",
+        href: "saint/OS-0616",
+      },
+      {
+        name: "Prophet Elijah",
+        note: "named in Malachi's final prophecy",
+        href: "saint/OS-0056",
+      },
+      {
+        name: "Saint John the Forerunner and Baptist",
+        note: "the messenger Malachi foretold",
+        href: "saint/OS-0002",
+      },
+      {
+        name: "Prophet Isaiah",
+        note: "great prophet of the Messiah",
+        href: "saint/OS-1134",
+      },
+      {
+        name: "Righteous Ezra the Scribe",
+        note: "leader of post-exilic reform",
+        href: "saint/OS-2569",
+      },
+    ],
+    patronage: [
+      "Prophets",
+      "Biblical scholars and teachers of Scripture",
+      "Preachers and interpreters of prophecy",
+      "Students of the Old Testament",
+    ],
+    reading: [
+      {
+        heading: "Patristic Commentary",
+        items: [
+          { title: "Commentary on the Minor Prophets", author: "Saint Jerome" },
+          {
+            title: "Commentary on the Twelve Prophets",
+            author: "Blessed Theodoret of Cyrus",
+          },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          { title: "Malachi (Anchor Yale Bible)", author: "Andrew E. Hill" },
+          {
+            title: "The Books of Haggai and Malachi",
+            author: "Pieter Verhoef",
+          },
+        ],
+      },
+    ],
+  },
 };
