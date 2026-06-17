@@ -117,19 +117,27 @@ const results = await pipeline(
     ).then((verdict) => ({ id, profile, verdict })),
 
   // Emit (Haiku/code): write the file + log coverage + proposals.
-  ({ id, profile, verdict }) =>
-    agent(
-      `Write the profile for ${id}. Status is "${verdict.status === "pass" ? "draft" : "flagged"}". Run:\n` +
-        `  python -c "from pathlib import Path; from tools.profilegen import emit; ` +
-        `emit.write_profile(Path('src/content/profiles'), ${JSON.stringify(profile)}, ` +
-        `sources=${JSON.stringify(profile.sources || [])}, generated='${GENERATED}', ` +
-        `status='${verdict.status === "pass" ? "draft" : "flagged"}')"\n` +
-        `Then prettier --write the file; append a coverage row (tools.profilegen.coverage) ` +
-        `and any PD-gated quote/image proposals (tools.profilegen.proposals) to dist/; and ` +
-        `append this saint's verdict {id, status, claims} to ` +
+  ({ id, profile, verdict }) => {
+    const status = verdict.status === "pass" ? "draft" : "flagged";
+    return agent(
+      `Emit the profile for ${id} with status "${status}".\n` +
+        `1. Write this JSON verbatim to dist/profilegen/scratch/${id}.json:\n` +
+        `${JSON.stringify(profile, null, 2)}\n` +
+        `2. Run (loads the JSON from that file — avoids shell-quoting issues with ` +
+        `double-quotes in the prose):\n` +
+        `   python -c "import json; from pathlib import Path; ` +
+        `from tools.profilegen import emit; ` +
+        `p = json.load(open('dist/profilegen/scratch/${id}.json')); ` +
+        `emit.write_profile(Path('src/content/profiles'), p, ` +
+        `sources=p.get('sources', []), generated='${GENERATED}', status='${status}')"\n` +
+        `3. prettier --write the emitted src/content/profiles/${id}.yaml.\n` +
+        `4. Append a coverage row (tools.profilegen.coverage) and any PD-gated ` +
+        `quote/image proposals (tools.profilegen.proposals) to dist/.\n` +
+        `5. Append this saint's verdict {id, status, claims} to ` +
         `dist/profilegen_${GENERATED}_verdicts.json (a JSON array — Plan 3 reads it).`,
       { label: `emit:${id}`, phase: "Emit", model: "haiku" },
-    ),
+    );
+  },
 );
 
 log(`Generated ${results.filter(Boolean).length}/${ids.length} profiles.`);
