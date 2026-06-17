@@ -410,6 +410,8 @@ simply stay.
   documented-distinct suppression (§6). Quiz match quality scales with **Commonly Asked
   Intercessions** coverage — keep filling that facet.
 
+**Profile generation pipeline (`tools/profilegen/`).** A grounded, batched pipeline turns profile-less saints into reviewed-ready draft profiles: **Gather** a cited dossier (seeded from the saint's own CSV row — the trusted anchor — then external sources per the tiered fetch list), **Write** original encyclopedic prose in house voice, **Verify** it adversarially against the anchor row (the row wins on conflict), and **Emit** a `src/content/profiles/OS-####.yaml` file with `status: draft` (or `flagged` when the verifier catches an unsupported claim) plus additive controlled-vocab facet enrichment and propose-only PD quote/image rows under `dist/`. Per-stage models (Gather=Haiku, Write=Opus, Verify=Sonnet, Emit=Haiku) concentrate capability where fabrication risk is highest. Run `make profile-batch N=15` to print the highest-finder-value uncovered saints, then run the Workflow (`scripts/profilegen.workflow.js`, **requires explicit Workflow opt-in**). Drafts never auto-publish — they land `status: draft` and a human promotes them to `reviewed` (the reviewed-only production gate, §11). Coverage gaps are logged (`make profile-coverage LOG=dist/profilegen_<date>.csv`) so a cluster of `thin`/`none` saints in a region directs the next source to add.
+
 When fetching: `en.wikipedia.org`, `commons.wikimedia.org` (incl. its API at
 `/w/api.php`), and the image CDN `upload.wikimedia.org` are all reachable
 (verified 2026-06-05) — so saint-portrait icons can be sourced and downloaded

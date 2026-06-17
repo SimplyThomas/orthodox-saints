@@ -1,4 +1,4 @@
-.PHONY: build validate test serve xlsx find report download-icons icon-sheet clean \
+.PHONY: build validate test serve xlsx find report profile-batch profile-coverage download-icons icon-sheet clean \
         web-install web-dev web-build web-lint web-test web-unit \
         docker-image docker-build docker-validate docker-test docker-xlsx docker-serve docker-shell docker-find docker-report docker-download-icons
 
@@ -9,6 +9,8 @@ test:     ; python -m unittest discover -s tests
 xlsx:     ; python build.py --xlsx-only
 find:     ; @python tools/find_saint.py "$(NAME)"   # search-before-add (CLAUDE.md §6): make find NAME="..."
 report:   ; @python build.py --report $(if $(TOP),--top $(TOP),)   # rank icon-less saints for the next batch (issue #83); make report TOP=100
+profile-batch:    ; python -m tools.profilegen.prioritize $(or $(N),15)   # print N high-value profile-less saint IDs for a generation batch (N=15 default)
+profile-coverage: ; python -m tools.profilegen.coverage $(LOG)   # summarize coverage gaps from a batch log (LOG=dist/profilegen_<date>.csv)
 download-icons: ; python scripts/download_saint_icons.py  # Wikimedia Commons icon search/download/resize (authoring-only deps: pip install requests Pillow python-dotenv)
 icon-sheet: ; python scripts/make_icon_contact_sheet.py  # build dist/icon_contact_sheet.html to review downloaded icons
 clean:    ; rm -rf public/* dist/* _site .astro && touch public/.gitkeep dist/.gitkeep
