@@ -6,7 +6,10 @@ Run from the repo root:  python -m unittest discover -s tests
 
 import os
 import sys
+import tempfile
 import unittest
+from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -593,6 +596,39 @@ class ThemeIntegrationTests(unittest.TestCase):
         row["Themes"] = "church-fathers"
         errs = errors_for([row])
         self.assertEqual([e for e in errs if "church-fathers" in e], [])
+
+
+class ValidateSaintProfilesTests(unittest.TestCase):
+    def test_flags_unknown_id(self):
+        with tempfile.TemporaryDirectory() as d:
+            profiles = Path(d) / "profiles"
+            profiles.mkdir()
+            (profiles / "OS-0021.ts").write_text("export default {}\n")  # known
+            (profiles / "OS-9999.ts").write_text("export default {}\n")  # unknown
+            with mock.patch.object(build, "PROFILES_DIR", profiles):
+                errors, warnings = build.validate_saint_profiles({"OS-0021"})
+            self.assertTrue(any("OS-9999" in e for e in errors))
+            self.assertTrue(all("OS-0021" not in e for e in errors))
+
+    def test_clean_when_all_known(self):
+        with tempfile.TemporaryDirectory() as d:
+            profiles = Path(d) / "profiles"
+            profiles.mkdir()
+            (profiles / "OS-0021.ts").write_text("export default {}\n")
+            with mock.patch.object(build, "PROFILES_DIR", profiles):
+                errors, warnings = build.validate_saint_profiles(
+                    {"OS-0021", "OS-0022"}
+                )
+            self.assertEqual(errors, [])
+
+    def test_flags_malformed_filename(self):
+        with tempfile.TemporaryDirectory() as d:
+            profiles = Path(d) / "profiles"
+            profiles.mkdir()
+            (profiles / "basil.ts").write_text("export default {}\n")
+            with mock.patch.object(build, "PROFILES_DIR", profiles):
+                errors, warnings = build.validate_saint_profiles({"OS-0021"})
+            self.assertTrue(any("basil.ts" in e for e in errors))
 
 
 if __name__ == "__main__":

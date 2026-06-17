@@ -33,6 +33,8 @@ import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
+SRC = ROOT / "src"
+PROFILES_DIR = SRC / "lib" / "profiles"   # per-saint rich profiles (TS, src-owned)
 WEB = ROOT / "web"
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
@@ -300,6 +302,10 @@ def validate(header: list[str], rows: list[dict[str, str]],
     quote_errors, quote_warnings = validate_saint_quotes(_img_valid_ids)
     errors.extend(quote_errors)
     warnings.extend(quote_warnings)
+
+    prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids)
+    errors.extend(prof_errors)
+    warnings.extend(prof_warnings)
 
     if header != HEADER:
         errors.append(
@@ -729,6 +735,30 @@ def validate_saint_quotes(valid_ids: set[str]) -> tuple[list[str], list[str]]:
             if len(quote) > 500:
                 warnings.append(f"{where} ({sid}): quote is {len(quote)} chars — long "
                                 "for a 'famous quote' (consider trimming).")
+    return errors, warnings
+
+
+PROFILE_FILE_RE = re.compile(r"^(OS-\d{4,})\.ts$")
+
+
+def validate_saint_profiles(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Validate src/lib/profiles/*.ts: each filename is OS-####.ts and names a
+    real saint. Field-level checks (status, sources, overview) live in the
+    Vitest suite, which parses TS natively. Empty/missing dir is allowed."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not PROFILES_DIR.is_dir():
+        return errors, warnings
+    for path in sorted(PROFILES_DIR.glob("*.ts")):
+        m = PROFILE_FILE_RE.match(path.name)
+        if not m:
+            errors.append(f"profiles/{path.name}: name must be OS-####.ts")
+            continue
+        sid = m.group(1)
+        if sid not in valid_ids:
+            errors.append(
+                f"profiles/{path.name}: {sid} is not a known Saint ID"
+            )
     return errors, warnings
 
 
