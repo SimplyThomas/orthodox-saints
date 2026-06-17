@@ -9,7 +9,7 @@ import { toSaintView } from "../lib/saintView";
 import { saintAvatar } from "../lib/icons";
 import { primaryRank } from "../lib/saints";
 import { esc, withBase } from "../lib/format";
-import { SAINT_PROFILES } from "../lib/saint-profiles";
+import { loadProfileMap } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
 import FigureList from "./FigureList.astro";
 import { themeBySlug, relatedByThemes } from "../lib/themes";
@@ -20,7 +20,7 @@ interface Props {
 }
 const { saint } = Astro.props;
 const m = toSaintView(saint);
-const profile = SAINT_PROFILES[saint.id];
+const profile = (await loadProfileMap())[saint.id];
 
 // Curated related figures (from a profile) win; otherwise derive by shared
 // themes and present them through the same FigureList as the curated set.
