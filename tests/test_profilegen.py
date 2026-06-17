@@ -172,3 +172,53 @@ class CoverageVerdictTests(unittest.TestCase):
     def test_full_when_rich(self):
         self.assertEqual(
             coverage.verdict(dossier_chars=4000, external_sources=3), "full")
+
+
+from tools.profilegen import limits
+
+
+class ErrorTypeTests(unittest.TestCase):
+    def test_success_returns_none(self):
+        self.assertIsNone(limits.parse_error_type('{"type":"result","result":"wrote 12"}'))
+
+    def test_rate_limit_error_from_json(self):
+        out = '{"type":"error","error":{"type":"rate_limit_error","message":"Request rejected (429)"}}'
+        self.assertEqual(limits.parse_error_type(out), "rate_limit_error")
+
+    def test_billing_error_from_json(self):
+        out = '{"type":"error","error":{"type":"billing_error","message":"x"}}'
+        self.assertEqual(limits.parse_error_type(out), "billing_error")
+
+    def test_stream_json_picks_the_error_line(self):
+        out = '{"type":"system"}\n{"type":"error","error":{"type":"rate_limit_error"}}\n'
+        self.assertEqual(limits.parse_error_type(out), "rate_limit_error")
+
+    def test_text_fallback_detects_429(self):
+        self.assertEqual(
+            limits.parse_error_type("API Error: Request rejected (429)"), "rate_limit_error")
+
+    def test_success_text_mentioning_429_is_not_an_error(self):
+        # "429 Martyrs" is a real commemoration; a success result mentioning it
+        # must NOT be misread as a rate-limit error.
+        out = '{"type":"result","result":"wrote a profile about the 429 Martyrs"}'
+        self.assertIsNone(limits.parse_error_type(out))
+
+
+class TerminalTests(unittest.TestCase):
+    def test_billing_and_auth_are_terminal(self):
+        self.assertTrue(limits.is_terminal("billing_error"))
+        self.assertTrue(limits.is_terminal("authentication_error"))
+
+    def test_rate_limit_is_not_terminal(self):
+        self.assertFalse(limits.is_terminal("rate_limit_error"))
+
+    def test_none_is_not_terminal(self):
+        self.assertFalse(limits.is_terminal(None))
+
+
+class RetryAfterTests(unittest.TestCase):
+    def test_explicit_retry_after(self):
+        self.assertEqual(limits.retry_after_seconds("retry-after: 90"), 90)
+
+    def test_absent_returns_none(self):  # the common case for subscription limits
+        self.assertIsNone(limits.retry_after_seconds("Request rejected (429)"))
