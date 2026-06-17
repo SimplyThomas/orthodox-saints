@@ -6,11 +6,11 @@ import { SAINTS } from "../lib/data";
 import { feastDates, primaryRank, rankSlug } from "../lib/saints";
 import { splitName } from "../lib/names";
 
-// The Church year as a static, pre-rendered index: every saint grouped onto
-// each fixed feast date they hold (a multi-feast saint appears on each of their
-// days). Movable-cycle commemorations (no fixed Mon-D) collect into their own
-// section at the end. "Today" is highlighted client-side (islands/calendar) —
-// a build-time `new Date()` would freeze it to the deploy day.
+// Every saint grouped onto each fixed feast date they hold. Movable-cycle
+// commemorations (no fixed Mon-D) collect separately. The grid + "today" are
+// built client-side (islands/calendar) because a build-time new Date() would
+// freeze to the deploy day; this page renders the full day-lists as the SEO +
+// no-JS source the island reads from.
 // TODO(scale): like /search, this pre-renders the whole corpus on one page;
 // comfortable at today's size, split per-month if the calendar grows heavy.
 
@@ -23,8 +23,6 @@ interface Entry {
   w: number;
 }
 
-// Lead each day with the more prominent commemorations (purely a display
-// ordering — never a claim about relative sanctity).
 const RANK_W: Record<string, number> = {
   Theotokos: 10,
   Apostle: 9,
@@ -86,16 +84,12 @@ const byRank = (a: Entry, b: Entry) =>
 for (const map of months) for (const arr of map.values()) arr.sort(byRank);
 movable.sort(byRank);
 
-// Per-month rendering model: only the days that actually carry a commemoration.
 const monthData = MONTHS.map((abbr, i) => {
   const m = i + 1;
   const map = months[m];
   const days = [...map.keys()]
     .sort((a, b) => a - b)
-    .map((d) => ({
-      d,
-      entries: map.get(d)!,
-    }));
+    .map((d) => ({ d, entries: map.get(d)! }));
   const count = days.reduce((n, day) => n + day.entries.length, 0);
   return { m, abbr, full: MONTHS_FULL[i], days, count };
 });
@@ -107,7 +101,7 @@ const totalEntries =
 <BaseLayout
   active="calendar"
   title="The Calendar"
-  description="A day-by-day Orthodox calendar of the saints — browse every commemoration from January 1 to December 31, plus the movable cycle."
+  description="A month-by-month Orthodox calendar of the saints — browse every commemoration by date, plus the movable cycle."
 >
   <div id="calendar-page">
     <section class="cal-hero">
@@ -122,97 +116,84 @@ const totalEntries =
         </div>
         <h1 class="cal-title">The Calendar</h1>
         <p class="cal-lede">
-          {totalEntries.toLocaleString()} commemorations, walked day by day from January&nbsp;1
-          to December&nbsp;31 &mdash; with the movable cycle at the close.
+          {totalEntries.toLocaleString()} commemorations across the fixed calendar,
+          with the movable cycle alongside.
         </p>
-        <div class="cal-today-line">
-          <button type="button" id="cal-today-btn" class="btn btn--gold" hidden
-            >Jump to today</button
-          >
-          <span id="cal-today-label" class="cal-today-label" aria-live="polite"
-          ></span>
-        </div>
+        <span id="cal-today-label" class="cal-today-label" aria-live="polite"
+        ></span>
       </div>
     </section>
 
-    {/* sticky month rail */}
-    <nav class="cal-nav" aria-label="Jump to month">
-      <ul>
-        {
-          monthData.map((mo) => (
-            <li>
-              <a href={`#m-${mo.m}`} data-month={mo.m}>
-                {mo.abbr}
-              </a>
-            </li>
-          ))
-        }
+    {/* interactive month grid — revealed by the island on enhancement */}
+    <div class="cal-app" hidden>
+      <div class="cal-bar">
+        <div class="cal-month-label" id="cal-month-label"></div>
+        <div class="cal-ctrls">
+          <button type="button" id="cal-today-btn">Today</button>
+          <button
+            type="button"
+            id="cal-prev"
+            class="cal-nav-arrow"
+            aria-label="Previous month">‹</button
+          >
+          <select id="cal-month-picker" aria-label="Jump to month">
+            {
+              MONTHS_FULL.map((full, i) => (
+                <option value={i + 1}>{full}</option>
+              ))
+            }
+          </select>
+          <button
+            type="button"
+            id="cal-next"
+            class="cal-nav-arrow"
+            aria-label="Next month">›</button
+          >
+        </div>
+      </div>
+
+      <div class="cal-main">
+        <div class="cal-grid-wrap">
+          <div class="cal-dow" aria-hidden="true">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+            <span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-grid" id="cal-grid" role="grid"></div>
+        </div>
+        <aside class="cal-panel" id="cal-panel" aria-live="polite"></aside>
+      </div>
+
+      <div class="cal-foot">
         {
           movable.length > 0 && (
-            <li>
-              <a href="#m-movable" class="is-movable">
-                Movable
-              </a>
-            </li>
+            <button type="button" id="cal-movable-btn" class="cal-pill">
+              ✶ Movable commemorations ({movable.length.toLocaleString()}) →
+            </button>
           )
         }
-      </ul>
-    </nav>
+        <div class="cal-legend">
+          <span><i style="background:#b7912b"></i>Apostles · Hierarchs</span>
+          <span><i style="background:#8d3a2f"></i>Martyrs</span>
+          <span><i style="background:#3d6157"></i>Monastics</span>
+        </div>
+      </div>
+    </div>
 
-    <div class="cal-body">
+    {
+      /* SEO + no-JS source: every day's full list; the island reads + clones from here */
+    }
+    <div class="cal-source" id="cal-source">
       {
         monthData.map((mo) => (
-          <section class="cal-month" id={`m-${mo.m}`}>
-            <h2 class="cal-mhead">
-              <span class="mh-name">{mo.full}</span>
-              <span class="mh-count">{mo.count.toLocaleString()}</span>
-            </h2>
-            <div class="cal-days">
-              {mo.days.map((day) => (
-                <div class="cal-day" id={`d-${mo.m}-${day.d}`}>
-                  <div class="cal-date">
-                    <span class="dnum">{day.d}</span>
-                    <span class="dmon">{mo.abbr}</span>
-                  </div>
-                  <ul class="cal-list">
-                    {day.entries.map((e) => (
-                      <li>
-                        <a href={withBase(`saint/${e.id}`)}>
-                          <span
-                            class={`cd ${e.slug}`}
-                            title={e.rank}
-                            aria-hidden="true"
-                          />
-                          <span class="nm">
-                            {e.title}
-                            {e.epithet && <i> {e.epithet}</i>}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-        ))
-      }
-
-      {
-        movable.length > 0 && (
-          <section class="cal-month cal-movable" id="m-movable">
-            <h2 class="cal-mhead">
-              <span class="mh-name">Movable Commemorations</span>
-              <span class="mh-count">{movable.length.toLocaleString()}</span>
-            </h2>
-            <p class="cal-movable-note">
-              Commemorations tied to the Paschal cycle rather than a fixed date
-              &mdash; their day shifts with Pascha each year.
-            </p>
-            <div class="cal-days">
-              <div class="cal-day cal-day--wide">
-                <ul class="cal-list cal-list--cols">
-                  {movable.map((e) => (
+          <section data-month={mo.m} aria-label={mo.full}>
+            <h2>{mo.full}</h2>
+            {mo.days.map((day) => (
+              <div class="cal-src-day" data-day={day.d}>
+                <h3>
+                  {mo.full} {day.d}
+                </h3>
+                <ul class="cal-list">
+                  {day.entries.map((e) => (
                     <li>
                       <a href={withBase(`saint/${e.id}`)}>
                         <span
@@ -229,8 +210,32 @@ const totalEntries =
                   ))}
                 </ul>
               </div>
-            </div>
+            ))}
           </section>
+        ))
+      }
+      {
+        movable.length > 0 && (
+          <div class="cal-src-movable" aria-label="Movable Commemorations">
+            <h2>Movable Commemorations</h2>
+            <ul class="cal-list">
+              {movable.map((e) => (
+                <li>
+                  <a href={withBase(`saint/${e.id}`)}>
+                    <span
+                      class={`cd ${e.slug}`}
+                      title={e.rank}
+                      aria-hidden="true"
+                    />
+                    <span class="nm">
+                      {e.title}
+                      {e.epithet && <i> {e.epithet}</i>}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )
       }
     </div>
@@ -246,7 +251,7 @@ const totalEntries =
   .cal-hero {
     position: relative;
     text-align: center;
-    padding: clamp(34px, 6vw, 64px) 20px clamp(20px, 3vw, 30px);
+    padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
     overflow: hidden;
   }
   .cal-hero-inner {
@@ -266,17 +271,9 @@ const totalEntries =
     font-size: var(--page-lede-size);
     color: var(--celest);
     max-width: 620px;
-    margin: 0 auto 22px;
+    margin: 0 auto 14px;
     line-height: 1.45;
     text-wrap: balance;
-  }
-  .cal-today-line {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-height: 24px;
   }
   .cal-today-label {
     font-family: var(--text);
@@ -284,168 +281,243 @@ const totalEntries =
     color: var(--ink-soft);
   }
 
-  /* ---------- sticky month rail ---------- */
-  .cal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(245, 235, 216, 0.92);
-    backdrop-filter: blur(6px);
-    border-top: 1px solid var(--line-gold);
-    border-bottom: 1px solid var(--line-gold);
+  /* ---------- interactive app ---------- */
+  .cal-app[hidden] {
+    display: none;
   }
-  .cal-nav ul {
-    display: flex;
-    gap: 2px;
-    list-style: none;
-    margin: 0 auto;
-    padding: 6px 10px;
-    max-width: 1100px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-  }
-  .cal-nav a {
-    display: block;
-    padding: 7px 12px;
-    border-radius: 4px;
-    font-family: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--byz);
-    text-decoration: none;
-    white-space: nowrap;
-    transition:
-      background 0.15s,
-      color 0.15s;
-  }
-  .cal-nav a:hover {
-    background: rgba(35, 76, 122, 0.1);
-  }
-  .cal-nav a.is-on {
-    background: var(--byz);
-    color: var(--ivory);
-  }
-  .cal-nav a.is-movable {
-    color: var(--gold-deep);
-    font-style: italic;
-  }
-
-  /* ---------- months & days ---------- */
-  .cal-body {
+  .cal-app {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 10px clamp(14px, 3vw, 28px) 60px;
+    padding: 6px clamp(14px, 3vw, 28px) 56px;
   }
-  .cal-month {
-    scroll-margin-top: 56px;
-    padding-top: 26px;
-  }
-  .cal-mhead {
+  .cal-bar {
     display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin: 0 0 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--line-gold);
-  }
-  .mh-name {
-    font-family: var(--serif);
-    font-size: clamp(24px, 4vw, 34px);
-    font-weight: 600;
-    color: var(--byz-deep);
-  }
-  .mh-count {
-    font-family: var(--text);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-deep);
-  }
-  .mh-count::after {
-    content: " saints";
-    color: var(--ink-soft);
-  }
-
-  .cal-days {
-    display: grid;
-    gap: 2px;
-  }
-  .cal-day {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 14px;
-    padding: 12px 8px;
-    border-radius: 6px;
-    scroll-margin-top: 64px;
-  }
-  .cal-day:nth-child(odd) {
-    background: rgba(35, 76, 122, 0.035);
-  }
-  .cal-date {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 2px;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
   }
-  .cal-date .dnum {
+  .cal-month-label {
     font-family: var(--serif);
-    font-size: 26px;
+    font-size: clamp(24px, 5vw, 34px);
     font-weight: 700;
-    color: var(--byz);
+    color: var(--byz-deep);
     line-height: 1;
   }
-  .cal-date .dmon {
+  .cal-month-label small {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--celest);
+    font-size: 0.6em;
+    margin-left: 5px;
+  }
+  .cal-ctrls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cal-ctrls button,
+  .cal-ctrls select {
+    font-family: var(--text);
+    height: 38px;
+    border: 1px solid var(--line-gold);
+    background: var(--paper);
+    color: var(--byz);
+    border-radius: 7px;
+    padding: 0 12px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .cal-ctrls button:hover {
+    background: #fff;
+  }
+  .cal-nav-arrow {
+    min-width: 38px;
+    font-size: 17px;
+    line-height: 1;
+  }
+  #cal-today-btn {
+    background: var(--gold);
+    border-color: var(--gold-deep);
+    color: var(--byz-ink);
+    font-weight: 600;
+  }
+  #cal-today-btn:hover {
+    background: var(--gold-soft);
+  }
+
+  .cal-main {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .cal-dow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+  .cal-dow span {
+    text-align: center;
+    font-family: var(--text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 5px;
+  }
+  .cal-cell {
+    aspect-ratio: 1 / 0.9;
+    background: var(--paper);
+    border: 1px solid rgba(35, 76, 122, 0.1);
+    border-radius: 7px;
+    padding: 6px 7px;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--serif);
+    transition:
+      background 0.12s,
+      border-color 0.12s,
+      box-shadow 0.12s;
+  }
+  .cal-cell:hover:not(.is-empty):not(.is-blank) {
+    background: #fff;
+    border-color: var(--line-gold);
+  }
+  .cal-cell .cn {
+    font-weight: 700;
+    color: var(--byz);
+    font-size: clamp(14px, 2.4vw, 17px);
+    line-height: 1;
+  }
+  .cal-cell .cc {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
     font-family: var(--text);
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
     color: var(--ink-soft);
-    margin-top: 2px;
   }
+  .cal-cell.is-blank {
+    background: transparent;
+    border-color: transparent;
+    cursor: default;
+  }
+  .cal-cell.is-empty {
+    cursor: default;
+    opacity: 0.55;
+  }
+  .cal-cell.is-empty .cn {
+    color: var(--ink-soft);
+  }
+  .cal-cell.is-today {
+    box-shadow: inset 0 0 0 2px var(--gold);
+  }
+  .cal-cell.is-today .cn {
+    color: var(--gold-deep);
+  }
+  .cal-cell.is-selected {
+    background: var(--byz);
+    border-color: var(--byz);
+  }
+  .cal-cell.is-selected .cn {
+    color: var(--ivory);
+  }
+  .cal-cell.is-selected .cc {
+    color: var(--gold-soft);
+  }
+
+  /* ---------- day panel ---------- */
+  .cal-panel {
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: sticky;
+    top: 12px;
+  }
+  .cal-panel-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-bottom: 1px solid var(--line-gold);
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+  }
+  .cal-panel-head .d {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--byz-deep);
+    line-height: 1.05;
+  }
+  .cal-panel-head .lbl {
+    font-family: var(--text);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--gold-deep);
+  }
+  .cal-panel-note {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+  .cal-panel-empty {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .cal-panel .cal-list {
+    max-height: 60vh;
+    overflow: auto;
+  }
+
+  /* ---------- shared saint list (panel + source) ---------- */
   .cal-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
   }
-  .cal-list--cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1px 18px;
-  }
-  .cal-list a {
+  .cal-list li a {
     display: flex;
     align-items: baseline;
     gap: 9px;
-    padding: 4px 6px;
+    padding: 5px 6px;
     border-radius: 4px;
     text-decoration: none;
     color: var(--ink);
     line-height: 1.3;
   }
-  .cal-list a:hover {
+  .cal-list li a:hover {
     background: rgba(212, 175, 55, 0.12);
   }
-  .cal-list a:hover .nm {
+  .cal-list li a:hover .nm {
     color: var(--byz-deep);
   }
-  .nm {
+  .cal-list .nm {
     font-family: var(--serif);
     font-size: 16px;
   }
-  .nm i {
+  .cal-list .nm i {
     font-style: italic;
     color: var(--ink-soft);
     font-size: 14.5px;
   }
 
-  /* rank color dot — keyed to rankSlug (s.rank[0]); mirrors the .tag families */
+  /* rank color dot — keyed to rankSlug; mirrors the .tag families */
   .cd {
     width: 7px;
     height: 7px;
@@ -491,50 +563,83 @@ const totalEntries =
     background: var(--dome);
   }
 
-  /* today */
-  .cal-day.is-today {
-    background: linear-gradient(
-      90deg,
-      rgba(212, 175, 55, 0.2),
-      rgba(212, 175, 55, 0.06)
-    );
-    box-shadow: inset 3px 0 0 var(--gold);
+  /* ---------- foot: movable pill + legend ---------- */
+  .cal-foot {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
   }
-  .cal-day.is-today .cal-date .dnum {
-    color: var(--gold-deep);
-  }
-  .cal-today-ribbon {
-    display: inline-block;
-    margin-top: 5px;
+  .cal-pill {
     font-family: var(--text);
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: 13px;
+    color: var(--gold-deep);
+    font-style: italic;
+    border: 1px dashed var(--line-gold);
+    border-radius: 999px;
+    padding: 7px 15px;
+    cursor: pointer;
+    background: transparent;
+  }
+  .cal-pill:hover,
+  .cal-pill.is-active {
+    background: rgba(212, 175, 55, 0.14);
+  }
+  .cal-legend {
+    margin-left: auto;
+    display: flex;
+    gap: 13px;
+    font-family: var(--text);
+    font-size: 11.5px;
+    color: var(--celest);
+    flex-wrap: wrap;
+  }
+  .cal-legend i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  /* ---------- no-JS source / fallback ---------- */
+  #calendar-page.is-enhanced .cal-source {
+    display: none;
+  }
+  .cal-source {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6px clamp(14px, 3vw, 28px) 60px;
+  }
+  .cal-source section,
+  .cal-src-movable {
+    padding-top: 22px;
+  }
+  .cal-source h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 600;
+    color: var(--byz-deep);
+    border-bottom: 2px solid var(--line-gold);
+    padding-bottom: 6px;
+    margin: 0 0 10px;
+  }
+  .cal-source h3 {
+    font-family: var(--text);
+    font-size: 12px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gold-deep);
+    margin: 12px 0 4px;
   }
 
-  .cal-movable-note {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--ink-soft);
-    margin: -4px 0 14px;
-    font-size: 15px;
-  }
-  .cal-day--wide {
-    grid-template-columns: 1fr;
-  }
-
-  @media (max-width: 560px) {
-    .cal-day {
-      grid-template-columns: 50px 1fr;
-      gap: 10px;
+  @media (max-width: 760px) {
+    .cal-main {
+      grid-template-columns: 1fr;
     }
-    .cal-date .dnum {
-      font-size: 22px;
-    }
-    .nm {
-      font-size: 15px;
+    .cal-panel {
+      position: static;
     }
   }
 </style>
