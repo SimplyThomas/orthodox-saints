@@ -37,4 +37,19 @@ export default [
     files: ["*.config.{js,mjs,ts}", "playwright.config.ts", "scripts/**/*.mjs"],
     languageOptions: { globals: { ...globals.node } },
   },
+  {
+    // Workflow orchestration scripts run inside the Workflow tool's runtime,
+    // which injects these globals and wraps the body in an async function
+    // (so top-level await/return are valid there).
+    files: ["scripts/**/*.workflow.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        args: "readonly",
+        pipeline: "readonly",
+        agent: "readonly",
+        log: "readonly",
+      },
+    },
+  },
 ];
