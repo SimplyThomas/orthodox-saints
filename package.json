@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.4.5"
+    "astro": "^6.4.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
