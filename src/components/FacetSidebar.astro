@@ -14,12 +14,20 @@ const groups = FACETS.filter((f) => f.key !== "themes")
 const themeGroups = themesByGroup(1);
 ---
 
-<aside class="facets" aria-label="Filters">
+<aside class="facets" id="facets-drawer" aria-label="Filters">
   <div class="facets-head">
     <span class="eyebrow">Refine</span>
-    <button type="button" id="clear-all" class="link-btn" hidden
-      >Clear all</button
-    >
+    <div class="facets-head-actions">
+      <button type="button" id="clear-all" class="link-btn" hidden
+        >Clear all</button
+      >
+      <button
+        type="button"
+        id="facets-close"
+        class="facets-close"
+        aria-label="Close filters">Done</button
+      >
+    </div>
   </div>
   <div id="facets">
     {

@@ -130,5 +130,30 @@ const quickRanks = [
           .getElementById("finder")
           ?.scrollIntoView({ behavior: "smooth", block: "start" }),
       );
+
+    // Mobile filter drawer: the toggle (next to the sort controls) slides the
+    // Refine rail in from the left; the backdrop, the "Done" button, and Escape
+    // close it. The CSS only applies the drawer treatment under 980px, so this
+    // body class is inert on desktop.
+    const filterToggle =
+      document.querySelector<HTMLButtonElement>("#filters-toggle");
+    const filterOverlay = document.getElementById("facets-overlay");
+    const filterClose = document.getElementById("facets-close");
+    function setFilters(open: boolean) {
+      document.body.classList.toggle("filters-open", open);
+      filterToggle?.setAttribute("aria-expanded", String(open));
+    }
+    filterToggle?.addEventListener("click", () =>
+      setFilters(!document.body.classList.contains("filters-open")),
+    );
+    filterOverlay?.addEventListener("click", () => setFilters(false));
+    filterClose?.addEventListener("click", () => setFilters(false));
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        document.body.classList.contains("filters-open")
+      )
+        setFilters(false);
+    });
   </script>
 </BaseLayout>

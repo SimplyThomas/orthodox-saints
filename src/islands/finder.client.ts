@@ -244,6 +244,13 @@ if (dataEl) {
       SAINTS.filter((s) => matches(s, query, selected)),
       sortMode,
     );
+    // Mirror the active-filter count onto the mobile "Filters" toggle badge.
+    const badge = $("#filter-count");
+    if (badge) {
+      const n = activeCount(selected);
+      badge.textContent = n ? String(n) : "";
+    }
+
     const title = $("#results-title");
     if (title)
       title.textContent = query ? `Results for “${query}”` : "All saints";

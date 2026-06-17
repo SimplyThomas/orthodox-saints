@@ -920,6 +920,19 @@ a.qz-comp {
   cursor: pointer;
 }
 
+/* Mobile filter drawer: the toggle, its active-count badge, the drawer's
+   "Done" button, and the backdrop are all desktop-hidden — the facet rail is a
+   static sidebar there. They light up in the <=980px media query below, where
+   the rail becomes an off-canvas drawer opened from near the sort controls. */
+.filters-toggle,
+.facets-close,
+.facets-overlay {
+  display: none;
+}
+.filter-count:empty {
+  display: none;
+}
+
 .active-chips {
   display: flex;
   gap: 8px;
@@ -3941,11 +3954,89 @@ a.sv-rail-chip:hover {
   .finder-layout {
     grid-template-columns: 1fr;
   }
+
+  /* Show the "Filters" button beside the sort controls at the top. */
+  .filters-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--byz);
+    padding: 8px 14px;
+    border: 1px solid var(--line-gold);
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    margin-right: auto;
+  }
+  .filters-toggle .filter-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: var(--byz);
+    color: var(--ivory);
+    font-size: 11px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The Refine rail becomes an off-canvas drawer, opened from the toggle. */
   .facets {
-    order: 2;
-    border-top: 1px solid var(--line);
-    padding-top: 20px;
-    margin-top: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60; /* above the sticky header (30) and the overlay (50) */
+    width: min(86vw, 360px);
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    border-radius: 0;
+    transform: translateX(-100%);
+    visibility: hidden; /* keep off-screen rail out of the tab order when closed */
+    transition:
+      transform 0.28s ease,
+      visibility 0.28s ease;
+  }
+  body.filters-open .facets {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .facets-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(15, 34, 56, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+  body.filters-open .facets-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .facets-head-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .facets-close {
+    display: inline-block;
+    font-family: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-soft);
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 3px;
+    padding: 5px 12px;
+    cursor: pointer;
   }
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
