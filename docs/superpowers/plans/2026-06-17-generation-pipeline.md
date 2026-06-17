@@ -30,9 +30,11 @@
 | `tools/profilegen/coverage.py` (**new**) | Compute `full`/`thin`/`none` verdict; append to the batch coverage log; print a region summary. |
 | `tools/profilegen/prompts/{gather,write,verify}.md` (**new**) | The agent stage prompts (the Write prompt derives from the user's ChatGPT prompt + spec §3.2). |
 | `tools/profilegen/schemas.py` (**new**) | JSON Schemas: the `SaintProfile` write-output and the verifier `verdict`. Exposed as JSON for the workflow. |
-| `scripts/profilegen.workflow.js` (**new**) | The Workflow orchestration: pipeline a batch through Gather→Write→Verify→Emit with per-stage models. |
+| `scripts/profilegen.workflow.js` (**new**) | The Workflow orchestration: pipeline a batch through Gather→Write→Verify→Emit with per-stage models (live; used for calibration). |
+| `tools/profilegen/limits.py` (**new**) | Parse Claude Code headless output: is-it-a-limit, is-it-monthly-exhaustion, seconds-until-reset. |
+| `tools/profilegen/run.py` (**new**) | Hands-off overnight runner: build batches, loop `claude -p` per batch, back off / wait-for-reset / stop-on-exhaustion, resumable. |
 | `tests/test_profilegen.py` (**new**) | Unit tests for every helper above. |
-| `Makefile` (**modify**) | `make profile-batch` (prioritize) and helper passthroughs. |
+| `Makefile` (**modify**) | `make profile-batch` (prioritize), `make profile-run` (overnight runner), helper passthroughs. |
 | `CLAUDE.md` (**modify**) | Document the pipeline + the authoring loop. |
 
 All `dist/` outputs are git-ignored (coverage log, proposals, verdicts) per CLAUDE.md.
@@ -1072,6 +1074,321 @@ git commit -m "feat(profilegen): make targets + docs for the generation pipeline
 
 ---
 
+## Task 12: Limit-parsing helper (for the overnight runner)
+
+**Files:** Create `tools/profilegen/limits.py`; Test: `tests/test_profilegen.py`
+
+The runner (Task 13) must react to whatever limit Claude Code reports. This pure module
+classifies the output and computes how long to wait — small and unit-tested so the runner's
+control flow is trustworthy.
+
+**Background — why two kinds of limit (read before implementing).** Since the June 15, 2026
+billing change, headless `claude -p` / Agent-SDK usage on a Max subscription draws a
+**monthly API-rate credit pool** ($100/mo on Max 5x, $200 on Max 20x), *not* the interactive
+5-hour windows. That matters here: a **transient/window** limit clears on a timer (wait and
+resume), but **monthly credit-pool exhaustion does NOT refill overnight** (waiting is
+pointless — stop and notify). The runner must tell these apart, which is what `is_exhausted`
+is for. (Depending on how an account meters headless runs it may hit either kind; the runner
+handles both.)
+
+- [ ] **Step 1: Write the failing tests**
+
+Add to `tests/test_profilegen.py`:
+
+```python
+from datetime import datetime
+from tools.profilegen import limits
+
+
+class LimitClassifyTests(unittest.TestCase):
+    def test_nonzero_returncode_is_a_limit(self):
+        self.assertTrue(limits.is_limit("", 1))
+
+    def test_rate_limit_text_is_a_limit(self):
+        self.assertTrue(limits.is_limit("Error: 429 rate_limit_error", 0))
+        self.assertTrue(limits.is_limit("usage limit reached; resets at 3:00 PM", 0))
+
+    def test_success_is_not_a_limit(self):
+        self.assertFalse(limits.is_limit('{"result": "wrote 12 profiles"}', 0))
+
+    def test_exhausted_detects_monthly_credit(self):
+        self.assertTrue(limits.is_exhausted("Your credit balance is too low"))
+        self.assertTrue(limits.is_exhausted("monthly usage limit reached"))
+
+    def test_exhausted_false_on_transient(self):
+        self.assertFalse(limits.is_exhausted("rate limit exceeded, try again in 60 seconds"))
+
+
+class ResetParseTests(unittest.TestCase):
+    NOW = datetime(2026, 6, 18, 13, 0, 0)  # 1:00 PM
+
+    def test_retry_after_seconds(self):
+        self.assertEqual(limits.seconds_until_reset("retry-after: 90", self.NOW), 90)
+
+    def test_try_again_in_hours(self):
+        self.assertEqual(limits.seconds_until_reset("try again in 2 hours", self.NOW), 7200)
+
+    def test_try_again_in_minutes(self):
+        self.assertEqual(limits.seconds_until_reset("try again in 45 minutes", self.NOW), 2700)
+
+    def test_resets_at_clock_time_later_today(self):
+        self.assertEqual(limits.seconds_until_reset("resets at 3:00 PM", self.NOW), 7200)
+
+    def test_resets_at_time_already_passed_rolls_to_next_day(self):
+        self.assertEqual(
+            limits.seconds_until_reset("limit resets at 11:00 AM", self.NOW), 22 * 3600)
+
+    def test_none_when_no_hint(self):
+        self.assertIsNone(limits.seconds_until_reset("some other error", self.NOW))
+```
+
+- [ ] **Step 2: Run to confirm failure**
+
+Run: `python -m unittest tests.test_profilegen -k "Limit or Reset" -v`
+Expected: FAIL — no module/attrs.
+
+- [ ] **Step 3: Implement**
+
+Create `tools/profilegen/limits.py`:
+
+```python
+"""Parse Claude Code headless output to drive the overnight runner's backoff:
+distinguish a limit from success, monthly credit exhaustion from a transient limit,
+and compute how long to wait when a reset time is given."""
+import re
+from datetime import datetime, timedelta
+
+_LIMIT_RE = re.compile(
+    r"rate.?limit|usage limit|overloaded|\b429\b|resets? at|retry.?after|"
+    r"too many requests|out of credit|credit balance|insufficient|quota",
+    re.I,
+)
+_EXHAUST_RE = re.compile(
+    r"out of credit|credit balance is too low|insufficient credit|"
+    r"monthly (usage )?limit reached|quota exhausted",
+    re.I,
+)
+_RETRY_AFTER_RE = re.compile(r"retry.?after[\"':\s]+(\d+)", re.I)
+_IN_DURATION_RE = re.compile(r"in\s+(\d+)\s*(second|minute|hour)s?", re.I)
+_RESETS_AT_RE = re.compile(r"resets?\s+at\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)?", re.I)
+
+
+def is_limit(text: str, returncode: int) -> bool:
+    """True if the run hit any kind of limit (or otherwise failed)."""
+    return returncode != 0 or bool(_LIMIT_RE.search(text or ""))
+
+
+def is_exhausted(text: str) -> bool:
+    """True for monthly credit-pool / quota exhaustion — waiting will NOT help."""
+    return bool(_EXHAUST_RE.search(text or ""))
+
+
+def seconds_until_reset(text: str, now: datetime) -> int | None:
+    """Seconds to wait before retrying, parsed from the message, or None if no hint."""
+    text = text or ""
+    m = _RETRY_AFTER_RE.search(text)
+    if m:
+        return int(m.group(1))
+    m = _IN_DURATION_RE.search(text)
+    if m:
+        n, unit = int(m.group(1)), m.group(2).lower()
+        return n * {"second": 1, "minute": 60, "hour": 3600}[unit]
+    m = _RESETS_AT_RE.search(text)
+    if m:
+        raw_hour, minute, ampm = int(m.group(1)), int(m.group(2) or 0), (m.group(3) or "").lower()
+        if ampm == "pm":
+            hour = raw_hour % 12 + 12
+        elif ampm == "am":
+            hour = raw_hour % 12
+        else:
+            hour = raw_hour  # 24-hour clock, e.g. "15:00"
+        target = now.replace(hour=hour % 24, minute=minute, second=0, microsecond=0)
+        if target <= now:
+            target += timedelta(days=1)
+        return int((target - now).total_seconds())
+    return None
+```
+
+- [ ] **Step 4: Run to confirm pass**
+
+Run: `python -m unittest tests.test_profilegen -k "Limit or Reset" -v`
+Expected: PASS (11 tests).
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add tools/profilegen/limits.py tests/test_profilegen.py
+git commit -m "feat(profilegen): limit/reset parser for the overnight runner"
+```
+
+---
+
+## Task 13: Overnight runner (`claude -p` loop, hands-off)
+
+**Files:** Create `tools/profilegen/run.py`; Modify `Makefile`, `CLAUDE.md`
+
+A single command you launch at night that walks the whole backlog: it builds batches from
+the prioritized, profile-less saints and runs one headless `claude -p` per batch. It's
+**resumable** (prioritize excludes saints that already have a profile, and the prompt tells
+Claude to skip existing ones — so a fresh run continues where the last stopped), and
+**limit-aware** (back off / wait-for-reset on transient limits; stop on monthly exhaustion).
+
+### Run modes (document this; it's the §8 authoring workflow operationalized)
+
+| Mode | How | Billing | When |
+|---|---|---|---|
+| **Calibration** | live Workflow (`scripts/profilegen.workflow.js`, Task 9–10) | interactive Max limits | the first ~15 saints — watch quality closely |
+| **Bulk** | `python -m tools.profilegen.run` (this task) | headless → monthly credit pool, then API rates | the remaining backlog, unattended overnight |
+
+### Auth setup before an unattended run (critical)
+
+Headless runs on a Max login use your existing `claude` OAuth — **no API key**. But if
+`ANTHROPIC_API_KEY` is set it takes precedence and bills metered API rates instead of your
+included credit pool. So:
+
+```bash
+unset ANTHROPIC_API_KEY            # otherwise it bypasses the Max credit pool
+claude setup-token                 # 1-year OAuth token, avoids mid-run expiry
+export CLAUDE_CODE_OAUTH_TOKEN=<paste>
+claude /status                     # confirm auth + remaining credit before launching
+```
+
+- [ ] **Step 1: Implement the runner**
+
+Create `tools/profilegen/run.py`:
+
+```python
+"""Hands-off overnight runner for grounded profile generation. Builds batches from the
+prioritized, profile-less saints and runs `claude -p` per batch, skipping saints that
+already have a profile (resumable). On a transient/window limit it backs off and resumes;
+on monthly credit-pool exhaustion it stops (waiting won't refill it). Launch overnight:
+
+    nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
+
+Env knobs: BATCH_SIZE (40), PROFILEGEN_MODEL (claude-opus-4-8), MAX_WAIT (21600),
+MAX_ATTEMPTS (12), DRY_RUN (unset). Resume after any stop by re-running the same command."""
+import os
+import subprocess
+import sys
+import time
+from datetime import datetime
+from pathlib import Path
+
+from tools.profilegen import limits, prioritize
+
+ROOT = Path(__file__).resolve().parents[2]
+PLAN = "docs/superpowers/plans/2026-06-17-generation-pipeline.md"
+RUN_DIR = ROOT / "dist" / "profilegen"
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "40"))
+MODEL = os.environ.get("PROFILEGEN_MODEL", "claude-opus-4-8")
+MAX_WAIT = int(os.environ.get("MAX_WAIT", str(6 * 3600)))   # cap any single wait at 6h
+MAX_ATTEMPTS = int(os.environ.get("MAX_ATTEMPTS", "12"))    # per batch before moving on
+DRY_RUN = bool(os.environ.get("DRY_RUN"))
+
+
+def log(msg: str) -> None:
+    line = f"[{datetime.now():%F %T}] {msg}"
+    print(line, flush=True)
+    RUN_DIR.mkdir(parents=True, exist_ok=True)
+    with open(RUN_DIR / "run.log", "a", encoding="utf-8") as f:
+        f.write(line + "\n")
+
+
+def run_claude(ids: list[str]) -> tuple[str, int]:
+    prompt = (
+        f"Generate grounded saint profiles for these IDs: {' '.join(ids)}. "
+        f"Follow {PLAN}: gather sources, write, adversarially verify against the "
+        f"OCA-anchor row, emit YAML to src/content/profiles/, and append coverage + "
+        f"verdicts under dist/profilegen/. SKIP any ID that already has a profile file. "
+        f"Report how many profiles you wrote."
+    )
+    proc = subprocess.run(
+        ["claude", "-p", prompt,
+         "--permission-mode", "dontAsk",
+         "--allowedTools", "Read,Write,Edit,Bash,WebFetch,WebSearch",
+         "--model", MODEL,
+         "--output-format", "json"],
+        capture_output=True, text=True, cwd=ROOT,
+    )
+    return (proc.stdout or "") + (proc.stderr or ""), proc.returncode
+
+
+def main() -> int:
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        log("WARNING: ANTHROPIC_API_KEY is set — headless runs bill metered API rates, "
+            "not your Max credit pool. `unset ANTHROPIC_API_KEY` to use the subscription.")
+
+    todo = [sid for sid, _ in prioritize.ranked(10**9)]  # excludes already-profiled saints
+    batches = [todo[i:i + BATCH_SIZE] for i in range(0, len(todo), BATCH_SIZE)]
+    log(f"{len(todo)} profile-less saints in {len(batches)} batches of {BATCH_SIZE}")
+    if DRY_RUN:
+        for n, b in enumerate(batches, 1):
+            log(f"[dry-run] batch {n}: {b[0]}..{b[-1]} ({len(b)})")
+        return 0
+
+    for n, batch in enumerate(batches, 1):
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            log(f"batch {n}/{len(batches)} ({len(batch)} ids) attempt {attempt}")
+            out, rc = run_claude(batch)
+            if not limits.is_limit(out, rc):
+                log(f"batch {n} done")
+                break
+            if limits.is_exhausted(out):
+                log("STOP: monthly credit pool exhausted — waiting won't refill it. "
+                    "Enable overflow billing or resume next cycle. Written profiles are saved.")
+                return 2
+            wait = limits.seconds_until_reset(out, datetime.now())
+            wait = min((wait if wait is not None else 60 * 2 ** min(attempt, 8)) + 30, MAX_WAIT)
+            log(f"limit hit; sleeping {wait}s, then retrying batch {n}")
+            time.sleep(wait)
+        else:
+            log(f"batch {n} hit MAX_ATTEMPTS; moving on (re-run later to retry it)")
+    log("ALL DONE")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+- [ ] **Step 2: Verify batch construction without spending tokens**
+
+Run: `DRY_RUN=1 BATCH_SIZE=40 python -m tools.profilegen.run`
+Expected: logs the batch count and each batch's ID range; exits 0; calls `claude` zero times.
+(The limit/reset control flow is covered by Task 12's unit tests.)
+
+- [ ] **Step 3: Add the make target**
+
+In `Makefile`, add:
+
+```make
+profile-run: ## hands-off overnight runner (headless claude -p loop; resumable)
+	python -m tools.profilegen.run
+```
+
+- [ ] **Step 4: Document the run modes + auth in CLAUDE.md**
+
+In `CLAUDE.md` §8, after the pipeline note, add a short paragraph: calibration runs live
+(Workflow); the **bulk runs unattended** via `make profile-run` (or
+`nohup python -m tools.profilegen.run … & disown`). Note the auth setup (`unset
+ANTHROPIC_API_KEY`; `claude setup-token`), that it's **resumable** (re-run to continue), that
+it **backs off and resumes** on transient/window limits but **stops on monthly credit-pool
+exhaustion** (waiting won't refill it — enable overflow billing or resume next cycle), and
+that headless billing draws the Max **monthly credit pool** ($100 on Max 5x), not the 5-hour
+interactive windows.
+
+- [ ] **Step 5: Full suite + commit**
+
+Run: `python -m unittest tests.test_profilegen && make validate`
+Expected: green.
+
+```bash
+git add tools/profilegen/run.py Makefile CLAUDE.md
+git commit -m "feat(profilegen): hands-off overnight runner (resumable, limit-aware)"
+```
+
+---
+
 ## Self-review notes (spec coverage)
 
 - **§3 pipeline (gather/write/verify/emit, per-stage models):** Tasks 3–9. ✅
@@ -1082,6 +1399,9 @@ git commit -m "feat(profilegen): make targets + docs for the generation pipeline
 - **§4 tiered fetch + no Oriental sources:** Task 8 gather prompt. ✅
 - **§5 coverage log + region summary:** Task 7. ✅
 - **§8 authoring workflow (prioritize, batch, review, branch-per-batch):** Tasks 2, 10, 11. ✅
+- **§8 run modes — calibration (live) vs hands-off overnight bulk:** Tasks 12 (limit parser),
+  13 (resumable, limit-aware `claude -p` runner). Honest about the June-15 credit-pool
+  semantics: backs off/resumes on transient limits, stops on monthly exhaustion. ✅
 - **Guardrails are code:** facet vocab gate (Task 4), PD gate (Task 6), Plan 1 status gate +
   build validation — independent of the Write model. ✅
 
