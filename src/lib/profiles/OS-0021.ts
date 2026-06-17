@@ -2,7 +2,265 @@ import type { SaintProfile } from "../profile-types";
 
 const profile: SaintProfile = {
   id: "OS-0021",
-  overview: ["Placeholder — replaced by the Task 4 migration."],
+  lifespan: "c. 329 – 379 · Archbishop of Caesarea in Cappadocia",
+  overview: [
+    "Saint Basil the Great (c. 329–379) served as Archbishop of Caesarea in Cappadocia and ranks among the most consequential of the Church Fathers. He was born into a distinguished and devout Christian family of Cappadocia and received a thorough classical education in Caesarea, Constantinople, and Athens, where his fellow students included Gregory the Theologian.",
+    "After his studies Basil withdrew into the ascetic life, traveling through Egypt, Palestine, Syria, and Mesopotamia to observe the monastic communities flourishing there. From what he learned he drew together principles for communal monasticism that would become foundational for the Eastern Orthodox monastic tradition.",
+    "Consecrated Archbishop of Caesarea in 370, Basil emerged during a period of fierce doctrinal conflict as one of the foremost defenders of Nicene Christianity against Arianism and kindred teachings. His theological writing did much to clarify the Church's confession of the Holy Trinity, and especially the divinity of the Holy Spirit.",
+    "Basil was equally known for organized works of mercy. On the outskirts of Caesarea he founded a large charitable complex — housing for travelers, care for the poor, and facilities for the sick — that later generations called the Basiliad, among the most significant philanthropic undertakings of the early Christian world.",
+    "A prolific author and preacher, he produced theological treatises, scriptural commentary, monastic rules, letters, and homilies, and his influence reached into liturgy, social ethics, and pastoral practice. He reposed on January 1, 379. Together with Gregory the Theologian and John Chrysostom he is honored as one of the Three Holy Hierarchs, and the Divine Liturgy that bears his name is still celebrated in the Orthodox Church on appointed days through the year.",
+  ],
+  timeline: [
+    {
+      when: "c. 329",
+      title: "Born in Cappadocia",
+      body: "Into a distinguished Christian family.",
+    },
+    {
+      when: "356",
+      title: "Embraced the ascetic life",
+      body: "After travels among the monastic communities of Egypt, Palestine, Syria, and Mesopotamia.",
+    },
+    {
+      when: "364",
+      title: "Ordained presbyter",
+      body: "Serving the Church of Caesarea.",
+    },
+    {
+      when: "370",
+      title: "Consecrated Archbishop of Caesarea",
+      body: "Leading the Church through the Arian controversy.",
+    },
+    {
+      when: "375",
+      title: "Completed On the Holy Spirit",
+      body: "His treatise on the divinity of the Holy Spirit.",
+    },
+    {
+      when: "379",
+      title: "Reposed in the Lord",
+      body: "Commemorated on January 1.",
+    },
+  ],
+  family: {
+    heading: "Holy Family of Cappadocia",
+    intro:
+      "Basil belonged to one of the most remarkable saintly families in Christian history; several of his close relations are themselves commemorated as saints.",
+    figures: [
+      {
+        name: "Saint Macrina the Elder",
+        note: "grandmother",
+        href: "saint/OS-2474",
+      },
+      {
+        name: "Saint Macrina the Younger",
+        note: "sister",
+        href: "saint/OS-1551",
+      },
+      {
+        name: "Saint Gregory of Nyssa",
+        note: "brother",
+        href: "saint/OS-0422",
+      },
+      {
+        name: "Saint Peter of Sebaste",
+        note: "brother",
+        href: "saint/OS-0420",
+      },
+      {
+        name: "Saint Naucratius",
+        note: "brother",
+      },
+    ],
+  },
+  related: [
+    {
+      name: "Saint Gregory the Theologian",
+      note: "fellow Cappadocian Father",
+      href: "saint/OS-0022",
+    },
+    {
+      name: "Saint Gregory of Nyssa",
+      note: "his brother",
+      href: "saint/OS-0422",
+    },
+    {
+      name: "Saint Macrina the Younger",
+      note: "his sister",
+      href: "saint/OS-1551",
+    },
+    {
+      name: "Saint Peter of Sebaste",
+      note: "his brother",
+      href: "saint/OS-0420",
+    },
+    {
+      name: "Saint John Chrysostom",
+      note: "fellow Holy Hierarch",
+      href: "saint/OS-0023",
+    },
+  ],
+  sections: [
+    {
+      heading: "Defender of Nicene Orthodoxy",
+      body: [
+        "During the Arian controversies of the fourth century Basil stood at the center of the defense of the Nicene faith, and his writings helped give lasting shape to the Orthodox confession of the Holy Trinity.",
+      ],
+    },
+    {
+      heading: "Theology of the Holy Spirit",
+      body: [
+        "His treatise On the Holy Spirit remains among the most important works of patristic theology, setting out the Church's confession of the full divinity of the Holy Spirit alongside the Father and the Son.",
+      ],
+    },
+    {
+      heading: "Founder of Organized Christian Charity",
+      body: [
+        "Basil established extensive institutions for the poor, the sick, and the traveler on the edge of Caesarea. The complex later called the Basiliad became a model for Christian philanthropy in the centuries that followed.",
+      ],
+    },
+    {
+      heading: "Father of Eastern Monasticism",
+      body: [
+        "Though monasticism preceded him, Basil's rules and counsel organized and stabilized communal monastic life across the Eastern Christian world, and they remain influential in Orthodox monasteries to this day.",
+      ],
+    },
+    {
+      heading: "Liturgical Legacy",
+      body: [
+        "The Divine Liturgy of Saint Basil the Great is appointed for the Sundays of Great Lent, the eves of the Nativity and of Theophany when so appointed, Holy Thursday, Holy Saturday, and his feast on January 1.",
+      ],
+    },
+    {
+      heading: "Legacy in Theology",
+      body: [
+        "Basil's defense of the Nicene faith helped shape the Church's confession of the Holy Trinity at a decisive moment, and his work on the Holy Spirit fed directly into the doctrine affirmed by the Second Ecumenical Council in 381. With Gregory the Theologian and his brother Gregory of Nyssa he is numbered among the Cappadocian Fathers, whose thought continues to inform Orthodox teaching.",
+      ],
+    },
+    {
+      heading: "Legacy in Monasticism",
+      body: [
+        "His rules and guidance gave communal monastic life an enduring shape — prayer, obedience, manual labor, charity, and a life shared in common — that countless Orthodox monasteries have followed ever since.",
+      ],
+    },
+    {
+      heading: "Legacy in Liturgical Life",
+      body: [
+        "The Liturgy that bears his name remains one of the principal eucharistic services of the Orthodox Church, preserving prayers long associated with him and reflecting his emphasis on God's saving work through history.",
+      ],
+    },
+    {
+      heading: "Legacy in Christian Charity",
+      body: [
+        "Basil held care for the poor and the sick to be inseparable from the Christian life. The institutions he founded near Caesarea anticipated the later hospitals, hospices, and shelters of the Christian world; historians often point to the Basiliad as one of the earliest large-scale Christian charitable complexes.",
+      ],
+    },
+    {
+      heading: "Legacy in Education",
+      body: [
+        "A classically trained scholar, Basil encouraged Christians to seek wisdom while remaining grounded in the faith. His Address to Young Men on the Right Use of Greek Literature became one of the most influential early Christian treatments of education and of the relationship between faith and classical learning.",
+      ],
+    },
+    {
+      heading: 'Why He Is Called "the Great"',
+      body: [
+        "The title reflects not his theology alone but the breadth of his influence across the whole life of the Church. Few figures have left so lasting a mark on doctrine, worship, monasticism, education, and works of mercy at once, and for this he is remembered among the Three Holy Hierarchs and among the greatest teachers and pastors in Christian history.",
+      ],
+    },
+  ],
+  patronage: [
+    "Monastics",
+    "Theologians",
+    "Educators",
+    "Hospital workers",
+    "Charitable ministries",
+    "Social service organizations",
+  ],
+  works: [
+    {
+      title: "On the Holy Spirit",
+      desc: "Defense of the divinity of the Holy Spirit.",
+    },
+    {
+      title: "Against Eunomius",
+      desc: "Refutation of Eunomian Arianism.",
+    },
+    {
+      title: "Hexaemeron",
+      desc: "Homilies on the six days of creation.",
+    },
+    {
+      title: "Longer Rules",
+      desc: "Foundational monastic instructions.",
+    },
+    {
+      title: "Shorter Rules",
+      desc: "Practical monastic guidance.",
+    },
+    {
+      title: "Address to Young Men on the Right Use of Greek Literature",
+      desc: "Guidance on the Christian use of classical education.",
+    },
+    {
+      title: "Homilies on the Psalms",
+      desc: "Biblical commentary preached to his congregation.",
+    },
+    {
+      title: "Letters",
+      desc: "An extensive correspondence preserved from his ministry.",
+    },
+  ],
+  reading: [
+    {
+      heading: "Ancient Sources",
+      items: [
+        {
+          title: "Funeral Oration on Basil the Great",
+          author: "Saint Gregory the Theologian",
+        },
+        {
+          title: "Life of Macrina",
+          author: "Saint Gregory of Nyssa",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Socrates Scholasticus",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Sozomen",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Theodoret of Cyrus",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "Basil of Caesarea",
+          author: "Philip Rousseau",
+        },
+        {
+          title: "Basil of Caesarea",
+          author: "Stephen Hildebrand",
+        },
+        {
+          title: "On Social Justice",
+          author: "trans. and ed. C. Paul Schroeder",
+        },
+        {
+          title: "St. Basil the Great: On the Human Condition",
+          author: "Popular Patristics Series",
+        },
+        {
+          title: "The Ascetical Works of Saint Basil",
+        },
+      ],
+    },
+  ],
   status: "reviewed",
 };
 

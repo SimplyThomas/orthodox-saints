@@ -1,0 +1,138 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-2126",
+  lifespan: "3rd century · Mother of the Holy Unmercenaries Cosmas and Damian",
+  overview: [
+    "Saint Theodota was a Christian woman of Asia Minor in the third century — placed by various recensions of the saints' lives in Mesopotamia or in Cilicia — remembered chiefly as the mother and teacher of the Holy Unmercenary Physicians Cosmas and Damian, among the most beloved healer-saints of the Christian East.",
+    "According to Orthodox tradition she was widowed while her children were still young, and after her husband's death took on alone the raising of her sons in the Christian faith, at a time when the Church remained vulnerable to persecution within the Roman Empire.",
+    "The accounts emphasize her work as educator and spiritual guide. She saw that her sons received both learning and religious formation, and joined to their training in the healing arts the principles of mercy, compassion, and service to the poor. When Cosmas and Damian became physicians who took no payment for their care — the 'Unmercenaries,' Anargyroi — tradition credited their mother's teaching and example as a chief influence on that vocation.",
+    "Little is recorded of her later years; some traditions say she reposed in peace before her sons, while others preserve no detail of her death. Unlike many women saints of the age she is remembered neither for public ministry nor for martyrdom, but for her hidden work as a Christian mother who formed future saints through education, discipline, and example. Her veneration grew up alongside that of Cosmas and Damian, and the Church honors her as a righteous woman whose influence helped shape two of Christianity's most celebrated healers.",
+  ],
+  timeline: [
+    {
+      when: "Early 3rd c.",
+      title: "Born in Asia Minor",
+      body: "Exact location uncertain in the sources.",
+    },
+    {
+      when: "—",
+      title: "Married and raised a family",
+      body: "Her husband's name is not preserved.",
+    },
+    {
+      when: "—",
+      title: "Widowed",
+      body: "Raised her sons alone in the faith.",
+    },
+    {
+      when: "Later life",
+      title: "Formed Cosmas and Damian",
+      body: "Joining Christian charity to their training as physicians.",
+    },
+    {
+      when: "Nov 1 / Jan 2",
+      title: "Commemorated with her sons",
+      body: "Her memory is bound to that of the Unmercenaries.",
+    },
+  ],
+  sections: [
+    {
+      heading: "A Note on the Sources",
+      body: [
+        "The historical record for Saint Theodota is limited; her memory survives mainly through the hagiographical traditions of her sons. Her existence and reputation as a pious Christian mother are firmly held in Orthodox tradition, but many biographical details are not independently documented and vary among the manuscript traditions.",
+      ],
+    },
+    {
+      heading: "The Christian Household as a School of Faith",
+      body: [
+        "Before Christianity gained legal protection, the household was a principal means by which the faith was handed on, and mothers were often the first teachers of their children in Scripture, prayer, and the moral life. Theodota belongs to this tradition of saintly mothers whose formation of their children shaped the next generation of Christian witnesses.",
+      ],
+    },
+    {
+      heading: "Legacy Through Her Sons",
+      body: [
+        "The veneration of Cosmas and Damian spread through the Byzantine world, the Slavic lands, the Middle East, and Western Europe, and through their charitable healing Theodota's influence reached far beyond her own lifetime. Her life stands as an example that holiness may be expressed through family and the formation of children rather than through public office or martyrdom.",
+      ],
+    },
+  ],
+  family: {
+    heading: "Mother of the Unmercenaries",
+    intro:
+      "Theodota's sanctity is inseparable from the sons she raised, the physician-saints of Asia.",
+    figures: [
+      {
+        name: "Holy Unmercenaries Cosmas and Damian",
+        note: "her sons",
+        href: "saint/OS-0036",
+      },
+    ],
+  },
+  related: [
+    {
+      name: "Righteous Emilia of Cappadocia",
+      note: "mother of Basil the Great",
+      href: "saint/OS-0374",
+    },
+    {
+      name: "Righteous Nonna of Nazianzus",
+      note: "mother of Gregory the Theologian",
+      href: "saint/OS-2507",
+    },
+    {
+      name: "Saint Monica",
+      note: "mother of Augustine of Hippo",
+      href: "saint/OS-1116",
+    },
+    {
+      name: "Righteous Macrina the Elder",
+      note: "matriarch of a saintly family",
+      href: "saint/OS-2474",
+    },
+    {
+      name: "Righteous Juliana of Lazarevo",
+      note: "sanctity within family life",
+      href: "saint/OS-0378",
+    },
+    {
+      name: "Great Martyr and Healer Panteleimon",
+      note: "fellow physician-saint",
+      href: "saint/OS-0014",
+    },
+  ],
+  patronage: [
+    "Mothers and widows",
+    "Christian families",
+    "Parents of physicians",
+    "Educators and caregivers",
+    "Families raising children in the faith",
+  ],
+  reading: [
+    {
+      heading: "Ancient Sources",
+      items: [
+        {
+          title: "Passion and Life of Saints Cosmas and Damian",
+        },
+        {
+          title: "Byzantine Synaxaria and Menologion traditions",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "Lives of the Saints (Jan 2)",
+          author: "Orthodox Church in America",
+        },
+        {
+          title: "Women and Family in Early Christianity",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

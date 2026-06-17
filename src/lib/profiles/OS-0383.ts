@@ -1,0 +1,137 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0383",
+  lifespan:
+    "1863 – 1953 · Georgian scholar and guardian of the nation's treasures",
+  overview: [
+    "Saint Euthymius (Ekvtime) Takaishvili, called 'the Man of God,' is unusual among Orthodox saints in being remembered not as a bishop, monk, missionary, or martyr, but as a scholar, historian, archaeologist, educator, and protector of Georgia's cultural and ecclesiastical heritage. He was born on January 5, 1863, in the village of Likhauri in Guria, western Georgia, then within the Russian Empire, into a noble but impoverished family. Orphaned of his father young and raised by relatives, he pursued learning with great determination, studying at the Kutaisi gymnasium and then at the Faculty of History and Philology of St. Petersburg University.",
+    "Returning to Georgia, he gave himself to the study of his nation's history, archaeology, manuscripts, architecture, and church culture, and became one of the founders of modern Georgian historical scholarship. Through many expeditions across the country he recorded ancient churches, monasteries, inscriptions, and artifacts that might otherwise have been lost to war or neglect, and his publications became foundational works for Georgian archaeology and history.",
+    "After the Russian Revolution and the brief independence of the Democratic Republic of Georgia (1918–1921) he served the new state in cultural and governmental roles. When Soviet forces invaded in 1921, the Georgian government evacuated a great collection of national treasures — manuscripts, icons, crosses, reliquaries, and historical objects — to keep them from seizure, and entrusted their care to Takaishvili.",
+    "For more than two decades in exile, chiefly in France, he guarded the collection through severe personal poverty, refusing again and again the chances he had to sell individual pieces for relief. His stewardship preserved an irreplaceable portion of Georgia's Christian and national heritage. After the Second World War the collection was returned intact to Georgia, and Takaishvili himself came home in 1945; he spent his last years in obscurity under Soviet rule and reposed in Tbilisi on February 21, 1953.",
+    "Recognizing his lifelong honesty, self-sacrifice, and service to Church and nation, the Georgian Orthodox Church canonized him in 2002 as Saint Euthymius the Man of God — the title pointing to the moral and spiritual character of his life rather than to any ecclesiastical office.",
+  ],
+  timeline: [
+    {
+      when: "Jan 5, 1863",
+      title: "Born in Likhauri, Guria",
+      body: "Into a noble but impoverished Georgian family.",
+    },
+    {
+      when: "1880s",
+      title: "Studied at St. Petersburg University",
+      body: "History and philology.",
+    },
+    {
+      when: "Late 19th c.",
+      title: "Founder of Georgian archaeology",
+      body: "Documenting churches, manuscripts, and monuments.",
+    },
+    {
+      when: "1921",
+      title: "Entrusted with the national treasures",
+      body: "Guarding them as the Soviets invaded Georgia.",
+    },
+    {
+      when: "1921–1945",
+      title: "Guarded the collection in exile",
+      body: "Through poverty in France, refusing to sell a single piece.",
+    },
+    {
+      when: "1945",
+      title: "Returned to Georgia",
+      body: "With the treasures restored intact.",
+    },
+    {
+      when: "Feb 21, 1953",
+      title: "Reposed in Tbilisi",
+      body: "In obscurity under Soviet rule.",
+    },
+    {
+      when: "2002",
+      title: "Canonized",
+      body: "By the Georgian Orthodox Church as 'the Man of God.'",
+    },
+  ],
+  sections: [
+    {
+      heading: "Holiness Through Scholarship and Stewardship",
+      body: [
+        "Takaishvili's canonization reflects the Orthodox recognition that holiness may be expressed through learning, honesty, and service to one's people. His refusal to profit from the national treasure, even in destitution, became one of the defining examples of integrity in modern Georgian history, and he remains a bridge between academic scholarship and Christian witness.",
+      ],
+    },
+    {
+      heading: "Preserving a Christian Heritage",
+      body: [
+        "His expeditions and publications, and above all his guardianship of the evacuated collection, mean that many of the manuscripts, icons, and church treasures of Georgia known today survive because of him. Across Russian imperial rule, brief independence, and Soviet occupation — each a threat to religious and historical memory — he labored to keep that heritage intact and to return it home.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Righteous Ilia Chavchavadze of Georgia",
+      note: "fellow modern Georgian saint and national figure",
+      href: "saint/OS-1558",
+    },
+    {
+      name: "Saint Ambrose the Confessor of Georgia",
+      note: "defender of the Church under Soviet rule",
+      href: "saint/OS-0837",
+    },
+    {
+      name: "Saint Gabriel (Urgebadze)",
+      note: "beloved modern Georgian saint",
+      href: "saint/OS-2592",
+    },
+    {
+      name: "Saint Nina, Enlightener of Georgia",
+      note: "apostle of the Georgian people",
+      href: "saint/OS-0039",
+    },
+    {
+      name: "Saint Euthymius the New of Iveron",
+      note: "Georgian monastic scholar and translator",
+      href: "saint/OS-1165",
+    },
+    {
+      name: "Venerable Maximus the Greek",
+      note: "scholar-monk and translator",
+      href: "saint/OS-0509",
+    },
+  ],
+  patronage: [
+    "Historians and archaeologists",
+    "Archivists and museum workers",
+    "Librarians and preservationists",
+    "Scholars and educators",
+    "Georgia and the Georgian diaspora",
+  ],
+  reading: [
+    {
+      heading: "Modern Sources",
+      items: [
+        {
+          title: "Life of St. Euthymius the Man of God",
+          author: "Georgian Patriarchate",
+        },
+        {
+          title: "Studies on Ekvtime Takaishvili",
+        },
+      ],
+    },
+    {
+      heading: "Academic",
+      items: [
+        {
+          title: "Georgian Archaeology and Cultural Heritage Studies",
+        },
+        {
+          title: "Publications of the Georgian National Museum",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

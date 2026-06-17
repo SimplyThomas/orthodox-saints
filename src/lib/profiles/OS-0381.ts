@@ -1,0 +1,128 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0381",
+  lifespan: "5th century BC · Last of the Twelve Minor Prophets",
+  overview: [
+    "The Prophet Malachi — in Hebrew Mal'akhi, 'my messenger' — is the final prophet in the collection of the Twelve Minor Prophets and, by tradition, the last of the Old Testament prophets before the silence that preceded the coming of Christ. His name has long been debated as either a personal name or a title; Jewish and Christian tradition generally regards Malachi as an individual prophet. Almost nothing is known of his family, birthplace, or education, and the principal source for his life and teaching is the biblical Book of Malachi itself.",
+    "Orthodox tradition places him among the prophets who ministered after the return from the Babylonian captivity, in Judah during the fifth century BC, likely after Haggai and Zechariah. His ministry fell after the rebuilding of the Second Temple (completed in 516 BC), in a time when the hoped-for national renewal had not come and the people met economic hardship, religious indifference, and disappointment about the future.",
+    "His book lays bare the religious failures of that age: priests offering blemished sacrifices, careless worship, rising divorce, social injustice, and the doubt whether serving God brought any benefit at all. Malachi confronted both clergy and laity, calling them back to covenant faithfulness. Among his prophecies is the promise of a messenger who would prepare the way before the Lord — which the New Testament identifies with Saint John the Baptist — and the word that Elijah would come before the great and dreadful day of the Lord, a passage deeply influential in both Jewish and Christian tradition.",
+    "After his ministry Malachi passes from the record, and tradition places his repose in the fifth century BC. The Church venerates him as the last of the Old Testament prophets and one of the Twelve, a bridge between the age of prophecy and the coming of Christ; his feast is kept on January 3.",
+  ],
+  timeline: [
+    {
+      when: "5th c. BC",
+      title: "Born in Judah",
+      body: "Date and origin unknown.",
+    },
+    {
+      when: "after 516 BC",
+      title: "Ministry in the Second Temple period",
+      body: "After Haggai and Zechariah.",
+    },
+    {
+      when: "c. 460–430 BC",
+      title: "Prophetic activity in Judah",
+      body: "Calling priests and people to covenant faithfulness.",
+    },
+    {
+      when: "—",
+      title: "The Book of Malachi composed",
+      body: "The final book of the Twelve Minor Prophets.",
+    },
+    {
+      when: "January 3",
+      title: "Orthodox commemoration",
+      body: "Honored as the last Old Testament prophet.",
+    },
+  ],
+  sections: [
+    {
+      heading: "A Note on the Sources",
+      body: [
+        "Malachi is known almost entirely from his own book; little reliable biographical detail survives outside Scripture, and the later traditions about him remain uncertain. His ministry is dated by its setting in the Persian period, after the return of the exiles and the rebuilding of the Temple.",
+      ],
+    },
+    {
+      heading: "Prophet of the Covenant",
+      body: [
+        "Malachi pressed for sincere worship and covenant fidelity, condemned priests who offered defective sacrifices, and gave some of the strongest Old Testament words against divorce and unfaithfulness. The reforms of Ezra and Nehemiah addressed many of the same concerns — mixed marriages, neglected tithes, broken covenant — in the same generation.",
+      ],
+    },
+    {
+      heading: "The Forerunner and the Day of the Lord",
+      body: [
+        "His prophecy of the messenger who prepares the way became foundational to the Christian understanding of Saint John the Baptist as the forerunner of Christ, and his word concerning Elijah and the day of the Lord shaped centuries of Jewish and Christian interpretation. As the last prophet in the traditional order of the Old Testament, Malachi stands at the threshold between the prophetic age and the Gospel.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Prophet Haggai",
+      note: "fellow post-exilic prophet",
+      href: "saint/OS-2372",
+    },
+    {
+      name: "Prophet Zechariah",
+      note: "contemporary prophet of the Second Temple",
+      href: "saint/OS-0616",
+    },
+    {
+      name: "Prophet Elijah",
+      note: "named in Malachi's final prophecy",
+      href: "saint/OS-0056",
+    },
+    {
+      name: "Saint John the Forerunner and Baptist",
+      note: "the messenger Malachi foretold",
+      href: "saint/OS-0002",
+    },
+    {
+      name: "Prophet Isaiah",
+      note: "great prophet of the Messiah",
+      href: "saint/OS-1134",
+    },
+    {
+      name: "Righteous Ezra the Scribe",
+      note: "leader of post-exilic reform",
+      href: "saint/OS-2569",
+    },
+  ],
+  patronage: [
+    "Prophets",
+    "Biblical scholars and teachers of Scripture",
+    "Preachers and interpreters of prophecy",
+    "Students of the Old Testament",
+  ],
+  reading: [
+    {
+      heading: "Patristic Commentary",
+      items: [
+        {
+          title: "Commentary on the Minor Prophets",
+          author: "Saint Jerome",
+        },
+        {
+          title: "Commentary on the Twelve Prophets",
+          author: "Blessed Theodoret of Cyrus",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "Malachi (Anchor Yale Bible)",
+          author: "Andrew E. Hill",
+        },
+        {
+          title: "The Books of Haggai and Malachi",
+          author: "Pieter Verhoef",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

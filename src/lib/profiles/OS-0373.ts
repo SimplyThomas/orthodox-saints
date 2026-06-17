@@ -1,0 +1,127 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0373",
+  lifespan: "† c. 362/363 · Priest and martyr of Ancyra",
+  overview: [
+    "Saint Basil of Ancyra, distinguished in the sources as Basil the Presbyter of Ancyra, was a priest of the Church in Ancyra — the city of modern Ankara in central Asia Minor — during the fourth century. He is to be kept distinct from the contemporary bishop of the same city; this Basil was a presbyter remembered chiefly as a confessor and martyr.",
+    "He lived through one of the most contested periods of early Christian history, when disputes over the person of Christ and the doctrine of the Holy Trinity divided communities across the Roman Empire. Basil aligned himself firmly with the Nicene faith and opposed Arian teaching, and during the reign of Constantius II he is said to have suffered exile and harassment for that stand.",
+    "The accession of the emperor Julian in 361 brought a concerted effort to revive the old pagan cult and to roll back the public influence of Christianity. Basil openly criticized these measures and urged the faithful of Ancyra to hold to their confession despite mounting pressure, which drew the attention of the imperial authorities.",
+    "Arrested and interrogated, he was repeatedly pressed to offer sacrifice to the gods and as repeatedly refused. The early accounts of his passion describe prolonged and severe torture borne without recanting; he was put to death about the year 362 or 363, becoming one of the better-known martyrs of Julian's brief reign.",
+    "His endurance was remembered as an example of steadfast confession at a moment when, after decades of growth and new legal standing, Christians once again faced state-sponsored opposition. The Church commemorates him as a martyr, and because he held the priesthood he is also numbered among the hieromartyrs.",
+  ],
+  timeline: [
+    {
+      when: "Early 4th c.",
+      title: "Born in Asia Minor",
+      body: "Of unknown family; the sources begin with his priesthood.",
+    },
+    {
+      when: "Mid-4th c.",
+      title: "Ordained priest at Ancyra",
+      body: "Serving the local Church in central Asia Minor.",
+    },
+    {
+      when: "350s",
+      title: "Defended the Nicene faith",
+      body: "Said to have suffered exile under Constantius II.",
+    },
+    {
+      when: "361",
+      title: "Julian becomes emperor",
+      body: "An imperial effort to restore pagan worship begins.",
+    },
+    {
+      when: "362/363",
+      title: "Arrested, tortured, and martyred",
+      body: "Put to death at Ancyra for refusing to sacrifice.",
+    },
+  ],
+  sections: [
+    {
+      heading: "The Reign of Julian",
+      body: [
+        "The emperor Julian (361–363) sought to restore traditional Roman religion and to curb the public influence of Christianity. He stopped short of the empire-wide persecutions of earlier centuries, but Christians in many places met harassment, imprisonment, and local violence, and Basil was among the most prominent clergy to resist openly.",
+      ],
+    },
+    {
+      heading: "After Nicaea",
+      body: [
+        "Basil's ministry fell in the decades following the First Ecumenical Council at Nicaea in 325, amid the long Arian controversy. He is remembered for holding to the Nicene confession through the political and ecclesiastical turmoil of those years.",
+      ],
+    },
+    {
+      heading: "Legacy",
+      body: [
+        "As a priest who endured imprisonment and torture without yielding, Basil was held up as a model of pastoral courage. Among the Christians who suffered under Julian he became one of the best remembered — a reminder that the faith could still be tested even after it had gained legal recognition within the empire.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Great Martyr George the Trophy-bearer",
+      note: "soldier and great martyr",
+      href: "saint/OS-0012",
+    },
+    {
+      name: "Great Martyr Theodore the Recruit",
+      note: "soldier-martyr",
+      href: "saint/OS-0018",
+    },
+    {
+      name: "Greatmartyr Theodore Stratelates",
+      note: "soldier-martyr",
+      href: "saint/OS-0615",
+    },
+    {
+      name: "Great Martyr Catherine of Alexandria",
+      note: "confessor before hostile authority",
+      href: "saint/OS-0015",
+    },
+    {
+      name: "Saint Athanasius the Great",
+      note: "defender of the Nicene faith",
+      href: "saint/OS-0024",
+    },
+    {
+      name: "Saint Basil the Great",
+      note: "Cappadocian father of the same era",
+      href: "saint/OS-0021",
+    },
+  ],
+  patronage: [
+    "Persecuted Christians",
+    "Priests and clergy",
+    "Confessors of the faith",
+    "Those who suffer for their convictions",
+  ],
+  reading: [
+    {
+      heading: "Ancient Sources",
+      items: [
+        {
+          title: "Lives of the Saints (Synaxarion)",
+          author: "Orthodox Church in America",
+        },
+        {
+          title: "The Great Synaxaristes",
+          author: "Greek tradition",
+        },
+      ],
+    },
+    {
+      heading: "Reference",
+      items: [
+        {
+          title: "Butler's Lives of the Saints",
+        },
+        {
+          title: "The Oxford Dictionary of the Christian Church",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

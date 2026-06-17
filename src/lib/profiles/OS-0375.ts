@@ -1,0 +1,104 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0375",
+  lifespan: "† c. 404 · Monk and martyr at Rome",
+  overview: [
+    "Saint Telemachus — also called Telemachos, and in some Western sources Almachius — was a monk of the early fifth century remembered for a single decisive act in defense of human life. Little is known of his origins; the sources describe an ascetic from the eastern provinces of the empire who had given himself to prayer and a life of withdrawal.",
+    "In an age when gladiatorial combat still drew crowds to the arena, Telemachus was troubled by the spectacle of blood shed for entertainment. According to the account preserved by the Church historian Theodoret of Cyrus, he traveled to Rome during the reign of the emperor Honorius and entered the arena while the games were in progress, stepping between the combatants to stop the fighting.",
+    "The crowd, enraged at the interruption, turned on him, and he was killed where he stood. The historians record that his death made a deep impression, and that Honorius, moved by it, brought the gladiatorial contests to an end. Scholars continue to debate the precise sequence of events, but in Christian memory Telemachus became a lasting symbol of opposition to violence staged as public amusement.",
+    "The Church honors him as a martyr who gave his life in the act of protecting others and upholding the dignity of human life.",
+  ],
+  timeline: [
+    {
+      when: "Late 4th c.",
+      title: "Lived as a monk in the East",
+      body: "An ascetic of the eastern Roman provinces.",
+    },
+    {
+      when: "c. 404",
+      title: "Traveled to Rome",
+      body: "Entered the arena during the gladiatorial games.",
+    },
+    {
+      when: "c. 404",
+      title: "Martyred by the crowd",
+      body: "Killed while trying to halt the combat.",
+    },
+    {
+      when: "Shortly after",
+      title: "End of the games",
+      body: "Tradition links his death to Honorius abolishing the contests.",
+    },
+  ],
+  sections: [
+    {
+      heading: "The Games in Late Rome",
+      body: [
+        "Gladiatorial combat had been part of Roman public life for centuries, originally tied to funeral rites and later grown into mass spectacle. By the fourth and fifth centuries Christianity was the dominant religion of the empire, yet some of the older entertainments persisted, and Christian teachers had long criticized contests that turned injury and death into amusement.",
+      ],
+    },
+    {
+      heading: "A Witness for Peace and Human Dignity",
+      body: [
+        "Telemachus is remembered as one who placed himself bodily between opposing sides to prevent bloodshed, and his story came to express the growing Christian conviction that human life should not be made a spectacle. Later generations linked his martyrdom with the final abolition of the games and saw in it an image of Roman society being reshaped under Christian influence.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Saint Moses the Black",
+      note: "desert monk turned man of peace",
+      href: "saint/OS-0030",
+    },
+    {
+      name: "Saint Martin of Tours",
+      note: "soldier who renounced violence",
+    },
+    {
+      name: "Saint Basil the Great",
+      note: "father of Eastern monasticism",
+      href: "saint/OS-0021",
+    },
+    {
+      name: "Saint John Chrysostom",
+      note: "preacher against the spectacles",
+      href: "saint/OS-0023",
+    },
+  ],
+  patronage: [
+    "Peacemakers and mediators",
+    "Monastics",
+    "Those who work for nonviolence",
+    "Advocates for human dignity",
+  ],
+  reading: [
+    {
+      heading: "Ancient Sources",
+      items: [
+        {
+          title: "Ecclesiastical History",
+          author: "Theodoret of Cyrus",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Sozomen",
+        },
+      ],
+    },
+    {
+      heading: "Reference",
+      items: [
+        {
+          title: "The Oxford Dictionary of the Christian Church",
+        },
+        {
+          title: "Studies of Honorius and the end of the gladiatorial games",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

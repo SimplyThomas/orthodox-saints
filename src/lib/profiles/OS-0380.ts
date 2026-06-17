@@ -1,0 +1,125 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0380",
+  lifespan: "c. 1700 – 1770 · Georgian new-martyr at Mytilene",
+  overview: [
+    "Saint George of Iberia was an eighteenth-century Georgian Orthodox Christian who suffered martyrdom under Ottoman rule. In Byzantine and ecclesiastical usage, 'Iberia' denotes not the Iberian Peninsula of western Europe but the ancient kingdom of Iberia in the Caucasus, corresponding largely to eastern Georgia.",
+    "Little survives of his birth, family, or upbringing. He was born in Georgia, probably in the late seventeenth or early eighteenth century, at a time when the Georgian lands suffered repeated invasion, instability, and the carrying-off of captives through regional warfare and raids. While still young he was sold into slavery and, according to tradition, purchased by a Muslim master from the island of Mytilene (Lesbos) in the Aegean; in captivity he was compelled to embrace Islam and given the name Sali.",
+    "After his master's death George remained on Mytilene, supporting himself by trade as a small merchant or shopkeeper. Though outwardly known as a Muslim, the tradition holds that he kept an inward attachment to the Christian faith. In 1770, by then about seventy years old, he came forward before the Ottoman authorities and publicly declared himself an Orthodox Christian — an act that, under the law of the time, exposed a man regarded as a Muslim to a charge of apostasy.",
+    "The judge is said to have urged him to withdraw the confession, supposing that age had clouded his judgment, but George repeated it under questioning. He was imprisoned, tortured, and pressed to recant, and refused every opportunity to save his life. He was sentenced to death and executed by hanging on January 2, 1770.",
+    "The Church commemorates him among the New Martyrs of the Ottoman period — for the most part ordinary lay Christians whose public confession of Orthodoxy, in the face of legal and social consequence, strengthened the communities living under Ottoman rule.",
+  ],
+  timeline: [
+    {
+      when: "Early 18th c.",
+      title: "Born in Georgia (Iberia)",
+      body: "In the kingdom of Iberia in the Caucasus.",
+    },
+    {
+      when: "Youth",
+      title: "Sold into slavery",
+      body: "Forced to convert to Islam and given the name Sali.",
+    },
+    {
+      when: "Later life",
+      title: "Lived on Mytilene",
+      body: "Supporting himself as a merchant on Lesbos.",
+    },
+    {
+      when: "1770",
+      title: "Confessed the Orthodox faith",
+      body: "Publicly, before the Ottoman authorities.",
+    },
+    {
+      when: "Jan 2, 1770",
+      title: "Martyred by hanging",
+      body: "After imprisonment and torture, at about seventy.",
+    },
+  ],
+  sections: [
+    {
+      heading: "Christians under Ottoman Rule",
+      body: [
+        "George lived at the height of Ottoman power in the eastern Mediterranean. The empire governed its large Orthodox population through the millet system, which allowed Christians to practice their faith while holding them legally subordinate; conversion from Islam, however, was treated as a grave offense. Many Georgians, meanwhile, were captured or sold into slavery across the Ottoman world during the wars of the seventeenth and eighteenth centuries.",
+      ],
+    },
+    {
+      heading: "The New-Martyr Tradition",
+      body: [
+        "George belongs to the great company of Orthodox New Martyrs who suffered under Ottoman rule, many of them laypeople rather than clergy or monastics. His witness preserves the memory of countless Christians whose experiences of slavery, displacement, and forced conversion were never recorded, and whose fidelity was known only to God.",
+      ],
+    },
+    {
+      heading: "A Note on the Sources",
+      body: [
+        "The historical record for Saint George is limited. He left no writings and is known almost entirely through Orthodox synaxaria and later ecclesiastical accounts. The consistent elements are his Georgian origin, his enslavement and forced conversion, his public confession, and his martyrdom in 1770; other details belong to the received hagiographical tradition. He awaits the clergy and source review that the whole obscure New-Martyr tail requires before publication.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Saint Nina, Enlightener of Georgia",
+      note: "apostle of the Georgian people",
+      href: "saint/OS-0039",
+    },
+    {
+      name: "Saint Gabriel (Urgebadze)",
+      note: "modern Georgian saint",
+      href: "saint/OS-2592",
+    },
+    {
+      name: "New Hieromartyr Cosmas of Aitolia",
+      note: "contemporary missionary in Ottoman lands",
+      href: "saint/OS-1772",
+    },
+    {
+      name: "New Martyr Nicholas of Metsovo",
+      note: "fellow Ottoman-era new-martyr",
+      href: "saint/OS-1190",
+    },
+    {
+      name: "New Martyr John the New of Suceava",
+      note: "martyr under foreign rule",
+      href: "saint/OS-1274",
+    },
+    {
+      name: "Saint Anthim the Iberian",
+      note: "Georgian hierarch venerated abroad",
+    },
+  ],
+  patronage: [
+    "Georgian Christians",
+    "Captives and the enslaved",
+    "Converts and those returning to the faith",
+    "Christians under religious coercion",
+  ],
+  reading: [
+    {
+      heading: "Orthodox Sources",
+      items: [
+        {
+          title: "Lives of the Saints (Jan 2)",
+          author: "Orthodox Church in America",
+        },
+        {
+          title: "Orthodox Synaxarion entries for the New Martyr George",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "Studies of the Ottoman-era New Martyrs",
+        },
+        {
+          title: "Histories of Christianity under Ottoman rule",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

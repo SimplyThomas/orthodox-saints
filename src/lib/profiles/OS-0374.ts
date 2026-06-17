@@ -1,0 +1,183 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0374",
+  lifespan: "reposed c. 375–380 · Matriarch of the holy family of Cappadocia",
+  overview: [
+    "Saint Emilia — her name also rendered Emmelia or Emelia — was a fourth-century Christian matriarch of Cappadocia and the mother of an extraordinary household of saints. Among her children are numbered Basil the Great, Gregory of Nyssa, Peter of Sebaste, Macrina the Younger, and Naucratius, and through them she stands among the most influential women of the early Church.",
+    "She was born in Cappadocia in the generation after the great persecutions, as Christianity was becoming established within the empire, and the sources describe her as belonging to a respected Christian family. She married Basil the Elder, a lawyer and teacher known for his faith and learning, and together they raised a large family — tradition numbers the children at ten — in a household renowned for its piety, education, and discipline.",
+    "The family's spiritual formation owed much to Macrina the Elder, Emilia's mother-in-law, who had preserved the faith through earlier persecutions and handed on traditions traced to the disciples of Gregory the Wonderworker. After the death of her husband, Emilia increasingly embraced an ascetic life under the guidance of her eldest daughter, Macrina the Younger.",
+    "On the family estate at Annesi in Pontus the two women gathered a community given to prayer, work, charity, and study — an early example of organized communal asceticism that influenced the monastic writings of Saint Basil. The sources portray Emilia as a woman of practical wisdom and strong faith whose maternal leadership shaped the formation of future bishops, monastics, and theologians.",
+    "She reposed in peace in the late fourth century, about the years 375 to 380; according to the account left by her son Gregory of Nyssa, members of her saintly family were present in her final days. The Church commemorates her on May 30, and in some calendars on January 1 alongside her son Basil.",
+  ],
+  timeline: [
+    {
+      when: "Early 4th c.",
+      title: "Born in Cappadocia",
+      body: "Into a respected Christian family.",
+    },
+    {
+      when: "—",
+      title: "Married Basil the Elder",
+      body: "A lawyer and teacher known for his faith.",
+    },
+    {
+      when: "—",
+      title: "Raised a household of saints",
+      body: "A family traditionally numbering ten children.",
+    },
+    {
+      when: "After her widowhood",
+      title: "Founded the community at Annesi",
+      body: "An ascetic community in Pontus, with Macrina the Younger.",
+    },
+    {
+      when: "c. 375–380",
+      title: "Reposed in peace",
+      body: "Her saintly children present at the end.",
+    },
+    {
+      when: "May 30",
+      title: "Principal commemoration",
+      body: "Also kept Jan 1 with Saint Basil in some calendars.",
+    },
+  ],
+  family: {
+    heading: "Holy Family of Cappadocia",
+    intro:
+      "Emilia's household produced one of the most remarkable concentrations of sanctity in Christian history; several of her closest relations are themselves commemorated as saints.",
+    figures: [
+      {
+        name: "Saint Macrina the Younger",
+        note: "daughter",
+        href: "saint/OS-1551",
+      },
+      {
+        name: "Saint Basil the Great",
+        note: "son",
+        href: "saint/OS-0021",
+      },
+      {
+        name: "Saint Gregory of Nyssa",
+        note: "son",
+        href: "saint/OS-0422",
+      },
+      {
+        name: "Saint Peter of Sebaste",
+        note: "son",
+        href: "saint/OS-0420",
+      },
+      {
+        name: "Saint Naucratius",
+        note: "son",
+      },
+      {
+        name: "Saint Basil the Elder",
+        note: "husband",
+      },
+      {
+        name: "Saint Macrina the Elder",
+        note: "mother-in-law",
+        href: "saint/OS-2474",
+      },
+    ],
+  },
+  sections: [
+    {
+      heading: "A Household of Saints",
+      body: [
+        "Emilia's deepest mark on history was the formation of her own family. Five of her immediate household are honored as saints — Basil the Great, Gregory of Nyssa, Peter of Sebaste, Macrina the Younger, and Naucratius — an inheritance of sanctity rarely matched in the Christian record.",
+      ],
+    },
+    {
+      heading: "An Early Monastic Community",
+      body: [
+        "After her widowhood, Emilia helped turn the family estate at Annesi into a semi-monastic community of prayer, labor, and charity. This shared life offered a model of Christian community that fed into the later monastic tradition associated with her son Basil.",
+      ],
+    },
+    {
+      heading: "Christian Motherhood",
+      body: [
+        "Early Christian writers held Emilia up as an example of the Christian mother and of the household as a place of formation — a school of faith, learning, charity, and discipline. Her life is often cited to show the importance of the family in handing on the faith.",
+      ],
+    },
+    {
+      heading: "Legacy",
+      body: [
+        "Emilia's legacy is inseparable from the influence of her children: through Basil she touched Orthodox monasticism, charity, and theology; through Gregory of Nyssa, Christian thought and spirituality; through Macrina, one of the great female monastic figures of the age. She remains among the most significant mothers in Orthodox memory.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Righteous Nonna of Nazianzus",
+      note: "mother of Gregory the Theologian",
+      href: "saint/OS-2507",
+    },
+    {
+      name: "Saint Monica",
+      note: "mother of Augustine of Hippo",
+      href: "saint/OS-1116",
+    },
+    {
+      name: "Righteous Macrina the Elder",
+      note: "her mother-in-law",
+      href: "saint/OS-2474",
+    },
+    {
+      name: "Saint Gregory the Theologian",
+      note: "associate of her children",
+      href: "saint/OS-0022",
+    },
+    {
+      name: "Saint Athanasius the Great",
+      note: "contemporary defender of Nicaea",
+      href: "saint/OS-0024",
+    },
+  ],
+  patronage: [
+    "Mothers",
+    "Christian families",
+    "Parents of clergy",
+    "Large families",
+    "Christian education in the home",
+  ],
+  reading: [
+    {
+      heading: "Ancient Sources",
+      items: [
+        {
+          title: "Life of Macrina",
+          author: "Gregory of Nyssa",
+        },
+        {
+          title: "Funeral Oration on Basil the Great",
+          author: "Gregory the Theologian",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Sozomen",
+        },
+        {
+          title: "Ecclesiastical History",
+          author: "Socrates Scholasticus",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "Basil of Caesarea",
+          author: "Philip Rousseau",
+        },
+        {
+          title: "The Encyclopedia of Early Christianity",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;

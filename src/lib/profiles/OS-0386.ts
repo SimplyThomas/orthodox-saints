@@ -1,0 +1,126 @@
+import type { SaintProfile } from "../profile-types";
+
+const profile: SaintProfile = {
+  id: "OS-0386",
+  lifespan: "13th century (Archbishop 1279 – c. 1286) · Successor of St. Sava",
+  overview: [
+    "Saint Eustathius I (Serbian: Jevstatije) served as Archbishop of Serbia from 1279 until his repose around 1286, during the height of the medieval Serbian state under the Nemanjić dynasty. He was born in the early thirteenth century in the Serbian lands; his secular name and the details of his family and childhood are not securely known, though tradition records a devout upbringing and an early turn toward the spiritual life.",
+    "As a young man he entered monastic life and made his way to Mount Athos, the principal center of Orthodox monasticism in the Balkans, joining the Serbian monastery of Hilandar founded by Saint Sava and Saint Simeon the Myrrh-gusher. At Hilandar he became known for discipline, learning, and humility, and in time served as its abbot, deepening his ties to both Athonite monasticism and the Serbian Church. His reputation led to his election as Bishop of Zeta, where he labored to strengthen church life and to maintain the bond between Serbia and the Holy Mountain.",
+    "After the repose of Archbishop Joanikije I, Eustathius was chosen Archbishop of Serbia in 1279, the fifth in succession from Saint Sava, founder of the autocephalous Serbian Church. His tenure fell during the reigns of Kings Dragutin and Milutin, amid the dynastic complexities of the age; he preserved ecclesiastical stability and kept strong relations with the Patriarchate of Constantinople and the monasteries of Mount Athos.",
+    "He reposed in 1286 and was buried with honor, soon venerated as a holy hierarch. Unlike saints remembered for dramatic wonders or martyrdom, Eustathius is honored for faithful leadership, pastoral wisdom, and monastic devotion, and is numbered among the distinguished succession of Serbian hierarch-saints who carried forward the work begun by Saint Sava.",
+  ],
+  timeline: [
+    {
+      when: "Early 13th c.",
+      title: "Born in the Serbian lands",
+      body: "Of a devout family; his secular name unknown.",
+    },
+    {
+      when: "Mid-13th c.",
+      title: "Monk of Hilandar on Mount Athos",
+      body: "Later serving as its abbot.",
+    },
+    {
+      when: "Before 1279",
+      title: "Bishop of Zeta",
+      body: "Strengthening church life and Athonite ties.",
+    },
+    {
+      when: "1279",
+      title: "Archbishop of Serbia",
+      body: "Fifth successor of Saint Sava.",
+    },
+    {
+      when: "c. 1286",
+      title: "Reposed in peace",
+      body: "Soon venerated as a holy hierarch.",
+    },
+  ],
+  sections: [
+    {
+      heading: "The Nemanjić Age",
+      body: [
+        "Eustathius lived during one of the most prosperous periods of medieval Serbia. The autocephaly granted through Saint Sava in 1219 had matured into a settled ecclesiastical institution, and Hilandar Monastery served as a spiritual and cultural bridge between Serbia and the wider Orthodox world. Though politically independent, Serbia remained deeply bound to Byzantine theology, liturgy, and monasticism.",
+      ],
+    },
+    {
+      heading: "Hilandar and the Holy Mountain",
+      body: [
+        "His Athonite formation reinforced the ties between Serbia and Mount Athos that Hilandar embodied. As archbishop he supervised dioceses, clergy, and monasteries throughout the Serbian lands, and his own monastic example encouraged the growth of Serbian monasticism while preserving communion with the broader Orthodox Church.",
+      ],
+    },
+    {
+      heading: "Legacy",
+      body: [
+        "Eustathius is remembered as one of the significant medieval archbishops who consolidated the work of Saint Sava, his legacy especially visible in the enduring relationship between Hilandar and the Serbian Church. His ministry helped strengthen the institutional foundations on which the Serbian Church would later flourish.",
+      ],
+    },
+  ],
+  related: [
+    {
+      name: "Saint Sava I of Serbia",
+      note: "founder of the Serbian Church",
+      href: "saint/OS-0449",
+    },
+    {
+      name: "Venerable Symeon the Myrrh-gusher",
+      note: "co-founder of Hilandar",
+      href: "saint/OS-0653",
+    },
+    {
+      name: "Saint Arsenius, Archbishop of Serbia",
+      note: "earlier successor of Saint Sava",
+      href: "saint/OS-2094",
+    },
+    {
+      name: "Saint Sava II of Serbia",
+      note: "earlier Serbian archbishop",
+      href: "saint/OS-0617",
+    },
+    {
+      name: "Saint Stephen Milutin of Serbia",
+      note: "king during his ministry",
+      href: "saint/OS-2116",
+    },
+    {
+      name: "Venerable Athanasius of Athos",
+      note: "father of organized Athonite monasticism",
+      href: "saint/OS-1477",
+    },
+  ],
+  patronage: [
+    "Bishops and archbishops",
+    "Serbia and Hilandar Monastery",
+    "Church administration",
+    "Monastic leadership",
+  ],
+  reading: [
+    {
+      heading: "Sources",
+      items: [
+        {
+          title: "Lives of the Saints (Jan 4)",
+          author: "Orthodox Church in America",
+        },
+        {
+          title: "Serbian Orthodox Synaxarion",
+        },
+      ],
+    },
+    {
+      heading: "Modern Studies",
+      items: [
+        {
+          title: "History of the Serbian Orthodox Church",
+          author: "Dimitrije Bogdanović",
+        },
+        {
+          title: "Hilandar and Medieval Serbia",
+        },
+      ],
+    },
+  ],
+  status: "reviewed",
+};
+
+export default profile;
