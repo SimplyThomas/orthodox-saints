@@ -1,0 +1,76 @@
+id: OS-0376
+lifespan: Bishop of Rome 314 – 335 · Confessor of the Constantinian age
+overview:
+  - Saint Sylvester I was Bishop of Rome from January 31, 314, until his repose on December 31, 335 — one of the longest-serving bishops of Rome in the early Church, and one venerated by the Orthodox among the pre-schism saints of the West. He succeeded Pope Miltiades shortly after the legalization of Christianity under the emperor Constantine.
+  - "According to the Liber Pontificalis he was a Roman, the son of a man named Rufinus; reliable detail of his early life is scarce, though he appears to have been formed within the Christian community of Rome and ordained before his elevation. He took up the leadership of the Roman Church at a moment of profound change: the persecution under Diocletian had recently ended, and the Church was emerging into public life, able for the first time to build openly and to organize without fear of suppression."
+  - Several of Rome's most important churches were founded during his episcopate — the original basilicas associated with Saint John Lateran, Saint Peter, and the Holy Cross in Jerusalem — projects largely financed by Constantine but established under Sylvester's oversight of the Roman Church. When the First Ecumenical Council met at Nicaea in 325 to confront the Arian controversy, Sylvester did not attend in person, likely on account of age, but sent legates who took part on behalf of Rome; the council affirmed the divinity of Christ and gave the Church the Nicene Creed.
+  - Later medieval legend claimed that Sylvester personally baptized Constantine and healed him of leprosy, but the earlier sources indicate that Constantine was baptized only near the end of his life, by Eusebius of Nicomedia. Sylvester reposed in peace in 335 after more than two decades as bishop; unlike many of his predecessors he was not martyred, a sign of the new peace that followed Christianity's legalization. The Orthodox Church venerates him as a saint and confessor of the faith.
+timeline:
+  - when: Unknown
+    title: Born in Rome
+    body: Son of Rufinus, per the Liber Pontificalis.
+  - when: Jan 31, 314
+    title: Became Bishop of Rome
+    body: Succeeding Pope Miltiades after the Edict of Milan.
+  - when: 314–335
+    title: Oversaw the rise of public Christianity
+    body: Churches built openly under imperial patronage.
+  - when: "325"
+    title: Represented at the Council of Nicaea
+    body: His legates signed the council's decrees.
+  - when: Dec 31, 335
+    title: Reposed in peace
+    body: Buried in the Catacomb of Priscilla on the Via Salaria.
+  - when: January 2
+    title: Orthodox commemoration
+    body: The West keeps his feast on December 31.
+sections:
+  - heading: A Note on History and Legend
+    body:
+      - Sylvester's episcopate is well attested, but several of the most famous stories told of him — the baptism of Constantine, the healing of the emperor's leprosy, the slaying of a dragon beneath Rome, disputations with learned opponents — derive from the later Acts of Sylvester and medieval tradition rather than contemporary sources, and are not considered historically reliable.
+  - heading: The Constantinian Transition
+    body:
+      - He became bishop only a year after the Edict of Milan of 313 granted Christianity legal standing, and his episcopate ran almost exactly alongside the reign of Constantine. Under that reign the faith moved out of private homes and hidden gatherings into public churches and imperial patronage, and Sylvester guided the Roman Church through this decisive passage from persecution to public legitimacy.
+  - heading: Legacy
+    body:
+      - Sylvester's significance lies less in theological writing — none can be confidently attributed to him — than in his historical position at a turning point. He led the Roman Church during the First Ecumenical Council, the rise of Constantine, and the building of some of Christianity's most important churches, and he remains among the most important pre-schism bishops of Rome venerated by the Orthodox.
+related:
+  - name: Saints Constantine and Helen
+    note: the emperor and his mother of his age
+    href: saint/OS-0037
+  - name: Saint Athanasius the Great
+    note: defender of the Nicene faith
+    href: saint/OS-0024
+  - name: Saint Alexander, Patriarch of Alexandria
+    note: opponent of Arius at Nicaea
+    href: saint/OS-2472
+  - name: Saint Nicholas of Myra
+    note: father of the First Council
+    href: saint/OS-0019
+  - name: Saint Hosius of Córdoba
+    note: leading bishop and adviser at Nicaea
+    href: saint/OS-1789
+  - name: Saint Leo the Great
+    note: later pre-schism bishop of Rome
+    href: saint/OS-0681
+patronage:
+  - Bishops and clergy
+  - Church administrators
+  - Church builders
+  - The city of Rome
+reading:
+  - heading: Ancient Sources
+    items:
+      - title: Ecclesiastical History
+        author: Eusebius of Caesarea
+      - title: Liber Pontificalis
+      - title: Church History
+        author: Socrates Scholasticus
+      - title: Church History
+        author: Sozomen
+  - heading: Reference
+    items:
+      - title: Lives of the Saints (Jan 2)
+        author: Orthodox Church in America
+      - title: The Papacy in Late Antiquity
+status: reviewed
