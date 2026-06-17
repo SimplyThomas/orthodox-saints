@@ -6,6 +6,7 @@ from tools.profilegen import prioritize
 from tools.profilegen import dossier
 from tools.profilegen import facets
 from tools.profilegen import emit
+from tools.profilegen import proposals
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -136,3 +137,23 @@ class EmitTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             emit.write_profile(d, {"id": "", "overview": ["x"]},
                                sources=["s"], generated="2026-06-17")
+
+
+class ProposalGateTests(unittest.TestCase):
+    def test_accepts_pd_quote_translation(self):
+        self.assertTrue(proposals.quote_ok({
+            "translation": "NPNF2", "source_url": "https://ccel.org/x", "quote": "y"}))
+
+    def test_rejects_modern_translation_quote(self):
+        self.assertFalse(proposals.quote_ok({
+            "translation": "SVS Press 1980", "source_url": "https://x", "quote": "y"}))
+
+    def test_accepts_open_image_license(self):
+        self.assertTrue(proposals.image_ok({
+            "license": "PD-art", "source": "https://commons.wikimedia.org/x",
+            "image_path": "icons/OS-0001.jpg"}))
+
+    def test_rejects_unlicensed_image(self):
+        self.assertFalse(proposals.image_ok({
+            "license": "All rights reserved", "source": "https://x",
+            "image_path": "icons/x.jpg"}))
