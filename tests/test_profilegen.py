@@ -1,6 +1,9 @@
 import unittest
+import tempfile
+from pathlib import Path as _P
 from tools.profilegen import prioritize
 from tools.profilegen import dossier
+from tools.profilegen import facets
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -40,3 +43,71 @@ class DossierTests(unittest.TestCase):
         self.assertEqual(d["anchor"]["brief"], "Archbishop of Caesarea.")
         self.assertIn("OCA Synaxarion (oca.org)", d["anchor"]["sources"])
         self.assertEqual(d["external"], [])  # gather fills this
+
+
+HEADER = "Saint ID,Name,Vocation,Commonly Asked Intercessions,Sources\r\n"
+
+
+class FacetMergeTests(unittest.TestCase):
+    def _csv(self, body: str) -> _P:
+        d = _P(tempfile.mkdtemp())
+        p = d / "saints.csv"
+        p.write_bytes((HEADER + body).encode("utf-8"))
+        return p
+
+    def test_appends_term_and_preserves_crlf(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        facets.merge(p, "OS-0001", {"Vocation": ["Missionary"]},
+                     vocab={"Vocation": {"Bishop", "Missionary"}})
+        raw = p.read_bytes()
+        self.assertIn(b"Bishop; Missionary", raw)
+        self.assertTrue(raw.endswith(b"\r\n"))
+        self.assertEqual(raw.count(b"\r\n"), 2)  # header + 1 row, CRLF intact
+
+    def test_quotes_field_when_value_gains_a_comma(self):
+        # Intercessions has no comma yet; adding a term keeps "; " sep (no comma),
+        # but a term containing a comma must force quoting of the whole field.
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        facets.merge(p, "OS-0001",
+                     {"Commonly Asked Intercessions": ["Travelers, sailors"]},
+                     vocab={"Commonly Asked Intercessions":
+                            {"Healing", "Travelers, sailors"}})
+        raw = p.read_bytes().decode("utf-8")
+        self.assertIn('"Healing; Travelers, sailors"', raw)
+
+    def test_skips_duplicate_terms(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        facets.merge(p, "OS-0001", {"Vocation": ["Bishop"]},
+                     vocab={"Vocation": {"Bishop"}})
+        self.assertIn(b"Bishop",
+                      p.read_bytes())  # unchanged; still single "Bishop"
+        self.assertEqual(p.read_bytes().decode().count("Bishop"), 1)
+
+    def test_rejects_unknown_vocab_term(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        with self.assertRaises(ValueError):
+            facets.merge(p, "OS-0001", {"Vocation": ["Astronaut"]},
+                         vocab={"Vocation": {"Bishop"}})
+
+    def test_leaves_other_rows_byte_for_byte(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n"
+                      "OS-0002,Bob,Monk,Peace,OCA\r\n")
+        facets.merge(p, "OS-0001", {"Vocation": ["Missionary"]},
+                     vocab={"Vocation": {"Bishop", "Missionary"}})
+        self.assertIn(b"OS-0002,Bob,Monk,Peace,OCA\r\n", p.read_bytes())
+
+    def test_returns_false_when_nothing_changes(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        before = p.read_bytes()
+        result = facets.merge(p, "OS-0001", {"Vocation": ["Bishop"]},
+                              vocab={"Vocation": {"Bishop"}})
+        self.assertFalse(result)
+        self.assertEqual(p.read_bytes(), before)  # bytes unchanged
+
+    def test_raises_for_missing_sid(self):
+        p = self._csv("OS-0001,Anna,Bishop,Healing,OCA\r\n")
+        before = p.read_bytes()
+        with self.assertRaises(KeyError):
+            facets.merge(p, "OS-9999", {"Vocation": ["Bishop"]},
+                         vocab={"Vocation": {"Bishop"}})
+        self.assertEqual(p.read_bytes(), before)  # bytes unchanged
