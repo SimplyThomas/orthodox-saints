@@ -117,10 +117,9 @@ model is a **per-stage config**, not one model end-to-end:
 | Verify | **Sonnet** | the adversarial safety gate — reasoning-capable, independent of Write, cheaper than Opus |
 | Emit | **Haiku** / plain code | structured, deterministic — write the file, assemble facet/quote/image proposals |
 
-Model is a **per-stage config** (overridable per batch), not one model end-to-end. The
-capability concentrates in **Write (Opus)** where fabrication risk is highest; **Verify
-(Sonnet)** independently checks it; **Gather/Emit (Haiku)** are throughput work. The design
-still fails *safe* regardless: (a) the adversarial verifier + human-review gate means bad
+Model is overridable per batch. Capability concentrates in **Write (Opus)** where
+fabrication risk is highest; **Verify (Sonnet)** independently checks it; **Gather/Emit
+(Haiku)** are throughput work. The design fails *safe* regardless: (a) the adversarial verifier + human-review gate means bad
 output is `flagged`, not published, and (b) the hard guardrails — the PD license gate on
 quotes/images, controlled-vocab facet validation, and the OCA-row-wins anchor — are **code,
 not model judgment**, so they hold no matter which model ran a stage.
