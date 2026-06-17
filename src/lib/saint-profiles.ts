@@ -864,4 +864,565 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
       },
     ],
   },
+  "OS-0378": {
+    id: "OS-0378",
+    lifespan: "c. 1530 – 1604 · Noblewoman of Murom, model of lay sanctity",
+    overview: [
+      "Saint Juliana of Lazarevo — in Russian, Ulianiya Lazarevskaya — was a noblewoman of the Murom region renowned for charity, humility, and hospitality lived out within marriage and the running of a household. Unlike most canonized saints of medieval Russia, who were monastics, bishops, or princes, Juliana was venerated as a saint while leading an ordinary lay life as a wife, mother, landowner, and manager of an estate.",
+      "She was born about 1530 into the noble Nedyurev family, during the reign of Ivan IV. Orphaned young and raised by relatives, she was remembered from childhood for an unusual compassion — giving food and clothing to the poor and tending the sick. As a young woman she married George (Yuri) Osorgin, a nobleman in state service, and the couple settled at the village of Lazarevo near Murom. They had many children, several of whom died young, a common grief in sixteenth-century Russia.",
+      "Through her married life Juliana became known for extraordinary hospitality and almsgiving. She cared personally for the poor, for widows and orphans, for travelers and the sick; in times of famine she gave away her household stores and sold her own possessions to feed the hungry. She did not withdraw from the world but pursued a hidden ascetic discipline — prayer, fasting, and charity — while carrying the full weight of family and household responsibility.",
+      "After her husband's death she deepened her asceticism but did not enter a monastery, continuing instead her ministry to the poor of the region. She reposed about 1604. According to later tradition her body was found incorrupt when her grave was opened, and local veneration grew up around her memory until she was recognized as a saint of the Russian Church.",
+      "The chief source for her life is The Tale of Juliana Lazarevskaya, written by her son Kalistrat Osorgin in the early seventeenth century — one of the most important examples of Russian hagiography devoted to a lay saint, and a rare window into domestic religious life in Muscovite Russia. The Church commemorates her on January 2.",
+    ],
+    timeline: [
+      {
+        when: "c. 1530",
+        title: "Born into the Nedyurev family",
+        body: "In the Murom region under Ivan IV; orphaned young.",
+      },
+      {
+        when: "Mid-16th c.",
+        title: "Married George Osorgin",
+        body: "Settled at the village of Lazarevo near Murom.",
+      },
+      {
+        when: "Late 16th c.",
+        title: "Known for charity and hospitality",
+        body: "Gave away household stores and possessions in time of famine.",
+      },
+      {
+        when: "After her widowhood",
+        title: "Deepened her asceticism",
+        body: "Continued her care for the poor without entering a monastery.",
+      },
+      {
+        when: "c. 1604",
+        title: "Reposed at Lazarevo",
+        body: "Later tradition reports her relics found incorrupt.",
+      },
+      {
+        when: "January 2",
+        title: "Principal commemoration",
+        body: "Kept by the Russian Orthodox Church.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Holiness within Marriage and Household",
+        body: [
+          "Russian hagiography of the period usually centered on monastics, bishops, princes, and martyrs. Juliana's life is notable precisely because it locates sanctity within marriage, motherhood, and the management of a household — showing that the ascetic ideals of fasting, almsgiving, and hospitality could be lived fully by a laywoman in the world.",
+        ],
+      },
+      {
+        heading: "Charity in Muscovite Russia",
+        body: [
+          "She lived during the consolidation of the Russian state under Ivan IV and the growing identification of Moscow as a center of Orthodox Christianity. Through famine, economic hardship, and the loss of children, she gave herself to the care of the poor and the sick, and her son's account preserves an unusually concrete picture of these works of mercy.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Juliana holds a singular place as one of the most celebrated laywomen of medieval Russia. Her life broadened the understanding of holiness, showing that it could be reached not only through monastic withdrawal but through faithful service within marriage, family, and society. Modern Orthodox writers often cite her when speaking of Christian marriage, motherhood, and the vocation of the laity.",
+        ],
+      },
+      {
+        heading: "A Note on History and Tradition",
+        body: [
+          "The documented core of her life — her extensive charity, her household devoted to Christian service, her reputation among the poor — comes from the account written by her son. The reports of incorrupt relics and of healings through her intercession belong to later ecclesiastical tradition and are best distinguished from that historical core.",
+        ],
+      },
+    ],
+    family: {
+      heading: "Her Household",
+      intro:
+        "Juliana's sanctity was lived out within her own family; her son became the biographer through whom her life is known.",
+      figures: [
+        { name: "George (Yuri) Osorgin", note: "husband" },
+        { name: "Kalistrat Osorgin", note: "son and biographer" },
+      ],
+    },
+    related: [
+      {
+        name: "Saint Monica",
+        note: "mother sanctified in family life",
+        href: "saint/OS-1116",
+      },
+      {
+        name: "Righteous Emilia of Cappadocia",
+        note: "mother of a household of saints",
+        href: "saint/OS-0374",
+      },
+      {
+        name: "Blessed Xenia of St. Petersburg",
+        note: "Russian laywoman of hidden holiness",
+        href: "saint/OS-0047",
+      },
+      {
+        name: "Righteous Olga of Alaska",
+        note: "sanctity through family and service",
+        href: "saint/OS-2083",
+      },
+      {
+        name: "Righteous Philaret the Merciful",
+        note: "renowned for almsgiving",
+        href: "saint/OS-2283",
+      },
+      {
+        name: "New Martyr Grand Duchess Elizabeth",
+        note: "later Russian servant of the poor",
+        href: "saint/OS-1548",
+      },
+    ],
+    patronage: [
+      "Mothers and wives",
+      "Homemakers",
+      "Laywomen",
+      "Widows",
+      "Charitable workers",
+      "Christian households",
+    ],
+    reading: [
+      {
+        heading: "Primary Source",
+        items: [
+          {
+            title: "The Tale of Juliana Lazarevskaya",
+            author: "Kalistrat Osorgin",
+          },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "Lives of the Saints (Jan 2)",
+            author: "Orthodox Church in America",
+          },
+          { title: "Women and Sanctity in Early Modern Russia" },
+        ],
+      },
+    ],
+  },
+  "OS-2126": {
+    id: "OS-2126",
+    lifespan:
+      "3rd century · Mother of the Holy Unmercenaries Cosmas and Damian",
+    overview: [
+      "Saint Theodota was a Christian woman of Asia Minor in the third century — placed by various recensions of the saints' lives in Mesopotamia or in Cilicia — remembered chiefly as the mother and teacher of the Holy Unmercenary Physicians Cosmas and Damian, among the most beloved healer-saints of the Christian East.",
+      "According to Orthodox tradition she was widowed while her children were still young, and after her husband's death took on alone the raising of her sons in the Christian faith, at a time when the Church remained vulnerable to persecution within the Roman Empire.",
+      "The accounts emphasize her work as educator and spiritual guide. She saw that her sons received both learning and religious formation, and joined to their training in the healing arts the principles of mercy, compassion, and service to the poor. When Cosmas and Damian became physicians who took no payment for their care — the 'Unmercenaries,' Anargyroi — tradition credited their mother's teaching and example as a chief influence on that vocation.",
+      "Little is recorded of her later years; some traditions say she reposed in peace before her sons, while others preserve no detail of her death. Unlike many women saints of the age she is remembered neither for public ministry nor for martyrdom, but for her hidden work as a Christian mother who formed future saints through education, discipline, and example. Her veneration grew up alongside that of Cosmas and Damian, and the Church honors her as a righteous woman whose influence helped shape two of Christianity's most celebrated healers.",
+    ],
+    timeline: [
+      {
+        when: "Early 3rd c.",
+        title: "Born in Asia Minor",
+        body: "Exact location uncertain in the sources.",
+      },
+      {
+        when: "—",
+        title: "Married and raised a family",
+        body: "Her husband's name is not preserved.",
+      },
+      {
+        when: "—",
+        title: "Widowed",
+        body: "Raised her sons alone in the faith.",
+      },
+      {
+        when: "Later life",
+        title: "Formed Cosmas and Damian",
+        body: "Joining Christian charity to their training as physicians.",
+      },
+      {
+        when: "Nov 1 / Jan 2",
+        title: "Commemorated with her sons",
+        body: "Her memory is bound to that of the Unmercenaries.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "The historical record for Saint Theodota is limited; her memory survives mainly through the hagiographical traditions of her sons. Her existence and reputation as a pious Christian mother are firmly held in Orthodox tradition, but many biographical details are not independently documented and vary among the manuscript traditions.",
+        ],
+      },
+      {
+        heading: "The Christian Household as a School of Faith",
+        body: [
+          "Before Christianity gained legal protection, the household was a principal means by which the faith was handed on, and mothers were often the first teachers of their children in Scripture, prayer, and the moral life. Theodota belongs to this tradition of saintly mothers whose formation of their children shaped the next generation of Christian witnesses.",
+        ],
+      },
+      {
+        heading: "Legacy Through Her Sons",
+        body: [
+          "The veneration of Cosmas and Damian spread through the Byzantine world, the Slavic lands, the Middle East, and Western Europe, and through their charitable healing Theodota's influence reached far beyond her own lifetime. Her life stands as an example that holiness may be expressed through family and the formation of children rather than through public office or martyrdom.",
+        ],
+      },
+    ],
+    family: {
+      heading: "Mother of the Unmercenaries",
+      intro:
+        "Theodota's sanctity is inseparable from the sons she raised, the physician-saints of Asia.",
+      figures: [
+        {
+          name: "Holy Unmercenaries Cosmas and Damian",
+          note: "her sons",
+          href: "saint/OS-0036",
+        },
+      ],
+    },
+    related: [
+      {
+        name: "Righteous Emilia of Cappadocia",
+        note: "mother of Basil the Great",
+        href: "saint/OS-0374",
+      },
+      {
+        name: "Righteous Nonna of Nazianzus",
+        note: "mother of Gregory the Theologian",
+        href: "saint/OS-2507",
+      },
+      {
+        name: "Saint Monica",
+        note: "mother of Augustine of Hippo",
+        href: "saint/OS-1116",
+      },
+      {
+        name: "Righteous Macrina the Elder",
+        note: "matriarch of a saintly family",
+        href: "saint/OS-2474",
+      },
+      {
+        name: "Righteous Juliana of Lazarevo",
+        note: "sanctity within family life",
+        href: "saint/OS-0378",
+      },
+      {
+        name: "Great Martyr and Healer Panteleimon",
+        note: "fellow physician-saint",
+        href: "saint/OS-0014",
+      },
+    ],
+    patronage: [
+      "Mothers and widows",
+      "Christian families",
+      "Parents of physicians",
+      "Educators and caregivers",
+      "Families raising children in the faith",
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          { title: "Passion and Life of Saints Cosmas and Damian" },
+          { title: "Byzantine Synaxaria and Menologion traditions" },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          {
+            title: "Lives of the Saints (Jan 2)",
+            author: "Orthodox Church in America",
+          },
+          { title: "Women and Family in Early Christianity" },
+        ],
+      },
+    ],
+  },
+  "OS-0043": {
+    id: "OS-0043",
+    lifespan: "1754 – 1833 · Wonderworker and elder of Sarov",
+    overview: [
+      "Saint Seraphim of Sarov — born Prokhor Isidorovich Moshnin — is among the most beloved monastic saints of the Russian Church. He was born at Kursk, most commonly dated to 1754, into a pious merchant family; his parents, Isidore and Agathia Moshnin, were known for their devotion. Two well-known traditions attach to his childhood: a fall from a church bell-tower from which he came away unharmed, and a grave illness from which he recovered after the Kursk Root Icon of the Mother of God was brought to him.",
+      "In 1778 he entered the monastery at Sarov, was tonsured with the name Seraphim in 1786, and was ordained in turn hierodeacon and hieromonk. After years in the community he withdrew to a forest hermitage near Sarov, where he gave himself to strict asceticism — prayer, silence, manual labor, and the reading of Scripture. When robbers attacked and badly injured him, he refused to seek revenge and forgave them; he later entered a long period of seclusion and silence.",
+      "In 1825 he opened his door again and became known as a spiritual elder, a starets, to whom pilgrims came in great numbers for counsel, prayer, and healing. He was closely bound to the women's monastery at Diveyevo, which he guided spiritually, and his best-known teaching survives through Nicholas Motovilov's account of their conversation on the acquisition of the Holy Spirit — among the most influential texts of modern Orthodox spirituality.",
+      "He reposed on January 2, 1833, found kneeling in prayer before an icon of the Mother of God. The Russian Church glorified him in 1903 amid great celebrations at Sarov attended by the imperial family and thousands of pilgrims. His relics, concealed during the Soviet anti-religious campaigns, were rediscovered in 1991 and are now enshrined at Diveyevo.",
+    ],
+    timeline: [
+      {
+        when: "1754",
+        title: "Born at Kursk",
+        body: "As Prokhor Moshnin, into a merchant family.",
+      },
+      {
+        when: "1778",
+        title: "Entered Sarov Monastery",
+        body: "Beginning his monastic life.",
+      },
+      {
+        when: "1786",
+        title: "Tonsured a monk",
+        body: "Receiving the name Seraphim.",
+      },
+      {
+        when: "1794",
+        title: "Withdrew to a forest hermitage",
+        body: "For strict ascetic solitude near Sarov.",
+      },
+      {
+        when: "1804",
+        title: "Attacked by robbers",
+        body: "Badly injured; he forgave his attackers.",
+      },
+      {
+        when: "1825",
+        title: "Began receiving pilgrims as elder",
+        body: "Counseling monastics and laity alike.",
+      },
+      {
+        when: "1831",
+        title: "Conversation with Motovilov",
+        body: "On the acquisition of the Holy Spirit.",
+      },
+      {
+        when: "Jan 2, 1833",
+        title: "Reposed at Sarov",
+        body: "Found kneeling before an icon of the Mother of God.",
+      },
+      {
+        when: "1903",
+        title: "Glorified",
+        body: "By the Russian Orthodox Church.",
+      },
+      {
+        when: "1991",
+        title: "Relics rediscovered",
+        body: "After concealment in the Soviet period.",
+      },
+    ],
+    sections: [
+      {
+        heading: "The Revival of Russian Eldership",
+        body: [
+          "Seraphim's life belongs to the renewal of spiritual fatherhood in Russia, in which monastic elders offered counsel to monks and laypeople alike. He lived through the reigns from Empress Elizabeth to Tsar Nicholas I, an age of state pressure on monasteries, yet his ministry helped shape the popular Orthodox understanding of the starets as a guide of souls.",
+        ],
+      },
+      {
+        heading: "Teaching on the Holy Spirit",
+        body: [
+          "His conversation with Nicholas Motovilov became one of the most influential Orthodox accounts of the aim of the Christian life — the acquisition of the Holy Spirit. His counsel to 'acquire the Spirit of peace,' that thousands around may be saved, has become among the most recognizable sayings of modern Orthodox spirituality.",
+        ],
+      },
+      {
+        heading: "Diveyevo",
+        body: [
+          "Seraphim took a central role in the spiritual formation and guidance of the women's monastic community at Diveyevo, whose later history remained bound to his memory, and where his relics now rest.",
+        ],
+      },
+      {
+        heading: "Wonderworker of Sarov",
+        body: [
+          "He is widely called the Wonderworker of Sarov for the many healings and graces associated with his life and continuing veneration. Childhood healing through the Kursk Root Icon, the encounter recorded by Motovilov, and other wonders are central to his received tradition and are best presented as hagiographical tradition rather than documented history.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saint Sergius of Radonezh",
+        note: "father of Russian monasticism",
+        href: "saint/OS-0042",
+      },
+      {
+        name: "Saint Herman of Alaska",
+        note: "Russian monastic of the same age",
+        href: "saint/OS-0044",
+      },
+      {
+        name: "Saint Ambrose of Optina",
+        note: "beloved Russian elder",
+        href: "saint/OS-0074",
+      },
+      {
+        name: "Saint Tikhon of Zadonsk",
+        note: "Russian bishop and spiritual writer",
+        href: "saint/OS-1696",
+      },
+      {
+        name: "Saint Theophan the Recluse",
+        note: "Russian teacher of inner prayer",
+        href: "saint/OS-0429",
+      },
+      {
+        name: "Saint John of Kronstadt",
+        note: "later Russian priest and wonderworker",
+        href: "saint/OS-0045",
+      },
+      {
+        name: "New Hieromartyr Seraphim (Chichagov)",
+        note: "his biographer, later a New Martyr",
+        href: "saint/OS-2269",
+      },
+      {
+        name: "Saint Xenia of St. Petersburg",
+        note: "beloved Russian saint of hidden holiness",
+        href: "saint/OS-0047",
+      },
+    ],
+    patronage: [
+      "Monastics and hermits",
+      "Spiritual fathers",
+      "Pilgrims",
+      "Those seeking peace of soul",
+      "The sick",
+    ],
+    works: [
+      {
+        title: "Spiritual Instructions",
+        desc: "Teachings preserved by his disciples.",
+      },
+      {
+        title: "Conversation with Nicholas Motovilov",
+        desc: "Recorded by Motovilov; his teaching on the acquisition of the Holy Spirit.",
+      },
+    ],
+    reading: [
+      {
+        heading: "Primary / Early Sources",
+        items: [
+          {
+            title: "Conversation on the Acquisition of the Holy Spirit",
+            author: "Nicholas Motovilov",
+          },
+          {
+            title: "Chronicle of the Seraphim-Diveyevo Monastery",
+            author: "Seraphim Chichagov",
+          },
+        ],
+      },
+      {
+        heading: "Modern Studies",
+        items: [
+          { title: "St. Seraphim of Sarov", author: "Constantine Cavarnos" },
+          {
+            title:
+              "The Joy of the Holy: Saint Seraphim of Sarov and Orthodox Spiritual Life",
+            author: "Harry Boosalis",
+          },
+        ],
+      },
+    ],
+  },
+  "OS-0376": {
+    id: "OS-0376",
+    lifespan: "Bishop of Rome 314 – 335 · Confessor of the Constantinian age",
+    overview: [
+      "Saint Sylvester I was Bishop of Rome from January 31, 314, until his repose on December 31, 335 — one of the longest-serving bishops of Rome in the early Church, and one venerated by the Orthodox among the pre-schism saints of the West. He succeeded Pope Miltiades shortly after the legalization of Christianity under the emperor Constantine.",
+      "According to the Liber Pontificalis he was a Roman, the son of a man named Rufinus; reliable detail of his early life is scarce, though he appears to have been formed within the Christian community of Rome and ordained before his elevation. He took up the leadership of the Roman Church at a moment of profound change: the persecution under Diocletian had recently ended, and the Church was emerging into public life, able for the first time to build openly and to organize without fear of suppression.",
+      "Several of Rome's most important churches were founded during his episcopate — the original basilicas associated with Saint John Lateran, Saint Peter, and the Holy Cross in Jerusalem — projects largely financed by Constantine but established under Sylvester's oversight of the Roman Church. When the First Ecumenical Council met at Nicaea in 325 to confront the Arian controversy, Sylvester did not attend in person, likely on account of age, but sent legates who took part on behalf of Rome; the council affirmed the divinity of Christ and gave the Church the Nicene Creed.",
+      "Later medieval legend claimed that Sylvester personally baptized Constantine and healed him of leprosy, but the earlier sources indicate that Constantine was baptized only near the end of his life, by Eusebius of Nicomedia. Sylvester reposed in peace in 335 after more than two decades as bishop; unlike many of his predecessors he was not martyred, a sign of the new peace that followed Christianity's legalization. The Orthodox Church venerates him as a saint and confessor of the faith.",
+    ],
+    timeline: [
+      {
+        when: "Unknown",
+        title: "Born in Rome",
+        body: "Son of Rufinus, per the Liber Pontificalis.",
+      },
+      {
+        when: "Jan 31, 314",
+        title: "Became Bishop of Rome",
+        body: "Succeeding Pope Miltiades after the Edict of Milan.",
+      },
+      {
+        when: "314–335",
+        title: "Oversaw the rise of public Christianity",
+        body: "Churches built openly under imperial patronage.",
+      },
+      {
+        when: "325",
+        title: "Represented at the Council of Nicaea",
+        body: "His legates signed the council's decrees.",
+      },
+      {
+        when: "Dec 31, 335",
+        title: "Reposed in peace",
+        body: "Buried in the Catacomb of Priscilla on the Via Salaria.",
+      },
+      {
+        when: "January 2",
+        title: "Orthodox commemoration",
+        body: "The West keeps his feast on December 31.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on History and Legend",
+        body: [
+          "Sylvester's episcopate is well attested, but several of the most famous stories told of him — the baptism of Constantine, the healing of the emperor's leprosy, the slaying of a dragon beneath Rome, disputations with learned opponents — derive from the later Acts of Sylvester and medieval tradition rather than contemporary sources, and are not considered historically reliable.",
+        ],
+      },
+      {
+        heading: "The Constantinian Transition",
+        body: [
+          "He became bishop only a year after the Edict of Milan of 313 granted Christianity legal standing, and his episcopate ran almost exactly alongside the reign of Constantine. Under that reign the faith moved out of private homes and hidden gatherings into public churches and imperial patronage, and Sylvester guided the Roman Church through this decisive passage from persecution to public legitimacy.",
+        ],
+      },
+      {
+        heading: "Legacy",
+        body: [
+          "Sylvester's significance lies less in theological writing — none can be confidently attributed to him — than in his historical position at a turning point. He led the Roman Church during the First Ecumenical Council, the rise of Constantine, and the building of some of Christianity's most important churches, and he remains among the most important pre-schism bishops of Rome venerated by the Orthodox.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saints Constantine and Helen",
+        note: "the emperor and his mother of his age",
+        href: "saint/OS-0037",
+      },
+      {
+        name: "Saint Athanasius the Great",
+        note: "defender of the Nicene faith",
+        href: "saint/OS-0024",
+      },
+      {
+        name: "Saint Alexander, Patriarch of Alexandria",
+        note: "opponent of Arius at Nicaea",
+        href: "saint/OS-2472",
+      },
+      {
+        name: "Saint Nicholas of Myra",
+        note: "father of the First Council",
+        href: "saint/OS-0019",
+      },
+      {
+        name: "Saint Hosius of Córdoba",
+        note: "leading bishop and adviser at Nicaea",
+        href: "saint/OS-1789",
+      },
+      {
+        name: "Saint Leo the Great",
+        note: "later pre-schism bishop of Rome",
+        href: "saint/OS-0681",
+      },
+    ],
+    patronage: [
+      "Bishops and clergy",
+      "Church administrators",
+      "Church builders",
+      "The city of Rome",
+    ],
+    reading: [
+      {
+        heading: "Ancient Sources",
+        items: [
+          { title: "Ecclesiastical History", author: "Eusebius of Caesarea" },
+          { title: "Liber Pontificalis" },
+          { title: "Church History", author: "Socrates Scholasticus" },
+          { title: "Church History", author: "Sozomen" },
+        ],
+      },
+      {
+        heading: "Reference",
+        items: [
+          {
+            title: "Lives of the Saints (Jan 2)",
+            author: "Orthodox Church in America",
+          },
+          { title: "The Papacy in Late Antiquity" },
+        ],
+      },
+    ],
+  },
 };
