@@ -102,6 +102,8 @@ export interface FinderSaint {
   brief: string;
   notes: string;
   search: string;
+  /** curated theme slugs (themes.py); drives the "Browse by Theme" facet */
+  themes: string[];
   variants?: string[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;

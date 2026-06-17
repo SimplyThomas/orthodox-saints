@@ -1,52 +1,74 @@
 import { test, expect } from "@playwright/test";
 
-test("themes landing shows grouped cards with counts", async ({ page }) => {
-  const resp = await page.goto("./themes/");
-  expect(resp?.status()).toBe(200);
-  await expect(page.locator("h1")).toContainText("Browse by Theme");
-  await expect(
-    page.locator(".th-group h2", { hasText: "Vocations" }),
-  ).toBeVisible();
-  const card = page.locator('.th-card[href*="/themes/bishops"]');
-  await expect(card).toBeVisible();
-  await expect(card).toContainText("Bishops");
-  await expect(card.locator(".th-count")).toContainText(/\d/);
-  await expect(page.locator('.th-card[href*="/themes/orphans"]')).toHaveCount(
-    0,
-  );
-});
-
-test("Themes nav item is present and base-prefixed", async ({ page }) => {
-  await page.goto("./");
-  const href = await page
-    .locator(".site-nav")
-    .getByRole("link", { name: "Themes", exact: true })
-    .getAttribute("href");
-  expect(href).toContain("/themes");
-});
-
-test("a theme page lists its saints and links to detail pages", async ({
+test("Refine rail shows a grouped 'Browse by Theme' panel with counts", async ({
   page,
 }) => {
-  await page.goto("./themes/bishops/");
-  await expect(page.locator(".tl-head h1")).toContainText("Bishops");
-  await expect(page.locator(".tl-count")).toContainText(/\d+ saints/);
-  const first = page.locator(".tl-list a.tl-row").first();
-  const href = await first.getAttribute("href");
-  expect(href).toMatch(/\/saint\/OS-/);
-  await page.goto("./themes/");
-  await page.locator('.th-card[href*="/themes/bishops"]').click();
-  await page.waitForURL(/\/themes\/bishops\/?$/);
+  await page.goto("./search/");
+  const panel = page.locator('details[data-key="themes"]');
+  await expect(panel.locator("summary")).toContainText("Browse by Theme");
+  await panel.locator("summary").click();
+  await expect(
+    panel.locator(".theme-family-head", { hasText: "Vocations" }),
+  ).toBeVisible();
+  const bishops = panel.locator('input[data-key="themes"][value="bishops"]');
+  await expect(bishops).toHaveCount(1);
+  // Populated-only: an override-only theme (count 0) is not listed.
+  await expect(
+    panel.locator('input[data-key="themes"][value="orphans"]'),
+  ).toHaveCount(0);
 });
 
-test("saint pages show clickable theme badges", async ({ page }) => {
+test("Themes is no longer a top-level nav item", async ({ page }) => {
+  await page.goto("./");
+  await expect(
+    page
+      .locator(".site-nav")
+      .getByRole("link", { name: "Themes", exact: true }),
+  ).toHaveCount(0);
+});
+
+test("the old /themes route is gone", async ({ page }) => {
+  const resp = await page.goto("./themes/");
+  expect(resp?.status()).toBe(404);
+});
+
+test("selecting a theme filters the results and shows a labeled chip", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  const panel = page.locator('details[data-key="themes"]');
+  await panel.locator("summary").click();
+  // The <input> is visually hidden (custom checkbox) — click the label.
+  await panel.locator('label:has(input[value="bishops"])').click();
+  await expect(
+    panel.locator('input[data-key="themes"][value="bishops"]'),
+  ).toBeChecked();
+  // Active chip shows the human label, not the slug.
+  await expect(page.locator(".active-chips .ac")).toContainText("Bishops");
+  await expect(page.locator("#count")).toContainText("filter");
+});
+
+test("?theme= deep-links into a filtered finder", async ({ page }) => {
+  await page.goto("./search/?theme=bishops");
+  await expect(
+    page.locator('input[data-key="themes"][value="bishops"]'),
+  ).toBeChecked();
+  await expect(page.locator(".active-chips .ac")).toContainText("Bishops");
+});
+
+test("saint pages' theme chips link to the filtered browse page", async ({
+  page,
+}) => {
   await page.goto("./saint/OS-0021/");
   const badges = page.locator(".sv-themes a.sv-theme");
   expect(await badges.count()).toBeGreaterThan(0);
-  const bishops = page.locator('.sv-themes a[href*="/themes/bishops"]');
+  const bishops = page.locator('.sv-themes a[href*="search?theme=bishops"]');
   await expect(bishops).toBeVisible();
   await bishops.click();
-  await page.waitForURL(/\/themes\/bishops\/?$/);
+  await page.waitForURL(/\/search\/?\?theme=bishops/);
+  await expect(
+    page.locator('input[data-key="themes"][value="bishops"]'),
+  ).toBeChecked();
 });
 
 test("a non-profiled saint also shows theme badges", async ({ page }) => {
@@ -62,15 +84,17 @@ test("a non-profiled saint shows related saints by shared themes", async ({
   expect(await rel.count()).toBeGreaterThan(0);
 });
 
-test("search surfaces a theme suggestion for natural-language queries", async ({
-  page,
-}) => {
+test("a theme suggestion toggles the theme filter inline", async ({ page }) => {
   await page.goto("./search/");
   await page.fill("#q", "saints who were soldiers");
-  const sug = page.locator("#theme-suggest a");
+  const sug = page.locator("#theme-suggest button");
   await expect(sug).toBeVisible();
-  await expect(sug).toHaveAttribute("href", /\/themes\/soldiers/);
   await expect(sug).toContainText("Soldiers");
+  await sug.click();
+  await expect(
+    page.locator('input[data-key="themes"][value="soldiers"]'),
+  ).toBeChecked();
+  await expect(page.locator(".active-chips .ac")).toContainText("Soldiers");
 });
 
 test("search recognizes 'in america' as the Saints of America theme", async ({
@@ -78,17 +102,16 @@ test("search recognizes 'in america' as the Saints of America theme", async ({
 }) => {
   await page.goto("./search/");
   await page.fill("#q", "saints in america");
-  await expect(page.locator("#theme-suggest a")).toHaveAttribute(
-    "href",
-    /\/themes\/saints-of-america/,
+  await expect(page.locator("#theme-suggest button")).toContainText(
+    "Saints of America",
   );
 });
 
-test("an override-only theme alias does not surface a 404 banner", async ({
+test("an override-only theme alias does not surface a banner", async ({
   page,
 }) => {
   await page.goto("./search/");
   await page.fill("#q", "saints who defended icons");
-  // icon-defenders is override-only (count 0, no page) → banner must stay hidden
+  // icon-defenders is override-only (count 0) → banner must stay hidden
   await expect(page.locator("#theme-suggest")).toBeHidden();
 });

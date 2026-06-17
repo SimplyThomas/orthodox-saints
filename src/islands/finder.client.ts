@@ -94,11 +94,19 @@ if (dataEl) {
     host.innerHTML = "";
     for (const facet of FACETS) {
       for (const v of selected[facet.key]) {
+        // Theme facet values are slugs; show the human label on the chip.
+        const label =
+          facet.key === "themes" ? (themeBySlug.get(v)?.label ?? v) : v;
         const b = document.createElement("button");
         b.type = "button";
         b.className = "ac";
-        b.innerHTML = `${esc(v)}<span class="x" aria-hidden="true">×</span>`;
-        b.setAttribute("aria-label", `Remove filter ${v}`);
+        b.append(label);
+        const x = document.createElement("span");
+        x.className = "x";
+        x.setAttribute("aria-hidden", "true");
+        x.textContent = "×";
+        b.append(x);
+        b.setAttribute("aria-label", `Remove filter ${label}`);
         b.addEventListener("click", () => {
           selected[facet.key].delete(v);
           const cb = $<HTMLInputElement>(
@@ -172,14 +180,33 @@ if (dataEl) {
     el.textContent = "";
     if (slug && meta && meta.count > 0) {
       el.append("Looking for a theme? ");
-      const a = document.createElement("a");
-      a.href = withBase("themes/" + slug);
+      const a = document.createElement("button");
+      a.type = "button";
+      a.className = "link-btn";
       a.textContent = `Browse the ${meta.label} theme →`;
+      // Themes now live in the Refine rail; toggle the matching facet checkbox
+      // inline (the #facets change handler updates state + re-renders).
+      a.addEventListener("click", () => selectTheme(slug));
       el.append(a);
       el.hidden = false;
     } else {
       el.hidden = true;
     }
+  }
+
+  // Check a theme facet checkbox by slug, open its group, and scroll to results.
+  // Routes through the same #facets change handler a manual click would.
+  function selectTheme(slug: string) {
+    const box = $<HTMLInputElement>(
+      `#facets input[data-key="themes"][value="${cssEscape(slug)}"]`,
+    );
+    if (!box) return;
+    box.closest("details")?.setAttribute("open", "");
+    if (!box.checked) {
+      box.checked = true;
+      box.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    scrollToFinder();
   }
 
   function clearAll() {
@@ -201,6 +228,9 @@ if (dataEl) {
     const url = new URL(window.location.href);
     if (query) url.searchParams.set("q", query);
     else url.searchParams.delete("q");
+    if (selected.themes.size)
+      url.searchParams.set("theme", [...selected.themes].join(","));
+    else url.searchParams.delete("theme");
     url.searchParams.delete("browse");
     history.replaceState(history.state, "", url);
   }
@@ -295,6 +325,8 @@ if (dataEl) {
       } else set.delete(t.value);
       page = 0;
       render();
+      // Themes deep-link via ?theme=; keep the URL in sync when they change.
+      if (t.dataset.key === "themes") syncURL();
     });
 
     // Deep-link: focus the search box when arriving at #q.
@@ -315,6 +347,22 @@ if (dataEl) {
       const input = $<HTMLInputElement>("#q");
       if (input) input.value = q;
       trackSearch(q);
+    }
+    // ?theme=slug[,slug] — seed theme filters (from saint-page chips / shares).
+    const themeParam = params.get("theme");
+    if (themeParam) {
+      for (const slug of themeParam
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)) {
+        const box = $<HTMLInputElement>(
+          `#facets input[data-key="themes"][value="${cssEscape(slug)}"]`,
+        );
+        if (!box) continue;
+        box.checked = true;
+        selected.themes.add(slug);
+        box.closest("details")?.setAttribute("open", "");
+      }
     }
     const browse = params.get("browse");
     if (browse) {
