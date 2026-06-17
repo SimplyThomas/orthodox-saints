@@ -4289,6 +4289,10 @@ a.sv-rail-chip:hover {
 #calendar-page .cal-cell.is-selected .cc {
   color: var(--gold-soft);
 }
+#calendar-page .cal-cell.is-selected:hover:not(.is-empty):not(.is-blank) {
+  background: var(--byz);
+  border-color: var(--byz);
+}
 
 /* ---------- day panel ---------- */
 #calendar-page .cal-panel {
