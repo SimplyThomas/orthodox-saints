@@ -2476,38 +2476,38 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
   },
   "OS-2666": {
     id: "OS-2666",
-    lifespan: "† 1818 · Athonite monk and new-martyr of Bulgaria",
+    lifespan: "1786 – 1818 · Hilandar monk and new-martyr, martyred at Chios",
     overview: [
-      "Saint Onuphrius of Gabrovo was a Bulgarian Orthodox monk and new-martyr who suffered under Ottoman rule in the early nineteenth century. He was born at Gabrovo in central Bulgaria, probably late in the eighteenth century, at a time when the Orthodox Christians of Bulgaria lived as a subordinate religious community within the Ottoman Empire. Born Matthew, he grew up in an Orthodox family and from youth was drawn to the faith.",
-      "Seeking a deeper spiritual life, he entered monasticism and became associated with the Serbian Athonite monastery of Hilandar on Mount Athos, a major center of Slavic Orthodox life, where he received his monastic formation and grew known for devotion and discipline. From the Holy Mountain he later traveled through the Balkans, and in time came to Tarnovo, the historic medieval capital of Bulgaria.",
-      "There the Ottoman authorities took notice of his Christian witness and pressed him to embrace Islam. Onuphrius steadfastly refused; after interrogation and imprisonment he was condemned to death and executed at Tarnovo in 1818, securing his place among the New Martyrs of the Ottoman era.",
+      "Saint Onuphrius of Gabrovo — in the world Matthew — was a Bulgarian Orthodox monk and new-martyr who suffered under Ottoman rule. He was born about 1786 at Gabrovo in central Bulgaria, then within the Tarnovo diocese of the Ottoman Empire, and grew up in an Orthodox family, drawn from youth to the faith.",
+      "Seeking a deeper spiritual life, he went as a young man to Mount Athos and entered the Serbian monastery of Hilandar, a major center of Slavic Orthodox life, where he received his monastic formation. He was tonsured a monk with the name Manasses and later took the great schema with the name Onuphrius.",
+      "After a period of intense prayer, fasting, and preparation, he set out with the elder Gregory of the Peloponnese for the island of Chios. There he openly confessed Christ before the Ottoman authorities and refused every pressure to embrace Islam; he was seized, cruelly tortured, and on January 4, 1818, beheaded on the seashore, his body cast into the sea.",
       "Local Christians preserved the memory of his confession, and his veneration spread within the Bulgarian Orthodox Church and among the Athonite communities. He is distinct from the earlier hieromartyr Damascene of Gabrovo, with whom his home town is also associated.",
     ],
     timeline: [
       {
-        when: "Late 18th c.",
+        when: "c. 1786",
         title: "Born at Gabrovo",
-        body: "Into an Orthodox family; named Matthew.",
+        body: "In the world Matthew, in the Tarnovo diocese.",
       },
       {
         when: "Young adulthood",
         title: "Monk of Hilandar on Mount Athos",
-        body: "Receiving his monastic formation.",
+        body: "Tonsured Manasses, later schema-monk Onuphrius.",
       },
       {
-        when: "Later years",
-        title: "Traveled through the Balkans",
-        body: "Coming in time to Tarnovo.",
+        when: "Early 19th c.",
+        title: "Set out for Chios",
+        body: "With the elder Gregory of the Peloponnese.",
       },
       {
         when: "1818",
         title: "Confessed Christ before the authorities",
-        body: "Refusing to embrace Islam.",
+        body: "At Chios, refusing to embrace Islam.",
       },
       {
-        when: "1818",
-        title: "Martyred at Tarnovo",
-        body: "After interrogation and imprisonment.",
+        when: "Jan 4, 1818",
+        title: "Beheaded at Chios",
+        body: "On the seashore; his body cast into the sea.",
       },
     ],
     sections: [
@@ -2581,6 +2581,344 @@ export const SAINT_PROFILES: Record<string, SaintProfile> = {
         items: [
           { title: "The Bulgarian Church under Ottoman Rule" },
           { title: "Mount Athos and the Balkans" },
+        ],
+      },
+    ],
+  },
+  "OS-0389": {
+    id: "OS-0389",
+    lifespan: "1890 – 1964 · Cretan monk who bore leprosy with serene patience",
+    overview: [
+      "Saint Nikephoros the Leper (born Nikolaos Tzanakakis) is one of the most fully documented of the modern saints — his life attested not only by hagiography but by photographs, the records of leper hospitals, and the recollections of those who knew him. He was born in 1890 in the village of Sirikari near Chania, on the island of Crete, then still under Ottoman rule, and lost his father as a child.",
+      "At about thirteen he began to show the signs of Hansen's disease (leprosy), which in that age carried a heavy stigma and usually meant isolation from society. To avoid detection he went as a youth to Alexandria in Egypt and worked there, but the disease advanced until it could no longer be hidden, and in 1914 he was sent to Spinalonga, the island leper colony off Crete.",
+      "At Spinalonga, and later through his spiritual father Saint Anthimus of Chios, he embraced a life of prayer, obedience, humility, and endurance, and received the monastic name Nikephoros. Though the disease gradually took his sight and disabled his hands and face, those around him marveled that he never complained, but bore decades of chronic pain with a serene and gentle peace.",
+      "When Spinalonga closed in 1957, Nikephoros was moved to the Saint Barbara anti-leprosy hospital in Athens, where he became a source of comfort and counsel to patients, staff, and the many who came to him — known especially for encouraging those who suffered illness, despair, loneliness, or fear. He reposed peacefully on January 4, 1964; devotion to him spread steadily, and the Ecumenical Patriarchate glorified him as a saint on November 30, 2012.",
+    ],
+    timeline: [
+      {
+        when: "1890",
+        title: "Born in Sirikari, Crete",
+        body: "As Nikolaos Tzanakakis; orphaned of his father young.",
+      },
+      {
+        when: "c. 1903",
+        title: "First signs of leprosy",
+        body: "At about thirteen years of age.",
+      },
+      {
+        when: "Early 1900s",
+        title: "Worked in Alexandria",
+        body: "Until the disease could no longer be concealed.",
+      },
+      {
+        when: "1914",
+        title: "Sent to Spinalonga",
+        body: "The island leper colony off Crete.",
+      },
+      {
+        when: "—",
+        title: "Tonsured a monk",
+        body: "Under his spiritual father, St. Anthimus of Chios.",
+      },
+      {
+        when: "1957",
+        title: "Moved to Athens",
+        body: "To the Saint Barbara anti-leprosy hospital.",
+      },
+      {
+        when: "Jan 4, 1964",
+        title: "Reposed in peace",
+        body: "After decades borne with patience.",
+      },
+      {
+        when: "2012",
+        title: "Glorified",
+        body: "By the Ecumenical Patriarchate.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Modern Ascetic in the Hospital",
+        body: [
+          "Where the ascetics of old withdrew to the desert, Nikephoros practiced holiness in leper colonies and hospital wards. His asceticism was not chosen solitude but imposed isolation and illness, borne without bitterness — a witness that sanctity is possible in the midst of severe physical suffering, and that the sickbed can become a place of prayer and of comfort to others.",
+        ],
+      },
+      {
+        heading: "A Documented Modern Saint",
+        body: [
+          "Because photographs, hospital records, and living witnesses survive, his life offers a rare, closely attested example of Orthodox sanctity in the twentieth century. He lived through the Balkan Wars, two World Wars, occupation, and civil war, and through the medical revolution that finally emptied the leper colonies he had inhabited.",
+        ],
+      },
+      {
+        heading: "Patron of the Suffering",
+        body: [
+          "Since his glorification he has become one of the most beloved of the modern Greek saints, with many reported healings and a swiftly spreading veneration. He is turned to especially by the chronically ill, by people with disabilities, by hospital patients and their caregivers, and by all who bear isolation and pain.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saint Anthimus of Chios",
+        note: "his spiritual father",
+        href: "saint/OS-0666",
+      },
+      {
+        name: "Saint Nektarios of Aegina",
+        note: "beloved healer and wonderworker",
+        href: "saint/OS-0046",
+      },
+      {
+        name: "Saint Luke the Surgeon of Crimea",
+        note: "physician-saint of the same era",
+        href: "saint/OS-0049",
+      },
+      {
+        name: "Saint Paisios the Athonite",
+        note: "contemporary ascetic and comforter",
+        href: "saint/OS-0051",
+      },
+      {
+        name: "Saint Porphyrios of Kafsokalivia",
+        note: "contemporary wonderworking elder",
+        href: "saint/OS-0052",
+      },
+      {
+        name: "Saint Iakovos (Jacob) of Evia",
+        note: "fellow twentieth-century Greek saint",
+        href: "saint/OS-2585",
+      },
+    ],
+    patronage: [
+      "The chronically ill and those with leprosy",
+      "People with disabilities",
+      "Hospital patients and caregivers",
+      "Those suffering isolation and loneliness",
+    ],
+    reading: [
+      {
+        heading: "Modern Sources",
+        items: [
+          { title: "Saint Nikephoros the Leper", author: "Monk Simon" },
+          { title: "Synaxaria of the Ecumenical Patriarchate" },
+        ],
+      },
+      {
+        heading: "Context",
+        items: [
+          { title: "Studies of Spinalonga" },
+          { title: "Hansen's Disease in Greece" },
+        ],
+      },
+    ],
+  },
+  "OS-0384": {
+    id: "OS-0384",
+    lifespan: "1st century · The wider circle of disciples sent out by Christ",
+    overview: [
+      "The Synaxis of the Holy Seventy Apostles is the common commemoration of the disciples whom Christ appointed and sent out ahead of Him, two by two, as recorded in the Gospel of Luke (10:1–24). Where the Twelve hold a unique place at the heart of the apostolic college, the Seventy — seventy-two in some manuscript traditions — formed a broader circle of missionary disciples who carried the Gospel through the apostolic age.",
+      "Scripture does not give their names, and the surviving lists come from later ecclesiastical tradition — above all the lists associated with Hippolytus of Rome and Dorotheus of Tyre, together with the Byzantine synaxaria — so that membership varies somewhat from one tradition to another. The Church commemorates them together on January 4, and many of them individually through the year.",
+      "Following the Resurrection and Pentecost, many of the Seventy became bishops, evangelists, founders of local churches, and martyrs, and tradition links them to mission across Palestine, Syria, Asia Minor, Greece, Cyprus, Egypt, Mesopotamia, Rome, and North Africa. Among the best known are the Evangelists Luke and Mark, Barnabas, Timothy, Titus, Silas, Crispus, Sosthenes, Andronicus, Stachys, and Onesimus.",
+      "Their collective feast expresses the breadth of the apostolic mission — that the spread of the Gospel was the work not of a few leaders only but of many disciples laboring together — and many later bishoprics and local churches trace their origins to members of the Seventy.",
+    ],
+    timeline: [
+      {
+        when: "c. AD 30",
+        title: "Appointed by Christ",
+        body: "Sent out two by two ahead of Him (Luke 10:1).",
+      },
+      {
+        when: "c. AD 30–33",
+        title: "Mission in Judea and Galilee",
+        body: "Preaching, healing, and preparing the way.",
+      },
+      {
+        when: "After Pentecost",
+        title: "Missionary expansion",
+        body: "Throughout the Roman world.",
+      },
+      {
+        when: "1st century",
+        title: "Bishops, evangelists, and martyrs",
+        body: "Founding and shepherding the early churches.",
+      },
+      {
+        when: "January 4",
+        title: "Synaxis of the Seventy",
+        body: "Their common commemoration.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Lists",
+        body: [
+          "The exact membership of the Seventy is nowhere given in Scripture; the names come from later lists, especially those attributed to Hippolytus of Rome and Dorotheus of Tyre, and from the Byzantine synaxaria. As a result, the rolls differ between traditions, and some figures appear on one list but not another.",
+        ],
+      },
+      {
+        heading: "The Breadth of the Apostolic Mission",
+        body: [
+          "The Seventy were among the earliest missionaries of the Church, and many became its first bishops in the great cities of the Mediterranean world. Their commemoration emphasizes the collaborative character of the apostolic age — the Gospel carried outward by a wide company of disciples — and the apostolic succession that flowed from their founding of local churches.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Synaxis of the Holy Twelve Apostles",
+        note: "the inner apostolic circle",
+        href: "saint/OS-2486",
+      },
+      {
+        name: "Apostles Peter and Paul",
+        note: "with whom many of the Seventy labored",
+        href: "saint/OS-0004",
+      },
+      {
+        name: "Apostle and Evangelist Luke",
+        note: "of the Seventy; author of Luke–Acts",
+        href: "saint/OS-0006",
+      },
+      {
+        name: "Apostle and Evangelist Mark",
+        note: "of the Seventy; Gospel author",
+        href: "saint/OS-1061",
+      },
+      {
+        name: "Apostle Barnabas of the Seventy",
+        note: "early missionary and coworker",
+        href: "saint/OS-1331",
+      },
+      {
+        name: "Apostle Crispus of the Seventy",
+        note: "synagogue ruler converted at Corinth",
+        href: "saint/OS-2581",
+      },
+    ],
+    patronage: [
+      "Missionaries and evangelists",
+      "Church planters and bishops",
+      "Preachers and catechists",
+      "Apostolic ministry",
+    ],
+    reading: [
+      {
+        heading: "Scripture",
+        items: [{ title: "Luke 10:1–24" }, { title: "Acts of the Apostles" }],
+      },
+      {
+        heading: "Reference",
+        items: [
+          {
+            title: "On the Seventy Apostles",
+            author: "attributed to Dorotheus of Tyre",
+          },
+          { title: "Church History", author: "Eusebius of Caesarea" },
+        ],
+      },
+    ],
+  },
+  "OS-0387": {
+    id: "OS-0387",
+    lifespan: "14th century · Deacon and faster of the Kiev Caves",
+    overview: [
+      "Saint Aquila of the Kiev Caves — his name also rendered Achila — was a fourteenth-century monk and deacon of the Kiev Pechersk Lavra, one of the foremost monastic centers of the Slavic Orthodox world. The surviving record is very slight: nothing is preserved of his birth, family, or entry into the monastery, and his memory rests on a few brief notices in the synaxaria and the tradition of the Far Caves.",
+      "Aquila served the community as a deacon and lived for a long period as a hermit, but he is remembered above all for an unusually strict discipline of fasting. The accounts say that he abstained from rich and sweet foods, rarely ate even vegetables, and during the fasting seasons took only a single prosphoron — the small loaf of liturgical bread.",
+      "This abstinence became the defining note of his memory. The liturgical tradition of the Kiev Caves holds him up as a model of restraint and self-control, and those struggling against gluttony or a disordered attachment to food have turned to him for help in mastering the appetites.",
+      "The date of his repose is unknown; he is placed in the fourteenth century, and his relics rest among the Venerable Fathers of the Far Caves of the Lavra. He is commemorated on January 4, on August 28 with the Fathers of the Far Caves, and on the Second Sunday of Great Lent with all the saints of the Kiev Caves.",
+    ],
+    timeline: [
+      {
+        when: "14th c.",
+        title: "Monk of the Kiev Caves",
+        body: "In the Kiev Pechersk Lavra.",
+      },
+      {
+        when: "—",
+        title: "Served as a deacon",
+        body: "In the liturgical life of the monastery.",
+      },
+      {
+        when: "—",
+        title: "Lived as a hermit and faster",
+        body: "Known for taking only a single prosphoron in the fasts.",
+      },
+      {
+        when: "—",
+        title: "Reposed",
+        body: "His relics rest in the Far Caves.",
+      },
+      {
+        when: "Jan 4 / Aug 28",
+        title: "Commemorated",
+        body: "And on the Second Sunday of Great Lent.",
+      },
+    ],
+    sections: [
+      {
+        heading: "A Note on the Sources",
+        body: [
+          "The historical record for Aquila is very limited, drawn from brief synaxarion notices and the monastic tradition of the Far Caves. The most consistent details are that he was a deacon, lived as a hermit, and was known for extreme abstinence in food.",
+        ],
+      },
+      {
+        heading: "The Discipline of Fasting",
+        body: [
+          "The Kiev Caves tradition stressed asceticism, humility, and the remembrance of death, and many of its saints lived in caves or enclosed cells. Aquila's hidden life of fasting embodies this temperance; the Lavra commemorates him especially as a helper for those seeking freedom from enslavement to the passions of the stomach.",
+        ],
+      },
+      {
+        heading: "A Hidden Holiness",
+        body: [
+          "Unlike the great founders and writers of the Lavra — Anthony, Theodosius, Nestor — Aquila left no writings and no recorded miracles; his importance lies in the quiet witness of ascetic struggle, and his commemoration widens the Church's picture of holiness to include lives hidden and largely unknown to the world.",
+        ],
+      },
+    ],
+    related: [
+      {
+        name: "Saint Anthony of the Kyiv Caves",
+        note: "founder of the cave monastic tradition",
+        href: "saint/OS-0136",
+      },
+      {
+        name: "Saint Theodosius of the Kyiv Caves",
+        note: "organizer of communal monastic life",
+        href: "saint/OS-2745",
+      },
+      {
+        name: "Venerable Nestor the Chronicler",
+        note: "fellow saint of the Kiev Caves",
+        href: "saint/OS-2085",
+      },
+      {
+        name: "Venerable Agapitus the Unmercenary Physician",
+        note: "healer of the Kiev Caves",
+        href: "saint/OS-1271",
+      },
+      {
+        name: "Venerable John the Long-Suffering",
+        note: "Kiev Caves ascetic of the struggle against the passions",
+        href: "saint/OS-1545",
+      },
+      {
+        name: "Venerable Pimen the Much-Ailing",
+        note: "Kiev Caves saint of patient endurance",
+        href: "saint/OS-1655",
+      },
+    ],
+    patronage: [
+      "Deacons",
+      "Monks and hermits",
+      "Those seeking temperance",
+      "Those struggling with gluttony",
+    ],
+    reading: [
+      {
+        heading: "Sources",
+        items: [
+          { title: "Kiev Caves Patericon" },
+          {
+            title: "Saint Aquila, Deacon, of the Kiev Caves",
+            author: "Orthodox Church in America",
+          },
         ],
       },
     ],
