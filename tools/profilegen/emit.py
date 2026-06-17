@@ -1,15 +1,20 @@
 """Write a per-saint profile YAML file in Plan 1's content-collection format
-(src/content/profiles/OS-####.yaml). Authoring-only; needs pyyaml."""
+(src/content/profiles/OS-####.yaml). Authoring-only; needs pyyaml.
+
+`yaml` is imported lazily inside write_profile so this module (and the test
+suite that imports it) loads even where pyyaml isn't installed — pyyaml is an
+authoring-only dependency, deliberately kept out of requirements.txt (the app
+never parses YAML in Python: build.py uses regex, Astro parses it natively)."""
 import re
 from pathlib import Path
-
-import yaml
 
 ID_RE = re.compile(r"^OS-\d{4,}$")
 
 
 def write_profile(profiles_dir: Path, profile: dict, *, sources: list[str],
                   generated: str, status: str = "draft") -> Path:
+    import yaml
+
     sid = (profile.get("id") or "").strip()
     if not ID_RE.match(sid):
         raise ValueError(f"profile id must be OS-####, got {sid!r}")

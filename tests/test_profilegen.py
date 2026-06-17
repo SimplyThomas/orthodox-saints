@@ -1,7 +1,11 @@
 import unittest
 import tempfile
 from pathlib import Path as _P
-import yaml as _yaml
+
+try:  # pyyaml is an authoring-only dep (kept out of requirements.txt); skip if absent
+    import yaml as _yaml
+except ImportError:
+    _yaml = None
 from tools.profilegen import prioritize
 from tools.profilegen import dossier
 from tools.profilegen import facets
@@ -116,6 +120,7 @@ class FacetMergeTests(unittest.TestCase):
         self.assertEqual(p.read_bytes(), before)  # bytes unchanged
 
 
+@unittest.skipUnless(_yaml is not None, "pyyaml not installed (authoring-only dep)")
 class EmitTests(unittest.TestCase):
     def test_writes_yaml_with_metadata(self):
         d = _P(tempfile.mkdtemp())
