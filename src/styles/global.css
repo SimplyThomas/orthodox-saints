@@ -4091,3 +4091,412 @@ a.sv-rail-chip:hover {
     flex-wrap: wrap;
   }
 }
+
+/* ============================================================
+   Calendar (/calendar)
+   These rules live in the global sheet (not a scoped component
+   <style>) because the calendar island builds the grid cells and
+   day-panel head at RUNTIME via createElement — Astro's scoped
+   class would never reach them. Namespaced under #calendar-page
+   so they apply to both server- and client-created elements and
+   don't collide with other pages (.nm/.cd exist elsewhere).
+   ============================================================ */
+
+/* ---------- hero ---------- */
+#calendar-page .cal-hero {
+  position: relative;
+  text-align: center;
+  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
+  overflow: hidden;
+}
+#calendar-page .cal-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+#calendar-page .cal-title {
+  font-size: var(--page-title-size);
+  color: var(--byz-deep);
+  line-height: 1;
+  margin: 14px 0 16px;
+  font-weight: 600;
+}
+#calendar-page .cal-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--page-lede-size);
+  color: var(--celest);
+  max-width: 620px;
+  margin: 0 auto 14px;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+#calendar-page .cal-today-label {
+  font-family: var(--text);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ---------- interactive app ---------- */
+#calendar-page .cal-app[hidden] {
+  display: none;
+}
+#calendar-page .cal-app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6px clamp(14px, 3vw, 28px) 56px;
+}
+#calendar-page .cal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+#calendar-page .cal-month-label {
+  font-family: var(--serif);
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 700;
+  color: var(--byz-deep);
+  line-height: 1;
+}
+#calendar-page .cal-month-label small {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--celest);
+  font-size: 0.6em;
+  margin-left: 5px;
+}
+#calendar-page .cal-ctrls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#calendar-page .cal-ctrls button,
+#calendar-page .cal-ctrls select {
+  font-family: var(--text);
+  height: 38px;
+  border: 1px solid var(--line-gold);
+  background: var(--paper);
+  color: var(--byz);
+  border-radius: 7px;
+  padding: 0 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+#calendar-page .cal-ctrls button:hover {
+  background: #fff;
+}
+#calendar-page .cal-nav-arrow {
+  min-width: 38px;
+  font-size: 17px;
+  line-height: 1;
+}
+#calendar-page #cal-today-btn {
+  background: var(--gold);
+  border-color: var(--gold-deep);
+  color: var(--byz-ink);
+  font-weight: 600;
+}
+#calendar-page #cal-today-btn:hover {
+  background: var(--gold-soft);
+}
+
+#calendar-page .cal-main {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+#calendar-page .cal-dow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 6px;
+}
+#calendar-page .cal-dow span {
+  text-align: center;
+  font-family: var(--text);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+#calendar-page .cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+#calendar-page .cal-cell {
+  aspect-ratio: 1 / 0.9;
+  background: var(--paper);
+  border: 1px solid rgba(35, 76, 122, 0.1);
+  border-radius: 7px;
+  padding: 6px 7px;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--serif);
+  transition:
+    background 0.12s,
+    border-color 0.12s,
+    box-shadow 0.12s;
+}
+#calendar-page .cal-cell:hover:not(.is-empty):not(.is-blank) {
+  background: #fff;
+  border-color: var(--line-gold);
+}
+#calendar-page .cal-cell .cn {
+  font-weight: 700;
+  color: var(--byz);
+  font-size: clamp(14px, 2.4vw, 17px);
+  line-height: 1;
+}
+#calendar-page .cal-cell .cc {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-family: var(--text);
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+#calendar-page .cal-cell.is-blank {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+}
+#calendar-page .cal-cell.is-empty {
+  cursor: default;
+  opacity: 0.55;
+}
+#calendar-page .cal-cell.is-empty .cn {
+  color: var(--ink-soft);
+}
+#calendar-page .cal-cell.is-today {
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+#calendar-page .cal-cell.is-today .cn {
+  color: var(--gold-deep);
+}
+#calendar-page .cal-cell.is-selected {
+  background: var(--byz);
+  border-color: var(--byz);
+}
+#calendar-page .cal-cell.is-selected .cn {
+  color: var(--ivory);
+}
+#calendar-page .cal-cell.is-selected .cc {
+  color: var(--gold-soft);
+}
+#calendar-page .cal-cell.is-selected:hover:not(.is-empty):not(.is-blank) {
+  background: var(--byz);
+  border-color: var(--byz);
+}
+
+/* ---------- day panel ---------- */
+#calendar-page .cal-panel {
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  padding: 16px 18px;
+  position: sticky;
+  top: 12px;
+}
+#calendar-page .cal-panel-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid var(--line-gold);
+  padding-bottom: 9px;
+  margin-bottom: 10px;
+}
+#calendar-page .cal-panel-head .d {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--byz-deep);
+  line-height: 1.05;
+}
+#calendar-page .cal-panel-head .lbl {
+  font-family: var(--text);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--gold-deep);
+}
+#calendar-page .cal-panel-note {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+#calendar-page .cal-panel-empty {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+}
+#calendar-page .cal-panel .cal-list {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+/* ---------- shared saint list (panel + source) ---------- */
+#calendar-page .cal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#calendar-page .cal-list li a {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--ink);
+  line-height: 1.3;
+}
+#calendar-page .cal-list li a:hover {
+  background: rgba(212, 175, 55, 0.12);
+}
+#calendar-page .cal-list li a:hover .nm {
+  color: var(--byz-deep);
+}
+#calendar-page .cal-list .nm {
+  font-family: var(--serif);
+  font-size: 16px;
+}
+#calendar-page .cal-list .nm i {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+
+/* rank color dot — keyed to rankSlug; mirrors the .tag families */
+#calendar-page .cd {
+  width: 7px;
+  height: 7px;
+  margin-top: 6px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--byz);
+}
+#calendar-page .cd.t-apostle,
+#calendar-page .cd.t-equal-to-the-apostles,
+#calendar-page .cd.t-prophet,
+#calendar-page .cd.t-forerunner,
+#calendar-page .cd.t-confessor,
+#calendar-page .cd.t-enlightener,
+#calendar-page .cd.t-patriarch-ot,
+#calendar-page .cd.t-theotokos {
+  background: #b7912b;
+}
+#calendar-page .cd.t-hierarch {
+  background: var(--byz);
+}
+#calendar-page .cd.t-martyr,
+#calendar-page .cd.t-great-martyr,
+#calendar-page .cd.t-hieromartyr,
+#calendar-page .cd.t-new-martyr,
+#calendar-page .cd.t-virgin-martyr,
+#calendar-page .cd.t-venerable-martyr,
+#calendar-page .cd.t-passion-bearer {
+  background: #8d3a2f;
+}
+#calendar-page .cd.t-venerable-monastic,
+#calendar-page .cd.t-righteous,
+#calendar-page .cd.t-ascetic,
+#calendar-page .cd.t-hermit,
+#calendar-page .cd.t-stylite,
+#calendar-page .cd.t-myrrh-bearer {
+  background: #3d6157;
+}
+#calendar-page .cd.t-unmercenary,
+#calendar-page .cd.t-fool-for-christ,
+#calendar-page .cd.t-wonderworker,
+#calendar-page .cd.t-missionary {
+  background: var(--dome);
+}
+
+/* ---------- foot: movable pill + legend ---------- */
+#calendar-page .cal-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+#calendar-page .cal-pill {
+  font-family: var(--text);
+  font-size: 13px;
+  color: var(--gold-deep);
+  font-style: italic;
+  border: 1px dashed var(--line-gold);
+  border-radius: 999px;
+  padding: 7px 15px;
+  cursor: pointer;
+  background: transparent;
+}
+#calendar-page .cal-pill:hover,
+#calendar-page .cal-pill.is-active {
+  background: rgba(212, 175, 55, 0.14);
+}
+#calendar-page .cal-legend {
+  margin-left: auto;
+  display: flex;
+  gap: 13px;
+  font-family: var(--text);
+  font-size: 11.5px;
+  color: var(--celest);
+  flex-wrap: wrap;
+}
+#calendar-page .cal-legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* ---------- no-JS source / fallback ---------- */
+#calendar-page.is-enhanced .cal-source {
+  display: none;
+}
+#calendar-page .cal-source {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6px clamp(14px, 3vw, 28px) 60px;
+}
+#calendar-page .cal-source section,
+#calendar-page .cal-src-movable {
+  padding-top: 22px;
+}
+#calendar-page .cal-source h2 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 600;
+  color: var(--byz-deep);
+  border-bottom: 2px solid var(--line-gold);
+  padding-bottom: 6px;
+  margin: 0 0 10px;
+}
+#calendar-page .cal-source h3 {
+  font-family: var(--text);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 12px 0 4px;
+}
+
+@media (max-width: 760px) {
+  #calendar-page .cal-main {
+    grid-template-columns: 1fr;
+  }
+  #calendar-page .cal-panel {
+    position: static;
+  }
+}

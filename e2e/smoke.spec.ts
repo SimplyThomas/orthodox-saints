@@ -324,34 +324,70 @@ test("news index shows a coming-soon placeholder", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("calendar renders all twelve months and highlights today", async ({
+test("calendar opens on the current month as a grid with today highlighted", async ({
   page,
 }) => {
   const resp = await page.goto("./calendar/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".cal-title")).toHaveText("The Calendar");
 
-  // Every month section is pre-rendered, plus the movable section.
-  await expect(page.locator(".cal-month")).toHaveCount(13);
-  // January 1 is always populated (St. Basil et al.).
-  await expect(page.locator("#d-1-1 .cal-list li").first()).toBeVisible();
-
-  // Today is highlighted client-side and the jump button reveals + scrolls.
-  const today = page.locator(".cal-day.is-today");
-  await expect(today).toHaveCount(1);
-  await expect(page.locator("#cal-today-label")).toContainText("Today is");
-  await page.click("#cal-today-btn");
-  await expect(today).toBeInViewport();
+  // The grid is built client-side and the interactive app is revealed.
+  const grid = page.locator("#cal-grid");
+  await expect(grid).toBeVisible();
+  // The default view is the current month, so today is highlighted exactly once.
+  await expect(grid.locator(".cal-cell.is-today")).toHaveCount(1);
+  // A day is selected by default and rendered in the panel.
+  await expect(grid.locator(".cal-cell.is-selected")).toHaveCount(1);
+  await expect(page.locator(".cal-panel .cal-panel-head")).toBeVisible();
 });
 
-test("calendar day links open the full saint page", async ({ page }) => {
+test("calendar month navigation changes the displayed month", async ({
+  page,
+}) => {
   await page.goto("./calendar/");
-  const first = page.locator("#d-1-1 .cal-list li a").first();
-  const href = await first.getAttribute("href");
+  const label = page.locator("#cal-month-label");
+  const before = (await label.textContent())?.trim() ?? "";
+  await page.click("#cal-next");
+  await expect(label).not.toHaveText(before);
+  // Stepping back returns to the original month.
+  await page.click("#cal-prev");
+  await expect(label).toHaveText(before);
+});
+
+test("selecting a calendar day shows its commemorations and links out", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // Pick the first populated, non-selected cell and snapshot its key before clicking
+  // (the :not(.is-selected) selector re-evaluates after click, so we pin the key).
+  const firstUnselected = page.locator(
+    "#cal-grid .cal-cell:not(.is-empty):not(.is-blank):not(.is-selected)",
+  );
+  const key = await firstUnselected.first().getAttribute("data-key");
+  expect(key).toBeTruthy();
+  await firstUnselected.first().click();
+  // Assert via a stable, key-pinned locator that the cell gained is-selected.
+  await expect(page.locator(`#cal-grid [data-key="${key}"]`)).toHaveClass(
+    /is-selected/,
+  );
+
+  const link = page.locator(".cal-panel .cal-list li a").first();
+  const href = await link.getAttribute("href");
   expect(href).toMatch(/\/saint\/OS-\d{4,}$/);
-  await first.click();
+  await link.click();
   await page.waitForURL(/\/saint\/OS-\d{4,}\/?$/);
   await expect(page.locator("#saint-detail")).toBeVisible();
+});
+
+test("calendar movable-cycle button loads commemorations into the panel", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  await page.click("#cal-movable-btn");
+  await expect(page.locator(".cal-panel .cal-panel-head .d")).toHaveText(
+    "Movable",
+  );
+  await expect(page.locator(".cal-panel .cal-list li").first()).toBeVisible();
 });
 
 test("on mobile the nav collapses into a hamburger dropdown", async ({

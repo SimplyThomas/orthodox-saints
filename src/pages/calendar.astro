@@ -6,11 +6,11 @@ import { SAINTS } from "../lib/data";
 import { feastDates, primaryRank, rankSlug } from "../lib/saints";
 import { splitName } from "../lib/names";
 
-// The Church year as a static, pre-rendered index: every saint grouped onto
-// each fixed feast date they hold (a multi-feast saint appears on each of their
-// days). Movable-cycle commemorations (no fixed Mon-D) collect into their own
-// section at the end. "Today" is highlighted client-side (islands/calendar) —
-// a build-time `new Date()` would freeze it to the deploy day.
+// Every saint grouped onto each fixed feast date they hold. Movable-cycle
+// commemorations (no fixed Mon-D) collect separately. The grid + "today" are
+// built client-side (islands/calendar) because a build-time new Date() would
+// freeze to the deploy day; this page renders the full day-lists as the SEO +
+// no-JS source the island reads from.
 // TODO(scale): like /search, this pre-renders the whole corpus on one page;
 // comfortable at today's size, split per-month if the calendar grows heavy.
 
@@ -23,8 +23,6 @@ interface Entry {
   w: number;
 }
 
-// Lead each day with the more prominent commemorations (purely a display
-// ordering — never a claim about relative sanctity).
 const RANK_W: Record<string, number> = {
   Theotokos: 10,
   Apostle: 9,
@@ -86,16 +84,12 @@ const byRank = (a: Entry, b: Entry) =>
 for (const map of months) for (const arr of map.values()) arr.sort(byRank);
 movable.sort(byRank);
 
-// Per-month rendering model: only the days that actually carry a commemoration.
 const monthData = MONTHS.map((abbr, i) => {
   const m = i + 1;
   const map = months[m];
   const days = [...map.keys()]
     .sort((a, b) => a - b)
-    .map((d) => ({
-      d,
-      entries: map.get(d)!,
-    }));
+    .map((d) => ({ d, entries: map.get(d)! }));
   const count = days.reduce((n, day) => n + day.entries.length, 0);
   return { m, abbr, full: MONTHS_FULL[i], days, count };
 });
@@ -107,7 +101,7 @@ const totalEntries =
 <BaseLayout
   active="calendar"
   title="The Calendar"
-  description="A day-by-day Orthodox calendar of the saints — browse every commemoration from January 1 to December 31, plus the movable cycle."
+  description="A month-by-month Orthodox calendar of the saints — browse every commemoration by date, plus the movable cycle."
 >
   <div id="calendar-page">
     <section class="cal-hero">
@@ -122,97 +116,84 @@ const totalEntries =
         </div>
         <h1 class="cal-title">The Calendar</h1>
         <p class="cal-lede">
-          {totalEntries.toLocaleString()} commemorations, walked day by day from January&nbsp;1
-          to December&nbsp;31 &mdash; with the movable cycle at the close.
+          {totalEntries.toLocaleString()} commemorations across the fixed calendar,
+          with the movable cycle alongside.
         </p>
-        <div class="cal-today-line">
-          <button type="button" id="cal-today-btn" class="btn btn--gold" hidden
-            >Jump to today</button
-          >
-          <span id="cal-today-label" class="cal-today-label" aria-live="polite"
-          ></span>
-        </div>
+        <span id="cal-today-label" class="cal-today-label" aria-live="polite"
+        ></span>
       </div>
     </section>
 
-    {/* sticky month rail */}
-    <nav class="cal-nav" aria-label="Jump to month">
-      <ul>
-        {
-          monthData.map((mo) => (
-            <li>
-              <a href={`#m-${mo.m}`} data-month={mo.m}>
-                {mo.abbr}
-              </a>
-            </li>
-          ))
-        }
+    {/* interactive month grid — revealed by the island on enhancement */}
+    <div class="cal-app" hidden>
+      <div class="cal-bar">
+        <div class="cal-month-label" id="cal-month-label"></div>
+        <div class="cal-ctrls">
+          <button type="button" id="cal-today-btn">Today</button>
+          <button
+            type="button"
+            id="cal-prev"
+            class="cal-nav-arrow"
+            aria-label="Previous month">‹</button
+          >
+          <select id="cal-month-picker" aria-label="Jump to month">
+            {
+              MONTHS_FULL.map((full, i) => (
+                <option value={i + 1}>{full}</option>
+              ))
+            }
+          </select>
+          <button
+            type="button"
+            id="cal-next"
+            class="cal-nav-arrow"
+            aria-label="Next month">›</button
+          >
+        </div>
+      </div>
+
+      <div class="cal-main">
+        <div class="cal-grid-wrap">
+          <div class="cal-dow" aria-hidden="true">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+            <span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+        <aside class="cal-panel" id="cal-panel" aria-live="polite"></aside>
+      </div>
+
+      <div class="cal-foot">
         {
           movable.length > 0 && (
-            <li>
-              <a href="#m-movable" class="is-movable">
-                Movable
-              </a>
-            </li>
+            <button type="button" id="cal-movable-btn" class="cal-pill">
+              ✶ Movable commemorations ({movable.length.toLocaleString()}) →
+            </button>
           )
         }
-      </ul>
-    </nav>
+        <div class="cal-legend">
+          <span><i style="background:#b7912b"></i>Apostles · Hierarchs</span>
+          <span><i style="background:#8d3a2f"></i>Martyrs</span>
+          <span><i style="background:#3d6157"></i>Monastics</span>
+        </div>
+      </div>
+    </div>
 
-    <div class="cal-body">
+    {
+      /* SEO + no-JS source: every day's full list; the island reads + clones from here */
+    }
+    <div class="cal-source" id="cal-source">
       {
         monthData.map((mo) => (
-          <section class="cal-month" id={`m-${mo.m}`}>
-            <h2 class="cal-mhead">
-              <span class="mh-name">{mo.full}</span>
-              <span class="mh-count">{mo.count.toLocaleString()}</span>
-            </h2>
-            <div class="cal-days">
-              {mo.days.map((day) => (
-                <div class="cal-day" id={`d-${mo.m}-${day.d}`}>
-                  <div class="cal-date">
-                    <span class="dnum">{day.d}</span>
-                    <span class="dmon">{mo.abbr}</span>
-                  </div>
-                  <ul class="cal-list">
-                    {day.entries.map((e) => (
-                      <li>
-                        <a href={withBase(`saint/${e.id}`)}>
-                          <span
-                            class={`cd ${e.slug}`}
-                            title={e.rank}
-                            aria-hidden="true"
-                          />
-                          <span class="nm">
-                            {e.title}
-                            {e.epithet && <i> {e.epithet}</i>}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-        ))
-      }
-
-      {
-        movable.length > 0 && (
-          <section class="cal-month cal-movable" id="m-movable">
-            <h2 class="cal-mhead">
-              <span class="mh-name">Movable Commemorations</span>
-              <span class="mh-count">{movable.length.toLocaleString()}</span>
-            </h2>
-            <p class="cal-movable-note">
-              Commemorations tied to the Paschal cycle rather than a fixed date
-              &mdash; their day shifts with Pascha each year.
-            </p>
-            <div class="cal-days">
-              <div class="cal-day cal-day--wide">
-                <ul class="cal-list cal-list--cols">
-                  {movable.map((e) => (
+          <section data-month={mo.m} aria-label={mo.full}>
+            <h2>{mo.full}</h2>
+            {mo.days.map((day) => (
+              <div class="cal-src-day" data-day={day.d}>
+                <h3>
+                  {mo.full} {day.d}
+                </h3>
+                <ul class="cal-list">
+                  {day.entries.map((e) => (
                     <li>
                       <a href={withBase(`saint/${e.id}`)}>
                         <span
@@ -229,8 +210,32 @@ const totalEntries =
                   ))}
                 </ul>
               </div>
-            </div>
+            ))}
           </section>
+        ))
+      }
+      {
+        movable.length > 0 && (
+          <div class="cal-src-movable" aria-label="Movable Commemorations">
+            <h2>Movable Commemorations</h2>
+            <ul class="cal-list">
+              {movable.map((e) => (
+                <li>
+                  <a href={withBase(`saint/${e.id}`)}>
+                    <span
+                      class={`cd ${e.slug}`}
+                      title={e.rank}
+                      aria-hidden="true"
+                    />
+                    <span class="nm">
+                      {e.title}
+                      {e.epithet && <i> {e.epithet}</i>}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )
       }
     </div>
@@ -240,301 +245,3 @@ const totalEntries =
     import "../islands/calendar.client.ts";
   </script>
 </BaseLayout>
-
-<style>
-  /* ---------- hero ---------- */
-  .cal-hero {
-    position: relative;
-    text-align: center;
-    padding: clamp(34px, 6vw, 64px) 20px clamp(20px, 3vw, 30px);
-    overflow: hidden;
-  }
-  .cal-hero-inner {
-    position: relative;
-    z-index: 1;
-  }
-  .cal-title {
-    font-size: var(--page-title-size);
-    color: var(--byz-deep);
-    line-height: 1;
-    margin: 14px 0 16px;
-    font-weight: 600;
-  }
-  .cal-lede {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: var(--page-lede-size);
-    color: var(--celest);
-    max-width: 620px;
-    margin: 0 auto 22px;
-    line-height: 1.45;
-    text-wrap: balance;
-  }
-  .cal-today-line {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-height: 24px;
-  }
-  .cal-today-label {
-    font-family: var(--text);
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-
-  /* ---------- sticky month rail ---------- */
-  .cal-nav {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(245, 235, 216, 0.92);
-    backdrop-filter: blur(6px);
-    border-top: 1px solid var(--line-gold);
-    border-bottom: 1px solid var(--line-gold);
-  }
-  .cal-nav ul {
-    display: flex;
-    gap: 2px;
-    list-style: none;
-    margin: 0 auto;
-    padding: 6px 10px;
-    max-width: 1100px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-  }
-  .cal-nav a {
-    display: block;
-    padding: 7px 12px;
-    border-radius: 4px;
-    font-family: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--byz);
-    text-decoration: none;
-    white-space: nowrap;
-    transition:
-      background 0.15s,
-      color 0.15s;
-  }
-  .cal-nav a:hover {
-    background: rgba(35, 76, 122, 0.1);
-  }
-  .cal-nav a.is-on {
-    background: var(--byz);
-    color: var(--ivory);
-  }
-  .cal-nav a.is-movable {
-    color: var(--gold-deep);
-    font-style: italic;
-  }
-
-  /* ---------- months & days ---------- */
-  .cal-body {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 10px clamp(14px, 3vw, 28px) 60px;
-  }
-  .cal-month {
-    scroll-margin-top: 56px;
-    padding-top: 26px;
-  }
-  .cal-mhead {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin: 0 0 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--line-gold);
-  }
-  .mh-name {
-    font-family: var(--serif);
-    font-size: clamp(24px, 4vw, 34px);
-    font-weight: 600;
-    color: var(--byz-deep);
-  }
-  .mh-count {
-    font-family: var(--text);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-deep);
-  }
-  .mh-count::after {
-    content: " saints";
-    color: var(--ink-soft);
-  }
-
-  .cal-days {
-    display: grid;
-    gap: 2px;
-  }
-  .cal-day {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 14px;
-    padding: 12px 8px;
-    border-radius: 6px;
-    scroll-margin-top: 64px;
-  }
-  .cal-day:nth-child(odd) {
-    background: rgba(35, 76, 122, 0.035);
-  }
-  .cal-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2px;
-  }
-  .cal-date .dnum {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--byz);
-    line-height: 1;
-  }
-  .cal-date .dmon {
-    font-family: var(--text);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-top: 2px;
-  }
-  .cal-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-  .cal-list--cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1px 18px;
-  }
-  .cal-list a {
-    display: flex;
-    align-items: baseline;
-    gap: 9px;
-    padding: 4px 6px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: var(--ink);
-    line-height: 1.3;
-  }
-  .cal-list a:hover {
-    background: rgba(212, 175, 55, 0.12);
-  }
-  .cal-list a:hover .nm {
-    color: var(--byz-deep);
-  }
-  .nm {
-    font-family: var(--serif);
-    font-size: 16px;
-  }
-  .nm i {
-    font-style: italic;
-    color: var(--ink-soft);
-    font-size: 14.5px;
-  }
-
-  /* rank color dot — keyed to rankSlug (s.rank[0]); mirrors the .tag families */
-  .cd {
-    width: 7px;
-    height: 7px;
-    margin-top: 6px;
-    border-radius: 50%;
-    flex: 0 0 auto;
-    background: var(--byz);
-  }
-  .cd.t-apostle,
-  .cd.t-equal-to-the-apostles,
-  .cd.t-prophet,
-  .cd.t-forerunner,
-  .cd.t-confessor,
-  .cd.t-enlightener,
-  .cd.t-patriarch-ot,
-  .cd.t-theotokos {
-    background: #b7912b;
-  }
-  .cd.t-hierarch {
-    background: var(--byz);
-  }
-  .cd.t-martyr,
-  .cd.t-great-martyr,
-  .cd.t-hieromartyr,
-  .cd.t-new-martyr,
-  .cd.t-virgin-martyr,
-  .cd.t-venerable-martyr,
-  .cd.t-passion-bearer {
-    background: #8d3a2f;
-  }
-  .cd.t-venerable-monastic,
-  .cd.t-righteous,
-  .cd.t-ascetic,
-  .cd.t-hermit,
-  .cd.t-stylite,
-  .cd.t-myrrh-bearer {
-    background: #3d6157;
-  }
-  .cd.t-unmercenary,
-  .cd.t-fool-for-christ,
-  .cd.t-wonderworker,
-  .cd.t-missionary {
-    background: var(--dome);
-  }
-
-  /* today */
-  .cal-day.is-today {
-    background: linear-gradient(
-      90deg,
-      rgba(212, 175, 55, 0.2),
-      rgba(212, 175, 55, 0.06)
-    );
-    box-shadow: inset 3px 0 0 var(--gold);
-  }
-  .cal-day.is-today .cal-date .dnum {
-    color: var(--gold-deep);
-  }
-  .cal-today-ribbon {
-    display: inline-block;
-    margin-top: 5px;
-    font-family: var(--text);
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-deep);
-  }
-
-  .cal-movable-note {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--ink-soft);
-    margin: -4px 0 14px;
-    font-size: 15px;
-  }
-  .cal-day--wide {
-    grid-template-columns: 1fr;
-  }
-
-  @media (max-width: 560px) {
-    .cal-day {
-      grid-template-columns: 50px 1fr;
-      gap: 10px;
-    }
-    .cal-date .dnum {
-      font-size: 22px;
-    }
-    .nm {
-      font-size: 15px;
-    }
-  }
-</style>
