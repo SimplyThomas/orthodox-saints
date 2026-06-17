@@ -19,6 +19,10 @@ export const FACETS: FacetDef[] = [
   { key: "era", label: "Era", multi: false },
   { key: "century", label: "Century", multi: false },
   { key: "gender", label: "Gender", multi: false },
+  // Curated cross-cut over the facets above. Its options are slugs (not the
+  // human label) and it is rendered as a bespoke grouped block in
+  // FacetSidebar, not via the generic facetCounts() path.
+  { key: "themes", label: "Themes", multi: true },
 ];
 
 export const OPEN_BY_DEFAULT = new Set(["intercession", "experience"]);

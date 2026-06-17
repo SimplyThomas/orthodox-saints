@@ -116,7 +116,7 @@ test("Basil's themes, life experience, and patronage sit in the icon rail", asyn
   const rail = page.locator(".sv-rail");
   // Themes badges (clickable) in the rail.
   await expect(
-    rail.locator('.sv-themes a[href*="/themes/bishops"]'),
+    rail.locator('.sv-themes a[href*="search?theme=bishops"]'),
   ).toBeVisible();
   // Patronage chips in the rail.
   await expect(

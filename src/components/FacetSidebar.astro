@@ -1,12 +1,17 @@
 ---
 import { SAINTS } from "../lib/data";
 import { FACETS, OPEN_BY_DEFAULT, facetCounts } from "../lib/filter";
+import { themesByGroup } from "../lib/themes";
 
 // Facet option counts are computed across all saints at build time (static).
-const groups = FACETS.map((f) => ({
-  facet: f,
-  options: facetCounts(SAINTS, f.key),
-})).filter((g) => g.options.length > 0);
+// "themes" is excluded here — it is a curated cross-cut rendered as the bespoke
+// grouped "Browse by Theme" block below, not a flat list of slugs.
+const groups = FACETS.filter((f) => f.key !== "themes")
+  .map((f) => ({ facet: f, options: facetCounts(SAINTS, f.key) }))
+  .filter((g) => g.options.length > 0);
+
+// Curated themes, grouped by family (only families with populated themes).
+const themeGroups = themesByGroup(1);
 ---
 
 <aside class="facets" aria-label="Filters">
@@ -38,5 +43,41 @@ const groups = FACETS.map((f) => ({
         </details>
       ))
     }
+    {
+      themeGroups.length > 0 && (
+        <details class="facet-group facet-themes" data-key="themes">
+          <summary>Browse by Theme</summary>
+          <div class="facet-options">
+            {themeGroups.map((g) => (
+              <div class="theme-family">
+                <div class="theme-family-head">{g.group}</div>
+                {g.themes.map((t) => (
+                  <label>
+                    <input type="checkbox" value={t.slug} data-key="themes" />
+                    <span class="box" aria-hidden="true" />
+                    <span class="name">{t.label}</span>
+                    <span class="fcount">{t.count}</span>
+                  </label>
+                ))}
+              </div>
+            ))}
+          </div>
+        </details>
+      )
+    }
   </div>
 </aside>
+
+<style>
+  .facet-themes .theme-family + .theme-family {
+    margin-top: 0.6rem;
+  }
+  .facet-themes .theme-family-head {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gold-deep);
+    margin: 0.3rem 0 0.15rem;
+  }
+</style>
