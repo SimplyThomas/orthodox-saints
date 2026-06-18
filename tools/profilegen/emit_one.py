@@ -12,7 +12,7 @@ import argparse
 import json
 from pathlib import Path
 
-from tools.profilegen import coverage, emit
+from tools.profilegen import coverage, dossier as dossier_mod, emit
 
 ROOT = Path(__file__).resolve().parents[2]
 DIST = ROOT / "dist"
@@ -46,6 +46,24 @@ def sources_from_dossier(dossier: dict) -> list[str]:
     return out
 
 
+def reanchor(dossier: dict) -> dict:
+    """Restore name + anchor.context + anchor.sources from the authoritative
+    saints.csv row (keyed by the schema-validated id). The Gather agent sometimes
+    overwrites the seeded values — e.g. dropping the region context or replacing
+    the CSV citation with a fetched URL — so name/region/anchor-sources must come
+    from the row, not the model. `external[]` (the real gather contribution) is
+    untouched. Unknown ids pass through unchanged (synthetic test dossiers)."""
+    sid = (dossier.get("id") or "").strip()
+    try:
+        base = dossier_mod.for_id(sid)
+    except SystemExit:
+        return dossier
+    anchor = {**(dossier.get("anchor") or {}),
+              "context": base["anchor"]["context"],
+              "sources": base["anchor"]["sources"]}
+    return {**dossier, "name": base["name"], "anchor": anchor}
+
+
 def dossier_chars(dossier: dict) -> int:
     """Total factual material in the dossier — anchor prose + external extracts."""
     anchor = dossier.get("anchor") or {}
@@ -58,8 +76,9 @@ def dossier_chars(dossier: dict) -> int:
 def coverage_row(dossier: dict) -> dict:
     """A schema-correct coverage row (coverage.LOG_HEADER columns)."""
     anchor = dossier.get("anchor") or {}
-    n_ext = sum(1 for e in (dossier.get("external") or [])
-                if ((e or {}).get("source") or "").strip())
+    n_ext = len({((e or {}).get("source") or "").strip()
+                 for e in (dossier.get("external") or [])
+                 if ((e or {}).get("source") or "").strip()})
     chars = dossier_chars(dossier)
     return {
         "saint_id": dossier.get("id", ""),
@@ -84,6 +103,7 @@ def record(*, sid: str, date: str, status: str,
            profile: dict, verdict: dict, dossier: dict) -> Path:
     """Write the profile YAML + append the coverage row + persist the verdict.
     `sources` come from the dossier (fallback to whatever Write returned)."""
+    dossier = reanchor(dossier)  # name/region/anchor-sources from the CSV, not the model
     sources = sources_from_dossier(dossier) or list(profile.get("sources") or [])
     path = emit.write_profile(
         ROOT / "src" / "content" / "profiles", profile,

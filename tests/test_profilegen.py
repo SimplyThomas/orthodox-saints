@@ -318,6 +318,37 @@ class CoverageRowFromDossierTests(unittest.TestCase):
              "external": [{"text": "t", "source": ""}]}
         self.assertEqual(emit_one.coverage_row(d)["external_sources"], 0)
 
+    def test_duplicate_external_urls_count_once(self):
+        # Two extracts from the SAME url is one source, not two — otherwise the
+        # grounding verdict ("full" needs >=2) is inflated.
+        d = {"id": "OS-0003", "name": "X",
+             "anchor": {"context": {}, "sources": ["s"]},
+             "external": [{"text": "a" * 1000, "source": "http://one"},
+                          {"text": "b" * 1000, "source": "http://one"}]}
+        row = emit_one.coverage_row(d)
+        self.assertEqual(row["external_sources"], 1)
+        self.assertEqual(row["verdict"], "thin")  # 1 distinct source, not "full"
+
+
+class ReanchorTests(unittest.TestCase):
+    def test_refreshes_name_region_sources_from_csv(self):
+        # The Gather agent may overwrite the seeded name/context/sources; reanchor
+        # restores them from the authoritative saints.csv row (external[] kept).
+        base = dossier.for_id("OS-0001")
+        mangled = {"id": "OS-0001", "name": "Dossier for X",
+                   "anchor": {"sources": ["http://a-fetched-url"]},
+                   "external": [{"text": "t", "source": "http://ext"}]}
+        d = emit_one.reanchor(mangled)
+        self.assertEqual(d["name"], base["name"])
+        self.assertEqual(d["anchor"]["context"], base["anchor"]["context"])
+        self.assertEqual(d["anchor"]["sources"], base["anchor"]["sources"])
+        self.assertEqual(d["external"], mangled["external"])  # gather kept
+
+    def test_unknown_id_returns_dossier_unchanged(self):
+        m = {"id": "OS-9999", "name": "x",
+             "anchor": {"sources": ["s"]}, "external": []}
+        self.assertEqual(emit_one.reanchor(m), m)
+
 
 class AppendVerdictTests(unittest.TestCase):
     def test_creates_array_and_preserves_claim_objects(self):
