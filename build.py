@@ -46,6 +46,18 @@ VENDORS_CSV = DATA / "vendors.csv"
 NAME_VARIANTS_CSV = DATA / "name_variants.csv"
 SAINT_IMAGES_CSV = DATA / "saint_images.csv"
 SAINT_QUOTES_CSV = DATA / "saint_quotes.csv"
+GROUPS_CSV = DATA / "groups.csv"
+SAINT_GROUPS_CSV = DATA / "saint_groups.csv"
+
+# Group taxonomy (data/groups.csv + data/saint_groups.csv) — a first-class way to
+# re-link members of a collective commemoration (a synaxis, feast-companions, a
+# household). Two join files following the saint_images/saint_quotes pattern;
+# referential integrity is enforced at build time (fail loud). `type` is a small
+# enumerated set — adding one is a deliberate code change.
+GROUPS_HEADER = ["slug", "name", "type", "description", "feast", "sort"]
+SAINT_GROUPS_HEADER = ["group_slug", "saint_id", "role", "order"]
+GROUP_TYPES = {"synaxis", "feast-companions", "household"}
+SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 # Real saint portraits (data/saint_images.csv) join to saints by Saint ID. Only
 # OPEN, reusable licenses are accepted — an unlicensed image must never deploy
@@ -306,6 +318,10 @@ def validate(header: list[str], rows: list[dict[str, str]],
     prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids)
     errors.extend(prof_errors)
     warnings.extend(prof_warnings)
+
+    group_errors, group_warnings = validate_groups(_img_valid_ids)
+    errors.extend(group_errors)
+    warnings.extend(group_warnings)
 
     if header != HEADER:
         errors.append(
@@ -770,6 +786,147 @@ def validate_saint_quotes(valid_ids: set[str]) -> tuple[list[str], list[str]]:
 
 
 # --------------------------------------------------------------------------- #
+# Group taxonomy (data/groups.csv + data/saint_groups.csv). Groups re-link the
+# members of a collective commemoration; the join references any saint row
+# (individual OR still-collective), so the taxonomy ships independently of the
+# splitting backlog. Joined into each record as `groups` and emitted whole as
+# public/groups.json (mirrors emit_themes_json) for the /group/<slug> pages.
+# --------------------------------------------------------------------------- #
+def load_groups() -> list[dict[str, str]]:
+    """Ordered list of group definitions (by `sort` then `name`). Empty if absent."""
+    out: list[dict[str, str]] = []
+    if not GROUPS_CSV.exists():
+        return out
+    with GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != GROUPS_HEADER:
+            sys.exit(f"FATAL: {GROUPS_CSV} header must be {GROUPS_HEADER}, "
+                     f"got {reader.fieldnames!r}")
+        for row in reader:
+            slug = (row.get("slug") or "").strip()
+            if not slug:
+                continue
+            sort_raw = (row.get("sort") or "").strip()
+            out.append({
+                "slug": slug,
+                "name": (row.get("name") or "").strip(),
+                "type": (row.get("type") or "").strip(),
+                "description": (row.get("description") or "").strip(),
+                "feast": (row.get("feast") or "").strip(),
+                "sort": int(sort_raw) if sort_raw.lstrip("-").isdigit() else 0,
+            })
+    out.sort(key=lambda g: (g["sort"], g["name"]))
+    return out
+
+
+def load_saint_groups() -> dict[str, list[str]]:
+    """saint_id -> [group_slug, …] (membership), preserving group-then-row order."""
+    out: dict[str, list[str]] = {}
+    if not SAINT_GROUPS_CSV.exists():
+        return out
+    with SAINT_GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_GROUPS_HEADER:
+            sys.exit(f"FATAL: {SAINT_GROUPS_CSV} header must be "
+                     f"{SAINT_GROUPS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            sid = (row.get("saint_id") or "").strip()
+            slug = (row.get("group_slug") or "").strip()
+            if not sid or not slug:
+                continue
+            out.setdefault(sid, []).append(slug)
+    return out
+
+
+def group_members() -> dict[str, list[str]]:
+    """group_slug -> [saint_id, …] member list (file order)."""
+    out: dict[str, list[str]] = {}
+    if not SAINT_GROUPS_CSV.exists():
+        return out
+    with SAINT_GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            sid = (row.get("saint_id") or "").strip()
+            slug = (row.get("group_slug") or "").strip()
+            if sid and slug:
+                out.setdefault(slug, []).append(sid)
+    return out
+
+
+def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Validate the group taxonomy join files: enumerated `type`, unique slugs,
+    every membership reference resolves (group + saint), no duplicate membership."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not GROUPS_CSV.exists() and not SAINT_GROUPS_CSV.exists():
+        return errors, warnings
+
+    slugs: set[str] = set()
+    if GROUPS_CSV.exists():
+        with GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            if reader.fieldnames != GROUPS_HEADER:
+                return ([f"groups.csv header must be {GROUPS_HEADER}, "
+                         f"got {reader.fieldnames!r}"], warnings)
+            for i, row in enumerate(reader, 2):
+                if not any((v or "").strip() for v in row.values()):
+                    continue
+                slug = (row.get("slug") or "").strip()
+                gtype = (row.get("type") or "").strip()
+                sort_raw = (row.get("sort") or "").strip()
+                where = f"groups.csv line {i}"
+                if not slug:
+                    errors.append(f"{where}: empty slug.")
+                elif not SLUG_RE.match(slug):
+                    errors.append(f"{where}: slug {slug!r} must be kebab-case "
+                                  "([a-z0-9] words joined by hyphens).")
+                elif slug in slugs:
+                    errors.append(f"{where}: duplicate group slug {slug!r}.")
+                slugs.add(slug)
+                if gtype not in GROUP_TYPES:
+                    errors.append(f"{where} ({slug}): type {gtype!r} is not one of "
+                                  f"{sorted(GROUP_TYPES)}.")
+                if not (row.get("name") or "").strip():
+                    errors.append(f"{where} ({slug}): empty name.")
+                if sort_raw and not sort_raw.lstrip("-").isdigit():
+                    errors.append(f"{where} ({slug}): sort {sort_raw!r} is not an integer.")
+
+    if SAINT_GROUPS_CSV.exists():
+        with SAINT_GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            if reader.fieldnames != SAINT_GROUPS_HEADER:
+                return ([f"saint_groups.csv header must be {SAINT_GROUPS_HEADER}, "
+                         f"got {reader.fieldnames!r}"], warnings)
+            pairs: set[tuple[str, str]] = set()
+            for i, row in enumerate(reader, 2):
+                if not any((v or "").strip() for v in row.values()):
+                    continue
+                slug = (row.get("group_slug") or "").strip()
+                sid = (row.get("saint_id") or "").strip()
+                order_raw = (row.get("order") or "").strip()
+                where = f"saint_groups.csv line {i}"
+                if not slug:
+                    errors.append(f"{where}: empty group_slug.")
+                elif slug not in slugs:
+                    errors.append(f"{where}: group_slug {slug!r} matches no group "
+                                  "in groups.csv.")
+                if not sid:
+                    errors.append(f"{where}: empty saint_id.")
+                elif not ID_RE.match(sid):
+                    errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
+                elif sid not in valid_ids:
+                    errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+                if slug and sid:
+                    if (slug, sid) in pairs:
+                        errors.append(f"{where}: duplicate membership "
+                                      f"({slug}, {sid}).")
+                    pairs.add((slug, sid))
+                if order_raw and not order_raw.lstrip("-").isdigit():
+                    errors.append(f"{where} ({slug}/{sid}): order {order_raw!r} "
+                                  "is not an integer.")
+    return errors, warnings
+
+
+# --------------------------------------------------------------------------- #
 # Name variants (data/name_variants.csv): equivalence groups of given-name
 # forms — English nicknames + cross-language/transliteration variants. The
 # build expands each saint's search haystack with the other forms in any group
@@ -865,7 +1022,9 @@ def variant_forms(r: dict[str, str], lookup: dict[str, list[str]]) -> list[str]:
 def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               name_variants: dict[str, list[str]] | None = None,
               images: dict[str, dict[str, str]] | None = None,
-              quotes: dict[str, dict[str, str]] | None = None) -> dict:
+              quotes: dict[str, dict[str, str]] | None = None,
+              saint_groups: dict[str, list[str]] | None = None,
+              groups_by_slug: dict[str, dict] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
@@ -874,6 +1033,10 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
         images = load_saint_images()
     if quotes is None:
         quotes = load_saint_quotes()
+    if saint_groups is None:
+        saint_groups = load_saint_groups()
+    if groups_by_slug is None:
+        groups_by_slug = {g["slug"]: g for g in load_groups()}
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -935,6 +1098,23 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             if folded != form.lower():
                 extra.append(folded)
         rec["search"] = (rec["search"] + " " + " ".join(extra)).strip()
+    # Group taxonomy memberships (data/saint_groups.csv): each as {slug,name,type}
+    # for the saint-page "Member of" links, ordered by the group's `sort`. Names
+    # also feed the finder's Group facet (added to the search haystack).
+    memberships = []
+    for slug in saint_groups.get(r["Saint ID"].strip(), []):
+        g = groups_by_slug.get(slug)
+        if g:
+            memberships.append({"slug": slug, "name": g["name"], "type": g["type"]})
+    memberships.sort(key=lambda m: (groups_by_slug[m["slug"]]["sort"], m["name"]))
+    if memberships:
+        rec["groups"] = memberships
+        # `groupNames` (plain string list) is what the finder's Group facet keys
+        # on (valuesOf/facetCounts expect a string[] field named like the facet);
+        # `groups` (objects) drives the saint-page "Commemorated With" slug links.
+        rec["groupNames"] = [m["name"] for m in memberships]
+        rec["search"] = (rec["search"] + " "
+                         + " ".join(m["name"] for m in memberships)).strip()
     rec["themes"] = themes_mod.compute_themes(rec, r.get("Themes", ""))
     if rec["themes"]:
         label_words = " ".join(themes_mod.THEME_LABELS[s] for s in rec["themes"]
@@ -948,12 +1128,29 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     name_variants = load_name_variants()
     images = load_saint_images()
     quotes = load_saint_quotes()
-    records = [to_record(r, vendors, name_variants, images, quotes) for r in rows]
+    saint_groups = load_saint_groups()
+    groups_by_slug = {g["slug"]: g for g in load_groups()}
+    records = [to_record(r, vendors, name_variants, images, quotes,
+                         saint_groups, groups_by_slug) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, separators=(",", ":"))
     return records
+
+
+def emit_groups_json() -> list[dict]:
+    """Write public/groups.json: each group with its full member id list, for the
+    pre-rendered /group/<slug> pages (mirrors emit_themes_json)."""
+    groups = load_groups()
+    members = group_members()
+    catalog = [{**g, "members": members.get(g["slug"], [])} for g in groups]
+    PUBLIC.mkdir(exist_ok=True)
+    with open(PUBLIC / "groups.json", "w", encoding="utf-8") as f:
+        json.dump(catalog, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"  wrote public/groups.json ({len(catalog)} groups, "
+          f"{sum(len(c['members']) for c in catalog)} memberships)")
+    return catalog
 
 
 def emit_themes_json(records: list[dict]) -> None:
@@ -1104,6 +1301,7 @@ def main() -> int:
 
     records = emit_data_json(rows)
     emit_themes_json(records)
+    emit_groups_json()
     copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
