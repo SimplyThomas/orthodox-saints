@@ -1,0 +1,170 @@
+---
+/* Group landing page — one pre-rendered page per commemoration group
+   (data/groups.csv). Renders the group's name, type, description, optional
+   shared feast, and a member grid reusing the tiered SaintAvatar; members link
+   to their saint pages. Members are pulled from the joined `members` id list. */
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
+import { GROUPS, GROUP_TYPE_LABEL, type Group } from "../../lib/groups";
+import { byId } from "../../lib/data";
+import { saintAvatar } from "../../lib/icons";
+import { primaryRank, cleanName } from "../../lib/saints";
+import { withBase } from "../../lib/format";
+
+export const getStaticPaths = (() =>
+  GROUPS.map((g) => ({
+    params: { slug: g.slug },
+    props: { g },
+  }))) satisfies GetStaticPaths;
+
+const { g } = Astro.props as { g: Group };
+
+// Resolve members to saint records (skip any that no longer resolve — the build
+// validates referential integrity, so this is belt-and-suspenders), sorted by
+// display name. feast-companions are small and order-significant; keep file
+// order for those, alphabetize the larger synaxis lists for scanability.
+const members = g.members
+  .map((id) => byId.get(id))
+  .filter((s): s is NonNullable<typeof s> => !!s);
+const ordered =
+  g.type === "feast-companions"
+    ? members
+    : members
+        .slice()
+        .sort((a, b) => cleanName(a.name).localeCompare(cleanName(b.name)));
+
+const typeLabel = GROUP_TYPE_LABEL[g.type] ?? g.type;
+---
+
+<BaseLayout title={g.name} description={g.description} ogType="website">
+  <main class="grp">
+    <header class="grp-head">
+      <p class="grp-kicker">
+        <span class="grp-badge">{typeLabel}</span>
+        {g.feast && <span class="grp-feast">Feast: {g.feast}</span>}
+      </p>
+      <h1>{g.name}</h1>
+      <EyebrowRule />
+      {g.description && <p class="grp-desc">{g.description}</p>}
+      <p class="grp-count">
+        {ordered.length}{" "}
+        {ordered.length === 1 ? "commemoration" : "commemorations"}
+      </p>
+    </header>
+
+    <ul class="grp-grid" role="list">
+      {
+        ordered.map((s) => (
+          <li class="grp-card">
+            <a href={withBase(`saint/${s.id}`)}>
+              <span class="grp-ava" set:html={saintAvatar(s, 72, 88)} />
+              <span class="grp-nm">
+                <span class="grp-nm-main">{s.name}</span>
+                <span class="grp-nm-rank">{primaryRank(s)}</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .grp {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  .grp-head {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .grp-kicker {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+  }
+  .grp-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #6b4d2e;
+    background: #f1e4cd;
+    border: 1px solid #d9c39a;
+    border-radius: 999px;
+    padding: 0.18rem 0.7rem;
+  }
+  .grp-feast {
+    font-size: 0.85rem;
+    color: #6c5836;
+  }
+  .grp-head h1 {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: 0 0 0.4rem;
+    color: #2a2118;
+  }
+  .grp-desc {
+    max-width: 42rem;
+    margin: 1rem auto 0;
+    color: #4a3f30;
+    line-height: 1.6;
+  }
+  .grp-count {
+    margin: 0.9rem 0 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8a7350;
+  }
+  .grp-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.6rem;
+  }
+  .grp-card a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #e6d8bd;
+    border-radius: 0.6rem;
+    background: #fbf6ec;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+  }
+  .grp-card a:hover {
+    border-color: #c9a456;
+    background: #f6edda;
+  }
+  .grp-ava {
+    flex: 0 0 auto;
+    line-height: 0;
+  }
+  .grp-nm {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .grp-nm-main {
+    font-weight: 600;
+    color: #2a2118;
+    line-height: 1.25;
+  }
+  .grp-nm-rank {
+    font-size: 0.78rem;
+    color: #8a7350;
+  }
+</style>

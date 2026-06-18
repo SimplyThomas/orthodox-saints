@@ -61,6 +61,17 @@ export interface Saint {
   quoteLocus?: string;
   quoteTranslation?: string;
   quoteSource?: string;
+  /** group-taxonomy memberships (data/saint_groups.csv); absent → no groups */
+  groups?: GroupMembership[];
+  /** group names (mirror of groups[].name) — keys the finder's Group facet */
+  groupNames?: string[];
+}
+
+/** A saint's membership in a group, joined into the record by build.py. */
+export interface GroupMembership {
+  slug: string;
+  name: string;
+  type: string;
 }
 
 /** The light projection shipped to the home landing page (saint-of-the-day +
@@ -104,6 +115,8 @@ export interface FinderSaint {
   search: string;
   /** curated theme slugs (themes.py); drives the "Browse by Theme" facet */
   themes: string[];
+  /** group names the saint belongs to; drives the finder's "Group" facet */
+  groupNames?: string[];
   variants?: string[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;

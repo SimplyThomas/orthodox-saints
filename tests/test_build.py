@@ -572,6 +572,99 @@ class SaintQuoteTests(unittest.TestCase):
                          "\n".join(errs))
 
 
+class GroupTaxonomyTests(unittest.TestCase):
+    """data/groups.csv + data/saint_groups.csv loaders, validation, and join."""
+
+    def _run(self, groups_rows, member_rows):
+        """Validate synthetic group join files. Returns (errors, warnings)."""
+        import csv as _csv
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        gpath = tmp / "groups.csv"
+        mpath = tmp / "saint_groups.csv"
+        with gpath.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.GROUPS_HEADER)
+            w.writeheader()
+            w.writerows(groups_rows)
+        with mpath.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.SAINT_GROUPS_HEADER)
+            w.writeheader()
+            w.writerows(member_rows)
+        old_g, old_m = build.GROUPS_CSV, build.SAINT_GROUPS_CSV
+        try:
+            build.GROUPS_CSV, build.SAINT_GROUPS_CSV = gpath, mpath
+            return build.validate_groups({"OS-0001", "OS-0002"})
+        finally:
+            build.GROUPS_CSV, build.SAINT_GROUPS_CSV = old_g, old_m
+
+    def _g(self, **over):
+        row = {"slug": "the-twelve", "name": "The Twelve Apostles",
+               "type": "synaxis", "description": "x", "feast": "Jun 30", "sort": "1"}
+        row.update(over)
+        return row
+
+    def _m(self, **over):
+        row = {"group_slug": "the-twelve", "saint_id": "OS-0001",
+               "role": "", "order": ""}
+        row.update(over)
+        return row
+
+    def test_clean_join_validates(self):
+        errs, _ = self._run([self._g()], [self._m(), self._m(saint_id="OS-0002")])
+        self.assertEqual(errs, [])
+
+    def test_bad_type_errors(self):
+        errs, _ = self._run([self._g(type="club")], [self._m()])
+        self.assertTrue(any("is not one of" in e for e in errs))
+
+    def test_duplicate_slug_errors(self):
+        errs, _ = self._run([self._g(), self._g(name="Dup")], [self._m()])
+        self.assertTrue(any("duplicate group slug" in e for e in errs))
+
+    def test_non_kebab_slug_errors(self):
+        errs, _ = self._run([self._g(slug="The_Twelve")],
+                            [self._m(group_slug="The_Twelve")])
+        self.assertTrue(any("kebab-case" in e for e in errs))
+
+    def test_dangling_group_slug_errors(self):
+        errs, _ = self._run([self._g()], [self._m(group_slug="nope")])
+        self.assertTrue(any("matches no group" in e for e in errs))
+
+    def test_dangling_saint_id_errors(self):
+        errs, _ = self._run([self._g()], [self._m(saint_id="OS-9999")])
+        self.assertTrue(any("matches no saint" in e for e in errs))
+
+    def test_duplicate_membership_errors(self):
+        errs, _ = self._run([self._g()], [self._m(), self._m()])
+        self.assertTrue(any("duplicate membership" in e for e in errs))
+
+    def test_to_record_joins_groups_and_haystack(self):
+        sg = {"OS-0001": ["the-twelve"]}
+        gbs = {"the-twelve": {"slug": "the-twelve", "name": "The Twelve Apostles",
+                              "type": "synaxis", "sort": 1}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images={}, quotes={}, saint_groups=sg,
+                              groups_by_slug=gbs)
+        self.assertEqual(rec["groups"],
+                         [{"slug": "the-twelve", "name": "The Twelve Apostles",
+                           "type": "synaxis"}])
+        self.assertIn("The Twelve Apostles", rec["search"])
+
+    def test_to_record_no_groups_key_when_absent(self):
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images={}, quotes={}, saint_groups={},
+                              groups_by_slug={})
+        self.assertNotIn("groups", rec)
+
+    def test_committed_group_files_validate(self):
+        errs, _ = build.validate_groups(
+            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        self.assertEqual(errs, [], "committed group files have errors:\n" +
+                         "\n".join(errs))
+
+
 class ThemeIntegrationTests(unittest.TestCase):
     def test_record_has_derived_themes(self):
         r = valid_row(**{"Church Status": "Clergy - Bishop", "Rank / Type": "Hierarch"})

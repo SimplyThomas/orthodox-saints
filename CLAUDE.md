@@ -47,7 +47,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
 │   ├── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
-│   └── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
+│   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
@@ -265,6 +267,24 @@ detail page, add one row to `data/saint_quotes.csv`
   `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
+
+**Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
+quote joins) re-link the members of a collective commemoration and make group membership a
+**first-class, filterable dimension** of the finder:
+- `data/groups.csv` (`slug,name,type,description,feast,sort`) — one row per group. `slug` is a
+  permanent kebab-case key (the `/group/<slug>` URL + join key). `type` is an enumerated set —
+  **`synaxis`** (a collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs),
+  **`feast-companions`** (distinct individually-venerated saints sharing a principal feast:
+  Peter & Paul, the Three Hierarchs — the §7 split boundary), or **`household`** (a family /
+  kinship unit). `feast` (optional) is a shared feast day; `sort` orders groups.
+- `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
+  may reference an **individual OR a still-collective** row, so the taxonomy ships independently
+  of the split backlog. `role`/`order` are optional.
+- The build **fails loud** on a bad `type`, a dangling `group_slug`/`saint_id`, a duplicate slug,
+  or a duplicate membership. Each saint gains `groups` (+ `groupNames` for the facet) in the
+  record; the whole catalog is emitted to `public/groups.json` for the pre-rendered
+  `/group/<slug>` pages. Saint pages show a "Commemorated With" link per group; the finder gains
+  a **Group** facet.
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
