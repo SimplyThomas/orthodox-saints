@@ -22,5 +22,16 @@ Orthodox communion, which in practice means saints who arose **after 451**. Use
 the anchor row's Era/Century (and any repose date) to decide: pre-451 → shared,
 do not flag the cross-veneration; post-451 and Oriental-only → out of scope.
 
+GROUND EVERY CLAIM IN THE PROFILE. Judge ONLY assertions the profile actually
+makes — never a fact you recall from elsewhere or a detail you expect to be there.
+For each claims[] item, copy into `quote` the EXACT span of profile text the claim
+is about: verbatim, character-for-character, no paraphrase, no added words, no
+"fixing". If you cannot copy a span from the profile to support a claim, the
+profile does not make that claim — DO NOT raise it. (A flag whose `quote` is not
+found verbatim in the profile is discarded downstream as a phantom flag, so an
+embellished or invented quote silently wastes the flag and lets a real problem
+through. Quote precisely.)
+
 Return {status, claims[]}: status="flagged" if any concrete claim is unsupported,
-else "pass". Each claims[] item: {claim, supported, reason}.
+else "pass". Each claims[] item: {claim, quote, supported, reason} — where `quote`
+is the verbatim profile text and `claim` may restate it in your own words.
