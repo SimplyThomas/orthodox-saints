@@ -33,6 +33,10 @@ const relatedFigures =
         href: "saint/" + s.id,
       }));
 
+// Group-taxonomy memberships (data/saint_groups.csv) → "Commemorated with"
+// links to each group's landing page. Joined into the record by build.py.
+const memberGroups = saint.groups ?? [];
+
 // Works (by the saint) and Further Reading (about the saint) both sit in the
 // "after" region beneath the legacy band. A profile's rich lists supersede the
 // plain CSV-derived ones; otherwise the CSV search-link lists are shown.
@@ -438,9 +442,24 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
               )}
             </section>
           )}
-          {(profile?.family || relatedFigures.length > 0 || m.notes) && (
+          {(profile?.family ||
+            relatedFigures.length > 0 ||
+            memberGroups.length > 0 ||
+            m.notes) && (
             <section class="sv-panel sv-panel--plum">
               <div class="sv-plum-grid">
+                {memberGroups.length > 0 && (
+                  <div class="sv-plum-block">
+                    <h2>Commemorated With</h2>
+                    <ul class="sv-group-list">
+                      {memberGroups.map((g) => (
+                        <li>
+                          <a href={withBase("group/" + g.slug)}>{g.name}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {profile?.family && (
                   <div class="sv-plum-block">
                     <h2>{profile.family.heading}</h2>

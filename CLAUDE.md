@@ -47,7 +47,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
 │   ├── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
-│   └── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
+│   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
@@ -266,6 +268,24 @@ detail page, add one row to `data/saint_quotes.csv`
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
 
+**Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
+quote joins) re-link the members of a collective commemoration and make group membership a
+**first-class, filterable dimension** of the finder:
+- `data/groups.csv` (`slug,name,type,description,feast,sort`) — one row per group. `slug` is a
+  permanent kebab-case key (the `/group/<slug>` URL + join key). `type` is an enumerated set —
+  **`synaxis`** (a collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs),
+  **`feast-companions`** (distinct individually-venerated saints sharing a principal feast:
+  Peter & Paul, the Three Hierarchs — the §7 split boundary), or **`household`** (a family /
+  kinship unit). `feast` (optional) is a shared feast day; `sort` orders groups.
+- `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
+  may reference an **individual OR a still-collective** row, so the taxonomy ships independently
+  of the split backlog. `role`/`order` are optional.
+- The build **fails loud** on a bad `type`, a dangling `group_slug`/`saint_id`, a duplicate slug,
+  or a duplicate membership. Each saint gains `groups` (+ `groupNames` for the facet) in the
+  record; the whole catalog is emitted to `public/groups.json` for the pre-rendered
+  `/group/<slug>` pages. Saint pages show a "Commemorated With" link per group; the finder gains
+  a **Group** facet.
+
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
   *Convert* are **Life Experience** / **Church Status** respectively, **not** Intercessions;
@@ -313,6 +333,19 @@ of the spine-and-merge plan (§8).
   commemoration (e.g. "the 40 Virgin-Martyrs," a mother and her sons, a dated priest
   cohort), make **one** row and put every individual name in *Also Known As* / *Notes*
   so they stay searchable. If the source lists individuals separately, keep them separate.
+- **SPLIT vs GROUP (the finder decides, not the liturgical pairing).** **SPLIT** an entry
+  into one row per saint when it bundles **distinct, individually-venerated saints that each
+  carry their own facet profile** (Vocation / Commonly Asked Intercessions / Life Experience)
+  and would be searched by name — two major saints who merely share a feast (e.g. **Apostles
+  Peter & Paul**, Jun 29: Peter the fisherman who denied and repented vs. Paul the convert and
+  apostle to the nations) belong in separate rows, because a combined row muddies the
+  controlled-vocab facets that power the finder (§1) and violates one-row-per-saint (§6).
+  **GROUP** (keep one row) only for **collective or undifferentiated commemorations** —
+  numbered cohorts, "the 40 Virgin-Martyrs," a mother and her sons, a Synaxis — where the
+  members share an undifferentiated profile. **When you split, put the shared feast on every
+  split row and preserve the "commemorated together" linkage**: a Notes cross-reference to the
+  other ID(s), plus a `related` entry in each saint's profile (SaintView renders curated
+  `related` as cross-links). Do **not** sever the relationship to gain clean facets.
 - **Skip (do not add as saints):** the feasts themselves (Great Feasts, forefeasts,
   afterfeasts), icon commemorations, church consecrations, angelic feasts, and
   relic-translations/uncoverings whose **principal** feast is another day — add that
@@ -410,7 +443,7 @@ simply stay.
   documented-distinct suppression (§6). Quiz match quality scales with **Commonly Asked
   Intercessions** coverage — keep filling that facet.
 
-**Profile generation pipeline (`tools/profilegen/`).** A grounded, batched pipeline turns profile-less saints into reviewed-ready draft profiles: **Gather** a cited dossier (seeded from the saint's own CSV row — the trusted anchor — then external sources per the tiered fetch list), **Write** original encyclopedic prose in house voice, **Verify** it adversarially against the anchor row (the row wins on conflict), and **Emit** a `src/content/profiles/OS-####.yaml` file with `status: draft` (or `flagged` when the verifier catches an unsupported claim) plus additive controlled-vocab facet enrichment and propose-only PD quote/image rows under `dist/`. Per-stage models (Gather=Haiku, Write=Opus, Verify=Sonnet, Emit=Haiku) concentrate capability where fabrication risk is highest. Run `make profile-batch N=15` to print the highest-finder-value uncovered saints, then run the Workflow (`scripts/profilegen.workflow.js`, **requires explicit Workflow opt-in**). Drafts never auto-publish — they land `status: draft` and a human promotes them to `reviewed` (the reviewed-only production gate, §11). Coverage gaps are logged (`make profile-coverage LOG=dist/profilegen_<date>.csv`) so a cluster of `thin`/`none` saints in a region directs the next source to add.
+**Profile generation pipeline (`tools/profilegen/`).** A grounded, batched pipeline turns profile-less saints into reviewed-ready draft profiles: **Gather** a cited dossier (seeded from the saint's own CSV row — the trusted anchor — then external sources per the tiered fetch list), **Write** original encyclopedic prose in house voice, **Verify** it adversarially against the anchor row (the row wins on conflict; each verifier claim must `quote` the profile verbatim), and **Emit** a `src/content/profiles/OS-####.yaml` file with `status: draft` (or `flagged` when a real unsupported claim survives) plus additive controlled-vocab facet enrichment and propose-only PD quote/image rows under `dist/`. `emit_one` recomputes the final draft/flagged status deterministically and **demotes phantom flags** — an "unsupported" claim whose `quote` is not actually present in the profile (the verifier paraphrased or invented the flagged text); demoted flags are logged as `demoted_flags` in the verdict JSON, never silently dropped. Per-stage models (Gather=Haiku, Write=Opus, Verify=Sonnet, Emit=Haiku) concentrate capability where fabrication risk is highest. Run `make profile-batch N=15` to print the highest-finder-value uncovered saints, then run the Workflow (`scripts/profilegen.workflow.js`, **requires explicit Workflow opt-in**). Drafts never auto-publish — they land `status: draft` and a human promotes them to `reviewed` (the reviewed-only production gate, §11). Coverage gaps are logged (`make profile-coverage LOG=dist/profilegen_<date>.csv`) so a cluster of `thin`/`none` saints in a region directs the next source to add.
 
 **Run modes.** *Calibration* runs live via the Workflow (`scripts/profilegen.workflow.js`) for the first ~15 saints, watching quality closely. *Bulk* runs unattended via `make profile-run` (or `nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown`), which walks the whole prioritized backlog one headless `claude -p` batch at a time and is **resumable** (re-run to continue — prioritization excludes already-profiled saints). Auth setup before an unattended run: `unset ANTHROPIC_API_KEY` (else it bills metered API rates instead of your Max subscription), then `claude setup-token` → `export CLAUDE_CODE_OAUTH_TOKEN=…`. Limit behaviour is honest about what `claude -p` exposes: it has **no reset timestamp** and **cannot tell a 5-hour limit from a weekly cap**, and there is **no usage API for a Max subscription** — so on a `rate_limit_error` the runner **waits a full window** (`RESUME_AFTER`≈5h) and retries, and only **infers the weekly cap** (stops, exit 2) after `WEEKLY_AFTER_WAITS` fruitless waits; **billing/auth errors stop immediately** (exit 3). Feedback surfaces: a `NOTIFY_CMD` hook (e.g. `export NOTIFY_CMD='ntfy publish my-topic'` or `'notify-send'`), `dist/profilegen/state.json` (cat anytime), and exit codes (0 done / 2 likely-weekly / 3 terminal). Billing caveat: headless currently draws the normal Max subscription limits; confirm in Console / `claude /status`.
 
