@@ -372,6 +372,92 @@ class AppendVerdictTests(unittest.TestCase):
         self.assertEqual([e["id"] for e in data], ["OS-0001", "OS-0002"])
 
 
+class ProfileTextTests(unittest.TestCase):
+    def test_gathers_prose_from_every_field(self):
+        profile = {
+            "id": "OS-0001", "lifespan": "3rd century",
+            "overview": ["An overview line."],
+            "patronage": ["Travelers"],
+            "timeline": [{"when": "303", "title": "Martyrdom", "body": "Beheaded."}],
+            "sections": [{"heading": "Life", "body": ["Born in Egypt.", "A monk."]}],
+        }
+        txt = emit_one.profile_text(profile)
+        for needle in ("3rd century", "An overview line.", "Travelers", "303",
+                       "Martyrdom", "Beheaded.", "Life", "Born in Egypt.", "A monk."):
+            self.assertIn(needle, txt)
+
+
+class ReconcileStatusTests(unittest.TestCase):
+    PROFILE = {
+        "id": "OS-0695",
+        "overview": ["Born Revoula Benizelos, an Athenian noblewoman."],
+        "sections": [{"heading": "Life",
+                      "body": ["Her mother descended from old Byzantine nobility."]}],
+    }
+
+    def test_all_supported_is_draft(self):
+        verdict = {"status": "pass", "claims": [
+            {"claim": "c", "quote": "Born Revoula Benizelos", "supported": True, "reason": "ok"}]}
+        status, demoted = emit_one.reconcile_status(self.PROFILE, verdict)
+        self.assertEqual(status, "draft")
+        self.assertEqual(demoted, [])
+
+    def test_phantom_flag_is_demoted(self):
+        # Verifier flags text the profile never emitted ("Rigoula") -> phantom.
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "birth name", "quote": "Born Revoula (Rigoula) Benizelos",
+             "supported": False, "reason": "Rigoula unsourced"}]}
+        status, demoted = emit_one.reconcile_status(self.PROFILE, verdict)
+        self.assertEqual(status, "draft")          # demoted -> not flagged
+        self.assertEqual(len(demoted), 1)
+
+    def test_real_flag_is_honored(self):
+        # Quote IS in the profile -> a genuine contradiction stays flagged.
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "name", "quote": "Born Revoula Benizelos",
+             "supported": False, "reason": "contradicts anchor"}]}
+        status, demoted = emit_one.reconcile_status(self.PROFILE, verdict)
+        self.assertEqual(status, "flagged")
+        self.assertEqual(demoted, [])
+
+    def test_missing_quote_is_trusted_not_demoted(self):
+        # No quote to disprove -> honor the adversarial verifier (never silently
+        # drop a flag just because the model omitted the quote).
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "x", "supported": False, "reason": "r"}]}
+        status, demoted = emit_one.reconcile_status(self.PROFILE, verdict)
+        self.assertEqual(status, "flagged")
+        self.assertEqual(demoted, [])
+
+    def test_mixed_real_and_phantom_stays_flagged(self):
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "phantom", "quote": "never written here",
+             "supported": False, "reason": "r"},
+            {"claim": "real", "quote": "old Byzantine nobility",
+             "supported": False, "reason": "r"}]}
+        status, demoted = emit_one.reconcile_status(self.PROFILE, verdict)
+        self.assertEqual(status, "flagged")        # the real one keeps it flagged
+        self.assertEqual(len(demoted), 1)          # only the phantom is demoted
+
+    def test_quote_matches_across_smart_punctuation(self):
+        profile = {"id": "OS-0016",
+                   "overview": ["Barbara — a third-century maiden — was martyred."]}
+        # ASCII hyphens/spacing in the quote still match the em-dashes in the profile.
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "c", "quote": "Barbara - a third-century maiden - was martyred.",
+             "supported": False, "reason": "r"}]}
+        status, demoted = emit_one.reconcile_status(profile, verdict)
+        self.assertEqual(status, "flagged")        # matched -> honored, not demoted
+        self.assertEqual(demoted, [])
+
+
+class VerdictSchemaQuoteTests(unittest.TestCase):
+    def test_claim_requires_a_quote(self):
+        item = schemas.VERDICT_SCHEMA["properties"]["claims"]["items"]
+        self.assertIn("quote", item["required"])
+        self.assertIn("quote", item["properties"])
+
+
 class ProfileSchemaSourcesTests(unittest.TestCase):
     def test_profile_schema_declares_sources(self):
         self.assertIn("sources", schemas.PROFILE_SCHEMA["properties"])

@@ -61,8 +61,11 @@ VERDICT_SCHEMA = {
         "status": {"enum": ["pass", "flagged"]},
         "claims": {"type": "array", "items": {
             "type": "object",
-            "required": ["claim", "supported", "reason"],
+            "required": ["claim", "quote", "supported", "reason"],
             "properties": {"claim": {"type": "string"},
+                           # Verbatim span of the PROFILE the claim judges. emit_one
+                           # discards a flag whose quote isn't found in the profile.
+                           "quote": {"type": "string"},
                            "supported": {"type": "boolean"},
                            "reason": {"type": "string"}}}},
     },
