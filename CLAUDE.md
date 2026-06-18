@@ -313,6 +313,19 @@ of the spine-and-merge plan (§8).
   commemoration (e.g. "the 40 Virgin-Martyrs," a mother and her sons, a dated priest
   cohort), make **one** row and put every individual name in *Also Known As* / *Notes*
   so they stay searchable. If the source lists individuals separately, keep them separate.
+- **SPLIT vs GROUP (the finder decides, not the liturgical pairing).** **SPLIT** an entry
+  into one row per saint when it bundles **distinct, individually-venerated saints that each
+  carry their own facet profile** (Vocation / Commonly Asked Intercessions / Life Experience)
+  and would be searched by name — two major saints who merely share a feast (e.g. **Apostles
+  Peter & Paul**, Jun 29: Peter the fisherman who denied and repented vs. Paul the convert and
+  apostle to the nations) belong in separate rows, because a combined row muddies the
+  controlled-vocab facets that power the finder (§1) and violates one-row-per-saint (§6).
+  **GROUP** (keep one row) only for **collective or undifferentiated commemorations** —
+  numbered cohorts, "the 40 Virgin-Martyrs," a mother and her sons, a Synaxis — where the
+  members share an undifferentiated profile. **When you split, put the shared feast on every
+  split row and preserve the "commemorated together" linkage**: a Notes cross-reference to the
+  other ID(s), plus a `related` entry in each saint's profile (SaintView renders curated
+  `related` as cross-links). Do **not** sever the relationship to gain clean facets.
 - **Skip (do not add as saints):** the feasts themselves (Great Feasts, forefeasts,
   afterfeasts), icon commemorations, church consecrations, angelic feasts, and
   relic-translations/uncoverings whose **principal** feast is another day — add that
