@@ -10,6 +10,10 @@ miracles & traditions→a sections entry split into "Historically Documented" an
 "Traditional Accounts".
 
 HARD RULES:
+- Populate `sources`: the list of citations backing the profile — copy the dossier's
+  `anchor.sources` plus every `external[].source` URL, verbatim. Do NOT invent or omit
+  sources. (Generated profiles MUST cite ≥1 source or the build fails; the Emit stage
+  also re-derives this from the dossier as a safeguard.)
 - Every concrete claim must trace to the dossier. If the dossier is thin, WRITE
   LESS. Never invent a miracle, date, or relationship.
 - Surface relatable human detail ONLY where a source carries it; hedge as tradition

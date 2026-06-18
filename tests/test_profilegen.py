@@ -10,7 +10,9 @@ from tools.profilegen import prioritize
 from tools.profilegen import dossier
 from tools.profilegen import facets
 from tools.profilegen import emit
+from tools.profilegen import emit_one
 from tools.profilegen import proposals
+from tools.profilegen import schemas
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -143,6 +145,22 @@ class EmitTests(unittest.TestCase):
             emit.write_profile(d, {"id": "", "overview": ["x"]},
                                sources=["s"], generated="2026-06-17")
 
+    def test_draft_with_empty_sources_is_rejected(self):
+        # The build's Zod gate rejects sources:[] on draft/flagged — fail fast
+        # in the pipeline instead of emitting a YAML that breaks `npm run build`.
+        d = _P(tempfile.mkdtemp())
+        with self.assertRaises(ValueError):
+            emit.write_profile(d, {"id": "OS-0042", "overview": ["x"]},
+                               sources=[], generated="2026-06-17", status="draft")
+
+    def test_reviewed_with_empty_sources_is_allowed(self):
+        # Only draft/flagged must cite sources; a human-reviewed profile may not.
+        d = _P(tempfile.mkdtemp())
+        path = emit.write_profile(d, {"id": "OS-0042", "overview": ["x"]},
+                                  sources=[], generated="2026-06-17",
+                                  status="reviewed")
+        self.assertEqual(_yaml.safe_load(path.read_text())["sources"], [])
+
 
 class ProposalGateTests(unittest.TestCase):
     def test_accepts_pd_quote_translation(self):
@@ -227,3 +245,109 @@ class RetryAfterTests(unittest.TestCase):
 
     def test_absent_returns_none(self):  # the common case for subscription limits
         self.assertIsNone(limits.retry_after_seconds("Request rejected (429)"))
+
+
+DOSSIER = {
+    "id": "OS-0001",
+    "name": "Stephen the Protomartyr",
+    "anchor": {
+        "brief": "The first martyr, a deacon of Jerusalem.",
+        "notes": "",
+        "customs": "",
+        "context": {"Region of Origin": "Jerusalem"},
+        "sources": ["OCA Synaxarion (oca.org)", "Acts 6-7"],
+    },
+    "external": [
+        {"text": "x" * 1200, "source": "https://en.wikipedia.org/wiki/Saint_Stephen"},
+        {"text": "y" * 600, "source": "https://orthodoxwiki.org/Stephen"},
+    ],
+}
+
+
+class EmitOnePathTests(unittest.TestCase):
+    def test_coverage_path_is_pinned_canonical(self):
+        self.assertEqual(emit_one.coverage_path("2026-06-17").name,
+                         "profilegen_2026-06-17.csv")
+
+    def test_verdicts_path_is_pinned_canonical(self):
+        self.assertEqual(emit_one.verdicts_path("2026-06-17").name,
+                         "profilegen_2026-06-17_verdicts.json")
+
+
+class SourcesFromDossierTests(unittest.TestCase):
+    def test_anchor_then_external_deduped_in_order(self):
+        self.assertEqual(
+            emit_one.sources_from_dossier(DOSSIER),
+            ["OCA Synaxarion (oca.org)", "Acts 6-7",
+             "https://en.wikipedia.org/wiki/Saint_Stephen",
+             "https://orthodoxwiki.org/Stephen"],
+        )
+
+    def test_drops_blank_and_duplicate_sources(self):
+        d = {"anchor": {"sources": ["OCA", "", "OCA"]},
+             "external": [{"text": "t", "source": "OCA"},
+                          {"text": "t", "source": "  "}]}
+        self.assertEqual(emit_one.sources_from_dossier(d), ["OCA"])
+
+    def test_empty_when_no_sources(self):
+        self.assertEqual(
+            emit_one.sources_from_dossier({"anchor": {}, "external": []}), [])
+
+
+class CoverageRowFromDossierTests(unittest.TestCase):
+    def test_counts_external_and_picks_region_and_full_verdict(self):
+        row = emit_one.coverage_row(DOSSIER)
+        self.assertEqual(row["saint_id"], "OS-0001")
+        self.assertEqual(row["name"], "Stephen the Protomartyr")
+        self.assertEqual(row["region"], "Jerusalem")
+        self.assertEqual(row["external_sources"], 2)
+        self.assertGreaterEqual(row["dossier_chars"], 1500)
+        self.assertEqual(row["verdict"], "full")  # >=2 external, >=1500 chars
+
+    def test_no_external_is_none_verdict(self):
+        d = {"id": "OS-0002", "name": "X",
+             "anchor": {"brief": "short", "context": {}, "sources": ["s"]},
+             "external": []}
+        row = emit_one.coverage_row(d)
+        self.assertEqual(row["external_sources"], 0)
+        self.assertEqual(row["verdict"], "none")
+
+    def test_external_without_source_url_is_not_counted(self):
+        d = {"id": "OS-0003", "name": "X",
+             "anchor": {"brief": "b", "context": {}, "sources": ["s"]},
+             "external": [{"text": "t", "source": ""}]}
+        self.assertEqual(emit_one.coverage_row(d)["external_sources"], 0)
+
+
+class AppendVerdictTests(unittest.TestCase):
+    def test_creates_array_and_preserves_claim_objects(self):
+        p = _P(tempfile.mkdtemp()) / "v.json"
+        entry = {"id": "OS-0001", "status": "flagged",
+                 "claims": [{"claim": "c", "supported": False, "reason": "r"}]}
+        emit_one.append_verdict(p, entry)
+        import json
+        data = json.loads(p.read_text())
+        self.assertEqual(len(data), 1)
+        # The {claim, supported, reason} objects survive verbatim (not stringified).
+        self.assertEqual(data[0]["claims"][0]["supported"], False)
+        self.assertEqual(data[0]["claims"][0]["claim"], "c")
+
+    def test_appends_to_existing_array(self):
+        p = _P(tempfile.mkdtemp()) / "v.json"
+        emit_one.append_verdict(p, {"id": "OS-0001", "status": "pass", "claims": []})
+        emit_one.append_verdict(p, {"id": "OS-0002", "status": "pass", "claims": []})
+        import json
+        data = json.loads(p.read_text())
+        self.assertEqual([e["id"] for e in data], ["OS-0001", "OS-0002"])
+
+
+class ProfileSchemaSourcesTests(unittest.TestCase):
+    def test_profile_schema_declares_sources(self):
+        self.assertIn("sources", schemas.PROFILE_SCHEMA["properties"])
+        self.assertEqual(
+            schemas.PROFILE_SCHEMA["properties"]["sources"]["type"], "array")
+
+    def test_dossier_schema_requires_external_items_have_source(self):
+        ext = schemas.DOSSIER_SCHEMA["properties"]["external"]["items"]
+        self.assertIn("source", ext["required"])
+        self.assertIn("text", ext["required"])

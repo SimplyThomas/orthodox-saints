@@ -16,17 +16,53 @@ export const meta = {
     },
     {
       title: "Emit",
-      detail: "write draft/flagged file + proposals",
+      detail: "write verbatim artifacts + run pinned bookkeeping",
       model: "haiku",
     },
   ],
 };
 
-const PROFILE_SCHEMA_JSON = {
+// Mirrors tools/profilegen/schemas.py DOSSIER_SCHEMA — strict, parseable JSON so
+// the Emit stage can derive `sources` + the coverage row deterministically.
+const DOSSIER_SCHEMA_JSON = {
   type: "object",
-  required: ["id", "overview"],
+  required: ["id", "name", "anchor", "external"],
   properties: {
     id: { type: "string", pattern: "^OS-\\d{4,}$" },
+    name: { type: "string" },
+    anchor: {
+      type: "object",
+      required: ["sources"],
+      properties: {
+        brief: { type: "string" },
+        notes: { type: "string" },
+        customs: { type: "string" },
+        context: { type: "object" },
+        sources: { type: "array", items: { type: "string" } },
+      },
+    },
+    external: {
+      type: "array",
+      items: {
+        type: "object",
+        required: ["text", "source"],
+        properties: {
+          text: { type: "string" },
+          source: { type: "string" },
+        },
+      },
+    },
+  },
+};
+
+const PROFILE_SCHEMA_JSON = {
+  type: "object",
+  required: ["id", "overview", "sources"],
+  properties: {
+    id: { type: "string", pattern: "^OS-\\d{4,}$" },
+    // Copied from the dossier (anchor.sources + each external source). Generated
+    // profiles MUST cite >=1 source or `npm run build` fails (Zod gate).
+    sources: { type: "array", items: { type: "string" } },
     lifespan: { type: "string" },
     overview: { type: "array", items: { type: "string" }, minItems: 1 },
     timeline: {
@@ -77,84 +113,108 @@ const VERDICT_SCHEMA_JSON = {
 };
 
 // Saint IDs (from `make profile-batch`). Accept an array, a JSON-encoded array
-// string, or a whitespace/comma-separated string — the harness may hand `args`
-// through in any of these shapes.
+// string, a whitespace/comma-separated string, or an object {ids, date}.
 let ids = args;
+let GENERATED = "2026-06-17"; // batch date; pass args.date to override per run.
+if (ids && typeof ids === "object" && !Array.isArray(ids)) {
+  if (ids.date) GENERATED = ids.date;
+  ids = ids.ids;
+}
 if (typeof ids === "string") {
   const s = ids.trim();
-  if (s.startsWith("[")) {
-    ids = JSON.parse(s);
-  } else {
-    ids = s.split(/[\s,]+/).filter(Boolean);
-  }
+  ids = s.startsWith("[") ? JSON.parse(s) : s.split(/[\s,]+/).filter(Boolean);
 }
 if (!Array.isArray(ids)) {
   throw new Error(
     `profilegen: expected an array of Saint IDs, got ${typeof args}: ${JSON.stringify(args)}`,
   );
 }
-const GENERATED = "PASS_THE_DATE_IN"; // set by the caller; scripts can't read the clock
 
-const results = await pipeline(
-  ids,
+const SCRATCH = "dist/profilegen/scratch";
+
+// One independent gather→write→verify→emit chain per saint. A per-item chain
+// (not a shared pipeline) keeps the dossier in closure so the Emit stage can hand
+// it to the deterministic bookkeeping helper.
+async function generate(id) {
   // Gather (Haiku): seed from the record, then fetch external sources.
-  (id) =>
-    agent(
-      `Read tools/profilegen/prompts/gather.md. Seed the dossier with:\n` +
-        `  python -m tools.profilegen.dossier ${id}\n` +
-        `Then fetch external sources per the tiers and return the completed dossier JSON.`,
-      { label: `gather:${id}`, phase: "Gather", model: "haiku" },
-    ),
+  const dossier = await agent(
+    `Read tools/profilegen/prompts/gather.md. Seed the dossier with:\n` +
+      `  python -m tools.profilegen.dossier ${id}\n` +
+      `Then fetch external sources per the tiers and return the completed dossier ` +
+      `as strict JSON (DOSSIER_SCHEMA).`,
+    {
+      label: `gather:${id}`,
+      phase: "Gather",
+      model: "haiku",
+      schema: DOSSIER_SCHEMA_JSON,
+    },
+  );
+  if (!dossier) return null;
 
-  // Write (Opus): produce the SaintProfile JSON.
-  (dossier, id) =>
-    agent(
-      `Read tools/profilegen/prompts/write.md and tools/profilegen/schemas.py ` +
-        `(PROFILE_SCHEMA). Using ONLY this dossier, write the profile:\n${dossier}`,
-      {
-        label: `write:${id}`,
-        phase: "Write",
-        model: "opus",
-        schema: PROFILE_SCHEMA_JSON,
-      },
-    ),
+  // Write (Opus): produce the SaintProfile JSON, populating `sources`.
+  const profile = await agent(
+    `Read tools/profilegen/prompts/write.md and tools/profilegen/schemas.py ` +
+      `(PROFILE_SCHEMA). Using ONLY this dossier, write the profile (copy ` +
+      `sources from the dossier's anchor.sources + each external source):\n` +
+      `${JSON.stringify(dossier)}`,
+    {
+      label: `write:${id}`,
+      phase: "Write",
+      model: "opus",
+      schema: PROFILE_SCHEMA_JSON,
+    },
+  );
+  if (!profile) return null;
 
-  // Verify (Sonnet): adversarial check.
-  (profile, id) =>
-    agent(
-      `Read tools/profilegen/prompts/verify.md. Verify this profile against its ` +
-        `dossier/anchor and return {status, claims}:\n${JSON.stringify(profile)}`,
-      {
-        label: `verify:${id}`,
-        phase: "Verify",
-        model: "sonnet",
-        schema: VERDICT_SCHEMA_JSON,
-      },
-    ).then((verdict) => ({ id, profile, verdict })),
+  // Verify (Sonnet): adversarial check vs the anchor.
+  const verdict = await agent(
+    `Read tools/profilegen/prompts/verify.md. Verify this profile against its ` +
+      `dossier/anchor and return {status, claims}:\n` +
+      `dossier: ${JSON.stringify(dossier)}\nprofile: ${JSON.stringify(profile)}`,
+    {
+      label: `verify:${id}`,
+      phase: "Verify",
+      model: "sonnet",
+      schema: VERDICT_SCHEMA_JSON,
+    },
+  );
+  if (!verdict) return null;
 
-  // Emit (Haiku/code): write the file + log coverage + proposals.
-  ({ id, profile, verdict }) => {
-    const status = verdict.status === "pass" ? "draft" : "flagged";
-    return agent(
-      `Emit the profile for ${id} with status "${status}".\n` +
-        `1. Write this JSON verbatim to dist/profilegen/scratch/${id}.json:\n` +
-        `${JSON.stringify(profile, null, 2)}\n` +
-        `2. Run (loads the JSON from that file — avoids shell-quoting issues with ` +
-        `double-quotes in the prose):\n` +
-        `   python -c "import json; from pathlib import Path; ` +
-        `from tools.profilegen import emit; ` +
-        `p = json.load(open('dist/profilegen/scratch/${id}.json')); ` +
-        `emit.write_profile(Path('src/content/profiles'), p, ` +
-        `sources=p.get('sources', []), generated='${GENERATED}', status='${status}')"\n` +
-        `3. prettier --write the emitted src/content/profiles/${id}.yaml.\n` +
-        `4. Append a coverage row (tools.profilegen.coverage) and any PD-gated ` +
-        `quote/image proposals (tools.profilegen.proposals) to dist/.\n` +
-        `5. Append this saint's verdict {id, status, claims} to ` +
-        `dist/profilegen_${GENERATED}_verdicts.json (a JSON array — Plan 3 reads it).`,
-      { label: `emit:${id}`, phase: "Emit", model: "haiku" },
-    );
-  },
+  const status = verdict.status === "pass" ? "draft" : "flagged";
+
+  // Emit (Haiku): the agent ONLY writes the three upstream artifacts verbatim and
+  // runs ONE pinned command — no freelanced filenames, row schemas, or JSON. All
+  // bookkeeping (YAML emit, dossier-derived sources, pinned coverage CSV, verbatim
+  // verdict log) is owned by tools/profilegen/emit_one.py.
+  await agent(
+    `Emit the profile for ${id} (status "${status}"). Do EXACTLY these steps, ` +
+      `nothing more — do not hand-write any CSV/JSON bookkeeping:\n` +
+      `1. Write this JSON VERBATIM to ${SCRATCH}/${id}.profile.json:\n` +
+      `${JSON.stringify(profile, null, 2)}\n` +
+      `2. Write this JSON VERBATIM to ${SCRATCH}/${id}.verdict.json:\n` +
+      `${JSON.stringify(verdict, null, 2)}\n` +
+      `3. Write this JSON VERBATIM to ${SCRATCH}/${id}.dossier.json:\n` +
+      `${JSON.stringify(dossier, null, 2)}\n` +
+      `4. Run this one command (it writes the YAML, the pinned coverage row, and ` +
+      `the verbatim verdict — all to canonical paths):\n` +
+      `   python -m tools.profilegen.emit_one --id ${id} --date ${GENERATED} ` +
+      `--status ${status} --profile-file ${SCRATCH}/${id}.profile.json ` +
+      `--verdict-file ${SCRATCH}/${id}.verdict.json ` +
+      `--dossier-file ${SCRATCH}/${id}.dossier.json\n` +
+      `5. prettier --write src/content/profiles/${id}.yaml\n` +
+      `Report the emit_one stdout line.`,
+    { label: `emit:${id}`, phase: "Emit", model: "haiku" },
+  );
+  return { id, status };
+}
+
+const results = (await parallel(ids.map((id) => () => generate(id)))).filter(
+  Boolean,
 );
 
-log(`Generated ${results.filter(Boolean).length}/${ids.length} profiles.`);
-return results.filter(Boolean);
+log(
+  `Generated ${results.length}/${ids.length} profiles ` +
+    `(coverage: dist/profilegen_${GENERATED}.csv, ` +
+    `verdicts: dist/profilegen_${GENERATED}_verdicts.json).`,
+);
+return results;

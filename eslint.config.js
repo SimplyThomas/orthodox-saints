@@ -47,6 +47,7 @@ export default [
         ...globals.node,
         args: "readonly",
         pipeline: "readonly",
+        parallel: "readonly",
         agent: "readonly",
         log: "readonly",
       },
