@@ -112,21 +112,44 @@ const VERDICT_SCHEMA_JSON = {
   },
 };
 
-// Saint IDs (from `make profile-batch`). Accept an array, a JSON-encoded array
-// string, a whitespace/comma-separated string, or an object {ids, date}.
+// Saint IDs (from `make profile-batch`). Accept an array, an object {ids, date},
+// a JSON-encoded string of EITHER (the harness sometimes stringifies args), or a
+// whitespace/comma-separated string. Parse a JSON string FIRST so a stringified
+// {ids,date} object isn't naively split into garbage tokens (calibration batch 2).
 let ids = args;
 let GENERATED = "2026-06-17"; // batch date; pass args.date to override per run.
+if (typeof ids === "string") {
+  const s = ids.trim();
+  if (s.startsWith("{") || s.startsWith("[")) {
+    try {
+      ids = JSON.parse(s);
+    } catch {
+      /* not JSON — fall through to the delimited-string parse below */
+    }
+  }
+}
 if (ids && typeof ids === "object" && !Array.isArray(ids)) {
   if (ids.date) GENERATED = ids.date;
   ids = ids.ids;
 }
 if (typeof ids === "string") {
-  const s = ids.trim();
-  ids = s.startsWith("[") ? JSON.parse(s) : s.split(/[\s,]+/).filter(Boolean);
+  ids = ids
+    .trim()
+    .split(/[\s,]+/)
+    .filter(Boolean);
 }
 if (!Array.isArray(ids)) {
   throw new Error(
     `profilegen: expected an array of Saint IDs, got ${typeof args}: ${JSON.stringify(args)}`,
+  );
+}
+// Fail loudly on malformed IDs rather than letting a downstream agent "recover"
+// a garbage token into a fabricated saint (calibration batch 2: a mangled token
+// was improvised into OS-0511, an unrequested real saint).
+const malformed = ids.filter((id) => !/^OS-\d{4,}$/.test(id));
+if (malformed.length) {
+  throw new Error(
+    `profilegen: malformed Saint IDs (expected OS-####): ${JSON.stringify(malformed)}`,
   );
 }
 
