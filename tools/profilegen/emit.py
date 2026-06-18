@@ -18,6 +18,11 @@ def write_profile(profiles_dir: Path, profile: dict, *, sources: list[str],
     sid = (profile.get("id") or "").strip()
     if not ID_RE.match(sid):
         raise ValueError(f"profile id must be OS-####, got {sid!r}")
+    # Mirror the Zod gate (src/content.config.ts): draft/flagged profiles MUST
+    # cite a source. Fail loudly here rather than emit a YAML that reds the build.
+    if status != "reviewed" and not [s for s in (sources or []) if (s or "").strip()]:
+        raise ValueError(
+            f"{sid}: {status} profile must list >=1 source (build would reject)")
     full = {**profile, "id": sid, "status": status,
             "sources": sources, "generated": generated}
     profiles_dir.mkdir(parents=True, exist_ok=True)
