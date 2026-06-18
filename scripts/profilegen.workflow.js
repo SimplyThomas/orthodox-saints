@@ -76,7 +76,23 @@ const VERDICT_SCHEMA_JSON = {
   },
 };
 
-const ids = args; // array of Saint IDs (from `make profile-batch`)
+// Saint IDs (from `make profile-batch`). Accept an array, a JSON-encoded array
+// string, or a whitespace/comma-separated string — the harness may hand `args`
+// through in any of these shapes.
+let ids = args;
+if (typeof ids === "string") {
+  const s = ids.trim();
+  if (s.startsWith("[")) {
+    ids = JSON.parse(s);
+  } else {
+    ids = s.split(/[\s,]+/).filter(Boolean);
+  }
+}
+if (!Array.isArray(ids)) {
+  throw new Error(
+    `profilegen: expected an array of Saint IDs, got ${typeof args}: ${JSON.stringify(args)}`,
+  );
+}
 const GENERATED = "PASS_THE_DATE_IN"; // set by the caller; scripts can't read the clock
 
 const results = await pipeline(
