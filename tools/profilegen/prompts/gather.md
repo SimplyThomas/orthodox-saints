@@ -7,12 +7,24 @@ where `text` is a faithful factual extract (NOT copied prose to publish) and
 `external[]` item** — the written profile's `sources` and the coverage verdict are
 derived from these, so an unrecorded fetch is a wasted fetch.
 
-REQUIRED: fetch **at least 1–2 external sources** (aim for 2+) before returning.
-The anchor row alone is NOT enough grounding — a dossier with `external: []` leaves
-the profile resting on parametric knowledge, exactly the §9 fabrication risk this
-pipeline exists to prevent. If after honest effort you truly find nothing for an
-obscure saint, return `external: []` and say so in your note (Write will then write
-less); do not pad with low-relevance hits.
+REQUIRED: fetch **at least 2 external sources** and extract **deeply** from each —
+read the **full article body, not just the lead/summary**, and pull **≥400–500
+characters of factual material per source** (dates, places, events, offices,
+relics, glorification). Summarizing a rich article down to a line or two is the
+failure mode we are fixing: a dossier totaling only a few hundred characters when
+the sources plainly carry more is a wasted fetch. Aim for a dossier rich enough to
+earn a "full" rating — **≥2 sources AND ≥1500 total characters**.
+
+FACT CHECKLIST — try to fill each from the sources (omit only what no source gives):
+birth (date/place), death/repose (date/place), office or monastic standing, the
+2–4 defining events of the life, relics & shrines, and — for modern saints — the
+**glorification act + date**.
+
+The anchor row alone is NOT enough grounding — a dossier resting on parametric
+knowledge is exactly the §9 fabrication risk this pipeline exists to prevent. If
+after honest effort a genuinely obscure saint truly has little (no real Wikipedia
+article, only stubs), record what little exists and say so in a note (Write will
+then write less); never pad with low-relevance hits.
 
 Fetch in tier order (spec §4), stopping when you have enough for a full profile:
 0. (already in the dossier) the OCA-anchor row — do NOT re-fetch the live page.
@@ -23,6 +35,20 @@ Fetch in tier order (spec §4), stopping when you have enough for a full profile
    glorification acts (modern).
 3. New Advent (PD) / scholarly, for cross-check.
 NEVER fetch Oriental Orthodox sources (out of scope, spec §4).
+
+MODERN SAINTS — Wikipedia is the backbone. When the anchor's `context.Era` is
+`Modern` (or `context.Century` is 19th/20th/21st), the OCA/synaxarion entry is
+usually a stub, so make the saint's **`en.wikipedia.org` biography the primary
+factual spine** — fetch it first and extract generously (dates, life events,
+episcopate/monastic career, glorification). THEN add **≥1 Orthodox source**
+(orthodoxwiki.org, oca.org, the saint's monastery/jurisdiction site, or
+Mystagogy/Sanidopoulos) for the veneration, relics, and the **glorification
+act + date** — record that date. Two guardrails still bind: the anchor row WINS
+on any conflict, and Wikipedia's "venerated as a saint" is NOT proof of formal
+glorification — if no source confirms a glorification act, say so in an
+`external[]` note so Write/Verify can hedge per §9 canonization caution rather
+than assert sainthood. (The obscure modern tail — New Martyrs of Russia, local
+elders — may have no real Wikipedia article; then an honest thin dossier stands.)
 
 Reachability (verified 2026-06-17): `en.wikipedia.org`, `commons.wikimedia.org`,
 `upload.wikimedia.org`, `oca.org`, and `orthodoxwiki.org` respond. Confirm a URL

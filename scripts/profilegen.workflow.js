@@ -5,8 +5,8 @@ export const meta = {
   phases: [
     {
       title: "Gather",
-      detail: "fetch sources into a cited dossier",
-      model: "haiku",
+      detail: "fetch sources into a cited dossier (retry once if thin)",
+      model: "sonnet",
     },
     { title: "Write", detail: "original encyclopedic profile", model: "opus" },
     {
@@ -155,12 +155,37 @@ if (malformed.length) {
 
 const SCRATCH = "dist/profilegen/scratch";
 
+// Dossier richness helpers — mirror tools/profilegen/emit_one.py (dossier_chars)
+// and coverage.py (verdict): a "full" dossier has >=2 distinct external sources
+// AND >=1500 total chars. Used to decide whether Gather needs a second pass.
+function dossierChars(d) {
+  const a = (d && d.anchor) || {};
+  let n = ["brief", "notes", "customs"].reduce(
+    (s, k) => s + (a[k] || "").length,
+    0,
+  );
+  for (const e of (d && d.external) || []) n += ((e && e.text) || "").length;
+  return n;
+}
+function distinctExternalSources(d) {
+  return new Set(
+    ((d && d.external) || [])
+      .map((e) => ((e && e.source) || "").trim())
+      .filter(Boolean),
+  ).size;
+}
+function isFullDossier(d) {
+  return distinctExternalSources(d) >= 2 && dossierChars(d) >= 1500;
+}
+
 // One independent gather→write→verify→emit chain per saint. A per-item chain
 // (not a shared pipeline) keeps the dossier in closure so the Emit stage can hand
 // it to the deterministic bookkeeping helper.
 async function generate(id) {
-  // Gather (Haiku): seed from the record, then fetch external sources.
-  const dossier = await agent(
+  // Gather (Sonnet): seed from the record, then fetch external sources. Sonnet,
+  // not Haiku — shallow extraction here starves every downstream stage, the
+  // single biggest quality lever we found in calibration.
+  let dossier = await agent(
     `Read tools/profilegen/prompts/gather.md. Seed the dossier with:\n` +
       `  python -m tools.profilegen.dossier ${id}\n` +
       `Then fetch external sources per the tiers and return the completed dossier ` +
@@ -168,11 +193,34 @@ async function generate(id) {
     {
       label: `gather:${id}`,
       phase: "Gather",
-      model: "haiku",
+      model: "sonnet",
       schema: DOSSIER_SCHEMA_JSON,
     },
   );
   if (!dossier) return null;
+
+  // Retry Gather ONCE if the dossier wouldn't earn a "full" rating. The usual
+  // cause is shallow extraction (the right page was fetched but summarized to a
+  // stub), not missing sources — so push explicitly for depth. Keep the richer
+  // of the two; one retry only (a genuinely obscure saint stays honestly thin).
+  if (!isFullDossier(dossier)) {
+    const retry = await agent(
+      `Read tools/profilegen/prompts/gather.md. Your previous dossier for ${id} was ` +
+        `too THIN — ${dossierChars(dossier)} chars across ` +
+        `${distinctExternalSources(dossier)} external source(s). Re-fetch the FULL ` +
+        `article bodies (NOT just the lead) and extract far more factual material per ` +
+        `the fact checklist; aim for >=2 substantial sources and >=1500 total chars. ` +
+        `Return the enriched dossier as strict JSON (DOSSIER_SCHEMA). Previous thin ` +
+        `dossier for reference:\n${JSON.stringify(dossier)}`,
+      {
+        label: `gather-retry:${id}`,
+        phase: "Gather",
+        model: "sonnet",
+        schema: DOSSIER_SCHEMA_JSON,
+      },
+    );
+    if (retry && dossierChars(retry) > dossierChars(dossier)) dossier = retry;
+  }
 
   // Write (Opus): produce the SaintProfile JSON, populating `sources`.
   const profile = await agent(
