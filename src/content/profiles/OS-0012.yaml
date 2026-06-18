@@ -1,53 +1,55 @@
 id: OS-0012
-lifespan: c. 270s – 303 (martyred April 23)
+lifespan: c. 270/275 – 303
 overview:
-  - George, called the Great Martyr and Trophy-bearer, was a Roman soldier of Cappadocian origin who was put to death around 303 during the persecutions of the emperor Diocletian, most probably at Lydda (Diospolis) in Palestine. By tradition he was born to a devout Christian family; his father was martyred during his childhood, and his mother, who held lands in Palestine, raised him there in strict piety.
-  - Entering the Roman army, he distinguished himself for bravery and rose to the rank of military commander (comites) under Diocletian. The synaxarion relates that he distributed his wealth to the poor and freed his servants before declaring himself a Christian before the emperor and Senate, after which he was tortured and executed at about thirty years of age.
-  - His title of Great Martyr (megalomartyr) was given in the Eastern Orthodox tradition. He is commemorated on April 23 and, in Georgian usage, on November 10. He is best known in later iconography and legend as the dragon-slayer, though that narrative does not belong to the earliest accounts of his life.
-sections:
-  - heading: Life and Martyrdom
-    body:
-      - By tradition George was born in Cappadocia to a devout Christian family. His father was martyred when George was a child, and his mother, who owned lands in Palestine, brought him there and raised him in strict piety.
-      - "He entered the Roman army and distinguished himself for his bravery, earning appointment as a military commander (comites) under Diocletian. According to the synaxarion he distributed his wealth to the poor and freed his servants, then presented himself before the emperor and Senate, declaring: 'I am a servant of Christ, my God, and trusting in Him, I have come among you voluntarily, to bear witness concerning the Truth.'"
-      - The accounts relate that he endured a series of tortures, including imprisonment under heavy stones, a spiked wheel from which he was delivered, iron sandals fitted with red-hot nails, beatings with ox-thongs, and attempts to poison him. He was executed on April 23, 303, at about thirty years of age.
-  - heading: Historicity and the Development of the Legend
-    body:
-      - George's veneration is documented from the fifth century, and he was canonized by Pope Gelasius I in 494. The oldest surviving tradition is a Coptic manuscript from Qasr Ibrim, dated to between 350 and 500, which describes George as born during the reign of Aurelian (270–275) to Cappadocian parents and secretly baptized by his Christian mother.
-      - The dragon narrative is absent from the earliest hagiographies. It first appears in the eleventh century in Georgian sources and reached Latin Europe by the twelfth century through Jacobus de Voragine's Golden Legend.
-      - Scholars have noted that the dragon tale may draw on pre-Christian mythology, with parallels to Apollo slaying the Python, Heracles defeating the Hydra, Bellerophon killing the Chimera, and the Perseus and Andromeda myth. It has been suggested that the Perseus mythology migrated to Lydda, where 'Perseus became George' through Christian reinterpretation. The legendary elements—the elaborate tortures, resurrections, and miracles—developed over centuries across Greek, Latin, Syriac, and Persian traditions.
-  - heading: Legacy and Veneration in Russia
-    body:
-      - George's veneration spread widely in the Slavic world. Prince Yaroslav the Wise, baptized with the name George, advanced his veneration by building the city of Yuriev, founding the Yuriev monastery at Novgorod, and constructing a church dedicated to George in Kiev. The consecration of that church on November 26, 1051, became known as 'Yuriev Day,' celebrated as the autumn Feast of Saint George.
-      - Yurii Dolgoruky, the founder of Moscow, built numerous churches honoring the saint. The image of George slaying the serpent became the coat of arms of Moscow and an emblem of the Russian state, strengthening ties with other Christian nations, particularly Georgia. The Georgian commemoration of his martyrdom falls on November 10.
+  - George, called the Trophy-bearer, was a Roman officer martyred under the emperor Diocletian and one of the most widely venerated of the early military martyrs. By tradition he was born in the late third century, likely between about 270 and 275, into a devout Christian family; a Coptic manuscript found at Qasr Ibrim in 1964 names his father Gerontius as a Cappadocian and his mother Polychronia as a native of Lydda in Palestine.
+  - His father died as a martyr during George's childhood, after which his mother returned with the boy to her native Lydda. George entered the Roman army and rose quickly, attaining the rank of tribune and the title of count (comes) and serving in Diocletian's personal guard at Nicomedia. When the persecution intensified in 303 he publicly confessed his faith and refused to renounce Christ; he was beheaded, by tradition on 23 April 303, and his body was returned to Lydda for burial.
+  - Though later legend made him the dragon-slayer of icon and story, the historical core of his martyrdom is well attested. The scholar Herbert Thurston judged that there is no ground for doubting the saint's historical existence, even while no confidence can be placed in the details of his alleged exploits. He is honoured in the Orthodox Church as a Great Martyr and Wonderworker.
 timeline:
   - when: c. 270–275
-    title: Birth in Cappadocia
-    body: By the oldest surviving (Coptic) tradition, George is born during the reign of Aurelian to Cappadocian Christian parents and secretly baptized by his mother. His father is martyred during his childhood.
-  - when: Late 3rd century
-    title: Military service
-    body: George enters the Roman army, distinguishes himself for bravery, and is appointed a military commander (comites) under Diocletian.
-  - when: April 23, 303
-    title: Martyrdom at Lydda
-    body: After declaring himself a Christian before the emperor and Senate and enduring a series of tortures, George is executed, most probably at Lydda (Diospolis) in Palestine, at about thirty years of age.
-  - when: 5th century
-    title: Veneration documented
-    body: His veneration is recorded from the fifth century.
-  - when: "494"
-    title: Canonization
-    body: George is canonized by Pope Gelasius I.
-  - when: November 26, 1051
-    title: Yuriev Day in Kiev
-    body: The Kiev church dedicated to George, built by Prince Yaroslav the Wise (baptized George), is consecrated; the day becomes known as 'Yuriev Day,' the autumn Feast of Saint George.
-  - when: 11th–12th century
-    title: The dragon legend emerges
-    body: The dragon narrative first appears in eleventh-century Georgian sources and reaches Latin Europe by the twelfth century through Jacobus de Voragine's Golden Legend.
+    title: Birth
+    body: Born, by tradition, in Cappadocia in Asia Minor to a Christian family; a Coptic manuscript names his father Gerontius (a Cappadocian) and his mother Polychronia (of Lydda).
+  - when: During his childhood
+    title: Father's martyrdom
+    body: His father died as a martyr; his mother then returned with young George to her native Lydda in Palestine.
+  - when: By his late twenties
+    title: Military rank
+    body: Rose through the Roman army to the rank of tribune and count (comes), serving in Diocletian's personal guard at Nicomedia.
+  - when: "303"
+    title: Public confession
+    body: As Diocletian intensified the persecution of Christians, George openly confessed his faith and refused to take part in it.
+  - when: 23 April 303
+    title: Martyrdom
+    body: Beheaded at Nicomedia after refusing to sacrifice to the pagan gods; his body was returned to Lydda for burial.
+  - when: November 3
+    title: Translation of relics
+    body: The translation of his relics and the dedication of his church at Lydda are commemorated, traditionally dated to the reign of Constantine.
+sections:
+  - heading: Martyrdom
+    body:
+      - The accounts agree that George served in Diocletian's personal guard at Nicomedia and that, when the emperor turned to persecuting Christians in 303, George refused to comply and publicly confessed his faith. By one tradition he declared before the Senate, "I am a servant of Christ, my God."
+      - The hagiographic tradition relates that he was subjected to extreme tortures before his death and that his steadfastness moved others to faith; among those said to have been converted by his witness were the empress Alexandra and a pagan priest named Athanasius, with Alexandra herself accepting martyrdom. By tradition George was beheaded on 23 April 303, by some accounts before the defensive wall of Nicomedia. His body was returned to Lydda for burial.
+  - heading: Relics & Shrines
+    body:
+      - By tradition the relics of Saint George rest at Lydda (Diospolis), the modern Lod in Israel, where his mother's family lived and where his body was brought after his martyrdom. A church there has long been associated with his tomb and with miraculous healings; a new church was erected on the site in 1872. The translation of the relics and the dedication of the church are kept on 3 November.
+      - "Veneration at Lydda is documented from an early date: the pilgrimage account known as the De Situ Terrae Sanctae of Theodosius (c. 518–530) attests devotion at the site. Major shrines connected with the saint later arose at Damascus, Cairo, and across the Kerala region of India."
+  - heading: Veneration & Legacy
+    body:
+      - George's cult spread from Syria Palaestina throughout the Byzantine Empire by the fifth century and reached Western Europe by 494, when Pope Gelasius I recognized him. The centre of his veneration shifted from Diospolis toward Cappadocia by the sixth century.
+      - "Devotion to George was carried into the Slavic world: Prince Yaroslav the Wise of Rus' promoted his veneration, founding monasteries and churches in his honour, and the coat of arms of Moscow depicts George slaying the serpent. The red-on-white Cross of Saint George became associated with him from the twelfth century, used first by Genoa and later adopted by England."
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Early pilgrimage and liturgical evidence record veneration of George at Lydda from the sixth century onward, and his feast and the translation of his relics were established commemorations across the Byzantine world."
+      - "Traditional Accounts: The famous dragon-slaying narrative belongs to the later hagiographic tradition rather than to the historical record. Its earliest documented form appears in an eleventh-century Georgian source and reached Latin Europe in the twelfth century; the legend tells of George delivering a city from a dragon that demanded human sacrifice and converting its people, and it became widely known through William Caxton's fifteenth-century English translation of the Golden Legend. A related Eastern tradition places his deliverance of a city from a serpent near Beirut."
+      - "Traditional Accounts: In the country of Georgia, where devotion to the saint reaches back to the fourth century, legend holds that after his martyrdom his body was divided into 365 pieces scattered throughout the land, and that 365 churches bear his name, one for each day of the year."
 patronage:
-  - Georgia (national connections strengthened through his veneration)
-  - Moscow and the Russian state (his image slaying the serpent became Moscow's coat of arms and an emblem of the state)
+  - Moscow
+  - Georgia
+  - England
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_George
-  - https://oca.org/saints/lives/2024/04/23/101184-greatmartyr-victory-bearer-and-wonderworker-george
-  - https://en.wikipedia.org/wiki/Saint_George#Historicity
+  - https://www.oca.org/saints/lives/2025/04/23/101184-great-martyr-george-the-trophy-bearer
+  - https://orthodoxwiki.org/George_the_Trophy-bearer
+  - https://en.wikipedia.org/wiki/Saint_George#Veneration
 status: reviewed
-generated: "2026-06-17"
+generated: "2026-06-18"

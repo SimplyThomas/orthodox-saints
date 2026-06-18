@@ -1,48 +1,79 @@
 id: OS-0023
-lifespan: c. 347/349 – 407
+lifespan: c. 347 – 407
 overview:
-  - John Chrysostom (c. 347/349–407) was an early Church Father and Archbishop of Constantinople, surnamed "the Golden-Mouthed" (Chrysostom) for the eloquence of his preaching. Born in Antioch, Syria, he received a classical education before withdrawing from the world to pursue an ascetic and monastic life.
-  - Ordained a deacon in 381 and a priest in 386, he served at Antioch for twelve years, where his brilliant sermons earned him his famous surname. In 398 he was elevated to the see of Constantinople, the most prestigious ecclesiastical position in the Eastern Roman Empire. His reforms and denunciations of corruption made powerful enemies, and after some years he was deposed, exiled, and died in banishment.
-  - He is venerated as a saint across the Eastern Orthodox, Oriental Orthodox, Catholic, and Anglican churches, and is numbered among the Three Hierarchs alongside Basil the Great and Gregory of Nazianzus. The Divine Liturgy that bears his name remains the principal liturgical service of the Eastern Orthodox Church and many Eastern Catholic churches to this day.
-sections:
-  - heading: Life and Ministry
-    body:
-      - John was born about the year 347 (some accounts give c. 349) at Antioch in Syria, where he received an excellent classical education. In his youth he withdrew from the world to live in monastic solitude, first in the mountains of Syria for about four years, then in a cave for two years, where he practiced such severe asceticism that, by tradition, his health was permanently impaired.
-      - Returning to Antioch, he was ordained a deacon in 381 and a priest in 386. As a priest at the cathedral of Antioch for twelve years, his eloquent homilies established his reputation and earned him the surname Chrysostom, "the Golden-Mouthed." In 398 he was made Archbishop of Constantinople, where he served until 407.
-  - heading: Conflict and Exile
-    body:
-      - As Archbishop, John's reforms and his zeal in denouncing corruption at the imperial court incurred the enmity of the Empress Eudoxia and her powerful supporters. After some years in office he was deposed by a synod convened at the Oak — the Synod of the Oak — under the jurisdiction of Theophilus of Alexandria, and was sent into exile.
-      - He was banished to Cucusus in the Taurus mountains. The continued efforts of his friends and supporters to secure his reinstatement caused increasing strain, and he was moved further away to Comana in Pontus, where he died on September 14, 407.
-  - heading: Legacy
-    body:
-      - John Chrysostom's collected homilies and writings remain among the most extensive surviving works of any Church Father. The Divine Liturgy of Saint John Chrysostom is the primary liturgical service celebrated in the Eastern Orthodox Church and in many Eastern Catholic churches.
-      - He is commemorated on November 13; on January 27, the feast of the Translation of his relics; and on January 30, the Synaxis of the Three Hierarchs, which honors him together with Basil the Great and Gregory of Nazianzus.
+  - John Chrysostom was a fourth- and early-fifth-century archbishop of Constantinople, theologian, and preacher whose surname "Chrysostom" — Greek for "golden-mouthed" — was bestowed posthumously in recognition of his eloquence. He is numbered among the Three Holy Hierarchs alongside Basil the Great and Gregory the Theologian.
+  - Born around 347 in Antioch in Roman Syria, he was educated in classical rhetoric under Libanius and in theology under Diodorus of Tarsus in the Antiochene school. After a period of severe asceticism that permanently damaged his health, he served as deacon and then presbyter at Antioch, where twelve years of preaching established his reputation.
+  - Appointed Archbishop of Constantinople in 397 and ordained the following year, he pursued clergy reform, refused lavish living, and cared for the poor — provoking powerful opposition that culminated in his deposition and exile. He died in exile in 407 at Comana Pontica, reportedly with the words "Glory be to God for all things." The Divine Liturgy that bears his name is celebrated to this day.
 timeline:
-  - when: c. 347/349
+  - when: c. 347
     title: Birth at Antioch
-    body: Born at Antioch in Syria, where he received a classical education.
+    body: Born at Antioch in Roman Syria to noble parents. His father, a high-ranking military officer, died shortly after his birth, and his mother Anthusa raised him.
+  - when: c. 368–373
+    title: Baptism and education
+    body: Baptised (sources give 368, 370, or 373) and tonsured a reader. He studied rhetoric under Libanius and theology under Diodorus of Tarsus in the Antiochene school.
+  - when: c. 375
+    title: Ascetic withdrawal
+    body: Entered an extreme ascetic and eremitic life for roughly two years, by tradition committing the Bible to memory, but the rigour permanently damaged his health and forced his return to Antioch.
   - when: "381"
     title: Ordained deacon
-    body: Ordained a deacon after years of ascetic and monastic life in the Syrian mountains and a cave.
+    body: Ordained deacon by Meletius of Antioch.
   - when: "386"
-    title: Ordained priest
-    body: Ordained a priest at Antioch, where over twelve years his preaching earned him the surname Chrysostom.
-  - when: "398"
+    title: Ordained presbyter
+    body: Ordained presbyter by Bishop Flavian of Antioch, beginning a twelve-year preaching ministry at Antioch celebrated for its eloquence and emphasis on almsgiving.
+  - when: "387"
+    title: Homilies on the Statues
+    body: Delivered twenty-one Lenten homilies following riots over imperial statues at Antioch; the sources relate that many pagans were converted.
+  - when: 397–398
     title: Archbishop of Constantinople
-    body: Elevated to the see of Constantinople, the most prestigious ecclesiastical position in the Eastern Roman Empire.
+    body: Appointed Archbishop of Constantinople in autumn 397, reportedly without prior knowledge, and ordained bishop on 26 February 398. He reduced the episcopal household's expenses, reformed the clergy, and founded hospitals.
+  - when: "403"
+    title: Synod of the Oak
+    body: Theophilus of Alexandria orchestrated the Synod of the Oak, which deposed and banished him; he was almost immediately recalled after public outcry and an earthquake.
   - when: "404"
-    title: Deposed and exiled
-    body: Deposed by the Synod of the Oak under Theophilus of Alexandria and sent into exile at Cucusus in the Taurus mountains.
-  - when: September 14, 407
-    title: Death in exile
-    body: Died at Comana in Pontus during his banishment, having been moved further from the capital.
+    title: Exile to Cucusus
+    body: After objecting to celebrations honouring a statue of Empress Eudoxia, he was permanently exiled, departing for Cucusus on the Armenian frontier.
+  - when: "407"
+    title: Death at Comana Pontica
+    body: Ordered onward toward Pityus on the Black Sea, he died during the journey at Comana Pontica, by report uttering "Glory be to God for all things."
+  - when: "438"
+    title: Translation of relics
+    body: Emperor Theodosius II had his relics translated to the Church of the Holy Apostles in Constantinople on 27 January 438.
+sections:
+  - heading: Early Life and Formation
+    body:
+      - John was born around 347 at Antioch in Roman Syria. His father, a high-ranking military officer (named Secundus in one tradition), died shortly after John's birth, and his mother Anthusa raised him.
+      - He received a classical education in rhetoric under the orator Libanius and studied theology under Diodorus of Tarsus, a leading figure of the Antiochene school. Sources also name the philosopher Andragatius among his teachers and credit an encounter with Bishop Meletius, around 367, with turning him toward the ascetic life.
+      - Baptised between 368 and 373 and tonsured a reader, he joined ascetic communities near Antioch and around 375 attempted a solitary, eremitic life in mountain caves. The severity of this regimen permanently injured his stomach and kidneys, compelling his return to the city after roughly two years.
+  - heading: Ministry at Antioch
+    body:
+      - Meletius of Antioch ordained John deacon in 381, and Bishop Flavian ordained him presbyter in 386. Over the next twelve years his preaching at Antioch won enormous popularity, marked by an eloquent, practically minded exposition of Scripture and a persistent emphasis on almsgiving and care for the poor.
+      - In 387, following riots over imperial statues at Antioch, he delivered the twenty-one homilies known as On the Statues; the sources relate that his preaching during the crisis converted many pagans.
+  - heading: Archbishop of Constantinople
+    body:
+      - In autumn 397 John was appointed Archbishop of Constantinople — by report without his prior knowledge — and was ordained bishop on 26 February 398. As archbishop he refused lavish entertainments, reduced the expenses of the episcopal household, addressed clerical misconduct, and founded hospitals.
+      - His reforms and his denunciations of aristocratic excess alienated the wealthy and the court. Empress Eudoxia took his rebukes of extravagant dress personally, while Theophilus of Alexandria opposed him, in part over the controversy concerning Origenism and the affair of the "Tall Brothers."
+  - heading: Deposition and Exile
+    body:
+      - In 403 Theophilus orchestrated the Synod of the Oak, which deposed and banished John; he was almost immediately recalled after public outcry and an earthquake. The peace was short-lived. After a statue of Eudoxia was erected near Hagia Sophia and he objected to the celebrations honouring it — comparing the empress to Herodias — he was permanently exiled.
+      - He departed for Cucusus, a remote settlement on the Armenian frontier, around 404. Pope Innocent I protested on his behalf, but John was ordered further onward toward Pityus on the eastern Black Sea. He died during the journey at Comana Pontica in 407, aged about sixty, by report with the words "Glory be to God for all things."
+  - heading: Writings
+    body:
+      - John was a prolific author whose works exemplify the Antiochene school's grammatical and historical method of scriptural exegesis. His most celebrated composition is the treatise On the Priesthood (De Sacerdotio).
+      - His scriptural commentaries include ninety homilies on Matthew, eighty-eight on John, fifty-five on Acts, fifty-nine on the Psalms, and homilies on the complete Pauline epistles. Among his other works are the twenty-one homilies On the Statues, eight homilies Adversus Judaeos, and roughly 238 letters, including seventeen addressed to the deaconess Olympias. A Paschal Homily attributed to him is read at every Pascha, and he is associated with the revision of the prayers and rubrics of the Divine Liturgy that bears his name.
+  - heading: Relics & Shrines
+    body:
+      - John's relics remained at Comana Pontica until 438, when Emperor Theodosius II had them translated to the Church of the Holy Apostles in Constantinople on 27 January 438, an act the sources connect with Archbishop Proclus. With the translation his name was admitted into the liturgical diptychs of the Eastern patriarchates.
+      - During the Fourth Crusade in 1204 most of the relics were taken to Rome. On 27 November 2004 Pope John Paul II returned a portion of the relics to the Orthodox Church.
+  - heading: Legacy
+    body:
+      - The surname "Chrysostom" (golden-mouthed), bestowed after his death, fixed his reputation as a preacher. He is commemorated as one of the Three Holy Hierarchs, honoured together with Basil the Great and Gregory the Theologian.
+      - His memory was championed in the West as well as the East; Pope Innocent I pressed for his rehabilitation in his own lifetime, and in 1908 Pope Pius X named him patron saint of preachers.
 patronage:
-  - Preachers and the ministry of preaching
-  - Numbered among the Three Hierarchs with Basil the Great and Gregory of Nazianzus
+  - Preachers — named their patron saint by Pope Pius X in 1908.
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_Chrysostom
-  - https://oca.org/saints/lives/2023/11/13/202154-st-john-chrysostom-archbishop-of-constantinople
   - https://orthodoxwiki.org/John_Chrysostom
+  - https://www.newadvent.org/cathen/08452b.htm
 status: reviewed
 generated: "2026-06-18"
