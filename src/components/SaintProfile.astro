@@ -21,8 +21,7 @@ const flagReasons = profile.flagReasons ?? [];
       <div class="profile-flag-banner" role="alert">
         <p class="pfb-head">
           ⚑ Flagged — unresolved concern{flagReasons.length === 1 ? "" : "s"}{" "}
-          from automated review against this saint's source record. Not for
-          publication until resolved.
+          from automated review.
         </p>
         {flagReasons.length > 0 && (
           <ul class="pfb-list">
