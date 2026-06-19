@@ -161,6 +161,21 @@ class EmitTests(unittest.TestCase):
                                   status="reviewed")
         self.assertEqual(_yaml.safe_load(path.read_text())["sources"], [])
 
+    def test_writes_flag_reasons_when_given(self):
+        d = _P(tempfile.mkdtemp())
+        reasons = [{"claim": "Disputed date", "detail": "anchor says otherwise"}]
+        path = emit.write_profile(d, {"id": "OS-0042", "overview": ["x"]},
+                                  sources=["s"], generated="2026-06-17",
+                                  status="flagged", flag_reasons=reasons)
+        self.assertEqual(_yaml.safe_load(path.read_text())["flagReasons"], reasons)
+
+    def test_omits_flag_reasons_when_absent(self):
+        d = _P(tempfile.mkdtemp())
+        path = emit.write_profile(d, {"id": "OS-0042", "overview": ["x"]},
+                                  sources=["s"], generated="2026-06-17",
+                                  status="draft")
+        self.assertNotIn("flagReasons", _yaml.safe_load(path.read_text()))
+
 
 class ProposalGateTests(unittest.TestCase):
     def test_accepts_pd_quote_translation(self):
@@ -449,6 +464,45 @@ class ReconcileStatusTests(unittest.TestCase):
         status, demoted = emit_one.reconcile_status(profile, verdict)
         self.assertEqual(status, "flagged")        # matched -> honored, not demoted
         self.assertEqual(demoted, [])
+
+
+class RealFlagsTests(unittest.TestCase):
+    """real_flags() turns honored unsupported claims into {claim, detail} rows for
+    the flagged banner; phantom and supported claims are excluded (mirrors the
+    real/phantom split in reconcile_status)."""
+    PROFILE = {
+        "id": "OS-0695",
+        "overview": ["Born Revoula Benizelos, an Athenian noblewoman."],
+        "sections": [{"heading": "Life",
+                      "body": ["Her mother descended from old Byzantine nobility."]}],
+    }
+
+    def test_honored_claim_becomes_claim_detail_row(self):
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "name", "quote": "Born Revoula Benizelos",
+             "supported": False, "reason": "contradicts anchor"}]}
+        self.assertEqual(
+            emit_one.real_flags(self.PROFILE, verdict),
+            [{"claim": "name", "detail": "contradicts anchor"}])
+
+    def test_phantom_claim_excluded(self):
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "x", "quote": "never written here",
+             "supported": False, "reason": "r"}]}
+        self.assertEqual(emit_one.real_flags(self.PROFILE, verdict), [])
+
+    def test_supported_claims_excluded(self):
+        verdict = {"status": "pass", "claims": [
+            {"claim": "x", "quote": "Born Revoula Benizelos",
+             "supported": True, "reason": "ok"}]}
+        self.assertEqual(emit_one.real_flags(self.PROFILE, verdict), [])
+
+    def test_quoteless_claim_is_honored(self):
+        verdict = {"status": "flagged", "claims": [
+            {"claim": "x", "supported": False, "reason": "no quote to disprove"}]}
+        self.assertEqual(
+            emit_one.real_flags(self.PROFILE, verdict),
+            [{"claim": "x", "detail": "no quote to disprove"}])
 
 
 class VerdictSchemaQuoteTests(unittest.TestCase):

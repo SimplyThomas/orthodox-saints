@@ -12,7 +12,8 @@ ID_RE = re.compile(r"^OS-\d{4,}$")
 
 
 def write_profile(profiles_dir: Path, profile: dict, *, sources: list[str],
-                  generated: str, status: str = "draft") -> Path:
+                  generated: str, status: str = "draft",
+                  flag_reasons: list[dict] | None = None) -> Path:
     import yaml
 
     sid = (profile.get("id") or "").strip()
@@ -25,6 +26,10 @@ def write_profile(profiles_dir: Path, profile: dict, *, sources: list[str],
             f"{sid}: {status} profile must list >=1 source (build would reject)")
     full = {**profile, "id": sid, "status": status,
             "sources": sources, "generated": generated}
+    # The verifier's honored concerns (real_flags), surfaced on the flagged banner
+    # in previews so a reviewer sees WHY a profile is held back, not just THAT it is.
+    if flag_reasons:
+        full["flagReasons"] = flag_reasons
     profiles_dir.mkdir(parents=True, exist_ok=True)
     path = profiles_dir / f"{sid}.yaml"
     path.write_text(

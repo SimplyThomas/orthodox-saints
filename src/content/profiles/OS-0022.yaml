@@ -45,4 +45,7 @@ sources:
   - https://orthodoxwiki.org/Gregory_the_Theologian
   - https://www.newadvent.org/cathen/07010b.htm
 status: flagged
+flagReasons:
+  - claim: Studies at Athens dated 'c. 348–358'
+    detail: No source in the dossier gives specific years for his time at Athens (New Advent says only 'about ten years'); the precise range is not grounded.
 generated: "2026-06-18"

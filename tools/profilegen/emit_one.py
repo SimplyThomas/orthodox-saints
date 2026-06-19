@@ -145,6 +145,29 @@ def reconcile_status(profile: dict, verdict: dict) -> tuple[str, list[dict]]:
     return ("flagged" if real else "draft"), phantom
 
 
+def real_flags(profile: dict, verdict: dict) -> list[dict]:
+    """The HONORED (non-phantom) unsupported claims, as `{claim, detail}` rows for
+    the flagged banner — mirrors reconcile_status's real/phantom split: an
+    unsupported claim is honored when its `quote` is present in the profile (or it
+    carries no quote at all). `claim` is the assertion in question, `detail` is the
+    verifier's explanation of why it isn't supported by the source record."""
+    unsupported = [c for c in (verdict.get("claims") or [])
+                   if isinstance(c, dict) and not c.get("supported", True)]
+    if not unsupported:
+        return []
+    hay = _norm(profile_text(profile))
+    out: list[dict] = []
+    for c in unsupported:
+        quote = (c.get("quote") or "").strip()
+        if quote and _norm(quote) not in hay:
+            continue  # phantom — the profile never made this claim
+        claim = (c.get("claim") or "").strip()
+        detail = (c.get("reason") or "").strip()
+        if claim or detail:
+            out.append({"claim": claim, "detail": detail})
+    return out
+
+
 def append_verdict(path: Path, entry: dict) -> None:
     """Append the verifier's verdict to a JSON array, VERBATIM — the nested
     {claim, supported, reason} objects must survive (Plan 3 reads the booleans)."""
@@ -164,9 +187,10 @@ def record(*, sid: str, date: str, profile: dict, verdict: dict, dossier: dict,
     dossier = reanchor(dossier)  # name/region/anchor-sources from the CSV, not the model
     sources = sources_from_dossier(dossier) or list(profile.get("sources") or [])
     status, demoted = reconcile_status(profile, verdict)
+    flags = real_flags(profile, verdict) if status == "flagged" else None
     path = emit.write_profile(
         ROOT / "src" / "content" / "profiles", profile,
-        sources=sources, generated=date, status=status,
+        sources=sources, generated=date, status=status, flag_reasons=flags,
     )
     coverage.log_row(coverage_path(date), coverage_row(dossier))
     entry = {"id": sid, "status": status, "claims": verdict.get("claims", [])}
