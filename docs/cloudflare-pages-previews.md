@@ -9,7 +9,11 @@ GitHub Pages (`orthodoxsaintfinder.com`) and is unaffected.
 
 - On every push to any branch and every PR, Cloudflare Pages runs
   [`scripts/cf-pages-build.sh`](../scripts/cf-pages-build.sh) and publishes the `_site/`
-  output to a unique URL (`<hash>.<project>.pages.dev`).
+  output to a per-deploy URL (`<hash>.orthodox-saints.pages.dev`) **and** a stable
+  per-branch alias: `https://<branch-alias>.orthodox-saints.pages.dev`, where `<branch-alias>`
+  is the branch name lowercased, non-alphanumerics replaced by `-`, truncated to 28 characters
+  (e.g. `feat/flagged-banner-and-preview-pr-process` → `feat-flagged-banner-and-prev`). Put the
+  alias in the PR's `## Preview` section (see `CLAUDE.md` §12.7).
 - The build mirrors production (`python build.py` → `astro build`) but skips the Excel
   export (`--no-xlsx`), so no `pip install` is needed.
 - Previews set `PUBLIC_SHOW_DRAFTS=true`, so **draft and flagged** saint profiles render

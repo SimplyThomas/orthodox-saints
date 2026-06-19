@@ -9,10 +9,34 @@ interface Props {
   profile: SaintProfile;
 }
 const { profile } = Astro.props;
-const isDraft = profile.status && profile.status !== "reviewed";
+const isFlagged = profile.status === "flagged";
+// Anything not yet reviewed and not flagged is a plain draft.
+const isDraft = profile.status && profile.status !== "reviewed" && !isFlagged;
+const flagReasons = profile.flagReasons ?? [];
 ---
 
 <div class="saint-profile">
+  {
+    isFlagged && (
+      <div class="profile-flag-banner" role="alert">
+        <p class="pfb-head">
+          ⚑ Flagged — unresolved concern{flagReasons.length === 1 ? "" : "s"}{" "}
+          from automated review.
+        </p>
+        {flagReasons.length > 0 && (
+          <ul class="pfb-list">
+            {flagReasons.map((r) => (
+              <li>
+                {r.claim && <span class="pfb-claim">{r.claim}</span>}
+                {r.claim && r.detail ? " — " : ""}
+                {r.detail}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
   {
     isDraft && (
       <p class="profile-draft-banner" role="status">
@@ -58,5 +82,28 @@ const isDraft = profile.status && profile.status !== "reviewed";
     background: #fdf6e3;
     color: #5c4a00;
     font-size: 0.9rem;
+  }
+  .profile-flag-banner {
+    margin: 0 0 1rem;
+    padding: 0.6rem 0.85rem;
+    border-left: 3px solid #b00020;
+    background: #fdecea;
+    color: #6b1410;
+    font-size: 0.9rem;
+  }
+  .profile-flag-banner .pfb-head {
+    margin: 0;
+    font-weight: 600;
+  }
+  .pfb-list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.1rem;
+  }
+  .pfb-list li {
+    margin: 0.35rem 0;
+    line-height: 1.5;
+  }
+  .pfb-claim {
+    font-weight: 600;
   }
 </style>

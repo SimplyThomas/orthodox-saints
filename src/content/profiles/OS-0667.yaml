@@ -43,4 +43,9 @@ sources:
   - https://orthodoxwiki.org/Pamphilius_of_Caesarea
   - https://en.wikipedia.org/wiki/Theological_Library_of_Caesarea_Maritima
 status: flagged
+flagReasons:
+  - claim: Timeline says the Apology for Origen was written 'with Eusebius writing a defense of Origen'
+    detail: "This understates Pamphilius's role: the sources have Pamphilius himself, imprisoned, as primary author collaborating with Eusebius. The profile's own friendship section says as much; the timeline phrasing is misleadingly incomplete."
+  - claim: Valens called 'a deacon of Jerusalem' and 'an elderly man well-versed in the Holy Scriptures'
+    detail: The anchor names him only 'Valens the Deacon.' The OCA account gives the 'elderly, well-versed in Scripture' description to Elias, not Valens — the profile appears to conflate the two.
 generated: "2026-06-18"

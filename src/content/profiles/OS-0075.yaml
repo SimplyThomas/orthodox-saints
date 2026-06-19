@@ -44,4 +44,7 @@ sources:
   - https://www.oca.org/saints/lives/2024/12/29/103719-joseph-the-betrothed-david-the-king-and-james-the-brother-of-the-lord
   - https://www.newadvent.org/cathen/08504a.htm
 status: flagged
+flagReasons:
+  - claim: December 28 framed as the fallback date when no Sunday falls between Dec 25 and Jan 1
+    detail: The anchor row ties Dec 28 to the fixed commemoration (with David the King and James the Brother of the Lord), not to a no-Sunday fallback; OrthodoxWiki gives Dec 26 as the moved date. The parenthetical misrepresents the anchor row.
 generated: "2026-06-18"

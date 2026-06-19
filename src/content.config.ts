@@ -12,6 +12,12 @@ const profileSchema = z
   .object({
     id: z.string().regex(/^OS-\d{4,}$/),
     status: z.enum(["draft", "reviewed", "flagged"]).default("draft"),
+    // Honored verifier concerns shown on the flagged banner (previews only, since
+    // flagged profiles are gated out of production). `claim` = the assertion in
+    // question; `detail` = why it isn't supported by the saint's source record.
+    flagReasons: z
+      .array(z.object({ claim: z.string(), detail: z.string() }))
+      .optional(),
     sources: z.array(z.string()).optional(),
     generated: z.string().optional(), // ISO date
     lifespan: z.string().optional(),

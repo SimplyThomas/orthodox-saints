@@ -542,6 +542,13 @@ a long run.
   and **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`). A CodeQL
   workflow scans the code; Dependabot keeps Actions / pip / Docker / **npm** current
   (patch+minor auto-merge). GitHub Actions are pinned to commit SHAs.
+- **PR preview deploys (Cloudflare Pages).** Every branch/PR is built by Cloudflare Pages
+  (`scripts/cf-pages-build.sh`) and published to a `*.orthodox-saints.pages.dev` preview URL —
+  separate from, and not affecting, the GitHub Pages production deploy. Previews set
+  `PUBLIC_SHOW_DRAFTS=true`, so **`draft` and `flagged` profiles render** (each behind a banner;
+  flagged profiles also list their unresolved verifier concerns) for visual review before
+  promotion. Always include the preview link in a PR (§12.7). Setup + behavior:
+  `docs/cloudflare-pages-previews.md`.
 
 ---
 
@@ -566,7 +573,14 @@ frontend, **`frontend`** (lint + `astro build` + Playwright e2e). Merges are **s
 6. Work on a branch; commit with a clear message
    (e.g. `data: spine walk — add January 1 commemorations (OS-0373..)`).
 7. Open a PR. Note any canonization/judgment calls and anything needing clergy review in
-   the PR description (the PR template has a checklist).
+   the PR description (the PR template has a checklist). **Always include the Cloudflare
+   Pages preview link** under the template's `## Preview` heading so reviewers can see the
+   change in a browser: once the **Cloudflare Pages** check on the PR is green, use the branch
+   alias `https://<branch-alias>.orthodox-saints.pages.dev`, where `<branch-alias>` is the
+   branch name lowercased, non-alphanumerics replaced by `-`, **truncated to 28 characters**
+   (e.g. `feat/flagged-banner-and-preview-pr-process` → `feat-flagged-banner-and-prev`). If in
+   doubt, open the deployment from the check to copy the exact URL. Previews show `draft`/
+   `flagged` profiles, so this is especially valuable for data/profile PRs.
 8. Wait for the **CI check to go green**, then squash-merge. The Deploy workflow then
    builds + publishes to Pages on `main`; confirm it's green.
 

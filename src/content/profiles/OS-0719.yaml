@@ -44,4 +44,7 @@ sources:
   - https://en.wikipedia.org/wiki/Gregory_of_Nazianzus
   - https://en.wikipedia.org/wiki/Nonna_of_Nazianzus
 status: flagged
+flagReasons:
+  - claim: Gorgonia reposed c. 375 (and so was born c. 337)
+    detail: "The anchor row gives her repose as 'about the year 370,' which wins on conflict (sources vary: OrthodoxWiki 375, Wikipedia ~372). The derived birth year c. 337 rests on the disputed 375 and is likewise unsupported (≈332 if repose was ~370)."
 generated: "2026-06-18"
