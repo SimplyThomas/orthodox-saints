@@ -8,8 +8,8 @@
 
 <!-- Cloudflare Pages auto-builds this branch. Once the "Cloudflare Pages" check below is
      green, paste its preview URL here (it renders draft + flagged profiles for review).
-     Branch alias: https://<branch>.orthodox-saints.pages.dev (branch lowercased, non-
-     alphanumerics -> '-'). See docs/cloudflare-pages-previews.md. -->
+     Branch alias: https://<branch-alias>.orthodox-saints.pages.dev — branch lowercased,
+     non-alphanumerics -> '-', truncated to 28 chars. See docs/cloudflare-pages-previews.md. -->
 
 🔎 Preview:
 

@@ -575,9 +575,11 @@ frontend, **`frontend`** (lint + `astro build` + Playwright e2e). Merges are **s
 7. Open a PR. Note any canonization/judgment calls and anything needing clergy review in
    the PR description (the PR template has a checklist). **Always include the Cloudflare
    Pages preview link** under the template's `## Preview` heading so reviewers can see the
-   change in a browser: once the **Cloudflare Pages** check on the PR is green, copy its
-   deployment URL (or use the branch alias `https://<branch>.orthodox-saints.pages.dev`, the
-   branch name lowercased with non-alphanumerics replaced by `-`). Previews show `draft`/
+   change in a browser: once the **Cloudflare Pages** check on the PR is green, use the branch
+   alias `https://<branch-alias>.orthodox-saints.pages.dev`, where `<branch-alias>` is the
+   branch name lowercased, non-alphanumerics replaced by `-`, **truncated to 28 characters**
+   (e.g. `feat/flagged-banner-and-preview-pr-process` → `feat-flagged-banner-and-prev`). If in
+   doubt, open the deployment from the check to copy the exact URL. Previews show `draft`/
    `flagged` profiles, so this is especially valuable for data/profile PRs.
 8. Wait for the **CI check to go green**, then squash-merge. The Deploy workflow then
    builds + publishes to Pages on `main`; confirm it's green.
