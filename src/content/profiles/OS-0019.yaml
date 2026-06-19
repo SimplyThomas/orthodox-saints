@@ -1,53 +1,76 @@
 id: OS-0019
-lifespan: Traditionally c. 270 – December 6, 343
+lifespan: c. 270 – December 6, c. 343 (4th century)
 overview:
-  - Nicholas of Myra, often called Nicholas the Wonderworker, was a 4th-century bishop of Greek descent from the maritime city of Patara in the region of Lycia in Anatolia, in what is now Antalya Province, Turkey. By tradition the son of wealthy Christian parents named Theophanes and Nonna, he was dedicated to God from childhood and distributed his inheritance to the poor.
-  - He served as Bishop (in some accounts Archbishop) of Myra in Lycia, where he became known for his care for the poor and for numerous miracles attributed to his intercession. Imprisoned during the persecution under Diocletian, he was released following the accession of Constantine. An early list names him among the bishops who attended the First Council of Nicaea in 325, where tradition holds that he stood against the teaching of Arius.
-  - Widely venerated across most Christian traditions, he is the patron of many countries—notably Greece and Russia—as well as of numerous cities and occupational groups, most prominently seafarers. His legendary habit of secret gift-giving became the basis, through the Dutch Sinterklaas, of the folklore of Santa Claus.
-sections:
-  - heading: Historical Context
-    body:
-      - Little is known with historical certainty about Nicholas's life. He is established as having been bishop of Myra in southern Asia Minor in the 4th century, and he may have participated in the Council of Nicaea in 325. Much of what is related of him comes through synaxarion accounts and later tradition.
-      - By tradition he was ordained a reader by his uncle, Bishop Nicholas of Patara, and later elevated to the priesthood before becoming Bishop of Myra. The synaxarion relates that even as bishop he remained a great ascetic, appearing to his flock as an image of gentleness, kindness, and love.
-  - heading: Miracles & Traditions
-    body:
-      - "Historically Documented: As a historical matter, the record is sparse; Nicholas is firmly known as bishop of Myra and is reputed especially for his care for the poor."
-      - "Traditional Accounts: He is said to have rescued three girls from being forced into prostitution by secretly dropping a sack of gold coins through their window on each of three nights, providing dowries that saved their family from poverty and sin. Other early stories tell of his calming a storm at sea and saving three innocent soldiers from wrongful execution—an account that also appears as his delivering three men unjustly condemned to death by taking the executioner's sword. The synaxarion further relates that he saved drowning sailors, rescued those in captivity, and through his prayers delivered Myra from a terrible famine. A traditional account holds that as a newborn he stood unsupported in the baptismal font for three hours, honoring the Trinity."
-  - heading: Relics & Shrines
-    body:
-      - His relics were transferred to the city of Bari in 1087, on account of which he is also known as Nicholas of Bari. By tradition the relics flowed with a curative myrrh.
-  - heading: Legacy
-    body:
-      - Nicholas's reputation for secret gift-giving gave rise, through the Dutch celebration of his feast day as patron saint of sailors (Sinterklaas), to the folklore of Santa Claus—the name deriving from "Saint Nick." He remains among the most popular and widely venerated saints.
+  - Saint Nicholas the Wonderworker was the bishop of Myra in Lycia, a province of Asia Minor, during the fourth century. He is among the most widely venerated saints in both the Eastern and Western Christian traditions, celebrated for his generosity to the poor, his defense of Orthodox doctrine, and the many miracles attributed to him during and after his life.
+  - By tradition Nicholas was born in the port city of Patara in Lycia to wealthy Christian parents, named in various sources as Theophanes and Nonna or Epiphanius and Johanna. An only child born to formerly childless parents, he was raised in piety and inherited his family's wealth, which he distributed to those in need before and during his episcopate. After making pilgrimage to Egypt and the Holy Land, he returned to Myra, where he was chosen bishop.
+  - He suffered imprisonment during the persecution of the Emperor Diocletian and was released after Constantine the Great came to power. His reputation for secret almsgiving, his rescue of the condemned, and his protection of sailors made him a beloved patron across many lands. His feast is kept on December 6, with a second commemoration on May 9 marking the translation of his relics to Bari.
 timeline:
   - when: c. 270
-    title: Birth at Patara
-    body: By tradition born in the city of Patara in Lycia to wealthy Christian parents, Theophanes and Nonna.
-  - when: Reign of Diocletian
-    title: Imprisonment
-    body: Cast into prison during the persecution under Diocletian, but remained unharmed.
-  - when: After 306
-    title: Release under Constantine
-    body: Released and restored to his flock following the accession of Constantine.
+    title: Birth in Patara
+    body: By tradition Nicholas was born in Patara, a port city in Lycia in Asia Minor, to pious and wealthy Christian parents. Sources give his parents' names variously as Theophanes and Nonna or Epiphanius and Johanna.
+  - when: Early life
+    title: Distribution of his inheritance
+    body: After inheriting his parents' wealth, Nicholas gave it away to the poor. The synaxarion relates that he was ordained reader and then priest by his uncle, the Bishop of Patara, and made pilgrimage to Egypt and the Holy Land.
+  - when: Early 4th century
+    title: Bishop of Myra
+    body: "Nicholas was made Archbishop of Myra. By tradition he was selected through a sign: an elder bishop received a vision that the first to enter the church the next morning would be the one God had chosen, and that man was Nicholas."
+  - when: 284–305
+    title: Imprisonment under Diocletian
+    body: During the persecution under the Emperor Diocletian, Nicholas was cast into prison, where tradition holds he sustained and encouraged his fellow Christians. He was released after Constantine the Great came to power.
   - when: "325"
-    title: First Council of Nicaea
-    body: An early list names him among the attendees at the First Ecumenical Council; tradition holds he stood against Arius.
-  - when: December 6, 343
-    title: Repose
-    body: Traditionally died on December 6, the date of his principal commemoration.
+    title: Council of Nicaea (traditional)
+    body: Tradition holds that Nicholas attended the First Ecumenical Council at Nicaea and contended against the heretic Arius. Historians note that his name does not appear in the surviving lists of bishops who attended the council.
+  - when: December 6, c. 343
+    title: Repose at Myra
+    body: Nicholas fell asleep in the Lord at an advanced age and was buried at Myra. Sources place his death between 342 and 352. His relics were said to remain incorrupt and to exude a fragrant, curative myrrh or manna.
   - when: "1087"
     title: Translation of relics to Bari
-    body: His relics were transferred to Bari, giving rise to the name Nicholas of Bari.
+    body: Italian merchants from Bari carried the major portion of his relics from Myra, then under Turkish occupation, to Bari in Italy. Pope Urban II inaugurated the Basilica of San Nicola in Bari in 1089, placing the relics beneath the altar. This translation is commemorated on May 9.
+sections:
+  - heading: The Three Daughters and Secret Almsgiving
+    body:
+      - The most authenticated early account of Nicholas concerns a poor man who, lacking dowries for his three daughters, was reduced to despair and contemplated selling them into prostitution. Nicholas, learning of the family's plight, secretly delivered gold through their window on three occasions, providing each daughter a dowry so that all three could marry honorably.
+      - This act of hidden generosity became the defining image of Nicholas's sanctity and the root of his enduring association with secret gift-giving.
+  - heading: Rescue of the Condemned
+    body:
+      - Tradition records that Nicholas rescued three innocent men who had been sentenced to death, staying the executioner's sword and confronting the corrupt official responsible. In a related account he is said to have appeared in a dream to the Emperor Constantine to demand the release of three military officers unjustly condemned.
+      - These episodes established Nicholas as a protector of the falsely accused and a defender of justice.
+  - heading: Defense of Orthodox Doctrine
+    body:
+      - Nicholas is remembered as an opponent of Arianism. By tradition, at the Council of Nicaea in 325 he confronted Arius directly, and one account relates that he struck Arius and was temporarily stripped of his episcopal insignia, then restored after other bishops witnessed visions of Christ and the Virgin Mary returning his Gospel book and vestments.
+      - Historians observe that, despite this tradition, his name does not appear in any of the early lists of bishops recorded as attending the council, so his participation remains historically unverified.
+  - heading: Patron of Sailors
+    body:
+      - Many traditions connect Nicholas to the sea. He is said to have calmed a storm through prayer during a voyage and to have healed a mortally injured sailor. Another account describes his rescue of mariners in the Aegean during his lifetime.
+      - A further tradition relates that during a famine he persuaded the crew of a grain ship to leave part of the emperor's cargo at Myra, and that the wheat miraculously replenished itself, sparing the city. These accounts made him the beloved patron of sailors, who keep his memory with special devotion.
+  - heading: Relics & Shrines
+    body:
+      - After his repose Nicholas was buried at Myra, where his relics were said to remain incorrupt and to flow with a fragrant, healing myrrh or manna.
+      - In 1087, while Myra lay under Turkish occupation, merchants from Bari in Italy seized the major portion of his bones and carried them to their city. Pope Urban II inaugurated the Basilica of San Nicola in Bari in 1089, where the relics were placed beneath the altar and where a substance known as the Manna di San Nicola is said to flow from them, valued for its medicinal powers. Around 1100 Venetian sailors obtained the remaining fragments. The Emperor Justinian I had earlier built a church in Nicholas's honor at Constantinople in the sixth century.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The earliest and best-attested account is Nicholas's secret provision of dowries for the three daughters of a poor man, which underlies his reputation for hidden almsgiving. His distribution of his inherited wealth to the poor and his imprisonment under Diocletian and release under Constantine are also part of the established record of his life."
+      - "Traditional Accounts: Later medieval additions include the rescue of three innocent men from execution, the calming of storms and protection of sailors, the multiplication of grain during a famine, and his confrontation with Arius at Nicaea. A still later legend describes his resurrection of three children who had been murdered and pickled in brine. These accounts, while widely beloved, are traditional rather than historically documented."
+  - heading: Legacy and the Santa Claus Tradition
+    body:
+      - Nicholas's reputation for secret gift-giving made him the patron of children, merchants, sailors, archers, toymakers, and the falsely accused. He is honored as a patron of many lands and cities, including Greece and Russia.
+      - His feast on December 6 became, in Germanic and Dutch custom, an occasion for the secret giving of gifts to children. The Dutch tradition of Sinterklaas carried this devotion into American culture, where it evolved into the modern figure of Santa Claus — a direct outgrowth of the saint's historical generosity.
 patronage:
+  - Children
+  - Sailors and mariners
+  - Merchants
+  - The falsely accused
+  - Archers
+  - Toymakers
   - Greece
   - Russia
-  - Seafarers and sailors
-  - Numerous cities and occupational groups
-  - The poor
+  - Travelers
+  - Bakers
 sources:
   - Synaxarion
-  - https://en.wikipedia.org/wiki/Saint_Nicholas
+  - https://en.wikipedia.org/wiki/Nicholas_of_Myra
   - https://www.oca.org/saints/lives/2024/12/06/103484-saint-nicholas-the-wonderworker-archbishop-of-myra-in-lycia
+  - https://www.newadvent.org/cathen/11063b.htm
   - https://orthodoxwiki.org/Nicholas_of_Myra
 status: reviewed
-generated: "2026-06-17"
+generated: "2026-06-18"
