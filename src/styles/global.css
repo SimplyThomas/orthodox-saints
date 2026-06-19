@@ -3516,6 +3516,25 @@ a.sv-rail-chip:hover {
   color: var(--celest);
   margin-top: 10px;
 }
+/* "Commemorated as" — the saint's full formal liturgical style, set off as a
+   prominent band beneath the name with a thin gold left rule. */
+.sv-littitle {
+  margin: 18px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--gold);
+}
+.sv-littitle-label {
+  margin-bottom: 6px;
+  display: block;
+}
+.sv-littitle-text {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 25px);
+  line-height: 1.32;
+  color: var(--byz-deep);
+  margin: 0;
+  text-wrap: pretty;
+}
 .sv-lead {
   font-size: 22px;
   line-height: 1.5;

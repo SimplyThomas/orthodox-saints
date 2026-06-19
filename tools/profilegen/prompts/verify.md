@@ -9,6 +9,12 @@ For each concrete claim, decide `supported` (true/false) against:
 Flag hedging that has NO grounding in the dossier (invented uncertainty used to
 smuggle a narrative). Do NOT flag genuine, source-grounded uncertainty.
 
+`liturgicalTitle` is CLAIM-BEARING text: its office, see/place, and epithet must be
+supported by the anchor row exactly like body claims (the conventional honorific
+register — "Holy", "Glorious", "Our Father among the Saints" — is liturgical style,
+not a factual claim, so do not flag the register itself). Flag a title that asserts
+an office, see, or epithet the record does not support, quoting the title span.
+
 SCOPE GUARDRAIL — the pre-Chalcedon rule. Any saint who reposed **before the
 Council of Chalcedon (AD 451)** belongs to the undivided Church and is an Eastern
 Orthodox saint by definition. For such a saint it is FACTUALLY CORRECT and IN
