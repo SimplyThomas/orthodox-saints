@@ -522,3 +522,52 @@ class ProfileSchemaSourcesTests(unittest.TestCase):
         ext = schemas.DOSSIER_SCHEMA["properties"]["external"]["items"]
         self.assertIn("source", ext["required"])
         self.assertIn("text", ext["required"])
+
+    def test_profile_schema_declares_optional_liturgical_title(self):
+        props = schemas.PROFILE_SCHEMA["properties"]
+        self.assertEqual(props["liturgicalTitle"]["type"], "string")
+        self.assertNotIn("liturgicalTitle", schemas.PROFILE_SCHEMA["required"])
+
+
+@unittest.skipIf(_yaml is None, "pyyaml not installed")
+class BackfillTitleTests(unittest.TestCase):
+    """The backfill's deterministic core: the model only proposes a string; Python
+    does the surgical one-line insert that must never disturb other fields."""
+
+    def setUp(self):
+        from tools.profilegen import backfill_titles
+        self.bt = backfill_titles
+
+    def test_inserts_after_lifespan_preserving_other_fields(self):
+        src = "id: OS-0042\nlifespan: 4th c.\noverview:\n  - A life.\nstatus: reviewed\n"
+        out = self.bt.insert_title(src, "The Holy Martyr Foo of Bar")
+        obj = _yaml.safe_load(out)
+        self.assertEqual(obj["liturgicalTitle"], "The Holy Martyr Foo of Bar")
+        # status + overview must survive untouched (reviewed content is sacred)
+        self.assertEqual(obj["status"], "reviewed")
+        self.assertEqual(obj["overview"], ["A life."])
+        # placed directly after the lifespan line
+        self.assertTrue(out.splitlines()[2].startswith("liturgicalTitle:"))
+
+    def test_falls_back_to_id_line_when_no_lifespan(self):
+        out = self.bt.insert_title("id: OS-0042\noverview:\n  - A life.\n", "Holy Foo the Wise")
+        self.assertTrue(out.splitlines()[1].startswith("liturgicalTitle:"))
+        self.assertEqual(_yaml.safe_load(out)["liturgicalTitle"], "Holy Foo the Wise")
+
+    def test_escapes_titles_with_yaml_metacharacters(self):
+        # A colon-space would break an unquoted scalar; safe_dump must quote it.
+        tricky = "Our All-holy Lady: the Theotokos, Ever-Virgin Mary"
+        out = self.bt.insert_title("id: OS-0001\nlifespan: x\n", tricky)
+        self.assertEqual(_yaml.safe_load(out)["liturgicalTitle"], tricky)
+
+    def test_preserves_crlf_newlines(self):
+        crlf = "id: OS-0042\r\nlifespan: 4th c.\r\n"
+        out = self.bt.insert_title(crlf, "Holy Foo of Bar")
+        self.assertIn("\r\n", out)
+        self.assertNotIn("\n\n", out.replace("\r\n", "\n\n").replace("\n\n", "X"))
+
+    def test_title_line_is_single_unfolded_line(self):
+        long = "Our Father among the Saints " + "Very " * 40 + "Long of Everywhere"
+        line = self.bt.title_line(long)
+        self.assertEqual(line.count("\n"), 0)  # never folded/wrapped
+        self.assertTrue(line.startswith("liturgicalTitle:"))

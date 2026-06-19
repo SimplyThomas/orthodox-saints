@@ -21,6 +21,10 @@ const profileSchema = z
     sources: z.array(z.string()).optional(),
     generated: z.string().optional(), // ISO date
     lifespan: z.string().optional(),
+    // The saint's full formal liturgical style (the title spoken at
+    // commemoration), e.g. "Our Father among the Saints Nicholas, Archbishop of
+    // Myra, the Wonderworker". Rendered as the prominent "Commemorated as" band.
+    liturgicalTitle: z.string().optional(),
     overview: z.array(z.string()).min(1),
     timeline: z
       .array(

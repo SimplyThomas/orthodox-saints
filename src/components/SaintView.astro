@@ -237,6 +237,14 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       <h1 class="sv-name">
         {m.title}{m.epithet && <span class="sv-epithet"> {m.epithet}</span>}
       </h1>
+      {
+        profile?.liturgicalTitle && (
+          <div class="sv-littitle">
+            <div class="eyebrow sv-littitle-label">Commemorated as</div>
+            <p class="sv-littitle-text">{profile.liturgicalTitle}</p>
+          </div>
+        )
+      }
       {profile?.lifespan && <p class="sv-lifespan">{profile.lifespan}</p>}
       {
         m.also.length > 0 && (

@@ -10,6 +10,18 @@ miracles & traditions→a sections entry split into "Historically Documented" an
 "Traditional Accounts".
 
 HARD RULES:
+- Compose `liturgicalTitle` — the saint's FULL formal liturgical style (the title by
+  which they are named at commemoration), e.g. "Our Father among the Saints Nicholas,
+  Archbishop of Myra, the Wonderworker"; "The Holy, Glorious Great-Martyr and Healer
+  Panteleimon"; "Our All-holy, immaculate, most blessed and glorified Lady, the
+  Theotokos and Ever-Virgin Mary". Use the conventional honorific register appropriate
+  to the saint's RANK (e.g. "The Holy, Glorious …" for a martyr; "Our Father among the
+  Saints …" for a hierarch; "The Holy, Glorious and All-Praised …" for an apostle;
+  "Our Venerable Father/Mother …" for a monastic) wrapped around the saint's GROUNDED
+  specifics — office, see/place, epithet — taken from the dossier. Do NOT invent an
+  office, see, place, or epithet. OMIT the field entirely when the dossier lacks these
+  specifics (it is optional — an honest stub carries no liturgical title). This is the
+  one place a conventional liturgical style is allowed; it is not a prayer.
 - Populate `sources`: the list of citations backing the profile — copy the dossier's
   `anchor.sources` plus every `external[].source` URL, verbatim. Do NOT invent or omit
   sources. (Generated profiles MUST cite ≥1 source or the build fails; the Emit stage

@@ -12,6 +12,9 @@ PROFILE_SCHEMA = {
         # least one (Zod gate in src/content.config.ts), else the build fails.
         "sources": {"type": "array", "items": {"type": "string"}},
         "lifespan": {"type": "string"},
+        # The saint's full formal liturgical style (the "Commemorated as" band).
+        # Composed from grounded specifics only; omitted when the dossier lacks them.
+        "liturgicalTitle": {"type": "string"},
         "overview": {"type": "array", "items": {"type": "string"}, "minItems": 1},
         "timeline": {"type": "array", "items": {
             "type": "object", "required": ["when", "title", "body"],
