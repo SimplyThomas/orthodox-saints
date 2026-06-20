@@ -1,0 +1,29 @@
+id: OS-1673
+liturgicalTitle: The Holy New Martyr Triandaphyllus of Zagora
+lifespan: c. 1665-1680
+overview:
+- Triandaphyllus was a young man from Zagora, in the Thessalian region of Magnesia, who was put to death at Constantinople in 1680 for refusing to renounce Christ. He is numbered among the New Martyrs who suffered under Ottoman rule, and the Orthodox tradition records that he was only about fifteen years of age at his death.
+- Pressed to embrace Islam, he held firmly to his Christian confession and was beheaded rather than apostatize. His memory is kept on August 8, the day of his martyrdom.
+sections:
+- heading: Life and Martyrdom
+  body:
+  - Triandaphyllus came from Zagora of Magnesia, in Thessaly, a coastal district whose people lived largely from the sea; sources variously remember him as a sailor or a fisherman. He lived under Ottoman rule, the setting in which the New Martyrs of the post-Byzantine centuries gave their witness.
+  - While at Constantinople he was pressed to deny Christ and accept Islam. He refused, professing himself an Orthodox Christian who would not deny his Saviour, and for this confession he was beheaded in 1680. The synaxarion records that he was about fifteen years old, though other accounts give a somewhat older age.
+  - By the tradition preserved in the Greek sources, his execution took place in the Hippodrome of Constantinople.
+- heading: Veneration and Relics
+  body:
+  - Triandaphyllus is especially honored in his native Zagora and at Alykes in Volos, in Greece. A portion of his relics is kept at the Monastery of Saint Nicholas on the island of Andros, where they may be venerated.
+  - 'Accounts of the saint differ on points of detail: alongside the Greek tradition that places his origin at Zagora of Magnesia, a Bulgarian Life associates him with a village called Stara Gora and dates his birth to 1663. The records likewise vary as to whether he was a sailor or a fisherman and as to his precise age at martyrdom.'
+patronage:
+- Invoked as a youthful witness to Christ and as a patron of the faithful of Zagora and the Volos region, where his memory is especially kept.
+related: []
+sources:
+- OCA Synaxarion (oca.org), Lives of the Saints
+- https://www.oca.org/saints/lives/2014/08/08
+- https://www.johnsanidopoulos.com/2016/08/holy-new-martyr-triantaphyllos-sailor.html
+- https://en.wikipedia.org/wiki/Saint_Triantaphyllos
+status: flagged
+generated: '2026-06-19'
+flagReasons:
+- claim: Lifespan given as c. 1665-1680.
+  detail: No source gives 1665 as a birth year. The only birth year in the dossier is 1663 (the Bulgarian Life, tied to the older-age accounts the anchor rejects). 'c. 1665' is an undocumented back-calculation from the anchor's age of fifteen and is not directly attested. This is a fabricated specific date; it should be removed or recast as 'died 1680' only.

@@ -1,0 +1,55 @@
+id: OS-0686
+liturgicalTitle: Our Father among the Saints Colman, Bishop of Lindisfarne
+lifespan: c. 605 – 676
+overview:
+- Colman of Lindisfarne was a seventh-century Irish monk and bishop who carried the monastic tradition of Iona into Northumbria and, after the Synod of Whitby decided in favor of Roman usage, returned to Ireland to found new monastic communities. He is remembered as the last of the Iona-trained bishops to hold the see of Lindisfarne and as a representative of the Celtic, or Columban, current within the early insular Church.
+- Born in the west of Ireland around the year 605, he was formed as a monk at Iona, the island monastery established by St. Columba, before succeeding St. Finan as bishop of Lindisfarne in 661. His episcopate is chiefly recalled for his defense of the older Celtic observances and for the dignity with which he withdrew when those observances were set aside.
+timeline:
+- when: c. 605
+  title: Birth in Ireland
+  body: Colman is born in the west of Ireland, with sources placing his origins in Connaught and associating him with the Conmaicne Mara.
+- when: '661'
+  title: Bishop of Lindisfarne
+  body: Following the death of St. Finan, Colman succeeds to the see of Lindisfarne, becoming the third Iona-trained bishop of that monastery after Aidan and Finan.
+- when: '664'
+  title: Synod of Whitby
+  body: At the synod convened by King Oswiu of Northumbria, Colman leads the defense of the Celtic usages, especially the reckoning of Easter. When the assembly adopts the Roman practice, he declines to conform and resigns his see.
+- when: c. 664–668
+  title: Withdrawal and return to Ireland
+  body: Colman departs Northumbria with his Irish monks and a number of English brethren, passing by way of Scotland and Iona before settling in Ireland.
+- when: '668'
+  title: Foundation at Inishbofin
+  body: He establishes a monastery and school on the island of Inishbofin off the coast of County Galway, later founding a separate house at Mayo for the English monks.
+- when: '676'
+  title: Repose
+  body: Colman reposes at Inishbofin and is commemorated on February 18.
+sections:
+- heading: Formation at Iona and the See of Lindisfarne
+  body:
+  - Colman received his monastic training at Iona, the Hebridean monastery founded by St. Columba, which had become the chief center of Irish monastic mission to northern Britain. The bishops of Lindisfarne in this period were drawn from that community, and Colman stood in the line of St. Aidan and St. Finan, both of whom had likewise come from Iona to serve the Northumbrian church.
+  - On the death of Finan in 661, Colman succeeded him as bishop of Lindisfarne. Sources recall his episcopate for its frugality and simplicity, qualities he sought to encourage among his clergy in keeping with the ascetic temper of the Iona tradition.
+- heading: The Synod of Whitby
+  body:
+  - The defining event of Colman's episcopate was the Synod of Whitby in 664, summoned by King Oswiu of Northumbria to settle the long-running disagreement between the Celtic and Roman parties over the calculation of the date of Easter and the form of the monastic tonsure. Colman spoke for the Celtic usage, appealing to the tradition received through Iona and ultimately, as the Celtic party held, from St. John the Evangelist.
+  - When King Oswiu ruled in favor of the Roman reckoning, Colman did not accept the change. Rather than conform against his conscience, he resigned the see of Lindisfarne and prepared to leave Northumbria, an episode that came to mark the close of the dominant phase of the Columban mission in northern England.
+- heading: Return to Ireland and Monastic Foundations
+  body:
+  - Leaving Lindisfarne, Colman took with him the Irish monks of the community together with a number of English brethren. After a period spent in Scotland and at Iona, he returned to his native Ireland. He brought with him relics he held in honor, which the sources identify as the bones of St. Aidan together with a portion of the True Cross.
+  - Around 668 he settled on the island of Inishbofin, off the coast of County Galway, where he established a monastery and school. Tensions arose between the Irish and English monks of the community, and to resolve them Colman founded a separate house on the mainland at Mayo for the English brethren. This foundation, long known as Mayo of the Saxons, came to be esteemed as a center of learning and monastic life.
+- heading: Relics and Veneration
+  body:
+  - Colman reposed at Inishbofin and is venerated as a saint in the Eastern Orthodox, Roman Catholic, and Anglican traditions. His principal commemoration falls on February 18, with additional feasts recorded on August 8 and November 13. The relics he is said to have carried from Lindisfarne, including those of St. Aidan, linked the Irish foundations he established to the Northumbrian mission he had served.
+related:
+- id: OS-0679
+  name: Saint Finan of Lindisfarne
+  note: Colman's predecessor as bishop of Lindisfarne, whom he succeeded in 661.
+- id: OS-1812
+  name: Saint Aidan of Lindisfarne
+  note: The first Iona-trained bishop of Lindisfarne, whose relics Colman is said to have carried to Ireland.
+sources:
+- OCA Synaxarion (oca.org), Feb 18
+- https://en.wikipedia.org/wiki/Colm%C3%A1n_of_Lindisfarne
+- https://orthodoxwiki.org/Colman_of_Lindisfarne
+- internal-cross-check
+status: draft
+generated: '2026-06-19'

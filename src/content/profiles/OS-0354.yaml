@@ -1,0 +1,51 @@
+id: OS-0354
+liturgicalTitle: Our Father among the Saints Salvius, Bishop of Albi
+lifespan: died 10 September 584
+overview:
+  - Salvius of Albi was a sixth-century bishop in southern Gaul whose life was recorded by his kinsman Gregory of Tours. Trained in law and the humanities, he practiced as a lawyer in Albi before abandoning his secular career for monastic life, where he became an abbot and then a hermit known for severe asceticism. He was drawn out of his solitude to be made bishop of Albi in 574 and governed the see for about a decade until his death.
+  - He is remembered both for a celebrated account, transmitted by Gregory of Tours, of an apparent death and vision of heaven from which he returned, and for his conduct during a plague that struck Albi, when he remained with his people rather than flee and finally succumbed to the epidemic himself in 584. He is venerated in both the Eastern Orthodox and Roman Catholic traditions, with his feast kept on September 10.
+timeline:
+  - when: early 6th century
+    title: Birth and legal career
+    body: Born at Albi into a prominent ecclesiastical family of southern Gaul, Salvius was educated in law and the humanities and practiced as a lawyer in the city.
+  - when: before 574
+    title: Monastic life and hermitage
+    body: He left his secular career to become a monk, was elected abbot, and then withdrew to live as a hermit in a cell, devoting himself to rigorous abstinence.
+  - when: "574"
+    title: Consecrated Bishop of Albi
+    body: Drawn out of his solitude, he was ordained bishop of Albi and governed the see for about ten years.
+  - when: "584"
+    title: Death during the plague
+    body: When plague struck Albi, Salvius remained with his flock and cared for them until he himself died of the epidemic on September 10, 584.
+sections:
+  - heading: From Lawyer to Hermit
+    body:
+      - According to Gregory of Tours, who was a distant relation of Salvius and the principal source for his life, Salvius was educated in law and the humanities and worked as a lawyer in Albi before he was moved to abandon his secular profession. He entered monastic life and gave himself to severe ascetic discipline; Gregory's account describes his self-mortification as extreme.
+      - He was elected abbot of his community but soon sought greater solitude, withdrawing to a hermit's cell where he lived in seclusion, keeping a strict rule of abstinence while offering hospitality and blessed bread to those who came to him.
+  - heading: The Vision of Heaven
+    body:
+      - Gregory of Tours relates that during an illness accompanied by high fever Salvius appeared to die. His community prepared his body for burial, but he revived, and afterward he described having been carried by angels through the heights of heaven, through golden gates into a luminous dwelling filled with martyrs and confessors, where a voice from a bright cloud commanded that he be returned to the world because he was still needed for the churches.
+      - Gregory states that he learned the account from Salvius's own lips. The narrative is among the earliest Western examples of a death-and-return vision of the kind later transmitted by Bede and by Irish writers; Salvius is said to have believed ever afterward that he had truly died and seen heaven.
+  - heading: Bishop of Albi
+    body:
+      - "Salvius was drawn out of his hermitage and ordained bishop of Albi around 574. As bishop he intervened with the Frankish king Chilperic I, and the sources recall his care for the poor and the captive: when he was obliged to accept gold he distributed it to the needy, and when the patrician Mummolus seized citizens of Albi, Salvius secured their ransom."
+      - When a plague devastated the city, Salvius did not flee but remained among his people, urging them to prayer, watchfulness, and good works. Foreseeing his own end, he is said to have prepared his tomb, and he died on September 10, 584.
+  - heading: Relics and Veneration
+    body:
+      - Salvius was first buried in his monastery, and his remains were later transferred to the Church of Saint-Salvi in Albi, which bears his name. Their exact location was lost following renovations of the church in the eighteenth century.
+      - He is venerated as a saint in both the Eastern Orthodox and Roman Catholic Churches, and his feast is celebrated on September 10.
+related:
+  - name: Gregory of Tours
+    note: Bishop and historian, a distant relation of Salvius, whose Histories preserve the principal account of his life and vision.
+  - name: Didier (Desiderius) of Cahors
+    note: Bishop of Cahors and a kinsman of Salvius within the ecclesiastical families of southern Gaul.
+patronage:
+  - The city of Albi
+status: draft
+sources:
+  - Synaxarion
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Salvius_of_Albi
+  - https://www.johnsanidopoulos.com/2019/09/saint-salvius-bishop-of-albi-in-gaul-584.html
+  - https://portal.sds.ox.ac.uk/articles/online_resource/E02249_Gregory_of_Tours_in_his_Histories_7_1_recounts_the_story_of_Salvius_ob_584_S01195_abbot_and_later_bishop_of_Albi_in_south-west_Gaul_this_includes_Salvius_earlier_death_his_journey_to_Heaven_while_dead_and_his_return_from_the_dead_in_/13818737/1
+generated: "2026-06-19"

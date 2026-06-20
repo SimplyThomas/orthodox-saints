@@ -1,0 +1,57 @@
+id: OS-1210
+liturgicalTitle: The Right-believing Grand Prince Demetrios Donskoy of Moscow
+lifespan: 1350 - 1389
+overview:
+  - Demetrios Donskoy was Grand Prince of Moscow and of Vladimir in the second half of the fourteenth century. He is remembered in the Orthodox Church as a pious ruler who joined Christian devotion to political skill, working for the unification of the Russian lands and their deliverance from the Tatar-Mongol yoke. Orphaned of his father young, he was guided in his early years by Saint Alexis, Metropolitan of Moscow.
+  - His name is bound above all to the Battle of Kulikovo, fought in 1380 on the field between the Don and Nepryadva rivers against the forces of Mamai. Before the battle he received the blessing of Saint Sergius of Radonezh, who foretold victory and sent two monks of his monastery, Alexander Peresvet and Andrew Oslyabya, to accompany the army. The victory won Demetrios the surname "Donskoy," "of the Don." He reposed on May 19, 1389, and was buried in the cathedral of the Archangels in the Moscow Kremlin; he was glorified among the saints by the Russian Orthodox Church in 1988.
+timeline:
+  - when: "1350"
+    title: Birth in Moscow
+    body: Demetrios was born in 1350. Losing his father while still a boy, he came under the guidance of Saint Alexis, Metropolitan of Moscow, who helped form him as a ruler.
+  - when: "1359"
+    title: Accession as Prince of Moscow
+    body: Still a child, Demetrios succeeded as Prince of Moscow, and in time also held the grand-princely throne of Vladimir, devoting his reign to the unification of the Russian lands.
+  - when: "1380"
+    title: Blessing of Saint Sergius
+    body: On the eve of his campaign against Mamai, Demetrios visited Saint Sergius of Radonezh, who blessed him, foretold his victory, and sent the schema-monks Alexander Peresvet and Andrew Oslyabya to go with the army.
+  - when: September 8, 1380
+    title: The Battle of Kulikovo
+    body: Demetrios defeated the host of Mamai on the field between the Don and Nepryadva rivers, the first great victory of the Russian princes over the Tatars, from which he received the surname Donskoy, "of the Don."
+  - when: May 19, 1389
+    title: Repose at Moscow
+    body: Demetrios reposed on May 19, 1389, and was buried in the cathedral of the Archangels in the Moscow Kremlin.
+  - when: "1988"
+    title: Glorification
+    body: He was numbered among the saints by the Local Council of the Russian Orthodox Church in 1988, in the year of the millennium of the Baptism of Rus'.
+sections:
+  - heading: Grand Prince of Moscow
+    body:
+      - Demetrios was born in 1350 and succeeded as Prince of Moscow as a child, later holding also the grand-princely dignity of Vladimir. Having lost his father young, he was raised under the care of Saint Alexis, Metropolitan of Moscow. The synaxarion recalls that he united Christian piety with notable gifts as a statesman, laboring both for the gathering of the Russian principalities and for their freedom from Tatar-Mongol rule.
+      - During his reign Moscow grew in strength and standing. He raised the first stone walls of the Moscow Kremlin and founded monasteries, and his rule is remembered as a turning point in the consolidation of the Russian state around Moscow.
+  - heading: The Battle of Kulikovo
+    body:
+      - In 1380 Demetrios led the Russian princes against the army of Mamai, the ruler of the Tatar Horde. Before setting out he went to Saint Sergius of Radonezh for his blessing; the elder foretold his victory and sent with him two monks of his monastery, the schema-monks Alexander Peresvet and Andrew Oslyabya, to support the prince in the campaign.
+      - On September 8, 1380, the feast of the Nativity of the Mother of God, the battle was joined on the field of Kulikovo between the Don and Nepryadva rivers and ended in a decisive Russian victory. From this triumph Demetrios received the surname Donskoy. In thanksgiving he established churches and monasteries; the victory is remembered as the first in which the united Russian princes broke the dominance of the Horde in open battle.
+  - heading: Repose and glorification
+    body:
+      - Demetrios reposed on May 19, 1389, and was buried in the cathedral of the Archangels in the Moscow Kremlin among the princes of his house.
+      - He was glorified among the saints by the Local Council of the Russian Orthodox Church in 1988, held in the year of the millennium of the Baptism of Rus'. His wife, Saint Euphrosyne (in the world Eudokia) of Moscow, who founded the Ascension Convent in the Kremlin and is commemorated on May 17, is also numbered among the saints.
+family:
+  heading: Family
+  figures:
+    - name: Saint Euphrosyne (Eudokia) of Moscow
+      note: His wife, Grand Princess of Moscow, foundress of the Ascension Convent, commemorated May 17
+      href: saint/OS-1193
+related:
+  - name: Saint Euphrosyne (Eudokia) of Moscow
+    note: His wife, the Grand Princess of Moscow, commemorated May 17
+    href: saint/OS-1193
+patronage:
+  - Russia and the Russian land
+  - Rulers and soldiers
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/05/19/101444-right-believing-demetrios-donskoy-grand-prince-of-moscow
+  - https://en.wikipedia.org/wiki/Dmitry_Donskoy
+status: draft
+generated: "2026-06-19"

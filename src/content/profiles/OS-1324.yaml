@@ -1,0 +1,61 @@
+id: OS-1324
+liturgicalTitle: Our Father among the Saints John (Maximovitch), Metropolitan of Tobolsk and All Siberia
+lifespan: 1651 – 1715
+overview:
+  - John (Maximovitch) of Tobolsk was a learned hierarch of the late seventeenth and early eighteenth centuries who, as Metropolitan of Tobolsk and All Siberia, devoted himself to the care of an immense and scattered flock and to the missionary enlightenment of the peoples of Siberia. He is commemorated on June 10 and is remembered as a wonderworker, a missionary, and a prolific spiritual writer. He should not be confused with his later kinsman and namesake, Saint John (Maximovitch) of Shanghai and San Francisco, a twentieth-century hierarch.
+  - Born in 1651 at Nizhyn, then part of the Cossack Hetmanate, he came from a noble Cossack family and was, by tradition, the only one of seven sons to enter the service of the Church. He studied at the Kiev Academy, where he afterward taught, and was tonsured a monk of the Kiev Caves Lavra. He rose through monastic and episcopal office, serving as Archbishop of Chernigov, where he is credited with founding a collegium modeled on the Kiev academy and establishing a printing press for theological works, before being raised to the metropolitan cathedra of Tobolsk in 1711.
+  - "As metropolitan of the vast Siberian see, John gave himself to the spiritual care of his far-flung diocese and to mission. The Russian Orthodox mission to China is associated with his episcopate: he sent an archimandrite to Beijing in 1714 to lead what became the first Spiritual Mission of the Russian Orthodox Church there. He died in 1715 while at prayer and was glorified by the Russian Orthodox Church in 1916. His relics rest in Tobolsk."
+sections:
+  - heading: Early Life and Education
+    body:
+      - Sources place John's birth in 1651 at Nizhyn (Nezhin), then within the Cossack Hetmanate. He belonged to a noble Cossack family and is described as the only one of seven sons to give himself to the service of the Church. He studied at the Kiev Academy (the Kiev-Mohyla Collegium), from which he graduated, and remained there for a time as a teacher of poetics, rhetoric, and Latin.
+      - He was tonsured a monk at the Kiev Caves Lavra and was noted for his preaching and learning. Accounts differ in detail — some place his tonsure in 1676 and others in 1680 — but they agree that the Lavra was the setting of his monastic profession.
+  - heading: Episcopate at Chernigov
+    body:
+      - John was appointed archimandrite of the Eletsky (Chernigov Eletsk) Monastery in 1695 and soon afterward became Archbishop of Chernigov; sources variously give his consecration as 1696 or January 19, 1697. At Chernigov he organized a collegium modeled on the Kiev academy — remembered as among the first such schools in the Russian Church — and established a printing press for the publication of theological works.
+      - It was in this period that John composed and translated much of his written output, including the work for which he is best known.
+  - heading: Metropolitan of Tobolsk and the Siberian Mission
+    body:
+      - In 1711 John was raised to the rank of metropolitan and appointed to the Tobolsk and All Siberia cathedra, one of the largest and most demanding sees of the Russian Church. There he devoted himself to the pastoral care of a diocese stretching across the vast Siberian land and to the enlightenment of its peoples.
+      - "The mission of the Russian Orthodox Church to China is linked to his episcopate: in 1714 he sent Archimandrite Ilarion (Lezhaisky) to Beijing, an undertaking remembered as the first Spiritual Mission of the Russian Orthodox Church in China. John died in 1715, by tradition while at prayer and on his knees. He was glorified by the Russian Orthodox Church in 1916, and his relics rest in Tobolsk."
+  - heading: Writings
+    body:
+      - John is remembered as a prolific spiritual writer. His best-known work is the Iliotropion (also rendered Heliotropion, 'Sunflower'), which he drew from a Latin source and which treats the conforming of the human will to the will of God. It was long regarded within the Orthodox tradition as a standard treatment of its theme.
+timeline:
+  - when: "1651"
+    title: Birth
+    body: Born at Nizhyn in the Cossack Hetmanate to a noble Cossack family.
+  - when: "1695"
+    title: Archimandrite of Eletsky Monastery
+    body: Appointed archimandrite of the Chernigov Eletsk Monastery.
+  - when: 1696/1697
+    title: Archbishop of Chernigov
+    body: Consecrated to the see of Chernigov, where he founded a collegium and a printing press.
+  - when: "1711"
+    title: Metropolitan of Tobolsk
+    body: Raised to metropolitan and appointed to the Tobolsk and All Siberia cathedra.
+  - when: "1714"
+    title: Mission to Beijing
+    body: Sent Archimandrite Ilarion (Lezhaisky) to lead the first Russian Orthodox Spiritual Mission in China.
+  - when: "1715"
+    title: Repose
+    body: Died, by tradition while at prayer; glorified by the Russian Orthodox Church in 1916.
+related:
+  - name: St. Philotheos (Leshchinsky) of Tobolsk
+    note: A predecessor as metropolitan of Tobolsk and enlightener of Siberia, also commemorated on June 10.
+    href: saint/OS-1267
+  - name: St. John (Maximovitch) of Shanghai and San Francisco
+    note: Twentieth-century hierarch, kinsman and namesake; not to be confused with him.
+    href: saint/OS-0050
+patronage:
+  - Invoked in connection with the enlightenment and mission of Siberia.
+  - Honored among the Saints of Siberia.
+works:
+  - title: Iliotropion (Heliotropion, 'The Sunflower')
+    desc: His best-known work, drawn from a Latin source, on the conforming of the human will to the will of God.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/John_of_Tobolsk
+  - https://orthodoxwiki.org/John_Maximovitch_of_Tobolsk
+generated: "2026-06-19"

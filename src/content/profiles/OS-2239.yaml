@@ -1,0 +1,63 @@
+id: OS-2239
+liturgicalTitle: Our Father among the Saints Amphilochius, Bishop of Iconium
+lifespan: c. 339 – c. 395
+overview:
+  - Amphilochius of Iconium was a fourth-century bishop and theologian counted among the close circle of the Cappadocian Fathers. Born around 339/340 at Caesarea in Cappadocia, he was, by tradition, a kinsman of St. Gregory the Theologian, and he maintained lifelong friendships with St. Basil the Great and St. Gregory of Nyssa as well. The son of an eminent lawyer, he was trained for the law and pursued that profession before withdrawing to an ascetic life and ultimately being raised to the episcopate.
+  - As bishop of Iconium from early in 374, Amphilochius became a vigorous defender of Nicene Orthodoxy. He contended against the Arians and Eunomians and was an early champion of the divinity of the Holy Spirit against the Macedonians (the Pneumatomachi), the controversy of his generation. St. Basil the Great, who is generally regarded as having recommended him for the see, dedicated his treatise On the Holy Spirit to Amphilochius. He took part in the Second Ecumenical Council, held at Constantinople in 381, which affirmed the consubstantial divinity of the Holy Spirit.
+  - Amphilochius also left a body of theological writing — homilies, a synodal letter on the Holy Spirit, works against heretics, and a verse Letter to Seleucus notable in the history of the biblical canon. He presided over the Council of Side, which condemned the Messalians, an ascetical sect he laboured energetically to suppress. He is commemorated in the Eastern Orthodox Church on November 23.
+sections:
+  - heading: Early Life and Training in the Law
+    body:
+      - Amphilochius was born at Caesarea in Cappadocia around 339/340. His father was an eminent lawyer, and his mother, named in the tradition as Livia, was remembered for her gentleness and wisdom. By the account preserved in the sources he was probably a first cousin of St. Gregory the Theologian, and the Cappadocian milieu that produced the great fourth-century Fathers shaped him from his youth.
+      - Following his father's calling, Amphilochius studied rhetoric and law — by one tradition under the famous pagan rhetorician Libanius at Antioch — and practised in the law before turning away from a public career. He withdrew to a life of asceticism and prayer in the vicinity of his friend and relative Gregory of Nazianzus, and for a time was associated with the monastic community gathered around St. Basil at Caesarea.
+  - heading: Bishop of Iconium
+    body:
+      - Amphilochius was made bishop of Iconium, the chief city of Lycaonia, early in 374, a consecration generally credited to the influence of St. Basil the Great. As bishop he became one of the leading defenders of the Nicene faith in Asia Minor, contending against the Arians and the followers of Eunomius and standing with the Cappadocians for the full divinity of the Holy Spirit against the Macedonians. He continued to assist Basil in the affairs of the Church until Basil's death in 379, and Basil addressed his great treatise On the Holy Spirit to him.
+      - "By tradition, Amphilochius appealed to the Emperor Theodosius the Great to expel the Arians from the imperial cities. When the emperor delayed, the bishop is said to have entered the imperial presence and deliberately withheld the customary honour from the emperor's son Arcadius, so that when Theodosius took offence Amphilochius could press home the lesson: that to dishonour the Son of God is to offend the Father. The account relates that the emperor was struck by the comparison."
+  - heading: Councils, Writings, and the Messalians
+    body:
+      - Amphilochius took part in the Second Ecumenical Council at Constantinople in 381, and the tradition records that St. Jerome met and conversed with him there. He was a determined opponent of the Messalians, an ascetical sect, and presided over the Council of Side, which condemned them; his efforts contributed to the suppression of that group.
+      - Among his writings the sources name homilies (some of disputed authenticity), a synodal letter on the Holy Spirit, treatises against various heretics, and a verse epistle, the Iambics to Seleucus, which includes a list of the books of Scripture and is of interest for the history of the biblical canon. He is said to have reposed in great old age, around the year 395.
+timeline:
+  - when: c. 339/340
+    title: Born at Caesarea in Cappadocia
+    body: Son of an eminent lawyer and, by tradition, a kinsman of St. Gregory the Theologian.
+  - when: early 374
+    title: Consecrated Bishop of Iconium
+    body: Raised to the see of Iconium, generally credited to the influence of St. Basil the Great.
+  - when: "379"
+    title: Death of St. Basil the Great
+    body: Amphilochius had assisted Basil in Church affairs until Basil's repose; Basil had dedicated On the Holy Spirit to him.
+  - when: "381"
+    title: Second Ecumenical Council
+    body: Took part in the Council of Constantinople, which affirmed the divinity of the Holy Spirit.
+  - when: c. 390
+    title: Council of Side
+    body: Presided over the council that condemned the Messalians.
+  - when: c. 395
+    title: Repose
+    body: Reposed in great old age.
+related:
+  - name: St. Basil the Great
+    note: Lifelong friend; recommended him for the see of Iconium and dedicated On the Holy Spirit to him.
+    href: saint/OS-0021
+  - name: St. Gregory the Theologian
+    note: Kinsman and lifelong friend; Amphilochius accompanied him to the Council of Constantinople.
+    href: saint/OS-0022
+  - name: St. Gregory of Nyssa
+    note: Fellow Cappadocian Father and lifelong friend.
+    href: saint/OS-0422
+works:
+  - title: Iambics to Seleucus
+    desc: A verse letter on the devout and contemplative life that includes a list of the books of Scripture, of note in the history of the biblical canon.
+  - title: Synodal Letter on the Holy Spirit
+    desc: A conciliar letter defending the divinity of the Holy Spirit.
+  - title: Homilies
+    desc: About ten homilies are attributed to him, some of disputed authenticity.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Amphilochius_of_Iconium
+  - https://www.ancientfaith.com/podcasts/saintoftheday/56714/
+  - https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/amphilochius-iconium-st
+generated: "2026-06-19"

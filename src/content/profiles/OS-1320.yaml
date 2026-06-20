@@ -1,0 +1,56 @@
+id: OS-1320
+liturgicalTitle: Our Venerable Father Columba of Iona, Enlightener of the Picts and Scots
+lifespan: c. 521 - 597
+overview:
+  - Columba of Iona, known in Irish as Colum Cille, was a sixth-century Irish monk who founded the monastery of Iona off the western coast of Scotland and, with his disciples, carried the Gospel to the Picts and Scots. Born of the Ui Neill, a noble Irish line traced back to the high king Niall of the Nine Hostages, he became a monk and priest and established several monastic communities in Ireland before departing for Scotland. He is commemorated on June 9.
+  - By the received account, a dispute arose between Columba and Finnian of Moville over the copying of a psalter, and this conflict became connected with the Battle of Cul Dreimhne in 561. On the counsel of an aged hermit, Columba resolved to leave Ireland as a penitential exile. In 563 he sailed with twelve companions to the island of Iona, which was made over to him with the help of his kinsman Conall mac Comgaill, and there he established the monastery that became the centre of his missionary work in northern Britain.
+  - From Iona, Columba and his monks proclaimed the Gospel widely, sailing among the islands and travelling inland to the Picts. He visited the Pictish king Bridei near Inverness, winning his respect; according to Adomnan, Columba communicated with the Picts through an interpreter. He reposed on Iona on Sunday, June 9, 597. The principal source for his life is the Life of Columba written by Adomnan, one of his successors as abbot of Iona, and he is honoured among the patron saints of Ireland.
+sections:
+  - heading: Irish Origins and Foundations
+    body:
+      - Columba was born at Gartan in Tyrconnell (modern Donegal), in the territory of the Ui Neill, and tradition names his parents as Fedhlimidh and Eithne. His descent from Niall of the Nine Hostages placed him within one of the most powerful kindreds of early medieval Ireland. He entered monastic life and was ordained to the priesthood, and before leaving Ireland he was associated with the founding of several monastic communities, among them Derry and Durrow.
+      - The tradition connects his departure from Ireland with a quarrel over a psalter that Columba had copied from a manuscript belonging to Finnian of Moville, a dispute that became bound up with the Battle of Cul Dreimhne in 561. As penance, and on the advice of an aged hermit, Columba undertook to leave his homeland and to win souls for Christ, an exile that shaped the remainder of his life.
+  - heading: Iona and the Mission to the Picts
+    body:
+      - In 563 Columba crossed to Scotland with twelve companions and settled on Iona, a small island off the western coast that was granted to him through his kinsman Conall mac Comgaill. The monastery he founded there became the heart of a wide evangelising effort, and his monks sailed among the islands and travelled into the interior to preach to the Picts and Scots, founding churches as they went.
+      - Columba visited the Pictish king Bridei near Inverness and won his respect, though by Adomnan's account he addressed the Picts through an interpreter. Many miracle accounts attach to this work; the best known describes Columba driving off a beast in the River Ness. He laboured from Iona until his death and trained disciples who carried the Celtic monastic tradition further, including monks of Iona who later evangelised Northumbria.
+  - heading: Adomnan's Life of Columba
+    body:
+      - The chief source for Columba's life is the Life of Columba (Vita Columbae), composed by Adomnan, the ninth abbot of Iona, about a century after the saint's death and probably between 697 and 700. Rather than following a chronological narrative, Adomnan arranged the work in three thematic books treating Columba's prophetic revelations, his miraculous powers, and his angelic visions.
+      - The Life presents Columba as a model for monks and is regarded as the most important surviving work written in early medieval Scotland. Among its episodes are a vision in which Columba appears to King Oswald of Northumbria before the Battle of Heavenfield, the encounter with the beast at the River Ness, and the saint's foreknowledge of his own death, which the account places at the altar.
+timeline:
+  - when: c. 521
+    title: Birth at Gartan
+    body: Born at Gartan in Tyrconnell of the Ui Neill, descended from Niall of the Nine Hostages.
+  - when: "561"
+    title: Battle of Cul Dreimhne
+    body: A dispute over a copied psalter with Finnian of Moville becomes connected with the battle, prompting his penitential exile.
+  - when: "563"
+    title: Founding of Iona
+    body: Sails to Scotland with twelve companions and founds the monastery of Iona.
+  - when: "597"
+    title: Repose on Iona
+    body: Dies on Iona on Sunday, June 9.
+  - when: c. 697-700
+    title: Adomnan's Life written
+    body: Adomnan, ninth abbot of Iona, composes the Life of Columba.
+related:
+  - name: St. Finnian of Movilla
+    note: Abbot of Moville, whose psalter figures in the tradition of Columba's exile.
+    href: saint/OS-0353
+  - name: St. Aidan of Lindisfarne
+    note: A monk of Iona who became missionary bishop of Lindisfarne and re-evangelized Northumbria.
+    href: saint/OS-1812
+  - name: St. Finan of Lindisfarne
+    note: An Irish monk of Iona who succeeded Aidan as bishop of Lindisfarne.
+    href: saint/OS-0679
+patronage:
+  - Invoked as an enlightener of the Picts and Scots and a patron of missionary work.
+  - Honoured among the patron saints of Ireland.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Columba
+  - https://orthodoxwiki.org/Columba_of_Iona
+  - https://en.wikipedia.org/wiki/Life_of_Columba
+generated: "2026-06-19"

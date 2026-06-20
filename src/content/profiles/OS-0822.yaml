@@ -1,0 +1,55 @@
+id: OS-0822
+lifespan: c. 480 – 547
+liturgicalTitle: Our Venerable Father Benedict of Nursia, Founder of Western Monasticism
+overview:
+- Benedict of Nursia was a sixth-century monastic founder from Italy whose Rule became the foundational document of monastic life in the Christian West. Born around 480 in Nursia (modern Norcia, in Umbria), he was sent to study in Rome but withdrew from the city to pursue a life of prayer and asceticism.
+- After years as a hermit at Subiaco and the gathering of disciples, Benedict founded a series of monasteries, the greatest of which was Monte Cassino, situated between Rome and Naples. There he composed the Rule that bears his name, a balanced program of prayer, work, and obedience. The Orthodox Church, which venerates the saints of the undivided Church, commemorates him on March 14.
+timeline:
+- when: c. 480
+  title: Birth in Nursia
+  body: Benedict was born around 480 in Nursia (modern Norcia), in the Umbrian region of Italy. His sister Scholastica, later venerated as a saint, is traditionally regarded as his twin or close kin.
+- when: early life
+  title: Withdrawal from Rome
+  body: Sent to Rome for his studies, Benedict abandoned secular learning and the worldliness of the city to seek a life of prayer. He first settled at Enfide in the Simbruini mountains before withdrawing further into solitude.
+- when: c. 500s
+  title: Hermit at Subiaco
+  body: Benedict lived for three years as a hermit in a cave above the lake at Subiaco, near the site of a former villa of the emperor Nero, devoting himself to continual prayer and asceticism. The monk Romanus provided him with sustenance and spiritual guidance during this period.
+- when: c. 530
+  title: Founding of monasteries
+  body: Benedict gathered disciples and established twelve communities of monks near Subiaco. Tradition relates that monks who first came under his leadership once attempted to poison him; when he made the sign of the cross over the cup, it shattered.
+- when: c. 530s
+  title: Monte Cassino
+  body: Benedict founded the great monastery at Monte Cassino, between Rome and Naples, which became the center of his monastic movement. There he composed the Rule that bears his name.
+- when: '547'
+  title: Repose
+  body: Benedict reposed in the oratory of his monastery, according to tradition with his arms lifted in prayer. He and his sister Scholastica were buried together at Monte Cassino.
+sections:
+- heading: The Rule of Saint Benedict
+  body:
+  - Benedict's enduring legacy is the Rule that bears his name, a monastic text of seventy-three chapters addressing both spiritual and administrative matters of community life. It emphasizes obedience, humility, and moderation, ordering the monk's day around prayer and labor.
+  - Roughly half of the Rule is devoted to community discipline and about a quarter to liturgical practices. It has been followed continuously by monks in the West since Benedict's repose, becoming the foundational document of Western monasticism.
+- heading: Sources and Veneration
+  body:
+  - The primary biographical account of Benedict's life is found in the Dialogues of Pope Gregory I (Gregory the Great), written around 593 and drawing on the testimony of Benedict's direct disciples.
+  - As a saint of the undivided Church before the schism, Benedict is venerated in both East and West. The Orthodox Church commemorates him on March 14. In the Roman Catholic Church, Pope Paul VI declared him patron of Europe in 1964, and Pope John Paul II named him a co-patron of Europe, alongside Cyril and Methodius, in 1980.
+  - Sources differ on the exact dates of his birth and repose, some placing them around 470 and 543 and others around 480 and 547; he belongs to the sixth century.
+- heading: Family
+  body:
+  - Benedict's sister Scholastica became a nun at one of his communities and is venerated as a saint in her own right. According to tradition, she once prayed for a rainstorm so as to enjoy more time in spiritual fellowship with her brother. Benedict later beheld her soul rising to heaven in the likeness of a dove and had her buried in his own tomb at Monte Cassino.
+related:
+- name: Saint Scholastica
+  note: Benedict's sister, a nun at one of his communities, buried with him at Monte Cassino.
+- name: Saint Gregory the Great (Gregory the Dialogist)
+  note: Pope whose Dialogues, written c. 593, preserve the principal account of Benedict's life.
+patronage:
+- Monastics and monastic communities
+- Europe (in the Western Church)
+works:
+- title: The Rule of Saint Benedict
+  desc: A monastic rule of seventy-three chapters governing prayer, work, and community life, the foundational document of Western monasticism.
+status: draft
+sources:
+- OCA Synaxarion (oca.org), Lives of the Saints
+- en.wikipedia.org
+- https://orthodoxwiki.org/Benedict_of_Nursia
+generated: '2026-06-19'

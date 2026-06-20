@@ -1,0 +1,69 @@
+id: OS-0801
+liturgicalTitle: The Righteous Caesarius of Nazianzus, Physician
+lifespan: c. 331 – c. 368
+overview:
+- Caesarius of Nazianzus was a fourth-century physician and the younger brother of Saint Gregory the Theologian. Born around 331 at Arianzus near Nazianzus in Cappadocia, he was the son of Gregory the Elder, bishop of Nazianzus, and his wife Nonna. He is remembered chiefly through the funeral oration his brother Gregory delivered for him, which remains the principal source for his life, and he is commemorated on March 9.
+- He pursued an extensive education, studying first in Cappadocia and then at the renowned schools of Alexandria, where he devoted himself to geometry, astronomy, and above all medicine, a field in which the sources say he excelled beyond his fellow students. By about 355 he had settled in Constantinople, where he won a great reputation for his medical skill and rose to serve as a physician at the imperial court.
+- Caesarius held positions of honor under successive emperors while keeping his Christian faith. He served at the court of Constantius II, and afterward, despite his family's misgivings, at the court of Julian the Apostate, whose attempts to win him over to paganism failed. After Julian's death in 363 he continued in public service under Valens, holding a treasury office in Bithynia. By tradition, his escape from the earthquake that struck Nicaea on October 11, 368, moved him, at the urging of his brother Gregory and Saint Basil, to withdraw from public life; he was baptized and gave his possessions to the poor, and reposed shortly afterward, late in 368 or early in 369.
+sections:
+- heading: Physician and Courtier
+  body:
+  - The sources present Caesarius as a man of exceptional learning who attained worldly distinction without renouncing his faith. After his medical studies at Alexandria, his skill brought him to Constantinople and into the imperial court. According to the tradition, his reputation was such that he was sought as a personal physician, and he held his place at court through several reigns.
+  - His service under Julian the Apostate was a particular concern to his Christian family, given the emperor's hostility to the faith. The accounts relate that Julian pressed him to abandon Christianity and adopt paganism, but failed, and that Caesarius remained unharmed. Under Valens he held a financial office connected with the province of Bithynia, described in the sources as a treasury and tax-collection position.
+- heading: Conversion of Life and Repose
+  body:
+  - The turning point recorded in the tradition is Caesarius's survival of the earthquake that shook Nicaea on October 11, 368. The synaxarion relates that this deliverance, together with the persistent appeals of his brother Gregory and of Saint Basil, led him to leave the world. He received baptism and distributed his wealth to the poor.
+  - He reposed soon after, at the end of 368 or the beginning of 369. His brother Gregory the Theologian honored him with a funeral oration that praises his wisdom and integrity; this oration is the chief witness to his life and the reason his memory was preserved in the Church.
+timeline:
+- when: c. 331
+  title: Born at Arianzus
+  body: Born near Nazianzus in Cappadocia, younger son of Gregory the Elder and Nonna.
+- when: c. 355
+  title: Established at Constantinople
+  body: After medical studies at Alexandria, won renown as a physician and entered imperial service.
+- when: '361'
+  title: Serves under Julian the Apostate
+  body: Summoned to court by Julian, whose efforts to convert him to paganism failed.
+- when: Oct 11, 368
+  title: Earthquake at Nicaea
+  body: Survived the earthquake, which moved him to withdraw from public life.
+- when: c. 368
+  title: Baptism and repose
+  body: Was baptized, gave his goods to the poor, and reposed shortly afterward.
+related:
+- name: St. Gregory the Theologian
+  note: elder brother, who delivered his funeral oration
+  href: saint/OS-0022
+- name: Righteous Gorgonia
+  note: sister
+  href: saint/OS-0719
+- name: Righteous Nonna
+  note: mother
+  href: saint/OS-1647
+- name: St. Basil the Great
+  note: who, with Gregory, urged him to leave the world
+family:
+  heading: Family
+  intro: Caesarius belonged to a family numbering several saints of the Nazianzen circle.
+  figures:
+  - name: Gregory the Elder
+    note: father, bishop of Nazianzus
+  - name: Righteous Nonna
+    note: mother
+    href: saint/OS-1647
+  - name: St. Gregory the Theologian
+    note: elder brother
+    href: saint/OS-0022
+  - name: Righteous Gorgonia
+    note: sister
+    href: saint/OS-0719
+patronage:
+- Associated with physicians and the medical profession, reflecting his renown as a doctor.
+status: draft
+sources:
+- OCA Synaxarion (oca.org), Lives of the Saints
+- en.wikipedia.org
+- https://www.newadvent.org/cathen/03138a.htm
+- https://www.oca.org/saints/lives/2025/03/09/100748-saint-caesarius-brother-of-saint-gregory-the-theologian
+- https://en.wikipedia.org/wiki/Caesarius_of_Nazianzus
+generated: '2026-06-19'

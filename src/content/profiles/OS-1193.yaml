@@ -1,0 +1,68 @@
+id: OS-1193
+liturgicalTitle: Our Venerable Mother Euphrosyne (Eudokia), Grand Princess of Moscow
+lifespan: 1353 - 1407
+overview:
+  - Euphrosyne of Moscow, known in the world as Eudokia (Evdokia) Dmitrievna, was the wife of Grand Prince Demetrios Donskoy and, after his death, a builder of churches and a monastic. The daughter of the Suzdal prince Dmitry Konstantinovich, her marriage into the Moscow line helped reconcile the rival principalities of Suzdal and Moscow at a critical moment in the gathering of the Russian lands.
+  - Widowed in 1389, she devoted the remainder of her life to almsgiving, fasting, and the founding and adornment of churches and monasteries in the Moscow Kremlin, while in secret keeping a severe ascetic discipline beneath the outward state of a grand princess. Near the end of her life she received the monastic tonsure with the name Euphrosyne and entered the Ascension Convent she had founded, where she reposed in 1407. She is commemorated on May 17, the day associated with her tonsure, and on July 7.
+timeline:
+  - when: "1353"
+    title: Birth
+    body: Eudokia was born in 1353, the daughter of Dmitry Konstantinovich, Grand Prince of Suzdal and Nizhny Novgorod, and (according to genealogies) Vasilisa of Rostov.
+  - when: "1366"
+    title: Marriage to Demetrios Donskoy
+    body: Eudokia married the young Grand Prince of Moscow, Dmitry (Demetrios) Donskoy. The union helped foster peace between Moscow and Suzdal. Orthodox tradition dates her entry into the Moscow household from about 1367. The marriage produced many children, among them the future Grand Prince Vasily I.
+    source: https://en.wikipedia.org/wiki/Eudoxia_of_Moscow
+  - when: "1387"
+    title: Foundation of the Ascension Convent
+    body: Eudokia established the Ascension (Voznesensky) women's monastery within the Moscow Kremlin, which would become the burial place of the grand princesses of Moscow.
+    source: https://www.oca.org/saints/lives/2010/07/07/101952-venerable-eudokia-in-monasticism-euphrosyne-grand-duchess-of-mos
+  - when: "1389"
+    title: Widowhood
+    body: Grand Prince Demetrios Donskoy died, leaving Eudokia a widow. She turned increasingly to almsgiving, prayer, and the building up of the Church, raising her surviving sons.
+  - when: "1395"
+    title: The Vladimir Icon brought to Moscow
+    body: According to the synaxarion, during Tamerlane's invasion of the southern regions of Russia, the Vladimir Icon of the Mother of God was transferred to Moscow on her advice, and the land was delivered.
+    source: https://www.oca.org/saints/lives/2010/07/07/101952-venerable-eudokia-in-monasticism-euphrosyne-grand-duchess-of-mos
+  - when: "1407"
+    title: Tonsure and repose
+    body: Late in life she was tonsured a nun with the name Euphrosyne and entered the Ascension Convent. She reposed on July 7, 1407, and was buried in the monastery she had founded.
+    source: https://www.oca.org/saints/lives/2010/07/07/101952-venerable-eudokia-in-monasticism-euphrosyne-grand-duchess-of-mos
+sections:
+  - heading: A princess of Suzdal in the house of Moscow
+    body:
+      - Eudokia was the daughter of Dmitry Konstantinovich, Grand Prince of Suzdal and Nizhny Novgorod. Her marriage to Dmitry Donskoy bound together two of the leading princely houses of north-eastern Rus' and helped quiet the rivalry between Moscow and Suzdal during the decades in which Moscow rose to primacy among the Russian principalities.
+      - Within the Moscow court she came under the spiritual influence of leading churchmen of her age. The sources name Saint Alexis, Metropolitan of Moscow, and Saint Sergius of Radonezh, who by tradition baptized one of her sons, among those who guided her household.
+  - heading: Hidden asceticism beneath royal state
+    body:
+      - Though she lived outwardly in the splendor proper to a grand princess, the tradition relates that Eudokia kept a hidden ascetic life. During Lent she is said to have worn chains in secret beneath her royal garments, concealing her self-discipline from those around her so that her almsgiving and fasting would not be seen.
+      - After the death of her husband she gave herself more fully to works of mercy and to the founding and adornment of churches. Her best-known foundation, the Ascension Convent in the Kremlin (established 1387), became the customary burial place of the grand princesses of Moscow; sources also associate her with the building of the Church of the Nativity of the Theotokos in Moscow.
+  - heading: Tonsure, repose, and veneration
+    body:
+      - Having raised her sons, the princess received the monastic tonsure with the name Euphrosyne and entered the Ascension Convent she had founded. She reposed on July 7, 1407, and was buried there. She was later canonized by the Russian Orthodox Church and is commemorated on May 17 and July 7. Her relics rested in the Ascension church in the Kremlin until the convent's destruction in the Soviet period.
+family:
+  heading: Family
+  figures:
+    - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
+      note: Her husband, the victor of the Battle of Kulikovo (1380); commemorated May 19.
+      href: saint/OS-1210
+    - name: Dmitry Konstantinovich of Suzdal
+      note: Her father, Grand Prince of Suzdal and Nizhny Novgorod.
+related:
+  - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
+    note: Her husband, with whom she shared the rule of Moscow; commemorated May 19.
+    href: saint/OS-1210
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: A spiritual guide of her household; Metropolitan of Moscow.
+    href: saint/OS-0641
+  - name: Saint Sergius of Radonezh
+    note: By tradition baptized one of her sons.
+    href: saint/OS-0042
+patronage:
+  - Widows
+  - Those who give alms and build up the Church
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Eudoxia_of_Moscow
+  - https://www.oca.org/saints/lives/2010/07/07/101952-venerable-eudokia-in-monasticism-euphrosyne-grand-duchess-of-mos
+status: draft
+generated: "2026-06-19"

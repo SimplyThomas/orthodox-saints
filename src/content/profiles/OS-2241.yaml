@@ -1,0 +1,61 @@
+id: OS-2241
+liturgicalTitle: Our Holy Right-Believing and Blessed Grand Prince Alexander Nevsky
+lifespan: 1221 – 1263
+overview:
+  - Alexander Yaroslavich, called Nevsky, was a thirteenth-century prince of Novgorod and Grand Prince of Vladimir who defended northwestern Rus' against Swedish and German crusading incursions and navigated the Mongol domination of the Rus' principalities through strategic diplomacy. Born on May 13, 1221, in Pereslavl-Zalessky as the second son of Grand Prince Yaroslav II of Vladimir and Feodosia Mstislavna, he was named Prince of Novgorod in 1236. In 1239 he married Alexandra, daughter of the Prince of Polotsk, and they had several children, among them Daniel of Moscow.
+  - "His two most celebrated military victories came in rapid succession: the Battle of the Neva on July 15, 1240, where he routed a Swedish force at the confluence of the Izhora and Neva rivers — earning him the epithet 'Nevsky' — and the Battle on the Ice on April 5, 1242, where he decisively defeated the Livonian branch of the Teutonic Order on the frozen surface of Lake Peipus, halting the eastward advance of the Catholic crusading orders. Named Grand Prince of Vladimir in 1252, he chose co-operation over military confrontation with the Mongol Golden Horde, making four diplomatic journeys to the Khan's headquarters to negotiate tribute and prevent destructive Tatar reprisals against the Russian population. On his final return from the Horde in 1263, he fell gravely ill; near death he received the monastic Great Schema under the name Aleksiy, and died on November 14, 1263, at Gorodets on the Volga. Metropolitan Cyril of Kiev announced his death with the words 'the sun of Russia has set.' He was buried in Vladimir on November 23, 1263. The Russian Orthodox Church canonized him in 1547; his feast days are August 30 (translation of relics to Saint Petersburg), November 23 (the day of his burial), and May 23 (a general commemoration of Rostov-Yaroslavl saints)."
+timeline:
+  - when: May 13, 1221
+    title: Birth in Pereslavl-Zalessky
+    body: Born the second surviving son of Yaroslav II of Vladimir and Feodosia Mstislavna, in Pereslavl-Zalessky.
+  - when: "1236"
+    title: Named Prince of Novgorod
+    body: Alexander is summoned to lead the defense of Novgorod and begins his princeship.
+  - when: "1239"
+    title: Marriage
+    body: He marries Alexandra, daughter of the Prince of Polotsk; they will have several children including Vasily, Dmitry, Andrey, Daniel of Moscow, and a daughter Eudoxia.
+  - when: July 15, 1240
+    title: Battle of the Neva
+    body: Alexander defeats a Swedish force at the confluence of the Izhora and Neva rivers, winning the epithet 'Nevsky.' The victory prevented the establishment of a Swedish presence along the Neva.
+  - when: April 5, 1242
+    title: Battle on the Ice
+    body: He defeats the Livonian branch of the Teutonic Order on the frozen Lake Peipus, halting the eastward advance of German crusading forces. This engagement is commemorated as one of the decisive medieval battles of northern Europe.
+  - when: "1246"
+    title: Death of his father; diplomatic journey to Karakorum
+    body: His father Yaroslav II dies, possibly poisoned, during a visit to the Mongol capital. Alexander subsequently travels to Karakorum to confirm his political standing.
+  - when: "1252"
+    title: Grand Prince of Vladimir
+    body: Alexander is installed as Grand Prince of Vladimir, the senior title among Rus' princes, and continues his policy of peaceful co-operation with the Golden Horde.
+  - when: "1263"
+    title: Final mission and death
+    body: Returning from his fourth and final diplomatic journey to the Horde, Alexander falls gravely ill at Gorodets on the Volga. He receives the Great Schema monastic tonsure under the name Aleksiy and dies on November 14, 1263.
+  - when: November 23, 1263
+    title: Burial in Vladimir
+    body: Alexander is buried at the Dormition Monastery in Vladimir. Metropolitan Cyril of Kiev announces his death with the phrase 'the sun of Russia has set.'
+  - when: "1380"
+    title: Discovery of incorrupt relics
+    body: Before the Battle of Kulikovo, a vision reportedly prompted the opening of Alexander's tomb; his relics were found incorrupt.
+  - when: "1547"
+    title: Canonization
+    body: Metropolitan Macarius of Moscow formally canonizes Alexander Nevsky at a council of the Russian Orthodox Church.
+  - when: "1724"
+    title: Translation of relics to Saint Petersburg
+    body: By decree of Peter the Great, Alexander's relics are transferred to the newly founded Alexander Nevsky Lavra in Saint Petersburg, where they remain in the Holy Trinity Cathedral.
+sections:
+  - heading: Defender of Orthodoxy
+    body:
+      - Alexander Nevsky's dual role — military defender on the western frontier and diplomatic mediator with the Mongol east — has been interpreted by the Church as a form of pastoral guardianship of the Russian people and their Orthodox faith. He resisted the advance of Latin Christianity by force when militarily feasible, while accepting Mongol political suzerainty as preferable to the alternative of religious coercion from the West. This calculus, however contested by historians, forms the basis of his veneration as a 'right-believing prince' — one who governed in fidelity to Orthodox Christian values.
+      - He took monastic vows before death, receiving the Great Schema — the strictest form of Orthodox monasticism — on his deathbed. This act is understood in Orthodox tradition as a final and complete dedication of his life to Christ.
+  - heading: Relics and Legacy
+    body:
+      - Alexander Nevsky's relics were found incorrupt in 1380 following a vision before the Battle of Kulikovo. In 1724 Peter the Great ordered their transfer to the new capital of Saint Petersburg and founded the Alexander Nevsky Lavra to house them. A silver shrine for the relics was created in 1753. During the Soviet period his relics were temporarily seized (1922) but were returned to the Holy Trinity Cathedral of the Lavra in 1989. In September 2023 the relics were re-enshrined in a new ceremony.
+      - His legacy in Russian cultural memory extends well beyond the Church. He was the subject of Sergei Eisenstein's celebrated 1938 film, which deployed his memory for wartime patriotic mobilization. An Order of Saint Alexander Nevsky, originally established in 1725, was revived by the Soviet government in 1942. In a 2008 public poll, Russians voted him the 'greatest Russian' of all time.
+related:
+  - name: Daniel of Moscow
+    note: Son of Alexander Nevsky; venerated as a saint of the Russian Church.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Alexander_Nevsky
+  - https://orthodoxwiki.org/Alexander_Nevsky
+generated: "2026-06-19"

@@ -1,0 +1,58 @@
+id: OS-1508
+liturgicalTitle: The Holy New Martyr Joseph the Priest of Damascus and his Companions
+lifespan: 1793-1860
+overview:
+  - The Martyrs Joseph and Companions of Damascus were Orthodox Christians killed for their faith during the 1860 Damascus massacre, the most prominent among them being Joseph, a priest of the Diocese of Damascus who led the city's Patriarchal School.
+  - Joseph George Haddad Firzli was born on May 15, 1793 in Beirut, the son of George Mehanna Haddad Firzli, a craftsman of Syrian descent. He was ordained a priest in 1817 for the Diocese of Damascus and from 1836 to 1860 directed the Patriarchal School in Damascus, which under his leadership became the leading Orthodox institution of higher learning in the region.
+  - He died on July 10, 1860 in Damascus, aged 67, during the wave of anti-Christian violence that swept the city that month. He was glorified as a saint in 1993 by the Greek Orthodox Church of Antioch, and his feast is kept on July 10.
+timeline:
+  - when: May 15, 1793
+    title: Born in Beirut as Joseph George Haddad
+    body: Born in Beirut as Joseph George Haddad Firzli.
+  - when: "1817"
+    title: Ordained a priest for the Diocese of
+    body: Ordained a priest for the Diocese of Damascus.
+  - when: "1836"
+    title: Becomes director of the Patriarchal School in
+    body: Becomes director of the Patriarchal School in Damascus.
+  - when: July 10, 1860
+    title: Dies in Damascus during the 1860 massacre
+    body: Dies in Damascus during the 1860 massacre, aged 67.
+  - when: "1993"
+    title: Glorified as a saint by the Greek
+    body: Glorified as a saint by the Greek Orthodox Church of Antioch.
+sections:
+  - heading: Priestly Ministry and the Patriarchal School
+    body:
+      - Ordained in 1817 for the Diocese of Damascus, Joseph served the Orthodox community of the city for more than four decades. From 1836 until his death in 1860 he directed the Patriarchal School in Damascus, which during his tenure grew into the leading Orthodox institution of higher learning in the Middle East.
+      - Among the students formed at the school under his leadership was Raphael Hawaweeny, later Raphael of Brooklyn, the first Orthodox Christian bishop consecrated on American soil; Joseph is counted among Raphael's formative influences. Another alumnus was Ignatios Firzli, who became Greek Orthodox archbishop of Sao Paulo.
+  - heading: The 1860 Damascus Massacre
+    body:
+      - In mid-July 1860, anti-Christian violence engulfed Damascus, part of a wider conflict that had spread from the Christian-Druze war in Mount Lebanon. The rioting began on 8-9 July and the most intense killing lasted roughly eight days, ending by 17 July.
+      - The Christian quarter of Bab Tuma was attacked by a crowd that contemporary accounts describe as Druze, Bedouins, Arab Muslim city commoners, and Kurdish auxiliary forces. Druze and Muslim marauders led by Druze feudal lords destroyed part of the old city and killed many thousands of Greek Orthodox and Melkite Greek Catholic Christians who had taken refuge in its churches and monasteries; estimates of the dead range upward of eleven thousand. Joseph was among those slain, dying on July 10, 1860.
+      - The Algerian scholar Abd al-Qadir al-Jaza'iri sheltered many Christians during the violence, his residence becoming a place of refuge for civilians, consulate staff, and missionaries.
+  - heading: Glorification
+    body:
+      - Joseph was glorified as a saint in 1993 by the Greek Orthodox Church of Antioch, which numbers him among the new martyrs of Damascus. His feast day is observed on July 10, the day of his death.
+  - heading: Relics & Shrines
+    body:
+      - The available sources consulted do not record specific details of surviving relics or a dedicated shrine.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The records consulted attest Joseph's martyrdom in the 1860 Damascus massacre and his formal glorification by the Church of Antioch in 1993, but do not document specific miracles."
+      - "Traditional Accounts: No traditional miracle accounts are recorded in the sources consulted."
+patronage:
+  - Damascus and the Orthodox of Syria
+  - Those who suffer religious persecution
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Joseph_of_Damascus
+  - https://en.wikipedia.org/wiki/1860_Mount_Lebanon_civil_war
+  - https://en.wikipedia.org/wiki/Raphael_of_Brooklyn
+status: flagged
+generated: "2026-06-19"
+flagReasons:
+  - claim: Patronage of those who suffer religious persecution.
+    detail: No source in the dossier names a patronage; this is an editorial inference from the martyrdom context. Flagged per default-to-flag for ungrounded patronage.
+  - claim: Patronage of Damascus and the Orthodox of Syria.
+    detail: Reasonable given he is a martyr of Damascus, but no source explicitly assigns this patronage; flagged as ungrounded.

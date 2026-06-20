@@ -1,0 +1,38 @@
+id: OS-0156
+liturgicalTitle: The Holy Right-believing King Tervel of Bulgaria
+lifespan: died c. 721
+overview:
+  - Tervel was a ruler of the First Bulgarian Empire in the early eighth century, remembered in the Bulgarian Orthodox tradition as a right-believing prince and venerated under the name Trivelius, with the monastic name Theoktist. He is best known for the decisive part his forces played in the defense of Constantinople, the Christian capital of the East, against Arab attack, and is commemorated on September 3.
+  - A member of the Dulo clan and, by tradition, a son of the Bulgar ruler Asparukh, Tervel governed Bulgaria in roughly the first two decades of the eighth century (most commonly dated c. 700-721). In 705 he supplied cavalry to the exiled emperor Justinian II, enabling Justinian's return to the throne in Constantinople. In gratitude the emperor conferred on Tervel the title of caesar -- the first time, according to the sources, that this dignity was granted to a foreign ruler -- together with gifts and territorial concessions in Thrace.
+  - When relations with Byzantium soured and the emperor moved against Bulgaria, Tervel defeated the Byzantine army at Anchialus, near present-day Pomorie, in 708. His most celebrated act came during the great Arab siege of Constantinople in 717-718, when his forces fought alongside the army of Emperor Leo III against the besieging troops under Maslama ibn Abd al-Malik. The chronicler Theophanes the Confessor records a heavy slaughter of the Arab forces by the Bulgars, and on account of this role Tervel is sometimes styled a defender of Christendom in Europe.
+  - Tervel's Christian veneration rests substantially on later Bulgarian tradition. The eighteenth-century historian Paisius of Hilendar related that Tervel embraced Christianity and ended his life as a monk under the name Theoktist; by tradition he is said to have withdrawn to a monastery near Ohrid. Scholars note that this monastic account is not corroborated in the earlier sources and may reflect later pious tradition, and his name does not appear in every modern catalogue of Bulgarian saints.
+sections:
+  - heading: The Siege of 717-718
+    body:
+      - The siege of Constantinople in 717-718 was one of the gravest threats faced by the Byzantine Empire, mounted by a large Arab land and sea force under the command of Maslama ibn Abd al-Malik. The city's resistance under Emperor Leo III, aided by the failure of the Arab supply lines and a severe winter, is generally counted among the events that checked the westward advance of the Caliphate.
+      - According to Theophanes the Confessor, Tervel's Bulgars inflicted very heavy losses on the besieging Arab army, a figure given in the chronicle as some 22,000 slain. It is for this contribution that the Bulgarian tradition honors Tervel as a protector of Christian Europe, an epithet attached to him in popular and ecclesiastical memory rather than in a contemporary liturgical title.
+  - heading: Veneration
+    body:
+      - In the Bulgarian Orthodox tradition Tervel is commemorated as a right-believing ruler, under the name Trivelius and with the monastic name Theoktist, his feast being kept on September 3. The account of his conversion and monastic withdrawal derives chiefly from the eighteenth-century historian Paisius of Hilendar; earlier sources do not confirm these details, and the profile follows the tradition while noting its later and uncorroborated character.
+timeline:
+  - when: "705"
+    title: Aids Justinian II; named caesar
+    body: Tervel supplies forces that restore Justinian II to the throne and receives the title of caesar with concessions in Thrace.
+  - when: "708"
+    title: Battle of Anchialus
+    body: Tervel defeats the Byzantine army at Anchialus, near present-day Pomorie, after relations with the empire break down.
+  - when: 717-718
+    title: Defense of Constantinople
+    body: Tervel's forces fight alongside the army of Leo III against the Arab siege of Constantinople.
+  - when: c. 721
+    title: Death
+    body: Tervel dies; by later tradition he ended his life as a monk named Theoktist.
+patronage:
+  - Honored in Bulgarian tradition as a defender of Christian Europe and a right-believing ruler.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Tervel_of_Bulgaria
+  - https://trivelius.com/en/about/history/
+  - https://bulstack.com/2011/10/19/khan-tervel/
+generated: "2026-06-19"

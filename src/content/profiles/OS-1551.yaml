@@ -1,0 +1,74 @@
+id: OS-1551
+liturgicalTitle: Our Venerable Mother Macrina the Younger, Sister of Saint Basil the Great
+lifespan: c. 327 – 379
+overview:
+  - Macrina the Younger was a fourth-century ascetic of Cappadocia and Pontus, the eldest of the nine children of a celebrated Christian family of Caesarea. Born about 327 to Basil the Elder and Emmelia, she was the granddaughter of Macrina the Elder, after whom she was named. Four of her younger brothers and sisters are themselves venerated as saints, and she is remembered above all as the teacher and spiritual guide of her brothers, who included Basil the Great, Gregory of Nyssa, and Peter of Sebaste. She is commemorated on July 19.
+  - According to her brother Gregory of Nyssa, whose Life of Macrina is the principal source for her, her father arranged a marriage for her in her youth, but her betrothed died before the wedding. Macrina declined to marry another, holding that her promise bound her to a single husband and regarding Christ as her eternal bridegroom. She resolved to remain with her mother, and together they withdrew to one of the family estates, where Macrina shaped the household into an ascetic community of virgins.
+  - "Following the death of her father, and as her siblings grew, Macrina persuaded her widowed mother Emmelia to embrace the monastic life alongside her. Within the community she made no distinction of rank: by tradition all its members were free, and former servants shared the same obligations and dignity as those who had been their mistresses. After her mother's death Macrina led the community of nuns. She devoted herself to prayer and to the spiritual formation of her younger brother Peter, later bishop of Sebaste, directing him toward the ascetic life."
+  - Gregory of Nyssa recorded his final visit to his dying sister and the conversation they held on the soul and the resurrection, which he set down in the dialogue that bears that name. The account relates that, even in her last illness, Macrina refused a bed and chose to lie upon the ground. She died in 379 and was buried in the grave of her parents, her brother Gregory delivering the eulogy.
+sections:
+  - heading: The Cappadocian Family
+    body:
+      - Macrina belonged to one of the most influential Christian households of the fourth century. Her grandmother, Macrina the Elder, had endured persecution under Galerius and Maximinus, and the family's faith was handed down through the women of the house as much as through its bishops. The younger Macrina is presented in Gregory's Life as the formative influence on her brothers, instructing them in Scripture and the disciplined life and turning the family estate into a school of asceticism.
+      - Of her siblings, Basil the Great became archbishop of Caesarea and one of the great teachers of the Church; Gregory became bishop of Nyssa; and Peter became bishop of Sebaste. Their mother Emmelia and grandmother Macrina the Elder are likewise venerated, so that the family is remembered together as a single flowering of sanctity across three generations.
+  - heading: The Community at the Family Estate
+    body:
+      - After withdrawing with her mother to the family lands, Macrina gathered a community of women living in common under vows of virginity. By Gregory's account the community drew members from both noble and humble backgrounds and abolished the distinctions of servant and mistress within its life, all sharing the same rule. The household thus became one of the early monastic communities of Asia Minor, contemporary with and connected to the ascetic foundations of her brother Basil.
+timeline:
+  - when: c. 327
+    title: Birth
+    body: Born at Caesarea in Cappadocia, eldest child of Basil the Elder and Emmelia.
+  - when: c. 379
+    title: Repose
+    body: Died in Pontus; buried in the grave of her parents, with a eulogy by Gregory of Nyssa.
+related:
+  - name: St. Basil the Great
+    note: Younger brother; archbishop of Caesarea.
+    href: saint/OS-0021
+  - name: St. Gregory of Nyssa
+    note: Younger brother; bishop of Nyssa and author of the Life of Macrina.
+    href: saint/OS-0422
+  - name: St. Peter of Sebaste
+    note: Youngest brother, whom Macrina raised and instructed in the ascetic life; later bishop of Sebaste.
+    href: saint/OS-0420
+  - name: Righteous Macrina the Elder
+    note: Grandmother, after whom she was named.
+    href: saint/OS-2474
+family:
+  heading: Family
+  intro: Macrina was the eldest of the nine children of Basil the Elder and Emmelia, a Cappadocian family that gave the Church several saints across three generations.
+  figures:
+    - name: Righteous Emilia, Mother of St. Basil the Great
+      note: Mother, whom Macrina persuaded to embrace the monastic life.
+      href: saint/OS-0374
+    - name: Righteous Macrina the Elder
+      note: Grandmother, who suffered in persecution and after whom she was named.
+      href: saint/OS-2474
+    - name: St. Basil the Great
+      note: Younger brother; archbishop of Caesarea.
+      href: saint/OS-0021
+    - name: St. Gregory of Nyssa
+      note: Younger brother; bishop of Nyssa.
+      href: saint/OS-0422
+    - name: St. Peter of Sebaste
+      note: Youngest brother; bishop of Sebaste.
+      href: saint/OS-0420
+patronage:
+  - Venerated as a model of consecrated virginity and of the monastic life for women.
+  - Remembered as a guide and teacher within Christian families.
+works: []
+reading:
+  - heading: Primary Sources
+    items:
+      - title: Life of Macrina
+        author: Gregory of Nyssa
+        type: biography
+      - title: On the Soul and the Resurrection
+        author: Gregory of Nyssa
+        type: dialogue
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Macrina_the_Younger
+  - https://orthodoxwiki.org/Macrina_the_Younger
+generated: "2026-06-19"

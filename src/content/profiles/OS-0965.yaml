@@ -1,0 +1,43 @@
+id: OS-0965
+liturgicalTitle: Our Father among the Saints Celestine, Pope of Rome
+lifespan: died 432
+overview:
+  - Saint Celestine was Bishop of Rome from 422 to 432 and is remembered in the Orthodox Church as a learned champion of Orthodox doctrine during the Christological controversies of the fifth century. The synaxarion describes him as a man of excellent education who knew philosophy well but devoted himself above all to the study of Holy Scripture and to theological questions. His virtuous life and his standing as a theologian won him the esteem of clergy and people alike, and after the death of his predecessor Saint Boniface he was chosen to occupy the see of Rome.
+  - His pontificate fell during the reign of the Emperor Theodosius the Younger and coincided with the rise of the teaching of Nestorius, Patriarch of Constantinople, who divided the person of Christ and refused to confess the Virgin Mary as Theotokos, the Mother of God. At a local council held at Rome in 430 Celestine denounced this teaching and condemned Nestorius as a heretic. He afterward wrote to Saint Cyril, Archbishop of Alexandria, directing that unless Nestorius renounced his error within ten days he should be deposed and excommunicated, and he sent letters to the churches of Constantinople and Antioch exposing the heresy.
+  - When the Third Ecumenical Council assembled at Ephesus in 431 to settle the controversy, Celestine sent legates to represent the Roman church, instructing them to act in concert with Cyril of Alexandria, whose cause he had already endorsed. The council condemned Nestorius and affirmed the unity of Christ and the title Theotokos for the Virgin Mary. Celestine also opposed the Pelagian teaching on grace and supported efforts to combat it in the West.
+  - Beyond the doctrinal struggles of the East, Celestine took an interest in the spread of the faith in the British Isles. In 431 he consecrated and sent Palladius as bishop to the Christians of Ireland. He reposed peacefully in 432; he is commemorated on April 8 in the East and on April 6 in the West.
+sections:
+  - heading: The Nestorian Controversy
+    body:
+      - The central event of Celestine's pontificate was the response of the Roman church to the teaching of Nestorius. According to the synaxarion, when the heresy emerged Celestine convened a local council at Rome in 430, where the doctrine was denounced and its author condemned. He then communicated his judgment to Cyril of Alexandria, setting a term of ten days within which Nestorius was to retract before sentence of deposition and excommunication would fall.
+      - Celestine did not himself travel to the East. When the Council of Ephesus met in 431, he was represented by legates whom he charged to be guided by Cyril and to hold to the decisions already reached at Rome. The council vindicated the confession of Christ as one person and of the Virgin Mary as Theotokos, the position Celestine and Cyril had jointly defended.
+  - heading: Mission to Ireland
+    body:
+      - Celestine is also remembered for his concern with the evangelization of the British Isles. In 431 he consecrated Palladius and sent him as a bishop to the Irish. Western tradition further associates Celestine with the commissioning of Saint Patrick, the enlightener of Ireland, though accounts of the connection vary.
+timeline:
+  - when: "422"
+    title: Elected Bishop of Rome
+    body: Chosen for the see of Rome after the death of his predecessor Saint Boniface.
+  - when: "430"
+    title: Roman council condemns Nestorius
+    body: At a local council at Rome, Celestine denounced the Nestorian teaching and condemned Nestorius as a heretic.
+  - when: "431"
+    title: Council of Ephesus and mission to Ireland
+    body: He sent legates to the Third Ecumenical Council at Ephesus and consecrated Palladius as bishop to the Irish.
+  - when: "432"
+    title: Repose
+    body: He died peacefully; he is commemorated April 8 in the East and April 6 in the West.
+related:
+  - name: St. Patrick, Enlightener of Ireland
+    note: By Western tradition commissioned for the Irish mission during Celestine's pontificate.
+    href: saint/OS-0079
+patronage:
+  - Invoked as a defender of the Orthodox confession of Christ and of the title Theotokos for the Virgin Mary.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://www.oca.org/saints/lives/1953/04/08/101033-saint-celestine-pope-of-rome
+  - https://en.wikipedia.org/wiki/Pope_Celestine_I
+  - https://www.newadvent.org/cathen/03477c.htm
+generated: "2026-06-19"

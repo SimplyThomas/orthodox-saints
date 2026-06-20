@@ -1,0 +1,61 @@
+id: OS-1473
+liturgicalTitle: The Holy and Right-believing Prince Andrew Bogoliubsky, Passion-Bearer
+lifespan: c. 1111 - 1174
+overview:
+  - Andrew Bogoliubsky was a twelfth-century prince of the Rus' lands who made the city of Vladimir the political and spiritual center of northeastern Rus'. Born around 1111 in Rostov, he was a son of Yuri Dolgorukiy, prince of Rostov and Suzdal, and a grandson of Vladimir II Monomakh; his mother was a Cuman (Polovtsian) princess, named Maria at her baptism. He bore the epithet 'Bogoliubsky' ('God-loving'), associated in the synaxarion tradition with his devotion to prayer.
+  - In 1155 Andrew left Vyshgorod and settled in Vladimir, raising it above the older centers of the south. He is remembered above all as a builder of churches and a venerator of the Mother of God, and after a reign marked by both ambitious construction and dynastic conflict he was killed in his own palace by a conspiracy of boyars in 1174. He is honored in the Russian Orthodox Church as a right-believing prince and passion-bearer, his burial commemorated on July 4.
+timeline:
+  - when: c. 1111
+    title: Birth
+    body: Born at Rostov, son of Yuri Dolgorukiy and a Cuman princess baptized Maria, and grandson of Vladimir Monomakh.
+  - when: "1155"
+    title: Move to Vladimir
+    body: Left Vyshgorod and established Vladimir as his residence, bringing with him the icon of the Mother of God later known as the Vladimir icon.
+  - when: 1158-1164
+    title: Building of Vladimir
+    body: Raised fortifications around Vladimir and built the Dormition Cathedral; near the city he had the residence of Bogolyubovo constructed.
+  - when: "1165"
+    title: Church of the Intercession on the Nerl
+    body: By tradition commissioned the Church of the Intercession on the Nerl, associated with a son who died in battle against the Volga Bolgars.
+  - when: March 1169
+    title: Sack of Kiev
+    body: His coalition, led by his son Mstislav, sacked Kiev; afterward he claimed the title of Grand Prince while keeping his seat at Vladimir.
+  - when: 28-29 June 1174
+    title: Murder
+    body: Killed in his chambers by a conspiracy of boyars.
+  - when: "1702"
+    title: Canonization
+    body: Canonized as a saint in the Russian Orthodox Church.
+sections:
+  - heading: Rule and the Rise of Vladimir
+    body:
+      - Andrew's decision in 1155 to leave Vyshgorod, near Kiev, and settle in Vladimir reoriented the political weight of the Rus' lands toward the northeast. From Vladimir he pursued an ambitious program of building and consolidation. Between 1158 and 1164 he raised fortifications around the city and erected the Dormition Cathedral, and near Vladimir he built the residence of Bogolyubovo, which became his favored seat and from which his epithet is popularly connected.
+      - His ambitions extended south. In March 1169 a coalition under his son Mstislav Andreevich sacked Kiev, plundering churches of religious artwork, books, and valuables; Andrew himself remained in the northeast. After the sack he claimed the title of Grand Prince while keeping his residence at Vladimir, and installed his brother Gleb as prince of Kiev, an arrangement that ended with Gleb's death on 20 January 1171.
+  - heading: Churches and the Vladimir Icon
+    body:
+      - Andrew is remembered as one of the great church-builders of medieval Rus'. When he moved to Vladimir in 1155 he carried with him an icon of the Mother of God from Vyshgorod, which became known as the Vladimir icon of the Theotokos and one of the most venerated images in the Russian tradition.
+      - His building program included the Dormition Cathedral in Vladimir and, by tradition, the Church of the Intercession on the Nerl, dated to about 1165 and standing at the confluence of the Nerl and Klyazma rivers near Bogolyubovo. The church honors the Intercession of the Theotokos and was later inscribed, in 1992, on the UNESCO World Heritage List among the White Monuments of Vladimir and Suzdal.
+  - heading: Death
+    body:
+      - On the night of 28-29 June 1174 a group of boyars, numbering about twenty according to the chronicles, burst into Andrew's chambers and killed him in his bed. The chronicles name an assailant called Peter and recount that the prince's hand was severed in the attack; a forensic examination of his remains in 1965 found numerous cut marks on the arm. His burial is commemorated in the church calendar on July 4.
+  - heading: Relics & Shrines
+    body:
+      - Andrew's relics are kept in the Dormition Cathedral in Vladimir, the cathedral he himself had built, where he is venerated as a right-believing prince and passion-bearer.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Andrew was canonized as a saint in the Russian Orthodox Church in 1702, and his burial is commemorated in the synaxarion on July 4. The icon he brought to Vladimir endured in the Russian Church as the Vladimir icon of the Mother of God."
+      - "Traditional Accounts: The synaxarion connects his epithet 'Bogoliubsky' ('God-loving') with his devotion to prayer, and tradition associates the Church of the Intercession on the Nerl with a son lost in his campaigns."
+patronage:
+  - Builders of churches
+  - The city of Vladimir
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Andrey_Bogolyubsky
+  - https://www.oca.org/saints/lives/2014/07/04
+  - https://en.wikipedia.org/wiki/Church_of_the_Intercession_on_the_Nerl
+  - fetch-note
+status: flagged
+generated: "2026-06-19"
+flagReasons:
+  - claim: Patron of builders of churches and of the city of Vladimir.
+    detail: No source attests a formal patronage. This is an inference from his church-building, not a stated patronage in the dossier; flagged per default-to-flag.

@@ -1,0 +1,40 @@
+id: OS-1056
+liturgicalTitle: Saint Iorest, Metropolitan of Ardeal, Confessor of Romania
+lifespan: 17th century (Metropolitan of Transylvania 1641-1643; died 1657)
+overview:
+  - Iorest was Metropolitan of Ardeal (Transylvania) in the mid-seventeenth century, remembered for his defense of the Orthodox faith at a time when the Calvinist authorities of the principality were pressing the Romanian Orthodox population to convert. For his resistance he was deposed and imprisoned, and the Church honors him as a confessor. He is commemorated on April 24.
+  - Born into a Transylvanian peasant family and given the name Elias at baptism, he entered monastic life at the Putna Monastery, where he was tonsured with the name Iorest. There he advanced as a calligrapher and iconographer and was ordained hieromonk before being called to the episcopate.
+timeline:
+  - when: "1640"
+    title: Election to the see of Transylvania
+    body: After the death of Metropolitan Gennadios of Transylvania in the autumn of 1640, the monk Iorest of Putna was chosen as the new primate of the Transylvanian Church.
+  - when: "1641"
+    title: Consecration and installation at Alba Iulia
+    body: Iorest was consecrated by the Metropolitan of the Romanian Land and installed in the metropolitan cathedral at Alba Iulia, taking up the leadership of the Orthodox in Transylvania.
+  - when: "1643"
+    title: Imprisonment for the faith
+    body: For his firm opposition to the foreign missionaries seeking to convert the Orthodox faithful to Calvinism, Iorest was deposed and cast into prison, where he endured beatings and abuse for some nine months before being released and ordered to pay a fine.
+  - when: 1656-1657
+    title: Later service and repose
+    body: After his release Iorest returned to Moldavia, where he served as Bishop of Husi. He died in 1657 and is numbered among the holy confessors.
+sections:
+  - heading: A confessor under Calvinist pressure
+    body:
+      - In seventeenth-century Transylvania the ruling authorities were Calvinist, and the Romanian Orthodox population faced sustained efforts to draw them into the Reformed confession. As metropolitan, Iorest resisted these efforts directly, refusing to allow the foreign missionaries free rein among his flock. His tenure lasted only about three years before this resistance brought about his removal and imprisonment.
+      - "The synaxarion presents his nine months of beatings and abuse as the heart of his witness: he suffered not unto death but as a confessor, holding firm to Orthodoxy under coercion. After his release he was barred from his see, paid the imposed fine, and continued to serve the Church in Moldavia as Bishop of Husi."
+  - heading: Canonization
+    body:
+      - Iorest is one of the metropolitans of Transylvania honored together by the Romanian Orthodox Church for their defense of Orthodoxy in the principality. He was canonized by the Romanian Church in 1955 and is commemorated on April 24, the date he shares with Saint Savva Brancovici, another confessor-metropolitan of Ardeal.
+related:
+  - name: Saint Savva Brancovici, Metropolitan of Ardeal
+    note: Fellow confessor and metropolitan of Transylvania, commemorated the same day
+    href: saint/OS-1057
+patronage:
+  - Those who suffer for defending the Orthodox faith
+  - Confessors under religious coercion
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2014/04/24/101200-saint-iorest-metropolitan-of-ardeal-confessor-of-romania
+  - https://www.oca.org/saints/all-lives/2015/04/24
+status: draft
+generated: "2026-06-19"

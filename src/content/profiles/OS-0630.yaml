@@ -1,0 +1,39 @@
+id: OS-0630
+liturgicalTitle: Venerable Prochorus the Wonderworker of the Kiev Near Caves
+lifespan: died 1107
+overview:
+  - 'Prochorus was a monk of the Kiev Caves monastery, remembered above all for two famine-time wonders: he made edible bread from the bitter wild plant known as pigweed or goosefoot (orach), and he turned ashes into salt during a shortage. From the first of these he received the byname "the Pigweed-Eater" (also rendered "Goosefoot" or "Lebednik"). By tradition a native of Smolensk, he entered the monastery under the igumen John, who governed the community from 1089 to 1103. He is commemorated on February 10.'
+  - According to his life, Prochorus practiced strict temperance and ate pigweed in place of bread. Each summer he gathered the plant and prepared from it enough bread to last him a whole year, and God transformed the usual bitterness of the pigweed into sweetness. When a famine threatened the land, he gathered the plant more zealously and distributed his bread to the hungry, and it was said to taste as though made from fine wheat. The tradition holds that only the bread given with his blessing was wholesome, pure, and light in appearance; the same plant prepared by others, or taken without his blessing, remained bitter and unfit to eat.
+  - A second wonder is attached to a shortage of salt at Kiev. Prochorus gathered ashes from the monastery cells and distributed them to the needy, and through his prayers the ashes became salt. This free distribution angered those who hoped to profit from the scarcity, and Prince Svyatopolk confiscated the supply; but when it was carried to the prince's court it was seen to be only ordinary ashes. After the prince discarded it, Prochorus blessed the people to gather it, and it was again changed into salt. The synaxarion relates that this miracle reformed the prince, who afterward held the saint in high esteem.
+  - When Prochorus was dying, Prince Svyatopolk, though engaged in war, left his army to come and receive the saint's blessing, and is said to have carried the body to the Near Caves and buried him there himself. Prochorus reposed in the year 1107. His relics rest in the Near (Antoniev) Caves of the Kiev Caves monastery.
+sections:
+  - heading: The Pigweed Bread
+    body:
+      - "The byname by which Prochorus is known reflects his ascetic diet rather than an isolated event: he habitually ate pigweed instead of bread. Pigweed, also called orach or goosefoot, is a wild plant ordinarily bitter and unpalatable. His life relates that through his patience God made the plant sweet for him, and that in time of famine the bread he prepared from it sustained many besides himself."
+      - "The tradition draws a sharp line between the bread Prochorus blessed and bread made in imitation of him: only what came with his blessing was nourishing, while bread others prepared from the same plant stayed bitter. The account thus presents the wonder as bound to the saint's person and prayer rather than to any natural property of the plant."
+  - heading: The Salt and Prince Svyatopolk
+    body:
+      - The episode of the salt sets the saint against the commercial and princely powers of Kiev. With salt scarce and costly, Prochorus distributed blessed ashes that became salt, undercutting those who stood to profit from the shortage. Prince Svyatopolk seized the supply, only to find it had reverted to ash in his keeping; when he cast it away and Prochorus blessed the people to take it, it became salt once more.
+      - By the account, the prince's hostility gave way to reverence after this reversal. At the saint's death Svyatopolk is said to have set aside the demands of war to attend him, to have received his blessing, and to have buried him with his own hands, afterward gaining a victory over the Polovtsians (Cumans).
+timeline:
+  - when: 1089–1103
+    title: Enters the Kiev Caves monastery
+    body: Prochorus becomes a monk under the igumen John, who governed the community in these years.
+  - when: "1107"
+    title: Repose and burial
+    body: Prochorus dies and is buried in the Near Caves; Prince Svyatopolk is said to have buried him personally.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Co-founder of the Kiev Caves monastery, in whose Near (Antoniev) Caves Prochorus is buried
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder and early igumen of the Kiev Caves monastery
+    href: saint/OS-2745
+patronage:
+  - Invoked in times of famine, scarcity, and material need
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://www.oca.org/saints/lives/2000/02/10/100495-venerable-prochorus-of-the-kiev-near-caves
+  - https://www.johnsanidopoulos.com/2018/02/saint-prochorus-pigweed-eater-of-kiev.html
+generated: "2026-06-19"

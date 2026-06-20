@@ -1,0 +1,69 @@
+id: OS-1094
+liturgicalTitle: Our Venerable Father Nikephoros of Chios
+lifespan: c. 1750 – c. 1821
+overview:
+  - Nikephoros of Chios was a Greek monk, teacher, and hymnographer who labored to preserve Orthodox learning and piety on the island of Chios during the Ottoman period. Born around 1750 at Kardamyla in northeastern Chios, he was given the name Georgios at birth. He was educated in the schools of Chios and, while still young, entered the famous Nea Moni monastery, dedicated to the Mother of God, where he was tonsured a monk and in time ordained. He is commemorated on May 1.
+  - Nikephoros is remembered above all as a compiler of saints' lives and a composer of church services, and as a spiritual guide to Christians who, having apostatized to Islam under Ottoman pressure, returned to the faith and sought to atone through martyrdom. His mentors included Saint Athanasius Parios and, most influentially, Saint Macarius of Corinth, whose work he continued. Through these labors he became one of the figures most closely associated with the literary commemoration of the New Martyrs of the Turkish yoke.
+  - He probably reposed in the summer of 1821, near the church of Saint Paraskeve on Chios. His relics were later uncovered in 1845, and a church service and icon in his honor were composed in the early twentieth century.
+sections:
+  - heading: Education and Monastic Life
+    body:
+      - According to the tradition recorded in his life, Nikephoros was sent to the schools of Chios as a youth, studying under the priest Gabriel Astrakaris. He entered the Nea Moni monastery while young—his parents are said to have dedicated him there in fulfillment of a vow made during a childhood illness—and was placed under the elder Anthimus. He was later ordained and elected abbot (igumen) of Nea Moni, though, according to his life, he resigned or was unable to complete his two-year term amid difficulties, afterward withdrawing to a hermitage of Saint George.
+      - When Saint Athanasius Parios reorganized the school of Chios, he appointed Nikephoros as one of its teachers. Alongside his teaching, Nikephoros received a blessing to preach throughout Nea Moni and the surrounding region, combining the work of a scholar and educator with that of a pastor.
+  - heading: Hymnography and the New Leimonarion
+    body:
+      - Nikephoros composed church services and hymns to a number of saints, including the service to Saints Niketas, John, and Joseph (commemorated May 20) and a service to Saint Matrona of Chios (commemorated October 20). He also composed a service to the New Martyr Nicholas the New, which was published in Venice in 1791.
+      - His best-known literary undertaking was The New Leimonarion, a collection of the lives and church services of various martyrs, ascetics, and other saints. The work was the joint labor of three saints—Macarius of Corinth, Athanasius Parios, and Nikephoros himself. By tradition, the dying Saint Macarius of Corinth entrusted Nikephoros in 1805 with completing the book and seeing it through to publication.
+  - heading: Guide of the New Martyrs
+    body:
+      - Like Saint Macarius of Corinth before him, Nikephoros is remembered as a guide and "trainer" of martyrs. Under Ottoman rule a number of Christians who had apostatized to Islam later repented and desired to return to the faith. The tradition relates that Nikephoros helped such penitents confess their fall and prepare, through prayer, fasting, and prostrations, to wash away their apostasy by confessing Christ openly and shedding their blood as martyrs. Beyond those he prepared personally, his published lives and services to the martyrs are said to have inspired many others.
+  - heading: Repose and Relics
+    body:
+      - "Nikephoros probably reposed in the summer of 1821, near the church of Saint Paraskeve on Chios. His relics were uncovered in 1845: according to his life, the monk Agathangelos of Hydra was shown the place of his burial in a dream, and Metropolitan Sophronios had the relics translated to the Metropolitan Church of Chios; the Guild of Tanners later sought them for the Church of Saint George. A church service and an icon in his honor were composed in the early twentieth century."
+timeline:
+  - when: c. 1750
+    title: Born at Kardamyla on Chios
+    body: Born on the island of Chios and given the name Georgios.
+  - when: "1791"
+    title: Service to Nicholas the New published
+    body: His service to the New Martyr Nicholas the New was printed in Venice.
+  - when: "1805"
+    title: Entrusted with The New Leimonarion
+    body: The dying Saint Macarius of Corinth charged him with completing and publishing the work.
+  - when: c. 1821
+    title: Repose on Chios
+    body: He probably reposed in the summer of 1821, near the church of Saint Paraskeve.
+  - when: "1845"
+    title: Uncovering of relics
+    body: His relics were uncovered and translated to the Metropolitan Church of Chios.
+related:
+  - name: Saint Macarius of Corinth
+    note: His chief spiritual mentor; entrusted him with completing The New Leimonarion.
+    href: saint/OS-1010
+  - name: Saint Athanasius Parios
+    note: Teacher and collaborator; appointed him a teacher at the school of Chios and co-compiled The New Leimonarion.
+    href: saint/OS-1419
+  - name: Venerable Matrona of Chios
+    note: Saint of Chios for whom he composed a church service.
+    href: saint/OS-2046
+patronage:
+  - Invoked by teachers, hymnographers, and those laboring to preserve the faith.
+  - Associated with the commemoration of the New Martyrs under Ottoman rule.
+works:
+  - title: The New Leimonarion
+    desc: A collection of the lives and church services of martyrs, ascetics, and other saints, compiled with Saints Macarius of Corinth and Athanasius Parios.
+    date: completed after 1805
+  - title: Service to Saints Niketas, John, and Joseph
+    desc: A church service composed for the saints commemorated on May 20.
+  - title: Service to Saint Matrona of Chios
+    desc: A church service composed for the saint of Chios commemorated on October 20.
+  - title: Service to the New Martyr Nicholas the New
+    desc: A church service published in Venice in 1791.
+    date: "1791"
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2039/05/01/101262-venerable-nikphros-of-chios
+  - https://en.wikipedia.org/wiki/Nikephoros_of_Chios
+  - https://www.johnsanidopoulos.com/2010/05/st.html
+generated: "2026-06-19"

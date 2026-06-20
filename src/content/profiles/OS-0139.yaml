@@ -1,0 +1,28 @@
+id: OS-0139
+liturgicalTitle: The Holy New Hieromartyr John Ivanov, Priest
+lifespan: died 1918
+overview:
+  - John Ivanov was a Russian Orthodox priest martyred in 1918 during the Bolshevik persecution of the Church. He served as the local parish priest connected to the Therapontov (Ferapontov) Convent in the Kirillov district of the Russian north, and is numbered among the Synaxis of the New Martyrs and Confessors of Russia. He is commemorated on September 2.
+  - By the account preserved in the life of Abbess Seraphima (Sulimova) of the Therapontov Convent, Fr. John's arrest grew out of a confrontation in May 1918, when a Soviet commission arrived to inventory the convent's property and a dispute arose with the parish council. The priest is said to have persuaded the council to stand down in order to prevent bloodshed; two days afterward he was arrested by the Red Army on a charge of inciting the peasants.
+  - Fr. John was executed together with Barsanuphius (Lebedev), Bishop of Kirillov, and Abbess Seraphima. According to the tradition, the prisoners were led out to Zolotukha Hill, near Kirillov, and shot on September 15, 1918 (September 2 on the old-style calendar). All three were later glorified among the New Martyrs and Confessors of Russia, the assembly of clergy, monastics, and laity who suffered for the faith after the Revolution of 1917.
+related:
+  - name: New Hieromartyr Barsanuphius of Kyrillov
+    note: Bishop of Kirillov, martyred with him in 1918 (shares the September 2 commemoration)
+    href: saint/OS-0138
+  - name: New Martyr Seraphima of Therapontov
+    note: Abbess of the Therapontov Convent, martyred with him in 1918 (shares the September 2 commemoration)
+    href: saint/OS-0140
+timeline:
+  - when: May 1918
+    title: Confrontation over convent property
+    body: A Soviet commission came to inventory the Therapontov Convent; Fr. John persuaded the parish council to avoid bloodshed, and was arrested two days later.
+  - when: September 15, 1918
+    title: Martyrdom at Zolotukha Hill
+    body: He was shot together with Bishop Barsanuphius of Kirillov and Abbess Seraphima (September 2, old style).
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/September_2_(Eastern_Orthodox_liturgics)
+  - https://www.orthodoxchristiansupply.com/blogs/orthodox-christian-supply-blog/the-life-of-st-seraphima-sulimova-the-new-martyr-abbess-of-therapontov-convent
+  - https://drevo-info.ru/articles/18427.html
+generated: "2026-06-19"

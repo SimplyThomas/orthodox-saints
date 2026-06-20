@@ -1,0 +1,58 @@
+id: OS-1494
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/07/08/101966-greatmartyr-procopius-of-caesarea-in-palestine
+  - https://orthodoxtimes.com/greatmartyr-procopius-of-caesarea-in-palestine-8-july/
+  - https://en.wikipedia.org/wiki/Procopius_of_Scythopolis
+lifespan: died c. 303
+liturgicalTitle: The Holy and Glorious Great Martyr Procopius of Caesarea in Palestine
+overview:
+  - Procopius of Caesarea, known in the world as Neanius, was a native of Jerusalem who suffered during the persecution of the emperor Diocletian (reigned 284–305). According to his vita, his father Christopher was a Christian of eminent Roman standing, while his mother Theodosia remained a pagan.
+  - Having received an excellent secular education, Neanius was introduced to Diocletian early in the emperor's reign and rose quickly in government service. When open persecution of Christians began around the year 303, he was dispatched toward Alexandria with authority to suppress the Church. On the road his life was overturned by a vision of Christ, and the persecutor became a confessor who endured torture and was beheaded at Caesarea in Palestine.
+  - His commemoration is kept on July 8. The synaxarion remembers his martyrdom as the first to take place at Caesarea, and joins to it those whom his witness drew to the faith — a company of Christian women, Roman soldiers and their tribunes, and his own converted mother.
+timeline:
+  - when: c. 284–303
+    title: Service under Diocletian
+    body: Neanius, a native of Jerusalem, is introduced to the emperor Diocletian early in his reign and advances rapidly in imperial service, being eventually given authority to act against the Christians.
+  - when: c. 303
+    title: Vision on the road near Apamea
+    body: "Sent toward Alexandria to persecute the Church, Neanius experiences near the Syrian city of Apamea a vision likened to that of Saul on the road to Damascus: a radiant cross appears and a voice declares the crucified Jesus to be the Son of God. He turns from persecutor to follower of Christ."
+  - when: c. 303
+    title: Confession, imprisonment, and baptism
+    body: Brought before the authorities, he tears up Diocletian's decree against the Christians and is sent in chains to Caesarea in Palestine, where he is imprisoned and tortured. The vita relates that he received the name Procopius and was baptized while in prison.
+  - when: c. 303
+    title: Martyrdom at Caesarea
+    body: After repeated torments and trials, the procurator Flavian sentences Procopius to beheading by the sword. Christians take up his body by night and bury it. His vita names this as the first martyrdom at Caesarea.
+sections:
+  - heading: From persecutor to confessor
+    body:
+      - The pivot of Procopius's life, as his vita tells it, is the encounter on the road. Carrying an imperial commission to root out the Church, Neanius is instead arrested by a vision near Apamea in Syria — an episode the tradition deliberately frames after the conversion of the Apostle Paul, with a radiant cross in the sky and a voice naming the crucified Jesus as the Son of God.
+      - "The vita carries the reversal further: rather than persecute Christians, the converted officer is said to have turned his arms against barbarian invaders, and when summoned to account for himself he tore up Diocletian's decree before the authorities. This act of open defiance, treated as an insult to imperial authority, sent him in chains to Caesarea."
+  - heading: Companions in martyrdom
+    body:
+      - Procopius's witness under torture is remembered for drawing others to share his confession. The synaxarion names among those martyred with him a company of Christian women — reckoned as twelve, and described as of senatorial rank — together with Roman soldiers and the tribunes Nikostrates and Antiochus, whom his steadfastness moved to faith.
+      - His mother Theodosia, who in the vita had remained a pagan and is said even to have denounced her son, was herself converted by witnessing his endurance and was numbered among the martyrs.
+  - heading: History and tradition
+    body:
+      - Behind the fuller legendary vita of the Great Martyr stands an earlier historical notice. Eusebius of Caesarea, in his account of the Martyrs of Palestine, records a Procopius of Jerusalem who had settled at Scythopolis, where he served the Church as reader and as interpreter in the Syriac language, and who was the first to suffer at Caesarea in the Diocletianic persecution. The Orthodox tradition that developed around him expanded this core into the rich narrative of the soldier-convert kept on July 8.
+patronage:
+  - Soldiers and those in military service
+  - Converts to the Christian faith
+related:
+  - name: Martyr Procopius the Reader of Caesarea
+    note: A distinct Procopius of Caesarea — the historical reader and Syriac interpreter recorded by Eusebius, commemorated November 22.
+    href: saint/OS-2232
+  - name: Righteous Procopius the Fool-for-Christ of Ustya
+    note: A different saint named Procopius commemorated on the same day, July 8; not to be confused with the Great Martyr.
+    href: saint/OS-1495
+  - name: New Martyr Procopius of Varna
+    note: A later martyr of the same name, distinct from the Great Martyr of Caesarea.
+    href: saint/OS-1426
+reading:
+  - heading: Primary sources
+    items:
+      - title: The Martyrs of Palestine
+        author: Eusebius of Caesarea
+        type: primary source
+status: draft
+generated: "2026-06-19"

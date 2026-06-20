@@ -1,0 +1,51 @@
+id: OS-0654
+liturgicalTitle: Our Father among the Saints Eulogius, Archbishop of Alexandria
+lifespan: died c. 607/608
+overview:
+  - Eulogius of Alexandria was the Greek Patriarch of Alexandria from about 580 to 607 and one of the more learned hierarchs of the later sixth century. Syrian by birth, he embraced the monastic life young, was ordained a priest at Antioch, and governed a monastery there before being raised to the ancient see of Alexandria.
+  - As patriarch he devoted much of his energy to the defense of Chalcedonian Orthodoxy against the heresies still present in Egypt, and he is best remembered for his theological writings and for his warm friendship and correspondence with Pope Gregory the Great of Rome, whom the Orthodox East calls Gregory the Dialogist. He reposed in the early seventh century and is venerated as a confessor.
+timeline:
+  - when: c. 580/581
+    title: Patriarch of Alexandria
+    body: Raised to the see of Alexandria, succeeding John IV, after monastic life and priestly ordination at Antioch.
+  - when: c. 582
+    title: Meeting with Gregory
+    body: By tradition met the future Pope Gregory I at Constantinople, beginning a lasting friendship.
+  - when: c. 595–600
+    title: Correspondence with Rome
+    body: Exchanged letters with Pope Gregory the Great; Gregory's surviving letters include one of June 598 mentioning the English mission of Augustine of Canterbury.
+  - when: c. 607/608
+    title: Repose
+    body: Reposed after roughly twenty-seven years as patriarch, succeeded by Theodore I.
+sections:
+  - heading: Origins and Monastic Life
+    body:
+      - Eulogius was a Syrian by birth who embraced the monastic life at a young age. He was ordained a priest in Antioch by the patriarch Anastasius I and became the igumen, or abbot, of a monastery dedicated to the Mother of God in that city.
+      - From this monastic and pastoral background he was raised about 580 or 581 to the patriarchal throne of Alexandria, succeeding John IV, and he governed the Egyptian church for roughly the next twenty-seven years.
+  - heading: Defense of Orthodox Doctrine
+    body:
+      - As Patriarch of Alexandria, Eulogius contended against the heresies still active in his diocese. He refuted the Novatianists, who continued to maintain communities there, and opposed the several Monophysite parties, among them the Severans, Theodosians, Gaianites, and Acephali.
+      - Against both Nestorian and Monophysite errors he defended the hypostatic union of the two natures in Christ, and he composed eleven discourses in support of Pope Leo I and the Council of Chalcedon. He also wrote a work against the Agnoetae, a sect that held the human soul of Christ to be ignorant of some things, and submitted it to Pope Gregory I for approval. Most of his writings have since been lost; only a sermon for Palm Sunday and a few fragments survive.
+  - heading: Friendship with Gregory the Great
+    body:
+      - Eulogius is especially remembered for his friendship with Pope Gregory I of Rome, whom the Orthodox tradition knows as Gregory the Dialogist. By tradition the two met at Constantinople around 582, before either had reached the height of his office, and they maintained a correspondence in later years.
+      - Several of Gregory's letters to Eulogius survive, including one of June 598 that describes the progress of the mission of Augustine of Canterbury among the English. Gregory held the Alexandrian patriarch in high esteem; later writers record that he valued Eulogius as a voice of truth.
+  - heading: Repose and Veneration
+    body:
+      - Eulogius reposed in the early seventh century, about 607 or 608, and was succeeded as patriarch by Theodore I. He is venerated as a bishop and confessor, his feast being kept on February 13. Because he belongs to the undivided Church before the later divisions of Christendom, he is honored in both the Eastern Orthodox and the Roman Catholic traditions.
+related:
+  - name: Gregory the Great (Gregory the Dialogist)
+    note: Pope of Rome and close friend and correspondent of Eulogius, who praised him as a voice of truth.
+works:
+  - title: Eleven Discourses in Defense of the Council of Chalcedon
+    desc: A series of treatises upholding Pope Leo I and the Fourth Ecumenical Council against its opponents.
+    date: ""
+  - title: Treatise Against the Agnoetae
+    desc: A work refuting the Agnoetae, submitted to Pope Gregory I for his approval.
+    date: ""
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Eulogius_of_Alexandria
+  - https://orthodoxwiki.org/Eulogius_of_Alexandria
+generated: "2026-06-19"

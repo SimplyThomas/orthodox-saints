@@ -1,0 +1,48 @@
+id: OS-0705
+liturgicalTitle: Our Father among the Saints John Scholasticus, Patriarch of Constantinople
+lifespan: c. 503 – 577
+overview:
+- John Scholasticus, also known as John III of Constantinople, was a sixth-century jurist and churchman who served as Patriarch of Constantinople from 565 to 577. Trained as a lawyer, he is remembered chiefly for systematizing the canon law of the Eastern Church, producing collections that shaped the later tradition of ecclesiastical jurisprudence.
+- Born around 503 at Sirimion, near Antioch, he was educated in law and earned the epithet Scholasticus, the title borne by a trained advocate. He served the church of Antioch as an agent and secretary, and on account of his piety was ordained a priest before his elevation to the patriarchal throne of the imperial capital.
+timeline:
+- when: c. 503
+  title: Birth near Antioch
+  body: Born at Sirimion in the district of Cynegia, near Antioch, and educated in law.
+- when: Before 565
+  title: Compilation of the canons in fifty titles
+  body: As a priest he assembled a systematic collection of Church canons arranged in fifty topical titles, drawing on the canons of seven councils together with the Apostolic Canons, the canons of Sardica, and Basil the Great's canonical letter.
+- when: 12 April 565
+  title: Installed as Patriarch of Constantinople
+  body: John succeeded Eutychius as Patriarch of Constantinople. Seven months later the Emperor Justinian I died.
+- when: 14 November 565
+  title: Coronation of Justin II
+  body: Under Justinian's successor, John crowned the new emperor Justin II.
+- when: 31 August 577
+  title: Repose
+  body: John died and was succeeded again by Eutychius, who thus held the patriarchate non-consecutively.
+sections:
+- heading: Canon-law collections
+  body:
+  - John's lasting contribution was his reorganization of the Church's canons. Departing from the chronological arrangement of earlier collections, he grouped the canons according to their subject matter on a philosophical principle, reducing the number of organizational categories from sixty to fifty. The result, his Synagoge or collection in fifty titles, became a foundational text of Byzantine canon law.
+  - His compilation gathered the canons of seven councils — Nicaea, Ancyra, Neocaesarea, Gangra, Antioch, Ephesus, and Constantinople — together with the Apostolic Canons, the canons of Sardica, and the canonical letter of Basil the Great. After his arrival in Constantinople he produced a further work, an abridgment of his collection to which he added a comparison of the imperial rescripts and civil laws bearing on the Church, an early form of the nomocanon that combined ecclesiastical canons with civil legislation.
+  - 'These collections exercised a long influence: the later and more famous Nomocanon associated with Photius the Great drew upon John''s work.'
+- heading: Patriarchate and church affairs
+  body:
+  - John's tenure spanned the close of Justinian's reign and the early years of Justin II. A Chalcedonian, he sought accommodation with those who rejected the Council of Chalcedon, organizing a compromise between the Chalcedonian and non-Chalcedonian parties in 567 and briefly reuniting them in 571. In 568 he completed a catechism setting out Trinitarian orthodoxy.
+- heading: Liturgical tradition
+  body:
+  - By tradition John is credited with introducing hymns into the Divine Liturgy, among them the Cherubic Hymn sung at the Great Entrance and the communion hymn 'Of Thy Mystical Supper.' This attribution is handed down within the liturgical tradition rather than established by contemporary documentation.
+works:
+- title: Synagoge of canons in fifty titles
+  desc: A systematic collection of Church canons arranged by subject matter in fifty topical titles, drawing on seven councils, the Apostolic Canons, the canons of Sardica, and Basil the Great's canonical letter.
+- title: Collection of 87 Chapters (Nomocanon)
+  desc: An abridgment of his canonical collection supplemented with the relevant imperial rescripts and civil laws, an early combination of ecclesiastical canon and civil law.
+- title: Catechism on Trinitarian orthodoxy
+  desc: A doctrinal catechism setting forth Trinitarian teaching, completed in 568.
+  date: '568'
+sources:
+- OCA Synaxarion (oca.org), Feb 21
+- https://en.wikipedia.org/wiki/John_Scholasticus
+- https://orthodoxwiki.org/John_Scholasticus
+status: draft
+generated: '2026-06-19'

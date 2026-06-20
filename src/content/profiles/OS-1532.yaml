@@ -1,0 +1,66 @@
+id: OS-1532
+liturgicalTitle: Our Venerable Father Nikodemos the Hagiorite
+lifespan: 1749 – 14 July 1809
+overview:
+  - Nikodemos the Hagiorite was a monk of Mount Athos whose editorial and ascetical labors gave the Orthodox Church much of the patristic and liturgical literature on which her spiritual life would draw for generations. Born on the island of Naxos in 1749 and baptized Nicholas, he received a thorough education before withdrawing to the Holy Mountain, where he was tonsured a monk in 1775 and spent the rest of his life gathering, editing, and composing works of ascetical, canonical, and liturgical instruction.
+  - He is best known as a compiler of the Philokalia, an anthology of patristic texts on prayer and inner watchfulness, and as one of the principal figures of the Kollyvades movement, which sought to revive traditional Orthodox practice and patristic learning. He reposed on Mount Athos in 1809 and was formally glorified by the Ecumenical Patriarchate of Constantinople in 1955.
+timeline:
+  - when: "1749"
+    title: Birth on Naxos
+    body: Born on the island of Naxos, Greece, and baptized Nicholas (Nicholas Kallivourtzis).
+  - when: c. 1770
+    title: Return to Naxos
+    body: His schooling, which had included study at the Evangelical School in Smyrna, was cut short by Turkish persecution, and he returned to Naxos.
+  - when: "1775"
+    title: Tonsure at Mount Athos
+    body: He came to Mount Athos and was tonsured a monk at Dionysiou Monastery, receiving the name Nikodemos.
+  - when: "1777"
+    title: Editing of the Philokalia
+    body: He worked with Macarius of Corinth on the Philokalia, the anthology of patristic writings on prayer.
+  - when: 14 July 1809
+    title: Repose
+    body: He died on Mount Athos at about the age of sixty.
+  - when: 31 May 1955
+    title: Glorification
+    body: He was glorified as a saint by the Patriarchate of Constantinople.
+sections:
+  - heading: Early Life and Education
+    body:
+      - Nikodemos was born in 1749 on Naxos and given the baptismal name Nicholas. By the accounts of his life he showed an unusual acuteness of mind, and he studied first under his parish priest and then under Archimandrite Chrysanthos, a brother of Saint Cosmas Aitolos.
+      - He continued his education at the Evangelical School in Smyrna, where he is said to have studied theology together with ancient Greek, Latin, French, and Italian. Turkish persecution forced him to break off this schooling and return to Naxos around 1770. It was in this period that he began the lifelong friendship with Macarius of Corinth that would shape much of his later editorial work.
+  - heading: Monastic Life on Mount Athos
+    body:
+      - In 1775, at the age of twenty-six, Nikodemos came to Mount Athos and was tonsured a monk at Dionysiou Monastery, exchanging the name Nicholas for Nikodemos. He was persuaded toward the monastic life by three Athonite monks named Gregory, Niphon, and Arsenios.
+      - On the Holy Mountain he gave himself to hesychia — the practice of inner stillness joined to the repetition of the Jesus Prayer — and attained the Great Schema, the highest monastic degree. He became one of the leading figures of the Kollyvades movement, which sought a return to traditional liturgical practice and the renewed study of the Church Fathers.
+  - heading: Literary and Editorial Work
+    body:
+      - Nikodemos devoted his monastic life to assembling and editing the spiritual inheritance of the Church. With Macarius of Corinth he compiled the Philokalia, an anthology of patristic writings on prayer and watchfulness, and the Evergetinos, a collection drawn from the teachings of the desert fathers. With the hieromonk Agapios he produced the Pedalion, or Rudder, a compilation of the sacred canons.
+      - Among his other works are a treatise on frequent reception of Holy Communion, the Exomologetarion or manual for confession, and liturgical commentaries including the Eortodromion. He also produced Orthodox reworkings of two Western devotional books — Lorenzo Scupoli's Spiritual Combat, known in his version as Unseen Warfare, and a treatment of the Spiritual Exercises associated with Ignatius of Loyola — together with a handbook of spiritual counsel and a Lives of the Saints.
+  - heading: Repose and Veneration
+    body:
+      - Nikodemos reposed on Mount Athos on 14 July 1809, at about the age of sixty. He was formally glorified by the Patriarchate of Constantinople on 31 May 1955, and his feast is kept on 14 July.
+related:
+  - name: Macarius of Corinth
+    note: Lifelong friend and collaborator, with whom Nikodemos compiled the Philokalia and the Evergetinos.
+works:
+  - title: The Philokalia
+    desc: An anthology of patristic writings on prayer and inner watchfulness, compiled with Macarius of Corinth.
+    date: "1777"
+  - title: The Evergetinos
+    desc: A collection drawn from the teachings of the desert fathers, compiled with Macarius of Corinth.
+  - title: Pedalion (The Rudder)
+    desc: A compilation of the sacred canons, produced with the hieromonk Agapios.
+  - title: Concerning Frequent Communion
+    desc: A treatise advocating frequent reception of Holy Communion.
+  - title: Unseen Warfare
+    desc: An Orthodox reworking of Lorenzo Scupoli's Spiritual Combat.
+  - title: Exomologetarion
+    desc: A manual for the sacrament of confession.
+  - title: Eortodromion
+    desc: A liturgical commentary.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Nicodemus_the_Hagiorite
+  - https://orthodoxwiki.org/Nicodemus_the_Hagiorite
+status: draft
+generated: "2026-06-19"

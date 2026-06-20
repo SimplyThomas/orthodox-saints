@@ -1,0 +1,43 @@
+id: OS-0289
+liturgicalTitle: Our Father among the Saints John, Archbishop of Novgorod, the Wonderworker
+lifespan: d. September 7, 1186
+overview:
+  - John of Novgorod (baptismal name Ilya) served as the first archbishop of the newly elevated see of Novgorod from 1165 until his death in 1186, a tenure marked by building activity and the most celebrated miracle in medieval Novgorodian history. Born to a priestly family, he served as a priest before being appointed bishop by Metropolitan Ioann of Kiev; when the Novgorod episcopate was elevated to an archiepiscopate, he became its inaugural holder.
+  - In 1169, during the siege of Novgorod by the forces of Andrei Bogolyubsky of Suzdal, John processed the Icon of Our Lady of the Sign from the Church of the Transfiguration on Ilin Street to the Cathedral of Holy Wisdom. According to the tradition of the Novgorodian chroniclers, the icon turned to face the city during the battle, and the Suzdalian assault was repelled — an event that became the foundational miracle of Novgorodian civic identity and was later commemorated in its own feast. In 1185, approaching death, John received the Great Schema and took the monastic name Ioann (John), the name under which he is venerated. He died on September 7, 1186, and was buried in the Cathedral of Holy Wisdom (Saint Sophia). His brother Gavril (monastic name Grigorii) succeeded him as archbishop and served until 1193. John was canonized at the Moscow Council of 1547.
+timeline:
+  - when: "1165"
+    title: Appointed bishop and first archbishop
+    body: Ilya was appointed bishop of Novgorod by Metropolitan Ioann of Kiev. Following the elevation of the see to archiepiscopal rank, he became the first to hold the title of Archbishop of Novgorod.
+  - when: "1169"
+    title: Miracle of the Icon of the Sign
+    body: During the Suzdalian siege of Novgorod led by Andrei Bogolyubsky, Archbishop John processed the Icon of Our Lady of the Sign to the Cathedral of Holy Wisdom. The city was delivered from the assault, an event thereafter commemorated as a miracle of the Theotokos.
+  - when: "1185"
+    title: Reception of the Great Schema
+    body: Anticipating his death, John received the Great Schema and took the monastic name Ioann (John), the name under which he is venerated as a saint.
+  - when: September 7, 1186
+    title: Repose and burial
+    body: John died on September 7, 1186, and was buried in the Martirievskii Porch of the Cathedral of Holy Wisdom in Novgorod.
+  - when: "1547"
+    title: Glorification
+    body: John was formally canonized at the Moscow Council of 1547.
+sections:
+  - heading: Episcopal Ministry
+    body:
+      - During his more than two decades as bishop and archbishop, John oversaw numerous construction projects in Novgorod and participated in the consecration of the Khutyn Monastery. His tenure coincided with a period of significant political tension between Novgorod and the rising power of Vladimir-Suzdal, and his leadership during the 1169 siege became the defining moment of his archiepiscopate.
+  - heading: The Icon of the Sign Miracle
+    body:
+      - The tradition surrounding the 1169 siege holds that Archbishop John was directed in a vision to carry the Icon of Our Lady of the Sign from the Church of the Transfiguration on Ilin Street to the Cathedral of Holy Wisdom. When Suzdalian arrows reportedly struck the icon during the battle, it was said to have turned toward the city and its defenders, after which the Novgorodian forces routed the attackers. This account, preserved in Novgorodian chronicles, became central to the city's understanding of itself as divinely protected, and the icon itself became the most celebrated sacred object in Novgorodian Christianity.
+      - A separate tradition, not found in the twelfth-century chronicles, relates that John once commanded a demon to carry him overnight to Jerusalem and back. This legend, found in later hagiographic collections, is not corroborated by contemporary sources.
+  - heading: Veneration
+    body:
+      - John's feast is observed on September 7, the anniversary of his repose. His relics, originally interred in the Cathedral of Holy Wisdom, were desecrated during Soviet anti-religious campaigns on April 3, 1919. He is venerated as a wonderworker and as the archbishop through whom Novgorod was miraculously delivered.
+related:
+  - name: Gavril (Grigorii) of Novgorod
+    note: John's brother and immediate successor as Archbishop of Novgorod (1186–1193)
+  - name: Our Lady of the Sign
+    note: The icon of the Theotokos central to the miracle of the 1169 siege of Novgorod
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/John_of_Novgorod
+generated: "2026-06-19"

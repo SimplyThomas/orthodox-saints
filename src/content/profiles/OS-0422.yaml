@@ -1,0 +1,101 @@
+id: OS-0422
+liturgicalTitle: Our Father among the Saints Gregory, Bishop of Nyssa
+lifespan: c. 335 – c. 394
+overview:
+  - Gregory of Nyssa was a fourth-century bishop and theologian of Cappadocia in Asia Minor, the younger brother of Saint Basil the Great and one of the three Cappadocian Fathers, alongside Basil and Gregory the Theologian. Born around 335 into a family that produced several saints, he became one of the most influential and speculative theologians of the early Church, and is commemorated by the Orthodox Church on January 10.
+  - Unlike his siblings, Gregory did not at first embrace the ascetic life. After receiving baptism and serving as a lector, he was drawn to classical learning, devoting himself to the study of rhetoric and to teaching, and he entered into marriage. By tradition, the death of his wife marked a turning point, and, encouraged by his brother Basil and his friend Gregory of Nazianzus, he withdrew from worldly pursuits and spent a period of retreat at the monastery Basil had founded by the river Iris.
+  - In 372 Gregory was consecrated bishop of Nyssa in Cappadocia by his brother Basil, who was then metropolitan of Caesarea. His episcopate fell during the height of the Arian controversy. Falsely accused by his opponents of misusing church property, he was deposed and exiled during the reign of the Arian-supporting emperor Valens; a synod of Arian bishops also deposed him in absentia. After Valens died in 378 Gregory was restored to his see and welcomed back by his people.
+  - Following the death of Basil in 379, Gregory emerged as a leading defender of the Nicene faith. He became one of the chief figures of the Second Ecumenical Council, held at Constantinople in 381 against the Macedonian (Pneumatomachian) teaching that denied the full divinity of the Holy Spirit, and he took a key part in completing the Nicene-Constantinopolitan Creed. He died in old age not long after the Council, leaving an extensive body of dogmatic, ascetic, and exegetical writings, and is honored as one of the most profound Christian thinkers of his age.
+sections:
+  - heading: Bishop and Defender of the Faith
+    body:
+      - Gregory's consecration in 372 placed him in the service of his brother Basil's wider campaign to secure the Nicene confession across Cappadocia against the Arian party favored by the imperial court. The sources relate that he was an effective pastor but an unpractical administrator, which left him vulnerable to the charges of financial mismanagement brought by his enemies.
+      - Deposed and driven into exile, Gregory is said to have continued to encourage his flock in the Orthodox faith while wandering from place to place. His restoration after the death of Valens in 378 coincided with a shift in imperial policy favorable to the Nicene cause, and he took an increasingly prominent role in the affairs of the Church, participating in further councils in the years that followed.
+  - heading: The Second Ecumenical Council
+    body:
+      - At the Second Ecumenical Council, convened at Constantinople in 381, Gregory was among its chief figures. The Council met to address the Macedonian heresy, which denied that the Holy Spirit is fully God, and Gregory zealously defended the Spirit's divinity.
+      - According to the tradition, the Council completed the Creed of Nicaea by adding the articles confessing the Holy Spirit, and Gregory took a key part in this work. His theological labors in defense of the Trinity contributed to the formulation that the Church received as the Nicene-Constantinopolitan Creed.
+  - heading: Writings
+    body:
+      - Gregory left a large and varied body of writing. His dogmatic works include the treatise Against Eunomius, directed against an extreme Arian, and the Great Catechism (Catechetical Oration), a systematic exposition of Christian doctrine. After Basil's death he completed his brother's unfinished work on the creation of the world with his own treatise On the Making of Man.
+      - His other writings include the ascetic treatise On Virginity, the mystical and exegetical Life of Moses, and the dialogue On the Soul and the Resurrection, set as a conversation with his dying sister Macrina. He also composed numerous sermons and letters. For the depth and range of his theology he came to be honored with the title 'the Father of Fathers.'
+timeline:
+  - when: c. 335
+    title: Birth in Cappadocia
+    body: Gregory is born into a Christian family of Cappadocia, the younger brother of Basil the Great.
+  - when: "372"
+    title: Consecrated bishop of Nyssa
+    body: Basil the Great consecrates Gregory bishop of Nyssa in Cappadocia.
+  - when: "376"
+    title: Deposed and exiled
+    body: Falsely accused of misusing church property, Gregory is deposed and exiled under the Arian emperor Valens.
+  - when: "378"
+    title: Restored to his see
+    body: After the death of Valens, Gregory returns to Nyssa.
+  - when: "379"
+    title: Death of Basil
+    body: Following Basil's death, Gregory delivers a funeral oration and completes his brother's work on the creation of the world.
+  - when: "381"
+    title: Second Ecumenical Council
+    body: Gregory is one of the chief figures of the Council of Constantinople, defending the divinity of the Holy Spirit.
+  - when: c. 394
+    title: Repose
+    body: Gregory dies in old age, shortly after the Council, having participated in further synods.
+related:
+  - name: St. Basil the Great
+    note: Elder brother and metropolitan of Caesarea, who consecrated Gregory bishop of Nyssa.
+    href: saint/OS-0021
+  - name: St. Gregory the Theologian
+    note: Friend and fellow Cappadocian Father who encouraged Gregory toward the ascetic life.
+    href: saint/OS-0022
+  - name: St. Peter, Bishop of Sebaste
+    note: Younger brother, also a bishop.
+    href: saint/OS-0420
+  - name: Venerable Macrina the Younger
+    note: Elder sister, whose life and death Gregory recorded; the dialogue On the Soul and the Resurrection is set as a conversation with her.
+    href: saint/OS-1551
+  - name: Blessed Theosebia the Deaconess
+    note: Sister, a deaconess of the Church.
+    href: saint/OS-0427
+family:
+  heading: Family
+  intro: Gregory belonged to one of the most remarkable families in Christian history, several of whose members are venerated as saints.
+  figures:
+    - name: Righteous Emilia (Emmelia)
+      note: His mother.
+      href: saint/OS-0374
+    - name: St. Basil the Great
+      note: Elder brother, metropolitan of Caesarea.
+      href: saint/OS-0021
+    - name: St. Peter, Bishop of Sebaste
+      note: Younger brother and bishop.
+      href: saint/OS-0420
+    - name: Venerable Macrina the Younger
+      note: Elder sister and ascetic.
+      href: saint/OS-1551
+    - name: Blessed Theosebia the Deaconess
+      note: Sister.
+      href: saint/OS-0427
+patronage:
+  - Invoked as a teacher and defender of Orthodox theology, particularly the doctrine of the Holy Trinity and the divinity of the Holy Spirit.
+works:
+  - title: Against Eunomius
+    desc: A dogmatic treatise refuting the extreme Arian teaching of Eunomius.
+  - title: On the Making of Man
+    desc: A treatise on the creation of humanity, completing his brother Basil's unfinished work on creation.
+  - title: The Great Catechism (Catechetical Oration)
+    desc: A systematic exposition of Christian doctrine.
+  - title: The Life of Moses
+    desc: A mystical and exegetical reading of the life of Moses as a model of the soul's ascent to God.
+  - title: On the Soul and the Resurrection
+    desc: A dialogue on the soul and the resurrection, set as a conversation with his dying sister Macrina.
+  - title: On Virginity
+    desc: An ascetic treatise on the virtue and life of virginity.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 10
+  - https://www.oca.org/saints/lives/2001/01/10/100140-saint-gregory-bishop-of-nyssa
+  - https://en.wikipedia.org/wiki/Gregory_of_Nyssa
+  - https://orthodoxwiki.org/Gregory_of_Nyssa
+  - https://www.vaticanstate.va/en/state-and-government/general-informations/saint-of-the-day/3440-january-10-saint-gregory-of-nyssa-father-of-the-church.html
+generated: "2026-06-19"

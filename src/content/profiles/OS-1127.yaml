@@ -1,0 +1,52 @@
+id: OS-1127
+liturgicalTitle: Our Venerable Father Nilus, Abbot of Sora
+lifespan: c. 1433 - 1508
+overview:
+  - Nilus of Sora, known in Russian tradition as Nil Sorsky, was a Russian monastic of the fifteenth and early sixteenth centuries and one of the chief teachers of the inner, contemplative life among the Russian fathers. Born of the Maikov family, he received the monastic tonsure at the monastery of Saint Cyril of White Lake (the Kirillo-Belozersky Monastery) and afterward travelled through the Christian East, studying the monastic life in Palestine and on Mount Athos.
+  - Returning to Rus', he withdrew to the River Sora in the Vologda lands and there built a cell and a chapel, around which gathered a community living by a skete rule he had brought from Athos. He taught watchfulness, unceasing prayer of the heart, and the remembrance of death, and he is remembered above all as a foremost teacher of non-acquisitiveness — the renunciation of property and worldly possessions — among the Russian monastic fathers. He reposed on May 7, 1508, and the Russian Church has numbered him among the saints.
+timeline:
+  - when: c. 1433
+    title: Birth into the Maikov family
+    body: Nilus was born, according to tradition about 1433, and bore the secular name Nikolai Maikov. He came of the Maikov nobility.
+  - when: Before 1473
+    title: Tonsure at the monastery of Saint Cyril of White Lake
+    body: He entered monastic life at the Kirillo-Belozersky Monastery, where he was guided by the elder Paisius Yaroslavov.
+  - when: 15th century
+    title: Travels in Palestine and on Mount Athos
+    body: Nilus journeyed through the Christian East, studying the monastic life in Palestine, at Constantinople, and on Mount Athos, where he deepened his practice of inner prayer in the hesychast tradition.
+  - when: c. 1473 onward
+    title: Foundation of the skete on the River Sora
+    body: After returning to Rus', he withdrew to the River Sora in the Vologda lands and built a cell and a chapel, around which a community grew under a skete rule he adapted from Mount Athos.
+  - when: "1503"
+    title: The council at Moscow and the question of monastic lands
+    body: At the council held in Moscow, Nilus spoke against monastic ownership of lands and estates, becoming a leading voice of the party later called the Non-Possessors.
+  - when: May 7, 1508
+    title: Repose
+    body: Saint Nilus reposed in his seventy-sixth year. His relics, buried in the skete he founded, were glorified by many miracles.
+sections:
+  - heading: The skete on the Sora and its rule
+    body:
+      - On the River Sora, near the Kirillo-Belozersky Monastery in the Vologda lands, Nilus introduced a form of monastic life new to the Rus' of his day — the skete, a small community of a few monks living in semi-solitude between the hermit's complete withdrawal and the large cenobitic monastery. The rule he established required the monks to sustain themselves by the work of their own hands, to accept charity only in extreme need, and to avoid the love of possessions and outward splendor even within the church. Women were not admitted to the skete, the monks were not to leave it, and the holding of lands or estates was forbidden.
+  - heading: Teacher of inner prayer and non-acquisitiveness
+    body:
+      - Nilus's spiritual teaching drew on the hesychast tradition he had encountered in the East, centering on watchfulness, the unceasing prayer of the heart, and the remembrance of death. He set down this contemplative method in his writings, chiefly a rule for the skete life and an instruction addressed to his disciples — works transmitted under titles such as "The Tradition" (Predanie) and "The Rule" (Ustav), including a tradition for a disciple wishing to live in the wilderness.
+      - He is remembered as a foremost teacher of non-acquisitiveness among the Russian fathers. At the council of 1503 in Moscow he argued against the ownership of lands and estates by monasteries, and the monastic party that took up this position came to be called the Non-Possessors. The contrasting view, defending monastic landholding as a means of charitable and ecclesial work, was associated with Saint Joseph of Volokolamsk; the two positions defined a lasting debate within the Russian Church.
+patronage:
+  - Monastics and those drawn to the contemplative life of inner prayer
+  - Those striving for non-attachment to possessions and simplicity of life
+related:
+  - name: Saint Joseph of Volokolamsk
+    note: Contemporary abbot who defended monastic landholding against the Non-Possessors
+    external: https://en.wikipedia.org/wiki/Joseph_of_Volokolamsk
+works:
+  - title: The Tradition (Predanie)
+    desc: An instruction for a disciple wishing to live the skete and wilderness life.
+  - title: The Rule (Ustav)
+    desc: A rule of skete monastic life setting out the discipline of inner, watchful prayer.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Nilus_of_Sora
+  - https://orthodoxwiki.org/Nilus_of_Sora
+  - https://www.oca.org/saints/lives/2046/05/07/101310-repose-of-venerable-nilus-abbot-of-sora
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,53 @@
+id: OS-0364
+liturgicalTitle: Saint Theodoritus, Archbishop of Ryazan and Murom
+lifespan: 1551 – 1617
+overview:
+  - Theodoritus was Archbishop of Ryazan and Murom in the Russian Orthodox Church during the early seventeenth century, in the period of upheaval known as the Time of Troubles. He is commemorated on September 10, the day of his repose in 1617, and is venerated as a locally celebrated saint of the Ryazan diocese. The synaxarion remembers him as a hierarch who labored among the peoples of the Volga region.
+  - By tradition he was born in 1551 into a noble family, said to have been connected to the boyar Fyodor Sheremetev, and to have held estates in the Ryazan lands. He took monastic vows under the blessing of Patriarch Job and, from 1604, served as archimandrite of the Savior (Spassky) Monastery in Ryazan. In August 1605 he was consecrated bishop of Ryazan and Murom by Metropolitan Hermogenes of Kazan, with the dignity of archbishop.
+  - His episcopate fell during the political turmoil that followed the death of Tsar Boris Godunov. He was present at events surrounding the brief reign of the first False Dmitri and afterward took part in the affairs of the church and state under Tsar Vasily Shuysky, with whose support he built the Dormition (Assumption) Cathedral in Ryazan. In 1609 he presided over the uncovering and translation of the relics of Saint Basil of Ryazan. At the close of the Troubles he was a senior participant in the Zemsky Sobor of 1613 that elected Mikhail Romanov to the throne. He reposed peacefully on September 10, 1617.
+sections:
+  - heading: Episcopate during the Time of Troubles
+    body:
+      - Theodoritus was consecrated to the see of Ryazan and Murom in August 1605, at the outset of the Time of Troubles, the decade of dynastic crisis, foreign intervention, and civil conflict that followed the extinction of the old Muscovite line. According to the tradition recorded of him, he was present at the wedding of the first False Dmitri to Marina Mniszech in May 1606, and after Dmitri's overthrow took part in the coronation of Tsar Vasily Shuysky.
+      - With the support of Tsar Vasily Shuysky he undertook the construction of the Dormition (Assumption) Cathedral in Ryazan, which became the principal church of his see. His tenure thus spanned the most disordered years of the early seventeenth century, when the Ryazan lands lay along the contested southern frontier of the Muscovite state.
+  - heading: Uncovering of the relics of Saint Basil of Ryazan
+    body:
+      - On June 10, 1609, during the Time of Troubles, Theodoritus presided over the uncovering of the relics of Saint Basil, an earlier bishop of Ryazan, and their solemn transfer into the cathedral church in the Ryazan kremlin. Following the translation, liturgical texts were composed in Saint Basil's honor, and his veneration spread widely through the Ryazan diocese. This event is itself commemorated in the Orthodox calendar on June 10.
+  - heading: The Zemsky Sobor of 1613
+    body:
+      - Theodoritus was a leading churchman at the Zemsky Sobor, the assembly of the land convened in 1613 to elect a new sovereign and end the dynastic vacancy of the Troubles. The tradition relates that on February 21, 1613, he addressed the gathered people from the Lobnoye Mesto in Moscow concerning the succession and gave his blessing to the young Mikhail Romanov, whose election he was among the senior signatories to confirm. The election of Mikhail Romanov inaugurated the dynasty that would rule Russia until the twentieth century.
+  - heading: Repose and veneration
+    body:
+      - Theodoritus reposed peacefully on September 10, 1617, and was buried in the Archangel Cathedral of Ryazan. He is venerated as a locally celebrated saint of the Ryazan diocese, and his memory is kept on September 10. His relics were rediscovered in the late twentieth century.
+timeline:
+  - when: "1551"
+    title: Birth
+    body: Born, by tradition, into a noble family connected to the boyar Fyodor Sheremetev.
+  - when: "1604"
+    title: Archimandrite of the Savior Monastery
+    body: Appointed archimandrite of the Spassky (Savior) Monastery in Ryazan.
+  - when: August 1605
+    title: Consecrated archbishop
+    body: Consecrated bishop of Ryazan and Murom, with the rank of archbishop, by Metropolitan Hermogenes of Kazan.
+  - when: June 10, 1609
+    title: Uncovering of the relics of Saint Basil
+    body: Presided over the uncovering and translation of the relics of Saint Basil of Ryazan.
+  - when: February 21, 1613
+    title: Zemsky Sobor
+    body: Took a leading part in the assembly that elected Mikhail Romanov tsar.
+  - when: September 10, 1617
+    title: Repose
+    body: Reposed peacefully and was buried in the Archangel Cathedral of Ryazan.
+related:
+  - name: Saint Basil of Ryazan
+    note: Earlier bishop of Ryazan whose relics Theodoritus uncovered and translated in 1609.
+status: flagged
+sources:
+  - Synaxarion
+  - https://ru.wikipedia.org/wiki/%D0%A4%D0%B5%D0%BE%D0%B4%D0%BE%D1%80%D0%B8%D1%82_(%D0%B0%D1%80%D1%85%D0%B8%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D0%BE%D0%BF_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9)
+  - https://www.oca.org/saints/lives/0216/06/10/101682-finding-of-the-relics-of-saint-basil-bishop-of-ryazan
+  - https://en.wikipedia.org/wiki/Diocese_of_Ryazan
+generated: "2026-06-19"
+flagReasons:
+  - claim: He labored / was a missionary among the peoples of the Volga region.
+    detail: This derives only from the anchor brief ('a missionary among the peoples of the Volga'). External sources (Russian Wikipedia) do not corroborate missionary activity for Theodoritus and instead attribute Mordvinian/Volga missionary work to a different Ryazan archbishop, Misail (mid-17th century). The profile hedges with 'The synaxarion remembers him as', but the claim remains unverified by external sources; flagged for review.

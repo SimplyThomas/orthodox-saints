@@ -1,0 +1,57 @@
+id: OS-0989
+lifespan: c. 590/600 - 655
+liturgicalTitle: Our Father among the Saints Martin the Confessor, Pope of Rome
+overview:
+- Martin the Confessor was Pope of Rome in the seventh century, remembered for his defense of the Orthodox faith against the Monothelite heresy, which held that Christ had a single will. Born in Italy and trained in the Roman clergy, he had served as the papal representative at Constantinople before his election to the papacy in 649.
+- Soon after his election he convened the Lateran Council of 649, which condemned Monothelitism and rejected the imperial decrees that supported it, the Ecthesis and the Typos. For this stand against the will of the emperor Constans II he was arrested, taken to Constantinople, tried, and exiled to Cherson in the Crimea, where he died in 655. He is honored as a confessor and is remembered as the last Pope of Rome venerated as a martyr for the faith; he is commemorated on April 13 and April 14.
+timeline:
+- when: c. 590-600
+  title: Birth in Italy
+  body: Martin was born in Italy, by the accounts near Todi in Umbria, toward the end of the sixth century. He was educated in the doctrine of the Church and entered the Roman clergy.
+- when: before 649
+  title: Papal representative at Constantinople
+  body: Before his election Martin served as the papal apocrisiarius, the representative of Rome at the imperial court in Constantinople, under Pope Theodore I.
+- when: '649'
+  title: Election as Pope
+  body: After the death of Pope Theodore I in 649, Martin was chosen to succeed him as Pope of Rome. He took up the office without waiting for the customary ratification of the Byzantine emperor.
+- when: October 649
+  title: The Lateran Council
+  body: Within months of his election Martin convened the Lateran Council at Rome, gathered over five sessions in October 649 with about a hundred bishops. The council condemned the Monothelite heresy and rejected the imperial Ecthesis and Typos that had supported it.
+- when: '653'
+  title: Arrest and trial
+  body: By order of the emperor Constans II, Martin was arrested at the Lateran and taken by way of Naxos to Constantinople, where he suffered a harsh imprisonment, many indignities, and a trial that condemned him.
+- when: '655'
+  title: Exile and repose at Cherson
+  body: Martin was banished to Cherson in the Crimea, where, worn down by hunger and sickness, he reposed on September 16, 655, a confessor for the Orthodox faith.
+sections:
+- heading: Early Life and Service
+  body:
+  - Martin was born in Italy toward the close of the sixth century, by the accounts near Todi in the region of Umbria, though some sources place his origin in Tuscany. He was educated in the doctrine of the Church and entered the clergy of Rome.
+  - His learning and ability led to his appointment as papal apocrisiarius, the representative of the Roman Church at the imperial court in Constantinople, an office he held under Pope Theodore I. This service gave him direct knowledge of the theological disputes then troubling the empire.
+- heading: Election and the Lateran Council
+  body:
+  - On the death of Pope Theodore I in 649, Martin was chosen to succeed him as Pope of Rome. He took up the office without waiting for the consent of the Byzantine emperor Constans II, which had customarily been sought for a papal election.
+  - Within a few months of his election Martin convened the Lateran Council at Rome. Gathered over five sessions in October 649 with about a hundred bishops, the council condemned the Monothelite heresy, which taught that Christ possessed two natures but only a single will. The council also rejected the imperial decrees that had supported the heresy, the Ecthesis issued under Patriarch Sergius and the Typos issued by the emperor Constans II.
+- heading: Arrest, Trial, and Exile
+  body:
+  - Martin's open defiance of the imperial decrees provoked the anger of Constans II, who moved to remove him. By tradition an attempt on his life failed when the would-be assassin was struck blind on approaching the pope. Martin was eventually seized at the Lateran in the year 653 and carried off by way of the island of Naxos to Constantinople.
+  - There he endured a long and exhausting imprisonment, suffering hunger, ill-treatment, and many public indignities, before being brought to trial and condemned. The accounts relate that he was not permitted to present his defense.
+- heading: Repose and Veneration
+  body:
+  - Martin's sentence of exile was carried out at Cherson in the Crimea. Worn down by hunger and sickness, he reposed there on September 16, 655, having held firm in his confession of the Orthodox faith to the end.
+  - He is honored in the Church as a confessor and is remembered as the last Pope of Rome venerated as a martyr for the faith. As a pre-schism saint of the undivided Church, he is commemorated in the Orthodox Church on April 13 and April 14.
+works:
+- title: Acts of the Lateran Council of 649
+  desc: The conciliar definition and twenty canons issued under Martin's presidency, condemning Monothelitism and rejecting the imperial Ecthesis and Typos.
+related:
+- name: Maximus the Confessor
+  note: Defender of the same Orthodox doctrine of the two wills of Christ, arrested in connection with the same controversy.
+patronage:
+- Defenders of the Orthodox faith
+status: draft
+sources:
+- OCA Synaxarion (oca.org), Lives of the Saints
+- en.wikipedia.org
+- https://en.wikipedia.org/wiki/Pope_Martin_I
+- https://orthodoxwiki.org/Martin_the_Confessor
+generated: '2026-06-19'
