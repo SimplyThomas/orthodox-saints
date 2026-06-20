@@ -1,38 +1,38 @@
 id: OS-2009
 sources:
-- OCA Synaxarion (oca.org), Lives of the Saints
-- https://en.wikipedia.org/wiki/Edwin_of_Northumbria
-- https://www.oca.org/saints/lives/2016/10/12/102947-saint-edwin-king-and-martyr
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Edwin_of_Northumbria
+  - https://www.oca.org/saints/lives/2016/10/12/102947-saint-edwin-king-and-martyr
 lifespan: c. 584/586 – 633
 liturgicalTitle: The Holy and Right-Believing King and Martyr Edwin of Northumbria
 overview:
-- Edwin was a seventh-century king of Northumbria in what is now northern England, remembered for his acceptance of Christianity and his support for its spread in the north of the country. Born about 584 to 586 as the son of King Aelle (Alla) of Deira, he was driven into exile in his youth after Aethelfrith of Bernicia conquered Deira and united the two realms.
-- After taking refuge at the court of Raedwald of East Anglia, Edwin was installed as king of Northumbria following Aethelfrith's defeat, and he came to dominate much of Anglo-Saxon England. He was baptized in 627 and reigned as a Christian ruler until his death in battle, after which the early English calendars came to list him as a martyr.
+  - Edwin was a seventh-century king of Northumbria in what is now northern England, remembered for his acceptance of Christianity and his support for its spread in the north of the country. Born about 584 to 586 as the son of King Aelle (Alla) of Deira, he was driven into exile in his youth after Aethelfrith of Bernicia conquered Deira and united the two realms.
+  - After taking refuge at the court of Raedwald of East Anglia, Edwin was installed as king of Northumbria following Aethelfrith's defeat, and he came to dominate much of Anglo-Saxon England. He was baptized in 627 and reigned as a Christian ruler until his death in battle, after which the early English calendars came to list him as a martyr.
 timeline:
-- when: c. 584–586
-  title: Birth in Deira
-  body: Edwin was born the son of King Aelle (Alla) of Deira, in what is now northern England.
-- when: after his father's death
-  title: Exile
-  body: Following his father's death, Edwin was displaced when Aethelfrith of Bernicia conquered Deira; he eventually took refuge at the court of Raedwald of East Anglia.
-- when: c. 616
-  title: King of Northumbria
-  body: After Aethelfrith was defeated at the Battle of the River Idle, Raedwald installed Edwin as king, giving him rule over both Deira and Bernicia.
-- when: '627'
-  title: Baptism by Paulinus
-  body: In the eleventh year of his reign Edwin was baptized by Paulinus of York at York, in a wooden church dedicated to Saint Peter. His marriage to Ethelburga (Aethelburh) of Kent, sister of King Eadbald, had brought Christian influence to his court.
-- when: 12 October 632 or 633
-  title: Death at Hatfield Chase
-  body: Edwin was defeated and killed at the Battle of Hatfield Chase by the combined forces of Cadwallon ap Cadfan and Penda of Mercia.
+  - when: c. 584–586
+    title: Birth in Deira
+    body: Edwin was born the son of King Aelle (Alla) of Deira, in what is now northern England.
+  - when: after his father's death
+    title: Exile
+    body: Following his father's death, Edwin was displaced when Aethelfrith of Bernicia conquered Deira; he eventually took refuge at the court of Raedwald of East Anglia.
+  - when: c. 616
+    title: King of Northumbria
+    body: After Aethelfrith was defeated at the Battle of the River Idle, Raedwald installed Edwin as king, giving him rule over both Deira and Bernicia.
+  - when: "627"
+    title: Baptism by Paulinus
+    body: In the eleventh year of his reign Edwin was baptized by Paulinus of York at York, in a wooden church dedicated to Saint Peter. His marriage to Ethelburga (Aethelburh) of Kent, sister of King Eadbald, had brought Christian influence to his court.
+  - when: 12 October 632 or 633
+    title: Death at Hatfield Chase
+    body: Edwin was defeated and killed at the Battle of Hatfield Chase by the combined forces of Cadwallon ap Cadfan and Penda of Mercia.
 sections:
-- heading: Reign and Christianization
-  body:
-  - Edwin came to dominate much of Anglo-Saxon England; Bede ascribed to him imperium and the Anglo-Saxon Chronicle styled him bretwalda, ruler of Britain, his authority reaching across Bernicia, Deira, eastern Mercia, the Isle of Man, and Anglesey.
-  - According to the OCA synaxarion, an assassination attempt in 626, in which his minister Lilla died shielding him, preceded his conversion; Paulinus convinced Edwin that he had been preserved by divine intervention. After his baptism Edwin ruled for some six years, promoting Christianity and beginning the construction of a stone church at York, which was completed by his successor Oswald.
-- heading: Relics & Shrines
-  body:
-  - After Edwin's death his head was buried at York and his remains at Whitby. Most of the early English calendars list him as a martyr, and his feast is kept on 12 October.
+  - heading: Reign and Christianization
+    body:
+      - Edwin came to dominate much of Anglo-Saxon England; Bede ascribed to him imperium and the Anglo-Saxon Chronicle styled him bretwalda, ruler of Britain, his authority reaching across Bernicia, Deira, eastern Mercia, the Isle of Man, and Anglesey.
+      - According to the OCA synaxarion, an assassination attempt in 626, in which his minister Lilla died shielding him, preceded his conversion; Paulinus convinced Edwin that he had been preserved by divine intervention. After his baptism Edwin ruled for some six years, promoting Christianity and beginning the construction of a stone church at York, which was completed by his successor Oswald.
+  - heading: Relics & Shrines
+    body:
+      - After Edwin's death his head was buried at York and his remains at Whitby. Most of the early English calendars list him as a martyr, and his feast is kept on 12 October.
 patronage:
-- Converts
+  - Converts
 status: draft
-generated: '2026-06-19'
+generated: "2026-06-19"

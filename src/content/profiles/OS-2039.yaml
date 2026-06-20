@@ -1,35 +1,35 @@
 id: OS-2039
 sources:
-- OCA Synaxarion (oca.org), Lives of the Saints
-- https://en.wikipedia.org/wiki/James_the_Deacon
-- https://www.oca.org/saints/lives/2047/10/18/108025-saint-james-the-deacon
-- https://en.wikipedia.org/wiki/Paulinus_of_York
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/James_the_Deacon
+  - https://www.oca.org/saints/lives/2047/10/18/108025-saint-james-the-deacon
+  - https://en.wikipedia.org/wiki/Paulinus_of_York
 liturgicalTitle: The Righteous James the Deacon of York
 overview:
-- James the Deacon was a seventh-century clergyman of the Gregorian mission to the Anglo-Saxons, remembered for his work in the evangelization of northern England. He served as deacon to Paulinus of York and, after the collapse of royal support for Christianity in Northumbria, remained in the region to sustain the new church through years of war, famine, and plague.
-- Most of what is recorded of James derives from the historian Bede, who held him in high regard. Though he was never ordained to the priesthood, Bede described him as a man of great energy and standing in the Church, and later writers have called him the one heroic figure of the Roman mission in the north.
+  - James the Deacon was a seventh-century clergyman of the Gregorian mission to the Anglo-Saxons, remembered for his work in the evangelization of northern England. He served as deacon to Paulinus of York and, after the collapse of royal support for Christianity in Northumbria, remained in the region to sustain the new church through years of war, famine, and plague.
+  - Most of what is recorded of James derives from the historian Bede, who held him in high regard. Though he was never ordained to the priesthood, Bede described him as a man of great energy and standing in the Church, and later writers have called him the one heroic figure of the Roman mission in the north.
 timeline:
-- when: c. 625
-  title: Arrival in Northumbria
-  body: James accompanied Paulinus of York to Northumbria as part of the Gregorian mission, traveling in connection with Aethelburh of Kent. He is presumed to have been Italian, like other members of that mission.
-- when: '633'
-  title: Death of Edwin and the departure of Paulinus
-  body: After King Edwin was defeated and killed at the Battle of Hatfield Chase, Christianity in Northumbria declined sharply as his successors reverted to paganism. Paulinus fled to Kent with Queen Aethelburg, while James remained in the north to care for the new converts.
-- when: '664'
-  title: Synod of Whitby
-  body: James participated in the Synod of Whitby, which addressed the dispute between Roman and Irish practice over the calculation of Easter.
-- when: after 671
-  title: Repose
-  body: Bede records that James lived to a great age and undertook missionary work in the area around Catterick. He died after 671.
+  - when: c. 625
+    title: Arrival in Northumbria
+    body: James accompanied Paulinus of York to Northumbria as part of the Gregorian mission, traveling in connection with Aethelburh of Kent. He is presumed to have been Italian, like other members of that mission.
+  - when: "633"
+    title: Death of Edwin and the departure of Paulinus
+    body: After King Edwin was defeated and killed at the Battle of Hatfield Chase, Christianity in Northumbria declined sharply as his successors reverted to paganism. Paulinus fled to Kent with Queen Aethelburg, while James remained in the north to care for the new converts.
+  - when: "664"
+    title: Synod of Whitby
+    body: James participated in the Synod of Whitby, which addressed the dispute between Roman and Irish practice over the calculation of Easter.
+  - when: after 671
+    title: Repose
+    body: Bede records that James lived to a great age and undertook missionary work in the area around Catterick. He died after 671.
 sections:
-- heading: Ministry in the North
-  body:
-  - When Paulinus withdrew to Kent following Edwin's death in 633, James stayed behind to maintain the mission in Northumbria. The years that followed, sometimes remembered as a time of military defeat, famine, and plague, left the church without secular support, but James continued his work and struggled to rebuild the Roman mission.
-  - According to Bede, James lived in a village near Catterick that came to bear his name, and from there undertook missionary work in the surrounding area. His persistence through this difficult period earned him a lasting reputation as a steadying presence in the early English church.
-- heading: Liturgical Music
-  body:
-  - James was a trained singing master in the Roman and Kentish manner. He taught plainsong, also described as the Gregorian chant attributed to Saint Gregory, to many people in the north. Sources relate that when peace returned and the churches reopened, their services were enriched by the chant that James had taught.
+  - heading: Ministry in the North
+    body:
+      - When Paulinus withdrew to Kent following Edwin's death in 633, James stayed behind to maintain the mission in Northumbria. The years that followed, sometimes remembered as a time of military defeat, famine, and plague, left the church without secular support, but James continued his work and struggled to rebuild the Roman mission.
+      - According to Bede, James lived in a village near Catterick that came to bear his name, and from there undertook missionary work in the surrounding area. His persistence through this difficult period earned him a lasting reputation as a steadying presence in the early English church.
+  - heading: Liturgical Music
+    body:
+      - James was a trained singing master in the Roman and Kentish manner. He taught plainsong, also described as the Gregorian chant attributed to Saint Gregory, to many people in the north. Sources relate that when peace returned and the churches reopened, their services were enriched by the chant that James had taught.
 patronage:
-- Church music and chant
+  - Church music and chant
 status: draft
-generated: '2026-06-19'
+generated: "2026-06-19"
