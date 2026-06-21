@@ -133,3 +133,21 @@ test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
   );
   await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
 });
+
+test("the Theotokos page shows the vendor-permission icon attribution", async ({
+  page,
+}) => {
+  const resp = await page.goto("./saint/OS-0001/");
+  expect(resp?.status()).toBe(200);
+  // The permission attribution caption renders the agreed wording.
+  const cap = page.locator(".sv-icon-cap");
+  await expect(cap).toContainText(
+    "Icon used with permission from Theophany Works",
+  );
+  // "Original icon" links to the specific vendor icon page (the grant's condition).
+  const link = cap.getByRole("link", { name: /View on Theophany Works/ });
+  await expect(link).toHaveAttribute(
+    "href",
+    "https://theophanyworks.com/icon-of-the-sweet-kissing-theotokos-glykophiloussa-detail-21st-c-00vmt002/",
+  );
+});

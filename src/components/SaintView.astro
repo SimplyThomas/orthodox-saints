@@ -97,6 +97,9 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         <div class="sv-icon-inner" set:html={portrait} />
       </div>
       {
+        /* Permission images link "Original icon" to the specific vendor page
+           (imageSource) per the grant. m.imageVendorHome (the vendor's icon
+           homepage) is also available, reserved for a future vendor-homepage link. */
         showCredit &&
           (m.imagePermission ? (
             <div class="sv-icon-cap">
