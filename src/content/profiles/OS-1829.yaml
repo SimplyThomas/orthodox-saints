@@ -1,0 +1,39 @@
+id: OS-1829
+liturgicalTitle: Our Venerable Father Athanasius of Serpukhov
+lifespan: died c. 1401
+overview:
+  - Athanasius of Serpukhov was a Russian monastic of the fourteenth century, a disciple of St. Sergius of Radonezh and the first igumen (abbot) of the Vysotsky Monastery near Serpukhov. According to tradition he was born with the name Andrew in Obonezh Pyatina, in the Novgorod lands, the son of a priest named Auxentius and his wife Maria, and was inclined from his youth toward prayer and renunciation of the world. He is commemorated on September 12.
+  - Drawn to the monastic life, he traveled from the Novgorod region to St. Sergius of Radonezh at the Trinity Monastery at Makovets and became his disciple. In 1374, at the request of Prince Vladimir Andreevich of Serpukhov, St. Sergius came to Serpukhov and founded a monastery dedicated to the Conception of the Most Holy Theotokos on the high bank of the River Nara; because of its elevated site it came to be called Vysotsky, meaning 'of the heights.' Sergius blessed Athanasius to organize the new community and appointed him its first igumen.
+  - In his later years Athanasius traveled to Constantinople in the company of Metropolitan Cyprian and settled at the Studion monastery, the monastery of the Holy Forerunner and Baptist John. There he is said to have spent about twenty years engaged in scholarly and translation work, rendering books from Greek into Slavonic and copying church books, which he sent back to Rus'. He died in Constantinople in old age, traditionally in the year 1401.
+  - "The tradition surrounding Serpukhov distinguishes two saints of this name commemorated on the same day: Athanasius the Elder, the founder described above, who reposed about 1401, and Athanasius the Younger, his disciple and successor at the Vysotsky Monastery, who reposed in 1395. The Cloud of Witnesses anchor row identifies its saint by the founder's profile, while preserving the name 'Athanasius the Younger' among his alternate names."
+sections:
+  - heading: Foundation of the Vysotsky Monastery
+    body:
+      - The Vysotsky Monastery at Serpukhov was established in 1374 at the request of Prince Vladimir Andreevich, who asked St. Sergius of Radonezh to found a community in his domain. The synaxarion relates that Sergius came to Serpukhov together with Athanasius and established the monastery of the Conception of the Most Holy Theotokos on the high bank of the River Nara.
+      - The name Vysotsky, 'of the heights,' reflects the monastery's elevated location above the river. Sergius blessed Athanasius to organize the community and to serve as its igumen, making him the monastery's first abbot.
+  - heading: Constantinople and translation work
+    body:
+      - Athanasius later traveled to Constantinople with Metropolitan Cyprian and settled at the Studion monastery, dedicated to the Holy Forerunner and Baptist John. By tradition he remained there about twenty years, occupied with translating and copying church books and sending them to Rus'.
+      - The sources credit Athanasius and his disciples with translating into Slavonic the Four Hundred Chapters of St. Maximus the Confessor, the Chapters of Mark on church services, and the Discourses of St. Symeon the New Theologian. In 1401 he is recorded as having copied a work known as 'The Eye of the Church.'
+timeline:
+  - when: "1374"
+    title: Vysotsky Monastery founded
+    body: St. Sergius of Radonezh, at the request of Prince Vladimir Andreevich, founds the monastery of the Conception of the Theotokos at Serpukhov and appoints Athanasius its first igumen.
+  - when: c. 1401
+    title: Repose in Constantinople
+    body: Athanasius dies in Constantinople in old age after about twenty years at the Studion monastery.
+related:
+  - name: St. Sergius of Radonezh
+    note: His spiritual father, who founded the Vysotsky Monastery and appointed him its first abbot.
+    href: saint/OS-0042
+  - name: St. Cyprian, Metropolitan of Moscow and All Russia
+    note: Metropolitan with whom he traveled to Constantinople.
+    href: saint/OS-1848
+patronage:
+  - Associated with monastic translators and copyists, and with the Vysotsky Monastery at Serpukhov.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2001/09/12/108956-venerable-athanasius-of-serpukhov
+  - https://www.johnsanidopoulos.com/2018/09/saint-athanasius-of-serpukhov-elder.html
+generated: "2026-06-20"

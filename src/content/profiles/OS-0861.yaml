@@ -1,0 +1,35 @@
+id: OS-0861
+liturgicalTitle: Our Venerable Father Enda, Abbot of Inishmore
+lifespan: died c. 530
+overview:
+  - Enda (Eanna, Endeus) was a sixth-century Irish monastic founder who established one of the earliest monasteries of Ireland on Inishmore, the largest of the Aran Islands. By tradition he had first been a warrior-king of Oriel in Ulster, the son of Conall Derg, and turned to the religious life under the influence of his sister, the abbess Fanchea. He is commemorated on March 21 and is venerated among the pre-schism saints of the West.
+  - The accounts relate that Fanchea pressed Enda to abandon his pursuit of warfare; one tradition holds that she confronted him with the body of a dead girl to impress upon him the brevity of life, after which he resolved to enter the priesthood. He undertook monastic training abroad, the sources naming a center of monasticism variously identified with Rosnat or Candida Casa (Whithorn), where he took monastic vows and was ordained.
+  - About the year 484, according to the accounts, Enda received a grant of land on the Aran Islands from Aengus, King of Munster, described as his brother-in-law. There he founded the monastery at Killeaney on Inishmore, regarded in the tradition as the first Irish monastery, and is said to have divided the island among several monastic communities. The later tradition styles him the patriarch of Irish monasticism, and a wide circle of Irish saints is associated with Aran. He is reported to have died around 530 and to have been buried on Inishmore.
+sections:
+  - heading: Monastic discipline on Aran
+    body:
+      - The sources describe a severe ascetic regime among Enda's monks. They are said to have slept on the bare ground, eaten together in silence, and supported themselves by farming and fishing. The accounts add that the monks kept no fires in their stone cells however cold the weather and ate no meat except for the sick. This austere pattern of communal labor and self-denial became part of the reputation of Aran as a monastic center.
+  - heading: Aran of the Saints
+    body:
+      - The tradition connects a large number of Irish saints with Enda's foundation, and the islands acquired the name 'Aran of the Saints.' Among those reported in the accounts to have been associated with him are Ciaran of Clonmacnoise, Finnian of Moville, and Brendan the Voyager. The sources state that at least two dozen canonized figures had some connection with the island, a measure of the influence later ascribed to his monastery in the history of Irish monasticism.
+timeline:
+  - when: c. 484
+    title: Grant of Inishmore
+    body: By the accounts, Aengus, King of Munster, granted Enda land on the Aran Islands, where he founded the monastery at Killeaney.
+  - when: c. 530
+    title: Death on Inishmore
+    body: Enda is reported to have died around 530 and to have been buried on Inishmore.
+related:
+  - name: St. Fanchea
+    note: His sister, an abbess, whose influence is credited in the tradition with turning him from warfare to the monastic life.
+  - name: St. Brendan the Navigator
+    note: Numbered in the tradition among the Irish saints associated with Enda's monastery on Aran.
+    href: saint/OS-1191
+patronage:
+  - Associated in the tradition with Irish monasticism and with the Aran Islands.
+status: draft
+sources:
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Enda_of_Aran
+  - https://catholic.net/op/articles/2814/cat/1205/st-enda.html
+generated: "2026-06-20"

@@ -1,0 +1,28 @@
+id: OS-0349
+liturgicalTitle: The Venerable Peter and Paul, Bishops of Nicaea
+lifespan: 9th century
+overview:
+  - "Peter and Paul were bishops of Nicaea in Asia Minor commemorated together by the Orthodox Church on September 10. They belong to the ninth century, the era of the second period of Byzantine iconoclasm, and are remembered as confessors of the faith. The surviving record is uneven: a modest account of Peter has been preserved, while almost nothing is known of Paul."
+  - According to the synaxarion tradition, Saint Peter defended the veneration of icons against the iconoclasts and endured suffering on this account. The Orthodox Church in America's life associates his hierarchical service with the reign dated 813-820, the years of the renewed iconoclast policy, and states that he died no later than the year 823. His standing among the defenders of the icons is corroborated by his correspondence with one of the leading figures of the controversy.
+  - No biographical account of Saint Paul of Nicaea has been preserved. His name is first recorded in the so-called 'Petrine' Greek Prologue of the eleventh century, where he appears alongside Peter, and it is on the basis of this commemoration that the two bishops are venerated jointly.
+sections:
+  - heading: Confession against iconoclasm
+    body:
+      - The second period of Byzantine iconoclasm, during which Peter is placed, saw renewed imperial opposition to the veneration of icons. Peter is remembered for upholding the Orthodox position and suffering for it, which is the basis of his designation as a confessor rather than a martyr.
+      - A concrete witness to Peter's role survives in his correspondence with Saint Theodore the Studite, the abbot of the Studion monastery and a foremost opponent of iconoclasm. Four letters of Theodore the Studite addressed to Peter are known, written between the years 816 and 823, placing Peter within the network of bishops and monastics who resisted the iconoclast measures.
+timeline:
+  - when: 816-823
+    title: Correspondence with Theodore the Studite
+    body: Four letters from Saint Theodore the Studite to Saint Peter are written during these years.
+  - when: by 823
+    title: Death of Saint Peter
+    body: Saint Peter is recorded as having died no later than the year 823.
+related:
+  - name: St. Theodore the Studite
+    note: Abbot of the Studion and opponent of iconoclasm who addressed four letters to Peter of Nicaea.
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2017/09/10/102567-saints-peter-and-paul-bishops-of-nicaea
+  - https://en.wikipedia.org/wiki/September_10_(Eastern_Orthodox_liturgics)
+generated: "2026-06-20"

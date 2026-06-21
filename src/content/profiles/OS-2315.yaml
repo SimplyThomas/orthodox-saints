@@ -1,0 +1,27 @@
+id: OS-2315
+liturgicalTitle: Our Venerable Father John the Faster of the Kiev Near Caves
+overview:
+  - John the Faster was a monk of the Kiev Caves Lavra, one of the many ascetics whose relics rest in the Near Caves of Saint Anthony. He is commemorated on December 7. Almost nothing of his biography survives; he is remembered chiefly by the epithet "the Faster," which marks the discipline by which he was distinguished, and is grouped among the venerable fathers of the Near Caves.
+  - "The few accounts that mention him differ on his period: he is variously placed in the twelfth or thirteenth century, and the sources hedge rather than fix a date. As with many of the caves ascetics whose names are preserved without a written life, his memory is carried by the liturgical commemoration of the Lavra and by the veneration of his incorrupt relics, which remain in the Near Caves; fragments are also held at the Russian Orthodox Cathedral of Saint John the Baptist in Washington, D.C."
+  - "He belongs to the wider community of Kiev Caves monastics who are commemorated individually on their own days and remembered together in the Synaxis of the venerable fathers of the Near Caves. Because the surviving record is so spare, the database treats his entry as an honest stub: his title, his discipline of fasting, his burial in the Near Caves, and his feast are reported, while no further biographical detail is asserted."
+sections:
+  - heading: Name and Identity
+    body:
+      - John the Faster of the Kiev Near Caves should not be confused with John the Faster, Patriarch of Constantinople, an entirely distinct saint. Within the Kiev Caves community there are also other monks who bear the same epithet of fasting, so that the designation "of the Near Caves" together with the December 7 commemoration serves to identify him.
+      - The epithet "the Faster" reflects the ascetic practice that the tradition holds to have defined his life. A liturgical text applied to him describes a monk who was illumined by fasting and who consumed the word of God more than food.
+related:
+  - name: Venerable John the Long-Suffering of the Kiev Near Caves
+    note: A distinct monk of the same Near Caves, also named John, commemorated July 18.
+    href: saint/OS-1545
+  - name: Venerable Macarius the Faster of the Kiev Caves
+    note: A deacon of the Near Caves likewise remembered for the discipline of fasting.
+    href: saint/OS-0487
+patronage:
+  - Associated, by his epithet, with the discipline of fasting and ascetic restraint.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.johnsanidopoulos.com/2020/12/saint-john-faster-of-kiev-caves.html
+  - https://stjohndc.org/en/list-of-relics/john-faster-kiev-caves-venerable-near-caves
+  - https://orthodoxwiki.org/Synaxis_of_Monastic_Fathers_who_are_venerated_in_the_Near_Caves_of_St_Anthony
+generated: "2026-06-21"

@@ -1,0 +1,56 @@
+id: OS-1907
+liturgicalTitle: Saint Arsenius the Great, Catholicos of Georgia
+lifespan: died 887
+overview:
+  - Arsenius the Great was a ninth-century Georgian hierarch who served as Catholicos of Georgia and was a leading figure of the monastic revival associated with Gregory of Khandzta. By tradition he was the youngest son of an aristocrat named Mirian of Meskheti, in southern Georgia, and his mother was named Kravaia. As a young man he was brought to the monastery of Khandzta by Gregory of Khandzta, who became his teacher and spiritual father.
+  - "His elevation to the office of Catholicos was unusual: the synaxarion relates that his father Mirian had him enthroned as Catholicos of all Georgia on his own initiative, bypassing the regular procedure of a Church council. A council convened to examine the irregularity, but Gregory of Khandzta intervened on his behalf, and the appointment was confirmed. Arsenius went on to lead the Georgian Church for twenty-seven years."
+  - Arsenius is remembered as a learned writer, hymnographer, and church builder. He composed hymns and Lives of the saints and is credited with the historical and ecclesiological treatise On the Division of the Georgian and Armenian Churches, as well as a Life and Martyrdom of Abibos of Nekresi. He is also remembered as a builder of churches. He reposed in the year 887 and is commemorated on September 25.
+sections:
+  - heading: Formation at Khandzta
+    body:
+      - According to the tradition, Gregory of Khandzta brought the young Arsenius to his monastery together with another youth, the future Bishop Ephraim of Atsquri. The presence of youths ran against the rules of the community, and the monks received them with reluctance, but Gregory assured the brethren that the circumstance was exceptional. Arsenius was raised and educated within this monastic milieu, which formed part of the broader flowering of Georgian monasticism connected to Gregory of Khandzta.
+  - heading: Writings
+    body:
+      - Arsenius is described in the tradition as a historian and philologist as well as a hymnographer. His best-known work is the treatise On the Division of the Georgian and Armenian Churches, which set out the historical and doctrinal grounds on which the Georgian Church held to the Chalcedonian confession. He also wrote The Life and Martyrdom of Abibos of Nekresi, a hieromartyr of an earlier Georgian generation, and composed numerous hymns and accounts of the saints.
+      - He is further remembered as an active builder of churches. Among the constructions attributed to him is the cathedral of Tkobi-Erda, in the Assa River valley.
+timeline:
+  - when: 9th c.
+    title: Brought to Khandzta
+    body: Arsenius is brought as a youth to the monastery of Khandzta by Gregory of Khandzta, together with the future Bishop Ephraim of Atsquri.
+  - when: 9th c.
+    title: Enthroned as Catholicos
+    body: Enthroned as Catholicos of all Georgia at his father Mirian's initiative; the appointment is confirmed after Gregory of Khandzta's intervention.
+  - when: "887"
+    title: Repose
+    body: Reposes after leading the Georgian Church for twenty-seven years.
+related:
+  - name: Venerable Gregory of Khandzta
+    note: His teacher and spiritual father, who brought him to the monastery and confirmed his appointment as Catholicos.
+    href: saint/OS-1966
+  - name: Saint Ephraim the Great of Atsquri
+    note: A fellow youth brought to Khandzta with him, later bishop of Atsquri.
+    href: saint/OS-1001
+  - name: Hieromartyr Abibus, Bishop of Nekresi
+    note: An earlier Georgian hieromartyr whose Life and Martyrdom Arsenius composed.
+    href: saint/OS-2276
+family:
+  heading: Family
+  intro: By tradition, Arsenius came from an aristocratic family of Meskheti in southern Georgia.
+  figures:
+    - name: Mirian
+      note: His father, an aristocrat of Meskheti, who had him enthroned as Catholicos.
+    - name: Kravaia
+      note: His mother.
+works:
+  - title: On the Division of the Georgian and Armenian Churches
+    desc: Historical and ecclesiological treatise setting out the grounds on which the Georgian Church held to the Chalcedonian confession.
+  - title: The Life and Martyrdom of Abibos of Nekresi
+    desc: A hagiographical account of the earlier Georgian hieromartyr Abibos of Nekresi.
+  - title: Hymns and Lives of the saints
+    desc: Numerous hymns and hagiographical works attributed to him in the tradition.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/09/25/205421-saint-arsenius-the-great-catholicos-of-georgia
+  - https://www.johnsanidopoulos.com/2018/09/saint-arsenius-great-catholicos-of.html
+generated: "2026-06-20"

@@ -1,0 +1,30 @@
+id: OS-1899
+liturgicalTitle: Our Venerable Father Abramius, Abbot of Mirozh
+overview:
+  - Abramius (also rendered Abraham) was a twelfth-century monastic of the Pskov region of northwestern Rus', remembered as the builder and first igumen (abbot) of the Savior-Transfiguration Monastery of Mirozh. The monastery stands at the confluence of the rivers Velikaya and Mirozha, on the left bank of the Velikaya near Pskov, and takes its name from the smaller of the two streams. According to tradition, the monastery was founded around the year 1156, during the time of Svyatopolk Mstislavich.
+  - The foundation of Mirozh is closely associated with Nifont (Niphon), Archbishop of Novgorod, who is credited with commissioning the monastery's Cathedral of the Transfiguration of Our Lord in the late 1130s. Under this patronage the community became a center of monastic life and missionary activity in the surrounding territories. Within this setting Abramius is named as the monastery's builder and its first superior, the figure who organized the new community and guided its early life.
+  - Abramius is commemorated by the Orthodox Church on September 24. He belongs to the wider company of monastic founders who established the religious life of medieval Pskov and Novgorod, a region whose pre-Mongol churches and frescoes preserve some of the oldest surviving Christian art of Rus'.
+sections:
+  - heading: The Monastery of Mirozh
+    body:
+      - The Savior-Transfiguration Monastery of Mirozh became one of the principal religious centers of medieval Pskov. Its Transfiguration Cathedral is counted among the two surviving pre-Mongol buildings of the city and is celebrated for its twelfth-century frescoes, which by tradition were executed by artists from Constantinople and of which a large portion survives to the present day.
+      - The monastery is also known for the Mirozh Icon of the Mother of God, which is recorded as having appeared at the monastery in the year 1198. During the reign of Ivan the Terrible, when plague afflicted Pskov, the icon was reported to have wept and to have been the occasion of many benefits and healings.
+timeline:
+  - when: late 1130s
+    title: Cathedral commissioned
+    body: The Cathedral of the Transfiguration is commissioned by Archbishop Nifont of Novgorod.
+  - when: c. 1156
+    title: Monastery founded
+    body: Abramius builds and serves as first abbot of the Savior-Transfiguration Monastery of Mirozh, in the time of Svyatopolk Mstislavich.
+  - when: "1198"
+    title: Mirozh Icon
+    body: The Mirozh Icon of the Mother of God appears at the monastery.
+patronage:
+  - Honored as a founder and abbot of monastic communities in the Pskov region.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2017/09/24
+  - https://en.wikipedia.org/wiki/Mirozhsky_Monastery
+  - https://orthodoxwiki.org/Mirozhsky_Monastery_(Pskov,_Russia)
+generated: "2026-06-20"

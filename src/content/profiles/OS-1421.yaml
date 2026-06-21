@@ -21,14 +21,9 @@ sections:
     body:
       - "Historically Documented: The early diffusion of Febronia's Life and the dedication of churches and a monastery in her honor attest to an established cult from antiquity, and her commemoration is shared across the Eastern Orthodox, Oriental Orthodox, and Roman Catholic calendars."
       - "Traditional Accounts: Her Life recounts that her chief torturer, Selinus, was afterward driven to madness and died striking his head against marble, while Lysimachus and Primus were baptized and embraced the monastic life, and the convert Hieria gave her wealth to the convent. These episodes are transmitted as part of the hagiographic tradition rather than independently documented history."
-patronage:
-  - Invoked as an intercessor by virgins and monastics, and venerated as a model of steadfastness in martyrdom.
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/06/25/101812-virgin-martyr-febronia-of-nisibis
   - https://en.wikipedia.org/wiki/Febronia_of_Nisibis
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Invoked as intercessor by virgins and monastics; model of steadfastness in martyrdom.
-    detail: No dossier source states a specific patronage of virgins/monastics. This is a plausible inference from her status but not grounded in the anchor or external extracts; flagged per default-to-flag.

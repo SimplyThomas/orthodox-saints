@@ -1,0 +1,26 @@
+id: OS-2336
+liturgicalTitle: The Holy Martyrs Akepsimas and Aithalas of Arbel
+overview:
+  - Akepsimas and Aithalas are two martyrs of Persia commemorated together on December 11. According to the synaxarion, Akepsimas had been a pagan priest in the city of Arbel (Arbela) before his conversion to Christianity, while Aithalas served as a deacon of the church at Arbel. Both confessed Christ before the local ruler and were put to death by beheading.
+  - The account of their lives is brief, and the sources do not record the circumstances of their deaths in detail. They are distinct from the Hieromartyrs Akepsimas, Joseph, and Aeithalas commemorated on November 3, with whom they are easily confused owing to the shared names and common Persian setting.
+timeline:
+  - when: Before conversion
+    title: Pagan priest at Arbel
+    body: Akepsimas served as a pagan priest in the Persian city of Arbel (Arbela).
+  - when: Conversion
+    title: Healing and confession of Christ
+    body: Akepsimas received healing through the prayers of a Christian bishop and was converted to Christianity, after which he boldly confessed his new faith.
+  - when: Martyrdom
+    title: Imprisonment and beheading
+    body: Akepsimas was imprisoned for confessing Christ, and Aithalas, a deacon of the Arbel church, was imprisoned with him. Brought before the ruler, both again confessed their faith and were beheaded.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrs belong to the broader body of Persian martyrs venerated in the Orthodox calendar, a setting in which a convert from the established Persian religion who openly professed Christianity could face execution. The synaxarion places both at Arbel (Arbela); some later calendar references give the date of their martyrdom as the year 354 and locate it at Arbela in Assyria, though the primary account leaves the period of their suffering unspecified.
+      - The names Akepsimas and Aithalas (Aeithalas) recur among the Persian martyrs, and this December 11 commemoration is recorded as distinct from the better-known Hieromartyrs Akepsimas the bishop, Joseph the presbyter, and Aeithalas the deacon kept on November 3.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/12/11/103523-martyrs-akepsimas-and-aithalas-of-egypt
+  - https://en.wikipedia.org/wiki/December_11_(Eastern_Orthodox_liturgics)
+generated: "2026-06-21"

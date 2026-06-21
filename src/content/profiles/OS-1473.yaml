@@ -45,17 +45,11 @@ sections:
     body:
       - "Historically Documented: Andrew was canonized as a saint in the Russian Orthodox Church in 1702, and his burial is commemorated in the synaxarion on July 4. The icon he brought to Vladimir endured in the Russian Church as the Vladimir icon of the Mother of God."
       - "Traditional Accounts: The synaxarion connects his epithet 'Bogoliubsky' ('God-loving') with his devotion to prayer, and tradition associates the Church of the Intercession on the Nerl with a son lost in his campaigns."
-patronage:
-  - Builders of churches
-  - The city of Vladimir
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Andrey_Bogolyubsky
   - https://www.oca.org/saints/lives/2014/07/04
   - https://en.wikipedia.org/wiki/Church_of_the_Intercession_on_the_Nerl
   - fetch-note
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Patron of builders of churches and of the city of Vladimir.
-    detail: No source attests a formal patronage. This is an inference from his church-building, not a stated patronage in the dossier; flagged per default-to-flag.

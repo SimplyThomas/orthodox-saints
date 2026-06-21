@@ -1,0 +1,43 @@
+id: OS-1903
+liturgicalTitle: Our Venerable Father David of Serbia
+lifespan: died after 1286
+overview:
+  - David of Serbia was a thirteenth-century member of the Serbian Nemanjic dynasty who, after a career in secular rule, ended his life as a monk. According to the synaxarion he bore the name Demetrius in the world and was a nephew of the holy King Stephen. He is remembered above all as the founder of a monastery on the Lim, where he himself received monastic tonsure with the name David and lived an ascetical life to the end of his days. He is commemorated on September 24.
+  - Historical sources identify him with Dmitar Nemanjic, a Serbian prince whose father was the grand prince Vukan Nemanjic and whose uncle was Stephen the First-Crowned. He held the rank of zupan in the region of Polimlje, the valley of the upper Lim. The monastery he built at Brodarova, on the River Lim, is identified with the Davidovica Monastery near Brodarevo, which the historical record dates to around 1281 and associates with the work of masons from Dubrovnik.
+  - In his later years David exchanged the rule of his domain for the monastic life, taking the habit in the foundation he had endowed. The tradition records that he traveled to Jerusalem on pilgrimage and that he died after 1286, the exact date being unknown. He is venerated in the Serbian Orthodox Church with the title of the Venerable.
+sections:
+  - heading: The Davidovica Monastery
+    body:
+      - The monastery David founded stands on the Lim, near Brodarevo in the historical region of Polimlje, and came to bear his monastic name as Davidovica. The synaxarion describes it simply as a monastery he built at Brodarova on the River Lim; the historical record places its construction around 1281 and connects it with builders from Dubrovnik, reflecting the architectural exchange between the Serbian lands and the Adriatic coast in this period.
+      - Having endowed the house, David entered it as a monk rather than continuing as its lay patron, a pattern of withdrawal from rule into monastic repentance that recurs among the Nemanjic saints. He is said to have lived there in asceticism until his death.
+timeline:
+  - when: c. 1281
+    title: Davidovica Monastery built
+    body: According to the historical record the monastery at Brodarova on the Lim was constructed around this time with the help of masons from Dubrovnik.
+  - when: "1286"
+    title: Pilgrimage to Jerusalem
+    body: The tradition records David traveling to Jerusalem on pilgrimage.
+  - when: after 1286
+    title: Repose
+    body: David died after 1286, the exact date being unrecorded, having lived as a monk to the end of his days.
+related:
+  - name: Saint Stephen the First-Crowned of Serbia
+    note: David's uncle, the holy King Stephen, commemorated on the same day, September 24
+    href: saint/OS-1904
+family:
+  heading: Family
+  intro: David belonged to the ruling Nemanjic house of Serbia.
+  figures:
+    - name: King Stephen the First-Crowned
+      note: His uncle, the first crowned king of Serbia
+      href: saint/OS-1904
+    - name: Vukan Nemanjic
+      note: His father, grand prince of Serbia, by the historical identification with Dmitar Nemanjic
+patronage:
+  - Invoked as a monastic founder and patron of those withdrawing from worldly station into the monastic life.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2045/09/24/108064-venerable-david-of-serbia
+  - https://en.wikipedia.org/wiki/Dmitar_Nemanji%C4%87
+generated: "2026-06-20"

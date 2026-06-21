@@ -1,0 +1,44 @@
+id: OS-2653
+liturgicalTitle: Our Venerable Father Thaddeus of Stepantsminda
+lifespan: 6th century
+overview:
+  - Saint Thaddeus of Stepantsminda (Tadeoz Stepantsmindeli) was a sixth-century monastic who is counted among the Thirteen Assyrian (Syrian) Fathers, a group of ascetic missionaries who came from Mesopotamia to Georgia to strengthen the Christian faith and to plant monastic life in the country. He is associated by Georgian tradition with Stepantsminda in eastern Georgia.
+  - The lives of the Thirteen Assyrian Fathers are preserved in a cycle of medieval Georgian hagiographic texts, and the fathers are remembered chiefly as a collective. The detailed biographical traditions concerning Thaddeus as an individual are slight, and much of what is related of him survives only in later accounts.
+sections:
+  - heading: The Thirteen Assyrian Fathers
+    body:
+      - The Thirteen Assyrian Fathers were a body of monastic missionaries who, according to Georgian tradition, arrived from Mesopotamia in the sixth century to confirm the faith and to establish the ascetic life in Georgia. They are credited by Georgian church historians with founding a number of monasteries and hermitages and with initiating the monastic movement in the country. Their leader was Saint John of Zedazeni, and the company also included such figures as Shio of Mgvime, David of Gareja, Abibus of Nekresi, and Joseph of Alaverdi.
+      - The fathers' lives are related in a cycle of medieval Georgian hagiographic texts and are largely unattested beyond those sources; some of the surviving accounts were composed for an eighteenth-century synaxary. Modern scholarship has debated whether the fathers were Assyrians proper or Assyrian-educated Georgians, and the precise circumstances of their mission remain a matter of tradition rather than independent record.
+  - heading: Life and Ministry
+    body:
+      - By tradition, Thaddeus came to Caucasian Iberia in eastern Georgia and spent the remainder of his life there, taking his place among the disciples gathered around Saint John of Zedazeni. He is associated with Stepantsminda, the name by which he is known in the Georgian church.
+      - According to the accounts preserved of him, after the repose of Saint John, Thaddeus continued to preach throughout the region of Kartli and is said to have raised many churches. Near the end of his life he is reported to have withdrawn to a cave on a mountain not far from Kaspi, where, the tradition relates, he reposed in peace and was buried.
+timeline:
+  - when: 6th century
+    title: Mission to Georgia
+    body: Thaddeus comes to Georgia among the Thirteen Assyrian Fathers, the company of monastic missionaries led by Saint John of Zedazeni, to strengthen the faith and establish monastic life.
+  - when: 6th century
+    title: Preaching in Kartli
+    body: By tradition, after the repose of Saint John of Zedazeni, Thaddeus continues to preach throughout Kartli and is remembered for building churches.
+  - when: 6th century
+    title: Repose
+    body: According to the tradition preserved of him, Thaddeus withdraws to a cave near Kaspi at the end of his life and reposes in peace.
+related:
+  - name: Saint John of Zedazeni and the Thirteen Syrian Fathers
+    note: The collective commemoration of the Thirteen Assyrian (Syrian) Fathers, of whom Thaddeus was one; their leader was Saint John of Zedazeni.
+    href: saint/OS-1128
+  - name: Venerable David of Gareja
+    note: A fellow member of the Thirteen Assyrian Fathers, commemorated with Thaddeus on May 7.
+    href: saint/OS-2652
+reading:
+  - heading: Further Reading
+    items:
+      - title: The Lives of the Thirteen Assyrian (Syrian) Fathers of Georgia
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers
+  - http://patriarch.ge/eng/news/id/2303
+  - https://atinati.com/news/66dadc55e3a285004edd0592
+status: draft
+generated: "2026-06-21"

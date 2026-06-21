@@ -1,0 +1,28 @@
+id: OS-1791
+liturgicalTitle: Our Venerable Father Pimen of Palestine
+lifespan: sixth century (died c. 600)
+overview:
+  - Pimen of Palestine was a sixth-century hermit who lived as an ascetic in a cave in the Rouba desert, in the wilderness of Palestine. The principal account of his life is preserved in The Spiritual Meadow (Limonarion) of John Moschus, the late-sixth- to early-seventh-century collection of monastic anecdotes that Moschus gathered during his travels with Sophronius, the future Patriarch of Jerusalem. Sources place his asceticism in the reign of the Emperor Maurice (582–602). He is commemorated in the Orthodox Church on August 27.
+  - According to the tradition recorded by Moschus, Pimen had been a shepherd before he entered the monastic life. During his years tending sheep, his dogs once attacked and killed a man; though he was able to intervene, he did not, and this failure was held against him. After he withdrew to the desert he received a revelation that, on account of that earlier inaction, he himself would in the end be devoured by wild beasts.
+  - "The synaxarion relates that despite the severity of the desert Pimen was preserved from harm: during one bitter winter a lion came and lay beside him to warm him. In his cave he received those who sought spiritual counsel, among them a monk named Agathonicus. By tradition the revelation given to him was fulfilled some three years after that meeting, near the end of the sixth century, when wild beasts killed him."
+sections:
+  - heading: Sources for his life
+    body:
+      - "Almost everything known of Pimen comes from a single chapter of The Spiritual Meadow, the work in which John Moschus set down stories of the monks of Palestine and Egypt. The narrative presents his life as a moral lesson: a failure to act in the world is answered, by divine economy, with a foretold end, while his ascetic endurance is attended by the protection of a wild lion."
+timeline:
+  - when: 582–602
+    title: Asceticism under Emperor Maurice
+    body: Pimen lived as a hermit in the Rouba desert of Palestine during the reign of the Emperor Maurice.
+  - when: c. 600
+    title: Death by wild beasts
+    body: By tradition the revelation given to him was fulfilled when wild beasts devoured him, near the end of the sixth century.
+related:
+  - name: St. Sophronius of Jerusalem
+    note: With John Moschus, recorded the account of Pimen in The Spiritual Meadow.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2020/08/27/102409-venerable-pimen-of-palestine
+  - https://www.ochrid.org/august/27th
+  - https://en.wikipedia.org/wiki/Spiritual_Meadow
+generated: "2026-06-20"

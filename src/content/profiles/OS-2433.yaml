@@ -1,0 +1,31 @@
+id: OS-2433
+liturgicalTitle: The Holy Martyr Philetairus of Nicomedia
+overview:
+  - Philetairus (also transliterated Philetairos or Phileteros) was a Christian martyr of Nicomedia in Asia Minor, commemorated on December 30. According to the synaxarion, he came from an illustrious family and identified himself as the son of an eparch; the tradition describes him as a tall and handsome young man. He is recorded as having twice suffered torture for his faith under the co-emperors Diocletian (284-305) and Maximian (286-305), and is numbered among the martyrs of the early-fourth-century persecutions.
+  - The accounts relate a sequence of tortures from which he emerged unharmed. Under Diocletian he was cast into a furnace but came out unhurt; the emperor, the tradition says, was moved by the miracle as well as by the saint's rank and appearance, and set him free. When he later confessed Christ again under Maximian, he was scourged and exposed to wild beasts without injury, and was finally sentenced to beheading. According to the synaxarion, the two men charged with the execution found their hands rendered powerless as they raised the sword, whereupon they and their commander believed in Christ and were themselves beheaded.
+  - Philetairus was sentenced to exile on Prokonnesos, an island in the Sea of Marmara. The tradition relates that on the journey six soldiers and their commander who accompanied him came to faith in Christ. He died in exile and was buried by Saint Eubiotus; the soldiers and their commander are said to have died eleven days later and to have been buried beside him.
+sections:
+  - heading: Trials and Miracles
+    body:
+      - The synaxarion frames Philetairus's passion as a series of failed executions that served to convert his persecutors rather than to kill him. The furnace under Diocletian and the wild beasts under Maximian are both recorded as leaving him unharmed, and the paralysis of the executioners' hands is presented as the immediate cause of the conversion and martyrdom of his would-be killers and their commander.
+      - The tradition further attributes conversions to him during his journey into exile, when six soldiers and their commander who escorted him are said to have come to believe in Christ. These companions in faith are commemorated together with him as those who suffered with the martyr.
+timeline:
+  - when: 284-305
+    title: First trial under Diocletian
+    body: Tried at Nicomedia and cast into a furnace, from which the tradition says he emerged unharmed and was released.
+  - when: 286-305
+    title: Second trial under Maximian
+    body: Confessing Christ again, he was scourged and exposed to wild beasts; his executioners and their commander converted and were beheaded.
+  - when: early 4th century
+    title: Exile and death on Prokonnesos
+    body: Sentenced to exile on the island of Prokonnesos in the Sea of Marmara, where he died and was buried by Saint Eubiotus.
+related:
+  - name: Saint Eubiotus
+    note: Hermit on Prokonnesos who received the exiled martyr and buried him.
+patronage: []
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2022/12/30/103694-martyr-philetairus-of-nicomedia
+  - https://www.johnsanidopoulos.com/2018/12/holy-martyr-philetairos-of-nicomedia.html
+generated: "2026-06-21"

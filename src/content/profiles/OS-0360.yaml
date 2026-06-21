@@ -1,0 +1,46 @@
+id: OS-0360
+liturgicalTitle: Our Venerable Father Esaias of Kykkos
+lifespan: 12th century
+overview:
+  - Venerable Esaias (also rendered Isaiah) was a Cypriot ascetic of the twelfth century, remembered by tradition as the hermit whose vision and labor led to the founding of the Kykkos Monastery on Mount Kykkos in the Troodos range of Cyprus.
+  - He is venerated as a monastic saint, and his life is bound up with the celebrated icon of the Theotokos known as the Kykkotissa, which by tradition is one of those attributed to the Apostle and Evangelist Luke and which the monastery he is associated with was built to house.
+  - His feast is kept on September 10.
+timeline:
+  - when: 12th century
+    title: Ascetic life on Mount Kykkos
+    body: By tradition Esaias lived as a hermit in a cave on Mount Kykkos in the Troodos mountains of Cyprus, withdrawn from worldly affairs.
+  - when: Reign of Alexios I Komnenos (1081-1118)
+    title: Foundation of Kykkos Monastery
+    body: The monastery's foundation is associated with imperial patronage under Emperor Alexios I Komnenos and with Manuel Boutoumites, the Byzantine governor (doux) of Cyprus, who according to tradition founded the monastery there.
+sections:
+  - heading: Historical context
+    body:
+      - The figures surrounding the foundation of Kykkos are historically attested. Manuel Boutoumites (active c. 1086-1112) was a leading Byzantine general and diplomat under Emperor Alexios I Komnenos (reigned 1081-1118); he campaigned in Cyprus in 1092, defeating the rebel Rhapsomates and capturing Kyrenia, and later served as doux of Nicaea after its siege in 1097. According to tradition, while in Cyprus he founded the Kykkos Monastery.
+      - The monastery itself stands on the northwest face of the Troodos Mountains, at an elevation of about 1,318 meters, roughly twenty kilometers west of Pedoulas. It remains among the wealthiest and best-known monasteries of Cyprus.
+  - heading: Traditional Accounts
+    body:
+      - The fullest account of Esaias and the monastery's origin is preserved as tradition, recorded notably by the Ukrainian pilgrim Vasil Grigorovich-Barsky, who visited Kykkos in 1735. By this tradition, the governor Manuel Boutoumites, lost while hunting near Marathasa, came upon the hermit Esaias and, angered when the ascetic would not answer him, mistreated him. Returning to Nicosia, the governor fell gravely ill, and, repenting of his cruelty, prayed for recovery so that he might seek the hermit's forgiveness, and was healed.
+      - The tradition further relates that Esaias was instructed by divine revelation to obtain from the imperial palace in Constantinople an icon of the Virgin said to have been painted by the Apostle Luke. When the emperor's daughter fell ill with the same affliction, Boutoumites persuaded the emperor that sending the icon to Cyprus would heal her; she recovered, and the original icon was sent to the island. With imperial patronage a church and monastery were then built at Kykkos to house it.
+      - These narrative details belong to pious tradition rather than to contemporary documentary record, and should be read as such.
+  - heading: Relics & Shrines
+    body:
+      - The Kykkos Monastery, whose foundation Esaias is remembered for inspiring, houses the icon of the Theotokos known as the Kykkotissa, traditionally counted among the icons attributed to the Evangelist Luke. The monastery has long been a major center of pilgrimage in Cyprus.
+related:
+  - name: Manuel Boutoumites
+    note: Byzantine general and governor (doux) of Cyprus under Alexios I Komnenos; by tradition the founder of Kykkos Monastery, linked with Esaias in the foundation story.
+    external: https://en.wikipedia.org/wiki/Manuel_Boutoumites
+patronage:
+  - Kykkos Monastery and its monastic community, Cyprus
+reading:
+  - heading: Sources
+    items:
+      - title: Kykkos Monastery
+        type: reference
+      - title: Manuel Boutoumites
+        type: reference
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Kykkos_Monastery
+  - https://en.wikipedia.org/wiki/Manuel_Boutoumites
+generated: "2026-06-20"

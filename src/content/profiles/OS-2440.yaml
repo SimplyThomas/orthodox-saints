@@ -1,0 +1,47 @@
+id: OS-2440
+liturgicalTitle: Our Father Among the Saints Theophylact, Archbishop of Ochrid
+lifespan: c. 1050 – after 1107
+overview:
+  - Theophylact of Ochrid was a Byzantine scholar and churchman who served as Archbishop of Ochrid (Achrida) and is best remembered for his biblical commentaries. He was born in the mid-eleventh century at Euripus (Chalcis) on the island of Euboea, then part of the Byzantine Empire. He is commemorated in the Eastern Orthodox Church on December 31.
+  - Theophylact was educated in Constantinople, where, according to the tradition, he studied under the philosopher Michael Psellus and rose to prominence as a scholar and teacher of rhetoric. He served as a deacon of the Great Church of Hagia Sophia and was entrusted with the office of explaining Scripture and composing sermons. He also acted as tutor to Constantine Doukas, son of the Emperor Michael VII, for whom he is said to have written a treatise on the education of princes.
+  - Around 1078, and certainly by the mid-1080s, Theophylact was appointed to the archbishopric of Ochrid, then the principal see of the Bulgarian Church within the Byzantine Empire. He governed this demanding province on the empire's frontier for roughly two or three decades, ministering to a Slavic flock under difficult conditions. The sources place his death after 1107.
+  - Theophylact's enduring legacy lies in his extensive writings, above all his commentaries on the Gospels, the Acts of the Apostles, the Pauline epistles, and the Minor Prophets, which draw heavily on the exegesis of Saint John Chrysostom. His other surviving works include a large body of letters, homilies and orations, and a life of Saint Clement of Ohrid.
+sections:
+  - heading: Pastoral Work in Bulgaria
+    body:
+      - As Archbishop of Ochrid, Theophylact was a Greek prelate set over a Slavic Church in territory that had been incorporated into the Byzantine Empire, and he was reckoned among the line of Greek archbishops assigned to Bulgaria in this period. His letters record his initial difficulty with the simplicity of his surroundings, but the tradition relates that he came in time to love the Bulgarian people for their sincere devotion.
+      - His pastoral oversight included the careful selection of bishops and vigilance over the conduct of his clergy. He contended with the Paulician and Bogomil heresies present in the region, with the plundering of church property by imperial officials, and with the devastation caused by foreign invasions, while defending the canonical standing of the archbishopric of Ochrid in its relations with Constantinople.
+  - heading: Writings
+    body:
+      - Theophylact's biblical commentaries cover much of the New Testament along with the Minor Prophets and are founded upon the homilies of Saint John Chrysostom, which he condensed and adapted. They circulated widely and were later consulted by Western scholars, including, by report, Thomas Aquinas and Erasmus.
+      - Beyond his exegesis, some one hundred and thirty of his letters survive, together with homilies, orations, and his account of the life of Saint Clement of Ohrid. Early lists and printed editions of his commentary style him a holy father and teacher of the Church.
+timeline:
+  - when: c. 1050
+    title: Birth at Euripus (Chalcis)
+    body: Born in the mid-eleventh century on Euboea, then part of the Byzantine Empire.
+  - when: c. 1078
+    title: Appointed Archbishop of Ochrid
+    body: Sent from Constantinople to govern the Bulgarian Church at Ochrid.
+  - when: after 1107
+    title: Death
+    body: Died after some two to three decades governing the see of Ochrid.
+related:
+  - name: Saint Clement of Ochrid
+    note: Earlier enlightener of the Bulgarians whose life Theophylact wrote.
+    href: saint/OS-1588
+works:
+  - title: Commentaries on the Gospels, Acts, and the Pauline Epistles
+    desc: New Testament exegesis founded on the homilies of Saint John Chrysostom.
+  - title: Commentary on the Minor Prophets
+    desc: Exegesis of the twelve Minor Prophets in the same tradition.
+  - title: The Education of Princes
+    desc: A treatise written for Constantine Doukas, son of Emperor Michael VII.
+  - title: Life of Saint Clement of Ohrid
+    desc: A biographical account of the enlightener of the Bulgarians.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Theophylact_of_Ohrid
+  - https://www.johnsanidopoulos.com/2019/12/life-of-saint-theophylact-archbishop-of.html
+  - https://www.britannica.com/biography/Theophylactus-of-Ochrida
+generated: "2026-06-21"

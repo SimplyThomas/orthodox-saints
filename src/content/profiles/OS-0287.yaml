@@ -1,0 +1,38 @@
+id: OS-0287
+liturgicalTitle: Saint Gosslin, Bishop of Toul
+lifespan: c. 883 – 962
+overview:
+  - Gosslin, more commonly known as Gauzelin and sometimes rendered Goscelinus, was a tenth-century bishop of Toul in Lorraine, then part of the Frankish kingdom. He is remembered as a reforming bishop, a founder of monasteries, and a helper of the poor, and is venerated as one of the pre-schism Western saints. His principal feast is kept on September 7, the day of his death in 962.
+  - By tradition Gauzelin was of noble Frankish parentage, born around 883 in Lorraine. Before his elevation to the episcopate he served as a notary in the chancery of King Charles the Simple, an office he is recorded as holding from 913. He was consecrated bishop of the large diocese of Toul on March 17, 922, and governed it for some forty years until his death.
+  - As bishop, Gauzelin worked to strengthen monastic discipline and the spiritual and economic life of the religious houses in his care during a difficult period marked by Hungarian raids and famine. He encouraged the wider monastic reform of his region, supported the renewal of the abbey of Gorze, and founded the convent of Bouxières-aux-Dames near Nancy, where he was afterward buried.
+sections:
+  - heading: Reform of the Monasteries
+    body:
+      - Gauzelin made the renewal of monastic life a central concern of his episcopate. According to the sources he traveled to Fleury-sur-Loire (Saint-Benoît-sur-Loire) to study its Benedictine observance, and worked to introduce that discipline in his own diocese, gradually replacing the older Columban usages. He personally established the observance of Fleury at the abbey of Saint-Epvre (St. Aper).
+      - "He also supported the broader reform movement of the region: the archdeacon of Toul, Einold, initiated the reform of the abbey of Gorze, which Gauzelin encouraged. An Orthodox account further relates that he recruited the scholar Adso of Luxeuil to establish a school at the abbey of Saint-Epvre. Throughout, he sought to maintain and develop the property and patrimony of his church."
+  - heading: Care for the Poor and Foundation of Bouxières-aux-Dames
+    body:
+      - Gauzelin's episcopate fell in a time of Hungarian invasions, recorded in the region in 928 and 954, and of famine, and he is remembered for supporting the impoverished rural population through these hardships. He founded a convent for women at Bouxières-aux-Dames, near Nancy.
+      - He died on September 7, 962, and was buried at the abbey of Bouxières-aux-Dames which he had founded. His relics are preserved at the cathedral of Nancy; a secondary commemoration on August 31 marks their translation there in 1803. He continues to be venerated in Lorraine, especially at Bouxières-aux-Dames.
+timeline:
+  - when: c. 883
+    title: Born in Lorraine
+    body: Born of noble Frankish parentage in Lorraine, by tradition around 883.
+  - when: "913"
+    title: Notary in the royal chancery
+    body: Served as a notary in the chancery of King Charles the Simple.
+  - when: "922"
+    title: Consecrated bishop of Toul
+    body: Consecrated bishop of the diocese of Toul on March 17, 922.
+  - when: "962"
+    title: Death
+    body: Died on September 7, 962, and was buried at the convent of Bouxières-aux-Dames which he had founded.
+patronage:
+  - Invoked in connection with the poor, with monastic life, and with the church of Toul and the region of Lorraine.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Gauzelin_of_Toul
+  - https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/gauzelin-toul-st
+  - https://www.apostolia.eu/fr/articol_1258/gauzelin-eveque-de-lantique-eglise-de-toul.html
+generated: "2026-06-20"

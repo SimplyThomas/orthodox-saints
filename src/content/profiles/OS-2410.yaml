@@ -1,0 +1,47 @@
+id: OS-2410
+liturgicalTitle: Our Venerable Father Antiochus the Monk of the Lavra of Saint Sabbas
+lifespan: 7th century (flourished c. 614–628)
+overview:
+  - Antiochus was a monk of the Lavra of Saint Sabbas near Jerusalem who lived during the reign of the Emperor Heraclius (610–641). By tradition he came from Galatia in Asia Minor, the sources naming the city of Ancyra, and he embraced the monastic life first as a solitary before entering the great Palestinian lavra. He is commemorated in the Orthodox calendar on December 24.
+  - Antiochus lived through the upheavals that overtook the Holy Land in the early seventh century. The synaxarion relates that he witnessed the slaughter of the monks of the Monastery of Saint Sabbas by Saracen raiders and set down a written account of their sufferings. The sources connect this violence to the Persian invasion of Palestine in 614, in which forty-four monastics of the lavra were killed, an event that fell amid the wider conquest of the Holy Land under the Persian king Chosroes.
+  - Antiochus is chiefly remembered as a writer. At the request of his friend Eustathios, an abbot whose monks had been displaced and could carry few books, he compiled the Pandect of the Holy Scriptures, a work in one hundred and thirty chapters gathering moral teaching drawn from Scripture and earlier ecclesiastical writers. He also composed an Exomologesis, or Confession, lamenting the calamities that had befallen Jerusalem during the Persian invasion. His writings are placed between the Persian conquest of Palestine and its reconquest by Heraclius in 628.
+sections:
+  - heading: The Pandect of the Holy Scriptures
+    body:
+      - The work for which Antiochus is best known, the Pandect (or Pandects) of the Holy Scriptures, was undertaken at the request of the abbot Eustathios, a friend of Antiochus. When the monks under Eustathios were uprooted by the disorders of the age and unable to carry many books with them, they asked Antiochus to compile an abridgment of spiritual instruction for their use.
+      - "The Pandect is arranged in one hundred and thirty chapters and is described in the sources as a collection of moral sentences drawn from Scripture and from early ecclesiastical writers. Its enduring usefulness is reflected in its later reception: Saint Nektarios of Aegina is credited with translating the work into modern Greek, and excerpts attributed to Antiochus are preserved in the monastic anthology known as the Evergetinos."
+  - heading: Witness to the Persian Invasion
+    body:
+      - Beyond the Pandect, Antiochus wrote a short account of the martyrdom of the monks of the Lavra of Saint Sabbas, who were slain by raiders during the violence that accompanied the Persian conquest of the Holy Land. The sources number these monastics at forty-four.
+      - His Exomologesis, or Confession, takes the form of a lament over the miseries that had befallen Jerusalem since the Persian invasion. Together these writings make Antiochus a contemporary witness to one of the most destructive episodes in the history of Palestinian monasticism, set within the years before Heraclius restored Byzantine rule to the region in 628.
+timeline:
+  - when: 610-641
+    title: Reign of Heraclius
+    body: Antiochus lived and wrote during the reign of the Emperor Heraclius.
+  - when: c. 614
+    title: Persian invasion of Palestine
+    body: Antiochus witnessed the slaughter of monks of the Lavra of Saint Sabbas amid the Persian conquest of the Holy Land.
+  - when: c. 614-628
+    title: Composition of his works
+    body: He compiled the Pandect of the Holy Scriptures and the Exomologesis between the Persian conquest and Heraclius's reconquest of Palestine.
+related:
+  - name: Venerable Sabbas the Sanctified
+    note: Founder of the Great Lavra near Jerusalem where Antiochus was a monk
+    href: saint/OS-2304
+  - name: Holy Fathers slain at the Monastery of St Sabbas the Sanctified
+    note: Monks of the lavra martyred by raiders, whose sufferings Antiochus recorded
+    href: saint/OS-0851
+works:
+  - title: Pandect of the Holy Scriptures
+    desc: A compendium of moral teaching in 130 chapters, drawn from Scripture and earlier ecclesiastical writers, compiled at the request of the abbot Eustathios.
+  - title: Account of the Martyrdom of the Monks of Saint Sabbas
+    desc: A short record of the sufferings of the monks of the lavra slain during the Persian invasion.
+  - title: Exomologesis (Confession)
+    desc: A confessional lament over the calamities that befell Jerusalem during the Persian invasion.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2015/12/24/148981-saint-antiochus
+  - https://www.johnsanidopoulos.com/2016/12/saint-antiochus-pandektos.html
+  - https://medieval.bodleian.ox.ac.uk/catalog/work_553
+generated: "2026-06-20"

@@ -1,0 +1,37 @@
+id: OS-0939
+liturgicalTitle: Venerable George the Lesser of Georgia
+lifespan: 11th century; died after 1083
+overview:
+  - George Mtsire, known as George the Lesser or George the Minor, was an eleventh-century Georgian monk of the Athonite Georgian tradition. He is remembered chiefly as the disciple and biographer of George the Hagiorite (George Mtatsmindeli, 1009–1065), the hegumen of the Iviron monastery on Mount Athos whose translations of the Scriptures and the writings of the Church Fathers into Georgian shaped the medieval Georgian Church. The Orthodox Church in America's synaxarion commemorates George the Lesser on April 4.
+  - George the Lesser belonged to the circle of Georgian monks who gathered around George the Hagiorite at Iviron, the Georgian monastery on the Holy Mountain. After his master's death in 1065, he composed a Life of George the Hagiorite, the principal source for that saint's biography. Among Georgian scholars the prevailing view is that the compiler of the Life was himself a companion and disciple named George, and it became customary to distinguish him from his more famous master by the epithet "the Lesser" (Mtsire).
+  - Little is recorded of George the Lesser's own life apart from his role as disciple and biographer. Sources place his activity in the late eleventh century, with documentary traces extending to after 1083; his birthplace, education, and monastic offices are not preserved. His enduring significance lies in the hagiographical work he produced, which transmitted to later generations the memory of the Georgian fathers of Iviron and their labors in Byzantine monasticism.
+sections:
+  - heading: The Life of George the Hagiorite
+    body:
+      - George the Lesser's chief work is the Life (Vita) of George the Hagiorite, written after his master's repose. Sources date its composition to 1066, the year following George the Hagiorite's death in 1065. The work follows the hagiographic pattern established by George the Hagiorite himself, who had earlier compiled the Life of John and Euthymius, the Georgian founders of the Iviron monastery.
+      - "The biography preserves the memory of George the Hagiorite's career: his upbringing in the monastic life, his establishment at Iviron on Mount Athos around 1040, his tenure as hegumen of the monastery from 1044, and his translation of the Scriptures, the service books, and the writings of the Church Fathers into Georgian. It also records the saint's final journey, when he set out from Athos with eighty orphans, stopped at Constantinople, and reposed there on the feast of the Apostles Peter and Paul. The Life is regarded as an important source for the history of the Georgian monastic communities within the Byzantine Empire."
+timeline:
+  - when: "1065"
+    title: Death of his master
+    body: George the Hagiorite, whose disciple George the Lesser was, died at Constantinople and was interred at the Iviron monastery on Mount Athos.
+  - when: "1066"
+    title: Composition of the Life
+    body: A year after his master's death, George the Lesser composed the Life of George the Hagiorite, the principal biography of that saint.
+  - when: after 1083
+    title: Last recorded activity
+    body: Documentary traces of George the Lesser extend to after 1083; the circumstances of his death are not preserved.
+related:
+  - name: Venerable George of Mount Athos (George the Hagiorite)
+    note: His master, whose Life he composed
+    href: saint/OS-1438
+  - name: Venerable Euthymius the New and the Georgian Fathers of Iveron
+    note: The fathers of the Iviron monastery, whose tradition he continued
+    href: saint/OS-1165
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/George_the_Hagiorite
+  - https://www.researchgate.net/publication/324216595_Saint_George_of_Mtatsminda_and_the_Forging_of_Georgian_Identity_in_the_11th_Century
+  - https://orthodoxwiki.org/George_the_Hagiorite
+  - https://www.johnsanidopoulos.com/2018/06/saint-george-hagiorite-1065.html
+generated: "2026-06-21"

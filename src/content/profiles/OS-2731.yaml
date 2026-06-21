@@ -1,0 +1,36 @@
+id: OS-2731
+liturgicalTitle: The Holy Martyr Philoromus of Alexandria
+lifespan: died 303
+overview:
+  - Philoromus was a Roman imperial official at Alexandria who was put to death during the persecution under the emperor Diocletian after he publicly confessed Christ. He is commemorated as a martyr in the Eastern Orthodox calendar on November 4.
+  - He held senior administrative office in the city, described in the sources as the emperor's receiver-general and as a tribune who served as treasurer-general at Alexandria. He maintained his own tribunal, hearing and judging cases daily with a retinue of officers.
+timeline:
+  - when: early 4th century
+    title: Imperial office at Alexandria
+    body: Philoromus served as a senior administrator of the Roman government in Alexandria, holding the rank of tribune and acting as the emperor's receiver-general and treasurer-general, with a tribunal at which he heard cases.
+  - when: during the Diocletian persecution
+    title: Public confession at the trial of Phileas
+    body: Present at the trial of Phileas, bishop of Thmuis, before the governor Culcian, Philoromus protested against the pressure brought on the bishop to sacrifice, calling out in his defense and so declaring himself a Christian.
+  - when: 303 (Alexandria)
+    title: Martyrdom
+    body: His intervention drew the anger of the assembly, which demanded that both men be condemned; the judge assented and the two were beheaded.
+sections:
+  - heading: Office and trial
+    body:
+      - The sources describe Philoromus as the emperor's receiver-general at Alexandria and as a tribune who served as treasurer-general, with his own tribunal in the city where he sat daily to hear and judge cases, attended by many officers.
+      - During the persecution of Diocletian he was present at the examination of Phileas, bishop of Thmuis, before the governor Culcian. When Phileas refused to sacrifice to the pagan gods, Philoromus spoke openly in his defense, objecting to the effort to make the bishop renounce God, and thereby identified himself with the Christians on trial.
+  - heading: Martyrdom
+    body:
+      - Philoromus's outburst turned the assembly against him, and it demanded that he and Phileas alike be put to death; the judge agreed. The two were beheaded together.
+      - The early historian Eusebius records the deaths of these men, noting that figures distinguished by wealth, high birth, and honours chose to die rather than abandon their faith. Surviving Acts of the martyrdom were already regarded by some early critics as having been interpolated.
+related:
+  - name: Phileas of Thmuis
+    note: Bishop of Thmuis tried and beheaded together with Philoromus under Diocletian.
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Phileas_of_Thmuis
+  - https://en.wikipedia.org/wiki/Philoromus
+  - https://orthodoxwiki.org/Phileas_of_Thmuis
+status: draft
+generated: "2026-06-21"

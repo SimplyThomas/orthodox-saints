@@ -1,0 +1,30 @@
+id: OS-2543
+liturgicalTitle: Righteous Forefather Nahor
+overview:
+  - "Nahor is one of the Old Testament patriarchs of the line that descends from Shem to Abraham, and he is numbered among the Holy Forefathers, the ancestors of Christ according to the flesh. The record of his life is genealogical: according to Genesis, he was the son of Serug and the father of Terah, and so the grandfather of the Patriarch Abraham. He belongs to the post-flood generations of Mesopotamia, before the Law."
+  - The book of Genesis preserves only the bare outline of his place in the line of descent. It relates that Serug fathered Nahor, that Nahor in turn fathered Terah, and that Terah fathered Abram (Abraham), Nahor, and Haran. The synaxarion adds no narrative beyond this position in the genealogy; he is honored not for recorded deeds but for his standing in the lineage through which the promise to Abraham, and ultimately the Incarnation, came.
+  - "He should not be confused with the other Nahor named in the same passage of Genesis: his own grandson Nahor, the son of Terah and the brother of Abraham. The forefather commemorated here is specifically Nahor the son of Serug."
+sections:
+  - heading: Commemoration
+    body:
+      - Nahor is commemorated among the Holy Forefathers on the Sunday before the Nativity of Christ. On the Sunday of the Forefathers, which falls between December 11 and 17, the Church remembers the ancestors of Christ according to the flesh who lived before the Law and under the Law, with special emphasis on the Patriarch Abraham. This commemoration sets the genealogy of Christ before the faithful in preparation for the feast of the Nativity, recalling that the Incarnation took place within a real human lineage.
+family:
+  heading: Family
+  intro: Nahor stands within the genealogy that runs from Shem to Abraham, as recorded in Genesis 11.
+  figures:
+    - name: Righteous Forefather Serug
+      note: father
+      href: saint/OS-2542
+    - name: Righteous Forefather Terah
+      note: son
+      href: saint/OS-2544
+    - name: Righteous Forefather Abraham
+      note: grandson
+      href: saint/OS-1984
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.esv.org/Genesis+11:22%E2%80%9332/
+  - https://en.wikipedia.org/wiki/Nahor,_son_of_Terah
+  - https://www.oca.org/saints/lives/2022/12/11/80-sunday-of-the-forefathers
+generated: "2026-06-21"

@@ -1,0 +1,41 @@
+id: OS-0893
+liturgicalTitle: Our Venerable Father John, Bishop of Manglisi
+lifespan: 1668 – 1751
+overview:
+  - John of Manglisi was a Georgian hierarch and missionary who was spiritually formed in the David-Gareja wilderness before serving as bishop of Manglisi. Born in 1668, he is associated with the Saakadze family and was, according to the synaxarion, distinguished in ascetic virtue; he was ordained a hieromonk and subsequently consecrated bishop. He is commemorated on March 28.
+  - After his episcopal service, John devoted himself to missionary labor among populations to the north and east of Georgia, in regions bordering the Caspian Sea. The tradition records that in 1724 he departed for Derbend in Dagestan, where he built a wooden church and began preaching Christianity among the local people. His mission unfolded amid the difficult political circumstances of the period, and he is said to have worked with the support of King Vakhtang VI of Kartli and of the Russian tsar Peter the Great.
+  - According to the accounts of his life, John reposed in 1751 at Kizliar, and his relics were afterward translated to Tbilisi and interred in the Sioni Cathedral. He is venerated in the Georgian Orthodox tradition as a bishop and ascetic who carried Christian preaching into frontier regions during the early modern period.
+sections:
+  - heading: Formation in David-Gareja
+    body:
+      - John was spiritually nurtured in the David-Gareja wilderness, the network of cave monasteries in eastern Georgia long associated with Georgian monastic life. The synaxarion describes him as advancing in ascetic virtue there before being ordained a hieromonk, and he was afterward consecrated bishop of Manglisi, a historic see in central Georgia.
+  - heading: Missionary Labors
+    body:
+      - The tradition relates that in 1724 John left Georgia for Derbend in Dagestan, where he constructed a wooden church and preached Christianity among the local population. Sources record that he built churches dedicated to the Nativity of the Theotokos and to the Great-Martyr Catherine, and that in 1737 he traveled to Astrakhan, near the Caspian Sea, where he built a church in honor of Saint John the Evangelist that was later made a monastery. He is also credited with establishing a church and a preparatory school for clergy at Kizliar to serve Georgian Christian communities of the region.
+  - heading: Repose and Relics
+    body:
+      - According to the accounts of his life, John reposed on March 28, 1751, at Kizliar. His relics were subsequently translated to Tbilisi and buried in the Sioni Cathedral, where the tradition reports that they were found to be myrrh-streaming.
+timeline:
+  - when: "1668"
+    title: Birth
+    body: John is born and is later spiritually formed in the David-Gareja wilderness.
+  - when: "1724"
+    title: Mission to Dagestan
+    body: He departs for Derbend, where he builds a wooden church and begins preaching.
+  - when: "1737"
+    title: Astrakhan
+    body: He travels to Astrakhan and builds a church dedicated to Saint John the Evangelist.
+  - when: "1751"
+    title: Repose
+    body: He reposes at Kizliar; his relics are later translated to the Sioni Cathedral in Tbilisi.
+patronage:
+  - Venerated as a missionary bishop and ascetic of the Georgian Orthodox tradition.
+status: flagged
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2022/03/28/103831-venerable-john-bishop-of-manglisi
+  - https://www.johnsanidopoulos.com/2018/03/saint-john-bishop-of-manglisi-1751.html
+generated: "2026-06-21"
+flagReasons:
+  - claim: He reposed in 1751 at Kizliar; his relics were translated to the Sioni Cathedral in Tbilisi.
+    detail: Both external sources state repose on March 28, 1751 at Kizliar with relics translated to Sioni Cathedral. However, the anchor row notes read 'Lived 1668-1724 ... reposed in the 18th' and the anchor brief describes labors 'during the 17th and early 18th centuries', which conflicts with a 1751 repose. The anchor wins on conflict, so this date is flagged; the profile hedges it as 'according to the accounts of his life'.

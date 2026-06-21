@@ -1,0 +1,39 @@
+id: OS-1313
+liturgicalTitle: Our Father among the Saints Theodore, First Bishop of Rostov and Suzdal
+lifespan: died 1023
+overview:
+  - Theodore was the first bishop of Rostov, a Greek by birth who was sent to the northern lands of Rus' during the era of the Christianization that followed the conversion of Great Prince Vladimir. He is remembered as a missionary hierarch who labored to plant the Gospel among a population that was still largely pagan, and he is commemorated on June 8.
+  - "According to the synaxarion, Theodore was consecrated bishop in 991 or 992, in the years following the baptism of Rus'. Rostov at that time lay on the frontier of the newly Christianized realm, and the territory remained predominantly pagan. Theodore devoted himself to instructing and converting the local population, but the inhabitants resisted him: he is said to have suffered many insults and to have been driven away from the city on one occasion."
+  - After facing this hostility in Rostov, Theodore relocated to Suzdal, where the tradition relates that he brought many souls to Christ and enlightened them in the faith. Little is recorded of the final years of his life. He reposed at Suzdal in 1023 after his apostolic labors. His relics are venerated at Suzdal's Cathedral of the Nativity of the Most Holy Theotokos, with portions also kept in two other churches of the city.
+sections:
+  - heading: Mission to Rostov
+    body:
+      - Theodore's episcopate belongs to the first generation of the Church in Rus', established after the conversion of Great Prince Vladimir. The Rostov diocese was founded at the end of the tenth century, dated variously between 990 and 992, and Theodore, a Greek monastic, received appointment as its inaugural bishop. By one account he set about building a wooden church dedicated to the Dormition of the Virgin Mary. As the first bishop of Rostov he confronted a region where Christianity had not yet taken root, and the sources present his work there as missionary in character rather than the administration of an already-Christian flock.
+      - The sources record that the pagan inhabitants of Rostov met the hierarch with hostility, offering him many insults and on one occasion driving him from the city. This opposition led him to withdraw to Suzdal, a transfer that gives him his double title as bishop of Rostov and Suzdal.
+  - heading: Repose and Relics
+    body:
+      - Theodore reposed at Suzdal in 1023. The synaxarion notes that little is known of the last years of his life. His relics are enshrined in the Cathedral of the Nativity of the Most Holy Theotokos at Suzdal, and portions of them are kept in two other churches of the city, that of the Kazan Icon and that of Saints Constantine and Helen.
+      - Beyond his fixed feast on June 8, Theodore is commemorated among the assembled saints of the regions he served, being honored at the Synaxis of the Saints of Rostov and Yaroslavl on May 23 and at the Synaxis of the Saints of Vladimir on June 23.
+timeline:
+  - when: 991 or 992
+    title: Consecrated bishop of Rostov
+    body: Theodore was consecrated the first bishop of Rostov in the years following the baptism of Rus'.
+  - when: after opposition at Rostov
+    title: Moved to Suzdal
+    body: Driven from Rostov by the pagan inhabitants, he relocated to Suzdal and continued his missionary work there.
+  - when: "1023"
+    title: Repose at Suzdal
+    body: Theodore fell asleep in the Lord at Suzdal after his apostolic labors.
+related:
+  - name: Great Martyr Theodore Stratelates
+    note: A distinct saint, not to be confused with the bishop of Rostov.
+    href: saint/OS-0615
+patronage:
+  - Honored as an enlightener and missionary among the early hierarchs of Rostov and Suzdal.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2026/06/08/101663-saint-theodore-first-bishop-of-rostov-and-suzdal
+  - http://mail.holytrinityorthodox.com/calendar/los/June/08-11.htm
+  - https://rusmania.com/central/yaroslavl-region/rostov-veliky/history
+status: draft
+generated: "2026-06-20"

@@ -26,14 +26,11 @@ family:
     - name: Quiricus
       note: Her son, about three years old, who confessed Christ and died with his mother.
 patronage:
-  - Invoked for the protection of children and as patrons of mothers and young families.
-status: flagged
+  - Protection of children
+status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2015/07/15/102041-saint-quiricus-krykos-and-his-mother-julitta
   - https://en.wikipedia.org/wiki/Cyricus_and_Julitta
   - https://www.oca.org/saints/lives/2015/07/15
 generated: "2026-06-19"
-flagReasons:
-  - claim: Invoked for the protection of children and as patrons of mothers and young families.
-    detail: No dossier source explicitly states this patronage. The saint's CSV facet lists intercession 'Children', which supports protection of children, but 'patrons of mothers and young families' is an unsupported extrapolation.

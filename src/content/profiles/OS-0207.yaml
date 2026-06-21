@@ -1,0 +1,47 @@
+id: OS-0207
+liturgicalTitle: Our Father among the Saints Boniface I, Pope of Rome
+lifespan: died 4 September 422
+overview:
+  - Boniface I was bishop of Rome from December 418 until his death in 422, during the closing decades of the undivided Church in the West. According to the Liber Pontificalis he was a Roman by birth and the son of a presbyter named Iocundus (Jocundus). He had been married before entering the higher clergy, his wife having died beforehand, and tradition holds that he was ordained by Pope Damasus I and later served as a representative of Pope Innocent I at Constantinople around the year 405.
+  - His election was disputed. After the death of Pope Zosimus at the end of December 418, a faction of the Roman deacons seized the Lateran basilica and elected the archdeacon Eulalius, while a majority of the priests elected Boniface, who was consecrated at the Church of Saint Marcellus in the Campus Martius. The resulting schism was referred to the emperor Honorius and was not resolved until April 419, when, after Eulalius defied an imperial order and entered Rome at Easter, the emperor recognized Boniface as the rightful pope.
+  - As bishop, Boniface was concerned with church order and discipline. He reversed his predecessor's grants of extensive delegated authority to certain Western bishops, restoring metropolitan powers to provincial sees such as Narbonne and Vienne, and he upheld the jurisdiction of Rome over the churches of Illyricum through the bishop of Thessalonica as papal vicar. A contemporary of Blessed Augustine of Hippo, he supported Augustine in the controversy over Pelagianism, and Augustine in turn dedicated to him one of his anti-Pelagian works.
+sections:
+  - heading: The Disputed Election and the Schism of Eulalius
+    body:
+      - When Pope Zosimus died on 27 December 418, two rival elections followed almost at once. A group of clergy drawn principally from the deacons occupied the Lateran basilica and elected the archdeacon Eulalius, while on the following Saturday a majority of the priests of the Roman Church elected Boniface, a former councillor of Pope Innocent I. Both men were consecrated on 29 December, Boniface at the Church of Saint Marcellus in the Campus Martius, leaving the city with two claimants to its episcopal see.
+      - The dispute was submitted to the emperor Honorius, who at first recognized Eulalius but, after petitions alleging irregularities in his election, suspended judgment and summoned both parties. When Eulalius disregarded an imperial order to stay out of Rome and entered the city around Easter of 419, he forfeited the emperor's support; the council that had been proposed to settle the question at Spoleto was canceled, and on 3 April 419 Honorius confirmed Boniface as pope. By later account the schism had lasted some fifteen weeks. To prevent its recurrence, Honorius is said to have enacted a rule that, where a papal election was contested, neither claimant should be recognized and a fresh election should be held.
+  - heading: Government of the Church
+    body:
+      - Boniface worked to restore the ordinary structure of ecclesiastical authority. He drew back the wide vicariate powers that had been granted to certain Western bishops, notably reducing the standing claimed for the see of Arles, and returned metropolitan rights to provincial sees such as Narbonne and Vienne. In the East he maintained the long-standing jurisdiction of Rome over the churches of Illyricum, exercised through the bishop of Thessalonica as papal vicar; he contested, without lasting success, the measure by which the emperor Theodosius II in 421 sought to transfer authority over that region to the patriarch of Constantinople.
+      - He is also remembered as a firm supporter of Blessed Augustine of Hippo during the Pelagian controversy. Augustine dedicated to Boniface his treatise Against Two Letters of the Pelagians, a sign of the close cooperation between the bishop of Rome and the great teacher of North Africa in defending the doctrine of grace.
+  - heading: Death and Veneration
+    body:
+      - Boniface died on 4 September 422 and, by tradition, was buried in the cemetery of Maximus on the Via Salaria, near the tomb of the martyr Felicitas. He is numbered among the pre-schism Western saints venerated as Orthodox; among the Latin Saints of the Orthodox Patriarchate of Rome his commemoration is kept on 4 September, while Western usage observes him on 25 October. He was succeeded as bishop of Rome by Celestine I.
+timeline:
+  - when: c. 405
+    title: Envoy at Constantinople
+    body: By tradition served as a representative of Pope Innocent I at Constantinople.
+  - when: 29 December 418
+    title: Elected and consecrated bishop of Rome
+    body: Elected by a majority of the priests and consecrated at the Church of Saint Marcellus, in opposition to the archdeacon Eulalius.
+  - when: 3 April 419
+    title: Confirmed by Emperor Honorius
+    body: Recognized as the rightful pope after Eulalius lost imperial support, ending the schism.
+  - when: 4 September 422
+    title: Repose
+    body: Died at Rome and was buried in the cemetery of Maximus on the Via Salaria.
+related:
+  - name: Blessed Augustine, Bishop of Hippo
+    note: Contemporary whom Boniface supported against Pelagianism; Augustine dedicated an anti-Pelagian work to him.
+    href: saint/OS-1365
+  - name: Saint Celestine, Pope of Rome
+    note: His successor as bishop of Rome (422-432).
+    href: saint/OS-0965
+patronage:
+  - Invoked as a defender of church order and right doctrine and as a guardian of the unity of the episcopate.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Pope_Boniface_I
+  - https://www.newadvent.org/cathen/02658a.htm
+generated: "2026-06-20"

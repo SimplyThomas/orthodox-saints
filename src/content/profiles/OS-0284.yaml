@@ -1,0 +1,37 @@
+id: OS-0284
+liturgicalTitle: Our Father among the Saints Alchmund, Bishop of Hexham
+lifespan: died 7 September 780 or 781
+overview:
+  - Alchmund, also recorded as Alcmund and Alhmund, was the seventh bishop of Hexham in Northumbria, in northern England. He was consecrated on 24 April 767, succeeding Frithubeorht, and held the see until his death on 7 September, dated to either 780 or 781. He is commemorated as one of the saints of the pre-Schism Western Church on 7 September.
+  - Little detailed biography survives, but the historical record indicates that Alchmund was greatly venerated at Hexham. He was buried beside St. Acca, an earlier bishop of Hexham, near the eastern wall of the church. He was succeeded in the see by Tilbert.
+  - Much of what is preserved about Alchmund concerns the later history of his relics. By the early eleventh century the location of his tomb had been forgotten, following the disruption of Danish raids in Northumbria. The recovery of his veneration is associated with an account recorded by the twelfth-century Durham historian Symeon of Durham.
+sections:
+  - heading: The relics and their translation
+    body:
+      - According to the account preserved by Symeon of Durham, Alchmund appeared in a vision to a resident of Hexham named Dregmo, instructing him to direct Alfred, the sacrist of Durham, to have the bishop's remains translated to a more honourable place within the church. The tradition relates that Alfred removed one bone from the relics, and that the shrine could not be moved until this bone had been restored.
+      - "In 1154, after the church at Hexham had again fallen into ruin and been restored, the bones of the Hexham saints, including those of Alchmund, were gathered together into a single shrine. This shrine did not endure: both the church and the shrine were pillaged and finally destroyed by the Scots during a border raid in 1296."
+timeline:
+  - when: 24 April 767
+    title: Consecrated bishop of Hexham
+    body: Alchmund became the seventh bishop of Hexham, succeeding Frithubeorht.
+  - when: 7 September 780 or 781
+    title: Death
+    body: He died and was buried beside St. Acca near the east wall of the church at Hexham.
+  - when: "1154"
+    title: Relics gathered into a single shrine
+    body: After the church was restored, the bones of the Hexham saints, including Alchmund, were placed together in one shrine.
+  - when: "1296"
+    title: Shrine destroyed
+    body: A Scottish border raid pillaged and destroyed both the church and the shrine.
+related:
+  - name: St. Tilbert of Hexham
+    note: His successor as bishop of Hexham
+    href: saint/OS-0285
+  - name: St. Acca of Hexham
+    note: An earlier bishop of Hexham, beside whom Alchmund was buried
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Alchmund_of_Hexham
+  - https://drjohnhutchisonhall.com/saints-pre-schism-rome/7-september/
+generated: "2026-06-20"

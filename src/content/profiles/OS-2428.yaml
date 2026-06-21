@@ -1,0 +1,35 @@
+id: OS-2428
+liturgicalTitle: Our Venerable Father Thaddeus the Confessor of the Studion
+lifespan: died c. 818
+overview:
+  - Thaddeus the Confessor was a ninth-century monk of the Stoudios monastery in Constantinople and a disciple of its abbot, Theodore the Studite. He is commemorated as a confessor for the holy icons, having suffered torture and ultimately death during the second period of Byzantine iconoclasm under the emperor Leo V (813-820). His feast is kept on December 29.
+  - According to the synaxarion, Thaddeus was seized in the persecution that fell on the Studite community for its open resistance to the imperial policy against the veneration of icons. The iconoclasts sought to compel him to renounce that veneration and to be seen desecrating an image of Christ. He refused, and after severe beating was cast out of the city as dead; he survived only a few days more, dying of his wounds, and is therefore numbered among the martyrs and confessors of the period.
+  - Western hagiographical sources add a tradition that Thaddeus was of Scythian origin and had been a slave before gaining his freedom and entering monastic life, and describe him as a relative of Theodore the Studite. The anchor account in the Orthodox synaxarion identifies him simply as a disciple of Theodore and does not record these details.
+sections:
+  - heading: Confession and Martyrdom
+    body:
+      - The defining episode of Thaddeus's life is his trial during the iconoclast persecution. By the synaxarion's account, his persecutors laid an icon of the Savior on the ground and stood him upon it, intending to present him as one who trampled the holy image. Thaddeus answered that he had been placed upon the icon against his will, and he denounced the impiety of the iconoclasts.
+      - Enraged at his words, his tormentors beat him with cudgels, dragged him by the legs, and threw him outside the walls of the city. Though he appeared to be dead, he was still alive; a Christian took him into his home and tended his wounds. He survived three more days before dying. A parallel Western tradition records that he was scourged with one hundred and thirty lashes and died two days after being left for dead.
+  - heading: The Studite Confessors
+    body:
+      - Thaddeus belonged to the monastic community of the Stoudios (Studion) monastery in Constantinople, whose abbot Theodore the Studite was among the foremost defenders of icon veneration in the renewed iconoclast controversy under Leo V the Armenian. The Studite monks were widely persecuted for their resistance, suffering exile, imprisonment, and scourging; Thaddeus is one of those remembered by name among them.
+timeline:
+  - when: 813-820
+    title: Iconoclast persecution under Leo V
+    body: Thaddeus suffers as a confessor for the holy icons during the reign of Leo V the Armenian.
+  - when: c. 818
+    title: Death from his wounds
+    body: After being beaten and cast outside the city walls, he is taken in by a Christian and dies of his injuries a few days later.
+related:
+  - name: Venerable Theodore the Studite
+    note: Abbot of the Stoudios monastery and Thaddeus's teacher
+    href: saint/OS-2180
+patronage:
+  - Invoked as a confessor and defender of the holy icons.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/12/29/103688-venerable-thaddeus-the-confessor-of-the-studion
+  - http://catholicsaints.info/saint-thaddeus-of-scythia/
+  - https://en.wikipedia.org/wiki/Theodore_the_Studite
+generated: "2026-06-21"

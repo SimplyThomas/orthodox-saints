@@ -1,0 +1,48 @@
+id: OS-2293
+liturgicalTitle: Our Venerable Father Savva, Igumen of Storozhevsk and Zvenigorod
+lifespan: died 1406
+overview:
+  - Savva of Storozhevsk was a Russian monastic of the late fourteenth and early fifteenth centuries, remembered as one of the early disciples of Saint Sergius of Radonezh and as the founder of the Savvino-Storozhevsky Monastery near Zvenigorod. He received the monastic tonsure from Sergius and spent much of his life as a fellow-ascetic at the Trinity Monastery, where the sources describe him attaining such spiritual maturity that he served as confessor to the brethren.
+  - When the igumen Nikon withdrew into the wilderness in 1392, the brethren of the Trinity-Sergius Lavra asked Savva to take up the office of abbot, which he accepted. He governed the community until Prince Yuri Dmitrievich of Zvenigorod asked him to establish a new monastery in the prince's homeland. About 1399 Savva left the Lavra for a place called Storozhi, near Zvenigorod, where he founded the monastery that would later bear his name.
+  - At Storozhi he first raised a small wooden church dedicated to the Nativity of the Most Holy Theotokos, which was in time replaced by a stone church. He appointed a disciple, also named Savva, as his successor before his death, which the synaxarion places on December 3, 1406. He was formally numbered among the saints at the Moscow Council of 1547, and his incorrupt relics were recovered on January 19, 1652.
+sections:
+  - heading: Discipleship under Saint Sergius
+    body:
+      - Savva was among the first disciples of Saint Sergius of Radonezh and, by the account of the synaxarion, spent the greater part of his life within the Trinity Monastery. The tradition presents him as a model of simplicity and humility who grew so advanced in the spiritual life that he was made father confessor to the whole brotherhood — an unusual distinction within a community shaped by Sergius himself.
+      - Tradition also associates Savva with the abbacy of the Dormition Monastery on the River Dubenka, a foundation linked to Grand Prince Dmitry's victory over Mamai, before he returned to the leadership of the Trinity-Sergius Lavra in 1392.
+  - heading: Foundation at Storozhi
+    body:
+      - Prince Yuri Dmitrievich of Zvenigorod, by tradition a spiritual son of Savva, asked him to found a monastery in his own principality. Savva acceded, settling on the hill called Storozhi near Zvenigorod, where about 1399 he built a small wooden church of the Nativity of the Theotokos and gathered a community around it.
+      - The monastery grew into the Savvino-Storozhevsky Monastery, one of the notable Russian houses of its era. The original wooden church was succeeded by a stone church, and later tradition connects its decoration with the iconographer Andrei Rublev.
+timeline:
+  - when: "1392"
+    title: Igumen of the Trinity-Sergius Lavra
+    body: After Nikon withdrew into the wilderness, the brethren asked Savva to become abbot of the Lavra.
+  - when: c. 1399
+    title: Founded the Storozhevsky monastery
+    body: At Prince Yuri's request he settled at Storozhi near Zvenigorod and built a wooden church of the Nativity of the Theotokos.
+  - when: Dec 3, 1406
+    title: Repose
+    body: Savva died at an advanced age after appointing a disciple, also named Savva, as his successor.
+  - when: "1547"
+    title: Glorification
+    body: He was numbered among the saints at the Moscow Council of 1547.
+  - when: Jan 19, 1652
+    title: Recovery of relics
+    body: His incorrupt relics were recovered.
+related:
+  - name: St. Sergius of Radonezh
+    note: His spiritual father, from whom he received the monastic tonsure
+    href: saint/OS-0042
+  - name: Venerable Nikon, Abbot of Radonezh
+    note: The igumen whose withdrawal in 1392 led the brethren to ask Savva to lead the Lavra
+    href: saint/OS-2205
+patronage:
+  - Invoked as the founder and patron of the Savvino-Storozhevsky Monastery and of Zvenigorod
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2019/12/03/103466-venerable-savva-igoumen-of-zvenigorod-disciple-of-venerable-serg
+  - https://en.wikipedia.org/wiki/Sabbas_of_Storozhi
+  - https://www.johnsanidopoulos.com/2018/12/saint-sava-storozhevsky-of-zvenigorod.html
+generated: "2026-06-21"

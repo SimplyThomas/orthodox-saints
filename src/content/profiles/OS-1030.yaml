@@ -1,0 +1,45 @@
+id: OS-1030
+liturgicalTitle: Our Father among the Saints Betranion, Bishop of Tomis, the Confessor
+lifespan: fl. c. 360 - c. 380
+overview:
+  - Betranion, also recorded as Bretanion, Vetranion, or Bretannio, was bishop of Tomis (modern Constanta, Romania), the principal see of the Roman province of Scythia Minor, during the second half of the fourth century. He is reported to have been of Cappadocian origin and to have assumed his see around the year 360.
+  - He is remembered chiefly as a confessor of the Nicene faith during the doctrinal struggles of his age, when the Arian controversy divided the Church and enjoyed the favour of the imperial court. His public resistance to the Arianizing policy of the Emperor Valens, and his swift restoration after a brief exile, mark him as one of the more prominent Nicene hierarchs of the lower Danube frontier.
+timeline:
+  - when: c. 360
+    title: Bishop of Tomis
+    body: Betranion took up the see of Tomis in Scythia Minor, reportedly coming from a Cappadocian background.
+  - when: c. 368-369
+    title: Confrontation with Valens
+    body: According to the fifth-century historian Sozomen, the Emperor Valens, present in the region during operations against the Goths, halted at Tomis and pressed the populace to embrace Arianism and reject the Nicene Creed. Betranion openly opposed the imperial pressure and upheld the Nicene faith.
+  - when: c. 368-369
+    title: Exile and restoration
+    body: His resistance brought a sentence of exile, but the public outcry that followed his banishment moved Valens to rescind the sentence and permit his return.
+  - when: 373-374
+    title: Relics of Sabbas the Goth
+    body: Following the martyrdom of Sabbas the Goth in 372 under the Gothic king Athanaric, the relics were conveyed to Basil the Great at Caesarea in Cappadocia. The translation, with an accompanying epistle, is attributed to Betranion.
+sections:
+  - heading: Resistance to Arianism under Valens
+    body:
+      - The defining episode of Betranion's episcopate was his stand against the Emperor Valens, a patron of Arianism. The narrative derives principally from the church historian Sozomen, who relates that Valens, campaigning against the Goths along the Danube, came to Tomis and urged the people there to abandon the Nicene Creed in favour of the Arian position.
+      - Betranion refused and openly defended Nicene orthodoxy. The emperor responded by sending him into exile. The reaction of the local Christian community was strong enough that Valens revoked the sentence and allowed the bishop to return to his see, an outcome that testifies both to Betranion's standing and to the depth of Nicene sentiment in Scythia Minor.
+  - heading: Relics of Sabbas the Goth and the Gothic Epistle
+    body:
+      - Betranion is connected with one of the notable acts of inter-church communication of the period. After Sabbas the Goth was martyred in 372 during the persecution ordered by the Gothic king Athanaric, his remains were brought into the safety of the Roman Empire and then forwarded to Basil the Great at Caesarea in Cappadocia in 373 or 374, at Basil's request.
+      - The translation was accompanied by a letter, the 'Epistle of the Church of God in Gothia to the Church of God located in Cappadocia and to all the Local Churches of the Holy Universal Church,' composed in Greek and attributed to Betranion. Some accounts describe it as the oldest known writing produced on what is now Romanian soil. Basil, receiving the relics, in turn wrote to Bishop Ascholius of Thessalonica, honouring Sabbas as a martyr.
+  - heading: Veneration and disputed records
+    body:
+      - "Betranion is commemorated as a hierarch and confessor. The historical record carries some uncertainty: he may have represented Tomis at the Second Ecumenical Council held at Constantinople in 381, though sources note that his name may have been confused with that of another bishop of Tomis, Gerontius, leaving his attendance unresolved."
+      - Sources differ on the date assigned to his commemoration; one tradition records it in late January, a date that a later compiler is said to have fixed somewhat arbitrarily.
+related:
+  - name: Sabbas the Goth
+    note: Martyr whose relics Betranion is credited with sending to Basil the Great in Caesarea, with an accompanying epistle.
+  - name: Basil the Great
+    note: Bishop of Caesarea in Cappadocia who requested and received the relics of Sabbas the Goth from Scythia Minor.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Bretanion
+  - https://orthodoxwiki.org/Vetranion_of_Tomis
+  - https://en.wikipedia.org/wiki/Sabbas_the_Goth
+status: draft
+generated: "2026-06-21"

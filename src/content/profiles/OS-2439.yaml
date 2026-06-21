@@ -1,0 +1,45 @@
+id: OS-2439
+liturgicalTitle: Our Venerable Father Cyriacus of Bisericani
+lifespan: early 17th century – 1660
+overview:
+  - "Cyriacus of Bisericani (Romanian: Chiriac; also transliterated Kyriakos) was a Romanian monastic ascetic of the 17th century associated with Bisericani Monastery in the Neamț region of Moldavia. He is remembered chiefly as a hermit who withdrew from the monastic community into the surrounding mountains, where he is said to have lived a solitary life of prayer for sixty years."
+  - He was formally canonized by the Holy Synod of the Romanian Orthodox Church in 2008. He is commemorated on December 31, the day of his repose, and on October 1, the day of his glorification.
+sections:
+  - heading: Monastic life and ascetic withdrawal
+    body:
+      - "According to tradition, Cyriacus entered monastic life in the early 17th century at Bisericani Monastery in Moldavia, a community that at the time numbered more than one hundred monks. Drawn to a stricter solitude, he left the common life of the monastery for the wilderness of the surrounding mountains, settling in a cave on Simon's Mountain (Mount Simon). Sources record that he remained there for sixty years. His asceticism is described in terms recalling the desert fathers: he is said to have gone without proper clothing in both summer and winter, his body becoming covered with hair, and to have persevered in unceasing prayer. Accounts liken his manner of life to that of Venerable Onuphrius the Great, the fourth-century Egyptian hermit."
+  - heading: Repose, relics, and recognition
+    body:
+      - Cyriacus reposed in 1660 and was buried in the cave where he had lived; a small chapel was later built at the site, which is described as still standing. Tradition holds that Saint Dositheus (Dosoftei), Metropolitan of Moldavia, knew Cyriacus during his lifetime and venerated his relics after his death. During a period of regional instability, the faithful are said to have removed and hidden portions of his relics to protect them from desecration. The Holy Synod of the Romanian Orthodox Church canonized Cyriacus, together with Venerable Joseph of Bisericani, in 2008. His cave near the Voivodal Church of Bisericani is described as a place of pilgrimage.
+timeline:
+  - when: early 17th c.
+    title: Monastic life at Bisericani
+    body: Enters monastic life at Bisericani Monastery in Moldavia.
+  - when: —
+    title: Withdrawal to Simon's Mountain
+    body: Withdraws to a cave on Simon's Mountain, where tradition records he lived sixty years in solitude and prayer.
+  - when: "1660"
+    title: Repose
+    body: Reposes; buried in his cave, later marked by a chapel.
+  - when: "2008"
+    title: Canonization
+    body: Canonized by the Holy Synod of the Romanian Orthodox Church (glorification commemorated October 1).
+related:
+  - name: Saint Joseph of Bisericani
+    note: Earlier (15th-century) hermit of Bisericani Monastery, canonized together with Cyriacus in 2008 and commemorated with him on October 1.
+    href: saint/OS-1937
+  - name: Saint Dositheus (Dosoftei) of Moldavia
+    note: Metropolitan of Moldavia who, by tradition, knew Cyriacus and venerated his relics.
+    href: saint/OS-2603
+  - name: Venerable Onuphrius the Great
+    note: Egyptian desert hermit whose sixty-year solitary asceticism Cyriacus's life is said to resemble.
+    href: saint/OS-1335
+patronage: []
+works: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - Venerable Cyriacus of Bisericani, Romania — Orthodox Church in America (oca.org)
+  - Pious Saints Joseph (15th Century) and Kyriakos (17th Century) of Bisericani (1 October) — Basilica.ro (Romanian Patriarchate)
+  - Romanian Saints — St. Nicholas Orthodox Church, Regina (saintnicholasregina.ca)
+status: draft
+generated: "2026-06-21"

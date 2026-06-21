@@ -1,0 +1,25 @@
+id: OS-1593
+liturgicalTitle: The Holy Martyr Eustathius of Apamea
+overview:
+  - Eustathius, also styled Eustace, was a Christian soldier of Asia Minor who is venerated as a martyr for his open confession of the faith. He is commemorated on July 28. The synaxarion accounts associate him with the title "of Apamea" while placing the events of his passion at Ancyra (modern Ankara), and some sources accordingly style him "of Ancyra (or of Apamea)." The era of his martyrdom is not securely fixed in the surviving notices.
+  - According to the hagiographical tradition, Eustathius was arrested and brought before the governor of the city. At his interrogation he confessed himself a Christian, and for this confession he was condemned to torture. His tormentors beat him and pierced his heels, then bound him with a rope and dragged him through the city to a river. There they placed him in a wooden chest and cast it into the water; by the account an angel of God carried the chest back to the shore. Having received the Mysteries, the saint gave up his soul to God, and his relics were buried at Ancyra.
+sections:
+  - heading: Passion
+    body:
+      - The defining episode of the tradition is the river ordeal. After the beating and the piercing of his heels, Eustathius was dragged to the River Sagka (also given as Sangara) and shut inside a wooden chest, which was thrown into the current. The account relates that an angel of God brought the chest to the shore, sparing the martyr from drowning, and that the governor, confounded by the deliverance, took his own life. Eustathius is said to have died after receiving Communion at the hand of an angel.
+      - Such miraculous-deliverance motifs are common to the passions of early soldier-martyrs, and the surviving notices preserve the narrative without fixing a precise reign or year. The repository record classifies him simply as a martyr of Asia Minor of unknown era.
+related:
+  - name: Martyr Acacius of Apamea
+    note: A martyr also commemorated on July 28 and likewise titled "of Apamea."
+    href: saint/OS-1595
+  - name: Martyr Eustathius of Mtskheta
+    note: A distinct martyr of the same name commemorated the following day, July 29; not to be confused with him.
+    href: saint/OS-1603
+patronage:
+  - Venerated as a soldier-martyr who confessed Christ under torture.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2031/07/28/102115-martyr-eustathius-eustace-of-apamea
+  - https://orthodoxwiki.org/July_28
+generated: "2026-06-20"

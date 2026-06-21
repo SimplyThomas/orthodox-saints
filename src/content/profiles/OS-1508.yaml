@@ -41,18 +41,10 @@ sections:
     body:
       - "Historically Documented: The records consulted attest Joseph's martyrdom in the 1860 Damascus massacre and his formal glorification by the Church of Antioch in 1993, but do not document specific miracles."
       - "Traditional Accounts: No traditional miracle accounts are recorded in the sources consulted."
-patronage:
-  - Damascus and the Orthodox of Syria
-  - Those who suffer religious persecution
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Joseph_of_Damascus
   - https://en.wikipedia.org/wiki/1860_Mount_Lebanon_civil_war
   - https://en.wikipedia.org/wiki/Raphael_of_Brooklyn
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Patronage of those who suffer religious persecution.
-    detail: No source in the dossier names a patronage; this is an editorial inference from the martyrdom context. Flagged per default-to-flag for ungrounded patronage.
-  - claim: Patronage of Damascus and the Orthodox of Syria.
-    detail: Reasonable given he is a martyr of Damascus, but no source explicitly assigns this patronage; flagged as ungrounded.

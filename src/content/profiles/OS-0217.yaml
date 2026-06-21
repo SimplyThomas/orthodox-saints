@@ -1,0 +1,67 @@
+id: OS-0217
+liturgicalTitle: The Holy New Hieromartyr Gregory (Lebedev), Bishop of Schlüsselburg
+lifespan: 1878 – 1937
+overview:
+  - Gregory (Lebedev) was a bishop of the Russian Orthodox Church who served as Bishop of Schlüsselburg, a vicariate of the Petrograd (later Leningrad) diocese, and as superior of the Alexander Nevsky Lavra. Born Aleksandr Alekseevich Lebedev in Kolomna in 1878, the son of a protoiereus, he came to monastic life and the episcopate as a mature scholar, and in the years following the Russian Revolution he stood among the hierarchs who resisted full accommodation with the Soviet state. He was shot in 1937 during the height of the persecution and is numbered among the New Martyrs and Confessors of Russia.
+  - He was educated in the Kolomna and Moscow theological seminaries and graduated from the Kazan Theological Academy in 1903 with the degree of candidate of theology. Tonsured a monk with the name Gregory in early 1921, he was associated with the Danilov Monastery in Moscow, a centre of hierarchs opposed to compromise with the civil authorities. On December 2, 1923, he was consecrated Bishop of Schlüsselburg by Patriarch Tikhon; the tradition records that the patriarch spoke of him as a 'pearl' entrusted to the diocese. As superior of the Alexander Nevsky Lavra in Petrograd he became a widely respected confessor and preacher.
+  - When Metropolitan Sergei (Stragorodsky) issued his Declaration of 1927 pledging loyalty to the Soviet government, Bishop Gregory sympathized with the opposition associated with the Josephite movement, though he did not formally break communion. In January 1928 he ceased commemorating Metropolitan Sergei at the services and commemorated instead the imprisoned locum tenens Metropolitan Peter (Polyansky). Having left Leningrad in 1928, he withdrew from active administration and eventually settled in the town of Kashin, where he devoted himself to writing spiritual reflections on the Gospels and letters of guidance to his spiritual children.
+  - Bishop Gregory was arrested several times — in 1924 and again in 1927 — before his final arrest in Kashin on April 16, 1937. Charged with leading a 'counter-revolutionary' organization, he was condemned to death and shot on September 17, 1937, at Kalinin (Tver). The Russian Orthodox Church glorified him among the Synaxis of New Martyrs and Confessors of Russia in 2005, and he is commemorated on September 4 (Old Style), the date of his martyrdom.
+sections:
+  - heading: Bishop of Schlüsselburg and the Alexander Nevsky Lavra
+    body:
+      - After his consecration in December 1923, Bishop Gregory served as vicar of the Petrograd diocese and as superior (namestnik) of the Alexander Nevsky Lavra, the great monastery of the imperial capital. In this role he was known as a preacher and spiritual father at a time when the monastery and its clergy were under intense pressure from the civil authorities. He worked alongside other figures of the Petrograd church of the period, including the future Saint Seraphim of Vyritsa.
+      - His tenure was repeatedly interrupted by arrests. He was detained in December 1924 in connection with accusations concerning the monastery's affairs and released in the spring of 1925, and arrested again in March 1927 before being released later that year.
+  - heading: The Declaration of 1927 and retirement
+    body:
+      - The Declaration issued by Metropolitan Sergei in 1927 divided the Russian Church between those who accepted his policy of accommodation with the state and those who refused it. Bishop Gregory was among the hierarchs who could not endorse the Declaration; without formally separating, he ceased in early 1928 to commemorate Metropolitan Sergei and commemorated only the canonical locum tenens, Metropolitan Peter (Polyansky), then in imprisonment.
+      - Withdrawing from his see, he left Leningrad in 1928 and settled at length in Kashin, living quietly until his final arrest. During these years he composed reflections on the Gospels, including a commentary on the Gospel of Mark, together with sermons and letters of spiritual counsel to those who looked to him for guidance.
+  - heading: Arrest and martyrdom
+    body:
+      - Bishop Gregory was arrested in Kashin on April 16, 1937, during the mass repression of that year. Accused of leading a 'counter-revolutionary' organization, he was sentenced to death by the local NKVD troika and shot on September 17, 1937, at Kalinin. The Russian Orthodox Church numbered him among the New Martyrs and Confessors of Russia at his glorification in 2005.
+timeline:
+  - when: "1878"
+    title: Born in Kolomna
+    body: Born Aleksandr Alekseevich Lebedev, son of a protoiereus.
+  - when: "1903"
+    title: Graduates Kazan Theological Academy
+    body: Completes his studies with the degree of candidate of theology.
+  - when: "1921"
+    title: Monastic tonsure
+    body: Tonsured a monk with the name Gregory.
+  - when: Dec 2, 1923
+    title: Consecrated Bishop of Schlüsselburg
+    body: Consecrated by Patriarch Tikhon; serves as superior of the Alexander Nevsky Lavra.
+  - when: "1928"
+    title: Ceases commemorating Metropolitan Sergei
+    body: Commemorates only the locum tenens Metropolitan Peter; leaves Leningrad and retires.
+  - when: Apr 16, 1937
+    title: Final arrest
+    body: Arrested in Kashin and charged with leading a counter-revolutionary organization.
+  - when: Sep 17, 1937
+    title: Martyrdom
+    body: Shot at Kalinin (Tver).
+  - when: "2005"
+    title: Glorification
+    body: Numbered among the Synaxis of New Martyrs and Confessors of Russia.
+related:
+  - name: St. Tikhon of Moscow
+    note: Patriarch of Moscow who consecrated him Bishop of Schlüsselburg in 1923
+    href: saint/OS-0053
+  - name: New Hieromartyr Peter (Polyansky), Metropolitan of Krutitsy
+    note: The imprisoned locum tenens whom Bishop Gregory commemorated after 1928
+    href: saint/OS-1996
+  - name: Seraphim of Vyritsa
+    note: Fellow Petrograd ascetic of the same period associated with the Alexander Nevsky Lavra
+    href: saint/OS-0859
+works:
+  - title: Reflections on the Gospel of Mark
+    desc: A commentary of spiritual reflections on the Gospel, among his writings from his years of retirement.
+  - title: Sermons and letters to spiritual children
+    desc: Homiletic and epistolary works composed largely between 1928 and 1937.
+status: draft
+sources:
+  - Synaxarion
+  - https://ru.wikipedia.org/wiki/Григорий_(Лебедев)
+  - https://azbyka.ru/days/sv-grigorij-lebedev
+  - http://martyr-spb.ru/martyr/1476
+generated: "2026-06-20"

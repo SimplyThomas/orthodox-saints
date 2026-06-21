@@ -1,0 +1,39 @@
+id: OS-2311
+liturgicalTitle: Saint Maximus, Metropolitan of Kiev and All Rus'
+lifespan: died December 6, 1305
+overview:
+  - Saint Maximus was a Greek-born hierarch who served as Metropolitan of Kiev and All Rus' from 1283 until his death in 1305. He arrived in Rus' during the period of Mongol (Tatar) domination, succeeding the Metropolitan Cyril III, and inherited a Church whose ancient center at Kiev had been repeatedly devastated by Tatar incursions.
+  - Finding Kiev ruined and unsafe, Maximus gradually withdrew the metropolitan residence northward, by tradition moving first to Briansk and then to Suzdal, before transferring his cathedra to Vladimir-on-Kliazma in 1299. Although he settled in the north, he retained the historic title of Metropolitan of Kiev. The move marked a significant shift in the geographic center of the Russian Church toward the northeast, anticipating its later consolidation around Moscow under his successors.
+  - As metropolitan he was active in the governance of the Church and in the affairs of the Rus' principalities. The sources relate that he deposed the bishop of Vladimir in 1295 and installed Simon in his place, and that in 1300 he appointed Saint Theoctistus as Bishop of Novgorod. He also mediated among the contending princes during the rivalry between Moscow and Tver. In 1301 he travelled to Constantinople to take part in a patriarchal council, where he set forth questions concerning the needs of the Russian Church.
+  - Saint Maximus reposed on December 6, 1305, and was buried in the Dormition (Uspensky) Cathedral in Vladimir. He was succeeded as metropolitan by Saint Peter of Moscow. He is commemorated on December 6.
+sections:
+  - heading: The Maximov Icon of the Mother of God
+    body:
+      - Associated with Saint Maximus is the Maximov Icon of the Mother of God, which the tradition relates was painted in the year 1299 following a vision granted to the metropolitan. The appearance of the Mother of God was understood as a sign of approval for the transfer of the metropolitan see from Kiev to Vladimir. The icon was later placed on the wall above the saint's grave. It is separately commemorated on April 18.
+  - heading: Veneration
+    body:
+      - Saint Maximus was buried in the Dormition Cathedral at Vladimir, where a covering was constructed over his grave. He was formally recognized as a saint by the Russian Orthodox Church in 1982. His feast is kept on December 6.
+timeline:
+  - when: "1283"
+    title: Arrives in Rus' as metropolitan
+    body: Maximus, a Greek by birth, arrives to take up the see of Kiev, succeeding the Metropolitan Cyril III.
+  - when: "1299"
+    title: Transfers the see to Vladimir
+    body: Finding Kiev devastated by Tatar incursions, he moves the metropolitan cathedra to Vladimir-on-Kliazma.
+  - when: "1301"
+    title: Attends a council in Constantinople
+    body: He travels to Constantinople for a patriarchal council and presents the needs of the Russian Church.
+  - when: December 6, 1305
+    title: Repose
+    body: Saint Maximus dies and is buried in the Dormition Cathedral in Vladimir.
+related:
+  - name: Saint Peter, Metropolitan of Moscow
+    note: His successor as Metropolitan of Kiev and All Rus'
+    href: saint/OS-2399
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2017/12/06/108907-saint-maximus-metropolitan-of-kiev
+  - https://orthodoxwiki.org/Maximus_of_Kiev_and_all_Rus
+  - https://en.wikipedia.org/wiki/Maximos,_Metropolitan_of_Kiev
+generated: "2026-06-20"

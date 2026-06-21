@@ -1,0 +1,43 @@
+id: OS-2501
+liturgicalTitle: Our Fathers among the Saints Nectarius, Arsacius, and Sisinius, Archbishops of Constantinople
+overview:
+  - Saints Nectarius, Arsacius, and Sisinius were three successive archbishops who occupied the see of Constantinople in the late fourth and early fifth centuries, in the years surrounding the episcopate of John Chrysostom. They are commemorated together by the Eastern Orthodox Church on October 11.
+  - Nectarius held the see from 381 to 397, the immediate successor of Gregory the Theologian and the predecessor of John Chrysostom. His brother Arsacius briefly succeeded Chrysostom from 404 to 405, and Sisinius I held the see from 426 to 427. Their lives are bound up with the controversies of the imperial capital in a single generation, and they are remembered jointly on the same day.
+timeline:
+  - when: 381–397
+    title: Nectarius, Archbishop of Constantinople
+    body: Nectarius, a senator from Tarsus serving as praetor of Constantinople and still an unbaptized catechumen, was chosen by Emperor Theodosius I to succeed Gregory the Theologian at the Second Ecumenical Council in 381. Baptized and consecrated, he presided over the council and led the see for sixteen years until his death on 27 September 397.
+  - when: 404–405
+    title: Arsacius, Archbishop of Constantinople
+    body: Arsacius, the brother of Nectarius and formerly archpresbyter under John Chrysostom, was installed on 27 June 404 after Chrysostom's expulsion. Already about eighty years old, he held the see until his death on 11 November 405.
+  - when: 426–427
+    title: Sisinius I, Archbishop of Constantinople
+    body: Sisinius, a priest of Elaea esteemed for his piety and charity, was elected on 28 February 426 after the see had stood vacant for some four months. His brief patriarchate lasted until his death on 24 December 427.
+sections:
+  - heading: Nectarius (381–397)
+    body:
+      - Nectarius was born in Tarsus in Cilicia into a noble senatorial family and was widely known for his admirable character. Before any ecclesiastical office he served as praetor of Constantinople and, remarkably, was still only a catechumen — an unbaptized layman — when his name came forward for the archbishopric.
+      - At the First Council of Constantinople (the Second Ecumenical Council) in 381, called to succeed Gregory the Theologian, the Bishop of Antioch had placed Nectarius's name at the bottom of his list of candidates. Emperor Theodosius I nonetheless chose him, to the astonishment of many, though the populace of the city welcomed the decision. He was baptized and immediately installed, and went on to preside over the ecumenical council, heading the 150 signatures appended to its canons.
+      - During his sixteen-year tenure he was drawn into the theological disputes of the age with the Arians and the Pneumatomachians. In 385 he arranged for Gregory of Nyssa to deliver funeral orations for the wife and daughter of Emperor Theodosius. Near the close of his episcopate he abolished the office of presbyter penitentiary, the priest charged with hearing confessions before communion, a measure that other bishops followed. He died on 27 September 397 and was succeeded by John Chrysostom.
+  - heading: Arsacius (404–405)
+    body:
+      - Arsacius, born about the year 324, was the brother of Nectarius. Earlier in life he had declined the bishopric of Tarsus when his brother offered it to him. He afterward served as archpresbyter under John Chrysostom, but historical accounts record that he testified against Chrysostom at the Synod of the Oak, pressing vehemently for his condemnation.
+      - "Following Chrysostom's expulsion, and already about eighty years of age, Arsacius was installed as archbishop on 27 June 404. His elevation was attributed to the intrigues of the Empress Aelia Eudoxia and Theophilus of Alexandria, who sought a pliable occupant of the see. He was widely regarded as an intruder: much of the population of Constantinople rejected him and gathered instead in suburban assemblies and in the open air, where soldiers dispersed them, and Chrysostom's followers were persecuted. Pope Innocent I condemned his intrusion and the Western episcopate refused to recognize him. Arsacius died on 11 November 405 and was succeeded by Atticus of Constantinople."
+  - heading: Sisinius I (426–427)
+    body:
+      - Sisinius served as a priest in Elaea and was esteemed for his virtues, his piety, and his acts of charity. After the death of Archbishop Atticus the see remained vacant for about four months amid disputes over the succession, and Sisinius was elected on 28 February 426. His consecration was convened by Emperor Theodosius II and presided over by Theodotus of Antioch.
+      - His patriarchate was brief, lasting from 426 to 427, during which he addressed the lingering ecclesiastical tensions surrounding the followers of the exiled John Chrysostom. He died on 24 December 427 and was succeeded by Nestorius of Constantinople.
+related:
+  - name: Gregory the Theologian (Gregory of Nazianzus)
+    note: Archbishop of Constantinople whom Nectarius succeeded at the Second Ecumenical Council in 381.
+  - name: John Chrysostom
+    note: Archbishop of Constantinople; Nectarius's successor, under whom Arsacius served as archpresbyter, and around whose exile both Arsacius and Sisinius held the see.
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Nectarius_of_Constantinople
+  - https://en.wikipedia.org/wiki/Arsacius_of_Tarsus
+  - https://en.wikipedia.org/wiki/Sisinnius_I_of_Constantinople
+  - https://orthodoxwiki.org/Nectarius_of_Constantinople
+status: draft
+generated: "2026-06-21"

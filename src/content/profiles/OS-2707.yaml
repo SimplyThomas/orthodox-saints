@@ -1,0 +1,86 @@
+id: OS-2707
+liturgicalTitle: Our Father among the Saints Aldhelm, Bishop of Sherborne
+lifespan: c. 639 - 709
+overview:
+  - Saint Aldhelm was a West Saxon scholar, poet, and churchman who became the first abbot of Malmesbury and, around 705, the first bishop of Sherborne. Born about the year 639 and said to be of the royal house of Wessex, he was a kinsman of King Ine. He is remembered as one of the earliest Latin authors of Anglo-Saxon England and as a teacher whose learning drew students from beyond the kingdom.
+  - Educated first by the Irish scholar Maeldub at Malmesbury and afterward by Hadrian at Canterbury, Aldhelm united the Irish and Roman currents of learning then meeting in England. His prose work on virginity, his Latin riddles, and his treatises on meter made him a foundational figure of Anglo-Latin literature. He died at Doulting in Somerset in 709 while travelling through his diocese, and his body was carried to Malmesbury for burial.
+sections:
+  - heading: Education and Learning
+    body:
+      - Aldhelm received his first schooling at Malmesbury (earlier called Bladon) under Maeldub, an Irish teacher who had settled there; by tradition he studied for some fourteen years from about the year 661. He afterward became a pupil of Hadrian at Canterbury, the African-born abbot who had come to England with Archbishop Theodore around 671. From Hadrian's school Aldhelm gained instruction in subjects including Roman law, astronomy, the art of reckoning, and the difficulties of the calendar.
+      - His learning brought together the Irish tradition of his first master and the Mediterranean learning of Canterbury. His reputation as a teacher was such that scholars are said to have come to Malmesbury from France and beyond. Later writers regarded him as the first Englishman to cultivate classical learning with any real success.
+  - heading: Abbot of Malmesbury
+    body:
+      - On the death of Maeldub, around the year 675, Aldhelm was appointed by Leuthere, Bishop of Winchester, to succeed to the direction of the monastery at Malmesbury, of which he became the first abbot. He instituted the Benedictine Rule there and secured the right of the monks to elect their own abbot.
+      - Under his leadership the community grew, and from it he founded further monastic houses as centres of learning, including at Frome in Somerset and at Bradford-on-Avon in Wiltshire. He is associated with the building of a chapel dedicated to Saint Lawrence at Bradford-on-Avon, and stonework of a church he built at Sherborne is reported to have survived. During the pontificate of Pope Sergius (687-701) he made a journey to Rome.
+  - heading: Bishop of Sherborne
+    body:
+      - When the large West Saxon see was divided after the death of Bishop Hedda, Sherborne was established as a new bishopric, and Aldhelm became its first bishop around the year 705. He is said to have accepted the office reluctantly, having governed Malmesbury for some thirty years, and at the request of the monks he continued to direct the abbey alongside his episcopal duties until his death.
+      - He died at the church in the village of Doulting, in Somerset, in 709, while making his rounds through the diocese. His body was carried the some fifty miles to Malmesbury for burial; crosses were set up along the route, at the places where the body rested, an act associated with his friend Egwin, Bishop of Worcester. He was buried at Malmesbury Abbey.
+  - heading: Writings
+    body:
+      - Aldhelm is counted the first Anglo-Saxon known to have written Latin verse, and he stands among the founders of Anglo-Latin literature. His principal prose work, De Laude Virginitatis (In Praise of Virginity), was addressed to a community of nuns and surveys the lives of male and female saints; he afterward recast the same material in verse as the Carmen de Virginitate.
+      - He composed a celebrated set of one hundred and one riddles (Aenigmata) in Latin hexameters, of which the longest, De creatura, runs to some eighty-three lines. His Epistola ad Acircium, addressed to King Aldfrith of Northumbria, treats of the number seven and of the rules of meter and prosody. In a letter to Geraint, king of Dumnonia, he addressed the disputed reckoning of Easter and the customs of the Britons, urging conformity with the wider Church. According to William of Malmesbury he also composed poetry in Old English and set his own verses to music, songs still popular in the time of King Alfred, though none of them have survived.
+  - heading: Relics & Shrines
+    body:
+      - Aldhelm was buried at Malmesbury Abbey, and his memory was long honoured there. In 857 King Ethelwulf is recorded to have erected a silver shrine in his honour at Malmesbury. His relics were translated in 980 by Dunstan, Archbishop of Canterbury. Many churches in southern England came to bear his name, and he is commemorated by a statue on the West Front of Salisbury Cathedral.
+  - heading: Miracles & Traditions
+    body:
+      - "Traditional Accounts: Later sources relate that many miracles were attributed to the saint both before and after his death. The setting up of crosses along the route by which his body was carried to Malmesbury was remembered as a mark of the veneration in which he was held."
+timeline:
+  - when: c. 639
+    title: Birth in Wessex
+    body: Aldhelm is born about this year, said to be of the royal house of Wessex and a kinsman of King Ine.
+  - when: c. 661
+    title: Studies at Malmesbury
+    body: He begins study under the Irish teacher Maeldub at Malmesbury, by tradition for some fourteen years.
+  - when: c. 671
+    title: Pupil of Hadrian at Canterbury
+    body: He studies under Hadrian at the Canterbury school established with Archbishop Theodore.
+  - when: c. 675
+    title: First abbot of Malmesbury
+    body: On Maeldub's death he is appointed by Bishop Leuthere of Winchester as the first abbot of Malmesbury.
+  - when: 687-701
+    title: Journey to Rome
+    body: He travels to Rome during the pontificate of Pope Sergius.
+  - when: c. 705
+    title: First bishop of Sherborne
+    body: When the West Saxon see is divided after Bishop Hedda's death, Aldhelm becomes the first bishop of Sherborne.
+  - when: "709"
+    title: Death at Doulting
+    body: He dies at Doulting in Somerset while travelling through his diocese; his body is carried to Malmesbury for burial.
+  - when: "857"
+    title: Shrine at Malmesbury
+    body: King Ethelwulf erects a silver shrine in his honour at Malmesbury.
+  - when: "980"
+    title: Translation of relics
+    body: His relics are translated by Dunstan, Archbishop of Canterbury.
+works:
+  - title: De Laude Virginitatis (In Praise of Virginity)
+    desc: His principal prose treatise, addressed to a community of nuns, surveying the lives of saints who exemplified chastity.
+  - title: Carmen de Virginitate
+    desc: A verse recasting of the same material on virginity.
+  - title: Aenigmata (Riddles)
+    desc: A set of one hundred and one riddles in Latin hexameters; the longest, De creatura, runs to some eighty-three lines.
+  - title: Epistola ad Acircium
+    desc: A letter to King Aldfrith of Northumbria, with treatises on the number seven and on the rules of meter and prosody.
+  - title: Epistola ad Geruntium
+    desc: A letter to Geraint, king of Dumnonia, on the reckoning of Easter and the customs of the Britons.
+  - title: Old English poetry and songs
+    desc: Vernacular verse set to music, reported by William of Malmesbury and still popular in King Alfred's day, but not surviving.
+reading:
+  - heading: Further Reading
+    items:
+      - title: Aldhelm
+        type: encyclopedia article
+      - title: St. Aldhelm, Catholic Encyclopedia (New Advent)
+        type: encyclopedia article
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Aldhelm
+  - https://www.newadvent.org/cathen/01280b.htm
+  - https://anastpaul.com/2023/05/25/saint-of-the-day-25-may-st-aldhelm-of-sherborne-640-709-confessor-abbot-bishop/
+  - https://catholicreadings.org/st-aldhelm-of-sherborne/
+status: draft
+generated: "2026-06-21"

@@ -1,0 +1,24 @@
+id: OS-0254
+liturgicalTitle: Our Venerable Father Faustus, Abbot of Syracuse
+overview:
+  - "Faustus served as abbot of the monastery of Saint Lucy in Syracuse, Sicily, during the late sixth and early seventh centuries, reposing around the year 607. Beyond this office, the historical record is sparse: no biographical account of his origins, monastic formation, or earlier life has survived. His feast is observed on September 6 among the pre-schism Latin saints venerated in the Orthodox Patriarchate of Rome."
+  - The principal witness to Faustus's abbatial tenure is the life of his disciple St. Zosimus of Syracuse. Zosimus, born around 570 to a Greek family of Syracuse, entered the monastery of Saint Lucy as a child and spent approximately thirty years as a monk under Faustus and his successor before himself being chosen abbot and later consecrated Bishop of Syracuse around 649. The tradition that Zosimus entered as a young child and that Faustus served as the presiding abbot at that time places Faustus's active abbacy in the final decades of the sixth century.
+  - The monastery of Saint Lucy was dedicated to the virgin martyr Lucy of Syracuse, who had suffered under Diocletian around the year 304 and whose cult was deeply rooted in the Sicilian church. That a monastic community bearing her name flourished in Syracuse during the Byzantine period reflects the broader vitality of Greek monasticism in Sicily during the sixth and seventh centuries, when the island remained under Byzantine imperial administration and maintained close ties with Constantinople and with Rome.
+timeline:
+  - when: late 6th c.
+    title: Active as abbot
+    body: Faustus presided over the monastery of Saint Lucy in Syracuse, receiving the young Zosimus into the community.
+  - when: c. 607
+    title: Repose
+    body: Faustus died at Syracuse, Sicily, around the year 607.
+related:
+  - name: St. Zosimus of Syracuse
+    note: "Disciple under Faustus at the monastery of Saint Lucy; later abbot of the same monastery and Bishop of Syracuse (feast: March 30)"
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://anastpaul.com/2024/09/06/saint-of-the-day-6-september-saint-faustus-of-syracuse-died-c607-abbot/
+  - https://drjohnhutchisonhall.com/saints-west-19-6-sep-2024/
+  - https://en.wikipedia.org/wiki/September_6_(Eastern_Orthodox_liturgics)
+  - https://anastpaul.com/2025/03/30/saint-of-the-day-30-march-st-zosimus-c570-662-bishop-and-confessor-of-syracuse-sicily/
+generated: "2026-06-21"
