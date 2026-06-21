@@ -1126,7 +1126,8 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               images: dict[str, dict[str, str]] | None = None,
               quotes: dict[str, dict[str, str]] | None = None,
               saint_groups: dict[str, list[str]] | None = None,
-              groups_by_slug: dict[str, dict] | None = None) -> dict:
+              groups_by_slug: dict[str, dict] | None = None,
+              permissions: dict[str, dict[str, str]] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
@@ -1139,6 +1140,8 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
         saint_groups = load_saint_groups()
     if groups_by_slug is None:
         groups_by_slug = {g["slug"]: g for g in load_groups()}
+    if permissions is None:
+        permissions = load_image_permissions()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -1161,13 +1164,27 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     # (credit/license/source) rides along for the detail-page caption.
     img = images.get(r["Saint ID"].strip())
     if img and img.get("path"):
-        rec["image"] = img["path"]
-        if img.get("license"):
-            rec["imageLicense"] = img["license"]
-        if img.get("credit"):
-            rec["imageCredit"] = img["credit"]
-        if img.get("source"):
-            rec["imageSource"] = img["source"]
+        slug = permission_slug(img.get("license", ""))
+        if slug is not None:
+            vendor = permissions.get(slug)
+            # Publish a permission image only if the vendor grant is active.
+            if vendor and vendor.get("status") != "revoked":
+                rec["image"] = img["path"]
+                rec["imagePermission"] = True
+                rec["imageVendor"] = vendor.get("name", "")
+                rec["imageAttribution"] = vendor.get("attribution", "")
+                rec["imageVendorHome"] = vendor.get("homepage", "")
+                if img.get("source"):
+                    rec["imageSource"] = img["source"]
+            # revoked / unknown vendor -> no image key (monogram fallback)
+        else:
+            rec["image"] = img["path"]
+            if img.get("license"):
+                rec["imageLicense"] = img["license"]
+            if img.get("credit"):
+                rec["imageCredit"] = img["credit"]
+            if img.get("source"):
+                rec["imageSource"] = img["source"]
     # Verified public-domain quote (data/saint_quotes.csv), if one exists. The
     # detail page renders `quote` with a citation; `quoteSource` links the PD
     # source so the wording is verifiable (§9). Saints without one render nothing.

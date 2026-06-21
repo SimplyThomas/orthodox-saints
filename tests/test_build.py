@@ -525,6 +525,35 @@ class SaintImageTests(unittest.TestCase):
         self.assertEqual(errs, [], "committed saint_images.csv has errors:\n" +
                          "\n".join(errs))
 
+    def test_to_record_joins_permission_attribution(self):
+        images = {"OS-0001": {"path": "icons/permission/theophany-works/OS-0001.jpg",
+                              "license": "Permission:theophany-works", "credit": "",
+                              "source": "https://tw/icon-page"}}
+        perms = {"theophany-works": {"name": "Theophany Works",
+                 "attribution": "Icon used with permission from Theophany Works.",
+                 "homepage": "https://theophanyworks.com/holy-icons/",
+                 "status": "active"}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images=images, permissions=perms)
+        self.assertEqual(rec["image"], "icons/permission/theophany-works/OS-0001.jpg")
+        self.assertTrue(rec["imagePermission"])
+        self.assertEqual(rec["imageVendor"], "Theophany Works")
+        self.assertEqual(rec["imageAttribution"],
+                         "Icon used with permission from Theophany Works.")
+        self.assertEqual(rec["imageVendorHome"], "https://theophanyworks.com/holy-icons/")
+        self.assertEqual(rec["imageSource"], "https://tw/icon-page")
+        self.assertNotIn("imageLicense", rec)
+
+    def test_to_record_excludes_revoked_permission_image(self):
+        images = {"OS-0001": {"path": "icons/permission/x/OS-0001.jpg",
+                              "license": "Permission:x", "credit": "",
+                              "source": "https://x"}}
+        perms = {"x": {"name": "X", "attribution": "a", "homepage": "h",
+                       "status": "revoked"}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images=images, permissions=perms)
+        self.assertNotIn("image", rec)
+
 
 class ImagePermissionTests(unittest.TestCase):
     """data/image_permissions.csv registry loader + validation."""
