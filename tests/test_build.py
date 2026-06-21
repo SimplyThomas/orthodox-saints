@@ -529,10 +529,11 @@ class SaintImageTests(unittest.TestCase):
         images = {"OS-0001": {"path": "icons/permission/theophany-works/OS-0001.jpg",
                               "license": "Permission:theophany-works", "credit": "",
                               "source": "https://tw/icon-page"}}
-        perms = {"theophany-works": {"name": "Theophany Works",
-                 "attribution": "Icon used with permission from Theophany Works.",
-                 "homepage": "https://theophanyworks.com/holy-icons/",
-                 "status": "active"}}
+        perms = {"theophany-works": {
+            "name": "Theophany Works",
+            "attribution": "Icon used with permission from Theophany Works.",
+            "homepage": "https://theophanyworks.com/holy-icons/",
+            "status": "active"}}
         rec = build.to_record(valid_row(), vendors=[], name_variants={},
                               images=images, permissions=perms)
         self.assertEqual(rec["image"], "icons/permission/theophany-works/OS-0001.jpg")
@@ -552,6 +553,14 @@ class SaintImageTests(unittest.TestCase):
                        "status": "revoked"}}
         rec = build.to_record(valid_row(), vendors=[], name_variants={},
                               images=images, permissions=perms)
+        self.assertNotIn("image", rec)
+
+    def test_to_record_excludes_unknown_vendor_permission_image(self):
+        images = {"OS-0001": {"path": "icons/permission/ghost/OS-0001.jpg",
+                              "license": "Permission:ghost", "credit": "",
+                              "source": "https://x"}}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images=images, permissions={})
         self.assertNotIn("image", rec)
 
 
