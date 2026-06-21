@@ -230,6 +230,9 @@ instead, add one row to `data/saint_images.csv`
 - `license` MUST be an accepted **open** license — `PD` / `PD-art` / `PD-old` / `CC0` /
   `CC-BY*` / `CC-BY-SA*`. Anything else **fails the build** (§9). `CC-BY*` additionally
   **requires** a `credit`; the detail page shows an attribution caption linking `source`.
+  Alternatively, for an image used under a vendor's written permission, use a
+  `Permission:<vendor_slug>` token instead of an open license (see §9 "Vendor-permission
+  images").
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
 - **After downloading any new icon(s), resize at JPEG quality 80** to keep file sizes
@@ -466,6 +469,17 @@ a long run.
   `CC-BY*`/`CC-BY-SA*` licenses pass, `CC-BY*` must carry a `credit`, and the file must
   exist under `static/`; anything else **fails the build**. The licence gate is necessary
   but not sufficient — each portrait still needs provenance/clergy review before launch.
+  **Vendor-permission images** are a separate, tracked exception to the otherwise-open
+  licensing: a revocable, per-vendor grant (not redistributable). Such a portrait uses
+  `license = Permission:<vendor_slug>` in `data/saint_images.csv`, its file lives under
+  `static/icons/permission/<vendor_slug>/`, and the vendor is recorded in
+  `data/image_permissions.csv`
+  (`vendor_slug,vendor_name,attribution,homepage,granted,status,terms`). The build
+  validates the slug against that registry and **requires a `source`** (the specific
+  vendor icon page, which the saint page links — often a condition of the grant). To
+  revoke a vendor: set its `status=revoked` (the build then excludes every image from that
+  vendor and warns), then `rm -rf static/icons/permission/<vendor_slug>/` and drop the
+  matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/`.
 - **Canonization caution.** If a person's formal glorification is uncertain (recently
   reposed elders, locally-venerated figures, "repose of…" entries), **skip and note it**
   rather than assert sainthood. Flag these to the user.
