@@ -57,6 +57,10 @@ export interface SaintViewModel {
   imageLicense?: string;
   imageCredit?: string;
   imageSource?: string;
+  imagePermission?: boolean;
+  imageVendor?: string;
+  imageAttribution?: string;
+  imageVendorHome?: string;
 }
 
 /* "January 1" from a "Jan 1; Jan 30" feast string — expand the abbreviated
@@ -154,5 +158,9 @@ export function toSaintView(s: Saint): SaintViewModel {
     imageLicense: s.imageLicense,
     imageCredit: s.imageCredit,
     imageSource: s.imageSource,
+    imagePermission: s.imagePermission,
+    imageVendor: s.imageVendor,
+    imageAttribution: s.imageAttribution,
+    imageVendorHome: s.imageVendorHome,
   };
 }

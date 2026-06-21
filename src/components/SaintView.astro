@@ -57,7 +57,8 @@ if (saint.image) {
 } else {
   portrait = saintAvatar(saint, 286, 358, { type: primaryRank(saint) });
 }
-const showCredit = !!saint.image && !!(m.imageCredit || m.imageLicense);
+const showCredit =
+  !!saint.image && !!(m.imageCredit || m.imageLicense || m.imagePermission);
 const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
 ---
 
@@ -96,21 +97,43 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         <div class="sv-icon-inner" set:html={portrait} />
       </div>
       {
-        showCredit && (
-          <div class="sv-icon-cap">
-            Icon ·{" "}
-            {m.imageSource ? (
-              <a href={m.imageSource} target="_blank" rel="noopener noreferrer">
-                {m.imageCredit || "source"}
-              </a>
-            ) : (
-              m.imageCredit
-            )}
-            {m.imageLicense && (
-              <span class="sv-icon-lic"> · {m.imageLicense}</span>
-            )}
-          </div>
-        )
+        showCredit &&
+          (m.imagePermission ? (
+            <div class="sv-icon-cap">
+              {m.imageAttribution}
+              {m.imageSource && (
+                <>
+                  {" "}
+                  Original icon:{" "}
+                  <a
+                    href={m.imageSource}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View on {m.imageVendor}
+                  </a>
+                </>
+              )}
+            </div>
+          ) : (
+            <div class="sv-icon-cap">
+              Icon ·{" "}
+              {m.imageSource ? (
+                <a
+                  href={m.imageSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {m.imageCredit || "source"}
+                </a>
+              ) : (
+                m.imageCredit
+              )}
+              {m.imageLicense && (
+                <span class="sv-icon-lic"> · {m.imageLicense}</span>
+              )}
+            </div>
+          ))
       }
 
       <div class="rule sv-rail-rule"><span class="dot"></span></div>

@@ -54,6 +54,11 @@ export interface Saint {
   imageLicense?: string;
   imageCredit?: string;
   imageSource?: string;
+  /** vendor-permission image (data/image_permissions.csv); absent for open-license */
+  imagePermission?: boolean;
+  imageVendor?: string;
+  imageAttribution?: string;
+  imageVendorHome?: string;
   /** verified public-domain quote from the saint; absent → no quote block */
   quote?: string;
   /** quote citation, present only when `quote` is */
