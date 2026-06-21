@@ -408,9 +408,9 @@ class SaintImageTests(unittest.TestCase):
         rec = build.to_record(valid_row(), vendors=[], name_variants={}, images={})
         self.assertNotIn("image", rec)
 
-    def _run_image_validation(self, rows_csv, files):
-        """Validate a synthetic saint_images.csv (list of dict rows) against a
-        temp static/ dir containing `files`. Returns (errors, warnings)."""
+    def _run_image_validation(self, rows_csv, files, permissions=None):
+        """Validate a synthetic saint_images.csv against a temp static/ dir.
+        `permissions` is an optional {slug: {...}} registry."""
         import csv as _csv
         import tempfile
         from pathlib import Path
@@ -419,7 +419,7 @@ class SaintImageTests(unittest.TestCase):
         (tmp / "icons").mkdir()
         for f in files:
             (tmp / f).parent.mkdir(parents=True, exist_ok=True)
-            (tmp / f).write_bytes(b"\x89PNG\r\n")  # any bytes; only existence matters
+            (tmp / f).write_bytes(b"\x89PNG\r\n")
         csv_path = tmp / "saint_images.csv"
         with csv_path.open("w", encoding="utf-8", newline="") as fh:
             w = _csv.DictWriter(fh, fieldnames=build.SAINT_IMAGES_HEADER)
@@ -428,7 +428,8 @@ class SaintImageTests(unittest.TestCase):
         old_csv, old_static = build.SAINT_IMAGES_CSV, build.STATIC
         try:
             build.SAINT_IMAGES_CSV, build.STATIC = csv_path, tmp
-            return build.validate_saint_images({"OS-0001", "OS-0002"})
+            return build.validate_saint_images({"OS-0001", "OS-0002"},
+                                               permissions=permissions or {})
         finally:
             build.SAINT_IMAGES_CSV, build.STATIC = old_csv, old_static
 
@@ -472,6 +473,35 @@ class SaintImageTests(unittest.TestCase):
             [self._img(source="")], ["icons/a.jpg"])
         self.assertEqual(errs, [])
         self.assertTrue(any("no 'source'" in w for w in warns))
+
+    def test_permission_license_with_known_active_vendor_ok(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, _ = self._run_image_validation(
+            [self._img(image_path="icons/permission/theophany-works/OS-0001.jpg",
+                       license="Permission:theophany-works", source="https://tw/x")],
+            ["icons/permission/theophany-works/OS-0001.jpg"], permissions=perms)
+        self.assertEqual(errs, [])
+
+    def test_permission_license_unknown_vendor_errors(self):
+        errs, _ = self._run_image_validation(
+            [self._img(license="Permission:nobody", source="https://x")],
+            ["icons/a.jpg"], permissions={})
+        self.assertTrue(any("not in data/image_permissions.csv" in e for e in errs))
+
+    def test_permission_license_without_source_errors(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, _ = self._run_image_validation(
+            [self._img(license="Permission:theophany-works", source="")],
+            ["icons/a.jpg"], permissions=perms)
+        self.assertTrue(any("requires a 'source'" in e for e in errs))
+
+    def test_revoked_vendor_warns_not_errors(self):
+        perms = {"theophany-works": {"status": "revoked"}}
+        errs, warns = self._run_image_validation(
+            [self._img(license="Permission:theophany-works", source="https://x")],
+            ["icons/a.jpg"], permissions=perms)
+        self.assertEqual(errs, [])
+        self.assertTrue(any("REVOKED" in w for w in warns))
 
     def test_committed_image_file_validates(self):
         # The committed data/saint_images.csv (header-only or real rows) must pass.

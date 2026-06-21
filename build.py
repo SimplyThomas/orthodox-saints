@@ -628,13 +628,17 @@ def load_saint_images() -> dict[str, dict[str, str]]:
     return out
 
 
-def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+def validate_saint_images(valid_ids: set[str],
+                          permissions: dict[str, dict[str, str]] | None = None
+                          ) -> tuple[list[str], list[str]]:
     """Validate data/saint_images.csv against §9: known saint, an existing local
     file, an accepted open license, and a credit when the license requires one."""
     errors: list[str] = []
     warnings: list[str] = []
     if not SAINT_IMAGES_CSV.exists():
         return errors, warnings
+    if permissions is None:
+        permissions = load_image_permissions()
     with SAINT_IMAGES_CSV.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         if reader.fieldnames != SAINT_IMAGES_HEADER:
@@ -668,12 +672,27 @@ def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 errors.append(f"{where} ({sid}): image_path {path!r} not found "
                               f"under static/ (expected {(STATIC / path)}).")
 
+            slug = permission_slug(lic)
             if not lic:
                 errors.append(f"{where} ({sid}): empty license. Self-hosted images "
-                              "must declare an open license (§9).")
+                              "must declare an open license or a Permission:<vendor> "
+                              "token (§9).")
+            elif slug is not None:
+                vendor = permissions.get(slug)
+                if vendor is None:
+                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
+                                  "not in data/image_permissions.csv.")
+                elif vendor.get("status") == "revoked":
+                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
+                                    "REVOKED — image excluded from output; delete "
+                                    f"the file under static/icons/permission/{slug}/.")
+                if not source:
+                    errors.append(f"{where} ({sid}): permission image requires a "
+                                  "'source' linking the specific vendor icon page (§9).")
             elif not license_ok(lic):
                 errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA).")
+                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
+                              "CC-BY-SA) or a Permission:<vendor> token.")
             elif license_requires_credit(lic) and not credit:
                 errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
                               "(attribution).")
