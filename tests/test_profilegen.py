@@ -1,6 +1,8 @@
 import unittest
 import tempfile
+import json
 from pathlib import Path as _P
+from unittest import mock
 
 try:  # pyyaml is an authoring-only dep (kept out of requirements.txt); skip if absent
     import yaml as _yaml
@@ -13,6 +15,7 @@ from tools.profilegen import emit
 from tools.profilegen import emit_one
 from tools.profilegen import proposals
 from tools.profilegen import schemas
+from tools.profilegen import run as runner
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -571,3 +574,69 @@ class BackfillTitleTests(unittest.TestCase):
         line = self.bt.title_line(long)
         self.assertEqual(line.count("\n"), 0)  # never folded/wrapped
         self.assertTrue(line.startswith("liturgicalTitle:"))
+
+
+class ProfilesPresentTests(unittest.TestCase):
+    def test_returns_only_existing_ids(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = _P(d)
+            (p / "OS-0001.yaml").write_text("x", encoding="utf-8")
+            (p / "OS-0003.yaml").write_text("x", encoding="utf-8")
+            got = runner.profiles_present(
+                ["OS-0001", "OS-0002", "OS-0003"], profiles_dir=p
+            )
+            self.assertEqual(got, {"OS-0001", "OS-0003"})
+
+    def test_empty_when_none_exist(self):
+        with tempfile.TemporaryDirectory() as d:
+            got = runner.profiles_present(["OS-0001"], profiles_dir=_P(d))
+            self.assertEqual(got, set())
+
+
+class WorkflowOutcomeTests(unittest.TestCase):
+    def test_none_when_zero_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(0, 40), "none")
+
+    def test_partial_when_some_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(12, 40), "partial")
+
+    def test_ok_when_all_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(40, 40), "ok")
+
+    def test_ok_when_over_counted(self):
+        self.assertEqual(runner.classify_workflow_outcome(41, 40), "ok")
+
+
+class RunWorkflowTests(unittest.TestCase):
+    def _fake_proc(self):
+        class _R:
+            stdout = '{"type":"result","subtype":"success"}'
+            stderr = ""
+            returncode = 0
+        return _R()
+
+    def test_invokes_workflow_tool_with_json_args(self):
+        captured = {}
+
+        def fake_run(argv, **kw):
+            captured["argv"] = argv
+            return self._fake_proc()
+
+        with mock.patch.object(runner.subprocess, "run", fake_run):
+            out, rc = runner.run_workflow(["OS-0007", "OS-0008"], "2026-06-20")
+
+        argv = captured["argv"]
+        allowed = argv[argv.index("--allowedTools") + 1]
+        self.assertIn("Workflow", allowed)
+        prompt = argv[2]
+        self.assertIn(runner.WORKFLOW_SCRIPT, prompt)
+        import re
+        payload = json.loads(re.search(r"\{.*\}", prompt).group(0))
+        self.assertEqual(payload["ids"], ["OS-0007", "OS-0008"])
+        self.assertEqual(payload["date"], "2026-06-20")
+        self.assertEqual(rc, 0)
+
+    def test_returns_combined_stdout_stderr(self):
+        with mock.patch.object(runner.subprocess, "run", lambda argv, **kw: self._fake_proc()):
+            out, rc = runner.run_workflow(["OS-0007"], "2026-06-20")
+        self.assertIn('"type":"result"', out)
