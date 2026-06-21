@@ -532,6 +532,10 @@ class ImagePermissionTests(unittest.TestCase):
         _, (errs, _) = self._run([self._row(attribution="")])
         self.assertTrue(any("empty attribution" in e for e in errs))
 
+    def test_empty_slug_errors(self):
+        _, (errs, _) = self._run([self._row(vendor_slug="")])
+        self.assertTrue(any("empty vendor_slug" in e for e in errs))
+
 
 class SaintQuoteTests(unittest.TestCase):
     """data/saint_quotes.csv loader, PD-translation gate, validation, and join."""

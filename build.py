@@ -735,7 +735,8 @@ def validate_image_permissions() -> tuple[list[str], list[str]]:
                 errors.append(f"{where}: vendor_slug {slug!r} is not kebab-case.")
             elif slug in seen:
                 errors.append(f"{where}: duplicate vendor_slug {slug!r}.")
-            seen.add(slug)
+            else:
+                seen.add(slug)
             if not (row.get("vendor_name") or "").strip():
                 errors.append(f"{where} ({slug}): empty vendor_name.")
             if not (row.get("attribution") or "").strip():
