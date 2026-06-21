@@ -323,7 +323,11 @@ def validate(header: list[str], rows: list[dict[str, str]],
                          if r["Saint ID"].strip()}
     except Exception:
         _img_valid_ids = {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
-    img_errors, img_warnings = validate_saint_images(_img_valid_ids)
+    permissions = load_image_permissions()
+    perm_errors, perm_warnings = validate_image_permissions()
+    errors.extend(perm_errors)
+    warnings.extend(perm_warnings)
+    img_errors, img_warnings = validate_saint_images(_img_valid_ids, permissions)
     errors.extend(img_errors)
     warnings.extend(img_warnings)
 
@@ -1249,8 +1253,9 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     quotes = load_saint_quotes()
     saint_groups = load_saint_groups()
     groups_by_slug = {g["slug"]: g for g in load_groups()}
+    permissions = load_image_permissions()
     records = [to_record(r, vendors, name_variants, images, quotes,
-                         saint_groups, groups_by_slug) for r in rows]
+                         saint_groups, groups_by_slug, permissions) for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
