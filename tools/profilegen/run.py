@@ -33,7 +33,11 @@ from pathlib import Path
 from tools.profilegen import limits, prioritize
 
 ROOT = Path(__file__).resolve().parents[2]
-PLAN = "docs/superpowers/plans/2026-06-17-generation-pipeline.md"
+# The legacy path points subagents at the lean per-stage guides (~10KB total), NOT the
+# 60KB pipeline-design plan — re-reading that plan per saint was a major token sink, and
+# the Workflow proves these prompts are self-sufficient for quality generation.
+STAGE_GUIDES = ("tools/profilegen/prompts/gather.md, tools/profilegen/prompts/write.md, "
+                "and tools/profilegen/prompts/verify.md")
 RUN_DIR = ROOT / "dist" / "profilegen"
 PROFILES_DIR = ROOT / "src" / "content" / "profiles"
 BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "40"))
@@ -80,10 +84,12 @@ def write_state(**kw) -> None:
 def run_claude(ids: list[str]) -> tuple[str, int]:
     prompt = (
         f"Generate grounded saint profiles for these IDs: {' '.join(ids)}. "
-        f"Follow {PLAN}: gather sources, write, adversarially verify against the "
-        f"OCA-anchor row, emit YAML to src/content/profiles/, and append coverage + "
-        f"verdicts under dist/profilegen/. SKIP any ID that already has a profile file. "
-        f"Report how many profiles you wrote."
+        f"For each saint, follow the concise stage guides {STAGE_GUIDES} (read THESE, "
+        f"not the full pipeline-design plan): seed the dossier with "
+        f"`python -m tools.profilegen.dossier <id>`, gather sources, write, adversarially "
+        f"verify against the OCA-anchor row, emit YAML to src/content/profiles/, and append "
+        f"coverage + verdicts under dist/profilegen/. SKIP any ID that already has a profile "
+        f"file. Report how many profiles you wrote."
     )
     proc = subprocess.run(
         ["claude", "-p", prompt,

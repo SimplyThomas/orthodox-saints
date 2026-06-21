@@ -640,3 +640,24 @@ class RunWorkflowTests(unittest.TestCase):
         with mock.patch.object(runner.subprocess, "run", lambda argv, **kw: self._fake_proc()):
             out, rc = runner.run_workflow(["OS-0007"], "2026-06-20")
         self.assertIn('"type":"result"', out)
+
+
+class LegacyPromptTokenGuardTests(unittest.TestCase):
+    def test_points_at_stage_prompts_not_the_60kb_plan(self):
+        captured = {}
+
+        def fake_run(argv, **kw):
+            captured["argv"] = argv
+            class _R:
+                stdout = '{"type":"result"}'; stderr = ""; returncode = 0
+            return _R()
+
+        with mock.patch.object(runner.subprocess, "run", fake_run):
+            runner.run_claude(["OS-0001"])
+        prompt = captured["argv"][2]
+        # must NOT re-read the heavy pipeline-design plan per saint
+        self.assertNotIn("2026-06-17-generation-pipeline.md", prompt)
+        # must point at the lean stage guides instead
+        self.assertIn("prompts/gather.md", prompt)
+        self.assertIn("prompts/write.md", prompt)
+        self.assertIn("prompts/verify.md", prompt)
