@@ -1,6 +1,6 @@
 id: OS-0638
 liturgicalTitle: The Holy and Glorious New Martyr George of Sofia
-lifespan: c. 1490 – 1515
+lifespan: died 1515
 overview:
   - George the New, commemorated as a New Martyr of Sofia, was a young craftsman who was burned alive in Sofia in 1515 for refusing to renounce Christ and convert to Islam under Ottoman rule. The anchor record identifies him as a goldsmith of Sofia in Bulgaria; he is counted among the New Martyrs who suffered after the fall of the Byzantine and Balkan lands to the Ottomans.
   - The accounts of his origin differ by tradition. The Bulgarian synaxarion, followed by the Orthodox Church in America, places his birth in Sredets (the older name for Sofia), into a Christian family whose parents are named John and Mary, and relates that he was about twenty-five years old when his parents died and the pressure to convert intensified. A Serbian tradition instead identifies him with George of Kratovo, a South Slavic writer and silversmith from Kratovo. In either telling he was a young metalworking craftsman martyred at Sofia in 1515.
@@ -30,8 +30,5 @@ sources:
   - https://en.wikipedia.org/wiki/George_of_Kratovo
   - https://www.oca.org/saints/lives/2014/05/26/101537-greatmartyr-george-the-new-at-sofia-bulgaria
   - https://www.oca.org/saints/lives/2026/02/11/108005-saint-george-new-martyr-of-sofia
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Born c. 1490.
-    detail: No source gives a birth date; 'c. 1490' is an inference (from age 25 around 1515). The lifespan birth year is not grounded in the dossier, only the death year 1515 is.

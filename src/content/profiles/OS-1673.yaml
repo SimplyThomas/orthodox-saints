@@ -1,6 +1,6 @@
 id: OS-1673
 liturgicalTitle: The Holy New Martyr Triandaphyllus of Zagora
-lifespan: c. 1665-1680
+lifespan: died 1680
 overview:
   - Triandaphyllus was a young man from Zagora, in the Thessalian region of Magnesia, who was put to death at Constantinople in 1680 for refusing to renounce Christ. He is numbered among the New Martyrs who suffered under Ottoman rule, and the Orthodox tradition records that he was only about fifteen years of age at his death.
   - Pressed to embrace Islam, he held firmly to his Christian confession and was beheaded rather than apostatize. His memory is kept on August 8, the day of his martyrdom.
@@ -22,8 +22,5 @@ sources:
   - https://www.oca.org/saints/lives/2014/08/08
   - https://www.johnsanidopoulos.com/2016/08/holy-new-martyr-triantaphyllos-sailor.html
   - https://en.wikipedia.org/wiki/Saint_Triantaphyllos
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Lifespan given as c. 1665-1680.
-    detail: No source gives 1665 as a birth year. The only birth year in the dossier is 1663 (the Bulgarian Life, tied to the older-age accounts the anchor rejects). 'c. 1665' is an undocumented back-calculation from the anchor's age of fifteen and is not directly attested. This is a fabricated specific date; it should be removed or recast as 'died 1680' only.

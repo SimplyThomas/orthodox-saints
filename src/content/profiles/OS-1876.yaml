@@ -1,6 +1,6 @@
 id: OS-1876
 liturgicalTitle: Our Venerable Father Joseph of Zaonikiev
-lifespan: c. 1529 – 1612
+lifespan: died 1612
 overview:
   - Venerable Joseph of Zaonikiev was a Russian monastic saint of the Vologda region, commemorated on September 21. Named Hilarion in the world, he was a pious peasant from the village of Obukhovo Kubensk in the Vologda gubernia who, after being healed of a disease of the eyes, embraced the monastic life and gave rise to the Zaonikiev Monastery.
   - His story belongs to the monastic flowering of the Russian north in the sixteenth century, and his name remains linked to the wonderworking Zaonikiev Icon of the Mother of God, whose appearance the sources connect with his healing.
@@ -38,8 +38,5 @@ sources:
   - https://www.oca.org/saints/lives/2016/09/21/102686-venerable-joseph-of-zaonikiev-monastery-vologda
   - https://www.johnsanidopoulos.com/2019/09/saint-joseph-of-zaonikiev-1612.html
   - https://www.oca.org/saints/all-lives/0577/09/21
-status: flagged
+status: draft
 generated: "2026-06-19"
-flagReasons:
-  - claim: Birth year c. 1529.
-    detail: No source states a birth year of 1529. It is an inference (1612 minus age 83). The dossier gives no birth date and the anchor only gives the 16th century. This is an unsupported computed claim presented as a lifespan; it should be removed or recast purely from the documented repose age.

@@ -1,6 +1,6 @@
 id: OS-2487
 liturgicalTitle: The Holy New Martyr Panagiotis of Caesarea in Cappadocia
-lifespan: c. 1745 – 1765
+lifespan: died 1765
 overview:
   - Panagiotis of Caesarea was a young confessor of the faith who suffered martyrdom in Constantinople in 1765, during the period of Ottoman rule over the Greek Orthodox of Asia Minor and the imperial capital. He came from Caesarea in Cappadocia, the great Christian center of central Asia Minor, and was beheaded at the age of twenty for refusing to renounce Christ and embrace Islam. He is numbered among the New Martyrs, the Orthodox Christians who sealed their confession with their blood under Turkish rule.
   - His commemoration is kept on June 24. He is distinct from the later New Martyr Panagiotis of the Peloponnese, who suffered in 1820.
@@ -28,8 +28,5 @@ sources:
   - OCA / J. Sanidopoulos cross-check
   - https://www.johnsanidopoulos.com/2016/06/holy-new-martyr-panagiotis-of-caesarea.html
   - https://www.holytrinityorthodox.com/calendar/los/June/24-03.htm
-status: flagged
+status: draft
 generated: "2026-06-20"
-flagReasons:
-  - claim: His birth is dated c. 1745.
-    detail: No source states a birth year; 'c. 1745' is an arithmetic inference from age twenty at a 1765 death. The age and death year are sourced, but no source attests the birth date itself, so the explicit lifespan birth year is unsupported.
