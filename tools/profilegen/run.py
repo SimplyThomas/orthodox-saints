@@ -15,7 +15,7 @@ Launch:  nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 &
 Resume:  re-run the same command (prioritize excludes already-profiled saints).
 Exit:    0 done · 2 stopped (likely weekly cap) · 3 terminal error.
 
-Env: BATCH_SIZE(40) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
+Env: BATCH_SIZE(10) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
 WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
 PROFILEGEN_USE_WORKFLOW('') — when set, generate via scripts/profilegen.workflow.js
 (per-stage Sonnet/Opus/Sonnet/Haiku); a clean run that emits 0 profiles is treated as a
@@ -40,7 +40,7 @@ STAGE_GUIDES = ("tools/profilegen/prompts/gather.md, tools/profilegen/prompts/wr
                 "and tools/profilegen/prompts/verify.md")
 RUN_DIR = ROOT / "dist" / "profilegen"
 PROFILES_DIR = ROOT / "src" / "content" / "profiles"
-BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "40"))
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "10"))
 MODEL = os.environ.get("PROFILEGEN_MODEL", "claude-opus-4-8")
 RESUME_AFTER = int(os.environ.get("RESUME_AFTER", str(5 * 3600 + 600)))  # ~5h10m: clears a window
 WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))      # then assume weekly cap
