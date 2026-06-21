@@ -632,7 +632,8 @@ def validate_saint_images(valid_ids: set[str],
                           permissions: dict[str, dict[str, str]] | None = None
                           ) -> tuple[list[str], list[str]]:
     """Validate data/saint_images.csv against §9: known saint, an existing local
-    file, an accepted open license, and a credit when the license requires one."""
+    file, and an accepted open license (with a credit when required) OR a
+    Permission:<vendor> token validated against the image-permission registry."""
     errors: list[str] = []
     warnings: list[str] = []
     if not SAINT_IMAGES_CSV.exists():
@@ -686,7 +687,7 @@ def validate_saint_images(valid_ids: set[str],
                     warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
                                     "REVOKED — image excluded from output; delete "
                                     f"the file under static/icons/permission/{slug}/.")
-                if not source:
+                elif not source:
                     errors.append(f"{where} ({sid}): permission image requires a "
                                   "'source' linking the specific vendor icon page (§9).")
             elif not license_ok(lic):
@@ -697,7 +698,7 @@ def validate_saint_images(valid_ids: set[str],
                 errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
                               "(attribution).")
 
-            if not source:
+            if not source and permission_slug(lic) is None:
                 warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
     return errors, warnings
 

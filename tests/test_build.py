@@ -503,6 +503,21 @@ class SaintImageTests(unittest.TestCase):
         self.assertEqual(errs, [])
         self.assertTrue(any("REVOKED" in w for w in warns))
 
+    def test_permission_missing_source_has_no_duplicate_warning(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, warns = self._run_image_validation(
+            [self._img(license="Permission:theophany-works", source="")],
+            ["icons/a.jpg"], permissions=perms)
+        self.assertTrue(any("requires a 'source'" in e for e in errs))
+        self.assertFalse(any("provenance" in w for w in warns))
+
+    def test_permission_missing_file_errors(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, _ = self._run_image_validation(
+            [self._img(license="Permission:theophany-works", source="https://x")],
+            files=[], permissions=perms)
+        self.assertTrue(any("not found" in e for e in errs))
+
     def test_committed_image_file_validates(self):
         # The committed data/saint_images.csv (header-only or real rows) must pass.
         errs, _ = build.validate_saint_images(
