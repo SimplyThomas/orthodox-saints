@@ -481,6 +481,58 @@ class SaintImageTests(unittest.TestCase):
                          "\n".join(errs))
 
 
+class ImagePermissionTests(unittest.TestCase):
+    """data/image_permissions.csv registry loader + validation."""
+
+    def _run(self, rows):
+        import csv as _csv, tempfile
+        from pathlib import Path
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = tmp / "image_permissions.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.IMAGE_PERMISSIONS_HEADER)
+            w.writeheader()
+            w.writerows(rows)
+        old = build.IMAGE_PERMISSIONS_CSV
+        try:
+            build.IMAGE_PERMISSIONS_CSV = csv_path
+            return build.load_image_permissions(), build.validate_image_permissions()
+        finally:
+            build.IMAGE_PERMISSIONS_CSV = old
+
+    def _row(self, **over):
+        row = {"vendor_slug": "theophany-works", "vendor_name": "Theophany Works",
+               "attribution": "Icon used with permission from Theophany Works.",
+               "homepage": "https://theophanyworks.com/holy-icons/",
+               "granted": "2026-06-17", "status": "active", "terms": "see docs"}
+        row.update(over)
+        return row
+
+    def test_permission_slug_parses_token(self):
+        self.assertEqual(build.permission_slug("Permission:theophany-works"),
+                         "theophany-works")
+        self.assertIsNone(build.permission_slug("PD"))
+        self.assertIsNone(build.permission_slug("Permission:Bad Slug"))
+
+    def test_clean_registry_loads_and_validates(self):
+        loaded, (errs, _) = self._run([self._row()])
+        self.assertEqual(errs, [])
+        self.assertEqual(loaded["theophany-works"]["status"], "active")
+        self.assertEqual(loaded["theophany-works"]["name"], "Theophany Works")
+
+    def test_bad_status_errors(self):
+        _, (errs, _) = self._run([self._row(status="maybe")])
+        self.assertTrue(any("status" in e for e in errs))
+
+    def test_duplicate_slug_errors(self):
+        _, (errs, _) = self._run([self._row(), self._row()])
+        self.assertTrue(any("duplicate vendor_slug" in e for e in errs))
+
+    def test_missing_attribution_errors(self):
+        _, (errs, _) = self._run([self._row(attribution="")])
+        self.assertTrue(any("empty attribution" in e for e in errs))
+
+
 class SaintQuoteTests(unittest.TestCase):
     """data/saint_quotes.csv loader, PD-translation gate, validation, and join."""
 

@@ -65,6 +65,24 @@ SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SAINT_IMAGES_HEADER = ["saint_id", "image_path", "license", "credit", "source"]
 OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}  # public-domain / no-rights
 
+# Vendor-permission image registry (data/image_permissions.csv). A "used with
+# permission" image is NOT an open license — it is a revocable, per-vendor grant
+# (CLAUDE.md §9). Each saint_images.csv row that uses one carries a license token
+# `Permission:<vendor_slug>` joined to a row here. `status` is the kill-switch:
+# flip to `revoked` and the build stops publishing that vendor's images.
+IMAGE_PERMISSIONS_CSV = DATA / "image_permissions.csv"
+IMAGE_PERMISSIONS_HEADER = [
+    "vendor_slug", "vendor_name", "attribution", "homepage", "granted", "status", "terms"
+]
+PERMISSION_STATUSES = {"active", "revoked"}
+PERMISSION_LICENSE_RE = re.compile(r"^Permission:([a-z0-9]+(?:-[a-z0-9]+)*)$")
+
+
+def permission_slug(lic: str) -> str | None:
+    """Return the vendor slug if `lic` is a `Permission:<slug>` token, else None."""
+    m = PERMISSION_LICENSE_RE.match(lic.strip())
+    return m.group(1) if m else None
+
 
 def license_ok(lic: str) -> bool:
     """True if the license is an accepted open license (public-domain family or
@@ -662,6 +680,69 @@ def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
 
             if not source:
                 warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
+
+
+def load_image_permissions() -> dict[str, dict[str, str]]:
+    """vendor_slug -> {name, attribution, homepage, granted, status, terms}.
+    Empty if the file is absent. Loads ALL rows (incl. revoked) so callers can
+    decide; validation enforces correctness separately."""
+    out: dict[str, dict[str, str]] = {}
+    if not IMAGE_PERMISSIONS_CSV.exists():
+        return out
+    with IMAGE_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != IMAGE_PERMISSIONS_HEADER:
+            sys.exit(f"FATAL: {IMAGE_PERMISSIONS_CSV} header must be "
+                     f"{IMAGE_PERMISSIONS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            slug = (row.get("vendor_slug") or "").strip()
+            if not slug:
+                continue
+            out[slug] = {
+                "name": (row.get("vendor_name") or "").strip(),
+                "attribution": (row.get("attribution") or "").strip(),
+                "homepage": (row.get("homepage") or "").strip(),
+                "granted": (row.get("granted") or "").strip(),
+                "status": (row.get("status") or "").strip(),
+                "terms": (row.get("terms") or "").strip(),
+            }
+    return out
+
+
+def validate_image_permissions() -> tuple[list[str], list[str]]:
+    """Validate data/image_permissions.csv: valid slug, known status, a name and
+    attribution, and no duplicate slugs."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not IMAGE_PERMISSIONS_CSV.exists():
+        return errors, warnings
+    with IMAGE_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != IMAGE_PERMISSIONS_HEADER:
+            return ([f"image_permissions.csv header must be "
+                     f"{IMAGE_PERMISSIONS_HEADER}, got {reader.fieldnames!r}"], warnings)
+        seen: set[str] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            slug = (row.get("vendor_slug") or "").strip()
+            status = (row.get("status") or "").strip()
+            where = f"image_permissions.csv line {i}"
+            if not slug:
+                errors.append(f"{where}: empty vendor_slug.")
+            elif not SLUG_RE.match(slug):
+                errors.append(f"{where}: vendor_slug {slug!r} is not kebab-case.")
+            elif slug in seen:
+                errors.append(f"{where}: duplicate vendor_slug {slug!r}.")
+            seen.add(slug)
+            if not (row.get("vendor_name") or "").strip():
+                errors.append(f"{where} ({slug}): empty vendor_name.")
+            if not (row.get("attribution") or "").strip():
+                errors.append(f"{where} ({slug}): empty attribution.")
+            if status not in PERMISSION_STATUSES:
+                errors.append(f"{where} ({slug}): status {status!r} must be one of "
+                              f"{sorted(PERMISSION_STATUSES)}.")
     return errors, warnings
 
 
