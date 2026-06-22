@@ -4568,6 +4568,14 @@ a.sv-rail-chip:hover {
   color: var(--byz);
 }
 
+.sv2 .sv-notes-text {
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin: 0;
+  text-wrap: pretty;
+}
+
 .sv2 .sv-after-sources {
   margin-top: 22px;
   padding-top: 18px;

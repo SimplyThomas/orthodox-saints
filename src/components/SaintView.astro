@@ -676,7 +676,7 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
                 </details>
               )}
 
-              {(hasKin || m.notes) && (
+              {hasKin && (
                 <section class="sv-kin">
                   <div class="sv-plum-grid">
                     {memberGroups.length > 0 && (
@@ -698,12 +698,6 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
                           <p class="sv-fam-intro">{profile.family.intro}</p>
                         )}
                         <FigureList figures={profile.family.figures} />
-                      </div>
-                    )}
-                    {m.notes && (
-                      <div class="sv-plum-block sv-plum-notes">
-                        <h2>Notes</h2>
-                        <p>{m.notes}</p>
                       </div>
                     )}
                   </div>
@@ -753,6 +747,15 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
                       );
                     })}
                   </div>
+                </section>
+              )}
+
+              {m.notes && (
+                <section class="sv-section sv-notes-sec">
+                  <div class="sv-secthead">
+                    <span class="eyebrow">Notes</span>
+                  </div>
+                  <p class="sv-notes-text">{m.notes}</p>
                 </section>
               )}
 
