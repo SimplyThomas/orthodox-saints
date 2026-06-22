@@ -17,10 +17,11 @@ Exit:    0 done · 2 stopped (likely weekly cap) · 3 terminal error.
 
 Env: BATCH_SIZE(10) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
 WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
-PROFILEGEN_USE_WORKFLOW('') — when set, generate via scripts/profilegen.workflow.js
-(per-stage Sonnet/Opus/Sonnet/Haiku); a clean run that emits 0 profiles is treated as a
-rate-limit. PROFILEGEN_ORCH_MODEL(claude-haiku-4-5-20251001) — model for the thin
-Workflow-invoking orchestrator (the per-stage models live in the script)."""
+PROFILEGEN_USE_WORKFLOW(on by default) — generate via scripts/profilegen.workflow.js
+(per-stage Sonnet/Opus/Sonnet/Haiku); set =0/false/off to fall back to the legacy all-Opus
+path. A clean run that emits 0 profiles is treated as a rate-limit.
+PROFILEGEN_ORCH_MODEL(claude-haiku-4-5-20251001) — model for the thin Workflow-invoking
+orchestrator (the per-stage models live in the script)."""
 import json
 import os
 import shlex
@@ -47,10 +48,10 @@ WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))      # then 
 MAX_ERR = int(os.environ.get("MAX_ERR", "3"))                            # unknown errors per batch
 NOTIFY_CMD = os.environ.get("NOTIFY_CMD", "")
 DRY_RUN = bool(os.environ.get("DRY_RUN"))
-# Opt-in: drive generation through the per-stage Workflow (Gather=Sonnet, Write=Opus,
-# Verify=Sonnet, Emit=Haiku) instead of one all-Opus claude -p agent. Default OFF so the
-# legacy path is untouched until a real run validates the Workflow path.
-USE_WORKFLOW = os.environ.get("PROFILEGEN_USE_WORKFLOW", "") not in ("", "0", "false", "False")
+# Default ON: drive generation through the per-stage Workflow (Gather=Sonnet, Write=Opus,
+# Verify=Sonnet, Emit=Haiku) instead of one all-Opus claude -p agent — ~2.3x cheaper on the
+# weekly limit. Set PROFILEGEN_USE_WORKFLOW=0 (or false/off/no) to fall back to the legacy path.
+USE_WORKFLOW = os.environ.get("PROFILEGEN_USE_WORKFLOW", "1").lower() not in ("0", "false", "off", "no")
 WORKFLOW_SCRIPT = "scripts/profilegen.workflow.js"
 # The orchestrator only fires one Workflow tool call; the per-stage models live in the
 # script, so the orchestrator itself can be cheap. Override with PROFILEGEN_ORCH_MODEL.
