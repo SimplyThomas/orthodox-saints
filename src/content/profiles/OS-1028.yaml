@@ -1,0 +1,38 @@
+id: OS-1028
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Gregory_of_Antioch
+  - https://orthodoxwiki.org/Gregory_of_Antioch
+  - https://en.wikipedia.org/wiki/Evagrius_Scholasticus
+  - https://www.oca.org/saints/lives/2016/04/20
+lifespan: d. 593
+liturgicalTitle: Our Father among the Saints Gregory, Patriarch of Antioch
+overview:
+  - Gregory was the Chalcedonian Patriarch of Antioch from 571 to 593, a hierarch whose career spanned the monastic communities of the Holy Land and the turbulent ecclesiastical and political life of the late sixth-century Byzantine East. Much of what survives about him is preserved by Evagrius Scholasticus, the Syrian lawyer and historian who served as Gregory's aide and adviser.
+  - Before his elevation he was a monk and abbot in Palestine and at Mount Sinai, and as patriarch he was remembered as a gifted preacher who laboured to reconcile non-Chalcedonian Christians to the definition of the Council of Chalcedon. The Orthodox Church commemorates him on April 20.
+timeline:
+  - when: Before 571
+    title: Monastic life in Palestine and Sinai
+    body: Gregory began as a monk at the monastery of the Byzantines in Jerusalem. The emperor Justin II transferred him to Mount Sinai, where he served as abbot during a period when the monastery was attacked by Arabs; he also served as abbot of a monastery at Pharan in Palestine.
+  - when: "571"
+    title: Enthroned Patriarch of Antioch
+    body: Justin II removed Patriarch Anastasius I from the see of Antioch and enthroned Gregory as his successor.
+  - when: "578"
+    title: Accusation and acquittal
+    body: A man named Anatolius accused Gregory of pagan activity and involvement in the night sacrifice of a boy at Daphne. The charge provoked unrest, but Anatolius recanted under torture, and through the intercession of John the Faster, Patriarch of Constantinople, Gregory retained his see.
+  - when: Before 588
+    title: Synod at Constantinople
+    body: Gregory was summoned to Constantinople over a conflict with the Count of the East and appeared before a synod, accompanied by his attorney Evagrius Scholasticus, where he was acquitted.
+  - when: "593"
+    title: Repose
+    body: Gregory died, reportedly after taking a drug intended to relieve gout. Anastasius I resumed the patriarchate as his successor.
+sections:
+  - heading: Patriarchate and Ministry
+    body:
+      - As patriarch, Gregory was active in the affairs of the eastern frontier during the long Roman war with Persia. He is credited with mediating when Roman troops under the emperor Maurice mutinied, and he met the Persian king Chosroes II when the latter fled to the Romans; afterward he received the cross that had earlier been carried off from Sergiopolis.
+      - He was remembered as a gifted preacher and worked to bring non-Chalcedonian Christians to accept the definition of the Council of Chalcedon. Five of his homilies survive.
+  - heading: Sources
+    body:
+      - The principal witness to Gregory's life is Evagrius Scholasticus, a Syrian scholar and lawyer who served as the patriarch's aide, drew up his official reports, and accompanied him to Constantinople. Evagrius's Ecclesiastical History, in six books, covers the Church from the First Council of Ephesus down into the reign of Maurice. The monk John Moschus additionally records that Gregory had been abbot of Pharan.
+status: draft
+generated: "2026-06-20"

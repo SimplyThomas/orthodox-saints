@@ -1,0 +1,55 @@
+id: OS-0609
+liturgicalTitle: Our Venerable Father Arsenius of Iqalto
+lifespan: born c. 1050, died 1127
+overview:
+  - Saint Arsenius of Iqalto (Arsen Iqaltoeli) was a Georgian monk, translator, philosopher, and hymnographer who lived in the eleventh and twelfth centuries. He is remembered chiefly as the founder of the monastic academy at Iqalto in the Kakheti province of eastern Georgia, and as one of the principal scholars who carried the learning of Byzantium into the Georgian Church during the cultural revival under King David the Builder.
+  - Born around 1050 at Iqalto, Arsenius was the son of Ibadi Vachnadze, described as a learned man and fluent speaker of Greek who himself directed the academy at Iqalto Monastery. Arsenius pursued his primary and higher education in Byzantium at the Mangana academy in Constantinople, a centre of philosophical and classical learning founded by the Emperor Constantine IX Monomachos (1042-1055), and also spent time as a monk on the Black Mountain near Antioch under Saint Ephraim the Lesser, of whom he was a younger contemporary.
+sections:
+  - heading: Scholarship and Translations
+    body:
+      - Arsenius devoted his life to making the doctrinal and historical heritage of the Greek-speaking Church available in Georgian. At Mangana he completed a translation of the Chronicle of the Byzantine historian George Hamartolus, a nine-volume historical account running from Adam to the year 842. His most substantial scholarly achievement was the compilation of the Dogmatikon, a large collection of dogmatic and polemical works drawn from sixteen key Byzantine theological authors, assembled in defense of the Orthodox faith.
+      - Later, at the academy of Gelati Monastery, he translated the Nomocanon, a Byzantine collection of ecclesiastical law, from the original Greek into Georgian. Sources describe him broadly as a theologian, philosopher, writer of allegories and verses, poet, and compiler of liturgical typika, reflecting the breadth of learning he brought to the Georgian academies.
+  - heading: Service to the Georgian Church
+    body:
+      - Around 1114, Arsenius answered the summons of King David IV (David the Builder, called the Restorer) and, with several other Georgian monks returning from abroad, joined the work of rebuilding the Georgian Church. He collaborated with the philosopher Ioane Petritsi (John of Petrizos) in establishing Byzantine philosophical traditions at the newly founded Georgian academies, and founded the academy at Iqalto Monastery.
+      - He took part in the Council of Ruisi-Urbnisi convened by King David, and is thought to have played a role in the 1123 debate the king organized between Armenian and Georgian churchmen in an attempt to reconcile doctrinal differences between the two churches. Arsenius was present at the king's repose and is said to have composed his epitaph.
+  - heading: Repose and Veneration
+    body:
+      - Saint Arsenius died in 1127. He was buried at Iqalto, next to Saint Zenon, the founder of Iqalto Monastery. He is venerated in the Eastern Orthodox Church, and his memory is commemorated on February 6.
+timeline:
+  - when: c. 1050
+    title: Birth at Iqalto
+    body: Born in the Kakheti province of eastern Georgia, son of Ibadi Vachnadze.
+  - when: 11th century
+    title: Studies in Byzantium
+    body: Educated at the Mangana academy in Constantinople and lived as a monk on the Black Mountain near Antioch under Saint Ephraim the Lesser.
+  - when: c. 1114
+    title: Return to Georgia
+    body: Summoned by King David the Builder to help rebuild the Georgian Church; founded the academy at Iqalto and worked at Gelati.
+  - when: "1123"
+    title: Armenian-Georgian debate
+    body: Likely took part in the doctrinal debate between Armenian and Georgian churchmen organized by King David.
+  - when: "1127"
+    title: Repose
+    body: Died and was buried at Iqalto beside Saint Zenon, founder of the monastery.
+related:
+  - name: Saint Ephraim the Lesser (Ephraim the Minor)
+    note: Georgian elder near Antioch under whom Arsenius studied; Arsenius was his younger contemporary.
+  - name: Ioane Petritsi (John of Petrizos)
+    note: Philosopher with whom Arsenius worked to establish Byzantine philosophical traditions in the Georgian academies.
+  - name: King David IV the Builder
+    note: King who summoned Arsenius back to Georgia; Arsenius attended his repose and is said to have composed his epitaph.
+works:
+  - title: Dogmatikon
+    desc: A large compilation of dogmatic and polemical works drawn from sixteen Byzantine theological authors, translated and assembled in defense of the Orthodox faith.
+  - title: Translation of the Chronicle of George Hamartolus
+    desc: A nine-volume Byzantine history from Adam to A.D. 842, rendered into Georgian.
+  - title: Translation of the Nomocanon
+    desc: A Byzantine collection of ecclesiastical law translated from Greek into Georgian at the Gelati academy.
+sources:
+  - OCA Synaxarion (oca.org), Feb 6
+  - https://en.wikipedia.org/wiki/Arsen_of_Iqalto
+  - https://www.oca.org/saints/lives/2035/02/06/109044-saint-arsenius-of-iqalto-georgia
+  - https://www.johnsanidopoulos.com/2020/02/saint-arsen-of-iqalto-in-georgia-1127.html
+status: draft
+generated: "2026-06-19"

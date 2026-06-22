@@ -1,0 +1,30 @@
+id: OS-1258
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2016/05/28
+  - https://en.wikipedia.org/wiki/May_28_(Eastern_Orthodox_liturgics)
+  - https://www.johnsanidopoulos.com/2011/05/holy-new-martyr-mitros-of-peloponnesos.html
+  - https://orthodoxwiki.org/Demetrios_the_Neomartyr
+lifespan: d. 1794
+liturgicalTitle: The Holy New Martyr Demetrius of Tripolitsa
+overview:
+  - New Martyr Demetrius, commemorated on May 28, is recorded in the Orthodox Church among the neomartyrs who suffered under Ottoman rule. The Orthodox Church in America's synaxarion notes his commemoration on this day but preserves no biographical entry for him.
+  - Wider Greek tradition identifies the saint commemorated on this date as Demetrius, known by the familiar form Mitros, of the Peloponnese, who was beheaded at Tripolitsa (Tripolis) in 1794 for returning to the Christian faith after an earlier conversion to Islam. Because the saint's own database record preserves no region or era, the following account rests on these external traditions rather than on the anchor entry.
+timeline:
+  - when: c. 1769
+    title: Conversion to Islam as a child
+    body: By tradition Demetrius, a native of Theisoa in the Peloponnese, was converted to Islam at about eleven years of age, reportedly amid the Ottoman suppression of the Peloponnesian rebellion of 1769, and took the Muslim name Mustafa.
+  - when: Before 1794
+    title: Return to Christianity
+    body: Having risen in Ottoman service and acquired wealth, he is said to have grown dissatisfied, gone to Tripolis, sold his possessions, and been received back into the Church through confession and repentance, living devoutly for about ten years.
+  - when: May 28, 1794
+    title: Martyrdom at Tripolitsa
+    body: The synaxarion relates that he was recognised at Mystra, taken to the pasha of Tripolis, and, refusing to deny Christ, was beheaded on 28 May 1794, which fell that year on Pentecost Sunday. He was buried by the Christian community at the Church of St Demetrios in Tripolis.
+sections:
+  - heading: Identity and Sources
+    body:
+      - "The anchor record for this saint is a stub: the OCA calendar confirms a New Martyr Demetrius on May 28 but offers no life, and the database entry leaves region and era blank. Identification with Demetrius (Mitros) of Tripolitsa rests on the Greek liturgical calendar and a Greek hagiographical account, which together fix his place at Tripolis in the Peloponnese and the year of his death at 1794."
+      - A separate tradition, recorded under the name Demetrios the Neomartyr, describes a Demetrios of the same region who became a monk on Chios and is commemorated on April 14; whether this represents a variant of the same life or a distinct neomartyr of the same name is not settled by the available sources. This account is therefore noted but not relied upon for the May 28 commemoration.
+patronage: []
+status: draft
+generated: "2026-06-19"

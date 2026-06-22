@@ -1,0 +1,44 @@
+id: OS-0687
+liturgicalTitle: The Holy Martyr Theodore of Komogovina
+lifespan: 18th century – 1788
+overview:
+  - Theodore of Komogovina, born Theodore (Teodor) Sladic, was a Serbian Orthodox monk and martyr of the eighteenth century. He is venerated in the Serbian tradition as a holy martyr who was put to death by Ottoman forces in 1788 after refusing to renounce his Christian faith.
+  - By the external account he was born in Donji Kukuruzari, in modern-day Croatia, and as a young man embraced the monastic life, leading an austere existence at the monasteries of Komogovina and Mostanica. The latter monastery lay near Kozarska Dubica, in present-day Bosnia and Herzegovina.
+  - The Orthodox Church of America's listing, the anchor record for this entry, preserves only that he is a saint venerated in the Serbian tradition and commemorates him on February 18; it carries no biographical detail. The fuller account of his life and martyrdom comes from Serbian sources, which identify him with Teodor (Sladic) Komogovinski.
+sections:
+  - heading: Martyrdom
+    body:
+      - "In 1788, during the Ottoman wars in the Balkans, Ottoman forces attacked the monastery of Mostanica and killed many of its monks. According to the Serbian account, Theodore was among them: when he refused demands to renounce his Christian faith, he was burned alive near the monastery."
+      - By tradition his right hand was reported to have been preserved unharmed from both the fire and from decay, a circumstance that was received as a sign of his sanctity.
+  - heading: Veneration and Canonization
+    body:
+      - The Serbian Orthodox Church formally numbered Theodore among its saints by an act of the Holy Assembly of Bishops dated 20 May 1966, which inserted Saint Theodore (Sladic), martyr from Komogovina, into the list of Serbian holy martyrs for the faith.
+      - Serbian sources commemorate him on Theodore's Saturday, the movable feast that falls on the first Saturday of Great Lent. The anchor record places his commemoration on a fixed date of February 18.
+  - heading: Relics & Shrines
+    body:
+      - The relic of his preserved hand was kept at the Church of Saint Nicholas in Karlovac, then moved to Kostajnica in 1955. By tradition it is brought to the monastery of Komogovina for public veneration on holy days.
+timeline:
+  - when: 18th century
+    title: Birth and monastic life
+    body: Born Theodore (Teodor) Sladic, by the external account in Donji Kukuruzari; he embraced monastic life at the monasteries of Komogovina and Mostanica.
+    source: https://en.wikipedia.org/wiki/Teodor_Komogovinski
+  - when: "1788"
+    title: Martyrdom
+    body: Burned alive by Ottoman forces near Mostanica monastery after refusing to renounce his Christian faith.
+    source: https://en.wikipedia.org/wiki/Teodor_Komogovinski
+  - when: "1955"
+    title: Relic translated
+    body: The relic of his preserved hand was moved from Karlovac to Kostajnica.
+    source: https://en.wikipedia.org/wiki/Teodor_Komogovinski
+  - when: 20 May 1966
+    title: Canonization
+    body: Formally numbered among the saints by the Holy Assembly of Bishops of the Serbian Orthodox Church.
+    source: https://en.wikipedia.org/wiki/Teodor_Komogovinski
+patronage:
+  - Venerated in the Serbian tradition as a holy martyr who endured death rather than renounce the Christian faith under Ottoman rule.
+sources:
+  - OCA Synaxarion (oca.org), Feb 18
+  - https://en.wikipedia.org/wiki/Teodor_Komogovinski
+  - https://orthodoxwiki.org/List_of_Serbian_saints
+status: draft
+generated: "2026-06-20"

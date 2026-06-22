@@ -1,0 +1,43 @@
+id: OS-0400
+liturgicalTitle: Our Venerable Father Macarius of Mount Athos, Abbot of the Pantocrator Monastery
+lifespan: c. 1383 – 1431
+overview:
+  - Macarius of Mount Athos was a Byzantine monk, abbot, and churchman of the early fifteenth century, remembered for his ascetic formation on the Holy Mountain and his later service in Constantinople at the close of the Byzantine era. Born in Thessalonica during the reign of Emperor Manuel II Palaiologos, he entered monastic life at the Monastery of Vatopedi on Mount Athos in his youth, and is commemorated in the OCA synaxarion on January 6.
+  - After a long period of obedience and ascetic discipline on Athos, Macarius came to Constantinople, where he became abbot (igumen) of the Monastery of the Pantocrator and served as chaplain to the emperor. He is remembered both for his monastic virtue and for his learning, having distinguished himself as a preacher and interpreter of Scripture.
+  - By the account of later hagiographers, Macarius was also active in the church affairs of his age, including efforts to restore neglected monasteries and a diplomatic mission connected to the question of union with the Latin Church. He died in 1431 during an outbreak of plague on the island of Chalke (Halki) in the Sea of Marmara.
+sections:
+  - heading: Monastic Formation on Athos
+    body:
+      - Macarius was born at Thessalonica and, after the death of his mother, embraced the monastic life he had desired from his youth. According to the tradition recorded by later sources, he entered the Monastery of Vatopedi on Mount Athos around 1409, where he was tonsured after a period of testing and spent roughly a decade in obedience and ascetic exercise before being ordained deacon and then priest.
+      - His years on the Holy Mountain shaped a reputation for both spiritual seriousness and learning; sources describe him as an able orator and an interpreter of Holy Scripture.
+  - heading: Service in Constantinople
+    body:
+      - Macarius came to Constantinople in the company of his spiritual father at the invitation of Emperor Manuel II Palaiologos. There he was, by tradition, elected abbot of the Monastery of the Pantocrator in 1424 and given the title Great Protosyncellus of the Great Church of Christ, while also serving as the emperor's chaplain and confessor.
+      - He is remembered for laboring to restore the declining Pantocrator monastery, reportedly securing support for its renovation from benefactors abroad. According to his later hagiography, he led a delegation to Rome in 1429 in connection with preparations for church union, where he upheld Orthodox doctrine in disputation with the Latins. He is also credited with composing lives of saints, homilies, and dogmatic and apologetic treatises.
+timeline:
+  - when: c. 1383
+    title: Born at Thessalonica
+    body: Born in Thessalonica during the reign of Emperor Manuel II Palaiologos.
+  - when: c. 1409
+    title: Entered Vatopedi
+    body: By tradition entered the Monastery of Vatopedi on Mount Athos and was tonsured a monk.
+  - when: "1424"
+    title: Abbot of the Pantocrator
+    body: Elected abbot of the Monastery of the Pantocrator in Constantinople, according to later sources.
+  - when: "1429"
+    title: Mission to Rome
+    body: By his hagiography, led a delegation to Pope Martin V concerning church-union preparations.
+  - when: "1431"
+    title: Death
+    body: Died during an outbreak of plague on the island of Chalke.
+works:
+  - title: Lives of saints and festal homilies
+    desc: By tradition, Macarius composed lives of saints and homilies for feasts.
+  - title: Dogmatic and apologetic treatises
+    desc: Later sources credit him with treatises addressing differences between the Orthodox and the Latins and between the Orthodox and the Muslims.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 6
+  - https://www.oca.org/saints/lives/2026/01/06/100107-venerable-macarius-of-mount-athos
+  - https://www.johnsanidopoulos.com/2016/01/saint-makarios-makris.html
+generated: "2026-06-21"

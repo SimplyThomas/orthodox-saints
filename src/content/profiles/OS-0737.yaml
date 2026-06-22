@@ -1,0 +1,31 @@
+id: OS-0737
+liturgicalTitle: The Holy Hieromartyr Proterius, Patriarch of Alexandria
+lifespan: died 457
+overview:
+  - Proterius was Patriarch of Alexandria from 451 to 457 and is venerated as a hieromartyr for upholding the Christological definition of the Fourth Ecumenical Council against the Monophysite party that dominated the Egyptian church of his day. He had served as a priest in Alexandria under the previous patriarch Dioscorus, and the tradition remembers him for a strict and virtuous life and an open opposition to the Monophysite teaching. He is commemorated on February 28.
+  - At the Council of Chalcedon in 451 the heresy of Eutyches was condemned and Dioscorus was deposed; Proterius was elevated to the patriarchal throne of Alexandria in his place. Because the Alexandrian church was predominantly anti-Chalcedonian, his elevation was violently opposed, and according to the historical sources he was met by rioting upon his accession. His patriarchate thus marks the beginning of the lasting schism in Alexandria between the supporters of Chalcedon and its opponents.
+  - "After the death of the emperor Marcian, who had supported the Chalcedonian settlement, the opposition party rose against Proterius and in 457 set up a rival patriarch, Timothy Aelurus. Proterius was killed during this upheaval. The accounts of his death differ among the early historians: by one tradition he was slain by a mob of his opponents, while another attributes his death to the Byzantine garrison in the city. The Orthodox synaxarion relates that he was found hiding in a baptistry on Great and Holy Saturday and killed together with six companions, after which his body was abused and burned. He is honored as a saint and hieromartyr by the Eastern Orthodox Church and by the Roman Catholic Church."
+sections:
+  - heading: Patriarchate and the Chalcedonian Schism
+    body:
+      - The Council of Chalcedon (451) affirmed that Christ is acknowledged in two natures, divine and human, united without confusion and without division, in opposition to the teaching of Eutyches. The same council deposed Dioscorus of Alexandria, and Proterius, a priest of the city known for his opposition to the Monophysite position, was placed on the patriarchal throne.
+      - The Egyptian church was largely unwilling to accept the Chalcedonian definition, and Proterius governed amid sustained hostility. The historical record reports that his arrival in Alexandria was met by a riot, and his tenure is regarded as the opening of the schism between the Chalcedonian and anti-Chalcedonian communities of Alexandria.
+  - heading: Martyrdom
+    body:
+      - The death of the emperor Marcian removed the imperial support that had steadied Proterius's position, and the opposition party, led according to the synaxarion by a presbyter remembered by the epithet 'the Cat,' rose against him and elected Timothy Aelurus as a rival patriarch in 457.
+      - The Orthodox account relates that Proterius was warned of his coming death and was discovered hiding in a baptistry on Great and Holy Saturday, where he was killed along with six companions; his body was then dragged through the streets, mutilated, and burned. Other early historians record his death differently, one ascribing it to a mob and another to the Byzantine garrison. The synaxarion adds that the emperor Leo and Patriarch Anatolius of Constantinople afterward intervened and that the leader of the revolt was sent into exile.
+timeline:
+  - when: "451"
+    title: Council of Chalcedon
+    body: Eutyches is condemned and Dioscorus deposed; Proterius is elevated to the throne of Alexandria.
+  - when: "457"
+    title: Rival patriarch and martyrdom
+    body: The anti-Chalcedonian party elects Timothy Aelurus, and Proterius is killed amid the upheaval in Alexandria.
+patronage:
+  - Honored as a hieromartyr and as a confessor of the Chalcedonian definition of the faith.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2026/02/28/100617-hieromartyr-proterius-patriarch-of-alexandria
+  - https://en.wikipedia.org/wiki/Proterius_of_Alexandria
+generated: "2026-06-20"

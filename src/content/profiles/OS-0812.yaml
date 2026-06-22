@@ -1,0 +1,52 @@
+id: OS-0812
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Sophronius_of_Vratsa
+  - https://bnr.bg/en/post/101791923/bulgarian-orthodox-church-honors-the-memory-of-st-sophronius-of-vratsa
+  - https://dbpedia.org/page/Sophronius_of_Vratsa
+lifespan: 1739 - 1813
+liturgicalTitle: Our Father among the Saints Sophronius, Bishop of Vratsa
+overview:
+  - Sophronius of Vratsa, born Stoyko Vladislavov in the town of Kotel in eastern Bulgaria in 1739, was a cleric, writer, and bishop counted among the leading figures of the early Bulgarian National Revival. The son of a cattle trader, he became a cleric in 1762 and in 1765 met Paisius of Hilendar, whose Istoriya Slavyanobolgarskaya he was the first to copy, helping to transmit the foundational text of the national awakening.
+  - Tonsured a monk at a monastery in Arbanasi in 1794, he was appointed Bishop of Vratsa under the name Sophronius and spent his later years amid the upheavals of his time, eventually settling in Bucharest. Through his sermons and his autobiography he did much to shape a modern Bulgarian literary prose, and he is remembered as a founder of modern Bulgarian literature. He was canonized by the Bulgarian Orthodox Church in 1964, and his memory is honored on 11 March.
+timeline:
+  - when: "1739"
+    title: Birth in Kotel
+    body: Stoyko Vladislavov is born in the town of Kotel in eastern Bulgaria, the son of a cattle trader.
+  - when: "1762"
+    title: Ordained a cleric
+    body: He becomes a cleric, having pursued an interest in religion while working as a frieze weaver.
+  - when: "1765"
+    title: Meeting with Paisius of Hilendar
+    body: He meets Paisius of Hilendar in Kotel and makes the first copy of Paisius's Istoriya Slavyanobolgarskaya, the foundational text of the Bulgarian Revival.
+  - when: "1794"
+    title: Consecrated Bishop of Vratsa
+    body: After entering a monastery in Arbanasi, he is appointed Bishop of Vratsa under the monastic name Sophronius on 17 September.
+  - when: "1803"
+    title: Departure for Bucharest
+    body: He leaves for Bucharest, where he spends his final years in a monastery, continuing to sign under his episcopal name after being released from his post.
+  - when: "1813"
+    title: Repose
+    body: His exact date of death is unknown; his last signed document dates from 2 August 1813, and he is held to have died that year in Bucharest.
+  - when: "1964"
+    title: Canonization
+    body: He is canonized as a saint by the Bulgarian Orthodox Church on 31 December 1964.
+sections:
+  - heading: Bulgarian National Revival
+    body:
+      - Sophronius belonged to the first generation of figures who shaped the Bulgarian National Revival, the cultural and ecclesiastical awakening of the Bulgarian people under Ottoman rule. His copying and dissemination of Paisius of Hilendar's Istoriya Slavyanobolgarskaya placed him at the heart of that movement from its earliest years.
+      - Between 1806 and 1812 he acted as a representative of his people during the Russo-Turkish War, lending his standing as a senior clergyman to their cause. His later life was marked by the disorder of the period, including disruptions caused by the rebel leader Osman Pazvantoglu, which led him to leave Vratsa.
+  - heading: Literary Works
+    body:
+      - His principal printed work was the Nedelnik, also known as the Kyriakodromion or Sunday Book, a collection of precepts and sermons arranged for the Sundays and feasts of the church year. Composed in a vernacular prose, it is regarded as a landmark in the development of the modern Bulgarian literary language.
+      - He also wrote an autobiography, Life and Sufferings of Sinful Sophronius, which recounts the hardships of his life and times. For these and other writings he is remembered as a founder of modern Bulgarian literature.
+patronage:
+  - Bulgarian literature and letters
+works:
+  - title: Nedelnik (Kyriakodromion, Sunday Book)
+    desc: His chief printed work, a collection of precepts and sermons for the Sundays and feasts of the year, influential in the formation of modern Bulgarian prose.
+  - title: Life and Sufferings of Sinful Sophronius
+    desc: An autobiography recounting the hardships of his life and of his people under Ottoman rule.
+status: draft
+generated: 2026-06-21-b3

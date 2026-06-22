@@ -1,0 +1,40 @@
+id: OS-2344
+liturgicalTitle: Our Venerable Father Arsenius of Mount Latros
+lifespan: 8th–9th century
+overview:
+  - Arsenius of Latros was a Byzantine military officer who, after surviving a shipwreck, abandoned his career to become a monk and ascetic on Mount Latros in Asia Minor. According to the synaxarion, he was born at Constantinople to wealthy and devout parents and rose to the rank of patrician and general of the Kibyrraiote (Cibyrrhaeot) military theme, a maritime command of the Byzantine empire. He is commemorated on December 13.
+  - "The turning point of his life, as the tradition relates, came at sea: while traveling with his soldiers, a storm overtook the fleet and sank all the ships, and Arsenius alone survived. Understanding his deliverance as a call, he renounced the world and entered the monastic life, subjecting himself to severe fasting, vigils, and bodily hardship."
+  - He withdrew to Mount Latros, a monastic center near Miletus in western Asia Minor, where he settled at the Kelliboria Monastery on the northern side of the mountain and was chosen as its igumen (abbot). Later he left the community for the greater solitude of a cave. The accounts of his life attribute to him the gifts of miracles and the foreknowledge of his own death; foreseeing the day of his repose, he gathered the monks, exhorted them to set aside worldly concerns, and died peacefully among them.
+sections:
+  - heading: From Soldier to Monk
+    body:
+      - The synaxarion presents Arsenius as a man of high birth and rank before his conversion. The son of illustrious parents at Constantinople, he was honored by the emperor and given command of the Kibyrraiote theme, one of the naval districts of the Byzantine military administration. The shipwreck that left him the sole survivor of his company is recorded as the decisive cause of his renunciation of the world.
+      - After taking up monasticism he is described as mortifying his body through fasting, vigils, and other austerities. By tradition he is said to have occupied a narrow cell for weeks at a time and to have instructed the brethren on Sundays.
+  - heading: Mount Latros and the Wonders Attributed to Him
+    body:
+      - On arriving at Mount Latros, the tradition relates, Arsenius killed a poisonous viper through his prayer and the Sign of the Cross. After serving as igumen of the Kelliboria Monastery he withdrew to a cave, from which he is said to have driven off wild beasts by prayer.
+      - Among the wonders recorded of him, the accounts state that he was fed by an angel and that he changed bitter water into sweet water with his staff. The sources place him broadly between the 8th and 10th centuries; the in-repo record assigns him to the 9th century.
+timeline:
+  - when: 8th–9th c.
+    title: Born at Constantinople
+    body: Born to wealthy and devout parents and later made patrician and general of the Kibyrraiote theme.
+  - when: —
+    title: Survives a shipwreck
+    body: A storm sank his fleet and he alone survived, prompting his renunciation of the world.
+  - when: —
+    title: Becomes igumen at Mount Latros
+    body: Settled at the Kelliboria Monastery on the north of Mount Latros and was chosen abbot.
+  - when: Dec 13
+    title: Repose
+    body: Foreseeing his death, he gathered the monks and died peacefully; commemorated December 13.
+patronage:
+  - Associated by tradition with deliverance from shipwreck and peril at sea, reflecting his survival of the storm that began his monastic vocation.
+status: flagged
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0578/12/13/103539-venerable-arsenius-of-latros
+  - https://www.holytrinityorthodox.com/calendar/los/December/13-04.htm
+generated: 2026-06-21-b2
+flagReasons:
+  - claim: Mount Latros is a monastic center near Miletus in western Asia Minor.
+    detail: The dossier (anchor and both external sources) places Mount Latros in Asia Minor but does not state it is near Miletus; the Miletus locator is external general knowledge not present in the gathered sources.

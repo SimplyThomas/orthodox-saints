@@ -1,0 +1,37 @@
+id: OS-2734
+liturgicalTitle: Our Venerable Father Cronius of Nitria
+lifespan: c. 285 – c. 386 (4th century)
+overview:
+  - Cronius of Nitria was an Egyptian monk of the 4th century, counted among the Desert Fathers. He lived at Nitria in Lower Egypt and is associated in the monastic tradition with Anthony the Great, for whom he is said to have served as a Greek interpreter.
+  - "Sources for his life are sparse: he survives chiefly through brief notices in monastic literature rather than a developed vita. He is commemorated as a venerable monastic on July 11."
+timeline:
+  - when: c. 285
+    title: Birth
+    body: By tradition Cronius was born in Egypt around 285.
+  - when: 4th century
+    title: Interpreter and monk
+    body: He lived in a monastery and is reported to have served as a Greek interpreter for Anthony the Great, later withdrawing to live as an anchorite and serving as a priest at Nitria in Lower Egypt.
+  - when: by 395
+    title: Succession at Nitria
+    body: His disciple Isaac of the Cells succeeded him in 395, indicating that Cronius had reposed or relinquished his role at Nitria by that date.
+sections:
+  - heading: Life at Nitria
+    body:
+      - Cronius belonged to the monastic settlement of Nitria in Lower Egypt, one of the principal centers of early Egyptian monasticism. He is reported to have begun his monastic life within a community before later adopting the more solitary life of an anchorite.
+      - He is remembered as a Greek interpreter for Anthony the Great, a role that would have bridged the Greek- and Coptic-speaking worlds of the desert. In time he was ordained a priest at Nitria.
+  - heading: Disciples
+    body:
+      - Cronius had disciples, the best known being Isaac of the Cells, who is recorded as having succeeded him in 395.
+related:
+  - name: Anthony the Great
+    note: Cronius is remembered as a Greek interpreter for Anthony the Great.
+  - name: Isaac of the Cells
+    note: Disciple of Cronius who succeeded him in 395.
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Cronius_of_Nitria
+  - https://en.wikipedia.org/wiki/Isaac_of_the_Cells
+  - https://orthodoxwiki.org/Cronius_of_Nitria
+status: draft
+generated: "2026-06-21"

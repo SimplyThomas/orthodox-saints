@@ -1,0 +1,57 @@
+id: OS-0313
+liturgicalTitle: The Holy Right-Believing Ine, King of Wessex, and his Queen Ethelburga
+lifespan: 8th century (Ine reigned 689 – 726)
+overview:
+  - Ine was King of Wessex from 689 to 726 and is venerated, together with his queen Ethelburga (Æthelburg), among the pre-schism Western saints of the English Church. He is remembered as a lawgiver and a patron of churches who, late in life, abdicated his throne and went with his wife on pilgrimage to Rome, where both ended their days. The pair are commemorated on September 8.
+  - Ine's reign of some thirty-seven years was one of the longest among the early West Saxon kings. Around 694 he issued a written code of laws, the first promulgated by an Anglo-Saxon king outside Kent; it dealt with Christian observance, civil and legal matters, and the organization of agriculture, and is noted as the earliest documentary evidence for an open-field farming system in England. He was associated with the building of churches in Wessex, among them Wells, built around 705 at the suggestion of Bishop Aldhelm, and the minster at Glastonbury, which he built or rebuilt on the site of an older British monastery.
+  - His later years were marked by warfare and dynastic difficulty. The sources record campaigns against Geraint of Dumnonia in 710, a battle at Woden's Barrow in Wiltshire in 715, and invasions of Sussex in 722 and 725. His queen Ethelburg is recorded as having destroyed the fortress of Taunton in 722 during one of his absences. In 726 Ine abdicated, leaving no clear heir, and travelled to Rome with Ethelburg; both died there. The tradition credits Ine with founding the Schola Saxonum, a hospice in Rome for English pilgrims, which a later chronicler dates to 727.
+sections:
+  - heading: Lawgiver and Church-Builder
+    body:
+      - The law code of Ine is among the most important surviving documents of early Anglo-Saxon kingship. Issued around 694, it ranged across religious duties, legal procedure, and the regulation of land and labour, and it survives because it was later appended to the laws of King Alfred. Historians value it both as a witness to West Saxon society and as early evidence for the organization of farming.
+      - Ine's reign also saw the strengthening of the Church in Wessex. He is connected with the foundation at Wells, built around 705 on the advice of Bishop Aldhelm, and with Glastonbury, which he is said to have built or rebuilt as a minster where an earlier British monastic community had stood. His sister Cuthburh is recorded as the founder of the abbey of Wimborne.
+  - heading: Abdication and Pilgrimage to Rome
+    body:
+      - In 726 Ine gave up his throne. According to Bede he left the kingdom to younger men, and he set out for Rome with his queen. Both Ine and Ethelburg died in the city. The tradition associates Ine with the founding of the Schola Saxonum in the Borgo district, a hospice for poor English pilgrims, which the chronicler Roger of Wendover dates to 727; some accounts instead credit a later king with the foundation.
+      - Ethelburg herself is a notable figure in the records of the reign. She is remembered for the destruction of Taunton in 722, undertaken while Ine was campaigning against the South Saxons; the sources differ as to whether she acted to flush out the rebel Ealdbert or to deny him the stronghold. She accompanied her husband to Rome and died there as well.
+timeline:
+  - when: "689"
+    title: Accession
+    body: Ine becomes King of Wessex.
+  - when: c. 694
+    title: Law code issued
+    body: Issues the first Anglo-Saxon law code outside Kent.
+  - when: c. 705
+    title: Foundation at Wells
+    body: Associated with the building at Wells on Bishop Aldhelm's advice.
+  - when: "710"
+    title: Campaign against Dumnonia
+    body: Fights Geraint of Dumnonia.
+  - when: "722"
+    title: Destruction of Taunton
+    body: Queen Ethelburg destroys the fortress of Taunton.
+  - when: "726"
+    title: Abdication and pilgrimage
+    body: Ine abdicates and travels with Ethelburg to Rome.
+  - when: "727"
+    title: Schola Saxonum
+    body: By tradition, founds the English pilgrims' hospice in Rome.
+related:
+  - name: St. Cuthburh of Wimborne
+    note: Sister of Ine and founder of the abbey of Wimborne.
+family:
+  heading: Family
+  intro: Ine and his queen are commemorated together, and his sister was herself venerated as a foundress.
+  figures:
+    - name: Queen Ethelburga (Æthelburg)
+      note: Wife of Ine, who accompanied him to Rome and died there; commemorated with him.
+    - name: Cuthburh
+      note: Sister of Ine, founder of the abbey of Wimborne.
+patronage:
+  - Honoured among the right-believing rulers of pre-schism England and remembered for almsgiving toward English pilgrims at Rome.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Ine_of_Wessex
+  - https://en.wikipedia.org/wiki/%C3%86thelburg_of_Wessex
+generated: "2026-06-19"

@@ -1,0 +1,38 @@
+id: OS-0619
+liturgicalTitle: The Holy Martyr Nikephoros of Antioch
+lifespan: died c. 260
+overview:
+  - Nikephoros of Antioch was a layman of the Syrian city of Antioch who was put to death for confessing Christ during the persecutions of the mid-third century. His commemoration is preserved chiefly for the circumstances surrounding his death, in which he received the martyr's crown that another man had forfeited by refusing to forgive.
+  - According to his synaxarion, Nikephoros had been the close friend of a learned presbyter named Sapricius, but the two fell into a bitter quarrel and their friendship turned to enmity. When persecution broke out, Sapricius was arrested, confessed Christ under torture, and was condemned to beheading; yet, having refused all of Nikephoros's repeated pleas for reconciliation, he lost heart at the place of execution and agreed to sacrifice to the idols. Nikephoros thereupon confessed Christ before the executioners and was beheaded in his stead.
+timeline:
+  - when: mid-3rd century
+    title: Friendship and quarrel with Sapricius
+    body: A layman of Antioch in Syria, Nikephoros was bound in close friendship with the presbyter Sapricius until a disagreement turned their affection into mutual hatred.
+  - when: before the persecution
+    title: Repeated appeals for forgiveness
+    body: Having repented, Nikephoros sought reconciliation many times, both through mutual friends and in person, but Sapricius refused to forgive him.
+  - when: 253-260
+    title: Persecution under Valerian and Gallienus
+    body: During the persecution of Christians under the emperors Valerian and Gallienus, Sapricius was among the first brought before the court. He confessed himself a Christian, endured tortures, and was condemned to death by the sword.
+  - when: c. 260
+    title: Martyrdom of Nikephoros
+    body: As Sapricius was led to execution he refused Nikephoros's final plea for forgiveness; losing courage at the last moment, he agreed to offer sacrifice to the idols. Nikephoros then openly confessed Christ and was beheaded in his place.
+sections:
+  - heading: The quarrel and the martyrdom
+    body:
+      - The sources name Sapricius as a presbyter of Antioch and Nikephoros as a layman, describing the two as so close that they were considered as brothers before a disagreement turned their love into enmity. After a time Nikephoros came to himself, repented, and more than once asked Sapricius to forgive him, sending mutual friends as intermediaries and at length going to him in person; Sapricius remained adamant.
+      - When the emperors Valerian (253-259) and Gallienus (260-268) began to persecute Christians, Sapricius was among the first summoned before the court. He firmly confessed his faith, underwent tortures, and was sentenced to be beheaded. As he was led out, Nikephoros implored him once more, by tradition addressing him as a martyr of Christ and begging forgiveness for any wrong; Sapricius would not relent.
+      - "The synaxarion relates that, his heart hardened, Sapricius was abandoned by divine grace and was not permitted to receive the martyr's crown: at the place of execution he was suddenly seized with fear of death and agreed to sacrifice to the idols. Nikephoros at once confessed Christ before the executioners and asked to die in his stead. He was beheaded, and is remembered as having taken up the crown that Sapricius had cast away. His commemoration is preserved as a lesson on the necessity of forgiveness and love."
+patronage:
+  - Forgiveness and reconciliation
+  - The healing of quarrels and broken friendships
+related:
+  - name: Sapricius the presbyter
+    note: The Antiochene priest whose refusal to forgive Nikephoros, and subsequent denial of Christ at the place of execution, frames the account of Nikephoros's martyrdom.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://www.oca.org/saints/lives/2037/02/09/100466-martyr-nikephoros-of-antioch-in-syria
+  - https://antiochpatriarchate.org/en/page/nicephoros-the-martyr-of-antioch/316/
+  - https://orthodoxtimes.com/martyr-nikephoros-of-antioch-in-syria-9-february/
+status: draft
+generated: "2026-06-19"

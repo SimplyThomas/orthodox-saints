@@ -1,0 +1,53 @@
+id: OS-2493
+liturgicalTitle: The Holy Martyrs of Scillium, Speratus and his Companions
+lifespan: Martyred 17 July 180, at Carthage
+overview:
+  - The Scillitan Martyrs were a group of twelve Christians — seven men and five women — from the town of Scillium in the Roman province of Africa, who were tried and beheaded at Carthage on 17 July in the year 180. They are among the earliest recorded martyrs of North Africa, and their spokesman, Speratus, gives the group its representative name in the calendar.
+  - Their importance rests largely on the survival of the official record of their trial, the Acta Martyrum Scillitanorum (the Acts, or Passion, of the Scillitan Martyrs). This brief court account is widely regarded as the earliest dated document of the Latin Church and the oldest of the African martyr-acts, preserving in plain Latin the questions of the proconsul and the answers of the confessors.
+timeline:
+  - when: "180"
+    title: Trial before the proconsul at Carthage
+    body: On 17 July, dated in the Acts to the consulship of Praesens (for the second time) and Claudianus, the Christians of Scillium were set before Publius Vigellius Saturninus, proconsul of Africa, in the judgment hall at Carthage. He urged them to return to Roman observance and to swear by the genius of the emperor.
+  - when: "180"
+    title: The confession of Speratus
+    body: Speratus, speaking for the group, said that they had done no wrong and paid their taxes, but that he served the God whom no man has seen nor can see with mortal eyes. Asked what was kept in their case, he answered that it held the books and the epistles of Paul, a just man.
+  - when: "180"
+    title: Sentence and beheading
+    body: After offering a thirty-day delay for reconsideration, which the confessors refused, Saturninus read from a tablet the sentence of death by the sword. The twelve gave thanks to God and were beheaded together for the name of Christ.
+sections:
+  - heading: The Twelve and Speratus
+    body:
+      - "The Acts name twelve martyrs: Speratus, Nartzalus, Cintinus (also given as Cittinus), Veturius, Felix, Aquilinus, and Laetantius among the men, and Januaria, Generosa, Vestia, Donata, and Secunda among the women. Two of the names, Nartzalus and Cintinus, are Punic in form, while the rest are Latin — a reflection of the mixed Roman and native population of the African province."
+      - Speratus consistently answers for the company. To the proconsul's appeals he replies that the Christians have led quiet and law-abiding lives, doing no harm to their neighbours and rendering what is owed to the emperor, while reserving worship for the unseen God. His brief responses, and the agreement of the others, form the core of the surviving record.
+  - heading: The Acts
+    body:
+      - "The Acta Martyrum Scillitanorum take the form of a court protocol: a dated heading, the exchange between Saturninus and the accused, the offer of a stay, the reading of the sentence, and the execution. The text records the proconsul declining to apply torture and instead pressing the confessors with argument and the offer of time."
+      - Among the details preserved is Speratus's reference to 'the books and the epistles of Paul' carried in the group's case. This passing mention is often cited as the earliest explicit reference to a Latin Bible, making the Acts a witness not only to early African martyrdom but to the early Latin Scriptures.
+  - heading: Significance
+    body:
+      - The Acts are described as the earliest dated document of the Latin Church and the most ancient martyr-acts surviving for the Roman province of Africa, as well as an early specimen of Christian Latin prose. They open a window onto the Christian communities of North Africa a generation before Tertullian and Cyprian.
+      - Saturninus, the presiding proconsul, was remembered by Tertullian as the first official to draw the sword against Christians in Africa. A basilica was later raised at Carthage in honour of the Scillitan Martyrs, and the account of their trial circulated widely in the early Church.
+  - heading: Relics & Shrines
+    body:
+      - A basilica was built at Carthage in honour of the Scillitan Martyrs. According to Agobard, archbishop of Lyon in the early ninth century, Charlemagne had relics of Speratus translated from Carthage to Lyon.
+patronage:
+  - Early Christians of North Africa
+related:
+  - name: Speratus of Scillium
+    note: Spokesman of the group, named first among the twelve in the Acts.
+works:
+  - title: Acts of the Scillitan Martyrs (Acta Martyrum Scillitanorum)
+    desc: The court record of the trial and execution of the twelve, regarded as the earliest dated document of the Latin Church and the oldest of the African martyr-acts.
+reading:
+  - heading: Sources and accounts
+    items:
+      - title: The Passion of the Scillitan Martyrs (text in New Advent / early Church Fathers collection)
+      - title: Catholic Encyclopedia, 'Martyrs of Scillium'
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Scillitan_Martyrs
+  - https://www.newadvent.org/fathers/1013.htm
+  - https://www.newadvent.org/cathen/13609b.htm
+status: draft
+generated: "2026-06-20"

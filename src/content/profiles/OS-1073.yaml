@@ -1,0 +1,60 @@
+id: OS-1073
+liturgicalTitle: Our Father among the Saints Cyril, Bishop of Turov
+lifespan: c. 1130 - c. 1183
+overview:
+  - 'Saint Cyril of Turov was a twelfth-century bishop, monastic, and writer who lived in the town of Turov on the River Pripyat, in the lands of Rus'' (in what is now southern Belarus). He is remembered above all as a master of the homily and of prayer: his festal sermons, his cycle of prayers arranged for the days of the week, and his liturgical canons made him one of the most celebrated authors of the early Rus'' Church. Contemporaries and later tradition honored him as a "Russian Chrysostom" for the richness of his preaching.'
+  - According to the tradition preserved in the synaxaria and his lives, Cyril was born to a well-to-do family and received a good education. As a young man he refused his inheritance and was tonsured a monk, devoting himself to fasting, prayer, and the study of Scripture. He later withdrew into stricter seclusion before being drawn out to govern his monastery and, in time, the see of Turov. The exact dates of his life are uncertain; sources commonly place his birth around 1130 and his repose around 1183, his feast being kept on April 28.
+timeline:
+  - when: c. 1130
+    title: Birth at Turov on the Pripyat
+    body: By tradition Cyril was born at Turov, a thriving town on the River Pripyat, to wealthy and educated parents. The precise year is not securely known.
+  - when: as a young man
+    title: Tonsure at the monastery of Saints Boris and Gleb
+    body: Refusing his inheritance, Cyril was tonsured a monk at the Saint Boris and Gleb monastery in Turov, where he gave himself to ascetic struggle, fasting, and prayer, and taught the brethren the discipline of obedience.
+  - when: later
+    title: Withdrawal into seclusion
+    body: Seeking a stricter life, Cyril withdrew into seclusion, by tradition enclosing himself in a tower-like cell or pillar where he intensified his asceticism and meditated on the Scriptures; many came to him for spiritual counsel.
+  - when: mid-12th century
+    title: Bishop of Turov
+    body: Esteemed for his holiness and learning, Cyril became abbot of his monastery and then bishop of Turov. As hierarch he is said to have kept his humility and upheld a strict rule of life.
+  - when: "1169"
+    title: A church council against Bishop Theodore
+    body: Tradition associates Cyril with a church council that condemned Bishop Theodore (Fedorets) of Vladimir-Suzdal and opposed separating that church from the metropolitanate of Kiev.
+  - when: c. 1182 - 1183
+    title: Retirement from the see and repose
+    body: Cyril is said to have withdrawn from the episcopate toward the end of his life to devote himself to writing. His repose is commonly dated around 1183; his feast is kept on April 28.
+sections:
+  - heading: Preacher and "Russian Chrysostom"
+    body:
+      - Cyril's lasting fame rests on his preaching. His festal homilies were composed for the great moments of the liturgical year, including Palm Sunday, Pascha, the Ascension, and Pentecost. These sermons draw on Saint John Chrysostom and other Greek fathers, reworking their themes in original compositions rather than mere translation, and they treat above all the mysteries of Christ.
+      - One of his most admired works compares the melting of winter's ice in spring to the dissolving of the Apostle Thomas's doubt before the risen Christ. For the splendor of such images contemporaries and later readers called him a "Russian Chrysostom" and a golden-tongued teacher, ranking him among the foremost writers of early Rus'.
+  - heading: Prayers and canons
+    body:
+      - Beyond his sermons Cyril composed a substantial body of prayers, including a cycle arranged for the days of the week, together with penitential and liturgical canons. The manuscript tradition preserves a large number of prayers under his name, and the accumulated body of his writings — sermons, prayers, parables, and canons — runs to dozens of pieces, an unusually large surviving corpus for a writer of his age.
+      - Cyril described his own work with humility, likening himself to one who gathers sheaves of grain left by others rather than claiming originality. Some details of his biography and the attribution of his title and works are debated by modern scholars, but his place as a major literary figure of the Rus' Church is well established.
+related:
+  - name: Saints Boris and Gleb
+    note: Passion-bearer princes of Rus' to whom the monastery of Cyril's tonsure was dedicated
+patronage:
+  - Preachers and homilists
+  - Those who write and study the Scriptures
+  - Monastics seeking a life of seclusion and prayer
+works:
+  - title: Festal sermons (Palm Sunday, Pascha, Ascension, Pentecost, and others)
+    desc: Original homilies for the great feasts, drawing on Chrysostom and the Greek fathers
+  - title: Prayers for the days of the week
+    desc: A cycle of prayers arranged for the seven days, with further penitential prayers
+  - title: Liturgical canons
+    desc: Penitential and devotional canons preserved under his name
+reading:
+  - heading: On Saint Cyril of Turov
+    items:
+      - title: Saint Cyril, Bishop of Turov (OCA, Lives of the Saints)
+      - title: The Life and Writings of Saint Cyril of Turov
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Cyril_of_Turov
+  - https://www.oca.org/saints/lives/2012/04/28/101221-saint-cyril-bishop-of-turov
+  - https://obitel-minsk.org/en/the-life-and-writings-of-saint-cyril-of-turov
+status: draft
+generated: "2026-06-19"

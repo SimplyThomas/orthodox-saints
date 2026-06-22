@@ -1,0 +1,31 @@
+id: OS-1186
+liturgicalTitle: Saint George the Confessor, Bishop of Mytilene
+lifespan: died 842
+overview:
+  - Saint George was a bishop of Mytilene, the principal city of the island of Lesbos in the Aegean, during the second period of Byzantine Iconoclasm in the ninth century. According to the synaxarion he held the see in the years 820 to 829 and shepherded his people through the troubles of the iconoclast controversy. He is commemorated on May 16.
+  - Little detailed narrative of his life survives beyond his episcopate and his standing as a confessor during the iconoclast persecutions. The tradition records that he reposed in 842 at Mytilene, the same year associated with the final restoration of the holy icons in the Byzantine Church.
+  - "A distinctive note attaches to the memory of his relics: in the twelfth century they were seen by the Russian abbot (igumen) Daniel, who travelled through the Christian East and recorded the holy places and relics he visited, leaving an account that preserved the memory of the saint's shrine at Mytilene."
+sections:
+  - heading: Identity and commemoration
+    body:
+      - More than one bishop named George of Mytilene is honored in the Orthodox calendar from this same iconoclast era, and the relationship among the commemorations is not fully resolved in the sources used here. The catalog separately carries a St. George the Confessor, Bishop of Mytilene whose feast falls on April 7 (a monastic from his youth who confessed the veneration of the icons and suffered under the iconoclasts). Whether the May 16 commemoration honors the same hierarch on a different date or a distinct bishop of the same name and city remains a matter for further verification.
+timeline:
+  - when: 820–829
+    title: Bishop of Mytilene
+    body: Held the see of Mytilene on Lesbos during the iconoclast controversy, according to the synaxarion.
+  - when: "842"
+    title: Repose
+    body: Died at Mytilene.
+  - when: 12th century
+    title: Relics recorded
+    body: His relics were seen by the Russian abbot Daniel during his travels through the East.
+related:
+  - name: St. George the Confessor, Bishop of Mytilene (Apr 7)
+    note: Bishop of the same see and era honored on April 7; the relationship to the May 16 commemoration is unresolved.
+    href: saint/OS-0957
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/05/16
+  - data/saints.csv (OS-0957)
+generated: "2026-06-20"

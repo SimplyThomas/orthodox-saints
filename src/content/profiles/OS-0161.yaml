@@ -1,0 +1,29 @@
+id: OS-0161
+liturgicalTitle: Our Father among the Saints Auxanus, Bishop of Milan
+lifespan: d. 568
+overview:
+  - Auxanus served as Bishop of Milan in the mid-sixth century, a period of acute theological controversy and political upheaval in northern Italy. He is commemorated on September 3. His principal historical significance lies in his restoration of the Milanese diocese to communion with the Church of Rome after a damaging schism.
+  - The Schism of the Three Chapters, which erupted in the 550s, divided the episcopate of northern Italy. The controversy turned on the Fifth Ecumenical Council (Constantinople II, 553), which condemned three sets of writings associated with the Antiochene theological school. Many western bishops, including those of Milan, Aquileia, and the Istrian peninsula, refused to accept the condemnations, arguing that they threatened the settlement reached at the Council of Chalcedon (451). Vitalis, Bishop of Milan from around 552, joined this refusal and broke communion with Rome. Auxanus succeeded Vitalis around 556 and reversed this position, re-establishing the union of the Milanese diocese with Rome. This made him a significant figure in the partial resolution of the Three Chapters controversy in northern Italy, though the schism itself continued in other sees for over a century.
+  - Auxanus held the see until his death around 568, the year the Lombard king Alboin invaded and overran northern Italy. Beyond his role in the Three Chapters dispute, the historical record is sparse; no writings, synodal acts, or detailed accounts of his pastoral governance are preserved.
+sections:
+  - heading: The Three Chapters Controversy and Milan
+    body:
+      - "The context of Auxanus's episcopate is dominated by the Three Chapters crisis. Emperor Justinian I sought to reconcile monophysite Christians by condemning three fifth-century theologians associated with Nestorianism: Theodore of Mopsuestia, Theodoret of Cyrrhus, and Ibas of Edessa. The Fifth Ecumenical Council ratified these condemnations in 553. Western bishops who had not attended the council feared the condemnations repudiated Chalcedon and capitulated to monophysite pressure. Macedonius of Aquileia led the northern Italian bishops into schism with Rome on these grounds."
+      - The bishop immediately preceding Auxanus at Milan, Vitalis, aligned with the schismatic northern Italian sees around 552. When Auxanus became bishop around 556, he chose reconciliation with Rome, separating Milan from the continuing schism centered at Aquileia. This act required pastoral courage in a region where resistance to the Justinianic settlement was widespread.
+timeline:
+  - when: c. 552
+    title: Vitalis becomes Bishop of Milan
+    body: Vitalis adheres to the Schism of the Three Chapters, breaking Milan's communion with Rome.
+  - when: c. 556
+    title: Auxanus becomes Bishop of Milan
+    body: Auxanus succeeds Vitalis and re-establishes Milan's communion with the Church of Rome.
+  - when: "568"
+    title: Death of Auxanus
+    body: Auxanus dies around the year of the Lombard invasion of northern Italy.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - "https://www.catholic.org/encyclopedia/view.php?id=7979 (Catholic Encyclopedia: Archdiocese of Milan)"
+  - "https://www.newadvent.org/cathen/10298a.htm (Catholic Encyclopedia: Milan)"
+  - "https://www.catholic.org/saints/saint.php?saint_id=1637 (Catholic Online: St. Auxanus)"
+generated: "2026-06-21"

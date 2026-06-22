@@ -1,0 +1,34 @@
+id: OS-2380
+liturgicalTitle: The Holy New Martyr Paisius of Trnava
+lifespan: died December 17, 1814
+overview:
+  - Paisius was igumen (abbot) of the Annunciation Monastery in Trnava, near Čačak in Serbia, who was martyred under Ottoman authority in 1814. He is commemorated on December 17 together with the deacon Avakum, with whom he suffered. The synaxarion remembers him among the Serbian New Martyrs who refused to deny Christ during the violent reprisals that followed the failure of the First Serbian Uprising.
+  - According to the tradition, his martyrdom belongs to the aftermath of the collapse of Karageorge's revolt in 1813, when Ottoman forces undertook severe reprisals against the Serbs. Paisius and the monks of Trnava became involved in a subsequent rebellion led by Hadji-Prodan Gligorijević, which broke out on the Feast of the Cross (September 14) but was crushed by the Turks.
+  - After the rising was put down, Paisius and the deacon Avakum were among the prisoners sent to Suleiman Pasha in Belgrade. The captives were offered their freedom if they would convert to Islam; some agreed, but the majority, including Paisius, refused to deny Christ and were condemned to death. The account relates that as Avakum sang in the prison cell, Paisius prayed.
+sections:
+  - heading: Martyrdom
+    body:
+      - According to the synaxarion, Saint Paisius was taken from prison and forced to carry the stake to the place of his own execution. He was impaled, and the stake was set upright into the ground. He surrendered his soul to God on December 17, 1814, and is counted among the some forty-eight who were put to death in that persecution.
+      - He is venerated as a New Martyr, the title given to those who suffered for Christ under Ottoman rule rather than in the persecutions of the ancient Church.
+timeline:
+  - when: "1813"
+    title: Collapse of Karageorge's revolt
+    body: The First Serbian Uprising failed, and Ottoman forces began severe reprisals against the Serbs.
+  - when: September 14, 1814
+    title: Rebellion of Hadji-Prodan
+    body: A further rising, in which the monks of Trnava took part, broke out on the Feast of the Cross but was crushed.
+  - when: December 17, 1814
+    title: Martyrdom in Belgrade
+    body: Having refused to convert to Islam, Paisius was impaled at Belgrade and obtained the crown of martyrdom.
+related:
+  - name: New Martyr Avakum the Deacon of Serbia
+    note: Deacon imprisoned and martyred with him at Belgrade; commemorated the same day
+    href: saint/OS-2379
+patronage:
+  - Invoked among the Serbian New Martyrs and Confessors who suffered under Ottoman rule.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2023/12/17/149023-saint-paisius
+  - https://www.crkvenikalendar.com/zitije_en.php?id=BBGZ
+generated: "2026-06-20"

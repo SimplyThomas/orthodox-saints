@@ -1,0 +1,57 @@
+id: OS-1256
+lifespan: c. 496 – 576
+liturgicalTitle: Our Father among the Saints Germanus, Bishop of Paris, the Wonderworker
+overview:
+  - Germanus of Paris was a sixth-century Gallo-Roman monk and bishop who rose from the abbacy of a monastery near Autun to the episcopal see of Paris, which he held from the mid-550s until his death in 576. He was remembered above all for an austere monastic discipline that he never set aside as bishop, for an almsgiving so lavish that it unsettled those around him, and for his persistent efforts to soften the violence of the Frankish kings and to draw them toward reform.
+  - His memory became inseparable from the great Parisian abbey that came to bear his name, Saint-Germain-des-Pres, where his relics were enshrined and carried in procession through the city in times of plague and crisis for centuries. A pre-schism Western saint of the undivided Church, he is commemorated in the Orthodox calendar on May 28.
+timeline:
+  - when: c. 496
+    title: Birth near Autun
+    body: Germanus was born around 496 near Augustodunum (modern Autun) in Gaul, in the region then under Burgundian rule, to Gallo-Roman parents named by tradition as Eleutherius and Eusebia.
+  - when: c. 530
+    title: Ordination and abbacy
+    body: At about the age of thirty-four he was ordained a priest by Bishop Agrippinus of Autun and appointed abbot of the Monastery of St. Symphorian near Autun.
+  - when: c. 555
+    title: Consecration as Bishop of Paris
+    body: After the death of the bishop of Paris, King Childebert, with the support of clergy and people, had Germanus consecrated to the see of Paris.
+  - when: 557, 566, 573
+    title: Conciliar activity
+    body: As bishop he took part in the Third Council of Paris (557), the Second Council of Tours (566), and the Fourth Council of Paris (573).
+  - when: "558"
+    title: Dedication of Childebert's church
+    body: He dedicated the church built by King Childebert to house relics of St. Vincent of Saragossa on December 23, 558; the king died the same day. The church later became the abbey known as Saint-Germain-des-Pres.
+  - when: May 28, 576
+    title: Repose
+    body: Germanus reposed on May 28, 576, at an advanced age, having served the see of Paris for some two decades.
+sections:
+  - heading: Early Life and Monastic Formation
+    body:
+      - Germanus came from a noble Gallo-Roman family settled near Autun in Gaul. He received his education from a kinsman, a priest named by the sources as Scapilion, at Avallon and Luzy, where he was noted for diligence in the religious life, rising for the midnight office of Matins regardless of the weather.
+      - Ordained a priest by Bishop Agrippinus of Autun around the age of thirty-four, he was made abbot of the nearby Monastery of St. Symphorian. His rule of life there was hardworking and severe, and his charitable distributions to the poor were so generous that the monks, fearing for the house's resources, are said to have turned against him.
+  - heading: Bishop of Paris
+    body:
+      - In the mid-550s, on the death of the sitting bishop, King Childebert nominated Germanus to the see of Paris with the support of the clergy and people. He carried his monastic austerity into the episcopate and labored to lessen the suffering caused by the constant wars among the Frankish kingdoms.
+      - He exercised a strong moral influence over the Frankish court, drawing King Childebert away from a sinful manner of life toward reform and pressing the royal house to suppress the pagan practices that persisted in Gaul. By tradition he was driven to excommunicate one of the kings for his immorality, and he repeatedly sought to broker peace among the rival rulers, though his efforts met with limited success.
+      - He was an active participant in the church councils of his day, attending the Third and Fourth Councils of Paris and the Second Council of Tours. A liturgical exposition describing the Gallican rite then in use in Gaul, before the later adoption of the Roman rite, has been associated with his name.
+  - heading: Relics and Shrines
+    body:
+      - Germanus was buried at the church that King Childebert had built to receive the relics of St. Vincent of Saragossa and which Germanus himself had dedicated in 558. As his veneration grew, the church and its monastery came to be known by his name, Saint-Germain-des-Pres.
+      - His relics were solemnly translated within the church in the eighth century, an event the sources connect with the presence of the Frankish ruler and the young Charlemagne. For centuries afterward his relics were carried in procession through the streets of Paris during plagues and other calamities. The church suffered repeated damage from Norman raids in the ninth century, was rebuilt in the eleventh, and was rededicated in the twelfth.
+patronage:
+  - Care of the poor and captives
+  - The city of Paris
+related:
+  - name: Saint Vincent of Saragossa
+    note: Deacon and martyr whose relics were enshrined in the Parisian church that Germanus dedicated in 558.
+    href: /saint/OS-2178
+reading:
+  - heading: Related Texts
+    items:
+      - title: An Exposition of the Liturgy
+        type: A description of the Gallican rite associated with Germanus
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Germain_of_Paris
+  - https://orthodoxwiki.org/Germanus_of_Paris
+status: draft
+generated: "2026-06-19"

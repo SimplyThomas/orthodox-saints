@@ -1,0 +1,28 @@
+id: OS-1044
+liturgicalTitle: The Holy Martyr Alexandra the Empress
+lifespan: died early 4th century (reign of Diocletian)
+overview:
+  - Alexandra is venerated as a martyr who, by the tradition associated with the Great Martyr George, was the wife of the emperor Diocletian (284-305) and was moved by George's steadfast endurance to confess Christ openly. For this confession she was condemned to death and received the crown of martyrdom. She is commemorated on April 23 together with the Great Martyr George, and also on April 21.
+  - The synaxarion relates that, witnessing the courage with which George bore his torments and the miracles attending him, the empress declared her faith in Christ before her husband's court. The hagiographic traditions concerning the close of her life differ in their details, but they agree that she died a confessor of Christ.
+timeline:
+  - when: reign of Diocletian (284-305)
+    title: Confession of Christ
+    body: By tradition the wife of the emperor Diocletian, Alexandra was moved by the endurance and witness of the Great Martyr George to confess Christ as the true God before the imperial court.
+  - when: early 4th century
+    title: Martyrdom
+    body: For her confession Alexandra was condemned to death and received the crown of martyrdom. The synaxarion keeps her memory together with the Great Martyr George.
+sections:
+  - heading: The Empress and the Great Martyr George
+    body:
+      - Alexandra's commemoration is inseparable from that of the Great Martyr George, at whose trial, the tradition relates, she was present. Seeing the firmness with which George confessed Christ under torture, and the wonders that accompanied him, the empress openly professed the same faith, rejecting the idols her husband upheld.
+      - The accounts of her end differ between the synaxaria. In the narrative tied to the Passion of Saint George she is condemned at once and goes to execution alongside him, surrendering her soul along the way; other traditions place her death some years later. The Church holds her in any case a martyr for Christ, commemorated on April 23 and April 21.
+related:
+  - name: Great Martyr George
+    note: At whose martyrdom the empress confessed Christ; commemorated with her.
+    href: saint/OS-0012
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1951/04/23/101185-martyr-alexandra-the-empress-wife-of-diocletian
+  - https://orthodoxwiki.org/Alexandra_the_Empress
+status: draft
+generated: "2026-06-19"

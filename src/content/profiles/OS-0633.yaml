@@ -1,0 +1,36 @@
+id: OS-0633
+liturgicalTitle: Our Venerable Father John Chimchimeli the Philosopher
+lifespan: 13th century
+overview:
+  - John Chimchimeli, called 'the Philosopher,' was a learned Georgian monk, translator, and theologian remembered as a defender of the Georgian Christian faith. He received his education at the literary school of the celebrated Petritsoni monastery (the modern Bachkovo Monastery) in present-day Bulgaria, a center of Georgian learning, and devoted his life to rendering Greek philosophical and exegetical works into Georgian.
+  - His translations and commentaries are reckoned among the foundations of the Georgian theological tradition. He is also remembered as the director of a school of higher learning in Kakheti, where students were taught philosophy, theology, and several languages.
+timeline:
+  - when: 13th century
+    title: Education at Petritsoni
+    body: John was educated at the literary school of the Petritsoni (Bachkovo) Georgian Monastery in present-day Bulgaria, a noted center of Georgian scholarship.
+  - when: During his career
+    title: Translation and teaching
+    body: He translated Greek philosophical and exegetical works into Georgian and, according to the historian Mose Janashvili, directed a literary school in the village of Gremi in Kakheti, where students were taught philosophy, theology, and the Greek, Syriac, and Arabic languages.
+sections:
+  - heading: Scholarship and Translations
+    body:
+      - John Chimchimeli was educated at the literary school attached to the Petritsoni monastery, now Bachkovo, in present-day Bulgaria, which served as a center of Georgian learning. He became known as a great translator and philosopher and as a defender of the Georgian Christian faith.
+      - "His translations included exegetical works of the Church: two commentaries on the Book of Ecclesiastes — one by Metrophanes of Smyrna and one by Olympiodorus of Alexandria — and the explanations of the Gospels of Mark and Luke by Blessed Theophylact of Bulgaria. He is also credited with rendering classical philosophical texts, including works associated with Aristotle, Proclus, Nemesius, and Ammonius, into Georgian. His labors are considered fundamental to the canon of Georgian theological literature."
+  - heading: Teaching at Gremi
+    body:
+      - According to the nineteenth-century historian Mose Janashvili, John directed a literary school in the village of Gremi in the region of Kakheti. There students were instructed not only in philosophy and theology but also in the Greek, Syriac, and Arabic languages, a breadth that reflects his reputation for erudition.
+related: []
+patronage: []
+works:
+  - title: Commentaries on Ecclesiastes (translations)
+    desc: Georgian translations of two commentaries on the Book of Ecclesiastes, by Metrophanes of Smyrna and by Olympiodorus of Alexandria.
+    date: ""
+  - title: Explanations of the Gospels of Mark and Luke (translations)
+    desc: Georgian translations of the commentaries on the Gospels of Mark and Luke by Blessed Theophylact of Bulgaria.
+    date: ""
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://www.oca.org/saints/lives/2025/02/10/103814-saint-john-chimchimeli-the-philosopher
+  - https://georgianorthodoxchurch.wordpress.com/2013/02/23/saint-ioane-chimchimeli-of-petritsoni-and-gremi/
+generated: "2026-06-19"

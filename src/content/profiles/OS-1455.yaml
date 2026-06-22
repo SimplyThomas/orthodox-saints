@@ -1,0 +1,55 @@
+id: OS-1455
+liturgicalTitle: The Holy Right-believing Voivode Stephen the Great of Moldavia
+lifespan: c. 1438 – 1504
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Stephen_the_Great
+  - https://orthodoxwiki.org/Stephen_the_Great
+  - https://www.putna.ro/en/holy-voivode-stephen-the-great-icons-of-holiness
+  - https://www.livesofthesaintscalendar.com/saints/saint-stephen-the-great
+overview:
+  - "Stephen the Great (Romanian: Stefan cel Mare) was Prince, or Voivode, of Moldavia from 1457 until his death in 1504. The son of Bogdan II of Moldavia, he came to the throne after his father's assassination and a period of exile, defeating his rival Peter Aaron, and went on to rule for some forty-seven years. His reign is remembered both as the high point of medieval Moldavian statehood and for his sustained defense of the Orthodox faith against Ottoman expansion. The Romanian Orthodox Church glorified him as a saint in 1992, and he is commemorated on July 2, the day of his death."
+  - Throughout his long reign Stephen fought repeated campaigns against the Ottoman Turks as well as against Poland and Hungary. His most celebrated victory came at the Battle of Vaslui in January 1475, where his outnumbered forces defeated a large Ottoman army. The following year, in July 1476, he was defeated by Sultan Mehmed II in person at Valea Alba (Razboieni), though Ottoman supply difficulties forced their withdrawal from Moldavia. In 1497 he turned back a Polish invasion at the Battle of the Cosmin Forest. Tradition holds that he raised a church or monastery in thanksgiving after his victories, a practice that connects his military career directly to the ecclesiastical patronage for which he is venerated.
+  - Stephen is closely associated with a wide program of church- and monastery-building, and Moldavian sources credit him with founding or restoring dozens of religious houses over the course of his reign. Among these the monastery of Putna, which he founded in 1466 and dedicated to the Dormition of the Mother of God, became his most cherished foundation and his place of burial. By tradition his spiritual father was Daniel the Hesychast, a Moldavian hermit and monastic elder whose counsel he is said to have sought; both men were among the figures glorified together by the Romanian Church in 1992.
+sections:
+  - heading: Reign and Defense of Moldavia
+    body:
+      - Stephen was born around 1438, the son of Bogdan II of Moldavia. After his father was killed in 1451 he spent a period in exile before seizing the Moldavian throne in 1457, defeating his rival Peter Aaron. He would rule for nearly half a century, an exceptional span for a medieval Moldavian prince, during which he consolidated the principality and defended it against the surrounding powers of the Ottomans, Poland, and Hungary.
+      - His reign is defined in the historical record by warfare on Moldavia's frontiers. The victory at Vaslui in 1475 over a much larger Ottoman force was among the most significant European checks to Ottoman advance in the period. His defeat at Valea Alba in 1476 did not result in the conquest of Moldavia, as the Ottoman army withdrew, and in 1497 he repelled a Polish invasion at the Cosmin Forest. In Orthodox memory this military record is understood not merely in political terms but as the defense of an Orthodox land against Muslim conquest.
+  - heading: Ecclesiastical Foundations and Glorification
+    body:
+      - Stephen is remembered as a prolific founder of churches and monasteries; Moldavian tradition links many of these foundations to thanksgiving for his military victories. The monastery of Putna, founded in 1466 and dedicated to the Dormition of the Mother of God, served as the dynastic necropolis and the site of his own tomb. Other monastic houses of the region, including Voronet and Neamt, are associated with his patronage and that of his household.
+      - Stephen died on July 2, 1504, and was buried at Putna. The Holy Synod of the Romanian Orthodox Church resolved to glorify him on June 20, 1992, under the style of the Right-believing Voivode Stephen the Great and Holy, fixing his commemoration on July 2. He was canonized alongside other Romanian saints of the period, including his spiritual father Daniel the Hesychast.
+timeline:
+  - when: c. 1438
+    title: Birth
+    body: Stephen is born, the son of Bogdan II of Moldavia.
+  - when: "1457"
+    title: Accession to the throne
+    body: Stephen seizes the Moldavian throne after defeating his rival Peter Aaron.
+  - when: "1466"
+    title: Foundation of Putna
+    body: Stephen founds the monastery of Putna, dedicated to the Dormition of the Mother of God.
+  - when: "1475"
+    title: Battle of Vaslui
+    body: Stephen's outnumbered forces defeat a large Ottoman army.
+  - when: "1476"
+    title: Battle of Valea Alba
+    body: Stephen is defeated by Sultan Mehmed II in person, though the Ottomans later withdraw from Moldavia.
+  - when: "1497"
+    title: Battle of the Cosmin Forest
+    body: Stephen turns back a Polish invasion under King John Albert.
+  - when: "1504"
+    title: Death
+    body: Stephen dies on July 2 and is buried at Putna.
+  - when: "1992"
+    title: Glorification
+    body: The Romanian Orthodox Church glorifies him as a saint, commemorated on July 2.
+related:
+  - name: Venerable Daniel the Hesychast
+    note: Moldavian hermit and monastic elder, venerated as Stephen's spiritual father; glorified together with him in 1992.
+    href: saint/OS-2386
+patronage:
+  - Venerated in the Romanian tradition as a defender of the Orthodox faith and the Moldavian land.
+status: draft
+generated: "2026-06-20"

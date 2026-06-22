@@ -1,0 +1,67 @@
+id: OS-2605
+liturgicalTitle: Saint Varlaam, Metropolitan of Moldavia
+lifespan: c. 1580 – 1657
+overview:
+  - Varlaam was Metropolitan of Moldavia in the seventeenth century and the editor of the Cazania of 1643, the first book printed in the Romanian language in Moldavia. A monk of Secu Monastery who rose to lead the Moldavian Church, he is remembered both as a hierarch and as one of the formative figures in the development of literary Romanian. The Romanian Orthodox Church glorified him in 2007, and he is commemorated on August 30.
+  - "By tradition he was born around 1580 — some sources place his birth around 1590 — in the region of Neamt to a family of free peasants, and received the baptismal name Basil (Vasile). He learned Slavonic and Greek as a young man at the Zosim Skete in the Secu valley, and entered monastic life at Secu Monastery, taking the name Varlaam (Barlaam). His scholarship was recognized early: he was made igumen (abbot), and in 1618 he translated the Ladder of Saint John Climacus, among the first writings of the Church Fathers rendered into Romanian."
+  - Raised to the rank of archimandrite, Varlaam served as an adviser to Prince Miron Barnovschi and became igumen of Dragomirna Monastery in 1628. In 1632 he was called to the Metropolitanate of Moldavia, which he led until 1653. During his tenure, in close cooperation with Prince Vasile Lupu, he founded the first Romanian printing house in Moldavia, established in 1640 at the Three Holy Hierarchs Monastery in Iasi, and took part in the Synod of Iasi of 1642, which examined the Orthodox Confession of Faith.
+  - After Vasile Lupu lost power in 1653, Varlaam withdrew to Secu Monastery, where he reposed in 1657. His chief literary monuments — the Cazania and a published Response to the Calvinist Catechism (1645) — circulated widely among Romanian-speaking communities on both sides of the Carpathians, giving him a lasting place in Romanian ecclesiastical and cultural history.
+sections:
+  - heading: The Cazania of 1643
+    body:
+      - The Cazania, also titled Carte Romaneasca de Invatatura ("Romanian Book of Learning"), was printed in Iasi in 1643 and was the first book printed in Moldavia. It was a translation and compilation of homilies, drawn from Slavonic sources, set down in Romanian for reading in church and at home.
+      - The work was published under the patronage of Prince Vasile Lupu, whose foreword addressed it to Romanian speakers everywhere. Large numbers of copies spread into the neighboring provinces inhabited by Romanians, so that the book reached well beyond Moldavia and contributed to the use of Romanian as a written and liturgical language across the Carpathians.
+  - heading: Defense of the Faith
+    body:
+      - Varlaam's metropolitanate coincided with strong Calvinist and Catholic pressures on Romanian-speaking Orthodox communities, especially in Transylvania. He responded with a published Response to the Calvinist Catechism (1645), defending Orthodox teaching, and he took part in the Synod of Iasi of 1642, an important conciliar examination of the Orthodox Confession of Faith.
+timeline:
+  - when: "1618"
+    title: Translates the Ladder of St John Climacus
+    body: While a monk at Secu, Varlaam renders the Ladder into Romanian, among the first patristic works available in the language.
+  - when: "1628"
+    title: Igumen of Dragomirna
+    body: As archimandrite and adviser to Prince Miron Barnovschi, he becomes abbot of Dragomirna Monastery.
+  - when: "1632"
+    title: Elected Metropolitan of Moldavia
+    body: He is called to lead the Moldavian Church, a post he holds until 1653.
+  - when: "1640"
+    title: Founds the first Romanian printing house in Moldavia
+    body: The press is established at the Three Holy Hierarchs Monastery in Iasi under Prince Vasile Lupu.
+  - when: "1642"
+    title: Synod of Iasi
+    body: He takes part in the synod that examined the Orthodox Confession of Faith.
+  - when: "1643"
+    title: Prints the Cazania
+    body: The Cazania, the first book printed in Moldavia, appears at Iasi.
+  - when: "1657"
+    title: Repose at Secu
+    body: Having retired to Secu Monastery after 1653, Varlaam reposes there.
+  - when: "2007"
+    title: Glorification
+    body: The Romanian Orthodox Church glorifies him as a saint, with his feast on August 30.
+related:
+  - name: Saint John of Rășca and Secu
+    note: Bishop of Roman and monk of the same Moldavian monasteries, commemorated on the same day, August 30.
+    href: saint/OS-2609
+works:
+  - title: Cazania (Carte Romaneasca de Invatatura)
+    desc: Compilation of homilies translated into Romanian; the first book printed in Moldavia.
+    date: "1643"
+  - title: Response to the Calvinist Catechism
+    desc: A published defense of Orthodox teaching against Calvinist doctrine.
+    date: "1645"
+  - title: The Ladder of Saint John Climacus
+    desc: Romanian translation of the ascetic classic, among the first patristic works available in Romanian.
+    date: "1618"
+patronage:
+  - Honored in connection with the Romanian language, sacred letters, and printing.
+  - Commemorated among the hierarchs of the Moldavian Church.
+status: draft
+sources:
+  - Synaxar of the Romanian Saints (sfintiromani.ro)
+  - Doxologia (doxologia.ro)
+  - Romanian Orthodox Church canonization (2007)
+  - https://basilica.ro/en/orthodox-calendar-august-30/
+  - https://en.wikipedia.org/wiki/Cazania_lui_Varlaam
+  - https://en.ortodox.md/articles/church/church-people/st-varlaam-metropolitan-of-moldova/
+generated: "2026-06-19"

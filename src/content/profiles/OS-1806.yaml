@@ -1,0 +1,42 @@
+id: OS-1806
+liturgicalTitle: Saint Spyridon, Patriarch of Serbia
+lifespan: died c. 1389
+overview:
+  - Spyridon was Patriarch of Serbia in the closing decades of the fourteenth century, a period of mounting Ottoman pressure and the gradual disintegration of the medieval Serbian state. The Orthodox Church in America places his patriarchate from 1382 to 1388 and commemorates him on August 30. He was consecrated by his predecessor, Saint Ephraim II, who had occupied the patriarchal throne from 1367 before withdrawing to monastic life; after Spyridon's death, the guidance of the Serbian Church was again entrusted to Ephraim II.
+  - Spyridon's tenure coincided with the reign of Prince Lazar of Serbia, with whom he worked in close cooperation. The synaxarion records that he was much concerned for the monastic communities of the Serbian lands during what it calls difficult years of civil and ecclesial unrest. He is reported to have confirmed several of Prince Lazar's charters and endowments, supporting the prince in the administration of church affairs.
+  - He is remembered as a patron of sacred song. He termed church singing 'a spiritual flute,' and is said to have composed hymns for the Serbian Church. Spyridon died at almost the same time as Prince Lazar, who fell in the battle against the Ottomans at Kosovo Pole, commemorated on June 15. By tradition he was buried at the Patriarchate of Peć monastery, the seat of the Serbian primacy.
+sections:
+  - heading: Patriarchate and church administration
+    body:
+      - Spyridon received episcopal consecration from Saint Ephraim II, the Bulgarian-born Athonite ascetic who had twice been called to the Serbian patriarchal throne. Ephraim's withdrawal into monastic silence opened the way for Spyridon's elevation, and the same Ephraim resumed leadership of the Serbian Church after Spyridon's repose.
+      - "Sources note some uncertainty about Spyridon's earlier life: by one account he was born in Niš and may have served as a metropolitan in the 1370s before his elevation, though these details are not firmly established. The dates of his patriarchate likewise vary in the sources, with the OCA synaxarion giving 1382 to 1388 and other accounts extending his tenure to the year of the Battle of Kosovo."
+  - heading: Cooperation with Prince Lazar
+    body:
+      - Spyridon's patriarchate fell within the period that Serbian historians describe as the Fall of the Serbian Empire, when the lands were fragmenting and the Ottoman advance pressed northward. Prince Lazar was recognized by the Serbian Church as the legitimate ruler of the Serbian lands, and Spyridon supported him in church matters, confirming charters and endowments associated with his reign.
+      - The near-simultaneous deaths of patriarch and prince — Spyridon at almost the same time as Lazar's fall at Kosovo — marked the end of an era for both the Serbian Church and state.
+timeline:
+  - when: "1382"
+    title: Becomes Patriarch of Serbia
+    body: Consecrated by his predecessor Saint Ephraim II, Spyridon assumes the patriarchal throne (per the OCA synaxarion).
+  - when: 1378-1387
+    title: Confirms Lazar's charters
+    body: Spyridon cooperates with Prince Lazar, confirming several of his charters and endowments in church affairs.
+  - when: c. 1389
+    title: Death
+    body: Spyridon dies at almost the same time as Prince Lazar's fall at the Battle of Kosovo Pole; the Serbian Church is again guided by Ephraim II.
+related:
+  - name: Right-believing Prince Lazar, Great Martyr of Serbia
+    note: The Serbian ruler with whom Spyridon closely cooperated; he died at almost the same time as the patriarch.
+    href: saint/OS-1363
+  - name: Saint Ephraim the Bulgarian, Patriarch of Serbia
+    note: Spyridon's predecessor, who consecrated him and resumed the patriarchate after his death.
+    href: saint/OS-1364
+patronage:
+  - Associated with church singing and sacred hymnody, which he termed 'a spiritual flute.'
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/08/30/102437-saint-spyridon-patriarch-of-serbia
+  - https://en.wikipedia.org/wiki/Spyridon_of_Serbia
+  - https://www.crkvenikalendar.com/zitije_en.php?id=EKDA
+generated: "2026-06-20"

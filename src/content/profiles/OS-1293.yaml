@@ -1,0 +1,53 @@
+id: OS-1293
+lifespan: died 1159
+liturgicalTitle: Our Father among the Saints Constantine, Metropolitan of Kiev
+overview:
+  - Constantine was Metropolitan of Kiev in the mid-twelfth century, serving from 1155 to 1158 during a period of ecclesiastical and political strife in Kievan Rus'. He was appointed by the Patriarch of Constantinople and dispatched to resolve a disputed succession to the metropolitan see.
+  - His tenure was defined by his effort to restore canonical order after the irregular appointment of the schemamonk Clement (Clement Smolyatich) as metropolitan without patriarchal approval. Constantine's measures against Clement and the clergy Clement had ordained deepened division within the Church.
+  - "He is remembered above all for the extraordinary humility of his final wishes: judging himself responsible for the discord that had troubled the Church, he asked in his will that his body be cast out rather than buried. He is venerated as a saint, commemorated on June 5."
+sections:
+  - heading: Historical Context
+    body:
+      - The see of Kiev had been left vacant after the death of Metropolitan Michael in 1145. Grand Prince Isiaslav then appointed the schemamonk Clement (Clement Smolyatich) as metropolitan without the approval of the Patriarch of Constantinople, an irregular act that broke with established Russian Church tradition.
+      - Archbishop Nifont of Novgorod criticized this appointment as contrary to canonical order. In response, the Patriarch of Constantinople sent Constantine to investigate the situation in Kiev and to restore proper governance to the metropolitan see.
+  - heading: Ministry and Controversy
+    body:
+      - Upon his arrival, Constantine removed Clement from office and exiled all the priests whom Clement had ordained. Though intended to restore canonical order, these measures created significant ecclesiastical division and popular discontent.
+      - The dispute proved difficult to settle. The Patriarch eventually sent a third metropolitan, Theodore, to resolve the matter by deposing both Constantine and Clement, ending the contested succession.
+  - heading: Death and Vindication
+    body:
+      - Constantine died in 1159. In his will he expressed deep remorse for having sown discord in the Church and, judging himself unworthy of burial, requested that his body be cast out into a field rather than interred. Despite their reluctance, the officials honored this request.
+      - According to the account, three days of severe storms followed his death, with thunder, lightning, and earthquakes over Kiev; the tradition relates that eight men perished from the thunder and that three fiery pillars appeared over Constantine's body.
+      - Witnessing these signs, the Prince of Kiev ordered Constantine's remains placed in the church where Prince Igor had been buried. After his honorable reburial, calm returned to the region, which the tradition understood as God's vindication of His humble servant.
+  - heading: Commemoration
+    body:
+      - The OCA calendar for June 5 lists Blessed Constantine, Metropolitan of Kiev, among the commemorations of the day. He is remembered alongside the Hieromartyr Dorotheus of Tyre, the Translation of the Relics of the Right-believing Igor-George, Grand Prince of Chernigov and Kiev, and the Repose of Saint Theodore Yaroslavich.
+      - The connection with Prince Igor is especially close, since Constantine's remains were laid in the church associated with Igor's tomb.
+timeline:
+  - when: "1145"
+    title: See of Kiev left vacant
+    body: Metropolitan Michael of Kiev dies, leaving the metropolitan see vacant and setting the stage for a disputed succession.
+  - when: c. 1147
+    title: Irregular appointment of Clement
+    body: Grand Prince Isiaslav appoints the schemamonk Clement (Clement Smolyatich) as metropolitan without patriarchal approval, an act criticized by Archbishop Nifont of Novgorod as contrary to Russian Church tradition.
+  - when: "1155"
+    title: Appointed Metropolitan of Kiev
+    body: The Patriarch of Constantinople appoints Constantine and sends him to investigate the disorder in Kiev. He removes Clement from office and exiles the clergy Clement had ordained.
+  - when: "1158"
+    title: End of tenure amid division
+    body: Constantine's measures deepen ecclesiastical division; the Patriarch sends a third metropolitan, Theodore, to resolve the dispute by deposing both Constantine and Clement.
+  - when: "1159"
+    title: Death and final request
+    body: Constantine dies, asking in his will that his body be cast out rather than buried. After three days of storms and the appearance of fiery pillars over his body, the Prince of Kiev has his remains honorably buried in the church where Prince Igor was interred, and calm returns.
+patronage:
+  - Invoked as an example of humility and self-judgment among those who held high ecclesiastical office.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://orthodoxwiki.org/Constantine_I_of_Kiev
+  - https://prologue.orthodox.cn/June5.htm
+  - https://www.oca.org/saints/lives/2026/06/05
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Timeline entry dates Clement's irregular appointment to 'c. 1147'.
+    detail: The dossier does not provide a date for Clement's appointment. External source 3 notes the see was vacant after 1145 and that Isiaslav appointed Clement, but gives no year. 'c. 1147' is not attested in any dossier source and appears to be an inference not grounded in the provided material.

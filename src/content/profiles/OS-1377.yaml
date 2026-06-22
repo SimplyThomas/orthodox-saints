@@ -1,0 +1,43 @@
+id: OS-1377
+liturgicalTitle: The Holy Martyr Shalva of Akhaltsikhe
+lifespan: died 1227
+overview:
+  - Shalva of Akhaltsikhe (Shalva Akhaltsikheli) was a Georgian noble and military commander of the late twelfth and early thirteenth centuries who rose to high office under Queen Tamar and her successors and is venerated by the Georgian Orthodox Church as a martyr. He came from the Toreli family of the southern Georgian province of Meskheti and held the rank of duke (eristavi) over the region of Akhalkalaki. The Georgian Orthodox Church commemorates him on June 17.
+  - Shalva distinguished himself in the expansionist wars waged by the Kingdom of Georgia during its medieval golden age. At the Battle of Shamkor in the Ganja region, fought in 1195, he captured a war banner that the caliph had sent to the Eldiguzid army, and he afterward dedicated this banner, together with the wealth he had taken, as an offering to the Khakhuli Icon of the Theotokos. By tradition he carried the captured flag as a sign of the invincibility of the Christian faith. At the court of Queen Tamar and her son King George IV he held the senior offices of Lord High Treasurer (mechurchletukhutsesi) and Lord High Mandator (mandaturtukhutsesi).
+  - During the reign of Queen Rusudan, Shalva commanded a division of the Georgian army against the invading forces of the Khwarazmian sultan Jalal al-Din Mangburni. In the battle fought near Garni, his vanguard, drawn largely from the troops of Meskheti, faced an overwhelmingly larger enemy host; according to the synaxarion the supporting commander withheld reinforcement, and the vanguard was destroyed, his brother John of Akhaltsikhe falling among the slain. Shalva himself was taken prisoner.
+  - Held in captivity, Shalva was repeatedly pressed by Jalal al-Din to renounce Christianity and embrace Islam, and was offered cities and great wealth as inducement. He refused every offer. For his steadfast confession he was tortured and died in prison in 1227, and is honored as a martyr.
+sections:
+  - heading: Military Service and the Banner of Shamkor
+    body:
+      - Shalva belonged to the generation of commanders who carried the Kingdom of Georgia to the height of its medieval power. The sources connect his name above all with the victory at Shamkor (Shamkori) in 1195, a battle in the Ganja region in which the Georgian forces defeated an army of the Eldiguzid atabegs. In the fighting Shalva seized a war banner that had been dispatched by the caliph to the enemy, an act that the tradition treats as a token of the triumph of the Christian cause.
+      - Rather than keep the captured standard as a personal trophy, Shalva offered it, along with the spoils he had won, to the Khakhuli Icon of the Theotokos, one of the most revered icons of medieval Georgia. The accounts of his life place this dedication at the center of his memory, presenting it as the gesture of a soldier who attributed his success to divine help. His standing at court is reflected in the high state offices he held, those of Lord High Treasurer and Lord High Mandator.
+  - heading: The Khwarazmian Invasion and Martyrdom
+    body:
+      - In the 1220s the Kingdom of Georgia, by then ruled by Queen Rusudan, was struck by the westward campaigns of Jalal al-Din Mangburni, the last sultan of the Khwarazmian empire fleeing the Mongol advance. Shalva and his brother John commanded the Georgian advance guard in the battle near Garni. The synaxarion relates that their small vanguard stood against a far larger Muslim army but was left unsupported by the principal Georgian commander, with the result that the advance guard was overwhelmed; John of Akhaltsikhe was killed and Shalva was captured.
+      - Brought before Jalal al-Din, Shalva was received with honor and offered wealth and cities on condition that he convert to Islam. He would not be moved from his confession of Christ. When persuasion and inducement failed, the sultan ordered that he be put to torture, and Shalva died in captivity in 1227. The Georgian Orthodox Church numbers him among its martyrs and keeps his memory on June 17.
+timeline:
+  - when: "1195"
+    title: Battle of Shamkor
+    body: Captured the caliph's banner sent to the Eldiguzid army and dedicated it, with his spoils, to the Khakhuli Icon of the Theotokos.
+  - when: 1202-1222
+    title: High office at court
+    body: Held the senior offices of Lord High Mandator and later Lord High Treasurer under Queen Tamar and King George IV.
+  - when: c. 1225-1226
+    title: Battle near Garni
+    body: Commanded the Georgian vanguard against Jalal al-Din Mangburni; the advance guard was overwhelmed and his brother John was slain.
+  - when: "1227"
+    title: Martyrdom
+    body: Refusing to renounce Christianity in captivity, he was tortured and died in prison.
+related:
+  - name: Right-believing Queen Tamara of Georgia
+    note: The queen under whose reign Shalva rose to high command and office.
+    href: saint/OS-1093
+patronage:
+  - Invoked as a model of steadfastness under pressure to renounce the faith, and remembered among soldiers and military commanders.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2009/06/17/103860-saint-shalva-of-akhaltsikhe
+  - https://en.wikipedia.org/wiki/Shalva_of_Akhaltsikhe
+  - https://orthochristian.com/7286.html
+status: draft
+generated: "2026-06-20"

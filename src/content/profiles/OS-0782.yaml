@@ -1,0 +1,37 @@
+id: OS-0782
+liturgicalTitle: Our Venerable Father Mark the Ascetic
+lifespan: 5th century
+overview:
+  - Mark the Ascetic, also known as Mark the Monk and Mark the Faster, was a monastic writer of the fifth century, numbered among the venerable fathers of the early Church. By the tradition recorded in the synaxarion, he was born in Athens and entered the monastic life in the desert of Egypt, settling in the Nitrian wilderness of Lower Egypt. He earned the epithet "the Ascetic" through his strict abstinence and was remembered for the gentleness and purity attributed to him.
+  - From his youth Mark was devoted to the study of Holy Scripture, and tradition holds that he came to know the whole Bible by heart. The synaxarion relates that he was tonsured a monk by St. John Chrysostom and afterward spent many decades in the wilderness in fasting, prayer, and the composition of spiritual works concerning the salvation of souls.
+  - Mark is best known for his ascetic and theological discourses. Of some thirty discourses attributed to him, several have survived, and a number of his treatises were later gathered into the Philokalia, the collection of Greek ascetic texts compiled by St. Nikodemos the Hagiorite and St. Makarios of Corinth. The high regard in which his writings were held in the Byzantine world was expressed in the saying, "Sell everything and buy Mark." He is commemorated on March 5.
+sections:
+  - heading: Writings
+    body:
+      - Mark's surviving works are practical treatises on the spiritual life as it is to be led by monks, rather than works of dogmatic theology. Among the titles ascribed to him are discourses on the spiritual law, on those who think they are made righteous by works, on repentance, on baptism, and a letter addressed to a certain Nicholas on refraining from anger and lust. A treatise against the Nestorians is also attributed to him.
+      - "Several of his treatises were incorporated into the Philokalia, and his writings were praised by later authorities, including Patriarch Photius the Great. His works circulated widely: originally composed in Greek, a number were subsequently translated into Syriac and Arabic. Modern editions and English translations exist, but devotional and translated texts remain under their translators' rights and are not reproduced here."
+  - heading: Dating and identity
+    body:
+      - The traditional synaxarion account places Mark in the fifth century and associates him with the deserts of Egypt. Scholarship on the author of the surviving treatises generally dates his death to after 430, probably before the Council of Chalcedon in 451, and some accounts associate his hermit life with regions further east. He is regarded as a disciple of St. John Chrysostom and is associated with the practical, Antiochene approach to the spiritual life.
+related:
+  - name: St. John Chrysostom
+    note: By tradition Mark's teacher, who tonsured him a monk
+    href: saint/OS-0023
+works:
+  - title: On the Spiritual Law
+    desc: An ascetic treatise on the inner working of the spiritual law in the Christian life; included in the Philokalia.
+  - title: On Those Who Think They Are Made Righteous by Works
+    desc: A treatise on grace, works, and justification in the ascetic life; included in the Philokalia.
+  - title: On Repentance
+    desc: A discourse on the necessity and practice of repentance.
+  - title: On Baptism
+    desc: A treatise concerning baptism and its spiritual effects.
+  - title: Letter to Nicholas
+    desc: A letter counseling a monk named Nicholas on refraining from anger and lust.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2020/03/05/100669-saint-mark-the-ascetic-of-egypt
+  - https://orthodoxwiki.org/Mark_the_Ascetic
+  - https://en.wikipedia.org/wiki/Marcus_Eremita
+generated: "2026-06-20"

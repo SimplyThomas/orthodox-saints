@@ -1,0 +1,38 @@
+id: OS-0612
+liturgicalTitle: Our Venerable Father Luke of Hellas, the Wonderworker
+lifespan: c. 896 – 953
+overview:
+  - Luke of Hellas, also known as Luke the Younger and Luke of Steiris, was a tenth-century Byzantine monastic and ascetic of central Greece. By tradition he was born about 896 at Kastorion in Phocis, the third of the seven children of Stephen and Euphrosyne, who were poor farmers; his family is said to have come originally from Aegina and to have moved to the mainland to escape Saracen raids. From his youth he was drawn to a life of asceticism and to giving generously to the poor.
+  - After leaving home with his mother's blessing in his teens, Luke spent decades in solitary and communal monastic practice at a succession of sites in central Greece and the Peloponnese before settling near Stiris (Steiris) in Phocis around 946. There his hermitage, attached to a church dedicated to the Great Martyr Barbara, grew into a small monastic community. The synaxarion records that he was granted the gift of wonders, performing many healings and being seen lifted above the ground in prayer.
+  - Luke died in 953 and is commemorated on February 7, with the translation of his relics observed on May 3. His relics are preserved at the monastery that bears his name, Hosios Loukas, near Stiris in Phocis, which became one of the most celebrated Byzantine monastic complexes in Greece. The principal source for his life is an anonymous Life written by a monk of the monastery who had been one of his disciples.
+sections:
+  - heading: Ascetic Life
+    body:
+      - From childhood Luke is reported to have practiced strict abstinence, keeping a sparing diet and a total fast on Wednesdays and Fridays. At about the age of fourteen he withdrew to a mountain known as Ioannou (Ioannitza), where by tradition he lived as an ascetic for about seven years. He received the small monastic habit and, over the course of his life, lived at several locations, including a period of about ten years in association with a stylite.
+      - Luke is remembered as one of the earliest saints described as levitating during prayer; his mother is said to have witnessed him lifted above the ground while praying as a child. After repeated withdrawals to solitude he settled around 946 near Stiris, where his reputation for holiness drew others and a small monastery formed around him.
+  - heading: Gift of Wonders and Prophecy
+    body:
+      - The tradition surrounding Luke credits him with healings of physical and spiritual ailments and with foresight. Among the accounts attributed to him is the revealing to two brothers of the location of their dead father's buried treasure.
+      - He is best known for foretelling the recapture of Crete, then held by the Saracens. By tradition he predicted that 'a Romanos' would take Crete; when the reconquest came in 960–961 under the general Nikephoros Phokas during the reign of the emperor Romanos II, the prophecy was held to be fulfilled. This prophecy was later associated with the building of the great church at the monastery of Hosios Loukas.
+timeline:
+  - when: c. 896
+    title: Birth at Kastorion
+    body: Born in Phocis, the third of seven children of Stephen and Euphrosyne.
+  - when: c. 946
+    title: Settles near Stiris
+    body: Establishes his hermitage in Phocis, the future site of the monastery of Hosios Loukas.
+  - when: "953"
+    title: Repose
+    body: Dies near Stiris; commemorated on February 7.
+related:
+  - name: Great Martyr Barbara
+    note: The church at Luke's hermitage near Stiris was dedicated to her.
+    href: saint/OS-0016
+patronage:
+  - Venerated as a wonderworker and healer; the monastery of Hosios Loukas in Phocis preserves his relics and bears his name.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Feb 7
+  - https://en.wikipedia.org/wiki/Luke_of_Steiris
+  - https://orthodoxwiki.org/Luke_the_Younger
+generated: "2026-06-20"

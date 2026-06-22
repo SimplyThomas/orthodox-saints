@@ -1,0 +1,63 @@
+id: OS-0809
+liturgicalTitle: Our Father among the Saints Sophronius, Patriarch of Jerusalem
+lifespan: c. 560 - 638
+overview:
+  - Sophronius of Jerusalem was a seventh-century hierarch, monk, and theologian who served as Patriarch of Jerusalem during the closing years of Byzantine rule over the Holy Land. Born in Damascus around 560, he was educated in classical learning and worked as a teacher of rhetoric before turning to the monastic life. His learning and love of philosophy were renowned, and the Orthodox tradition remembers him by the epithet "Sophronius the Wise."
+  - He is chiefly remembered as a defender of Orthodox Christology against Monothelitism and the related teaching of Monoenergism, and as the patriarch who led the Christians of Jerusalem through the Arab conquest of the city, negotiating terms of surrender with the Caliph Umar. He was also a prolific author of homilies, hymns, and hagiography. He is commemorated by the Orthodox Church on March 11.
+timeline:
+  - when: c. 560
+    title: Birth in Damascus
+    body: Sophronius was born around 560 in Damascus, then part of the Byzantine Empire. From his youth he was known for his piety and devotion to classical studies, with particular expertise in philosophy, and he served for a time as a teacher of rhetoric.
+  - when: c. 578-580
+    title: Monastic life and travels with John Moschus
+    body: Turning to the ascetic life, Sophronius entered the monastery of Saint Theodosius near Bethlehem. He became the close companion of the writer John Moschus, with whom he traveled to monastic centers across Egypt, Sinai, and the eastern Mediterranean, visiting the desert communities they would later record.
+  - when: "619"
+    title: Death of John Moschus
+    body: John Moschus, who dedicated his celebrated collection the Spiritual Meadow to Sophronius, died in Rome in 619. Sophronius escorted his remains back to the Holy Land; because Mount Sinai was then under threat from the Saracens, he buried Moschus at the monastery of Saint Theodosius near Jerusalem.
+  - when: "633"
+    title: Opposition to Monoenergism
+    body: Sophronius traveled to Alexandria and Constantinople in an effort to persuade the patriarchs to reject Monoenergism, the teaching that Christ possessed only a single, divine energy. He championed the doctrine of Christ's two wills and compiled an extensive anthology of patristic testimony in its support.
+  - when: "634"
+    title: Election as Patriarch of Jerusalem
+    body: Elected Patriarch of Jerusalem in 634, Sophronius issued his noted synodical letter to Pope Honorius I and the Eastern patriarchs, setting out the Orthodox confession of the two natures, human and divine, in Christ. His Christmas sermon of that year acknowledged the Muslim advance into Palestine, noting that Saracen forces already held Bethlehem.
+  - when: 637-638
+    title: Arab conquest of Jerusalem
+    body: After Jerusalem fell to the forces of the Caliph Umar, Sophronius negotiated the terms of surrender, securing protections for the Christian population and their churches in exchange for tribute. He died soon afterward, on March 11, 638.
+sections:
+  - heading: Defense against Monothelitism
+    body:
+      - Sophronius stands among the foremost early opponents of Monoenergism and Monothelitism, the seventh-century teachings that Christ acted by a single divine energy or possessed only a single will. As a monk and later as patriarch he argued that this compromised the full humanity of Christ and amounted to a subtle revival of Monophysitism.
+      - In 633 he traveled to Alexandria and Constantinople seeking to dissuade the patriarchs from the doctrine. Upon his election in 634 he issued a synodical letter, addressed to Pope Honorius I and the Eastern patriarchs, expounding the Orthodox confession of Christ's two natures. He also compiled a large florilegium of patristic texts supporting the doctrine of Christ's two wills. Though much of his polemical writing on the controversy has been lost, his synodical letter survived and was later read at the Third Council of Constantinople, which formally condemned Monothelitism.
+  - heading: The fall of Jerusalem
+    body:
+      - Sophronius's patriarchate coincided with the Arab conquest of the Holy Land. His Christmas sermon of 634 already lamented that Saracen forces held Bethlehem, blocking the customary procession from Jerusalem. As the city itself came under siege, he led its Christian community through the crisis.
+      - When Jerusalem capitulated to the Caliph Umar around 637, Sophronius negotiated the terms of the surrender, by which the Christians of the city were granted security for their persons, churches, and worship in return for the payment of tribute. He died not long after the city's fall.
+  - heading: Writings
+    body:
+      - Sophronius was a prolific author. His surviving works include a number of homilies, among them sermons on the feasts of the Church, and a body of twenty-three anacreontic poems treating liturgical themes and contemporary events, including the Muslim siege of Jerusalem. Several of these poems describe the sacred topography of Jerusalem, naming sites such as Calvary, the Constantinian basilica, Mount Sion, and Gethsemane.
+      - Among his hagiographical works, he composed the Life of Mary of Egypt, which came to be read during the services of Great Lent in the Byzantine tradition, and an encomium of the Alexandrian martyrs Cyrus and John, written in gratitude for what tradition holds was a miraculous healing of his eyesight.
+patronage:
+  - Defenders of Orthodox doctrine
+  - Teachers and scholars
+works:
+  - title: Synodical Letter
+    desc: Sophronius's letter to Pope Honorius I and the Eastern patriarchs setting out the Orthodox confession of the two natures and two wills of Christ; it survived to be read at the Third Council of Constantinople.
+    date: "634"
+  - title: Life of Mary of Egypt
+    desc: A hagiography of the penitent Saint Mary of Egypt, read during the services of Great Lent in the Byzantine Rite.
+  - title: Anacreontic Odes
+    desc: A collection of twenty-three poems on liturgical feasts, the holy places of Jerusalem, and the events of his own day, including the Muslim siege of the city.
+  - title: Encomium of the Martyrs Cyrus and John
+    desc: A work in honor of the Alexandrian unmercenary martyrs Cyrus and John, associated with the tradition of his miraculous healing.
+related:
+  - name: John Moschus
+    note: Close companion and fellow monk; author of the Spiritual Meadow, which he dedicated to Sophronius, and whom Sophronius buried at the monastery of Saint Theodosius.
+  - name: Mary of Egypt
+    note: The penitent ascetic whose Life Sophronius composed.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Sophronius_of_Jerusalem
+  - https://en.wikipedia.org/wiki/John_Moschus
+  - https://www.oca.org/saints/lives/2015/03/11
+status: draft
+generated: "2026-06-19"

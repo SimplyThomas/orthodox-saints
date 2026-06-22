@@ -1,0 +1,36 @@
+id: OS-0401
+liturgicalTitle: Our Venerable Father Pakhomios of Keno Lake
+lifespan: died 1515
+overview:
+  - Pakhomios of Keno Lake was a Russian monastic of the late fifteenth and early sixteenth centuries who founded the Savior-Transfiguration Keno Monastery in the far north of Rus'. According to the synaxarion he was a disciple and fellow ascetic of Saint Alexander of Oshevensk, and he is commemorated on January 7.
+  - After the repose of his teacher, Pakhomios left his instructor's monastery and withdrew into solitude near Lake Keno (Kenozero) in the Russian north. The tradition describes him as a strict faster and a man of prayer who spent many years in seclusion. In time local people sought him out for counsel and his blessing, and monks gradually settled near his cell, so that an eremitic settlement grew into a coenobitic community.
+  - A church dedicated to the Transfiguration of the Lord was built and became the center of the Savior-Transfiguration Keno Monastery, an event the tradition places no later than the beginning of the sixteenth century, and possibly at the end of the fifteenth. Pakhomios reposed in 1515 at the monastery he had founded, and the tradition relates that miracles were soon reported at his tomb.
+sections:
+  - heading: The Keno Monastery
+    body:
+      - The community that gathered around Pakhomios organized itself around a temple of the Transfiguration of the Lord, which gave the foundation its name as the Savior-Transfiguration Keno Monastery. The synaxarion records that Pakhomios established a hospital for infirm monks within the community.
+      - "The brethren, together with their igumen, supported themselves by manual labor on the land of the northern frontier: the tradition relates that they sowed and harvested wheat, caught fish, and cleared forest for fields."
+  - heading: Disciples and relics
+    body:
+      - Among those Pakhomios formed in the monastic life was Saint Anthony of Siya, whom he tonsured in 1508 and guided in asceticism and the spiritual life; Anthony later founded his own monastery on the Siya river.
+      - The tradition relates that in 1800 a fire destroyed the monastery's church, but that only three planks over the saint's grave remained untouched by the fire.
+timeline:
+  - when: "1508"
+    title: Tonsured Anthony of Siya
+    body: Pakhomios tonsured Saint Anthony of Siya and guided him in the monastic life.
+  - when: "1515"
+    title: Repose
+    body: Pakhomios reposed at the Keno Monastery he had founded, at an advanced age.
+related:
+  - name: St. Alexander of Oshevensk
+    note: His teacher and the elder under whom he was a fellow ascetic.
+    href: saint/OS-1026
+  - name: St. Anthony of Siya
+    note: His disciple, whom he tonsured in 1508; later founder of the Siya Monastery.
+    href: saint/OS-2313
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 7
+  - https://www.oca.org/saints/lives/1983/01/07/100110-saint-pakhomios-of-keno-lake
+  - https://orthochristian.com/127267.html
+generated: "2026-06-21"

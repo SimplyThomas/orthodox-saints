@@ -1,0 +1,38 @@
+id: OS-1146
+liturgicalTitle: Our Father among the Saints Nikodemos, Archbishop of Serbia
+lifespan: d. 1324
+overview:
+  - Saint Nikodemos was a fourteenth-century Serbian hierarch who rose from the monastic life of Mount Athos to lead the Serbian Church as Archbishop of All Serbia and the Land of Pomor. A native of the Raska region, he is remembered above all as a learned theologian and translator who gave the Serbian Church its liturgical Typikon in the Slavonic tongue, and as a builder and restorer of churches.
+  - Before his elevation he served as abbot (igumen) of the Serbian monastery of Hilandar on Mount Athos, and after becoming archbishop he remained active in the affairs of both church and realm, mediating between members of the ruling Nemanjic dynasty. He reposed in 1324 and was glorified within the same century; his relics were enshrined at the Patriarchate of Pec, and his commemoration spread beyond Serbia, reaching the Russian Church.
+timeline:
+  - when: 1312-1316
+    title: Abbot of Hilandar on Mount Athos
+    body: After receiving the monastic tonsure on the Holy Mountain, Nikodemos served as igumen of Hilandar Monastery, the principal Serbian house on Athos. In this period he was sent on missions to Constantinople at the request of the Serbian kings to help reconcile the warring brothers Milutin and Dragutin.
+  - when: "1317"
+    title: Elected Archbishop of All Serbia
+    body: Following the death of Archbishop Sava III, Nikodemos was chosen as Archbishop of All Serbia and the Land of Pomor and ascended the primatial throne. As archbishop he continued his diplomatic efforts, helping to secure King Milutin's forgiveness and the return of Stephen of Decani from exile.
+  - when: "1319"
+    title: Translation of the Jerusalem Typikon
+    body: Nikodemos translated the Typikon of Saint Sabbas the Sanctified of Jerusalem into Slavonic and ordered its use in Serbia. In a surviving note he records that he undertook the work in fulfillment of the will of Saint Sava of Serbia, who had wished Serbian churches to follow the usage of Jerusalem.
+  - when: "1324"
+    title: Repose
+    body: Saint Nikodemos reposed on May 11, 1324 (one tradition gives 1325). His relics were placed in the church of Saint Demetrios at Pec and, by 1391, were enshrined in a special reliquary ark.
+sections:
+  - heading: Scholar and translator
+    body:
+      - Saint Nikodemos was regarded as a gifted ecclesiastical writer and a learned theologian. Beyond his translation of the Jerusalem Typikon, he compiled records of the dates of the repose of Serbian rulers and archbishops in the Synaxarion so that their memory could be kept in the commemorative services of the Church.
+  - heading: Builder and restorer of churches
+    body:
+      - As archbishop he built the church of Saint Demetrios at the Patriarchate of Pec and a church dedicated to Saint Sava of Serbia at Lizica. He restored the historic monastery of Zica and maintained the cell of Saint Sava on Mount Athos, sustaining the ties between the Serbian Church and the Holy Mountain from which he had come.
+related:
+  - name: Saint Sava of Serbia
+    note: First Archbishop of Serbia, whose Typikon and wishes Nikodemos fulfilled
+patronage:
+  - Translators and those who labor in liturgical and theological scholarship
+  - Builders and restorers of churches
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2026/05/11/101354-saint-nikodemos-archbishop-of-serbia
+  - https://orthodoxwiki.org/Nikodemus_I_of_Pec
+status: draft
+generated: "2026-06-19"

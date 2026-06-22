@@ -48,6 +48,9 @@ SAINT_IMAGES_CSV = DATA / "saint_images.csv"
 SAINT_QUOTES_CSV = DATA / "saint_quotes.csv"
 GROUPS_CSV = DATA / "groups.csv"
 SAINT_GROUPS_CSV = DATA / "saint_groups.csv"
+RETIRED_IDS_CSV = DATA / "retired_ids.csv"
+RETIRED_IDS_HEADER = ["retired_id", "retired_name", "canonical_id", "canonical_name",
+                      "reason", "date", "pr"]
 
 # Group taxonomy (data/groups.csv + data/saint_groups.csv) — a first-class way to
 # re-link members of a collective commemoration (a synaxis, feast-companions, a
@@ -322,6 +325,10 @@ def validate(header: list[str], rows: list[dict[str, str]],
     group_errors, group_warnings = validate_groups(_img_valid_ids)
     errors.extend(group_errors)
     warnings.extend(group_warnings)
+
+    ret_errors, ret_warnings = validate_retired_ids(_img_valid_ids)
+    errors.extend(ret_errors)
+    warnings.extend(ret_warnings)
 
     if header != HEADER:
         errors.append(
@@ -923,6 +930,44 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 if order_raw and not order_raw.lstrip("-").isdigit():
                     errors.append(f"{where} ({slug}/{sid}): order {order_raw!r} "
                                   "is not an integer.")
+    return errors, warnings
+
+
+# --------------------------------------------------------------------------- #
+# Retired IDs (data/retired_ids.csv): tombstone of every deduplicated saint row.
+# Two invariants hold at all times: (1) a retired ID must NOT exist as an active
+# Saint ID — retiring means deleting the row; (2) the canonical_id it points to
+# MUST exist — the canonical row must not itself have been deleted.
+# --------------------------------------------------------------------------- #
+def validate_retired_ids(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Enforce retired-IDs invariants:
+      • retired_id must not appear in active data (the row was deleted).
+      • canonical_id must appear in active data (the keeper still exists)."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not RETIRED_IDS_CSV.exists():
+        return errors, warnings
+    with RETIRED_IDS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != RETIRED_IDS_HEADER:
+            return ([f"retired_ids.csv header must be {RETIRED_IDS_HEADER}, "
+                     f"got {reader.fieldnames!r}"], warnings)
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            rid = (row.get("retired_id") or "").strip()
+            cid = (row.get("canonical_id") or "").strip()
+            where = f"retired_ids.csv line {i}"
+            if rid and rid in valid_ids:
+                errors.append(
+                    f"{where}: retired ID {rid!r} still appears as an active "
+                    "Saint ID — delete the row from saints.csv."
+                )
+            if cid and cid not in valid_ids:
+                errors.append(
+                    f"{where}: canonical ID {cid!r} is not present in "
+                    "saints.csv — the canonical entry may have been removed."
+                )
     return errors, warnings
 
 

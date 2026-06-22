@@ -1,0 +1,39 @@
+id: OS-2216
+liturgicalTitle: Our Venerable Father Barlaam, First Abbot of the Kiev Caves
+lifespan: died 1065
+overview:
+  - Barlaam of Kiev was an eleventh-century monastic of Kievan Rus' who became the first abbot of the community that grew into the Kiev Caves Monastery (the Kiev Pechersk Lavra). Born to a noble family, he abandoned a life of rank and wealth for the ascetic life of the caves above the Dnieper, and he is numbered among the founding generation of monasticism in Rus' gathered around Saint Anthony of the Caves. He is commemorated on November 19, and his relics rest in the Near Caves of the Lavra. He is distinct from the later Saint Barlaam of Khutyn, the Novgorodian abbot.
+  - According to the tradition preserved in the Kiev Caves Patericon and the synaxarion, Barlaam was the son of an illustrious nobleman who was drawn to the monastic life from his youth. He was tonsured by Saint Nikon against the wishes of his father, who at first tried to compel his return home but eventually accepted his son's commitment to the monastic vocation. Barlaam lived under the guidance of Saint Anthony of the Caves, who, as the brotherhood multiplied and Anthony himself withdrew to deeper solitude, appointed Barlaam to lead the community.
+  - As first abbot, Barlaam oversaw the early growth of the community above and around the caves. In 1058, with the blessing of Saint Anthony, he built a wooden church dedicated to the Dormition of the Most Holy Theotokos, an early step in the development of the monastery's life beyond the underground cells. Barlaam was later transferred by the prince to govern a newly established monastery dedicated to the Great Martyr Demetrius, while the leadership of the Caves community passed in time to Saint Theodosius, with whom Anthony and the Caves monastery are most closely associated.
+  - Barlaam twice undertook pilgrimage to the holy places, visiting Jerusalem and Constantinople. Returning from his second journey, he fell ill and died in 1065 at a monastery at Volhynia (associated with Volodymyr/Vladimir, identified with the Zymne monastery). In accordance with his own wishes, his body was brought back and buried at the Caves monastery, in the Near Caves, where he continues to be venerated among the saints of the Lavra.
+sections:
+  - heading: Tonsure and noble background
+    body:
+      - The accounts emphasize that Barlaam renounced a position of worldly standing. As the son of a nobleman (a boyar), his entry into the monastic life met resistance from his father, a recurring theme in the lives of the early Caves monks, for whom flight from the world was often a decisive break with family expectation. His tonsure by Saint Nikon, carried out on the direction of Saint Anthony, placed him formally within the brotherhood of the caves.
+  - heading: First abbot and later monasteries
+    body:
+      - Barlaam's appointment marks the point at which the loose company of ascetics around Saint Anthony took on the ordered form of a monastery with an abbot. His building of the wooden Dormition church in 1058 is remembered as an early landmark in that development. His subsequent transfer to the monastery of the Great Martyr Demetrius reflects the way the Caves community supplied leaders to other foundations of the Kievan princes, even as the Caves monastery itself continued under Saint Theodosius.
+timeline:
+  - when: "1058"
+    title: Built the wooden Dormition church
+    body: With the blessing of Saint Anthony, Barlaam built a wooden church in honor of the Dormition of the Most Holy Theotokos.
+  - when: "1065"
+    title: Death and burial
+    body: He died at a monastery at Volhynia on returning from pilgrimage and was buried, by his own wish, in the Near Caves of the Kiev Caves monastery.
+related:
+  - name: St. Anthony of the Kiev Caves
+    note: Founder of the Caves monastery, under whom Barlaam was tonsured and who appointed him first abbot
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kiev Caves
+    note: Successor in the leadership of the Caves community and father of cenobitic monasticism in Rus'
+    href: saint/OS-2745
+  - name: St. Nikon of the Kiev Caves
+    note: The monk who tonsured Barlaam at Saint Anthony's direction
+    href: saint/OS-0867
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2010/11/19/103331-venerable-barlaam-abbot-of-the-kiev-near-caves
+  - https://en.wikipedia.org/wiki/Barlaam_of_Kiev
+  - https://stjohndc.org/en/list-of-relics/barlaam-first-abbot-kiev-caves-venerable-near-caves
+generated: "2026-06-21"

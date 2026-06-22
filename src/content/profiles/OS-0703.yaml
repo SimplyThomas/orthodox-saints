@@ -1,0 +1,62 @@
+id: OS-0703
+liturgicalTitle: Our Father among the Saints Eustathius, Archbishop of Antioch the Confessor
+lifespan: died c. 337
+overview:
+  - Eustathius of Antioch was a bishop of the early fourth century and one of the foremost defenders of Orthodoxy at the First Ecumenical Council of Nicaea. A native of Side in Pamphylia, he was Bishop of Beroea before being raised to the ancient and prominent see of Antioch around the time the council met in 325.
+  - At Nicaea he stood among the leading opponents of Arius and helped shape the council's confession of the faith. His firmness against the Arian party made him their target, and within a few years he was deposed on false charges and sent into exile, where he died. He is honored as a confessor, and his removal left a lasting division in the church of Antioch.
+timeline:
+  - when: c. 320
+    title: Bishop of Beroea
+    body: Became Bishop of Beroea, modern Aleppo, in Syria.
+  - when: c. 325
+    title: Archbishop of Antioch
+    body: Raised to the see of Antioch around the time of the First Ecumenical Council.
+  - when: "325"
+    title: First Ecumenical Council of Nicaea
+    body: Took a leading part among the opponents of Arianism and helped frame the Nicene confession of the faith.
+  - when: c. 330/331
+    title: Deposition and exile
+    body: Deposed by a synod at Antioch on charges of Sabellianism, his deposition confirmed by Constantine I, and exiled to Trajanopolis in Thrace.
+  - when: c. 337
+    title: Repose in exile
+    body: Died in Thrace, never having returned from exile.
+  - when: "482"
+    title: Translation of relics
+    body: His remains were brought back from Thrace to Antioch.
+sections:
+  - heading: Origins and Episcopate
+    body:
+      - Eustathius was born at Side, in the province of Pamphylia in Asia Minor. Around the year 320 he became Bishop of Beroea, the city now called Aleppo, and a few years later, about the time of the First Ecumenical Council, he was raised to the see of Antioch, one of the most ancient and honored churches of the East.
+      - As bishop he set himself firmly against the Arian teaching that was then dividing the Church. He refused to admit Arian clergy in his diocese and wrote against their doctrine.
+  - heading: The Council of Nicaea
+    body:
+      - At the First Ecumenical Council, held at Nicaea in 325, Eustathius was prominent among the opponents of Arius and his teaching. He joined with Alexander of Alexandria and with Marcellus in defending the full divinity of the Son, and he took part in shaping the council's confession of the faith.
+      - After the council he continued to contend against the Arian leaders, opposing Eusebius of Nicomedia and charging Eusebius of Caesarea with departing from the Nicene teaching, especially concerning the key term homoousios, by which the Son was confessed to be of one essence with the Father.
+  - heading: Deposition and Exile
+    body:
+      - Eustathius's resolute stand made him a target of the Arian party. About 330 or 331 a synod gathered at Antioch deposed him, charging him officially with the error of Sabellianism, and according to the Orthodox account also bringing against him a false accusation of adultery. By tradition the woman who made the charge later confessed that she had lied, but the sentence stood. The Emperor Constantine I confirmed the deposition and sent Eustathius into exile at Trajanopolis in Thrace.
+      - His supporters were ready to take up arms in his defense, but Eustathius restrained them and urged them to remain faithful, and he departed humbly for his place of exile. His removal divided the church of Antioch into rival parties, a schism that endured into the following century. He died in Thrace, about the year 337, never having returned to his see.
+  - heading: Writings
+    body:
+      - Eustathius was a learned and prolific writer, though most of his works are lost and known only through fragments and the testimony of later authors. His one complete surviving work is a treatise against Origen concerning the account of the Witch of Endor, known by its Latin title De Engastrimytho contra Origenem.
+  - heading: Relics & Shrines
+    body:
+      - Eustathius died and was buried in Thrace, the land of his exile. In the year 482 his relics were translated from Thrace back to Antioch, the city he had once governed.
+  - heading: Veneration
+    body:
+      - "Eustathius is venerated as a saint and confessor. Belonging to the undivided Church, he is honored in both the Eastern and the Western traditions: his feast is kept on 21 February in the Orthodox East and on 16 July in the West."
+related:
+  - name: Alexander of Alexandria
+    note: Fellow champion of the Nicene faith against Arius, with whom Eustathius made common cause at the council.
+patronage:
+  - Defenders of the Orthodox faith against heresy
+works:
+  - title: De Engastrimytho contra Origenem
+    desc: A treatise against Origen on the account of the Witch of Endor; his only complete surviving work.
+    date: ""
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Feb 21
+  - https://en.wikipedia.org/wiki/Eustathius_of_Antioch
+  - https://orthodoxwiki.org/Eustathius_of_Antioch
+generated: "2026-06-19"

@@ -1,0 +1,54 @@
+id: OS-0282
+liturgicalTitle: Our Venerable Mother Madalberta, Abbess of Maubeuge
+lifespan: died 706
+overview:
+  - "Madalberta was a Frankish nun and abbess of Maubeuge in Gaul, in what is now northern France, who reposed in 706 and is commemorated on September 7. She belonged to a noted family of saints: she was a daughter of Saint Vincent Madelgarus and Saint Waldetrudis of Mons, and her brothers and sister were likewise venerated as saints. She is counted among the pre-schism Western saints honored within the Orthodox tradition."
+  - By tradition, Madalberta was educated at the abbey of Maubeuge under the care of her aunt, Saint Aldegund, who had founded the house. There she received monastic tonsure, and about the year 697 she succeeded her sister, Saint Aldetrudis, as abbess of the community. She governed Maubeuge until her death in 706.
+sections:
+  - heading: A family of saints
+    body:
+      - "Madalberta's parents, Saint Vincent Madelgarus and Saint Waldetrudis of Mons, were both venerated as saints, and according to the tradition all of their children entered the religious life and were themselves counted among the saints: Madalberta, her sister Saint Aldetrudis, and her brothers Landericus of Soignies and Dentlin of Soignies. The sources relate that her father founded the abbey of Hautmont and later a monastery at Soignies, while her mother founded the house that became the abbey of Mons."
+      - Madalberta's formation belonged to this same monastic milieu. Her aunt Saint Aldegund had founded the abbey of Maubeuge, and it was there, under Aldegund's instruction, that Madalberta was raised and later tonsured.
+  - heading: Abbess of Maubeuge
+    body:
+      - About the year 697 Madalberta succeeded her sister Saint Aldetrudis as abbess of Maubeuge. She led the community until her repose in 706. She is remembered as a patron of the town of Maubeuge.
+timeline:
+  - when: c. 697
+    title: Becomes abbess of Maubeuge
+    body: Madalberta succeeds her sister Saint Aldetrudis as abbess of the abbey of Maubeuge.
+  - when: "706"
+    title: Repose
+    body: Madalberta dies and is commemorated on September 7.
+related:
+  - name: St. Waldetrudis of Mons
+    note: Her mother, foundress of the house that became Mons Abbey.
+  - name: St. Vincent Madelgarus
+    note: Her father, founder of Hautmont Abbey and a monastery at Soignies.
+  - name: St. Aldetrudis
+    note: Her sister, whom she succeeded as abbess of Maubeuge.
+  - name: St. Aldegund
+    note: Her aunt, foundress of Maubeuge Abbey, who educated her.
+family:
+  heading: Family
+  intro: Madalberta belonged to a noted family of Frankish saints; her parents and all her siblings are venerated.
+  figures:
+    - name: St. Vincent Madelgarus
+      note: Father
+    - name: St. Waldetrudis of Mons
+      note: Mother
+    - name: St. Aldetrudis
+      note: Sister; her predecessor as abbess of Maubeuge
+    - name: Landericus of Soignies
+      note: Brother
+    - name: Dentlin of Soignies
+      note: Brother
+    - name: St. Aldegund
+      note: Aunt; foundress of Maubeuge Abbey and her instructor
+patronage:
+  - Honored as a patron of Maubeuge, France.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://drjohnhutchisonhall.com/saints-west-20-7-sep-2024/
+  - https://catholicsaints.info/saint-madalberta/
+generated: "2026-06-20"

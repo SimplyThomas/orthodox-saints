@@ -1,0 +1,27 @@
+id: OS-2250
+liturgicalTitle: Our Venerable Father Simon, Abbot of Soiga
+lifespan: died November 24, 1562
+overview:
+  - Simon of Soiga was a sixteenth-century Russian monastic who founded a monastery on the River Soiga in the Vologda region of northern Rus'. He was born at Solvychegodsk and received the monastic tonsure at the Komel monastery under Saint Cornelius, and so belonged to the wide circle of Komel ascetics traced in the spiritual lineage of Saint Sergius of Radonezh. He is commemorated on November 24, the day of his repose.
+  - After the death of his teacher Cornelius, Simon accompanied Saint Longinus before settling on his own in the wilderness. He established himself at the River Soiga, some sixty versts from Koryazhma, where he built a church in honor of the Transfiguration of the Lord, consecrated on May 17, 1541. A community of brethren gathered around the church, and the monastery that grew there became known as the Soiga monastery; the brethren chose Simon as their igumen.
+  - Saint Simon died on November 24, 1562. He was buried in the monastery he had founded, in its church dedicated to the holy Great Martyr Catherine, whose feast falls on the same day as his commemoration.
+timeline:
+  - when: May 17, 1541
+    title: Transfiguration church consecrated
+    body: Simon built and had consecrated a church in honor of the Transfiguration of the Lord on the River Soiga, around which the monastery formed.
+  - when: November 24, 1562
+    title: Repose
+    body: Simon died and was buried in his monastery, in the church dedicated to the Great Martyr Catherine.
+related:
+  - name: Venerable Cornelius, Abbot of Komel
+    note: His teacher, under whom he was tonsured at the Komel monastery
+    href: saint/OS-1205
+  - name: Venerable Longinus of Koryazhemsk
+    note: Ascetic whom Simon accompanied after Cornelius's death
+    href: saint/OS-0631
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1002/11/24/103391-venerable-simon-abbot-of-soiga-monastery-vologda
+  - https://www.crkvenikalendar.com/zitije_en.php?id=ZZBI
+generated: "2026-06-21"

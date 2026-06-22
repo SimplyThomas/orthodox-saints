@@ -1,0 +1,35 @@
+id: OS-2522
+liturgicalTitle: The Holy Martyr Chrysogonus
+lifespan: died c. 304
+overview:
+  - Chrysogonus was an early Christian martyr who suffered during the persecution of the emperor Diocletian. Tradition remembers him chiefly as the teacher and spiritual father of Saint Anastasia of Sirmium, the Great Martyr known as the Deliverer-from-Potions, whom he instructed and later strengthened by his letters from prison.
+  - He was a Roman of standing, associated in his martyrdom with Aquileia in northern Italy, where he was beheaded for refusing to deny Christ. The Orthodox Church commemorates him on December 22 together with Saint Anastasia.
+timeline:
+  - when: Diocletian's persecution (303–304)
+    title: Imprisonment
+    body: During the persecution of Diocletian, Chrysogonus was imprisoned for the faith; from confinement he comforted and counseled his afflicted disciple Anastasia by letter.
+  - when: c. 304
+    title: Martyrdom at Aquileia
+    body: Summoned to Aquileia and brought before the emperor, he refused to deny Christ and was condemned and beheaded.
+  - when: after his death
+    title: Burial of his relics
+    body: By tradition his body was cast into the sea, washed ashore, and recovered and buried by an aged priest named Zoilus.
+sections:
+  - heading: Teacher of Saint Anastasia
+    body:
+      - By the accounts of his life, Chrysogonus was an educated and devout Christian who instructed Anastasia, the daughter of a noble Roman, in her childhood. When she later endured grievous trials, she corresponded with him in secret, and he counseled her to be patient, to cleave to the Cross of Christ, and to accept the Lord's will.
+      - The Eastern tradition relates that before his arrest Chrysogonus foretold both his own death and other events, including the drowning of Publius, Anastasia's husband, and the coming martyrdom of three sisters named Agape, Chionia, and Irene. After his death he is said to have appeared in a vision to the priest Zoilus, directing that Anastasia be sent to encourage these sisters.
+  - heading: Martyrdom and Veneration
+    body:
+      - During the persecution of Diocletian, Chrysogonus was imprisoned for his faith. The emperor afterward summoned him to Aquileia in northern Italy; brought before the imperial tribunal and refusing to renounce Christ, he was condemned to death and beheaded.
+      - "The tradition records that his body was thrown into the sea, washed ashore, and buried by an aged priest named Zoilus. His veneration in the West is ancient: a basilica bearing his name, San Crisogono, stood in the Trastevere district of Rome and appears in the records of a Roman synod of 499, and his name is named among the martyrs in the Roman Canon of the Mass. The Orthodox Church commemorates him on December 22 together with Saint Anastasia."
+related:
+  - name: Anastasia the Deliverer-from-Potions
+    note: His disciple and spiritual daughter, whom he instructed and strengthened by letter; the two are commemorated together on December 22.
+status: draft
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Saint_Chrysogonus
+  - https://www.oca.org/saints/lives/2024/12/22/103609-great-martyr-anastasia-the-deliverer-from-poisons-her-teacher-ma
+generated: "2026-06-19"

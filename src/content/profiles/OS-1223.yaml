@@ -1,0 +1,22 @@
+id: OS-1223
+overview:
+  - Monastic Martyr Paul of the Lavra of Mount Athos was a monk of the Great Lavra, the oldest of the Athonite monasteries, who is venerated as a martyr for Christ. He is commemorated on May 22.
+  - Almost nothing of his life is preserved. The Orthodox Church in America's synaxarion records only his title and feast day, stating that no information on his life is available. No date, century, or circumstances of his martyrdom is attested in the accessible sources, and he does not appear in the Prologue of Ohrid or in the standard reference wikis.
+liturgicalTitle: The Holy Monastic Martyr Paul of the Great Lavra of Mount Athos
+sections:
+  - heading: Sources and the State of the Record
+    body:
+      - The surviving record for this saint is exceptionally thin. The OCA synaxarion entry for May 22 lists him by title only — "Monastic Martyr Paul of the Lavra, Mount Athos" — alongside the other commemorations of that day, including the Martyr Basiliscus of Comana, the Holy Fathers of the Second Ecumenical Council, Saint John-Vladimir, Blessed James of Borovichi, the Righteous Melchizedek, and the Icon of the Mother of God of Cyprus, and explicitly notes that no information on his life is available.
+      - He does not appear in the Prologue of Ohrid for May 22, which lists other commemorations of that day, and no entry for him was found in the standard Orthodox reference wikis. His connection to the Great Lavra — founded in 963 by Saint Athanasius the Athonite — and his rank as a monastic martyr are the only details attested.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2025/05/22
+  - https://prologue.orthodox.cn/May22.htm
+  - https://en.wikipedia.org/wiki/Great_Lavra
+  - https://orthodoxwiki.org/Paul_of_the_Lavra
+  - https://www.johnsanidopoulos.com/search?q=%22Paul+of+the+Lavra%22
+status: flagged
+generated: "2026-06-21"
+flagReasons:
+  - claim: Paul of the Lavra is described as a monk of the Great Lavra, which the profile identifies as 'the oldest of the Athonite monasteries'.
+    detail: The dossier's external sources note only that the Great Lavra was 'founded in AD 963 by Athanasius the Athonite'; no source in the dossier explicitly identifies it as the oldest of the Athonite monasteries. That characterisation is not grounded in the provided dossier text.

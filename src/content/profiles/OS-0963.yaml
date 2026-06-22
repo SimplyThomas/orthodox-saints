@@ -1,0 +1,30 @@
+id: OS-0963
+liturgicalTitle: Venerable Rufus the Obedient of the Kiev Far Caves
+overview:
+  - 'Rufus the Obedient was a monk of the Kiev Caves monastery (the Kiev Caves Lavra) who lived in the fourteenth century. The surviving record of his life is brief: the synaxarion remembers him as a hermit distinguished for his obedience and as a lover of labor and fasting. His epithet, "the Obedient," reflects the virtue for which he was chiefly remembered within the monastic community.'
+  - After his repose he was buried in the Far Caves of the monastery, the cave complex associated with Saint Theodosius. He is commemorated on April 8, and again on August 28 with the Synaxis of the Holy Fathers whose relics repose in the Far Caves, a collective feast that gathers the many ascetics buried there into a single commemoration alongside their individual days.
+sections:
+  - heading: Life and asceticism
+    body:
+      - Almost nothing of Rufus's biography has been preserved beyond the central themes of his ascetic reputation. He is remembered as a hermit of the Kiev Caves who was distinguished for obedience and who labored and fasted strictly. In the monastic tradition of the Caves, obedience to one's elder and to the rule of the community was held as a foundational virtue, and Rufus's name in the calendar carries that emphasis.
+  - heading: The Synaxis of the Far Caves
+    body:
+      - The Far Caves of the Kiev Caves Lavra are the burial place associated with Saint Theodosius, one of the monastery's founders. The Church commemorates the Synaxis of the Holy Fathers whose relics repose there on August 28. Each of these fathers, Rufus among them, has an individual day of commemoration as well; the synaxis observes them together. By this collective feast Rufus is numbered among the company of ascetics venerated as the saints of the Far Caves.
+timeline:
+  - when: 14th century
+    title: Monastic life at the Kiev Caves
+    body: Rufus lived as a hermit of the Kiev Caves monastery, distinguished for obedience, labor, and fasting.
+  - when: after his repose
+    title: Burial in the Far Caves
+    body: He was buried in the Far Caves, where his relics repose with those of the other fathers.
+related:
+  - name: St. Theodosius of the Kiev Caves
+    note: Father of cenobitic monasticism in Rus'; the Far Caves where Rufus is buried are associated with him.
+    href: saint/OS-2745
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1949/04/08/101031-venerable-rufus-the-obedient-of-the-kiev-far-caves
+  - https://www.johnsanidopoulos.com/2020/04/saint-rufus-obedient-of-kiev-caves.html
+  - https://orthodoxwiki.org/Synaxis_of_those_whose_relics_repose_in_the_Far_Caves_of_St_Theodosius
+generated: "2026-06-21"

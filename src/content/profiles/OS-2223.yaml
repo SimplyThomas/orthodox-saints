@@ -1,0 +1,54 @@
+id: OS-2223
+liturgicalTitle: Our Father among the Saints Proclus, Archbishop of Constantinople
+lifespan: c. 390 – c. 446/447
+overview:
+  - Proclus was Archbishop of Constantinople in the first half of the fifth century, remembered above all as a defender of the title Theotokos ("Mother of God") for the Virgin Mary and for his role in restoring honor to his predecessor Saint John Chrysostom. The tradition received in the synaxaria presents him as a disciple and scribe of Chrysostom, who ordained him deacon and priest; some modern scholarship instead places his formation chiefly under Archbishop Atticus of Constantinople (406-425), whom he served as secretary, and regards the close personal link to Chrysostom as having been emphasized in later centuries. Either way, Proclus rose within the clergy of the capital as a noted preacher.
+  - He was consecrated bishop of the dependent see of Cyzicus around the year 426 by Patriarch Sisinius, but he was unable to take up residence there. According to the synaxarion the people had already chosen another bishop before his arrival; other accounts attribute his exclusion to Nestorian opposition. He therefore remained in Constantinople, where he continued to preach and where the decisive episode of his life unfolded.
+  - While Nestorius held the archiepiscopal throne and had begun teaching that the Virgin should not be called Theotokos, Proclus delivered, by tradition around 429-430 and in Nestorius's own presence, a celebrated homily on the Incarnation that openly defended the title Theotokos. The sermon was later incorporated into the Acts of the Council of Ephesus (431), at which Nestorius was condemned and deposed, and it became one of the most renowned Marian sermons of the early Church. Although Proclus himself was not present at Ephesus, Saint Cyril of Alexandria acknowledged the weight of his preaching against the Nestorian teaching.
+  - "Following the death of Maximianus, Proclus was enthroned as Archbishop of Constantinople in 434 and governed the Church for about twelve years, until his death around 446-447. His episcopate was marked by moderation: he sought to reconcile divided parties rather than to prolong conflict, and he was esteemed for his ascetic manner of life, his care for the poor and downtrodden, and his preaching. A substantial body of homilies and letters has been transmitted under his name."
+sections:
+  - heading: Defense of the Theotokos
+    body:
+      - The episode for which Proclus is principally remembered is his public defense of the title Theotokos against Nestorius, who taught that it was improper to call the Virgin Mary the "Mother of God." Invited to preach on a feast of the Virgin, Proclus used the occasion to affirm the title directly before Nestorius, framing it as a confession of the single person of the incarnate Word, born of the Virgin according to the flesh.
+      - Because this homily was later read into the Acts of the Council of Ephesus, it carried lasting doctrinal authority and circulated widely. Among the writings attributed to Proclus, the sources single out his discourses against the Nestorians and two tracts in praise of the Mother of God, together with several homilies on the Nativity of Christ.
+  - heading: Return of the Relics of Saint John Chrysostom
+    body:
+      - Saint John Chrysostom had died in exile at Comana in 407, and a portion of his former flock in Constantinople remained estranged from the Church over the injustice of his deposition. As archbishop, Proclus worked to heal this division. The sources relate that he persuaded the Emperor Theodosius II and his sister Pulcheria to have the relics of Chrysostom brought back from Comana to the capital, where they were received with honor and, by one account, interred in the Church of the Holy Apostles. By tradition this restoration of his teacher's memory was dated to 438.
+  - heading: Writings and Tome to the Armenians
+    body:
+      - Proclus left a considerable literary legacy. The transmitted corpus comprises roughly twenty homilies (some of disputed authenticity) and several letters. Among the letters, the so-called Tome of Proclus, or Tome to the Armenians, composed in the later 430s in response to doctrinal inquiries, is noted for its conciliatory and moderate handling of contested Christological questions.
+      - A tradition associated with his episcopate connects the liturgical use of the Trisagion hymn ("Holy God, Holy Mighty, Holy Immortal") with earthquakes that struck Constantinople, during which, it is related, a child was caught up and heard the angels singing the hymn; the people thereafter took it up with the refrain "have mercy on us."
+timeline:
+  - when: c. 390
+    title: Birth
+    body: Proclus is born, by tradition at Constantinople.
+  - when: c. 426
+    title: Consecrated bishop of Cyzicus
+    body: Consecrated by Patriarch Sisinius, but unable to take up the see, he remains in Constantinople.
+  - when: c. 429-430
+    title: Sermon defending the Theotokos
+    body: Preaches before Nestorius in defense of the title Theotokos; the homily is later read into the Acts of Ephesus.
+  - when: "434"
+    title: Archbishop of Constantinople
+    body: Enthroned as archbishop following the death of Maximianus.
+  - when: "438"
+    title: Relics of Chrysostom returned
+    body: By his efforts the relics of Saint John Chrysostom are brought back from Comana to Constantinople.
+  - when: c. 446-447
+    title: Repose
+    body: Dies after about twelve years as archbishop; commemorated on November 20.
+related:
+  - name: St. John Chrysostom
+    note: His teacher in the synaxarion tradition, whose relics Proclus restored to Constantinople.
+    href: saint/OS-0023
+patronage:
+  - Honored as a defender of the title Theotokos and of Orthodox teaching on the Incarnation.
+  - Remembered for moderation and reconciliation in church leadership.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0577/11/20/103341-saint-proclus-archbishop-of-constantinople
+  - https://en.wikipedia.org/wiki/Proclus_of_Constantinople
+  - https://orthodoxwiki.org/Proclus_of_Constantinople
+  - https://www.johnsanidopoulos.com/2010/11/saint-proclus-of-constantinople.html
+generated: "2026-06-19"

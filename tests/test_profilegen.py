@@ -1,6 +1,9 @@
 import unittest
 import tempfile
+import json
+import subprocess
 from pathlib import Path as _P
+from unittest import mock
 
 try:  # pyyaml is an authoring-only dep (kept out of requirements.txt); skip if absent
     import yaml as _yaml
@@ -13,6 +16,7 @@ from tools.profilegen import emit
 from tools.profilegen import emit_one
 from tools.profilegen import proposals
 from tools.profilegen import schemas
+from tools.profilegen import run as runner
 
 
 class FinderScoreTests(unittest.TestCase):
@@ -571,3 +575,262 @@ class BackfillTitleTests(unittest.TestCase):
         line = self.bt.title_line(long)
         self.assertEqual(line.count("\n"), 0)  # never folded/wrapped
         self.assertTrue(line.startswith("liturgicalTitle:"))
+
+
+class ProfilesPresentTests(unittest.TestCase):
+    def test_returns_only_existing_ids(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = _P(d)
+            (p / "OS-0001.yaml").write_text("x", encoding="utf-8")
+            (p / "OS-0003.yaml").write_text("x", encoding="utf-8")
+            got = runner.profiles_present(
+                ["OS-0001", "OS-0002", "OS-0003"], profiles_dir=p
+            )
+            self.assertEqual(got, {"OS-0001", "OS-0003"})
+
+    def test_empty_when_none_exist(self):
+        with tempfile.TemporaryDirectory() as d:
+            got = runner.profiles_present(["OS-0001"], profiles_dir=_P(d))
+            self.assertEqual(got, set())
+
+
+class WorkflowOutcomeTests(unittest.TestCase):
+    def test_none_when_zero_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(0, 40), "none")
+
+    def test_partial_when_some_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(12, 40), "partial")
+
+    def test_ok_when_all_produced(self):
+        self.assertEqual(runner.classify_workflow_outcome(40, 40), "ok")
+
+    def test_ok_when_over_counted(self):
+        self.assertEqual(runner.classify_workflow_outcome(41, 40), "ok")
+
+
+class RunWorkflowTests(unittest.TestCase):
+    def test_invokes_workflow_tool_with_json_args(self):
+        captured = {}
+
+        def capture(argv):
+            captured["argv"] = argv
+            return ('{"type":"result","subtype":"success"}', 0)
+
+        with mock.patch.object(runner, "_exec_claude", capture):
+            out, rc = runner.run_workflow(["OS-0007", "OS-0008"], "2026-06-20")
+
+        argv = captured["argv"]
+        allowed = argv[argv.index("--allowedTools") + 1]
+        self.assertIn("Workflow", allowed)
+        prompt = argv[2]
+        self.assertIn(runner.WORKFLOW_SCRIPT, prompt)
+        import re
+        payload = json.loads(re.search(r"\{.*\}", prompt).group(0))
+        self.assertEqual(payload["ids"], ["OS-0007", "OS-0008"])
+        self.assertEqual(payload["date"], "2026-06-20")
+        self.assertEqual(rc, 0)
+
+    def test_returns_combined_stdout_stderr(self):
+        with mock.patch.object(runner, "_exec_claude",
+                               lambda argv: ('{"type":"result"}', 0)):
+            out, rc = runner.run_workflow(["OS-0007"], "2026-06-20")
+        self.assertIn('"type":"result"', out)
+
+
+class LegacyPromptTokenGuardTests(unittest.TestCase):
+    def test_points_at_stage_prompts_not_the_60kb_plan(self):
+        captured = {}
+
+        def capture(argv):
+            captured["argv"] = argv
+            return ('{"type":"result"}', 0)
+
+        with mock.patch.object(runner, "_exec_claude", capture):
+            runner.run_claude(["OS-0001"])
+        prompt = captured["argv"][2]
+        # must NOT re-read the heavy pipeline-design plan per saint
+        self.assertNotIn("2026-06-17-generation-pipeline.md", prompt)
+        # must point at the lean stage guides instead
+        self.assertIn("prompts/gather.md", prompt)
+        self.assertIn("prompts/write.md", prompt)
+        self.assertIn("prompts/verify.md", prompt)
+
+
+class RunnerLoopIntegrationTests(unittest.TestCase):
+    """Drive runner.main() with mocked I/O to exercise multi-batch chaining,
+    partial-batch resume, the zero-production→rate-limit synthesis, and the
+    weekly-cap stop — the paths a live run can't easily force on demand."""
+
+    def _run(self, backlog, plan, produced, calls, *, batch_size=2,
+             weekly=2, exclude_produced=True):
+        plan = list(plan)
+
+        def fake_ranked(n):
+            return [(s, 0) for s in backlog
+                    if not (exclude_produced and s in produced)]
+
+        def fake_present(ids, profiles_dir=None):
+            return {i for i in ids if i in produced}
+
+        def fake_run_workflow(ids, date):
+            calls.append(list(ids))
+            step = plan.pop(0) if plan else "all"
+            out, rc = "", 0       # step: action | (action, out) | (action, out, rc)
+            if isinstance(step, tuple):
+                action = step[0]
+                out = step[1] if len(step) > 1 else ""
+                rc = step[2] if len(step) > 2 else 0
+            else:
+                action = step
+            if action == "all":
+                produced.update(ids)
+            elif action == "none":
+                pass
+            elif isinstance(action, int):
+                produced.update(list(ids)[:action])
+            return (out, rc)
+
+        with mock.patch.multiple(
+            runner,
+            USE_WORKFLOW=True, BATCH_SIZE=batch_size, WEEKLY_AFTER_WAITS=weekly,
+            RESUME_AFTER=0, MAX_ERR=3,
+            log=lambda *a, **k: None, notify=lambda *a, **k: None,
+            write_state=lambda *a, **k: None, format_profiles=lambda *a, **k: None,
+            run_workflow=fake_run_workflow, profiles_present=fake_present,
+        ), mock.patch.object(runner.prioritize, "ranked", fake_ranked), \
+                mock.patch.object(runner.time, "sleep", lambda *_: None):
+            return runner.main()
+
+    def test_multi_batch_happy_path(self):
+        produced, calls = set(), []
+        rc = self._run(["A", "B", "C", "D"], ["all", "all"], produced, calls)
+        self.assertEqual(rc, 0)
+        self.assertEqual(len(calls), 2)            # one workflow call per batch
+        self.assertEqual(produced, {"A", "B", "C", "D"})
+
+    def test_partial_batch_then_resume_next_invocation(self):
+        produced, calls = set(), []
+        rc1 = self._run(["A", "B"], [1], produced, calls)   # produce only 1 of 2
+        self.assertEqual(rc1, 0)
+        self.assertEqual(len(produced), 1)                  # straggler left behind
+        rc2 = self._run(["A", "B"], ["all"], produced, calls)  # fresh invocation
+        self.assertEqual(rc2, 0)
+        self.assertEqual(produced, {"A", "B"})
+        # the resume invocation re-drove ONLY the missing id, not the done one
+        self.assertEqual(len(calls[-1]), 1)
+
+    _RL = "429 rate limit exceeded"          # orchestrator text → rate_limit_error
+    _OVL = "Both gather stages hit 529 Overloaded errors"  # → overloaded_error (transient)
+
+    def test_rate_limited_zero_production_retries_within_run(self):
+        # genuine rate limit: 0 emitted WITH a 429 signal → wait → retry same ids
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", self._RL), "all"], produced, calls, weekly=3)
+        self.assertEqual(rc, 0)
+        self.assertEqual(produced, {"A", "B"})
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(calls[0], calls[1])       # same remaining ids both attempts
+
+    def test_persistent_rate_limit_stops_weekly(self):
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", self._RL)] * 3, produced, calls, weekly=2)
+        self.assertEqual(rc, 2)                     # likely-weekly-cap exit
+        self.assertEqual(len(calls), 3)            # 2 waits, then stop on the 3rd
+
+    def test_transient_overload_backs_off_and_skips(self):
+        # 529 Overloaded must NOT trigger the weekly-cap stop — back off, retry,
+        # then skip the batch (MAX_ERR=3) and let the run finish cleanly.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", self._OVL)] * 3, produced, calls, weekly=2)
+        self.assertEqual(rc, 0)                     # finished (not exit 2 weekly-cap)
+        self.assertEqual(len(calls), 3)            # MAX_ERR attempts, then skip
+        self.assertEqual(produced, set())          # nothing forced; batch skipped
+
+    def test_silent_zero_production_backs_off_not_weekly(self):
+        # 0 emitted with NO error signal → 'error' → backoff + skip, never weekly-cap
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], ["none", "none", "none"], produced, calls, weekly=2)
+        self.assertEqual(rc, 0)
+        self.assertEqual(len(calls), 3)
+
+    def test_completed_but_timed_out_batch_advances(self):
+        # the real overnight freeze: workflow wrote all profiles, then the orchestrator
+        # hung → BATCH_TIMEOUT kills it (rc 124). The profiles are on disk, so the next
+        # iteration sees the batch complete and advances instead of freezing.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("all", "TIMEOUT after 3600s", 124)], produced, calls)
+        self.assertEqual(rc, 0)
+        self.assertEqual(produced, {"A", "B"})   # profiles landed despite the timeout
+        self.assertEqual(len(calls), 1)          # recompute found them done; no re-run
+
+    def test_already_complete_batch_is_skipped(self):
+        produced, calls = {"A", "B"}, []
+        rc = self._run(["A", "B"], [], produced, calls, exclude_produced=False)
+        self.assertEqual(rc, 0)
+        self.assertEqual(calls, [])                 # all on disk → workflow never called
+
+
+class ZeroProductionClassifyTests(unittest.TestCase):
+    def test_429_is_rate_limit(self):
+        self.assertEqual(limits.zero_production_etype("hit 429 rate limit"), "rate_limit_error")
+
+    def test_529_is_overloaded(self):
+        self.assertEqual(
+            limits.zero_production_etype("Both gather stages hit 529 Overloaded errors"),
+            "overloaded_error")
+
+    def test_unknown_is_error(self):
+        self.assertEqual(limits.zero_production_etype("no profiles written"), "error")
+
+    def test_empty_is_error(self):
+        self.assertEqual(limits.zero_production_etype(""), "error")
+
+    def test_rate_limit_wins_when_both_present(self):
+        self.assertEqual(
+            limits.zero_production_etype("429 rate limit; also 529 overloaded"),
+            "rate_limit_error")
+
+
+class ExecClaudeTimeoutTests(unittest.TestCase):
+    def test_timeout_kills_process_group_and_returns_124(self):
+        killed = {}
+
+        class FakeProc:
+            pid = 4242
+            returncode = -9
+
+            def __init__(self):
+                self.n = 0
+
+            def communicate(self, timeout=None):
+                self.n += 1
+                if self.n == 1:
+                    raise subprocess.TimeoutExpired(cmd="claude", timeout=timeout)
+                return ("", "")
+
+            def kill(self):
+                killed["kill"] = True
+
+        with mock.patch.object(runner.subprocess, "Popen", lambda *a, **k: FakeProc()), \
+                mock.patch.object(runner.os, "getpgid", lambda pid: pid), \
+                mock.patch.object(runner.os, "killpg",
+                                  lambda pgid, sig: killed.__setitem__("killpg", (pgid, sig))), \
+                mock.patch.object(runner, "BATCH_TIMEOUT", 5), \
+                mock.patch.object(runner, "log", lambda *a, **k: None):
+            out, rc = runner._exec_claude(["claude", "-p", "x"])
+        self.assertEqual(rc, 124)
+        self.assertIn("TIMEOUT", out)
+        self.assertEqual(killed.get("killpg"), (4242, runner.signal.SIGKILL))
+
+    def test_normal_exit_returns_combined_output(self):
+        class FakeProc:
+            pid = 1
+            returncode = 0
+
+            def communicate(self, timeout=None):
+                return ("out", "err")
+
+        with mock.patch.object(runner.subprocess, "Popen", lambda *a, **k: FakeProc()):
+            out, rc = runner._exec_claude(["claude", "-p", "x"])
+        self.assertEqual(rc, 0)
+        self.assertEqual(out, "outerr")

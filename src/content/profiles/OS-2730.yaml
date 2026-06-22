@@ -1,0 +1,29 @@
+id: OS-2730
+liturgicalTitle: The Holy Martyr Nemesion of Alexandria
+lifespan: died c. 250
+overview:
+  - Nemesion, also called Nemesius, was an Egyptian Christian martyred at Alexandria during the persecution of the Emperor Decius (249-251). He was first charged with theft and accused of associating with robbers, but cleared himself of that charge; he was then informed against as a Christian.
+  - Brought before the governor, he was scourged and tortured doubly more grievously than the thieves, and was condemned to be burned together with the most criminal among the robbers. His account is preserved through Dionysius of Alexandria and the historian Eusebius.
+timeline:
+  - when: 249-251
+    title: Decian persecution
+    body: The Emperor Decius issued an edict against Christians; at Alexandria many faced mob violence, torture, and execution.
+  - when: c. 250
+    title: Accusation and martyrdom at Alexandria
+    body: Nemesion, first accused as an associate of robbers and then denounced as a Christian, was scourged more severely than the thieves and burned to death between two criminals.
+sections:
+  - heading: Trial and martyrdom
+    body:
+      - According to the contemporary account, Nemesion was an Egyptian who was first accused as an associate of robbers. He cleared himself of this charge before the centurion, but was afterward informed against as a Christian and brought before the governor in bonds.
+      - The magistrate inflicted on him tortures and scourgings double those imposed on the robbers, and then had him burned together with the most criminal among the robbers - executed at the stake between two criminals. Dionysius of Alexandria regarded this death as honoring the martyr through its likeness to the crucifixion of Christ between two criminals.
+  - heading: Sources and record
+    body:
+      - Nemesion's martyrdom was recorded by Dionysius, Patriarch of Alexandria and a contemporary of the martyrs, whose account was preserved by the historian Eusebius in his Ecclesiastical History (Book 6, Chapter 41).
+      - He suffered amid a wider persecution at Alexandria that also claimed soldiers such as Ammon, Zeno, Ptolemy, and Ingenuus, and others including Heron, Ater, Isidore, and the youth Dioscorus.
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Nemesion
+  - https://www.newadvent.org/fathers/250106.htm
+status: draft
+generated: "2026-06-21"

@@ -1,0 +1,31 @@
+id: OS-1682
+name: Hieromartyr Euthymios of Rhodes
+lifespan: died 1529
+liturgicalTitle: The Holy Hieromartyr Euthymios, Metropolitan of Rhodes
+overview:
+  - Euthymios was the Orthodox Metropolitan of Rhodes during the early years of Ottoman rule over the island. Elected to the see following the Ottoman conquest of Rhodes in 1523, he shepherded the Christian population of the island through a difficult period of foreign occupation until his arrest and martyrdom in 1529.
+  - Accused of being the instigator or leader of a conspiracy against Turkish rule, Euthymios was put to death by impalement together with other clergy and leading citizens of Rhodes. He was honored as a martyr by the local Christians immediately after his death, and his grave became a prominent pilgrimage site on the island. He is commemorated in the Orthodox Church as a hieromartyr on August 9.
+timeline:
+  - when: "1523"
+    title: Ottoman conquest of Rhodes
+    body: Following the Ottoman conquest of Rhodes in 1523, Euthymios was elected Metropolitan of the island, taking up the pastoral care of its Orthodox flock under the new occupation.
+  - when: "1529"
+    title: Arrest and martyrdom
+    body: Arrested on the charge of inciting or leading a conspiracy against Turkish rule, Euthymios was executed by impalement alongside other clergy and prominent citizens of Rhodes.
+sections:
+  - heading: Episcopate under Ottoman rule
+    body:
+      - Euthymios assumed the metropolitan see of Rhodes after the island fell to the Ottomans in 1523. The sources record that he shepherded his flock in a God-pleasing manner during those difficult years of occupation, ministering to a Christian population now living under foreign and non-Christian rule.
+      - In 1529 he was arrested on the accusation that he was the instigator and leader of a conspiracy against the Turkish authorities. He was condemned and put to death by impalement, suffering together with other clergy and leading members of the Christian community of Rhodes.
+  - heading: Veneration and pilgrimage
+    body:
+      - Euthymios was honored as a martyr by the Christians of Rhodes immediately after his death, and his grave became a notable place of pilgrimage on the island. A report by a Latin missionary, sent to Rome, recorded that the tomb of Euthymios had become the most prominent pilgrimage site on Rhodes.
+      - According to the same tradition, people suffering from malaria and fever-related illness would come to his grave, and they were reported to be cured there.
+patronage:
+  - Invoked against malaria and fever, on account of the healings reported at his tomb.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.johnsanidopoulos.com/2015/08/holy-new-hieromartyr-euthymios.html
+  - https://www.oca.org/saints/lives/2025/08/09/100184-hieromartyr-euthymios-of-rhodes
+status: draft
+generated: "2026-06-19"

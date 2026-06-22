@@ -132,9 +132,6 @@ Use the Makefile targets (or the underlying python directly):
 - `make web-test` → `npm test` : Playwright smoke tests against the built site. (CI gate.)
   These call `npm` directly so they also work on Windows/PowerShell without `make`.
 
-`build.py` must support `--check-only` (no file output, just validation + exit code) so
-CI can gate pull requests cheaply.
-
 **Authoring locally without `openpyxl`:** `python build.py --no-xlsx` assigns IDs, validates,
 and writes `public/data.json` while skipping the Excel export — so the full author→validate
 loop runs on plain host Python. (Only the `.xlsx` needs `openpyxl`; use `make docker-build`
@@ -155,27 +152,7 @@ Wikimedia bot credentials live there:
 | `WIKIMEDIA_BOT_USER` | MediaWiki bot username: `WikimediaAccount@BotName` (e.g. `SimplyThomas@Cloud_of_Witnesses`) |
 | `WIKIMEDIA_BOT_PASSWORD` | Bot password generated at `Special:BotPasswords` on the relevant wiki |
 
-Icon-download scripts load these with:
-```python
-from dotenv import load_dotenv; load_dotenv()
-import os
-bot_user = os.getenv("WIKIMEDIA_BOT_USER")
-bot_pass = os.getenv("WIKIMEDIA_BOT_PASSWORD")
-```
-(`pip install python-dotenv` if not present — authoring-only dep, not in `requirements.txt`.)
-Authenticated bots receive higher API rate limits. The two-step MediaWiki login flow:
-```python
-import requests
-S = requests.Session()
-# Step 1 — get login token
-R = S.get("https://commons.wikimedia.org/w/api.php",
-          params={"action":"query","meta":"tokens","type":"login","format":"json"})
-token = R.json()["query"]["tokens"]["logintoken"]
-# Step 2 — log in (sets session cookies for all subsequent S.get/S.post calls)
-S.post("https://commons.wikimedia.org/w/api.php", data={
-    "action": "login", "lgname": bot_user, "lgpassword": bot_pass,
-    "lgtoken": token, "format": "json"})
-```
+Icon-download scripts load these via `python-dotenv` (`pip install python-dotenv`; authoring-only dep, not in `requirements.txt`). Authenticated bots get higher API rate limits; the two-step MediaWiki login flow is implemented in `scripts/`.
 
 ---
 
@@ -232,27 +209,7 @@ instead, add one row to `data/saint_images.csv`
   **requires** a `credit`; the detail page shows an attribution caption linking `source`.
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
-- **After downloading any new icon(s), resize at JPEG quality 80** to keep file sizes
-  web-friendly. The canonical approach: **scale width to ≤ 800 px, then top-crop height to
-  ≤ 800 px** — this preserves the face/head region rather than cropping symmetrically.
-  Python (Pillow ≥ 12):
-  ```python
-  from PIL import Image
-  from pathlib import Path
-  MAX = 800
-  for p in sorted(Path("static/icons").glob("*.jpg")):
-      with Image.open(p) as img:
-          if img.mode in ('RGBA','P','LA'): img = img.convert('RGB')
-          w, h = img.size
-          if w > MAX:                        # scale width down to MAX (never upscale)
-              img = img.resize((MAX, round(h * MAX / w)), Image.LANCZOS)
-          if img.height > MAX:               # top-crop: keep face, drop bottom
-              img = img.crop((0, 0, img.width, MAX))
-          img.save(p, 'JPEG', quality=80, optimize=True)
-      print(f"{p.name}: {w}x{h} -> {Image.open(p).size}")
-  ```
-  (`.gif` files: glob `*.jpg` skips them. Convert to `.jpg` manually and update
-  `saint_images.csv` if you need a gif resized.)
+- **After downloading any new icon(s), resize at JPEG quality 80** — scale width to ≤ 800 px, then top-crop height to ≤ 800 px (preserves the face). The `make download-icons` pipeline does this automatically; for manually-sourced files use `save_resized()` in `scripts/download_saint_icons.py`. (`.gif` files must be converted to `.jpg` manually before resizing.)
 
 **Saint quotes (the detail-page quote block).** To show a saint's own words on their
 detail page, add one row to `data/saint_quotes.csv`
@@ -317,13 +274,39 @@ quote joins) re-link the members of a collective commemoration and make group me
   people, record it in each row's Notes with a cross-reference to the other ID (e.g.
   `Distinct from … (OS-0966).`). The build suppresses the duplicate-name warning for pairs
   documented this way, so the warning list stays a true to-investigate queue.
+- **Retired IDs** are tracked in `data/retired_ids.csv` (columns: `retired_id, retired_name,
+  canonical_id, canonical_name, reason, date, pr`). **Never reuse or renumber a retired ID.**
+  Before assuming a gap ID is available, check this file.
+
+### Retirement process (no tooling required)
+
+1. **Confirm the duplicate.** Use `make find NAME="…"` to compare candidates; verify same
+   saint by cross-checking name / Also Known As, feast day, century, and region.
+2. **Choose the canonical (keeper) row.** Prefer the lower-numbered (earlier-entered) ID,
+   especially if it has richer facets or a profile file.
+3. **Enrich the canonical row.** Copy any unique feast dates, Traditions, Intercessions,
+   Vocation, Life Experience, Sources, and Notes from the retiring row; merge, don't overwrite.
+4. **Add a Notes cross-reference** to the canonical row: e.g. `Merged with retired
+   duplicate OS-XXXX.`
+5. **Delete the retiring row** from `data/saints.csv`. Open the file in a text editor that
+   preserves CRLF, delete the line, save. (See CRLF gotcha in §7.)
+6. **Delete any profile** `src/content/profiles/OS-XXXX.yaml` for the retiring ID.
+7. **Add a row to `data/retired_ids.csv`** with all seven columns filled; keep rows sorted
+   by `retired_id`.
+8. **Run `make validate`** — must exit clean (zero violations).
+9. **Commit and PR** with a message like:
+   `data: retire OS-XXXX (duplicate of OS-YYYY — <brief reason>)`
 
 ---
 
 ## 7. Authoring conventions
 
-Work proceeds along the spine in **calendar order**; these conventions apply to both phases
-of the spine-and-merge plan (§8).
+These conventions apply to all data authoring and Phase-2 enrichment work.
+
+> **Gotcha — `data/saints.csv` uses CRLF line endings (Windows-style).** There is no
+> `.gitattributes` enforcing this. Run `git config core.autocrlf false` before editing,
+> and verify with `cat -A data/saints.csv | head -2` (lines should end in `^M$`). An
+> editor that normalizes to LF silently produces a large noisy diff or corrupts the file.
 
 - **Comprehensive coverage**, including obscure local saints, pre-schism Western saints,
   and the New-Martyr tail. Honest **stubs** are acceptable for obscure saints: fill
@@ -365,45 +348,14 @@ of the spine-and-merge plan (§8).
 
 ## 8. Sourcing strategy — DECIDED: single spine, then merge by identity
 
-**Decision (final).** Build the database from **one synaxarion as the spine**, walked in
-**calendar order until the whole year is complete**, and *only then* merge other
-jurisdictions by identity. Rationale: a single internally-consistent calendar delivers a
-complete, usable product far faster and with far less duplication than assembling partial
-data from many calendars at once.
-
-### The spine (recommended default — confirm or swap in one line)
-**The OCA daily "Lives of the Saints" / Synaxarion (oca.org).** Why: free, online, and
-fetchable; organized day-by-day; broadly comprehensive; a single (primarily Slavic)
-recension, which is exactly the internal consistency we want; and already our cross-check
-source. Swappable without any code change:
-- **The Prologue of Ohrid** (St. Nikolai Velimirović) — more concise and beloved,
-  pan-Orthodox in spirit, but selective rather than exhaustive.
-- **The Great Synaxaristes** (Greek tradition, English edition) — the most complete, but
-  multi-volume and not freely online.
-
-A spine is used **only as a reference for facts**; we write our own brief lives and compose
-our own prayers, never reproducing its wording (see §9). **No single English synaxarion is
-truly exhaustive** for the whole pan-Orthodox calendar — the spine gives completeness
-*within one recension*; full breadth comes from Phase 2.
+### The spine
+**OCA daily Synaxarion (oca.org)** — used for Phase 1 (now complete). Used **only as a reference for facts**; write our own brief lives and short prayers, never reproduce its wording (§9). No single synaxarion covers the full pan-Orthodox calendar; Phase 2 adds breadth from other recensions.
 
 ### Two-phase plan
-- **Phase 1 — Walk the spine (Jan 1 → Dec 31, calendar order).** Each day, enter every saint
-  the spine commemorates, applying §6 (search-before-add, one row per saint, ID assignment)
-  and §7 (grouping, stubs, skips). Goal: a complete single-recension calendar.
-- **Phase 2 — Merge other jurisdictions by identity.** Work through the Greek, Romanian,
-  Serbian, Georgian, Antiochian, Bulgarian, and Western pre-schism calendars. For each saint:
-  - **If already present** (matched by identity — Name / Also Known As + century + region):
-    **enrich the existing row** — add the jurisdiction to *Tradition of Veneration*, add any
-    new *Feast Day(s)*, fill missing facets. **Never create a second row.**
-  - **If absent and proper to that jurisdiction:** add a new row (blank ID → build assigns).
-
-### How the existing seed fits (the original 372)
-The original 84 representative saints and the comprehensive **Sep 1–10** entries were built
-under the *old* merged-Wikipedia method, so those days are partly *ahead* (Phase 2 already
-partly done). They are **seed, not waste.** When the Phase 1 spine walk reaches a saint that
-is already present, **reconcile** it (confirm details, add any feast dates / traditions, fill
-missing facets) rather than re-adding. Saints already present beyond what the spine lists
-simply stay.
+- **Phase 1 — Walk the spine (Jan 1 → Dec 31).** COMPLETE.
+- **Phase 2 — Merge other jurisdictions by identity.** For each saint:
+  - **If already present** (Name / Also Known As + century + region match): **enrich the existing row** — add jurisdiction to *Tradition of Veneration*, add *Feast Day(s)*, fill missing facets. **Never create a second row.**
+  - **If absent:** add a new row (blank ID → build assigns).
 
 ### Current status & next action
 - Data: **2,737 saints**; IDs run to **OS-2747**. **PHASE 1 (the spine walk) IS COMPLETE** —
@@ -412,19 +364,7 @@ simply stay.
   (#143), Bulgarian (#145), Antiochian (#146), Western pre-schism (#147), and
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
-- **Retired IDs** (removed duplicates; never reused): OS-1926; OS-2291 (→ OS-0052 Porphyrios);
-  OS-1815 (→ OS-0172 Joannicius II); OS-1712 (→ OS-0386 Eustathius); OS-1440 (→ OS-0816
-  Kirion II); and from the identity-cleanup PR: OS-0189 (→ OS-0057 Prophet Moses); OS-0120
-  (→ OS-0065 Mamas); OS-1703 (→ OS-0490 Macarius the Roman); OS-1399 (→ OS-0498
-  Inna/Pinna/Rimma); OS-2369 (→ OS-1641 Eleutherius the Cubicularius).
-- **The identity-cleanup PR landed — all previously-flagged conflations are resolved:**
-  Anthony & Theodosius of the Kyiv Caves split (OS-0136 Anthony + OS-2745 Theodosius);
-  Ioane & Giorgi-Ioane of Betania split (OS-0317 + OS-2746 — the OCA spine lists them
-  separately); Thais split (OS-1142 May 10 Blessed Taisia + OS-2747 Oct 8 the Penitent);
-  Melitine of Marcianopolis (OS-1850) now holds Sep 16 + Oct 29 (Greek usage) while OS-1596
-  remains a Jul 28-only OCA stub. Verified correct/distinct, no change needed: Dositheus of
-  Tbilisi (OS-0540), Joseph of Dionysiou (OS-0674), the two Eupsychii (OS-0966 / OS-1817),
-  the two Euthymii (OS-2021 Thessalonica / OS-1165 Iveron).
+- **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
 - **Next action: continue Phase 2 (the Greek/GOARCH merge) and/or prioritize finder-facet
   enrichment** (Intercessions ~17.5%, Vocation ~21.6%) — enrichment is the most important
   quality axis (§1, §10) and has drifted *down* in percentage as Phase-2 breadth landed.
@@ -443,16 +383,12 @@ simply stay.
   documented-distinct suppression (§6). Quiz match quality scales with **Commonly Asked
   Intercessions** coverage — keep filling that facet.
 
-**Profile generation pipeline (`tools/profilegen/`).** A grounded, batched pipeline turns profile-less saints into reviewed-ready draft profiles: **Gather** a cited dossier (seeded from the saint's own CSV row — the trusted anchor — then external sources per the tiered fetch list), **Write** original encyclopedic prose in house voice, **Verify** it adversarially against the anchor row (the row wins on conflict; each verifier claim must `quote` the profile verbatim), and **Emit** a `src/content/profiles/OS-####.yaml` file with `status: draft` (or `flagged` when a real unsupported claim survives) plus additive controlled-vocab facet enrichment and propose-only PD quote/image rows under `dist/`. `emit_one` recomputes the final draft/flagged status deterministically and **demotes phantom flags** — an "unsupported" claim whose `quote` is not actually present in the profile (the verifier paraphrased or invented the flagged text); demoted flags are logged as `demoted_flags` in the verdict JSON, never silently dropped. Per-stage models (Gather=Haiku, Write=Opus, Verify=Sonnet, Emit=Haiku) concentrate capability where fabrication risk is highest. Run `make profile-batch N=15` to print the highest-finder-value uncovered saints, then run the Workflow (`scripts/profilegen.workflow.js`, **requires explicit Workflow opt-in**). Drafts never auto-publish — they land `status: draft` and a human promotes them to `reviewed` (the reviewed-only production gate, §11). Coverage gaps are logged (`make profile-coverage LOG=dist/profilegen_<date>.csv`) so a cluster of `thin`/`none` saints in a region directs the next source to add.
+**Profile generation pipeline (`tools/profilegen/`).** Gather (Sonnet) → Write (Opus) → Verify (Sonnet) → Emit (Haiku). Gather seeds from the saint's CSV row (trusted anchor), then fetches external sources; Verify checks each claim adversarially against the anchor, quoting the profile verbatim; Emit produces `src/content/profiles/OS-####.yaml` at `status: draft` (or `flagged` when an unsupported claim survives) plus propose-only PD quote/image rows under `dist/`. Phantom flags (verifier paraphrased rather than quoted actual profile text) are demoted, not silently dropped. Drafts never auto-publish — humans promote to `reviewed` (the production gate, §11). Run `make profile-batch N=15` for the next high-value batch; `make profile-coverage` for regional gaps.
 
-**Run modes.** *Calibration* runs live via the Workflow (`scripts/profilegen.workflow.js`) for the first ~15 saints, watching quality closely. *Bulk* runs unattended via `make profile-run` (or `nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown`), which walks the whole prioritized backlog one headless `claude -p` batch at a time and is **resumable** (re-run to continue — prioritization excludes already-profiled saints). Auth setup before an unattended run: `unset ANTHROPIC_API_KEY` (else it bills metered API rates instead of your Max subscription), then `claude setup-token` → `export CLAUDE_CODE_OAUTH_TOKEN=…`. Limit behaviour is honest about what `claude -p` exposes: it has **no reset timestamp** and **cannot tell a 5-hour limit from a weekly cap**, and there is **no usage API for a Max subscription** — so on a `rate_limit_error` the runner **waits a full window** (`RESUME_AFTER`≈5h) and retries, and only **infers the weekly cap** (stops, exit 2) after `WEEKLY_AFTER_WAITS` fruitless waits; **billing/auth errors stop immediately** (exit 3). Feedback surfaces: a `NOTIFY_CMD` hook (e.g. `export NOTIFY_CMD='ntfy publish my-topic'` or `'notify-send'`), `dist/profilegen/state.json` (cat anytime), and exit codes (0 done / 2 likely-weekly / 3 terminal). Billing caveat: headless currently draws the normal Max subscription limits; confirm in Console / `claude /status`.
-
-When fetching: `en.wikipedia.org`, `commons.wikimedia.org` (incl. its API at
-`/w/api.php`), and the image CDN `upload.wikimedia.org` are all reachable
-(verified 2026-06-05) — so saint-portrait icons can be sourced and downloaded
-directly from Wikimedia Commons (see §5 "Saint portraits" and §9). Reachability
-can still change between environments; confirm a URL pattern is fetchable before
-a long run.
+**Run modes.**
+- *Calibration:* `make profile-batch N=15` → run Workflow (`scripts/profilegen.workflow.js`, requires explicit opt-in).
+- *Bulk (unattended):* `make profile-run` (resumable; re-run to continue). Auth: `unset ANTHROPIC_API_KEY && claude setup-token && export CLAUDE_CODE_OAUTH_TOKEN=…`. Rate-limit behaviour, exit codes, and `NOTIFY_CMD` hook documented in `tools/profilegen/run.py`.
+- Wikimedia (`en.wikipedia.org`, `commons.wikimedia.org`, `upload.wikimedia.org`) is reachable for sourcing; verify before a long run.
 
 ---
 
@@ -483,9 +419,7 @@ a long run.
 
 ## 10. Quality bar
 
-- As of migration: Intercession filled ~25%, Life Experience ~60%, Vocation ~21%.
-  **Intercession is the finder's engine** — when working on well-known/searchable
-  patrons, fill it wherever sources support it. Don't fabricate; do prioritize.
+- **Intercession is the finder's engine.** Current coverage: Intercessions ~17.5%, Vocation ~21.6%, Life Experience ~60% (coverage drifts down as Phase-2 breadth lands — counter with enrichment passes). Fill wherever sources support it; don't fabricate.
 - Minimum for any row: Name, Rank, Gender, Feast, Era or Century, Short Prayer, Sources.
 - Prefer enriching high-traffic patrons over adding more bare stubs when time is limited.
 
@@ -494,18 +428,7 @@ a long run.
 ## 11. Tech stack
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
-- **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing in
-  `src/pages/`; `.astro` components render at build time; shared logic lives in `src/lib/`
-  (TS, extracted from the old `web/app.js`); the only client JS is the **islands** in
-  `src/islands/` (vanilla TS — **no React/Vue**). Global styles are `src/styles/global.css`.
-  Adding a page = add a file under `src/pages/`. Browse lives at `/search` (faceted finder);
-  About/Contribute/Corrections and the **Calendar** (`/calendar` — every saint pre-rendered
-  on each fixed feast date, grouped by month, with a client-side today highlight and a
-  movable-cycle section) are live; News remains a "coming soon" placeholder awaiting
-  build-out. **Witnesses of Our Time** (`src/lib/witnesses.ts`,
-  `/witness/[slug]`, surfaced on `/america`) is a separate **non-canonical memorial section**
-  for not-yet-glorified figures — kept strictly out of the saints finder/quiz per §9
-  canonization caution; memorial pages use no liturgical address.
+- **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing; `.astro` components render at build time; shared logic in `src/lib/` (TS); client JS is **only** the vanilla TS islands in `src/islands/` (**no React/Vue**). Adding a page = add a file under `src/pages/`. **Witnesses of Our Time** (`/witness/[slug]`, surfaced on `/america`) is a **non-canonical memorial section** for not-yet-glorified figures — kept strictly out of the finder/quiz per §9; memorial pages use no liturgical address.
 - **Rich saint profiles** are one YAML file per saint in `src/content/profiles/OS-####.yaml`,
   an Astro **data Content Collection** defined in `src/content.config.ts`; the **Zod schema
   validates every profile at build time** (a bad/incomplete profile fails the build). Each
@@ -574,12 +497,8 @@ frontend, **`frontend`** (lint + `astro build` + Playwright e2e). Merges are **s
    (e.g. `data: spine walk — add January 1 commemorations (OS-0373..)`).
 7. Open a PR. Note any canonization/judgment calls and anything needing clergy review in
    the PR description (the PR template has a checklist). **Always include the Cloudflare
-   Pages preview link** under the template's `## Preview` heading so reviewers can see the
-   change in a browser: once the **Cloudflare Pages** check on the PR is green, use the branch
-   alias `https://<branch-alias>.orthodox-saints.pages.dev`, where `<branch-alias>` is the
-   branch name lowercased, non-alphanumerics replaced by `-`, **truncated to 28 characters**
-   (e.g. `feat/flagged-banner-and-preview-pr-process` → `feat-flagged-banner-and-prev`). If in
-   doubt, open the deployment from the check to copy the exact URL. Previews show `draft`/
+   Pages preview link** under the template's `## Preview` heading — once the Cloudflare Pages
+   check is green, click "Visit deployment" to get the exact URL. Previews show `draft`/
    `flagged` profiles, so this is especially valuable for data/profile PRs.
 8. Wait for the **CI check to go green**, then squash-merge. The Deploy workflow then
    builds + publishes to Pages on `main`; confirm it's green.

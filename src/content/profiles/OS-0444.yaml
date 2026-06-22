@@ -1,0 +1,65 @@
+id: OS-0444
+liturgicalTitle: Our Father among the Saints James, Bishop of Nisibis, the Wonderworker
+lifespan: 3rd century - 337/338 (some sources 350)
+overview:
+  - James (Jacob) of Nisibis was a fourth-century bishop and ascetic of Mesopotamia, remembered as one of the fathers of the First Ecumenical Council of Nicaea and as a wonderworker who, by tradition, protected his city on the Persian frontier through prayer. Born at Nisibis (ancient Antiochia Mygdonia, modern Nusaybin), he was reckoned the son of a prince named Gefal and was said to be a relative of Gregory the Illuminator.
+  - He first lived as a solitary in the mountains around Nisibis, embracing severe self-denial, before being raised to the episcopate of his native city. He took a leading part at Nicaea in 325 in opposition to Arius, oversaw the building of the first church of Nisibis, and was the spiritual father of the celebrated Syriac theologian Ephrem the Syrian. He died during or near the years of Shapur II's sieges of the city and is venerated across the Eastern and Western churches.
+timeline:
+  - when: c. 280
+    title: Ascetic life near Nisibis
+    body: James withdrew to the mountains near Nisibis as an anchorite, living without shelter or fire and subsisting on wild herbs and fruits.
+  - when: c. 300-309
+    title: Bishop of Nisibis
+    body: He was consecrated bishop of Nisibis. Sources differ on the date and on whether he was the city's first bishop or the successor to Babu; he continued his ascetic manner of life in office.
+  - when: c. 313-320
+    title: Building the church of Nisibis
+    body: According to the Chronicle of Edessa, James constructed the first church in Nisibis, and the founding of the School of Nisibis is also attributed to him.
+  - when: "325"
+    title: First Ecumenical Council of Nicaea
+    body: James attended the First Ecumenical Council at Nicaea among the assembled fathers and opposed Arius; Theodoret ascribes to him a leading role as a champion of the Orthodox faith.
+  - when: 337/338
+    title: Siege of Nisibis and repose
+    body: James was present during Shapur II's siege of Nisibis. According to Theodoret he ascended the city walls and prayed for its deliverance. He reposed in this period (337/338, though some sources give 350).
+sections:
+  - heading: Origins and Ascetic Life
+    body:
+      - James was born at Nisibis, the ancient Antiochia Mygdonia and the modern Nusaybin in the Mardin Province of present-day Turkey, toward the end of the third century. Tradition names his father as a prince called Gefal and reports a kinship with Gregory the Illuminator.
+      - "Before his episcopate he lived as a solitary monastic in the mountains along the Roman-Persian border. The sources describe an extreme asceticism: he dwelt in the open, by some accounts in mountain crevices in summer and caves in winter, ate only wild fruits and plants, and wore rough garments of goat's hair. Theodoret of Cyrrhus records that he kept no clothing, shelter, or fire for warmth. Through this discipline he was reputed to have received miraculous and prophetic gifts."
+  - heading: Episcopate and the Council of Nicaea
+    body:
+      - Raised to the see of Nisibis in the early fourth century, James maintained his ascetic way of life. He is credited with constructing the first church of the city in the years around 313-320 and with the foundation of the School of Nisibis, which became a major center of Christian learning.
+      - He took part in the First Ecumenical Council convened at Nicaea in 325 and stood against the teaching of Arius. Theodoret of Cyrrhus assigns him a leading part at the council as a defender of the Orthodox faith, and later writers record that he was held in high regard by figures such as Athanasius. He was also the spiritual father of Ephrem the Syrian, who is said to have been baptized by him and to have remained at his side.
+  - heading: Defense of Nisibis
+    body:
+      - Nisibis lay on the contested frontier with the Sasanian Persian empire and was besieged by Shapur II. James is remembered for leading the city in prayer during the siege. Theodoret relates that the bishop ascended the walls and prayed for the deliverance of Nisibis.
+      - By tradition, his prayer brought a swarm of gnats and flies that threw the Persian forces and their animals into confusion and contributed to the lifting of the siege. He was lauded in later memory as the 'Moses of Mesopotamia.' He reposed during this period, the sources placing his death in 337/338, with some giving the later date of 350.
+  - heading: Relics and Veneration
+    body:
+      - James is venerated across a wide range of churches, including the Eastern Orthodox Church, the Roman Catholic and Eastern Catholic Churches, the Church of the East, and the Oriental Orthodox churches. In the Eastern Orthodox calendar his feast falls on January 13, with an additional commemoration on October 31; the Syriac Orthodox and Roman Catholic churches observe July 15, and other Eastern churches keep further dates.
+      - His relics were carried from Nisibis to Edessa after the city was ceded to Persia in 363, and were later moved to Constantinople in 970. Fragments of his skull are recorded as having been given to Hildesheim Cathedral in Germany in 1367.
+  - heading: Writings
+    body:
+      - No authentic writings of James of Nisibis survive. Because the fourth-century author Aphrahat used the episcopal name Jacob, James was at times confused with him in earlier scholarship, but the primary historical witnesses, Jerome and Theodoret, do not attribute literary works to the bishop of Nisibis.
+family:
+  heading: Family
+  figures:
+    - name: Gefal
+      note: By tradition, his father, a prince.
+    - name: St. Gregory the Illuminator
+      note: Reported by tradition to be a relative.
+related: []
+patronage: []
+works: []
+reading:
+  - heading: Sources
+    items:
+      - title: Historia Religiosa (Religious History), on James of Nisibis
+        author: Theodoret of Cyrrhus
+      - title: Ecclesiastical History
+        author: Theodoret of Cyrrhus
+sources:
+  - OCA Synaxarion (oca.org), Jan 13
+  - https://en.wikipedia.org/wiki/Jacob_of_Nisibis
+  - https://orthodoxwiki.org/Jacob_of_Nisibis
+status: draft
+generated: "2026-06-20"

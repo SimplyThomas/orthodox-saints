@@ -1,0 +1,61 @@
+id: OS-2654
+liturgicalTitle: Our Venerable Father Stephen of Khirsa, One of the Thirteen Assyrian Fathers
+lifespan: 6th century
+overview:
+  - Saint Stephen of Khirsa (Stepane Khirseli) was a sixth-century monastic who is numbered among the Thirteen Assyrian Fathers, a group of ascetics remembered in Georgian tradition for coming from Mesopotamia to strengthen Christianity and to establish monastic life in Georgia. He is credited with founding the Khirsa Monastery in the eastern Georgian region of Kakheti, where he is believed to be buried.
+  - The accounts of Stephen and his companions are preserved in a cycle of medieval Georgian hagiographic texts and are not attested beyond them. In the Georgian tradition he is listed among the chief fathers led by Saint John of Zedazeni. He is commemorated with the whole group on May 7.
+sections:
+  - heading: The Thirteen Assyrian Fathers
+    body:
+      - According to Georgian church tradition, the Thirteen Assyrian (or Syrian) Fathers were monastic missionaries who arrived from Mesopotamia in the sixth century to reinforce the Christian faith and to set in motion the ascetic movement in Georgia. They are credited by Georgian church historians with the foundation of several monasteries and hermitages across the land. The number 'thirteen' appears to be largely symbolic, since the surviving tradition names as many as nineteen Assyrian monks active in Georgia during the same period.
+      - The group is remembered as having been led by Saint John of Zedazeni, who according to the tradition gathered twelve disciples and brought them to Georgia. The Catholicos Evlavios and King Parsman are said to have received the fathers near Mtskheta, after which they settled for a time on Zedazeni Mountain before dispersing to preach and to found monastic communities in different regions. Stephen is listed among these chief fathers in the Georgian tradition.
+  - heading: Mission in Kakheti and the Founding of Khirsa
+    body:
+      - By the account preserved in the synaxarion, Stephen and his companions preached throughout Kakheti in eastern Georgia. He afterward founded the Khirsa Monastery near Kharnabuji Castle, which became the center associated with his name. The monastery stands on the Khirsa stream at the village of Tibaani, in what is now Sighnaghi Municipality.
+      - Medieval Georgian tradition attributing the foundation to Stephen was elaborated in hymns by the thirteenth-century cleric Arsen Bulmaisimisdze. Stephen is believed to be buried at the monastery, in the sanctuary of its church dedicated to the Protomartyr Stephen.
+  - heading: Relics & Shrines
+    body:
+      - "Saint Stephen is held to be buried at the Khirsa Monastery, where one of the attached chapels contains his tomb. The extant church is the result of a long series of reconstructions: originally a basilica, it carries a foundational inscription dated 886 on a reused stone beneath the dome, was converted to a domed church in the tenth century, and was further remodeled in the eleventh and sixteenth centuries, with substantial repairs completed in 1822. It measures 41.3 by 23.4 metres and is 15.4 metres high. The monastery is inscribed on Georgia's list of Immovable Cultural Monuments of National Significance and was restored to the Georgian Orthodox Church after renovation in the 1990s."
+timeline:
+  - when: 6th century
+    title: Arrival in Georgia
+    body: Stephen comes to Georgia among the Thirteen Assyrian Fathers led by Saint John of Zedazeni, who according to tradition are received near Mtskheta by Catholicos Evlavios and King Parsman.
+  - when: 6th century
+    title: Mission in Kakheti
+    body: After the fathers disperse from Zedazeni Mountain, Stephen and his companions preach throughout the region of Kakheti in eastern Georgia.
+  - when: 6th century
+    title: Founding of Khirsa Monastery
+    body: Stephen founds the Khirsa Monastery near Kharnabuji Castle, where he is later buried in the sanctuary of the Church of the Protomartyr Stephen.
+  - when: "886"
+    title: Earliest dated inscription at Khirsa
+    body: A foundational inscription dated 886 is recorded on a reused stone beneath the dome of the church that later stood on the site.
+patronage:
+  - Khirsa Monastery, Kakheti
+related:
+  - name: Saint John Zedazeni and his Twelve Disciples
+    note: The collective commemoration of the Thirteen Assyrian Fathers, among whom Stephen is numbered; kept together on May 7.
+    href: saint/OS-1128
+  - name: Saint John of Zedazeni
+    note: Leader of the Thirteen Assyrian Fathers, who according to tradition gathered the disciples and brought them to Georgia.
+  - name: Venerable David of Gareja
+    note: Fellow member of the Thirteen Assyrian Fathers.
+    href: saint/OS-2652
+  - name: Venerable Shio of Mgvime
+    note: Fellow member of the Thirteen Assyrian Fathers.
+    href: saint/OS-0624
+reading:
+  - heading: Further Reading
+    items:
+      - title: Thirteen Assyrian Fathers
+        type: reference
+      - title: Khirsa Monastery
+        type: reference
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers
+  - https://en.wikipedia.org/wiki/Khirsa_monastery
+  - https://www.oca.org/saints/lives/2022/05/07/101311-saint-john-zedazeni-of-zaden-georgia-with-his-12-disciples
+  - https://georgianorthodoxchurch.wordpress.com/category/syrian-fathers/
+status: draft
+generated: "2026-06-21"

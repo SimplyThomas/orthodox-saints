@@ -1,0 +1,45 @@
+id: OS-0196
+liturgicalTitle: The Holy Hieromartyr Babylas, Bishop of Antioch
+lifespan: died c. 250-253
+overview:
+  - Babylas was Bishop of Antioch in the middle of the third century and is venerated as a hieromartyr, a bishop who died for the faith. He is remembered above all for refusing to admit a pagan emperor, whose conduct he judged unworthy, into the church, and for confessing Christ during the persecution that followed.
+  - According to the synaxarion tradition followed in the East, three young students named Ammonius, Donatos, and Faustus were martyred together with him. Babylas was honored almost immediately after his death, and the later history of his relics, including their translation to the suburb of Daphne, made his cult one of the most celebrated of early Antioch.
+timeline:
+  - when: c. 237-253
+    title: Bishop of Antioch
+    body: Babylas served as bishop of Antioch, reckoned the twelfth bishop of that see, succeeding Zebinnus.
+  - when: mid-3rd century
+    title: Barring the emperor
+    body: Babylas refused to admit a visiting pagan emperor to the church on account of the emperor's sinful conduct. The accounts vary as to the emperor named; the church was burned in reprisal in one tradition.
+  - when: c. 250-251
+    title: Confession and martyrdom
+    body: During the Decian persecution Babylas confessed the faith. He is venerated as a hieromartyr; the synaxarion relates that three young students suffered with him.
+  - when: "351"
+    title: Translation of relics to Daphne
+    body: Caesar Constantius Gallus built a church in honor of Babylas at Daphne, near Antioch, and had his remains moved there - described as the first recorded translation of a saint's buried remains.
+  - when: "362"
+    title: The oracle silenced
+    body: When Emperor Julian consulted the oracle of Apollo at Daphne, no answer came, attributed to the proximity of Babylas. Julian had the sarcophagus removed; soon after, fire consumed the temple of Apollo.
+sections:
+  - heading: Episcopate and the Barred Emperor
+    body:
+      - Babylas was bishop of Antioch in the third century, counted as the twelfth holder of that ancient see and the successor of Zebinnus. His episcopate is generally placed in the years surrounding the reign of the emperor Gordian III.
+      - "The episode for which he is best known is his refusal to admit a pagan emperor into the church because of the ruler's bloodstained or sinful conduct. The sources do not agree on the emperor's identity: John Chrysostom, who preached on Babylas, leaves him unnamed; the Acts of the Martyrs name Numerian; and many scholars favor Philip the Arab, whom the historian Eusebius reports was barred by a bishop from the Easter vigil, with later legend connecting the demand for penance to Philip's involvement in the death of the young Gordian III."
+  - heading: Martyrdom and Companions
+    body:
+      - Babylas made his confession of faith during the persecution under the emperor Decius. One early tradition holds that he was cast into prison and died there of his sufferings, and on this account he was venerated as a martyr; the title hieromartyr marks him as a bishop who died for the faith.
+      - "The Eastern synaxarion tradition records that he did not suffer alone: three young students, named Ammonius, Donatos, and Faustus, were martyred together with him and are commemorated on the same day."
+  - heading: Relics and the Oracle of Daphne
+    body:
+      - In the year 351 Caesar Constantius Gallus built a new church in honor of Babylas at Daphne, a suburb of Antioch famous for its temple of Apollo, and had the bishop's remains transferred there. This act is often described as the first recorded translation of the buried remains of a saint.
+      - When the emperor Julian consulted the oracle of Apollo at Daphne in 362, he received no answer, and was told that the silence was due to the nearness of the relics of Babylas. Julian ordered the saint's sarcophagus exhumed and reburied elsewhere; only days afterward a fire broke out in the temple, consuming its roof and the statue of the god. These events made Babylas a celebrated witness in the conflict between the Church and the last pagan emperor.
+related:
+  - name: Ammonius, Donatos, and Faustus
+    note: Three young students martyred together with Babylas and commemorated with him.
+patronage: []
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Babylas_of_Antioch
+  - https://orthodoxwiki.org/Babylas_of_Antioch
+generated: "2026-06-19"

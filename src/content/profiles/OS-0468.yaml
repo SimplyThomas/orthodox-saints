@@ -1,0 +1,47 @@
+id: OS-0468
+liturgicalTitle: Our Father Among the Saints Honoratus, Archbishop of Arles and Founder of Lérins
+lifespan: c. 350 – 429
+overview:
+  - Honoratus of Arles was a fifth-century monastic founder and bishop in Gaul. Born about 350 into a distinguished Roman family of consular rank, he abandoned a promising secular career to embrace the ascetic life, eventually founding the island monastery of Lérins, which became one of the most influential monastic and educational centers of the early medieval West.
+  - Drawn from the monastery to the episcopate, Honoratus served as archbishop of Arles from 426 until his death in 429. The community he established at Lérins produced a remarkable succession of bishops, theologians, and saints, earning a lasting reputation as a nursery of the Gallic Church.
+timeline:
+  - when: c. 350
+    title: Birth in Gaul
+    body: Honoratus was born in Gaul, in a region described as northern Gaul, into a distinguished Roman family of consular rank. He received an excellent education.
+  - when: c. 368
+    title: Conversion and pilgrimage to the East
+    body: He converted to Christianity together with his brother Venantius and departed from Marseille to visit the holy sites of Palestine, Syria, and Egypt under the guidance of the hermit Caprasius. After Venantius died at Methone, the survivors returned through Italy and Rome to Provence.
+  - when: c. 410
+    title: Founding of Lérins
+    body: Encouraged by Leontius, bishop of Fréjus, Honoratus settled on the previously uninhabited island of Lérins intending to live in solitude. Disciples gathered around him, forming a monastic community that drew members from across Roman Gaul and from Brittany.
+  - when: "426"
+    title: Archbishop of Arles
+    body: Following the assassination of Patroclus, archbishop of Arles, Honoratus was summoned from his monastic retreat to lead the diocese. As bishop he confronted Arian and Manichaean disturbances while continuing to direct the monks of Lérins.
+  - when: "429"
+    title: Repose at Arles
+    body: Honoratus died at Arles, traditionally on 6 January 429, in the arms of his disciple Hilary, who succeeded him as bishop. His feast is kept on 16 January.
+sections:
+  - heading: The monastery of Lérins
+    body:
+      - Honoratus established his monastery around the year 410 on the island the Romans called Lerina, one of the Lérins Islands off the southern coast of Gaul, which now bears his name as Saint-Honorat. Though he had hoped to live as a solitary, his reputation attracted disciples who organized themselves into a community under his guidance. His monastic rule drew chiefly on that of Saint Pachomius, the great organizer of Egyptian cenobitic monasticism whose practices Honoratus had encountered during his eastern travels.
+      - Through the fifth, sixth, and seventh centuries, Lérins exercised considerable influence as a center of learning and spiritual formation. It produced bishops, theologians, and writers for the churches of Gaul, including Lupus of Troyes, Eucherius of Lyon, and Hilary of Arles among Honoratus's own disciples, and later figures such as Caesarius of Arles, Faustus of Riez, and the author Vincent of Lérins.
+  - heading: Episcopate and death
+    body:
+      - In 426 the see of Arles fell vacant after the murder of its archbishop Patroclus, and Honoratus was called from his solitude to govern the diocese. During his short episcopate he is recorded as contending with Arian and Manichaean disturbances while maintaining oversight of his monastic foundation. He died at Arles in 429 and was succeeded by his disciple Hilary, who delivered a discourse in his memory.
+related:
+  - name: Hilary of Arles
+    note: Disciple of Honoratus at Lérins who attended his death and succeeded him as bishop of Arles.
+  - name: Eucherius of Lyon
+    note: Disciple who joined the community at Lérins and later became bishop of Lyon.
+  - name: Lupus of Troyes
+    note: Disciple at Lérins who became bishop of Troyes.
+patronage: []
+works: []
+reading: []
+sources:
+  - OCA Synaxarion (oca.org), Jan 16
+  - https://en.wikipedia.org/wiki/Honoratus
+  - https://www.oca.org/saints/lives/2016/01/16
+  - https://en.wikipedia.org/wiki/L%C3%A9rins_Abbey
+status: draft
+generated: "2026-06-20"

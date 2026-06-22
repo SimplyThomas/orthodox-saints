@@ -1,0 +1,35 @@
+id: OS-1021
+liturgicalTitle: Our Father among the Saints Tryphon, Patriarch of Constantinople
+overview:
+  - Tryphon was Patriarch of Constantinople from 928 to 931. A monk in the imperial capital before his elevation, he was renowned for his meekness and was raised to the patriarchal throne by the Byzantine emperor Romanos I Lekapenos following the death of his predecessor, Stephen II.
+  - "Tryphon's appointment was tied to a political condition: the emperor intended the patriarchate for his own son, Theophylact, and so Tryphon was installed effectively as a placeholder, on the understanding that he would step aside once the boy came of age. He accepted the office in this spirit and, according to the synaxarion, governed the Church wisely during his brief tenure."
+  - When the time came for Theophylact to assume the throne, Tryphon was removed through a deception engineered by the emperor's advisors. Maneuvered into signing a document under false pretenses, he was thereby made to resign, and was put out of the patriarchal residence. He returned to his monastery and lived out his final period as a simple monk, reposing in 933.
+lifespan: died 933
+timeline:
+  - when: "928"
+    title: Raised to the patriarchate
+    body: Installed as Patriarch of Constantinople by Emperor Romanos I Lekapenos, succeeding Stephen II, on the understanding that he would resign once the emperor's son Theophylact came of age.
+  - when: 928-931
+    title: Patriarchate
+    body: Governed the Church of Constantinople for roughly three years, esteemed by the people for his meekness and virtue.
+  - when: "931"
+    title: Removal by deception
+    body: Refusing simply to step down when Theophylact reached the appointed age, Tryphon was tricked by the emperor's advisors into signing a document that was used to effect his resignation, and he was removed from the patriarchal chambers.
+  - when: "933"
+    title: Repose
+    body: Having returned to his monastery to live as a simple monk, Tryphon reposed in 933. His successor, Theophylact, was proclaimed Patriarch in the same year.
+sections:
+  - heading: Character and Veneration
+    body:
+      - Sources remember Tryphon for his meekness, his freedom from malice, and his submission to the will of God, qualities that endeared him to the people of Constantinople during his short patriarchate.
+      - According to one account, after his death his body was returned to Constantinople and buried among the patriarchs. He is venerated as a saint in the Eastern Orthodox Church, with his feast kept on 19 April.
+  - heading: The Manner of His Resignation
+    body:
+      - The accounts of Tryphon's removal agree that he was deposed through trickery rather than by any fault of his own. One tradition relates that a bishop, casting doubt on the patriarch's literacy, induced him to sign a blank sheet, upon which imperial clerks afterward wrote out a letter of resignation; another names the bishop who orchestrated the scheme as Theophilus of Caesarea. In either telling, the forged or falsified document was read before the imperial dignitaries, and Tryphon was put out of office to make way for the emperor's son.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - orthodoxwiki.org
+  - https://en.wikipedia.org/wiki/Tryphon_of_Constantinople
+  - https://orthodoxwiki.org/Tryphon_of_Constantinople
+status: draft
+generated: "2026-06-20"

@@ -1,0 +1,51 @@
+id: OS-0948
+liturgicalTitle: Our Venerable Father Plato the Confessor, Abbot of Sakkoudion
+lifespan: c. 735 – 814 (Constantinople)
+overview:
+  - Plato the Confessor was a Byzantine monastic founder and abbot, the uncle of Saint Theodore the Studite, who suffered imprisonment and persecution for upholding the veneration of icons and the canons of the Church. He is honored as a confessor, the title given to those who endured suffering for the faith without dying as martyrs.
+  - Born around 735, probably at Constantinople, he began as a minor official before embracing monastic life in 759. He went on to found the monastery of Sakkoudion in Bithynia and to take a leading part, alongside his nephew Theodore, in the disputes that shaped the Byzantine Church at the turn of the ninth century.
+timeline:
+  - when: c. 735
+    title: Birth
+    body: Plato was born around 735, probably in Constantinople, and served for a time as a minor Byzantine official before turning to the monastic life.
+  - when: "759"
+    title: Entry into monastic life
+    body: He became a monk in 759. Esteemed for his learning and piety, he is said to have declined both the metropolitan see of Nicomedia and the headship of a monastery in Constantinople.
+  - when: "783"
+    title: Foundation of Sakkoudion
+    body: He founded and became the first abbot of the monastery of Sakkoudion on Mount Olympus in Bithynia, drawing his sister's family, including the young Theodore, into the monastic community.
+  - when: "787"
+    title: Second Council of Nicaea
+    body: As a supporter of the Patriarch Tarasius, Plato took part in the Second Council of Nicaea, which affirmed the veneration of icons as orthodox.
+  - when: c. 795–797
+    title: The Moechian controversy and imprisonment
+    body: Plato joined Theodore in opposing the second marriage of the emperor Constantine VI to Theodote, Plato's own niece. As punishment the monastery community was dispersed, and Plato was imprisoned in Constantinople until his release after the emperor's overthrow in 797.
+  - when: "814"
+    title: Repose
+    body: Plato died in 814 at the Stoudios Monastery in Constantinople after a long illness. His nephew Theodore the Studite composed a funeral oration recounting his life.
+sections:
+  - heading: Monastic Founder and Confessor
+    body:
+      - Plato belongs to the generation of Byzantine monastics who resisted both imperial interference in the Church and the iconoclast policies of the eighth and ninth centuries. After taking up the monastic life in 759, he founded the monastery of Sakkoudion on Mount Olympus in Bithynia in 783, transforming a family estate into a religious establishment that became a center of strict monastic observance.
+      - He maintained a firmly iconodule position during the Byzantine iconoclast controversy and supported the Patriarch Tarasius, taking part in the Second Council of Nicaea in 787, where the veneration of icons was declared orthodox.
+  - heading: The Moechian Controversy
+    body:
+      - Plato and his nephew Theodore the Studite became leading opponents of the so-called Moechian controversy, the dispute arising from the emperor Constantine VI's divorce of his wife and his marriage to Theodote, a relative of Plato. Uncle and nephew demanded the excommunication not only of the priest who blessed the union but of all who shared communion with him.
+      - For this resistance the monastery's community was scattered by imperial order. While Theodore was flogged and exiled, Plato was imprisoned at Constantinople. Both were released after Constantine VI was overthrown in 797. Plato spent his final years at the Stoudios Monastery, where he died in 814 after a long illness.
+family:
+  heading: Family
+  figures:
+    - name: Theodore the Studite
+      note: Nephew; the celebrated abbot and defender of icons
+patronage:
+  - Monastics and those who uphold the veneration of icons
+  - Those imprisoned for conscience and the faith
+related:
+  - name: Theodore the Studite
+    note: Nephew and fellow confessor; founded with Plato the Sakkoudion community
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Plato_of_Sakkoudion
+  - https://en.wikipedia.org/wiki/Theodore_the_Studite
+status: draft
+generated: "2026-06-19"

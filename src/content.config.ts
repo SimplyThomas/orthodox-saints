@@ -20,6 +20,7 @@ const profileSchema = z
       .optional(),
     sources: z.array(z.string()).optional(),
     generated: z.string().optional(), // ISO date
+    humanReviewed: z.boolean().optional().default(false),
     lifespan: z.string().optional(),
     // The saint's full formal liturgical style (the title spoken at
     // commemoration), e.g. "Our Father among the Saints Nicholas, Archbishop of

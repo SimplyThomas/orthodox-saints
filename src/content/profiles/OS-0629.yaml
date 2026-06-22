@@ -1,0 +1,52 @@
+id: OS-0629
+liturgicalTitle: Holy Right-Believing Princess Anna of Novgorod
+lifespan: c. 1001 - 1050
+overview:
+  - Anna of Novgorod (c. 1001 - 1050) was a Swedish princess who became Grand Princess of Kiev as the wife of Yaroslav the Wise. Born Ingegerd, the daughter of King Olof Skotkonung of Sweden, she took the name Irene in Rus' and, near the end of her life, the monastic name Anna. She is honored among the first canonized women of Rus' and is commemorated on February 10.
+  - Her father had at first arranged a betrothal to a king of Norway, but that arrangement fell through, and in 1019 Ingegerd was instead given in marriage to Yaroslav the Wise, Grand Prince of Novgorod and later of Kiev. According to sagas she received Ladoga and the surrounding lands as a marriage gift. Her marriage joined the ruling houses of Sweden and Rus', and she became the mother of a large family of princes and princesses.
+  - "As Grand Princess she was associated with the building of two of the principal churches of early Rus': the Cathedral of Saint Sophia in Kiev, whose foundation was laid in 1037, and the Cathedral of Saint Sophia in Novgorod, constructed between 1045 and 1050. Shortly before her death she was tonsured a nun, taking the name Anna. She reposed in 1050 and, according to the tradition, was buried in the Cathedral of Saint Sophia."
+sections:
+  - heading: Names and Origins
+    body:
+      - The saint bore several names across her life. In Sweden she was Ingegerd, daughter of King Olof Skotkonung. On her marriage and entry into the Church of Rus' she received the name Irene, and at the close of her life, upon being tonsured into monasticism, she took the name Anna, under which she is venerated. The accounts of her life draw on both the Scandinavian sagas and the chronicles of Rus'.
+  - heading: Foundations and Legacy
+    body:
+      - "Anna's veneration is closely tied to the great church-building of Yaroslav's reign. Tradition credits her with a role in the founding of the Cathedral of Saint Sophia in Kiev, begun in 1037, and the Cathedral of Saint Sophia in Novgorod, raised between 1045 and 1050. Her family connections reached across Europe: among her children were daughters who became queens, including Anna Yaroslavna, who married King Henry I of France, and a son, Vladimir, prince of Novgorod, who is himself venerated as a saint."
+timeline:
+  - when: c. 1001
+    title: Birth in Sweden
+    body: Born Ingegerd, daughter of King Olof Skotkonung of Sweden.
+  - when: "1019"
+    title: Marriage to Yaroslav the Wise
+    body: Married Yaroslav the Wise and took the name Irene in Rus'.
+  - when: "1037"
+    title: Foundation of St Sophia in Kiev
+    body: The foundation of the Cathedral of Saint Sophia in Kiev was laid.
+  - when: 1045-1050
+    title: Cathedral of St Sophia in Novgorod
+    body: The Cathedral of Saint Sophia in Novgorod was built.
+  - when: "1050"
+    title: Tonsure and repose
+    body: Tonsured a nun with the name Anna shortly before her repose in 1050.
+related:
+  - name: Right-believing Prince Vladimir Yaroslavich of Novgorod
+    note: Her son, prince of Novgorod, venerated as a saint
+    href: saint/OS-1949
+family:
+  heading: Family
+  intro: Anna was the wife of Yaroslav the Wise and mother of a large family whose marriages linked Rus' to the royal houses of Europe.
+  figures:
+    - name: Yaroslav the Wise
+      note: Her husband, Grand Prince of Novgorod and Kiev
+    - name: Vladimir Yaroslavich of Novgorod
+      note: Her son, prince of Novgorod, venerated as a saint
+      href: saint/OS-1949
+    - name: Anna Yaroslavna
+      note: Her daughter, who married King Henry I of France
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Ingegerd_Olofsdotter_of_Sweden
+  - https://saintstree.wordpress.com/st-anna-of-novgorod/
+  - https://en.wikipedia.org/wiki/Ingegerd_Olofsdotter
+generated: "2026-06-20"

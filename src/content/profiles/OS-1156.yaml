@@ -1,0 +1,26 @@
+id: OS-1156
+liturgicalTitle: Our Father among the Saints Polybius, Bishop in Cyprus
+overview:
+  - Saint Polybius was a fifth-century disciple and companion of Saint Epiphanius of Salamis, the renowned bishop of Cyprus and defender of the apostolic faith. According to the synaxarion he accompanied Epiphanius on all his journeys and later himself served as a bishop, reposing among the saints commemorated on May 12, the feast he shares with his teacher.
+  - "Polybius is remembered above all as a recorder of Epiphanius's life: tradition credits him with writing about the life and the miracles of his teacher, so that his witness preserves much of what is known of the great Cypriot hierarch. The in-repo record describes him simply as a bishop in Cyprus; the wider hagiographical tradition associates his see with Rhinocorura (Rhinocyra) in Egypt."
+  - The sources for Polybius are brief, and little is related of his own episcopate apart from his closeness to Epiphanius and his role as the chronicler of his teacher's deeds. He belongs to the circle of saints around Epiphanius commemorated in Cyprus, which also includes Saint Sabinus, who succeeded to the hierarchy on the island, and Saint Philo of Karpasia, whom Epiphanius ordained.
+sections:
+  - heading: Companion and Biographer of Epiphanius
+    body:
+      - The defining feature of Polybius in the synaxarion is his discipleship under Saint Epiphanius. He is said to have accompanied his teacher on all his travels and to have committed to writing an account of his life and miracles, becoming one of the principal channels by which the memory of Epiphanius was handed down.
+      - By tradition, Polybius was with Epiphanius as the latter returned from Constantinople, where Epiphanius had been unwilling to take part in the council that condemned Saint John Chrysostom. The episode places Polybius at the side of his teacher during one of the most fraught controversies of the age, though the synaxarion preserves few further particulars of his own part in it.
+related:
+  - name: Saint Epiphanius, Bishop of Cyprus
+    note: His teacher; Polybius accompanied him on his journeys and wrote of his life and miracles. Shares the May 12 feast.
+    href: saint/OS-1152
+  - name: Saint Sabinus, Archbishop of Cyprus
+    note: A fellow disciple of Epiphanius commemorated the same day, who succeeded to the hierarchy in Cyprus.
+    href: saint/OS-1155
+  - name: Saint Philo, Bishop of Karpasia
+    note: A bishop in Cyprus ordained by Saint Epiphanius.
+    href: saint/OS-0531
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2016/05/12
+generated: "2026-06-20"

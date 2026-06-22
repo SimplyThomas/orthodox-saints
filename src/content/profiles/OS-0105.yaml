@@ -1,0 +1,49 @@
+id: OS-0105
+liturgicalTitle: Our Father among the Saints Victorius, Bishop of Le Mans
+lifespan: 5th century (died c. 490)
+overview:
+  - Saint Victorius, also recorded as Victurius or Victor, was a fifth-century bishop of Le Mans (Cenomanis) in Gaul. He is the first bishop of that see whose episcopate can be dated with certainty, his presence at two regional councils giving his career a firm historical footing where the records of his predecessors do not. By tradition he is remembered as a disciple of Saint Martin of Tours, the great wonderworker of Gaul, though this association belongs to later hagiography rather than to the verifiable record.
+  - Victorius governed Le Mans through the second half of the fifth century, a period covered by the synods of Angers and Tours at which he was present, and died on the first of September around the year 490. Soon after his repose Gregory of Tours named him a venerable confessor and recorded miracles connected with his memory, and from the seventh century onward he was venerated at a basilica dedicated to him in the city.
+sections:
+  - heading: Episcopate at Le Mans
+    body:
+      - Victorius is identified by later record-keepers as the first bishop of Le Mans whose episcopate can be dated with certainty. The earlier bishops listed in the local Actus Pontificum, the deeds of the bishops of the see, are entangled with chronological inconsistencies that make their dating unreliable; Victorius, by contrast, can be securely placed because his name appears in the acts of regional councils.
+      - He assisted at the synod of Angers in 453 and the synod of Tours in 461, collaborating with his fellow bishops of Gaul in matters of church discipline. His tenure is generally dated to roughly 449 to 490. He was succeeded in the see by Turibius, who held the episcopal office from about 490 to 496, which places the end of Victorius's own episcopate around the year 490.
+  - heading: Relationship with Saint Martin of Tours
+    body:
+      - Victorius is remembered in tradition as a disciple of Saint Martin of Tours, and a hagiographic text known as the Acts of Victor and Victorius (Acta Victori et Victorii) sought to bind the bishops of Le Mans to the celebrated bishop of Tours. According to that account, set at the death of an earlier bishop named Liborius, Martin came to Le Mans to oversee the burial and the election of a successor, and it was revealed to him that a subdeacon laboring among the vines would be the next bishop. Martin sought a blessing from this man, named Victor, who protested that he was married and had a son; his wife Maura was then summoned and pledged to live as the bishop's sister rather than his wife.
+      - Historians regard the depiction of Victorius as the foster son or personal disciple of Saint Martin as legendary, since Martin of Tours died in 397, long before Victorius's attested activity in the latter half of the fifth century. The Acts thus express a devotional link between the two sees rather than a documented personal discipleship; the received memory of Victorius as a disciple of Martin reflects this tradition of spiritual lineage.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Gregory of Tours, writing not long after Victorius's repose, referred to him as a venerable confessor. Gregory recorded that the saint miraculously preserved Le Mans from destruction by fire, and he attributed to Victorius's holiness cures that took place at his tomb."
+      - "Traditional Accounts: The Acts of Victor and Victorius preserve the tradition of his designation as bishop through a revelation granted to Saint Martin, together with the episode of his wife Maura's vow of continence — narrative elements that belong to the hagiographic tradition rather than to the securely attested historical record."
+  - heading: Relics & Shrines
+    body:
+      - From the seventh century onward Saint Victorius was venerated at a basilica dedicated to him in Le Mans, where his tomb was associated with the cures recorded by Gregory of Tours.
+timeline:
+  - when: "453"
+    title: Synod of Angers
+    body: Victorius, bishop of Le Mans, assists at the synod of Angers, collaborating with the bishops of Gaul on questions of church discipline.
+  - when: "461"
+    title: Synod of Tours
+    body: He attends the synod of Tours, the second council whose acts fix his episcopate with certainty.
+  - when: c. 490
+    title: Repose
+    body: Victorius dies on the first of September around the year 490; he is succeeded in the see of Le Mans by Turibius.
+  - when: from the 7th century
+    title: Veneration at his basilica
+    body: A basilica dedicated to the saint becomes the center of his veneration at Le Mans.
+related:
+  - name: Saint Martin the Merciful, Bishop of Tours
+    note: Bishop of Tours, by tradition Victorius's teacher.
+    href: saint/OS-2008
+patronage:
+  - Le Mans
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/victurius-le-mans-st
+  - https://www.newadvent.org/cathen/09143b.htm
+  - http://csla.history.ox.ac.uk/record.php?recid=E06789
+  - https://www.catholic.org/saints/saint.php?saint_id=1981
+status: draft
+generated: "2026-06-21"

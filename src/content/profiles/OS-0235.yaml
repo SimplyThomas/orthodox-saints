@@ -1,0 +1,43 @@
+id: OS-0235
+liturgicalTitle: Our Venerable Father Bertin, Abbot of Sithiu
+lifespan: c. 615 - c. 709
+overview:
+  - Bertin of Sithiu was a Frankish monk who became the abbot under whom the monastery of Sithiu, in the far north of Gaul, rose to become one of the leading monastic centres of northern Europe. By tradition he was born near Constance, in the territory of Alamannia, around the year 615, and entered the monastery of Luxeuil while still young, where he was formed under the austere rule associated with St. Columbanus. He is commemorated on September 5.
+  - About the year 638 Bertin set out with two companions, Mummolin and Ebertram, for the northern reaches of France to assist St. Omer, Bishop of Therouanne, in the evangelization of the Morini, a people among whom paganism still prevailed. The missionaries settled at a place called Sithiu, on land that had been given to Bishop Omer by a nobleman named Adrowald; the town of Saint-Omer later grew up in the same region. Mummolin governed the monastic community as abbot until he was made Bishop of Noyon, about the year 659, after which Bertin assumed the abbacy.
+  - Under Bertin's long government the community flourished, and the sources record that more than 150 monks came to live under his rule. Among them was St. Winnoc, who came from Brittany with three companions to join the monastery and assist in the conversion of the surrounding population. As his death approached, Bertin appointed a monk named Rigobert to succeed him. He reposed around the year 709. The monastery, which had first been dedicated to St. Peter, was afterwards rededicated to its second abbot and became known as the Abbey of Saint Bertin; it ranked in importance with the monasteries of Elnon and St. Vaast and remained one of the most influential houses in the north of Europe. He is numbered among the pre-Schism Western saints venerated as Orthodox.
+sections:
+  - heading: Formation at Luxeuil
+    body:
+      - Bertin's monastic formation took place at the abbey of Luxeuil in Burgundy, one of the principal centres of the Irish-influenced monasticism that St. Columbanus had brought to the continent. The austere discipline of that house prepared him, according to the tradition, for the missionary labour he would later undertake among the still-pagan peoples of the north.
+  - heading: The Monastery of Sithiu
+    body:
+      - The foundation at Sithiu began as a small missionary settlement from which Bertin and his companions went out to preach among the Morini. Over the decades of his abbacy it developed into a large and well-ordered community whose reputation for learning and discipline drew monks from a distance, including the Breton St. Winnoc. The marshy land of the region was, by tradition, gradually brought under cultivation as the surrounding population was Christianized. After Bertin's repose the house took his name, and the Abbey of Saint Bertin endured for many centuries as a major monastic centre.
+timeline:
+  - when: c. 615
+    title: Birth near Constance
+    body: Bertin is born near Constance, in the territory of Alamannia.
+  - when: c. 638
+    title: Journey north to the Morini
+    body: He travels with Mummolin and Ebertram to assist St. Omer in evangelizing the Morini, settling at Sithiu.
+  - when: c. 659
+    title: Becomes abbot of Sithiu
+    body: On Mummolin's elevation to the see of Noyon, Bertin assumes the abbacy of the monastery.
+  - when: c. 709
+    title: Repose
+    body: Bertin reposes after appointing Rigobert his successor; the abbey is later rededicated in his name.
+related:
+  - name: St. Omer of Therouanne
+    note: Bishop and kinsman whom Bertin came north to assist in the mission to the Morini
+    href: saint/OS-0326
+  - name: St. Columbanus of Luxeuil
+    note: Irish founder of Luxeuil, whose rule formed Bertin's monastic life
+    href: saint/OS-2693
+patronage:
+  - Venerated as a patron of monastics and of those engaged in missionary work and the founding of religious communities.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://www.newadvent.org/cathen/02522b.htm
+  - https://en.wikipedia.org/wiki/Abbey_of_Saint_Bertin
+  - https://drjohnhutchisonhall.com/saints-west-18-5-sep-2025/
+generated: "2026-06-20"

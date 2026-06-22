@@ -1,0 +1,43 @@
+id: OS-0324
+liturgicalTitle: Our Venerable Father Kieran, First Abbot of Clonmacnoise
+lifespan: c. 516 – c. 549
+overview:
+  - Kieran of Clonmacnoise (Ciaran the Younger) was a sixth-century Irish monastic founder, numbered among the Twelve Apostles of Ireland and remembered as the first abbot of Clonmacnoise. By tradition he was born around 516 in the region of present-day County Roscommon, in Connacht. His father was a carpenter and chariot maker, and the name by which he is known is connected with the phrase 'son of the carpenter'; the sources relate that in his youth he worked as a herdsman before turning to the monastic life.
+  - Kieran received his formation under the leading teachers of the early Irish church. He studied at Clonard under Finnian, and later went to the island of Inishmore among the Aran Islands, where he trained under Enda. According to the tradition, Enda ordained him to the priesthood and counselled him to found a church and monastery in the interior of Ireland. Some accounts add that he also spent time with Senan on Scattery Island before establishing his own foundation.
+  - About the year 544 Kieran settled on the bank of the River Shannon at Clonmacnoise and founded a monastery there together with a small band of companions. He governed it as its first abbot for only a short time — the tradition holds about seven months — before dying of a plague that swept through Ireland around 549, while still in his early thirties and with the monastery still under construction. Despite the brevity of his life, the community he founded grew into one of the most important centres of monastic life and learning in Ireland.
+  - Clonmacnoise became renowned in the centuries after Kieran's death as a great school and place of pilgrimage, and a severely ascetic rule for monks was traditionally ascribed to him. He is venerated as the patron of Connacht and is commemorated on the ninth of September, the day of his repose.
+sections:
+  - heading: Foundation of Clonmacnoise
+    body:
+      - Following the counsel of his teacher Enda, Kieran travelled to the centre of Ireland and chose a site on the eastern bank of the River Shannon for his monastery. The tradition records that he settled there around 544 with a band of companions and began to build, becoming the community's first abbot.
+      - Although Kieran himself led the monastery for only a matter of months before his death, Clonmacnoise endured and flourished for centuries. By the ninth century it had become a celebrated centre of learning, and the sources relate that the scholar Alcuin of York studied there. The site remained a place of pilgrimage long after, surviving Viking raids and later conflicts.
+  - heading: The Ascetic Rule
+    body:
+      - A severely ascetic monastic rule was traditionally attributed to Kieran. According to the tradition preserved in the synaxarion and later sources, this rule was widely influential among Irish monastic communities, with many houses said to have followed the discipline associated with his foundation.
+timeline:
+  - when: c. 516
+    title: Birth in Connacht
+    body: Born, by tradition, in the region of present-day County Roscommon to a carpenter's family.
+  - when: c. 534
+    title: Studies under Enda on Aran
+    body: Trained under Enda on Inishmore in the Aran Islands and was ordained to the priesthood.
+  - when: c. 544
+    title: Foundation of Clonmacnoise
+    body: Settled on the River Shannon and founded the monastery of Clonmacnoise with his companions, serving as its first abbot.
+  - when: c. 549
+    title: Repose
+    body: Died of plague in his early thirties, only months after founding the monastery.
+related:
+  - name: St. Enda of Aran
+    note: His teacher on Inishmore, who ordained him and counselled him to found a monastery
+    href: saint/OS-0861
+patronage:
+  - Honoured as the patron saint of Connacht.
+  - Invoked in connection with monastic foundations and the religious life.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Ciar%C3%A1n_of_Clonmacnoise
+  - https://www.catholicireland.net/saintoftheday/st-ciaran-of-clonmacnois-6th-century-abbot/
+  - https://orthochristian.com/73745.html
+generated: "2026-06-20"

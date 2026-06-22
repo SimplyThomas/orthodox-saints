@@ -1,0 +1,47 @@
+id: OS-1330
+liturgicalTitle: The Holy and Glorious Apostle Bartholomew of the Twelve
+lifespan: first century
+overview:
+  - "Bartholomew was one of the Twelve Apostles, named in each of the synoptic lists of the apostles and in the Acts of the Apostles. From the patristic period he has widely been identified with Nathanael, the man of Cana in Galilee whom Philip brought to Christ in the Gospel of John; teachers including John Chrysostom, Cyril of Alexandria, and Epiphanius of Cyprus regarded the two names as belonging to a single person. The identification rests on circumstantial grounds: the name Bartholomew, an Aramaic patronymic meaning 'son of Tolmai,' appears in the synoptic Gospels but not in John, while Nathanael appears only in John, and the apostolic lists consistently pair Bartholomew with Philip, who in John is the friend that brings Nathanael to Jesus."
+  - After Pentecost, by tradition, Bartholomew received by lot the task of preaching the Gospel together with the Apostle Philip across Syria and Asia Minor, and Philip's sister Mariamne is said to have accompanied them. Later accounts trace his apostolic labors more widely still, through Phrygia, Lycaonia, Mesopotamia, and the lands bordering the Black Sea, and above all to India and to Greater Armenia. According to a tradition reported by the early Church historian Eusebius, the catechist Pantaenus, on reaching India, found there a copy of the Gospel of Matthew in Hebrew that Bartholomew was said to have left behind among the converts.
+  - "The most widespread tradition places the close of his life in Armenia, where he is said to have converted the local king and, in consequence, to have suffered martyrdom under the king's brother or successor. The accounts of his death vary: he is variously said to have been flayed alive, crucified head downward, and beheaded. The motif of flaying became fixed in Christian art, where Bartholomew is most often shown holding his own skin and the knife. The Orthodox synaxarion relates that he was crucified upside down and then flayed and beheaded."
+  - After his martyrdom his relics were venerated and moved repeatedly. By tradition they passed from the place of his death to Dara, and were afterward carried across the Black Sea to the island of Lipari, off Sicily; the return of his relics to Lipari is commemorated on August 25. From Lipari they were translated to Benevento in southern Italy, where a large portion is kept in the basilica that bears his name, and a further portion was given in the tenth century to Rome, where it rests in the church of San Bartolomeo all'Isola.
+sections:
+  - heading: Identification with Nathanael
+    body:
+      - The equation of Bartholomew with Nathanael is a long-standing tradition rather than an explicit statement of Scripture. Bartholomew is listed among the Twelve in Matthew, Mark, Luke, and Acts but is never described there, while Nathanael, who is called by Philip and confessed by Christ as 'an Israelite indeed, in whom is no guile,' appears only in the Gospel of John and is never there numbered among the Twelve. Because the synoptic lists place Bartholomew next to Philip, and John presents Philip as the one who brings Nathanael to Jesus, many Fathers and later commentators concluded that the two names denote the same disciple of Cana in Galilee.
+      - The database keeps this apostle distinct from the Apostle Nathanael who is numbered among the Seventy, who is commemorated separately.
+  - heading: Relics
+    body:
+      - The history of Bartholomew's relics is unusually well documented in the Western tradition. A large piece of skin and many bones were translated to Benevento in 838 and are kept in the Basilica San Bartolomeo there; in 983 the emperor Otto II gave a portion to Rome, where they are conserved in San Bartolomeo all'Isola on the Tiber Island. In the Orthodox calendar the movement of his relics to the island of Lipari is observed as a distinct commemoration on August 25, alongside his principal feast on June 11.
+timeline:
+  - when: first century
+    title: Called by Christ
+    body: Numbered among the Twelve Apostles and, by tradition, identified with Nathanael of Cana in Galilee whom Philip brought to Jesus.
+  - when: after Pentecost
+    title: Mission with Philip
+    body: By tradition received the lot to preach in Syria and Asia Minor together with the Apostle Philip.
+  - when: first century
+    title: Preaching in India and Armenia
+    body: Labored in India, where he was said to have left a Hebrew copy of the Gospel of Matthew, and in Greater Armenia.
+  - when: first century
+    title: Martyrdom
+    body: Martyred in Armenia, by tradition crucified head downward and flayed after converting the local king.
+  - when: Aug 25
+    title: Translation of relics to Lipari
+    body: His relics were brought to the island of Lipari, a commemoration kept on August 25.
+related:
+  - name: Apostle Barnabas of the Seventy
+    note: Apostle commemorated on the same day, June 11.
+    href: saint/OS-1331
+  - name: Apostle Philip
+    note: Fellow apostle with whom Bartholomew is paired in the apostolic lists and, by tradition, in his missionary labors.
+patronage:
+  - Invoked by tanners, leatherworkers, plasterers, tailors, bookbinders, and others whose trades work with skins, on account of the manner of his martyrdom.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2014/06/11/101694-apostle-bartholomew
+  - https://en.wikipedia.org/wiki/Bartholomew_the_Apostle
+  - https://www.newadvent.org/cathen/02313c.htm
+generated: "2026-06-19"

@@ -1,0 +1,64 @@
+id: OS-2634
+liturgicalTitle: The Holy and Right-believing King Stephen Uroš I of Serbia
+lifespan: c. 1223 – 1 May 1277
+overview:
+  - Saint Stephen Uroš I was King of Serbia from 1243 to 1276 and a leading figure of the Nemanjić dynasty. The youngest son of King Stefan the First-Crowned, he presided over a period in which Serbia grew into a significant Balkan power, and he is remembered above all as the founder and patron of Sopoćani Monastery, his principal endowment.
+  - Near the end of his reign Uroš was defeated by his eldest son Dragutin and forced to abdicate. He retired to a monastery, taking the monastic name Simeon, and died in 1277. His relics were later translated to Sopoćani, where he had been laid to rest, and the Serbian Orthodox Church venerates him as a saint.
+sections:
+  - heading: Reign and Statecraft
+    body:
+      - Uroš came to the throne in 1243, succeeding his half-brother Stefan Vladislav after a war for the throne fought between 1242 and 1243. Under his rule Serbia became a significant power in the Balkans, owing in large part to economic development through the opening of mines. These were worked by experienced Saxon miners, and important mining centers developed at Novo Brdo, Brskovo, and Rudnik. Reflecting the increased output of silver, Uroš began minting Serbian coinage modeled on the Venetian standard.
+      - In foreign affairs he maneuvered between the regional powers, waged wars with Ragusa, and in 1268 invaded Hungarian-held territory in Mačva, where he was captured and had to be ransomed. The ensuing peace was sealed by the marriage of his son Dragutin to Catherine of Hungary. He also supported literature and learning, giving impetus to a new and more elaborate biography of his grandfather Stefan Nemanja.
+  - heading: Sopoćani and Church Patronage
+    body:
+      - Uroš's most enduring legacy is Sopoćani Monastery, established as his personal endowment near the source of the river Raška, in the heartland of medieval Serbia. Its Church of the Holy Trinity was built between 1259 and 1270, and its principal frescoes were painted between 1263 and 1270. These frescoes, among them the celebrated depiction of the Dormition of the Virgin on the west wall of the nave, are regarded as among the finest achievements of late Byzantine art and an exemplary expression of the Raška school. Sopoćani was inscribed as a UNESCO World Heritage Site in 1979, together with Stari Ras.
+      - Beyond Sopoćani, Uroš founded other monastic and defensive establishments, including Sase and Maglič, continuing the Nemanjić tradition of royal church-building.
+  - heading: Abdication and Monastic Repose
+    body:
+      - The final years of Uroš's reign were marked by dynastic conflict. His refusal to grant his eldest son Dragutin a territorial appanage created lasting tension, and in 1276 Dragutin rebelled with Hungarian support and defeated his aging father, who was forced to abdicate.
+      - Uroš retired to a monastery in the region of Hum, where, following the example of his grandfather Stefan Nemanja, he took the monastic habit and the name Simeon. He died on 1 May 1277. His remains were afterward translated to his foundation of Sopoćani, where he was buried alongside his mother, Anna Dandolo. The Serbian Orthodox Church remembers him as the Venerable Simeon and venerates him as a saint, his feast kept on April 19.
+timeline:
+  - when: c. 1223
+    title: Birth
+    body: Stephen Uroš I is born, the youngest son of King Stefan the First-Crowned of Serbia.
+  - when: "1243"
+    title: Accession to the throne
+    body: Uroš becomes King of Serbia, succeeding his half-brother Stefan Vladislav.
+  - when: 1259–1270
+    title: Building of Sopoćani
+    body: The Church of the Holy Trinity at Sopoćani, Uroš's principal endowment, is constructed; its frescoes are painted between 1263 and 1270.
+  - when: "1276"
+    title: Abdication
+    body: Defeated by his son Dragutin, who rebels with Hungarian support, Uroš is forced to abdicate and withdraws to a monastery.
+  - when: 1 May 1277
+    title: Repose as the monk Simeon
+    body: Having taken the monastic name Simeon, Uroš dies; his relics are later translated to Sopoćani.
+family:
+  heading: Family
+  intro: Stephen Uroš I belonged to the Nemanjić dynasty, several of whose members are venerated as saints.
+  figures:
+    - name: Saint Stephen the First-Crowned
+      note: His father, the first crowned King of Serbia.
+      href: saint/OS-1904
+    - name: Saint Helen of Serbia
+      note: His wife, who outlived him and is herself venerated as a saint.
+      href: saint/OS-2118
+    - name: Venerable Dragutin of Serbia
+      note: His eldest son, who deposed him in 1276 and later reigned as king before becoming a monk.
+      href: saint/OS-2117
+    - name: Saint Stephen Milutin of Serbia
+      note: His younger son, who later reigned as King Stefan Uroš II Milutin.
+      href: saint/OS-2116
+related:
+  - name: Venerable Symeon the Myrrh-gusher of Serbia
+    note: His grandfather (Stefan Nemanja), whose example of abdicating to monastic life Uroš followed in taking the name Simeon.
+    href: saint/OS-0653
+patronage:
+  - Sopoćani Monastery
+sources:
+  - https://en.wikipedia.org/wiki/List_of_saints_of_the_Serbian_Orthodox_Church
+  - https://en.wikipedia.org/wiki/Stefan_Uro%C5%A1_I
+  - https://en.wikipedia.org/wiki/Sopo%C4%87ani
+  - https://serbia.com/visit-serbia/cultural-attractions/monasteries-and-churches/the-sopocani-monastery/
+status: draft
+generated: "2026-06-21"

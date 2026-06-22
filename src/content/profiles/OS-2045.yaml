@@ -1,0 +1,43 @@
+id: OS-2045
+liturgicalTitle: The Holy, Glorious Great-Martyr Artemius of Antioch
+lifespan: d. 362
+overview:
+  - "Artemius (Latin: Flavius Artemius) was a prominent Roman military commander and imperial governor who served during the reigns of Constantine the Great and his son Constantius II. He held the position of *dux Aegypti* (military governor of Egypt) and was honored with high imperial distinctions. Among his notable acts of service, he was charged by Constantius with conveying the relics of the Apostles Andrew and Luke from their resting places to Constantinople, where they were installed in the Church of the Holy Apostles."
+  - When the Emperor Julian (r. 361–363), who sought to restore traditional pagan religion, came to power, Artemius was summoned from Alexandria to Antioch. According to Christian sources, he publicly rebuked Julian's persecution of Christians and his promotion of paganism; pagan accounts charged him with crimes committed against the people of Alexandria during his tenure. Julian subjected him to imprisonment and severe torture in an attempt to compel him to renounce Christianity, but Artemius refused. He was executed by beheading in 362. The account of his passion includes a tradition that he prophesied Julian's own death in battle, which occurred the following year during the Persian campaign. Artemius is venerated as a great-martyr for the intensity of the tortures he endured and the public nature of his witness before the emperor.
+timeline:
+  - when: during reign of Constantius II (337–361)
+    title: Governor of Egypt
+    body: Artemius served as *dux Aegypti*, holding documented administrative and military authority in Roman Egypt.
+  - when: mid-4th century
+    title: Translation of apostolic relics
+    body: Commissioned by Constantius to transfer the relics of the Apostles Andrew and Luke to Constantinople for installation in the Church of the Holy Apostles.
+  - when: "361"
+    title: Summoned by Julian
+    body: After Julian became emperor and began reversing Christian policies, Artemius was called to Antioch.
+  - when: 361–362
+    title: Confrontation and torture
+    body: Artemius confronted Julian publicly over his anti-Christian policies; Julian had him imprisoned and subjected to extended torture.
+  - when: "362"
+    title: Martyrdom
+    body: Executed by beheading at Antioch; his passion-account records that he prophesied Julian's death in war.
+  - when: shortly after 362
+    title: Translation of relics to Constantinople
+    body: Christians conveyed his relics with honor to Constantinople, where they were enshrined at the Church of Saint John the Forerunner (the Baptist).
+sections:
+  - heading: Arian Associations and Historical Complexity
+    body:
+      - "Historical sources indicate that during his tenure in Egypt, Artemius supported the Arian bishop George of Cappadocia and participated in actions against the Orthodox bishop Athanasius of Alexandria. He is thus a figure of some complexity: venerated by the Orthodox Church as a confessor and martyr for Christ, while his earlier career placed him in support of the Arian faction that opposed Nicene Orthodoxy. The Church's commemoration focuses on his final witness before Julian and his death for refusing to renounce Christianity."
+      - The *Artemii Passio*, the principal source for his martyrdom narrative, presents an extended account of his interrogations and tortures. Modern historians treat its detailed dialogues with caution while accepting the basic facts of his death under Julian.
+  - heading: Veneration and Patronage
+    body:
+      - Artemius is venerated as a patron for those suffering from hernias—a connection that developed in Byzantine popular piety at his shrine in Constantinople. He is also regarded as a patron of soldiers and archers. His feast is observed on October 20. The Church of Saint John the Forerunner in Constantinople, which housed his relics, became a center of his cult in the Byzantine East.
+patronage:
+  - Those suffering from hernias
+  - Soldiers
+  - Archers
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Artemius_of_Antioch
+  - https://www.oca.org/saints/lives/2023/10/20/102990-greatmartyr-artemius-of-antioch
+generated: "2026-06-19"

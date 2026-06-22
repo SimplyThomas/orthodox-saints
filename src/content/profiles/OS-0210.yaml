@@ -1,0 +1,39 @@
+id: OS-0210
+liturgicalTitle: Our Father among the Saints Ultan, Bishop of Ardbraccan
+lifespan: c. 7th century – c. 657
+overview:
+  - Ultan of Ardbraccan (died c. 657) was an Irish bishop who served as abbot-bishop of Ardbraccan in County Meath, a monastic seat situated between Kells and Navan. Renowned for his pastoral care of the poor and abandoned, he is especially remembered for gathering orphaned and sick children during the devastating Yellow Plague, reportedly sheltering as many as 150 at a time and devising a means of feeding infants in his care.
+  - A man of learning as well as charity, Ultan founded a school for poor students and worked as a scribe and illuminator. He collected and preserved writings associated with St. Brigid of Kildare and composed a Latin hymn, "Christus in nostra insula," which was later included in Solesmes chant books. He is venerated as patron of children and paediatricians.
+timeline:
+  - when: 7th century
+    title: Ministry at Ardbraccan
+    body: Ultan served as abbot-bishop of the monastery of Ardbraccan in Meath, succeeding in the line of its founders and maintaining it as a centre of learning and charity.
+  - when: Mid-7th century
+    title: Care of orphans during the Yellow Plague
+    body: During the Yellow Plague that swept Ireland in the mid-seventh century, Ultan gathered orphaned children and the sick into his care, reportedly housing as many as 150 children. Tradition credits him with devising a method of feeding infants by using the teats of cows.
+  - when: c. 657
+    title: Death
+    body: Ultan died around 657 (the Annals of Clonmacnoise place his death in 653); he is said to have died on one of the Aran Islands, where a tomb slab was later discovered.
+sections:
+  - heading: Scholar and Scribe
+    body:
+      - Ultan was known as "Ultan the Scribe" for his work copying and illuminating manuscripts. He collected the writings of St. Brigid of Kildare, playing a role in preserving her memory. He also founded a school for poor students at Ardbraccan, and among his notable pupils were Broccán Clóen of Rostuirc and Tírechán, the hagiographer of St. Patrick.
+      - His Latin hymn "Christus in nostra insula" is the most durable literary trace of his authorship, preserved in Solesmes chant tradition.
+  - heading: Veneration
+    body:
+      - Ultan is venerated with a feast day on 4 September. He is honoured as patron saint of children and paediatricians. Saint Ultan's Children's Hospital, which opened in Dublin on 29 May 1919 on Charlemont Street and operated until 1984, bore his name. A church at Upper Killinkere is also dedicated to him, and a holy well at the site of his Celtic monastery remained a place of local veneration into modern times.
+      - He is commemorated in the Martyrology of Aengus and is counted among the pre-schism saints venerated in common by the Orthodox and Catholic traditions.
+patronage:
+  - Children
+  - Paediatricians
+  - Orphans
+related:
+  - name: Brigid of Kildare
+    note: Her writings were collected and preserved by Ultan
+  - name: Tírechán
+    note: A pupil of Ultan who became hagiographer of St. Patrick
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Ultan_of_Ardbraccan
+generated: "2026-06-19"

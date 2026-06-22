@@ -1,0 +1,30 @@
+id: OS-0273
+liturgicalTitle: Our Father among the Saints Evortius, Bishop of Orleans
+lifespan: died c. 340
+overview:
+  - Evortius of Orleans, also known as Euverte, Evurtius, or Eortius, was an early bishop of Orleans in Gaul, traditionally counted as the fourth to hold that see. According to the western tradition, he was a subdeacon of the Church of Rome who came to Gaul and was elected bishop of Orleans. He is recorded as having flourished during the reign of the Emperor Constantine the Great and to have died about the year 340. He is commemorated on September 7.
+  - Little of historical certainty is preserved about his life. His name is prominent in the ancient western Martyrologies, but his surviving biography is regarded by historians as lacking documentary authority; the eighteenth-century hagiographer Stilting noted that his history is of no authority. The oldest written source associating him with the building of a cathedral at Orleans is the first Life of Saint Aignan, composed between roughly 474 and 530, well after his lifetime.
+  - Evortius is closely linked in tradition with his successor, Aignan (Anianus) of Orleans, whom he is said to have chosen as his coadjutor. He came to be honored as a patron of the city of Orleans, where a famous abbey bears his name. Three translations of his relics are recorded over the course of his veneration.
+sections:
+  - heading: Historical reliability
+    body:
+      - While Evortius is firmly attested as an early bishop of Orleans and is named in the ancient western Martyrologies, the narrative details of his life rest on late and legendary sources rather than contemporary record. Modern hagiographical scholarship, following Stilting and the Gallia Christiana, treats the traditional account as of uncertain authority. The dates assigned to him, his death about 340 in the age of Constantine, place him among the earliest known holders of the see.
+timeline:
+  - when: early 4th c.
+    title: Subdeacon of Rome, elected Bishop of Orleans
+    body: By tradition a subdeacon of the Church of Rome, he came to Gaul and was elected bishop of Orleans.
+  - when: c. 340
+    title: Repose
+    body: He is recorded to have died about the year 340, during or shortly after the reign of Constantine the Great.
+related:
+  - name: St. Aignan (Anianus) of Orleans
+    note: His coadjutor and successor as Bishop of Orleans, according to tradition.
+patronage:
+  - Honored as a patron of the city of Orleans, where a famous abbey bears his name.
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Euverte_d'Orl%C3%A9ans
+  - https://www.ecatholic2000.com/butler/vol9/september26.shtml
+  - https://en.wikipedia.org/wiki/September_7_(Eastern_Orthodox_liturgics)
+generated: "2026-06-20"

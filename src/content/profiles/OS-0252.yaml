@@ -1,0 +1,38 @@
+id: OS-0252
+liturgicalTitle: The Holy Confessors of Africa exiled by the Vandals
+lifespan: 5th century
+overview:
+  - This commemoration honors a company of North African bishops and confessors who were scourged and driven into exile by Huneric, the Arian king of the Vandals, for holding fast to the Nicene faith. Among them was Laetus, a bishop and a most learned man, who after a long imprisonment was burned alive.
+  - Their suffering belongs to the broad persecution of the Catholic and Orthodox clergy of Roman Africa under the Arian Vandal kings in the later fifth century, recorded by the contemporary historian Victor of Vita. They are venerated as confessors and martyrs of the undivided Church.
+timeline:
+  - when: 477-484
+    title: Reign of Huneric
+    body: Huneric, an Arian, succeeded his father Geiseric as king of the Vandals and intensified the persecution of the Nicene clergy of Roman Africa.
+  - when: "484"
+    title: Conference at Carthage
+    body: Huneric summoned the Nicene and Arian bishops to a conference at Carthage; when it broke down he answered with mass exile and reprisal.
+  - when: "484"
+    title: Mass exile
+    body: Bishops were banished in great numbers - by one account forty-six to Corsica and three hundred and two to the African deserts - among them Eugenius, bishop of Carthage.
+  - when: 5th century
+    title: Burning of Laetus
+    body: The confessor Laetus, a bishop and a learned man, was burned alive after a long and harsh imprisonment, the king hoping to terrify the rest of the Nicene clergy.
+sections:
+  - heading: The Persecution of Huneric
+    body:
+      - After the Vandals conquered Roman Africa, their Arian kings turned against the Catholic and Orthodox population that held to the faith of the Council of Nicaea. The persecution reached its height under Huneric, the successor of Geiseric, who ruled from 477 to 484. His measures included banishing bishops, seizing church property, and, at Tipasa, ordering that the tongues and right hands be cut off from clergy who continued to celebrate the liturgy.
+      - "In 484 Huneric forced the Nicene and Arian bishops into a conference at Carthage. When it failed, he answered with mass exile: by the record of the time, forty-six bishops were sent to Corsica and three hundred and two to the deserts of Africa. Among the exiles was Eugenius, bishop of Carthage, who was confined in the desert of Tripoli and wrote a letter of consolation to his flock."
+  - heading: The Confessors and Laetus
+    body:
+      - "A group of these African confessors is commemorated together: among the names preserved are Donatian, Praesidius, Mansuetus, Germanus, Fusculus, and Laetus, who were driven out of Africa into exile for confessing the true faith."
+      - Laetus was a bishop and, by the accounts, a courageous and most learned man. After being held a long time in a foul dungeon, he was burned alive; Huneric ordered his death by fire in the hope of striking fear into the rest of the Nicene camp. These events were recorded by Victor of Vita in his History of the Vandal Persecution, the principal source for the African confessors of this age. After Huneric's death in late 484, his successor Gunthamund permitted the surviving exiles to return.
+related:
+  - name: Eugenius of Carthage
+    note: Bishop of Carthage, exiled by Huneric to the desert of Tripoli during the same persecution.
+patronage: []
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/September_6_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/Eugenius_of_Carthage
+generated: "2026-06-19"

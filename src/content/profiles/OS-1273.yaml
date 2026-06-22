@@ -1,0 +1,69 @@
+id: OS-1273
+liturgicalTitle: Our Father among the Saints Nikephoros the Confessor, Patriarch of Constantinople
+lifespan: c. 758 – 828
+overview:
+  - Nikephoros the Confessor was Patriarch of Constantinople from 806 until his deposition in 815, and one of the foremost defenders of the veneration of icons during the second period of Byzantine iconoclasm. Born in Constantinople around 758 into a strictly Orthodox family that had already suffered for the icons — his father, a secretary of the iconoclast emperor Constantine V, was scourged and banished for upholding their veneration — he served at the imperial court before withdrawing to the monastic life. He is commemorated on June 2, with the translation of his relics kept on March 13.
+  - Trained as an imperial secretary, Nikephoros took part in the Second Council of Nicaea (the Seventh Ecumenical Council) of 787, which restored the icons, attending as an imperial commissioner. He afterward retired to monasteries he had founded along the Thracian Bosphorus, devoting himself to ascetic practice and study, and around 802 was placed in charge of one of the capital's largest charitable hospices for the poor. Though still a layman, he was chosen patriarch and consecrated at Easter, on 12 April 806.
+  - "His elevation was controversial: the strict monastic party associated with the Stoudios monastery objected to the rapid ordination of a layman, and the friction deepened over his reinstatement, at the emperor's wish, of a priest who had been excommunicated — the dispute remembered as the Moechian controversy. These tensions notwithstanding, Nikephoros is honored above all for his steadfastness when iconoclasm was revived under the emperor Leo V the Armenian. Refusing to abandon the icons, he was forced from his see in 815 and sent into exile."
+  - Nikephoros spent the rest of his life in exile near the Bosphorus, where he composed several treatises in defense of the holy images. He died in 828 at a monastery he had founded. In 846 his relics were brought back to Constantinople with great ceremony; according to the synaxarion they rested for a day in the Great Church of Hagia Sophia before being enshrined in the Church of the Holy Apostles — the event commemorated each year on March 13.
+sections:
+  - heading: Court Official and the Council of Nicaea
+    body:
+      - "Nikephoros came from a family marked by the iconoclast persecutions: his father Theodore, a court secretary under Constantine V, was punished and exiled for defending the icons. Following his father into imperial service, Nikephoros became a secretary at the court of the Empress Irene, under whom the veneration of icons was restored."
+      - In that capacity he took part in the Second Council of Nicaea in 787, the council that condemned iconoclasm and re-established the place of icons in Orthodox worship. Sources describe him serving the council in an official secretarial role. Afterward he left public life for the monasteries he had founded, and around 802 he directed a large hospice in the capital for the destitute.
+  - heading: Patriarch and the Moechian Controversy
+    body:
+      - Although he had not been ordained, Nikephoros was elected patriarch and consecrated at Easter 806. His swift elevation from the lay state drew the opposition of the rigorist monks of the Stoudios monastery, who regarded the appointment as uncanonical.
+      - The conflict sharpened when, at the emperor's behest, Nikephoros restored to communion a priest who had earlier been excommunicated — the affair known as the Moechian controversy. The strict party, led by the Studite monks, resisted what they saw as an unwarranted relaxation of the canons in deference to imperial will.
+  - heading: Confessor for the Icons, Exile, and Relics
+    body:
+      - When the emperor Leo V the Armenian revived iconoclasm, Nikephoros stood firmly for the veneration of the images and refused to yield. He was deposed and driven from Constantinople in 815, spending his remaining years in exile, where he wrote in defense of the icons. He died in 828, and because he suffered for the faith without being put to death, the Church numbers him among the Confessors.
+      - In 846 his relics were returned to Constantinople. The synaxarion relates that they were placed for a single day in Hagia Sophia before being enshrined in the Church of the Holy Apostles. This translation of his relics is commemorated on March 13, distinct from his principal feast on June 2.
+timeline:
+  - when: c. 758
+    title: Born in Constantinople
+    body: Born into a strictly Orthodox family that had suffered under iconoclasm.
+  - when: "787"
+    title: Second Council of Nicaea
+    body: Took part in the council that restored the icons, serving in an official role.
+  - when: c. 802
+    title: Director of a hospice
+    body: Placed in charge of a large charitable hospice in Constantinople.
+  - when: 12 April 806
+    title: Consecrated patriarch
+    body: Elected from the lay state and consecrated Patriarch of Constantinople at Easter.
+  - when: "815"
+    title: Deposed and exiled
+    body: Driven from his see for defending the icons under Leo V the Armenian.
+  - when: "828"
+    title: Repose in exile
+    body: Died at a monastery he had founded, after long years of exile.
+  - when: "846"
+    title: Translation of relics
+    body: Relics returned to Constantinople and enshrined in the Church of the Holy Apostles.
+related:
+  - name: Saint Tarasius, Patriarch of Constantinople
+    note: His predecessor on the patriarchal throne and likewise a defender of the icons.
+    href: saint/OS-0722
+  - name: Venerable Theodore the Studite
+    note: Leader of the Stoudios monks who opposed his election and the Moechian reinstatement, yet a fellow champion of the icons.
+    href: saint/OS-2180
+  - name: Saint Methodius, Patriarch of Constantinople
+    note: The patriarch under whom his relics were translated back to Constantinople.
+    href: saint/OS-1354
+patronage:
+  - Invoked for steadfastness in confessing the Orthodox faith under pressure and persecution.
+  - Honored as a defender of the veneration of holy icons.
+works:
+  - title: Treatises against iconoclasm
+    desc: Three principal works composed in defense of the veneration of the holy icons.
+  - title: Short chronicle (historical work)
+    desc: A concise historical chronicle covering Byzantine affairs, among his historical writings.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2016/06/02/101581-saint-nikephoros-the-confessor-patriarch-of-constantinople
+  - https://www.oca.org/saints/lives/2025/03/13/100792-translation-of-the-relics-of-saint-nikephoros-patriarch-of-const
+  - https://en.wikipedia.org/wiki/Nikephoros_I_of_Constantinople
+  - https://orthodoxwiki.org/Nicephorus_I_of_Constantinople
+generated: "2026-06-19"

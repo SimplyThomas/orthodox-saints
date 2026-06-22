@@ -1,0 +1,50 @@
+id: OS-0480
+liturgicalTitle: The Holy Righteous Schemamonk Cyril and Schemanun Maria of Radonezh
+lifespan: died c. 1337
+overview:
+  - "Cyril and Maria of Radonezh were a married couple of fourteenth-century Rus', remembered chiefly as the parents of Saint Sergius of Radonezh, one of the most influential figures of Russian monasticism. They belonged to the nobility: by tradition Cyril was a high-born boyar who served the princes of Rostov, acting as a trusted adviser and at times accompanying his lord to the Golden Horde. The couple's estate is said to have lain near Rostov the Great, by the banks of the Ishnya River. Alongside their rank, the sources emphasize that they were pious and faithful Christians who raised their children in the faith."
+  - Cyril and Maria had three sons. Their second son, born around 1314, was baptized Bartholomew and would later become the monk Sergius; their other two sons, Stephen and Peter, both married and had families of their own. A tradition recorded in the saint's life relates that while Maria was carrying the future Sergius, the child cried out three times during the Divine Liturgy, which those present came to regard as a sign that he would be a chosen vessel of grace.
+  - The family's fortunes declined amid the civil strife of the period; Mongol-Tatar raids and famine are said to have reduced Cyril from his former standing to poverty. Around 1328, while Bartholomew was still a boy, the family moved from the principality of Rostov to that of Moscow, settling in the town of Radonezh. When Bartholomew expressed a desire to enter monastic life, his parents asked him to wait and care for them in their old age, since his brothers were already married. Shortly before their death the couple both received the monastic schema at the Khotkovo monastery of the Protection of the Most Holy Theotokos, a short distance from Radonezh, where they were later buried.
+  - Cyril and Maria are believed to have reposed in 1337. They were glorified by the Orthodox Church of Russia in 1992, on the six-hundredth anniversary of the death of their son Sergius. They are commemorated on January 18 and September 28.
+sections:
+  - heading: Monastic Tonsure at Khotkovo
+    body:
+      - Having seen their elder sons established in marriage, Cyril and Maria withdrew from worldly life and received the great schema, the highest degree of Orthodox monastic profession. According to the tradition, they were tonsured at the Khotkovo monastery of the Protection (Pokrov) of the Most Holy Theotokos, situated about three versts from Radonezh. Both reposed there, and their children laid them to rest beneath the walls of the same community. The Khotkovo monastery has remained the principal site associated with their veneration.
+timeline:
+  - when: c. 1314
+    title: Birth of their son Bartholomew
+    body: Their second son, the future Saint Sergius of Radonezh, is born near Rostov.
+  - when: c. 1328
+    title: Move to Radonezh
+    body: Amid civil strife and impoverishment, the family relocates from the principality of Rostov to Radonezh in the principality of Moscow.
+  - when: c. 1337
+    title: Monastic tonsure and repose
+    body: Cyril and Maria receive the monastic schema at the Khotkovo monastery and repose.
+  - when: "1992"
+    title: Glorification
+    body: The Orthodox Church of Russia glorifies them on the six-hundredth anniversary of the repose of Saint Sergius.
+related:
+  - name: St. Sergius of Radonezh
+    note: Their second son, the founder of the Holy Trinity Lavra.
+    href: saint/OS-0042
+family:
+  heading: Family
+  intro: Cyril and Maria had three sons, raising them near Rostov and later at Radonezh.
+  figures:
+    - name: St. Sergius of Radonezh
+      note: Second son, baptized Bartholomew; founder of the Holy Trinity Lavra.
+      href: saint/OS-0042
+    - name: Stephen
+      note: Eldest son, who married and had a family.
+    - name: Peter
+      note: Youngest son, who married and raised a family.
+patronage:
+  - Invoked by parents and married couples, and as exemplars of raising children in the faith.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 18
+  - https://www.oca.org/saints/lives/2023/09/28/102755-schema-monk-cyril-and-schema-nun-maria-the-parents-of-saint-serg
+  - https://www.oca.org/saints/lives/0202/01/18/100224-venerable-schemamonk-cyril-and-schemanun-maria-the-parents-of-sa
+  - https://obitel-minsk.org/en/how-sts-kirill-and-maria-inspired-the-holiness-of-st-sergius
+  - https://orthochristian.com/100500.html
+generated: "2026-06-19"

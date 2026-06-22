@@ -1,0 +1,42 @@
+id: OS-0914
+liturgicalTitle: Our Venerable Father Euthymius, Archimandrite of Suzdal, Wonderworker
+lifespan: 1316 – 1404
+overview:
+  - Euthymius of Suzdal was a fourteenth-century Russian monastic who became the founding abbot of the Savior Monastery at Suzdal. By tradition he was born in 1316 in the region of Nizhny Novgorod and received monastic tonsure at the Caves monastery there under Saint Dionysius, its founder, who later became Archbishop of Suzdal. Under Dionysius he was formed in a strict ascetic discipline, and from this community he was sent to Suzdal to establish a new monastery.
+  - In 1352 Prince Boris of Suzdal sought a monk to found a monastery in his city, and Euthymius was chosen for the task. He established the Savior monastery on the northern side of Suzdal, on high ground beyond the Kamenka River. The community was organized under a cenobitic rule, in which the monks held all things in common and each was expected to fulfill whatever obedience he was assigned. The synaxarion relates that the monastery grew until more than three hundred monks were gathered under his guidance.
+  - Euthymius was remembered for severe personal asceticism, for his insistence on communal discipline, and for the monastery's care of the poor, the homeless, widows, and orphans. He maintained ties with Saint Sergius of Radonezh, whom he visited at the Trinity monastery, and remained under the spiritual direction of Saint Dionysius. He died on April 1, 1404, and the monastery he founded was afterward renamed in his honor. His incorrupt relics were uncovered in 1507, and he was subsequently glorified among the saints; he is commemorated on April 1, with a secondary commemoration on July 4 marking the uncovering of his relics.
+sections:
+  - heading: Monastic Formation
+    body:
+      - According to the tradition recorded in the synaxarion, Euthymius entered monastic life at the Caves monastery near Nizhny Novgorod, where Saint Dionysius received his tonsure and became his spiritual mentor. He was noted for an austere regimen of prayer, vigil, and fasting, which he sought to keep hidden from his fellow monks. Sources relate that Dionysius at times counseled him to moderate the severity of his ascetic labors.
+  - heading: Foundation of the Savior Monastery
+    body:
+      - Invited by Prince Boris of Suzdal around the age of thirty-six, Euthymius founded the Savior monastery at Suzdal in 1352, beyond the Kamenka River. He governed it under a cenobitic rule and served as its first superior until his death. The monastery became known for its strict order and for its charitable refuge of the needy, and it was renamed the Savior–Euthymius monastery in his honor after he reposed.
+timeline:
+  - when: "1316"
+    title: Birth
+    body: Born, by tradition, in the region of Nizhny Novgorod.
+  - when: "1352"
+    title: Founds the Savior Monastery at Suzdal
+    body: Invited by Prince Boris of Suzdal, he establishes the monastery beyond the Kamenka River under a cenobitic rule.
+  - when: April 1, 1404
+    title: Repose
+    body: He dies after serving as the monastery's first superior; the community is later renamed in his honor.
+  - when: "1507"
+    title: Uncovering of relics
+    body: His relics are found incorrupt; he is afterward glorified among the saints.
+related:
+  - name: St. Sergius of Radonezh
+    note: Contemporary monastic founder whom Euthymius visited at the Trinity monastery.
+    href: saint/OS-0042
+  - name: St. Dionysius of Suzdal
+    note: His tonsuring elder and spiritual mentor at the Nizhny Novgorod Caves, later Archbishop of Suzdal.
+patronage:
+  - Venerated as a monastic founder and as patron of the city of Suzdal and the monastery that bears his name.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/04/01/100964-venerable-euthymius-of-suzdal
+  - https://stjohndc.org/en/orthodoxy-foundation/saints/st-euthymius-monk-suzdal
+  - https://en.wikipedia.org/wiki/Monastery_of_Saint_Euthymius
+generated: "2026-06-21"
