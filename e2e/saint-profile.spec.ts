@@ -124,12 +124,19 @@ test("Basil's themes, life experience, and patronage sit in the icon rail", asyn
   ).toBeVisible();
 });
 
-test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
+test("Basil's page shows sourced public-domain quotes in a collapsible", async ({
+  page,
+}) => {
   await page.goto("./saint/OS-0021/");
-  await expect(page.locator(".sv-quote blockquote")).toBeVisible();
+  const words = page.locator(".sv-words");
+  // "In his own words" — gender-aware label, collapsible (multiple quotes).
+  await expect(words.locator("summary")).toContainText("In his own words");
+  const quotes = words.locator(".sv-words-quote");
+  expect(await quotes.count()).toBeGreaterThanOrEqual(3);
+  await expect(quotes.first().locator("blockquote")).toBeVisible();
   // Cited to On the Holy Spirit, public-domain NPNF translation.
-  await expect(page.locator(".sv-quote figcaption")).toContainText(
+  await expect(words.locator("figcaption").first()).toContainText(
     "On the Holy Spirit",
   );
-  await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
+  await expect(words.locator(".sv-quote-trans").first()).toContainText("NPNF");
 });

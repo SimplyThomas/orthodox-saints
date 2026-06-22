@@ -4309,6 +4309,64 @@ a.sv-rail-chip:hover {
   text-wrap: pretty;
 }
 
+/* "In their own words" — editorial quotes inside the collapsible (no white box) */
+.sv2 .sv-words-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.sv2 .sv-words-quote {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 6px;
+}
+.sv2 .sv-words-mark {
+  font-family: var(--serif);
+  font-size: 72px;
+  line-height: 0.9;
+  color: var(--line-gold);
+  user-select: none;
+}
+.sv2 .sv-words-quote blockquote {
+  margin: 0;
+  padding-top: 8px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-style: italic;
+  line-height: 1.44;
+  color: var(--byz-deep);
+  text-wrap: pretty;
+}
+.sv2 .sv-words-quote figcaption {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.sv2 .sv-words-quote figcaption a {
+  color: var(--gold-deep);
+  text-decoration: none;
+}
+.sv2 .sv-words-quote figcaption a:hover {
+  color: var(--byz);
+}
+.sv2 .sv-words-rule {
+  height: 1px;
+  width: 24px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.sv2 .sv-words .sv-quote-trans {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+}
+
 /* ---- reference apparatus (light) ---- */
 .sv2 .sv-after {
   margin-top: 44px;

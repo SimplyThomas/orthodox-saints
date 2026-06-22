@@ -97,6 +97,23 @@ if (saint.image) {
 const showCredit = !!saint.image && !!(m.imageCredit || m.imageLicense);
 const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
 const citation = `${m.honorificName}. Cloud of Witnesses.`;
+
+// "In their own words" — a curated profile `quotes` array (multiple, verbatim
+// PD) wins; otherwise the single sourced quote from saint_quotes.csv. Gender
+// picks the possessive for the section label.
+const quoteList = profile?.quotes?.length
+  ? profile.quotes.map((q) => ({
+      text: q.text,
+      cite: [q.work, q.locus].filter(Boolean).join(", "),
+      source: q.source,
+      translation: q.translation,
+    }))
+  : m.quote
+    ? [m.quote]
+    : [];
+const possessive =
+  saint.gender === "Male" ? "his" : saint.gender === "Female" ? "her" : "their";
+const wordsLabel = `In ${possessive} own words`;
 ---
 
 <div
@@ -438,41 +455,67 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
         )
       }
 
-      {/* in their own words */}
+      {/* in their own words — a collapsible of verbatim PD quotes */}
       {
-        m.quote && (
-          <section class="sv-section sv-quotewrap">
-            <figure class="sv-quote">
-              <span class="sv-quote-mark" aria-hidden="true">
-                &ldquo;
+        quoteList.length > 0 && (
+          <details class="sv-deep sv-words" open>
+            <summary class="sv-deep-sum">
+              <span class="eyebrow sv-deep-eb">{wordsLabel}</span>
+              {quoteList.length > 1 && (
+                <span class="sv-deep-ct">{quoteList.length} quotes</span>
+              )}
+              <span class="sv-deep-rule" />
+              <span class="sv-deep-state">
+                <span class="sv-deep-show">Read</span>
+                <span class="sv-deep-hide">Hide</span>
               </span>
-              <div>
-                <blockquote>{m.quote.text}</blockquote>
-                {(m.quote.cite || m.quote.source) && (
-                  <figcaption>
-                    <span class="sv-quote-rule" aria-hidden="true" />
-                    {m.quote.source ? (
-                      <a
-                        href={m.quote.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {m.quote.cite || "Source"}
-                      </a>
-                    ) : (
-                      m.quote.cite
+              <svg
+                class="sv-chev"
+                width="15"
+                height="15"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="var(--gold-deep)"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+            <div class="sv-words-list">
+              {quoteList.map((q) => (
+                <figure class="sv-words-quote">
+                  <span class="sv-words-mark" aria-hidden="true">
+                    &ldquo;
+                  </span>
+                  <div>
+                    <blockquote>{q.text}</blockquote>
+                    {(q.cite || q.source) && (
+                      <figcaption>
+                        <span class="sv-words-rule" aria-hidden="true" />
+                        {q.source ? (
+                          <a
+                            href={q.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {q.cite || "Source"}
+                          </a>
+                        ) : (
+                          q.cite
+                        )}
+                        {q.translation && (
+                          <span class="sv-quote-trans"> · {q.translation}</span>
+                        )}
+                      </figcaption>
                     )}
-                    {m.quote.translation && (
-                      <span class="sv-quote-trans">
-                        {" "}
-                        · {m.quote.translation}
-                      </span>
-                    )}
-                  </figcaption>
-                )}
-              </div>
-            </figure>
-          </section>
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </details>
         )
       }
 
