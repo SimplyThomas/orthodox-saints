@@ -1,9 +1,12 @@
 ---
-/* Full data-driven saint page. A deep-blue icon rail carrying the icon, the
-   demoted taxonomy, AND the reference apparatus (links, works, further reading);
-   an ivory column carrying the human story — quote-led, with the most sought
-   information (intercessions, themes) up top and the deep narrative below.
-   Pure build-time render from the Saint record via toSaintView(). */
+/* Full data-driven saint page — REDESIGN.
+   A dark iconographic HERO carries identity, icon & feast up top; a quiet
+   quick-actions bar collects the explore links + share; the BODY is a light
+   record rail (the demoted taxonomy) beside a single flowing story column —
+   intercessions ("Come to them for") promoted to the head of the story, the
+   life and the saint's words next, and the reference apparatus (timeline,
+   legacy, works, kin) as collapsible deep-dives below. Pure build-time render
+   from the Saint record via toSaintView(). */
 import type { Saint } from "../lib/types";
 import { toSaintView } from "../lib/saintView";
 import { saintAvatar } from "../lib/icons";
@@ -22,6 +25,12 @@ const { saint } = Astro.props;
 const m = toSaintView(saint);
 const profile = (await loadProfileMap())[saint.id];
 
+// Editorial review state — surfaced as a full-width band beneath the hero.
+const isFlagged = profile?.status === "flagged";
+const isDraft =
+  !!profile?.status && profile.status !== "reviewed" && !isFlagged;
+const flagReasons = profile?.flagReasons ?? [];
+
 // Curated related figures (from a profile) win; otherwise derive by shared
 // themes and present them through the same FigureList as the curated set.
 const relatedFigures =
@@ -37,134 +46,275 @@ const relatedFigures =
 // links to each group's landing page. Joined into the record by build.py.
 const memberGroups = saint.groups ?? [];
 
-// Works (by the saint) and Further Reading (about the saint) both sit in the
-// "after" region beneath the legacy band. A profile's rich lists supersede the
-// plain CSV-derived ones; otherwise the CSV search-link lists are shown.
+// Works (by the saint) and Further Reading (about the saint). A profile's rich
+// lists supersede the plain CSV-derived ones; otherwise the CSV search-link
+// lists are shown.
 const worksList = profile?.works?.length ? profile.works : null;
 const hasWorks = !!worksList || m.works.length > 0;
 const readingGroups = profile?.reading?.length ? profile.reading : null;
 const hasReading = !!readingGroups || m.about.length > 0;
 
-// The large rail icon. A real portrait fills a plain rounded rectangle (the
+const hasTimeline = !!profile?.timeline?.length;
+const hasLegacy = !!profile?.sections?.length;
+const hasKin =
+  !!profile?.family || relatedFigures.length > 0 || memberGroups.length > 0;
+const hasAfter =
+  hasTimeline ||
+  hasLegacy ||
+  hasWorks ||
+  hasReading ||
+  hasKin ||
+  !!m.notes ||
+  !!m.sources;
+
+// The large hero icon. A real portrait fills a plain rounded rectangle (the
 // design's icon-slot) — NOT the arched monogram clip, whose path() coordinates
-// are fixed near 120×150px and would only fill a corner at this size. The
-// monogram tier is a viewBox SVG, so it scales to any size cleanly.
+// are fixed near 120×150px. The monogram tier is a viewBox SVG, so it scales.
 let portrait: string;
 if (saint.image) {
   const raw = String(saint.image).replace(/['"\\)\s<>]/g, "");
   const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
-  portrait = `<div class="sv-icon-img" style="background:#efe3cb center top/cover no-repeat url('${url}')"></div>`;
+  portrait = `<div class="sv-icon-img" style="background:#16304c center top/cover no-repeat url('${url}')"></div>`;
 } else {
   portrait = saintAvatar(saint, 286, 358, { type: primaryRank(saint) });
 }
 const showCredit = !!saint.image && !!(m.imageCredit || m.imageLicense);
 const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
+const citation = `${m.honorificName}. Cloud of Witnesses.`;
 ---
 
 <div
-  class="saintview"
+  class="saintview sv2"
   id="saint-detail"
   data-id={saint.id}
   data-name={saint.name}
 >
-  {/* breadcrumb back bar */}
-  <div class="sv-back">
-    <a href={withBase("search")} class="sv-back-link">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
-      >
-      <span class="sv-back-label">Back to the saints</span>
-    </a>
-    <span class="sv-sep">/</span>
-    <span class="sv-crumb">{m.crumb}</span>
-    <span class="sv-sep">/</span>
-    <span class="sv-here">{m.honorificName}</span>
-  </div>
+  {/* ══════════════ HERO ══════════════ */}
+  <section class="sv-hero">
+    <div class="sv-hero-inner">
+      {/* breadcrumb */}
+      <nav class="sv-hero-crumb" aria-label="Breadcrumb">
+        <a href={withBase("search")} class="sv-back-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+          >
+          <span class="sv-back-label">Back to the saints</span>
+        </a>
+        <span class="sv-sep">/</span>
+        <span class="sv-crumb">{m.crumb}</span>
+        <span class="sv-sep">/</span>
+        <span class="sv-here">{m.honorificName}</span>
+      </nav>
 
-  <div class="sv-grid">
-    {/* ── ICON RAIL (icon · taxonomy · reference) ── */}
-    <aside class="sv-rail">
-      <div class="sv-icon-frame">
-        <div class="sv-icon-inner" set:html={portrait} />
+      <div class="sv-hero-grid">
+        {/* framed icon + credit */}
+        <div class="sv-hero-icon">
+          <div class="sv-icon-frame">
+            <div class="sv-icon-inner" set:html={portrait} />
+          </div>
+          {
+            showCredit && (
+              <div class="sv-icon-cap">
+                <span class="sv-icon-cap-eb">Icon</span> ·{" "}
+                {m.imageSource ? (
+                  <a
+                    href={m.imageSource}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {m.imageCredit || "source"}
+                  </a>
+                ) : (
+                  m.imageCredit
+                )}
+                {m.imageLicense && (
+                  <span class="sv-icon-lic">{m.imageLicense}</span>
+                )}
+              </div>
+            )
+          }
+        </div>
+
+        {/* identity */}
+        <div class="sv-hero-id">
+          <div class="sv-hero-tagrow">
+            <span class={`tag ${m.typeSlug} sv-tag-gold`}><i></i>{m.type}</span>
+            {m.eyebrow && <span class="eyebrow on-blue">{m.eyebrow}</span>}
+          </div>
+
+          <h1 class="sv-name">
+            {m.title}{m.epithet && <span class="sv-epithet"> {m.epithet}</span>}
+          </h1>
+          {profile?.lifespan && <p class="sv-lifespan">{profile.lifespan}</p>}
+          {
+            m.also.length > 0 && (
+              <div class="sv-also">Also known as {m.also.join(" · ")}</div>
+            )
+          }
+
+          <div class="sv-hero-rule"></div>
+
+          {m.brief && <p class="sv-lead">{m.brief}</p>}
+
+          <div class="sv-feast">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--gold-soft)"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M3 9h18M8 3v4M16 3v4"></path>
+            </svg>
+            <div class="sv-feast-main">
+              <div class="sv-feast-label">Feast Day</div>
+              <div class="sv-feast-date">{m.feast}</div>
+            </div>
+            {m.feastNote && <div class="sv-feast-note">{m.feastNote}</div>}
+          </div>
+        </div>
       </div>
-      {
-        showCredit && (
-          <div class="sv-icon-cap">
-            Icon ·{" "}
-            {m.imageSource ? (
-              <a href={m.imageSource} target="_blank" rel="noopener noreferrer">
-                {m.imageCredit || "source"}
-              </a>
+    </div>
+  </section>
+
+  {/* ══════════════ REVIEW STATE BAND ══════════════ */}
+  {
+    (isFlagged || isDraft) && (
+      <div
+        class={`sv-state ${isFlagged ? "sv-state--flag" : "sv-state--draft"}`}
+        role={isFlagged ? "alert" : "status"}
+      >
+        <div class="sv-state-inner">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            class="sv-state-ico"
+            aria-hidden="true"
+          >
+            <path
+              d="M10 1.5 19 18 1 18 Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+            <rect
+              x="9.1"
+              y="7"
+              width="1.8"
+              height="5.4"
+              rx=".9"
+              fill="currentColor"
+            />
+            <circle cx="10" cy="15" r="1.05" fill="currentColor" />
+          </svg>
+          <span class="sv-state-label">{isFlagged ? "Flagged" : "Draft"}</span>
+          <span class="sv-state-div" />
+          <div class="sv-state-body">
+            {isFlagged ? (
+              flagReasons.length > 0 ? (
+                <ul class="sv-state-list">
+                  {flagReasons.map((r) => (
+                    <li>
+                      {r.claim && <span class="sv-state-claim">{r.claim}</span>}
+                      {r.claim && r.detail ? " — " : ""}
+                      {r.detail}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                "Flagged for review — this entry may contain errors or unverified claims."
+              )
             ) : (
-              m.imageCredit
-            )}
-            {m.imageLicense && (
-              <span class="sv-icon-lic"> · {m.imageLicense}</span>
+              "Draft — pending review. Not yet verified for publication."
             )}
           </div>
-        )
-      }
-
-      <div class="rule sv-rail-rule"><span class="dot"></span></div>
-
-      <div class="sv-rail-tag">
-        <span class={`tag ${m.typeSlug} sv-tag-gold`}><i></i>{m.type}</span>
+        </div>
       </div>
+    )
+  }
 
-      <div class="sv-feast">
+  {/* ══════════════ QUICK ACTIONS ══════════════ */}
+  <div class="sv-actions">
+    <div class="sv-actions-inner">
+      {
+        m.links.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--ghost sv-explore-link"
+          >
+            {l.label}
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 14 14"
+              fill="none"
+              stroke="var(--celest)"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 10 10 4M5 4h5v5" />
+            </svg>
+          </a>
+        ))
+      }
+      <div class="sv-actions-spacer"></div>
+      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
         <svg
-          width="22"
-          height="22"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="var(--gold-soft)"
+          stroke="var(--byz-ink)"
           stroke-width="1.7"
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-          <path d="M3 9h18M8 3v4M16 3v4"></path>
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
         </svg>
-        <div>
-          <div class="sv-feast-label">Feast Day</div>
-          <div class="sv-feast-date">{m.feast}</div>
-          {m.feastNote && <div class="sv-feast-note">{m.feastNote}</div>}
-        </div>
-      </div>
+        <span class="sv-share-label">Share / cite</span>
+      </button>
+    </div>
+  </div>
 
+  {/* ══════════════ BODY ══════════════ */}
+  <div class="sv-body">
+    {/* ── RECORD RAIL (the demoted taxonomy) ── */}
+    <aside class="sv-rail">
       {
-        (m.facts.length > 0 || m.intercessions.length > 0) && (
+        m.facts.length > 0 && (
           <div class="sv-glance">
-            <div class="eyebrow on-blue">At a glance</div>
-            {m.facts.length > 0 && (
-              <dl>
-                {m.facts.map(([k, v]) => (
-                  <div class="sv-fact">
-                    <dt>{k}</dt>
-                    <dd>{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            )}
-            {m.intercessions.length > 0 && (
-              <div class="sv-glance-int">
-                <div class="sv-glance-int-label">Come to them for</div>
-                <div class="sv-rail-chips">
-                  {m.intercessions.map((it) => (
-                    <span class="sv-rail-chip">{it}</span>
-                  ))}
+            <div class="eyebrow">At a glance</div>
+            <dl>
+              {m.facts.map(([k, v]) => (
+                <div class="sv-fact">
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
                 </div>
-              </div>
-            )}
+              ))}
+            </dl>
           </div>
         )
       }
@@ -172,7 +322,7 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       {
         knownFor && (
           <div class="sv-knownfor">
-            <div class="eyebrow on-blue">Known for</div>
+            <div class="eyebrow">Known for</div>
             {m.virtues.length > 0 && (
               <div class="sv-virtues">{m.virtues.join(" · ")}</div>
             )}
@@ -184,9 +334,36 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
       }
 
       {
+        profile?.patronage && profile.patronage.length > 0 && (
+          <div class="sv-rail-block sv-patron">
+            <div class="eyebrow">Patron of</div>
+            <div class="sv-rail-chips">
+              {profile.patronage.map((p) => (
+                <span class="sv-rail-chip">{p}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {
+        m.experience.length > 0 && (
+          <div class="sv-rail-block">
+            <div class="eyebrow">Walked through</div>
+            <p class="sv-rail-note">A companion to those who have known…</p>
+            <div class="sv-rail-chips">
+              {m.experience.map((e) => (
+                <span class="sv-rail-chip sv-rail-chip--life">{e}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {
         saint.themes && saint.themes.length > 0 && (
           <div class="sv-rail-block sv-themes">
-            <div class="eyebrow on-blue">Themes</div>
+            <div class="eyebrow">Browse by theme</div>
             <div class="sv-rail-chips">
               {saint.themes.map((slug) => {
                 const t = themeBySlug.get(slug);
@@ -203,40 +380,10 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
           </div>
         )
       }
-
-      {
-        m.experience.length > 0 && (
-          <div class="sv-rail-block">
-            <div class="eyebrow on-blue">Life experience</div>
-            <div class="sv-rail-chips">
-              {m.experience.map((e) => (
-                <span class="sv-rail-chip">{e}</span>
-              ))}
-            </div>
-          </div>
-        )
-      }
-
-      {
-        profile?.patronage && profile.patronage.length > 0 && (
-          <div class="sv-rail-block sv-patron">
-            <div class="eyebrow on-blue">Patronage</div>
-            <div class="sv-rail-chips">
-              {profile.patronage.map((p) => (
-                <span class="sv-rail-chip">{p}</span>
-              ))}
-            </div>
-          </div>
-        )
-      }
     </aside>
 
-    {/* ── STORY COLUMN (quote-led; sought info up top; narrative below) ── */}
+    {/* ── STORY COLUMN ── */}
     <main class="sv-main">
-      {m.eyebrow && <div class="eyebrow sv-eyebrow">{m.eyebrow}</div>}
-      <h1 class="sv-name">
-        {m.title}{m.epithet && <span class="sv-epithet"> {m.epithet}</span>}
-      </h1>
       {
         profile?.liturgicalTitle && (
           <div class="sv-littitle">
@@ -245,15 +392,37 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
           </div>
         )
       }
-      {profile?.lifespan && <p class="sv-lifespan">{profile.lifespan}</p>}
+
+      {/* come to them for — the finder's engine, promoted */}
       {
-        m.also.length > 0 && (
-          <div class="sv-also">Also known as {m.also.join(" · ")}</div>
+        m.intercessions.length > 0 && (
+          <section class="sv-section sv-invoked">
+            <div class="sv-secthead">
+              <span class="eyebrow">Come to them for</span>
+            </div>
+            <div class="sv-invoked-grid">
+              {m.intercessions.map((it) => (
+                <div class="sv-invoked-card">{it}</div>
+              ))}
+            </div>
+          </section>
         )
       }
 
-      {m.brief && <p class="sv-lead">{m.brief}</p>}
+      {/* life (rendered by SaintProfile when a rich profile exists) */}
+      {profile && <SaintProfile profile={profile} />}
+      {
+        !profile && m.brief && (
+          <section class="sv-section sv-lifefallback">
+            <div class="sv-secthead">
+              <span class="eyebrow">Their life</span>
+            </div>
+            <p class="sv-bodytext">{m.brief}</p>
+          </section>
+        )
+      }
 
+      {/* in their own words */}
       {
         m.quote && (
           <section class="sv-section sv-quotewrap">
@@ -291,8 +460,7 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         )
       }
 
-      {profile && <SaintProfile profile={profile} />}
-
+      {/* customs */}
       {
         m.customs && (
           <section class="sv-section">
@@ -304,210 +472,249 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
         )
       }
 
+      {/* ── reference apparatus (deep-dives + kin) ── */}
       {
-        m.links.length > 0 && (
-          <section class="sv-section sv-explore">
-            <div class="eyebrow">Explore</div>
-            <div class="sv-explore-row">
-              {m.links.map((l) => (
-                <a
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--ghost sv-explore-link"
-                >
-                  {l.label}
-                  <svg
-                    width="11"
-                    height="11"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    stroke="var(--celest)"
-                    stroke-width="1.7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 10 10 4M5 4h5v5" />
-                  </svg>
-                </a>
-              ))}
+        hasAfter && (
+          <div class="sv-after">
+            <div class="sv-after-inner">
+              {hasTimeline && (
+                <details class="sv-deep" open>
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb sv-tl-title">Timeline</span>
+                    <span class="sv-deep-ct">
+                      {profile!.timeline!.length} moments
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <ol class="sv-timeline">
+                    {profile!.timeline!.map((t) => (
+                      <li>
+                        <span class="sv-when">{t.when}</span>
+                        <strong class="sv-tl-event">{t.title}</strong>
+                        {t.body && <span class="sv-tbody">{t.body}</span>}
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
+
+              {hasLegacy && (
+                <details class="sv-deep" open>
+                  <summary class="sv-deep-sum">
+                    <h2 class="sv-deep-eb sv-legacy-title">
+                      Contributions &amp; Legacy
+                    </h2>
+                    <span class="sv-deep-ct">
+                      {profile!.sections!.length} contributions
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <div class="sv-legacy-grid">
+                    {profile!.sections!.map((s) => (
+                      <article class="sv-legacy-card">
+                        <h3>{s.heading}</h3>
+                        {s.body.map((p) => (
+                          <p>{p}</p>
+                        ))}
+                      </article>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {(hasWorks || hasReading) && (
+                <details class="sv-deep" open>
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">
+                      Works &amp; Further Reading
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <div class="sv-wr-grid">
+                    {hasWorks && (
+                      <section class="sv-works-after">
+                        <h2>Notable Works</h2>
+                        <ul class="sv-worklist-after">
+                          {worksList
+                            ? worksList.map((w) => (
+                                <li>
+                                  <em>{w.title}</em>
+                                  {w.desc && (
+                                    <span class="sv-work-desc">
+                                      {" "}
+                                      — {w.desc}
+                                    </span>
+                                  )}
+                                </li>
+                              ))
+                            : m.works.map((w) => (
+                                <li>
+                                  <a
+                                    href={w.u}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {w.t}
+                                  </a>
+                                </li>
+                              ))}
+                        </ul>
+                      </section>
+                    )}
+                    {hasReading && (
+                      <section class="sv-reading">
+                        <h2>Further Reading</h2>
+                        {readingGroups ? (
+                          <div class="sv-reading-groups">
+                            {readingGroups.map((g) => (
+                              <div class="sv-read-group">
+                                <div class="sv-read-head">{g.heading}</div>
+                                <ul class="sv-read-list">
+                                  {g.items.map((it) => (
+                                    <li>
+                                      <em>{it.title}</em>
+                                      {it.author && (
+                                        <span class="sv-read-by">
+                                          {" "}
+                                          — {it.author}
+                                        </span>
+                                      )}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <ul class="sv-read-list">
+                            {m.about.map((w) => (
+                              <li>
+                                <a
+                                  href={w.u}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {w.t}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </section>
+                    )}
+                  </div>
+                </details>
+              )}
+
+              {(hasKin || m.notes) && (
+                <section class="sv-kin">
+                  <div class="sv-plum-grid">
+                    {memberGroups.length > 0 && (
+                      <div class="sv-plum-block">
+                        <h2>Commemorated With</h2>
+                        <ul class="sv-group-list">
+                          {memberGroups.map((g) => (
+                            <li>
+                              <a href={withBase("group/" + g.slug)}>{g.name}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {profile?.family && (
+                      <div class="sv-plum-block">
+                        <h2>{profile.family.heading}</h2>
+                        {profile.family.intro && (
+                          <p class="sv-fam-intro">{profile.family.intro}</p>
+                        )}
+                        <FigureList figures={profile.family.figures} />
+                      </div>
+                    )}
+                    {relatedFigures.length > 0 && (
+                      <div class="sv-plum-block">
+                        <h2>Related Saints</h2>
+                        <FigureList figures={relatedFigures} />
+                      </div>
+                    )}
+                    {m.notes && (
+                      <div class="sv-plum-block sv-plum-notes">
+                        <h2>Notes</h2>
+                        <p>{m.notes}</p>
+                      </div>
+                    )}
+                  </div>
+                </section>
+              )}
+
+              {m.sources && (
+                <div class="sv-after-sources">Sources: {m.sources}</div>
+              )}
             </div>
-          </section>
+          </div>
         )
       }
     </main>
   </div>
-
-  {
-    /* ── Timeline — a full-width band beneath the columns, above the legacy ── */
-  }
-  {
-    profile?.timeline?.length && (
-      <section class="sv-tlband">
-        <div class="sv-tlband-inner">
-          <div class="sv-tl">
-            <h2 class="sv-tl-title">Timeline</h2>
-            <ol class="sv-timeline">
-              {profile.timeline.map((t) => (
-                <li>
-                  <span class="sv-when">{t.when}</span>
-                  <strong class="sv-tl-event">{t.title}</strong>
-                  {t.body && <span class="sv-tbody">{t.body}</span>}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  {
-    /* ── Coloured panels beneath the columns (echoing the America carousels),
-       all sharing one width: Contributions & Legacy = blue · Works = garnet ·
-       Further Reading = forest · Family/Related/Notes = plum. ── */
-  }
-  {
-    (profile?.sections?.length ||
-      hasWorks ||
-      hasReading ||
-      profile?.family ||
-      relatedFigures.length > 0 ||
-      m.notes ||
-      m.sources) && (
-      <section class="sv-after">
-        <div class="sv-after-inner">
-          {profile?.sections && profile.sections.length > 0 && (
-            <section class="sv-panel sv-panel--byz sv-legacy-panel">
-              <h2 class="sv-legacy-title">Contributions &amp; Legacy</h2>
-              <div class="sv-legacy-grid">
-                {profile.sections.map((s) => (
-                  <article class="sv-legacy-card">
-                    <h3>{s.heading}</h3>
-                    {s.body.map((p) => (
-                      <p>{p}</p>
-                    ))}
-                  </article>
-                ))}
-              </div>
-            </section>
-          )}
-          {hasWorks && (
-            <section class="sv-panel sv-panel--garnet sv-works-after">
-              <h2>Notable Works</h2>
-              <ul class="sv-worklist-after">
-                {worksList
-                  ? worksList.map((w) => (
-                      <li>
-                        <em>{w.title}</em>
-                        {w.desc && (
-                          <span class="sv-work-desc"> — {w.desc}</span>
-                        )}
-                      </li>
-                    ))
-                  : m.works.map((w) => (
-                      <li>
-                        <a href={w.u} target="_blank" rel="noopener noreferrer">
-                          {w.t}
-                        </a>
-                      </li>
-                    ))}
-              </ul>
-            </section>
-          )}
-          {hasReading && (
-            <section class="sv-panel sv-panel--forest sv-reading">
-              <h2>Further Reading</h2>
-              {readingGroups ? (
-                <div class="sv-reading-groups">
-                  {readingGroups.map((g) => (
-                    <div class="sv-read-group">
-                      <div class="sv-read-head">{g.heading}</div>
-                      <ul class="sv-read-list">
-                        {g.items.map((it) => (
-                          <li>
-                            <em>{it.title}</em>
-                            {it.author && (
-                              <span class="sv-read-by"> — {it.author}</span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <ul class="sv-read-list">
-                  {m.about.map((w) => (
-                    <li>
-                      <a href={w.u} target="_blank" rel="noopener noreferrer">
-                        {w.t}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          )}
-          {(profile?.family ||
-            relatedFigures.length > 0 ||
-            memberGroups.length > 0 ||
-            m.notes) && (
-            <section class="sv-panel sv-panel--plum">
-              <div class="sv-plum-grid">
-                {memberGroups.length > 0 && (
-                  <div class="sv-plum-block">
-                    <h2>Commemorated With</h2>
-                    <ul class="sv-group-list">
-                      {memberGroups.map((g) => (
-                        <li>
-                          <a href={withBase("group/" + g.slug)}>{g.name}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {profile?.family && (
-                  <div class="sv-plum-block">
-                    <h2>{profile.family.heading}</h2>
-                    {profile.family.intro && (
-                      <p class="sv-fam-intro">{profile.family.intro}</p>
-                    )}
-                    <FigureList figures={profile.family.figures} light />
-                  </div>
-                )}
-                {relatedFigures.length > 0 && (
-                  <div class="sv-plum-block">
-                    <h2>Related Saints</h2>
-                    <FigureList figures={relatedFigures} light />
-                  </div>
-                )}
-                {m.notes && (
-                  <div class="sv-plum-block sv-plum-notes">
-                    <h2>Notes</h2>
-                    <p>{m.notes}</p>
-                  </div>
-                )}
-              </div>
-            </section>
-          )}
-          {m.sources && (
-            <div class="sv-after-sources">Sources: {m.sources}</div>
-          )}
-        </div>
-      </section>
-    )
-  }
 </div>
 
 <script>
   /* Context-aware back link: a saint reached from the Saints of America page
      should send the reader back there, not to the default /search list. We key
-     off the real navigation referrer (same-origin only), so the link reflects
-     where the visitor actually came from — no URL params, and direct/search
-     arrivals keep the default. The america href is derived from the existing
-     base-prefixed href so it survives any future base-path change. */
+     off the real navigation referrer (same-origin only). */
   const link = document.querySelector<HTMLAnchorElement>(".sv-back-link");
   const label = link?.querySelector<HTMLElement>(".sv-back-label");
   if (link && label && document.referrer) {
@@ -524,5 +731,31 @@ const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
     } catch {
       /* malformed referrer — keep the default link */
     }
+  }
+
+  /* Share / cite: copy a plain citation + canonical URL to the clipboard, with
+     a Web-Share fallback on devices that support it. */
+  const share = document.querySelector<HTMLButtonElement>(".sv-share");
+  const shareLabel = share?.querySelector<HTMLElement>(".sv-share-label");
+  if (share && shareLabel) {
+    const cite = share.dataset.cite || document.title;
+    const url = location.href;
+    share.addEventListener("click", async () => {
+      const text = `${cite} ${url}`;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: cite, url });
+          return;
+        }
+        await navigator.clipboard.writeText(text);
+        const prev = shareLabel.textContent;
+        shareLabel.textContent = "Citation copied";
+        window.setTimeout(() => {
+          shareLabel.textContent = prev;
+        }, 1600);
+      } catch {
+        /* user dismissed the share sheet, or clipboard denied — no-op */
+      }
+    });
   }
 </script>
