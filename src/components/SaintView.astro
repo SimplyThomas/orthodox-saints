@@ -744,10 +744,34 @@ const wordsLabel = `In ${possessive} own words`;
               )}
 
               {hasCommemorated && (
-                <section class="sv-section sv-comm">
-                  <div class="sv-secthead">
-                    <span class="eyebrow">Commemorated with</span>
-                  </div>
+                <details class="sv-deep sv-comm" open>
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">Commemorated with</span>
+                    {memberGroups.length > 1 && (
+                      <span class="sv-deep-ct">
+                        {memberGroups.length} commemorations
+                      </span>
+                    )}
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
                   <div class="sv-comm-list">
                     {memberGroups.map((g) => {
                       const full = groupBySlug.get(g.slug);
@@ -781,7 +805,7 @@ const wordsLabel = `In ${possessive} own words`;
                       );
                     })}
                   </div>
-                </section>
+                </details>
               )}
 
               {hasCompanions && (
