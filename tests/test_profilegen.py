@@ -661,3 +661,81 @@ class LegacyPromptTokenGuardTests(unittest.TestCase):
         self.assertIn("prompts/gather.md", prompt)
         self.assertIn("prompts/write.md", prompt)
         self.assertIn("prompts/verify.md", prompt)
+
+
+class RunnerLoopIntegrationTests(unittest.TestCase):
+    """Drive runner.main() with mocked I/O to exercise multi-batch chaining,
+    partial-batch resume, the zero-production→rate-limit synthesis, and the
+    weekly-cap stop — the paths a live run can't easily force on demand."""
+
+    def _run(self, backlog, plan, produced, calls, *, batch_size=2,
+             weekly=2, exclude_produced=True):
+        plan = list(plan)
+
+        def fake_ranked(n):
+            return [(s, 0) for s in backlog
+                    if not (exclude_produced and s in produced)]
+
+        def fake_present(ids, profiles_dir=None):
+            return {i for i in ids if i in produced}
+
+        def fake_run_workflow(ids, date):
+            calls.append(list(ids))
+            step = plan.pop(0) if plan else "all"
+            if step == "all":
+                produced.update(ids)
+            elif step == "none":
+                pass
+            elif isinstance(step, int):
+                produced.update(list(ids)[:step])
+            return ("", 0)  # clean output, rc 0 → limits.parse_error_type → None
+
+        with mock.patch.multiple(
+            runner,
+            USE_WORKFLOW=True, BATCH_SIZE=batch_size, WEEKLY_AFTER_WAITS=weekly,
+            RESUME_AFTER=0, MAX_ERR=3,
+            log=lambda *a, **k: None, notify=lambda *a, **k: None,
+            write_state=lambda *a, **k: None, format_profiles=lambda *a, **k: None,
+            run_workflow=fake_run_workflow, profiles_present=fake_present,
+        ), mock.patch.object(runner.prioritize, "ranked", fake_ranked), \
+                mock.patch.object(runner.time, "sleep", lambda *_: None):
+            return runner.main()
+
+    def test_multi_batch_happy_path(self):
+        produced, calls = set(), []
+        rc = self._run(["A", "B", "C", "D"], ["all", "all"], produced, calls)
+        self.assertEqual(rc, 0)
+        self.assertEqual(len(calls), 2)            # one workflow call per batch
+        self.assertEqual(produced, {"A", "B", "C", "D"})
+
+    def test_partial_batch_then_resume_next_invocation(self):
+        produced, calls = set(), []
+        rc1 = self._run(["A", "B"], [1], produced, calls)   # produce only 1 of 2
+        self.assertEqual(rc1, 0)
+        self.assertEqual(len(produced), 1)                  # straggler left behind
+        rc2 = self._run(["A", "B"], ["all"], produced, calls)  # fresh invocation
+        self.assertEqual(rc2, 0)
+        self.assertEqual(produced, {"A", "B"})
+        # the resume invocation re-drove ONLY the missing id, not the done one
+        self.assertEqual(len(calls[-1]), 1)
+
+    def test_zero_production_retries_within_run(self):
+        # rate-limit synthesis: first attempt emits nothing → wait → retry same ids
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], ["none", "all"], produced, calls, weekly=3)
+        self.assertEqual(rc, 0)
+        self.assertEqual(produced, {"A", "B"})
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(calls[0], calls[1])       # same remaining ids both attempts
+
+    def test_persistent_zero_production_stops_weekly(self):
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], ["none", "none", "none"], produced, calls, weekly=2)
+        self.assertEqual(rc, 2)                     # likely-weekly-cap exit
+        self.assertEqual(len(calls), 3)            # 2 waits, then stop on the 3rd
+
+    def test_already_complete_batch_is_skipped(self):
+        produced, calls = {"A", "B"}, []
+        rc = self._run(["A", "B"], [], produced, calls, exclude_produced=False)
+        self.assertEqual(rc, 0)
+        self.assertEqual(calls, [])                 # all on disk → workflow never called
