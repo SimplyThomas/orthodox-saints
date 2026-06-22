@@ -9,6 +9,7 @@
   --byz: #234c7a; /* Deep Byzantine Blue */
   --byz-deep: #18324f; /* darker, for type & deep panels */
   --byz-ink: #0f2238; /* near-black navy ink */
+  --byz-green: #1f5e54; /* deep brand green — readable eyebrow/section labels */
   --dome: #4a6f96; /* Pantocrator Dome Blue */
   --celest: #5b7fa6; /* Celestial Blue */
   --celest-soft: #8aa6c4;
@@ -4201,7 +4202,16 @@ a.sv-rail-chip:hover {
 .sv2 .sv-rail .eyebrow {
   display: block;
   margin-bottom: 12px;
-  color: var(--gold-deep);
+  color: var(--byz-green);
+}
+/* Section/eyebrow labels on the light page use the deep brand green for legible
+   contrast against ivory (gold-deep was too faint). The hero's on-dark labels
+   (.eyebrow.on-blue) keep their gold treatment. */
+.sv2 .sv-secthead .eyebrow,
+.sv2 .sv-customs .eyebrow,
+.sv2 .sv-littitle-label,
+.sv2 .sv-deep-eb {
+  color: var(--byz-green);
 }
 .sv2 .sv-glance dl {
   margin: 0;
@@ -4412,7 +4422,7 @@ a.sv-rail-chip:hover {
   text-transform: uppercase;
   letter-spacing: 0.26em;
   font-size: 12px;
-  color: var(--gold-deep);
+  color: var(--byz-green);
   margin: 0;
   border-bottom: 0;
   padding: 0;
