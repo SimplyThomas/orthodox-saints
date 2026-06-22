@@ -120,4 +120,6 @@ export interface FinderSaint {
   variants?: string[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;
+  /** true when a human has personally reviewed this profile */
+  humanReviewed?: boolean;
 }
