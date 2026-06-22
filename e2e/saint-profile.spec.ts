@@ -26,9 +26,7 @@ test("a saint without a profile renders no profile sections", async ({
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
-test("Basil's timeline, holy family, and related saints render", async ({
-  page,
-}) => {
+test("Basil's timeline and companions & kin render", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
   // Timeline sits in the band beneath the columns (beside the quote).
   await expect(
@@ -41,22 +39,19 @@ test("Basil's timeline, holy family, and related saints render", async ({
     page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
-  // Holy Family + Related Saints sit in the "after" region beneath the legacy band.
-  const after = page.locator(".sv-after");
+  // Family + related are unified into one "companions & kin" avatar grid.
+  const kin = page.locator(".sv-related");
+  await expect(kin.locator(".sv-secthead")).toContainText("companions & kin");
   await expect(
-    after.locator("h2", { hasText: "Holy Family of Cappadocia" }),
+    kin.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (brother)
   ).toBeVisible();
   await expect(
-    after.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (family + related)
+    kin.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom (fellow hierarch)
   ).toBeVisible();
-  // Naucratius is not in the dataset → plain name, never a link.
-  await expect(after.locator("li", { hasText: "Naucratius" })).toBeVisible();
-  await expect(
-    after.locator("li", { hasText: "Naucratius" }).locator("a"),
-  ).toHaveCount(0);
-  await expect(
-    after.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom
-  ).toBeVisible();
+  // Naucratius is not in the dataset → a card with no link.
+  const nau = kin.locator(".sv-relcard", { hasText: "Naucratius" });
+  await expect(nau).toBeVisible();
+  await expect(nau.locator("a")).toHaveCount(0);
 });
 
 test("Basil's contributions & legacy render in the full-width band", async ({

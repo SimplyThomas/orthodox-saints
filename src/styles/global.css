@@ -4582,21 +4582,63 @@ a.sv-rail-chip:hover {
 .sv2 .sv-group-list a:hover {
   color: var(--celest);
 }
-/* related-saints avatar carousel */
-.sv2 .sv-related .sv-relrow {
+/* commemorated-with — stacked row cards */
+.sv2 .sv-comm-list {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
+  flex-direction: column;
+  gap: 10px;
+}
+.sv2 .sv-comm-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.sv2 .sv-comm-row:hover {
+  border-color: var(--gold);
+}
+.sv2 .sv-comm-main {
+  min-width: 0;
+}
+.sv2 .sv-comm-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--byz-deep);
+  line-height: 1.1;
+}
+.sv2 .sv-comm-meta {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.sv2 .sv-comm-glyph {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* companions & kin — avatar grid */
+.sv2 .sv-kin-intro {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--celest);
+  margin: -8px 0 22px;
+  max-width: 680px;
+  text-wrap: pretty;
+}
+.sv2 .sv-related .sv-relrow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 22px 14px;
 }
 .sv2 .sv-relcard {
-  flex: 0 0 auto;
-  width: 116px;
   text-align: center;
   text-decoration: none;
-  scroll-snap-align: start;
 }
 .sv2 .sv-relav {
   display: flex;

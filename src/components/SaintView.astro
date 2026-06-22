@@ -15,8 +15,8 @@ import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { loadProfileMap } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
-import FigureList from "./FigureList.astro";
 import { themeBySlug, relatedByThemes } from "../lib/themes";
+import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
 
 interface Props {
@@ -32,30 +32,56 @@ const isDraft =
   !!profile?.status && profile.status !== "reviewed" && !isFlagged;
 const flagReasons = profile?.flagReasons ?? [];
 
-// Related figures, resolved to full records where possible so each renders as
-// an avatar card (the design's related-saints carousel). Curated profile.related
-// wins; otherwise we derive companions by shared themes. A figure that isn't in
-// the dataset (or is an external link) still shows a monogram card.
+// "Companions & kin" (the design's unified human web): the curated profile
+// `related` figures and the `family` members folded into one avatar grid, each
+// resolved to its record where possible so it shows the real portrait/monogram,
+// a relationship label, and name + epithet. De-duplicated by id/name; figures
+// not in the dataset (e.g. an uncanonized brother) still show a monogram card.
+// With no profile we derive companions by shared themes.
 const byId = new Map(SAINTS.map((s) => [s.id, s]));
-const relatedCards =
-  profile && profile.related && profile.related.length
-    ? profile.related.map((f) => {
-        const id = f.href?.match(/OS-\d{4,}/)?.[0];
-        return {
-          saint: id ? byId.get(id) : undefined,
-          name: f.name,
-          rel: f.note,
-          href: f.href,
-          external: f.external,
-        };
-      })
-    : relatedByThemes(saint, SAINTS, 6).map((s) => ({
-        saint: s,
-        name: s.name,
-        rel: primaryRank(s),
-        href: "saint/" + s.id,
-        external: undefined as string | undefined,
-      }));
+// Possessive for the section labels ("In his own words", "His companions & kin").
+const possessive =
+  saint.gender === "Male" ? "his" : saint.gender === "Female" ? "her" : "their";
+const possessivePrefix =
+  possessive.charAt(0).toUpperCase() + possessive.slice(1);
+const stripHon = (n: string) => n.replace(/^(Saint|St\.?|Holy)\s+/i, "");
+type Companion = {
+  saint?: Saint;
+  name: string;
+  rel: string;
+  href?: string;
+  external?: string;
+};
+const companions: Companion[] = [];
+const seenKin = new Set<string>();
+const addKin = (f: {
+  name: string;
+  note?: string;
+  href?: string;
+  external?: string;
+}) => {
+  const id = f.href?.match(/OS-\d{4,}/)?.[0];
+  const key = id || f.name;
+  if (seenKin.has(key)) return;
+  seenKin.add(key);
+  companions.push({
+    saint: id ? byId.get(id) : undefined,
+    name: f.name,
+    rel: f.note ?? "",
+    href: f.href,
+    external: f.external,
+  });
+};
+if (profile && (profile.related?.length || profile.family)) {
+  (profile.related ?? []).forEach(addKin);
+  (profile.family?.figures ?? []).forEach(addKin);
+} else {
+  relatedByThemes(saint, SAINTS, 6).forEach((s) =>
+    addKin({ name: s.name, note: primaryRank(s), href: "saint/" + s.id }),
+  );
+}
+const kinIntro = profile?.family?.intro;
+const kinLabel = `${possessivePrefix} companions & kin`;
 
 // Group-taxonomy memberships (data/saint_groups.csv) → "Commemorated with"
 // links to each group's landing page. Joined into the record by build.py.
@@ -71,15 +97,15 @@ const hasReading = !!readingGroups || m.about.length > 0;
 
 const hasTimeline = !!profile?.timeline?.length;
 const hasLegacy = !!profile?.sections?.length;
-const hasRelated = relatedCards.length > 0;
-const hasKin = !!profile?.family || memberGroups.length > 0;
+const hasCompanions = companions.length > 0;
+const hasCommemorated = memberGroups.length > 0;
 const hasAfter =
   hasTimeline ||
   hasLegacy ||
   hasWorks ||
   hasReading ||
-  hasKin ||
-  hasRelated ||
+  hasCommemorated ||
+  hasCompanions ||
   !!m.notes ||
   !!m.sources;
 
@@ -111,8 +137,6 @@ const quoteList = profile?.quotes?.length
   : m.quote
     ? [m.quote]
     : [];
-const possessive =
-  saint.gender === "Male" ? "his" : saint.gender === "Female" ? "her" : "their";
 const wordsLabel = `In ${possessive} own words`;
 ---
 
@@ -719,53 +743,67 @@ const wordsLabel = `In ${possessive} own words`;
                 </details>
               )}
 
-              {hasKin && (
-                <section class="sv-kin">
-                  <div class="sv-plum-grid">
-                    {memberGroups.length > 0 && (
-                      <div class="sv-plum-block">
-                        <h2>Commemorated With</h2>
-                        <ul class="sv-group-list">
-                          {memberGroups.map((g) => (
-                            <li>
-                              <a href={withBase("group/" + g.slug)}>{g.name}</a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {profile?.family && (
-                      <div class="sv-plum-block">
-                        <h2>{profile.family.heading}</h2>
-                        {profile.family.intro && (
-                          <p class="sv-fam-intro">{profile.family.intro}</p>
-                        )}
-                        <FigureList figures={profile.family.figures} />
-                      </div>
-                    )}
+              {hasCommemorated && (
+                <section class="sv-section sv-comm">
+                  <div class="sv-secthead">
+                    <span class="eyebrow">Commemorated with</span>
+                  </div>
+                  <div class="sv-comm-list">
+                    {memberGroups.map((g) => {
+                      const full = groupBySlug.get(g.slug);
+                      const meta = full?.feast
+                        ? `Commemorated together · ${full.feast}`
+                        : GROUP_TYPE_LABEL[g.type] || g.type;
+                      return (
+                        <a
+                          class="sv-comm-row"
+                          href={withBase("group/" + g.slug)}
+                        >
+                          <div class="sv-comm-main">
+                            <div class="sv-comm-name">{g.name}</div>
+                            <div class="sv-comm-meta">{meta}</div>
+                          </div>
+                          <svg
+                            class="sv-comm-glyph"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            stroke="var(--celest)"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M4 10 10 4M5 4h5v5" />
+                          </svg>
+                        </a>
+                      );
+                    })}
                   </div>
                 </section>
               )}
 
-              {hasRelated && (
+              {hasCompanions && (
                 <section class="sv-section sv-related">
                   <div class="sv-secthead">
-                    <span class="eyebrow">Related Saints</span>
+                    <span class="eyebrow">{kinLabel}</span>
                   </div>
+                  {kinIntro && <p class="sv-kin-intro">{kinIntro}</p>}
                   <div class="sv-relrow">
-                    {relatedCards.map((card) => {
+                    {companions.map((card) => {
+                      const nm = card.saint ? splitName(card.saint.name) : null;
                       const av = card.saint
                         ? saintAvatar(card.saint, 74, 92, {
                             type: primaryRank(card.saint),
                           })
-                        : saintAvatar({ name: card.name }, 74, 92);
-                      const nm = card.saint ? splitName(card.saint.name) : null;
+                        : saintAvatar({ name: stripHon(card.name) }, 74, 92);
                       const body = (
                         <>
                           <div class="sv-relav" set:html={av} />
                           {card.rel && <div class="sv-relrel">{card.rel}</div>}
                           <div class="sv-relname">
-                            {nm ? nm.title : card.name}
+                            {nm ? nm.title : stripHon(card.name)}
                             {nm?.epithet && (
                               <span class="sv-relep">{nm.epithet}</span>
                             )}
