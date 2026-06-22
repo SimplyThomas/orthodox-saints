@@ -416,7 +416,10 @@ simply stay.
   OS-1815 (→ OS-0172 Joannicius II); OS-1712 (→ OS-0386 Eustathius); OS-1440 (→ OS-0816
   Kirion II); and from the identity-cleanup PR: OS-0189 (→ OS-0057 Prophet Moses); OS-0120
   (→ OS-0065 Mamas); OS-1703 (→ OS-0490 Macarius the Roman); OS-1399 (→ OS-0498
-  Inna/Pinna/Rimma); OS-2369 (→ OS-1641 Eleutherius the Cubicularius).
+  Inna/Pinna/Rimma); OS-2369 (→ OS-1641 Eleutherius the Cubicularius); and from the
+  saint-dedup-cleanup PR: OS-1582 (→ OS-0060 Paraskevi of Rome); OS-1795 (→ OS-0058
+  Phanourios); OS-1334 (→ OS-0049 Luke of Crimea); OS-2170 (→ OS-0046 Nektarios of
+  Aegina); OS-2101 (→ OS-0070 Arsenios of Cappadocia).
 - **The identity-cleanup PR landed — all previously-flagged conflations are resolved:**
   Anthony & Theodosius of the Kyiv Caves split (OS-0136 Anthony + OS-2745 Theodosius);
   Ioane & Giorgi-Ioane of Betania split (OS-0317 + OS-2746 — the OCA spine lists them

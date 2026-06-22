@@ -1,0 +1,44 @@
+id: OS-1568
+lifespan: 14th century (traditional; some later accounts place her birth around 1500)
+liturgicalTitle: The Holy Virgin-Martyr Markella of Chios
+overview:
+  - Markella of Chios (also spelled Marcella) is venerated in the Orthodox Church as a virgin-martyr of the island of Chios, Greece. By the most widely received tradition she lived in the 14th century in the village of Volissos, during a period when Chios was under Genoese rule.
+  - Raised in the Christian faith by her devout mother, Markella was, according to her vita, slain by her own father when she fled to preserve her chastity. She is honored as a virgin-martyr who chose death over sin, and she is regarded as the patron saint of Chios. Her feast is kept on July 22.
+timeline:
+  - when: 14th century
+    title: Birth at Volissos
+    body: By the received tradition, Markella is born in the village of Volissos on Chios, then under Genoese rule. Her father served as the village mayor.
+  - when: Youth
+    title: Christian upbringing
+    body: Raised in the faith by her devout mother, Markella devoted herself to prayer, fasting, Bible study, and Christian virtue. After her mother's early death, she continued this manner of life.
+  - when: About age eighteen
+    title: Martyrdom
+    body: Fleeing her father, she hid on a nearby mountain; he set fire to the bush concealing her and pursued her to the sea, wounding her with an arrow and finally beheading her. She is venerated thereafter as a virgin-martyr.
+sections:
+  - heading: Life and Martyrdom
+    body:
+      - According to her vita, Markella was raised at Volissos by her mother, a devout Christian; her father served as the village mayor. After her mother died while Markella was still young, she continued to study Scripture, pray, and live a life of fasting and Christian virtue.
+      - Orthodox accounts relate that when she reached about the age of eighteen, her father was seized with an unnatural, incestuous lust for her. Horrified, Markella fled to a nearby mountain to preserve her chastity, hiding herself in a bush. Her father, aided by a local herdsman, set fire to the bush; Markella escaped and ran toward the sea, where her father wounded her with an arrow. By tradition the rocks opened to conceal her body but not her head, and her father beheaded her and cast her head into the sea.
+  - heading: Sources and Chronology
+    body:
+      - The historical record of Markella's life is sparse and uncertain. The synaxarion of 1810 noted that information about her life and martyrdom was unknown, and documentation from 1868 supplied only limited details of her veneration on Chios. The scholar Leo Allatius mentioned her in 1648 without full attribution.
+      - "The chronology is correspondingly debated. The most widely received tradition, supported by Orthodox sources such as OrthodoxWiki, places her in the 14th century at Volissos; some 19th-century accounts instead estimated her birth around 1500. Two variant explanations of her flight also survive: one describes her father as an idolater pressing her toward paganism — judged anachronistic, since paganism was long extinct in 14th-century Greece — while the account considered more credible by Orthodox sources holds that her father was consumed with incestuous desire, from which she fled in horror."
+  - heading: Relics & Shrines
+    body:
+      - By local tradition Markella's severed head floated upon the sea to Komi beach, where it was discovered by the crew of an Italian (Genoese) warship. The account relates that they saw the head floating in the water, lit by upright floating candles, recognized the sight as miraculous, and carried it to their homeland in Italy.
+      - A church was built at the cave and martyrdom site. The rock there is believed to spring holy water, and the place draws many pilgrims, especially on July 22.
+  - heading: Miracles & Traditions
+    body:
+      - "Traditional Accounts: Local tradition holds that Markella's blood dyed the rocks of the martyrdom site red, and that this blood becomes visible each year on her feast day. The rock is said to spring holy water; during the July 22 commemoration services the water in the rock-pool is reported to boil in the presence of a priest and to feel extremely warm to the touch, and the sea is said to boil. By tradition a pilgrim of strong faith finds the rock-pool water warm. The icon of Saint Markella is among the most revered on Chios and is held to be miraculous."
+patronage:
+  - Chios
+  - those in danger
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Markella_of_Chios
+  - https://orthodoxwiki.org/Markella_of_Chios
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The profile asserts Markella's traditional date as '14th century', which conflicts with the anchor row's Era field of 'Post-Byzantine' (post-1453). The 14th century is the Byzantine period, not Post-Byzantine.
+    detail: The anchor row sets Era='Post-Byzantine' and leaves Century blank. The profile elevates '14th century' as the primary/traditional date in the lifespan field and throughout the profile. The 14th century (1300s) is the Byzantine period, not Post-Byzantine (post-1453). The anchor's Era designation must win on conflict (per verify.md rule (a)). The dossier external sources themselves note that the chronology is uncertain and contradictory ('The chronology is uncertain — her birth date was estimated around 1500 AD in the 1860s, though this contradicts earlier accounts placing her in the 14th century'), but the anchor's Era field — 'Post-Byzantine' — points to after 1453, which would align with the c. 1500 estimate, not the 14th-century tradition. The profile treats 14th century as primary and c. 1500 as a minority variant, which inverts the implication of the anchor row.

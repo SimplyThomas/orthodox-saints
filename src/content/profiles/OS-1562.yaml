@@ -1,0 +1,49 @@
+id: OS-1562
+lifespan: 13th century
+overview:
+  - "Salome the Georgian was a thirteenth-century nun of a women's monastery in Jerusalem who suffered martyrdom for openly confessing Christ. According to the Orthodox Church in America's synaxarion, very little information about her has survived: she lived during the thirteenth century at a women's monastery in the Holy City and was arrested by Muslim authorities because of her outspoken defense of the Christian faith."
+  - Of Georgian origin and associated with the region of Kartli, Salome belonged to the long-established Georgian ecclesiastical presence in Jerusalem. The sources relate that she was tortured and beheaded for refusing to renounce Christ, after which her relics were cast into the fire. She is commemorated on July 20.
+  - The principal hagiographic record of her life is the Synaxarion of the Monastery of the Holy Cross in Jerusalem, a centre of Georgian monasticism in the Holy Land, where her memory was preserved within the Georgian manuscript tradition.
+sections:
+  - heading: Confession and Martyrdom
+    body:
+      - The surviving account, drawn from the Synaxarion of the Monastery of the Holy Cross, records that Salome lived at a women's monastery in Jerusalem and was seized by the Muslim authorities on account of her open and outspoken confession of Christ. The Orthodox Church in America's listing describes her as having been tortured and beheaded for the faith, with her relics afterward thrown into the fire.
+      - The hostile power named in the source is rendered as Persian or Muslim; in the thirteenth-century setting of the Holy Land this language refers broadly to the dominant Muslim forces of the period rather than to a specifically ethnic-Persian group. The exact circumstances and date of her death have not come down to us in detail, the synaxarion preserving only the essential memory of her witness.
+  - heading: The Georgian Presence in Jerusalem
+    body:
+      - Salome's life belongs to the wider history of Georgian monasticism in the Holy Land. By the thirteenth century the Georgians maintained a substantial ecclesiastical presence in Jerusalem, with eight monasteries listed in the city at the height of their influence. Chief among these was the Monastery of the Cross, in the Valley of the Cross, originally built by the Georgian monk Prochorus the Iberian during the reign of King Bagrat IV in the eleventh century. Its library housed Georgian manuscripts and its interior bore Georgian inscriptions.
+      - Georgian rulers actively defended these foundations. After Saladin's conquest of Jerusalem in 1187, Queen Tamar of Georgia sent envoys to seek the return of confiscated Georgian monastic possessions, an effort the sources indicate was largely successful, and Georgian monks subsequently enjoyed special privileges including free passage into the city with their banners unfurled. This sustained patronage explains the existence of the women's monastery in which Salome lived and the Georgian manuscript tradition that preserved her memory.
+      - The period was a turbulent one for Georgian Christian communities. The Mongols launched a full conquest of Georgia in 1236, and Georgia acknowledged Mongol overlordship in 1243. The monks of the Monastery of the Cross were themselves executed under Sultan Baybars after being accused of spying for the Ilkhanate, and only in 1305 did an ambassador of the King of Georgia successfully negotiate the monastery's repossession from Sultan Al-Nasir Muhammad. It was amid this instability of the Georgian Christian presence in the Holy Land that Salome bore her witness.
+  - heading: Sources and Identity
+    body:
+      - The Orthodox Church in America identifies her as Martyr Salome the Georgian, commemorated on July 20 alongside the Prophet Elijah, Venerable Abramius of Galich, Martyr Ilia Chavchavadze, and Righteous Aaron. She should not be confused with Salome of Ujarma, a fourth-century figure who was the wife of Rev II and a companion of Saint Nina, commemorated on January 15 — a distinct person.
+      - "Salome is genuinely obscure: no independent encyclopedia article exists for her, and her full life survives only within the Georgian manuscript tradition of the Synaxarion of the Monastery of the Holy Cross. The English-language summary preserved by the Orthodox Church in America is the most complete account readily available."
+timeline:
+  - when: 11th century
+    title: Monastery of the Cross founded
+    body: The Monastery of the Cross in Jerusalem is built by the Georgian monk Prochorus the Iberian during the reign of King Bagrat IV, anchoring the Georgian monastic presence in the Holy Land.
+  - when: "1187"
+    title: Saladin takes Jerusalem
+    body: Following Saladin's conquest, Queen Tamar of Georgia sends envoys to recover confiscated Georgian monastic possessions, and Georgian monks regain privileges in the city.
+  - when: 13th century
+    title: Martyrdom of Salome
+    body: Living at a women's monastery in Jerusalem, Salome is arrested by Muslim authorities for confessing Christ, and according to the synaxarion is tortured, beheaded, and her relics cast into the fire.
+  - when: 1236–1243
+    title: Mongol conquest of Georgia
+    body: The Mongols complete the conquest of Georgia; Georgia acknowledges Mongol overlordship in 1243, part of the broader destabilization of Georgian Christian communities in this era.
+  - when: "1305"
+    title: Monastery of the Cross repossessed
+    body: An ambassador of the King of Georgia negotiates the return of the Monastery of the Cross from Sultan Al-Nasir Muhammad, following the earlier execution of its monks under Sultan Baybars.
+patronage:
+  - Georgia
+  - Georgian Christians of the Holy Land
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/07/20
+  - https://en.wikipedia.org/wiki/Monastery_of_the_Cross
+  - https://en.wikipedia.org/wiki/Kingdom_of_Georgia
+  - https://en.wikipedia.org/wiki/Mongol_invasions_of_Georgia
+  - https://en.wikipedia.org/wiki/Tamar_of_Georgia
+  - https://www.oca.org/saints/all-lives/2024/07/20
+status: draft
+generated: "2026-06-22"
