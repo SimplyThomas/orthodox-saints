@@ -243,9 +243,9 @@ rendered in file order:
 - `kind` ∈ `museum` | `iconographer` | `shop` drives the card tone; `title` (required) is the
   card heading; `tag`, `era`, `by` are the optional badge / dateline / attribution line.
 - The build joins the cards into the record as `depictions[]` (permission cards gain
-  `permission`/`vendor`/`attribution`; open-license cards keep `license`/`credit`). The page
-  states the permission relationship in a caption naming each vendor. Self-host + resize images
-  exactly as for portraits (§5 portraits bullet); permission files live under
+  `permission`/`vendor`/`attribution`; open-license cards keep `license`/`credit`). Each card
+  links to its `source` (a permission card's specific vendor icon page). Self-host + resize
+  images exactly as for portraits (§5 portraits bullet); permission files live under
   `static/icons/permission/<vendor_slug>/`.
 
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/

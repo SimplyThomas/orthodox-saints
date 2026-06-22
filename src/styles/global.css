@@ -4329,13 +4329,6 @@ a.sv-rail-chip:hover {
 .sv2 .sv-dep--link:hover {
   transform: translateY(-4px);
 }
-.sv2 .sv-deps-note {
-  margin: 22px 0 0;
-  font-size: 13px;
-  color: var(--ink-soft);
-  font-style: italic;
-  font-family: var(--serif);
-}
 @media (max-width: 720px) {
   .sv2 .sv-deps-nav {
     display: none;

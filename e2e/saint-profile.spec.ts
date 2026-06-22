@@ -186,9 +186,4 @@ test("the Theotokos page shows the Depictions & Icons carousel", async ({
     "href",
     "https://theophanyworks.com/icon-of-the-holy-protection-of-the-mother-of-god-usa-21st-c-00vmt019/",
   );
-  // The permission relationship is stated on the depictions themselves.
-  await expect(deps.locator(".sv-deps-note")).toContainText(
-    "by permission of",
-  );
-  await expect(deps.locator(".sv-deps-note")).toContainText("Theophany Works");
 });

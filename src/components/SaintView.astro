@@ -132,13 +132,6 @@ const depImg = (raw: string) => {
   const clean = String(raw).replace(/['"\\)\s<>]/g, "");
   return esc(/^(https?:)?\/\//.test(clean) ? clean : withBase(clean));
 };
-// Vendors whose permission icons appear — named in a caption so the page states
-// the permission relationship on the depictions themselves (the grant's terms).
-const depPermissionVendors = [
-  ...new Set(
-    depictions.filter((d) => d.permission && d.vendor).map((d) => d.vendor),
-  ),
-];
 const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
 const citation = `${m.honorificName}. Cloud of Witnesses.`;
 
@@ -460,14 +453,6 @@ const wordsLabel = `In ${possessive} own words`;
               );
             })}
           </div>
-
-          {depPermissionVendors.length > 0 && (
-            <p class="sv-deps-note">
-              Contemporary icons shown by permission of{" "}
-              {depPermissionVendors.join(", ")} — each card links to its icon
-              page.
-            </p>
-          )}
         </div>
       </section>
     )
