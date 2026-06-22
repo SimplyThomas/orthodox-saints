@@ -1,6 +1,7 @@
 import unittest
 import tempfile
 import json
+import subprocess
 from pathlib import Path as _P
 from unittest import mock
 
@@ -608,21 +609,14 @@ class WorkflowOutcomeTests(unittest.TestCase):
 
 
 class RunWorkflowTests(unittest.TestCase):
-    def _fake_proc(self):
-        class _R:
-            stdout = '{"type":"result","subtype":"success"}'
-            stderr = ""
-            returncode = 0
-        return _R()
-
     def test_invokes_workflow_tool_with_json_args(self):
         captured = {}
 
-        def fake_run(argv, **kw):
+        def capture(argv):
             captured["argv"] = argv
-            return self._fake_proc()
+            return ('{"type":"result","subtype":"success"}', 0)
 
-        with mock.patch.object(runner.subprocess, "run", fake_run):
+        with mock.patch.object(runner, "_exec_claude", capture):
             out, rc = runner.run_workflow(["OS-0007", "OS-0008"], "2026-06-20")
 
         argv = captured["argv"]
@@ -637,7 +631,8 @@ class RunWorkflowTests(unittest.TestCase):
         self.assertEqual(rc, 0)
 
     def test_returns_combined_stdout_stderr(self):
-        with mock.patch.object(runner.subprocess, "run", lambda argv, **kw: self._fake_proc()):
+        with mock.patch.object(runner, "_exec_claude",
+                               lambda argv: ('{"type":"result"}', 0)):
             out, rc = runner.run_workflow(["OS-0007"], "2026-06-20")
         self.assertIn('"type":"result"', out)
 
@@ -646,13 +641,11 @@ class LegacyPromptTokenGuardTests(unittest.TestCase):
     def test_points_at_stage_prompts_not_the_60kb_plan(self):
         captured = {}
 
-        def fake_run(argv, **kw):
+        def capture(argv):
             captured["argv"] = argv
-            class _R:
-                stdout = '{"type":"result"}'; stderr = ""; returncode = 0
-            return _R()
+            return ('{"type":"result"}', 0)
 
-        with mock.patch.object(runner.subprocess, "run", fake_run):
+        with mock.patch.object(runner, "_exec_claude", capture):
             runner.run_claude(["OS-0001"])
         prompt = captured["argv"][2]
         # must NOT re-read the heavy pipeline-design plan per saint
@@ -682,16 +675,20 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
         def fake_run_workflow(ids, date):
             calls.append(list(ids))
             step = plan.pop(0) if plan else "all"
-            out = ""                       # a step may be (action, orchestrator_output_text)
+            out, rc = "", 0       # step: action | (action, out) | (action, out, rc)
             if isinstance(step, tuple):
-                step, out = step
-            if step == "all":
+                action = step[0]
+                out = step[1] if len(step) > 1 else ""
+                rc = step[2] if len(step) > 2 else 0
+            else:
+                action = step
+            if action == "all":
                 produced.update(ids)
-            elif step == "none":
+            elif action == "none":
                 pass
-            elif isinstance(step, int):
-                produced.update(list(ids)[:step])
-            return (out, 0)  # rc 0; out drives limits.zero_production_etype on 0-production
+            elif isinstance(action, int):
+                produced.update(list(ids)[:action])
+            return (out, rc)
 
         with mock.patch.multiple(
             runner,
@@ -756,6 +753,16 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
         self.assertEqual(rc, 0)
         self.assertEqual(len(calls), 3)
 
+    def test_completed_but_timed_out_batch_advances(self):
+        # the real overnight freeze: workflow wrote all profiles, then the orchestrator
+        # hung → BATCH_TIMEOUT kills it (rc 124). The profiles are on disk, so the next
+        # iteration sees the batch complete and advances instead of freezing.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("all", "TIMEOUT after 3600s", 124)], produced, calls)
+        self.assertEqual(rc, 0)
+        self.assertEqual(produced, {"A", "B"})   # profiles landed despite the timeout
+        self.assertEqual(len(calls), 1)          # recompute found them done; no re-run
+
     def test_already_complete_batch_is_skipped(self):
         produced, calls = {"A", "B"}, []
         rc = self._run(["A", "B"], [], produced, calls, exclude_produced=False)
@@ -782,3 +789,48 @@ class ZeroProductionClassifyTests(unittest.TestCase):
         self.assertEqual(
             limits.zero_production_etype("429 rate limit; also 529 overloaded"),
             "rate_limit_error")
+
+
+class ExecClaudeTimeoutTests(unittest.TestCase):
+    def test_timeout_kills_process_group_and_returns_124(self):
+        killed = {}
+
+        class FakeProc:
+            pid = 4242
+            returncode = -9
+
+            def __init__(self):
+                self.n = 0
+
+            def communicate(self, timeout=None):
+                self.n += 1
+                if self.n == 1:
+                    raise subprocess.TimeoutExpired(cmd="claude", timeout=timeout)
+                return ("", "")
+
+            def kill(self):
+                killed["kill"] = True
+
+        with mock.patch.object(runner.subprocess, "Popen", lambda *a, **k: FakeProc()), \
+                mock.patch.object(runner.os, "getpgid", lambda pid: pid), \
+                mock.patch.object(runner.os, "killpg",
+                                  lambda pgid, sig: killed.__setitem__("killpg", (pgid, sig))), \
+                mock.patch.object(runner, "BATCH_TIMEOUT", 5), \
+                mock.patch.object(runner, "log", lambda *a, **k: None):
+            out, rc = runner._exec_claude(["claude", "-p", "x"])
+        self.assertEqual(rc, 124)
+        self.assertIn("TIMEOUT", out)
+        self.assertEqual(killed.get("killpg"), (4242, runner.signal.SIGKILL))
+
+    def test_normal_exit_returns_combined_output(self):
+        class FakeProc:
+            pid = 1
+            returncode = 0
+
+            def communicate(self, timeout=None):
+                return ("out", "err")
+
+        with mock.patch.object(runner.subprocess, "Popen", lambda *a, **k: FakeProc()):
+            out, rc = runner._exec_claude(["claude", "-p", "x"])
+        self.assertEqual(rc, 0)
+        self.assertEqual(out, "outerr")

@@ -27,6 +27,7 @@ orchestrator (the per-stage models live in the script)."""
 import json
 import os
 import shlex
+import signal
 import subprocess
 import sys
 import time
@@ -44,6 +45,13 @@ STAGE_GUIDES = ("tools/profilegen/prompts/gather.md, tools/profilegen/prompts/wr
 RUN_DIR = ROOT / "dist" / "profilegen"
 PROFILES_DIR = ROOT / "src" / "content" / "profiles"
 BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "10"))
+# Hard wall-clock cap on a single `claude -p` batch. A headless orchestrator sometimes
+# finishes its work but never exits (observed: workflow wrote all profiles, then hung) —
+# without a timeout the parent blocks forever and the whole overnight run freezes. On
+# timeout we kill the child's process group and let the loop move on; any profiles that
+# did land are picked up by the profiles-on-disk recompute. ~60 min ≫ a normal 10-saint
+# batch (~15 min) even with retries.
+BATCH_TIMEOUT = int(os.environ.get("BATCH_TIMEOUT", "3600"))
 MODEL = os.environ.get("PROFILEGEN_MODEL", "claude-opus-4-8")
 RESUME_AFTER = int(os.environ.get("RESUME_AFTER", str(5 * 3600 + 600)))  # ~5h10m: clears a window
 WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))      # then assume weekly cap
@@ -94,15 +102,36 @@ def run_claude(ids: list[str]) -> tuple[str, int]:
         f"coverage + verdicts under dist/profilegen/. SKIP any ID that already has a profile "
         f"file. Report how many profiles you wrote."
     )
-    proc = subprocess.run(
+    return _exec_claude(
         ["claude", "-p", prompt,
          "--permission-mode", "dontAsk",
          "--allowedTools", "Read,Write,Edit,Bash,WebFetch,WebSearch",
          "--model", MODEL,
-         "--output-format", "json"],
-        capture_output=True, text=True, cwd=ROOT,
-    )
-    return (proc.stdout or "") + (proc.stderr or ""), proc.returncode
+         "--output-format", "json"])
+
+
+def _exec_claude(argv) -> tuple[str, int]:
+    """Run a `claude -p` invocation with a hard BATCH_TIMEOUT. Spawn it in its own
+    process group (start_new_session) so that on timeout we can SIGKILL the whole tree
+    — the orchestrator AND the Workflow sub-agents it spawned — rather than orphaning
+    them (orphaned children have frozen prior runs). Returns (combined output, rc);
+    a timeout returns rc 124 with a 'TIMEOUT' marker the loop treats as a retryable error."""
+    proc = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                            text=True, cwd=ROOT, start_new_session=True)
+    try:
+        out, err = proc.communicate(timeout=BATCH_TIMEOUT)
+        return (out or "") + (err or ""), proc.returncode
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            proc.kill()
+        try:
+            out, err = proc.communicate(timeout=30)
+        except Exception:
+            out, err = "", ""
+        log(f"TIMEOUT after {BATCH_TIMEOUT}s — killed hung claude -p process group")
+        return (out or "") + (err or "") + f"\nTIMEOUT after {BATCH_TIMEOUT}s", 124
 
 
 def run_workflow(ids, date: str) -> tuple[str, int]:
@@ -116,15 +145,12 @@ def run_workflow(ids, date: str) -> tuple[str, int]:
         f"Do NOT generate any profiles yourself and do NOT spawn your own subagents — "
         f"invoke that single Workflow and report only its final summary line."
     )
-    proc = subprocess.run(
+    return _exec_claude(
         ["claude", "-p", prompt,
          "--permission-mode", "dontAsk",
          "--allowedTools", WORKFLOW_TOOLS,
          "--model", ORCH_MODEL,
-         "--output-format", "json"],
-        capture_output=True, text=True, cwd=ROOT,
-    )
-    return (proc.stdout or "") + (proc.stderr or ""), proc.returncode
+         "--output-format", "json"])
 
 
 def format_profiles(ids: list[str]) -> None:
