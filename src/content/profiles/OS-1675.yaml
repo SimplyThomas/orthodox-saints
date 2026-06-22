@@ -1,0 +1,22 @@
+id: OS-1675
+overview:
+  - "The Ten Ascetics of Egypt and the Two Martyrs of Tyre are commemorated together by the Eastern Orthodox Church on August 8. The record of them is irreducibly thin: no individual names, dates, or biographical details survive, and the synaxarion preserves only the manner of their deaths and the regions with which they are associated."
+  - The ten ascetics are remembered as Desert Fathers belonging to the monastic tradition of Egypt. Sources describe their end variously, with the OCA Synaxarion relating that they died at sea, while other accounts in the Greek tradition describe them as having met their end in peace.
+  - The two martyrs are associated with Tyre, an ancient city in present-day Lebanon. They are remembered for having been dragged along the ground to their death for the sake of Christ.
+sections:
+  - heading: Historical Record
+    body:
+      - The commemoration survives only in calendrical form. The OCA Synaxarion for August 8 records the combined entry in a single line, naming neither the ascetics nor the martyrs and supplying no dates or wider context; the entry appears among more than a dozen other commemorations on that date.
+      - The Eastern Orthodox liturgical calendar lists the two groups as separate commemorations — the ten venerable ascetics of Egypt, and the two martyrs of Tyre dragged to death — citing the Great Synaxaristes and the OCA Lives of the Saints. Beyond the manner of death, no biographical or historical detail is preserved.
+      - 'Liturgical verses associated with each group survive in the Greek tradition. For the ascetics: "The ten offspring of Egypt died, who were equal in number to the ten plagues." For the martyrs: "The pair tread the ground, the pole is the fear of God, the yoke is faith, and the wheels are eagerness." No scholarly hagiographic account of either group exists in the accessible record.'
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/08/08
+  - https://en.wikipedia.org/wiki/August_8_(Eastern_Orthodox_liturgics)
+  - https://www.johnsanidopoulos.com/2019/08/holy-ten-venerable-ascetics-of-egypt.html
+  - https://www.johnsanidopoulos.com/2019/08/holy-two-martyrs-of-tyre.html
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The entry appears among more than a dozen other commemorations on that date.
+    detail: The OCA dossier text states the entry appears 'alongside 12 other commemorations.' Twelve is exactly one dozen, not more than a dozen. 'More than a dozen' overstates the count and is not supported by the dossier.
