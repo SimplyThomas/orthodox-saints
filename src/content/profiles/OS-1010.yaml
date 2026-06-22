@@ -1,0 +1,49 @@
+id: OS-1010
+liturgicalTitle: Our Father Among the Saints Makarios Notaras, Archbishop of Corinth
+lifespan: 1731-1805
+overview:
+  - Makarios Notaras was archbishop of Corinth and one of the leading figures of the Kollyvades movement, a spiritual renewal within the Orthodox Church under Ottoman rule that called for strict fidelity to traditional liturgical practice and a recovery of the patristic and hesychast tradition. Together with Saint Nikodemos of the Holy Mountain he gathered and edited the Philokalia, the great anthology of Orthodox ascetic and mystical writings.
+  - Born into the wealthy and influential Notaras family of Corinth, he was consecrated archbishop of his native city, but was displaced from his see amid the upheavals of the period and spent his later years in monastic retirement. He devoted those years to compiling spiritual texts, to confession and counsel, and to encouraging the new martyrs of the Ottoman period. He reposed on Chios in 1805.
+timeline:
+  - when: "1731"
+    title: Birth in Corinth
+    body: Born Michael Notaras in Corinth into the wealthy and influential family of George Notaras, a family that traced its lineage back into the Eastern Roman past.
+  - when: "1764"
+    title: Archbishop of Corinth
+    body: Elected and ordained archbishop of Corinth following the death of his predecessor, consecrated by Patriarch Samuel I in Constantinople. As bishop he sent candidates for the priesthood to monasteries for training and worked to correct abuses in church life.
+  - when: "1768"
+    title: Displacement from the see
+    body: Amid the upheavals of the Russo-Turkish War he was forced to leave Corinth, and was unable to resume the active governance of his see, turning increasingly to a life of writing and ascetic retirement.
+  - when: "1777-1782"
+    title: The Philokalia
+    body: Makarios gathered the manuscripts of the patristic and hesychast writers and entrusted the material to Saint Nikodemos of the Holy Mountain, who edited the texts and prepared the prologue and the lives of the authors. The Philokalia was first published in Venice in 1782.
+  - when: "1805"
+    title: Repose on Chios
+    body: After years of ascetic life spent writing, confessing, and counseling, Makarios died on April 17, 1805, at the hermitage of Saint Peter on the island of Chios.
+sections:
+  - heading: The Kollyvades Movement
+    body:
+      - Makarios was among the foremost leaders of the Kollyvades movement, which arose on Mount Athos and spread through the Greek world in the eighteenth century. Alongside Saint Nikodemos of the Holy Mountain and Saint Athanasios of Paros, he stood for strict adherence to the inherited order of the Church, including the proper day for memorial services for the dead, and for a renewal of frequent communion and the reading of the Fathers.
+      - The movement was, beyond its disputes over liturgical detail, a wide recovery of the contemplative and patristic tradition at a time of cultural pressure under Ottoman rule, and the Philokalia became its enduring monument.
+  - heading: Editorial and Spiritual Work
+    body:
+      - Beyond the Philokalia, Makarios assembled and promoted other foundational collections of Orthodox spiritual literature, working to make the writings of the Fathers and the ascetic tradition available to clergy and faithful. He also encouraged the new martyrs of his age, supporting those who confessed Christ under persecution.
+      - In his later years on Chios he lived as an ascetic, writing books, hearing confessions, and giving spiritual counsel, and there he reposed. His influence, carried above all through the Philokalia, contributed to a lasting renewal of hesychast spirituality within the Orthodox Church.
+patronage:
+  - Spiritual writers and editors of patristic texts
+  - Those seeking renewal of the contemplative and hesychast tradition
+related:
+  - name: Nikodemos of the Holy Mountain
+    note: Fellow Kollyvades leader and co-editor of the Philokalia
+  - name: Athanasios of Paros
+    note: Fellow leader of the Kollyvades movement
+works:
+  - title: The Philokalia
+    desc: The great anthology of Orthodox ascetic and hesychast writings, which Makarios gathered and entrusted to Nikodemos of the Holy Mountain for editing; first published in Venice in 1782.
+    date: "1782"
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Macarius_of_Corinth
+  - https://orthodoxwiki.org/Macarius_Notaras_of_Corinth
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,39 @@
+id: OS-2334
+liturgicalTitle: Our Venerable Father Nikon the Dry, of the Kiev Near Caves
+lifespan: died c. 1101
+overview:
+  - Nikon the Dry was an eleventh-century monk of the Kiev Caves Monastery (the Kiev Pechersk Lavra) in Kievan Rus'. According to the tradition recorded in the synaxarion, he was the son of wealthy and illustrious parents but gave up his possessions to embrace the monastic life. He is commemorated on December 11, and his relics rest in the Near Caves of the Lavra.
+  - The central episode of his life is his captivity. In 1096, during the incursions of Khan Bonyak, he was seized together with several other monks and enslaved by the Polovtsians, enduring harsh treatment for about three years. When he refused to be ransomed, his captors tormented him with hunger, exposed him to the summer heat and winter cold, and beat him; the tradition relates that they severed the tendons of his knees and ankles to prevent his escape.
+  - 'By tradition his deliverance came through a vision: Saint Eustratius appeared to him and foretold his release, and Nikon told his captors that, through the prayers of Saints Anthony and Theodosius, the Lord would return him to his monastery within three days. On the third day, the synaxarion relates, he became invisible to his guards and was carried to Kiev, appearing among the brethren in the Dormition church during the Divine Liturgy. He was called "the Dry" on account of his severe fasting, by which his body was withered.'
+sections:
+  - heading: The Conversion of His Captor
+    body:
+      - The tradition relates that Nikon's former master afterward came to the Kiev Caves Monastery and recognized his escaped captive among the monks. Moved by what he found, he came to believe in Christ and accepted Baptism. According to the account, he then received monastic tonsure and became a novice under the direction of the very man he had once held in bondage, so that captor became disciple.
+timeline:
+  - when: "1096"
+    title: Taken captive
+    body: Seized during the incursions of Khan Bonyak and enslaved by the Polovtsians along with other monks.
+  - when: c. 1099
+    title: Miraculous deliverance
+    body: By tradition, after about three years of captivity he was carried unseen to Kiev, appearing in the Dormition church during the Liturgy.
+  - when: c. 1101
+    title: Repose
+    body: He reposed at the Kiev Caves and was buried in the Near Caves, where his relics were glorified by incorruption.
+related:
+  - name: St. Eustratius of the Kiev Caves
+    note: Fellow monk and martyr of the Lavra who, by tradition, appeared to Nikon in captivity and foretold his release.
+    href: saint/OS-0889
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of the Lavra, through whose prayers (with St Theodosius) Nikon's deliverance was sought.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Father of cenobitic monasticism in Rus', invoked together with St Anthony in Nikon's deliverance.
+    href: saint/OS-2745
+patronage:
+  - Invoked by captives and prisoners, and by those enduring slavery, torture, or harsh confinement, after the pattern of his own captivity and deliverance.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/12/11/103521-venerable-nikon-the-dry-of-the-kiev-near-caves
+  - https://en.wikipedia.org/wiki/Nikon_the_Dry
+generated: "2026-06-20"

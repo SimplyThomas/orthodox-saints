@@ -1,0 +1,58 @@
+id: OS-0868
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0203/03/23/100868-martyr-philetus-the-senator-his-wife-and-sons-and-those-with-the
+  - https://en.wikipedia.org/wiki/Philetus_(martyr)
+lifespan: 2nd century (died c. 121)
+liturgicalTitle: The Holy Martyr Philetus the Senator
+overview:
+  - Philetus was a senator and dignitary at the court of the emperor Hadrian (117-138), during whose reign Christians were persecuted. Condemned for openly confessing Christ, he was put to death together with his household in the Roman province of Illyria.
+  - "He is commemorated not alone but as the head of a group of martyrs: his wife Lydia, their sons Macedonius and Theoprepius, the military commander Amphilochius, and the notary Cronides. Their shared witness, recounted in the synaxarion, centers on the conversion of one of their own persecutors."
+timeline:
+  - when: 117-138
+    title: At the court of Hadrian
+    body: Philetus served as a dignitary and senator at the court of the emperor Hadrian, a period in which the imperial authorities persecuted Christians.
+  - when: During Hadrian's reign
+    title: Trial and confession of Christ
+    body: Philetus was brought to trial together with his wife Lydia and their sons Macedonius and Theoprepius for openly declaring their faith in Christ.
+  - when: During Hadrian's reign
+    title: Sent to Illyria for torture
+    body: By order of the emperor, the family was sent to Illyria to the military governor Amphilochius, who had them suspended from a tree and tortured with knives, then imprisoned together with the jailer Cronides, who had come to believe in Christ.
+  - when: c. 121
+    title: Martyrdom in Illyria
+    body: After repeated torments, the synaxarion relates, the martyrs gave thanks to God and surrendered their souls to Him. Their death is placed around the year 121.
+sections:
+  - heading: Persecution under Hadrian
+    body:
+      - According to the synaxarion, Philetus held a position of rank at the court of the emperor Hadrian, who ruled from 117 to 138. When he confessed his Christian faith openly, he was brought to trial along with his wife Lydia and their two sons, Macedonius and Theoprepius.
+      - On the emperor's order the family was sent to the province of Illyria and handed over to the military governor Amphilochius to be tortured. The governor had them suspended from a tree and tortured with knives, after which they were locked in prison together with the jailer Cronides, a notary who had himself come to believe in Christ and was thrown into jail.
+  - heading: Miracles & Traditions
+    body:
+      - "Traditional Accounts: The synaxarion relates that an angel visited the martyrs nightly to comfort them in their suffering. By tradition the martyrs were placed into a cauldron of boiling oil, but the oil cooled instantly and the saints remained unharmed. The account adds that the governor Amphilochius, astonished at the wonder, himself confessed Christ and entered the boiling oil with the words 'Lord, Jesus Christ, help me!' and was likewise preserved unharmed; he is numbered among the martyrs of the group."
+      - "Historically Documented: Modern scholarship notes that the Acta of these martyrs are considered unreliable, and that detailed records of the specific circumstances of their deaths remain limited. The core fact preserved across traditions is that Philetus and his companions were martyred in Illyria during the reign of Hadrian."
+  - heading: Veneration
+    body:
+      - Philetus and those with him are venerated by both the Eastern Orthodox Church and the Roman Catholic Church, an instance of shared pre-schism veneration. In the Orthodox calendar they are commemorated on March 23, while the Roman tradition observes their feast on March 27.
+      - "In the Orthodox synaxarion the commemoration honors the whole group together: Philetus the senator, his wife Lydia, their sons Macedonius and Theoprepius, the commander Amphilochius, and the notary Cronides."
+family:
+  heading: Household and Fellow Martyrs
+  intro: Philetus suffered together with his immediate family and others who shared his confession in Illyria.
+  figures:
+    - name: Lydia
+      note: His wife, martyred with him.
+    - name: Macedonius
+      note: Their son, martyred with the family.
+    - name: Theoprepius
+      note: Their son, martyred with the family.
+    - name: Amphilochius
+      note: The military commander who tortured them and, by tradition, was converted and martyred with them.
+    - name: Cronides
+      note: A notary and jailer who believed in Christ and was imprisoned and martyred with them.
+patronage: []
+reading:
+  - heading: Reference
+    items:
+      - title: Lives of the Saints, March 23
+        type: Synaxarion
+status: draft
+generated: "2026-06-19"

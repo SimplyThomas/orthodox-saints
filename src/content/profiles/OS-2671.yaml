@@ -1,0 +1,36 @@
+id: OS-2671
+liturgicalTitle: The Holy New Martyrs of Stara Zagora
+lifespan: died 1877
+overview:
+  - The New Martyrs of Stara Zagora are the Orthodox Christians of the Bulgarian city of Stara Zagora (Eski Zagra) who were killed during the Russo-Turkish War of 1877–1878. They are commemorated together as a named group on July 19, the date associated by the Bulgarian Orthodox Church with the destruction of the city and the death of its faithful.
+  - Their deaths fell within the events known as the Stara Zagora massacre, which took place during the Battle of Eski Zagra. After a Russian advance squad under General Iosif Gurko liberated the city on July 22, 1877, it withdrew in the face of a far larger Ottoman army under Suleyman Husnu Pasha. Regular Ottoman troops, together with irregular Circassian bashi-bazouk units, then attacked the city; over roughly three days the town was burned and largely destroyed, and a great number of civilians were killed. Sources record the dates as 19–21 July (Old Style), corresponding to 31 July – 2 August (New Style), and place the overall civilian death toll at about fourteen thousand.
+  - By tradition the church of the Holy Trinity (Sveta Troitsa) became a particular place of slaughter, where some two thousand five hundred Christians who had sought refuge are said to have died on July 19, 1877. The population of the city had swelled to nearly forty thousand as villagers from the surrounding countryside fled there for protection, and when the assault came the escape routes were blocked, trapping the refugees. The Bulgarian Orthodox Church honours these victims as martyrs of the faith and people; commemorations have included a procession to the ossuary mausoleum dedicated to '19 July 1877'.
+sections:
+  - heading: Historical Context
+    body:
+      - The killings at Stara Zagora occurred during the Russo-Turkish War of 1877–1878, fought in part over the situation of the Orthodox Christian populations of the Balkans. The city, known in the period as Eski Zagra, lay on the line of the Russian advance across the Balkan range. Its brief liberation and the subsequent Ottoman counter-offensive made it the scene of one of the most severe civilian catastrophes of the war.
+      - Because the dead were not a single individual but a body of townspeople and refugees who perished together, they are remembered collectively rather than by name. The Bulgarian Orthodox Church distinguishes this group commemoration from the individually venerated New Martyrs connected with the same city, the New Martyr Triandaphyllus and the Monastic Martyr Ignatius.
+timeline:
+  - when: Jul 22, 1877
+    title: City briefly liberated
+    body: A Russian advance squad under General Iosif Gurko entered Stara Zagora before withdrawing as a larger Ottoman army approached.
+  - when: Jul 19–21, 1877 (O.S.)
+    title: Massacre and burning of the city
+    body: Ottoman regular troops and Circassian irregulars attacked the city, killing the trapped population and burning the town.
+related:
+  - name: New Martyr Triandaphyllus of Stara Zagora
+    note: An individually venerated New Martyr connected with Stara Zagora.
+    href: saint/OS-1673
+  - name: Monastic Martyr Ignatius of Bulgaria
+    note: Also known as John of Eski Zagora; an individually venerated New Martyr connected with the same city.
+    href: saint/OS-1981
+patronage:
+  - Invoked together with the New Martyrs as intercessors for those suffering persecution and the violence of war.
+status: draft
+sources:
+  - OrthodoxWiki
+  - List of Bulgarian saints (orthodoxwiki.org)
+  - https://en.wikipedia.org/wiki/Stara_Zagora_massacre
+  - https://theorthodoxchurch.info/blog/news/bulgarian-orthodox-church-commemorates-the-victims-of-the-stara-zagora-massacre-1877/
+  - https://starazagora.love/en/travel-in-time/temples-chaples/parish-holy-trinity/
+generated: "2026-06-19"

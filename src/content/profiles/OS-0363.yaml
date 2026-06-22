@@ -1,0 +1,33 @@
+id: OS-0363
+liturgicalTitle: Our Venerable Father Cassian, Abbot of the Spaso-Kamenny Monastery
+lifespan: d. 1469
+overview:
+  - Saint Cassian was a fifteenth-century Russian monastic who served as abbot of the Spaso-Kamenny (Kamenny) Monastery on Lake Kubenskoye in the Russian North, and, according to the synaxarion record preserved in his commemoration, of the White Lake (Beloezersk) monastery as well. He is venerated as a Venerable (monastic) saint and is commemorated on September 10.
+  - He is remembered above all as the abbot who, in 1452, received the young Prince Andrew of Zaozersk into the Kamenny Monastery and tonsured him a monk under the name Joasaph; that monk became Saint Joasaph of Kubensk, Wonderworker of Vologda. Cassian reposed in 1469.
+timeline:
+  - when: "1452"
+    title: Receives Prince Andrew at the Kamenny Monastery
+    body: As abbot of the Kamenny (Spaso-Kamenny) Monastery of the Saviour at Kubensk, Cassian received the twenty-year-old Prince Andrew of Zaozersk. By the account preserved in St. Joasaph's life, the abbot at first hesitated, fearing the anger of the Grand Duke of Moscow, but yielded to the prince's persistent entreaties and tonsured him a monk with the name Joasaph.
+  - when: "1469"
+    title: Repose
+    body: According to his commemoration, Saint Cassian reposed in 1469.
+sections:
+  - heading: The Spaso-Kamenny Monastery
+    body:
+      - Cassian's abbacy belonged to the Spaso-Kamenny, or Kamenny, Monastery, set on a small island roughly 120 metres by 70 metres at the centre of Lake Kubenskoye in the Vologda region of the Russian North. By tradition the house was founded around 1260 by Duke Gleb Vasilkovich, Prince of Belozersk, who had vowed during a storm to establish a church wherever his vessel reached shore; he landed on the island, where hermits already dwelt, and raised a church dedicated to the Transfiguration of the Saviour.
+      - The monastery is remembered as the first stone monastery of the Russian North. In the time of Dmitry Donskoy the Greek monk Dionisius had introduced to it the monastic rule of Mount Athos, including the communal (cenobitic) life, so that by Cassian's day it stood within a settled tradition of northern Russian monasticism.
+related:
+  - name: Saint Joasaph of Kubensk
+    note: Prince Andrew of Zaozersk, whom Cassian received and tonsured at the Kamenny Monastery in 1452; later venerated as Wonderworker of Vologda.
+reading:
+  - heading: Background
+    items:
+      - title: The Tale of the Kamenny Monastery
+        author: Paisiy Yaroslavov
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Kamenny_Monastery
+  - https://orthodoxwiki.org/Kamenny_Monastery
+  - https://www.johnsanidopoulos.com/2018/09/saint-joasaph-of-kubensk-wonderworker.html
+generated: "2026-06-20"

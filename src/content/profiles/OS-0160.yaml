@@ -1,0 +1,33 @@
+id: OS-0160
+liturgicalTitle: Our Father among the Saints Mac Nisse, First Bishop of Connor
+lifespan: died c. 514
+overview:
+  - "Mac Nisse was an early Irish saint remembered as the founder and first bishop-abbot of Connor (Irish: Condere), in what is now County Antrim. By tradition his given name was Oengus (Angus), and he took the name Mac Nisse from his mother, Ness (also recorded as Cnes); the hagiographers name his father as Faebrach (Fobrec) and reckon him among the Dal Fiatach. He is commemorated on September 3, and his story as it survives is, by the admission of the tradition, largely legendary."
+  - According to the received accounts, Saint Patrick baptized Mac Nisse and taught him the psalms, and he was afterward fostered with Olcan (also given as Bolcan), a disciple of Patrick and bishop of Armoy. He is said to have lived for a time as a hermit before gathering a community. Settling at Connor, he established a monastic and episcopal foundation there and served as its superior and bishop until his death, traditionally dated to the year 514, though the annals record dates ranging from 506 to 513.
+  - Mac Nisse is reckoned a patron of the church of Connor, and in later usage a co-patron, with Saint Patrick, of the diocese of Down and Connor. The traditions surrounding him attach a number of miracles to his name and emphasize his exceptional reverence for Holy Scripture.
+sections:
+  - heading: Life and Foundation at Connor
+    body:
+      - The synaxarion and Irish hagiographers relate that Mac Nisse was baptized by Saint Patrick, in one account in a fountain of water said to have sprung miraculously from the earth, and that Patrick instructed him in the psalms and later raised him to the episcopate. He was fostered with Olcan, bishop of Armoy, another of Patrick's disciples.
+      - He is thought to have lived earlier as a hermit, by some accounts near Kells, before he chose the district of Connor for his settlement. There he founded a religious community and became bishop of his people, governing the foundation until his repose. Because the sources are late and devotional, the chronology is uncertain; the dating of his death varies in the annals around the year 514.
+  - heading: Traditions and Miracles
+    body:
+      - Tradition holds that Mac Nisse made a pilgrimage to Rome and the Holy Land and returned bearing relics, said to include a stone taken from the Holy Sepulchre and portions of apostolic garments. Among the wonders ascribed to him are the healing of the blind and of lepers, the rescue of a boy from execution, and the redirecting of a river's course.
+      - "A legend frequently repeated of him concerns his reverence for the Scriptures: it is said that he would not carry his Gospel book in a leather satchel, as was the custom, but bore it upon his shoulders. The historical kernel beneath these accounts is difficult to recover, and the tradition itself presents them as devotional memory rather than documented event."
+timeline:
+  - when: c. 514
+    title: Repose
+    body: Mac Nisse died, by most accounts, on September 3 in the year 514, though the annals give dates from 506 to 513.
+related:
+  - name: St. Patrick, Enlightener of Ireland
+    note: By tradition baptized Mac Nisse and taught him the psalms; reckoned together as patrons of Down and Connor.
+    href: saint/OS-0079
+patronage:
+  - Reckoned a patron of the church of Connor and, with Saint Patrick, a co-patron of the diocese of Down and Connor.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Mac_Nisse_of_Connor
+  - https://omniumsanctorumhiberniae.com/2013/09/03/saint-mac-nissi-of-connor-september-3/
+  - https://www.catholicireland.net/saintoftheday/st-mac-nissi-died-c-514-monk-and-bishop/
+generated: "2026-06-20"

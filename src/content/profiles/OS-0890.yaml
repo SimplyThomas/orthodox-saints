@@ -1,0 +1,31 @@
+id: OS-0890
+liturgicalTitle: Venerable Hilarion, Abbot of Gdov and Pskov Lake
+lifespan: died 1476
+overview:
+  - Hilarion of Pskov, also known as Hilarion of Gdov and of Lake Gdov, was a fifteenth-century Russian monastic founder and abbot. He was a disciple of Saint Euphrosynus of Pskov, the founder of the Spaso-Eleazarovsky Monastery, under whom he was formed in the ascetic life before establishing a community of his own. He is commemorated on March 28, the day of his repose, and on October 21.
+  - In 1460 Hilarion founded the Ozersk (Lake) Monastery of the Protection of the Mother of God on the banks of the River Zhelcha, not far from Gdov. The site lay on the frontier with the territory of the Livonian Knights, and the monks of the new community constantly suffered the incursions of that military order. Despite harsh conditions and insufficient means, Hilarion is recorded to have maintained a high level of monastic and ascetic life and to have made great efforts to build up and adorn the monastery.
+  - Hilarion reposed on March 28, 1476, and was buried in the church of the Protection of the Most Holy Theotokos within the monastery he had founded. A Church of the Nativity of Christ was later built at the monastery, its left chapel dedicated to the founder. His relics remain preserved at the site, where the Protection church became a parish in 1942 and monastic services resumed in 1993.
+sections:
+  - heading: Foundation on the Livonian Frontier
+    body:
+      - "The monastery Hilarion founded in 1460 stood on the River Zhelcha near Gdov, in a borderland exposed to the Livonian Order. The tradition emphasizes the precariousness of the location: the brethren endured repeated raids and material hardship, yet Hilarion is remembered for sustaining the discipline and ordered life of the community under these conditions rather than abandoning the site."
+  - heading: Ascetic Life
+    body:
+      - Accounts of Hilarion's personal asceticism relate that he was nourished with herbs and roots and devoted himself to spiritual contemplation. By tradition he prayed in a hollow pine tree, which was preserved in a chapel near the monastery, and he was held to possess the grace of perceiving the concern with which each person came to him.
+timeline:
+  - when: "1460"
+    title: Founds the Ozersk Monastery
+    body: Establishes the Lake Monastery of the Protection of the Mother of God on the River Zhelcha near Gdov.
+  - when: March 28, 1476
+    title: Repose
+    body: Dies and is buried in the church of the Protection of the Most Holy Theotokos at his monastery.
+related:
+  - name: Venerable Euphrosynus, Abbot of Pskov
+    note: His spiritual father, founder of the Spaso-Eleazarovsky Monastery
+    href: saint/OS-1178
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2017/03/28/100922-venerable-hilarion-of-pskov-lake-gdov
+  - https://www.johnsanidopoulos.com/2020/03/saint-hilarion-of-gdov-and-pskov-lake.html
+generated: "2026-06-21"

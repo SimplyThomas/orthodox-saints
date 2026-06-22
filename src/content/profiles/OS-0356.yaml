@@ -1,0 +1,40 @@
+id: OS-0356
+liturgicalTitle: The Holy Hieromartyr Theodard, Bishop of Maastricht
+lifespan: c. 618 - c. 670
+overview:
+  - Theodard was a seventh-century bishop of Maastricht in the Frankish kingdom of Austrasia, commemorated as a hieromartyr on September 10. By tradition he was a disciple of Saint Remaclus, whom he succeeded first as abbot of the double monastery of Stavelot-Malmedy and later as bishop of Maastricht. He was killed while traveling to seek redress for his church against nobles who were plundering the diocese, and is counted a martyr on account of the cause for which he died.
+  - The sources place his birth near Speyer, in the region later known as the Palatinate, around the year 618. He entered the monastic life under Remaclus at Stavelot, in present-day Belgium, and when Remaclus was raised to the see of Maastricht around 653, Theodard succeeded him as abbot of the joined houses of Stavelot and Malmedy. About a decade later, when Remaclus withdrew from the episcopate and returned to Stavelot in 663, Theodard in turn became bishop of Maastricht. The synaxarion and Western accounts describe him as a pastor who built and restored churches, founded monasteries, and devoted himself to evangelization and the care of the poor.
+  - Theodard's death is associated with a journey he undertook in defense of the rights and property of his church. According to the tradition he set out to seek justice from Childeric II, king of Austrasia, in a dispute concerning Frankish nobles who were plundering the diocese, and was murdered in the forest of Bienwald, south of Speyer near the village of Rulzheim, around the year 670. It is commonly held that the killing was carried out on behalf of those whose seizures he had opposed. Because he died in the course of defending his church, he is venerated as a martyr.
+sections:
+  - heading: Burial and Succession
+    body:
+      - Theodard was first buried at the place of his death near Rulzheim. According to the tradition his body was afterward translated to Liege by his nephew and successor in the see of Maastricht, Lambert, who is himself venerated as a saint and martyr.
+      - He is honored as the patron of the city of Maastricht and, in Western devotion, of drovers and cattle dealers. In art he is represented as a bishop holding a sword, or as a cleric struck down by armed men, signs of the manner of his death.
+timeline:
+  - when: c. 618
+    title: Birth
+    body: Born near Speyer, in the region of the later Palatinate.
+  - when: c. 653
+    title: Abbot of Stavelot-Malmedy
+    body: Succeeded Remaclus as abbot of the double monastery when Remaclus became bishop of Maastricht.
+  - when: "663"
+    title: Bishop of Maastricht
+    body: Succeeded Remaclus as bishop when the latter retired to Stavelot.
+  - when: c. 670
+    title: Martyrdom
+    body: Murdered in the forest of Bienwald near Rulzheim while traveling in defense of his church.
+related:
+  - name: St. Remaclus of Maastricht
+    note: His teacher and predecessor as abbot of Stavelot-Malmedy and as bishop of Maastricht.
+    href: saint/OS-0165
+  - name: St. Lambert of Maastricht
+    note: His nephew and successor as bishop, who translated his relics to Liege.
+patronage:
+  - Patron of the city of Maastricht.
+  - Invoked in Western devotion as patron of drovers and cattle dealers.
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Theodard_of_Maastricht
+  - https://catholicsaints.info/saint-theodard-of-maastricht/
+generated: "2026-06-20"

@@ -1,0 +1,31 @@
+id: OS-0913
+liturgicalTitle: Our Father among the Saints Acacius the Confessor, Bishop of Melitene
+lifespan: 3rd century
+overview:
+  - "Acacius the Confessor was a bishop of Melitene, a city in Armenia within Asia Minor, who lived during the third century. He is venerated in the Orthodox Church as a Confessor: one who openly professed the Christian faith and endured torture for it during a time of persecution, yet was not put to death and so is honored distinctly from the martyrs."
+  - According to the tradition recorded in the synaxarion, Acacius suffered during the persecution under the Emperor Decius. Arrested as a Christian, he was brought before the governor Marcianus, who ordered that he be tortured. Rather than being executed, he was eventually released and lived on, bearing the marks of his suffering for Christ. He died in peace, and his relics were later uncovered, an event the Church commemorates as a secondary feast.
+timeline:
+  - when: 3rd century
+    title: Bishop of Melitene
+    body: Acacius served as bishop of Melitene, a city in Armenia, during the third century.
+  - when: Decian persecution
+    title: Arrest and torture
+    body: Arrested as a Christian, Acacius was brought before the governor Marcianus, who ordered that he be tortured.
+  - when: After the persecution
+    title: Release and repose
+    body: Rather than being put to death, he was set free, bearing the wounds of his confession, and afterward died in peace.
+sections:
+  - heading: Confessor and bishop
+    body:
+      - The title Confessor marks Acacius as one who endured suffering and torture for the faith without being executed. Sources note that, though he was condemned, his steadfastness so impressed the authorities that he was released after considerable suffering rather than martyred. Because he survived his ordeal and reposed in peace, the Church honors him as a Confessor rather than a Martyr.
+      - Beyond his confession, later tradition remembers Acacius as a teacher of the faith and a worker of miracles, esteemed for his doctrinal instruction as well as his endurance.
+  - heading: Distinction from other saints of Melitene
+    body:
+      - Acacius the Confessor should not be confused with a later bishop of Melitene of the same name who lived in the fifth century and took part in the Council of Ephesus in 431; the synaxarion treats these as distinct individuals, the later figure commemorated separately. The Confessor's principal feast is March 31, with a secondary commemoration on September 15 marking the uncovering of his relics.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2026/03/31/148986-saint-acacius-the-confessor
+  - https://www.oca.org/saints/lives/2020/09/15/102616-uncovering-of-the-relics-saint-acacius-bishop-of-melitene
+  - https://www.newadvent.org/cathen/01083a.htm
+status: draft
+generated: "2026-06-19"

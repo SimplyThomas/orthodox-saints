@@ -1,0 +1,32 @@
+id: OS-0093
+liturgicalTitle: The Holy Hieromartyr Aeithalas the Deacon of Persia
+lifespan: died c. 380
+overview:
+  - Aeithalas was a deacon of the Church in Persia who was martyred during the persecution of Christians under the Sassanid ruler Shapur II in the fourth century. The Orthodox tradition records his death in the year 380. He is commemorated on September 1, and is also remembered together with his companions on November 3.
+  - According to the synaxarion, Aeithalas served in the Christian community alongside Bishop Akepsimas and the presbyter Joseph. When the Persian emperor ordered the arrest of Christian clergy, the three were seized together. They were held in prison for three years, where the accounts relate that they suffered greatly from hunger and thirst.
+  - Brought at last before the emperor and commanded to renounce Christ and worship the pagan gods, the three confessors refused. The tradition relates that the deacon Aeithalas was taken to a village named Patrias, where he was put to death by stoning. Christians afterward secretly buried his body, and a later account holds that a tree grew upon his grave whose fruit brought healing.
+sections:
+  - heading: Martyrdom under Shapur II
+    body:
+      - The persecution in which Aeithalas died belongs to the long campaign waged against Christians in the Persian empire under Shapur II, which particularly targeted the clergy. The synaxarion presents Aeithalas not in isolation but as one of a group of arrested churchmen led by Bishop Akepsimas, who, with the presbyter Joseph, shared the same imprisonment and interrogation.
+      - While Bishop Akepsimas was beheaded, the deacon Aeithalas was, by the tradition, sent to the village of Patrias and stoned to death. The secret burial of his body by fellow Christians and the account of a healing tree growing over his grave are typical of the way the Persian martyr-narratives commemorate the veneration that gathered at such graves.
+timeline:
+  - when: 4th c.
+    title: Arrest under Shapur II
+    body: Aeithalas is seized with Bishop Akepsimas and the presbyter Joseph during the persecution of Christian clergy in Persia.
+  - when: c. 380
+    title: Martyrdom by stoning
+    body: After three years' imprisonment and a refusal to renounce Christ, Aeithalas is stoned to death at the village of Patrias.
+related:
+  - name: Hieromartyrs Akepsimas, Joseph, and Aeithalas of Persia
+    note: His fellow confessors and co-martyrs, commemorated together on November 3.
+    href: saint/OS-2134
+patronage:
+  - Invoked as an intercessor by those suffering persecution and imprisonment for the faith.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/September_1_(Eastern_Orthodox_liturgics)
+  - https://www.oca.org/saints/lives/2017/11/03/103158-hieromartyrs-akepsimas-bishop-in-persia-presbyter-joseph-and-dea
+  - https://orthodoxwiki.org/Acepsimus,_Joseph,_and_Aeithalas
+generated: "2026-06-19"

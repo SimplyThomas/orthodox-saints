@@ -1,0 +1,53 @@
+id: OS-2542
+liturgicalTitle: The Righteous Forefather Serug
+overview:
+  - "Serug is one of the patriarchs of the genealogical line running from Shem to Abraham, and is venerated in the Orthodox Church among the Holy Forefathers, the ancestors of Christ according to the flesh. The scriptural record of his life is confined to genealogy: in Genesis 11 he is named as the son of Reu and the father of Nahor, and so the grandfather of Terah and the great-grandfather of Abraham. His name appears as Serug in the Hebrew text and as Seruch (Greek Serouch) in the Septuagint; it is in this latter form that he is listed among the ancestors of Jesus in the genealogy of Luke 3:35."
+  - According to Genesis 11:20-23, Serug was born when his father Reu was thirty-two years old, and Serug himself was thirty when his son Nahor was born; after the birth of Nahor he is said to have lived a further two hundred years and to have had other sons and daughters. The ages given for the patriarchs of this period differ between the textual traditions, the Septuagint and Samaritan Pentateuch recording figures different from those of the Masoretic Hebrew, so the precise lifespan is not fixed across the manuscripts. Beyond these genealogical notices Scripture relates nothing of his deeds.
+  - The Orthodox Church commemorates the Holy Forefathers collectively on the Sunday that falls between December 11 and 17, the Sunday of the Holy Forefathers before the Nativity of Christ, honoring the righteous of the Old Testament who lived before and under the Law in expectation of the coming Messiah. Serug, belonging to the patriarchal line of Shem that issued in Abraham, is numbered among them, and is also commemorated on December 14.
+sections:
+  - heading: Place in the Patriarchal Line
+    body:
+      - Serug occupies a fixed position in the post-Flood genealogy of Genesis 11, between Peleg's son Reu before him and his own descendants Nahor and Terah after him, the line continuing to Abraham. Because the Gospel of Luke traces the ancestry of Christ back through this same sequence, Serug is counted among the forefathers of the Lord according to the flesh, which is the ground of his liturgical commemoration alongside the other patriarchs of the period.
+  - heading: A Note on Tradition
+    body:
+      - A non-scriptural tradition, reported by Epiphanius of Salamis in the fourth century and by the Byzantine chronicler Michael Glycas, and echoed in some Jewish sources, associates the rise or spread of idolatry with the days of Serug. Scripture itself makes no such statement about him, and the tradition is preserved only as a later report rather than as established fact; it is sometimes set in the wider context of the idolatry attributed to the household of his descendant Terah.
+family:
+  heading: Family
+  intro: Serug stands in the line of Shem leading to Abraham, the son of Reu and the father of Nahor.
+  figures:
+    - name: Reu
+      note: father
+      href: saint/OS-2541
+    - name: Nahor
+      note: son
+      href: saint/OS-2543
+    - name: Terah
+      note: grandson, father of Abraham
+      href: saint/OS-2544
+    - name: Abraham
+      note: great-grandson
+      href: saint/OS-1984
+related:
+  - name: Righteous Forefather Peleg
+    note: patriarch earlier in the line of Shem
+    href: saint/OS-2540
+  - name: Righteous Forefather Reu
+    note: father
+    href: saint/OS-2541
+  - name: Righteous Forefather Nahor
+    note: son
+    href: saint/OS-2543
+  - name: Righteous Forefather Terah
+    note: grandson
+    href: saint/OS-2544
+  - name: Righteous Forefather Abraham
+    note: great-grandson
+    href: saint/OS-1984
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.biblestudytools.com/genesis/passage/?q=genesis+11:20-23
+  - https://en.wikipedia.org/wiki/Serug
+  - https://www.oca.org/saints/lives/1952/12/14
+  - https://www.biblicalcyclopedia.com/T/terah.html
+generated: "2026-06-21"

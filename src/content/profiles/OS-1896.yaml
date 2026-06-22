@@ -1,0 +1,51 @@
+id: OS-1896
+liturgicalTitle: Our Venerable Father Nikander the Hermit and Wonderworker of Pskov
+lifespan: 1507 – 1581
+overview:
+  - Nikander of Pskov was a sixteenth-century Russian ascetic who spent the greater part of his life as a hermit in the wilderness near Pskov, where he became revered as a wonderworker. According to the synaxarion he was born on July 24, 1507, in the village of Videlebo in the Pskov lands, into the peasant family of Philip and Anastasia, and was named Nikon at baptism. From childhood he longed for solitary prayer, drawn by the example of earlier wilderness-dwellers of the Pskov region.
+  - By tradition Nikon was inspired in particular by Saint Euphrosynus of Pskov, founder of the Spaso-Eleazar Monastery, and by Euphrosynus's disciple Saint Savva of Krypetsk. To learn to read the Scriptures he entered the service of a Pskov resident named Philip, who arranged for his education. He received monastic tonsure with the name Nikander at the Krypetsk Monastery, where he served in the offices of ecclesiarch and cellarer before withdrawing to live alone in the wilderness.
+  - Nikander settled in a remote place by the River Demyanka, between Pskov and Porkhov, where he lived for decades in solitary prayer and fasting. The sources relate that he made annual confession during Great Lent at the Damianov Monastery and received the Great Schema eight years before his death. He died on September 24, 1581, during the invasion of the lands by the army of the Polish king Stephen Bathory; a peasant found him reposed on his bed with his hands crossed upon his chest, and clergy who venerated him came from Pskov to perform his burial.
+  - In 1584 a monastery was established at the site he had sanctified by his long ascetic labor, known as the Annunciation-Nikandrov Hermitage, which became a center of his veneration in the Pskov region. His glorification took place under Patriarch Joachim in 1696, and he is commemorated on September 24, the day of his repose, with a further celebration of the uncovering of his relics.
+sections:
+  - heading: Ascetic Life
+    body:
+      - After his tonsure at Krypetsk, Nikander withdrew from communal monastic life to dwell as a hermit by the River Demyanka. The accounts describe a strict regime of prayer, fasting, and solitude sustained over many years, broken by his annual return during Great Lent to confess at the Damianov Monastery. Eight years before his death he was clothed in the Great Schema, the highest degree of the monastic life.
+      - The synaxarion preserves an episode in which robbers attacked his hermitage and carried off his books and icons. By the tradition, two of the perpetrators afterward repented following a divine intervention, and Nikander received them rather than turning them away.
+  - heading: Repose and Glorification
+    body:
+      - Nikander died on September 24, 1581, amid the invasion of the Pskov lands by the army of Stephen Bathory, king of Poland. A peasant discovered him reposed on his bed with his hands crossed on his chest; Deacon Peter and others who revered him came from Pskov and gave him Christian burial.
+      - A monastery, the Annunciation-Nikandrov Hermitage, was founded at his hermitage site in 1584. His formal glorification followed in 1696 under Patriarch Joachim, with feast days appointed for September 24 (his repose) and for the uncovering of his relics during the rebuilding of the monastery's cathedral church.
+timeline:
+  - when: "1507"
+    title: Birth
+    body: Born Nikon on July 24 in the village of Videlebo in the Pskov lands, to the peasants Philip and Anastasia.
+  - when: 16th c.
+    title: Monastic tonsure
+    body: Tonsured with the name Nikander at the Krypetsk Monastery, later serving as ecclesiarch and cellarer.
+  - when: c. 1573
+    title: Great Schema
+    body: Received the Great Schema, according to the sources, eight years before his death.
+  - when: "1581"
+    title: Repose
+    body: Died on September 24 during the invasion of Stephen Bathory; found reposed with hands crossed on his chest.
+  - when: "1584"
+    title: Monastery founded
+    body: The Annunciation-Nikandrov Hermitage was established at the site of his ascetic labors.
+  - when: "1696"
+    title: Glorification
+    body: Formally glorified under Patriarch Joachim, with commemoration on September 24.
+related:
+  - name: Venerable Euphrosynus, Abbot of Pskov
+    note: The founder of the Spaso-Eleazar Monastery whose example inspired Nikander.
+    href: saint/OS-1178
+  - name: Saint Savva of Pskov (of Krypetsk)
+    note: Disciple of Euphrosynus and founder of the Krypetsk Monastery, where Nikander was tonsured.
+    href: saint/OS-1797
+patronage:
+  - Invoked as a wonderworker of the Pskov region and a patron of the eremitic, solitary life.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2019/09/24/102716-venerable-nkander-wonderworker-of-pskov
+  - https://orthodoxwiki.org/Nicander,_Hermit_of_Pskov
+generated: "2026-06-20"

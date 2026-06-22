@@ -1,0 +1,42 @@
+id: OS-0769
+liturgicalTitle: The Holy Right-believing Prince Basil (Vasilko) of Rostov
+lifespan: c. 1208 – 1238
+overview:
+  - Basil (Vasilko) Konstantinovich was a prince of Rostov in northeastern Rus' who was captured by the Mongols after the battle on the Sit River in 1238 and killed for refusing to renounce his faith and serve his captors. He is commemorated on March 4, the date traditionally given for the battle and his death, and is venerated by the Russian Orthodox Church as a passion-bearer.
+  - According to the tradition, he was born in Rostov in 1208 (a date some sources give as 1209), a grandson of Great Prince Vsevolod III 'Big-Nest' through his father Constantine Vsevolodovich. He received Rostov as his princely domain in 1216, while still a child, and after his father's death in 1218 was reared and accompanied for some twenty years by his uncle, Saint Yuri (George) of Vladimir. The chronicles describe him as courageous and generous, and record his participation in campaigns against the Volga Bulgars and along the River Oka in the years before the Mongol invasion.
+  - During the Mongol invasion of Rus', Basil joined the Russian forces that confronted the army of Batu Khan. On March 4, 1238, in the decisive battle at the Sit River, the Russian host was encircled and overwhelmed; Basil was wounded and taken prisoner. Brought before his captors, he was pressed to adopt their customs and to fight on their behalf, and refused to betray his homeland or his Christian faith. According to the account, he was tortured and then killed in the Shernsk woods, dying before the age of thirty.
+  - His body was afterward recovered and carried to Rostov, where it was buried in the city's Dormition Cathedral near that of his uncle Saint Yuri, who had also fallen in the campaign. The Russian Orthodox Church venerates the two princes together as passion-bearers and as defenders of the Russian land.
+sections:
+  - heading: Capture and Death
+    body:
+      - The synaxarion relates that after the rout at the Sit River the wounded prince was brought to Batu's headquarters, where the Mongols demanded that he follow their customs and fight for them. He refused to renounce Orthodoxy or abandon his homeland; one account preserves his answer that the Christian faith could not be taken from him. He was tortured and then put to death in the Shernsk woods.
+      - Because he died confessing his faith under compulsion rather than seeking martyrdom, he is honored, like his uncle Saint Yuri, under the title of passion-bearer—a designation in the Russian tradition for those who meet a violent death with Christian forbearance.
+timeline:
+  - when: c. 1208
+    title: Birth at Rostov
+    body: Born into the princely house of Rostov, grandson of Vsevolod III 'Big-Nest'.
+  - when: "1216"
+    title: Receives Rostov
+    body: Given Rostov as his princely domain while still a child.
+  - when: "1238"
+    title: Battle on the Sit River
+    body: Wounded and captured when the Russian army was encircled by the Mongols on March 4.
+  - when: "1238"
+    title: Martyrdom
+    body: Killed in the Shernsk woods after refusing to renounce his faith and serve his captors.
+related:
+  - name: Right-believing Great Prince George (Yuri) of Vladimir
+    note: His uncle and lifelong companion, who fell in the same campaign and is venerated with him as a passion-bearer.
+    href: saint/OS-0592
+  - name: Martyr Michael of Chernigov
+    note: His father-in-law; Basil married Michael's daughter Maria.
+    href: saint/OS-1871
+patronage:
+  - Invoked as a model of fidelity to the faith under persecution and of fortitude in defense of one's homeland.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2012/03/04/100652-right-believing-prince-basil-vasilko-of-rostov
+  - https://en.wikipedia.org/wiki/Vasilko_Konstantinovich
+  - https://orthochristian.com/101519.html
+generated: "2026-06-20"

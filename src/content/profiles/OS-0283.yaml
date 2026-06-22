@@ -1,0 +1,31 @@
+id: OS-0283
+liturgicalTitle: Venerable Hilduard, Founder of the Monastery of Saint Peter at Dickelvenne
+lifespan: died c. 750
+overview:
+  - Hilduard, also recorded as Hildward, Hilward, or Garibald, was an eighth-century missionary venerated as a pre-schism Western saint. He is remembered principally as the founder of the monastery of Saint Peter at Dickelvenne (Dikkelvenne) on the Scheldt, in what is now Flanders in Belgium. He is commemorated on September 7.
+  - By later hagiographic tradition Hilduard was of Frankish descent and received his education from Bishop Bertinus of Toul. The same accounts relate that King Dagobert III and the people designated him as the bishop's successor, though his name does not appear on the historical episcopal lists of that see; he is described instead as a traveling missionary bishop without a fixed seat. Such details are preserved in the later Western tradition rather than in contemporary record, and should be read with that caution.
+  - Settling at Dickelvenne in Flanders, Hilduard founded a Benedictine abbey and church dedicated to Saint Peter, reportedly with the support of a converted local nobleman. According to the tradition he traveled with two companions, Brinus and Bittinus, who later succeeded him as abbots, and an English woman named Christiana joined his mission and lived as a recluse under his guidance. He died around the year 750.
+sections:
+  - heading: Foundation and Later History of the Monastery
+    body:
+      - "The house Hilduard founded at Dickelvenne stood on the Scheldt and was dedicated to Saint Peter. By tradition the community persisted long after his death: around the year 1081 the monastery was relocated to Geraardsbergen and renamed the Abbey of Saint Adrian."
+      - In 846 the relics of Hilduard, together with those of Christiana, were transferred to Dendermonde, where they are said to remain. Both came to be honored as patrons of that city, Christiana as its principal patron and Hilduard as a secondary patron.
+timeline:
+  - when: c. 750
+    title: Repose at Dickelvenne
+    body: Hilduard died around 750, having founded the monastery of Saint Peter at Dickelvenne on the Scheldt.
+  - when: "846"
+    title: Translation of relics
+    body: His relics, with those of Christiana, were transferred to Dendermonde.
+  - when: c. 1081
+    title: Monastery relocated
+    body: The community was moved to Geraardsbergen and renamed the Abbey of Saint Adrian.
+patronage:
+  - Honored, with Christiana, as a patron of the city of Dendermonde in Belgium.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://www.catholic.org/saints/saint.php?saint_id=3782
+  - http://www.heiligen-3s.nl/heiligen/09/07/09-07-0750-hildward.php
+  - https://en.wikipedia.org/wiki/September_7_(Eastern_Orthodox_liturgics)
+generated: "2026-06-20"

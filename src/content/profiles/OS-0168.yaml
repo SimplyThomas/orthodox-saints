@@ -1,0 +1,29 @@
+id: OS-0168
+liturgicalTitle: Our Father among the Saints Regulus (Reol), Archbishop of Reims
+lifespan: died 698
+overview:
+  - Regulus, also recorded under the forms Reol and Rieul, was a seventh-century monk and hierarch of Gaul who is venerated among the pre-schism Western saints of the Orthodox Church. By tradition he began his monastic life at the abbey of Rebais in France, where he was a companion and disciple of Saint Philibert, the monastic founder later associated with Jumieges and Noirmoutier. He is commemorated on September 3.
+  - From the monastic community at Rebais, Regulus was raised to the see of Reims, becoming archbishop of that ancient and prominent church. He is reckoned among the bishops of Reims in succession to Saint Nivard, who had held the see before him. As archbishop he is chiefly remembered for founding the monastery of Orbais, in the valley of the Surmelin, which became a Benedictine house following the Rule of Saint Benedict and was settled in part by monks drawn from his own former monastery of Rebais.
+  - Regulus is distinguished in the tradition from the several other saints who bear the name Regulus, and in particular from Regulus of Tuscany, who is commemorated on September 1. He reposed in 698 and, according to later record, was buried at the abbey church of Saint-Pierre at Orbais, which he had founded.
+sections:
+  - heading: Monastic Beginnings at Rebais
+    body:
+      - The abbey of Rebais, where Regulus first entered the monastic life, was one of the centers of Frankish monasticism in the seventh century. The tradition records that he lived there in the company of Saint Philibert, a figure renowned as a monastic founder and reformer, and that the formation Regulus received in that community shaped his later work as a bishop and a founder of monasteries himself.
+  - heading: Foundation of Orbais
+    body:
+      - The act for which Regulus is best remembered is the establishment of the abbey of Orbais. The monastery was founded toward the end of the seventh century in the Surmelin valley and adopted the Rule of Saint Benedict. A number of its first monks — by one account six — came from Rebais, carrying the observance of that older house into the new foundation. Orbais grew into a significant religious community in the region.
+related:
+  - name: St. Philibert of Jumieges
+    note: Fellow monk at Rebais; monastic founder under whom Regulus was formed
+    href: saint/OS-2697
+  - name: St. Nivard of Reims
+    note: Archbishop of Reims who held the see before him
+    href: saint/OS-0109
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://www.saintforaminute.com/saints/saint_regulus_of_rheims
+  - https://en.wikipedia.org/wiki/Orbais-l'Abbaye
+  - https://en.wikipedia.org/wiki/September_3_(Eastern_Orthodox_liturgics)
+  - https://www.wikidata.org/wiki/Q921769
+generated: "2026-06-20"

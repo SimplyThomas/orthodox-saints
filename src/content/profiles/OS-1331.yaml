@@ -1,0 +1,52 @@
+id: OS-1331
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Barnabas
+  - https://orthodoxwiki.org/Apostle_Barnabas
+lifespan: 1st century
+liturgicalTitle: The Holy, Glorious and All-Praised Apostle Barnabas of the Seventy
+overview:
+  - Barnabas was a Levite of Cyprus and one of the Seventy Apostles, a leading figure of the earliest Christian community whose generosity and gift for encouragement gave him his name. Born Joseph (or Joses), he was renamed Barnabas, an Aramaic name traditionally understood as "son of consolation" or "son of encouragement."
+  - He was the close fellow-laborer of the Apostle Paul, whom he introduced to the apostles in Jerusalem after Paul's conversion, and with whom he carried the Gospel across Cyprus and Asia Minor. Tradition holds that he was martyred on his native island of Cyprus and is honored as the founder of the Church of Cyprus.
+timeline:
+  - when: 1st century
+    title: A Levite of Cyprus
+    body: Born Joseph, a Levite from Cyprus, he was among the earliest members of the Christian community in Jerusalem. According to Acts, he sold land that he owned and laid the proceeds before the apostles.
+  - when: 1st century
+    title: Introducing Paul to the apostles
+    body: After Paul's conversion, Barnabas vouched for him and introduced him to the apostles in Jerusalem, becoming his trusted companion in the work of the Gospel.
+  - when: c. 49 AD
+    title: The Council of Jerusalem
+    body: Barnabas took part in the Council of Jerusalem concerning the admission of Gentiles to the Church without requiring the observance of the Jewish Law, and was numbered with James, Peter, and John in the resulting agreement.
+  - when: 1st century
+    title: Separation from Paul and return to Cyprus
+    body: Barnabas and Paul parted after a disagreement over whether to take John Mark on their travels; Barnabas took John Mark and sailed to Cyprus while Paul continued with Silas.
+  - when: 1st century
+    title: Martyrdom at Salamis
+    body: Church tradition holds that Barnabas was stoned to death at Salamis on Cyprus and was buried by John Mark.
+  - when: 5th century
+    title: Discovery of the relics
+    body: Centuries later his grave was found beneath a carob tree near Salamis with a copy of the Gospel of Matthew upon his breast, a discovery associated with Archbishop Anthemios of Cyprus.
+sections:
+  - heading: Ministry with Paul
+    body:
+      - Barnabas was among the first to recognize Paul after his conversion, introducing him to a community still wary of the former persecutor. From this beginning the two became inseparable companions in missionary work, traveling together through Cyprus and the Hellenized cities of Asia Minor, including the regions of Pamphylia, Pisidia, and Lycaonia.
+      - "The book of Acts records that at Lystra the people, astonished by the apostles, took Barnabas for Zeus and Paul for Hermes. Their partnership was not without tension: Paul rebuked both Peter and Barnabas at Antioch over table fellowship with Gentiles, and the two apostles later separated over whether John Mark should accompany them. The parting did not end their shared standing in the early Church, and both are remembered among its foundational missionaries."
+  - heading: Founder of the Church of Cyprus
+    body:
+      - After parting from Paul, Barnabas returned to his native Cyprus with John Mark and continued to preach there. He is venerated as the founder of the Church of Cyprus and the patron saint of the island.
+      - "By tradition the discovery of his relics in the fifth century, with a copy of the Gospel of Matthew laid upon him, was decisive for the standing of the Cypriot Church: it was taken as proof of the Church's apostolic foundation and helped secure its independence from the claims of the see of Antioch. The Byzantine emperor is said to have granted the Church of Cyprus special privileges in consequence."
+  - heading: Relics & Shrines
+    body:
+      - Tradition relates that Barnabas was buried at Salamis on Cyprus and that his grave was lost for generations. His relics were found beneath a carob tree, with the Gospel of Matthew upon his breast, in a discovery linked to Archbishop Anthemios of Cyprus in the fifth century. The monastery of St. Barnabas near the ancient city of Salamis preserves his memory as the principal Cypriot shrine associated with the apostle.
+patronage:
+  - The island and Church of Cyprus
+related:
+  - name: Apostle Paul
+    note: Fellow-laborer who Barnabas introduced to the apostles and accompanied on missionary travels.
+    href: saint/OS-2749
+  - name: Apostle Mark of the Seventy
+    note: John Mark, who traveled with Barnabas to Cyprus and, by tradition, buried him.
+    href: saint/OS-1911
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,35 @@
+id: OS-2480
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://www.oca.org/saints/lives/0216/05/13/101367-martyr-alexander-of-rome
+  - https://en.wikipedia.org/wiki/Alexander_of_Rome
+  - https://www.johnsanidopoulos.com/2016/02/saint-alexander-roman-who-was-martyred.html
+liturgicalTitle: The Holy and Glorious Martyr Alexander the Soldier of Rome
+overview:
+  - Alexander the Soldier was a young Roman serving in the regiment of the tribune Tiberian when the persecution under the emperor Maximian Hercules (284-305) reached him. Raised in the Christian faith, he refused an imperial edict requiring all citizens to sacrifice at the temple of Jupiter, declaring that he would not offer sacrifice to idols. By tradition he was eighteen years old at the time of his confession.
+  - Rather than being executed at Rome, Alexander was led under guard across Thrace, suffering repeated torments on the journey, and was finally beheaded at Drizipara. His mother, Pimenia, accompanied him through his sufferings and afterward buried his remains near the River Ergina, where his grave became a site of healing. He is commemorated on May 13.
+timeline:
+  - when: Under Maximian (284-305)
+    title: Refusal to sacrifice
+    body: Serving as a soldier in the regiment of the tribune Tiberian at Rome, Alexander refused the emperor Maximian's edict to sacrifice at the temple of Jupiter and openly confessed Christ before the emperor.
+  - when: After his confession
+    title: Journey across Thrace
+    body: He was sent under guard toward Thrace, enduring tortures along the way; his mother Pimenia, by tradition warned by an angel, found him and accompanied him on the journey.
+  - when: At Drizipara
+    title: Martyrdom by beheading
+    body: The tribune Tiberian pronounced the death sentence and Alexander was beheaded. His body was cast into a river but recovered, and Pimenia buried his remains near the River Ergina.
+sections:
+  - heading: Sources and the Epithet "of Tiberias"
+    body:
+      - "The surviving Greek martyrdom of Alexander, which scholars assign to roughly the fifth or sixth century, recounts the soldier's arrest at Rome, his long journey through the eastern Balkans, and his beheading at Drizipara (Dryzipera/Drusipara) in Thrace. Accounts of his origin vary: some place him at Carthage, others at Puteoli in Italy."
+      - 'The saint is sometimes called "of Tiberias," but this epithet appears to arise from a confusion in his commemoration: the name of the tribune Tiberian, his persecutor and judge, was mistaken for an episcopal see, producing a place-name that does not reflect the city of Tiberias. He is also distinct from Pope Alexander I of Rome.'
+  - heading: Traditional Accounts
+    body:
+      - "The hagiographic tradition relates a series of wonders along Alexander's final journey: an angel is said to have forewarned both the youth and his mother, the soldiers sent to arrest him fell back at the radiance of his face, water was given to thirsty guards through his prayer, and a tree under which he prayed acquired curative power in its fruit and leaves."
+      - By tradition the executioner hesitated when he saw angels attending the martyr, proceeding only after Alexander asked them to withdraw. After his burial near the Ergina, healings were reported at his grave.
+patronage:
+  - Soldiers
+  - Those who suffer persecution for the faith
+status: draft
+generated: "2026-06-19"

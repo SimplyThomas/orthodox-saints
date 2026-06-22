@@ -1,0 +1,56 @@
+id: OS-0352
+liturgicalTitle: Our Father among the Saints Veranus, Bishop of Vence
+lifespan: c. 400 – c. 480
+overview:
+  - "Veranus of Vence was a fifth-century bishop of southern Gaul, a son of the noble family of Eucherius of Lyon and a monk formed in the monastic community of Lérins before his elevation to the episcopate. Born around 400, he belonged to one of the most distinguished ecclesiastical households of late Roman Gaul: his father became Archbishop of Lyon, and his brother Salonius became Bishop of Geneva."
+  - After a period of monastic life at Lérins Abbey, Veranus became Bishop of Vence around 442 and held the see for at least two decades. He is remembered both for his episcopal ministry in Provence and for his connection to the wider currents of Gallic Church life in the mid-fifth century. He died around 480, and his relics are preserved at the cathedral of Vence.
+timeline:
+  - when: c. 400
+    title: Birth
+    body: Born to Eucherius of Lyon and his wife Galla; his brother Salonius was born around the same time.
+  - when: after Galla's death
+    title: Withdrawal to Lérins
+    body: Eucherius withdrew with his sons Veranus and Salonius to the monastery of Lérins. There the brothers were educated, beginning under Hilary of Arles and continuing under Salvian and Vincent of Lérins.
+  - when: c. 442
+    title: Bishop of Vence
+    body: Veranus became Bishop of Vence in southern Gaul and is recorded as serving at least until 465.
+  - when: February 464
+    title: Commission from Pope Hilarius
+    body: Pope Hilarius commissioned Bishop Veranus to warn Mamertus of Vienne concerning irregular ordinations of bishops outside his diocese, upholding the primatial privileges of the See of Arles.
+  - when: c. 480
+    title: Death
+    body: Veranus died around 480; the exact date is uncertain.
+sections:
+  - heading: Monastic Formation at Lérins
+    body:
+      - The island monastery of Lérins was, in the fifth century, a leading center of monastic life and theological learning in Gaul, producing a remarkable succession of bishops. Veranus and his brother Salonius were formed in this community after their father Eucherius retired there following the death of their mother, Galla. Their education was entrusted to notable figures of the Lérins circle, including Hilary of Arles, Salvian, and Vincent of Lérins.
+      - The intellectual ties of the family are reflected in the writings of Eucherius, who addressed his treatise Liber formularum spiritalis intelligentiae — a defense of allegorical interpretation of Scripture — to his son Veranus, just as he dedicated the Institutiones to Salonius.
+  - heading: Episcopate and Church Affairs
+    body:
+      - "As Bishop of Vence, Veranus was active in the ecclesiastical life of Provence during a period when the See of Arles asserted a primatial role over the churches of southern Gaul. In February 464 Pope Hilarius entrusted him with a delicate commission: to admonish Mamertus, Bishop of Vienne, over ordinations carried out beyond the bounds of his diocese, in defense of the privileges of Arles. This episode places Veranus among the bishops trusted to act on behalf of the wider Gallic Church and the Roman see."
+  - heading: Relics & Shrines
+    body:
+      - Veranus's remains are preserved in a carved sarcophagus in the Cathedral of Notre-Dame de la Nativité in Vence. His feast is observed on 10 September. A Book of Hours produced at Rouen around 1525, now in the Morgan Library, includes an illuminated miniature depicting Bishop Veranus, attesting to his continued commemoration into the later Middle Ages.
+family:
+  heading: Family
+  intro: Veranus belonged to a prominent ecclesiastical family of late Roman Gaul.
+  figures:
+    - name: St. Eucherius of Lyon
+      note: His father; a monk of Lérins who became Archbishop of Lyon and a noted spiritual writer, dying around 449.
+    - name: Galla
+      note: His mother; after her death the family withdrew to the monastery of Lérins.
+    - name: Salonius of Geneva
+      note: His brother; educated with him at Lérins and later Bishop of Geneva.
+related:
+  - name: St. Eucherius of Lyon
+    note: Father of Veranus; monk of Lérins and Archbishop of Lyon.
+  - name: Salonius of Geneva
+    note: Brother of Veranus; Bishop of Geneva, educated with him at Lérins.
+patronage:
+  - Vence
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Veranus_of_Vence
+  - https://en.wikipedia.org/wiki/Eucherius_of_Lyon
+generated: "2026-06-20"

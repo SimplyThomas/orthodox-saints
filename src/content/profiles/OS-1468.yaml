@@ -1,0 +1,52 @@
+id: OS-1468
+liturgicalTitle: Our Father among the Saints Andrew, Archbishop of Crete
+lifespan: c. 650 – c. 740
+overview:
+  - Saint Andrew, Archbishop of Crete, was a Byzantine bishop, preacher, and hymnographer remembered above all as the author of the Great Canon, the most extensive penitential hymn of the Orthodox Church. He was born around the middle of the seventh century in Damascus, in Syria, to Christian parents. By tradition he was mute until the age of seven and received the gift of speech after communing of the Holy Mysteries.
+  - At about the age of fourteen he traveled to Jerusalem and took monastic tonsure at the Lavra of Saint Sabbas the Sanctified (Mar Saba). There he became known for his virtue and theological learning, and he served the Patriarchate of Jerusalem as a clerk or secretary. The locum tenens of the patriarchate made him an archdeacon and sent him to Constantinople, where he represented the see of Jerusalem at the Sixth Ecumenical Council (680–681), convened against the Monothelite heresy.
+  - "Andrew remained in Constantinople as archdeacon at the great church of Hagia Sophia, where he also oversaw charitable institutions, including an orphanage and a home for the aged. He was later raised to the episcopate as archbishop (metropolitan) of Gortyna on the island of Crete. He is best known for his contribution to liturgical poetry: he is credited with the development of the canon as a hymnographic form, and he composed the Great Canon of Repentance, which is chanted during Great Lent. He reposed on the fourth of July on the island of Lesbos while returning to Crete from Constantinople, and his feast is kept on that day."
+timeline:
+  - when: c. 650
+    title: Birth in Damascus
+    body: Andrew was born around the year 650 in Damascus, in Syria, to a pious Christian family. By tradition he was unable to speak until the age of seven.
+  - when: c. 664
+    title: Monastic tonsure at Mar Saba
+    body: At about fourteen he went to Jerusalem and took monastic tonsure at the Lavra of Saint Sabbas the Sanctified, serving the Patriarchate of Jerusalem as a clerk and becoming known for theological learning.
+  - when: 680–681
+    title: Sixth Ecumenical Council
+    body: As archdeacon and representative of the Patriarchate of Jerusalem, Andrew took part in the Sixth Ecumenical Council in Constantinople, which condemned Monothelitism.
+  - when: 685–695
+    title: Archbishop of Gortyna, Crete
+    body: During the reign of Emperor Justinian II he was consecrated bishop of Gortyna on Crete; he had previously served as archdeacon at Hagia Sophia and administered charitable houses in Constantinople.
+  - when: 712–713
+    title: Council under Philippicus and repentance
+    body: Though an opponent of Monothelitism, Andrew attended the council of 712 that set aside the decrees of the Sixth Council; he repented the following year and returned to Orthodoxy, devoting himself to preaching and hymnography.
+  - when: c. 740 (Jul 4)
+    title: Repose on Lesbos
+    body: He reposed on July 4 on the island of Lesbos while returning to Crete from Constantinople. Historians give the year variously as 712, 726, or 740.
+sections:
+  - heading: Hymnography and the Great Canon
+    body:
+      - Andrew is credited with introducing the canon as a developed form of liturgical poetry. His most celebrated work is the Great Canon, also called the Canon of Repentance, an extended penitential hymn of nine odes containing roughly 250 troparia or strophes.
+      - "The Great Canon proceeds chronologically through the whole of the Old and New Testaments, drawing on the examples of biblical figures and correlating each to the soul's need for repentance. It is chanted during Great Lent: read in portions during the first week of the Fast and again in its entirety on the Thursday of the fifth week."
+      - Beyond the Great Canon, Andrew composed a large body of liturgical poetry. He is credited with approximately twenty-four canons and more than one hundred irmoi, as well as hymns for feasts including the Nativity, Palm Sunday, Holy Week, and the Meeting of the Lord (Candlemas).
+  - heading: Relics & Shrines
+    body:
+      - After his repose on Lesbos, Andrew's relics were translated to Constantinople. In 1349 the Russian pilgrim Stephen of Novgorod recorded viewing them at the Monastery of Saint Andrew in the city.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Andrew's enduring legacy rests on his hymnography, above all the Great Canon, which remains a fixed part of the Lenten services of the Orthodox Church."
+      - "Traditional Accounts: According to his vita, Andrew was mute from birth and was healed at the age of seven after receiving Holy Communion, after which he began to speak."
+works:
+  - title: The Great Canon (Canon of Repentance)
+    desc: An extended penitential hymn of nine odes and about 250 troparia that surveys the Old and New Testaments to call the soul to repentance; chanted in Great Lent.
+  - title: Canons and Irmoi
+    desc: Approximately twenty-four canons and over one hundred irmoi attributed to Andrew, who is credited with developing the canon as a hymnographic form.
+  - title: Festal hymns
+    desc: Hymns composed for feasts including the Nativity, Palm Sunday, Holy Week, and the Meeting of the Lord (Candlemas).
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Andrew_of_Crete
+  - https://orthodoxwiki.org/Andrew_of_Crete
+status: draft
+generated: "2026-06-19"

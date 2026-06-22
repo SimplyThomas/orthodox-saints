@@ -1,0 +1,63 @@
+id: OS-1152
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Epiphanius_of_Salamis
+  - https://www.oca.org/saints/lives/2025/05/12/101356-saint-epiphanius-bishop-of-cyprus
+  - https://orthodoxwiki.org/Epiphanius_of_Cyprus
+  - https://www.oca.org/saints/all-lives/2017/05/12
+lifespan: c. 310 – 403
+liturgicalTitle: Our Father among the Saints Epiphanius, Bishop of Salamis in Cyprus
+overview:
+  - Epiphanius of Cyprus was a learned monk of Palestine who became Bishop of Salamis, the metropolitan see of the island of Cyprus, and one of the most prolific defenders of the apostolic faith in the fourth century. Born of Jewish descent near Eleutheropolis in the Holy Land and trained from his youth in the ascetic life, he governed the Church of Cyprus for the rest of his days and won renown for his zeal for Orthodoxy, his learning in many languages, and his charity toward the poor.
+  - He is remembered above all for his great catalogues of heresy, the Panarion and the Ancoratus, which refuted the errors of his age, and for his refusal late in life to take part in the council convened against Saint John Chrysostom. He reposed at sea in 403 while returning home to Cyprus, and is commemorated on May 12.
+timeline:
+  - when: c. 310
+    title: Birth in Palestine
+    body: Born at Besanduk near Eleutheropolis in Roman Palestine, of Jewish descent, and given a thorough education. By tradition he was converted to Christianity after witnessing a monk give his own clothing to a poor man.
+  - when: c. 333
+    title: Monastic life at Ad
+    body: After a period of monastic formation associated with Saint Hilarion the Great, and a stay in Egypt where he encountered Gnostic groups, he settled in the wilderness of Palestine and founded a monastery at Ad near Eleutheropolis, serving as its superior for about thirty years and copying Greek books.
+  - when: "367"
+    title: Consecrated Bishop of Salamis
+    body: He was chosen as Bishop of Salamis on Cyprus, the island's metropolitan see, a position he held until his repose. The synaxarion relates that he was advanced in years when he was made bishop.
+  - when: 374–377
+    title: Writing the Panarion
+    body: He composed the Panarion, his great refutation cataloguing eighty heresies, which served as a handbook for answering the arguments of heretics; he also wrote the Ancoratus against Arianism and the teachings of Origen.
+  - when: 402–403
+    title: Constantinople and repose
+    body: Summoned to Constantinople in connection with the council convened against John Chrysostom, he recognized the proceedings as unlawful and departed rather than condemn Chrysostom. Sailing home, he died at sea and was buried at Salamis. He is commemorated on May 12, 403.
+sections:
+  - heading: Early Life and Monastic Formation
+    body:
+      - Epiphanius was born of Jewish descent near Eleutheropolis in the Holy Land, probably around the year 310, and received a fine education in his youth. According to the tradition recorded in the synaxarion, he was drawn to the Christian faith after seeing a monk strip off his own clothing to cover a poor man, and he was baptized soon after.
+      - He took up the ascetic life under the guidance of Saint Hilarion the Great, advancing in monastic discipline while occupying himself with the copying of Greek books. The accounts relate that he withdrew into the desert, where he was held captive by robbers for some months and converted one of them, who took the name John and became his disciple. Returning to the wilderness of Palestine about the year 333, he established a monastery at Ad near Eleutheropolis and served as its superior for roughly thirty years. He became fluent in Hebrew, Syriac, Egyptian, Greek, and Latin, a learning for which Saint Jerome later called him 'five-tongued.'
+  - heading: Bishop of Salamis
+    body:
+      - In 367 Epiphanius was chosen as Bishop of Salamis on Cyprus, the metropolitan see of the island, an office he held until the end of his life. The synaxarion relates that he was already an old man when he was raised to the episcopate and that he governed the Church for many years; it remembers him for his zealous defense of the Orthodox faith, his great charity toward the poor, and the simplicity of his character.
+      - His episcopate carried him beyond Cyprus into the doctrinal struggles of the age. He took part in the Synod of Antioch in 376 concerning Trinitarian doctrine, and in the Council of Rome in 382. On a visit to Palestine in 394–395 he came into conflict with Bishop John II of Jerusalem over the teachings of Origen, a dispute that drew in Saint Jerome and Rufinus.
+  - heading: Writings Against Heresy
+    body:
+      - Epiphanius is best known as one of the great heresiologists of the early Church. His most celebrated work, the Panarion or 'medicine chest,' written between 374 and 377, catalogues and refutes some eighty heresies, presenting itself as a remedy against their errors. He also composed the Ancoratus, the 'well-anchored' man, directed against Arianism and the teachings of Origen, together with other works defending the faith and preserving the traditions of the Church.
+      - His learning and his standing as a defender of Orthodoxy were such that the Seventh Ecumenical Council numbered him among the Fathers and Teachers of the Church.
+  - heading: Final Journey and Repose
+    body:
+      - Late in his life, nearly eighty years old, Epiphanius was summoned to Constantinople in connection with the controversy over Origen, in a council convened against Saint John Chrysostom, the archbishop of Constantinople. The synaxarion attributes the summons to the intrigues of those opposed to Chrysostom. When Epiphanius understood that he was being used as an instrument against Chrysostom and that the proceedings were unlawful, he left the city rather than share in the condemnation.
+      - Sailing home toward Cyprus, he sensed the approach of his death and gave final instructions to his disciples, and he reposed at sea. He was buried at Salamis, by tradition in a church he himself had built. He is commemorated on May 12, the date the accounts assign to his repose in the year 403.
+patronage:
+  - Defenders of the Orthodox faith against heresy
+  - The Church of Cyprus
+works:
+  - title: Panarion (Against Heresies)
+    desc: A 'medicine chest' against error, cataloguing and refuting some eighty heresies; long used as a handbook for answering heretical arguments.
+    date: c. 374–377
+  - title: Ancoratus (The Well-Anchored Man)
+    desc: A defense of the faith directed against Arianism and the teachings of Origen.
+related:
+  - name: Saint Hilarion the Great
+    note: Founder of Palestinian desert monasticism under whose guidance Epiphanius was formed in the ascetic life.
+    href: saint/OS-2048
+  - name: Saint John Chrysostom
+    note: Archbishop of Constantinople; Epiphanius was summoned to a council against him but refused to take part in his condemnation.
+    href: saint/OS-0023
+status: draft
+generated: "2026-06-19"

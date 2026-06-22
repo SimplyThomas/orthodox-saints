@@ -1,0 +1,60 @@
+id: OS-2399
+liturgicalTitle: Our Father among the Saints Peter, Metropolitan of Moscow and Wonderworker of All Russia
+lifespan: c. 1260 – 1326
+overview:
+  - Peter, Metropolitan of Moscow, was a fourteenth-century hierarch born in Volhynia, in the lands of Galicia-Volhynia, who rose from monastic and iconographic obscurity to become Metropolitan of Kiev and All Rus'. He is remembered above all for transferring the metropolitan see to Moscow in 1325, an act that helped establish that city as the spiritual center of the Russian Church. He is venerated as a wonderworker and is reckoned among the patrons of Moscow.
+  - By the accounts of his life, Peter was born to pious parents named Theodore and Eupraxia, and entered a monastery at the age of twelve. There he studied the religious learning of his day, fulfilled his monastic obediences, and learned the art of iconography. He was ordained a hieromonk, and the icons he painted were distributed among the brethren and to Christians who visited the monastery. He later withdrew to a cell at the Rata River, where he pursued ascetic life and established a monastery, sometimes identified as Novodvorsk; while serving as igumen of the Ratsk monastery he painted an icon of the Theotokos that became known as the icon 'Of Saint Peter.'
+  - "Around 1308 Peter was nominated for the metropolitan office, and the Patriarch of Constantinople consecrated him in Constantinople to the see of Kiev and all Rus', bestowing upon him the hierarchal vestments, staff, and an icon. His tenure was marked by controversy: he was accused before the Patriarch by Bishop Andrew of Tver, but a Church council convened at Pereyaslavl in 1311 recognized the accusation as slander. Peter was defended by representatives of Moscow, among them the young prince Ivan Danilovich, later known as Ivan Kalita, and he forgave his accuser."
+  - In 1325, at the request of Grand Prince Ivan Kalita of Moscow, Peter transferred the metropolitan cathedra from Vladimir to Moscow, a move that strengthened the city's standing. By tradition he foretold that Moscow would become the foremost city of Rus'. He oversaw the laying of the foundations of the Dormition Cathedral in Moscow in August 1326 and prepared within it a stone crypt for his own burial. He reposed on December 21, 1326, and was buried there. He was numbered among the saints in 1339, and his relics rest in the Dormition Cathedral of the Moscow Kremlin.
+sections:
+  - heading: Monk and Iconographer
+    body:
+      - The lives of Peter give particular attention to his vocation as an iconographer, a skill he is said to have learned during his monastic formation. The icons he produced were given to the brethren and to visitors of the monastery, and one Dormition icon was treasured by Metropolitan Maximus of Kiev. According to the tradition surrounding the icon of the Theotokos 'Of Saint Peter,' he painted it while igumen of the Ratsk monastery near Volhynia and presented it as a gift to Metropolitan Maximus during the latter's visit.
+      - Before his elevation to the episcopate, Peter sought a life of ascetic withdrawal, building a cell at the Rata River and gathering a community there. This monastic and artistic background distinguished him among the hierarchs of Rus' and is preserved as a defining feature of his life in the synaxarion.
+  - heading: Metropolitan and the Rise of Moscow
+    body:
+      - Peter's transfer of the metropolitan see from Vladimir to Moscow in 1325 is regarded as a decisive moment in the consolidation of Moscow as the ecclesiastical and political heart of the Russian lands. Although the see was moved, the office continued to bear the title 'Metropolitan of Kiev and All Rus'.' His close cooperation with Grand Prince Ivan Kalita, and the foundation of the Dormition Cathedral, bound the fortunes of the Church and of Moscow together.
+      - His burial within the cathedral he had begun, and his swift recognition as a saint in 1339, made his tomb a focus of veneration in the Kremlin. He came to be honored as a patron and protector of the city of Moscow.
+timeline:
+  - when: c. 1260
+    title: Birth in Volhynia
+    body: Born in Volhynia to Theodore and Eupraxia.
+  - when: c. 1308
+    title: Consecrated Metropolitan
+    body: Consecrated in Constantinople to the see of Kiev and all Rus'.
+  - when: "1311"
+    title: Council of Pereyaslavl
+    body: A council recognized Bishop Andrew of Tver's accusation against him as slander.
+  - when: "1325"
+    title: See moved to Moscow
+    body: Transferred the metropolitan cathedra from Vladimir to Moscow at the request of Ivan Kalita.
+  - when: Aug 1326
+    title: Dormition Cathedral founded
+    body: Oversaw the laying of the foundations of Moscow's Dormition Cathedral.
+  - when: Dec 21, 1326
+    title: Repose
+    body: Died in Moscow and was buried in a stone crypt he had prepared in the cathedral.
+  - when: "1339"
+    title: Numbered among the saints
+    body: Recognized as a saint; his relics rest in the Dormition Cathedral.
+related:
+  - name: Saint Maximus, Metropolitan of Kiev
+    note: His predecessor as metropolitan, who treasured an icon Peter had painted.
+    href: saint/OS-2311
+  - name: Saint Theognostus, Metropolitan of Kiev and All Russia
+    note: His successor, who ruled the Russian Church from Moscow.
+    href: saint/OS-0823
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: A later Metropolitan of Moscow and wonderworker.
+    href: saint/OS-0641
+patronage:
+  - Venerated as a patron and protector of the city of Moscow.
+  - Honored as a wonderworker of All Russia.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2015/12/21/103604-repose-of-saint-peter-metropolitan-of-moscow-wonderworker-of-all
+  - https://en.wikipedia.org/wiki/Peter_of_Moscow
+  - https://orthochristian.com/163979.html
+  - https://www.oca.org/saints/lives/2022/08/24/102391-saint-peter-of-moscow-icon-of-the-mother-of-god
+generated: "2026-06-20"

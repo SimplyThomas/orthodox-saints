@@ -1,0 +1,76 @@
+id: OS-0843
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Cyril_of_Jerusalem
+  - https://orthodoxwiki.org/Cyril_of_Jerusalem
+  - https://www.oca.org/saints/lives/2014/03/18/100829-saint-cyril-archbishop-of-jerusalem
+lifespan: c. 315 - 386
+liturgicalTitle: Our Father among the Saints Cyril, Archbishop of Jerusalem
+overview:
+  - Cyril of Jerusalem was a fourth-century bishop of the Holy City who guided his see through the turbulence of the Arian controversy. A native of Jerusalem, he advanced through the orders of deacon and presbyter before succeeding to the episcopal throne around 350, and he held that office, with several interruptions of exile, until his death in 386.
+  - He is best remembered for his Catechetical Lectures, a series of instructions delivered to those preparing for baptism and to the newly baptized. These addresses, drawn from his teaching ministry in Jerusalem, became among the most influential records of how the early Church instructed its converts in the faith and the sacraments.
+  - Cyril's episcopate was repeatedly disrupted by the doctrinal conflicts of his age. He opposed both the Arian and the Macedonian positions, drawing the hostility of Arian-aligned bishops who secured his deposition and banishment on more than one occasion. He returned to take part in the Second Ecumenical Council at Constantinople in 381, where his standing as bishop of Jerusalem was affirmed.
+timeline:
+  - when: c. 315
+    title: Birth in the Holy Land
+    body: Cyril was born around 315; the Orthodox tradition places his birth in Jerusalem itself, where he was raised in Christian piety, while some accounts locate his origins near Caesarea Maritima in Syria Palaestina.
+  - when: c. 335
+    title: Ordained deacon
+    body: He was ordained to the diaconate around 335 by Macarius, Bishop of Jerusalem.
+  - when: "346"
+    title: Ordained presbyter
+    body: He was ordained a presbyter, by some accounts under Bishop Maximus of Jerusalem, and undertook the instruction of candidates for baptism.
+  - when: 347 or 348
+    title: The Catechetical Lectures
+    body: While still a presbyter he delivered his celebrated series of catechetical instructions in Jerusalem, comprising eighteen lectures for those preparing for baptism and five mystagogical lectures for the newly baptized.
+  - when: "350"
+    title: Archbishop of Jerusalem
+    body: Upon the death of Archbishop Maximus, Cyril succeeded him on the episcopal throne of Jerusalem.
+  - when: "351"
+    title: The Cross of light over Jerusalem
+    body: In 351, on the Feast of Pentecost, a luminous cross was reported to have appeared in the sky over Jerusalem, stretching from Golgotha toward the Mount of Olives; Cyril recorded the event in a letter to the Emperor Constantius.
+  - when: 357 - 378
+    title: Repeated exiles
+    body: Cyril was deposed and banished several times through the influence of Arian-aligned bishops, finding refuge for a time at Tarsus, and was able to return permanently only after the death of the Emperor Valens in 378.
+  - when: "381"
+    title: Second Ecumenical Council
+    body: He took part in the Second Ecumenical Council at Constantinople, which condemned the heresy of Macedonius and affirmed the Nicene-Constantinopolitan Creed; the council confirmed his jurisdiction over Jerusalem.
+  - when: "386"
+    title: Repose
+    body: Cyril reposed in 386 after some thirty-five years as bishop of Jerusalem.
+sections:
+  - heading: Ministry and Episcopate
+    body:
+      - Cyril rose through the ranks of the clergy of Jerusalem, serving as deacon and then as presbyter before his elevation to the episcopate around 350. As bishop of the city that held the holiest sites of Christendom, he occupied a see of unusual prominence, and his pastoral concern for the faithful is reflected both in his teaching and in his conduct during a severe famine.
+      - "When famine struck Jerusalem, Cyril is said to have spent his own resources in charity, and when the need persisted he pawned vessels and ornaments belonging to the church in order to buy wheat for the starving. This act of relief later became a point of accusation against him: his metropolitan, Acacius of Caesarea, charged him with disposing of church property, and the dispute became entangled with the broader doctrinal conflict between Cyril and the Arian party."
+  - heading: The Catechetical Lectures
+    body:
+      - Cyril's enduring contribution to the Church is his collection of twenty-three instructions, traditionally divided into eighteen catechetical lectures addressed to catechumens preparing for baptism and five mystagogical lectures for the newly baptized, the latter explaining the sacraments they had received. He is also credited with discourses on Gospel themes.
+      - Delivered in Jerusalem, these lectures preserve a detailed picture of how the early Church catechized its converts in the creed, the moral life, and the mysteries of baptism and the Eucharist. They remain a principal witness to the catechetical and liturgical practice of the fourth-century Church.
+  - heading: The Arian Controversy and Exiles
+    body:
+      - Cyril's episcopate fell during the height of the controversies over the nature of the Son and the Holy Spirit. He opposed both the Arians, who denied the full divinity of the Son, and the Macedonians, who denied the divinity of the Holy Spirit, and this opposition drew the enmity of Arian-aligned bishops.
+      - Through their influence he was deposed and exiled on multiple occasions across the reigns of several emperors. He found refuge at Tarsus, was affected by the shifting imperial policies of Constantius, Julian, and Valens, and was restored and banished in turn as those policies changed. Only after the death of Valens in 378 was he able to remain securely in his see.
+      - At the Second Ecumenical Council in 381 Cyril voted for the acceptance of the term homoousios, affirming the consubstantiality of the Son with the Father, and the council confirmed his jurisdiction over Jerusalem.
+  - heading: Veneration
+    body:
+      - Cyril is commemorated in the Orthodox Church on March 18. A second Byzantine commemoration on May 7 marks the apparition of the cross of light over Jerusalem in 351, which he himself recorded.
+      - His veneration extends across the Christian traditions, and in the Roman Catholic Church he was declared a Doctor of the Church by Pope Leo XIII in 1883.
+patronage:
+  - Catechumens and those preparing for baptism
+  - Catechists and teachers of the faith
+works:
+  - title: Catechetical Lectures
+    desc: Eighteen instructions delivered to catechumens preparing for baptism, expounding the creed and the Christian life.
+  - title: Mystagogical Catecheses
+    desc: Five instructions for the newly baptized explaining the sacraments of baptism, chrismation, and the Eucharist.
+  - title: Letter to Constantius
+    desc: A letter to the Emperor Constantius recording the appearance of a luminous cross over Jerusalem in 351.
+reading:
+  - heading: Reference
+    items:
+      - title: Saint Cyril, Archbishop of Jerusalem
+        author: Orthodox Church in America
+        type: synaxarion
+status: draft
+generated: "2026-06-19"

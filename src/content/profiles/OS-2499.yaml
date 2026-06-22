@@ -1,0 +1,52 @@
+id: OS-2499
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Aristides_of_Athens
+  - https://www.johnsanidopoulos.com/2021/09/saint-aristides-and-his-veneration-in.html
+  - https://www.newadvent.org/cathen/01712d.htm
+lifespan: 2nd century (died c. 133-134)
+liturgicalTitle: The Holy Martyr Aristides the Philosopher of Athens
+overview:
+  - Aristides of Athens was a second-century Christian philosopher and apologist, remembered as the author of one of the earliest surviving defenses of the Christian faith. He had studied and practiced philosophy at Athens before his conversion to Christianity, and his Apology is described as the oldest preserved Christian apologetic work.
+  - Ancient witnesses, including Eusebius of Caesarea and Jerome, record that Aristides addressed his written defense to the Emperor Hadrian. Jerome praised him as a most eloquent philosopher, and his work was numbered alongside that of his contemporary Quadratus among the first apologies offered on behalf of the persecuted Church.
+  - He is venerated in the Orthodox Church on September 13, while the Roman calendar keeps his memory on August 31. In Greece his commemoration remains widespread, with churches dedicated to him across several regions.
+timeline:
+  - when: Early 2nd century
+    title: Philosopher of Athens
+    body: Aristides was an Athenian who studied classical philosophy at the renowned schools of Athens before embracing Christianity, after which he continued to be known as a philosopher.
+  - when: c. 124-126
+    title: The Apology to Hadrian
+    body: According to Eusebius and Jerome, Aristides presented a written defense of the Christian faith to the Emperor Hadrian (reigned 117-138) at Athens, around the same time Quadratus offered his own apology. A Syriac manuscript superscription instead links the work to Antoninus Pius, and scholars continue to debate the precise dating and addressee.
+  - when: c. 133-134
+    title: Death
+    body: Aristides is reported to have died around 133-134. A traditional account relates that he was put to death in the marketplace of Athens, having continued to confess Christ; his feast is kept on the day of his repose.
+  - when: 1878-1922
+    title: Rediscovery of the Apology
+    body: "Long lost, the Apology was recovered in stages: an Armenian fragment was published by Mechitarist monks at Venice in 1878, a complete Syriac version was found by J. Rendel Harris at the Monastery of St. Catherine on Mount Sinai in 1889, and Greek papyrus fragments came to light in 1922. The Greek text was also identified embedded within the romance Barlaam and Josaphat."
+sections:
+  - heading: The Apology
+    body:
+      - Aristides composed his Apology to demonstrate that Christians alone hold the true conception of God. The work surveys humanity and the various understandings of the divine, critiquing the religious errors attributed to the Chaldeans, Greeks, Egyptians, and Jews, and contrasting them with Christian belief.
+      - The surviving text divides humanity into races or peoples and argues for the moral excellence of Christian living against the corrupt practices of paganism. Its tone is described as elevated and calm, relying on plain appeals rather than elaborate argument, and it emphasizes the virtue and humility of the Christians of Aristides's day.
+  - heading: Death and Tradition
+    body:
+      - A traditional account preserved in the Greek tradition relates that Aristides's witness displeased the authorities, that he was brought to defense and endured suffering while continuing to preach Christ, and that he met his end in the marketplace of Athens. Sources differ on the year, giving figures such as 120 or 134, and on the precise circumstances; the historical record beyond his Apology is limited.
+      - The anchor record numbers him among the martyrs and keeps his feast on September 13.
+  - heading: Relics & Shrines
+    body:
+      - Aristides is honored in numerous Greek churches, including in Crete, Santorini, Tinos, Lesvos, Karpenisi, and Arkitsa. The Church of Panagia Phaneromeni in Aigio holds a hand-painted mural depicting the saint, the work of the iconographer Evangelos Gini.
+works:
+  - title: Apology of Aristides
+    desc: An early Christian apologetic work, regarded as the oldest preserved, defending the Christian faith and presenting Christians as alone holding the true knowledge of God; addressed by tradition to the Emperor Hadrian.
+related:
+  - name: Quadratus of Athens
+    note: An early Christian apologist whose defense of the faith is, by the ancient witnesses, associated with the same period as that of Aristides.
+reading:
+  - heading: Sources & Further Reading
+    items:
+      - title: Aristides of Athens (Wikipedia)
+      - title: Saint Aristides and His Veneration in Greece (Mystagogy / J. Sanidopoulos)
+      - title: Aristides (Catholic Encyclopedia, New Advent)
+status: draft
+generated: "2026-06-19"

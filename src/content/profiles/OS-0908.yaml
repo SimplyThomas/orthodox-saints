@@ -1,0 +1,37 @@
+id: OS-0908
+liturgicalTitle: Our Father among the Saints Jonah, Metropolitan of Moscow and All Russia, Wonderworker
+lifespan: d. 1461
+overview:
+  - Saint Jonah was a fifteenth-century hierarch who served as Metropolitan of Moscow and All Russia from 1448 until his death in 1461. According to the synaxarion he was born in the city of Galich into a pious Christian family and received monastic tonsure at the age of twelve in one of the Galich monasteries. He later transferred to the Simonov Monastery in Moscow, where he carried out various monastic obediences and, by tradition, was blessed by Metropolitan Photius, who foretold that he would become a great hierarch of the Russian Church.
+  - "Jonah was consecrated Bishop of Ryazan and Murom before being chosen to lead the whole Russian Church. His path to the metropolitanate was shaped by the fallout from the Council of Florence (1438): Metropolitan Isidore, who had supported union with the Roman Church at that council, was deposed by a council of Russian hierarchs and fled to Rome. Jonah was then chosen Metropolitan of All Russia and officially assumed the office on December 15, 1448."
+  - His consecration in Moscow by Russian bishops, without the prior approval of the Ecumenical Patriarch of Constantinople, is regarded as the beginning of the autocephaly of the Russian Orthodox Church. He reposed in 1461. His relics were uncovered incorrupt in 1472 and placed in the Dormition Cathedral of the Moscow Kremlin, where they are venerated. A local council of the Russian Church established his commemoration as a saint in 1547.
+timeline:
+  - when: "1438"
+    title: Council of Florence
+    body: Metropolitan Isidore supported union with the Roman Church at the Council of Florence; he was later deposed by a council of Russian hierarchs and fled to Rome.
+  - when: Dec 15, 1448
+    title: Metropolitan of All Russia
+    body: Jonah was consecrated Metropolitan of Moscow and All Russia by Russian bishops in Moscow, without the prior approval of the Patriarch of Constantinople.
+  - when: "1461"
+    title: Repose
+    body: Saint Jonah reposed after some thirteen years as metropolitan.
+  - when: "1472"
+    title: Uncovering of relics
+    body: His incorrupt relics were uncovered and placed in the Dormition Cathedral of the Moscow Kremlin.
+  - when: "1547"
+    title: Glorification
+    body: A local council of the Russian Church established his commemoration as a saint.
+sections:
+  - heading: Autocephaly of the Russian Church
+    body:
+      - Jonah's elevation in 1448 followed the deposition of Metropolitan Isidore, who had embraced union with Rome at the Council of Florence. Because Jonah was consecrated in Moscow by Russian hierarchs rather than confirmed beforehand by the Ecumenical Patriarch of Constantinople — as had been the established practice — his appointment is treated as the beginning of the de facto autocephaly of the Russian Orthodox Church, the first time Russian bishops consecrated their own metropolitan.
+  - heading: Relics and Veneration
+    body:
+      - Saint Jonah is remembered as a wonderworker. His relics, uncovered in 1472, rest in the Dormition Cathedral of the Moscow Kremlin. He is commemorated on March 31 and June 15, with the translation of his relics kept on May 27, and he is numbered among the Synaxis of the Hierarchs of Moscow commemorated on October 5.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/03/31/100955-repose-of-saint-jonah-metropolitan-of-moscow-and-all-russia
+  - https://orthodoxwiki.org/Jonah_of_Moscow
+  - https://en.wikipedia.org/wiki/Jonah_of_Moscow
+generated: "2026-06-20"

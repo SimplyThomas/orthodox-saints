@@ -1,0 +1,46 @@
+id: OS-1811
+liturgicalTitle: Our Father among the Saints Gennadius, Patriarch of Constantinople
+lifespan: died 471
+overview:
+  - Gennadius I was Patriarch of Constantinople from 458 to 471, during the reign of the Emperor Leo I (457-474). A presbyter of the church of Constantinople before his elevation, he succeeded Anatolius on the patriarchal throne and was in turn succeeded by Acacius. The sources describe him as distinguished for mildness, tolerance, purity, and abstinence, and he is remembered above all as a reforming pastor concerned with the discipline and formation of the clergy. He is commemorated on August 31.
+  - "Gennadius is noted for his strict standards for ordination: according to the synaxarion he refused to ordain any presbyter who had not learned the Psalter and could not interpret the Scriptures. He convened a synod in 459 that condemned simony, and the resulting encyclical against the buying and selling of holy orders was later received with conciliar authority. He also acted against heresy, defending the Orthodox faith against the Eutychian and Monophysite currents of the period."
+  - His life and reputation are preserved in part through The Spiritual Meadow, the collection compiled in the early Byzantine monastic tradition, in which accounts associated with monks who had served under his patriarchate were recorded. After thirteen years as patriarch he is reported to have left Constantinople, by some accounts on account of his health, and to have reposed in 471.
+sections:
+  - heading: Pastoral reforms and the clergy
+    body:
+      - The defining concern of Gennadius's patriarchate in the sources is the formation and discipline of the clergy. The synaxarion relates that he arranged with great care for the training of the sacred clergy and would not ordain a candidate who had not studied the Psalter and could not interpret it.
+      - In 459 he summoned a council that condemned simony, the purchase of ecclesiastical office, and issued an encyclical against the practice. According to the tradition this encyclical was afterward affirmed by later Ecumenical Councils. He also appointed Marcian, a former Novatianist who had returned to the Church, to administer the goods of the church.
+  - heading: Defense of the faith
+    body:
+      - Gennadius governed at a time when the controversies surrounding the Council of Chalcedon (451) were still acute. The sources credit him with convening a local council against the Eutychian heresy and with working to return many who had fallen into heresy to Orthodoxy.
+      - In 460 he was warned by Pope Leo I concerning the Monophysite claimant Timothy Aelurus, who sought to recover the see of Alexandria, and is said to have opposed that effort. Earlier writings attributed to him (c. 431-432) had criticized Cyril of Alexandria, though by 433 he is reported to have been reconciled with Cyril.
+  - heading: Miracles in the tradition
+    body:
+      - Several accounts are attached to Gennadius in the hagiographical tradition. One relates that a cleric named Charisius, given to idleness and sorcery, died after the patriarch entreated Saint Eleutherius regarding him. Another tells of a painter who depicted Christ with features resembling those of Zeus; the painter's hand is said to have withered, and Gennadius later healed it after the man repented.
+      - He is also recorded as having ordained Saint Daniel the Stylite to the priesthood, performing the rite from the ground when Daniel would not permit him to climb the column on which he stood.
+timeline:
+  - when: "458"
+    title: Elevated to the patriarchate
+    body: Gennadius succeeded Anatolius as Patriarch of Constantinople under the Emperor Leo I.
+  - when: "459"
+    title: Council against simony
+    body: He summoned a synod that condemned simony and issued an encyclical against the practice.
+  - when: "460"
+    title: Opposition to Timothy Aelurus
+    body: Warned by Pope Leo I, he opposed the Monophysite Timothy Aelurus's bid to recover the see of Alexandria.
+  - when: "471"
+    title: Repose
+    body: After thirteen years as patriarch he left Constantinople and reposed; he was succeeded by Acacius.
+related:
+  - name: Venerable Daniel the Stylite
+    note: Ordained to the priesthood by Gennadius, who performed the rite from the ground when Daniel would not let him climb the column.
+    href: saint/OS-2333
+patronage:
+  - Invoked in connection with the formation and discipline of clergy.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2000/08/31/102444-saint-gennadius-patriarch-of-constantinople
+  - https://orthodoxwiki.org/Gennadius_I_of_Constantinople
+  - https://www.johnsanidopoulos.com/2016/11/saint-gennadios-i-patriarch-of.html
+generated: "2026-06-20"

@@ -1,0 +1,56 @@
+id: OS-0311
+liturgicalTitle: Saint Sergius I, Pope of Rome
+lifespan: c. 650 – 701
+overview:
+  - Sergius I was Pope of Rome from 687 to 701. Born around 650 to an Antiochene Syrian family that had settled at Panormus (modern Palermo) in Sicily, he came to Rome during the pontificate of Pope Adeodatus II and rose through the Roman clergy, being ordained cardinal-priest of the church of Santa Susanna under Pope Leo II. His pontificate is remembered chiefly for its close ties with the churches of Anglo-Saxon England, for fostering the missions to the Frisians and the peoples of Germany, and for his refusal to ratify the canons of the Quinisext Council, which set him in conflict with the Emperor Justinian II.
+  - Sergius came to the papacy through a disputed election. On the death of Pope Conon in 687, two rival factions put forward the archdeacon Paschal and the archpriest Theodore. The wider body of clergy and people set both candidates aside and chose Sergius, who was consecrated, by the account of the sources, on 15 December 687. He is venerated among the Western pre-schism saints recognized within the Orthodox tradition, and is commemorated on September 8, the day of his repose.
+  - In his dealings with the Christian West, Sergius received and baptized King Caedwalla of the West Saxons at Rome in 689, and he supported the English churchmen Wilfrid and Aldhelm. His most lasting act of missionary patronage was the consecration of the Englishman Willibrord as bishop of the Frisians, whom he sent to preach in Frisia; by tradition the sources also connect him with sending further missionaries into Germany. In the liturgy of Rome he introduced the Agnus Dei into the Mass and instituted processions to the city's churches, and he repaired and adorned a number of its basilicas. He died on September 8, 701, and was succeeded by Pope John VI.
+sections:
+  - heading: Origin and Early Career
+    body:
+      - The sources describe Sergius as of Antiochene Syrian descent, his family having settled in Sicily, where he was born around 650 at Palermo and received his education. He may have been among the Sicilian clergy who came to Rome amid the upheavals of the period. He arrived in Rome under Pope Adeodatus II and was ordained cardinal-priest of the church of Santa Susanna by Pope Leo II, an office he held until his election to the papacy.
+  - heading: Relations with the English and the Frisian Mission
+    body:
+      - Sergius maintained close relations with the churches of Anglo-Saxon England. In 689 he received Caedwalla, king of the West Saxons, who had come to Rome to be baptized; according to the tradition Caedwalla died shortly after his baptism. Sergius also restored the deposed bishop Wilfrid and gave his support to the English churchman Aldhelm.
+      - His most consequential act for the Christian mission in the north was the consecration of the Englishman Willibrord as bishop of the Frisians, sending him to evangelize Frisia. The tradition further associates Sergius with the dispatch of additional missionaries into the German lands. Through these acts his pontificate fostered the evangelization of the peoples of northern Europe.
+  - heading: The Quinisext Council and Conflict with Justinian II
+    body:
+      - Sergius refused to accept the canons of the Quinisext Council, also called the Council in Trullo, which the Emperor Justinian II had promulgated in 692. When the emperor sought to compel the pope and attempted to have him seized, the Roman people and the Italian militia intervened to protect Sergius and prevented his arrest. The sources note that Justinian II was himself deposed not long afterward.
+  - heading: Liturgical and Architectural Acts
+    body:
+      - In the liturgy of Rome, Sergius introduced the Agnus Dei into the Mass and instituted processions to various churches of the city. He is also credited with restoring and embellishing churches in Rome, including work on the mosaics of Saint Peter's, and with founding the diaconia of Santa Maria in Via Lata.
+timeline:
+  - when: c. 650
+    title: Born at Palermo
+    body: Born in Sicily to an Antiochene Syrian family.
+  - when: "683"
+    title: Ordained cardinal-priest
+    body: Ordained cardinal-priest of Santa Susanna by Pope Leo II.
+  - when: "687"
+    title: Elected Pope of Rome
+    body: Chosen pope after a disputed election over the rivals Paschal and Theodore.
+  - when: "689"
+    title: Baptizes Caedwalla
+    body: Receives and baptizes King Caedwalla of the West Saxons at Rome.
+  - when: "692"
+    title: Rejects the Quinisext canons
+    body: Refuses to accept the canons of the Quinisext (Trullan) Council.
+  - when: "695"
+    title: Justinian II deposed
+    body: Emperor Justinian II, who had sought to compel Sergius, is deposed.
+  - when: "701"
+    title: Repose
+    body: Dies on September 8 and is succeeded by Pope John VI.
+related:
+  - name: Saint Willibrord, Enlightener of Frisia
+    note: Consecrated bishop of the Frisians by Sergius and sent to evangelize Frisia.
+    href: saint/OS-2719
+patronage:
+  - Associated with the missions to Frisia and Germany through his support of Willibrord and other missionaries.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Pope_Sergius_I
+  - https://www.newadvent.org/cathen/13728b.htm
+  - https://orthodoxwiki.org/Sergius_I_of_Rome
+generated: "2026-06-19"

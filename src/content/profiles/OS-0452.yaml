@@ -1,0 +1,41 @@
+id: OS-0452
+liturgicalTitle: Our Venerable Father Theodulus of Sinai
+lifespan: 5th century
+overview:
+  - Theodulus of Sinai was a fifth-century monastic of Mount Sinai and the son of Saint Nilus of Sinai (Nilus the Faster). As a child he left the world and went to Mount Sinai with his father to take up the monastic life. He is remembered chiefly for his captivity during a barbarian raid on the Sinai desert-dwellers and for his eventual reunion with his father, who recorded the sufferings of the Sinai fathers in his writings.
+  - He is commemorated on January 14 together with the Holy Monastic Fathers slain at Sinai and Raithu.
+timeline:
+  - when: 5th century
+    title: Monastic life at Sinai
+    body: Theodulus left the world while still a child and went to Mount Sinai with his father, the monk Nilus, to live the ascetic life among the desert-dwellers.
+  - when: 5th century
+    title: Captivity and slavery
+    body: During a raid by Saracen barbarians on the Sinai region, Theodulus was taken captive. The raiders sold him into slavery, and he eventually came into the possession of a bishop at Elusa in Palestine, who made him doorkeeper of the church and later ordained him a priest.
+  - when: 5th century
+    title: Reunion and return to Sinai
+    body: His father left Sinai to search for him and at last found him at Elusa. The bishop permitted father and son to return together to Mount Sinai, where, according to the account, a cave served as their dwelling.
+sections:
+  - heading: The Raid on Sinai and Raithu
+    body:
+      - The monastic settlements of Mount Sinai and nearby Raithu were repeatedly exposed to attacks by desert raiders. The Church commemorates the Holy Fathers slain at Sinai and Raithu on January 14, recalling occasions on which monks and hermits of these communities were killed by barbarians.
+      - It was during such a barbarian assault on the desert-dwellers that Theodulus was seized and carried off, an event preserved in the account his father wrote of the sufferings of the Sinai fathers.
+family:
+  heading: Family
+  figures:
+    - name: St. Nilus of Sinai (Nilus the Faster)
+      note: His father, the monastic writer who accompanied him to Mount Sinai and later recorded the slaughter of the Sinai monks and the captivity of his son.
+      href: saint/OS-2185
+related:
+  - name: Venerable Neilos the Ascetic of Sinai
+    note: His father, St. Nilus of Sinai.
+    href: saint/OS-2185
+works:
+  - title: Account of the slaughter of the monks at Sinai (recorded with his father Nilus)
+    desc: Theodulus is associated with the recording of the slaughter of the holy Fathers at Raithu; his captivity and the Saracen raid are described in the narrative written by his father Nilus concerning the slaying of the monks of Mount Sinai.
+reading: []
+sources:
+  - OCA Synaxarion (oca.org), Jan 14
+  - https://en.wikipedia.org/wiki/Nilus_of_Sinai
+  - https://www.oca.org/saints/lives/2000/01/14
+status: draft
+generated: "2026-06-20"

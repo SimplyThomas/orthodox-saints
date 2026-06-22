@@ -1,0 +1,41 @@
+id: OS-1884
+liturgicalTitle: The Holy Hieromartyr Phocas, Bishop of Sinope
+lifespan: 2nd century (died c. 117)
+overview:
+  - Phocas was a bishop of Sinope, a port city on the southern shore of the Black Sea in northern Asia Minor, who is venerated in the Orthodox Church as a hieromartyr. According to the synaxarion he was born at Sinope to Christian parents and led a devout life from his youth, in time being raised to the episcopate of his native city.
+  - As bishop he is remembered for extensive missionary labor, converting many of the pagan inhabitants of the region to faith in Christ. During the persecution of Christians under the Emperor Trajan (reigned 98-117), the local governor demanded that Phocas renounce Christ; when he refused, he was subjected to torture and finally enclosed in a heated bath, where he died a martyr's death, traditionally dated to the year 117.
+timeline:
+  - when: 2nd century
+    title: Bishop of Sinope
+    body: Born at Sinope on the Black Sea coast of Asia Minor, Phocas became bishop of the city in his adult years and converted many pagans to Christianity.
+  - when: c. 117
+    title: Martyrdom under Trajan
+    body: During the persecution under the Emperor Trajan, the governor demanded that Phocas deny Christ. After he refused and endured torture, he was shut in a heated bath, where he died.
+  - when: "404"
+    title: Translation of relics to Constantinople
+    body: His relics were carried from Pontus to Constantinople. By tradition a homily honoring him was composed by Saint John Chrysostom on the occasion of this translation.
+sections:
+  - heading: Relics & Shrines
+    body:
+      - In the year 404 the relics of the saint were translated from Pontus to Constantinople; the Orthodox calendar keeps a commemoration of this translation in late July (July 23, with the date also given as July 22).
+      - By tradition the translation of his relics was marked by a homily composed in his honor by Saint John Chrysostom.
+  - heading: Patronage & Veneration
+    body:
+      - The Hieromartyr Phocas is especially invoked as a protector against fires, and as a helper of those in danger of drowning at sea.
+      - As a saint who reposed before the Council of Chalcedon, he belongs to the undivided Church and is venerated across traditions, including the Eastern Orthodox, Roman Catholic, and Armenian Apostolic Churches.
+  - heading: Identity and Sources
+    body:
+      - Phocas of Sinope is commemorated on September 22, the same day as the Martyr Phocas the Gardener, also of Sinope, from whom he is reckoned a distinct person.
+      - Some scholars have observed that the surviving accounts may reflect a conflation of more than one figure bearing the name Phocas, and a degree of historical uncertainty surrounds the details of his life.
+patronage:
+  - Protection against fire
+  - Help to those in danger of drowning
+related:
+  - name: Martyr Phocas the Gardener of Sinope
+    note: Distinct saint of Sinope commemorated the same day, September 22.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2004/09/22/102695-hieromartyr-phocas-bishop-of-sinope
+  - https://en.wikipedia.org/wiki/Phocas,_Bishop_of_Sinope
+status: draft
+generated: "2026-06-19"

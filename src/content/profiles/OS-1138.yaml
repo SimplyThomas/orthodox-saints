@@ -1,0 +1,61 @@
+id: OS-1138
+liturgicalTitle: Our Father among the Saints Simon, Bishop of Vladimir and Suzdal
+lifespan: d. 1226
+overview:
+  - Saint Simon (died 1226) was a monk of the Kiev Caves Monastery who became the first bishop of Vladimir-on-the-Klyazma and Suzdal. He is remembered above all as one of the founding authors of the Kiev Caves Paterikon, the collection of monastic lives that preserves the early memory of the Caves community.
+  - His letters to the monk Polycarp, exchanged in the 1220s, became the literary nucleus of that work. The Church commemorates him on May 10, and he is distinct from the Apostle Simon the Zealot, who is kept on the same day.
+sections:
+  - heading: Monastic Life and Episcopate
+    body:
+      - Simon entered the monastic life at the Kiev Caves Monastery in the second half of the twelfth century, the community from which he would later draw the substance of his writing. In 1206 he was appointed igumen (abbot) of the Nativity monastery at Vladimir.
+      - In 1214 Prince George (Yuri) Vsevolodovich selected him as the first bishop of Vladimir-on-the-Klyazma and Suzdal. During his episcopate he consecrated a church at the Nativity monastery in 1218 and a cathedral church at Suzdal in 1225. He was esteemed by contemporaries as a learned teacher.
+      - When the prince wished to establish a separate bishop's see at Suzdal for the monk Polycarp, Simon dissuaded him, judging that Polycarp was not yet spiritually prepared for such an office.
+  - heading: The Kiev Caves Paterikon
+    body:
+      - Simon's enduring contribution is the body of writing that grew out of his correspondence with the monk Polycarp of the Caves in the 1220s. He framed his letters as spiritual instruction, both promoting knowledge of the Kiev Monastery where he had once lived and rebuking his disciple for an excessive desire for ecclesiastical honors pursued without the abbot's blessing.
+      - Within these letters Simon composed nine monastic biographies, the portion that became known as Simon's Epistle. He drew on earlier sources including the Life of Theodosius of the Caves, the Life of Anthony of the Caves, the Rostov Chronicle, and the monastery records, and his prose was noted for its erudition in patristic literature and its striving for an elegant, elevated style.
+      - His letter of counsel to Polycarp was placed at the beginning of the Kiev Caves Paterikon. Polycarp in turn added eleven further stories, dedicating his work to the abbot Akindyn, so that the correspondence of the two men formed the foundation of the completed collection.
+  - heading: Repose and Relics
+    body:
+      - Simon received the great monastic schema on the eve of his repose in 1226. His body was first buried at Vladimir, but in accordance with his own final wishes it was afterward transferred to the Kiev Caves Lavra, where it rests in the Antoniev (Near) Caves among the monks of the community he had served and chronicled.
+      - He was canonized for veneration throughout the Russian Church in 1982.
+timeline:
+  - when: 12th c.
+    title: Monk of the Kiev Caves
+    body: Simon enters the monastic life at the Kiev Caves Monastery in the second half of the twelfth century.
+  - when: "1206"
+    title: Abbot at Vladimir
+    body: He is appointed igumen of the Nativity monastery at Vladimir.
+  - when: "1214"
+    title: First Bishop of Vladimir and Suzdal
+    body: Prince George Vsevolodovich selects him as the first bishop of Vladimir-on-the-Klyazma and Suzdal.
+  - when: "1218"
+    title: Consecration at Vladimir
+    body: He consecrates a church at the Nativity monastery.
+  - when: 1220s
+    title: Letters to Polycarp
+    body: His correspondence with the monk Polycarp forms the nucleus of the Kiev Caves Paterikon.
+  - when: "1225"
+    title: Cathedral at Suzdal
+    body: He consecrates a cathedral church at Suzdal.
+  - when: "1226"
+    title: Schema and repose
+    body: He receives the great schema on the eve of his death and reposes; his relics are later translated to the Kiev Caves Lavra.
+  - when: "1982"
+    title: Church-wide canonization
+    body: He is canonized for veneration throughout the Russian Church.
+related:
+  - name: Saint Theodosius of the Caves
+    note: Founder of the Kiev Caves cenobitic life, whose Life was among Simon's sources for the Paterikon.
+  - name: Saint Anthony of the Caves
+    note: Founder of the Kiev Caves Monastery; Simon's relics rest in the Antoniev (Near) Caves named for him.
+works:
+  - title: The Kiev Caves Paterikon (Simon's Epistle)
+    desc: Simon's letters to the monk Polycarp, containing nine monastic biographies of the Caves community, were placed at the beginning of the Kiev Caves Paterikon and form, with Polycarp's later additions, the foundation of the work.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2014/05/10
+  - https://en.wikipedia.org/wiki/Kyiv_Caves_Patericon
+  - https://en.wikipedia.org/wiki/List_of_Russian_saints_(until_15th_century)
+status: draft
+generated: "2026-06-20"

@@ -1,0 +1,20 @@
+id: OS-1738
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/08/18/108982-saint-christopher-of-gazara
+  - https://orthodoxwiki.org/Template:August_18
+  - https://en.wikipedia.org/wiki/Sumela_Monastery
+liturgicalTitle: Our Venerable Father Christopher of Gazara, Abbot of the Monastery on Mount Mela
+overview:
+  - "Saint Christopher of Gazara was a seventh-century monastic superior, remembered as the head of a monastery on Mount Mela. The surviving record of his life is brief: the synaxarion places his activity in the second half of the seventh century and identifies him with the monastic community at Gazara and Mount Mela, while preserving little else about his birth, his works, or his repose."
+  - His commemoration is kept on August 18, a date that falls within the afterfeast of the Dormition of the Theotokos. Beyond his standing as abbot and the chronological window in which he lived, the tradition transmits no narrative of specific events, miracles, or relics, and he is honored among the venerable monastic fathers of the Byzantine period.
+sections:
+  - heading: Monastic Standing
+    body:
+      - Christopher is remembered as the superior, or abbot, of the monastery on Mount Mela, where he governed the community in the second half of the seventh century. The records that name him preserve his office and his association with that mountain monastery but supply no fuller account of his ascetic life or of the circumstances of his leadership.
+      - The mountain monastery with which he is associated is, in later tradition, identified with the community on Mount Mela in the region of Pontus, a foundation that came to far greater prominence in subsequent centuries. The sources that mention Christopher, however, do not connect him to any of the events for which that house later became known, and they record his name without further elaboration.
+status: flagged
+generated: "2026-06-20"
+flagReasons:
+  - claim: The mountain monastery is, in later tradition, identified with the community on Mount Mela in the region of Pontus.
+    detail: This contradicts the anchor row, whose Region of Origin is Palestine / Holy Land. The Pontus identification derives only from the Sumela Monastery context source (Mount Mela = Sumela, near Trebizond), which does not name Christopher and is geographic background, not a source on the saint. The anchor wins on conflict, so locating him in Pontus is unsupported relative to the governing row. The claim is hedged ('in later tradition') but still asserts a region that conflicts with the anchor.

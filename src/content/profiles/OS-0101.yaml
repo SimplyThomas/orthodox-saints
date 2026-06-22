@@ -1,0 +1,32 @@
+id: OS-0101
+liturgicalTitle: Our Father among the Saints Sixtus, First Bishop of Reims
+lifespan: died c. 300
+overview:
+  - Saint Sixtus of Reims, whose name also appears in the older Latin form Xystus, is reckoned the first bishop of Reims in Gaul. He is counted among the saints of the pre-Schism See of Rome and is commemorated in both the Eastern Orthodox and Roman Catholic traditions on September 1. He is generally placed in the second half of the third century, with his repose dated by tradition to about the year 300.
+  - The sources for his life are sparse and largely legendary, and little can be stated about him with certainty. Surviving traditions agree that he came from Rome to evangelize Gaul and that he established the church of Reims, but they differ on the details of his origin, and several of the claims attached to his name are best understood as later pious tradition rather than documented history.
+sections:
+  - heading: First Bishop of Reims
+    body:
+      - Tradition holds that Sixtus was sent from Rome to assist in the Christianization of Gaul, and that together with a companion, Saint Sinicius (also spelled Sinice), he founded the sees of Reims and Soissons. The Catholic Encyclopedia records that the two established their see in the upper part of the city of Reims during the second half of the third century. Sinicius is said to have later succeeded Sixtus as bishop of Reims.
+      - Despite the severity of the persecutions of that era, it appears that Sixtus did not die as a martyr. Beyond his role as founding bishop, as one Orthodox account of the pre-Schism Western saints frankly observes, nothing more can be stated with any certainty about his life.
+  - heading: The Question of His Origin
+    body:
+      - Two competing traditions account for Sixtus's mission to Gaul. According to Archbishop Hincmar of Reims, writing in the ninth century, Sixtus was sent by Pope Saint Sixtus II to help Christianize the region; this is generally regarded as the more likely tradition and would place his activity in the later third century.
+      - "A separate and later tradition makes Sixtus a disciple of the Apostle Peter himself. This claim is anachronistic and is not accepted as historical: it would place him in the first century, far earlier than the other evidence allows, and even Hincmar in the ninth century preferred the connection to Pope Sixtus II. The disciple-of-Peter tradition is therefore best understood as a legendary embellishment that sought to give the church of Reims an apostolic foundation."
+timeline:
+  - when: 3rd century
+    title: Mission to Gaul
+    body: By tradition Sixtus is sent from Rome to assist in the Christianization of Gaul, an undertaking that later accounts attribute to Pope Saint Sixtus II.
+  - when: second half of the 3rd century
+    title: Founding the see of Reims
+    body: With his companion Saint Sinicius, Sixtus establishes the church of Reims and, by tradition, the see of Soissons as well.
+  - when: c. 300
+    title: Repose
+    body: Sixtus reposes around the year 300, apparently not as a martyr; Sinicius is said to succeed him as bishop of Reims.
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Sixtus_of_Reims
+  - https://www.newadvent.org/cathen/12725a.htm
+  - https://drjohnhutchisonhall.com/saints-pre-schism-rome/1-september/
+status: draft
+generated: "2026-06-21"

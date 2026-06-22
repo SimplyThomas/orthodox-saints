@@ -1,0 +1,62 @@
+id: OS-0132
+liturgicalTitle: Our Venerable Father Nonnosus, Prior of the Monastery on Mount Soracte, the Wonderworker
+lifespan: c. 500 – c. 575
+overview:
+  - "Nonnosus was a sixth-century monastic superior in central Italy, remembered as the prior of the monastery on Mount Soracte (Monte Soratte), north of Rome. Almost everything known of him comes from a single early witness: Pope St. Gregory the Great recorded his life and miracles in the first book of his Dialogues, written around 593."
+  - A contemporary of St. Benedict of Nursia, Nonnosus was esteemed for the patience and humility with which he served under a notably harsh abbot, and for a series of miracles—moving an immovable rock, restoring a shattered lamp, and multiplying oil in a year of poor harvest—that became the substance of Gregory's account. After his death his relics were carried north and eventually enshrined at Freising in Bavaria, where his veneration took deep root.
+sections:
+  - heading: Life and Monastic Service
+    body:
+      - Nonnosus served as prior (provost) of the San Silvestro monastery on Mount Soracte, a height rising from the plain north of Rome, and is also associated with the abbey of Suppentonia near Civita Castellana, where he lived under the Abbot St. Anastasius. He is reckoned a contemporary of St. Benedict of Nursia, placing his life squarely within the formative period of Italian monasticism.
+      - According to Gregory the Great, Nonnosus bore with remarkable peace of mind the severity of a very harsh abbot, while showing himself gentle and mild toward the brethren under his charge. His humility was said frequently to soften the abbot's irascible temper, a detail Gregory offers as a model of monastic forbearance rather than as a dramatic incident.
+  - heading: Miracles in Gregory's Dialogues
+    body:
+      - Gregory recounts three principal wonders. In the first, Nonnosus wished to cultivate vegetables on a ledge of the mountainside that was blocked by an enormous rock—a mass, Gregory says, that fifty pairs of oxen could not have moved. Despairing of human effort, Nonnosus prayed through the night, and in the morning the brethren found the rock displaced and the ground clear for a garden.
+      - In the second, while washing the glass lamps of the chapel, Nonnosus let one fall and shatter on the floor. Fearing his abbot's anger, he gathered the fragments before the altar and knelt in prayer; when he looked up, the broken pieces had been fitted together into a single unbroken lamp. In the third, following a poor harvest, he is said to have filled multiple vessels with olive oil so that the community would not go without.
+      - These accounts survive only through Gregory, who states that he received them through Bishop Maximian of Syracuse, who in turn had them from Laurio, an elderly monk who had personally known Nonnosus at Suppentonia.
+  - heading: Relics & Shrines
+    body:
+      - Nonnosus was first buried at Mount Soracte. When the region was attacked by Saracen forces at the end of the ninth century, his relics were removed to Suppentonia, and around 1050, during the tenure of Bishop Nitker, they were translated to Freising in Bavaria.
+      - A fire damaged Freising Cathedral in 1159; in 1161, while the foundations were being dug, the remains of three persons were discovered and identified as Nonnosus together with the saints Alexander and Justin, and they were reburied in the cathedral crypt by Bishop Albert I. The relics were rediscovered in 1708 and reinterred the following year by Prince-Bishop Johann Franz von Eckher. Nonnosus is honored as a co-patron of Freising, and in German devotion is invoked against kidney disease and ailments of the back.
+  - heading: Identity and Sources
+    body:
+      - An old epitaph associated with his grave is reported to have named him 'the servant of Christ, Nonnosus, Deacon,' and a twelfth-century collection of legends from Carinthia likewise mentions a deacon Nonnosus. Because of this, it is thought that the traditions of two different persons may have been merged over time. The figure venerated at Freising belongs to the saints of the undivided Western Church before the later schisms, and as so early a saint he carries no formal canonization date.
+timeline:
+  - when: c. 500
+    title: Birth
+    body: Nonnosus is born, by tradition near Mount Soracte north of Rome, a contemporary of St. Benedict of Nursia.
+  - when: 6th century
+    title: Prior on Mount Soracte
+    body: He serves as prior of the San Silvestro monastery on Mount Soracte and is associated with the abbey of Suppentonia under Abbot St. Anastasius.
+  - when: c. 575
+    title: Repose
+    body: Nonnosus dies and is buried at Mount Soracte.
+  - when: c. 593
+    title: Recorded by Gregory the Great
+    body: Pope St. Gregory the Great recounts his miracles in Book 1 of the Dialogues, drawing on testimony relayed through Bishop Maximian of Syracuse and the monk Laurio.
+  - when: c. 1050
+    title: Relics translated to Freising
+    body: After removal to Suppentonia during Saracen raids, the relics are transferred to Freising in Bavaria.
+  - when: "1161"
+    title: Relics rediscovered at Freising
+    body: Following a fire in 1159, the relics are found during excavation alongside saints Alexander and Justin and reburied in the cathedral crypt.
+patronage:
+  - Co-patron of Freising, Germany
+  - Invoked against kidney disease and back ailments (German devotion)
+related:
+  - name: St. Gregory the Great
+    note: Pope of Rome whose Dialogues are the sole early source for the life and miracles of Nonnosus.
+  - name: St. Benedict of Nursia
+    note: Father of Western monasticism and a contemporary of Nonnosus.
+reading:
+  - heading: Primary source
+    items:
+      - title: Dialogues, Book 1, Chapter 7
+        author: St. Gregory the Great
+        type: Primary source
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Nonnosus
+  - https://anastpaul.com/2020/09/02/saint-of-the-day-2-september-saint-nonnosus-c-500-c-575/
+generated: "2026-06-20"

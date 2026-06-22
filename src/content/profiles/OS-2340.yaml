@@ -1,0 +1,22 @@
+id: OS-2340
+liturgicalTitle: The Holy Martyr John, Abbot of Zedazeni Monastery
+lifespan: 9th century
+overview:
+  - John, abbot of the Zedazeni Monastery in Georgia, is a martyr of the 9th century whose full life has not been preserved. He is commemorated on December 12 and is distinct from the earlier Saint John of Zedazeni, the 6th-century leader of the Thirteen Syrian Fathers under whom the monastery was founded.
+  - "Almost nothing of John's personal history survives. What is known of him comes not from a developed life but from a single administrative record: a list of the names of the holy fathers who reposed at Zedazeni Monastery after John of Zedazeni, compiled by Catholicos Arsenius II. According to that list, Abbot John was murdered at Zedazeni by Muslims, and he is venerated by the Church as a martyr."
+  - His commemoration preserves the memory of monastic suffering at Zedazeni during a period when Georgia's monasteries were exposed to incursion. Because no narrative of his deeds was handed down, the Church remembers him chiefly through his death rather than through recorded events of his life.
+sections:
+  - heading: Sources and Memory
+    body:
+      - The primary witness to John is the catalogue of holy fathers of Zedazeni assembled by Catholicos Arsenius II, which records that he was killed at the monastery by Muslims. This record establishes both his rank as abbot and the manner of his death, while leaving the details of his origins, ascetic labors, and tenure unknown.
+      - Care is needed not to confuse this John with John of Zedazeni, the head of the Thirteen Syrian Fathers who brought monasticism to Georgia in the 6th century and after whom the monastery was named. The martyred abbot belongs to a later generation of the same community.
+related:
+  - name: Saint John of Zedazeni and his Twelve Disciples
+    note: 6th-century founder of Zedazeni Monastery and leader of the Thirteen Syrian Fathers; a distinct, earlier saint of the same house.
+    href: saint/OS-1128
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/12/12/205497-martyr-john-abbot-of-the-zedazeni-monastery
+  - https://orthochristian.com/7372.html
+generated: "2026-06-20"

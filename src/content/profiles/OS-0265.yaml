@@ -1,0 +1,35 @@
+id: OS-0265
+liturgicalTitle: Hieromartyr Stephen, Pope of Rome
+lifespan: died 257
+overview:
+  - Stephen I was Bishop of Rome from 254 to 257, during the troubled decades that followed the Decian and preceded the Valerianic persecutions. A Roman by origin, he had served in the Roman clergy before his election to succeed Lucius I.
+  - His brief episcopate is remembered chiefly for the controversy over the baptism of heretics and schismatics, in which he opposed Cyprian of Carthage, and for the tradition that he died a martyr under the Emperor Valerian. He is commemorated in the Orthodox calendar on September 7.
+sections:
+  - heading: Episcopate at Rome
+    body:
+      - Stephen became Bishop of Rome in 254, succeeding Lucius I, and led the Roman church for roughly three years until 257. His tenure fell in a period of recovery from the Decian persecution and of continuing disputes over how to receive those who had lapsed or who had been baptized outside the communion of the Church.
+      - He is reported to have intervened in the affairs of churches beyond Rome, including a matter concerning bishops in Spain and Gaul, asserting the authority of the Roman see in questions of discipline.
+  - heading: The controversy over the baptism of heretics
+    body:
+      - The principal episode of Stephen's episcopate was his dispute with Cyprian of Carthage and the churches of Africa and Asia Minor over whether converts who had been baptized by heretics or schismatics required rebaptism upon entering the Church. Cyprian, supported by African synods and by Firmilian of Caesarea in the East, held that baptism administered outside the Church was no true baptism and that such converts must be baptized.
+      - Stephen maintained that baptism performed with the correct form ought to be recognized as valid, and that converts should be received by the laying on of hands rather than rebaptized. The disagreement grew sharp, but a complete breach was not consummated. Stephen's position later won broad acceptance in the Western Church.
+  - heading: Tradition of his martyrdom
+    body:
+      - Orthodox tradition, reflected in the synaxarion, commemorates Stephen as a hieromartyr, holding that he was martyred together with his companions in the persecution of Valerian in 257. Later Western hagiography elaborated this into an account of his death while celebrating the liturgy.
+      - Historians note that the earliest Roman records, such as the fourth-century Depositio episcoporum, do not list Stephen among the martyrs, and some scholarship therefore questions whether he died by martyrdom rather than in the course of the persecution. The Orthodox calendar nonetheless retains his commemoration as a hieromartyr.
+timeline:
+  - when: "254"
+    title: Elected Bishop of Rome
+    body: Succeeds Lucius I as Bishop of Rome.
+  - when: c. 255–256
+    title: Baptism controversy
+    body: Disputes with Cyprian of Carthage and the African and Eastern churches over the rebaptism of heretics and schismatics.
+  - when: "257"
+    title: Death under Valerian
+    body: Dies during the persecution of Valerian; commemorated by the Orthodox Church as a hieromartyr.
+status: draft
+sources:
+  - Synaxarion
+  - https://orthodoxwiki.org/Stephen_I_of_Rome
+  - https://en.wikipedia.org/wiki/Pope_Stephen_I
+generated: "2026-06-20"

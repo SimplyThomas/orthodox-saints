@@ -1,0 +1,54 @@
+id: OS-0096
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Dionysius_Exiguus
+  - https://orthodoxwiki.org/Dionysius_Exiguus
+lifespan: c. 470 - c. 544
+liturgicalTitle: Our Venerable Father Dionysius Exiguus, Monk of Scythia
+overview:
+  - "Dionysius Exiguus was a sixth-century monk of Scythian origin who settled in Rome, where he became one of the most influential scholars of the early medieval Church. He is remembered above all for two enduring contributions: his Latin translations of Greek ecclesiastical canons and saints' lives, and his invention of the Anno Domini system, which numbers years from the Incarnation of Christ."
+  - Born around 470 in Scythia Minor, the region of the lower Danube now shared between Romania and Bulgaria, he entered monastic life in his homeland before relocating to Rome. There his learning in both Greek and Latin made him a valued figure in the ecclesiastical circles of the city. The Church of Romania honors him among its native saints, and his feast on September 1 coincides with the beginning of the Orthodox liturgical year.
+timeline:
+  - when: c. 470
+    title: Birth in Scythia Minor
+    body: Dionysius was born around 470 in Scythia Minor, the region now called Dobruja, on the western shore of the Black Sea. He belonged to a community of Scythian monks centered at Tomis, the modern city of Constanta in Romania.
+  - when: c. 500
+    title: Settling in Rome
+    body: Around the year 500 he moved to Rome, where he lived and worked for the remainder of his life. He became a member of the city's ecclesiastical circles and was associated with the Roman Curia, serving under Pope John I and other authorities.
+  - when: "525"
+    title: Reckoning the years of Christ
+    body: In 525 Dionysius determined the current year as the 525th since the Incarnation of Christ, introducing a system of dating from the Nativity rather than from the era of the persecuting emperor Diocletian. This reckoning, later called Anno Domini, would eventually become the standard year-numbering of much of the world.
+  - when: "525"
+    title: The Easter tables
+    body: In the same year he prepared a table of ninety-five future dates of Easter, covering the years 532 to 626, together with explanatory rules. His method aligned Western practice with the computational principles used at Alexandria and was gradually adopted across most of the Christian Church.
+  - when: c. 544
+    title: Repose in Rome
+    body: Dionysius died in Rome around 544, at roughly seventy-three or seventy-four years of age. The exact date of his death is not recorded.
+  - when: "2008"
+    title: Glorification by the Church of Romania
+    body: On July 8, 2008, the Church of Romania officially numbered Dionysius among the saints, recognizing him as one of its native sons, with his commemoration fixed on September 1.
+sections:
+  - heading: Origins and Monastic Life
+    body:
+      - Dionysius came from Scythia Minor, the area of the lower Danube and the western Black Sea coast now divided between Romania and Bulgaria. He was formed in a community of Scythian monks gathered at Tomis, present-day Constanta, a region that produced a notable circle of monastic scholars in the period.
+      - His contemporary Cassiodorus, who knew him personally, described him as Scythian by birth but Roman in character, and praised him as a man exceptionally learned in both Greek and Latin. According to Cassiodorus, despite his later renown he remained an ordinary monk; though the Venerable Bede addressed him with the honorific title of abbas, this did not necessarily signify the formal office of abbot.
+  - heading: Translator of the Church's Canons
+    body:
+      - After settling in Rome, Dionysius undertook an extensive program of translation that made the legislation of the Greek-speaking Church available in Latin. He rendered 401 ecclesiastical canons from Greek into Latin, drawing on the apostolic canons and the decrees of the great councils, including the First Council of Nicaea, the First Council of Constantinople, the Council of Chalcedon, and the Council of Sardica.
+      - Alongside the conciliar canons he translated papal decretals and a range of theological and hagiographical works, among them the Life of Saint Pachomius and writings of Gregory of Nyssa. His collections of canon law became a foundational resource for the Western Church.
+  - heading: The Anno Domini Era
+    body:
+      - Dionysius is best known as the originator of the system of dating years from the Incarnation of Christ. Working in 525, he reckoned the current year as the 525th since the Lord's Incarnation, deliberately replacing the older practice of counting years from the reign of Diocletian, whose era was bound up with the persecution of Christians.
+      - This reckoning, the Anno Domini era, was taken up only gradually but in time became the dominant means of numbering years across the Christian world and beyond.
+  - heading: The Computation of Easter
+    body:
+      - Closely connected to his work on the calendar was his contribution to the computus, the calculation of the date of Easter. In 525 he drew up a table of ninety-five future Paschal dates, spanning the years 532 to 626, accompanied by rules explaining their derivation.
+      - His tables harmonized Western reckoning with the principles followed at Alexandria, and over time his method was adopted as standard across most of the Christian Church, helping to bring the celebration of Pascha into a common observance.
+patronage:
+  - Scholars and translators
+  - The Church of Romania
+related:
+  - name: St. Pachomius the Great
+    note: Dionysius translated the Life of Saint Pachomius into Latin.
+status: draft
+generated: "2026-06-19"

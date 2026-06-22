@@ -1,0 +1,35 @@
+id: OS-1391
+liturgicalTitle: The Holy Hieromartyr Methodius, Bishop of Patara
+lifespan: died c. 311-312
+overview:
+  - Methodius was a bishop in Lycia, in Asia Minor, who became one of the most accomplished Christian writers of the period before the First Ecumenical Council. The Orthodox tradition commemorates him as Bishop of Patara, while several early witnesses, beginning with Saint Jerome, associate him with the see of Olympus in Lycia; later sources describe him as having held both, and Jerome adds a less certain tradition that he afterward became Bishop of Tyre. He is distinguished both for his learning, exercised chiefly in defense of the faith, and for the monastic humility with which the synaxarion records that he taught his flock.
+  - His best-known surviving work is the Symposium, also titled On Virginity or the Banquet of the Ten Virgins, a dialogue modeled on Plato's Symposium that depicts ten virgins discoursing in praise of chastity in the garden of Virtue. He wrote vigorously against the teaching of Origen, particularly on the resurrection of the body, and against pagan philosophy. Arrested during the persecutions of the early fourth century, he confessed Christ and was put to death, and is venerated as a hieromartyr on June 20.
+timeline:
+  - when: late 3rd - early 4th c.
+    title: Bishop in Lycia
+    body: Methodius served as a bishop in Lycia in Asia Minor. Orthodox tradition names him Bishop of Patara; early sources, beginning with Jerome, associate him with Olympus, and a less certain tradition adds the see of Tyre.
+  - when: c. 311-312
+    title: Martyrdom
+    body: Arrested during the persecutions of the early fourth century, he confessed his faith before his judges and was beheaded. Greek sources place his death at Chalcis.
+sections:
+  - heading: Writings
+    body:
+      - "Methodius left a substantial literary legacy. His one complete surviving Greek work is the Symposium, or On Virginity, also known as the Banquet of the Ten Virgins: a dialogue, modeled on Plato's Symposium, in which ten virgins gathered in the garden of Arete (Virtue) each deliver a discourse in praise of chastity. He also composed On Free Will, a treatise against the Gnostic account of the origin of evil that argues for the freedom of the human will, and On the Resurrection, which maintains that the same body a person has in life will be raised to incorruptibility. Both works survive only in part in Greek."
+      - Several further works are preserved only in Slavonic translation, among them treatises transmitted under the titles De vita, De cibis, De lepra, and De sanguisuga. Jerome records additional works now lost, including a substantial treatise against the Neoplatonist philosopher Porphyry and commentaries on Genesis and the Song of Songs. For his wisdom the saint is said to have been surnamed Eubulus, meaning 'of good counsel.'
+  - heading: Defense of the Faith
+    body:
+      - Methodius firmly defended Orthodox teaching and contended against the heresies of his day, most notably against the doctrines of Origen. He rejected in particular Origen's view that the resurrection body differs from the earthly body, holding instead that creation would be renewed rather than destroyed. He also wrote in defense of Christianity against paganism and composed moral discourses and explanations of Scripture. His opposition to Origen is thought to be the reason the historian Eusebius passed over him in his Church History.
+works:
+  - title: Symposium (On Virginity / Banquet of the Ten Virgins)
+    desc: A dialogue, modeled on Plato's Symposium, in which ten virgins in the garden of Virtue praise chastity; his only complete surviving Greek work.
+  - title: On Free Will
+    desc: A treatise against the Gnostic account of the origin of evil, arguing for the freedom of the human will.
+  - title: On the Resurrection
+    desc: A work defending the raising of the same body to incorruptibility, written in opposition to Origen.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Methodius_of_Olympus
+  - https://www.johnsanidopoulos.com/2017/06/holy-hieromartyr-methodios-bishop-of.html
+  - https://www.oca.org/saints/lives/2026/06/20/101759-hieromartyr-methodius-bishop-of-patara
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,53 @@
+id: OS-2302
+liturgicalTitle: Saint Gennadius, Archbishop of Novgorod
+lifespan: died 1505
+overview:
+  - Saint Gennadius was Archbishop of Novgorod from 1484 to 1504, a learned hierarch of the Russian Church best remembered for sponsoring the first complete codex of the Slavonic Bible. Descended from the Gonzov family, he became a monk at the Valaam monastery under the guidance of Saint Sabbatius of Solovki, and from 1472 served as Archimandrite of the Chudov monastery in the Moscow Kremlin before his elevation to the see of Novgorod.
+  - He was named Archbishop of Novgorod in Moscow and placed in office on December 12, 1484, arriving in his diocese the following January. Sources note that he was the first Novgorodian prelate in well over a century to be chosen by appointment rather than by the casting of lots. His nineteen-year episcopate combined administrative energy, scholarship, and a sustained campaign against the heresy of the Judaizers, which he pursued with the support of the grand prince and the metropolitan.
+  - Gennadius gathered around himself learned scribes and translators, and in 1499 their labors produced the Gennadius Bible, the first single codex bringing together all the books of Holy Scripture in Slavonic. Where books were missing from the existing Slavonic manuscript tradition, he had them translated anew from Latin sources. He also founded a school at Novgorod for the training of worthy clergy. He retired from his see in 1504 and reposed at the Chudov monastery on December 4, 1505, the day on which he is commemorated.
+sections:
+  - heading: The Heresy of the Judaizers
+    body:
+      - By tradition, Gennadius first became aware of the Judaizing movement in 1487, when its existence was disclosed by adherents who had revealed themselves while intoxicated. The heresy, which had taken root in Novgorod and spread to Moscow, was reported by later sources to promote anti-Trinitarian teaching. Gennadius reported his findings up the hierarchy and devoted much of his episcopate to combating the movement.
+      - He worked in close concert with Saint Joseph of Volokolamsk, the monastic reformer, and councils were convened to address the sectarians. The synaxarion records that he labored against the heresy for some twelve years.
+  - heading: Scholarship and the Paschalion
+    body:
+      - Beyond the Bible that bears his name, Gennadius oversaw broader literary and chronicle work, associated by sources with the compilation of the Fourth Novgorod Chronicle. As the year 7000 from the creation of the world approached — a date attended by widespread apocalyptic expectation — he addressed the practical problem that the existing tables for calculating Pascha (Easter) ran out at that point. He drew up a new Paschalion extending the reckoning forward, and this work was approved by the Moscow Council of 1492.
+timeline:
+  - when: "1472"
+    title: Archimandrite of the Chudov monastery
+    body: Gennadius became archimandrite of the Chudov monastery in the Moscow Kremlin.
+  - when: Dec 12, 1484
+    title: Consecrated Archbishop of Novgorod
+    body: He was placed in the see of Novgorod, arriving in his diocese in January 1485.
+  - when: "1487"
+    title: Discovery of the Judaizing heresy
+    body: By tradition, the heresy's existence was disclosed to him, beginning a long campaign against it.
+  - when: "1492"
+    title: Paschalion approved
+    body: His new tables for calculating Pascha were approved by the Moscow Council.
+  - when: "1499"
+    title: The Gennadius Bible
+    body: His scholars completed the first complete Slavonic codex of Holy Scripture.
+  - when: "1504"
+    title: Retirement
+    body: Gennadius retired from the see of Novgorod.
+  - when: Dec 4, 1505
+    title: Repose
+    body: He reposed at the Chudov monastery and is commemorated on this day.
+related:
+  - name: Saint Joseph of Volokolamsk
+    note: Monastic reformer with whom he opposed the Judaizing heresy.
+    href: saint/OS-0330
+  - name: Saint Sabbatius of Solovki
+    note: His spiritual guide at the Valaam monastery in his monastic beginnings.
+    href: saint/OS-1910
+patronage:
+  - Invoked in connection with biblical scholarship, translation, and the education of clergy.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1001/12/04/103476-saint-gennadius-archbishop-of-novgorod
+  - https://en.wikipedia.org/wiki/Gennady_(Archbishop_of_Novgorod)
+  - https://www.britannica.com/biography/Gennadius-of-Novgorod
+generated: "2026-06-20"

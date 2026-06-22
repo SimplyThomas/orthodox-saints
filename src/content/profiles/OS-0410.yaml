@@ -1,0 +1,36 @@
+id: OS-0410
+liturgicalTitle: Our Venerable Father Paisius, Abbot of Uglich
+lifespan: died June 6, 1504
+overview:
+  - Paisius of Uglich was a Russian monastic of the late fifteenth and early sixteenth centuries who founded and led the Protection monastery near the town of Uglich, in the Russian north. According to the synaxarion he was born in the Tver district near the city of Kashin and was a nephew of Saint Macarius of Kalyazin. After the death of his parents he entered his uncle's monastery as an eleven-year-old child, and there was formed in a monastic life of obedience, fasting and prayer.
+  - Under his uncle's guidance Paisius was set to the copying of soul-saving books, a labor of the manuscript tradition characteristic of monastic formation in Rus'. He is remembered as a builder of cenobitic monastic life, founding the Protection monastery in 1464, some three versts from Uglich, at the wish of Prince Andrew, and being chosen its igumen. He later founded and organized a second house, the Nikolsky Grekhozaruchnya monastery, in 1489.
+  - Paisius lived into advanced age and died on June 6, 1504. The tradition remembers him as a teacher of holiness and a wonderworker, and his relics are said to rest beneath a crypt in the Protection monastery, where they are venerated as glorified by miracles. He is commemorated on June 6, the day of his repose, and also on January 8.
+sections:
+  - heading: Monastic Foundations
+    body:
+      - The Protection monastery near Uglich, founded in 1464, was a cenobitic community established at the request of Prince Andrew, with Paisius as its first igumen. A second foundation, the Nikolsky Grekhozaruchnya monastery, followed in 1489. These foundations place Paisius among the monastic organizers who extended cenobitic life through the principalities of the Russian north in the fifteenth century.
+      - By tradition the Protection monastery is associated with a wonderworking icon of the Protection of the Theotokos. The synaxarion of Saint Bogolep of Uglich, a disciple of Paisius who worked as a baker in the monastery, relates that Bogolep discovered such an icon near the Volga in 1482 and reported the find to Paisius.
+timeline:
+  - when: "1464"
+    title: Founded the Protection monastery
+    body: Established the cenobitic Protection monastery near Uglich at the wish of Prince Andrew and was chosen its igumen.
+  - when: "1489"
+    title: Founded the Nikolsky Grekhozaruchnya monastery
+    body: Founded and organized a second monastic house.
+  - when: June 6, 1504
+    title: Repose
+    body: Died in advanced age; his relics rest beneath a crypt in the Protection monastery.
+related:
+  - name: St. Macarius of Kalyazin
+    note: Paisius's uncle, in whose monastery he was tonsured and formed
+    href: saint/OS-0839
+  - name: St. Bogolep of Uglich
+    note: A disciple of Paisius who worked as a baker and is said to have found the Protection icon
+    href: saint/OS-1761
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 8
+  - https://www.oca.org/saints/lives/2020/01/08/100119-saint-paisius-of-uglich
+  - https://www.oca.org/saints/lives/1999/06/06/101634-venerable-paisius-abbot-of-uglich
+  - https://www.oca.org/saints/lives/0200/08/22/108976-saint-bogolep-disciple-of-saint-paisius-of-uglich
+generated: "2026-06-21"

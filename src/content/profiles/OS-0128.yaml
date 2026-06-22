@@ -1,0 +1,53 @@
+id: OS-0128
+liturgicalTitle: Our Father among the Saints Justus, Bishop of Lyon, the Hermit and Confessor
+lifespan: first half of the 4th century – c. 389/390
+overview:
+  - Justus of Lyon was a fourth-century bishop of the see of Lyon, the metropolis of Roman Gaul, who is remembered for resigning his episcopate to live out his final years as a hermit among the desert monks of Egypt. He is venerated as a saint in both the Orthodox and the Roman Catholic traditions, with a feast kept on September 2.
+  - Born into an aristocratic family in the region of Vivarais in southeastern Gaul, he served as a deacon before his elevation to the episcopate. As bishop he took part in the church councils of his day and was known to contemporaries as a meek and merciful man. After a public tragedy in his city for which he held himself responsible, he secretly withdrew from his office and journeyed to the monastic settlement of Scetes, where he died.
+sections:
+  - heading: Early Life and Episcopate
+    body:
+      - Justus was born in the first half of the fourth century to an aristocratic family in Gaul; sources place his origins at Tournon-sur-Rhone in the Vivarais of southeastern France. He studied under Saint Paschasius, Archbishop of Vienne, and was ordained a deacon, serving at the Church of Vienne. Contemporaries described him as a meek and merciful man.
+      - "Around the middle of the fourth century he was made Bishop of Lyon, the capital of Gaul. As bishop he took part in the conciliar life of the Western Church: he attended the Council of Valence in 374, which addressed the discipline of clergy and faithful, and the Council of Aquileia of 381, where he stood among the bishops who rejected Arianism. He is also remembered as having corresponded with Saint Ambrose of Milan, a sign of his standing and learning."
+  - heading: The Sanctuary Incident and Withdrawal
+    body:
+      - The defining crisis of his episcopate came when a violent, deranged man killed several people in the city with a sword and then fled to the church for sanctuary. Justus upheld the right of asylum despite pressure, until a city magistrate persuaded him to surrender the accused, giving his word that the matter would be handled according to law. Trusting this assurance, the bishop delivered the man over; but a mob overpowered the guards and put him to death before any trial could be held.
+      - Holding himself responsible for the failure to protect the man, Justus came to believe himself unworthy to govern his flock. One night he secretly left Lyon to take up the ascetic life. He traveled to Arles and then to Marseilles, intending to embark for Alexandria. The cathedral lector Viator, unwilling to be parted from his master, followed and joined him, and the two sailed together for Egypt.
+  - heading: Desert Monasticism and Death
+    body:
+      - In Egypt, Justus and Viator joined the community of monks in the desert of Scetes, identified with the Wadi El Natrun in the Libyan Desert, situated beyond the mountains of Nitria some forty or fifty miles south of Alexandria. There they lived under the great ascetic Macarius of Egypt, devoting themselves to fasting, silence, and vigils. Justus died at Scetes around 389, in the monastic obscurity he had sought.
+      - By tradition his identity was later recognized, and the church of Lyon sent a delegation, led by the priest Antiochus, to recover his remains; Antiochus afterward became Justus's successor as bishop. The relics of both Justus and Viator were brought back to Lyon and interred in the Basilica of the Maccabees, which was subsequently renamed Saint-Just in the bishop's honor.
+timeline:
+  - when: c. 350
+    title: Made Bishop of Lyon
+    body: After serving as a deacon at the Church of Vienne, Justus was elevated to the see of Lyon, the metropolis of Gaul.
+  - when: "374"
+    title: Council of Valence
+    body: He took part in the council, which addressed the religious discipline of clergy and faithful.
+  - when: "381"
+    title: Council of Aquileia
+    body: He stood among the bishops who rejected Arianism.
+  - when: c. 389
+    title: Death at Scetes
+    body: After resigning his see and withdrawing to the Egyptian desert, he died as a hermit at the monastic settlement of Scetes.
+patronage:
+  - The city and church of Lyon, where the Basilica of Saint-Just preserves his memory
+related:
+  - name: Viator
+    note: Cathedral lector of Lyon who followed Justus into desert exile; his relics were repatriated and interred alongside the bishop's.
+  - name: Macarius of Egypt
+    note: The desert father under whose community at Scetes Justus and Viator lived as monks.
+reading:
+  - heading: Reference
+    items:
+      - title: Justus of Lyon
+        type: Encyclopedia entry
+      - title: Saint Justus, Bishop of Lyon (+389)
+        author: John Sanidopoulos
+        type: Article
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Justus_of_Lyon
+  - https://www.johnsanidopoulos.com/2019/09/saint-justus-bishop-of-lyon-389.html
+generated: "2026-06-20"

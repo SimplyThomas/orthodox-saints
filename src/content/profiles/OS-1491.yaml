@@ -1,0 +1,35 @@
+id: OS-1491
+liturgicalTitle: The Holy Hieromartyr Evangelicus, Bishop of Tomis
+lifespan: died c. 300
+overview:
+  - Evangelicus, also rendered Evangelus, is honored as the first known bishop of Tomis, a Greek city on the Black Sea coast of Scythia Minor (also called Dacia Pontica or Dobrogea), in present-day Constanta, Romania. He was active near the mouths of the Danube toward the end of the third century, with his episcopate generally placed around 290-300. He is commemorated on July 7.
+  - The Christian tradition of the region traces its origins to the preaching of the Apostle Andrew, of whom Evangelicus is described as a follower or successor. As bishop he is remembered for converting many of the still-pagan Dacians and Scythians of the province to Christianity and for founding churches in the area, work that established the see of Tomis as a center of Christian life on the lower Danube.
+  - It is believed that Evangelicus suffered martyrdom during the persecution of the emperor Diocletian (284-305); one account relates that he was beheaded. Much of what is preserved about him survives only in connection with the martyrdom narrative of Saints Epictetus and Astion, and the details of his own life remain few.
+sections:
+  - heading: Connection to the Martyrs Epictetus and Astion
+    body:
+      - Evangelicus appears in the Act of Martyrdom of Saints Epictetus the priest and Astion the monk, who were martyred on July 8 at Halmyris (identified with the modern Dunavat) in Scythia Minor. Within that account he is described as the founder of churches in the province.
+      - The narrative relates that the parents of Astion, having been converted through the preaching of the priest Bonosus, were baptized by Evangelicus at Halmyris some days after the martyrdom of their son. This episode is the principal surviving witness to Evangelicus's pastoral activity.
+timeline:
+  - when: c. 290-300
+    title: Bishop of Tomis
+    body: Served as the first known bishop of Tomis in Scythia Minor, converting pagans of the province and founding churches.
+  - when: c. 300
+    title: Martyrdom
+    body: Believed to have suffered martyrdom during the persecution of Diocletian; one account records that he was beheaded.
+related:
+  - name: Apostle Andrew the First-Called
+    note: Apostle whose preaching first evangelized the region of Scythia Minor; Evangelicus is named as his follower
+    href: saint/OS-0003
+  - name: Martyrs Epictetus and Astion of Halmyris
+    note: Priest and monk martyred July 8 at Halmyris; Evangelicus baptized Astion's parents and appears in their Act of Martyrdom
+    href: saint/OS-1496
+patronage:
+  - Venerated in connection with the early Christian mission of Scythia Minor and the see of Tomis (Constanta) in Dobrogea, Romania.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1951/07/07/101962-martyr-evangelicus-bishop-of-tomis-constana-in-romania
+  - https://orthodoxwiki.org/Evangelicus_of_Tomis
+  - https://www.johnsanidopoulos.com/2019/07/holy-hieromartyr-evangelos-bishop-of.html
+generated: "2026-06-19"

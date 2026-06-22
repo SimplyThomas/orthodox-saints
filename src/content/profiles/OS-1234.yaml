@@ -1,0 +1,40 @@
+id: OS-1234
+liturgicalTitle: Our Venerable Father Simeon Stylites the Younger of the Wonderful Mountain
+lifespan: 521 - 596
+overview:
+  - Simeon Stylites the Younger was a sixth-century ascetic of Antioch in Syria who passed nearly his entire life atop a pillar, devoting himself to prayer, fasting, and the spiritual care of those who came to him. By tradition he was born in 521 to pious parents, John and Martha; his mother, who is venerated as a saint in her own right, is recorded as having been directed in a vision by St John the Baptist to marry and bear a son dedicated to God. He is distinguished from the earlier and more celebrated Simeon Stylites the Elder, whose feast falls on September 1.
+  - When Simeon was six years old, an earthquake struck Antioch and killed his father. According to the synaxarion he was in church at the time and, on leaving, became lost and was sheltered for seven days by a pious woman before being reunited with his mother. Still a child, he attached himself to a community of ascetics under the spiritual direction of a pillar-hermit named John, and a pillar was raised for him close to that of his elder. He remained near his master's column for several years, and later took up the ascetic life on a higher pillar, where he was ordained deacon.
+  - Simeon eventually settled on a height near Antioch known as the Wonderful Mountain, also called the Admirable or Wondrous Mountain, where a monastery grew up around his pillar; the sources relate that the sick whom he healed built a church there in gratitude. In 560 he was ordained to the priesthood by Dionysius, Bishop of Seleucia. He became renowned for gifts of healing and prophecy, and his miraculous works were recorded by the contemporary church historian Evagrius. After laboring as a stylite for sixty-eight years, he reposed in 596 at about the age of seventy-five.
+sections:
+  - heading: Life on the Pillar
+    body:
+      - The stylites were solitaries who took up their abode atop a pillar (Greek stylos) and spent their days in the restraints this entailed together with other forms of asceticism. Simeon embraced this manner of life from boyhood, first under the igumen Abba John and then on a pillar of his own, said to have stood some forty feet from the ground. The tradition records that he labored on one pillar for eight years before moving to the Wonderful Mountain.
+      - His column on the Wonderful Mountain became the center of a monastic settlement and a place of pilgrimage. Crowds came to him seeking healing and counsel, and the gratitude of those he cured is connected in the sources with the building of a church at the site.
+  - heading: Gifts and Reputation
+    body:
+      - Simeon was widely regarded for his gifts of healing and prophecy, foreseeing deaths and earthquakes. His reputation reached the imperial court, and letters addressed to the emperors Justinian I and Justin II are attributed to him, along with other writings. The historian Evagrius, who was his contemporary, recorded accounts of his miraculous works.
+timeline:
+  - when: "521"
+    title: Birth at Antioch
+    body: Born in Antioch, Syria, to John and Martha.
+  - when: c. 527
+    title: Death of his father
+    body: An earthquake at Antioch killed his father when Simeon was six.
+  - when: "560"
+    title: Ordained priest
+    body: Ordained to the priesthood by Dionysius, Bishop of Seleucia.
+  - when: "596"
+    title: Repose
+    body: Fell asleep in the Lord at about seventy-five, after sixty-eight years as a stylite.
+related:
+  - name: Righteous Martha, his mother
+    note: His mother, venerated as a saint and commemorated together with him on July 4.
+    href: saint/OS-0094
+patronage:
+  - Invoked for healing of the sick, as the sources record numerous cures granted through his prayers.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/05/24/101502-venerable-simeon-stylites-the-younger-of-wonderful-mountain
+  - https://en.wikipedia.org/wiki/Simeon_Stylites_the_Younger
+generated: "2026-06-19"

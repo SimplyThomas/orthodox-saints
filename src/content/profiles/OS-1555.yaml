@@ -1,0 +1,65 @@
+id: OS-1555
+liturgicalTitle: The Holy and Right-believing Despot Stephen of Serbia
+lifespan: c. 1377 - 1427
+overview:
+  - Stephen, known in Serbian sources as Stefan Lazarevic, was the ruler of Serbia in the first decades of the fifteenth century and is venerated in the Serbian Orthodox Church as a right-believing prince. He was a son of the holy Prince Lazar Hrebeljanovic, who fell at the Battle of Kosovo in 1389, and of Princess Milica, who is herself commemorated as a saint.
+  - Inheriting his father's principality as a boy, Stephen governed Serbia under the shadow of Ottoman overlordship, securing a measure of peace for his people through diplomacy and warfare. He raised Belgrade to be his capital, issued law and supported the country's mining economy, and became a noted patron of letters, founding the Manasija monastery and its school of manuscript copying. He was himself a writer.
+  - He died in 1427 and is commemorated on July 19; the Serbian Orthodox Church numbered him among the saints, and his relics are kept at the Koporin monastery.
+timeline:
+  - when: c. 1377
+    title: Birth
+    body: According to historical sources Stephen was born about 1377 in Krusevac, Serbia, a son of Prince Lazar Hrebeljanovic and Princess Milica, who belonged to the Nemanjic line.
+  - when: "1389"
+    title: Inherits the principality
+    body: After his father Lazar was killed at the Battle of Kosovo on June 15, 1389, the young Stephen inherited the Serbian principality, with his mother Milica serving as regent during his minority.
+  - when: "1402"
+    title: Receives the title of Despot
+    body: In August 1402 the Byzantine emperor John VII Palaiologos awarded Stephen the title of Despot, a dignity ranking just beneath that of the emperor. In the same period he fought at the Battle of Ankara (1402).
+  - when: "1405"
+    title: Belgrade made capital
+    body: Stephen made Belgrade his capital in 1405 and rebuilt its fortifications, having received Belgrade and Macva from the Hungarian king Sigismund.
+  - when: "1412"
+    title: Code of Mines
+    body: In 1412 Stephen issued the Code of Mines, regulating the great mining center of Novo Brdo and contributing to Serbia's standing as a leading silver producer of the age.
+  - when: "1418"
+    title: Consecration of Manasija
+    body: The church of the Manasija monastery, which Stephen founded, was consecrated in 1418 after its extensive program of frescoes had been completed.
+  - when: "1427"
+    title: Repose
+    body: Stephen died on July 19, 1427, near Glava at Mount Kosmaj, reportedly collapsing suddenly while hunting in the vicinity of Belgrade.
+sections:
+  - heading: Rule and Statecraft
+    body:
+      - Stephen ruled Serbia as an Ottoman vassal through a period of grave external pressure, navigating the competing interests of the Ottoman sultans, the Hungarian crown, and rival Serbian lords. As a vassal he took part in several campaigns, including the battles of Rovine (1395), Nicopolis (1396), and Ankara (1402).
+      - After receiving the title of Despot in 1402, he consolidated his authority, made Belgrade his capital in 1405, and reconciled with the Brankovic family by 1412, naming his nephew Djuradj Brankovic as his successor. He cultivated ties with Hungary and Byzantium and was named the first knight in the founding charter of the Order of the Dragon in 1408.
+      - His domestic administration is remembered for the Code of Mines of 1412, which regulated the mining center of Novo Brdo and supported the economy of his realm.
+  - heading: Patron of the Church and Letters
+    body:
+      - The synaxarion remembers Stephen as a ruler who adorned the Church, cared for the poor, and was himself a writer of spiritual works. He founded the Manasija monastery, also called Resava, near Despotovac, building it between about 1406 and 1418 and surrounding it with strong walls, eleven towers, and a keep known as the Despot's Tower.
+      - At Manasija he established the Resava School, which became renowned for its manuscripts and translations through the fifteenth and sixteenth centuries and which gathered scholars who had fled Ottoman-conquered lands.
+      - Stephen's own surviving writings include 'A Homage to Love' (Slovo ljubve) of 1409, a lament composed for his father Prince Lazar, and an inscription on the marble column raised on the field of Kosovo.
+  - heading: Veneration and Glorification
+    body:
+      - Stephen is commemorated on July 19. According to historical sources, the Serbian Orthodox Church formally canonized him in 1927, on the five-hundredth anniversary of his death, honoring him as a right-believing despot of Serbia.
+      - He is remembered together with his mother, the holy Princess Milica, who received the monastic name Eugenia.
+  - heading: Relics & Shrines
+    body:
+      - Stephen was buried at the Manasija monastery he had founded, though his relics are reported to rest in a reliquary at the Koporin monastery. Historical records note that questions remain about whether his original burial place was at Manasija or at Koporin.
+works:
+  - title: A Homage to Love (Slovo ljubve)
+    desc: A literary work composed by Stephen in 1409.
+  - title: The Grave Sobbing for Prince Lazar
+    desc: A lament attributed to Stephen for his father, Prince Lazar, dating to 1389.
+  - title: Code of Mines
+    desc: Legislation issued by Stephen in 1412 regulating the mining center of Novo Brdo.
+related:
+  - name: Holy Prince Lazar of Serbia
+    note: Stephen's father, who fell at the Battle of Kosovo in 1389.
+  - name: Holy Princess Milica (Eugenia)
+    note: Stephen's mother, who served as regent during his minority and is commemorated with him.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Stefan_Lazarevi%C4%87
+  - https://en.wikipedia.org/wiki/Manasija
+generated: "2026-06-19"

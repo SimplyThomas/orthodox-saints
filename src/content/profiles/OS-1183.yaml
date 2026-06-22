@@ -1,0 +1,41 @@
+id: OS-1183
+liturgicalTitle: The Holy Hieromartyr Alexander, Archbishop of Jerusalem
+lifespan: died c. 251
+overview:
+  - Alexander, Archbishop of Jerusalem, was a third-century hierarch remembered both for his confession of the faith under persecution and for his service to Christian learning. A disciple of Clement of Alexandria, he was chosen early in the third century as bishop of Flavia in Cappadocia. Arrested during the reign of the emperor Septimius Severus (193-211), he spent some three years in prison as a confessor before his release.
+  - After his release Alexander travelled to Jerusalem on pilgrimage to venerate the holy places. There, the tradition relates, he was directed by a divine revelation to remain, and in the year 212 he was joined to the aged Patriarch Narcissus of Jerusalem as coadjutor. The synaxarion notes this shared governance as an unusual arrangement in the ancient Church. Following the death of Narcissus, Alexander succeeded to the see and guided the Church of Jerusalem for many years.
+  - During his episcopate Alexander established at Jerusalem what the sources describe as the first library of Christian theological works, a collection later drawn upon by Eusebius of Caesarea in compiling his history of the early Church. He was seized again during the persecution of the emperor Decius (249-251). Condemned to be devoured by wild beasts which, by tradition, would not harm him, he was held in chains and died in prison around the year 251. The Church venerates him as a hieromartyr, commemorating him on May 16 and December 12.
+sections:
+  - heading: Confessor and Bishop
+    body:
+      - Alexander's life spanned two of the great third-century persecutions. His first imprisonment, under Septimius Severus, established him as a confessor before he ever came to Jerusalem; the sources record roughly three years in chains. It was as a confessor newly released that he made his pilgrimage to the holy places, and it was there that his episcopal ministry took its enduring form.
+      - His joining to Narcissus as coadjutor bishop is noted in the tradition as a rare occurrence in the early Church, where the translation of a bishop from one see to another and the sharing of a single see were both uncommon. After succeeding Narcissus, Alexander governed Jerusalem until the Decian persecution, when he was arrested a final time and died in confinement.
+  - heading: The Library at Jerusalem
+    body:
+      - "Alexander is especially remembered for founding a theological library at Jerusalem, described in the sources as the first collection of its kind. The library preserved Christian writings and correspondence and became a resource for later scholarship: Eusebius of Caesarea is reported to have used it in assembling his ecclesiastical history. Alexander also permitted Origen, though at the time a layman, to expound the Scriptures publicly in the churches, and afterward ordained him to the priesthood."
+timeline:
+  - when: early 3rd c.
+    title: Bishop of Flavia in Cappadocia
+    body: Alexander, a disciple of Clement of Alexandria, is made bishop in Cappadocia.
+  - when: 193-211
+    title: Imprisoned under Septimius Severus
+    body: He is arrested and held some three years as a confessor of the faith.
+  - when: "212"
+    title: Coadjutor at Jerusalem
+    body: After his release and a pilgrimage to Jerusalem, he is joined to Patriarch Narcissus as coadjutor.
+  - when: c. 251
+    title: Death in prison
+    body: Arrested in the persecution of Decius, he dies in chains, by tradition at Caesarea.
+related:
+  - name: Saint Narcissus, Bishop of Jerusalem
+    note: The aged patriarch of Jerusalem with whom Alexander served as coadjutor.
+    href: saint/OS-1667
+patronage:
+  - Invoked as a hieromartyr and confessor, and associated with Christian learning and the preservation of sacred books.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0201/05/16/101397-saint-alexander-archbishop-of-jerusalem
+  - https://en.wikipedia.org/wiki/Alexander_of_Jerusalem
+  - https://www.newadvent.org/cathen/01295b.htm
+generated: "2026-06-19"

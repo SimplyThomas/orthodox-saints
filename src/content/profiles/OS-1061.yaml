@@ -1,0 +1,84 @@
+id: OS-1061
+lifespan: 1st century
+liturgicalTitle: The Holy, Glorious and All-Praised Apostle and Evangelist Mark, Founder and First Bishop of the Church of Alexandria
+overview:
+  - Mark, also called John Mark, was one of the Seventy Apostles, the author of the second Gospel, and a close companion of the apostles Peter, Paul, and Barnabas, whose nephew he was. From his preaching in Egypt he founded and led the Church of Alexandria, where he was seized while serving the Liturgy and martyred.
+  - His Gospel, written in association with the Apostle Peter, became one of the four canonical accounts of the life of Christ. In the iconographic tradition Mark is represented by a lion, a symbol expressing the might and royal dignity of Christ.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/04/25/101204-apostle-and-evangelist-mark
+  - https://en.wikipedia.org/wiki/Mark_the_Evangelist
+  - https://orthodoxwiki.org/Apostle_Mark
+timeline:
+  - when: 1st century
+    title: Among the Seventy
+    body: Mark, also known as John Mark, was numbered among the Seventy Apostles and was a kinsman of the Apostle Barnabas. According to the synaxarion his mother Mary kept a house in Jerusalem that adjoined the Garden of Gethsemane and served as an early gathering place for the disciples.
+  - when: 1st century
+    title: Missionary journeys
+    body: Mark accompanied the apostles on their travels. He went with Barnabas to the island of Cyprus and traversed it from east to west, and he was present when the Apostle Paul struck the sorcerer Elymas blind at Paphos. He later went to Rome in the company of the Apostle Peter.
+  - when: ca. 62-63
+    title: The writing of the Gospel
+    body: While at Rome, Mark wrote his holy Gospel, the second of the four canonical accounts. The account is closely associated with the preaching of the Apostle Peter and emphasizes the divine power of Christ.
+  - when: 1st century
+    title: Founding of the Church of Alexandria
+    body: From Rome Mark set out for Egypt, where he established a local Church at Alexandria and is honored as its founder and first bishop. There he began a Christian catechetical school whose later teachers included Clement of Alexandria, and he composed a Liturgy for the Christians of the city.
+  - when: 1st century
+    title: Martyrdom
+    body: Pagans seized Mark while he was serving the Liturgy at Alexandria. They beat him, dragged him through the streets, and cast him into prison, and he gave up his spirit. The OCA synaxarion records the date as April 4, 63; his memory is celebrated on April 25.
+  - when: "310"
+    title: Shrine and relics
+    body: By tradition a church was built over the relics of Saint Mark in the year 310. In the ninth century his relics were carried to Venice and enshrined in the basilica that bears his name.
+sections:
+  - heading: Origin and Family
+    body:
+      - Mark, whose fuller name was John Mark, belonged to the apostolic generation and is counted among the Seventy. He was a nephew, or kinsman, of the Apostle Barnabas, the fellow-laborer of Saint Paul.
+      - According to the OCA synaxarion he was born at Jerusalem, where the house of his mother Mary adjoined the Garden of Gethsemane and was used by the disciples as a place of assembly. Other traditions preserved in later sources associate his origins with Cyrene in North Africa; the synaxarion record followed here places his birth at Jerusalem.
+  - heading: Apostolic Labors
+    body:
+      - Mark was a close companion of the apostles Peter, Paul, and Barnabas. He shared in their missionary journeys, traveling with Barnabas through Cyprus and going to Rome with the Apostle Peter.
+      - It was at Rome, in the years around 62 to 63, that Mark wrote the Gospel that bears his name. The tradition received in the Church holds that his account reflects the preaching of the Apostle Peter, and his Gospel was received as one of the four canonical witnesses to the life and teaching of Christ.
+  - heading: The Church of Alexandria
+    body:
+      - From Rome Mark traveled to Egypt and established the Church of Alexandria, where he is venerated as founder and first bishop. He is remembered as a principal bringer of the Gospel to Africa.
+      - In Alexandria he founded a Christian catechetical school that in later generations produced renowned teachers of the Church, among them Clement of Alexandria. He also composed a Liturgy for the use of the Alexandrian Christians.
+  - heading: Martyrdom
+    body:
+      - Mark was seized by pagans in Alexandria while he was serving the Liturgy. According to the synaxarion they beat him, dragged him through the streets, and threw him into prison, and he died commending his spirit into the hands of the Lord.
+      - The OCA synaxarion gives the date of his repose as April 4 in the year 63, while later Coptic tradition places his martyrdom in the year 68. His memory is kept on April 25.
+  - heading: Relics & Shrines
+    body:
+      - By tradition a church was raised over the relics of Saint Mark in the year 310. In the ninth century his relics were transferred to Venice, where they were enshrined in the basilica named for him, today one of the principal shrines associated with the Evangelist.
+      - Saint Mark remains the patron of the Church of Alexandria, and shrines bearing his name stand both in Venice and in Alexandria.
+  - heading: Veneration & Iconography
+    body:
+      - In the ancient iconographic tradition the Evangelist Mark is represented by a lion, a symbol expressing the might and royal dignity of Christ. The lion is his emblem as one of the four evangelists.
+      - Mark is commemorated by the Orthodox Church on April 25. As a saint of the apostolic age and the undivided Church, he is honored across the Christian traditions of East and West.
+patronage:
+  - The Church of Alexandria
+  - Evangelists and the writing of the Gospel
+  - Missionary work in Egypt and Africa
+family:
+  heading: Family
+  figures:
+    - name: Barnabas
+      note: The Apostle Barnabas, of the Seventy, was Mark's uncle (kinsman).
+      href: /saint/OS-1331
+    - name: Mary of Jerusalem
+      note: His mother, whose house in Jerusalem adjoined the Garden of Gethsemane and served as a gathering place for the disciples.
+related:
+  - name: Apostle Peter
+    note: Mark accompanied Peter to Rome and his Gospel is associated with Peter's preaching.
+    href: /saint/OS-0004
+  - name: Apostle Paul
+    note: A companion in the apostolic mission alongside Paul and Barnabas.
+    href: /saint/OS-2749
+  - name: Apostle Barnabas of the Seventy
+    note: Mark's uncle and fellow missionary, with whom he traveled through Cyprus.
+    href: /saint/OS-1331
+works:
+  - title: The Gospel according to Mark
+    desc: The second of the four canonical Gospels, associated by tradition with the preaching of the Apostle Peter at Rome.
+  - title: The Liturgy of Saint Mark
+    desc: A eucharistic liturgy composed for the Christians of Alexandria.
+status: draft
+generated: "2026-06-19"

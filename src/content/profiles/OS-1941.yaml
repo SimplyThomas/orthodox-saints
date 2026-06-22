@@ -1,0 +1,52 @@
+id: OS-1941
+liturgicalTitle: The Righteous Warrior Theodore Ushakov, Admiral of the Russian Fleet
+lifespan: 1745 - 1817
+overview:
+  - Theodore Ushakov was a Russian admiral, one of the foremost naval commanders of the late eighteenth and early nineteenth centuries, who in his retirement lived a life of piety and charity near the Sanaksar Monastery. Born in 1745, he entered the Imperial Russian Navy and rose to command the Black Sea Fleet, distinguishing himself in the Russo-Turkish War of 1787-1792 and in the Mediterranean campaign against France.
+  - After his withdrawal from service he settled near the Sanaksar Monastery in Mordovia, where he attended the services, gave generously to the monastery and to the poor, and was buried beside its church on his repose in 1817. He was glorified by the Russian Orthodox Church in the early twenty-first century and named a patron of the Russian Navy. He is distinct from his relative Saint Theodore of Sanaksar, a monastic saint of the previous generation.
+timeline:
+  - when: "1745"
+    title: Birth
+    body: Born in Burnakovo, in the Moscow Governorate, to a family of minor nobility; his father was a retired sergeant of the Preobrazhensky Regiment.
+  - when: "1761"
+    title: Entry into the navy
+    body: Entered the Imperial Russian Navy and served in the Baltic Fleet before transferring to the Don and Azov flotilla.
+  - when: 1787-1792
+    title: Russo-Turkish War
+    body: Commanded in the Russo-Turkish War, winning victories at Fidonisi, the Kerch Strait, Tendra, and Cape Kaliakra.
+  - when: 1798-1800
+    title: Mediterranean campaign
+    body: As full Admiral, commanded a combined Russian-Ottoman squadron in the Mediterranean against France, taking the Ionian Islands and Corfu.
+  - when: "1807"
+    title: Retirement near Sanaksar
+    body: Resigned from service and withdrew to live quietly near the Sanaksar Monastery in Mordovia.
+  - when: "1817"
+    title: Repose
+    body: Died at Alekseevka in the Tambov Governorate and was buried at the Sanaksar Monastery beside the church.
+  - when: 2001-2004
+    title: Glorification
+    body: Glorified as a saint by the Russian Orthodox Church and named a patron of the Russian Navy.
+sections:
+  - heading: Naval Career
+    body:
+      - Ushakov was born in 1745 in the village of Burnakovo, in the Moscow Governorate, to a family of minor nobility; his father had served as a sergeant of the Preobrazhensky Regiment of the imperial guard. He entered the Imperial Russian Navy in 1761, served in the Baltic Fleet, and afterward transferred to the Don and Azov flotilla.
+      - In the Russo-Turkish War of 1787-1792 he won a succession of victories over the Ottoman fleet, at Fidonisi in 1788 and at the Kerch Strait, Tendra, and Cape Kaliakra in 1790 and 1791. Promoted to full admiral in 1798, he commanded a combined Russian-Ottoman squadron in the Mediterranean during the war against France, taking the Ionian Islands, besieging and capturing Corfu, and blockading French positions in Italy. The tradition holds that in the course of forty-three naval engagements under his command he lost neither a battle nor a ship. He was noted for tactics of close engagement, concentration against enemy flagships, and the keeping of a reserve.
+  - heading: Piety and Later Life
+    body:
+      - Ushakov was remembered for his Christian piety in the midst of his naval service; while in the Mediterranean he visited Corfu to venerate the relics of Saint Spyridon and supported the Orthodox Christians there. Recalled to Russia in 1800, he resigned from service in 1807. He declined a militia command in 1812 but donated his savings to the war effort.
+      - He settled near the Sanaksar Monastery in Mordovia, attending its services on Sundays and feast days and, during Lent, remaining in the monastery to fast with the monks. Beyond his gifts to the monastery, he frequently gave alms to the poor and needy. He died in 1817 at the age of seventy-two and was buried at the Sanaksar Monastery beside the church.
+  - heading: Glorification
+    body:
+      - After the Sanaksar Monastery was returned to the Russian Orthodox Church, his grave was rediscovered in 1994. He was glorified as a saint by the Russian Orthodox Church in the early twenty-first century, his local glorification in 2001 being followed by wider recognition in 2004, and he was named a patron of the Russian Navy. A reliquary fashioned in the shape of a ship was made to enshrine his relics.
+      - He is to be distinguished from his relative Saint Theodore of Sanaksar (1719-1791), a monastic saint of the same family.
+related:
+  - name: Saint Theodore of Sanaksar
+    note: His relative, a monastic saint of the Sanaksar Monastery (1719-1791), commemorated separately.
+patronage:
+  - The Russian Navy
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Fyodor_Ushakov
+  - https://www.oca.org/saints/lives/2020/10/02/104101-righteous-admiral-theodore-ushakov-of-the-russian-naval-fleet
+generated: "2026-06-19"

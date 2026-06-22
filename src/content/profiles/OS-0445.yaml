@@ -1,0 +1,76 @@
+id: OS-0445
+liturgicalTitle: Our Father among the Saints Hilary, Bishop of Poitiers
+lifespan: c. 310 – c. 367
+overview:
+  - Hilary of Poitiers was a fourth-century bishop in Roman Gaul and one of the foremost Latin defenders of Nicene Christianity against Arianism. Born of pagan parents at Poitiers around 310 and well educated, including in Greek, he came to Christian faith in mid-life through study of the Scriptures, was baptized together with his wife and daughter, and was soon afterward elected bishop of his city by its Nicene Christians.
+  - His firm opposition to the Arian party led the Emperor Constantius II to exile him to Phrygia for nearly four years, during which he composed his most important theological writings, above all the treatise On the Trinity. Returning to Gaul, he continued to combat Arian influence in the Western Church and to encourage its monastic life. For his theological labors he was later called the 'Athanasius of the West,' and he is venerated as a saint in the Eastern Orthodox, Roman Catholic, and other traditions, with his feast on January 13.
+timeline:
+  - when: c. 310
+    title: Birth at Poitiers
+    body: Born to pagan parents of distinction at Poitiers in Roman Gaul, and given an excellent education that included Greek.
+  - when: c. 350
+    title: Baptism and election as bishop
+    body: Having turned from Neoplatonism to Christianity through study of the Scriptures, he was baptized with his wife and daughter and was elected Bishop of Poitiers by the Nicene Christians of the city.
+  - when: "353"
+    title: Council of Arles
+    body: He opposed Arianism and worked for the excommunication of the Arian bishop Saturninus of Arles and his allies Ursacius and Valens.
+  - when: c. 356
+    title: Exile to Phrygia
+    body: His resistance to imperial pressure led Emperor Constantius II to banish him to Phrygia, where he remained in exile for nearly four years.
+  - when: 359–360
+    title: On the Trinity
+    body: During his exile he composed his twelve-book treatise De Trinitate and attended the Council of Seleucia in 359.
+  - when: c. 361
+    title: Return to Gaul
+    body: He returned to his diocese after the accession of the Emperor Julian and led Gallic synods to reject the Arianizing creed of Ariminum.
+  - when: c. 367
+    title: Repose at Poitiers
+    body: He died at Poitiers; Augustine of Hippo later praised him as 'the illustrious doctor of the churches.'
+sections:
+  - heading: Conversion and Episcopate
+    body:
+      - Hilary was born around 310 at Poitiers in Roman Gaul to pagan parents of standing, and received an unusually thorough education that included a command of Greek. Before his conversion he married and had a daughter, later venerated as Saint Abra of Poitiers. Through the study of the biblical texts he abandoned his Neoplatonic philosophy for Christianity and was baptized, by the accounts of his life, together with his wife and daughter around 350.
+      - Despite being a married man, he was elected Bishop of Poitiers by the Nicene Christians of the city, a sign of his standing among them. From the outset of his episcopate he set himself against the Arian party that then enjoyed imperial favor in the West.
+  - heading: Struggle Against Arianism and Exile
+    body:
+      - At the Council of Arles in 353 Hilary opposed Arianism and worked for the excommunication of the Arian bishop Saturninus of Arles together with his allies Ursacius and Valens. His resistance to the religious policy of the Emperor Constantius II led to his banishment around 356 to Phrygia, a region where Arian influence was strong; the sources differ over whether the immediate cause was his refusal to condemn Athanasius of Alexandria or political opposition to the emperor.
+      - "His nearly four years of exile (356-361) proved theologically fruitful: he continued to govern his diocese from a distance, studied the Eastern Fathers, took part in the Council of Seleucia in 359, and produced his principal writings. After returning to Gaul around 361 he persuaded the Gallic clergy to reject the Arianizing formula of the Council of Ariminum, and in 364 he confronted Auxentius, the Arian-favoring bishop of Milan, for which he was expelled from that city."
+  - heading: Legacy and Veneration
+    body:
+      - For his role as the chief Western defender of Nicene orthodoxy, complementing the work of Athanasius in the East, Hilary became known as the 'Athanasius of the West.' Augustine of Hippo praised him as 'the illustrious doctor of the churches,' and in 1851 Pope Pius IX named him a Doctor of the Church.
+      - Around 360-361 he encouraged Martin of Tours, later one of the great saints of Gaul, to establish a monastery at Liguge within his diocese. Hilary is venerated as a saint in the Eastern Orthodox, Roman Catholic, Anglican, and Lutheran traditions, and his feast is kept on January 13.
+related:
+  - name: Martin of Tours
+    note: Bishop and monastic founder whom Hilary encouraged to establish a monastery at Liguge within the diocese of Poitiers.
+  - name: Athanasius of Alexandria
+    note: The great Eastern defender of Nicene orthodoxy; Hilary's parallel role in the West earned him the title 'Athanasius of the West.'
+  - name: Abra of Poitiers
+    note: Hilary's daughter, venerated as a saint, baptized with him on his conversion.
+patronage:
+  - Poitiers
+works:
+  - title: On the Trinity (De Trinitate)
+    desc: A twelve-book treatise defending the divinity of Christ against Arianism, the first successful expression in Latin of the Nicene theology developed in Greek.
+    date: 359–360
+  - title: On the Councils (De Synodis)
+    desc: An epistle addressed to Semi-Arian bishops of Gaul, Germania, and Britain, analyzing the Eastern bishops' positions in the Nicene controversy.
+    date: "358"
+  - title: Commentary on Matthew (Commentarius in Evangelium Matthaei)
+    desc: The earliest surviving complete Latin commentary on the Gospel of Matthew.
+    date: before 356
+  - title: Commentaries on the Psalms (Tractatus super Psalmos)
+    desc: Psalm commentaries composed after his return from exile, following the interpretive methods of Origen; surviving only in part.
+    date: c. 360
+  - title: Against Constantius (In Constantium)
+    desc: A polemical work attacking the Emperor Constantius II as a persecutor of orthodox Christians.
+  - title: Against Auxentius (Liber Contra Arianos vel Auxentium Mediolanensem)
+    desc: An account of his confrontation with Auxentius, the Arian-favoring bishop of Milan.
+    date: "365"
+  - title: Book of Hymns (Liber Hymnorum)
+    desc: A collection of hymns recorded by Jerome, by which Hilary is reckoned among the earliest Latin Christian hymnographers, though the attribution of the surviving hymns is disputed.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 13
+  - https://en.wikipedia.org/wiki/Hilary_of_Poitiers
+  - https://orthodoxwiki.org/Hilary_of_Poitiers
+generated: "2026-06-19"

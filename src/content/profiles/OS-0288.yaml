@@ -1,0 +1,38 @@
+id: OS-0288
+liturgicalTitle: Bishop of Metz
+overview:
+  - Theoderic of Metz, also recorded under the German form Dietrich and the French form Thierry, was a tenth-century bishop of Metz in the Kingdom of Germany. He governed the see from 964 until his death in 984, succeeding Adalbero I. The pre-schism Western calendar venerated in the Eastern Orthodox tradition commemorates him on September 7.
+  - "A member of the Saxon nobility, Theoderic was closely connected to the ruling Ottonian dynasty: he was a relation of the Emperor Otto II and a cousin and friend of Bruno I, Archbishop of Cologne. His episcopate combined ecclesiastical administration with the political prominence characteristic of imperial bishops of the period."
+lifespan: died 984
+timeline:
+  - when: "964"
+    title: Bishop of Metz
+    body: Theoderic succeeded Adalbero I as bishop of Metz, a see he would hold for roughly two decades.
+  - when: "978"
+    title: Coronation at Laon
+    body: He crowned Charles, Duke of Lower Lorraine, as King of France at Laon, though Charles failed to win broader recognition.
+  - when: "984"
+    title: Death
+    body: Theoderic died in 984, ending an episcopate begun in 964. His feast is kept on September 7 among the pre-schism Western saints.
+sections:
+  - heading: Episcopate and the Ottonian house
+    body:
+      - Theoderic belonged to the circle of imperial bishops who served the Ottonian emperors as both churchmen and counselors. A Saxon by background, he was a relation of Otto II and a cousin and friend of Bruno I, Archbishop of Cologne, ties that placed the see of Metz within the network of families closely bound to the reigning dynasty.
+      - In 978 he performed the coronation of Charles, Duke of Lower Lorraine, as King of France at Laon, an act that drew the bishop into the dynastic contests of the West Frankish succession, although Charles was unable to secure wider acceptance of his claim.
+  - heading: The abbey of Saint-Vincent
+    body:
+      - Theoderic founded the abbey of Saint-Vincent at Metz, which he entrusted to the Benedictines. Having traveled to Italy, he brought back relics that were kept at the abbey, and he assembled relics for the foundation more broadly. The monastery became one of the enduring marks of his tenure as bishop.
+  - heading: Sources and memory
+    body:
+      - The chroniclers Sigebert of Gembloux and Alpert of Metz wrote accounts of Theoderic's life, preserving his memory among the bishops of Metz of the Ottonian age. As a pre-schism Western saint, he is commemorated in the Orthodox tradition on September 7.
+works:
+  - title: Foundation of the abbey of Saint-Vincent, Metz
+    desc: Benedictine monastery founded at Metz, endowed with relics the bishop assembled, including relics brought back from Italy.
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Dietrich_I_of_Metz
+  - https://en.wikipedia.org/wiki/September_7_(Eastern_Orthodox_liturgics)
+  - https://www.france-voyage.com/cities-towns/metz-21145/abbey-saint-vincent-14232.htm
+  - https://en-academic.com/dic.nsf/enwiki/4683035
+status: draft
+generated: "2026-06-21"

@@ -10,7 +10,7 @@ timeline:
   - when: c. 329
     title: Birth at Arianzus
     body: Gregory is born around 329 at Arianzus, near Nazianzus in Cappadocia, into a wealthy Christian family.
-  - when: c. 348–358
+  - when: mid-4th century
     title: Studies at Athens
     body: He spends about a decade studying rhetoric at Athens under Himerius and Proaeresius, befriending Basil the Great and encountering the future emperor Julian.
   - when: c. 361
@@ -45,8 +45,5 @@ sources:
   - https://en.wikipedia.org/wiki/Gregory_of_Nazianzus
   - https://orthodoxwiki.org/Gregory_the_Theologian
   - https://www.newadvent.org/cathen/07010b.htm
-status: flagged
-flagReasons:
-  - claim: Studies at Athens dated 'c. 348–358'
-    detail: No source in the dossier gives specific years for his time at Athens (New Advent says only 'about ten years'); the precise range is not grounded.
+status: draft
 generated: "2026-06-18"

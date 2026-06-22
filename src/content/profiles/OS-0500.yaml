@@ -1,0 +1,66 @@
+id: OS-0500
+liturgicalTitle: Our Father among the Saints Euthymius, Patriarch of Trnovo
+lifespan: c. 1325 - c. 1402/1404
+overview:
+  - Euthymius of Trnovo was the last patriarch of the Bulgarian Church during the Second Bulgarian Empire and one of the most consequential figures of medieval Bulgaria. Trained in the hesychast monasticism then flourishing on Mount Athos and in the Bulgarian highlands, he became patriarch in 1375 and led the Church through the final years before the Ottoman conquest of the capital.
+  - He is remembered above all for a sweeping reform of Church Slavonic letters. Working from the Holy Trinity Monastery he founded near Trnovo, he corrected liturgical and scriptural texts against their Greek originals and established orthographic rules that spread far beyond Bulgaria, shaping the literary languages of Serbia, the Romanian principalities, and the lands of the Rus'. When Trnovo fell to the Ottomans in 1393 he was entrusted with the city's defense; afterward he was sent into exile, where he died.
+timeline:
+  - when: c. 1325
+    title: Birth at Trnovo
+    body: Born in Trnovo, Bulgaria, by tradition into the boyar Tsamblak family, and educated at monastery schools.
+  - when: c. 1350
+    title: Monastic tonsure
+    body: Became a monk and entered the Kilifarevo Monastery, which had been founded under the influence of Theodosius of Trnovo.
+  - when: "1363"
+    title: Journey to Constantinople
+    body: Traveled with Theodosius to Constantinople, where he studied at the Studion Monastery.
+  - when: c. 1365
+    title: Mount Athos
+    body: After the death of Theodosius, joined the Great Lavra on Mount Athos and later moved to the Zographou Monastery, where he began planning his orthographic reforms. He was for a time exiled to the island of Lemnos by Emperor John V Palaiologos.
+  - when: "1371"
+    title: Holy Trinity Monastery and the Trnovo Literary School
+    body: Returned to Bulgaria and founded a monastery dedicated to the Holy Trinity near Trnovo, which became the center of the Trnovo Literary School.
+  - when: "1375"
+    title: Elected Patriarch
+    body: Following the death of Patriarch Joanicius, he was elected Patriarch of Bulgaria, an office he held until 1393.
+  - when: 17 July 1393
+    title: Fall of Trnovo
+    body: Ottoman forces under Suleyman Celebi captured Trnovo after a three-month siege. Euthymius had been entrusted with the defense of the city while Tsar Ivan Shishman led his remaining troops elsewhere.
+  - when: c. 1402-1404
+    title: Exile and repose
+    body: Sent into exile in the theme of Macedonia, possibly to the Bachkovo Monastery, where he reposed; his burial place is not known with certainty.
+sections:
+  - heading: Monastic Formation and Hesychasm
+    body:
+      - Euthymius came to the monastic life under the formation of Theodosius of Trnovo, entering the Kilifarevo Monastery around 1350. He accompanied Theodosius to Constantinople in 1363 and studied at the Studion Monastery before continuing to Mount Athos, joining the Great Lavra and afterward the Zographou Monastery. There he stood within the hesychast tradition associated with Gregory the Sinaite and Gregory Palamas.
+      - He was a committed supporter of hesychasm and became an authoritative voice in the wider Eastern Orthodox world of his day. According to his biographers, he drew on this monastic culture as the wellspring of his theological and literary work, emphasizing fidelity to received ritual and doctrine and the place of the Holy Spirit in Christian experience.
+  - heading: Reform of Slavonic Letters
+    body:
+      - From the Holy Trinity Monastery he founded near Trnovo in 1371, Euthymius established the Trnovo Literary School and undertook a thoroughgoing reform of Church Slavonic. He set out orthographic rules and corrected inaccurately translated religious books by comparing them against their Greek originals, continuing this labor after his election as patriarch in 1375.
+      - The corrected texts produced under his direction became models for the Orthodox Churches that used Church Slavonic, influencing the literary languages of Serbia, Wallachia and Moldova, and the Russian principalities. His disciples carried this work outward; among them were Gregory Tsamblak, Cyprian who became Metropolitan of Moscow, and Constantine of Kostenets.
+  - heading: Patriarchate and the Fall of Trnovo
+    body:
+      - Elected patriarch in 1375 after the death of Joanicius, Euthymius led the Bulgarian Church in the last years of the Second Bulgarian Empire. When the Ottoman army under Suleyman Celebi besieged the capital, he was entrusted with its defense while Tsar Ivan Shishman was occupied elsewhere.
+      - Trnovo fell on 17 July 1393 after a three-month siege. Euthymius was subsequently sent into exile in the theme of Macedonia, by some accounts to the Bachkovo Monastery, and died there around 1402 to 1404. He was the last patriarch of Trnovo.
+related:
+  - name: Theodosius of Trnovo
+    note: His monastic elder, under whose influence he entered the Kilifarevo Monastery and whom he accompanied to Constantinople.
+  - name: Cyprian, Metropolitan of Moscow
+    note: One of his disciples, who carried the work of Slavonic textual reform into the lands of the Rus'.
+  - name: Gregory Tsamblak
+    note: A disciple and prominent churchman and writer formed in the Trnovo Literary School.
+patronage: []
+works:
+  - title: Hagiographies of Bulgarian saints
+    desc: Lives and encomia of saints including St. John (Ivan) of Rila, St. Philothea of Temnishka, and St. Petka (Paraskeva) of Trnovo, among the fifteen known works attributed to him.
+    date: ""
+  - title: Liturgical texts, praises, and epistles
+    desc: Liturgical books, laudatory works, passionals, and letters produced as part of his reform of Church Slavonic.
+    date: ""
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 20
+  - https://en.wikipedia.org/wiki/Euthymius_of_Tarnovo
+  - https://www.britannica.com/biography/Euthymius-of-Turnovo
+  - https://www.johnsanidopoulos.com/2018/01/saint-euthymius-patriarch-of-trnovo-c.html
+generated: "2026-06-19"

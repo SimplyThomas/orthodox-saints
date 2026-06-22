@@ -1,0 +1,39 @@
+id: OS-0878
+liturgicalTitle: The Holy Twenty-Six Martyrs of the Goths
+lifespan: 4th century (martyred c. 375)
+overview:
+  - The Twenty-Six Martyrs of the Goths were a group of Christians among the Gothic peoples of the lower Danube and Crimean region who were put to death for their faith during a persecution under the Arian Gothic ruler Jungerich (also recorded as Wingurich or Winguric), traditionally dated to around 375. They are commemorated together as a single company of martyrs.
+  - According to the tradition preserved in the synaxarion, the persecution arose when the Gothic leadership was angered by the spread of Christianity among the people. A church in which the faithful had gathered for worship was set ablaze with the congregation inside, and a number of named clergy, monastics, and laypeople perished. The relics were afterward gathered by a Christian noblewoman named Gaatha and her daughter Duklida and carried to safety.
+timeline:
+  - when: c. 375
+    title: Persecution of the Gothic Christians
+    body: A persecution was directed against the Christians among the Goths. The synaxarion records that the ruling authority, enraged at the spread of the faith, ordered the destruction of the Christians; an idol was reportedly paraded before the tent or church used for worship, and those who refused to venerate it were burned alive.
+  - when: c. 375
+    title: Martyrdom in the burning church
+    body: A church or tent in which the faithful were gathered for the divine services was set on fire, and the congregation died in the flames. The named martyrs include the presbyter Bercus (Wereka) and the monk Arpilus, together with a number of laymen and laywomen.
+  - when: after the persecution
+    title: Recovery and translation of the relics
+    body: The noblewoman Gaatha, an Orthodox Christian, together with her daughter Duklida (Dulcilla) gathered the remains of the martyrs. The relics were transferred to Cyzicus in Asia Minor, where tradition holds they served for the founding of a church, and were later said to have been carried further west.
+sections:
+  - heading: The Persecution Among the Goths
+    body:
+      - The Goths who settled north of the Danube and along the Black Sea coast received Christianity in the fourth century, and the new faith met with resistance from the Gothic ruling class. The wider Gothic persecution of this period is associated with the leader Athanaric and with the figure named in the sources as Jungerich, Wingurich, or Winguric, under whose authority Christians were put to death.
+      - The synaxarion relates that the faithful were assembled for worship when fire was set to the building, and the whole company perished together. The same persecution is connected in the Gothic tradition with other martyrs of the era, among them Sabbas the Goth, who suffered separately around the same time.
+  - heading: The Named Martyrs and the Relics
+    body:
+      - Among the twenty-six the sources name the presbyter Bercus (Wereka) and the monk Arpilus, along with laymen and laywomen who shared their death. By tradition the children of the martyred clergy were counted among the company.
+      - After the persecution, the Christian noblewoman Gaatha and her daughter Duklida collected the relics of the martyrs. The synaxarion records that the relics were brought to Cyzicus, where they were used for the founding of a church; later accounts trace a further translation of the relics westward.
+patronage:
+  - Those persecuted for the faith
+  - Converts facing opposition from their own people
+related:
+  - name: Sabbas the Goth
+    note: A Gothic martyr who suffered in the same period of persecution.
+    external: https://en.wikipedia.org/wiki/Gothic_Christianity
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2021/03/26
+  - https://en.wikipedia.org/wiki/Gothic_Christianity
+  - https://en.wikipedia.org/wiki/Wereka_and_Batwin
+status: draft
+generated: "2026-06-19"

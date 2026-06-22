@@ -1,0 +1,54 @@
+id: OS-1200
+lifespan: 3rd century (martyred under Decius, r. 249–251)
+overview:
+  - The Martyrs Peter, Dionysius, Andrew, Paul, and Christina are a company of Christians of Asia Minor and Greece who were put to death during the persecution of the Emperor Decius (249–251) for refusing to worship idols. They are commemorated together as a single group on May 18 in the Eastern Orthodox calendar (May 15 in the Western tradition).
+  - "Although venerated jointly, the five did not all suffer in one place: Peter was martyred at Lampsacus (Lampsakos) in the Hellespont region of Asia Minor, while Dionysius, the soldiers Andrew and Paul, and the virgin Christina suffered at Athens. Their accounts were joined in the synaxarion as a single commemoration."
+  - The group is remembered especially for the conversion of the two soldiers Andrew and Paul, who, set to guard the Christian captives, were themselves won to Christ through the witness of the young Christina.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrs suffered under the Emperor Decius (reigned 249–251), whose reign saw one of the most systematic persecutions of Christians in the pre-Nicene period. Sources place the deaths around the year 250, in Lampsacus in the region of Mysia on the Hellespont and in the city of Athens.
+      - By tradition Peter was brought before the prefect Optimines (also rendered Optimus, or Optimines) and commanded to sacrifice to the goddess Aphrodite. He refused, declaring publicly that a Christian would not bow before the idol of such a figure. For this he was subjected to severe torments — crushed and broken with chains and pieces of wood upon a torture-wheel — and died of his injuries.
+  - heading: The Conversion of the Soldiers
+    body:
+      - According to the synaxarion, the soldiers Andrew and Paul had been transferred from Mesopotamia and came to Athens with their unit under their commander. There they were assigned to arrest and guard two Christian captives, the man Dionysius and the virgin Christina.
+      - Through their close contact with Christina, who taught them of Christ and his Resurrection by her faith, patience, and endurance, both soldiers were converted to Christianity. When all four — Dionysius, Andrew, Paul, and Christina — were brought before the prefect and confessed Christ, refusing to sacrifice, the three men were ordered bound by the feet, dragged to the place of execution, and stoned to death.
+  - heading: The Martyrdom of Christina
+    body:
+      - Christina, said in the accounts to have been a young woman of about sixteen (some traditions give a different age), witnessed the proceedings against her companions. The synaxarion relates that she rebuked an apostate named Nikomachus (Nichomachus), who had denied Christ and agreed to sacrifice; immediately afterward he was seized by a terrible frenzy and died, foaming at the mouth, before completing the sacrifice.
+      - After Christina was condemned by the prefect, she was handed over to be abused, but by tradition an angel appeared and frightened her abusers away, leaving her unharmed. She was subsequently beheaded by the prefect's order.
+  - heading: Related Commemoration
+    body:
+      - "In the Greek tradition, three further martyrs are commemorated on the same day (May 18): Heraclius (Herakleios), Paulinus (Paulinos), and Benedimus (Venedimos, also rendered Benedict). By these accounts they were preachers at Athens who turned many pagans from idolatry to Christ."
+      - The synaxarion relates that they were arrested and tortured, cast into a burning furnace from which they emerged unharmed by the grace of God, and were finally beheaded. They are listed alongside the five in the fuller Greek and Romanian calendars of the day.
+  - heading: Relics & Shrines
+    body:
+      - By a Western tradition, relics associated with these martyrs of Lampsacus are housed at the Abbey of Flône in Belgium, where they are recorded as having been kept since 1922.
+timeline:
+  - when: 249–251
+    title: Persecution of Decius
+    body: The Emperor Decius reigns and orders the persecution under which all the martyrs of this commemoration suffer.
+  - when: c. 250
+    title: Martyrdom of Peter at Lampsacus
+    body: Peter refuses before the prefect Optimines to sacrifice to Aphrodite and dies of torments inflicted upon a torture-wheel.
+  - when: c. 250
+    title: Conversion and martyrdom at Athens
+    body: The soldiers Andrew and Paul, guarding the captives Dionysius and Christina, are converted through Christina's witness; the three men are stoned to death and Christina is beheaded.
+  - when: "1922"
+    title: Relics at Flône
+    body: Relics associated with the Lampsacus martyrs are recorded as housed at the Abbey of Flône in Belgium from this year (Western tradition).
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2019/05/18/101414-martyrs-peter-dionysius-andrew-paul-and-christina-who-suffered-u
+  - https://www.johnsanidopoulos.com/2015/05/holy-martyrs-peter-dionysios-andrew.html
+  - https://en.wikipedia.org/wiki/Saint_Andrew_of_Lampsacus
+  - https://orthodoxtimes.com/memory-of-the-martyrs-peter-dionysus-paul-andrew-benedimus-paulinus-heraclius-and-christina/
+  - https://www.crestinortodox.ro/orthodox-calendar/2022-may-holy-martyrs-peter-dionysius-andrew-paul-christina-heracles-paulinus-and-benedimus.html
+status: flagged
+generated: "2026-06-21"
+flagReasons:
+  - claim: Dionysius, Andrew, Paul, and Christina suffered at Athens.
+    detail: The anchor row brief states the martyrs were 'of the region of Lampsacus and Troas,' not Athens. All external sources say Athens, but the anchor (which wins on conflict per the verify rules) says Troas/Lampsacus region. The profile asserts Athens, which directly contradicts the anchor's geographic description.
+  - claim: Sources place the deaths in Lampsacus and in the city of Athens.
+    detail: The anchor row says 'region of Lampsacus and Troas,' not Athens. While multiple external sources say Athens for the soldiers and Christina, the anchor row (the trusted source of truth) references Troas, not Athens. The profile's assertion of Athens contradicts the anchor.

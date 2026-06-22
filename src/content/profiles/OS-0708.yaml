@@ -1,0 +1,39 @@
+id: OS-0708
+liturgicalTitle: The Holy Martyrs Maurice the Commander, his son Photinus, Theodore, Philip and the Seventy Soldiers of Apamea
+lifespan: died c. 305
+overview:
+  - "Maurice was a military commander at Apamea in Syria who, together with his son Photinus and seventy soldiers under his command, was put to death for confessing Christ during the persecution under the emperor Maximian Galerius (305-311). Of the seventy soldiers, only two are named in the tradition: Theodore and Philip. The company is commemorated together as a single martyric assembly."
+  - According to the synaxarion, pagan priests denounced Maurice to the emperor as one who was spreading the Christian faith. Brought to trial, Maurice, his son, and his soldiers confessed Christ openly and would yield to neither persuasion nor threat. They were beaten, burned with fire, and torn with iron hooks. The young Photinus was beheaded before his father's eyes, an act intended to break Maurice's resolve, which he is recorded to have withstood. The martyrs were then stripped, bound to trees in a marshy place, and smeared with honey so that they would be tormented by mosquitoes, wasps, and hornets; after ten days of this suffering, with hunger and thirst, they died. Their bodies were ordered left unburied, but local Christians recovered and buried them secretly by night. The martyrdom is dated to about the year 305.
+timeline:
+  - when: c. 305
+    title: Denunciation and trial at Apamea
+    body: Pagan priests report Maurice to the emperor Maximian Galerius for spreading the Christian faith; Maurice, his son Photinus, and his seventy soldiers confess Christ and refuse to recant.
+  - when: c. 305
+    title: Tortures and the death of Photinus
+    body: The company is beaten, burned, and raked with iron hooks; Photinus is beheaded before his father's eyes.
+  - when: c. 305
+    title: Martyrdom in the marsh
+    body: Bound to trees, smeared with honey, and left to be stung by insects in a marsh, the martyrs die after ten days; Christians bury their relics secretly by night.
+sections:
+  - heading: Historical Context
+    body:
+      - Apamea was a major city of Roman Syria. The martyrdom belongs to the persecution associated with Maximian Galerius in the early fourth century, the last great wave of state persecution before the Edict of Milan. Maurice's standing as a military commander places the account within the recurring tension of the period between Christian profession and the religious obligations expected of Roman soldiers and officers.
+  - heading: Commemoration
+    body:
+      - The martyrs are commemorated as one company. In the Slavic tradition their feast falls on February 22; Greek usage commemorates them on December 27.
+family:
+  heading: Family
+  figures:
+    - name: Photinus
+      note: Son of Maurice, numbered among the martyred soldiers; beheaded before his father during the tortures.
+related:
+  - name: Theodore of Apamea
+    note: One of the two named soldiers martyred with Maurice.
+  - name: Philip of Apamea
+    note: One of the two named soldiers martyred with Maurice.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2019/02/22/100580-martyrs-maurice-and-his-son-photinus-and-martyrs-theodore-philip
+  - https://www.ochrid.org/february/22nd
+status: draft
+generated: "2026-06-19"

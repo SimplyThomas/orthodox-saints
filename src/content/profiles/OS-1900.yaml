@@ -1,0 +1,35 @@
+id: OS-1900
+liturgicalTitle: Saint Vladislav, King of Serbia
+overview:
+  - Vladislav was a king of Serbia of the Nemanjić dynasty, remembered chiefly for his personal virtue, his charity toward the poor and the destitute, and for founding the monastery of Mileševa. The son of King Stephen the First-Crowned, he is venerated by the Serbian Orthodox Church as a right-believing ruler and is commemorated on September 24.
+  - He reigned for some years in the first half of the thirteenth century, succeeding his brother on the Serbian throne. The synaxarion remembers him above all for his care toward the poor, the vagrant, and the unfortunate, and for the monastic community he raised at Mileševa, which he intended as his own place of burial.
+  - Vladislav reposed in 1239 and was buried in the monastery he had built. His tomb and relics continue to be honored at Mileševa, which remained one of the principal spiritual centers of medieval Serbia.
+sections:
+  - heading: The Nemanjić House
+    body:
+      - Vladislav belonged to the Nemanjić dynasty, the line that shaped the medieval Serbian state and gave the Serbian Church several of its most venerated figures. He was the son of King Stephen the First-Crowned and a grandson of Stefan Nemanja, who is venerated as Saint Symeon the Myrrh-gusher. His uncle was Saint Sava, the first Archbishop of Serbia.
+      - By tradition Vladislav married Beloslava, a daughter of the Bulgarian tsar Ivan Asen II, a union that bound the Serbian and Bulgarian courts. After a period of rule he gave way to his younger brother, and later sources record that he was given charge of the maritime lands of the Serbian realm.
+  - heading: Foundation of Mileševa
+    body:
+      - Vladislav's enduring legacy is the monastery of Mileševa, which he founded in the 1230s as his royal endowment and intended burial place. The monastery's church is celebrated for its frescoes, among them the figure known as the White Angel at the empty tomb of Christ, one of the most famous works of medieval Serbian painting.
+      - By tradition, Vladislav obtained the relics of his uncle Saint Sava, who had died at Trnovo in Bulgaria, and had them translated to Mileševa, where they were enshrined. The monastery thereby became a major center of veneration in the Serbian lands.
+related:
+  - name: Saint Stephen the First-Crowned of Serbia
+    note: father; first crowned king of Serbia
+    href: saint/OS-1904
+  - name: Saint Sava I, First Archbishop of Serbia
+    note: uncle; whose relics Vladislav translated to Mileševa
+    href: saint/OS-0449
+  - name: Venerable Symeon the Myrrh-gusher of Serbia
+    note: grandfather; Stefan Nemanja, founder of the Nemanjić dynasty
+    href: saint/OS-0653
+patronage:
+  - Venerated as a right-believing ruler and church builder; remembered for charity toward the poor and the destitute.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2010/09/24/102720-saint-vladislav-of-serbia
+  - https://en.wikipedia.org/wiki/Stefan_Vladislav
+  - https://www.blagofund.org/medieval-history/monasteries/mileseva
+  - https://orthochristian.com/173151.html
+generated: "2026-06-19"

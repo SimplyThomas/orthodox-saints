@@ -1,0 +1,63 @@
+id: OS-0937
+lifespan: c. 560 - 636
+liturgicalTitle: Our Father among the Saints Isidore, Archbishop of Seville
+overview:
+  - Isidore of Seville was a seventh-century archbishop and scholar of Visigothic Spain, born into a family that gave four saints to the Church. Orphaned in his youth, he was raised and educated by his elder brother Leander, whom he succeeded as Archbishop of Seville, and he became one of the most learned men of his age.
+  - As archbishop he helped lead the conversion of the Visigoths from Arianism to the Orthodox faith and presided over important Church councils in Spain. He is remembered above all as a scholar and encyclopedist whose writings, especially the Etymologiae, gathered and preserved the learning of the ancient world for the centuries that followed. He reposed on April 4, 636, the day on which he is commemorated.
+timeline:
+  - when: c. 560
+    title: Birth at Cartagena
+    body: Isidore was born around the year 560 at Cartagena in Spain, into a family of Visigothic connection. His brothers Leander and Fulgentius and his sister Florentina are all venerated as saints.
+  - when: his youth
+    title: Orphaned and educated by Leander
+    body: Orphaned young, Isidore was raised and educated by his elder brother Leander, then connected with the cathedral school of Seville, where he gained a learning that encompassed Latin, Hebrew, and Greek.
+  - when: c. 600
+    title: Archbishop of Seville
+    body: On the death of his brother Leander around the year 600, Isidore succeeded him as Archbishop of Seville, an office he held for more than three decades.
+  - when: 619 and 633
+    title: Presiding over councils
+    body: Isidore presided over the Second Council of Seville in 619, which advanced the eradication of Arianism, and the Fourth Council of Toledo in 633, which directed that bishops establish schools in their cathedral cities.
+  - when: "636"
+    title: Repose at Seville
+    body: Isidore reposed on April 4, 636, at Seville, after a long episcopate and a vast literary labor. His relics were later translated to the Basilica of San Isidoro at Leon.
+sections:
+  - heading: A Family of Saints
+    body:
+      - "Isidore was born around the year 560 at Cartagena in Spain, into a family connected with the Visigothic nobility. Remarkably, three of his siblings are also venerated as saints: his elder brother Leander, who preceded him as Archbishop of Seville; his brother Fulgentius, who became a bishop; and his sister Florentina, who lived as a nun. Together the family was instrumental in turning the Visigothic kings from the Arian heresy to the Orthodox faith."
+      - Orphaned while still young, Isidore was raised and educated by his brother Leander. Through the cathedral school of Seville he acquired a wide learning that, by the accounts, embraced Latin, Hebrew, and Greek, an education that would later bear fruit in his many writings.
+  - heading: Archbishop of Seville
+    body:
+      - On the death of Leander around the year 600, Isidore succeeded his brother as Archbishop of Seville, an office he would hold for more than thirty years. As archbishop he continued the work his family had begun, helping to lead the conversion of the Visigoths from Arianism to the Orthodox faith.
+      - He took a leading part in the councils of the Church in Spain, presiding over the Second Council of Seville in 619, which advanced the eradication of Arianism, and over the Fourth Council of Toledo in 633. The Council of Toledo, under his guidance, directed that bishops establish schools in their cathedral cities, reflecting his lifelong concern for learning. Though not himself a monastic, he professed himself a protector of monks and composed a Rule for monastic life.
+  - heading: Scholar and Encyclopedist
+    body:
+      - Isidore is remembered above all as one of the most learned men of his time, and he has been called the last scholar of the ancient world for his labor in gathering and preserving classical knowledge during an age of cultural decline. His writings ranged across history, theology, natural science, and language.
+      - His most famous work, the Etymologiae, is a great encyclopedia compiled in twenty books that gathered the knowledge of his time and preserved fragments of classical learning; it was read and copied throughout the Middle Ages. Among his many other works are a History of the Kings of the Goths, Vandals, and Suebi, the universal chronicle known as the Chronica Majora, and the treatise De natura rerum on natural history and astronomy.
+  - heading: Repose and Veneration
+    body:
+      - Isidore reposed on April 4 in the year 636 at Seville, where he had served so long as archbishop. His relics were later translated to the Basilica of San Isidoro in Leon. As a pre-schism Western saint of the undivided Church, he is honored in the Orthodox Church and commemorated on April 4.
+works:
+  - title: Etymologiae
+    desc: A comprehensive encyclopedia compiled in twenty books that gathered the knowledge of the age and preserved fragments of classical learning; the most influential of his works, read throughout the Middle Ages.
+  - title: History of the Kings of the Goths, Vandals, and Suebi
+    desc: A historical account of the Gothic, Vandal, and Suebic peoples who ruled in the West.
+  - title: Chronica Majora
+    desc: A universal chronicle surveying the history of the world.
+  - title: De natura rerum
+    desc: A treatise on natural history and astronomy, dedicated to the Visigothic King Sisebut.
+related:
+  - name: Leander of Seville
+    note: Isidore's elder brother, his teacher and predecessor as Archbishop of Seville.
+  - name: Florentina
+    note: Isidore's sister, a nun venerated as a saint.
+  - name: Fulgentius
+    note: Isidore's brother, a bishop venerated as a saint.
+patronage:
+  - Scholars and students
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Isidore_of_Seville
+  - https://orthodoxwiki.org/Isidore_of_Seville
+generated: "2026-06-19"
