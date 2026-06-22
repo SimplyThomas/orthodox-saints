@@ -455,6 +455,18 @@ const wordsLabel = `In ${possessive} own words`;
         )
       }
 
+      {/* customs */}
+      {
+        m.customs && (
+          <section class="sv-section">
+            <div class="sv-customs">
+              <div class="eyebrow">Customs &amp; Traditions</div>
+              <p>{m.customs}</p>
+            </div>
+          </section>
+        )
+      }
+
       {/* in their own words — a collapsible of verbatim PD quotes */}
       {
         quoteList.length > 0 && (
@@ -516,18 +528,6 @@ const wordsLabel = `In ${possessive} own words`;
               ))}
             </div>
           </details>
-        )
-      }
-
-      {/* customs */}
-      {
-        m.customs && (
-          <section class="sv-section">
-            <div class="sv-customs">
-              <div class="eyebrow">Customs &amp; Traditions</div>
-              <p>{m.customs}</p>
-            </div>
-          </section>
         )
       }
 
