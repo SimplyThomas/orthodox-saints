@@ -1,0 +1,18 @@
+id: OS-0190
+liturgicalTitle: The Holy Martyrs Thathuil and Bebaia of Edessa
+lifespan: died c. 116
+overview:
+  - Thathuil and Bebaia were martyrs commemorated in Edessa (modern Şanlıurfa, Turkey) who suffered under the Emperor Hadrian around 116. According to the synaxarion tradition, Thathuil had served as a priest in the pagan religion of the city before his conversion to Christianity through the ministry of Bishop Barsimaeus of Edessa. After his conversion he was arrested, subjected to torture including blinding, and ultimately put to death for refusing to renounce his new faith. His companion Bebaia — identified in some sources as a kinswoman — was martyred alongside him.
+sections:
+  - heading: Historical Context
+    body:
+      - "The early Christian community in Edessa is attested from the late second and early third centuries, and the figure of Bishop Barsimaeus is associated with the consolidation of that community. The Edessene martyrology preserves accounts of several converts who suffered under the Roman administration of the region. Thathuil's story belongs to this cluster: a prominent pagan cult-official whose conversion represented both a personal transformation and a public rupture with the religious establishment of the city."
+      - The sources for Thathuil and Bebaia are hagiographic rather than archival, and some details — including the precise relationship between Thathuil and Bebaia and the exact form of torture — vary across textual traditions. Their commemoration on September 4 is attested in the Orthodox synaxarion.
+related:
+  - name: Bishop Barsimaeus of Edessa
+    note: The bishop of Edessa who converted Thathuil to Christianity
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Barsimaeus
+generated: "2026-06-19"

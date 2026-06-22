@@ -1,0 +1,40 @@
+id: OS-0290
+liturgicalTitle: The Venerable Warrior-Monks Alexander Peresvet and Andrew Oslyabya of the Holy Trinity Lavra
+lifespan: died c. 1380
+overview:
+  - Alexander Peresvet and Andrew Oslyabya were monks of the Holy Trinity Lavra associated with St. Sergius of Radonezh who, by tradition, were sent to accompany the army of Grand Prince Dmitry Donskoy and fought at the Battle of Kulikovo in 1380. They are commemorated together on September 7. Peresvet is remembered above all for opening the battle in single combat against the champion of the Golden Horde, in which the two adversaries struck each other down.
+  - According to the tradition preserved in Russian sources, Peresvet came from the Bryansk area and first took monastic vows at the Monastery of Saints Boris and Gleb in Rostov before joining the Trinity Lavra and becoming a disciple of St. Sergius. Oslyabya, whose secular name is given as Roman, came from a noble (boyar) background and is said to have served as a military commander before entering the monastic life; he too was affiliated with the Trinity community under St. Sergius. Both received the great schema, and both are styled Alexander and Andrew under their monastic names.
+  - The synaxarion and chronicle tradition relate that on the eve of the campaign against Mamai, Grand Prince Dmitry sought the blessing of St. Sergius, who blessed the prince and gave him these two monks to strengthen the host. By the tradition, Sergius gave them the cross of Christ sewn upon the schema to wear in place of helmet and armor. Their participation set the deliverance of Rus' from the Tatar yoke within the framework of a sanctified, spiritual struggle.
+  - "The body of Peresvet was brought back to Moscow and buried at the church of the Nativity of the Virgin at the Simonov Monastery, where Oslyabya was also laid to rest beside him. Accounts of Oslyabya's own fate differ: some relate that he fell at Kulikovo, while others record that he survived and later took part in a mission to Constantinople before his repose. Both monks are venerated as saints in the Russian Orthodox Church."
+sections:
+  - heading: The Blessing of St. Sergius
+    body:
+      - The defining episode of the two monks' veneration is their sending out by St. Sergius of Radonezh. The tradition recounts that the Grand Prince came to the Trinity monastery to ask the abbot's blessing before facing the army of Mamai, and that Sergius blessed Dmitry and committed Peresvet and Oslyabya to his service. The detail most often repeated is that Sergius gave them, in place of perishable weapons, the cross of Christ sewn onto the schema, to be worn instead of gilded helmets.
+      - In this way the warrior-monks came to embody the spiritual dimension of the Kulikovo campaign, in which a defense of Rus' was understood as a defense of the Orthodox faith. Their figures recur in later Russian art and memory as the monastic companions of Dmitry Donskoy.
+  - heading: The Single Combat at Kulikovo
+    body:
+      - By the tradition, the Battle of Kulikovo opened with a single combat between Peresvet and the champion of the Golden Horde, named in most Russian sources as Chelubey (also given as Temir-Mirza). The two horsemen charged and struck each other down, both perishing in the encounter; a legend adds that Peresvet remained in the saddle while his opponent fell. This duel became one of the most celebrated images of the battle in Russian memory.
+      - The broader engagement, fought in 1380, ended in victory for the forces of Dmitry, afterward surnamed Donskoy. The participation of the two monks placed the Trinity Lavra and the blessing of St. Sergius at the heart of how the victory was remembered.
+timeline:
+  - when: "1380"
+    title: Blessed and sent by St. Sergius
+    body: St. Sergius of Radonezh blesses Grand Prince Dmitry and gives him the monks Peresvet and Oslyabya to accompany the army.
+  - when: "1380"
+    title: Battle of Kulikovo
+    body: Peresvet opens the battle in single combat against the Horde's champion; the two strike each other down.
+related:
+  - name: St. Sergius of Radonezh
+    note: abbot of the Trinity Lavra who blessed and sent the two monks
+    href: saint/OS-0042
+  - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
+    note: the prince they accompanied at the Battle of Kulikovo
+    href: saint/OS-1210
+patronage:
+  - Invoked by soldiers and those who defend the faith, and remembered as warrior-monks who united monastic vows with the defense of their land.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Alexander_Peresvet
+  - https://en.wikipedia.org/wiki/Rodion_Oslyabya
+  - https://en.topwar.ru/14356-za-drugi-svoya-legendy-russkogo-voinstva-pravoslavnye-bogatyri-aleksandr-peresvet-i-andrey-oslyabya.html
+generated: "2026-06-19"

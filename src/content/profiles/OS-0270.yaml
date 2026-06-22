@@ -1,0 +1,29 @@
+id: OS-0270
+liturgicalTitle: Our Venerable Father Luke, Abbot of the Monastery of the Deep Stream
+overview:
+  - Venerable Luke was a tenth-century monastic of Asia Minor who served as the third abbot of the Monastery of the Deep Stream (Greek Batheos Ryakos), situated near Triglia in the region associated with Lycaonia. The monastery was dedicated to the Transfiguration of Christ and, according to the synaxarion, was famed for the strictness of the ascetic life of its monks. Luke first entered the community as an ordinary monk and was later raised to its leadership.
+  - Little is recorded of his life beyond his place in the succession of the monastery's abbots. The synaxarion relates that he reposed there in peace at the close of the tenth century, having governed the brotherhood after the year 975. The Orthodox Church commemorates him on September 7, the day on which he is listed in the synaxaria of Asia Minor; one tradition associated with Saint Nikodemos of the Holy Mountain notes a commemoration on December 27.
+sections:
+  - heading: The Monastery of the Deep Stream
+    body:
+      - The Monastery of the Deep Stream, dedicated to the Transfiguration of Christ, lay near Triglia in Asia Minor and was known in its day for the rigor of its monastic discipline. Several of its abbots are themselves venerated as saints, so that the house is remembered chiefly through the succession of holy superiors who governed it during the tenth century. Luke holds the place of its third abbot in this succession.
+      - Because the surviving notices are brief, the synaxarion preserves the bare outline of Luke's life rather than a detailed account of his deeds. What is recorded situates him firmly within the strict cenobitic tradition of Bithynian and Asian monasticism, in which obedience and humility under a common rule were prized above individual asceticism.
+timeline:
+  - when: after 975
+    title: Became third abbot
+    body: Luke, a monk of the Monastery of the Deep Stream near Triglia, was raised to the office of igumen as its third abbot.
+  - when: end of the 10th c.
+    title: Repose
+    body: He reposed in peace at the monastery at the close of the tenth century.
+related:
+  - name: Venerable Peter the Cappadocian
+    note: A fellow abbot of the same Monastery of the Deep Stream, also commemorated on September 7.
+    href: saint/OS-0269
+patronage:
+  - Venerated as a model of cenobitic monastic obedience and ascetic strictness.
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2025/09/07/102539-venerable-luke-abbot-of-batheos-ryako
+  - https://en.wikipedia.org/wiki/September_7_(Eastern_Orthodox_liturgics)
+generated: "2026-06-20"

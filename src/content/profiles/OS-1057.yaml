@@ -1,0 +1,40 @@
+id: OS-1057
+liturgicalTitle: Saint Savva Brancovici, Metropolitan of Ardeal, Confessor
+lifespan: c. 1620 - 1683 (Metropolitan of Transylvania 1656-c.1680)
+overview:
+  - Savva Brancovici was Metropolitan of Ardeal (Transylvania) in the seventeenth century, a hierarch of a Serbian family who labored to strengthen the Orthodox of the principality against sustained Calvinist pressure. Deposed and imprisoned in his last years, he died of the injuries inflicted on him and is venerated as a confessor. He is commemorated on April 24.
+  - He came from an old Serbian family that had taken refuge near Arad in Transylvania, and was born around 1620 with the name Symeon. After clerical and monastic formation he was elected to the metropolitan see, took the monastic name Savva at his tonsure, and was consecrated bishop in Wallachia.
+timeline:
+  - when: c. 1620
+    title: Birth into a Serbian family in Transylvania
+    body: Symeon, the future Savva, was born about 1620 into an old Serbian family that had settled near Arad in Transylvania.
+  - when: "1656"
+    title: Election and consecration
+    body: A council of clergy and laity at Alba Iulia elected Symeon as Metropolitan of Transylvania in 1656. He traveled to Wallachia, received monastic tonsure with the name Savva, and was consecrated bishop on September 16, 1656.
+  - when: 1656-1680
+    title: Episcopate and pastoral work
+    body: As metropolitan Savva set up a print shop and published service books, manuals of instruction for clergy and laity, and a catechism, working to defend and order the Orthodox Church amid Calvinist proselytism and the wars that troubled the region.
+  - when: 1680-1683
+    title: Imprisonment, torture, and death
+    body: Driven from his see on false accusations, Savva was imprisoned in Blaj in 1680 and endured cruel torture over some three years. Released through outside intervention, he died of his injuries on April 24, 1683, and is honored as a confessor.
+sections:
+  - heading: A Serbian hierarch in Calvinist Transylvania
+    body:
+      - "Savva governed the Orthodox Church of Transylvania during a period when the Reformed (Calvinist) authorities of the principality pressed the Romanian and Serbian Orthodox population toward the Reformed confession. His response was both pastoral and practical: he established a printing press and issued service books, instructional manuals for clergy and laity, and a catechism, equipping his flock to hold to the Orthodox faith."
+      - His resistance to conversion efforts eventually cost him his see. He was removed on false accusations and, in 1680, imprisoned at Blaj, where the sources relate that he suffered cruel torture over roughly three years before being released, broken in body.
+  - heading: Confessor and saint
+    body:
+      - Savva died on April 24, 1683 of the injuries he had received in prison, and the Church remembers him as a confessor who suffered for Orthodoxy rather than abandon it. He was canonized by the Romanian Orthodox Church in 1955, and his feast falls on the same day as that of Saint Iorest, an earlier confessor-metropolitan of the same Transylvanian see.
+related:
+  - name: Saint Iorest, Metropolitan of Ardeal
+    note: Earlier confessor and metropolitan of Transylvania, commemorated the same day
+    href: saint/OS-1056
+patronage:
+  - Those who defend the Orthodox faith under persecution
+  - Printers and those who labor to spread sound teaching
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2015/04/24
+  - https://www.johnsanidopoulos.com/2015/04/saint-sava-brancovici-metropolitan-of.html
+status: draft
+generated: "2026-06-19"

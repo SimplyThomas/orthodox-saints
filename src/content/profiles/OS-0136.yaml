@@ -1,0 +1,45 @@
+id: OS-0136
+liturgicalTitle: Our Venerable Father Anthony of the Kyiv Caves, Founder of Monasticism in Rus'
+lifespan: c. 983 – 1073
+overview:
+  - Anthony of the Kyiv Caves is venerated as the father of organized monasticism in Rus'. According to the tradition recorded in the synaxarion, he was born around 983 at Liubech, near Chernigov, and received the name Antipas at his baptism. Drawn to the ascetic life from his youth, he traveled to Mount Athos, where he received the monastic tonsure and lived as a hermit in a cave. His Athonite formation became the model he later sought to transplant to his homeland.
+  - By tradition the abbot of his Athonite monastery sent him back to the region of Kyiv to spread the monastic life there. Finding that the existing monasteries did not match the austerity he had known on Athos, Anthony settled in a cave above the Dnieper near the village of Berestovo, a cave that had earlier been dug by the priest Hilarion, who afterward became Metropolitan of Kyiv. There he lived in solitary asceticism and strict fasting, and disciples gradually gathered around him.
+  - As the brotherhood grew, Anthony did not himself take up formal leadership but appointed Barlaam as the first abbot of the community; when Barlaam departed, Saint Theodosius became igumen. From this settlement of caves grew the Kyiv Caves Lavra, which became a principal center of monasticism, learning, and spiritual life for the lands of Rus' for centuries. Anthony reposed in 1073, by tradition at about ninety years of age; his relics are said to have remained hidden.
+sections:
+  - heading: Foundation of the Caves Monastery
+    body:
+      - The community that formed around Anthony enlarged the cave dwellings and, by tradition, built a church and cells for the monks within them, giving the monastery its enduring name. The land on the hill was granted by Prince Izyaslav, securing the young community's place above the Dnieper.
+      - Among Anthony's disciples named in the tradition are the priest Nikon, who tonsured Theodosius in 1032, and Barlaam, the first abbot. Through these disciples and the rule of strict asceticism Anthony embodied, the Caves Monastery came to be regarded as the cradle of monastic life and ecclesiastical culture in Rus'.
+  - heading: Later Years and Repose
+    body:
+      - The synaxarion attributes to Anthony gifts of clairvoyance and wonderworking. By tradition, he and Theodosius were said to have appeared in the Blachernae Church in Constantinople, where they received gold from the Mother of God for the building of a church.
+      - During a period of political unrest, Prince Sviatoslav is said to have secretly relocated Anthony to Chernigov; some accounts hold that the Eletsky Monastery there stands on the site of his cave. He returned and reposed in 1073. He is commemorated on July 10, his principal feast and the day of his repose, and again on September 2 in the joint commemoration with his disciple Theodosius.
+timeline:
+  - when: c. 983
+    title: Birth at Liubech
+    body: Born near Chernigov and baptized Antipas.
+  - when: Early life
+    title: Tonsure on Mount Athos
+    body: Received the monastic tonsure and lived as a hermit in a cave on Athos.
+  - when: Return to Kyiv
+    title: Settles in the cave at Berestovo
+    body: Returned to Kyiv and settled in a cave by the Dnieper formerly dug by the priest Hilarion.
+  - when: "1032"
+    title: Tonsure of Theodosius
+    body: Saint Nikon, Anthony's disciple, tonsured the future igumen Theodosius.
+  - when: "1073"
+    title: Repose
+    body: Reposed at about ninety years of age; his relics remained hidden.
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: His disciple and co-founder of the Lavra; commemorated jointly on September 2
+    href: saint/OS-2745
+patronage:
+  - Venerated as the father and patron of monasticism in Rus'
+  - Invoked by monastics and those seeking the ascetic life
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2020/07/10/101994-venerable-anthony-of-the-kiev-far-caves-founder-of-monasticism-i
+  - https://en.wikipedia.org/wiki/Anthony_of_Kiev
+generated: "2026-06-19"

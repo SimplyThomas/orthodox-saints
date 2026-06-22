@@ -1,0 +1,54 @@
+id: OS-2479
+liturgicalTitle: Saint Sergius the Confessor of Constantinople
+lifespan: c. 795 – c. 835
+overview:
+  - Sergius was a ninth-century nobleman of Constantinople who suffered for the veneration of the holy icons during the second period of Byzantine iconoclasm. He is remembered chiefly as a confessor who endured public humiliation, imprisonment, and exile rather than abandon his support for the sacred images, and as the father of Saint Photios the Great, the learned patriarch of Constantinople. He is commemorated on May 13, together with his wife Irene and their children.
+  - "By the surviving tradition, Sergius belonged to an aristocratic family and held the court rank of spatharios. He married Irene, herself of noble birth, and the couple had five sons: Constantine, Sergios, Tarasios, Theodore, and Photios. The family was connected to earlier defenders of Orthodoxy; the tradition names Patriarch Tarasios of Constantinople, who presided over the Seventh Ecumenical Council, as Sergius's uncle."
+  - Sergius and Irene were noted among the officials of their day for openly honoring the monks who defended the icons, an allegiance that drew the hostility of the iconoclast emperor Theophilos. For his confession Sergius was disgraced, imprisoned, and finally banished with his wife and children. The account relates that Photios was a young child, about seven years old, when the family went into exile, where Sergius died around 835.
+sections:
+  - heading: Confession under Theophilos
+    body:
+      - The reign of the emperor Theophilos (829-842) marked the last sustained imperial effort to suppress the veneration of icons. The tradition records that Sergius and Irene were unusual among government families in their open devotion to the iconophile cause and to the venerable monks who defended the images.
+      - "When Sergius was brought before the emperor, he was subjected to public humiliation: by the account, a rope was tied around his neck and he was paraded through the marketplace of Constantinople to be mocked. He was afterward imprisoned and then sentenced to exile together with his wife and children. He bore the afflictions of banishment and died during this period, and his wife is held to have died at about the same time."
+  - heading: Writing and legacy
+    body:
+      - The tradition attributes to Sergius an anti-iconoclast history, which he left unfinished at his death. His son Photios later reviewed this work and remarked on its clear and simple style as suited to ecclesiastical history; the desire to complete the history his father had begun is associated with Photios's own learning.
+      - Sergius's chief lasting significance lies in his witness during the iconoclast persecution and in the formation of his family. The suffering of his parents under iconoclasm is held to have shaped Photios's firm opposition to the iconoclast party in his later career as patriarch.
+timeline:
+  - when: c. 795
+    title: Born at Constantinople
+    body: Born into an aristocratic family of the capital; he later held the court rank of spatharios.
+  - when: 829-842
+    title: Persecution under Theophilos
+    body: Targeted for his support of the icons during the reign of the iconoclast emperor Theophilos.
+  - when: c. 835
+    title: Death in exile
+    body: After humiliation, imprisonment, and banishment with his family, he died in exile.
+related:
+  - name: St. Photius the Great, Patriarch of Constantinople
+    note: his son
+    href: saint/OS-0603
+  - name: St. Tarasius, Patriarch of Constantinople
+    note: named in the tradition as his uncle
+    href: saint/OS-0722
+family:
+  heading: Family
+  intro: Sergius and his wife Irene are commemorated together with their children. The couple had five sons, the most renowned being Photios the Great.
+  figures:
+    - name: Irene
+      note: his wife, of noble birth; suffered exile with him and is held to have died about the same time
+    - name: Photios the Great
+      note: his son, later patriarch of Constantinople
+      href: saint/OS-0603
+    - name: Patriarch Tarasios of Constantinople
+      note: named in the tradition as Sergius's uncle
+      href: saint/OS-0722
+patronage:
+  - Honored as a confessor and defender of the holy icons during the iconoclast persecution.
+status: draft
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://www.johnsanidopoulos.com/2020/05/saint-sergios-confessor-father-of-saint.html
+  - https://orthodoxwiki.org/Photius_the_Great
+generated: "2026-06-21"

@@ -1,0 +1,41 @@
+id: OS-0109
+liturgicalTitle: Our Father among the Saints Nivard, Archbishop of Reims
+lifespan: early 7th century – 673
+overview:
+  - Nivard of Reims was a seventh-century bishop of Reims in Gaul (modern France), remembered chiefly as the founder of the abbey of Hautvillers. Born into the high Merovingian nobility near Reims and raised at the royal court, he was connected by marriage to the Frankish ruling house as the brother-in-law of King Childeric II.
+  - As bishop he governed the see of Reims for some two decades, supported monastic life across the region, and endowed churches in his city. He withdrew to the abbey of Hautvillers, which he had founded, and died there on 1 September 673, the day on which he is commemorated.
+timeline:
+  - when: early 7th century
+    title: Birth near Reims
+    body: Nivard was born near Reims into the high Merovingian nobility and was raised at the royal court. He was the brother-in-law of King Childeric II.
+  - when: "657"
+    title: Bishop of Reims
+    body: According to one account he succeeded Landone as bishop of Reims in 657, going on to serve the diocese for more than twenty years.
+  - when: c. 650
+    title: Foundation of Hautvillers Abbey
+    body: Nivard founded the abbey of Hautvillers, dedicated to Saint Peter (Saint-Pierre d'Hautvillers), with the help of Saint Bercarius. The community followed a rule combining the observances of Saint Benedict and Saint Columbanus. Tradition holds that the site of the abbey was indicated by a dove.
+  - when: 1 September 673
+    title: Death at Hautvillers
+    body: Nivard died of natural causes at the abbey of Hautvillers, his preferred residence, and was buried there.
+sections:
+  - heading: Episcopate and Monastic Patronage
+    body:
+      - Nivard held the see of Reims for over twenty years. Beyond his own foundation, he is recorded as extending support and financial help to monasteries at Corbie, Soissons, and Fontenelle (Saint-Wandrille), and as a patron of churches in Reims, in particular those of Saint Mary and Saint Remigius, which he endowed extensively.
+      - His best-known work was the abbey of Hautvillers, founded with Saint Bercarius and placed under a rule drawing on both Saint Benedict and Saint Columbanus. By tradition the location was chosen after a dove was seen circling the spot. Nivard retired to the abbey and was buried there after his death.
+  - heading: Sources and Discrepancies
+    body:
+      - "Accounts differ on the precise dates of Nivard's career: the foundation of Hautvillers is variously given as around 650, while his accession to the see of Reims is placed in 657 in some sources. His successor at Reims is named as Saint Rieul (Reolus), who entered Hautvillers in 662. His death on 1 September 673 and his burial at Hautvillers are consistently reported."
+  - heading: Legacy
+    body:
+      - The abbey Nivard founded at Hautvillers endured long after him. In the ninth century, under the Carolingians, it became a renowned center of manuscript illumination associated with works such as the Ebbo Gospels. In a much later era one of its monks, Dom Pierre Perignon, was connected with the development of sparkling Champagne wine.
+family:
+  heading: Family
+  figures:
+    - name: King Childeric II
+      note: Frankish king of Austrasia; by tradition Nivard was his brother-in-law.
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://anastpaul.com/2023/09/01/saint-of-the-day-1-septembert-saint-nivard-of-rheims-died-673/
+  - https://en.wikipedia.org/wiki/Hautvillers_Abbey
+status: draft
+generated: "2026-06-21"

@@ -1,0 +1,25 @@
+id: OS-1464
+overview:
+  - Mark and Mocius are two early Christian martyrs commemorated together by the Orthodox Church on July 3. According to the synaxarion, they were arrested as Christians and brought to trial before the governor Maximian, who demanded that they offer sacrifice to idols.
+  - When the two refused to renounce Christ and sacrifice to the idols, they were put to death by beheading. Their martyrdom is placed in the fourth century, during the era of the late Roman persecutions.
+  - Almost nothing further is recorded of them. The surviving account preserves no region of origin, no details of their backgrounds or personal circumstances, and no record of relics or shrines; they remain among the many obscure early martyrs known chiefly by name, feast, and the manner of their confession.
+lifespan: 4th century
+sections:
+  - heading: Sources and Historical Note
+    body:
+      - The sole substantive record of Mark and Mocius is the brief stub entry in the OCA synaxarion for July 3, which lists them among the day's commemorations. They are not treated in OrthodoxWiki, the Prologue of Ohrid, or other accessible Orthodox reference sources, underscoring how little is preserved about them.
+      - The martyr Mocius commemorated here should not be confused with Mocius (Mucius) of Amphipolis, a priest of Macedonia martyred under Diocletian and commemorated on May 11; that is a distinct saint with a separate feast and account, unrelated to the July 3 pair.
+timeline:
+  - when: 4th century
+    title: Arrest and trial
+    body: Mark and Mocius are arrested as Christians and brought before the governor Maximian, who orders them to sacrifice to idols.
+  - when: 4th century
+    title: Martyrdom
+    body: Refusing to deny Christ or offer sacrifice, the two are beheaded for their confession.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/07/03/101888-martyrs-mark-and-mocius
+  - https://en.wikipedia.org/wiki/Mocius
+  - https://www.oca.org/saints/lives/2024/07/03
+status: draft
+generated: "2026-06-22"

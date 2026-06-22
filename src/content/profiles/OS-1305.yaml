@@ -1,0 +1,26 @@
+id: OS-1305
+overview:
+  - Gelasius is venerated as a martyr of the early Church, commemorated on June 6. According to the surviving account, he lived during a period of fierce persecution, gave away all his property and possessions to the poor, and devoted himself to comforting fellow Christians who were imprisoned and facing martyrdom.
+  - Few details of his life are preserved. No geographical location, historical dates, or century are recorded in the sources, and he is described even in the synaxarion as a saint of whom little further is known. He was tried before a governor, confessed Christ, and was put to death by beheading.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/06/06/205373-martyr-gelasius
+  - https://en.wikipedia.org/wiki/June_6_(Eastern_Orthodox_liturgics)
+  - https://www.oca.org/saints/lives/2025/06/06
+  - https://en.wikipedia.org/wiki/Gelasius_(disambiguation)
+liturgicalTitle: The Holy Martyr Gelasius
+sections:
+  - heading: Life and Martyrdom
+    body:
+      - By the account preserved in the synaxarion, Gelasius lived at a time of severe persecution of Christians. He distributed all of his property and possessions to the poor, clothed himself in a long white garment, and went out to visit those who were enduring martyrdom. He kissed the wounds of Christians who had been tortured in various ways and encouraged them to remain steadfast in their faith.
+      - When the pagan authorities discovered his activity, he was seized and brought before a ruler for questioning. He proclaimed the divinity of Christ and denounced the idols as deaf and inanimate objects. The governor answered him with mockery and ordered him to be flogged, and afterward commanded that he be beheaded.
+      - The sources record no place, date, or century for his life and death, and they preserve no further biographical detail.
+  - heading: Identity and Distinction
+    body:
+      - "The synaxarion is careful to distinguish this Martyr Gelasius, commemorated on June 6, from several other saints of the same or similar name: a third-century Gelasius of Crete (commemorated December 23), Gelasius of Palestine (commemorated December 31), and Gerasimus the actor (commemorated February 27)."
+      - No Wikipedia biographical article exists for this June 6 martyr; the various other figures named Gelasius listed in reference works do not correspond to him. The Greek Great Synaxaristes lists him for June 6 as 'The Holy Martyr Gelasius,' and the liturgical calendar notes his martyrdom 'by beheading.'
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The profile describes Gelasius as 'a martyr of the early Church,' implying a specific early historical era, but the anchor row sets Era to 'Unknown' and Century to blank; no source pins him to any particular period.
+    detail: The anchor row explicitly records Era as 'Unknown' and leaves Century blank. The OCA source says only that he lived 'during a time of fierce persecution' without specifying a period. 'Early Church' implies a particular historical era (typically pre-Nicene or pre-4th century) that is not grounded in any dossier source and contradicts the anchor's 'Unknown' era designation.

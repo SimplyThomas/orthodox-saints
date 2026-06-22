@@ -1,0 +1,53 @@
+id: OS-0860
+liturgicalTitle: Our Father among the Saints Serapion, Bishop of Thmuis
+lifespan: c. 300 – c. 358
+overview:
+  - Serapion of Thmuis was a fourth-century Egyptian ascetic who became bishop of Thmuis, a city in the Nile Delta of Lower Egypt. Formed in the monastic life as a companion and disciple of Anthony the Great, he was later raised to the episcopate, and from that office became one of the foremost allies of Athanasius of Alexandria in the struggle against Arianism. He is commemorated on March 21. He should not be confused with Serapion the Sindonite, the wandering anchorite commemorated on May 14.
+  - Beyond his role in the doctrinal conflicts of his day, Serapion is remembered as a writer. Jerome, in his work On Illustrious Men, records that he was given the appellation 'Scholasticus' — the Scholastic — on account of his learning. His name is attached to a treatise against the Manichaeans and, most notably, to a collection of liturgical prayers known as the Euchologion or Sacramentary of Serapion, an early witness to the worship of the Egyptian church.
+  - Sources place his episcopate from about 339 until his death around 358, and report that he was exiled by the Arian party in the course of the controversy. His close ties to both Anthony and Athanasius made him a connecting figure between the desert monasticism of Egypt and the dogmatic battles waged from the see of Alexandria.
+sections:
+  - heading: Ascetic Beginnings and Companionship with Anthony
+    body:
+      - Serapion is described as a monastic companion and disciple of Anthony the Great, the father of Egyptian monasticism. The tradition relates that at Anthony's death he received one of the saint's two sheepskin cloaks, the other passing to Athanasius — a detail that marks him as one of the small circle closest to Anthony.
+      - From this ascetic background he was raised to the bishopric of Thmuis, identified with the modern site of Tell el-Timai in the Nile Delta. Sources place his consecration around the year 339.
+  - heading: Ally of Athanasius Against Arianism
+    body:
+      - During his episcopate Serapion supported Athanasius of Alexandria in the contest against Arianism. At his request Athanasius addressed to him a series of dogmatic letters on the theology of the Holy Spirit, an exchange that became an important witness to the Nicene faith concerning the Spirit's divinity.
+      - His standing is further shown by his appointment, reported for the year 353, to lead a delegation to the Emperor Constantius II to answer Arian charges against Athanasius. The sources also record that Serapion himself was exiled by the Arians during the controversy.
+  - heading: Writings
+    body:
+      - Serapion's literary reputation earned him the title 'the Scholastic' from Jerome. Among his extant works is a treatise against the Manichaeans; according to the descriptions of it, he does not attempt to refute the whole Manichaean system but concentrates on its central errors, especially its dualistic doctrine of a good and an evil principle.
+      - He is best known, however, for the liturgical collection that bears his name, the Euchologion or Sacramentary of Serapion. It is a prayer-book intended for a bishop's use, containing some thirty prayers for the eucharistic liturgy, baptism, ordination, the blessing of oil, bread and water, and burial. The text survives in an eleventh-century manuscript from the Great Lavra on Mount Athos and was brought to scholarly notice through publications in 1894 and 1899; it is noted as an early witness to the written Sanctus. Serapion's name stands at the head of the anaphora, though the authorship of the whole collection has been debated.
+timeline:
+  - when: c. 339
+    title: Consecrated bishop of Thmuis
+    body: Raised from the monastic life to the see of Thmuis in the Nile Delta.
+  - when: c. 350
+    title: Exiled by the Arians
+    body: Sources report that Serapion was sent into exile by the Arian party during the controversy.
+  - when: "353"
+    title: Delegation to Constantius II
+    body: Appointed by Athanasius to lead a delegation to the Emperor Constantius II answering Arian charges.
+  - when: c. 358
+    title: Repose
+    body: Sources place his death around this time.
+related:
+  - name: St. Anthony the Great
+    note: Whose disciple and companion Serapion was, and from whom he received one of two sheepskin cloaks at his death.
+    href: saint/OS-0026
+  - name: St. Athanasius the Great
+    note: Bishop of Alexandria, whom Serapion supported against Arianism and who addressed dogmatic letters on the Holy Spirit to him.
+    href: saint/OS-0024
+works:
+  - title: Euchologion (Sacramentary) of Serapion
+    desc: A collection of about thirty liturgical prayers for a bishop's use — for the eucharistic liturgy, baptism, ordination, blessings of oil, bread and water, and burial; an early witness to Egyptian worship.
+  - title: Against the Manichaeans
+    desc: A treatise concentrating on the central errors of Manichaeism, especially its dualistic doctrine of a good and an evil principle.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Serapion_of_Thmuis
+  - https://orthodoxwiki.org/Euchologion_of_Serapion_of_Thmuis
+  - https://en.wikipedia.org/wiki/Sacramentary_of_Serapion_of_Thmuis
+generated: "2026-06-20"

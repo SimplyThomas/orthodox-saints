@@ -1,0 +1,31 @@
+id: OS-1037
+liturgicalTitle: The Holy Martyrs Isaac, Apollos, and Quadratus of Nicomedia
+lifespan: died c. 303 (reign of Diocletian)
+overview:
+  - Isaac, Apollos, and Quadratus were officials at the court of the emperor Diocletian (284-305) who, having witnessed the sufferings of the Great Martyr George, confessed Christ and were put to death for the faith. They are commemorated together as martyrs on April 21. By tradition their deaths fell in the year 303, during the great persecution.
+  - According to the synaxarion the three were pagans serving in the imperial court at Nicomedia. Moved by the faith, courage, and miracles shown by Saint George under torture, they came to believe in Christ, openly declared themselves Christians, and reproached the emperor for his impiety and cruelty.
+timeline:
+  - when: reign of Diocletian (284-305)
+    title: Service at the imperial court
+    body: Isaac, Apollos, and Quadratus served as pagan officials at the court of the emperor Diocletian. They were among those who witnessed the trial and sufferings of the Great Martyr George.
+  - when: c. 303
+    title: Confession of Christ
+    body: The faith, valor, and miracles of Saint George led the three to believe in Christ. They openly declared themselves Christians and reproached the emperor for his impiety and cruelty.
+  - when: c. 303
+    title: Martyrdom
+    body: Quadratus was beheaded with the sword; Apollos and Isaac were put to death by starvation. By tradition their martyrdom fell in the year 303.
+sections:
+  - heading: Martyrdom at Nicomedia
+    body:
+      - The account of these three martyrs is bound to that of the Great Martyr George, whose endurance under torture drew a number of bystanders to faith in Christ. The synaxarion places Isaac, Apollos, and Quadratus among the court officials at Nicomedia who, having seen George's confession, abandoned their pagan service and openly professed Christianity, rebuking the emperor to his face.
+      - "For this confession they were condemned. The tradition distinguishes the manner of each death: Quadratus was beheaded with a sword, while Apollos and Isaac died of hunger in prison. The three are kept together in one commemoration on April 21."
+related:
+  - name: Great Martyr George
+    note: Whose sufferings moved the three to confess Christ.
+    href: saint/OS-0012
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2020/04/21/101174-martyrs-isaac-apollos-and-quadratus-of-nicomedia
+  - https://orthochristian.com/102995.html
+status: draft
+generated: "2026-06-19"

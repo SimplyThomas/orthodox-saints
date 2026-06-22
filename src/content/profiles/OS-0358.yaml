@@ -1,0 +1,45 @@
+id: OS-0358
+liturgicalTitle: Our Father among the Saints Frithestan, Bishop of Winchester
+lifespan: died 932 or 933
+overview:
+  - Frithestan was Bishop of Winchester in the early tenth century, holding the see from 909 until his resignation in 931. He governed one of the most significant and wealthy dioceses in Anglo-Saxon England during the reigns of Edward the Elder and Aethelstan, and is remembered in the Orthodox tradition as a disciple of St. Grimbald who was devoted to the poor and to prayer for the departed.
+  - He is venerated as a saint, with limited historical cultus at Winchester, and his feast is kept on 10 September.
+timeline:
+  - when: "904"
+    title: Witnesses royal charters as deacon
+    body: Frithestan first appears in the historical record in 904, when, as a deacon, he witnessed two charters by which King Edward the Elder granted land to the Old Minster at Winchester.
+  - when: "909"
+    title: Consecrated Bishop of Winchester
+    body: He was one of seven bishops consecrated on a single day in 909 by Plegmund, Archbishop of Canterbury. He succeeded Bishop Denewulf in the see of Winchester.
+  - when: c. 909
+    title: Reorganization of the diocese
+    body: Shortly after his elevation, the diocese of Winchester was reorganized, with Wiltshire and Berkshire transferred to the newly created bishopric of Ramsbury.
+  - when: "931"
+    title: Resignation
+    body: Frithestan resigned the see between 23 March and 29 May 931. He was succeeded by Beornstan of Winchester.
+  - when: 932 or 933
+    title: Death and burial
+    body: He died in 932 or 933 and was buried at the Old Minster, Winchester; the location of his tomb later became unknown during the medieval period.
+sections:
+  - heading: Episcopate
+    body:
+      - "Frithestan's tenure spanned the reigns of two kings, Edward the Elder and his son Aethelstan. His relationship with Aethelstan appears to have been distant: he was absent from the king's coronation on 4 September 925, and despite his seniority among the episcopate he consistently attested royal charters in a lower position."
+      - He governed Winchester, then among the foremost and wealthiest English sees, for more than two decades before resigning in 931.
+  - heading: Embroidered Vestments and St. Cuthbert's Shrine
+    body:
+      - Frithestan's name survives in connection with one of the most celebrated examples of early English embroidery. A stole and maniple, bearing inscriptions showing that they had been commissioned by Queen Aelfflaed, wife of Edward the Elder, for Bishop Frithestan of Winchester, were later given by King Aethelstan to the shrine of St. Cuthbert, probably in 934.
+      - These vestments were rediscovered in 1827, when St. Cuthbert's tomb at Durham Cathedral was opened and the embroidered objects were found among its contents, their inscriptions preserving the association with Frithestan and the queen who had them made.
+reading:
+  - heading: Reference
+    items:
+      - title: Frithestan, Bishop of Winchester (Wikipedia)
+        type: reference
+      - title: Latin Saints of the Orthodox Patriarchate of Rome
+        type: reference
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Frithestan
+  - https://en.wikipedia.org/wiki/Bishop_of_Winchester
+  - https://en.wikipedia.org/wiki/%C3%86lffl%C3%A6d,_wife_of_Edward_the_Elder
+generated: "2026-06-20"

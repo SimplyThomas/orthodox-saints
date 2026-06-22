@@ -1,0 +1,41 @@
+id: OS-2521
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Susanna_the_Deaconess
+  - https://www.johnsanidopoulos.com/2015/12/saint-susanna-deaconess-and-martyr.html
+  - http://hagiomajor.blogspot.com/2011/12/december-15-feast-of-susanna-deaconess.html
+liturgicalTitle: The Holy Martyr Susanna the Deaconess of Eleutheropolis
+overview:
+  - Susanna the Deaconess was a Palestinian virgin, monastic, and martyr venerated in the Eastern Orthodox Church on December 15. According to her hagiography she was born during the reign of the emperor Maximian (286-305) to a Greek pagan priest named Artemios and a mother named Martha of Hebrew background. She embraced Christianity of her own will, was baptized, and after the death of her parents distributed her inheritance to the poor and freed her servants.
+  - Her life is distinguished by an extended period spent in a men's monastery in Jerusalem, which she entered disguised as a man under the name John; later, after her identity became known, she was ordained a deaconess by the bishop of Eleutheropolis and ultimately suffered martyrdom there for confessing Christ. The surviving accounts differ on details of her death, and ninth-century Byzantine hymnographers later composed canons in her honor.
+timeline:
+  - when: c. 286-305
+    title: Birth and baptism in Palestine
+    body: By tradition Susanna was born in Palestine during the reign of Maximian to Artemios, a Greek pagan priest, and Martha, of Hebrew background. She converted to Christianity and was baptized, in some accounts by a figure named Silvanos (Silouan).
+  - when: after her parents' death
+    title: Renunciation of wealth
+    body: Following the death of her parents, she sold her possessions, freed her servants, and distributed her fortune to the poor.
+  - when: for about twenty years
+    title: Monastic life as 'John' in Jerusalem
+    body: She cut her hair, donned men's clothing, and entered a men's monastery in Jerusalem under the name John, where she was taken to be a eunuch. Over roughly twenty years she was advanced to lead the monastery as its archimandrite.
+  - when: later
+    title: False accusation and ordination as deaconess
+    body: A woman associated with the community falsely accused 'John' of attempted assault. When the bishop of Eleutheropolis investigated, Susanna disclosed her true identity, which cleared her but ended her tenure leading the monastery; the bishop then ordained her a deaconess.
+  - when: during a persecution
+    title: Martyrdom at Eleutheropolis
+    body: When a persecution reached Eleutheropolis, Susanna refused to sacrifice to the idols and confessed Christ. By tradition she endured severe tortures before her death, and is venerated as a martyr.
+sections:
+  - heading: Disguise and Monastic Office
+    body:
+      - A recurring feature of Susanna's hagiography is her years in a men's monastery in Jerusalem, which she entered disguised as a man under the name John. The sources relate that her fellow monks took her to be a eunuch and that, on account of her exemplary ascetic conduct, she was eventually placed at the head of the community as archimandrite (described in some retellings as abbot).
+      - "Her disguise was undone by a false accusation: a woman charged 'John' with attempted assault. When the bishop of Eleutheropolis investigated the matter, Susanna revealed her true identity, by tradition privately to virgins and female deaconesses. The revelation exonerated her but made it impossible for her to continue leading a men's monastery, after which the bishop ordained her a deaconess."
+  - heading: Accounts of Her Martyrdom
+    body:
+      - The principal tradition places Susanna's death in the persecutions associated with the reign of Maximian. In this account a magistrate named Alexander, arriving at Eleutheropolis, demanded that she sacrifice to the idols; when she refused and confessed Christ she was subjected to severe tortures, related by tradition to include the mutilation of her breasts (said to have been miraculously restored), molten lead, beating, and fire, dying in the flames.
+      - A variant synaxarion summary instead assigns her martyrdom to the persecution under Julian the Apostate, names the investigating bishop Kleopas, and reports that she died in prison from starvation rather than renounce her faith. These accounts diverge on the emperor, the bishop's name, and the manner of her death; the Maximian-era tradition is the one carried by the database record.
+patronage:
+  - Deaconesses
+  - Women monastics
+status: draft
+generated: "2026-06-19"

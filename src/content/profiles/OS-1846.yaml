@@ -1,0 +1,32 @@
+id: OS-1846
+liturgicalTitle: Our Venerable Father Gerasimus of Survia
+lifespan: died 1740
+overview:
+  - Gerasimus of Survia, also called Gerasimos the New, was an eighteenth-century Greek monastic known as the second founder of the Monastery of the Holy Trinity at Sourvia (Survia), near Makrinitsa in the Zagora region of Thessaly. He is commemorated on September 15.
+  - According to his tradition, he was born at Leontari in the region of Megalopolis in the Peloponnese, the son of parents named Theodore and Evangelia, and was given the name George at baptism. From childhood he was drawn to the lives of the saints, and he later entered the Monastery of Panagia the Philosopher near Dimitsana, where he took monastic vows and received the name Gerasimos.
+  - After making a pilgrimage to the Holy Land, he returned to Greece and travelled through its towns and villages teaching the Orthodox faith, eventually settling at Makrinitsa beside the abandoned Monastery of the Holy Trinity in Sourvia. He restored the monastery, which the tradition holds had first been built in the sixteenth century by Saint Dionysius of Olympus, and for this work he is honored as its second founder.
+  - Gerasimus reposed at the Sourvia monastery on September 14, 1740, and his tomb is kept there. Miracles are attributed to his relics, particularly his skull, which is venerated in the region.
+sections:
+  - heading: Monastic Foundation at Sourvia
+    body:
+      - The Monastery of the Holy Trinity at Sourvia stands near the village of Makrinitsa in the Zagora district of the Pelion area. The tradition relates that it had originally been founded in the sixteenth century by Saint Dionysius of Olympus and had since fallen into disuse.
+      - Gerasimus renovated the dilapidated house and re-established its monastic life, work for which he is remembered as the community's second founder. He is also said to have kept a hermitage cave nearby for solitary prayer and to have established a dependent cell at Velestino, near the Church of Saint Athanasius.
+timeline:
+  - when: 16th century
+    title: Original foundation of Sourvia
+    body: The Monastery of the Holy Trinity at Sourvia is, by tradition, first built by Saint Dionysius of Olympus.
+  - when: "1740"
+    title: Repose at Sourvia
+    body: Gerasimus dies at the Sourvia monastery on September 14, having restored it as its second founder.
+related:
+  - name: Venerable Dionysius of Olympus
+    note: Sixteenth-century founder of the Sourvia monastery, which Gerasimus later restored.
+    href: saint/OS-0528
+patronage:
+  - Venerated locally in the Pelion and Zagora region, where miracles are attributed to his relics.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1986/09/15/108952-saint-gerasimus
+  - https://www.johnsanidopoulos.com/2017/09/saint-gerasimos-new-founder-of-sacred.html
+generated: "2026-06-20"

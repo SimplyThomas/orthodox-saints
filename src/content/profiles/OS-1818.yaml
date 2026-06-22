@@ -1,0 +1,38 @@
+id: OS-1818
+liturgicalTitle: Our Venerable Father Luke, Abbot of Batheos Ryako
+lifespan: reposed late 10th century
+overview:
+  - Luke was a Byzantine monk and the third abbot of the monastery of Batheos Ryako, the "Deep Stream," a community dedicated to the Transfiguration of Christ that stood near Triglia in Asia Minor. He entered the monastery as a monk and in time was raised to its leadership as igoumen. According to the synaxarion he reposed there in peace at the end of the tenth century. He is commemorated on September 7, and is distinct from Luke the Evangelist.
+  - The monastery of Batheos Ryako lay at Triglia, which the sources place in Bithynia on the southern shore of the Sea of Marmara, in the region broadly known as Asia Minor. It was famed for the strictness of the ascetic life of its monks. Founded in the first half of the tenth century by Saint Basil, who is commemorated on July 1, the house was led after him by a second abbot and then by Luke, so that he stands third in a recorded succession of monastic superiors.
+  - Luke's commemoration on September 7 is preserved in the Hagiologion of Metropolitan Sophronios Eustratiadou; Saint Nikodemos of the Holy Mountain records an alternate date of December 27. Little beyond his office, his community, and the manner of his repose is related of him in the surviving notices, and the profile keeps to what the synaxarion and the associated sources support.
+sections:
+  - heading: The Monastery of the Deep Stream
+    body:
+      - The monastery's name, Batheos Ryako ("Deep Stream"), reflects its setting near Triglia, the medieval Trigleia in Bithynia, close to the modern Turkish village of Tirilye. It was dedicated to the Transfiguration of Christ and is also known in the sources as the Monastery of Christ the Savior, the Soteros or Savior Monastery. The community had a reputation for the severity and discipline of its monastic observance.
+      - "By tradition the house was founded by Saint Basil during the reign of the emperor Constantine VII Porphyrogennitos, and it produced a recorded line of abbots. The sources name the second abbot variously: some identify him as Saint Ignatius, who died in 970 and is commemorated on September 27, while others give Saint Peter, commemorated on September 7, in that place. Luke succeeded as the third superior of the community. The monastery's church survived in altered and increasingly ruined form into the modern period and is now largely lost."
+related:
+  - name: Venerable Basil, Founder of Batheos Ryako
+    note: First abbot and founder of the Deep Stream monastery, commemorated July 1.
+  - name: Saint Ignatius of Christ the Savior Monastery
+    note: Recorded by some sources as the second abbot of the Deep Stream monastery; died 970, commemorated September 27.
+    href: saint/OS-1914
+  - name: Venerable Peter the Cappadocian
+    note: Identified in some sources as the second abbot of the Monastery of the Deep Stream; commemorated September 7.
+    href: saint/OS-0269
+timeline:
+  - when: first half 10th c.
+    title: Monastery founded
+    body: The Deep Stream monastery, dedicated to the Transfiguration, is founded near Triglia by Saint Basil during the reign of Constantine VII Porphyrogennitos.
+  - when: 10th c.
+    title: Third abbot
+    body: Luke, having entered as a monk, becomes the third igoumen of the community.
+  - when: late 10th c.
+    title: Repose
+    body: Luke reposes in peace at the monastery.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/09/07/102539-venerable-luke-abbot-of-batheos-ryako
+  - https://en.wikipedia.org/wiki/Batheos_Rhyakos_Monastery
+  - https://www.johnsanidopoulos.com/2016/07/saint-basil-founder-of-vatheos-ryakos.html
+generated: "2026-06-20"

@@ -1,0 +1,47 @@
+id: OS-2662
+liturgicalTitle: Saint Anthony II, Catholicos-Patriarch of Georgia
+lifespan: 1762/63–1827
+overview:
+  - Anthony II was the last Catholicos-Patriarch of Georgia before the Russian Empire abolished the autocephaly of the Georgian Orthodox Church. Born Prince Teimuraz of the Bagrationi dynasty, he was a son of King Heraclius II of Georgia and led the Georgian Church through the period in which the kingdom lost its independence and was annexed by Russia in 1801.
+  - After the annexation, the Russian authorities moved to bring the Georgian Church under their control. Anthony was removed from Georgia, ultimately stripped of his patriarchal office, and ended his life far from his homeland, dying in 1827 at Nizhny Novgorod. The Georgian Orthodox Church glorified him as a saint in 2011, honoring his witness during the loss of Georgian ecclesiastical self-governance.
+timeline:
+  - when: 1762/63
+    title: Birth into the Bagrationi dynasty
+    body: Born Prince Teimuraz, a son of King Heraclius II of Georgia, into the royal Bagrationi line.
+  - when: "1788"
+    title: Becomes Catholicos-Patriarch
+    body: Elevated as Catholicos-Patriarch of All Georgia, an office he would hold until 1811.
+  - when: "1801"
+    title: Russian annexation of Georgia
+    body: The Russian Empire annexed Georgia and began deporting members of the Georgian royal family to Russia, fundamentally altering the standing of the Georgian Church.
+  - when: 1810–1811
+    title: Removal and loss of office
+    body: Anthony was forced to leave Georgia for St. Petersburg in 1810 and was stripped of his office in 1811; the autocephalous Georgian Orthodox Church was reduced to an exarchate of the Russian Orthodox Church.
+  - when: "1827"
+    title: Repose in exile
+    body: Died on 21 December 1827 at Nizhny Novgorod, where he was buried.
+  - when: "2011"
+    title: Glorification
+    body: On 11 July 2011 the Holy Synod of the Georgian Orthodox Church canonized him as a saint.
+sections:
+  - heading: The end of Georgian autocephaly
+    body:
+      - Anthony II governed the Georgian Church at the moment its centuries-old autocephaly was extinguished. With the Russian annexation of Georgia in 1801, the empire sought to fold the Georgian Church into its own administration. Anthony resisted the imposition of Russian ecclesiastical control, but in 1810 he was compelled to leave Georgia for St. Petersburg, and in 1811 he was deprived of his patriarchal office.
+      - With his removal, the autocephalous Georgian Orthodox Church was reduced to an exarchate of the Russian Orthodox Church, ending the line of independent Georgian catholicos-patriarchs that he was the last to hold. He lived out his remaining years in Russia, dying at Nizhny Novgorod in 1827.
+family:
+  heading: House of Bagrationi
+  figures:
+    - name: King Heraclius II of Georgia
+      note: His father; ruler of the Georgian kingdom.
+    - name: Darejan Dadiani
+      note: His mother, from his father's third marriage.
+    - name: George XII of Georgia
+      note: His brother and a king of Georgia.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - Wikipedia
+  - https://en.wikipedia.org/wiki/Anton_II_of_Georgia
+  - https://www.wikidata.org/wiki/Q3652858 (and corroborating search synthesis)
+generated: "2026-06-20"

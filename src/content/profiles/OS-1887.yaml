@@ -1,0 +1,34 @@
+id: OS-1887
+liturgicalTitle: Venerable Jonah, Abbot of Yashezersk
+overview:
+  - Jonah of Yashezersk was a Russian monastic founder of the late sixteenth century who established a monastery near Yash Lake (Yashezero) in the northern Russian wilderness. According to the synaxarion, he was born in the village of Shoksha, sixteen versts from the site of the monastery he later founded. He is numbered among the disciples of Saint Alexander of Svir, a major figure of northern Russian monasticism whose followers founded a network of monasteries among the lakes of the Olonets region.
+  - "The foundation of his monastery is dated to 1580, when a wooden church was built in honor of the Annunciation of the Theotokos and eight monks gathered around him to live the ascetic life. Jonah labored continually over the material upkeep of the community: to ease the catching of fish he dug a channel connecting Yash Lake with the nearby Lake Senno, and he rode the solitary forest paths in search of provisions for the brethren. By tradition he himself fashioned wooden vessels for liturgical use and gathered donations and ecclesiastical texts for the monastery."
+  - The monastery was poor, and Jonah petitioned for relief from taxes, which was granted on 1 June 1589. The sources record that he was held in high regard by prominent churchmen of the region, including Metropolitan Isidore of Novgorod and Igumen James of the Solovki monastery. The synaxarion places his death in the late sixteenth or early seventeenth century; one tradition relates that he died in a cave a short distance from the monastery. He was buried at the Annunciation monastery he had founded, where his tomb came to be venerated as a place of healing. He is commemorated on September 22.
+sections:
+  - heading: Foundation of the Monastery
+    body:
+      - The monastery at Yash Lake was founded in 1580 with the construction of a wooden church dedicated to the Annunciation of the Theotokos, around which eight monks gathered with Jonah. The settlement lay in the forested lake country of the Russian north, a region shaped by the monastic expansion that followed Saint Alexander of Svir and his disciples.
+      - Jonah's practical labors are a recurring theme in the accounts of his life. To make the community more self-sufficient he dug a channel between Yash Lake and Lake Senno to improve fishing, traveled the forest paths seeking necessities, and, by tradition, made wooden liturgical vessels with his own hands. Owing to the poverty of the house, he obtained a release from taxes on 1 June 1589.
+  - heading: Repose and Veneration
+    body:
+      - The sources differ on the precise date of Jonah's repose, placing it in the late sixteenth or early seventeenth century; the anchor tradition records his foundational work in 1580 and gives him the title of abbot of Yash Lake. One account relates that he died in a cave about a verst and a half from the monastery.
+      - He was buried at the Annunciation monastery he had established, and his tomb became a site associated with healings. He is commemorated in the Orthodox calendar on September 22.
+timeline:
+  - when: "1580"
+    title: Foundation of the monastery
+    body: A wooden church of the Annunciation was built at Yash Lake and eight monks gathered around Jonah.
+  - when: 1 June 1589
+    title: Tax relief granted
+    body: Because of the monastery's poverty, Jonah obtained a release from taxes.
+related:
+  - name: Venerable Alexander, Abbot of Svir
+    note: Jonah is numbered among his disciples; Alexander was the founder of the network of northern Russian monasteries.
+    href: saint/OS-1803
+patronage:
+  - Invoked in connection with monastic life and the founding and upkeep of monastic communities in the Russian north.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2022/09/22/102698-venerable-jonah-abbot-of-yashezersk
+  - https://www.johnsanidopoulos.com/2017/09/saint-jonah-abbot-of-yashezersky-early.html
+generated: "2026-06-20"

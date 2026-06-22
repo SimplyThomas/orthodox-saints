@@ -1,0 +1,65 @@
+id: OS-0949
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Theodora_of_Thessaloniki
+  - https://www.oca.org/saints/lives/2020/04/05/101005-venerable-theodora-of-thessalonica
+  - https://orthodoxwiki.org/Theodora_of_Thessalonica
+lifespan: c. 812 - 892
+liturgicalTitle: Our Venerable Mother Theodora of Thessalonica, the Wonderworker
+overview:
+  - Theodora of Thessalonica was a Byzantine nun born on the island of Aegina around 812 to Christian parents named Anthony and Chrysanthe. She married a nobleman of Aegina and bore a daughter, and after the disruption of Arab raids in the Aegean her family settled in Thessalonica, where, following her husband's death, she entered monastic life.
+  - She lived for many decades in a convent at Thessalonica, where she became known for obedience, fasting, and humility under her abbess. After her repose in 892 her relics were venerated as wonderworking, and a detailed Life composed by Gregory the Presbyter not long afterward became one of the most substantial hagiographies of a holy woman to survive from Byzantium.
+timeline:
+  - when: c. 812
+    title: Born on Aegina
+    body: Theodora was born on the island of Aegina to Christian parents named Anthony and Chrysanthe.
+  - when: 9th century
+    title: Marriage and family
+    body: Reaching adulthood, she married a nobleman of Aegina and gave birth to a daughter. According to the Wikipedia account she had at least three children, two of whom died in infancy; the surviving daughter, Theophiste, was later dedicated to monastic life.
+  - when: 820s
+    title: Flight to Thessalonica
+    body: Arab (Saracen) raids devastated the Aegean coastlands during the ninth century. The OCA account dates the family's relocation to Thessalonica to a Saracen invasion in 823; the Wikipedia account places the emigration possibly around 826, following the death of Theodora's brother, a deacon killed in the raids.
+  - when: "837"
+    title: Entry into monastic life
+    body: After her husband's death, Theodora became a nun in Thessalonica. Her daughter had been dedicated to a monastery, and by tradition the two entered the same community, where Theodora lived in obedience to the abbess.
+  - when: 29 August 892
+    title: Repose
+    body: Theodora died in Thessalonica in 892. After her death her relics were honored as wonderworking, with a fragrant oil reported to stream from her tomb.
+sections:
+  - heading: Family and Early Life
+    body:
+      - The sources agree that Theodora came from a devout family on Aegina. The OCA Synaxarion names her parents as Anthony and Chrysanthe and relates that she loved Christ from a young age before marrying upon reaching adulthood.
+      - The fuller account preserved in her Life describes a family deeply woven into the monastic and clerical life of the period. Her father is said to have taken monastic vows; she had a brother who served as a deacon and was killed in the Arab raids, and a sister who became a nun. Relatives at Thessalonica included an abbess of the convent of St. Luke, an abbess of the convent of St. Stephen, and Anthony the Confessor, later a bishop.
+  - heading: Monastic Life in Thessalonica
+    body:
+      - Following the family's flight from the Aegean to Thessalonica, Theodora dedicated her daughter to the service of God in a monastery. After her husband's death she herself received the monastic tonsure, by tradition entering the same community as her daughter.
+      - She was remembered above all for her obedience, hard work, fasting, and humility, serving the abbess and the sisters without distinction. The OCA account relates that through these labors she pleased God and received the gift of working miracles both during her lifetime and after her death, while the longer biographical tradition emphasizes the quiet, unspectacular virtue of her many years in the cloister.
+  - heading: Relics and Shrines
+    body:
+      - After her repose her body was translated from the communal tomb to a separate sarcophagus, from which, according to her hagiographer, a miraculous oil or myrrh streamed forth. Several posthumous healings were recorded, among them the healing of the hagiographer's own sister.
+      - Her cult endured at Thessalonica through later centuries. The OCA account states that in 1430 her holy relics were destroyed during the Turkish conquest of the city. A church dedicated to St. Theodora survives at Thessalonica, and in August 2010 a tomb tentatively identified as hers was reported near a three-aisled basilica associated with her veneration.
+  - heading: Miracles and Traditions
+    body:
+      - "Historically Documented: Her Life, composed by Gregory the Presbyter not long after her death, runs to roughly twenty thousand words and is described as among the longest hagiographical biographies of a holy woman to survive from Byzantium. It records the streaming of fragrant oil from her relics and a number of healings attributed to her intercession."
+      - "Traditional Accounts: By tradition, when her abbess died and was buried near her, Theodora's relics reportedly shifted to make room for her superior's grave, a sign understood as her continued obedience even after death."
+  - heading: Commemoration
+    body:
+      - Theodora is commemorated on April 5. Her repose on 29 August is also kept, and the sources note that her principal feast was associated with that date before it was adjusted because of the conflict with the Beheading of St. John the Baptist.
+      - She is distinguished in the calendar from another Saint Theodora associated with Thessalonica; the Orthodox sources are careful to note the two commemorations of April 5 and August 29.
+patronage: []
+family:
+  heading: Family
+  figures:
+    - name: Theophiste
+      note: Her daughter, dedicated to monastic life (named in the Wikipedia account); by tradition she entered the same Thessalonican community as her mother.
+    - name: Anthony and Chrysanthe
+      note: Her parents on Aegina, named in the OCA account; her father is said to have later taken monastic vows.
+reading:
+  - heading: Sources
+    items:
+      - title: Life of St. Theodora of Thessalonica
+        author: Gregory the Presbyter
+        type: Hagiography
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,24 @@
+id: OS-2258
+liturgicalTitle: Our Venerable Fathers Athanasios the Iron Staff and Theodosios of Cherepovets
+overview:
+  - Saints Athanasios and Theodosios of Cherepovets were disciples of Saint Sergius of Radonezh who carried the monastic life of the Trinity-Sergius community northward into the wilderness of the Russian north. They settled in the Novgorod region, near Cherepovets, at the confluence of the Yagorba and Sheksna rivers, where amid dense and largely impassable forest they built a church in honor of the Holy Trinity and gathered a community around it. Athanasios is remembered by the byname "the Iron Staff," said to derive from the iron staff he carried.
+  - Very little reliable biographical detail survives for either monk. The monastery's church was dedicated not only to the Holy Trinity but also to Saints Sergius and Nikon of Radonezh, a dedication that has led to the tradition that the two founders had themselves been tonsured at the Trinity-Sergius Monastery. Almost nothing certain has been preserved about Theodosios, and only fragmentary memory of Athanasios remains, because the monastery's written records were destroyed when it was razed during the Time of Troubles.
+  - The two saints reposed in the late fourteenth century — one account places their repose in the year 1388 — and were buried in the monastery's cathedral church. Their relics are said to rest hidden beneath the Resurrection Cathedral at Cherepovets, the church that stands on the site of their foundation. They are commemorated together on November 26.
+sections:
+  - heading: Foundation at Cherepovets
+    body:
+      - Following the pattern of the Radonezh disciples who spread eremitic and cenobitic monasticism across the forests of northern Rus', Athanasios and Theodosios withdrew to an uninhabited stretch of country in the Novgorod lands at the meeting of the Yagorba and Sheksna rivers. There they raised a Holy Trinity church and a monastic settlement grew up around it. The community that began with their labors is associated with the later Resurrection (Voskresensky) Monastery of Cherepovets.
+      - The destruction of the monastery and its archives during the Time of Troubles in the early seventeenth century accounts for how scant the surviving record of the two founders is. What is preserved is largely the memory of their foundation, the dedication of their church, and the byname attached to Athanasios.
+related:
+  - name: St. Sergius of Radonezh
+    note: Their spiritual father; the church they built was dedicated in part to him.
+    href: saint/OS-0042
+  - name: Venerable Nikon, Abbot of Radonezh
+    note: Successor of St. Sergius; co-dedicatee of the founders' church.
+    href: saint/OS-2205
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2021/11/26/108913-saints-athanasios-and-theodosios-of-cherepovets-disciples-of-sai
+  - https://orthodoxwiki.org/November_26
+generated: "2026-06-21"

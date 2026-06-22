@@ -82,6 +82,31 @@ def run_claude(ids: list[str]) -> tuple[str, int]:
     return (proc.stdout or "") + (proc.stderr or ""), proc.returncode
 
 
+def format_profiles(ids: list[str]) -> None:
+    """Prettier-normalize a finished batch's profiles so the frontend lint gate
+    (`prettier --check`) passes — the emit step writes valid but unformatted YAML.
+    Best-effort: a missing/failing prettier must never kill the run. Safe here
+    because it runs only after a batch completes (no subagent writing concurrently)
+    and touches only this batch's existing files."""
+    prettier = ROOT / "node_modules" / ".bin" / "prettier"
+    if not prettier.exists():
+        log("(skip formatting: node_modules/.bin/prettier not found — run `make web-install`)")
+        return
+    paths = [str(p) for sid in ids
+             if (p := ROOT / "src" / "content" / "profiles" / f"{sid}.yaml").exists()]
+    if not paths:
+        return
+    try:
+        r = subprocess.run([str(prettier), "--write", "--log-level", "warn", *paths],
+                           capture_output=True, text=True, cwd=ROOT, timeout=300)
+        if r.returncode != 0:
+            log(f"(prettier returned {r.returncode}: {(r.stderr or '').strip()[:200]})")
+        else:
+            log(f"formatted {len(paths)} profile(s)")
+    except Exception as e:
+        log(f"(prettier failed, profiles left unformatted: {e})")
+
+
 def main() -> int:
     if os.environ.get("ANTHROPIC_API_KEY"):
         log("WARNING: ANTHROPIC_API_KEY is set — headless runs bill metered API rates, "
@@ -106,6 +131,7 @@ def main() -> int:
 
             if etype is None:                       # success
                 waits = 0
+                format_profiles(batch)
                 log(f"batch {n} done")
                 break
 

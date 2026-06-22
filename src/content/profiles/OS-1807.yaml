@@ -1,0 +1,52 @@
+id: OS-1807
+liturgicalTitle: Saint Macarius, Patriarch of Serbia
+lifespan: died 1574
+overview:
+  - "Macarius (Serbian: Makarije Sokolović) was the first primate of the restored Serbian Patriarchate of Peć, serving from 1557 until his retirement around 1570/71, and is venerated as a saint of the Serbian Orthodox Church on August 30. He led the Serbian Church through a period of revival under Ottoman rule, devoting himself to the restoration of monasteries, the spread of education, and the production of church books. He is commonly regarded as the most significant primate of the Serbian Church after Saint Sava."
+  - By tradition he was born in the village of Sokolovići near Višegrad. The Ottoman grand vizier Mehmed-paša Sokolović was his close relative, named in the sources variously as his brother or cousin. According to the accounts, the two were sent as boys to Mileševa Monastery; Mehmed was taken into Ottoman service through the devshirme (child levy) and rose to high office, while Macarius remained in the monastic life. Macarius later went to Mount Athos, where he became igumen of Hilandar Monastery and was raised to the rank of archimandrite.
+  - In 1557 the Patriarchate of Peć, which had lapsed following the Ottoman conquest of Serbia in 1463, was reestablished, with Macarius installed as its first patriarch. The sources relate that Mehmed-paša Sokolović used his influence within the Ottoman state to bring about this restoration, with the patriarchal seat at the Monastery of Peć. As patriarch Macarius bore the title 'Archbishop of Peć and Patriarch of the Serbs and Bulgarians,' the wide jurisdiction of the renewed patriarchate extending over the medieval Serbian lands and a number of additional dioceses.
+sections:
+  - heading: Restoration of the Patriarchate of Peć
+    body:
+      - The Serbian Patriarchate of Peć had ceased to function after the Ottoman conquest of Serbia in 1463, leaving the Church without an independent primatial center. Its reestablishment in 1557 is attributed in the sources to the intervention of Mehmed-paša Sokolović, the Serbian-born grand vizier who was Macarius's kinsman, and Macarius became the first head of the renewed patriarchate.
+      - Under the restored patriarchate the Serbian Church recovered a broad jurisdiction. The sources record that ten new dioceses were created during Macarius's tenure and that the patriarchate's authority extended over the historic Serbian lands; Wikipedia describes a jurisdiction encompassing more than forty eparchies. The renewed Church became a focus for Serbian ecclesiastical and cultural life during the Ottoman period.
+  - heading: Monastic Restoration and Education
+    body:
+      - Macarius gave particular attention to rebuilding monasteries that had fallen into ruin under Ottoman rule and to fostering education. The sources name Banja Monastery as the most important among the houses restored during his patriarchate, and additional monasteries are recorded as having been renewed in this period. He is said to have opened many schools within these monasteries.
+      - The OCA account emphasizes his labors for the spread of education in Serbia and the production of numerous church books during his tenure. This activity is associated by the sources with a broader revival of Serbian culture, arts, and literature during the years of the restored patriarchate.
+  - heading: Succession and Repose
+    body:
+      - When he grew old, and on account of illness, Macarius appointed his nephew, Metropolitan Antonije of Herzegovina (Antonije Sokolović), as his successor in 1570/71; the Holy Synod approved the decision at a session held at Banja Monastery. Macarius died in September 1574 and was soon numbered among the saints of the Serbian Church.
+      - He is commemorated on August 30 (September 12 on the civil calendar), a day on which the Serbian Church also honors the Patriarchs Cyril (Kirilo) and Nikon.
+timeline:
+  - when: "1557"
+    title: First patriarch of the restored Patriarchate of Peć
+    body: Macarius is installed as the first head of the renewed Serbian Patriarchate of Peć, which had lapsed since the Ottoman conquest of 1463.
+  - when: 1570/71
+    title: Appoints his successor
+    body: Aging and ill, he names his nephew Antonije, Metropolitan of Herzegovina, as his successor, with synodal approval at Banja Monastery.
+  - when: "1574"
+    title: Repose
+    body: Macarius dies in September and is soon venerated as a saint.
+related:
+  - name: Saint Sava I, First Archbishop of Serbia
+    note: Founder of the autocephalous Serbian Church; Macarius is reckoned its most important primate after him.
+    href: saint/OS-0449
+family:
+  heading: Family
+  intro: Macarius belonged to the Sokolović family of the Višegrad region and was kin to one of the most powerful figures of the Ottoman state.
+  figures:
+    - name: Mehmed-paša Sokolović
+      note: Ottoman grand vizier and Macarius's close relative (named in the sources as his brother or cousin), whose influence helped restore the Patriarchate of Peć.
+    - name: Metropolitan Antonije of Herzegovina (Antonije Sokolović)
+      note: Macarius's nephew, whom he appointed as his successor in 1570/71.
+patronage:
+  - Associated with the restoration of Serbian church life, monastic renewal, and education under Ottoman rule.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1994/08/30/102439-saint-macarius-patriarch-of-serbia
+  - https://orthodoxwiki.org/Macarius_(Sokolovi%C4%87)_of_Pe%C4%87
+  - https://en.wikipedia.org/wiki/Makarije_Sokolovi%C4%87
+  - https://religion.fandom.com/wiki/Makarije_(Sokolovic)_of_Pec
+generated: "2026-06-20"

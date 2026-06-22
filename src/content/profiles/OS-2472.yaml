@@ -1,0 +1,44 @@
+id: OS-2472
+liturgicalTitle: Our Father among the Saints Alexander, Patriarch of Alexandria
+lifespan: died c. 326
+overview:
+  - "Alexander was Pope and Patriarch of Alexandria in the early fourth century, succeeding Achillas as bishop of the Egyptian see around 313. His episcopate is remembered chiefly for the outbreak of the Arian controversy: a presbyter of Alexandria named Arius began teaching that the Son of God was a created being, not co-eternal and consubstantial with the Father. Alexander became Arius's principal ecclesiastical opponent and led the early defense of the Son's full divinity."
+  - According to the tradition recorded in the synaxarion and the early historians, Alexander first sought to reclaim Arius through admonition, but when Arius persisted he convened the clergy of Alexandria and, at a council of about one hundred bishops, condemned and excommunicated him around the year 320. The dispute spread well beyond Egypt, and it was in part to settle it that the emperor Constantine summoned the First Ecumenical Council at Nicaea in 325.
+  - Alexander attended the Council of Nicaea, bringing with him his deacon Athanasius, who acted as his spokesman against the Arian party and would later succeed him as patriarch. The council confirmed the condemnation of Arius and set forth the confession of the Son as consubstantial with the Father. Alexander died not long after his return to Alexandria, and the Orthodox Church commemorates him on May 29.
+sections:
+  - heading: The Arian Controversy
+    body:
+      - The defining episode of Alexander's episcopate was his confrontation with Arius, a presbyter under his jurisdiction. Around 319 Arius began to teach a subordinationist account of Christ, holding that the Son was made rather than begotten and was not equal to the Father in substance. By tradition Alexander first attempted to recall him by gentler means, but Arius remained obstinate.
+      - "Alexander then summoned the clergy and bishops of his jurisdiction. The sources describe a synod at Alexandria, around 320, which condemned Arius, and a larger gathering of approximately one hundred bishops that placed him under anathema for denying that the Son was co-eternal and similar to the Father in substance. The controversy did not remain local: it divided churches across the East and drew imperial attention."
+  - heading: The Council of Nicaea
+    body:
+      - When Constantine convened the First Ecumenical Council at Nicaea in 325 to resolve the Arian dispute, Alexander attended as bishop of Alexandria. The sources name among his party Potamon of Heraclea and his deacon Athanasius, who served as his spokesman against the Arians. The council confirmed the condemnation of Arius and professed the Son to be consubstantial with the Father, the confession set out in the Nicene Creed.
+      - Several sources relate that the council also entrusted the see of Alexandria with calculating and announcing the date of Pascha, and that the Melitian schism in Egypt was addressed there. Alexander died about five months after the council, having, according to the tradition, recommended Athanasius as his successor.
+timeline:
+  - when: c. 313
+    title: Becomes Patriarch of Alexandria
+    body: Succeeds Achillas as bishop of the Alexandrian see.
+  - when: c. 319
+    title: Arius begins his teaching
+    body: The presbyter Arius teaches that the Son is a created being, sparking the controversy.
+  - when: c. 320
+    title: Condemnation of Arius
+    body: Alexander convenes a council of about one hundred bishops at Alexandria that excommunicates Arius.
+  - when: "325"
+    title: First Ecumenical Council at Nicaea
+    body: Alexander attends with his deacon Athanasius; the council condemns Arius and confesses the Son consubstantial with the Father.
+  - when: c. 326
+    title: Repose
+    body: Alexander dies a few months after Nicaea, reportedly naming Athanasius his successor.
+related:
+  - name: St. Athanasius the Great
+    note: His deacon and spokesman at Nicaea, who succeeded him as Patriarch of Alexandria.
+    href: saint/OS-0024
+status: draft
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Pope_Alexander_I_of_Alexandria
+  - https://www.ewtn.com/catholicism/library/st-alexander-confessor-patriarch-of-alexandria-5171
+  - https://orthodoxwiki.org/Alexander_of_Alexandria
+generated: "2026-06-21"

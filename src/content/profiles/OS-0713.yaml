@@ -1,0 +1,46 @@
+id: OS-0713
+liturgicalTitle: The Holy Hieromartyr Polycarp, Bishop of Smyrna
+lifespan: c. 69 – c. 155
+overview:
+  - Polycarp was bishop of Smyrna in Asia Minor and one of the Apostolic Fathers, counted among the immediate links between the apostolic generation and the early Church. By the testimony of later writers he was a disciple of the Apostle John, whom he is said to have accompanied at times, and his episcopate is dated to the first half of the second century. He is venerated as a hieromartyr, having been put to death for refusing to renounce Christ, and is commemorated on February 23.
+  - According to the synaxarion, Polycarp was orphaned at an early age and raised by a pious widow named Kallista. After her death he distributed his possessions and devoted himself to a chaste life of service to the sick and the poor. He was ordained deacon and then priest by Saint Bucolus, Bishop of Smyrna, and in time succeeded to the see of Smyrna himself, governing the church there with what the tradition describes as apostolic zeal.
+  - Polycarp is the author of an Epistle to the Philippians, the only one of his writings to survive, which was read in the churches of Asia Minor at divine services. The tradition closely associates him with Ignatius of Antioch, his fellow disciple of John; the Martyrdom of Ignatius refers to Polycarp as Ignatius's former fellow disciple and the bishop of Smyrna, and Polycarp's letter forwarded the letters of Ignatius to the Philippian church.
+  - His death, recorded in the early account known as the Martyrdom of Polycarp, is among the earliest detailed martyr narratives to survive. Arrested during persecution and brought to trial, he firmly confessed his faith and was condemned to be burned alive. When the fire did not consume him, he was pierced with a blade, and his body was afterward cremated. The year of his death is variously placed in the mid-150s and the mid-160s by ancient and modern reckonings.
+sections:
+  - heading: Trial and Martyrdom
+    body:
+      - By tradition Polycarp was arrested in old age during a persecution and brought before the authorities, where he firmly confessed his faith in Christ and was condemned to be burned alive. The synaxarion relates that the executioners wished to nail him to the stake, but he declared that God would give him the strength to endure the flames without restraint, and so they merely bound him with ropes.
+      - The account continues that the flames encircled the saint without touching him, arching together over his head like a vault. Seeing that the fire did him no harm, his executioners stabbed him with a dagger; so much blood flowed from the wound that it extinguished the flames, after which his body was cremated. The Martyrdom of Polycarp preserves the saying attributed to him, that for eighty-six years he had served Christ, who had done him no wrong, and that he could not now blaspheme his King and Savior.
+  - heading: The Date of Pascha
+    body:
+      - Later sources record that during the episcopate of Anicetus of Rome, Polycarp travelled to Rome, where the two discussed the observance of Pascha. Polycarp followed the Eastern usage of keeping the feast on the fourteenth of Nisan, a practice known as Quartodeciman, while the Roman church followed a different reckoning. Although they did not reach agreement, they parted in peace and remained in communion.
+timeline:
+  - when: c. 69
+    title: Birth
+    body: Born in the first century in Asia Minor, according to tradition.
+  - when: 2nd century
+    title: Bishop of Smyrna
+    body: Ordained by Saint Bucolus and in time succeeded to the see of Smyrna.
+  - when: c. 155–167
+    title: Martyrdom
+    body: Condemned to be burned and then pierced for refusing to renounce Christ; the year is variously dated.
+related:
+  - name: Apostle and Evangelist John the Theologian
+    note: By tradition, John was Polycarp's teacher, whom he sometimes accompanied.
+    href: saint/OS-0005
+  - name: Saint Bucolus, Bishop of Smyrna
+    note: Ordained Polycarp deacon and priest, and his predecessor in the see of Smyrna.
+    href: saint/OS-0602
+  - name: Hieromartyr Ignatius the God-Bearer, Bishop of Antioch
+    note: Fellow disciple of John; Polycarp forwarded his letters to the Philippians.
+    href: saint/OS-2393
+works:
+  - title: Epistle to the Philippians
+    desc: Polycarp's only surviving writing, read in the churches of Asia Minor at divine services; it forwarded the letters of Ignatius of Antioch to the Philippian church.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Polycarp
+  - https://www.oca.org/saints/all-lives/2009/02/23
+  - https://www.oca.org/saints/lives/2024/02/23/100589-hieromartyr-polycarp-bishop-of-smyrna
+generated: "2026-06-19"

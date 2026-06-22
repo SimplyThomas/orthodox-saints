@@ -1,0 +1,57 @@
+id: OS-2251
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Pope_Clement_I
+  - https://orthodoxwiki.org/Clement_of_Rome
+  - https://www.newadvent.org/cathen/04012c.htm
+  - https://www.oca.org/saints/lives/2015/11/25/103346-hieromartyr-clement-the-pope-of-rome
+lifespan: 1st century (died c. 100)
+liturgicalTitle: The Holy Hieromartyr Clement, Pope of Rome
+overview:
+  - Clement of Rome was a bishop of Rome in the late first century and is numbered among the Apostolic Fathers, the earliest generation of Christian writers who stood in direct continuity with the Apostles. Eastern Orthodox tradition venerates him as a hieromartyr and commemorates him on November 25.
+  - He is best known for his Epistle to the Corinthians, commonly called First Clement, written about A.D. 96 to a divided Corinthian church. It is among the oldest surviving Christian documents outside the New Testament and contains an early affirmation of apostolic succession.
+  - By a later tradition Clement was exiled to the Crimea under the Emperor Trajan and martyred by being cast into the sea tied to an anchor. The anchor became his enduring emblem, and relics later associated with him were brought to Rome and enshrined in the basilica that bears his name.
+timeline:
+  - when: c. 88
+    title: Bishop of Rome
+    body: Clement is named bishop of Rome around this time, holding the office until roughly the end of the century. Sources disagree on his exact place in the succession, listing him variously as the first, second, third, or fourth bishop after the Apostle Peter.
+  - when: c. 96
+    title: Epistle to the Corinthians
+    body: Clement writes his letter to the church at Corinth to address a dispute in which certain presbyters had been deposed, appealing for repentance, unity, and obedience. The letter is dated to approximately A.D. 96-99, likely during or just after the persecution under Domitian.
+  - when: c. 100
+    title: Death
+    body: Clement dies around the turn of the second century. Early sources suggest a natural death, while a later tradition holds that he was exiled and martyred.
+  - when: c. 868
+    title: Relics brought to Rome
+    body: Saint Cyril is recorded as finding bones and an anchor in a mound in the Crimea, which he identified as the relics of Clement and brought to Rome, where Pope Adrian II deposited them in the altar of the Basilica of San Clemente.
+sections:
+  - heading: Place in the Apostolic Succession
+    body:
+      - "Clement belongs to the first generation of Roman bishops after the Apostles. Ancient writers portray him as a contemporary of Peter and Paul: Tertullian, writing around the year 199, reported the Roman claim that Clement was ordained by Peter himself, while Saint Irenaeus noted that Clement had seen the blessed Apostles and conversed with them. Eusebius described him as the third bishop of Rome and as a co-laborer of Paul."
+      - His exact position in the succession was already uncertain in antiquity. Most early evidence places him as the fourth pope, following Linus and Cletus or Anacletus, but other early lists name him as the first, second, or third successor of Peter. He is regarded as the first of Peter's successors of whom anything definite is known.
+  - heading: The Epistle to the Corinthians
+    body:
+      - Clement's letter to the Corinthians, known as First Clement, was written about A.D. 96 in response to a schism at Corinth in which certain presbyters had been deposed and the church drawn into sedition against its rulers. The letter appeals for repentance, unity, and obedience, drawing on biblical examples and emphasizing hierarchical order and the apostolic succession of bishops and deacons.
+      - It is one of the oldest extant Christian documents outside the New Testament and is counted among the earliest affirmations of the principle of apostolic succession. A second letter long attributed to Clement, known as Second Clement, was later judged to be a homily of unknown authorship rather than a genuine work of his.
+  - heading: Exile and Martyrdom
+    body:
+      - Some early sources indicate that Clement died a natural death. A later tradition, attested in apocryphal accounts no older than the fourth century and developed further by the ninth century, holds that he was banished from Rome to the Chersonesus, in the Crimea, during the reign of the Emperor Trajan, and that he was put to death by being tied to an anchor and thrown into the sea.
+      - Clement was first explicitly named a martyr by Rufinus around the year 400. Historians have noted that this martyrdom tradition may rest on confusion with the consul Titus Flavius Clemens, who was put to death under Domitian, and that for the identification of his relics the anchor appears to be the principal evidence.
+  - heading: Relics and Veneration
+    body:
+      - Around A.D. 868, Saint Cyril, one of the missionary brothers to the Slavs, is recorded as discovering in a Crimean mound bones buried together with an anchor, which he took to be the relics of Clement. These were carried to Rome and deposited by Pope Adrian II in the altar of the Basilica of San Clemente, where they are enshrined.
+      - Clement is commemorated on November 25 in the Russian Orthodox tradition and on November 23 as a pope and martyr in the Roman Catholic Church, the Anglican Communion, and the Lutheran Church. As a saint of the undivided first-century Church, he is honored across these traditions.
+works:
+  - title: Epistle to the Corinthians (First Clement)
+    desc: A letter to the divided church at Corinth calling for repentance, unity, and obedience to its presbyters; one of the oldest Christian writings outside the New Testament and an early witness to apostolic succession.
+    date: c. 96
+patronage:
+  - Mariners and those connected with the sea (by association with the anchor of his martyrdom)
+reading:
+  - heading: Primary text
+    items:
+      - title: First Epistle of Clement to the Corinthians
+        author: Clement of Rome
+        type: Apostolic Father
+status: draft
+generated: "2026-06-20"

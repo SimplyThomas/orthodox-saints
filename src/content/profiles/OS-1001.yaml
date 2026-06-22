@@ -1,0 +1,38 @@
+id: OS-1001
+liturgicalTitle: Our Father among the Saints Ephraim the Great, Bishop of Atsquri
+lifespan: 9th century
+overview:
+  - Ephraim the Great was a Georgian hierarch of the ninth century, a disciple of Saint Grigol of Khandzta, who was consecrated bishop of Atsquri and administered that diocese for forty years. He labored for the independence of the Georgian Church and is honored as one of the most significant Georgian churchmen of his age, endowed by tradition with the gifts of prophecy, wonderworking, and healing. His principal feast is kept on April 28 in the Georgian Church, while the OCA commemorates him on April 15.
+  - Formed in the monastic revival of Tao-Klarjeti under Grigol of Khandzta, Ephraim is remembered above all for advancing the autocephalous standing of the Georgian Church, securing a blessing from Antioch for the preparation of holy chrism (myron) at Mtskheta. By tradition his relics continued to heal those who came to them.
+timeline:
+  - when: 9th century
+    title: Discipleship under Grigol of Khandzta
+    body: Ephraim was a disciple of Saint Grigol of Khandzta, the leading figure of the ninth-century Georgian monastic revival in the region of Tao-Klarjeti.
+  - when: 9th century
+    title: Consecration as Bishop of Atsquri
+    body: Ephraim was consecrated bishop of Atsquri and governed the diocese for forty years, becoming one of the foremost churchmen of Georgia in the eighth and ninth centuries.
+  - when: 9th century
+    title: Labor for the Georgian Church's independence
+    body: He worked to strengthen the autocephalous standing of the Georgian Church, securing from Antioch a blessing for the Church of Georgia to prepare its own holy chrism at Mtskheta.
+sections:
+  - heading: Life and Episcopate
+    body:
+      - Ephraim was a Georgian hierarch of the ninth century and one of the most important figures of the Georgian Church in the eighth and ninth centuries. He was a disciple of Saint Grigol of Khandzta (759-861), the central figure of the Georgian monastic revival that flourished in the region of Tao-Klarjeti and produced a network of monasteries devoted to strict ascetic discipline and to the copying of manuscripts. From this milieu Ephraim was raised to the episcopate, being consecrated bishop of Atsquri, a see he administered for forty years.
+  - heading: Work for the Georgian Church
+    body:
+      - Ephraim is chiefly remembered for advancing the independence of the Georgian Church. The tradition records that he obtained from the Church of Antioch a blessing for Georgia to prepare its own holy chrism (myron) at Mtskheta, the ancient ecclesiastical center of the country — a mark of autocephalous standing. He is described as endowed with the gifts of prophecy, wonderworking, and healing, and by tradition his relics continued to bring healing to those who venerated them.
+  - heading: Veneration
+    body:
+      - Ephraim's principal feast is observed on April 28 in the Georgian Church; the Orthodox Church in America commemorates him on April 15. He is counted among the great hierarchs of the Georgian tradition.
+patronage:
+  - The Georgian Church
+related:
+  - name: Saint Grigol (Gregory) of Khandzta
+    note: His teacher, leader of the ninth-century Georgian monastic revival
+    external: https://en.wikipedia.org/wiki/Grigol_of_Khandzta
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2021/04/15
+  - https://en.wikipedia.org/wiki/Grigol_of_Khandzta
+status: draft
+generated: "2026-06-19"

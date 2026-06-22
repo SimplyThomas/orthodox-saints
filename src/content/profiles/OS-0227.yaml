@@ -1,0 +1,35 @@
+id: OS-0227
+liturgicalTitle: The Holy Martyrs Juventinus and Maximinus
+lifespan: died c. 363
+overview:
+  - Juventinus and Maximinus were soldiers of the imperial guard of the emperor Julian, called the Apostate, martyred at Antioch in the early 360s. They are remembered for openly rebuking the emperor's measures against the Christians and for refusing to renounce their faith.
+  - Saint John Chrysostom, who served at Antioch a generation later, preached a panegyric in their honor, which preserves the memory of their deaths. They are commemorated in the East on September 5 and again on October 9, and in the West on January 25.
+timeline:
+  - when: 361-363
+    title: Service under Julian
+    body: The two were members of the imperial guard during the reign of Julian, who sought to restore paganism and restricted Christian practice at Antioch.
+  - when: c. 363
+    title: Rebuke at the banquet
+    body: At a banquet the soldiers spoke against the emperor's laws against the Christians, dismayed at the desecration of holy things and the contamination of food and water with the blood of pagan sacrifice.
+  - when: c. 29 January 363
+    title: Martyrdom
+    body: Summoned and refusing to recant or sacrifice, they were stripped of their property, beaten, and beheaded. Chrysostom records that they were put to death at night on a charge of treason.
+sections:
+  - heading: Soldiers under Julian
+    body:
+      - "Juventinus and Maximinus - also given in the sources as Juventius and Maximus - were soldiers of the imperial guard of the emperor Julian. Before launching his campaign against the Sassanid Persians, Julian moved against the Christians of Antioch: he forbade the veneration of Christian relics and ordered that food sold in the marketplace and water drawn from the wells be contaminated with the blood of pagan sacrifices."
+      - The two soldiers, distressed at the desecration of holy things, spoke openly at a banquet against the emperor's anti-Christian laws. Their words were reported, and they were summoned before Julian.
+  - heading: Martyrdom and Commemoration
+    body:
+      - Brought before the emperor, Juventinus and Maximinus refused to take back what they had said or to offer sacrifice to the idols. According to the Roman Martyrology, Julian had them stripped of their property, beaten, and beheaded. John Chrysostom notes that they were executed in the middle of the night on a charge of high treason, an attempt to keep them from being honored as martyrs for the faith. They are reckoned to have died about the 29th of January, 363.
+      - Saint John Chrysostom composed a panegyric in their honor, the principal early witness to their cult. They are commemorated in the Eastern Church on September 5 and on October 9, and in the West on January 25. Major contemporary historians, including Ammianus Marcellinus, Gregory of Nazianzus, and Socrates of Constantinople, do not mention them.
+related:
+  - name: John Chrysostom
+    note: Archbishop of Constantinople who, while at Antioch, preached a panegyric preserving the memory of the two martyrs.
+patronage: []
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Juventinus_and_Maximinus
+  - https://en.wikipedia.org/wiki/September_5_(Eastern_Orthodox_liturgics)
+generated: "2026-06-19"

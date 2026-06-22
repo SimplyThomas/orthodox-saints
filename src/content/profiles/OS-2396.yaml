@@ -1,0 +1,37 @@
+id: OS-2396
+liturgicalTitle: Our Father among the Saints Daniel II, Archbishop of Serbia
+lifespan: died 1337/1338
+overview:
+  - Saint Daniel II was a fourteenth-century Archbishop of Serbia, remembered as a monastic father, church builder, and one of the principal historians of the medieval Serbian Church. By tradition the only son of wealthy and prominent parents, he served for a time as a close associate of the Serbian king Stephen Uros II Milutin before renouncing a secular career to become a monk. He is commemorated on December 20.
+  - After receiving monastic tonsure at the monastery of Saint Nicholas at Konchul, near the River Ibar, Daniel was ordained presbyter and appointed igumen of the Serbian monastery of Hilandar on Mount Athos. During his time on Athos the holy mountain suffered raids; the synaxarion relates that he endured siege and hunger, and the Serbian tradition records that he was compelled to take up the defense of the monastery against the attacking forces. He afterward held a succession of hierarchical offices in his homeland, including the see of Banja and the headship of the monastery of Saint Stephen, before being summoned from Athos and elected Archbishop of Serbia in 1325, consecrated on the Feast of the Elevation of the Cross.
+  - As archbishop Daniel was an energetic builder and reconciler. He completed a cathedral at Banja in honor of Saint Stephen, and in 1335 raised a church at Dechani dedicated to the Ascension of the Lord, accounted one of the finest Christian monuments in Serbia. He labored to reconcile feuding Serbian rulers during a period of internecine conflict. His tenure was remembered for non-covetousness, care for the needs of the Church and its flock, and a reputation for the gift of wonderworking and healing. After fourteen years as archbishop he reposed on December 19, in 1337 (some accounts give 1338).
+sections:
+  - heading: Historian of the Serbian Church
+    body:
+      - Saint Daniel is especially significant for his literary labors. He compiled an account of the Serbian past, known in the Slavonic tradition as the 'Rodoslov' and in English as the 'Lives of the Kings and Archbishops of Serbia.' Through this collection of biographical and historical accounts, many details concerning the rulers of medieval Serbia and the members of the Nemanjic dynasty, as well as the archpastors of the Serbian Church, have been preserved.
+      - The work records, among other things, accounts of figures such as Queen Jelena (Helen). Daniel's compilation is regarded as a foundational source for the medieval history of the Serbian lands, and it remains one of the chief reasons his memory is honored beyond his own diocese.
+timeline:
+  - when: "1325"
+    title: Elected Archbishop of Serbia
+    body: Summoned from Mount Athos, Daniel was elected Archbishop of Serbia and consecrated on the Feast of the Elevation of the Cross.
+  - when: "1335"
+    title: Church at Dechani
+    body: He built a church at Dechani in honor of the Ascension of the Lord, accounted one of the finest Christian monuments in Serbia.
+  - when: Dec 19, 1337
+    title: Repose
+    body: After fourteen years as archbishop he reposed; some accounts date his death to 1338.
+related:
+  - name: Saint Stephen Milutin of Serbia
+    note: Serbian king to whom Daniel was a close associate before his monastic life
+    href: saint/OS-2116
+  - name: Saint Helen of Serbia
+    note: Queen of the Nemanjic dynasty whose life Daniel recorded in his historical work
+    href: saint/OS-2118
+patronage:
+  - Invoked in connection with church builders, historians and chroniclers of the Church, and monastic leadership.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2006/12/20/103597-saint-daniel-ii-archbishop-of-serbia
+  - https://orthodoxwiki.org/Daniel_II_of_Pec
+generated: "2026-06-20"

@@ -1,0 +1,39 @@
+id: OS-0291
+liturgicalTitle: Our Venerable Fathers Symeon and Amphilochius, Abbots of Pângărați
+overview:
+  - Symeon and Amphilochius were two Moldavian monastics associated with the Pângărați Monastery in the region of Neamț, Romania, who lived roughly a century apart. Symeon, the elder, established the original hermitage in the early 15th century, while Amphilochius governed the monastery as abbot in the 16th century. Although they were never contemporaries, the Romanian Orthodox Church commemorates them together on September 7, the date assigned at their canonization in 2008.
+  - Symeon was born early in the 15th century in a village near Piatra Neamț during the reign of Prince Alexander the Good. He entered the Bistrița Monastery in his youth, and in 1432 withdrew with two disciples to the left bank of the Pângărați creek, where he founded a hermitage. The community was known as 'Simeon's Skete' until 1508. By tradition he was credited with gifts of healing and prophecy. During a Turkish incursion in 1476 he moved to the Cășva Monastery, where he died that autumn.
+  - Amphilochius was born in 1487 in Țara de Sus, in the upper part of Moldavia. He began his monastic life at the Moldovița Monastery and came to Pângărați in 1508, where the community elected him abbot. According to tradition he led the monastery for fifty-six years and was remembered as a capable writer given to fasting and patience. He oversaw the construction of a stone church to replace an earlier wooden one. In 1566 he returned to Moldovița, where he lived as a hermit under the name Enoch, dying in 1570.
+sections:
+  - heading: Foundation of Pângărați
+    body:
+      - The origins of the Pângărați Monastery are traced to Symeon, who in 1432 settled with two disciples on the Pângărați creek and gathered a small ascetic community. The settlement was known as 'Simeon's Skete' for much of the 15th century. The foundation is connected in tradition with the patronage of Prince Stephen the Great of Moldavia, who supported the monastery and who, according to the tradition, enshrined Symeon's relics in 1484, with portions placed in the citadel of Suceava.
+  - heading: Canonization
+    body:
+      - On March 6, 2008, the Holy Synod of the Romanian Orthodox Church formally canonized Symeon and Amphilochius as venerable fathers, fixing their joint commemoration on September 7. The pairing reflects their shared association with Pângărați rather than a common lifetime, since the two were separated by approximately a century.
+timeline:
+  - when: "1432"
+    title: Founding of the hermitage
+    body: Symeon withdrew with two disciples to the Pângărați creek and established a hermitage.
+  - when: "1476"
+    title: Death of Symeon
+    body: Symeon moved to the Cășva Monastery during a Turkish invasion and died there in the autumn of that year.
+  - when: "1508"
+    title: Amphilochius arrives at Pângărați
+    body: Amphilochius came from Moldovița to Pângărați, where he was elected abbot.
+  - when: "1570"
+    title: Death of Amphilochius
+    body: After retiring to Moldovița as a hermit named Enoch in 1566, Amphilochius died and was buried there.
+  - when: "2008"
+    title: Canonization
+    body: The Holy Synod of the Romanian Orthodox Church canonized both fathers, setting their feast on September 7.
+related:
+  - name: Saint Stephen the Great of Moldavia
+    note: Prince of Moldavia who supported the Pângărați foundation and, by tradition, enshrined Symeon's relics in 1484.
+    href: saint/OS-1455
+status: draft
+sources:
+  - Synaxarion
+  - https://basilica.ro/en/pious-saints-simeon-and-amphilochius-of-pangarati/
+  - https://www.johnsanidopoulos.com/2017/09/saints-and-feasts-of-september-7.html
+generated: "2026-06-20"

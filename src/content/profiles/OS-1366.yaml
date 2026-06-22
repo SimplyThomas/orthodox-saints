@@ -1,0 +1,50 @@
+id: OS-1366
+status: draft
+liturgicalTitle: Our Father among the Saints Michael, First Metropolitan of Kiev
+lifespan: died 992
+overview:
+  - Saint Michael is venerated as the first Metropolitan of Kiev, the hierarch who organized the Church among the people of Rus' in the years immediately following their baptism under Prince Vladimir in 988. According to tradition he arrived at Korsun in 989 with clergy who had accompanied the prince, and from there set about establishing the new Church across the recently converted land. He is commemorated on June 15, the day held to be his repose, and on September 30, associated with the transfer of his relics.
+  - Accounts of his origin differ. The Joakimov Chronicle describes him as Syrian by birth, while other sources variously identify him as Bulgarian, Serbian, or Greek. By tradition the Ecumenical Patriarch Nicholas II Chrysoberges selected him to lead the Church of Rus' on account of his wisdom and his manner of life, sending him accompanied by several bishops and a body of clergy. He is described in the sources as a wise and gentle, though also strict, hierarch.
+  - As metropolitan, Michael labored to preach the Gospel throughout the newly enlightened land, baptizing and teaching the people and founding the first churches and religious schools. The tradition relates that he oversaw the baptism of the population of Kiev at the Dnieper, then carried his work to Novgorod and to Rostov, where pagan idols were destroyed and clergy ordained. In Rostov he is said to have established the first wooden church in honor of the Dormition of the Most Holy Theotokos and to have installed Theodore the Greek as bishop there.
+  - Saint Michael died in 992 and was buried in the Desyatin, or Tithe, church of the Most Holy Theotokos in Kiev. By tradition his relics were transferred around the year 1103 to the Near (Antoniev) Cave of the Kiev Caves Lavra; on October 1, 1730, they were moved to the Great Church of the Caves. The historical record concerning him is fragmentary, and the foundational accounts of his life rest on later chronicle tradition rather than contemporary documentation.
+sections:
+  - heading: Foundations attributed to him
+    body:
+      - Beyond the first church at Rostov, tradition credits Saint Michael with founding monastic houses near the seat of the new metropolitanate. He is traditionally accounted as the founder of the Archangel Michael's Golden-Domed Monastery in Kiev and of the Mezhyhirskyi Monastery near Vyshhorod, the latter settled with Greek monks. As with much in his biography, these foundations are reported in the received tradition rather than fixed by contemporary record, and the sources hedge accordingly.
+  - heading: Relics and Veneration
+    body:
+      - Saint Michael was first buried in the Tithe church in Kiev. About the year 1103 his relics were transferred to the Antoniev (Near) Cave of the Kiev Caves Lavra, under the Igumen Saint Theoctistus, who later became Bishop of Chernigov, and on October 1, 1730 they were moved into the Great Church of the Caves. He was formerly commemorated on September 2 together with Saints Anthony and Theodosius of the Caves, and was canonized by the Russian Orthodox Church in the eighteenth century.
+timeline:
+  - when: "988"
+    title: Baptism of Rus'
+    body: Prince Vladimir is baptized and the Christianization of Rus' begins, the setting for Michael's mission.
+  - when: "989"
+    title: Arrival at Korsun
+    body: By tradition Michael arrives at Korsun with clergy following the prince's baptism.
+  - when: "990"
+    title: Mission to Novgorod
+    body: The tradition relates that his work extended to Novgorod, with churches established and clergy ordained.
+  - when: "992"
+    title: Repose
+    body: Michael dies and is buried in the Tithe church of the Theotokos in Kiev.
+  - when: c. 1103
+    title: Translation of relics
+    body: His relics are transferred to the Near Cave of the Kiev Caves Lavra.
+  - when: "1730"
+    title: Relics moved again
+    body: On October 1 his relics are moved to the Great Church of the Caves.
+related:
+  - name: St. Vladimir, Enlightener of Rus'
+    note: The prince whose baptism in 988 inaugurated the mission Michael led.
+    href: saint/OS-0040
+  - name: St. Theodore, First Bishop of Rostov and Suzdal
+    note: The Greek-born bishop whom tradition says Michael installed at Rostov.
+    href: saint/OS-1313
+patronage:
+  - Honored in the Russian tradition as the founding hierarch of the Church of Rus' and an enlightener of the newly-baptized people.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1951/09/30/102820-saint-michael-first-metropolitan-of-kiev
+  - https://www.johnsanidopoulos.com/2017/09/saint-michael-first-metropolitan-of.html
+  - https://en.wikipedia.org/wiki/Michael_I_of_Kiev
+generated: "2026-06-20"

@@ -1,0 +1,43 @@
+id: OS-0357
+liturgicalTitle: Our Father among the Saints Autbert, Bishop of Avranches
+lifespan: died c. 720
+overview:
+  - Saint Autbert (also rendered Aubert) was a bishop of Avranches in Gaul during the early eighth century and is venerated as the founder of the monastery of Mont-Saint-Michel on the Normandy coast. He lived during the reign of the Frankish king Childebert III (695-711) and, by tradition, was born into a noble family. He was chosen for the episcopal office of Avranches on account of his reputed wisdom and piety.
+  - Autbert is best remembered for establishing, in 708-709, an oratory dedicated to the Archangel Michael on the rocky tidal island then known as Mont Tombe, at the mouth of the river Couesnon. That foundation grew over the centuries into the great abbey and pilgrimage site of Mont-Saint-Michel. He is commemorated on September 10 and is venerated as a saint in both the Eastern Orthodox and Roman Catholic traditions.
+timeline:
+  - when: 695-711
+    title: Bishop of Avranches
+    body: Autbert served as bishop of Avranches during the reign of the Frankish king Childebert III, having been chosen for the office for his wisdom and piety.
+  - when: "708"
+    title: Vision of the Archangel Michael
+    body: According to tradition, the Archangel Michael appeared to Autbert and instructed him to build an oratory on the rocky tidal island of Mont Tombe, at the mouth of the river Couesnon.
+  - when: October 16, 709
+    title: Dedication of the oratory
+    body: The oratory dedicated to Saint Michael was consecrated on the granite outcrop, founding what would become Mont-Saint-Michel.
+  - when: c. 720
+    title: Repose
+    body: Autbert died around 720 and was, by report, buried at the oratory he had founded.
+sections:
+  - heading: The Founding of Mont-Saint-Michel
+    body:
+      - Before Autbert's foundation, the site was a granite tidal island called Mont Tombe (from the Latin tumba, 'tomb'). The tradition relates that the Archangel Michael appeared to Autbert three times, instructing him to raise an oratory on the rock; on the third visitation the archangel is said to have touched the bishop on the head. Following these instructions, Autbert established an oratory dedicated to Saint Michael, which was consecrated on October 16, 709.
+      - The modest foundation became an important monastic center and pilgrimage destination. The mount was made definitively part of Normandy in 933 when William I Longsword annexed the Cotentin Peninsula, and it appears in the Bayeux Tapestry. Over the centuries the site developed into one of France's most iconic structures and is today a UNESCO World Heritage Site.
+  - heading: Relics & Shrines
+    body:
+      - Autbert was reportedly buried at the oratory he founded. His skull is preserved in the Saint-Gervais Basilica in Avranches, where it forms the centerpiece of the church's treasury; the relic is marked by an opening attributed in tradition to the archangel's touch. Scholars have noted that the skull is probably a prehistoric trepanned cranium and that the opening may reflect historical trepanation rather than the legendary account. The Church of Saint-Gervais in Avranches serves as his principal shrine and a place of pilgrimage.
+patronage:
+  - Mont-Saint-Michel and the city of Avranches
+reading:
+  - heading: Reference
+    items:
+      - title: Aubert of Avranches
+        type: encyclopedia
+      - title: Mont-Saint-Michel
+        type: encyclopedia
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Aubert_of_Avranches
+  - https://en.wikipedia.org/wiki/Mont-Saint-Michel
+  - https://en.wikipedia.org/wiki/Avranches
+generated: "2026-06-20"

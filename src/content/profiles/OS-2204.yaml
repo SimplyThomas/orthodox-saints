@@ -1,0 +1,59 @@
+id: OS-2204
+liturgicalTitle: Our Father among the Saints Gregory, Bishop of Neocaesarea, the Wonderworker
+lifespan: c. 213 - c. 270
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Gregory_Thaumaturgus
+  - https://orthodoxwiki.org/Gregory_the_Wonderworker
+  - https://www.newadvent.org/cathen/07015a.htm
+overview:
+  - Gregory the Wonderworker, also called Gregory Thaumaturgus or Gregory of Neocaesarea, was a third-century bishop of Pontus in Asia Minor. Born around AD 213 into a wealthy pagan family of Neocaesarea, he was originally named Theodore and came to Christianity as a young man through his studies under the theologian Origen.
+  - "As Bishop of Neocaesarea he became one of the most consequential missionaries of the pre-Nicene Church: tradition records that he began his episcopate with only seventeen Christians in the city and that, by his death around AD 270, only seventeen pagans remained. His reputation for miracles earned him the epithet Thaumaturgus, 'the Wonderworker.'"
+timeline:
+  - when: c. 213
+    title: Birth at Neocaesarea
+    body: Born into a wealthy pagan family of Neocaesarea in Pontus (Asia Minor) and originally named Theodore. He was unfamiliar with Christianity until after his father's death, when he was about fourteen.
+  - when: c. 231-238/239
+    title: Studies under Origen
+    body: While accompanying his sister to Caesarea in Palestine, intending with his brother Athenodorus to study law at Berytus (Beirut), he encountered Origen, head of the Catechetical School of Alexandria. He remained under Origen's instruction for some seven years, studying philosophy and then theology, and was gradually won over to the Christian faith.
+  - when: c. 238/239
+    title: Consecration as bishop
+    body: Returning to Pontus, Gregory was consecrated Bishop of Neocaesarea by Phaedimus, Bishop of Amasea and metropolitan of Pontus. Sources record that he was forty years old at his consecration and that he governed the diocese for thirty years.
+  - when: c. 270
+    title: Repose
+    body: He died around AD 270 in Pontus. His feast is kept on November 17.
+sections:
+  - heading: Conversion and Education
+    body:
+      - Gregory grew up in a prominent pagan household and, according to the sources, knew nothing of Christianity until after his father's death, when he was about fourteen. He and his brother Athenodorus set out for the law school of Berytus (Beirut), but a journey accompanying their sister to Caesarea in Palestine brought them into contact with Origen, then head of the Catechetical School of Alexandria.
+      - The brothers abandoned their legal studies to learn from Origen. Gregory remained under his instruction for roughly seven years, beginning with philosophy and adding theology, and was gradually drawn to Christianity. On departing he delivered a farewell oration in Origen's honour, the Oratio Panegyrica, which is described as the first attempt at biography in Christian literature.
+  - heading: Episcopate at Neocaesarea
+    body:
+      - Returning to his native Pontus, Gregory was consecrated Bishop of Neocaesarea by Phaedimus, Bishop of Amasea and metropolitan of Pontus. The sources state that he was forty years old at his consecration and ruled his diocese for thirty years.
+      - "His episcopate is remembered chiefly for the dramatic expansion of the Church in Neocaesarea: tradition holds that he began with only seventeen Christians in the city, and that at his death only seventeen pagans remained. His Canonical Epistle (Epistola Canonica) bears witness to the organization of the local church amid the Gothic invasions of the period."
+  - heading: The Vision and the Symbol of Faith
+    body:
+      - According to the biography written by Gregory of Nyssa, before his consecration Gregory received an apparition of the Theotokos and the Apostle John, who taught him concerning the Holy Trinity. John is said to have dictated to him a creed or formula of the faith, which Gregory wrote down; this Exposition of the Faith, dated to roughly 260-270, affirms the eternal, immutable Trinity.
+      - Orthodox tradition holds this symbol of faith in high regard as a foundation for Trinitarian teaching; OrthodoxWiki notes that it was later examined and affirmed at the First Ecumenical Council in 325.
+  - heading: Writings
+    body:
+      - Several works survive under Gregory's name. The Oratio Panegyrica is his farewell address to Origen. The Epistola Canonica (Canonical Epistle) addresses church discipline and organization during the Gothic invasions. The Exposition of the Faith (Ekthesis tes pisteos) sets out his Trinitarian doctrine, emphasizing the eternity, equality, immortality, and perfection of the three divine Persons. Also attributed to him are the Epistola ad Philagrium, which survives in Syriac, and a Metaphrasis (paraphrase) of Ecclesiastes.
+  - heading: Later Tradition
+    body:
+      - The Catholic Encyclopedia records traditional accounts of miracles credited to Gregory, including the moving of a mountain, the drying up of a lake or marsh, and the controlling of the flooding river Lycus; such wonders are the source of his title Thaumaturgus, 'the Wonderworker.'
+      - He is also recorded as having likely taken part in the Second Council of Antioch convened against the heresiarch Paul of Samosata. In later piety he came to be invoked as a patron against earthquakes, floods, and desperate or impossible causes.
+patronage:
+  - Invoked against earthquakes
+  - Invoked against floods
+  - Invoked in desperate and impossible causes
+works:
+  - title: Oratio Panegyrica (Panegyric to Origen)
+    desc: A farewell oration in honour of his teacher Origen, described as the first attempt at biography in Christian literature.
+  - title: Epistola Canonica (Canonical Epistle)
+    desc: A letter on church discipline and organization, bearing witness to conditions during the Gothic invasions.
+  - title: Exposition of the Faith (Ekthesis tes pisteos)
+    desc: A statement of Trinitarian doctrine, dated c. 260-270, emphasizing the eternity and equality of the three divine Persons.
+  - title: Metaphrasis of Ecclesiastes
+    desc: A paraphrase of the book of Ecclesiastes attributed to Gregory.
+status: draft
+generated: "2026-06-20"

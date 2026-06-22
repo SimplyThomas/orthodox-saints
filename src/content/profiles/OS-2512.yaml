@@ -1,0 +1,62 @@
+id: OS-2512
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Saint_Gall
+  - https://www.newadvent.org/cathen/06346b.htm
+lifespan: c. 550 - c. 645
+liturgicalTitle: Our Venerable Father Gall, Hermit and Missionary of Alemannia
+overview:
+  - Gall was a monk and missionary, traditionally counted among the Irish disciples of Saint Columbanus, who labored in Alemannia in the early seventh century. By tradition an Irishman by birth, he is remembered chiefly for the eremitic settlement he established near the source of the River Steinach, southwest of Lake Constance, which after his death grew into the celebrated Abbey of Saint Gall and the nucleus of the Swiss canton and city that bear his name.
+  - Having shared in the continental mission of Columbanus from Luxeuil to the upper Rhine, Gall parted from his master in 612 and remained among the Alemanni of present-day eastern Switzerland, where he was esteemed as a preacher and gathered a small community of monks. He twice declined high office — the episcopal see of Constance and the abbacy of Luxeuil — preferring his solitary life, and reposed at Arbon at a great age. His feast is kept on 16 October.
+timeline:
+  - when: c. 550
+    title: Birth
+    body: By the account of his ninth-century biographers, Gall is born of Irish stock around the year 550; some modern historians have questioned an Irish birthplace, but the traditional record names Ireland as his origin.
+  - when: Youth
+    title: Formation at Bangor
+    body: As a young man Gall studies under Comgall at Bangor Abbey in Ireland, a renowned center of Christian learning, where Columbanus is also a student; the two become companions.
+  - when: c. 589–590
+    title: Departure for the continent
+    body: Gall accompanies Columbanus and twelve other companions from Ireland to mainland Europe, settling first at Luxeuil in Gaul.
+  - when: "610"
+    title: Journey up the Rhine
+    body: When Columbanus faces exile, Gall travels with him northward up the Rhine to Bregenz.
+  - when: "612"
+    title: Remaining in Alemannia
+    body: When Columbanus continues on to Italy, Gall remains behind; by the Wikipedia account he is detained by illness and cared for at Arbon. He then settles as a hermit in the forests near the source of the River Steinach, southwest of Lake Constance.
+  - when: c. 625
+    title: Office declined
+    body: Monks of Luxeuil ask Gall to lead their monastery after the death of Eustasius, but he declines, preferring his solitary life despite his advanced age; he had earlier refused the vacant see of Constance.
+  - when: c. 645–650
+    title: Repose at Arbon
+    body: Gall dies at Arbon at about ninety-five years of age. His remains are afterward transferred to his monastic settlement.
+  - when: "719"
+    title: Foundation of the abbey
+    body: Gall's hermitage develops into the Abbey of Saint Gall, formally established in 719 with Saint Othmar as its first abbot; it becomes the nucleus of the Canton of St Gallen.
+sections:
+  - heading: Companion of Columbanus
+    body:
+      - Gall's life is bound up with that of Saint Columbanus, under whom he had trained at Bangor. Around 589 or 590 he was among the twelve companions who crossed from Ireland to the European continent with Columbanus, and the band settled first at Luxeuil in Gaul.
+      - "When Columbanus was driven into exile in 610, Gall followed him northward, traveling up the Rhine as far as Bregenz on Lake Constance. The two parted in 612: Columbanus pressed on into Italy, while Gall remained behind in Alemannia. According to the Wikipedia account, illness kept Gall from continuing, and he was cared for at Arbon."
+  - heading: Hermit and missionary in Alemannia
+    body:
+      - Remaining among the Alemanni of what is now eastern Switzerland, Gall established himself as a hermit in the forests southwest of Lake Constance, near the source of the River Steinach. There cells were built for twelve monks whom he instructed, and he came to be recognized as a powerful preacher throughout the region.
+      - He twice declined high ecclesiastical office. When the See of Constance fell vacant, the clergy unanimously favored Gall as bishop, but he refused, citing the church law against electing foreigners. Around 625 the monks of Luxeuil asked him to take up the abbacy of their monastery after the death of Eustasius, and he declined this as well, preferring his solitary life despite his advanced age.
+  - heading: The Abbey and city of St Gallen
+    body:
+      - Gall reposed at Arbon at about ninety-five years of age, around 645 to 650. A church was raised at the site of his settlement, and before the middle of the eighth century it had developed into a proper monastery.
+      - The Abbey of Saint Gall was formally established in 719, with Saint Othmar serving as its first abbot. The community became the nucleus of the Canton of St Gallen in eastern Switzerland, and Gall is honored as the founder of the city that grew up around it.
+  - heading: Veneration
+    body:
+      - Gall's feast is kept on 16 October. As a saint of the undivided Church before the schism, he is venerated in the Eastern Orthodox Church, the Roman Catholic Church, and the Church of Ireland.
+      - By long tradition he is depicted in art accompanied by a bear, a reference to legendary accounts of his life in the wilderness.
+patronage:
+  - City and Canton of St Gallen, Switzerland
+related:
+  - name: Columbanus
+    note: Irish abbot and missionary; Gall's teacher at Bangor and the leader of the continental mission he joined.
+  - name: Othmar
+    note: First abbot of the Abbey of Saint Gall, formally established in 719 at the site of Gall's hermitage.
+status: draft
+generated: "2026-06-19"

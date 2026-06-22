@@ -1,0 +1,58 @@
+id: OS-2717
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Oda_of_Canterbury
+  - https://orthodoxwiki.org/Oda_of_Canterbury
+  - https://en.wikipedia.org/wiki/Oswald_of_Worcester
+lifespan: c. 878 - 958
+liturgicalTitle: Our Father among the Saints Odo, Archbishop of Canterbury, the Good
+overview:
+  - Odo of Canterbury, known by the epithets 'the Good' and Severus ('the Severe'), was a tenth-century English hierarch who served as Archbishop of Canterbury from 941 until his death in 958. He was a leading figure in the ecclesiastical and political life of the Anglo-Saxon kingdom across the reigns of several kings.
+  - Of Danish parentage, he rose through the church to become Bishop of Ramsbury and then archbishop, advancing the monastic reform movement of the period and issuing the earliest surviving constitutions of a tenth-century English reformer. He is venerated among the pre-schism Western saints, with a feast on June 2.
+timeline:
+  - when: c. 878
+    title: Birth
+    body: Odo was born to Danish parents, possibly in East Anglia. According to tradition his father, a member of the Viking forces that came to England in the ninth century, did not encourage his interest in Christianity, and a nobleman named Athelhelm is said to have adopted and educated him.
+  - when: 909-927
+    title: Bishop of Ramsbury
+    body: He was consecrated Bishop of Ramsbury at some point between 909 and 927, an appointment likely made by King AEthelstan. He is first documented as a bishop in 928.
+  - when: "937"
+    title: Battle of Brunanburh
+    body: Highly valued at the court of King AEthelstan, Odo is reported to have been present at the Battle of Brunanburh. A tradition relates that he restored to the king his lost sword at a critical moment, contributing to the victory.
+  - when: "941"
+    title: Archbishop of Canterbury
+    body: Following the death of Archbishop Wulfhelm on 12 February 941, King Edmund appointed Odo as his successor. Before his enthronement Odo became a monk, having joined the Benedictine monastery at Fleury-sur-Loire.
+  - when: "948"
+    title: Translation of relics
+    body: As archbishop he acquired the relics of Saint Wilfrid, and also obtained relics of Saint Ouen, enriching the cult of saints at Canterbury.
+  - when: 955-958
+    title: Service to successive kings
+    body: He received a bequest of gold from King Eadred at the king's death in 955, crowned King Eadwig in 956, and in 957-958 joined the faction of Edgar, annulling Eadwig's marriage in early 958.
+  - when: 2 June 958
+    title: Repose
+    body: Odo died at Canterbury. His nephew Oswald, whom he had earlier sent to the monastery of Fleury, was returning to England at his uncle's behest when Odo died, before Oswald's arrival.
+sections:
+  - heading: Ecclesiastical Reform
+    body:
+      - As archbishop, Odo issued constitutions regulating clerical duties, marriage, fasting, and tithing; these are described as the first surviving constitutions of a tenth-century English ecclesiastical reformer. He reorganized diocesan structure and reformed the sees of Elmham and Lindsey.
+      - He supported the monastic reform movement associated with Dunstan and is credited with consecrating Dunstan as bishop. His own profession as a monk at Fleury-sur-Loire before his enthronement aligned him with the Benedictine renewal then spreading from the Continent into England.
+  - heading: Relics & Shrines
+    body:
+      - During his episcopate Odo acquired the relics of Saint Wilfrid (948) and of Saint Ouen, augmenting the relic collection at Canterbury. He himself was venerated as a saint after his death, and a hagiography was composed by Eadmer of Canterbury between roughly 1093 and 1125.
+family:
+  heading: Family and Kinship
+  intro: Of Danish parentage. His nephew was Saint Oswald of Worcester, later Archbishop of York, whom Odo sponsored for monastic training at Fleury about 950.
+  figures: []
+related:
+  - name: Saint Oswald of Worcester
+    note: ""
+patronage: []
+reading:
+  - heading: Sources
+    items:
+      - title: Eadmer of Canterbury, Life of Oda (Vita Odonis), composed c. 1093-1125
+      - title: "OrthodoxWiki: Oda of Canterbury"
+      - title: OCA Synaxarion (oca.org)
+status: draft
+generated: "2026-06-21"

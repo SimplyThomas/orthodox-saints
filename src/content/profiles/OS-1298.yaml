@@ -1,0 +1,57 @@
+id: OS-1298
+liturgicalTitle: Our Venerable Father Dorotheus, Abba of Gaza
+lifespan: c. 500 – c. 560/580
+overview:
+  - Dorotheus of Gaza was a sixth-century monk and abbot of the Holy Land, remembered above all for his Soul-Profiting Instructions, a set of discourses on the ascetic life that have remained among the most widely read works of Orthodox spiritual counsel. By tradition he was born around the year 500 at Antioch in Syria into a prosperous Christian family, and received a thorough classical education that included rhetoric and medicine; some accounts describe him as trained for the work of a physician.
+  - Drawn to the monastic life, Dorotheus first corresponded with the renowned recluses Barsanuphius the Great and John the Prophet, and through their influence entered the monastery of Abba Seridus near Gaza. The sources relate that he served a long obedience as the cell-attendant of John the Prophet and was guided by the counsel of both elders, whose written answers to his questions were later preserved. He also listened to other ascetics of his time, among them Abba Zosima.
+  - Within the community Dorotheus passed through a succession of obediences — receiving and greeting pilgrims, overseeing the guest-house, and finally directing an infirmary where he cared for travelers and the sick. After the death of John the Prophet and the withdrawal of Barsanuphius into silence, Dorotheus left the monastery of Abba Seridus and founded his own monastery, which he guided as abbot until his death, traditionally placed between about 560 and 580.
+  - His Instructions, addressed to the monks of his own community, treat humility, the cutting off of one's own will, the building up of the soul, and the avoidance of judging others, in a gentle and practical voice that has commended them to monastics and laity alike across the centuries. Originally composed in Greek, they were translated into Syriac, Arabic, Georgian, and Church Slavonic, and remain a standard text of Lenten and monastic reading in the Orthodox world. He is commemorated on June 5 and August 13; the database notes that he is to be distinguished from the Hieromartyr Dorotheus of Tyre, commemorated on the same June day.
+sections:
+  - heading: Disciple of Barsanuphius and John
+    body:
+      - The formative relationship of Dorotheus's monastic life was his discipleship under the two great recluses of the monastery of Abba Seridus, Barsanuphius the Great and John the Prophet, who lived in seclusion and gave their direction chiefly through written answers conveyed by the abbot. The sources relate that Dorotheus served as cell-attendant to John the Prophet for some ten years and turned to the elders with questions on every aspect of the inner and communal life.
+      - The collected questions of Dorotheus, together with the elders' replies, were preserved among the larger correspondence of Barsanuphius and John, and they give an unusually intimate picture of how a thoughtful, educated novice was led step by step toward humility and obedience. By his own admission his learning and self-confidence made the surrender of his own will difficult, and the discipline he received under the elders became the seed of the teaching he would later set down for his own monks.
+  - heading: His disciple Dositheus
+    body:
+      - Among the young men entrusted to Dorotheus's care was Dositheus, who became his disciple and is himself venerated as a saint. The account of Dositheus's short life and obedience, transmitted within the Dorothean corpus, became a celebrated example of how perfect obedience and the cutting off of self-will can sanctify a soul in a very brief time, and it is often read alongside Dorotheus's own Instructions.
+timeline:
+  - when: c. 500
+    title: Born at Antioch
+    body: Born, by tradition, around the year 500 at Antioch in Syria into a prosperous Christian family, and given a classical education.
+  - when: early 6th c.
+    title: Enters the monastery of Abba Seridus
+    body: After corresponding with Barsanuphius and John, he entered their monastery near Gaza and became a disciple of the two elders.
+  - when: c. 540
+    title: Founds his own monastery
+    body: After the death of John the Prophet and the withdrawal of Barsanuphius, he left Abba Seridus and founded a monastery which he led as abbot.
+  - when: c. 560–580
+    title: Repose
+    body: He guided his community until his death, traditionally placed between about 560 and 580.
+related:
+  - name: Sts. Barsanuphius the Great and John the Prophet
+    note: His spiritual fathers at the monastery of Abba Seridus, whose written counsels guided him.
+    href: saint/OS-0604
+  - name: St. Dositheus of Palestine
+    note: His disciple, whose obedience became a celebrated example in the Dorothean corpus.
+    href: saint/OS-0691
+  - name: St. Zosimas of Palestine
+    note: An ascetic of the same era whose counsels Dorotheus also heeded.
+    href: saint/OS-0934
+works:
+  - title: Soul-Profiting Instructions (Discourses)
+    desc: Discourses on the ascetic life addressed to his own monks, treating humility, the renunciation of self-will, and the building up of the soul; widely read across the Orthodox world and a standard text of Lenten and monastic reading.
+    date: 6th century
+  - title: Letters
+    desc: Several surviving letters of spiritual counsel.
+  - title: Questions and Answers of Barsanuphius and John
+    desc: His preserved questions to the elders Barsanuphius and John, with their replies, transmitted within their larger correspondence.
+patronage:
+  - Invoked as a guide for those pursuing the monastic and ascetic life, and for the virtues of humility and the renunciation of self-will.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0216/06/05/101628-venerable-abba-dorotheus-of-palestine
+  - https://en.wikipedia.org/wiki/Dorotheus_of_Gaza
+  - https://orthodoxtimes.com/monastic-martyr-dorotheos-abba-of-gaza-13-august/
+  - https://en.wikipedia.org/wiki/Seridus_of_Gaza
+generated: "2026-06-19"

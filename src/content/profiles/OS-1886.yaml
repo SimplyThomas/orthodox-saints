@@ -1,0 +1,47 @@
+id: OS-1886
+liturgicalTitle: Our Venerable Father Jonah the Presbyter, Father of Saints Theophanes the Hymnographer and Theodore the Branded
+lifespan: 8th–9th century
+overview:
+  - "Jonah the Presbyter was a Palestinian priest of the late eighth and early ninth centuries, remembered chiefly as the father of two confessor-saints of the iconoclast period: Theophanes the Hymnographer and Theodore the Branded (Graptus). After the death of his wife he withdrew to monastic life at the Lavra of Saint Savva the Sanctified, where both of his sons had earlier been tonsured. He is commemorated on September 22 in the Slavic calendar (September 21 in Greek usage)."
+  - His two sons were glorified for their confession of Orthodoxy during the iconoclast controversy. According to the tradition, the iconoclast emperor Theophilos had the brothers branded on their foreheads with iambic verses, from which Theodore in particular took the byname "the Branded" (Graptus). Theophanes, the elder remembered as a hymnographer, later became Bishop of Nicaea.
+  - Living at the Lavra of Saint Savva, Jonah was remembered for an ascetic life of fasting, prayer, and compunction. The tradition relates that he was granted the gift of healing, and that many came to him seeking cures. He reposed in old age in the ninth century and remained at the Lavra until his death.
+sections:
+  - heading: Monastic Withdrawal at the Lavra of Saint Savva
+    body:
+      - Following the death of his wife, Jonah withdrew to the Lavra of Saint Savva the Sanctified, the great monastic foundation of the Judean desert. Both of his sons had already been tonsured there before him.
+      - At the Lavra he is described as practicing reverence toward God through asceticism, fasting, prayer, and continual tears. The tradition relates that, adorned with virtue, he acquired the gift of healing, so that many came to him seeking cures. He remained at the monastery until his repose in old age.
+timeline:
+  - when: 8th–9th century
+    title: Priestly life in Palestine
+    body: Jonah serves as a presbyter in Palestine and raises two sons who would become confessor-saints.
+  - when: after his wife's death
+    title: Withdrawal to the Lavra of Saint Savva
+    body: He becomes a monk at the Lavra of Saint Savva the Sanctified, where both sons had earlier been tonsured.
+  - when: 9th century
+    title: Repose
+    body: He reposes in deep old age at the Lavra.
+related:
+  - name: Saint Theophanes the Confessor and Hymnographer, Bishop of Nicaea
+    note: His son; confessor during the iconoclast controversy and a noted hymnographer.
+    href: saint/OS-1999
+  - name: Venerable Theodore Graptus the Confessor
+    note: His son; called "the Branded" after the iconoclasts branded iambic verses on his forehead.
+    href: saint/OS-2419
+family:
+  heading: Family
+  intro: Jonah is remembered above all as the father of two confessor-saints of the iconoclast period; after his wife's death he followed his sons into monastic life.
+  figures:
+    - name: Saint Theophanes the Hymnographer
+      note: Son; later Bishop of Nicaea.
+      href: saint/OS-1999
+    - name: Saint Theodore the Branded (Graptus)
+      note: Son; confessor branded by the iconoclasts.
+      href: saint/OS-2419
+patronage:
+  - Invoked for healing, as the tradition records that he was granted the gift of curing those who came to him.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2033/09/22/102697-saint-jonah-the-presbyter-father-of-saint-theophanes-the-hymnogr
+  - https://www.johnsanidopoulos.com/2015/09/saint-jonah-savvaite.html
+generated: "2026-06-20"

@@ -1,0 +1,38 @@
+id: OS-1722
+liturgicalTitle: The Holy Martyr Patroclus of Troyes
+lifespan: died c. 275
+overview:
+  - Patroclus of Troyes was a Christian of Tricassinum, the Gallic city now known as Troyes, who suffered martyrdom in the third century. A wealthy aristocrat who had inherited a substantial estate outside the city, he was remembered above all for a life of prayer, fasting, study of the Scriptures, and charity, distributing his means to the poor. The tradition holds that he was granted gifts of healing and wonderworking.
+  - By the account of the synaxarion, Patroclus was summoned by the emperor Aurelian, who reigned from 270 to 275, and was ordered to sacrifice to the idols. He refused, and was condemned to be beheaded. The Latin Passio that preserves his story attributes his death to Aurelian; some scholars, noting the literary character of the text, have placed his martyrdom earlier, under Valerian, and dates as early as c. 259 are sometimes given.
+  - "His relics were long venerated at Troyes before being translated eastward into the Rhineland: by the tradition Bruno, Archbishop of Cologne, brought them from Troyes to Cologne and then, in the 960s, to Soest in Westphalia, where they were enshrined in the church that bears his name and where he became the patron of the town. In the Eastern calendar he is commemorated on August 17; in the West his feast is kept on January 21."
+sections:
+  - heading: Martyrdom
+    body:
+      - The Passio relates that when Patroclus was led out for execution toward the River Sequanum, the river now called the Seine, the eyes of the soldiers escorting him were suddenly clouded. In the confusion he is said to have crossed to the far bank, where he withdrew to a hill to pray. According to the narrative, a pagan woman disclosed his whereabouts to the soldiers, who crossed over and put him to death. His body was afterward buried by night by the priest Eusebius and the deacon Liberius.
+      - Scholars have observed that the surviving Latin Passio sancti Patrocli Trecensis, composed in Gaul probably before the year 700, follows in many of its details the earlier Passio of Symphorian of Autun, so that the historical core of Patroclus' life is difficult to separate from later hagiographic convention.
+  - heading: Veneration
+    body:
+      - Patroclus is named in tradition as having brought Sabinian of Troyes to the Christian faith. After the translation of his relics to Soest he was adopted as the patron saint of that town, and the church of St. Patrokli there preserves his memory. In Western religious art he is sometimes shown as a warrior pointing to a fish holding a pearl in its mouth, and he has been invoked for protection against demons and against fever.
+timeline:
+  - when: 3rd century
+    title: Life at Troyes
+    body: Lives at Tricassinum (Troyes) as a wealthy Christian devoted to prayer, fasting, and charity.
+  - when: c. 275
+    title: Martyrdom
+    body: Refuses to sacrifice to idols when summoned by the emperor Aurelian and is beheaded.
+  - when: 960s
+    title: Translation of relics
+    body: His relics are translated from Troyes to Cologne and then to Soest in Westphalia.
+related:
+  - name: Sabinian of Troyes
+    note: By tradition converted to the faith by Patroclus.
+patronage:
+  - Patron saint of Soest in Westphalia, where his relics are enshrined.
+  - Invoked in Western tradition for protection against demons and against fever.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2019/08/17/102316-martyr-patroclus-of-troyes
+  - https://en.wikipedia.org/wiki/Patroclus_of_Troyes
+  - https://catholicsaints.info/saints-of-the-day-patroclus-of-troyes-martyr/
+generated: "2026-06-19"

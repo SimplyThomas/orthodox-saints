@@ -1,0 +1,64 @@
+id: OS-0130
+liturgicalTitle: Our Father among the Saints Castor, Bishop of Apt
+lifespan: 4th century – c. 420/423
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Castor_of_Apt
+  - https://en.wikipedia.org/wiki/John_Cassian
+  - https://en.wikipedia.org/wiki/Saint_Castor_of_Apt
+overview:
+  - Saint Castor of Apt was a fifth-century bishop and monastic founder in Gaul, remembered both for the monastery he established in Provence and for his role in the spread of Egyptian monastic discipline to the Latin West. Born in the fourth century at Nimes and educated at Arles, he trained as a lawyer before, by mutual agreement with his wife, withdrawing from married life to embrace the monastic vocation.
+  - "His most enduring legacy lies in his request to John Cassian: it was for Castor's foundation that Cassian composed the 'Institutes of the Coenobia' (De institutis coenobiorum), one of the formative texts of Western monasticism. Castor was afterward consecrated Bishop of Apt, where his relics are still preserved in the cathedral of which he is counted a patron."
+timeline:
+  - when: 4th century
+    title: Birth and education
+    body: Castor is born at Nimes in Gaul and educated at Arles. After his father's death he takes up the profession of law.
+  - when: early 5th century
+    title: Marriage and conversion to monastic life
+    body: Having married into a wealthy family, Castor and his wife, by mutual agreement, leave married life for the monastic vocation; his wife enters a convent.
+  - when: c. 420
+    title: Foundation of the monastery of Manauque
+    body: Castor founds the monastery (associated with Saint-Faustin) at Manauque, also called Monanque, in Provence, ordering its life after the monastic rule of John Cassian.
+  - when: c. 420
+    title: Bishop of Apt and patron of Cassian's Institutes
+    body: Consecrated Bishop of Apt, Castor requests of John Cassian a written account of Egyptian and Palestinian monastic customs; in response Cassian composes the Institutes (and, traditionally, the Conferences) for the use of Castor's foundation. Castor is also named in a papal letter of Pope Boniface I dated 13 June 419.
+  - when: c. 420 / before 423
+    title: Repose
+    body: Castor dies on 21 September of a year not precisely known, falling within the reign of the Emperor Honorius (died 15 August 423). His feast is kept on 2 September.
+sections:
+  - heading: From the law courts to the cloister
+    body:
+      - "The sources present Castor first as a man of the world: born at Nimes, schooled at Arles, and established in the legal profession after the death of his father. By one account he successfully argued a case for a wealthy widow, securing an imperial rescript, and on his return married the widow's daughter."
+      - The turn to monastic life is recorded as a shared decision. Following the death of his mother-in-law, Castor and his wife by mutual consent withdrew from married life; she entered a convent, while he gave himself to the founding and ordering of a monastery. This pattern — a married couple renouncing the world together by common agreement — is the detail by which Castor is best remembered in the calendar.
+  - heading: The monastery of Manauque and John Cassian
+    body:
+      - In Provence Castor founded a monastery at Manauque (also given as Monanque, and associated with the name Saint-Faustin), which he set under the monastic rule of John Cassian. Tradition relates that he was reluctant to take up the office of abbot and accepted it only in obedience to the dying first superior.
+      - Castor's name is permanently bound to the literature of early monasticism through his request to Cassian. Around the year 420, as Bishop of Apt in Gallia Narbonensis, he asked Cassian to set down the customs of the monks of Egypt and Palestine for the guidance of his own foundation. Cassian answered with the 'Institutes of the Coenobia' (De institutis coenobiorum), and by tradition the 'Conferences of the Desert Fathers' as well — works intended to bring the Egyptian model of monastic life, with its insistence on manual labor and disciplined community, into the monasteries of southern Gaul.
+  - heading: Episcopate and legacy
+    body:
+      - Castor was made Bishop of Apt, and a contemporary trace of his episcopate survives in a letter of Pope Boniface I dated 13 June 419, in which his name appears. He died on 21 September of an uncertain year within the reign of Honorius, who died in 423; his commemoration is kept on 2 September.
+      - Castor is a pre-schism saint of the undivided Church, venerated in both the Christian East and West. As one who reposed before the Council of Chalcedon, he is honored as an Orthodox saint while also being remembered in the Latin tradition from which the surviving biographical record derives.
+  - heading: Relics & Shrines
+    body:
+      - The relics of Saint Castor are preserved in the Cathedral of Apt, of which he is counted among the patrons. Among its reliquaries are busts and chests honoring Saint Anne, Saint Auspice, and Saint Castor (the present examples being nineteenth-century replicas).
+patronage:
+  - Counted among the patron saints of the Cathedral of Apt
+family:
+  heading: Family
+  figures:
+    - name: Leontius of Frejus
+      note: By tradition possibly the brother of Castor; bishop of Frejus.
+    - name: Castor's wife
+      note: His unnamed wife, who by mutual consent entered a convent when Castor took up the monastic life.
+related:
+  - name: John Cassian
+    note: Composed the Institutes (and, by tradition, the Conferences) at Castor's request, for the use of his monastic foundation.
+reading:
+  - heading: Further reading
+    items:
+      - title: The Institutes of the Coenobia (De institutis coenobiorum)
+        author: John Cassian
+      - title: The Conferences (Collationes patrum)
+        author: John Cassian
+status: draft
+generated: "2026-06-21"

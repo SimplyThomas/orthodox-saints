@@ -1,0 +1,34 @@
+id: OS-0307
+liturgicalTitle: Saint Anastasius II, Pope of Rome
+lifespan: died 19 November 498
+overview:
+  - Anastasius II was bishop of Rome from 24 November 496 until his death on 19 November 498. A native of Rome and, by the accounts that survive, the son of a priest, he succeeded Gelasius I and held the see for barely two years. His short pontificate is remembered chiefly for his attempt to heal the Acacian schism, the rupture between Rome and Constantinople that had begun in 484 over the Henoticon issued by the Emperor Zeno in an effort to settle disputes arising from Monophysitism.
+  - Where his predecessors Felix III and Gelasius I had held a firm line against the East, Anastasius adopted a markedly conciliatory approach. Soon after his election he dispatched legates to Constantinople to announce his accession and to test the disposition of the Emperor Anastasius I toward reconciliation. He was prepared to recognize the validity of baptisms and ordinations conferred by the late Patriarch Acacius of Constantinople, asking in return that Acacius's name be struck from the diptychs; he continued nonetheless to insist that Acacius himself be condemned.
+  - These overtures provoked sharp resistance among the Roman clergy. When the pope received deacon Photinus, an envoy of the archbishop of Thessalonica who had supported Acacius, a portion of the clergy renounced communion with him, and the factions that formed over his policy hardened into the divisions that produced the disputed papal election after his death. Anastasius died suddenly in November 498; the Liber Pontificalis records that he was struck dead by the divine will, a hostile verdict that modern historians treat as legend rather than fact. He was buried in the portico of Saint Peter's. He is commemorated as a saint in the Orthodox tradition, among the Latin saints of the pre-schism West, though he was never canonized in the Roman Catholic Church.
+sections:
+  - heading: The Acacian Schism and Reconciliation
+    body:
+      - The schism Anastasius inherited had divided Rome and Constantinople since 484, when Rome excommunicated Patriarch Acacius following the promulgation of the Henoticon. Anastasius judged that a measured concession might restore communion without abandoning the underlying doctrinal point. According to the sources, he was willing to accept as valid the sacraments administered by Acacius and his clergy, provided Acacius's name was removed from the liturgical diptychs, while still requiring the patriarch's formal condemnation.
+      - His reception of Photinus, the deacon sent from Thessalonica, was taken by his opponents as a step too far toward the supporters of Acacius. The breach within the Roman church that followed was not healed in his lifetime, and the wider schism between Rome and Constantinople would not be resolved until 519. The Liber Pontificalis preserved a critical memory of his mediation, and Dante later placed a figure he identified with Anastasius among the heretics in the Inferno.
+  - heading: Other Acts
+    body:
+      - Beyond his eastern diplomacy, Anastasius is recorded as having written to the bishops of Gaul condemning the doctrine of traducianism. A congratulatory letter to the Frankish king Clovis I that was later attributed to him is regarded as apocryphal, since Clovis's baptism is dated after the pope's death.
+timeline:
+  - when: 24 November 496
+    title: Elected bishop of Rome
+    body: Anastasius succeeded Gelasius I, taking a conciliatory line toward the East.
+  - when: 496-498
+    title: Embassy to Constantinople
+    body: He sent legates to Emperor Anastasius I to seek an end to the Acacian schism.
+  - when: 19 November 498
+    title: Death in Rome
+    body: He died suddenly and was buried in the portico of Saint Peter's.
+patronage: []
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Pope_Anastasius_II
+  - https://orthodoxwiki.org/Anastasius_II_of_Rome
+  - https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/anastasius-ii-pope
+  - https://www.britannica.com/biography/Anastasius-II-pope
+generated: "2026-06-20"

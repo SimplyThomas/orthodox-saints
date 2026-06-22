@@ -1,0 +1,25 @@
+id: OS-0194
+liturgicalTitle: The Righteous Petronius of Ephesus
+overview:
+  - Petronius was a Christian teacher active at Ephesus in the second century, venerated by the Orthodox Church as a righteous elder and commemorated on September 4 alongside those whose lives he touched. The synaxarion of St. Hermione of Ephesus, the primary source for what is known of him, describes him as a disciple — likely, by the in-repo tradition, of St. John the Theologian; several hagiographic accounts alternatively identify him as a follower of the Apostle Paul. The scarcity of independent sources means both attributions rest on tradition rather than documentary evidence, and the precise identity of his spiritual father cannot be established with certainty.
+  - When Hermione, daughter of the Apostle Philip the Deacon, traveled to Ephesus with her sister to seek out the last living Apostles, she arrived to find that St. John had already reposed. At Ephesus she encountered Petronius, whose apostolic formation — whether Johannine or Pauline — gave him standing as a guide in the local Christian community. Hermione and her companion became his disciples and, in the tradition's telling, learned from him both the spiritual virtues and the practice of medicine, which Hermione would later exercise as the city's physician to the poor.
+  - Petronius figures once more in the account of Hermione's martyrdom. When she was subjected to severe torture under Emperor Trajan, the synaxarion relates that she received a vision in which the Lord appeared to her in the form of Petronius, seated upon a throne of judgment, speaking words of comfort and strengthening her to endure. This detail, unusual in hagiographic literature, suggests the deep impression her teacher had made on her — his image becoming, for her, an icon of divine consolation in extremity. No account of Petronius's own death or burial has come down in the tradition.
+sections:
+  - heading: The Teacher in the Life of St. Hermione
+    body:
+      - "The synaxarion records that Hermione and her sister came to Ephesus specifically seeking the guidance of Apostolic witnesses still alive, and that Petronius was the figure who received them after the passing of St. John. His role as described is that of a spiritual father: the sisters 'became his disciples and emulated him in all things.' The tradition credits him specifically with transmitting to Hermione the knowledge of healing that she would use to found a medical practice for the city's poor — making Petronius, in the hagiographic record, the formative influence behind one of early Christianity's notable medical ministries."
+      - "The vision at the time of Hermione's torture stands as the only other moment in the tradition that directly names Petronius. Its significance lies not in biographical detail about him but in what it reveals about the spiritual weight his memory carried for his disciple: he appears as the form in which divine comfort was mediated to her during her passion."
+related:
+  - name: Martyr Hermione of Ephesus
+    note: his most prominent disciple, daughter of Philip the Deacon; martyred at Ephesus c. 117
+    href: saint/OS-0192
+  - name: Apostle Philip of the Seventy
+    note: father of St. Hermione; Philip the Deacon and Evangelist
+    href: saint/OS-1998
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2025/09/04/102492-martyr-hermione-daughter-of-saint-philip-the-deacon
+  - https://en.wikipedia.org/wiki/Hermione_of_Ephesus
+  - https://www.johnsanidopoulos.com/2017/09/synaxarion-of-saint-hermione-daughter.html?m=1
+generated: "2026-06-21"

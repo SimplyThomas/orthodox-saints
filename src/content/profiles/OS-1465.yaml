@@ -1,0 +1,36 @@
+id: OS-1465
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Anatolius_of_Constantinople
+  - https://orthodoxwiki.org/Anatolius_of_Constantinople
+lifespan: d. 458
+liturgicalTitle: Our Father among the Saints Anatolius, Patriarch of Constantinople
+overview:
+  - Anatolius was a fifth-century churchman, born in Alexandria, who rose from the clergy of the Egyptian church to become Patriarch of Constantinople during one of the most contested periods in the history of the early councils. Ordained a deacon by Cyril of Alexandria and trained in philosophy, he served as the representative of the Alexandrian see at the imperial court before his elevation to the patriarchal throne in 449.
+  - Although he owed his appointment to Dioscorus of Alexandria and was at first suspected of sympathy with the Eutychian party, Anatolius publicly repudiated that teaching after his consecration and became a defender of the Orthodox confession affirmed at the Council of Chalcedon in 451. He is also remembered as a composer of liturgical hymns.
+timeline:
+  - when: "431"
+    title: Attends the Council of Ephesus
+    body: Already a deacon ordained by Cyril of Alexandria, Anatolius attended the Third Ecumenical Council at Ephesus and afterward served in the Alexandrian church under Dioscorus, acting as the representative of that see at the court of Emperor Theodosius II.
+  - when: "449"
+    title: Elevated to the patriarchal throne
+    body: Following the deposition of Flavian at the Second Council of Ephesus, Anatolius was appointed Patriarch of Constantinople with the support of Dioscorus and the Emperor Theodosius II.
+  - when: "450"
+    title: Condemns Eutychianism
+    body: Though initially suspected of Eutychian sympathies on account of his Alexandrian ties, Anatolius publicly condemned the teachings of Eutyches and of Nestorius, subscribing to Cyril's letters against Nestorianism and to the letters of Pope Leo I against Eutychianism.
+  - when: "451"
+    title: Presides at the Council of Chalcedon
+    body: Anatolius presided at the Fourth Ecumenical Council together with the Roman legates. The council affirmed Christ as perfect in divinity and perfect in humanity, and its 28th canon defined the standing of the see of Constantinople in relation to Rome.
+  - when: "458"
+    title: Repose
+    body: Anatolius died on 3 July 458 in Constantinople, having served as patriarch since 449.
+sections:
+  - heading: The Council of Chalcedon and its aftermath
+    body:
+      - Anatolius's patriarchate coincided with the doctrinal crisis over the person of Christ that the Council of Chalcedon was convened to settle. Having distanced himself from the Eutychian party that had supported his elevation, he aligned the Constantinopolitan church with the Christological confession of the council and with the position of Pope Leo I against Eutychianism.
+      - The council's 28th canon, concerning the rank and jurisdiction of the see of Constantinople in relation to Rome, became a point of friction. Pope Leo I objected to aspects of Anatolius's conduct, including his consecration of Maximus II as Patriarch of Antioch, complaining to the Emperor Marcian and to Pulcheria.
+  - heading: Hymnography
+    body:
+      - Anatolius is credited with composing liturgical hymns, including verses for Sundays and for the feasts of the Nativity, Theophany, and the martyrs. These compositions are designated as 'Anatolian' verses in the service books.
+status: draft
+generated: 20260619_b13

@@ -1,0 +1,38 @@
+id: OS-0233
+liturgicalTitle: Our Father among the Saints Genebald, First Bishop of Laon
+lifespan: died c. 555
+overview:
+  - Genebald, also rendered Genebaud, was a sixth-century Frankish hierarch remembered as the first bishop of Laon in northern Gaul. He was a kinsman of Saint Remigius, the bishop of Rheims who baptized Clovis, and according to the tradition that relationship was by marriage. He is commemorated on September 5.
+  - By tradition Genebald was a married cleric when Remigius, finding the diocese of Rheims too large to govern alone, established a separate see at Laon and chose Genebald as its first bishop, around the year 499. To take up the episcopate Genebald separated from his wife. His life is remembered above all for a grave fall and a long penance, an account preserved by the tenth-century canon and chronicler Flodoard in his history of the church of Rheims.
+  - "The episode is the reason the Church honors him: not for an unblemished record but for the depth of his repentance. The synaxarion tradition presents him as an example of a bishop who sinned gravely, accepted a severe penance, and was restored, and the controlled facets of this entry accordingly center on repentance, humility, and faith."
+sections:
+  - heading: Sin, Penance, and Restoration
+    body:
+      - "According to Flodoard's account, after his consecration Genebald resumed relations with his former wife, who bore him a son. Acknowledging the gravity of the act, he asked that the child be named Latro, meaning 'thief,' saying he had begotten him by theft; the tradition records a further lapse that produced a daughter. When the matter became known, Remigius did not depose him outright but imposed a penance: Genebald was enclosed for seven years in a small cell near the church of Saint Julian, living on bread and water, while Remigius oversaw the affairs of the see."
+      - By tradition his penance ended with a vision in which an angel announced that the door of heaven was opened to him, and Remigius restored him to his episcopal office. Genebald is said to have remained chaste for the rest of his life. His son Latro, according to the same tradition, later succeeded him as bishop of Laon.
+related:
+  - name: St. Remigius of Rheims
+    note: Bishop of Rheims and kinsman of Genebald, who appointed him first bishop of Laon and later imposed and lifted his penance.
+  - name: Latro of Laon
+    note: By tradition the son of Genebald, who later succeeded him as bishop of Laon.
+patronage:
+  - Invoked as an example of repentance for grave sin and of perseverance in penance.
+timeline:
+  - when: c. 499
+    title: First bishop of Laon
+    body: Appointed by St. Remigius as the first bishop of the newly created see of Laon, separating from his wife to take the office.
+  - when: after consecration
+    title: Grave fall and penance
+    body: After a lapse into renewed marital relations, enclosed by Remigius for seven years in a cell near St. Julian's church on bread and water.
+  - when: after seven years
+    title: Restoration
+    body: By tradition released after a vision and restored to the episcopate by Remigius.
+  - when: c. 555
+    title: Repose
+    body: Died after a life of chastity following his penance.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Genebald
+  - https://drjohnhutchisonhall.com/saints-west-18-5-sep-2025/
+generated: "2026-06-19"

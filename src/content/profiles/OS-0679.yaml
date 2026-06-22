@@ -1,0 +1,38 @@
+id: OS-0679
+liturgicalTitle: Our Father among the Saints Finan, Bishop of Lindisfarne
+lifespan: died 661
+overview:
+  - Finan of Lindisfarne was an Irish monk who, after his formation at the monastery of Iona, became the second bishop of Lindisfarne, holding the see from 651 until his death in 661. He succeeded Saint Aidan, the founder of the Lindisfarne community, and continued the Ionan mission among the English of Northumbria and beyond.
+  - During his episcopate he advanced the conversion of several Anglo-Saxon peoples, built a cathedral at Lindisfarne in the Irish manner, and defended the customs of the Ionan tradition against the growing influence of the Roman party in matters such as the dating of Easter.
+timeline:
+  - when: "651"
+    title: Becomes bishop of Lindisfarne
+    body: On the death of Saint Aidan, Finan, an Irish monk trained at Iona, succeeded him as the second bishop of Lindisfarne.
+  - when: 651-661
+    title: Conversion of Anglo-Saxon kings
+    body: During his episcopate Finan received and baptized Peada of the Middle Angles and Sigeberht of the East Saxons, extending Christianity among the northern Saxons.
+  - when: 651-661
+    title: Consecration of Cedd
+    body: Finan ordained Saint Cedd as bishop of the East Saxons, summoning two other bishops to assist at the consecration.
+  - when: "661"
+    title: Repose at Lindisfarne
+    body: Finan died having held the see of Lindisfarne for ten years, and was buried there.
+sections:
+  - heading: Formation and episcopate
+    body:
+      - Finan was an Irishman who received his monastic training at Iona Abbey in Scotland, the island community founded by Saint Columba that served as the mother house of the Northumbrian mission. From that tradition he came to Lindisfarne, the island monastery and episcopal seat off the Northumbrian coast established by Saint Aidan.
+      - When Aidan died, Finan was chosen to succeed him as the second bishop of Lindisfarne, governing the see from 651 until his own death ten years later. He built a cathedral at Lindisfarne in the Irish fashion, constructed of hewn oak with a thatched roof; the church was later dedicated to Saint Peter by Archbishop Theodore of Tarsus.
+  - heading: Missionary work
+    body:
+      - Bede records Finan's importance in the conversion of the northern Saxons. He baptized Peada, king of the Middle Angles, and Sigeberht, king of the East Saxons, opening their peoples to the Christian faith. To continue the mission among the East Saxons he consecrated Saint Cedd as their bishop, calling two further bishops to take part in the rite.
+      - Beyond the cathedral at Lindisfarne, Finan is connected with the founding of St. Mary's Priory at the mouth of the River Tyne and with the establishment of Gilling Abbey, founded by Queen Eanflaed. He is also associated with a monastic site on Church Island in Lough Currane, County Kerry, a place still known as St. Finan's Church.
+  - heading: The Easter controversy
+    body:
+      - Finan held firmly to the customs of Iona, including the older method of calculating the date of Easter that had been kept since the time of Columba. During his episcopate he was challenged by Ronan, an Irish monk who had been trained at Rome and who pressed for the adoption of the Roman Easter. The practical difficulty was acute in Northumbria, where Queen Eanfled and her court might keep Easter on a different day from King Oswiu, so that one part of the court celebrated the feast while the other was still fasting in Lent.
+      - The dispute was not resolved in Finan's lifetime. It fell to his successor Colman, the third Ionan bishop of Lindisfarne, to defend the Ionan position at the Synod of Whitby in 664, which decided in favor of the Roman reckoning.
+sources:
+  - OCA Synaxarion (oca.org), Feb 17
+  - https://en.wikipedia.org/wiki/Finan_of_Lindisfarne
+  - https://en.wikipedia.org/wiki/Synod_of_Whitby
+status: draft
+generated: "2026-06-19"

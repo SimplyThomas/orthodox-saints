@@ -1,0 +1,36 @@
+id: OS-1918
+liturgicalTitle: The Holy Prophet Baruch
+lifespan: 6th century BC
+overview:
+  - Baruch, son of Neriah, was the disciple, secretary, and devoted companion of the Prophet Jeremiah during the final years of the kingdom of Judah and the Babylonian conquest of Jerusalem. The biblical account names him as the scribe who wrote down Jeremiah's prophecies as the prophet dictated them, and Orthodox tradition venerates him as a prophet in his own right, commemorating him on September 28.
+  - According to the Book of Jeremiah, when the prophet was prevented from speaking publicly, he dictated his oracles to Baruch, who wrote them on a scroll and read them aloud to the people in the Temple (Jeremiah 36:4). The king of Judah burned the scroll rather than heed its warnings, and Baruch shared in his master's persecution, being hated, by the tradition's account, for his attachment to the truth. He remained faithful to Jeremiah through the destruction of Jerusalem by the Babylonians.
+  - "After the fall of Jerusalem, Baruch accompanied Jeremiah into Egypt, where the remnant of the Jewish people had fled. Accounts of his later life differ: some traditions hold that he died in Egypt in the sixth century before Christ, while others, drawn from rabbinic sources, relate that he returned to Babylon after witnessing Jeremiah's death and burying his body. The deuterocanonical Book of Baruch is traditionally credited to him; it is received by the Orthodox Church and by the Roman Catholic Church, though regarded by Protestants as non-canonical."
+sections:
+  - heading: Scribe and Companion of Jeremiah
+    body:
+      - Baruch's defining role in Scripture is that of Jeremiah's scribe. When the prophet was barred from the Temple, he summoned Baruch and dictated to him the words the Lord had spoken; Baruch wrote them on a scroll and read them to the assembled people. Twice the prophecies were recorded in this way, and the bond between prophet and secretary was close enough that the tradition calls Baruch Jeremiah's inseparable companion, disciple, and friend.
+      - Together the two men lamented the catastrophe that overtook Judah. They witnessed the siege and destruction of Jerusalem by the Babylonians under Nebuchadnezzar, and Baruch's faithfulness amid the ruin of his nation is the heart of his commemoration. Beyond his historical role, the tradition ascribes to him prophecy foretelling the return of the Jews from the Babylonian captivity, the desolation of Babylon, and, by Christian reading, the Incarnation of Christ.
+timeline:
+  - when: 6th century BC
+    title: Records Jeremiah's prophecies
+    body: Writes down the oracles dictated by Jeremiah and reads them to the people in the Temple (Jeremiah 36).
+  - when: 587-586 BC
+    title: Destruction of Jerusalem
+    body: Witnesses, with Jeremiah, the Babylonian conquest and destruction of Jerusalem.
+  - when: after the fall of Jerusalem
+    title: Flight into Egypt
+    body: Accompanies Jeremiah into Egypt with the remnant of the people; by one tradition he dies there.
+related:
+  - name: Prophet Jeremiah
+    note: the great prophet whose disciple, secretary, and companion Baruch was
+    href: saint/OS-1086
+works:
+  - title: The Book of Baruch
+    desc: A deuterocanonical book traditionally attributed to Baruch; received by the Orthodox and Roman Catholic Churches and regarded by Protestants as non-canonical.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2001/09/28/102745-prophet-baruch
+  - https://en.wikipedia.org/wiki/Baruch_ben_Neriah
+  - https://orthochristian.com/107067.html
+generated: "2026-06-19"

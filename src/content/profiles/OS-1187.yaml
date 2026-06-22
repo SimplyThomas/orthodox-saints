@@ -1,0 +1,43 @@
+id: OS-1187
+liturgicalTitle: The Holy Venerable Monastic Martyrs of the Lavra of Saint Sabbas the Sanctified
+overview:
+  - The Venerable Monastic Martyrs of the Lavra of Saint Sabbas are a group of forty-four monks of the Great Lavra in the Judean desert who were slain about the year 614, during the reign of the Emperor Heraclius (610-641). By tradition they were killed when a band of raiders fell upon the monastery in search of plunder; finding no treasure, the attackers turned in anger upon the brethren and put them to death. The Orthodox Church commemorates them on May 16.
+  - Their martyrdom belongs to the upheaval surrounding the Persian capture of Jerusalem in 614, when the monasteries of the Judean wilderness suffered grievously. The synaxarion remembers these fathers among the first martyrs of the Great Lavra, distinct from a later company of monks of the same monastery commemorated in March.
+lifespan: died c. 614
+timeline:
+  - when: c. 484
+    title: Foundation of the Great Lavra
+    body: Saint Sabbas the Sanctified established the Great Lavra in the Kidron Valley south of Jerusalem, where younger monks kept a cenobitic (communal) life and the elders a semi-eremitical one, each in his own hut within the precincts of the lavra.
+  - when: "614"
+    title: The sack of Jerusalem
+    body: During the Persian invasion of the Holy Land, Jerusalem and the surrounding desert monasteries were overrun. The Great Lavra was attacked by raiders seeking plunder.
+  - when: c. 614
+    title: Martyrdom of the forty-four fathers
+    body: Forty-four monks of the Lavra received the crown of martyrdom when, unable to find the treasure they expected, the attackers murdered the brethren in anger. They are commemorated on May 16.
+sections:
+  - heading: The Great Lavra in the Judean desert
+    body:
+      - The monastery these fathers served was the Great Lavra founded by Saint Sabbas the Sanctified about the year 484, clinging to the cliffs of the Kidron Valley between Bethlehem and the Dead Sea. It became one of the principal centres of monastic life in Palestine and the spiritual heart of the Jerusalem patriarchate, its order of services giving rise to the Typikon of Mar Saba that shaped Byzantine liturgical practice.
+      - Within the lavra the younger monks lived a communal cenobitic life while the elders kept a semi-eremitical rule, each dwelling in his own cell and gathering for the solemn church services. It was this community of ascetics, settled in the harsh wilderness south of Jerusalem, that the raiders of 614 fell upon.
+  - heading: The martyrdom
+    body:
+      - The Orthodox sources relate that the monastery was attacked by raiders in search of plunder during the disorders of the early seventh century, when the Persian armies and their allies overran Palestine. When the assailants could not locate the wealth they expected, they turned on the monks in anger and killed forty-four of them, who thus received the unfading crown of martyrdom about the year 614.
+      - Their death is set within the reign of the Emperor Heraclius (610-641) and is bound up with the fall of Jerusalem to the Persians in 614, an event recorded by eyewitnesses from among the surviving monks of the same wilderness. By tradition the relics of the slain were gathered and kept at the monastery in memory of their witness.
+related:
+  - name: The Holy Fathers slain at the Lavra of Saint Sabbas (Mar 20)
+    note: A distinct company of monks of the same monastery, commemorated in March
+    href: saint/OS-0851
+  - name: Sabbas the Sanctified
+    note: Founder of the Great Lavra in which these fathers lived and died
+    external: https://orthodoxwiki.org/Sabbas_the_Sanctified
+patronage:
+  - Monastics living under threat of violence or persecution
+  - Those who keep the ascetic life in the wilderness
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2016/05/16
+  - https://en.wikipedia.org/wiki/Mar_Saba
+  - https://en.wikipedia.org/wiki/Sabbas_the_Sanctified
+  - https://orthodoxwiki.org/Sabbas_the_Sanctified
+status: draft
+generated: "2026-06-19"

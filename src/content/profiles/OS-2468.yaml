@@ -1,0 +1,56 @@
+id: OS-2468
+liturgicalTitle: Our Father among the Saints Nicholas I Mystikos, Patriarch of Constantinople
+lifespan: c. 852 - 925
+overview:
+  - Nicholas I Mystikos was Ecumenical Patriarch of Constantinople across two terms, from 901 to 907 and again from 912 until his death in 925. By tradition he was born around 852 to a prominent family of southern Italian (Roman) origin and was a relative and student of Patriarch Photios the Great. After Photios's fall from imperial favor in 886 Nicholas withdrew to monastic life, but Emperor Leo VI later recalled him to court and gave him the office of mystikos, a senior secretarial or judicial dignity from which his epithet derives. He was raised to the patriarchal throne, succeeding Anthony II, on 1 March 901.
+  - His first patriarchate was dominated by the dispute known as the tetragamy, or fourth-marriage controversy. Emperor Leo VI, having lost three wives without a surviving male heir, wished to marry his mistress Zoe Karbonopsina to legitimize their son, the future Constantine VII. Eastern canon law strongly disapproved of a fourth marriage, and Nicholas refused to sanction it. He reluctantly permitted the baptism of the imperial child but, when the marriage was nonetheless celebrated by a cooperating priest, he barred the emperor from the church. His refusal to consult Pope Sergius III in the matter contributed to his deposition on 1 February 907, after which he was exiled to a monastery and replaced by Euthymius.
+  - After Leo VI's death Nicholas was restored to the patriarchate in 912 under the emperor's brother and successor, Alexander, and he became the leading figure in the regency for the boy-emperor Constantine VII following Alexander's death in 913. As regent he conducted the empire's foreign policy at a perilous moment, negotiating with Simeon I of Bulgaria, but these concessions proved unpopular and by 914 Zoe Karbonopsina had displaced him from the regency. He later allied with Romanos I Lekapenos, was reconciled with the partisans of the rival patriarch Euthymius, and in a synod of 920 promulgated the Tomos of Union, which settled the tetragamy question by ordinarily limiting Christians to three marriages while making allowance for Leo VI's case for the good of the state.
+  - Nicholas was an able administrator and a learned man whose extensive correspondence with foreign rulers and Byzantine notables survives, along with a homily occasioned by the Arab sack of Thessalonica in 904. He died in 925 and was buried at the Monastery of Galakrinon. The Orthodox Church venerates him as a confessor of canonical order against imperial pressure, commemorating him on May 16.
+sections:
+  - heading: The Tetragamy Controversy
+    body:
+      - The defining episode of Nicholas's career was his resistance to the fourth marriage of Leo VI. The emperor's first three marriages had failed to secure a lasting male heir, and his union with Zoe Karbonopsina produced a son before any marriage had been blessed. Nicholas was willing to recognize the child by permitting his baptism, but he held that a fourth marriage exceeded what the canons of the Church allowed.
+      - When the marriage was performed despite his refusal, Nicholas excommunicated the priest who blessed it and forbade the emperor entrance to the church. His unwillingness to yield, and his refusal to refer the question to Pope Sergius III, led to his removal in 907 and his replacement by Euthymius. The schism between the supporters of Nicholas and those of Euthymius divided the Church until it was healed under Romanos I Lekapenos. The synod of 920 and its Tomos of Union resolved the dispute by reaffirming that a fourth marriage was uncanonical while granting a measure of dispensation for the imperial case.
+  - heading: Patriarch and Regent
+    body:
+      - Restored to the patriarchate in 912, Nicholas became the chief member of the regency council governing in the name of the young Constantine VII after Emperor Alexander died in 913. In this role he directed the empire's diplomacy, including negotiations with Simeon I of Bulgaria. The concessions made to Bulgaria damaged his standing, and Zoe Karbonopsina succeeded in removing him from the regency by 914, though he retained the patriarchal office. He is also remembered for his administrative work in reorganizing the dioceses of the Patriarchate and for his surviving letters and homiletic writings.
+timeline:
+  - when: c. 852
+    title: Birth
+    body: Born, by tradition, to a family of southern Italian origin and connected to Patriarch Photios.
+  - when: "886"
+    title: Withdrawal from court
+    body: Retired to monastic life after the fall of Photios from imperial favor.
+  - when: 1 March 901
+    title: Elevated to the patriarchate
+    body: Consecrated Ecumenical Patriarch of Constantinople, succeeding Anthony II.
+  - when: 1 February 907
+    title: Deposed and exiled
+    body: Removed from office over the tetragamy dispute and replaced by Euthymius.
+  - when: "912"
+    title: Restored
+    body: Reinstated as patriarch under Emperor Alexander.
+  - when: "913"
+    title: Head of the regency
+    body: Became leading regent for the boy-emperor Constantine VII after Alexander's death.
+  - when: "920"
+    title: Tomos of Union
+    body: Promulgated the synodal decree settling the question of fourth marriages.
+  - when: "925"
+    title: Repose
+    body: Died and was buried at the Monastery of Galakrinon.
+related:
+  - name: St. Photios the Great, Patriarch of Constantinople
+    note: Relative and teacher of Nicholas; the elder patriarch under whom he first served.
+    href: saint/OS-0603
+patronage:
+  - Invoked for the upholding of canonical order and integrity against worldly pressure.
+status: draft
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://www.britannica.com/biography/Nicholas-I-Byzantine-patriarch-of-Constantinople
+  - https://en.wikipedia.org/wiki/Nicholas_Mystikos
+  - https://www.johnsanidopoulos.com/2015/05/saint-nicholas-i-mystikos-patriarch-of.html
+  - https://orthodoxwiki.org/Nicholas_I_Mystikus_of_Constantinople
+generated: "2026-06-21"

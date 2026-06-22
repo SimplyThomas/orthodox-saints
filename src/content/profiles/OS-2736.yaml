@@ -1,0 +1,40 @@
+id: OS-2736
+liturgicalTitle: Saint Paphnutius the Confessor, Bishop in the Thebaid
+lifespan: fl. early 4th century
+overview:
+  - Paphnutius the Confessor was an Egyptian bishop of a city in the Upper Thebaid in the early fourth century, remembered chiefly as one of the confessors who survived the persecutions of the age and went on to take part in the First Ecumenical Council. By tradition he was a disciple of Anthony the Great. He is commemorated in the Orthodox Church as a hierarch and confessor.
+  - "During the persecution under the emperor Maximinus (c. 308-313) Paphnutius confessed the faith and was mutilated for it: according to the tradition he lost his right eye and was hamstrung in one leg, and was afterwards condemned to forced labour in the mines. He survived these sufferings, and the visible marks of his confession remained with him for the rest of his life."
+  - Paphnutius is best known for his presence at the First Council of Nicaea in 325, where he was held in high honour. The church historian Socrates records that the emperor Constantine the Great would often send for the aged confessor and kiss the place from which his eye had been torn out. The most celebrated episode associated with him at the council concerns the question of clerical marriage.
+sections:
+  - heading: The Council of Nicaea and clerical marriage
+    body:
+      - When it was proposed at Nicaea that the higher clergy be required to abstain from marriage, Paphnutius spoke against imposing such an obligation. According to the tradition preserved by Socrates, he argued that it was enough to conform to the ancient discipline of the Church, which did not permit clergy to marry after ordination, but that married men ordained to the diaconate or priesthood should not be compelled to separate from the wives they had taken before ordination. His view prevailed, and it remains the discipline of the Eastern Churches that married men may be ordained deacon and priest.
+      - The weight of his argument was felt to come in part from his own life, for Paphnutius himself was, by the same tradition, a celibate and an ascetic, so that his defence of married clergy could not be attributed to self-interest.
+  - heading: Defence of orthodoxy and later years
+    body:
+      - Paphnutius is remembered as a defender of the Nicene faith against the Arian party. According to the tradition he accompanied Saint Athanasius of Alexandria to the Synod of Tyre in 335, among the bishops of Egypt who supported him there.
+timeline:
+  - when: c. 308-313
+    title: Confession under persecution
+    body: By tradition mutilated under the emperor Maximinus, losing his right eye and being hamstrung, then condemned to the mines.
+  - when: "325"
+    title: First Council of Nicaea
+    body: Took part in the First Ecumenical Council, where he was honoured by Constantine and spoke on the question of clerical marriage.
+  - when: "335"
+    title: Synod of Tyre
+    body: By tradition present at the Synod of Tyre in support of Athanasius of Alexandria.
+related:
+  - name: St. Anthony the Great
+    note: By tradition Paphnutius was his disciple.
+  - name: St. Athanasius the Great of Alexandria
+    note: Whom Paphnutius is said to have supported at the Synod of Tyre.
+patronage:
+  - Invoked by confessors and those who suffer for the faith; associated by tradition with the defence of married clergy.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://www.newadvent.org/cathen/11457a.htm
+  - https://en.wikipedia.org/wiki/Paphnutius_of_Thebes
+  - https://orthodoxwiki.org/April_19
+generated: "2026-06-21"

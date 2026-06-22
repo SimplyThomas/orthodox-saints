@@ -1,0 +1,32 @@
+id: OS-2732
+liturgicalTitle: Our Venerable Father Pior, Hermit of Egypt
+lifespan: 4th century
+overview:
+  - Pior was an Egyptian hermit of the fourth century, numbered among the Desert Fathers and remembered chiefly in the sayings tradition of early monasticism. He is described as a disciple of Saint Anthony the Great, and the accounts of his life place him among the solitaries of the Egyptian wilderness.
+  - His memory survives through brief anecdotes preserved by early sources such as Palladius' Lausiac History and the church history of Sozomen, which recall his austere ascetic discipline and his withdrawal from worldly ties. His feast is kept on June 17.
+timeline:
+  - when: 4th century
+    title: Ascetic life in the Egyptian desert
+    body: Pior lived as a hermit in the Egyptian wilderness, by tradition as a disciple of Saint Anthony the Great and associated with the desert of Scetis.
+  - when: c. late 4th century
+    title: Repose
+    body: Sources hold that he lived to a great age and died towards the end of the fourth century.
+sections:
+  - heading: Asceticism and renunciation
+    body:
+      - Tradition relates that Pior made a covenant with God never again to see his relatives. About fifty years later his aged sister sought him out through the intervention of the local bishop; when she came to him he kept his eyes shut and told her to look at him as far as she could, declining to enter her house so as to avoid worldly entanglement.
+      - Among the ascetic practices attributed to him, he is said to have eaten while walking, explaining that this kept him from treating eating as a business or taking pleasure in food. Other accounts relate that he dug a hole and found bitter water, which he drank as an act of self-denial, and that he prayed over a dry well, struck the ground three times with a spade, and a spring of water gushed up.
+  - heading: In the sayings tradition
+    body:
+      - Pior is listed among the named fathers of the Apophthegmata Patrum, the Sayings of the Desert Fathers, which preserves stories and counsel of the Egyptian hermits, originating as oral tradition in Coptic and later transcribed into Greek. He is remembered there alongside such figures as Anthony the Great, Moses the Black, and Syncletica of Alexandria.
+      - The narrative details of his life draw on Palladius of Galatia's Lausiac History and the church history of Sozomen, together with later hagiographers.
+related:
+  - name: Anthony the Great
+    note: Father of Egyptian monasticism; Pior is described as his disciple.
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Pior
+  - https://en.wikipedia.org/wiki/Apophthegmata_Patrum
+status: draft
+generated: "2026-06-21"

@@ -1,0 +1,37 @@
+id: OS-0262
+liturgicalTitle: New Hieromartyr Constantine Bogoslovsky, Priest
+lifespan: 1871–1937
+overview:
+  - Constantine Bogoslovsky was a Russian Orthodox priest of the Vologda region who was executed during the Soviet anti-religious persecution of 1937. He is numbered among the Synaxis of New Martyrs and Confessors of Russia and is commemorated on September 6 (Old Style; September 19 New Style).
+  - Born into a clerical family, he was educated in the Vologda seminary and the Kazan Theological Academy before serving as a parish priest. He was arrested repeatedly through the 1920s and 1930s, including a term in the Solovki camp, and was finally shot in Vologda in 1937.
+sections:
+  - heading: Life and education
+    body:
+      - According to Russian-language hagiographical sources, Constantine Alexandrovich Bogoslovsky was born on February 17, 1871, in the Vologda Governorate, into the family of a priest. In 1891 he completed studies at the Vologda Theological Seminary and entered the Kazan Theological Academy, from which he graduated in 1895 with the degree of candidate of theology. He was subsequently ordained a priest.
+  - heading: Arrests and martyrdom
+    body:
+      - Sources record that he was first arrested in 1921 in connection with organizing a collection of funds for the needs of the Church. He was arrested again in 1922 and sentenced to two years in the Solovki camp, and a final time in 1937 on charges of so-called counter-revolutionary activity.
+      - He was shot at Vologda in 1937. He is counted among the Synaxis of New Martyrs and Confessors of Russia, the body of clergy and faithful who suffered under the Soviet regime.
+timeline:
+  - when: "1871"
+    title: Birth
+    body: Born in the Vologda Governorate into the family of a priest.
+  - when: "1895"
+    title: Graduation from Kazan Theological Academy
+    body: Completed studies with the degree of candidate of theology after the Vologda seminary.
+  - when: "1922"
+    title: Imprisonment at Solovki
+    body: Arrested and sentenced to two years in the Solovki camp.
+  - when: "1937"
+    title: Martyrdom
+    body: Arrested a final time and shot at Vologda during the Soviet persecution.
+patronage:
+  - New Martyrs and Confessors of Russia
+  - Those persecuted for the faith
+status: draft
+sources:
+  - Synaxarion
+  - https://azbyka.ru/days/sv-konstantin-bogoslovskij
+  - https://drevo-info.ru/articles/13672464.html
+  - https://orthochristian.com/77086.html
+generated: "2026-06-20"

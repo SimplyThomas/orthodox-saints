@@ -1,0 +1,58 @@
+id: OS-2474
+lifespan: c. 270 - c. 340
+liturgicalTitle: Our Venerable and Righteous Mother Macrina the Elder of Neocaesarea
+overview:
+  - Macrina the Elder was a fourth-century Christian woman of Neocaesarea in Pontus, in Asia Minor, remembered chiefly as a transmitter of the faith across generations of one of the most influential families of the early Church. Born to a noble family around the middle of the third century, she received her Christian formation under Saint Gregory Thaumaturgus (Gregory the Wonderworker), the first bishop of Neocaesarea, and preserved his teaching through a lifetime that spanned the great persecutions.
+  - "She is best known as the mother of Basil the Elder and the grandmother of three saints of the next generation: Basil the Great, Gregory of Nyssa, and Macrina the Younger, the last of whom was named in her honor. Her grandson Peter of Sebaste is likewise numbered among the saints of the family. Through her, the doctrinal heritage of Gregory Thaumaturgus passed into the Cappadocian household and shaped the religious upbringing of the brothers who would become leading theologians of the fourth century."
+timeline:
+  - when: c. 270
+    title: Birth at Neocaesarea
+    body: Born around 270, or earlier, to a noble family in Neocaesarea in Pontus, in the region of Asia Minor.
+  - when: Late 3rd century
+    title: Discipleship under Gregory Thaumaturgus
+    body: In her youth she received Christian instruction under Saint Gregory the Wonderworker, bishop of Neocaesarea, whose teachings she preserved and later handed on.
+  - when: Early 4th century
+    title: Persecution and hiding
+    body: During the persecutions of the era of Galerius and Diocletian, she and her husband fled and spent several years in hiding, by various accounts along the shores of the Black Sea or in the mountain thickets of Pontus, enduring great hardship.
+  - when: c. 340
+    title: Repose
+    body: Died around 340, having raised children and grandchildren in the Christian faith.
+sections:
+  - heading: Persecution and Endurance
+    body:
+      - Macrina lived through the period of the great Roman persecutions under the emperors Galerius and Diocletian. According to the surviving accounts, she and her husband suffered greatly, spending several years - reported as six or more, and by one account roughly seven - in hiding. Sources variously place this refuge along the shores of the Black Sea and in the mountain thickets of Pontus, where the couple endured significant deprivation and exposure to harsh conditions before returning home after the persecution ceased.
+      - She was remembered for her sense of justice and her enduring faith. Widowed in later life, she came in tradition to be regarded as a patron of widows and of those in poverty.
+  - heading: Legacy
+    body:
+      - Macrina's principal historical significance lies in her role as a link in the transmission of Christian doctrine. Having been formed by Saint Gregory Thaumaturgus, she preserved his teaching and imparted it to her descendants, greatly influencing their intellectual and religious training. This transmission proved particularly formative for her grandsons Basil the Great and Gregory of Nyssa.
+      - Her grandson Basil the Great bore witness to her influence in his Letter 204, written to the Church of Neocaesarea, where he recalled that he had been brought up by his grandmother, a blessed woman, who taught him the words of the blessed Gregory that she had preserved and by which she formed him as a child in the doctrines of piety.
+family:
+  heading: Family
+  intro: Macrina the Elder stood at the head of a family that produced several saints across two generations.
+  figures:
+    - name: Basil the Elder
+      note: Her son; father of Basil the Great and his siblings.
+    - name: Basil the Great
+      note: Her grandson; archbishop of Caesarea and one of the Cappadocian Fathers, who credited her with his early formation in the faith.
+    - name: Gregory of Nyssa
+      note: Her grandson; bishop of Nyssa and a leading fourth-century theologian.
+    - name: Macrina the Younger
+      note: Her granddaughter, named in her honor; commemorated separately (feast July 19).
+    - name: Peter of Sebaste
+      note: Her grandson; later bishop of Sebaste, numbered among the saints of the family.
+related:
+  - name: Gregory Thaumaturgus
+    note: Bishop of Neocaesarea and her spiritual teacher, whose doctrine she preserved and transmitted.
+  - name: Macrina the Younger
+    note: Her granddaughter and namesake, a saint in her own right.
+patronage:
+  - Widows
+  - Those in poverty
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Macrina_the_Elder
+  - https://orthodoxwiki.org/Macrina_the_Elder
+  - https://www.johnsanidopoulos.com/2020/05/life-of-saint-macrina-elder-grandmother.html
+status: draft
+generated: "2026-06-20"

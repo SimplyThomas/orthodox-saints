@@ -1,0 +1,43 @@
+id: OS-1852
+liturgicalTitle: Our Venerable Father Dorotheus the Hermit of Egypt
+overview:
+  - Dorotheus the Hermit was an Egyptian ascetic of the desert, a native of the Thebaid, remembered for an austere solitary life that the synaxarion records as lasting some sixty years. He is commemorated in the Orthodox calendar on September 16. The principal witness to his life is Palladius, later Bishop of Helenopolis and author of the Lausiac History, who as a young man was placed under Dorotheus to be trained in the discipline of the solitary life.
+  - "The Orthodox synaxarion locates his labors in the Skete desert, on the western side of the Nile, while Palladius in his own account describes the elder as living in a cave in the desert solitudes a short distance from Alexandria. Both traditions agree on the shape of his regimen: an extreme economy of food, labor, and sleep sustained over decades. His diet was bread and the sparse herbs of the wilderness, taken once a day with a little water."
+  - Palladius preserves the detail that, at the time he knew him, Dorotheus was in the sixtieth year of his ascetic life in the desert. The account of his daily routine and his sayings, transmitted through the Lausiac History, made him one of the better-documented of the anonymous desert solitaries and a standard example, in later monastic memory, of bodily self-discipline undertaken for the sake of prayer.
+sections:
+  - heading: Ascetic Discipline
+    body:
+      - The defining feature of Dorotheus's life in the sources is the severity of his physical regimen. By day, in the noonday heat, he went out to gather stones in the desert near the sea and used them to build cells; the synaxarion presents this labor as service to other hermits, and Palladius adds that the elder completed roughly one cell a year, then vacated it for those unable to build their own. By night he occupied himself with handwork, weaving ropes or baskets of palm leaves, by which he earned the few supplies he needed.
+      - "His diet, as Palladius records it, was six ounces of bread and a bunch of herbs with water in proportion, taken once a day. He was especially noted for refusing sleep: he did not lie down to rest, but only dozed off involuntarily while working or eating. When Palladius, troubled by the harshness of this discipline, urged the old man to spare his body, Dorotheus is said to have answered, 'If you can persuade angels to sleep, you will also persuade the zealous man.'"
+  - heading: Witness of Palladius
+    body:
+      - Palladius reports that he was sent to Dorotheus to spend three years under his direction in order to master his passions. He was unable to complete the full term, leaving before the three years were up owing to a breakdown in his own health. The memories he set down in the Lausiac History are the chief reason Dorotheus is remembered by name among the many anonymous solitaries of the Egyptian desert.
+      - A further episode attached to his memory in the synaxarion concerns a well said to be poisoned by a snake. Warned by his disciple not to draw from it, Dorotheus drew the water himself, made the Sign of the Cross over it, and drank, saying, 'Where the Cross is, there the demonic powers do no harm.'
+timeline:
+  - when: 4th century
+    title: Ascetic life in the Egyptian desert
+    body: Dorotheus, a native of the Thebaid, withdrew to the desert and lived as a hermit, by tradition for some sixty years.
+  - when: c. late 4th century
+    title: Palladius placed under his direction
+    body: The young Palladius was sent to Dorotheus, then in the sixtieth year of his ascetic life, to be trained in the solitary discipline.
+  - when: September 16
+    title: Feast day
+    body: Dorotheus the Hermit of Egypt is commemorated in the Orthodox calendar.
+related:
+  - name: St. Palladius of Helenopolis
+    note: His disciple in youth and author of the Lausiac History, the principal source for his life.
+patronage:
+  - Remembered as a model of monastic self-discipline, fasting, and ascetic labor.
+reading:
+  - heading: Primary source
+    items:
+      - title: The Lausiac History
+        author: Palladius of Helenopolis
+        type: Primary text
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2016/09/16/102632-venerable-dorotheus-the-hermit-of-egypt
+  - https://citydesert.wordpress.com/2014/01/17/saint-dorotheus-egyptian-hermit/
+  - https://www.tertullian.org/fathers/palladius_lausiac_02_text.htm
+generated: "2026-06-20"

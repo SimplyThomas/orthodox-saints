@@ -1,0 +1,31 @@
+id: OS-2539
+liturgicalTitle: The Righteous Forefather Eber
+overview:
+  - Eber is an Old Testament patriarch named in the genealogies of Genesis, a descendant of Noah's son Shem and one of the ancestors in the line that leads to Abraham. The Orthodox Church commemorates him among the Holy Forefathers, the Old Testament fathers and mothers honored as the spiritual ancestors of Christ. In this database his feast is kept on December 14, together with the other forefathers of the line from Shem to Abraham.
+  - According to the Table of Nations in Genesis 10-11, Eber was the son of Shelah (Salah) and the father of Peleg and Joktan. The genealogy of Genesis 11 records that he became the father of Peleg when he was thirty-four years old. He stands in the chain of patriarchs running from Shem through Arphaxad and Shelah down to Peleg and, ultimately, Abraham.
+  - "By a long-standing tradition the name 'Hebrew' is connected with Eber: the OCA synaxarion identifies him as the righteous Eber 'from whom the Hebrews take their name.' This etymological tradition is ancient and widely repeated, though scholars also note an alternative explanation deriving 'Hebrew' from a root meaning 'to cross over.' The tradition is offered here as it is received, not as a settled philological fact."
+sections:
+  - heading: Name and the Hebrews
+    body:
+      - The association of Eber's name with the Hebrews is attested early and was the prevailing view among many ancient and medieval writers; the Jewish historian Josephus, writing in the first century, held that the Hebrews were named after Eber. Some interpreters instead understand 'Hebrew' to mean 'those who cross over,' a reading connected with the crossing of the Euphrates. The two explanations are not necessarily exclusive, and the matter remains debated.
+      - A further tradition, preserved outside the Orthodox synaxaria, relates that Eber refused to take part in the building of the Tower of Babel, and that for this reason his speech was not confused when the languages were divided. Such accounts are legendary elaborations of the Genesis narrative rather than part of the canonical text, and are noted here only as tradition.
+related:
+  - name: Righteous Forefather Salah
+    note: father of Eber
+    href: saint/OS-2538
+  - name: Righteous Forefather Peleg
+    note: son of Eber
+    href: saint/OS-2540
+  - name: Righteous Forefather Shem
+    note: ancestor; son of Noah
+    href: saint/OS-2535
+  - name: Righteous Forefather Abraham
+    note: descendant in the same line
+    href: saint/OS-1984
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Eber
+  - https://www.oca.org/saints/lives/2014/12/21/103676-sunday-of-the-holy-forefathers
+  - https://orthodoxwiki.org/Sunday_of_the_Forefathers
+generated: "2026-06-21"

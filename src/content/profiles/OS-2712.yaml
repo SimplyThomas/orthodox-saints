@@ -1,0 +1,61 @@
+id: OS-2712
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Oswine_of_Deira
+  - https://en.wikipedia.org/wiki/Gilling_Abbey
+  - https://en.wikipedia.org/wiki/Aidan_of_Lindisfarne
+  - https://en.wikipedia.org/wiki/Tynemouth_Priory
+  - https://www.oca.org/saints/lives/2013/08/20
+lifespan: c. 620 – 651
+liturgicalTitle: The Holy and Right-believing Oswine, King of Deira, Passion-Bearer
+overview:
+  - Oswine was a seventh-century king of Deira, the southern half of the divided Northumbrian realm in what is now northern England. The son of Osric, he came to rule around 644, after the death of King Oswald, while Oswiu ruled the northern part, Bernicia. He governed Deira peacefully for seven years before being killed through betrayal in 651.
+  - Venerated as a passion-bearer and martyr, Oswine was remembered for his Christian character and friendship with Bishop Aidan of Lindisfarne. He died before the Great Schism and is honored as an Orthodox saint among the pre-schism saints of the British Isles. His relics were enshrined at Tynemouth, where his cult flourished through the medieval period until the Dissolution of the Monasteries. His feast is kept on 20 August.
+timeline:
+  - when: c. 620
+    title: Birth
+    body: Oswine is born, the son of Osric of Deira. His exact birth date and place are not recorded.
+  - when: c. 644
+    title: Accession to Deira
+    body: Following the death of King Oswald of Northumbria at the Battle of Maserfield, Oswine succeeds to the rule of Deira, the southern portion of Northumbria, while Oswiu rules Bernicia to the north. His accession is described as perhaps the choice of the people of Deira.
+  - when: c. 644–651
+    title: Seven years of peaceful rule
+    body: Oswine governs Deira for seven years in peace. During this time he supports Bishop Aidan of Lindisfarne, with whom he becomes close friends after the death of Oswald.
+  - when: 20 August 651
+    title: Betrayal and death at Gilling
+    body: When Oswiu declares war, Oswine — greatly outnumbered — chooses to disband his army rather than fight, and withdraws to Gilling to seek refuge with Earl Humwald (Hunwald). Humwald betrays him to Oswiu's soldiers, and Oswine is put to death by Oswiu's commander Ethilwin, accompanied only by his trusted soldier Tonhere, probably at Diddersley Hill in North Yorkshire.
+  - when: c. 651–652
+    title: Gilling Abbey founded in penance
+    body: Because Oswiu had killed a kinsman, Queen Eanflaed — Oswine's second cousin — persuades him to found a monastery at the place of the killing. Built with the weregild owed for the death, Gilling Abbey is staffed by relatives of both families and charged with prayers for both kings. Its first abbot, Trumhere, is a kinsman of Oswine.
+  - when: "1065"
+    title: Rediscovery of relics at Tynemouth
+    body: After the burial site at Tynemouth had been forgotten, a corpse believed to be that of Oswine is exhumed at the ruined monastery — by tradition guided by an apparition to a monk named Edmund — and his relics are translated to an honorable place.
+  - when: 20 August 1110
+    title: Translation to the new church at Tynemouth
+    body: The shrine of Oswine is ceremoniously transferred to the new church at Tynemouth Priory, dedicated to the Virgin Mary and Saint Oswine, which becomes a place of pilgrimage.
+sections:
+  - heading: Historical Context
+    body:
+      - "In the seventh century the Anglo-Saxon kingdom of Northumbria was frequently divided between two component realms: Deira in the south, centered on the former Roman city of York, and Bernicia in the north. After the death of King Oswald at the Battle of Maserfield, the kingdom split, with Oswine ruling Deira and Oswiu ruling Bernicia."
+      - Oswine's reign coincided with the consolidation of Christianity in Northumbria under the mission from Iona led by Bishop Aidan of Lindisfarne. The rivalry between the Deiran and Bernician royal lines, complicated by ties of kinship, formed the political backdrop to Oswine's killing and to the penitential settlement that followed.
+  - heading: Death and the Founding of Gilling Abbey
+    body:
+      - When Oswiu moved against him after seven years of peace, Oswine declined to give battle against a far larger force and disbanded his army to spare his men. He withdrew to Gilling and sought shelter with Earl Humwald, whom he counted a friend; Humwald instead handed him over to Oswiu's men, and he was killed on 20 August 651.
+      - Under the law of the time, his kinswoman Queen Eanflaed could have pursued vengeance or accepted weregild — compensation for the killing. The weregild was used to found a monastery at Gilling, the site of the death, staffed by relatives of both families and charged with offering prayers for the soul of Oswine and the salvation of Oswiu. Its early abbots included Trumhere (a kinsman of Oswine), Cynefrith, Trumbert, and Ceolfrith; the community was later depopulated by plague before 669.
+  - heading: Relics & Shrines
+    body:
+      - By tradition Oswine was the first king buried at Tynemouth, interred there in connection with the penance for his killing. The burial place was in time forgotten, but in 1065 a body believed to be his was exhumed at the ruined monastery and his relics honorably enshrined.
+      - After the priory was refounded in 1083, a new church was built and dedicated to the Virgin Mary and Saint Oswine, and his shrine became a place of pilgrimage. On 20 August 1110 the shrine was ceremoniously transferred to the new church. By the fourteenth century the martyr's body rested in a silver shrine decorated with gold and jewels, until the shrine was destroyed in 1539 during the Dissolution of the Monasteries. The chronicler Alban Butler records that in 1103 Bishop Ranulf Flambard moved relics from a deteriorating chapel at Tynemouth to St Albans Abbey in Hertfordshire.
+  - heading: Veneration
+    body:
+      - Oswine was venerated as a martyr soon after his death, his killing through betrayal understood as a passion borne without resistance. As a saint who lived before the Great Schism, he is honored among the pre-schism saints of the British Isles in the Orthodox Church, and is also venerated in the Roman Catholic Church and the Anglican Communion.
+      - His feast is kept on 20 August. Churches bearing his dedication include one at Wylam in Northumberland and Our Lady and Saint Oswin's Church at Tynemouth.
+related:
+  - name: Saint Aidan of Lindisfarne
+    note: Bishop of Lindisfarne and friend of Oswine, who supported Aidan's mission after the death of King Oswald.
+    external: https://en.wikipedia.org/wiki/Aidan_of_Lindisfarne
+patronage:
+  - Tynemouth
+status: draft
+generated: "2026-06-21"
