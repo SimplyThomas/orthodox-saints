@@ -4524,6 +4524,50 @@ a.sv-rail-chip:hover {
 .sv2 .sv-group-list a:hover {
   color: var(--celest);
 }
+/* related-saints avatar carousel */
+.sv2 .sv-related .sv-relrow {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+.sv2 .sv-relcard {
+  flex: 0 0 auto;
+  width: 116px;
+  text-align: center;
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+.sv2 .sv-relav {
+  display: flex;
+  justify-content: center;
+}
+.sv2 .sv-relrel {
+  margin-top: 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.sv2 .sv-relname {
+  margin-top: 3px;
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--byz-deep);
+  line-height: 1.15;
+}
+.sv2 .sv-relep {
+  display: block;
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--celest);
+}
+.sv2 a.sv-relcard:hover .sv-relname {
+  color: var(--byz);
+}
+
 .sv2 .sv-after-sources {
   margin-top: 22px;
   padding-top: 18px;
