@@ -1,0 +1,54 @@
+id: OS-0793
+liturgicalTitle: Our Father among the Saints Theophylactus the Confessor, Bishop of Nicomedia
+lifespan: died c. 845
+overview:
+  - Theophylactus of Nicomedia was a ninth-century bishop and confessor, remembered for his charity toward the poor and the sick and for his defense of the veneration of icons during the second period of Byzantine iconoclasm. A native of Constantinople, he was a disciple of Saint Tarasius, Patriarch of Constantinople, who had convened the Seventh Ecumenical Council of 787 to restore the honoring of the holy images. He is commemorated on March 8.
+  - With the blessing of Patriarch Tarasius, Theophylactus withdrew to a monastery on the coast of the Black Sea together with Saint Michael, later bishop of Synnada. The two became known for their ascetic life, and the tradition relates that their prayers brought forth water during a drought. After his years in monastic struggle, Theophylactus was consecrated bishop of Nicomedia in Asia Minor by Tarasius.
+  - "As bishop he was distinguished by extensive works of mercy: he built churches and hospices, provided for orphans, widows, and the sick, distributed alms, and personally cared for those afflicted with leprosy, washing their wounds himself. When the iconoclast emperor Leo V the Armenian (813-820) renewed the persecution of icons, Theophylactus openly denounced the heresy and foretold the emperor's swift destruction. For this he was deposed and exiled to the fortress of Strobilos in Asia Minor."
+  - Theophylactus endured roughly thirty years in banishment, dying in exile around the year 845. After the restoration of the veneration of icons in 843, and with the broader settlement under the empress Theodora and her son Michael, his relics were returned to Nicomedia.
+sections:
+  - heading: Charity as Bishop
+    body:
+      - The sources consistently emphasize Theophylactus's pastoral generosity over any administrative or theological writings. As bishop of Nicomedia he is said to have built churches, hospices, and shelters for travelers and the homeless, and to have acted as a guardian for orphans, widows, and the sick.
+      - "His care for lepers is singled out in the tradition: he is described as personally attending those afflicted, not hesitating to wash their wounds. This combination of episcopal office and direct, hands-on charity is the defining feature of his life in the synaxarion."
+  - heading: Confession Against Iconoclasm
+    body:
+      - Theophylactus belonged to the generation of bishops formed under Patriarch Tarasius and committed to the decrees of the Seventh Ecumenical Council. When Leo V the Armenian revived iconoclasm after 813, Theophylactus argued openly for the use of sacred images in the Church and rebuked the emperor directly.
+      - By tradition he warned Leo that great destruction would come upon him and that he would find no one to deliver him from it. For this prophecy and his refusal to yield, he was deposed from his see and sent to the fortress of Strobilos, where he remained until his death.
+timeline:
+  - when: 8th c.
+    title: Disciple of Patriarch Tarasius
+    body: A native of Constantinople, Theophylactus became a disciple of Saint Tarasius, Patriarch of Constantinople.
+  - when: 8th c.
+    title: Monastic life on the Black Sea
+    body: With Tarasius's blessing he entered a Black Sea monastery alongside Saint Michael, later bishop of Synnada.
+  - when: 8th c.
+    title: Consecrated bishop of Nicomedia
+    body: Tarasius consecrated him bishop of Nicomedia, where he became known for his charitable works.
+  - when: 813-820
+    title: Confronts Leo V
+    body: Under the iconoclast emperor Leo V the Armenian he denounced the heresy and was deposed and exiled to the fortress of Strobilos.
+  - when: c. 845
+    title: Death in exile
+    body: Theophylactus died after about thirty years in banishment.
+  - when: "847"
+    title: Return of relics
+    body: Following the restoration of icon veneration, his relics were brought back to Nicomedia.
+related:
+  - name: Saint Tarasius, Patriarch of Constantinople
+    note: His teacher, who tonsured and later consecrated him bishop
+    href: saint/OS-0722
+  - name: Saint Michael the Confessor, Bishop of Synnada
+    note: His monastic companion on the Black Sea, likewise a confessor under Leo V
+    href: saint/OS-1226
+patronage:
+  - Invoked in connection with care for the sick and those suffering from leprosy and disfiguring illness
+  - Honored as a defender of the holy icons and a model of episcopal charity
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://www.oca.org/saints/lives/2021/03/08/100698-saint-theophylactus-bishop-of-nicomedia
+  - https://en.wikipedia.org/wiki/Theophylact_of_Nicomedia
+  - https://orthodoxwiki.org/Theophylactus_of_Nicomedia
+generated: "2026-06-19"

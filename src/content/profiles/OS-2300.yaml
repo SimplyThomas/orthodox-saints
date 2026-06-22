@@ -1,0 +1,67 @@
+id: OS-2300
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/John_of_Damascus
+  - https://orthodoxwiki.org/John_of_Damascus
+lifespan: c. 675/676 - December 4, 749
+liturgicalTitle: Our Venerable Father John of Damascus
+overview:
+  - John of Damascus was an eighth-century Syrian theologian, hymnographer, and monk, remembered above all as the foremost defender of the holy icons during the early iconoclastic controversy. Born into a prominent Damascene Christian family around 675 or 676, he served for a time in the administration of the Umayyad Caliphate before withdrawing to the monastic life at the Monastery of Saint Sabbas near Jerusalem.
+  - His theological synthesis, gathered in The Fountain of Knowledge and its culminating section An Exact Exposition of the Orthodox Faith, became a principal textbook of Greek Orthodox theology and exerted a lasting influence on later medieval thought. He also perfected the canon form in Byzantine liturgical hymnody, much of which remains in liturgical use. He reposed at Saint Sabbas on December 4, 749, the date on which the Orthodox Church commemorates him.
+timeline:
+  - when: c. 675/676
+    title: Birth in Damascus
+    body: John is born in Damascus to a prominent Syrian Christian family. His father, Sarjun ibn Mansur, serves as a financial official of the early Umayyad Caliphate; his grandfather had been a Byzantine official of the city.
+  - when: Early life
+    title: Education at Damascus
+    body: Raised in Damascus, John receives an education combining Hellenic learning with Christian formation and grows up bilingual. By tradition his tutor is a Sicilian monk named Cosmas, who instructs him in the liberal arts.
+  - when: c. 706
+    title: Withdrawal to Saint Sabbas
+    body: Having served as a civil administrator under the Umayyad caliph, John enters the Monastery of Saint Sabbas (Mar Saba) near Jerusalem and takes up the monastic life.
+  - when: "726"
+    title: Defense of the holy icons
+    body: When Emperor Leo III issues edicts against the veneration of religious images, John composes three apologetic treatises in defense of the icons, writings that secure his reputation.
+  - when: "754"
+    title: Condemnation and later rehabilitation
+    body: The iconoclastic Council of Hieria condemns John by anathema. He is rehabilitated by the Second Council of Nicaea in 787, which draws extensively on his writings.
+  - when: December 4, 749
+    title: Repose at Saint Sabbas
+    body: John dies at the Monastery of Saint Sabbas near Jerusalem at approximately seventy-two to seventy-four years of age.
+sections:
+  - heading: Family and Early Life
+    body:
+      - John was born in Damascus around 675 or 676 into a prominent Damascene Syrian Christian family. His father, Sarjun ibn Mansur, served as an official of the early Umayyad Caliphate, by some accounts as head of the tax department for Syria, retaining his post despite the family's Christian faith. His grandfather, Mansur ibn Sarjun, had been a prominent Byzantine official of Damascus, responsible for regional taxes under Emperor Heraclius and involved in the city's surrender to Muslim forces in 635.
+      - Raised in Damascus, John received an education that combined Hellenic learning with Christian formation, and he grew up bilingual amid both Islamic and Greek culture. By tradition his tutor was a Sicilian monk named Cosmas, who had been brought to Damascus as a captive and who instructed John in the liberal arts, including arithmetic and geometry.
+  - heading: Service and Monastic Calling
+    body:
+      - Before his ordination, John appears to have served as a civil administrator for the Umayyad caliph in Damascus, and by some accounts succeeded his father, holding a senior counselor's office in the city. The exact nature and timing of this service remain uncertain, as he is not named in the surviving Umayyad archives.
+      - Around 706, as the Umayyad administration grew more thoroughly Islamicized, John withdrew to the Monastery of Saint Sabbas (Mar Saba) near Jerusalem. There he embraced the monastic life and devoted himself to writing, producing a steady stream of commentaries, hymns, and apologetic works.
+  - heading: Defense of the Holy Icons
+    body:
+      - When Byzantine Emperor Leo III issued edicts against the veneration of religious images in 726, John became the foremost defender of the icons, publishing three apologetic treatises against those who decried the holy images. Written in an accessible style, these works carried the controversy to ordinary believers and secured his reputation as a champion of Orthodox practice.
+      - The iconoclastic Council of Hieria condemned John by anathema in 754, after his death. He was rehabilitated by the Second Council of Nicaea in 787, the council that restored the veneration of icons and made extensive use of his writings.
+  - heading: Theological and Liturgical Works
+    body:
+      - "John compiled The Fountain of Knowledge, a comprehensive synthesis in three parts: the Philosophical Chapters, drawing on Porphyry's Isagoge; Concerning Heresy, based on the Panarion of Epiphanius; and An Exact Exposition of the Orthodox Faith, which summarized the teaching of the Cappadocian Fathers. These works became a principal textbook of Greek Orthodox theology and influenced later medieval Scholastic thought."
+      - In the section Concerning Heresy, John treated Islam under the heading of the Heresy of the Ishmaelites, producing one of the earliest Christian engagements with the new religion. As a hymnographer he perfected the canon form in Byzantine liturgical hymnody and is associated with the Oktoechos; much of this material remains in liturgical use in the Eastern Church.
+  - heading: Traditional Accounts
+    body:
+      - According to tradition, Emperor Leo III sent forged documents to the caliph implicating John in a plot, whereupon the caliph ordered that John's right hand, the hand he used for writing, be severed and hung in public view. John is said to have prayed before an icon of the Theotokos, after which his hand was miraculously restored. In thanksgiving he is reported to have attached a silver hand to the icon, an account associated with the famous Three-Handed icon (Tricheirousa) later venerated at Hilandar monastery on Mount Athos.
+  - heading: Repose and Legacy
+    body:
+      - John died at the Monastery of Saint Sabbas near Jerusalem on December 4, 749, at approximately seventy-two to seventy-four years of age, revered as a Father of the Church. The Orthodox Church commemorates him on December 4. In the Western Church, Pope Leo XIII declared him a Doctor of the Church in 1890.
+patronage:
+  - Theology and theological writing
+  - Iconographers and the defense of sacred images
+  - Hymnographers and church singers
+works:
+  - title: The Fountain of Knowledge
+    desc: A three-part theological synthesis comprising the Philosophical Chapters, Concerning Heresy, and An Exact Exposition of the Orthodox Faith.
+  - title: An Exact Exposition of the Orthodox Faith
+    desc: The culminating section of The Fountain of Knowledge, summarizing the teaching of the Cappadocian Fathers and long regarded as a principal textbook of Orthodox theology.
+  - title: Apologetic Treatises against those Decrying the Holy Images
+    desc: Three treatises composed in defense of the veneration of icons against the iconoclastic edicts of Emperor Leo III.
+  - title: Oktoechos
+    desc: Liturgical hymnody associated with John, who perfected the canon form in Byzantine worship.
+status: draft
+generated: "2026-06-19"

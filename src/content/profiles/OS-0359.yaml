@@ -1,0 +1,48 @@
+id: OS-0359
+liturgicalTitle: Our Father among the Saints Peter of Mozonzo, Bishop of Iria and Compostela
+lifespan: c. 930 – 1003
+overview:
+  - "Peter of Mozonzo (Galician: Pedro de Mezonzo) was a tenth-century Galician monk, abbot, and bishop who led the church of Compostela through one of the most catastrophic episodes in its early history. Born around 930 in Curtis, in the region of A Coruna, he entered monastic life as a young man and rose through the abbacies of Galicia's great monasteries before being elected to the episcopal see of Iria Flavia-Santiago."
+  - He is best remembered for his conduct during the 997 raid of the Cordovan commander Almanzor (Al-Mansur), when the city of Santiago de Compostela was sacked and razed yet the tomb of the Apostle James was spared. By a long-standing Galician tradition he is also held to be the author of the Marian hymn Salve Regina, an attribution his sources present as devotional tradition rather than established historical fact.
+timeline:
+  - when: c. 930
+    title: Birth in Curtis
+    body: Peter was born around the year 930 in Curtis, in the province of A Coruna in Galicia. By one Spanish account his parents, named Martin and Mustacia, served in domestic positions.
+  - when: c. 952
+    title: Monk at Santa Maria de Mezonzo
+    body: Drawn to the spiritual life from his youth, he entered the Monastery of Santa Maria de Mezonzo, from which his epithet derives. One source records that he was ordained a priest on 9 July 959.
+  - when: "965"
+    title: Abbot of Sobrado
+    body: He joined the Monastery of Santa Maria de Sobrado and was elected its abbot in 965. He later served as abbot of the monastery of San Paio de Antealtares in Santiago de Compostela.
+  - when: c. 985
+    title: Bishop of Iria-Compostela
+    body: At roughly the age of fifty-five or fifty-six he was elected bishop of the see of Iria Flavia-Santiago, the seat associated with the apostolic shrine of Compostela.
+  - when: "997"
+    title: The raid of Almanzor
+    body: When Almanzor's army advanced on Santiago, Peter ordered the evacuation of the city and withdrew to a monastery in the interior, by tradition Sobrado, carrying the relics to safety. The city was devastated but the Apostle's tomb was preserved.
+  - when: "1003"
+    title: Death
+    body: Peter died in 1003. He came to be venerated as a saint, and a church is dedicated to him in A Coruna.
+sections:
+  - heading: Monastic and Episcopal Career
+    body:
+      - Peter's career followed the path of Galicia's reformed Benedictine monasticism. After entering Santa Maria de Mezonzo, he moved to the Monastery of Santa Maria de Sobrado, where he was elected abbot in 965. He subsequently governed the monastery of San Paio de Antealtares in Santiago de Compostela; one Spanish account associates his formation with the circle of the bishop and monastic reformer Rosendo.
+      - From this monastic background he was raised to the episcopate, becoming bishop of the see of Iria Flavia, the historic seat that was bound to the great pilgrimage shrine of Santiago de Compostela. He held the office through the closing years of the tenth century until his death in 1003.
+  - heading: The Raid of Almanzor (997)
+    body:
+      - In 997 the Cordovan military commander Almanzor (Al-Mansur) launched an expedition against Santiago de Compostela, the foremost Christian sanctuary of the Iberian peninsula. When word reached the city of the approaching army, Peter ordered the population to evacuate and withdrew to a monastery in the interior, by tradition Sobrado, taking the relics with him.
+      - The campaign was devastating. According to the historical record, Almanzor's forces reached the city and demolished the cathedral, the monastery of San Martin Pinario, the monastery of Antealtares, the local hospital, and the other temples and palaces; the cathedral bells and doors were carried off by captives to Cordoba, where the bells were repurposed as lamps for the great mosque. Yet the tomb of the Apostle James was deliberately spared, and guards posted by Almanzor prevented it from being harmed. A widespread tradition relates that Almanzor came upon the aged bishop praying at the Apostle's tomb and, moved by his devotion, ordered the sepulcher left untouched. Two years after the raid, Peter is credited with beginning the restoration of the shrine of Santiago.
+  - heading: Attribution of the Salve Regina
+    body:
+      - By a long-standing Galician tradition, Peter of Mozonzo is named as the author of the Salve Regina, one of the best-known Marian antiphons of the Latin Church. The sources that record this attribution are careful to frame it as devotional tradition rather than documented fact; one notes plainly that scholarly verification is absent, and others present the composition as legend.
+      - Where the tradition is elaborated, the hymn is said to have been inspired by the image of Nuestra Senora de los Ojos Grandes (Our Lady of the Great Eyes), the patroness of Lugo, and composed amid the dangers facing Galicia in the saint's lifetime.
+patronage:
+  - Associated by tradition with the city and church of A Coruna, where a church is dedicated to him.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://laovejaperdidaweb.wordpress.com/2020/09/02/san-pedro-de-mezonzo-el-santo-gallego-autor-de-la-salve-regina/
+  - http://enxebreordedavieira.blogspot.com/2010/04/san-pedro-de-mezonzo-compositor-de-la.html
+  - https://en.wikipedia.org/wiki/Santiago_de_Compostela_campaign
+  - https://www.elespanol.com/quincemil/articulos/cultura/pedro-de-mezonzo-el-obispo-gallego-que-defendio-al-apostol-santiago-de-almanzor-y-compuso-la-salve-regina
+generated: "2026-06-20"

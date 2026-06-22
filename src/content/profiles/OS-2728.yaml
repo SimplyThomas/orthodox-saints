@@ -1,0 +1,42 @@
+id: OS-2728
+liturgicalTitle: The Holy Martyr Leonides of Alexandria
+lifespan: died 202
+overview:
+  - Leonides of Alexandria was an early Christian who lived in the late second and early third centuries and is remembered as a martyr of the Church and as the father of Origen, the prominent early Christian writer and teacher. A Christian layman of Alexandria in the Roman province of Egypt, he was put to death during the persecution of Christians under the emperor Septimius Severus.
+  - According to the account preserved by Eusebius of Caesarea in his Church History, Leonides was beheaded and his property was confiscated to the imperial treasury, leaving his family in poverty. He is commemorated as a saint, with his feast observed on April 22.
+timeline:
+  - when: late 2nd century
+    title: Life as a Christian of Alexandria
+    body: Leonides lived in Alexandria as a Christian layman and raised his children in the faith, catechizing them carefully. The name of his wife is not recorded; in addition to his eldest son Origen, the household included six younger children.
+  - when: "202"
+    title: Martyrdom under Septimius Severus
+    body: During the persecution of Christians under the emperor Septimius Severus, Leonides was condemned and beheaded at Alexandria. His property was confiscated to the imperial treasury, leaving his widow and children destitute.
+sections:
+  - heading: Martyrdom and the Persecution of Severus
+    body:
+      - Leonides suffered during the persecution of Christians associated with the reign of the emperor Septimius Severus, traditionally dated to the year 202. He was sentenced to death and beheaded at Alexandria, and the authorities confiscated his property to the imperial treasury.
+      - Eusebius of Caesarea, writing in the early fourth century, records the event in the sixth book of his Church History, where Leonides is identified as the father of Origen and described as having been beheaded while his son was still young.
+  - heading: Family and Legacy
+    body:
+      - Leonides is best known as the father of Origen, one of the most influential teachers and writers of the early Church. Eusebius relates that at his father's death Origen was not quite seventeen years old and was left, together with his mother and six younger brothers, in want of the necessities of life after the confiscation of the family's property.
+      - According to Eusebius, the young Origen was so eager to share in his father's martyrdom that his mother hid all his clothing to keep him from leaving the house. Prevented from going to his imprisoned father, Origen instead sent him a letter encouraging him to remain steadfast, urging him not to change his mind on the family's account. Eusebius presents Leonides as a careful Christian educator whose instruction shaped his son's early formation in the faith.
+patronage:
+  - Large families
+related:
+  - name: Origen
+    note: his eldest son, an early Christian teacher and writer
+    external: https://en.wikipedia.org/wiki/Origen
+reading:
+  - heading: Primary source
+    items:
+      - title: Church History (Book 6)
+        author: Eusebius of Caesarea
+        type: primary source
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Leonides_of_Alexandria
+  - https://www.newadvent.org/fathers/250106.htm
+  - https://www.oca.org/saints/lives/2016/04/22
+status: draft
+generated: "2026-06-21"

@@ -15,11 +15,19 @@ Launch:  nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 &
 Resume:  re-run the same command (prioritize excludes already-profiled saints).
 Exit:    0 done · 2 stopped (likely weekly cap) · 3 terminal error.
 
-Env: BATCH_SIZE(40) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
-WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')."""
+Env: BATCH_SIZE(10) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
+WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
+PROFILEGEN_USE_WORKFLOW(on by default) — generate via scripts/profilegen.workflow.js
+(per-stage Sonnet/Opus/Sonnet/Haiku); set =0/false/off to fall back to the legacy all-Opus
+path. A clean run that emits 0 profiles is classified from the orchestrator output: a 429
+rate-limit waits a window (weekly-cap path); a transient 529 overload (or unknown) backs
+off and skips the batch — see limits.zero_production_etype.
+PROFILEGEN_ORCH_MODEL(claude-haiku-4-5-20251001) — model for the thin Workflow-invoking
+orchestrator (the per-stage models live in the script)."""
 import json
 import os
 import shlex
+import signal
 import subprocess
 import sys
 import time
@@ -29,15 +37,36 @@ from pathlib import Path
 from tools.profilegen import limits, prioritize
 
 ROOT = Path(__file__).resolve().parents[2]
-PLAN = "docs/superpowers/plans/2026-06-17-generation-pipeline.md"
+# The legacy path points subagents at the lean per-stage guides (~10KB total), NOT the
+# 60KB pipeline-design plan — re-reading that plan per saint was a major token sink, and
+# the Workflow proves these prompts are self-sufficient for quality generation.
+STAGE_GUIDES = ("tools/profilegen/prompts/gather.md, tools/profilegen/prompts/write.md, "
+                "and tools/profilegen/prompts/verify.md")
 RUN_DIR = ROOT / "dist" / "profilegen"
-BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "40"))
+PROFILES_DIR = ROOT / "src" / "content" / "profiles"
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "10"))
+# Hard wall-clock cap on a single `claude -p` batch. A headless orchestrator sometimes
+# finishes its work but never exits (observed: workflow wrote all profiles, then hung) —
+# without a timeout the parent blocks forever and the whole overnight run freezes. On
+# timeout we kill the child's process group and let the loop move on; any profiles that
+# did land are picked up by the profiles-on-disk recompute. ~60 min ≫ a normal 10-saint
+# batch (~15 min) even with retries.
+BATCH_TIMEOUT = int(os.environ.get("BATCH_TIMEOUT", "3600"))
 MODEL = os.environ.get("PROFILEGEN_MODEL", "claude-opus-4-8")
 RESUME_AFTER = int(os.environ.get("RESUME_AFTER", str(5 * 3600 + 600)))  # ~5h10m: clears a window
 WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))      # then assume weekly cap
 MAX_ERR = int(os.environ.get("MAX_ERR", "3"))                            # unknown errors per batch
 NOTIFY_CMD = os.environ.get("NOTIFY_CMD", "")
 DRY_RUN = bool(os.environ.get("DRY_RUN"))
+# Default ON: drive generation through the per-stage Workflow (Gather=Sonnet, Write=Opus,
+# Verify=Sonnet, Emit=Haiku) instead of one all-Opus claude -p agent — ~2.3x cheaper on the
+# weekly limit. Set PROFILEGEN_USE_WORKFLOW=0 (or false/off/no) to fall back to the legacy path.
+USE_WORKFLOW = os.environ.get("PROFILEGEN_USE_WORKFLOW", "1").lower() not in ("0", "false", "off", "no")
+WORKFLOW_SCRIPT = "scripts/profilegen.workflow.js"
+# The orchestrator only fires one Workflow tool call; the per-stage models live in the
+# script, so the orchestrator itself can be cheap. Override with PROFILEGEN_ORCH_MODEL.
+ORCH_MODEL = os.environ.get("PROFILEGEN_ORCH_MODEL", "claude-haiku-4-5-20251001")
+WORKFLOW_TOOLS = "Workflow,Agent,Bash,Read,Write,Edit,WebFetch,WebSearch"
 
 
 def log(msg: str) -> None:
@@ -66,20 +95,108 @@ def write_state(**kw) -> None:
 def run_claude(ids: list[str]) -> tuple[str, int]:
     prompt = (
         f"Generate grounded saint profiles for these IDs: {' '.join(ids)}. "
-        f"Follow {PLAN}: gather sources, write, adversarially verify against the "
-        f"OCA-anchor row, emit YAML to src/content/profiles/, and append coverage + "
-        f"verdicts under dist/profilegen/. SKIP any ID that already has a profile file. "
-        f"Report how many profiles you wrote."
+        f"For each saint, follow the concise stage guides {STAGE_GUIDES} (read THESE, "
+        f"not the full pipeline-design plan): seed the dossier with "
+        f"`python -m tools.profilegen.dossier <id>`, gather sources, write, adversarially "
+        f"verify against the OCA-anchor row, emit YAML to src/content/profiles/, and append "
+        f"coverage + verdicts under dist/profilegen/. SKIP any ID that already has a profile "
+        f"file. Report how many profiles you wrote."
     )
-    proc = subprocess.run(
+    return _exec_claude(
         ["claude", "-p", prompt,
          "--permission-mode", "dontAsk",
          "--allowedTools", "Read,Write,Edit,Bash,WebFetch,WebSearch",
          "--model", MODEL,
-         "--output-format", "json"],
-        capture_output=True, text=True, cwd=ROOT,
+         "--output-format", "json"])
+
+
+def _exec_claude(argv) -> tuple[str, int]:
+    """Run a `claude -p` invocation with a hard BATCH_TIMEOUT. Spawn it in its own
+    process group (start_new_session) so that on timeout we can SIGKILL the whole tree
+    — the orchestrator AND the Workflow sub-agents it spawned — rather than orphaning
+    them (orphaned children have frozen prior runs). Returns (combined output, rc);
+    a timeout returns rc 124 with a 'TIMEOUT' marker the loop treats as a retryable error."""
+    proc = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                            text=True, cwd=ROOT, start_new_session=True)
+    try:
+        out, err = proc.communicate(timeout=BATCH_TIMEOUT)
+        return (out or "") + (err or ""), proc.returncode
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            proc.kill()
+        try:
+            out, err = proc.communicate(timeout=30)
+        except Exception:
+            out, err = "", ""
+        log(f"TIMEOUT after {BATCH_TIMEOUT}s — killed hung claude -p process group")
+        return (out or "") + (err or "") + f"\nTIMEOUT after {BATCH_TIMEOUT}s", 124
+
+
+def run_workflow(ids, date: str) -> tuple[str, int]:
+    """Drive the per-stage Workflow headlessly for `ids`. The orchestrator's only job
+    is to invoke the one Workflow with {ids, date} args — NOT to improvise its own
+    subagents (which would inherit a single model and defeat the per-stage split)."""
+    payload = json.dumps({"ids": list(ids), "date": date})
+    prompt = (
+        f"Use the Workflow tool to run the workflow script at {WORKFLOW_SCRIPT}, "
+        f"passing this exact JSON object as its args: {payload}. "
+        f"Do NOT generate any profiles yourself and do NOT spawn your own subagents — "
+        f"invoke that single Workflow and report only its final summary line."
     )
-    return (proc.stdout or "") + (proc.stderr or ""), proc.returncode
+    return _exec_claude(
+        ["claude", "-p", prompt,
+         "--permission-mode", "dontAsk",
+         "--allowedTools", WORKFLOW_TOOLS,
+         "--model", ORCH_MODEL,
+         "--output-format", "json"])
+
+
+def format_profiles(ids: list[str]) -> None:
+    """Prettier-normalize a finished batch's profiles so the frontend lint gate
+    (`prettier --check`) passes — the emit step writes valid but unformatted YAML.
+    Best-effort: a missing/failing prettier must never kill the run. Safe here
+    because it runs only after a batch completes (no subagent writing concurrently)
+    and touches only this batch's existing files."""
+    prettier = ROOT / "node_modules" / ".bin" / "prettier"
+    if not prettier.exists():
+        log("(skip formatting: node_modules/.bin/prettier not found — run `make web-install`)")
+        return
+    paths = [str(p) for sid in ids
+             if (p := ROOT / "src" / "content" / "profiles" / f"{sid}.yaml").exists()]
+    if not paths:
+        return
+    try:
+        r = subprocess.run([str(prettier), "--write", "--log-level", "warn", *paths],
+                           capture_output=True, text=True, cwd=ROOT, timeout=300)
+        if r.returncode != 0:
+            log(f"(prettier returned {r.returncode}: {(r.stderr or '').strip()[:200]})")
+        else:
+            log(f"formatted {len(paths)} profile(s)")
+    except Exception as e:
+        log(f"(prettier failed, profiles left unformatted: {e})")
+
+
+def profiles_present(ids, profiles_dir=None) -> set:
+    """The subset of `ids` that already have a profile YAML on disk. Deterministic
+    success signal for the Workflow path: the Workflow emits a file only for each
+    saint that fully succeeded, so file presence — not parsed agent text — tells us
+    what landed."""
+    d = Path(profiles_dir) if profiles_dir is not None else PROFILES_DIR
+    return {sid for sid in ids if (d / f"{sid}.yaml").exists()}
+
+
+def classify_workflow_outcome(produced: int, requested: int) -> str:
+    """Map produced-vs-requested profile counts to a batch outcome:
+      'none'    → clean exit but nothing emitted → treat as a soft rate-limit signal
+      'partial' → some emitted, some not → accept; stragglers retried on resume
+      'ok'      → everything requested was emitted."""
+    if produced <= 0:
+        return "none"
+    if produced < requested:
+        return "partial"
+    return "ok"
 
 
 def main() -> int:
@@ -96,16 +213,44 @@ def main() -> int:
         return 0
 
     waits = 0  # consecutive full-window waits with no successful call between → weekly signal
+    date = f"{datetime.now():%F}"  # batch date → Workflow GENERATED → canonical log paths
     for n, batch in enumerate(batches, 1):
         errs = 0
         while True:
-            write_state(status="running", batch=n, total=len(batches), action="generating")
-            log(f"batch {n}/{len(batches)} ({len(batch)} ids)")
-            out, rc = run_claude(batch)
+            if USE_WORKFLOW:
+                remaining = sorted(set(batch) - profiles_present(batch))
+                if not remaining:                   # whole batch already on disk
+                    log(f"batch {n}/{len(batches)} already complete")
+                    break
+            else:
+                remaining = batch
+            write_state(status="running", batch=n, total=len(batches),
+                        action="generating", remaining=len(remaining))
+            log(f"batch {n}/{len(batches)} ({len(remaining)} ids)")
+            out, rc = (run_workflow(remaining, date) if USE_WORKFLOW
+                       else run_claude(remaining))
             etype = limits.parse_error_type(out) or ("error" if rc != 0 else None)
 
-            if etype is None:                       # success
+            if etype is None and USE_WORKFLOW:
+                produced = len(profiles_present(remaining))
+                outcome = classify_workflow_outcome(produced, len(remaining))
+                if outcome == "none":               # clean exit, 0 emitted — classify cause
+                    etype = limits.zero_production_etype(out)
+                    log(f"batch {n}: workflow emitted 0/{len(remaining)} profiles — "
+                        f"classified '{etype}' "
+                        f"({'wait a window' if etype == 'rate_limit_error' else 'backoff + skip'})")
+                else:                               # 'ok' or 'partial' — real progress
+                    waits = 0
+                    format_profiles(remaining)
+                    if outcome == "partial":
+                        log(f"batch {n}: {produced}/{len(remaining)} produced; "
+                            f"{len(remaining) - produced} remain (retried on resume)")
+                    log(f"batch {n} done")
+                    break
+
+            if etype is None:                       # legacy success
                 waits = 0
+                format_profiles(remaining)
                 log(f"batch {n} done")
                 break
 

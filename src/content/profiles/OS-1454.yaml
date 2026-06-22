@@ -1,0 +1,44 @@
+id: OS-1454
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Juvenal_of_Jerusalem
+  - https://orthodoxwiki.org/Juvenal_of_Jerusalem
+lifespan: d. 458
+liturgicalTitle: Our Father among the Saints Juvenal, Patriarch of Jerusalem
+overview:
+  - Juvenal occupied the episcopal throne of Jerusalem for roughly four decades during the most contested period of fifth-century Christological debate, and under him the ancient mother church of Palestine was raised from a metropolitan see to a patriarchate ranking alongside Rome, Alexandria, Antioch, and Constantinople. Born in the late fourth century, with early ties to the monastic life of the Kedron Valley, he was consecrated to the see of Jerusalem in the early 420s and held it until his death in 458.
+  - "His career spanned three great councils and a hard reversal of fortune: he supported the condemnation of Nestorius at Ephesus, briefly aligned himself with the discredited council of 449, then affirmed the doctrine of Christ's two natures at Chalcedon, an about-face that cost him his see in a violent monastic revolt before imperial intervention restored him."
+timeline:
+  - when: c. 422
+    title: Consecrated bishop of Jerusalem
+    body: Juvenal was consecrated to the see of Jerusalem in the early 420s, having been associated with the monastic life of the Kedron Valley. In 428/429 he consecrated the Laura of Euthymius on the road between Jerusalem and Jericho and provided it with clergy.
+  - when: "431"
+    title: Council of Ephesus
+    body: At the Third Ecumenical Council he sided with Cyril of Alexandria against Nestorius in the latter's condemnation for heresy. He also pressed to elevate Jerusalem's standing at the expense of Caesarea and Antioch, a claim Cyril declined to support at that time.
+  - when: "449"
+    title: Council of Ephesus of 449
+    body: He was among the leaders of the council of 449, being recorded as the first to sign as an ally of Dioscorus of Alexandria. The council was subsequently rejected, and Juvenal would reverse the position he had taken there.
+  - when: "451"
+    title: Council of Chalcedon and elevation of the see
+    body: At the Fourth Ecumenical Council Juvenal affirmed the union of two natures in Christ, divine and human, without separation and without confusion, and joined in condemning Dioscorus. Through negotiation with Maximus of Antioch his see secured authority over the Palestinian provinces, raising Jerusalem toward patriarchal rank alongside Rome, Alexandria, Antioch, and Constantinople.
+  - when: 452-453
+    title: Monastic revolt and exile
+    body: The new status provoked fierce opposition. A large body of Palestinian monks led by a certain Theodosius rose in revolt against the Chalcedonian settlement, installing Theodosius in Juvenal's place. Driven from his see, Juvenal fled to Constantinople in August of 453.
+  - when: 453-458
+    title: Restoration and repose
+    body: Imperial troops restored Juvenal to Jerusalem in 453. He governed in peace thereafter until his death in 458.
+sections:
+  - heading: The Christological controversies
+    body:
+      - Juvenal's episcopate coincided with the decades in which the Church defined how the divine and human are united in the one person of Christ. At Ephesus in 431 he stood with Cyril of Alexandria against the teaching of Nestorius, which was held to divide Christ's natures. Eighteen years later, at the council of 449, he was reckoned among the leaders favorable to Dioscorus of Alexandria.
+      - At Chalcedon in 451 he changed course decisively, affirming the confession of two natures in one Christ, without separation and without confusion, and concurring in the condemnation of Dioscorus. The anchor record summarizes this trajectory as standing for the Orthodox faith at the councils through the stormy years of controversy.
+  - heading: The elevation of Jerusalem
+    body:
+      - A persistent aim of Juvenal's tenure was to raise the dignity of the see of the Holy City. His attempt at Ephesus to secure precedence over Caesarea and Antioch went unsupported, but at Chalcedon an arrangement with Maximus of Antioch granted Jerusalem jurisdiction over the Palestinian provinces.
+      - This settlement set Jerusalem on the path to patriarchal rank among the historic sees of Rome, Alexandria, Antioch, and Constantinople, a status the Church would come to recognize for the mother church of Palestine.
+  - heading: Revolt and restoration
+    body:
+      - Juvenal's acceptance of Chalcedon was bitterly resisted in Palestine. Monks loyal to Dioscorus went into open revolt; according to the sources their leader Theodosius seized Jerusalem with violence and was installed in Juvenal's place, while Bishop Severianus of Scythopolis was killed amid the disorder.
+      - Although he kept the support of figures such as Euthymius the Great, Juvenal was driven out and fled to the capital. He was restored by imperial troops in 453 and governed without further upheaval until his repose.
+status: draft
+generated: 20260619_b13

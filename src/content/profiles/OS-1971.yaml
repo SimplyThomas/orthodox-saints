@@ -1,0 +1,40 @@
+id: OS-1971
+liturgicalTitle: The Holy, Glorious Martyrs Sergius and Bacchus
+lifespan: d. c. 303
+overview:
+  - Sergius and Bacchus were Christian soldiers who held high rank in the Roman army under Emperor Maximian (r. 286–305). They enjoyed imperial favor until fellow officers betrayed them by informing Maximian that his two trusted advisers refused to honor the pagan gods. When summoned to the temple of Jupiter and ordered to sacrifice, they refused and openly confessed their Christian faith.
+  - As punishment, Maximian stripped them of their military insignia—belts, pendants, and rings—dressed them in women's clothing, and had them paraded through the city in chains before sending them to Antiochus, governor of eastern Syria, with orders for severe punishment. Bacchus died under torture from beatings. Sergius was forced to wear iron sandals studded with nails and was subsequently beheaded. Both were executed at or near Resafa (later called Sergiopolis) in Mesopotamia. Their cult emerged by the fifth century and became one of the most widely celebrated in both Eastern and Western Christendom.
+timeline:
+  - when: c. 303
+    title: Exposed as Christians
+    body: Maximian ordered Sergius and Bacchus to sacrifice in the temple of Jupiter; their refusal exposed their Christian faith.
+  - when: c. 303
+    title: Humiliation and transfer
+    body: Stripped of military rank and dressed in women's clothing, they were paraded through the city, then sent to governor Antiochus in Syria.
+  - when: c. 303
+    title: Martyrdom of Bacchus
+    body: Bacchus was beaten to death under torture.
+  - when: c. 303
+    title: Martyrdom of Sergius
+    body: Sergius endured the iron-nailed sandals and further torments before being beheaded by the sword at Resafa.
+sections:
+  - heading: Veneration and Cult
+    body:
+      - The earliest reliable evidence for the cult of Sergius and Bacchus dates to approximately 425. A major pilgrimage center arose at Resafa in Syria, renamed Sergiopolis in honor of Sergius; Emperor Justinian I rebuilt the basilica there in stone around 518, and it attracted patronage from Byzantine, Sasanian, and Ghassanid rulers alike. Churches dedicated to the pair were erected in Constantinople and Rome.
+      - The *Passion of Sergius and Bacchus*, which provides most of the narrative detail, is dated by scholars to the mid-fifth century and contains chronological difficulties and anachronisms that make it an unreliable historical document. The core fact of martyrdom under Maximian is accepted; the elaborate narrative details are treated with caution.
+  - heading: Patronage and Significance
+    body:
+      - Sergius and Bacchus became notable patrons of Arab Christians and the Ghassanid federate tribes of Syria, reflecting the geography of their cult center at Resafa. They are venerated as patrons of soldiers and the military. Their feast is celebrated October 7.
+patronage:
+  - Soldiers and the military
+  - Arab Christians
+  - Syria
+related:
+  - name: Great Martyr Demetrius of Thessalonica
+    note: Fellow soldier-martyr of the same era, also venerated as a city-protector.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Sergius_and_Bacchus
+  - https://www.oca.org/saints/lives/2023/10/07/102926-martyrs-sergius-and-bacchus-at-rome
+generated: "2026-06-19"

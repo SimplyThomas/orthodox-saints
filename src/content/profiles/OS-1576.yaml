@@ -1,0 +1,45 @@
+id: OS-1576
+lifespan: c. 115 – c. 190
+liturgicalTitle: The Righteous Athenagoras the Athenian, Philosopher and Apologist
+overview:
+  - Athenagoras of Athens was a Greek Christian philosopher and apologist of the second century, remembered for a reasoned defense of the Christians that he addressed to the Roman emperors during the reign of Marcus Aurelius. Trained in Platonic philosophy and rhetoric, he turned the tools of his education to the defense of the faith, arguing for the justice of the Christian cause on philosophical grounds.
+  - "Two of his works survive: the Embassy (or Supplication) for the Christians, a plea against the accusations leveled at the Church, and On the Resurrection of the Dead, which scholars regard as the first complete exposition of that doctrine in Christian literature. He is commemorated in the Orthodox Church on July 24."
+sections:
+  - heading: Life and Conversion
+    body:
+      - Little is known with certainty of Athenagoras's life. By his own designation he was an Athenian, styling himself "Athenagoras, the Athenian, Philosopher, and Christian," and he is generally held to have come from Athens, where he studied Middle Platonism and Stoic philosophy. The structure, rhythm, and poetic and philosophical references of his writings reflect a thorough rhetorical and philosophical formation.
+      - According to fragmentary later accounts, Athenagoras first took up the Christian scriptures in order to refute them, but in studying them was instead converted to the faith he had set out to oppose. He is reported to have afterward gone to Alexandria, where he taught at what became the Catechetical School of that city. He flourished during the reigns of the emperors Marcus Aurelius (161–180) and Commodus (180–192).
+  - heading: Writings and Theology
+    body:
+      - "His Embassy for the Christians (the Legatio, also called the Apology or Supplication) is dated by internal evidence to 176 or 177 and was addressed to the emperors Marcus Aurelius and Commodus. It is a carefully written plea for justice to the Christians, made by a philosopher on philosophical grounds. In it Athenagoras answered the three principal charges of the age: he defended the Christians against the accusation of atheism, refuted the slanders of cannibalism and sexual immorality by setting out the Christian ideals of purity, and pressed the demand that Christians be judged by the same standards of evidence as other subjects."
+      - Against the charge of atheism he set out what scholars describe as the first strongly-reasoned argument for the unity of God in Christian literature, coupling his defense of monotheism with an able exposition of the Trinity drawn in the idiom of Platonic thought. His teaching upheld the holiness of marriage and a rigorous Christian moral and ascetical standard; he held that Christians could not endure even to see a man put to death, though justly.
+      - His second surviving treatise, On the Resurrection of the Dead, argues for both the immortality of the soul and the resurrection of the body, appealing at once to the power of God and to philosophical reasoning. It is regarded as the first complete exposition of the doctrine of the resurrection in Christian literature.
+  - heading: Transmission and Legacy
+    body:
+      - Athenagoras stands out among the apologists of his day for his literary excellence and his clear and eloquent style, and his works hold an important place in the ecclesiastical literature of the first two centuries of Christianity. Curiously, the early Christian writers who followed him make almost no mention of him; it has been suggested that this silence arose because his treatises circulated anonymously and were at first attributed to other apologists.
+      - His two surviving works were preserved in a codex produced in 914 in the literary workshop of Arethas, through which they were transmitted to later generations.
+timeline:
+  - when: c. 115
+    title: Birth
+    body: Born, by tradition, at Athens, where he was trained in Middle Platonism, Stoic philosophy, and rhetoric.
+  - when: 176–177
+    title: Embassy for the Christians
+    body: Composes and addresses to the emperors Marcus Aurelius and Commodus his Embassy (Supplication) for the Christians, a philosophical defense of the Church.
+  - when: c. 190
+    title: Repose
+    body: Dies, probably at Athens, having also written On the Resurrection of the Dead.
+  - when: "914"
+    title: Preservation of his works
+    body: His two surviving treatises are preserved in a codex produced in the literary workshop of Arethas.
+works:
+  - title: Embassy for the Christians
+    desc: An apology (supplication) addressed to the emperors defending Christians against contemporary accusations.
+  - title: On the Resurrection of the Dead
+    desc: A treatise arguing for the bodily resurrection.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Athenagoras_of_Athens
+  - https://orthodoxwiki.org/Athenagoras_of_Athens
+  - https://www.oca.org/saints/lives/2025/07/24/206388-saint-athenagoras-of-athens
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,31 @@
+id: OS-1012
+liturgicalTitle: The Holy Martyrs Victor, Zoticus, Acindynus, Zeno, Severian, and Caesarius of Nicomedia
+lifespan: 4th century (martyred at Nicomedia, c. 303)
+overview:
+  - Victor and his companions Zoticus, Acindynus, Zeno, Severian, and Caesarius were a company of martyrs of Nicomedia who suffered during the persecution of Christians under the emperor Diocletian (284-305). They are commemorated together on April 18.
+  - According to the synaxarion, these martyrs were moved to confess Christ openly after witnessing the steadfastness of the Great-Martyr George under torture, and for their public confession they were beheaded at Nicomedia.
+timeline:
+  - when: "284-305"
+    title: Persecution under Diocletian
+    body: During the fierce persecution of Christians waged by the emperor Diocletian, the city of Nicomedia in Asia Minor was a center of suffering for the faithful.
+  - when: "c. 303"
+    title: Confession of Christ
+    body: The tradition relates that Victor and his companions, witnessing the unshaken endurance of the Great-Martyr George under the torture of the wheel, declared openly before all that they too believed in Christ.
+  - when: "c. 303"
+    title: Martyrdom at Nicomedia
+    body: For their public confession the holy martyrs were condemned and beheaded at Nicomedia.
+sections:
+  - heading: Life and Martyrdom
+    body:
+      - Nicomedia, the eastern imperial capital in Asia Minor, was a principal stage of Diocletian's persecution, and many Christians suffered there. The synaxarion places Victor and his companions among those martyred in this period.
+      - According to the tradition, these martyrs were drawn to open confession by the example of the Great-Martyr George, whose endurance under torture moved many pagans to faith. Declaring themselves Christians in the hearing of all, Victor, Zoticus, Acindynus, Zeno, Severian, and Caesarius were condemned and beheaded at Nicomedia. The Church commemorates the company together as one feast.
+patronage:
+  - Those suffering persecution for the faith
+related:
+  - name: George the Great-Martyr
+    note: By tradition, his endurance under torture moved Victor and his companions to confess Christ
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1951/04/18/101136-martyr-victor-and-his-companions-of-nicomedia
+status: draft
+generated: "2026-06-19"

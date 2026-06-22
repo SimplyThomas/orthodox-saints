@@ -1,0 +1,33 @@
+id: OS-0398
+liturgicalTitle: Our Venerable Father Gregory of Crete
+lifespan: c. 760 – c. 820
+overview:
+  - Gregory of Crete, also known as Gregory of Akrita, was a Byzantine monk of the eighth and early ninth centuries who lived during the period of iconoclast controversy. According to the synaxarion, he was born on the island of Crete around the year 760 and raised by pious parents. His life was marked by repeated travel and ascetic withdrawal, and he is commemorated on January 5.
+  - The accounts relate that as the iconoclast persecution of the Orthodox unfolded, the young Gregory left Crete for Seleukia in order to preserve his faith, where he led a life of piety. At about the age of twenty he went to Jerusalem, where tradition holds that he remained for some twelve years amid hardship. From the Holy Land he travelled on to Rome and entered a monastery there.
+  - In the West he became acquainted with Saint Michael, Bishop of Synnada in Phrygia, a noted defender of the holy icons. Michael took Gregory with him and settled him in a monastery on the Cape of Akrita on the Sea of Marmara, from which Gregory takes the surname Akrita. There he is said to have devoted himself to ascetic labors. The accounts place his repose around the year 820.
+sections:
+  - heading: Travels and Ascetic Life
+    body:
+      - The synaxarion frames Gregory's life as a succession of journeys undertaken in defense of his Orthodox faith during the iconoclast period. Leaving Crete, he is said to have gone first to Seleukia, then to Jerusalem, where by tradition he spent roughly twelve years before continuing to Rome and entering a monastery.
+      - His final settlement came through Saint Michael of Synnada, who brought him to a monastery on the Cape of Akrita on the Sea of Marmara. It is from this place that he is surnamed Akrita. Later reference works associate the site with the Akritas promontory near the eastern shore of the Sea of Marmara. The sources record that he accomplished great ascetic deeds there before his death around 820.
+timeline:
+  - when: c. 760
+    title: Born on Crete
+    body: Gregory is born on the island of Crete and raised by pious parents.
+  - when: c. 780
+    title: Journey to Jerusalem
+    body: At about the age of twenty he travels to Jerusalem, where by tradition he remains some twelve years.
+  - when: c. 820
+    title: Repose
+    body: After ascetic labors at the monastery on the Cape of Akrita, he dies around the year 820.
+related:
+  - name: Saint Michael, Bishop of Synnada
+    note: A defender of the holy icons who brought Gregory to the monastery on the Cape of Akrita.
+    href: saint/OS-1226
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 5
+  - https://www.oca.org/saints/lives/2034/01/05/100104-venerable-gregory-of-crete
+  - https://orthodoxwiki.org/January_5
+  - https://www.heiligenlexikon.de/BiographienG/Gregorius_Acritensis.html
+generated: "2026-06-20"

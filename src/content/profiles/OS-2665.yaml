@@ -1,0 +1,33 @@
+id: OS-2665
+liturgicalTitle: The Holy New Martyr George the Newest of Sofia
+lifespan: c. 1497 – 1515
+overview:
+  - George the Newest of Sofia is one of the New Martyrs of the Bulgarian lands, a young Christian put to death under Ottoman rule for refusing conversion to Islam. He is commemorated on February 11, and the tradition counts him among a group of Sofia martyrs that includes others bearing the name George, from whom he is distinguished by his epithet. The naming of the several Sofia Georges varies across calendars and the sources frequently overlap, but his commemoration on February 11 and his martyrdom by fire are consistently recorded.
+  - By the account associated with his February 11 commemoration, George was a young man of the Bulgarian lands who fell under pressure to abandon the Christian faith during the period of Ottoman domination. When officials sought to make him a Muslim, he refused, openly confessing Christ. After interrogation and trial he was condemned and burned at the stake in Sofia. The synaxarion relates that his death was marked by signs interpreted by the faithful as divine confirmation, and that Christians recovered and venerated his relics.
+  - His veneration spread among the South Slavs, and he came to be numbered among the saints associated with the city of Sofia. The historical detail of his life is preserved chiefly in Slavonic and later Bulgarian hagiographic accounts; the dataset's anchor identifies him as distinct from the other Sofia martyrs named George and from the Great Martyr Nicholas of Sofia.
+sections:
+  - heading: Martyrdom
+    body:
+      - The accounts of the February 11 saint relate that, having refused to apostatize, George was subjected to interrogation and torture before being condemned to death by fire. The sources describe him being thrown bound into the flames; by one tradition, when his bonds had burned through he made the sign of the cross and prayed, and an enraged Turk struck him to cut short his prayer. The faithful afterward gathered his remains and honored him as a martyr.
+      - His life was written down by a contemporary, the Sofia priest known as Pop Peyo, who is described as a participant in the events. Portions of his relics are reported to have been preserved at monasteries in the region, and his memory was kept both in the Bulgarian church and more widely among Orthodox Slavs.
+  - heading: The Sofia martyrs named George
+    body:
+      - Orthodox calendars of the Bulgarian lands record more than one new martyr named George associated with Sofia, commemorated on different days, and the sources sometimes conflate their lives. The anchor record places this saint, distinguished as 'the Newest,' on February 11 and treats him as distinct from New Martyr George of Sofia and from the Great Martyr Nicholas of Sofia. Because the several accounts borrow details from one another, particulars of birthplace, age, and the exact circumstances of death differ between recensions and should be read with that caution.
+related:
+  - name: New Martyr George of Sofia
+    note: Another New Martyr of Sofia bearing the name George, distinguished in the calendar.
+    href: saint/OS-0638
+  - name: Great Martyr Nicholas of Sofia
+    note: A martyr of Sofia of the same period under Ottoman rule.
+    href: saint/OS-1197
+patronage:
+  - Invoked by those of the Bulgarian lands and the wider Orthodox Slavic world, and remembered with the New Martyrs who suffered under Ottoman rule for refusing conversion.
+status: draft
+sources:
+  - OrthodoxWiki
+  - List of Bulgarian saints (orthodoxwiki.org)
+  - https://orthodoxwiki.org/List_of_Bulgarian_saints
+  - https://bg.wikipedia.org/wiki/Георги_Софийски_Нови
+  - https://www.pravoslavieto.com/life/02.11_sv_Georgi_Sofijski_Novi.htm
+  - https://www.oca.org/saints/lives/0203/02/11/108005-saint-george-new-martyr-of-sofia
+generated: "2026-06-19"

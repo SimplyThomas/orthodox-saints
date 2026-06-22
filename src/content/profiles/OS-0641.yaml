@@ -1,0 +1,58 @@
+id: OS-0641
+liturgicalTitle: Our Father among the Saints Alexis, Metropolitan of Moscow and Wonderworker of All Russia
+lifespan: c. 1292 – 1378
+overview:
+  - "Saint Alexis, Metropolitan of Moscow, was the primate of the Russian Church through the middle decades of the fourteenth century and one of the most consequential hierarchs of the Mongol period. Born at Moscow into the noble family of the boyar Theodore Byakont, a descendant of the Chernigov princely line, he received the baptismal name Eleutherios. By tradition his vocation was foretold in boyhood: while netting birds in a field at about the age of twelve, he heard a voice telling him that he labored in vain and would instead become a catcher of men."
+  - He entered the Theophany (Epiphany) Monastery of Moscow as a young man and spent more than a decade in monastic struggles, training under elders associated with the monastic revival of the age, including a Stephen identified in the tradition as a brother of Saint Sergius of Radonezh. Drawn into the administration of the metropolitanate under Metropolitan Theognostos, he served as the metropolitan's deputy in Vladimir and was consecrated Bishop of Vladimir before succeeding to the highest office. After travelling to Constantinople he was established as Metropolitan of Kiev and all Russia in 1354.
+  - Beyond his ecclesiastical role, Alexis became a central figure in the political life of the Muscovite principality. During the minority of Prince Demetrius — the future victor of Kulikovo, remembered as Demetrius Donskoy — he acted as the boy's spiritual tutor and effectively as regent, guiding the affairs of the principality and working as a peacemaker among the contending Russian princes. He is also remembered as a builder and restorer of monasteries, founding houses in and around Moscow during the 1360s.
+  - Saint Alexis reposed on February 12, 1378, and was buried in the Chudov Monastery within the Moscow Kremlin, which he had himself founded. His incorrupt relics were uncovered in the following century, and he was numbered among the saints. He is honored as a wonderworker and as one of the hierarchs who helped consolidate the spiritual and political center of Russia at Moscow.
+sections:
+  - heading: The Healing of Taidula
+    body:
+      - The miracle for which Saint Alexis is most widely remembered is the healing of Taidula, wife of the Khan of the Golden Horde, who had been afflicted with blindness. According to the tradition, the metropolitan was summoned to the Horde and, through prayer and the use of holy water, restored her sight. The episode is set around 1357 and is credited with easing relations between Moscow and its Tatar overlords, sparing the city from a threatened raid.
+      - The account belongs to a wider pattern in the saint's life, in which his spiritual authority served the practical safety and welfare of his flock during the precarious decades of Mongol suzerainty.
+  - heading: Monastic Foundations
+    body:
+      - Saint Alexis was an active founder and restorer of monasteries. During the 1360s the tradition credits him with establishing the Andronikov Monastery, the Chudov Monastery — dedicated to the Miracle of the Archangel Michael — within the Moscow Kremlin, and a women's monastery later known as the Alekseyevsky. He also founded the Monastery of the Savior on the Yauza River around 1361. These foundations strengthened the monastic life that flourished in the same generation as Saint Sergius of Radonezh.
+  - heading: Relics and Veneration
+    body:
+      - Before his repose Saint Alexis had asked to be buried outside the altar of the Chudov Monastery, but Prince Demetrius Donskoy had him interred within the church near the altar. By tradition his incorrupt relics were uncovered some decades later, on May 20, 1431, when the aging temple in which he rested gave way and a new church was raised. He is commemorated on February 12, the day of his repose, and also on May 20 for the uncovering of his relics, and is venerated together with the other wonderworking hierarchs of Moscow.
+timeline:
+  - when: c. 1292
+    title: Birth at Moscow
+    body: Born Eleutherios into the noble Byakont family, of the Chernigov princely line.
+  - when: "1354"
+    title: Metropolitan of all Russia
+    body: Established as Metropolitan of Kiev and all Russia after travelling to Constantinople.
+  - when: c. 1357
+    title: Healing of Taidula
+    body: Restored the sight of the blind khansha Taidula of the Golden Horde.
+  - when: 1360s
+    title: Monastic foundations
+    body: Founded the Chudov, Andronikov, and other monasteries in and around Moscow.
+  - when: "1378"
+    title: Repose
+    body: Reposed on February 12 and was buried in the Chudov Monastery in the Kremlin.
+  - when: "1431"
+    title: Uncovering of relics
+    body: His incorrupt relics were uncovered on May 20 during the rebuilding of the temple.
+related:
+  - name: St. Sergius of Radonezh
+    note: The great monastic founder of the same generation; the tradition links Alexis's monastic formation to a brother of Sergius.
+    href: saint/OS-0042
+  - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
+    note: The young prince to whom Alexis was tutor and regent.
+    href: saint/OS-1210
+  - name: Venerable Andronikos, Disciple of Saint Sergius
+    note: First abbot of the Andronikov Monastery, which the tradition associates with Alexis's foundations.
+    href: saint/OS-1346
+patronage:
+  - Invoked as a healer, especially in afflictions of the eyes and blindness, after the healing of Taidula.
+  - Honored as a wonderworking hierarch of Moscow and protector of the Russian land.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://www.oca.org/saints/lives/2020/02/12/100506-saint-alexei-metropolitan-of-moscow-wonderworker-of-all-russia
+  - https://orthodoxwiki.org/Alexis_of_Moscow
+  - https://www.oca.org/saints/lives/2025/05/20/101449-uncovering-of-the-relics-of-saint-alexis-metropolitan-of-moscow
+generated: "2026-06-19"

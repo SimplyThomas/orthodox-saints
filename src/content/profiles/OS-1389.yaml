@@ -1,0 +1,54 @@
+id: OS-1389
+liturgicalTitle: Our Venerable Father Paisius of Hilandar
+lifespan: c. 1722 - c. 1773
+overview:
+  - Paisius of Hilandar (Paisii Hilendarski) was a Bulgarian monk of Mount Athos, born about 1722 in the region of Bansko or the Samokov eparchy in Ottoman-ruled Bulgaria. He is remembered above all as the author of the Slavo-Bulgarian History (Istoriya Slavyanobolgarskaya), a work widely regarded as the forefather of the Bulgarian National Revival.
+  - Established at the Hilandar Monastery on Mount Athos from 1745, where he served as a hieromonk and deputy abbot, Paisius was grieved by the forgetfulness of his people regarding their own past. He completed his history at the Zograf Monastery in 1762 to awaken and strengthen Bulgarian national consciousness, drawing attention to the memory of the Bulgarian tsars and saints. He died about 1773.
+timeline:
+  - when: c. 1722
+    title: Birth
+    body: Born in the region of Bansko or the Samokov eparchy in the Ottoman Empire, now Bulgaria.
+  - when: "1745"
+    title: Settles at Hilandar
+    body: Establishes himself at the Hilandar Monastery on Mount Athos, where he served as a hieromonk and deputy abbot.
+  - when: "1762"
+    title: Completes the Slavo-Bulgarian History
+    body: Finishes the Istoriya Slavyanobolgarskaya at the Zograf Monastery, having travelled to gather historical references.
+  - when: "1765"
+    title: First copy
+    body: The first handwritten copy of the history is made by Sophronius of Vratsa.
+  - when: c. 1773
+    title: Repose
+    body: Dies in Ottoman Bulgaria, near Ampelino (Asenovgrad).
+  - when: "1962"
+    title: Glorification
+    body: Canonized on 26 June 1962 by the Bulgarian Orthodox Church with the title Venerable.
+sections:
+  - heading: The Slavo-Bulgarian History
+    body:
+      - Completed at the Zograf Monastery in 1762, the Istoriya Slavyanobolgarskaya is described as the first significant modern Bulgarian history. To assemble it, Paisius travelled extensively in search of historical references.
+      - The work comprises two introductions, several chapters discussing various historic events, a chapter on the Slavic teachers (the disciples of Cyril and Methodius), a chapter on the Bulgarian saints, and an epilogue. Its declared purpose was to awaken and strengthen Bulgarian national consciousness, and it addressed the dangers of Hellenization.
+      - The first handwritten copy was made by Sophronius of Vratsa in 1765, and the text spread further in manuscript form. Excerpts appeared in Petar Beron's Tsarstvenik of 1844, but the full text was not printed until the 1920s, in an edition by Nikola Filipov, with critical editions following in the 1960s and translations into Russian, German (1984), and English (2001).
+  - heading: Legacy
+    body:
+      - Paisius is considered the forefather of the Bulgarian National Revival, the movement of cultural and national reawakening among Bulgarians under Ottoman rule. The history contributed to the formation of the Bulgarian national identity.
+      - "His memory is marked in modern Bulgaria: the draft of the Zograf manuscript appears on the Bulgarian 2-lev banknotes issued in 1999 and 2005, and Paisiy Peak in the South Shetland Islands of Antarctica is named after him."
+  - heading: Relics & Shrines
+    body:
+      - The available sources do not record the location of relics or a particular shrine associated with the saint.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The Bulgarian Orthodox Church canonized Paisius on 26 June 1962, with the title Venerable; his feast is kept on 19 June."
+      - "Traditional Accounts: The synaxarion relates that Paisius, grieved at the forgetfulness of his people, wrote his history to recall to them the memory of their saints and tsars and to kindle the renewal of Bulgarian Orthodox life."
+patronage:
+  - Bulgaria
+works:
+  - title: Istoriya Slavyanobolgarskaya (Slavo-Bulgarian History)
+    desc: A history of the Bulgarian people completed at the Zograf Monastery on Mount Athos in 1762, regarded as a foundational text of the Bulgarian National Revival.
+    date: "1762"
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Paisius_of_Hilendar
+  - https://en.wikipedia.org/wiki/Istoriya_Slavyanobolgarskaya
+status: draft
+generated: "2026-06-19"

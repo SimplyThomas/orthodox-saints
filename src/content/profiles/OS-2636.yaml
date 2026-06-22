@@ -1,0 +1,40 @@
+id: OS-2636
+liturgicalTitle: Saint Paisius, Patriarch of Serbia
+lifespan: 1542 – 1647
+overview:
+  - "Saint Paisius (Serbian: Pajsije), Patriarch of Serbia, was a seventeenth-century hierarch and writer who led the Serbian Orthodox Church through the difficult conditions of the Ottoman period. Born in 1542 at Janjevo, in present-day Kosovo, he is remembered above all as the figure who inspired the revival of Serbian hagiographical and liturgical literature in his age. He is commemorated on October 2."
+  - Paisius served first as Metropolitan of Novo Brdo and Lipljan, and was elected Archbishop of Pec and Serbian Patriarch on October 4, 1614, in succession to Patriarch Jovan II Kantul. He held the patriarchal throne, seated at the Patriarchal Monastery of Pec, until his death in 1647. Sources describe him as a writer, poet, composer, educator, and diplomat, a learned man who took care to gather and preserve manuscripts scattered among the monasteries.
+  - Beyond his literary labors, Paisius was active in the church affairs and diplomacy of his time, undertaking journeys that included Moscow, Constantinople, and Jerusalem. He also engaged in theological exchange with the papacy concerning the procession of the Holy Spirit. He reposed in 1647 and was buried at the Patriarchal Monastery of Pec; he is venerated as a saint of the Serbian Orthodox Church.
+sections:
+  - heading: Patriarch and Writer
+    body:
+      - Paisius is chiefly remembered for reviving Serbian hagiographical and liturgical writing during a period when such cultural and ecclesiastical work was difficult to sustain. His own compositions include a Life of Emperor Uros (Stefan Uros V) and a service to the same, a Life and a service to Simeon (Stefan the First-Crowned), and a biography of Stefan Stiljanovic, drawing the memory of earlier Serbian rulers and saints into the liturgical life of the Church.
+      - He was also a patron of sacred art, supporting iconostasis woodcarving and icon painting during his tenure, and he was known as a great lover of books who worked to preserve manuscripts held in various monasteries.
+  - heading: Diplomacy and Repose
+    body:
+      - Paisius's travels carried him to Moscow in 1622, to Constantinople in 1641, and to Jerusalem in 1646. He entered into theological debate with Popes Gregory XV and Urban VIII over the question of the procession of the Holy Spirit, and a papal emissary discussed the matter of church union with him in 1642.
+      - By tradition he was wounded by a bull in the village of Budosavci and died days later, in 1647, and was buried at the Patriarchal Monastery of Pec.
+timeline:
+  - when: "1542"
+    title: Born at Janjevo
+    body: Paisius was born at Janjevo, in present-day Kosovo, then under Ottoman rule.
+  - when: "1612"
+    title: Metropolitan of Novo Brdo and Lipljan
+    body: He served as metropolitan before his elevation to the patriarchate.
+  - when: "1614"
+    title: Elected Patriarch of Serbia
+    body: He was elected Archbishop of Pec and Serbian Patriarch on October 4, succeeding Jovan II Kantul.
+  - when: "1622"
+    title: Journey to Moscow
+    body: He traveled to Moscow as part of his diplomatic and ecclesiastical work.
+  - when: "1647"
+    title: Repose at Pec
+    body: He reposed and was buried at the Patriarchal Monastery of Pec.
+patronage:
+  - Honored among Serbian hierarchs and writers as a restorer of Serbian hagiographical and liturgical literature.
+status: draft
+sources:
+  - https://en.wikipedia.org/wiki/List_of_saints_of_the_Serbian_Orthodox_Church
+  - https://en.wikipedia.org/wiki/Pajsije_of_Janjevo
+  - https://crkvenikalendar.com/zitije_en.php?pok=0&id=GAAAAA
+generated: "2026-06-20"

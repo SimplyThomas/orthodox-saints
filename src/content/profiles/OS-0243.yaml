@@ -1,0 +1,29 @@
+id: OS-0243
+liturgicalTitle: The Holy Martyrs Calodote, Macarius, and their Companions, who suffered in Egypt
+lifespan: died 256
+overview:
+  - The Holy Martyrs Calodote, Macarius, and their Companions were a company of Christians, both men and women, who suffered together in Egypt and are commemorated on September 6. The synaxarion lists the group as Calodote, Macarius, Andrew, Cyriacus, Dionysius, Andrew the Soldier, Andropelagia, Thecla, Theoctistus, and Sarapabon the Senator. Among them were people of varied station, including a soldier and a senator, who were put to death by the sword for their confession of Christ.
+  - The dating of the company differs among the sources that record it. The in-repository commemoration places their martyrdom in the year 256, while the Western tradition associated with these names assigns them to the persecution of the emperor Decius in 250. The names of the company are preserved in both the Eastern synaxaria and the Roman Martyrology, the latter of which numbers the group as Faustus and Macarius with their companions, a sign that the same Egyptian martyrs were remembered across traditions on the sixth of September.
+  - The Alexandrian and Egyptian Church suffered severely during the mid-third-century persecutions, and the sufferings of its faithful in this period were recorded by their own bishop, Saint Dionysius of Alexandria, in letters preserved by the historian Eusebius. The company of Calodote and Macarius belongs to this broader body of Egyptian witnesses, who included clergy, soldiers, and laypeople of both sexes martyred together for refusing to renounce the faith.
+sections:
+  - heading: The Company of Martyrs
+    body:
+      - The synaxarion preserves the company as a named cluster rather than as a single principal saint, listing Calodote, Macarius, Andrew, Cyriacus, Dionysius, a second Andrew distinguished as the Soldier, Andropelagia, Thecla, Theoctistus, and Sarapabon distinguished as the Senator. The inclusion of both a soldier and a senator among the martyrs reflects the social breadth of the company, which gathered men and women of different rank in a common confession.
+      - "Where the names are recorded in the Western tradition, several of the company carry further identifications: Andrew the Soldier appears as a soldier, Cyriacus as an acolyte, and Theoctistus as a sea captain. These details survive only thinly, and the synaxarion itself supplies little narrative beyond the roll of names, the place of suffering in Egypt, and the manner of their death by the sword."
+related:
+  - name: Martyrs Cyriacus, Faustus the Priest, Abibus the Deacon & Companions
+    note: A priest, a deacon, and their companions martyred at Alexandria in the same Decian persecution, also commemorated on September 6
+    href: saint/OS-0242
+  - name: Martyrs Gaius, Faustus, Eusebius, and Chaeremon of Alexandria
+    note: Deacons and disciples of St. Dionysius of Alexandria martyred in the same era of Egyptian persecutions
+    href: saint/OS-1953
+patronage:
+  - Invoked together as a company of martyrs of varied station — soldier, senator, and laypeople of both sexes — who confessed Christ unto death
+status: draft
+sources:
+  - Synaxarion
+  - https://www.holytrinityorthodox.com/calendar/los/September/06-09.htm
+  - https://orthodoxwiki.org/September_6
+  - https://en.wikipedia.org/wiki/Faustus,_Abibus_and_Dionysius_of_Alexandria
+  - https://www.newadvent.org/cathen/05011a.htm
+generated: "2026-06-20"

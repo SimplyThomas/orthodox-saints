@@ -1,0 +1,48 @@
+id: OS-2405
+liturgicalTitle: Our Father among the Saints Theoktistos, Archbishop of Novgorod
+lifespan: died December 23, 1310
+overview:
+  - Theoktistos was a hierarch of the Church in Rus' who served as Archbishop of Novgorod in the early fourteenth century. Before his elevation to the episcopate he was igumen (abbot) of the Annunciation Monastery near Novgorod. After the repose of Archbishop Clement in 1300, he was chosen as Clement's successor and consecrated Archbishop of Novgorod on June 29, 1300.
+  - His tenure was marked by the construction and renovation of churches. According to the synaxarion he consecrated cathedrals dedicated to the Passion-bearers Boris and Gleb and to the Holy Fathers of the First Ecumenical Council, and he improved the condition of the Monastery of Valaam. He also acted as a mediator in the conflict between Prince Michael of Tver and Novgorod; the resulting agreement was recorded in a document known as the Theoctist Charter, which bore the signature and seal of the archbishop.
+  - Because of declining health, Theoktistos withdrew in 1307 to the Annunciation Monastery, where he had earlier been abbot, and devoted his remaining years to the ascetic practice of silence and prayer. He reposed there on December 23, 1310. He was glorified in 1664 on account of the many miraculous healings reported at his tomb, and his relics were translated to Yuriev in 1786.
+sections:
+  - heading: Episcopate and Mediation
+    body:
+      - Theoktistos was consecrated by Metropolitan Maximus together with Bishop Simeon of Rostov and Bishop Andrew of Tver. His pastoral work concentrated on the care and building of churches in the Novgorod lands, including the cathedrals he consecrated and his attention to the Monastery of Valaam.
+      - In a period of frequent friction between Novgorod and the principalities, the archbishop served as a peacemaker. The tradition records that he mediated the dispute between Prince Michael of Tver and Novgorod, and that the settlement was preserved in the Theoctist Charter under his seal.
+  - heading: Repose, Glorification, and Relics
+    body:
+      - Theoktistos retired from active governance in 1307 because of poor health and returned to the Annunciation Monastery, taking up a life of silence. He reposed on December 23, 1310.
+      - His formal glorification followed in 1664, prompted by the miraculous cures reported before his relics. The relics were transferred to Yuriev in 1786, where a chapel was built. According to later accounts they were rediscovered during archaeological excavations in 2015 and placed in the Cathedral of the Savior at Saint George's Monastery.
+timeline:
+  - when: "1300"
+    title: Consecrated Archbishop of Novgorod
+    body: Following the death of Archbishop Clement, Theoktistos was consecrated archbishop on June 29, 1300.
+  - when: "1307"
+    title: Retirement to the Annunciation Monastery
+    body: Failing health led him to withdraw to the monastery where he had been abbot, taking up the ascetic practice of silence.
+  - when: "1310"
+    title: Repose
+    body: He reposed at the Annunciation Monastery on December 23, 1310.
+  - when: "1664"
+    title: Glorification
+    body: He was glorified because of the miraculous healings reported at his tomb.
+  - when: "1786"
+    title: Translation of relics
+    body: His relics were transferred to Yuriev.
+related:
+  - name: Passion-bearers Boris and Gleb
+    note: Theoktistos consecrated a cathedral dedicated to these princely passion-bearers of Rus'.
+    href: saint/OS-0236
+  - name: Martyr Michael, Prince of Tver
+    note: The prince whose conflict with Novgorod Theoktistos mediated, as recorded in the Theoctist Charter.
+    href: saint/OS-2229
+patronage:
+  - Invoked for the healing of illness, on account of the cures reported at his relics.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1948/12/23/103627-repose-of-saint-theoktistos-archbishop-of-novgorod
+  - https://www.johnsanidopoulos.com/2017/12/saint-theoctist-archbishop-of-novgorod.html
+  - https://orthochristian.com/109386.html
+generated: "2026-06-21"

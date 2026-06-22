@@ -1,9 +1,9 @@
 id: OS-0719
-lifespan: c. 337 – c. 375
+lifespan: died c. 370
 liturgicalTitle: The Righteous Gorgonia of Nazianzus, Sister of Saint Gregory the Theologian
 overview:
   - Righteous Gorgonia was the youngest daughter of Saints Gregory the Elder and Nonna of Nazianzus and the sister of Saint Gregory the Theologian and Saint Caesarius of Nazianzus. Living in fourth-century Cappadocia, she is remembered as a devout wife and mother whose piety, charity, and chastity made her a model of married holiness.
-  - Almost everything known of her life comes from the funeral oration her brother Gregory delivered in her memory (his Oration VIII, On his Sister Gorgonia), in which he praised her modesty, hospitality, ascetic discipline, and knowledge of Scripture. She married Alypius of Iconium and raised five children. She reposed on February 23, around the year 375, at about the age of thirty-eight.
+  - Almost everything known of her life comes from the funeral oration her brother Gregory delivered in her memory (his Oration VIII, On his Sister Gorgonia), in which he praised her modesty, hospitality, ascetic discipline, and knowledge of Scripture. She married Alypius of Iconium and raised five children. She reposed on February 23, around the year 370.
 sections:
   - heading: Life and Character
     body:
@@ -24,15 +24,15 @@ sections:
       - Gorgonia is venerated as "Gorgonia the Righteous" and is commemorated on February 23. Her brother Saint Gregory the Theologian is commemorated on January 25 and her brother Saint Caesarius on March 9; her mother Saint Nonna is commemorated on August 5.
       - Her life is preserved chiefly through Gregory of Nazianzus's Oration VIII (numbered VII in some editions), recorded in the Nicene and Post-Nicene Fathers, second series, volume 7. Later writers, including Saint Justin Popović, have drawn on this oration in accounts of her life.
 timeline:
-  - when: c. 337
+  - when: 4th century
     title: Birth
     body: Born in Cappadocia as the youngest child of Saints Gregory the Elder and Nonna of Nazianzus, sister of Gregory the Theologian and Caesarius.
   - when: 4th century
     title: Marriage and family
     body: Married Alypius of Iconium and raised five children — daughters Alypiana, Eugenia, and Nonna, and two sons.
-  - when: c. 375
+  - when: c. 370
     title: Repose
-    body: Reposed on February 23 at about the age of thirty-eight; her brother Gregory delivered her funeral oration.
+    body: Reposed on February 23; her brother Gregory delivered her funeral oration.
 patronage:
   - Married women and mothers
   - Christian family life
@@ -44,8 +44,5 @@ sources:
   - https://www.johnsanidopoulos.com/search/label/Gorgonia
   - https://en.wikipedia.org/wiki/Gregory_of_Nazianzus
   - https://en.wikipedia.org/wiki/Nonna_of_Nazianzus
-status: flagged
-flagReasons:
-  - claim: Gorgonia reposed c. 375 (and so was born c. 337)
-    detail: "The anchor row gives her repose as 'about the year 370,' which wins on conflict (sources vary: OrthodoxWiki 375, Wikipedia ~372). The derived birth year c. 337 rests on the disputed 375 and is likewise unsupported (≈332 if repose was ~370)."
+status: draft
 generated: "2026-06-18"

@@ -1,0 +1,54 @@
+id: OS-0470
+liturgicalTitle: Our Venerable Father Romilus of Ravanica, Disciple of Saint Gregory of Sinai
+lifespan: c. 1330 – c. 1385
+overview:
+  - Romilus of Ravanica was a fourteenth-century Balkan monk and hesychast, a disciple of Saint Gregory of Sinai who carried the contemplative tradition of inner prayer across Bulgaria, Mount Athos, and ultimately into Serbia. Born at Vidin to a Bulgarian mother and a Greek father, he passed through the principal centers of the Hesychast movement of his age, ending his life at the newly founded Ravanica Monastery, where his relics are preserved.
+  - "His career traces the geography of fourteenth-century Orthodox monasticism under Ottoman pressure: from the hermitages of Paroria in the Strandzha Mountains, to the Great Lavra on Athos, and finally to the Serbian Despotate. He is commemorated on January 16 in the Slavonic tradition and on November 1 in the Greek."
+timeline:
+  - when: c. 1330
+    title: Birth at Vidin
+    body: Born in the Tsardom of Vidin to a wealthy family, with a Bulgarian mother and a Greek father. His birth name was Rusko (also recorded as Rayko).
+  - when: c. 1344
+    title: Tonsure at Tarnovo
+    body: At around fourteen or fifteen, he left Vidin for Tarnovo to avoid the marriage his parents intended for him, and became a monk, taking the name Romanos, later changed to Romylos.
+  - when: from c. 1335 (tradition)
+    title: Disciple of Gregory of Sinai at Paroria
+    body: He attached himself to Saint Gregory of Sinai and followed him to Paroria in the Strandzha Mountains, becoming a fervent adherent of the Hesychast tradition. Ottoman threats and famine repeatedly forced him to withdraw to Kilifarevo near Tarnovo.
+  - when: early 1350s
+    title: Mount Athos
+    body: He moved to Mount Athos, settling near the Great Lavra, the chief center of Athonite monasticism.
+  - when: after 1371
+    title: Move to Serbia
+    body: Following the Battle of Maritsa in 1371, he relocated to Valona in Albania and then into the Serbian Despotate, eventually settling at Ravanica Monastery, founded by Prince Lazar as a refuge for Hesychast monks.
+  - when: c. 1385
+    title: Repose at Ravanica
+    body: He reposed at Ravanica on January 16. His relics are preserved in the narthex of the monastery church.
+sections:
+  - heading: Early life and monastic beginnings
+    body:
+      - Romilus was born around 1330 in Vidin, then the seat of the Tsardom of Vidin, to a wealthy household of mixed Bulgarian and Greek parentage. Tradition records that even as a child he showed an unusual seriousness and detachment from ordinary childhood pursuits, a disposition noted by both his companions and his teacher.
+      - To escape a marriage his parents had arranged, he left for Tarnovo at about fourteen or fifteen years of age and entered monastic life. He was first given the name Romanos, which was afterward changed to Romylos, the form under which he is venerated.
+  - heading: Hesychast formation
+    body:
+      - Romilus became a disciple of Saint Gregory of Sinai, the great propagator of the Hesychast tradition of inner, contemplative prayer in the Balkans. He followed Gregory to Paroria in the Strandzha Mountains, a celebrated hermitage colony, where he is remembered as one of the most eminent and fervent supporters of the Hesychast doctrine.
+      - The community at Paroria lived under recurring pressure from Ottoman raids and from famine, and Romilus withdrew on several occasions to Kilifarevo near Tarnovo. In the early 1350s he moved to Mount Athos, where he settled near the Great Lavra.
+  - heading: Serbia and repose
+    body:
+      - After the Battle of Maritsa in 1371, which opened the southern Balkans to further Ottoman advance, Romilus moved westward, first to Valona in Albania and then into the Serbian Despotate. He came finally to Ravanica Monastery, founded by Prince Lazar of Serbia in the late 1370s and intended in part as a refuge for Hesychast monks.
+      - He reposed at Ravanica around 1385, on January 16. His relics are kept in the narthex of the monastery church. His Life was composed before 1391 by a disciple of his named Gregory; his veneration is best attested on Mount Athos and in the region surrounding Ravanica.
+related:
+  - name: Gregory of Sinai
+    note: His teacher and master in the Hesychast tradition, whom he followed to Paroria.
+patronage: []
+works: []
+reading:
+  - heading: Primary source
+    items:
+      - title: Life of Romylos
+        author: Gregory the disciple (before 1391)
+sources:
+  - OCA Synaxarion (oca.org), Jan 16
+  - https://en.wikipedia.org/wiki/Romylos_of_Vidin
+  - https://www.oca.org/saints/lives/2015/01/16
+status: draft
+generated: "2026-06-20"

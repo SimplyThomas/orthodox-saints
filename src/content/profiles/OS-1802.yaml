@@ -1,0 +1,35 @@
+id: OS-1802
+liturgicalTitle: Saint Paul the New, Patriarch of Constantinople
+lifespan: died c. 804
+overview:
+  - Saint Paul the New was a Cypriot who served as Patriarch of Constantinople from 780 to 784, during the later phase of the Byzantine iconoclast controversy. The synaxarion describes him as a virtuous and pious man, but timid by temperament, who concealed his Orthodox conviction in favor of the holy icons because he feared the persecution that the iconoclast authorities were inflicting on those who defended them.
+  - He was raised to the patriarchal throne under the iconoclast emperor Leo IV the Khazar. By tradition Paul had inwardly held the veneration of icons to be right, yet, seeing the sufferings endured by the Orthodox, he kept silent and associated himself with the iconoclasts. After the death of Leo IV he wished to restore the veneration of the icons, but found that he could not, since the iconoclast party remained powerful.
+  - Recognizing that it was not in his power to guide the flock as he believed he ought, Paul left the patriarchal throne and withdrew secretly to the monastery of Saint Florus, where he received the great schema. There he openly repented of his silence and of his association with the iconoclasts, and he spoke of the necessity of convening an ecumenical council to condemn the iconoclast heresy. He is venerated as a confessor, and his feast is kept on August 30.
+sections:
+  - heading: Repentance and the Restoration of the Icons
+    body:
+      - According to the synaxarion, when the Empress Irene and her son Constantine sought Paul's counsel concerning the succession to the patriarchate, he recommended Saint Tarasius, then still a layman serving as an imperial official, as the most worthy candidate, and he urged the convening of an ecumenical council. Paul's withdrawal and his counsel are remembered as preparing the way for the Seventh Ecumenical Council, held at Nicaea in 787, which condemned iconoclasm and restored the veneration of the holy icons.
+      - 'Sources differ on the year of his repose: the Orthodox synaxarion tradition records that he reposed as a schemamonk in the year 804, while other accounts place his death shortly after his abdication. He is distinguished by the epithet "the New" from earlier patriarchs of the same name.'
+timeline:
+  - when: "780"
+    title: Elevated to the patriarchate
+    body: Paul became Patriarch of Constantinople under the iconoclast emperor Leo IV the Khazar.
+  - when: "784"
+    title: Abdication
+    body: He left the patriarchal throne and withdrew secretly to the monastery of Saint Florus, where he took the great schema.
+  - when: "787"
+    title: Seventh Ecumenical Council
+    body: The council Paul had urged was convened at Nicaea under his successor Tarasius and restored the veneration of the holy icons.
+related:
+  - name: Saint Tarasius, Patriarch of Constantinople
+    note: His successor on the patriarchal throne, whom Paul recommended; presided over the Seventh Ecumenical Council.
+    href: saint/OS-0722
+patronage:
+  - Remembered among those who repented of weakness under persecution and as a confessor for the veneration of the holy icons.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0203/08/30/102422-saint-paul-the-new-patriarch-of-constantinople
+  - https://en.wikipedia.org/wiki/Paul_IV_of_Constantinople
+  - https://orthodoxwiki.org/Paul_IV_of_Constantinople
+generated: "2026-06-19"

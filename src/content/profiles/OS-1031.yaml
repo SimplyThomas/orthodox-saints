@@ -1,0 +1,39 @@
+id: OS-1031
+overview:
+  - Theotimus was bishop of Tomis (Tomi), the principal see of Lesser Scythia on the western shore of the Black Sea, in the late fourth and early fifth centuries. A native of Dacia Pontica and described as part Roman, he led the diocese from about 392 until his death in 403 or 407. He was known both as a churchman and as a writer, and he is remembered as a friend of Saint John Chrysostom.
+  - His see lay on an exposed frontier crossed by the nomadic peoples of the Danube region, and the memory of Theotimus is bound up with his dealings with the Huns who ranged near his territory. By tradition recorded in the OCA synaxarion he is also held to have instructed the monastic founders Saint John Cassian and Saint Germanus in the spiritual life.
+lifespan: died 403 or 407
+liturgicalTitle: Saint Theotimus, Bishop of Tomis in Lesser Scythia
+timeline:
+  - when: c. 392
+    title: Bishop of Tomis
+    body: Theotimus became bishop of the Scythian see of Tomi, near the Black Sea, an office he held until his death.
+  - when: 403 or 407
+    title: Repose
+    body: He died at Tomis; sources give the year as 403 or 407. He is commemorated on April 20.
+sections:
+  - heading: Mission Among the Huns
+    body:
+      - The ecclesiastical historian Sozomen preserves the chief stories of Theotimus's encounters with the Huns who roamed the Danube frontier near his see. According to that account the barbarians called him 'the god of the Romans,' because they had experienced divine deeds wrought through him.
+      - One anecdote relates that men who attempted to seize him were struck motionless. Rather than meeting the Huns with hostility, Theotimus sought to win them by presenting them with food and gifts, attempting their conversion through generosity.
+  - heading: The Origenist Controversy
+    body:
+      - During the disputes over the writings of Origen, Theotimus took the side of the ancient theologian. He strongly opposed the proceedings of Epiphanius and argued against condemning Origen outright.
+      - In defense of the works he held to be of benefit to the Church, he read aloud passages from Origen that he judged profitable, resisting their wholesale rejection.
+  - heading: Character and Writings
+    body:
+      - Owing to his philosophical practice Theotimus wore his hair long. He was very temperate in his manner of life and is said to have kept irregular eating habits.
+      - As an author he published brief, epigrammatic treatises composed in the form of dialogues and written in an old, antique style.
+related:
+  - name: John Chrysostom
+    note: Theotimus was a friend of Saint John Chrysostom.
+  - name: John Cassian
+    note: By tradition recorded in the OCA synaxarion, Theotimus is held to have instructed John Cassian in the monastic life.
+  - name: Germanus
+    note: By the same tradition, Theotimus is held to have instructed Germanus, the companion of John Cassian, in the monastic life.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Theotimos_(bishop_of_Tomi)
+  - https://en.wikipedia.org/wiki/April_20_(Eastern_Orthodox_liturgics)
+status: draft
+generated: "2026-06-20"

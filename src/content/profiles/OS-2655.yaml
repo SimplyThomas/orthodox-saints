@@ -1,0 +1,56 @@
+id: OS-2655
+liturgicalTitle: Our Venerable Father Isidore of Samtavisi
+lifespan: 6th century
+overview:
+  - "Saint Isidore of Samtavisi (Georgian: Isidore Samtavneli) was a sixth-century monastic missionary numbered among the Thirteen Assyrian (Syrian) Fathers, the ascetics traditionally credited with establishing organized monastic life in Georgia. He is associated with Samtavisi in the region of Kartli, where he founded a monastery and preached the Christian faith."
+  - According to the Georgian tradition recorded in the life of Saint John of Zedazeni and his disciples, Isidore was one of the twelve who followed John from the Syrian and Mesopotamian East into the kingdom of Iberia in the sixth century. After the company settled at Mtskheta and Zedazeni, the disciples were sent throughout the land to preach, and Isidore established his labors at Samtavisi.
+sections:
+  - heading: Among the Thirteen Assyrian Fathers
+    body:
+      - Isidore belonged to the group of monastic missionaries remembered in Georgian church history as the Thirteen Assyrian (Syrian) Fathers, who arrived from the East to strengthen Christianity in Georgia during the sixth century. The tradition names John of Zedazeni as their leader; he had received his spiritual formation in Antioch and, according to the synaxarion, was directed by the Mother of God to take twelve monks and go to Georgia. Georgian church historians credit the Fathers as a whole with founding several monasteries and hermitages and with initiating the ascetic movement in the country.
+      - The synaxarion relates that while the Fathers were in Mesopotamia on their way to Georgia, King Parsman and Catholicos Evlavios received news of their coming and met them at Mtskheta. With the blessing of the Catholicos the monks first settled on Zedazeni Mountain, the site of a former pagan temple, after which they were sent out across the kingdom to preach. Each of the disciples became linked to a particular place and monastic foundation. Scholars note that the surrounding tradition names as many as nineteen Assyrian monks active in sixth-century Georgia, and that the number 'thirteen' appears to be largely symbolic.
+  - heading: Foundation at Samtavisi
+    body:
+      - By tradition, Isidore founded the Samtavisi Monastery of the Icon of the Savior 'Not-Made-By-Hands,' situated on the eastern bank of the Rekhula River in Kartli. The synaxarion records that he preached the Christian faith in Kartli for many years and that he is buried at the monastery he founded. Georgian sources remember Samtavisi as an episcopal center established by him and as one of the country's oldest religious and educational sites.
+      - The cathedral church that survives at Samtavisi today is a later structure, dated to 1030, built on the site associated with the saint rather than being his own sixth-century building. The grave traditionally identified as that of Isidore Samtavneli lies beside the altar within the cathedral.
+  - heading: Relics & Shrines
+    body:
+      - Saint Isidore is traditionally said to be buried at Samtavisi, the monastery he founded; the surviving Samtavisi Cathedral preserves a grave beside the altar identified with him.
+timeline:
+  - when: 6th century
+    title: Arrival in Georgia
+    body: Isidore comes from the East with Saint John of Zedazeni and his fellow disciples, the Thirteen Assyrian Fathers, who are received at Mtskheta and settle at Zedazeni.
+  - when: 6th century
+    title: Mission to Kartli
+    body: Sent out with the other Fathers to preach, Isidore labors at Samtavisi, founding a monastery and preaching the Christian faith in Kartli for many years.
+  - when: "1030"
+    title: Samtavisi Cathedral built
+    body: The surviving cathedral church is raised at Samtavisi, on the site associated with the saint, long after his own foundation; a grave beside the altar is identified with him.
+patronage:
+  - Samtavisi
+  - Kartli
+related:
+  - name: Saint John Zedazeni and the Thirteen Syrian Fathers
+    note: The group of monastic missionaries to which Isidore belonged, commemorated together on May 7.
+    href: saint/OS-1128
+  - name: Venerable Shio of Mgvime
+    note: Fellow member of the Thirteen Assyrian Fathers; founder of the Shio-Mgvime Monastery.
+    href: saint/OS-0624
+  - name: Venerable David of Gareja
+    note: Fellow member of the Thirteen Assyrian Fathers; founder of the David Gareja monastic complex.
+    href: saint/OS-2652
+reading:
+  - heading: Further Reading
+    items:
+      - title: Saint John Zedazeni of Zaden, Georgia, with his Twelve Disciples (OCA, Lives of the Saints)
+        type: synaxarion
+      - title: Thirteen Assyrian Fathers
+status: draft
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://www.oca.org/saints/lives/2022/05/07/101311-saint-john-zedazeni-of-zaden-georgia-with-his-12-disciples
+  - https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers
+  - https://atinati.com/news/66dadc55e3a285004edd0592
+  - https://georgia.travel/samtavisi-cathedral
+generated: "2026-06-21"

@@ -1,0 +1,31 @@
+id: OS-1029
+liturgicalTitle: Our Venerable Father Anastasius of Sinai
+lifespan: died after 700
+overview:
+  - Anastasius of Sinai was a monk, priest, and abbot of the monastic community on Mount Sinai in the seventh century, remembered as a teacher and a defender of the Orthodox faith. By tradition he was tonsured and made a pilgrimage to Jerusalem to venerate the holy sites before settling on Mount Sinai, where he first served the ascetic community in a lowly capacity and in time became abbot of the whole brotherhood. The Orthodox Church commemorates him on April 20.
+  - He lived during a period of intense Christological controversy, and his teaching and writing were directed against the errors of his age. He is remembered above all for his defense of the Chalcedonian confession of Christ as one person in two natures, divine and human, against the Monophysites, who held that Christ's humanity was subsumed into a single divine nature, and against the Monothelites, who professed a related error concerning Christ's human and divine wills. According to one account, his leadership and eloquence won him the title 'the New Moses.'
+  - Several works are attributed to him. His principal treatise is the Viae Dux, known in Greek as the Hodegos or 'Guide,' a handbook of arguments in defense of Orthodox Christology. He also composed the Quaestiones et Responsiones, a collection of questions and answers offering pastoral and spiritual guidance to lay communities on matters such as marriage, charity, and daily life, and a Hexaemeron, a commentary on the six days of creation in Genesis. The tradition also credits him with sermons, including two on the creation of man according to the image of God, and with writing accounts of the lives of holy fathers.
+sections:
+  - heading: Life on Mount Sinai
+    body:
+      - The biographical tradition relates that Anastasius embraced the monastic life, was tonsured, and journeyed to Jerusalem to venerate the holy places before coming to Mount Sinai. There he submitted himself to the ascetic community, beginning in the humblest service, and through his humility was held to have received gifts of knowledge and wisdom. He eventually became abbot of the whole monastic community at Sinai, the brotherhood associated with the Monastery of Saint Catherine.
+  - heading: Writings and Teaching
+    body:
+      - Anastasius's surviving works combine doctrinal defense with pastoral instruction. The Hodegos (The Guide) marshals arguments for the Chalcedonian faith against the Monophysites. The Quaestiones et Responsiones addresses the practical and spiritual questions of ordinary Christians, and is also noted by scholars as preserving an eyewitness account of the spread of Islam into Sinai and Egypt in his lifetime. His Hexaemeron interprets the creation narrative of Genesis. In his theological work he drew on earlier Fathers, among them Clement of Alexandria, Origen, and Gregory of Nyssa.
+      - Because of his name, Anastasius of Sinai has often been confused in the manuscript tradition and in later accounts with Anastasius I of Antioch, a distinct sixth-century figure, and the authorship of several works attributed to him remains debated among scholars.
+patronage:
+  - Invoked as a teacher and defender of the Orthodox faith and as an example of monastic humility and learning.
+works:
+  - title: Viae Dux (Hodegos, 'The Guide')
+    desc: A handbook defending the Chalcedonian confession of Christ in two natures against the Monophysites.
+  - title: Quaestiones et Responsiones (Questions and Answers)
+    desc: A collection of questions and answers giving pastoral and spiritual guidance to lay communities; also preserves an eyewitness account of the spread of Islam into Sinai and Egypt.
+  - title: Hexaemeron
+    desc: A commentary on the six days of creation in the Book of Genesis.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://orthodoxwiki.org/Anastasius_of_Sinai
+  - https://en.wikipedia.org/wiki/Anastasius_Sinaita
+  - https://www.britannica.com/biography/Saint-Anastasius-Sinaita
+generated: "2026-06-19"

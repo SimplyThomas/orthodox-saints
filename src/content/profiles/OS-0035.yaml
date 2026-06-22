@@ -1,0 +1,45 @@
+id: OS-0035
+liturgicalTitle: Our Venerable Father Symeon the New Theologian
+lifespan: 949 – 1022
+overview:
+  - Symeon the New Theologian was a Byzantine monk, abbot, and writer of the late tenth and early eleventh centuries, remembered above all as a teacher of the conscious, personal experience of God by the power of the Holy Spirit. He is one of only three figures in the Eastern Orthodox tradition honored with the title "the Theologian," alongside John the Apostle and Gregory of Nazianzus. The qualifier "New" was originally used in his own lifetime to distinguish him from an earlier Symeon, his own spiritual father.
+  - By tradition he was born in 949 in Galatia, in the region of Paphlagonia, to parents who belonged to the Byzantine nobility. He received a Greek education and completed his studies at the imperial court in Constantinople. At about the age of fourteen he met the monk Symeon the Studite, also called the Pious, who became his spiritual father and turned him toward the monastic life. After a brief period at the Monastery of Stoudios, he settled at the Monastery of Saint Mamas in Constantinople, where he was tonsured, ordained a priest, and elected abbot, an office he held for roughly twenty-five years.
+  - Symeon taught that every Christian is called to seek a direct and conscious vision of God, and he spoke openly of his own experiences of the divine light. This emphasis, together with his deep veneration of his departed spiritual father, brought him into conflict with the ecclesiastical authorities of the capital. He was sent into exile across the Bosphorus, and although the sentence was later lifted, he chose to remain and re-establish a monastery there. He reposed on March 12, 1022.
+sections:
+  - heading: Teaching on the Divine Light
+    body:
+      - The distinguishing mark of Symeon's teaching is the insistence that knowledge of God is not merely intellectual but experiential. He held that all Christians should aspire to an actual, conscious encounter with God in contemplation, and he described in his own writings repeated experiences of an uncreated divine light. In the Eastern tradition the title "theologian" designates exactly this kind of God-given knowledge through prayer rather than scholarly attainment, which is why it was conferred on Symeon after his death.
+      - Symeon also stressed the necessity of placing oneself under the guidance of an experienced spiritual father, a conviction rooted in his own relationship with Symeon the Studite. His teaching anticipated, and helped prepare the ground for, the hesychast theology that flowered in the fourteenth century, and several of his works were later included in the Philokalia.
+  - heading: Conflict and Exile
+    body:
+      - Symeon's open account of mystical experience, and the honor he paid to his spiritual father Symeon the Studite, drew the opposition of Archbishop Stephen of Nicomedia. In the year 1009 Symeon was condemned to exile near Paloukiton, across the Bosphorus from Constantinople. When the order against him was afterward withdrawn, he did not return to the capital but remained in the place of his exile, where he re-established a ruined monastery dedicated to Saint Macrina and continued to teach and write until his repose.
+timeline:
+  - when: "949"
+    title: Birth in Galatia
+    body: Born in the region of Paphlagonia to a noble Byzantine family.
+  - when: c. 963
+    title: Meets Symeon the Studite
+    body: About the age of fourteen he comes under the guidance of the monk Symeon the Studite, his spiritual father.
+  - when: c. 980
+    title: Abbot of Saint Mamas
+    body: After a brief time at Stoudios he settles at the Monastery of Saint Mamas in Constantinople, where he is ordained priest and elected abbot.
+  - when: "1009"
+    title: Sent into exile
+    body: Condemned to exile across the Bosphorus following opposition from Archbishop Stephen of Nicomedia.
+  - when: "1022"
+    title: Repose
+    body: Reposes on March 12 in the monastery he re-established in his place of exile.
+works:
+  - title: Hymns of Divine Love
+    desc: A collection of poems describing the soul's union with God and the vision of the divine light.
+  - title: Ethical and Theological Discourses
+    desc: Treatises and catechetical discourses on the spiritual life, several of which were later gathered into the Philokalia.
+patronage:
+  - Invoked by monastics and by those seeking a deeper, conscious life of prayer and the guidance of a spiritual father.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Symeon_the_New_Theologian
+  - https://orthodoxwiki.org/Symeon_the_New_Theologian
+  - https://www.oca.org/saints/troparia/2024/03/12/100790-venerable-simeon-the-new-theologian
+generated: "2026-06-19"

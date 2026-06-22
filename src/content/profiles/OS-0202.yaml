@@ -1,0 +1,30 @@
+id: OS-0202
+liturgicalTitle: The Righteous Candida the Elder of Naples
+lifespan: died c. 78
+overview:
+  - Candida the Elder, known in Italian as Candida la Vecchia, was, by tradition, an elderly woman of Naples in the Apostolic Age, associated with the earliest planting of the Christian faith in that city. She is commemorated on September 4 and is venerated in both the Eastern Orthodox and Roman Catholic Churches, where she is counted among the patron saints of Naples.
+  - According to her legend, the Apostle Peter passed through Naples on his way to Rome and was received hospitably by Candida, who was suffering from an illness. The tradition relates that Peter healed her and that she was converted and baptized by the Apostle. She is in turn said to have led Aspren, reckoned the first bishop of Naples, to the Christian faith, so that her conversion stands at the head of the local Neapolitan tradition of apostolic origins.
+  - Little can be established about Candida historically. The account of her belongs to the legendary cycle surrounding the apostolic foundation of the Church at Naples, and modern scholarship treats her existence as doubtful; her name was removed from the revised Roman Martyrology. She is distinct from St. Candida the Younger of Naples, a married woman of the sixth century commemorated on September 10.
+sections:
+  - heading: The Neapolitan Apostolic Tradition
+    body:
+      - Candida's story is bound to that of Aspren (Asprenas), venerated as the first Bishop of Naples. By the same tradition, after Peter healed and baptized Candida, Aspren was brought to the faith during the Apostle's stay, whether converted directly by Peter or through Candida's witness. A further strand of the legend holds that Peter cured Aspren of sickness, consecrated him bishop, and charged him with founding an early house of prayer in the city.
+      - These accounts form part of the local memory of how Christianity first took root at Naples in the Apostolic Age rather than a documented historical record. The synaxarion and martyrology traditions preserve the names and relationships, while acknowledging, as the sources hedge, that nothing certain is known of the lives behind them.
+related:
+  - name: Apostle Peter
+    note: By tradition healed, converted, and baptized Candida at Naples on his way to Rome.
+    href: saint/OS-0004
+  - name: St. Aspren of Naples
+    note: Reckoned the first Bishop of Naples, said to have been led to the faith through Candida.
+  - name: St. Candida the Younger of Naples
+    note: A sixth-century married woman of Naples commemorated September 10; distinct from Candida the Elder.
+    href: saint/OS-0355
+patronage:
+  - Honored as one of the patron saints of the city of Naples.
+status: draft
+sources:
+  - Roman Martyrology
+  - https://en.wikipedia.org/wiki/Candida_the_Elder
+  - https://en.wikipedia.org/wiki/Aspren
+  - https://www.catholic.org/saints/saint.php?saint_id=2579
+generated: "2026-06-20"

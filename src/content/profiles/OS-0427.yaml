@@ -1,0 +1,57 @@
+id: OS-0427
+liturgicalTitle: The Holy and Blessed Theosebia the Deaconess of Nyssa
+lifespan: 4th century (died c. 381-385)
+overview:
+  - Blessed Theosebia the Deaconess was a fourth-century member of one of the most distinguished Christian families of Cappadocia in Asia Minor. Orthodox tradition identifies her as the sister of Saints Basil the Great, Gregory of Nyssa, and Peter, Bishop of Sebaste, placing her within a household that gave the Church several of its foremost teachers and bishops.
+  - She served as a deaconess in the church at Nyssa and was praised after her death by Saint Gregory the Theologian (Gregory of Nazianzus), who in a letter of condolence honored her as an ornament of the Church. Her feast is kept on January 10.
+timeline:
+  - when: 4th century
+    title: Born into a Cappadocian Christian family
+    body: Theosebia belonged to a prominent Christian household of Cappadocia in Asia Minor, the family that included Saints Basil the Great, Gregory of Nyssa, and Peter of Sebaste.
+  - when: 4th century
+    title: Service as a deaconess at Nyssa
+    body: She served as a deaconess in the church at Nyssa, with responsibilities described as caring for the sick, distributing food to the poor, raising orphans, and preparing women for baptism.
+  - when: c. 381-385
+    title: Repose
+    body: Theosebia died in the late fourth century. Sources place her death around 381 to 385.
+sections:
+  - heading: Service as a Deaconess
+    body:
+      - Theosebia held the office of deaconess in the church at Nyssa, where her brother Gregory served as bishop. According to the tradition recorded of her, her duties included caring for the sick, distributing food to the poor and to wanderers, raising orphans, and preparing women for baptism.
+      - She is remembered as having maintained her virginity throughout her life. Tradition also relates that she shared in the hardships of her family, accompanying her brother Gregory of Nyssa during the three years of his exile.
+  - heading: Praise by Saint Gregory the Theologian
+    body:
+      - After Theosebia's death, Saint Gregory the Theologian (Gregory of Nazianzus) wrote a letter of condolence to Gregory of Nyssa in which he eulogized her. In this letter, preserved as his Epistle 197, he addressed her as a true yoke-fellow of a priest and praised her in lofty terms as an ornament of the Church.
+      - The wording of Gregory's letter has been the subject of scholarly discussion, and some modern scholars have read his praise as evidence of an unusually prominent ecclesiastical standing. The Orthodox tradition venerates her as a deaconess.
+  - heading: Question of Her Relationship to Gregory of Nyssa
+    body:
+      - The precise nature of Theosebia's relationship to Gregory of Nyssa is debated among historians. Gregory of Nazianzus's condolence letter refers to her as a sister, and Orthodox tradition holds her to be the sister of Basil the Great, Gregory of Nyssa, and Peter of Sebaste.
+      - Some scholars have proposed instead that she may have been the wife of Gregory of Nyssa, noting that his own writings indicate he was married. The sources do not resolve the question with certainty, and the family identification as a sister is the one carried by the Orthodox commemoration.
+family:
+  heading: Family
+  intro: Theosebia belonged to a celebrated Cappadocian family that produced several saints.
+  figures:
+    - name: St. Basil the Great
+      note: Brother; one of the Three Hierarchs.
+      href: saint/OS-0021
+    - name: St. Gregory of Nyssa
+      note: Brother; bishop of Nyssa and theologian.
+      href: saint/OS-0422
+    - name: St. Peter of Sebaste
+      note: Brother; bishop of Sebaste.
+      href: saint/OS-0420
+related:
+  - name: Righteous Emilia
+    note: Mother of this family of saints.
+    href: saint/OS-0374
+reading:
+  - heading: Primary Source
+    items:
+      - title: Epistle 197 (letter of condolence on the death of Theosebia)
+        author: Gregory of Nazianzus
+sources:
+  - OCA Synaxarion (oca.org), Jan 10
+  - https://en.wikipedia.org/wiki/Theosebia
+  - https://orthodoxwiki.org/Theosebia_the_Deaconess
+status: draft
+generated: "2026-06-20"

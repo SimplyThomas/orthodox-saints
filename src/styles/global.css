@@ -9,6 +9,7 @@
   --byz: #234c7a; /* Deep Byzantine Blue */
   --byz-deep: #18324f; /* darker, for type & deep panels */
   --byz-ink: #0f2238; /* near-black navy ink */
+  --byz-green: #1f5e54; /* deep brand green — readable eyebrow/section labels */
   --dome: #4a6f96; /* Pantocrator Dome Blue */
   --celest: #5b7fa6; /* Celestial Blue */
   --celest-soft: #8aa6c4;
@@ -3898,6 +3899,851 @@ a.sv-rail-chip:hover {
 .sv-read-by {
   color: var(--celest-soft);
   font-size: 0.92em;
+}
+
+/* ============================================================
+   Saint VIEW page — REDESIGN (scoped to .sv2 so the legacy .sv-*
+   chrome the Witness pages reuse stays untouched). Dark iconographic
+   hero · light record rail · single flowing story column with
+   collapsible deep-dives. e2e class hooks are preserved.
+   ============================================================ */
+
+/* ---- HERO ---- */
+.sv2 .sv-hero {
+  background: radial-gradient(
+    120% 140% at 18% 0%,
+    #1d3e62 0%,
+    var(--byz-ink) 62%
+  );
+  color: var(--ivory);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+.sv2 .sv-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 56px);
+}
+.sv2 .sv-hero-crumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+.sv2 .sv-hero-crumb .sv-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+.sv2 .sv-hero-crumb .sv-back-link:hover {
+  color: var(--ivory);
+}
+.sv2 .sv-hero-crumb .sv-sep {
+  color: rgba(212, 175, 55, 0.45);
+}
+.sv2 .sv-hero-crumb .sv-crumb {
+  color: var(--celest-soft);
+}
+.sv2 .sv-hero-crumb .sv-here {
+  color: var(--ivory);
+  font-weight: 400;
+}
+.sv2 .sv-hero-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  padding: clamp(34px, 5vw, 52px) 0 50px;
+  align-items: start;
+}
+.sv2 .sv-hero-icon {
+  min-width: 0;
+}
+.sv2 .sv-hero-icon .sv-icon-inner svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+.sv2 .sv-icon-img {
+  width: 100%;
+  aspect-ratio: 286 / 358;
+  border-radius: 3px;
+}
+.sv2 .sv-icon-cap {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--celest-soft);
+  line-height: 1.5;
+  text-align: left;
+}
+.sv2 .sv-icon-cap a {
+  color: var(--gold-soft);
+}
+.sv2 .sv-icon-cap-eb {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.sv2 .sv-icon-lic {
+  display: inline-block;
+  margin-left: 7px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+.sv2 .sv-hero-id {
+  min-width: 0;
+}
+.sv2 .sv-hero-tagrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.sv2 .tag.sv-tag-gold {
+  background: rgba(212, 175, 55, 0.16);
+  color: var(--gold-soft);
+}
+.sv2 .sv-name {
+  font-family: var(--serif);
+  font-size: clamp(44px, 6.4vw, 78px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+}
+.sv2 .sv-epithet {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold-soft);
+}
+.sv2 .sv-lifespan {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--celest-soft);
+  margin: 12px 0 0;
+}
+.sv2 .sv-also {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--celest-soft);
+  margin-top: 12px;
+}
+.sv2 .sv-hero-rule {
+  width: 64px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px 0;
+}
+.sv2 .sv-lead {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 27px);
+  line-height: 1.34;
+  color: var(--ivory);
+  margin: 0;
+  max-width: 640px;
+  text-align: left;
+  text-wrap: pretty;
+}
+.sv2 .sv-feast {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: auto;
+  margin: 30px 0 0;
+  padding: 14px 22px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  border-radius: 6px;
+}
+.sv2 .sv-feast-label {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.sv2 .sv-feast-date {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--ivory);
+  line-height: 1.05;
+}
+.sv2 .sv-feast-note {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--celest-soft);
+  max-width: 200px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ---- REVIEW STATE BAND ---- */
+.sv2 .sv-state {
+  border-top: 3px solid;
+  border-bottom: 1px solid;
+}
+.sv2 .sv-state--flag {
+  background: #fbe9e6;
+  border-color: #c0392b;
+  color: #b0392b;
+}
+.sv2 .sv-state--draft {
+  background: #fcf3d6;
+  border-color: #d4af37;
+  color: #9a6b00;
+}
+.sv2 .sv-state-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 15px clamp(16px, 4vw, 56px);
+}
+.sv2 .sv-state-ico {
+  flex: 0 0 auto;
+  position: relative;
+  top: 1px;
+}
+.sv2 .sv-state-label {
+  flex: 0 0 auto;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  top: 1px;
+}
+.sv2 .sv-state-div {
+  flex: 0 0 auto;
+  width: 1px;
+  align-self: stretch;
+  background: currentColor;
+  opacity: 0.4;
+}
+.sv2 .sv-state-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+}
+.sv2 .sv-state-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.sv2 .sv-state-list li {
+  margin: 0.3rem 0;
+  line-height: 1.5;
+}
+.sv2 .sv-state-claim {
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ---- QUICK ACTIONS ---- */
+.sv2 .sv-actions {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-gold);
+}
+.sv2 .sv-actions-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px clamp(16px, 4vw, 56px);
+}
+.sv2 .sv-actions-spacer {
+  flex: 1 1 auto;
+}
+.sv2 .sv-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  padding: 10px 18px;
+}
+
+/* ---- BODY GRID ---- */
+.sv2 .sv-body {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.sv2 .sv-rail {
+  display: block;
+  background: var(--ivory-2);
+  color: var(--ink);
+  border-right: 1px solid var(--line-gold);
+  padding: 46px clamp(22px, 3vw, 38px) 56px;
+}
+.sv2 .sv-main {
+  max-width: none;
+  padding: 48px clamp(22px, 4vw, 64px) 40px;
+  min-width: 0;
+}
+
+/* ---- RECORD RAIL (light) ---- */
+.sv2 .sv-rail .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--byz-green);
+}
+/* Section/eyebrow labels on the light page use the deep brand green for legible
+   contrast against ivory (gold-deep was too faint). The hero's on-dark labels
+   (.eyebrow.on-blue) keep their gold treatment. */
+.sv2 .sv-secthead .eyebrow,
+.sv2 .sv-customs .eyebrow,
+.sv2 .sv-littitle-label,
+.sv2 .sv-deep-eb {
+  color: var(--byz-green);
+}
+.sv2 .sv-glance dl {
+  margin: 0;
+}
+.sv2 .sv-fact {
+  border-top: 1px solid var(--line);
+}
+.sv2 .sv-fact dt {
+  color: var(--ink-soft);
+}
+.sv2 .sv-fact dd {
+  color: var(--byz-deep);
+  font-size: 14.5px;
+  line-height: 1.25;
+}
+.sv2 .sv-knownfor,
+.sv2 .sv-rail-block {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-gold);
+}
+.sv2 .sv-virtues {
+  color: var(--byz);
+  font-size: 19px;
+}
+.sv2 .sv-vocation {
+  color: var(--ink-soft);
+}
+.sv2 .sv-rail-note {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.sv2 .sv-rail-chips {
+  gap: 8px;
+}
+.sv2 .sv-rail-chip {
+  font-family: var(--text);
+  font-size: 13px;
+  color: var(--byz);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.sv2 a.sv-rail-chip:hover {
+  background: #fff;
+  border-color: var(--gold);
+  color: var(--gold-deep);
+}
+.sv2 .sv-rail-chip--life {
+  color: var(--dome);
+  background: rgba(74, 111, 150, 0.12);
+  border-color: rgba(74, 111, 150, 0.28);
+}
+
+/* ---- STORY COLUMN ---- */
+.sv2 .sv-littitle {
+  margin: 0 0 8px;
+}
+.sv2 .sv-section {
+  margin-top: 40px;
+}
+.sv2 .sv-littitle + .sv-section {
+  margin-top: 32px;
+}
+.sv2 .sv-secthead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.sv2 .sv-secthead .eyebrow {
+  flex: 0 0 auto;
+}
+.sv2 .sv-secthead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+.sv2 .sv-invoked-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.sv2 .sv-invoked-card {
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 6px;
+  padding: 16px 18px;
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--byz);
+  line-height: 1.15;
+}
+.sv2 .sv-bodytext {
+  font-size: 18px;
+  line-height: 1.74;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* "In their own words" — editorial quotes inside the collapsible (no white box) */
+.sv2 .sv-words-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.sv2 .sv-words-quote {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 6px;
+}
+.sv2 .sv-words-mark {
+  font-family: var(--serif);
+  font-size: 72px;
+  line-height: 0.9;
+  color: var(--line-gold);
+  user-select: none;
+}
+.sv2 .sv-words-quote blockquote {
+  margin: 0;
+  padding-top: 8px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-style: italic;
+  line-height: 1.44;
+  color: var(--byz-deep);
+  text-wrap: pretty;
+}
+.sv2 .sv-words-quote figcaption {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.sv2 .sv-words-quote figcaption a {
+  color: var(--gold-deep);
+  text-decoration: none;
+}
+.sv2 .sv-words-quote figcaption a:hover {
+  color: var(--byz);
+}
+.sv2 .sv-words-rule {
+  height: 1px;
+  width: 24px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.sv2 .sv-words .sv-quote-trans {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+}
+
+/* ---- reference apparatus (light) ---- */
+.sv2 .sv-after {
+  margin-top: 44px;
+}
+.sv2 .sv-after-inner {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.sv2 .sv-after h2 {
+  color: var(--byz-deep);
+  border-bottom-color: var(--line-gold);
+}
+
+/* collapsible deep-dive */
+.sv2 .sv-deep {
+  border-top: 1px solid var(--line);
+}
+.sv2 .sv-deep[open] {
+  padding-bottom: 30px;
+}
+.sv2 .sv-deep-sum {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0 4px;
+  cursor: pointer;
+  list-style: none;
+}
+.sv2 .sv-deep-sum::-webkit-details-marker {
+  display: none;
+}
+.sv2 .sv-deep-eb {
+  flex: 0 0 auto;
+  margin: 0;
+}
+.sv2 h2.sv-deep-eb,
+.sv2 .sv-deep-eb.sv-legacy-title,
+.sv2 .sv-deep-eb.sv-tl-title {
+  font-family: var(--text);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 12px;
+  color: var(--byz-green);
+  margin: 0;
+  border-bottom: 0;
+  padding: 0;
+  text-align: left;
+}
+.sv2 .sv-deep-eb.sv-legacy-title::after {
+  display: none;
+}
+.sv2 .sv-deep-ct {
+  flex: 0 0 auto;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15.5px;
+  color: var(--celest);
+}
+.sv2 .sv-deep-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+.sv2 .sv-deep-state {
+  flex: 0 0 auto;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--celest);
+}
+.sv2 .sv-deep[open] .sv-deep-show {
+  display: none;
+}
+.sv2 .sv-deep:not([open]) .sv-deep-hide {
+  display: none;
+}
+.sv2 .sv-chev {
+  flex: 0 0 auto;
+  transition: transform 0.15s ease;
+}
+.sv2 .sv-deep[open] .sv-chev {
+  transform: rotate(180deg);
+}
+.sv2 .sv-deep-sum:hover .sv-deep-eb,
+.sv2 .sv-deep-sum:hover .sv-deep-state {
+  color: var(--byz);
+}
+.sv2 .sv-deep-sum:hover .sv-chev {
+  stroke: var(--byz);
+}
+.sv2 .sv-deep > :not(summary) {
+  margin-top: 24px;
+}
+
+/* timeline (light context) */
+.sv2 .sv-timeline li::before {
+  border-color: var(--ivory);
+}
+
+/* legacy */
+.sv2 .sv-legacy-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+/* works + reading */
+.sv2 .sv-wr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px 44px;
+}
+.sv2 .sv-works-after h2,
+.sv2 .sv-reading h2 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--byz-deep);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-gold);
+}
+.sv2 .sv-worklist-after {
+  column-width: auto;
+  column-gap: normal;
+}
+.sv2 .sv-worklist-after li {
+  border-top: 1px solid var(--line);
+  padding: 6px 0;
+}
+.sv2 .sv-worklist-after li:first-child {
+  border-top: 0;
+}
+.sv2 .sv-worklist-after em {
+  color: var(--byz-deep);
+}
+.sv2 .sv-work-desc {
+  color: var(--ink-soft);
+}
+.sv2 .sv-worklist-after a {
+  color: var(--gold-deep);
+}
+.sv2 .sv-worklist-after a:hover {
+  color: var(--byz);
+}
+.sv2 .sv-reading-groups {
+  display: block;
+}
+.sv2 .sv-read-head {
+  color: var(--gold-deep);
+}
+.sv2 .sv-read-list li {
+  border-top: 1px solid var(--line);
+  padding: 6px 0;
+}
+.sv2 .sv-read-list li:first-child {
+  border-top: 0;
+}
+.sv2 .sv-read-list em {
+  color: var(--byz-deep);
+}
+.sv2 .sv-read-list a {
+  color: var(--gold-deep);
+}
+.sv2 .sv-read-list a:hover {
+  color: var(--byz);
+}
+.sv2 .sv-read-by {
+  color: var(--ink-soft);
+}
+
+/* commemorated with · family · related · notes */
+.sv2 .sv-kin {
+  margin-top: 8px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.sv2 .sv-plum-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-content: start;
+  gap: 28px 48px;
+}
+.sv2 .sv-plum-block h2 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--byz-deep);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-gold);
+}
+.sv2 .sv-plum-notes p {
+  color: var(--ink-soft);
+}
+.sv2 .sv-fam-intro {
+  color: var(--ink-soft);
+}
+.sv2 .sv-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sv2 .sv-group-list li {
+  padding: 0.25rem 0;
+}
+.sv2 .sv-group-list a {
+  color: var(--byz);
+  text-decoration: none;
+  font-weight: 600;
+}
+.sv2 .sv-group-list a:hover {
+  color: var(--celest);
+}
+/* commemorated-with — stacked row cards */
+.sv2 .sv-comm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sv2 .sv-comm-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.sv2 .sv-comm-row:hover {
+  border-color: var(--gold);
+}
+.sv2 .sv-comm-main {
+  min-width: 0;
+}
+.sv2 .sv-comm-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--byz-deep);
+  line-height: 1.1;
+}
+.sv2 .sv-comm-meta {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.sv2 .sv-comm-glyph {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* companions & kin — avatar grid */
+.sv2 .sv-kin-intro {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--celest);
+  margin: -8px 0 22px;
+  max-width: 680px;
+  text-wrap: pretty;
+}
+.sv2 .sv-related .sv-relrow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 22px 14px;
+}
+.sv2 .sv-relcard {
+  text-align: center;
+  text-decoration: none;
+}
+.sv2 .sv-relav {
+  display: flex;
+  justify-content: center;
+}
+.sv2 .sv-relrel {
+  margin-top: 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.sv2 .sv-relname {
+  margin-top: 3px;
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--byz-deep);
+  line-height: 1.15;
+}
+.sv2 .sv-relep {
+  display: block;
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--celest);
+}
+.sv2 a.sv-relcard:hover .sv-relname {
+  color: var(--byz);
+}
+
+.sv2 .sv-notes-text {
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.sv2 .sv-after-sources {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 980px) {
+  .sv2 .sv-body {
+    grid-template-columns: 1fr;
+  }
+  .sv2 .sv-rail {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-gold);
+  }
+}
+@media (max-width: 760px) {
+  .sv2 .sv-hero-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .sv2 .sv-hero-icon {
+    max-width: 240px;
+  }
+  .sv2 .sv-hero-tagrow,
+  .sv2 .sv-feast {
+    justify-content: center;
+  }
+  .sv2 .sv-hero-rule {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sv2 .sv-lead {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sv2 .sv-icon-cap {
+    text-align: center;
+  }
+}
+@media (max-width: 560px) {
+  .sv2 .sv-feast {
+    flex-wrap: wrap;
+  }
+  .sv2 .sv-feast-note {
+    border-left: 0;
+    padding-left: 0;
+    max-width: none;
+  }
+  .sv2 .sv-actions-spacer {
+    display: none;
+  }
+  .sv2 .sv-share {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ---- Arch motif as a crown ABOVE the heading ----

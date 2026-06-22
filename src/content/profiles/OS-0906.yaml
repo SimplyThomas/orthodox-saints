@@ -1,0 +1,45 @@
+id: OS-0906
+liturgicalTitle: Our Father among the Saints Zosimus, Bishop of Syracuse
+lifespan: c. 570 – 662
+overview:
+  - Zosimus was a seventh-century bishop of Syracuse in Sicily, formed from childhood in the monastic life at the monastery of Saint Lucy near that city. According to his life, he was born in answer to his parents' prayers after a long period of childlessness, and at the age of seven he was given over to the monastery for his upbringing and education. He is commemorated on March 30.
+  - After many years in the community he received the monastic tonsure as an adult and in time was made abbot. The Orthodox account relates that he governed the monastery for forty years before being called to the episcopate, while Western hagiographic summaries describe a similar long monastic career. He was consecrated Bishop of Syracuse and led the see until his death in 662.
+  - As bishop he was remembered for his charity and his freedom from avarice, leading his flock by word and by example. His life records that he bore the suffering of his final illness with humility, and that after his death many of the sick received healing by touching his tomb.
+sections:
+  - heading: Monastic Formation
+    body:
+      - Zosimus was raised at the monastery of Saint Lucy in Syracuse, the same community over which Saint Faustus was abbot. The tradition relates that as a boy he found the silence and labors of the monastery difficult and once left without permission to return to his parents, who scolded him and sent him back; the abbot received him again.
+      - By tradition he was entrusted with the guardianship of the tomb of Saint Lucy in the monastery church. When the abbacy fell vacant, the account relates that he had been left behind to watch over the relics while the brethren consulted the bishop; the bishop, judging his humility a mark of fitness, appointed him abbot, after which his wisdom and virtue became evident in the governance of the community.
+  - heading: Episcopate
+    body:
+      - When the see of Syracuse became vacant, the people sought Zosimus as their bishop, and he was consecrated, though by tradition reluctant to accept the office. The Orthodox synaxarion records that he led his flock for thirteen years; Western sources place his episcopate as confirmed under Pope Theodore, whose pontificate ran from 641 to 649.
+      - His tenure was marked by charity to the poor and by the instruction of his people. He died in 662 and was venerated as a confessor and wonderworker, with healings reported at his tomb.
+timeline:
+  - when: c. 570
+    title: Birth
+    body: Born, by tradition, in answer to his parents' prayers after a long childlessness.
+  - when: c. 577
+    title: Entered the monastery
+    body: Given to the monastery of Saint Lucy near Syracuse at the age of seven.
+  - when: 641–649
+    title: Consecrated bishop
+    body: Made Bishop of Syracuse, his appointment confirmed under Pope Theodore (641–649).
+  - when: "662"
+    title: Repose
+    body: Died in Syracuse after leading the see; healings were reported at his tomb.
+related:
+  - name: St. Faustus of Syracuse
+    note: Abbot of the monastery of St. Lucy in Syracuse where Zosimus was formed
+    href: saint/OS-0254
+  - name: Virgin Martyr Lucy of Syracuse
+    note: Patron of the monastery and the tomb Zosimus is said to have guarded
+    href: saint/OS-2342
+patronage:
+  - Invoked for the healing of the sick, in keeping with the cures reported at his tomb.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2011/03/30/100953-saint-zosimus-bishop-of-syracuse
+  - https://catholicsaints.info/saint-zosimus-of-syracuse/
+  - https://anastpaul.com/2025/03/30/saint-of-the-day-30-march-st-zosimus-c570-662-bishop-and-confessor-of-syracuse-sicily/
+generated: "2026-06-21"

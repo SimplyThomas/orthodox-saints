@@ -1,0 +1,25 @@
+id: OS-2368
+liturgicalTitle: The Holy Martyr Jonah of Pechenga
+lifespan: died 1589 or 1590
+overview:
+  - Jonah of Pechenga was a sixteenth-century Russian priest who, after being widowed, entered monastic life at the Pechenga (Pechenga-Trinity) monastery on the Kola Peninsula and became a disciple of its founder, Saint Tryphon. He was killed during a raid on the monastery by Swedish-Finnish forces and is venerated as a martyr. He is commemorated on December 15, the feast he shares with his teacher Tryphon, and also on December 25.
+  - "According to the synaxarion, Jonah had served as a parish priest before his entry into monasticism. The Orthodox Church in America's two accounts of his life differ in detail: one relates that he was a priest at Kola who withdrew to the Pechenga monastery after the deaths of his daughter and wife and became a disciple of Saint Tryphon, settling in 1583 at a wilderness site adjacent to the monastery that later became his burial place; the other places his birth around the year 1500 in Varzuga, a Pomor village in the Murmansk region, and identifies him as a parish priest before he joined the community."
+  - The Pechenga monastery had been founded in 1533 by Saint Tryphon, a monk from Novgorod, at the mouth of the Pechenga River on the Barents Sea, as a base for the conversion of the local Sami (Skolt) population. Tryphon died in 1583. Some years later the wooden monastery was raided and burnt; by tradition Jonah and a fellow priest, the priestmonk Herman, were martyred during the celebration of the Divine Liturgy as they were receiving the Eucharist, together with a large number of monks and laypeople of the community. The martyrs came to be venerated throughout the Novgorod region, and the Russian Orthodox Church established Jonah for Church-wide veneration in 2003.
+sections:
+  - heading: The Raid on Pechenga
+    body:
+      - Sources record the destruction of the Pechenga monastery as having taken place on December 25, 1589, though the Orthodox Church in America's December 15 account dates Jonah's death to 1590. The raid is generally placed in the context of the Russo-Swedish War of 1590-1595, and is traditionally attributed to a Finnish leader, Pekka Antinpoika Vesainen, an attribution that historians regard as contested.
+      - Accounts of the number killed vary. The synaxarion speaks of roughly 115 monks and laypersons slain in the invasion, while other reckonings count 51 monks and 65 lay brothers among the dead. The wooden monastery was burnt in the attack; it was later refounded near Kola at the order of Tsar Fyodor I.
+related:
+  - name: Venerable Tryphon, Abbot of Pechenga
+    note: Founder of the Pechenga monastery and Jonah's monastic teacher; they share the December 15 commemoration
+    href: saint/OS-2367
+  - name: Priestmonk Herman of Pechenga
+    note: A fellow priest said to have been martyred with Jonah during the Liturgy
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2012/12/15/103553-martyr-jonah-disciple-of-tryphon-of-pechenga
+  - https://www.oca.org/saints/lives/2021/12/25/103644-priestmonk-jonah-the-martyr-of-pechenga
+  - https://en.wikipedia.org/wiki/Pechenga_Monastery
+generated: 2026-06-21-b2

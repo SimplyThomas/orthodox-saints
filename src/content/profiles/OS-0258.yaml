@@ -1,0 +1,45 @@
+id: OS-0258
+liturgicalTitle: Our Venerable Father Magnus, Enlightener of the Allgäu
+lifespan: 7th–8th century
+overview:
+  - Magnus of Füssen (also known as Magnoald or Mang; 7th–8th century) was an Irish or Irish-associated monk who became one of the principal missionaries of the Allgäu region in what is now southern Germany. Associated with the missionary circle of Saints Columbanus and Gallus, he worked under the commission of Bishop Wikterp of Augsburg alongside a fellow cleric named Theodor and a local priest named Tozzo. He is venerated as the apostle of the Allgäu.
+  - Magnus founded a monastic community at Füssen on the Via Claudia Augusta, which became the nucleus of the later Benedictine abbey of St. Mang. He also established a chapel in Waltenhofen (recorded c. 746) and helped build a church at Kempten. His feast day is 6 September; his relics were solemnly translated to a newly erected church at Füssen in 851.
+timeline:
+  - when: c. 746
+    title: Missionary activity in the Allgäu
+    body: Under commission from Bishop Wikterp of Augsburg, Magnus undertook systematic evangelisation of the Ostallgäu region. Working with Theodor and the priest Tozzo, he built prayer houses and established Christian communities across the region.
+  - when: "746"
+    title: Foundation at Waltenhofen
+    body: Magnus built a prayer house at Waltenhofen, one of several centres of his missionary effort documented from this period.
+  - when: 7th–8th century
+    title: Foundation of Füssen monastery
+    body: Magnus founded a monastic community at Füssen on the ancient Roman road Via Claudia Augusta. This community became the seed of the later St. Mang Abbey, a significant Benedictine house of the region.
+  - when: "851"
+    title: Translation of relics
+    body: Magnus's remains were translated to a newly erected church at Füssen, marking the formal establishment of his cult and the growth of pilgrimage to his shrine.
+sections:
+  - heading: Missionary Circle
+    body:
+      - Magnus is placed within the tradition of Hiberno-Scottish (Irish) peregrinatio monasticism — the practice of "pilgrimage for God" in which Irish monks left their homeland to evangelize continental Europe. The anchor tradition links him to the community of Saints Columbanus and Gallus, the founders of Luxeuil and St. Gallen respectively, though the precise nature and timing of his association with them is not fully established in surviving sources.
+      - The locales associated with Magnus — Arbon and Bobbio (both associated with Gallus and Columbanus) and the Allgäu region — fit the known routes of Irish peregrine missionaries from the seventh and eighth centuries.
+  - heading: Veneration and Patronage
+    body:
+      - Magnus is honoured as patron of the Allgäu, the city of Füssen, and the city of Kempten. He is traditionally invoked against eye diseases, snakebite, cattle ailments, and vermin. His cult spread among German Catholic emigrants to North America; in Minnesota, his intercession was sought during a locust plague in 1856–1857.
+      - A fragment of his relics — a breast-bone — is preserved in a glass cross at the Basilica of St. Mang in Füssen. He is commemorated in the pre-schism Western calendar and is among the saints venerated in common by the Orthodox and Catholic traditions.
+patronage:
+  - The Allgäu region
+  - Füssen
+  - Kempten
+  - Protection against eye diseases
+  - Protection against snakebite
+  - Protection of cattle
+related:
+  - name: Columbanus
+    note: Irish missionary saint with whose circle Magnus is associated
+  - name: Gall of Switzerland
+    note: Companion of Columbanus; Magnus is linked to the same missionary tradition
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Magnus_of_F%C3%BCssen
+generated: "2026-06-19"

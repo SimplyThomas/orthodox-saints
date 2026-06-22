@@ -1,0 +1,35 @@
+id: OS-2465
+liturgicalTitle: Our Venerable Father John of Cathares the Confessor
+lifespan: died c. 832
+overview:
+  - John of Cathares was a ninth-century Byzantine monastic who served as abbot of the Kathara (Cathara) Monastery in Bithynia, in Asia Minor. The monastery, situated near Nicaea, had been established in the sixth century during the reign of the emperor Justin. As superior of this community John became a leading figure in the resistance to the renewed iconoclasm of the early ninth century, and the Church commemorates him as a confessor of the faith on April 27.
+  - His prominence belongs to the period of the second iconoclast controversy, when the veneration of icons was again suppressed by imperial decree. Because he upheld and defended the veneration of the holy icons, John suffered repeatedly at the hands of the iconoclast emperors, named in the tradition as Leo and Theophilus. According to the surviving accounts he was repeatedly exiled and endured harsh treatment, and the anchor tradition records that he was a co-worker of Saint Theodore the Studite, the foremost monastic champion of the icons in that generation.
+  - John reposed in exile about the year 832, having held to the veneration of icons throughout the persecution. He is honored as a venerable monastic and confessor, and his memory is kept in the Orthodox menaion on April 27.
+sections:
+  - heading: The Kathara Monastery and the Defense of the Icons
+    body:
+      - The Kathara (Cathara) Monastery, of which John was abbot, lay near Nicaea in Bithynia and had been founded in the sixth century under the emperor Justin. Bithynia was a heartland of Byzantine monasticism and, during the iconoclast controversies, a center of resistance to the imperial suppression of icons, producing a number of monastic confessors in this era.
+      - John's confession consisted in his refusal to abandon the veneration of the holy icons under pressure from the iconoclast emperors. The tradition records that he suffered much under the emperors Leo and Theophilus and was sent into exile, where he ended his life around the year 832. He is numbered among the monastic confessors of the second period of iconoclasm.
+timeline:
+  - when: 6th century
+    title: Foundation of the Kathara Monastery
+    body: The Kathara Monastery near Nicaea in Bithynia is established during the reign of the emperor Justin.
+  - when: early 9th century
+    title: Confession under iconoclasm
+    body: As abbot, John defends the veneration of the icons and suffers persecution under the emperors Leo and Theophilus.
+  - when: c. 832
+    title: Repose in exile
+    body: John dies in exile, having remained faithful to the veneration of the holy icons.
+related:
+  - name: St. Theodore the Studite
+    note: The foremost monastic defender of the icons in the same generation; the tradition records John as his co-worker.
+    href: saint/OS-2180
+patronage:
+  - Invoked as a confessor of the Orthodox faith, particularly in connection with the defense and veneration of the holy icons.
+status: draft
+sources:
+  - Orthodox.net menaion
+  - GOARCH calendar
+  - https://www.orthodox.net/menaion-april/27-venerable-john-the-confessor.html
+  - https://en.wikipedia.org/wiki/John_of_Constantinople
+generated: "2026-06-19"

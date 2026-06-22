@@ -1,0 +1,22 @@
+id: OS-0208
+liturgicalTitle: The Righteous Virgin Monessa of Ireland
+lifespan: died 456
+overview:
+  - Monessa of Ireland is a fifth-century saint associated with the missionary work of St. Patrick. According to tradition she was the daughter of an Irish chieftain who was converted and baptized by Patrick during his evangelization of Ireland. She is venerated as a virgin and is commemorated on September 4.
+  - "The defining feature of the tradition surrounding Monessa is the account of her death: she is said to have reposed at or immediately after her baptism, while still in a state of grace. The year of her death is given as 456. Beyond this, the surviving accounts preserve almost no biographical detail, and the sources note that the record rests on tradition rather than documented history."
+sections:
+  - heading: Conversion and Death
+    body:
+      - The accounts identify Monessa as the daughter of an Irish chieftain, though some sources qualify even this with the word "reportedly," reflecting how little is firmly known about her. She is numbered among the converts whom St. Patrick brought to the faith in the course of his mission to Ireland.
+      - By tradition, Monessa died in the very moment of her baptism, or immediately afterward, having received the sacrament in a state of grace. It is this circumstance — conversion and repose so closely joined — that fixed her in the calendar of Irish saints, even as nothing further about her life was preserved.
+related:
+  - name: St. Patrick, Enlightener of Ireland
+    note: The missionary who, by tradition, converted and baptized her
+    href: saint/OS-0079
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://celticsaints.org/2021/0904a.html
+  - https://www.catholic.org/saints/saint.php?saint_id=5159
+  - http://asinnersguidetothesaints.blogspot.com/2010/08/st-monessa-of-ireland-to-sept-4-456.html
+generated: "2026-06-20"

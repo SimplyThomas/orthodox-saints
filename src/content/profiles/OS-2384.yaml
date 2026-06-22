@@ -1,0 +1,40 @@
+id: OS-2384
+liturgicalTitle: Saint Michael the Confessor and Synkellos, at Constantinople
+lifespan: died c. 845
+overview:
+  - Michael the Confessor, also known as Michael the Synkellos, was a ninth-century priest and monk remembered for his defense of the holy icons during the second period of Byzantine iconoclasm. Born at Jerusalem into a family of devout Christians, he embraced the monastic life at an early age. According to the synaxarion, after the death of his father his mother and sisters entered a monastery, while Michael was ordained a priest and became known as a powerful preacher. On account of this gift, the Patriarch Thomas I of Jerusalem advanced him to the office of synkellos, an administrative position concerned with the governance of the Church.
+  - Michael's confession of the faith unfolded under two iconoclast emperors. The Patriarch of Jerusalem sent him to the emperor Leo the Armenian (813-820), together with the brothers Theodore and Theophanes, in the hope of persuading the emperor to halt his persecution of those who venerated the icons. Leo responded by having Michael beaten and sent into exile. Having returned from this exile, Michael suffered again for the veneration of the icons under the emperor Theophilus (829-842), the last of the iconoclast rulers.
+  - After the empress Theodora restored the veneration of the holy icons in 843, the persecution came to an end. The tradition relates that Michael declined elevation to the patriarchate, choosing instead to continue in his office of synkellos to the end of his life. He died peacefully in about the year 845 and is commemorated on December 18. He is to be distinguished from Saint Michael the Confessor, Bishop of Synnada, who is commemorated on May 23.
+sections:
+  - heading: Confession Under the Iconoclasts
+    body:
+      - Michael's witness belongs to the second wave of Byzantine iconoclasm, which reopened under Leo the Armenian after a period of restored icon veneration. The synaxarion places him among the envoys whom the Church sent to reason with the emperor, a mission that ended in his beating and exile rather than in the persecution's cessation.
+      - His companions on this confession, the brothers Theodore and Theophanes, are themselves venerated as confessors. Under Theophilus they were branded on the face with iron inscriptions composed to slander them, from which they received the surname 'the Branded' (Graptoi). Michael shared in their sufferings for the same cause, enduring beatings and exile for his refusal to abandon the icons.
+timeline:
+  - when: 813-820
+    title: Mission to Leo the Armenian
+    body: Sent by the Patriarch of Jerusalem with Theodore and Theophanes to dissuade the iconoclast emperor; he is beaten and exiled.
+  - when: 829-842
+    title: Suffering under Theophilus
+    body: After returning from exile, Michael again suffers for the veneration of the icons under the emperor Theophilus.
+  - when: c. 845
+    title: Repose
+    body: Having declined the patriarchate, Michael dies peacefully while still holding the office of synkellos.
+related:
+  - name: Venerable Theodore Graptus the Confessor
+    note: One of the two branded brothers sent with Michael on the mission to Leo the Armenian (commemorated December 27).
+    href: saint/OS-2419
+  - name: Saint Theophanes the Confessor and Hymnographer, Bishop of Nicaea
+    note: Brother of Theodore the Branded, the other companion of Michael's mission (commemorated October 11).
+    href: saint/OS-1999
+  - name: Saint Michael the Confessor, Bishop of Synnada
+    note: A distinct ninth-century confessor of the icons, with whom this Michael is not to be confused (commemorated May 23).
+    href: saint/OS-1226
+patronage:
+  - Venerated as a confessor and defender of the holy icons.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0578/12/18/103581-saint-michael-the-confessor-at-constantinople
+  - https://orthodoxwiki.org/December_18
+generated: "2026-06-21"

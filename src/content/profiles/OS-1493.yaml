@@ -1,0 +1,64 @@
+id: OS-1493
+liturgicalTitle: The Holy and Righteous Prosper of Aquitaine
+lifespan: c. 390 – c. 455
+overview:
+  - Prosper of Aquitaine was a learned Christian layman of fifth-century Gaul, remembered as the foremost lay disciple and defender of the theology of Augustine of Hippo. Born around 390 in the Roman province of Aquitaine, he was neither bishop nor priest, yet he engaged deeply in the doctrinal controversies of his age, writing in defense of the teaching on divine grace.
+  - He corresponded with Augustine without ever meeting him in person, and after Augustine's death he continued to propagate and defend his thought. In his later years Prosper was associated with the papal chancery in Rome, where tradition links him to the service of Pope Leo the Great. He is commemorated on July 7, and is venerated across the Catholic, Orthodox, Anglican, and Lutheran traditions.
+timeline:
+  - when: c. 390
+    title: Born in the Roman province of Aquitaine
+    body: Born in the Roman province of Aquitaine, in Gaul.
+  - when: 428 or 429
+    title: Writes to Augustine of Hippo concerning objections
+    body: Writes to Augustine of Hippo concerning objections raised against his teaching in Marseilles and the surrounding region.
+  - when: "431"
+    title: Travels to Rome with a companion to
+    body: Travels to Rome with a companion to appeal to Pope Celestine I in defense of Augustine's doctrine.
+  - when: c. 440
+    title: Summoned by Pope Leo the Great
+    body: Summoned by Pope Leo the Great; by tradition associated with the composition of Leo's letters against Eutyches.
+  - when: "455"
+    title: His Chronicle is brought down to this
+    body: His Chronicle is brought down to this year, near the close of his life.
+  - when: c. 455
+    title: Dies
+    body: Dies, traditionally at Rome.
+sections:
+  - heading: The Defender of Grace
+    body:
+      - Prosper's first securely datable act is a letter he wrote to Augustine around 428 or 429. According to the Catholic Encyclopedia, a certain Hilary had written to Augustine about difficulties raised against his doctrine at Marseilles and its neighbourhood; Prosper, described as a man distinguished for morals, eloquence, and zeal, wrote as well. Though he had never met Augustine, he had corresponded with him, and he made the defense of Augustinian teaching on grace and free will the work of his life.
+      - He composed a short treatise on grace and free will addressed as a letter to Rufinus, and a great dogmatic poem of over a thousand hexameter lines, the De Ingratis (Adversus ingratos), directed against those whom he regarded as the enemies of grace. After Augustine's death, Prosper produced abridgments and compilations of his works, including a collection of epigrams and maxims drawn from Augustine's writings, helping to transmit and popularize Augustinian theology.
+  - heading: Rome and the Papal Chancery
+    body:
+      - In 431 Prosper and a friend traveled to Rome to invoke the aid of Pope Celestine I in the controversy over grace; the pope responded with the letter known by its opening words 'Apostolici Verba,' addressed to the bishops of Gaul.
+      - About the year 440 Prosper was summoned by Pope Leo the Great and attached to the papal service in a secretarial or notarial capacity. According to the testimony of Gennadius, he was said to have drawn up the letters written by Leo against the heresiarch Eutyches, linking him to the doctrinal labors of the Roman see in the era of the Council of Chalcedon.
+  - heading: Writings and Legacy
+    body:
+      - Prosper's literary output secured his lasting influence. His Epitoma chronicon, a world chronicle, was carried down to the year 455 and was updated in several recensions; it remains an important historical source for the fifth century. He is also credited with the treatise De vocatione omnium gentium ('On the Calling of All Nations'), composed around 450, and with De gratia Dei et libero arbitrio.
+      - Through these works, and through his epigrams and compilations from Augustine, Prosper became a principal channel by which Augustinian thought on grace and predestination passed into the later Western tradition.
+  - heading: Relics & Shrines
+    body:
+      - The available sources do not record the location of relics or a shrine associated with Prosper of Aquitaine. He is reported by tradition to have died at Rome around 455.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The sources record no miracles attributed to Prosper; his renown rests on his theological writings and his service in the controversies over grace."
+      - "Traditional Accounts: By tradition Prosper served as amanuensis or secretary to Pope Leo the Great, and is said to have drawn up Leo's letters against Eutyches, though the sources transmit this on the authority of Gennadius rather than as documented fact."
+works:
+  - title: De Ingratis (Adversus ingratos)
+    desc: A dogmatic poem of over a thousand hexameter lines against the semi-Pelagians, the opponents of the doctrine of grace, written c. 430.
+  - title: Epitoma chronicon
+    desc: A world chronicle carried down to the year 455, an important historical source for the fifth century.
+  - title: De vocatione omnium gentium
+    desc: "'On the Calling of All Nations,' a theological treatise on grace and the universal call to salvation, composed c. 450."
+  - title: De gratia Dei et libero arbitrio
+    desc: A treatise on the grace of God and free will, defending Augustinian teaching.
+  - title: Letter to Rufinus on grace and free will
+    desc: A short treatise on grace and free will addressed as a letter to Rufinus.
+  - title: Epigrams and maxims from Augustine
+    desc: A collection of epigrams and a body of maxims compiled from the writings of Augustine of Hippo.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Prosper_of_Aquitaine
+  - https://www.newadvent.org/cathen/12487a.htm
+status: draft
+generated: "2026-06-19"

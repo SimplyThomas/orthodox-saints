@@ -1,0 +1,68 @@
+id: OS-0734
+liturgicalTitle: Our Father among the Saints Leander, Bishop of Seville
+lifespan: c. 534 – 600/601
+overview:
+  - Leander of Seville was a sixth-century bishop in Visigothic Spain who led the effort to draw the ruling Visigoths away from Arianism and into the catholic and Orthodox faith. As Bishop of Seville from 579, he served as confessor and counselor to the royal house and presided over the Third Council of Toledo in 589, the assembly at which the kingdom formally renounced Arianism.
+  - "He was the eldest of a family of saints: his brothers Isidore, who succeeded him at Seville, and Fulgentius, Bishop of Astigi, and his sister Florentina are all venerated. He also reformed the worship of the Spanish Church and corresponded with Pope Gregory the Great, whom he had met during his exile in Constantinople. He reposed in Seville about the year 600."
+timeline:
+  - when: c. 534
+    title: Birth in Carthago Spartaria
+    body: Leander was born around 534 in Carthago Spartaria, modern Cartagena, in the province of Spania, the son of a citizen named Severianus. His siblings Isidore, Fulgentius, and Florentina were all later numbered among the saints.
+  - when: c. 554
+    title: Family moves to Seville
+    body: The family relocated to Seville around 554, where Leander would later spend his episcopal life.
+  - when: c. 576
+    title: Monastic life
+    body: He embraced the monastic life around 576 and founded a school at Seville that became a noted center of learning.
+  - when: "579"
+    title: Bishop of Seville
+    body: He was made Bishop of Seville in 579 and became confessor and advisor to the Visigothic royal house, assisting the conversion of Prince Hermenegild.
+  - when: c. 579–582
+    title: Exile to Constantinople
+    body: Under King Liuvigild he was exiled and withdrew to Constantinople, where he met the future Pope Gregory the Great and began a lasting correspondence with him.
+  - when: "589"
+    title: Third Council of Toledo
+    body: He organized and presided over the Third Council of Toledo, at which King Reccared and the Visigothic kingdom abjured Arianism. Leander delivered the closing homily celebrating the conversion of the Goths.
+  - when: 600/601
+    title: Repose at Seville
+    body: He reposed at Seville about the year 600, and was succeeded in the see by his brother Isidore.
+sections:
+  - heading: A family of saints
+    body:
+      - Leander was the eldest of four children who would all come to be venerated as saints. His brother Isidore succeeded him as Bishop of Seville and became one of the most influential encyclopedists of the early medieval West; his brother Fulgentius became Bishop of Astigi; and his sister Florentina entered the monastic life, with tradition crediting her oversight of a large number of convents and nuns.
+      - Their father, named Severianus, was a citizen of Carthago Spartaria, and the family moved to Seville around 554. Leander's own monastic formation and the school he founded at Seville helped shape the learning of his siblings, Isidore most of all.
+  - heading: Conversion of the Visigoths
+    body:
+      - The Visigothic kings of Spain were Arians, holding the teaching condemned at Nicaea, while much of their subject population held the catholic faith. As Bishop of Seville, Leander worked to bring the ruling house to Orthodoxy. He supported the conversion of Prince Hermenegild, assisted in part by Hermenegild's catholic wife Ingunthis, and for his activity he was exiled by King Liuvigild and fled to Constantinople.
+      - After his return, Leander succeeded in winning over Liuvigild's successor, King Reccared. His labors came to fruition at the Third Council of Toledo, which assembled in May 589 with seventy-two bishops. King Reccared made a public confession of faith, anathematized Arius, and accepted the councils of Nicaea, Constantinople, Ephesus, and Chalcedon. Leander, who had organized the council and served as its president, delivered the closing homily preserved as the Homilia de triumpho ecclesiae ob conversionem Gothorum, celebrating the conversion of the Goths.
+  - heading: Reform of worship and writings
+    body:
+      - Leander reformed the worship of the Spanish Church, introducing the recitation of the Creed into the liturgy as a confession of the faith against Arianism. Upon his return from Toledo he also convened a synod at Seville.
+      - His surviving writings include a monastic rule composed for his sister, the De institutione virginum et contemptu mundi, and the festal homily delivered at the close of the Third Council of Toledo. He maintained a correspondence with Pope Gregory the Great, whom he had befriended in Constantinople.
+  - heading: Veneration
+    body:
+      - Leander is venerated in both the Eastern Orthodox and the Roman Catholic Churches as a pre-schism Western saint. His principal feast is kept on 27 February; other dates of commemoration include 13 March, the day of his repose, and 13 November in Spain.
+patronage:
+  - Seville and the Spanish Church
+  - the conversion of those in error
+family:
+  heading: A household of saints
+  intro: Leander was the eldest of four siblings all venerated as saints.
+  figures:
+    - name: Saint Isidore of Seville
+      note: Younger brother; succeeded Leander as Bishop of Seville and a celebrated encyclopedist.
+    - name: Saint Fulgentius
+      note: Brother; Bishop of Astigi.
+    - name: Saint Florentina
+      note: Sister; consecrated to the monastic life, for whom Leander composed a rule.
+works:
+  - title: De institutione virginum et contemptu mundi
+    desc: A monastic rule composed for his sister Florentina.
+  - title: Homilia de triumpho ecclesiae ob conversionem Gothorum
+    desc: The closing homily delivered at the Third Council of Toledo, celebrating the conversion of the Visigoths from Arianism.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Leander_of_Seville
+  - https://en.wikipedia.org/wiki/Third_Council_of_Toledo
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,46 @@
+id: OS-1830
+liturgicalTitle: The Holy Hieromartyr Cornelius the Centurion
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Cornelius_the_Centurion
+  - https://www.oca.org/saints/lives/2018/09/13/102594-hieromartyr-cornelius-the-centurion
+overview:
+  - Cornelius was a Roman centurion stationed at Caesarea Maritima, the capital of the Roman province of Judaea, in the first century. The New Testament describes him as a God-fearing man who prayed regularly and gave alms, devout toward the God of Israel though himself a Gentile. According to tradition he had previously lived in Thracian Italy before settling at Caesarea.
+  - He is remembered above all as the first Gentile received into the Church, baptized by the Apostle Peter as recorded in the tenth chapter of the Acts of the Apostles. Later Orthodox tradition continues his story beyond Acts, holding that Peter ordained him a bishop and that he carried the Gospel to the city of Skepsis, where he is venerated as a hieromartyr. The historicity of the episcopal and missionary tradition is regarded as uncertain by historians, while the Acts narrative is firmly attested in Scripture.
+lifespan: 1st century
+timeline:
+  - when: 1st century
+    title: Centurion at Caesarea
+    body: Cornelius served as a Roman centurion at Caesarea Maritima in Judaea. Though a Gentile, he was noted for piety, regular prayer, and charitable works, and is described in Acts as a God-fearing man.
+  - when: 1st century
+    title: Vision and the summons of Peter
+    body: An angel appeared to Cornelius during his prayer, directing him to send for the Apostle Peter, who was then at Joppa. At the same time Peter received a vision of a sheet lowered with various animals, which prepared him to preach to Gentiles.
+  - when: 1st century
+    title: Baptism by Peter (Acts 10)
+    body: When Cornelius's messengers brought Peter to Caesarea, Peter proclaimed the ministry and resurrection of Christ. The Holy Spirit descended upon the assembly, and Peter baptized Cornelius together with his household, making him the first Gentile received into the Church.
+  - when: 1st century (by tradition)
+    title: Mission to Skepsis
+    body: By later tradition Peter ordained Cornelius a bishop, and he was chosen by lot to go to Skepsis to confront vigorous idol worship there, accompanied by Saint Timothy.
+  - when: 1st century (by tradition)
+    title: Repose at Skepsis
+    body: Tradition holds that after converting the city Cornelius lived to old age and was buried near the pagan temple he had brought down.
+sections:
+  - heading: The First Gentile Convert
+    body:
+      - "The account of Cornelius in Acts chapter ten marks a turning point in the early Church: the reception of a Gentile into the community of believers without first becoming a Jew. The angel's instruction to Cornelius and Peter's parallel vision of the sheet of animals are presented as a coordinated divine action opening the Gospel to the nations."
+      - His baptism proved controversial among the first believers and contributed to the wider debate over whether Gentile converts were bound by Jewish observances such as circumcision. That question was eventually addressed at the Council of Jerusalem described in Acts chapter fifteen.
+  - heading: Traditional Accounts
+    body:
+      - Orthodox tradition extends Cornelius's life beyond the New Testament. After his baptism he is said to have left worldly affairs and preached the Gospel alongside the Apostle Peter, who ordained him a bishop. When Peter learned of intense idolatry in the city of Skepsis, lots were drawn and Cornelius was sent there with Saint Timothy.
+      - In Skepsis a learned prince named Demetrius, devoted to Apollo and Zeus, opposed him. The tradition relates that when Cornelius entered the pagan temple and prayed facing east, an earthquake destroyed the temple and its idols. Imprisoned, Cornelius learned that Demetrius's wife and child had been buried in the rubble, yet they were found alive, said to be praising the God of the Christians. Witnessing this, Demetrius and his household received baptism, the saint converted the city, and he appointed a presbyter named Eunomios to serve there.
+      - Historians regard the tradition that Cornelius became a bishop, whether of Caesarea or of Skepsis in Mysia, as uncertain, in contrast to the scripturally attested account of his baptism.
+  - heading: Veneration
+    body:
+      - "The Orthodox Church commemorates Cornelius as a hieromartyr on September 13. He is also honored in the Western tradition: his feast falls on October 20 in the Roman Catholic Church and February 4 in the Episcopal Church, while the Armenian Apostolic Church commemorates him on the Tuesday following the third Sunday of Advent."
+related:
+  - name: Apostle Peter
+    note: Baptized Cornelius at Caesarea, the first Gentile received into the Church (Acts 10), and by tradition ordained him a bishop.
+  - name: Apostle Timothy
+    note: By tradition accompanied Cornelius on the mission to Skepsis.
+status: draft
+generated: "2026-06-19"

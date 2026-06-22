@@ -1,0 +1,38 @@
+id: OS-0154
+liturgicalTitle: Our Venerable Father Theoctistus of Palestine
+lifespan: died c. 451
+overview:
+  - Theoctistus of Palestine was a fifth-century ascetic of the Judean wilderness and the close companion of Saint Euthymius the Great, with whom he co-founded a lavra in the desert south-east of Jerusalem. The two are remembered for the singular unity of their friendship; the synaxarion relates that their oneness of mind was such that they seemed to live as one soul in two bodies. He is commemorated on September 3.
+  - According to the tradition recorded by Cyril of Scythopolis, the principal historical source, Theoctistus and Euthymius were both ascetics at the lavra of Pharan near Jerusalem. Each year, after the Leave-taking of Theophany, the two would withdraw together into the desert to pray in solitude, returning to their cells on Palm Sunday. About five years into their shared life, while in the desert for Great Lent, they discovered in a wadi a large cave in which they decided to remain.
+  - As word of the two ascetics spread, monks and others seeking spiritual instruction gathered around them. The cave became a church, and so many disciples assembled that a lavra was built over it. Euthymius appointed Theoctistus as igumen (abbot) of the community while he himself withdrew into seclusion. The monastery in the Judean Desert that grew from this settlement came to be known as the Monastery of Theoctistus.
+sections:
+  - heading: Igumen of the Lavra
+    body:
+      - "As superior of the lavra, Theoctistus received all who came to him, hearing their confessions and guiding them in the ascetic life. The division of labor between the two friends became settled: Euthymius preferred the stillness of seclusion, while Theoctistus governed the growing brotherhood and tended to the spiritual needs of those who sought the monastery."
+      - The community lay in the Judean Desert in the Wadi Mukellik (Nahal Og), near the principal monastery later associated with Euthymius himself. The tradition holds that Theoctistus died at an advanced age; by the account preserved in the synaxarion, the aged Euthymius cared for him in his final illness, and the Patriarch of Jerusalem presided at his burial.
+timeline:
+  - when: early 5th c.
+    title: Ascetic at the lavra of Pharan
+    body: Theoctistus lives as an ascetic near Jerusalem alongside Euthymius the Great.
+  - when: c. 411
+    title: Discovery of the desert cave
+    body: About five years into their shared life, the two find a large cave in a wadi during Great Lent and remain there.
+  - when: 5th c.
+    title: Appointed igumen
+    body: As disciples gather, a lavra is built over the cave church and Euthymius makes Theoctistus its igumen.
+  - when: c. 451
+    title: Repose
+    body: Theoctistus dies at an advanced age and is buried with the Patriarch of Jerusalem presiding.
+related:
+  - name: Venerable Euthymius the Great
+    note: Lifelong companion and co-founder of the lavra; appointed Theoctistus its igumen.
+    href: saint/OS-0494
+patronage:
+  - Invoked by monastics and those seeking the virtues of obedience, humility, and self-control in the ascetic life.
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2023/09/03/102478-venerable-theoctistus
+  - https://en.wikipedia.org/wiki/Theoctistus_of_Palestine
+  - https://en.wikipedia.org/wiki/Euthymius_the_Great
+generated: "2026-06-20"

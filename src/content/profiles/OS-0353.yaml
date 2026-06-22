@@ -1,0 +1,34 @@
+id: OS-0353
+liturgicalTitle: Our Venerable Father Finnian of Movilla
+lifespan: c. 495 - 579
+overview:
+  - Finnian of Movilla was an Irish monastic founder and teacher who established the monastery of Movilla (Maigh Bhile) in Ulster in the sixth century. He is honored as a patron of Ulster and is commemorated on September 10. He should not be confused with his contemporary and namesake Finnian of Clonard, a distinct Irish saint of the same era.
+  - By tradition Finnian was born in Ulster of the Dal Fiatach, the ruling kindred of the region by Strangford Lough, a lineage traced to Fiatach the Fair, though some modern scholars have questioned this genealogy. He studied under Colman of Dromore and Mochaoi of Nendrum before continuing his formation at Candida Casa (Whithorn) in what is now Scotland. He is said to have spent some years at Rome, where he was ordained, returning to Ireland with a copy of Saint Jerome's Latin Vulgate.
+  - Around 540 Finnian founded the abbey of Movilla at Maigh Bhile in County Down, about a mile from the northern shore of Strangford Lough near present-day Newtownards, under the patronage of the king of the Dal Fiatach. The monastery became a center of learning, mission, and commerce in early Christian Ulster. Finnian composed a monastic rule and a penitential code to guide the community. He reposed in 579; the Book of Armagh remembered him as a man of venerable life who reposes amid many miracles in his city of Movilla.
+sections:
+  - heading: Education and the Vulgate
+    body:
+      - The sources place Finnian's early schooling under Colman of Dromore and Mochaoi of Nendrum, the latter associated with Mahee Island in Strangford Lough, and then at the British monastic school of Candida Casa at Whithorn. He is reported to have traveled on to Rome, where he completed his formation and was ordained, before returning to Ireland with a copy of Saint Jerome's Vulgate, a manuscript that lent prestige to his later foundation.
+  - heading: Movilla and the dispute with Columba
+    body:
+      - Finnian's most renowned pupil was Columba, who served him at Movilla. By tradition Columba copied one of Finnian's books, a psalter, without permission, provoking a famous dispute over ownership of the copy. This quarrel is linked in the tradition to the Battle of Cul Dreimhne and to Columba's subsequent departure for Iona. The manuscript at the heart of the story is identified with the Cathach of Saint Columba, now preserved in Dublin.
+timeline:
+  - when: c. 540
+    title: Founded Movilla
+    body: Finnian established the abbey of Movilla at Maigh Bhile in County Down under Dal Fiatach patronage.
+  - when: "579"
+    title: Repose
+    body: Finnian reposed and was honored as a patron of Ulster.
+related:
+  - name: St. Columba of Iona
+    note: His pupil at Movilla, traditionally linked to the dispute over the copied psalter.
+    href: saint/OS-1320
+patronage:
+  - Honored as a patron of Ulster.
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Finnian_of_Movilla
+  - https://www.johnsanidopoulos.com/2019/09/saint-finnian-of-movilla-589.html
+  - https://www.catholicireland.net/saintoftheday/st-finian-of-movilla-495-579-abbot-bishop/
+generated: "2026-06-20"

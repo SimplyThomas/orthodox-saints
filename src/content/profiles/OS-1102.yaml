@@ -1,0 +1,56 @@
+id: OS-1102
+liturgicalTitle: Holy Equal-to-the-Apostles Boris-Michael, Baptizer of Bulgaria
+lifespan: died 907
+overview:
+  - Boris, baptized Michael, was the prince (knyaz) of Bulgaria in the ninth century who led his people into the Christian faith and is venerated as Equal-to-the-Apostles for the conversion of the Bulgarian nation. According to the sources, he was baptized in 864, taking the Christian name Michael after the Byzantine emperor Michael III, who stood as his godfather by proxy. He is commemorated on May 2.
+  - Having received Baptism, Boris made Christianity the religion of his realm and undertook the baptism of his subjects with the help of Byzantine clergy, drawing together the Bulgar ruling class and the Slavic population under a single faith. He organized the Church among the Bulgarians and is recorded as building churches throughout his lands. In old age he laid down his rule and withdrew to a monastery.
+  - Boris is also remembered as a patron of Slavonic letters. The sources relate that he gave refuge to the disciples of Saints Cyril and Methodius after they were driven out of Moravia, among them Saints Clement of Ohrid and Naum; under his protection these teachers founded schools and advanced the use of the Slavonic tongue in the Church's worship. He reposed on May 2, 907.
+sections:
+  - heading: Baptism and the Conversion of Bulgaria
+    body:
+      - The sources place Boris's baptism in 864, undertaken under Byzantine influence following a period of famine and hardship. He received the name Michael after the reigning emperor Michael III, who served as his godfather by proxy. In the years that followed, Christianity was established as the faith of the Bulgarian state, and the baptism of the people was carried out with Byzantine priests.
+      - By tradition this conversion is understood as resolving the religious division between the Bulgar military elite and the Slavic majority, binding them together in a shared Christian faith. Boris is credited with founding the organized Church in Bulgaria and with the building of churches across the country.
+  - heading: Between Rome and Constantinople
+    body:
+      - The sources relate that Boris sought to secure an independent church for his people, and to that end he turned at first toward Rome, sending envoys to Pope Nicholas I in 866, who replied with a celebrated set of responses to the questions of the newly Christian Bulgarians. The matter was settled, however, at a council in Constantinople around 869-870, which placed the Bulgarian Church under the ecclesiastical authority of Constantinople as an autocephalous archbishopric.
+  - heading: Slavonic Letters and Withdrawal to the Monastery
+    body:
+      - Boris is honored for receiving the disciples of Saints Cyril and Methodius, who had been expelled from Moravia and found welcome in Bulgaria. Among them were Saints Clement of Ohrid and Naum, who established centers of learning and fostered the use of the Slavonic language in worship and letters in place of Greek.
+      - The sources record that Boris abdicated his rule, around the year 889, and entered the monastic life, though he did not wholly withdraw from the affairs of his people. When his son Vladimir attempted to restore paganism, Boris is said to have emerged from the monastery, deposed him, and set his son Symeon in his place, afterward returning to his ascetic life. He reposed on May 2, 907.
+timeline:
+  - when: "864"
+    title: Baptism as Michael
+    body: Boris is baptized and receives the Christian name Michael after his godfather, the emperor Michael III.
+  - when: "866"
+    title: Envoys to Pope Nicholas I
+    body: Boris sends envoys to Rome seeking an independent church; the Pope replies with answers to the questions of the Bulgarians.
+  - when: c. 869-870
+    title: Bulgarian Church under Constantinople
+    body: A council at Constantinople places the Bulgarian Church under Constantinople as an autocephalous archbishopric.
+  - when: c. 886
+    title: Reception of the disciples of Cyril and Methodius
+    body: Boris welcomes the disciples expelled from Moravia, who advance Slavonic learning and worship.
+  - when: c. 889
+    title: Abdication to monastic life
+    body: Boris lays down his rule and withdraws to a monastery.
+  - when: "907"
+    title: Repose
+    body: Boris reposes on May 2 and is venerated as Equal-to-the-Apostles.
+related:
+  - name: Sts. Cyril and Methodius
+    note: Apostles to the Slavs, whose disciples Boris received and protected
+    href: saint/OS-0038
+  - name: St. Nahum of Ochrid
+    note: A disciple of Cyril and Methodius who labored in Bulgaria under Boris's protection
+    href: saint/OS-1398
+  - name: St. Rostislav of Great Moravia
+    note: The prince who first sought Slavonic teachers from Constantinople
+    href: saint/OS-1147
+patronage:
+  - Honored as an enlightener and baptizer of a nation, and invoked in connection with the conversion of peoples and the spread of the faith.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Boris_I_of_Bulgaria
+  - https://orthodoxwiki.org/Boris_I_of_Bulgaria
+generated: "2026-06-19"

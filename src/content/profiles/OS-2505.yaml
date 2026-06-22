@@ -1,0 +1,30 @@
+id: OS-2505
+liturgicalTitle: The Holy Martyr Petronia
+overview:
+  - "Petronia is an early Christian martyr commemorated in the Eastern Orthodox Church on September 29. Almost nothing of her life has been preserved: the surviving record is confined to her name, her rank as a martyr, and the manner of her death by the sword. No vita, birthplace, family, or date of martyrdom comes down through the sources that name her."
+  - In the database she is associated with Palestine and the Holy Land, though the wider liturgical record does not independently narrate her origin. She shares her commemoration with the Venerable Cyriacus the Anchorite of Palestine, whose feast dominates the day's calendar, and she is numbered among the early female martyrs of the Church.
+timeline:
+  - when: September 29
+    title: Commemoration
+    body: Petronia is commemorated each year on September 29 in the Eastern Orthodox calendar, listed among the martyrs of the day.
+sections:
+  - heading: Martyrdom
+    body:
+      - "The sources that name Petronia record only that she suffered death by the sword for Christ. The Greek synaxaria preserve a brief commemorative distich associated with her: that she bent her head to the sword while fixing the eyes of her soul on the divine rock — a couplet describing the manner of her death and her steadfastness rather than supplying any narrative of her trial."
+      - Beyond this, no account of her arrest, the place of her suffering, or the persecution under which she died survives. She is classed among the early Christian martyrs and the female saints of the Church.
+  - heading: Historical Record
+    body:
+      - Petronia is a genuinely obscure figure. The calendar listings and the dedicated synaxarion stub that name her agree only on her commemoration date, her rank as a martyr, and her death by the sword; none assigns her a century or relates a biography. The entry in this database reflects that thinness, recording what the tradition has preserved without supplying detail the sources do not.
+patronage: []
+related:
+  - name: Venerable Cyriacus the Anchorite of Palestine
+    note: Commemorated on the same day, September 29.
+works: []
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://www.johnsanidopoulos.com/2018/09/holy-martyr-petronia.html
+  - https://en.wikipedia.org/wiki/September_29_(Eastern_Orthodox_liturgics)
+  - https://orthodoxwiki.org/September_29
+status: draft
+generated: "2026-06-20"

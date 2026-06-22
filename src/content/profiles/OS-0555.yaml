@@ -1,0 +1,51 @@
+id: OS-0555
+liturgicalTitle: Saint Ephraim, Bishop of Pereyaslavl, of the Kiev Caves
+lifespan: died 1098
+overview:
+  - Ephraim of Pereyaslavl was an eleventh-century monk of the Kiev Caves monastery who became bishop of Pereyaslavl with the title of metropolitan. Before entering monastic life he served as treasurer and steward of household affairs at the court of the Kiev Great Prince Izyaslav (Demetrius) Yaroslavich, a post he held during the years of Izyaslav's reign. He is remembered for the public works he undertook as bishop, including churches, fortifications, hospices for the poor and travelers, and public bathhouses.
+  - Ephraim entered the Kiev Caves community under Saint Anthony, the founder of the monastery, and was tonsured by Saint Nikon. By tradition his renunciation of the prince's service provoked Izyaslav's anger, but the prince withdrew his opposition. With Anthony's blessing Ephraim later traveled to Constantinople and settled in a monastery there, where he made a copy of the Studite monastic Rule and brought it back to Kiev at the request of Saint Theodosius, who introduced it into the life of the Caves community.
+  - After 1072 Ephraim was made bishop of Pereyaslavl, holding metropolitan rank. The sources credit him with adorning the city with churches and public buildings and with building stone walls around it in the Greek manner. He took part in the transfer of the relics of Saint Theodosius in 1091. He died in 1098 and was buried in the caves of the Kiev Monastery of the Caves; he is commemorated on January 28, on September 28 with the synaxis of the fathers of the Caves, and on the Second Sunday of Great Lent.
+sections:
+  - heading: From the prince's court to the monastery
+    body:
+      - Before his tonsure Ephraim was treasurer and steward of household affairs at the court of Great Prince Izyaslav Yaroslavich, who ruled in Kiev during the period 1054 to 1068. He left this position to enter the Kiev Caves monastery, where he was received by Saint Anthony and tonsured by Saint Nikon.
+      - Wikipedia, drawing on the monastic tradition, relates that Izyaslav at first opposed the tonsure, threatening imprisonment and the destruction of the monastery, but afterward withdrew his threat. The same tradition records that Ephraim was tonsured by Nikon, then hegumen of the community.
+  - heading: Constantinople and the Studite Rule
+    body:
+      - With the blessing of Saint Anthony, Ephraim traveled to Constantinople and settled in a monastery there. While in the city he made a copy of the Studite monastic Rule and carried it back to Kiev at the request of Saint Theodosius.
+      - Theodosius adopted this Rule for the Kiev Caves monastery, where it shaped the cenobitic life of the community. Ephraim's errand thus connected the monastic practice of Constantinople with the developing monasticism of Rus'.
+  - heading: Bishop of Pereyaslavl
+    body:
+      - "After 1072 Ephraim was consecrated bishop of Pereyaslavl with the title of metropolitan. The sources describe an active program of building: he adorned the city with churches and public buildings, raised stone walls around it in the Greek manner, and established free hospices for the poor and for travelers along with several public bathhouses."
+      - These works of charity for the sick, the poor, and travelers are the feature for which Ephraim is chiefly remembered. He died in 1098 and was buried in the caves of the Kiev Monastery of the Caves.
+timeline:
+  - when: 1054–1068
+    title: Steward at the court of Izyaslav
+    body: Ephraim serves as treasurer and steward of household affairs at the court of Great Prince Izyaslav Yaroslavich in Kiev.
+  - when: after 1072
+    title: Bishop of Pereyaslavl
+    body: He is made bishop of Pereyaslavl with the title of metropolitan and undertakes extensive building and charitable works.
+  - when: "1091"
+    title: Translation of the relics of Saint Theodosius
+    body: Ephraim takes part in the transfer of the relics of Saint Theodosius of the Kiev Caves.
+  - when: "1098"
+    title: Repose
+    body: Ephraim dies and is buried in the caves of the Kiev Monastery of the Caves.
+related:
+  - name: Saint Anthony of the Kiev Caves
+    note: Founder of the Kiev Caves monastery who received Ephraim into monastic life and blessed his journey to Constantinople.
+    href: saint/OS-0136
+  - name: Saint Theodosius of the Kiev Caves
+    note: Abbot of the Caves who requested the copy of the Studite Rule that Ephraim brought from Constantinople; Ephraim later took part in the translation of his relics.
+    href: saint/OS-2745
+  - name: Saint Nikon of the Kiev Far Caves
+    note: The monk who tonsured Ephraim at the Kiev Caves monastery.
+    href: saint/OS-0867
+patronage:
+  - Associated with the care of the sick, the poor, and travelers through the hospices and bathhouses he established at Pereyaslavl.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 28
+  - https://www.oca.org/saints/lives/2021/01/28/100331-saint-ephraim-bishop-of-pereyaslavl-kiev-caves-far-caves
+  - https://en.wikipedia.org/wiki/Ephraim_of_Pereyaslavl
+generated: "2026-06-19"

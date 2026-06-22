@@ -1,0 +1,28 @@
+id: OS-1550
+lifespan: died 1630
+overview:
+  - Kozman was a hieromonk of the David-Gareji monastic wilderness in Georgia who died as a martyr. Few details of his life survive, but later Georgian sources record that he was a learned and ascetic priest-monk of the community founded by Saint David of Gareji.
+  - According to a tradition preserved by the Mystagogy Resource Center, he died in 1630, taken captive and tortured to death during a raid by Dagestanis on the Davit-Gareji Wilderness. He is commemorated on July 18.
+sections:
+  - heading: Life and Martyrdom
+    body:
+      - Kozman lived and served as a hieromonk at the David-Gareji monastic complex, which over the centuries had become a spiritual and cultural center for all of Georgia. The Georgian catholicos Anton described him as a learned and righteous ascetic, well-versed in the canons of the Orthodox Church.
+      - He is recorded to have composed a set of hymns dedicated to the Great-Martyr Queen Ketevan, though these writings have not survived to the present day. According to the 19th-century Georgian historian Platon Ioseliani, Kozman was taken captive and tortured to death in 1630, when the Dagestanis carried out a raid on the Davit-Gareji Wilderness. The OCA synaxarion preserves only that he ended his life as a martyr, with few further details.
+  - heading: Historical Context
+    body:
+      - The David-Gareji monastery complex was established in the 6th century by Saint David of Gareji, one of the thirteen Assyrian (Syrian) monks who arrived in Georgia during that period. It expanded under David's disciples Dodo and Luciane, and further under Saint Hilarion the Iberian in the 9th century, reaching its cultural height between the late 11th and early 13th centuries.
+      - "The community endured repeated catastrophic persecutions: the Mongol invasion of 1265, the Safavid attack of 1615 in which monks were massacred and unique manuscripts and works of art were destroyed, and continued instability through the 17th century, including the Dagestani raids during which Kozman is said to have died."
+timeline:
+  - when: "1615"
+    title: Safavid attack on David-Gareji
+    body: A Safavid attack on the monastic complex resulted in the massacre of monks and the destruction of unique manuscripts and art, part of the 17th-century instability that afflicted the wilderness in Kozman's era.
+  - when: "1630"
+    title: Martyrdom
+    body: According to the historian Platon Ioseliani, Kozman was taken captive and tortured to death during a Dagestani raid on the Davit-Gareji Wilderness.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/07/18
+  - https://www.johnsanidopoulos.com/2020/07/holy-hieromartyr-kozman-1630.html
+  - https://en.wikipedia.org/wiki/David_Gareja
+status: draft
+generated: "2026-06-22"

@@ -1,0 +1,28 @@
+id: OS-1045
+liturgicalTitle: The Holy Martyrs Anatolius and Protoleon
+lifespan: died c. 303
+overview:
+  - "Anatolius and Protoleon were two officials in imperial service who, according to the synaxarion, were secretly Christians during the persecution of Diocletian. They are remembered together for the manner of their confession: moved by the endurance and miraculous healing of the Great Martyr George under torture, they cast aside their concealment and openly declared their faith in Christ."
+  - Their confession brought immediate execution. The tradition relates that they were beheaded by order of the emperor without any formal trial, and the Church commemorates the two soldiers together with Saint George on April 23. Beyond the circumstances of their conversion and death, the tradition preserves little of their lives, and they are honored chiefly as witnesses won to Christ by the steadfastness of another martyr.
+sections:
+  - heading: Conversion and Martyrdom
+    body:
+      - The two are described in the synaxarion as illustrious officials who held positions in imperial service and who privately adhered to Christianity while keeping their faith hidden. Their concealment ended when they witnessed the sufferings of the Great Martyr George, who was tortured during the persecution and, by the account of the tradition, was miraculously restored from his wounds.
+      - "This sight of George's endurance and his healing moved Anatolius and Protoleon to confess Christ openly before the court. The synaxarion relates that their public declaration was answered at once with execution: they were beheaded with the sword by order of the emperor, without being granted a trial. Their commemoration falls on the same day as that of Saint George, reflecting that it was through his witness that they came to their own martyrdom."
+  - heading: Historical Context
+    body:
+      - The martyrdom belongs to the Great Persecution under the emperor Diocletian, which began in 303 and was the last and most severe persecution of Christians in the Roman Empire. A series of imperial edicts prohibited Christian assembly, ordered the destruction of scriptures and churches, and ultimately demanded universal sacrifice; enforcement was harshest in the eastern provinces.
+      - Christians within the army and the imperial administration were a particular target, since a soldier or official who refused to sacrifice could forfeit his career and standing. Anatolius and Protoleon belong to this group of secretly Christian functionaries whose faith, long hidden, was forced into the open by the events surrounding George's trial. They are numbered among the pre-Nicene martyrs of Asia Minor.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2026/04/23/101186-martyrs-anatolius-and-protoleon-soldiers-converted-by-witnessing
+  - https://www.oca.org/saints/lives/2016/04/23
+  - https://en.wikipedia.org/wiki/Saint_George
+  - https://en.wikipedia.org/wiki/Diocletianic_Persecution
+  - https://www.oca.org/saints/troparia/2026/04/23/101186-martyrs-anatolius-and-protoleon-soldiers-converted-by-witnessing
+related:
+  - name: Great Martyr George the Trophy-bearer
+    href: /saint/OS-0012
+    note: Martyr whose endurance and miraculous healing under torture converted Anatolius and Protoleon; commemorated the same day, April 23.
+status: draft
+generated: "2026-06-19"

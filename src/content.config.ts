@@ -20,12 +20,28 @@ const profileSchema = z
       .optional(),
     sources: z.array(z.string()).optional(),
     generated: z.string().optional(), // ISO date
+    humanReviewed: z.boolean().optional().default(false),
     lifespan: z.string().optional(),
     // The saint's full formal liturgical style (the title spoken at
     // commemoration), e.g. "Our Father among the Saints Nicholas, Archbishop of
     // Myra, the Wonderworker". Rendered as the prominent "Commemorated as" band.
     liturgicalTitle: z.string().optional(),
     overview: z.array(z.string()).min(1),
+    // Curated quotes in the saint's own words, shown in the "In their own words"
+    // collapsible. Each MUST be verbatim from a public-domain translation (§9);
+    // `translation` names the PD edition (e.g. NPNF2) and `source` links it so a
+    // reviewer can verify the wording.
+    quotes: z
+      .array(
+        z.object({
+          text: z.string(),
+          work: z.string().optional(),
+          locus: z.string().optional(),
+          translation: z.string().optional(),
+          source: z.string().optional(),
+        }),
+      )
+      .optional(),
     timeline: z
       .array(
         z.object({

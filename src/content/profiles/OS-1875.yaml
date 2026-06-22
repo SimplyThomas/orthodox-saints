@@ -1,0 +1,28 @@
+id: OS-1875
+liturgicalTitle: Our Venerable Father Daniel, Abbot of Shuzhgorsk
+lifespan: 16th century
+overview:
+  - Daniel of Shuzhgorsk was a Russian monastic of the sixteenth century, numbered among the ascetics who carried the cenobitic tradition of central Muscovy into the forested hinterland of the Russian north. According to the synaxarion he was born within the Moscow dominion and entered monastic life at the Komel monastery, the community founded by Saint Cornelius of Komel. He is commemorated on September 21.
+  - After a period of formation at Komel, Daniel withdrew to seek a more solitary life in the sparsely settled country around White Lake (Beloozero). He settled on a hill known as Shugh Hill, or Shuzhgora, from which his epithet derives, and there gathered a community and founded a monastery dedicated to the Transfiguration of the Lord. He served as its abbot and was buried at the Transfiguration church of the house he had established.
+  - "Daniel's foundation shared the fate of many small northern monasteries: in 1764, in the course of the imperial reduction of monastic establishments, it was converted into a parish church. By later accounts the Transfiguration temple fell into ruin and the saint's grave was no longer preserved. His memory is maintained chiefly through the synaxarion notice rather than an extended life, and the surviving record of him is brief."
+sections:
+  - heading: Monastic Formation at Komel
+    body:
+      - Daniel received his monastic training at the Komel monastery near Vologda, the strict cenobitic community established by Saint Cornelius of Komel. Cornelius and his disciples were a significant source of monastic foundations across the Russian north in the sixteenth century, and Daniel belongs to this wider movement of monks who left established houses to found new communities in the wilderness.
+      - Having performed his ascetic labors at Komel, Daniel left the monastery in pursuit of a solitary life, a pattern common among the northern ascetics, who often moved from a formative cenobium into eremitic withdrawal before drawing disciples and founding a house of their own.
+  - heading: Foundation at Shuzhgorsk
+    body:
+      - Daniel settled in the unpopulated, forested region around White Lake, on the elevation called Shugh Hill (Shuzhgora). There he founded a monastery in honor of the Transfiguration of the Lord and governed it as abbot.
+      - The community did not long survive the saint's era as a monastery. In 1764 it was reduced to a parish, and the Transfiguration church associated with his burial later fell into disrepair.
+related:
+  - name: Venerable Cornelius, Abbot of Komel
+    note: Founder of the Komel monastery where Daniel became a monk and was formed in the monastic life.
+    href: saint/OS-1205
+patronage:
+  - Invoked in connection with monastic life and the founding of communities in remote places, after the pattern of the northern Russian ascetics.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/09/21/102685-venerable-daniel-abbot-of-shuzhgorsk-novgorod
+  - https://www.johnsanidopoulos.com/2019/09/saint-daniel-of-shuzhgorsk.html
+generated: "2026-06-20"

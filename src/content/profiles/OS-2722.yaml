@@ -1,0 +1,74 @@
+id: OS-2722
+liturgicalTitle: The Holy Hieromartyr Boniface, Archbishop of Mainz, Enlightener of Germany
+lifespan: c. 675 - 754
+overview:
+  - Boniface, called the Apostle to the Germans, was an Anglo-Saxon missionary archbishop who carried the Christian faith into Frisia and the German lands during the eighth century. Born Winfrid (Wynfreth) in Wessex around 675, in the region of Crediton in Devon, he trained as a monk in southern England before devoting the latter part of his life to missionary work on the continent.
+  - Commissioned by successive popes and renamed Boniface, he organized churches and dioceses across Germany, reformed the Frankish church, and founded monasteries, most notably the abbey of Fulda. He was killed by armed attackers near Dokkum in Frisia on 5 June 754 and is venerated as a hieromartyr. His relics were interred at Fulda, which became a major place of pilgrimage.
+timeline:
+  - when: c. 675
+    title: Birth in Wessex
+    body: Born Winfrid (Wynfreth) in Wessex, in the region of Crediton in Devon, England.
+  - when: c. 716
+    title: First mission to Frisia
+    body: Travelled to Utrecht and worked alongside Willibrord before returning to England.
+  - when: c. 717-719
+    title: Renamed and commissioned at Rome
+    body: Pope Gregory II renamed him Boniface and appointed him a missionary bishop for the German lands.
+  - when: "723"
+    title: Felling of Thor's Oak
+    body: Felled the sacred oak dedicated to Thor near Fritzlar in Hesse, an act regarded as a turning point in the Christianization of the region; its wood was used to build a chapel.
+  - when: "732"
+    title: Made archbishop
+    body: Pope Gregory III conferred on him the pallium as archbishop with jurisdiction over the German lands.
+  - when: 742-743
+    title: Church reform and Fulda
+    body: His disciple Sturm founded the abbey of Fulda in 742; Boniface convened the Concilium Germanicum in 743 to reform the Frankish church.
+  - when: "745"
+    title: Metropolitan see of Mainz
+    body: Received Mainz as his metropolitan see.
+  - when: 5 June 754
+    title: Martyrdom near Dokkum
+    body: Killed by armed attackers near Dokkum in Frisia together with his companions.
+sections:
+  - heading: Early Life and Formation
+    body:
+      - Boniface was born Winfrid, also rendered Wynfreth, around 675 in Wessex, in the area of Crediton in Devon. He received his theological and monastic training in Benedictine houses in southern England, including the monastery of Nursling near Winchester under Abbot Winbert.
+      - At about the age of thirty he was ordained a priest. Before turning to missionary work on the continent he was active as a teacher and wrote grammatical and poetic works.
+  - heading: Mission to Frisia and Germany
+    body:
+      - In 716 Boniface travelled to Utrecht, where he worked alongside Willibrord, then returned to England. He afterward journeyed to Rome, where Pope Gregory II gave him the name Boniface and appointed him a missionary bishop for the German lands around 717-719.
+      - His preaching extended across Hesse, Thuringia, and Bavaria. He is remembered above all for felling the sacred oak dedicated to the god Thor near Fritzlar in Hesse, an act traditionally placed in 723 and regarded as marking the beginning of the Christianization of the region. He organized the church in Bavaria, establishing the dioceses of Salzburg, Regensburg, Freising, and Passau.
+  - heading: Archbishop and Reformer
+    body:
+      - In 732 Pope Gregory III conferred on Boniface the pallium as archbishop with jurisdiction over the German lands, and during his third visit to Rome in 737-738 he was made papal legate for Germany. In 745 he received Mainz as his metropolitan see.
+      - Working under the patronage of the Frankish ruler Carloman, Boniface devoted himself to the reform of the Frankish church, convening the Concilium Germanicum in 743. In 742 his disciple Sturm founded the abbey of Fulda, a monastery in whose establishment Boniface was closely involved and which became a centre of his work.
+  - heading: Martyrdom
+    body:
+      - In 754, by then an aged archbishop, Boniface set out with a small retinue for Frisia, where he had begun his missionary career. After baptizing a great number of people and summoning a gathering for their confirmation, he and his companions were attacked and killed by armed assailants near Dokkum on 5 June 754. He is venerated as a hieromartyr.
+  - heading: Relics and Shrines
+    body:
+      - Boniface's remains were eventually interred at the abbey of Fulda, which he had helped to establish. Fulda became a major site of Christian pilgrimage associated with his memory.
+patronage:
+  - Germany (as Apostle to the Germans)
+  - England (jointly with Augustine of Canterbury and Cuthbert)
+  - Devon
+related:
+  - name: Boniface I, Pope of Rome
+    note: A distinct saint of the same name; not to be confused with the Enlightener of Germany.
+    href: saint/OS-0207
+reading:
+  - heading: Reference
+    items:
+      - title: Boniface
+        author: OrthodoxWiki
+        type: encyclopedia
+      - title: Boniface
+        author: Wikipedia
+        type: encyclopedia
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Boniface
+  - https://orthodoxwiki.org/Boniface
+status: draft
+generated: "2026-06-21"

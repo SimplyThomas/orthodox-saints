@@ -1,0 +1,51 @@
+id: OS-0165
+liturgicalTitle: Our Father among the Saints Remaclus, Bishop of Maastricht
+lifespan: died c. 663
+overview:
+  - Remaclus was a seventh-century monk, abbot, and bishop active in the Frankish kingdom of Austrasia, remembered above all as the founder of the twin abbeys of Stavelot and Malmedy and as a bishop of Maastricht. By tradition he was a native of Aquitaine who grew up at the ducal court there and received his early formation under Sulpicius the Pious, bishop of Bourges. As one of the Western saints of the undivided Church, he is venerated in the Orthodox tradition among the Latin saints of the pre-schism West, with his feast kept on September 3.
+  - According to the sources, Remaclus entered monastic life at Luxeuil Abbey and was later ordained a priest. He was subsequently sent to govern the abbey of Solignac, which had been founded by Eligius, and is named as its first abbot; he was also given charge of the monastery of Cugnon. Brought into the circle of the Austrasian court, he served as an advisor to King Sigebert III, and it was at his urging that the king endowed the double-monastery of Malmedy, traditionally dated to 648, and Stavelot, dated to about 650, over both of which Remaclus presided as abbot.
+  - About 650, when Amandus resigned the see of Maastricht to return to missionary labor, Remaclus was appointed bishop in his place. He is said to have governed the diocese for some twelve years before resigning the episcopate in favor of his disciple Theodard and withdrawing to Stavelot, where he spent his last years. He died at Stavelot, by the most common reckoning around the middle 660s, though the sources differ on the exact year. His relics are kept at the church of St. Sebastian in Stavelot, and he is venerated in both the Orthodox and Roman Catholic traditions.
+sections:
+  - heading: Monastic Foundations
+    body:
+      - Remaclus's enduring legacy is the foundation of Stavelot and Malmedy, established in the forested Ardennes region with the patronage of King Sigebert III. The two houses, set a short distance apart, were governed together as a single monastic complex, and Remaclus served as their first abbot. Long after his death the two abbeys remained linked institutionally, and they later formed the core of an extensive ecclesiastical principality.
+      - Earlier in his career Remaclus had also held abbatial responsibility for Solignac, founded by Eligius, and for the monastery of Cugnon, so that his life spans the rapid spread of Frankish monasticism in the seventh century. The sources present his abbacies as the principal work of his life, into which he returned after laying down the burden of the episcopate.
+  - heading: Disciples
+    body:
+      - Remaclus is remembered as the spiritual teacher of a number of figures who themselves came to be venerated as saints, among them Theodard, who succeeded him as bishop of Maastricht, as well as Trudo, Babolen, Lambert, and Hadelin. Through these disciples his influence extended across the church life of seventh-century Austrasia well beyond his own abbeys and see.
+timeline:
+  - when: c. 625
+    title: Monastic life at Luxeuil
+    body: By tradition Remaclus became a monk at Luxeuil Abbey and was later ordained a priest.
+  - when: c. 631
+    title: Abbot of Solignac
+    body: He was sent to govern Solignac, the abbey founded by Eligius, and is named as its first abbot.
+  - when: "648"
+    title: Foundation of Malmedy
+    body: At Remaclus's urging King Sigebert III established the monastery of Malmedy.
+  - when: c. 650
+    title: Foundation of Stavelot and elevation to Maastricht
+    body: Stavelot was founded about this time, and Remaclus was appointed bishop of Maastricht in succession to Amandus.
+  - when: c. 662
+    title: Resignation and retirement
+    body: After about twelve years he resigned the see in favor of Theodard and withdrew to Stavelot.
+  - when: c. 663
+    title: Repose at Stavelot
+    body: He died at Stavelot; sources differ on the precise year.
+related:
+  - name: Hieromartyr Theodard of Maastricht
+    note: Disciple who succeeded Remaclus as bishop of Maastricht
+    href: saint/OS-0356
+  - name: Saint Amand of Maastricht
+    note: Bishop of Maastricht whom Remaclus succeeded after Amandus resigned the see
+    href: saint/OS-0610
+  - name: Saint Eligius, Bishop of Noyon
+    note: Founder of Solignac, the abbey Remaclus first governed
+    href: saint/OS-2694
+patronage:
+  - Venerated as a founder and patron of the abbeys of Stavelot and Malmedy and of monastic life in the Ardennes.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/St._Remaclus
+generated: "2026-06-20"

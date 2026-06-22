@@ -1,0 +1,46 @@
+id: OS-2520
+liturgicalTitle: Our Venerable Father Gregory of Gornjak
+lifespan: fl. 1375–1379
+overview:
+  - Gregory of Gornjak, also known as Gregory the Younger and Gregory the Silent, was a Serbian hesychast monk of the second half of the fourteenth century who founded the monastery of Gornjak in Moravian Serbia. He is numbered among the Sinaites, the company of monastics whose spiritual descent traced back to Mount Sinai and who carried the practice of inner prayer through the Balkans during this period. He is commemorated on December 7, the day after the feast of Saint Nicholas; the Serbian Church observes him on December 20 (December 7 by the old calendar reckoning).
+  - By tradition Gregory was formed in the Sinaitic and hesychast schools of his age. Sources record that he spent time in the monastic settlement of Paroria in Thrace under Ilarion, himself a former disciple of Gregory of Sinai, and that he studied at Mount Sinai in the lineage of Gregory of Sinai and of Romylos of Vidin. With a company of Serbian, Bulgarian, and Greek monks he returned to Moravian Serbia between 1375 and 1379, part of the wider movement of hesychasts who, after the Battle of Maritsa in 1371, sought refuge in the Serbian lands under Prince Lazar.
+  - Prince Lazar built the monastery of Gornjak for Gregory's community and endowed it to him and his brethren by a written charter, which was confirmed by the Serbian patriarch on May 17, 1379. The monastery lies in the gorge of the Mlava river, between Žagubica and Petrovac na Mlavi, and its church is dedicated to the Entrance of the Theotokos into the Temple. Gregory spent the remainder of his life there and was buried within it. In the sixteenth and seventeenth centuries his relics were removed for safekeeping to the monastery of Oreškovica before being returned to Gornjak.
+sections:
+  - heading: The Sinaites in Serbia
+    body:
+      - Gregory belonged to the Sinaites, a group of monastics whose name connected them to Mount Sinai and who spread hesychast spirituality through medieval Serbia, Bulgaria, and Byzantium. The movement looked back to Gregory of Sinai, credited as a founder of the Sinaitic way of life among the Balkan monks, and to his disciple Romylos of Vidin, who established a hermitage near Ravanica.
+      - After the Battle of Maritsa in 1371, many hesychast monks left Mount Athos for the relative safety of Moravian Serbia, and the center of Serbian monastic life shifted northward. Prince Lazar supported these communities, and spiritual settlements grew around the major monasteries, among them Ravanica and Gornjak. Gregory's foundation at Gornjak was one of these refuges, where the discipline of contemplative prayer was carried on.
+  - heading: The Monastery of Gornjak
+    body:
+      - Founded in 1379 and completed about 1380, Gornjak stands in the wooded gorge of the Mlava in northeastern Serbia. Its church follows a triconch plan and is dedicated to the Entrance of the Theotokos into the Temple. Caves near the monastery preserve a hermitage associated with the Sinaite tradition.
+      - "The monastery suffered repeatedly over the centuries: it was burned by the Turks in 1788, sacked during the First World War, and burned again during the Second World War, with reconstruction undertaken in the twentieth century. It belongs to the Serbian Orthodox Church and is registered as a Monument of Culture of Exceptional Importance."
+timeline:
+  - when: "1371"
+    title: Battle of Maritsa
+    body: After the Ottoman victory at Maritsa, hesychast monks withdraw from Mount Athos toward Moravian Serbia.
+  - when: 1375–1379
+    title: Return to Serbia
+    body: Gregory returns to Moravian Serbia with a company of Serbian, Bulgarian, and Greek monks.
+  - when: May 17, 1379
+    title: Charter of Gornjak confirmed
+    body: Prince Lazar's charter endowing the monastery to Gregory and his brethren is confirmed by the Serbian patriarch.
+  - when: December 7
+    title: Repose
+    body: Gregory dies and is buried in the monastery of Gornjak; his memory is kept on this day.
+related:
+  - name: Venerable Gregory of Sinai
+    note: Founder of the Sinaitic hesychast way among the Balkan monks, in whose lineage Gregory of Gornjak stood
+    href: saint/OS-1671
+  - name: Venerable Romylus of Ravanica
+    note: Sinaite teacher (Romylos of Vidin) named among Gregory's spiritual forebears
+    href: saint/OS-0470
+patronage:
+  - Associated with the monastery of Gornjak and the hesychast monastic settlements of Moravian Serbia
+status: draft
+sources:
+  - GOARCH calendar
+  - OCA / J. Sanidopoulos cross-check
+  - https://en.wikipedia.org/wiki/Grigorije_of_Gornjak
+  - https://en.wikipedia.org/wiki/Gornjak_Monastery
+  - https://en.wikipedia.org/wiki/Sinaites_in_Serbia
+generated: "2026-06-21"

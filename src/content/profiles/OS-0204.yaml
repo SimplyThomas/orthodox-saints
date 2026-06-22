@@ -1,0 +1,36 @@
+id: OS-0204
+liturgicalTitle: Our Venerable Father Marinus the Deacon, Hermit of Monte Titano
+lifespan: 4th century (died, by tradition, c. 366)
+overview:
+  - Marinus was a Dalmatian stonemason who, by tradition, became a deacon and lived as a hermit on Monte Titano, the rocky height around which the small state of San Marino later grew. The surviving hagiographical accounts of his life were recorded centuries after his lifetime, so much of the detail is preserved as tradition rather than firmly documented history; the earliest manuscripts naming him date only to the 10th century. He is venerated in both the Eastern Orthodox and Roman Catholic churches and is numbered among the pre-schism Western saints.
+  - According to these accounts, Marinus came from the island of Arba, the modern Rab off the Dalmatian coast, and worked as a stonemason. He fled the Diocletianic persecution and made his way to the region of Rimini, where he was ordained a deacon by Gaudentius, the bishop of that city. Tradition relates that he afterward withdrew to Monte Titano to live as a hermit, the synaxarion explaining his flight by the story of an unstable woman who accused him of being her estranged husband.
+  - On the mountain Marinus established a cell and an oratory, and a community of disciples gathered around him. From this initial settlement the Republic of San Marino traces its origin, conventionally dated to the year 301; Marinus is honored as its founder, and his memory is bound up with the small state's identity. By tradition he died in the winter of about 366. His reputed parting words, 'Relinquo vos liberos ab utroque homine' ('I leave you free from both men'), are remembered as the foundation charter of San Marino's later independence.
+sections:
+  - heading: The Stonemason and Deacon
+    body:
+      - The tradition consistently presents Marinus as a layman of humble trade, a stonemason or stonecutter, rather than as a man of learning or rank. Having fled his Dalmatian homeland during the persecutions of Diocletian, he is said to have labored at his craft near Rimini before being ordained to the diaconate by Bishop Gaudentius. The same tradition associates him with Leo, likewise described as a stonecutter from Dalmatia, who became the first bishop of Montefeltro; the two are remembered together in the regional hagiography, though the surviving sources do not firmly establish the particulars of their companionship.
+  - heading: Hermit of Monte Titano
+    body:
+      - The defining act of Marinus's life in the tradition is his withdrawal to Monte Titano to live in solitude. There he built a small oratory and lived ascetically as a hermit, and his reputation for holiness drew others to settle near him. The community that formed around his cell is held to be the seed of San Marino, the small republic that took its name from him and has long claimed him as its founder and patron.
+timeline:
+  - when: c. 301
+    title: Settles on Monte Titano
+    body: By tradition Marinus withdraws to Monte Titano as a hermit; the year 301 is conventionally taken as the founding of San Marino.
+  - when: c. 366
+    title: Repose
+    body: By tradition Marinus dies in the winter, leaving the words 'I leave you free from both men.'
+related:
+  - name: St. Leo of Montefeltro
+    note: By tradition a fellow Dalmatian stonecutter ordained at Rimini; first bishop of Montefeltro, commemorated August 1.
+  - name: St. Gaudentius, Bishop of Rimini
+    note: The bishop who, by tradition, ordained Marinus to the diaconate.
+patronage:
+  - Honored as the founder and patron of San Marino.
+  - Invoked by deacons, by stonemasons, and by those who have been falsely accused.
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Saint_Marinus
+  - https://religion.fandom.com/wiki/Saint_Marinus
+  - https://en.wikipedia.org/wiki/Leo_of_Montefeltro
+generated: "2026-06-20"

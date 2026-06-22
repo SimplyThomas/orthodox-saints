@@ -1,0 +1,56 @@
+id: OS-0097
+liturgicalTitle: Our Venerable Father Symeon the New Stylite, Confessor of Lesbos
+lifespan: 765/766 – 844
+overview:
+  - Symeon Stylites of Lesbos, also called Symeon the New Stylite and Symeon the Confessor of Mytilene, was a ninth-century monk and stylite of the island of Lesbos who suffered for the veneration of the holy icons during the second period of Byzantine Iconoclasm. By tradition he was born about 765 or 766 in Mytilene, one of the children of Adrianos and Konstanto, a family of which several members embraced the monastic life. He is venerated together with his two brothers, David the Monk and George, who became Bishop of Mytilene.
+  - Following the ascetic pattern of the earlier Symeon the Stylite, he took up the rare and severe discipline of the pillar-dweller. The sources relate that he climbed a pillar-like tower and there confined himself, devoting his life to fasting, prayer, and study; the title "Stylite" derives from the Greek word for pillar or column. According to the synaxarion he loaded himself with chains and lived in extraordinary asceticism atop his pillar near Mytilene.
+  - His confession of the faith fell during the renewed persecution of the icons under the iconoclast emperors of the ninth century. The tradition relates that he was condemned to be burned while still on his pillar but was preserved, and that he endured repeated exile to various islands. With the restoration of the veneration of icons about 843, he was recalled; the sources connect him in his later years with the imperial court of the Empress Theodora, under whom the icons were restored. He reposed in 844.
+sections:
+  - heading: The Three Brothers of Lesbos
+    body:
+      - Symeon is rarely commemorated apart from his brothers, with whom the Church remembers him jointly on February 1. The eldest, David, was born about 717 or 718; the tradition relates that as a youth he received a vision directing him to Mount Ida in Asia Minor, where he lived for some thirty years as an ascetic before returning toward Lesbos. George, born about 763, was a monk and priest who became Bishop of Mytilene at the close of the iconoclast troubles.
+      - The synaxarion relates that Symeon was brought as a young child to his brother David's monastic settlement and was later ordained to the priesthood, and that after David's death he returned to the region of Mytilene to take up the life of the pillar. The brothers are described as gathering a community around them that drew many of the faithful.
+  - heading: Confession During Iconoclasm
+    body:
+      - The defining feature of Symeon's life in the tradition is his steadfastness during the second iconoclast persecution of the early ninth century. The sources relate that an iconoclast bishop ordered him put to death by fire as he stood upon his pillar, and that he was delivered from the flames; thereafter he was sent into exile more than once. Such resistance to the imperial policy against the icons is the reason he and his brothers are honored as confessors.
+timeline:
+  - when: c. 765/766
+    title: Birth at Mytilene
+    body: Born on the island of Lesbos to Adrianos and Konstanto.
+  - when: 813–842
+    title: Iconoclast persecution
+    body: Condemned to fire on his pillar and repeatedly exiled for venerating the holy icons.
+  - when: c. 843
+    title: Restoration of the icons
+    body: Recalled from exile after the veneration of icons was restored under the Empress Theodora.
+  - when: "844"
+    title: Repose
+    body: Reposed having confessed the faith through the iconoclast troubles.
+related:
+  - name: St. George the Confessor, Bishop of Mytilene
+    note: younger brother and fellow confessor of the icons
+    href: saint/OS-0957
+  - name: St. David the Monk of Lesbos
+    note: eldest brother, ascetic of Mount Ida
+family:
+  heading: Family
+  intro: Symeon was born into a Lesbian family several of whose members became monastics; he is venerated together with two of his brothers.
+  figures:
+    - name: Adrianos
+      note: father
+    - name: Konstanto
+      note: mother
+    - name: David the Monk
+      note: eldest brother, ascetic of Mount Ida
+    - name: George, Bishop of Mytilene
+      note: brother and fellow confessor
+      href: saint/OS-0957
+patronage:
+  - Invoked by those who suffer for the faith and by confessors under persecution.
+  - Honored among ascetics and pillar-dwellers (stylites).
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Symeon_Stylites_of_Lesbos
+  - https://www.johnsanidopoulos.com/2017/02/saints-george-bishop-of-mytilene-symeon.html
+generated: "2026-06-19"

@@ -43,6 +43,26 @@ def is_terminal(error_type: str | None) -> bool:
     return error_type in TERMINAL_TYPES
 
 
+_RATELIMIT_RE = re.compile(r"\b429\b|rate.?limit|too many requests|usage limit", re.I)
+_OVERLOAD_RE = re.compile(r"\b529\b|overloaded", re.I)
+
+
+def zero_production_etype(out: str) -> str:
+    """Classify a Workflow run that exited cleanly but emitted 0 profiles, from the
+    orchestrator's final text (sub-agent failures — 429 vs 529 — are summarized there,
+    not surfaced as a top-level error). Returns:
+      'rate_limit_error' — genuine usage/rate limit → wait a full window (weekly-cap path)
+      'overloaded_error' — transient 529 → short backoff, retry, then skip the batch
+      'error'            — unknown → short backoff (safer than a false weekly-cap stop)
+    Rate-limit wins if both signals appear (the more conservative wait)."""
+    s = out or ""
+    if _RATELIMIT_RE.search(s):
+        return "rate_limit_error"
+    if _OVERLOAD_RE.search(s):
+        return "overloaded_error"
+    return "error"
+
+
 def retry_after_seconds(out: str) -> int | None:
     """Best-effort explicit retry-after, if the output happens to carry one. Usually None
     for subscription (5-hour/weekly) limits — `claude -p` masks the rate-limit headers — so

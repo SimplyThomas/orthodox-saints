@@ -1,0 +1,45 @@
+id: OS-1797
+liturgicalTitle: Our Venerable Father Savva of Krypetsk, Wonderworker of Pskov
+lifespan: died 1495
+overview:
+  - Savva of Krypetsk was a fifteenth-century monastic founder venerated in the Pskov region of northwestern Russia. According to tradition he came from a foreign land, perhaps Serbia, and was tonsured a monk on Mount Athos before traveling north to Pskov. Little is recorded of his early life. He is commemorated on August 28, the day of his repose in 1495.
+  - After arriving near Pskov, Savva moved through a succession of monastic settings in search of greater solitude. He first lived at the monastery on Mount Snetna (Snetogorsk) near the city, then at the monastery associated with Saint Euphrosynos along the River Tolva, before withdrawing entirely into the Krypetsk wilderness, about fifteen versts from the Tolva, where he settled alone in a cave within a dense forest. The sources describe a severe ascetic regimen of bread and water, with complete fasting on Wednesdays and Fridays.
+  - In time, others drawn to the eremitic life gathered around him, and at their request a monastery was established with a church dedicated to the Apostle John the Theologian. Savva declined to become its igumen, entrusting the governance of the community to the monk Cassian while remaining himself an elder among the brethren. His incorrupt relics were reported to have been discovered in the mid-sixteenth century, and his veneration was formalized in the years that followed.
+sections:
+  - heading: Foundation of Krypetsk Monastery
+    body:
+      - The monastery that grew up around Savva's hermitage stood in remote and difficult terrain; one account describes the site as an impassable mire. The community's church was built in honor of the Apostle John the Theologian, and the monastery came to bear that dedication. By tradition the foundation is dated to the 1480s, and the monastery secured land rights in 1487 through the mediation of a local prince.
+      - Although he was the spiritual father of the community, Savva refused the office of abbot and placed the monk Cassian over its administration. He himself was remembered as a starets, or elder. After his death in 1495 he was interred in the monastery's then-timber cathedral, which was later rebuilt in stone.
+  - heading: The healing of the prince's wife
+    body:
+      - The synaxarion relates that Prince Yaroslav Vasilievich Obolensky was a benefactor and frequent visitor to the monastery. When the prince sought to bring his ailing wife inside the monastery in violation of its rule excluding women, Savva warned that she would not receive healing if the rule were broken. He instead performed a service of supplication outside the monastery gates, and the princess is said to have recovered.
+  - heading: Relics and veneration
+    body:
+      - Savva's incorrupt relics were reported to have been uncovered in the mid-sixteenth century. According to the account, he appeared in a vision to the monk Isaiah, described as a man of tall stature with a beard grey as snow, and indicated where his relics were to be found; they were regarded thereafter as a source of healing. His life was compiled by a Pskov priest named Basil, and his commemoration was established in the mid-1550s.
+timeline:
+  - when: 1480s
+    title: Founds Krypetsk Monastery
+    body: After years as a hermit in the Krypetsk wilderness, Savva establishes a monastery with a church dedicated to the Apostle John the Theologian.
+  - when: "1487"
+    title: Monastery secures land rights
+    body: Through the mediation of a local prince, the community obtains land rights.
+  - when: "1495"
+    title: Repose
+    body: Savva dies on August 28 and is buried in the monastery's timber cathedral.
+  - when: mid-1550s
+    title: Veneration established
+    body: His incorrupt relics having been discovered, his commemoration is formalized and his life compiled.
+related:
+  - name: Venerable Euphrosynus, Abbot of Pskov
+    note: Founder of monastic life near Pskov associated with the River Tolva, where Savva labored before withdrawing to Krypetsk.
+    href: saint/OS-1178
+patronage:
+  - Invoked in connection with the monastic and eremitic life and with the Pskov region.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/0215/08/28/108966-saint-savva-of-pskov
+  - https://www.johnsanidopoulos.com/2018/08/saint-sava-of-pskov-abbot-of-krypetsk.html
+  - https://orthodoxwiki.org/Sava_of_Krypetsk
+  - https://en.wikipedia.org/wiki/Krypetsky_Monastery
+generated: "2026-06-20"

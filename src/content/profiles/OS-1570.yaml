@@ -1,0 +1,41 @@
+id: OS-1570
+liturgicalTitle: The Holy Hieromartyr Apollinaris, Bishop of Ravenna
+lifespan: 1st century
+overview:
+  - Apollinaris of Ravenna was, by tradition, a native of Antioch in Syria who became the first Bishop of Ravenna. The accounts describe him as a disciple of the Apostle Peter, whom he is said to have accompanied to Rome before being sent on to Ravenna to establish the Church there.
+  - His life is preserved largely through later tradition rather than contemporary record. The principal narrative of his deeds, the Passio Sancti Apollinaris, was probably composed by Archbishop Maurus of Ravenna in the seventh century (642-671) and is recognized to present historical difficulties. He is commemorated as a hieromartyr, having endured repeated persecutions before his death.
+timeline:
+  - when: 1st century
+    title: Origins in Antioch
+    body: Apollinaris was born in Antioch, Syria. By tradition he became a disciple of the Apostle Peter and accompanied him to Rome; the accounts note that he was fluent in both Greek and Latin.
+  - when: 1st century
+    title: Sent to Ravenna
+    body: Peter dispatched Apollinaris to Ravenna, where he became its first bishop. The precise date of his consecration cannot be ascertained; tradition places it possibly during the reign of Emperor Claudius (41-54).
+  - when: 1st century
+    title: Missionary preaching and opposition
+    body: He dedicated himself to evangelization in the region, and his preaching and reported miracles won many converts while attracting hostile pagan attention. After being expelled from Ravenna, he is said to have travelled and preached in Dalmatia, Pannonia, Thrace, and Corinth for about three years before returning.
+  - when: 1st century
+    title: Martyrdom at Classis
+    body: After enduring repeated cycles of beating, expulsion, and torture, he was severely beaten, probably at the port of Classis, and by the traditional account lived for seven days before dying. His martyrdom is placed during the reign of Emperor Vespasian, whose reign began in 69.
+sections:
+  - heading: Episcopate at Ravenna
+    body:
+      - "Apollinaris is held to have been the first Bishop of Ravenna, sent there by the Apostle Peter. The sources differ on the length and exact span of his episcopate: one account gives an office of roughly 26 years, while another places it from about 50 to 78, an episcopate spanning some 28 years."
+      - His ministry centered on evangelization in the surrounding region of Emilia-Romagna. His teaching and the miracles attributed to him drew converts but also provoked official pagan opposition, leading to repeated expulsions and sufferings. By one account he was succeeded as Bishop of Ravenna by Aderitus.
+  - heading: Relics & Shrines
+    body:
+      - Apollinaris died at Classis (Classe), the port town near Ravenna, where his remains were interred. His relics were initially held at the Basilica of Sant'Apollinare in Classe and were transferred to Sant'Apollinare Nuovo in Ravenna in 856.
+      - Relics associated with him are also reported at Düsseldorf and Remagen in Germany.
+  - heading: Sources & Historical Note
+    body:
+      - The principal account of his life, the Passio Sancti Apollinaris, was probably written by Archbishop Maurus of Ravenna (642-671), centuries after the events it describes, and is recognized to present historical difficulties.
+      - He is commemorated on July 23 in the Orthodox tradition. In the Roman Rite his feast was formerly kept on July 23 and is now celebrated on July 20.
+related:
+  - name: Apostle Peter
+    note: By tradition, Apollinaris was his disciple and was consecrated and sent to Ravenna by him.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Apollinaris_of_Ravenna
+  - https://orthodoxwiki.org/Apollinaris_of_Ravenna
+generated: "2026-06-19"

@@ -1,0 +1,41 @@
+id: OS-0334
+liturgicalTitle: Our Venerable Father Onuphrius of Vorona
+lifespan: c. 1700 – 1789
+overview:
+  - Onuphrius of Vorona was an eighteenth-century ascetic who labored in the forests of Moldavia, in what is today Botoșani County, Romania. According to his life, he was of Russian origin, born around 1700, probably into a noble family, and had served as the governor of a province before abandoning rank, family, and homeland around 1749 to seek the eremitic life in the Moldavian lands, then a center of monastic renewal.
+  - He spent roughly fifteen years moving among Moldavian monasteries and forming himself under noted spiritual fathers, among them Basil of Poiana Mărului and Paisius Velichkovsky. In 1764 he entered the community of the Sihăstria Voronei Skete and withdrew into the wilderness for stillness, living for some twenty-five years in a cave on the bank of the Vorona stream. He reposed in 1789 and was glorified by the Romanian Orthodox Church in 2005, with his feast kept on September 9.
+sections:
+  - heading: Ascetic Life
+    body:
+      - By his life's account, Onuphrius kept a severe regime of fasting, silence, and continual prayer in his cave by the Vorona stream. He is said to have eaten only once a day, after sunset, and to have passed the night in vigil, resting only two or three hours seated on a chair. He received the Great Schema in 1774 from Paisius Velichkovsky, who by tradition served also as his spiritual father; the schema was reportedly conferred at Dragomirna Monastery. His life relates that before his death a priest was brought to give him the final Communion.
+  - heading: Relics & Shrines
+    body:
+      - Onuphrius was buried by a few monks in an orchard, at the root of an apple tree. By tradition, around the middle of the nineteenth century Prince Mihail Sturza, while hunting, found fruit at the grave and gave it to his ailing daughter, who recovered; the prince then ordered the grave opened and the relics placed in a reliquary. The relics were later transferred to the pronaos of the Annunciation church at the Sihăstria Voronei Skete, where they are kept. In 2025 a reliquary for the saint was blessed by Patriarch Daniel of Romania, marking the twentieth anniversary of his canonization.
+timeline:
+  - when: c. 1700
+    title: Birth
+    body: Born in Russia, by tradition into a noble family.
+  - when: c. 1749
+    title: Leaves for Moldavia
+    body: Abandons rank and homeland to seek the eremitic life in the Moldavian lands.
+  - when: "1764"
+    title: Enters Sihăstria Voronei
+    body: Joins the Sihăstria Voronei Skete and withdraws to a cave on the Vorona stream.
+  - when: "1774"
+    title: Receives the Great Schema
+    body: Tonsured to the Great Schema by Paisius Velichkovsky.
+  - when: "1789"
+    title: Repose
+    body: Dies after about twenty-five years of solitude; buried in an orchard.
+  - when: "2005"
+    title: Glorification
+    body: Canonized by the Romanian Orthodox Church; feast set on September 9.
+related:
+  - name: Paisius (Velichkovsky) of Neamț
+    note: Spiritual father who conferred the Great Schema; leader of the Moldavian monastic revival.
+status: draft
+sources:
+  - Synaxarion
+  - https://doxologia.ro/viata-sfantului-cuvios-onufrie-de-la-vorona
+  - https://basilica.ro/en/romanian-patriarch-blesses-reliquary-saint-onuphrius-vorona/
+generated: "2026-06-20"

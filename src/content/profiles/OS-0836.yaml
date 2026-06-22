@@ -1,0 +1,50 @@
+id: OS-0836
+lifespan: 11th century – 1093
+liturgicalTitle: Our Venerable Father Christodoulos, the Wonderworker of Patmos
+overview:
+  - Christodoulos was an eleventh-century Byzantine monk and ascetic, born near Nicaea in Bithynia, who is best remembered as the founder of the Monastery of Saint John the Theologian on the island of Patmos. Born to the parents Theodore and Anna and originally named John, he took the monastic name Christodoulos, meaning 'slave of Christ' in Greek.
+  - After years of ascetic life in the Holy Land, Bithynia, and Asia Minor, he obtained the island of Patmos from the emperor Alexios I Komnenos and there established the monastery that still stands. He reposed on the island of Euboea in 1093, and the Orthodox Church commemorates him on March 16.
+timeline:
+  - when: 11th century
+    title: Birth near Nicaea
+    body: He was born John, in the region of Nicaea in Bithynia (Asia Minor), the son of Theodore and Anna. He assumed the monastic habit in his youth and was renamed Christodoulos.
+  - when: before c. 1050
+    title: Pilgrimage and monastic beginnings
+    body: He undertook a pilgrimage from Asia Minor to the Holy Land, where he entered the Mar Saba Monastery and began his monastic life, also living ascetically in the Palestinian desert.
+  - when: mid-11th century
+    title: Monasteries of Asia Minor
+    body: Returning to Asia Minor, he pursued monastic life on Mount Olympus in Bithynia, at the monastery of Paul the Younger on Mount Latrus, and on the island of Kos, later serving as abbot of a monastery before fleeing Saracen attacks.
+  - when: "1088"
+    title: Grant of Patmos
+    body: At his request, the emperor Alexios I Komnenos (reigned 1081–1118) authorised the undertaking and granted permission, with monetary aid, to establish a monastery on Patmos.
+  - when: "1091"
+    title: Founding of the monastery and the Hypotyposis
+    body: Construction of the Monastery of Saint John the Theologian began, on a site where a chapel to St John already stood, built over the ruins of an earlier basilica. That same year he completed his monastic rule, the Hypotyposis, drawing on the principles he had observed at the Mar Saba Monastery.
+  - when: "1093"
+    title: Repose on Euboea
+    body: Incursions by Turkish forces, together with internal disputes among the monks, compelled Christodoulos to leave Patmos. He withdrew with his disciples to the island of Euboea, where he died on March 16, 1093.
+sections:
+  - heading: The Monastery of Saint John the Theologian
+    body:
+      - The monastery Christodoulos founded on Patmos was dedicated to Saint John the Theologian (the Evangelist), on the island traditionally associated with the writing of the Book of Revelation. It was built on a site where a chapel to St John already stood, over the ruins of an earlier basilica, and the buildings stand to this day.
+      - He governed the community according to his own monastic rule, the Hypotyposis, completed in 1091 and shaped by the disciplines he had absorbed at the Mar Saba Monastery in the Holy Land.
+  - heading: Relics & Shrines
+    body:
+      - After his death on Euboea, his disciples took his incorrupt relics and returned them to his own monastery on Patmos. There they are enshrined in a chapel in the narthex; originally placed in a marble sarcophagus, the relics now rest in a gold- and silver-plated wooden chest atop the sepulchre for veneration.
+      - By tradition the relics remain incorrupt and are reported to emit a sweet fragrance. Christodoulos is also commemorated on October 21, the feast of the transfer of his holy relics.
+related:
+  - name: Saint John the Theologian
+    note: The Evangelist to whom Christodoulos dedicated his monastery on Patmos, the island associated with the Book of Revelation.
+patronage:
+  - The island of Patmos
+  - Monastics
+works:
+  - title: Hypotyposis (monastic rule)
+    desc: The monastic rule he completed in 1091 for the community on Patmos, drawing on the principles of the Mar Saba Monastery.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://orthodoxwiki.org/Christodoulos_Latrinos_of_Patmos
+  - https://www.oca.org/saints/lives/2025/03/16/205333-saint-christdoulos-wonderworker-of-patmos
+generated: "2026-06-19"

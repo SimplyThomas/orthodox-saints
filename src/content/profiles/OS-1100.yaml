@@ -1,0 +1,50 @@
+id: OS-1100
+liturgicalTitle: Our Father among the Saints Athanasius of Lubensk, Patriarch of Constantinople
+lifespan: died 1654
+overview:
+  - "Athanasius of Lubensk, also known as Athanasius III Patellarius, was a Cretan-born hierarch of the post-Byzantine era who served as Patriarch of Constantinople on more than one occasion before reposing in 1654 during a journey through the lands of present-day Ukraine. He is commemorated on May 2, the same day as Saint Athanasius the Great of Alexandria, with whom he should not be confused. He is widely remembered for the unusual manner of his burial: following Greek custom he was interred seated, in full hierarchical vestments, and his relics were later found incorrupt."
+  - Born on the island of Crete into a Greek family named Patellarios, he received the baptismal name Alexis (Alexios). According to the tradition he entered monastic life after the death of his father, beginning as a novice at Thessalonica and continuing at the monastery of Esphigmenou on Mount Athos, where he served in the refectory. He was a man of broad learning, and the sources credit him with command of several languages and with missionary and translation work among the peoples of the lower Danube, for whom he is said to have translated the Psalter from Greek.
+  - His tenure on the patriarchal throne of Constantinople fell within the turbulent middle decades of the seventeenth century, when patriarchs were frequently appointed and deposed. He was first raised to the patriarchate in 1634 but held the office only briefly, and he occupied the throne again for a short period in 1652 following the repose of Patriarch Cyril. Deprived of the see, he traveled in search of support for his monastery, settling for a time in Moldavia and then journeying to Moscow, where in 1653 he was received with honor by Patriarch Nikon and Tsar Alexis Mikhailovich.
+  - Falling ill on the return journey, he stopped at the Transfiguration Mgarsk Monastery near the town of Lubny, where he reposed in 1654 and was buried in a seated posture. Some years after his death his relics were uncovered and found to be incorrupt. He was glorified as a saint in 1662, and his incorrupt relics, venerated for healings, came in time to rest at the Annunciation Cathedral in Kharkov.
+sections:
+  - heading: Early Life and Monastic Formation
+    body:
+      - The saint was a native of Crete, born into the Greek family of Patellarios and given the name Alexis at baptism. The sources place his origins in the period of Venetian rule over the island, and one tradition associates his family with high lineage and learning. He is described as a man of considerable education who acquired several languages.
+      - After the death of his father he embraced the monastic life, beginning as a novice in a monastery of Thessalonica and afterward entering the monastery of Esphigmenou on Mount Athos, where he carried out his obedience in the trapeza, or dining hall. He was eventually tonsured a monk with the name Athanasius. Returning to Thessalonica, he was ordained to the priesthood and is said to have labored to spread the Gospel among the Vlachs and Moldavians, translating the Psalter into a form they could use.
+  - heading: Patriarch of Constantinople
+    body:
+      - Athanasius was elevated to the patriarchal throne of Constantinople for the first time in 1634, on the feast of the Annunciation, but he was deposed after only a brief period. He served once more for a short time, and following the death of Patriarch Cyril he was returned to the throne in 1652, holding office for only about fifteen days. The sources relate that during his service he preached against the claims of the papacy to universal jurisdiction.
+      - Removed from the see, he undertook the long journeys characteristic of the impoverished Eastern patriarchate of his day, seeking alms and support. He settled for a period in Moldavia, associating with a monastery near Galați, before traveling onward to Russia.
+  - heading: Journey to Moscow, Repose, and Relics
+    body:
+      - In 1653 the patriarch reached Moscow, where he was received with great honor by Patriarch Nikon and by Tsar Alexis Mikhailovich, and where he obtained assistance for his monastery. On the return journey he fell ill and halted at the Transfiguration Mgarsk Monastery near the town of Lubny, where he reposed in 1654.
+      - In keeping with Greek custom, the saint was buried seated and in full vestments. When his relics were later uncovered they were found incorrupt; the tradition relates that only two fingers were missing from the right hand in which he had held his staff, although his vestments and the chair had decayed. He was glorified as a saint in 1662, and his relics, honored as wonderworking, came to rest at the Annunciation Cathedral in Kharkov, where he is venerated seated upon a hierarchical throne.
+timeline:
+  - when: "1634"
+    title: First raised to the patriarchate
+    body: Athanasius was elevated to the throne of Constantinople on the feast of the Annunciation but was deposed after a brief tenure.
+  - when: "1652"
+    title: Returned to the patriarchal throne
+    body: Following the death of Patriarch Cyril, he occupied the see of Constantinople again for about fifteen days.
+  - when: "1653"
+    title: Received in Moscow
+    body: He was welcomed with honor by Patriarch Nikon and Tsar Alexis Mikhailovich and obtained alms for his monastery.
+  - when: "1654"
+    title: Repose at Lubny
+    body: Falling ill on his return, he reposed at the Transfiguration Mgarsk Monastery near Lubny and was buried in a seated posture.
+  - when: "1662"
+    title: Glorification
+    body: He was glorified as a saint after his relics were found incorrupt.
+related:
+  - name: St. Athanasius the Great
+    note: Patriarch of Alexandria, commemorated on the same day (May 2); a distinct saint with whom Athanasius of Lubensk is not to be confused.
+    href: saint/OS-0024
+patronage:
+  - Venerated as a wonderworker, his incorrupt relics being associated with healing.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/1948/05/02/101272-saint-athanasius-of-lubensk-patriarch-of-constantinople
+  - https://en.wikipedia.org/wiki/Athanasius_III_of_Constantinople
+  - https://www.johnsanidopoulos.com/2010/05/st-athanasius-of-lubensk-and-his-seated.html
+generated: "2026-06-19"

@@ -1,0 +1,39 @@
+id: OS-0175
+liturgicalTitle: Our Venerable Fathers Neophyte and Meletios of Stânişoara
+overview:
+  - Neophyte and Meletios were hermits who lived in solitude on the Sălbaticul (Wild) Mountain above the Olt River valley in what is now Vâlcea County, Romania, near the great Cozia Monastery. By tradition both were connected with Cozia and withdrew into the surrounding mountains to pursue a stricter ascetic life, and it was their disciples who afterward established the hermitage of Stânişoara at the foot of their refuge. They are commemorated together on September 3.
+  - According to the tradition preserved in the Romanian Church, Neophyte was born in the sixteenth century to pious parents and received the monastic habit at Cozia. After years of obedience in community life he sought a more perfect solitude and, with his abbot's blessing, dug a cell on the western side of the Wild Mountain, where he lived in continuous fasting and prayer for about thirty years, descending only on Sundays and feast days to confess and commune at the nearby Turnu hermitage. Meletios is placed at the turn of the sixteenth and seventeenth centuries; by tradition he entered Cozia as a child and later withdrew to a cave on the southern face of the same mountain, where he labored for more than forty years.
+  - The Romanian Orthodox Church glorified the two hermits on February 25, 2016, together with the Venerable Daniel and Misael of the neighboring Turnu Monastery, fixing their joint feast on September 3. Their lives, transmitted largely through the local monastic memory of the Cozia–Turnu–Stânişoara region, present them as exemplars of the hesychast withdrawal that flourished in the Carpathian mountains of Wallachia.
+sections:
+  - heading: Neophyte's Solitude and Relics
+    body:
+      - The tradition relates that Neophyte spent roughly three decades alone in his mountain cell, enduring harsh winters and the trials of the solitary life, and keeping his rule of confession and communion at the Turnu hermitage on Sundays and feast days. He is said to have died in his cave, forgotten by the world.
+      - By tradition his body was later discovered by a monk of Cozia, who carried it down to the monastery; but the saint then appeared in a dream to the monk and the abbot, directing that his remains be returned to the cave. After this, pilgrims who climbed to the cave are reported to have received healing and answers to their prayers, and his relics came to be preserved in the monastery church.
+  - heading: Meletios and the Spring
+    body:
+      - Meletios is said to have lived more than forty years in his cave on the southern face of the Wild Mountain, keeping a six-day solitary fast and descending only on Sundays to his spiritual father, Daniel of the Turnu Skete, for confession and communion.
+      - The synaxarion relates that when Meletios grew old and could no longer carry water up to his cave, a spring came forth before it in answer to his prayer. This spring, according to the tradition, still flows and supplies water to the monastery. He was remembered for healings and for the consolation he gave to troubled souls.
+timeline:
+  - when: 16th century
+    title: Neophyte at Cozia and in solitude
+    body: By tradition Neophyte is tonsured at Cozia Monastery and later withdraws to a cell on the Wild Mountain.
+  - when: late 16th – early 17th c.
+    title: Meletios in the mountains
+    body: Meletios labors for more than forty years in a cave on the southern face of the same mountain.
+  - when: February 25, 2016
+    title: Canonization
+    body: The Holy Synod of the Romanian Orthodox Church glorifies Neophyte and Meletios, with the feast set on September 3.
+related:
+  - name: Venerable Daniel and Misael of Turnu Monastery
+    note: Hermits of the neighboring Turnu Monastery, canonized together with Neophyte and Meletios on February 25, 2016.
+patronage:
+  - Invoked by those drawn to the solitary and hesychast life, and by pilgrims seeking healing and answers to prayer.
+status: flagged
+sources:
+  - Synaxarion
+  - http://sfioanevanghelistul.ca/wordpress/en/2016/08/24/sfintii-care-si-au-petrecut-vietile-ca-un-continuu-azi/
+  - https://orthochristian.com/91046.html
+generated: "2026-06-20"
+flagReasons:
+  - claim: The saints are placed in the 16th / turn of the 16th–17th centuries.
+    detail: The anchor row gives Century = 18th and Era = Post-Byzantine, which conflicts with the externally-sourced 16th–17th century dating used in the profile. The anchor row wins on conflict, so this dating is UNSUPPORTED against the anchor and is flagged for human reconciliation (the external dating is consistent across sources, suggesting the CSV Century field may be in error).

@@ -1,0 +1,41 @@
+id: OS-1790
+liturgicalTitle: Saint Liberius the Confessor, Pope of Rome
+lifespan: died 366
+overview:
+  - Liberius was Bishop of Rome from 352 until his death in 366, succeeding Pope Julius I. His tenure fell during the height of the fourth-century Arian crisis, when the emperor Constantius II pressed the bishops of both East and West to abandon Saint Athanasius of Alexandria and to accept formulations that softened or denied the full divinity of the Son. Liberius is remembered in the Orthodox Church as a confessor for his resistance to this imperial pressure, and he is commemorated on August 27.
+  - When Constantius sought to compel the Western bishops to condemn Athanasius, Liberius refused. According to the tradition, the emperor's envoys brought him bribes to secure his compliance, which he rebuffed. For his refusal he was sent into exile at Beroea in Thrace, and an antipope, Felix, was installed in Rome in his place. The synaxarion relates that he was returned to his see after some time on the insistent petitions of the Roman people.
+  - The Orthodox synaxarion records that, before his restoration, Liberius was summoned to the Semi-Arian Council of Sirmium, where he was forced to sign the acts of that council. The tradition relates that he deeply repented of this afterward and labored much at Rome on behalf of Orthodoxy for the remainder of his life. He reposed in peace in the year 366; by one account he was buried at the cemetery of Priscilla on the Via Salaria. Although he was not formally canonized in the later Roman tradition, he is numbered among the saints of the Orthodox Church.
+sections:
+  - heading: Defense of Athanasius and the Nicene Faith
+    body:
+      - The central act of Liberius's episcopate, as the sources record it, was his defense of Saint Athanasius of Alexandria, the foremost opponent of Arianism, against the demand that he be condemned. Liberius upheld the acquittal of Athanasius and treated the Nicene faith as the standard of orthodoxy. When the Council of Milan in 355 was pressed by imperial command to abandon Athanasius, Liberius protested, and his refusal to sign brought upon him the emperor's anger and ultimately his banishment.
+  - heading: Exile and Sirmium
+    body:
+      - "Liberius was exiled to Beroea in Thrace, where, by the accounts, he remained for roughly two years while the antipope Felix occupied Rome. The Orthodox tradition does not pass over the difficult episode at Sirmium: it relates that he was made to subscribe to the council's acts under coercion, and it presents his subsequent repentance and renewed labor for Orthodoxy as integral to his memory as a confessor. Western historians have long debated the precise nature and extent of any subscription he made during his exile, a controversy known as the 'fall of Liberius.'"
+timeline:
+  - when: "352"
+    title: Becomes Bishop of Rome
+    body: Liberius succeeds Pope Julius I as Bishop of Rome.
+  - when: "355"
+    title: Refuses to condemn Athanasius
+    body: He resists imperial pressure at the time of the Council of Milan to abandon Saint Athanasius and is exiled to Beroea in Thrace.
+  - when: c. 358
+    title: Returns to Rome
+    body: He is restored to his see on the petitions of the Roman people; the antipope Felix is expelled.
+  - when: "366"
+    title: Repose
+    body: Liberius dies peacefully at Rome.
+related:
+  - name: St. Athanasius the Great
+    note: Patriarch of Alexandria, whom Liberius defended against the demand for his condemnation
+    href: saint/OS-0024
+patronage:
+  - Invoked as a confessor who resisted heresy under imperial pressure.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2044/08/27/102408-saint-liberius-pope-of-rome
+  - https://www.johnsanidopoulos.com/2017/08/saint-liberius-confessor-pope-of-rome.html
+  - https://www.newadvent.org/cathen/09217a.htm
+  - https://www.britannica.com/biography/Liberius
+generated: "2026-06-19"

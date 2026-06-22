@@ -1,0 +1,26 @@
+id: OS-0416
+liturgicalTitle: Our Father among the Saints Gregory of Ochrid
+lifespan: died 1012
+overview:
+  - "Gregory of Ochrid is an early-eleventh-century saint of the church of Ochrid, in the region of present-day North Macedonia that in his lifetime fell within the Bulgarian ecclesiastical and cultural sphere. The surviving notices of him are brief: he is remembered as a teacher and shepherd of his flock and is commemorated on January 8. The sources record his repose in the year 1012."
+  - The principal trace of his memory is an inscription in the church of Holy Wisdom (Hagia Sophia) in Ochrid, which styles him "Gregory the Wise" (rendered in some accounts as "Gregory, the all-wise"). Several calendars and lists identify him as a bishop of Ochrid; one English calendar designates him "bishop of Moesia," reflecting the wide territory attached to the see of Ochrid in this period. The in-repository record classes him among the venerable (monastic) saints and assigns his origin to Bulgaria.
+  - Because the documentary record is so slight, little can be said of his life beyond these few details, and the synaxaria characterize him chiefly through his pastoral office rather than through a narrative of events. He belongs to the broad company of saints associated with Ochrid as a center of Slavonic Christian learning in the centuries following its evangelization.
+sections:
+  - heading: Sources and the Ochrid Inscription
+    body:
+      - 'The fullest of the brief notices derive from the synaxarion tradition and from the Prologue of Ohrid, which describe Gregory as a devout teacher and pastor of Christ''s flock who died in 1012. The detail most often repeated is the epigraphic one: an inscription in the Church of St. Sophia in Ochrid names him "Gregory the Wise."'
+      - The variation in his title across sources — "of Ochrid," "bishop of Ochrid," "bishop of Moesia," and the venerable/monastic rank carried in this database — reflects the thinness of the surviving evidence rather than competing biographies, and the obscurity of the figure has been noted for clergy and source review.
+timeline:
+  - when: "1012"
+    title: Repose
+    body: The sources record the repose of Gregory of Ochrid in the year 1012.
+patronage:
+  - Associated with Ochrid and its church of Holy Wisdom (Hagia Sophia).
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 8
+  - https://www.oca.org/saints/lives/2018/01/08/108033-venerable-gregory-of-ochrid
+  - https://www.orthodox.net/menaion-january/08-st-gregory-bishop-of-ochrid.html
+  - http://www.orthodox.cn/prologue/January8.htm
+  - http://www.holytrinityorthodox.com/calendar/los/January/08-14.htm
+generated: "2026-06-21"

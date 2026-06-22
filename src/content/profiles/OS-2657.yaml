@@ -1,0 +1,27 @@
+id: OS-2657
+liturgicalTitle: Our Venerable Father Zeno of Iqalto
+lifespan: 6th century
+overview:
+  - Saint Zeno of Iqalto was a sixth-century monastic numbered among the Thirteen Assyrian Fathers, a group of ascetic missionaries who, by Georgian church tradition, came from Mesopotamia to strengthen Christianity in Georgia. He is remembered as the founder of the monastery at Iqalto (Ikalto) in the region of Kakheti, in eastern Georgia.
+  - His life is known only through the medieval Georgian hagiographic tradition surrounding the Thirteen Fathers. Within that tradition he is associated with the preaching of the faith in northern Kakheti and with the monastic settlement that grew up around his foundation, where he was later buried.
+sections:
+  - heading: The Thirteen Assyrian Fathers
+    body:
+      - According to Georgian church tradition, the Thirteen Assyrian Fathers were monastic missionaries who arrived from Mesopotamia in the sixth century to deepen the Christian faith of a people already enlightened by Saint Nino. Their leader was John of Zedazeni, and after the company settled at Zedazeni they dispersed across the country to preach and to found monasteries and hermitages, initiating the ascetic movement in Georgia. These foundations are credited with an important role in shaping Georgian Christian identity in the centuries that followed.
+      - The lives of the Fathers survive only in a cycle of medieval Georgian hagiographic texts and are not independently attested beyond them. Modern scholarship is divided on their origin, variously regarding them as Assyrians, as Syrian-educated Georgians, or as refugees from Syria; the traditional number thirteen appears to be largely symbolic, since the sources name as many as nineteen monks. Zeno is consistently listed among them as the figure connected with Iqalto.
+  - heading: Foundation at Iqalto
+    body:
+      - Zeno is remembered as having preached in northern Kakheti and as the founder of the monastery at Iqalto, established in the late sixth century. The site lies in eastern Georgia, roughly ten kilometres west of the town of Telavi.
+      - "The principal church of the complex, dedicated to the Holy Spirit (Khvtaeba), was built in the eighth or ninth century on the site of an older church in which Zeno had been buried. Long after his lifetime the monastery became one of the most important cultural and scholastic centres of Georgia: an academy was established there in 1106, during the reign of King David the Builder, by Arsen Ikaltoeli, where students were taught theology, rhetoric, astronomy, philosophy, geometry, music, and chanting alongside practical crafts such as viticulture and wine-making. The academy was destroyed by Persian forces under Shah Abbas I in 1616."
+related:
+  - name: The Thirteen Assyrian Fathers
+    note: One of the Thirteen Assyrian (Syrian) Fathers, commemorated together
+    href: saint/OS-1128
+sources:
+  - OCA Synaxarion (oca.org)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Ikalto_Monastery
+  - https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers
+  - https://georgianchurch.ca/20st-of-may-venerable-ioane-of-zedazeni-and-his-twelve-disciples-6th-century/
+status: draft
+generated: "2026-06-21"

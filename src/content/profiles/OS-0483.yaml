@@ -1,0 +1,54 @@
+id: OS-0483
+liturgicalTitle: Our Venerable Father Ephraim the Lesser of Georgia, the Philosopher
+lifespan: c. 1027 – c. 1101
+overview:
+  - Ephraim the Lesser, known in Georgian tradition as Ephrem Mtsire and styled "the Philosopher," was an eleventh-century Georgian monk, theologian, and translator who rendered a large body of Greek patristic literature into Georgian. He is commemorated on January 18. By tradition his father was Vache, a Georgian nobleman of the Tao (Tao-Klarjeti) region in southern Georgia, who relocated toward Constantinople around 1027, the year King Bagrat IV ascended the Georgian throne.
+  - Ephraim received a thorough Hellenic education, presumably at Constantinople, before joining the Georgian monastic community at the Black Mountain near Antioch, a center then home to roughly seventy Georgian monks. He spent his monastic career in that region and, around 1091, became hegumen of the Kastana monastery, which is associated with the Castalia spring in Daphne, outside Antioch.
+  - His scholarly output is reckoned at nearly one hundred works covering most branches of theological inquiry. He is remembered above all as a translator who introduced a more rigorous method into Georgian letters, and as a defender of the Georgian Church's autocephaly. He was canonized by the Georgian Orthodox Church and died around the turn of the twelfth century, with sources placing his repose around 1101 to 1103.
+sections:
+  - heading: Translation Work and Method
+    body:
+      - Ephraim translated five works of Dionysius the Areopagite, the Ascetic Rules of Basil the Great, writings of Ephraim the Syrian, and patristic commentaries on the Epistles and Psalms, among many other texts; sources also credit him with translations from John of Damascus. The breadth of his work was unusual, spanning nearly every branch of theological inquiry.
+      - He is associated with an influential theory of translation that emphasized working from original-language sources, maintaining literal accuracy while respecting the conventions of the target language, and supplying scholarly commentary. By making scholia and lexica accessible to Georgian readers, his method proved fundamental for later Georgian literature.
+  - heading: Defense of the Georgian Church
+    body:
+      - Among Ephraim's original compositions, the most significant is a work explaining the reasons for the conversion of Georgia, described as a compilation of existing essays together with his own commentary on the nation's Christianization. The work is understood to defend the autocephalous status of the Georgian Orthodox Church in the context of disputes with the church authorities of Antioch.
+timeline:
+  - when: c. 1027
+    title: Family relocates from Tao
+    body: By tradition his father Vache, a nobleman of the Tao region, moved toward Constantinople around the year King Bagrat IV ascended the Georgian throne.
+  - when: c. 1091
+    title: Hegumen of Kastana
+    body: Ephraim became abbot of the Kastana monastery, associated with the Castalia spring in Daphne outside Antioch.
+  - when: c. 1101
+    title: Repose
+    body: Ephraim died around the turn of the twelfth century, with sources placing his repose c. 1101–1103.
+related:
+  - name: St. Dionysius the Areopagite
+    note: Five of whose works Ephraim translated into Georgian
+    href: saint/OS-1942
+  - name: St. Basil the Great
+    note: Whose Ascetic Rules Ephraim translated
+    href: saint/OS-0021
+  - name: St. Ephraim the Syrian
+    note: Whose writings Ephraim the Lesser rendered into Georgian
+    href: saint/OS-0031
+  - name: St. John of Damascus
+    note: Among the authors Ephraim translated
+    href: saint/OS-2300
+patronage:
+  - Associated with translators, scholars, and theological education
+works:
+  - title: An Explanation of the Reasons for the Conversion of Georgia
+    desc: His most significant original work; a compilation of essays with his own commentary on the nation's conversion, understood to defend the autocephaly of the Georgian Church.
+  - title: Translation of five works of Dionysius the Areopagite
+    desc: A rendering into Georgian of works of the Areopagitic corpus.
+  - title: Translation of the Ascetic Rules of Basil the Great
+    desc: A Georgian rendering of Basil's ascetic legislation.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 18
+  - https://en.wikipedia.org/wiki/Ephrem_Mtsire
+  - https://www.oca.org/saints/lives/2026/01/18/205450-saint-ephraim-the-lesser
+  - https://orthochristian.com/7383.html
+generated: "2026-06-19"

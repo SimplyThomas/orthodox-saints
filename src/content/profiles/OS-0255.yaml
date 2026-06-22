@@ -1,0 +1,39 @@
+id: OS-0255
+liturgicalTitle: Our Father among the Saints Cagnoald, Bishop of Laon
+lifespan: died c. 635
+overview:
+  - Cagnoald, also spelled Chagnoald, was a Frankish monk and later bishop of Laon in northern Gaul during the seventh century. He belonged to a prominent Burgundian family sometimes called the Faronids, and was the brother of St. Faro, bishop of Meaux, and of St. Burgundofara, foundress of the convent of Faremoutiers. He received his monastic formation at the abbey of Luxeuil as a disciple of St. Columbanus, the Irish missionary monk whose foundations shaped continental monasticism, and is commemorated on September 6.
+  - After his years at Luxeuil, Cagnoald was ordained bishop of Laon, where sources reckon him among the early occupants of that see. His episcopate fell within the turbulent decades of the Merovingian kingdoms, and he is recorded among the bishops who took part in the Council of Reims in 630. He reposed around the year 635.
+sections:
+  - heading: Monastic Life at Luxeuil
+    body:
+      - Cagnoald received the monastic tonsure at the abbey of Luxeuil in Burgundy, founded by St. Columbanus, and lived as the saint's disciple. According to the life of Columbanus written by the monk Jonas of Bobbio, Columbanus once withdrew into the forest to fast and pray, and the only food remaining to him and the young Cagnoald was wild crab apples. When Cagnoald discovered a bear eating the fruit and reported it, Columbanus directed him to divide the orchard in two, leaving one half for the bear and one half for the monks.
+      - Sources relate that when Eustace, abbot of Luxeuil, traveled to the court of King Chlothar II, he left Cagnoald in charge of the monastery, and that Cagnoald together with Waldebert was assigned to instruct the nuns at the double monastery of Faremoutiers, the house founded by his sister Burgundofara.
+  - heading: Bishop of Laon
+    body:
+      - Cagnoald was later ordained bishop of Laon in northeastern France, where tradition numbers him among the early holders of the see. He is recorded as having taken part in the Council of Reims held in 630.
+      - Some accounts credit his episcopate with the translation of relics of St. Arnulf to the Church of the Apostles in Metz, with beginning the construction of a church dedicated to St. Peter, and with the founding of a monastery at Epinal. He reposed around the year 635.
+timeline:
+  - when: early 7th c.
+    title: Monk at Luxeuil
+    body: Cagnoald entered the abbey of Luxeuil as a disciple of St. Columbanus.
+  - when: c. 630
+    title: Council of Reims
+    body: He took part in the Council of Reims as bishop of Laon.
+  - when: c. 635
+    title: Repose
+    body: Cagnoald reposed and is commemorated on September 6.
+related:
+  - name: St. Faro of Meaux
+    note: Brother; bishop of Meaux.
+  - name: St. Burgundofara
+    note: Sister; foundress of the convent of Faremoutiers.
+  - name: St. Columbanus of Luxeuil
+    note: His monastic master at Luxeuil.
+    href: saint/OS-2693
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://en.wikipedia.org/wiki/Chagnoald
+  - https://drjohnhutchisonhall.com/saints-west-19-6-sep-2024/
+generated: "2026-06-20"

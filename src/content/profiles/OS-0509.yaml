@@ -1,0 +1,68 @@
+id: OS-0509
+liturgicalTitle: Our Venerable Father Maximus the Greek
+lifespan: c. 1475 – 1556
+overview:
+  - Maximus the Greek was a learned monk, translator, and writer who carried the scholarship of the late Byzantine and Renaissance worlds into sixteenth-century Russia. Born about 1475 in Arta in Epirus as Michael Trivolis, he came from a Greek family said to descend from nobility connected to the Byzantine imperial house, with roots in Mystras in Laconia; he later signed his works as Maximus Grecus of Lacedaemon. After early study under teachers such as John Lascaris, he traveled to Italy in the early 1490s and pursued classical languages, philosophy, and theology in cities including Florence, Bologna, Ferrara, Milan, Padua, and Venice, where he came into contact with leading Renaissance scholars and printers.
+  - Returning to the Orthodox monastic life, he settled on Mount Athos and took monastic vows at the Monastery of Vatopedi in 1507, devoting himself to its ancient manuscripts. In 1515 the Grand Prince of Moscow, Vasili III, asked Athos for a monk to translate sacred and liturgical books into Church Slavonic; Maximus was sent and reached Moscow in 1518. His learning made him a major figure in Russian church culture, but his translation work and his outspokenness drew powerful enemies, and he spent much of his remaining life under condemnation and confinement before dying in 1556 at the Trinity-Saint Sergius Lavra.
+timeline:
+  - when: c. 1475
+    title: Birth in Arta
+    body: Born Michael Trivolis in Arta, in Epirus, to a Greek family said to have noble and Byzantine imperial connections, with roots in Mystras in Laconia.
+  - when: c. 1492–1493
+    title: Study in Italy
+    body: Traveled to Italy and studied classical languages, philosophy, and theology in Florence, Bologna, Ferrara, Milan, Padua, and Venice, encountering Renaissance figures including Aldus Manutius, Marsilio Ficino, and Pico della Mirandola.
+  - when: "1507"
+    title: Monastic tonsure at Vatopedi
+    body: Took monastic vows at the Monastery of Vatopedi on Mount Athos, devoting himself to its Byzantine manuscripts.
+  - when: 1515–1518
+    title: Sent to Moscow
+    body: Grand Prince Vasili III requested a translator from Athos; Maximus was dispatched in place of an elder named Savva and arrived in Moscow in 1518.
+  - when: "1525"
+    title: First condemnation
+    body: A church council accused him of heresy on the basis of translation errors; he was exiled and imprisoned at the Joseph-Volokolamsk Monastery.
+  - when: "1531"
+    title: Second condemnation
+    body: A second council again condemned him, banned him from communion, and exiled him to the Otroch Monastery in Tver, where he remained roughly twenty years.
+  - when: c. 1551–1553
+    title: Transfer to the Lavra
+    body: He was transferred to the Trinity-Saint Sergius Lavra, where his final years were spent.
+  - when: "1556"
+    title: Repose
+    body: Died at the Trinity-Saint Sergius Lavra in Sergiyev Posad and was buried there.
+  - when: "1988"
+    title: Canonization
+    body: Canonized by the Russian Orthodox Church on June 6, 1988, under Patriarch Pimen I.
+sections:
+  - heading: Education and Travels in the West
+    body:
+      - Before his monastic life, Maximus received an unusually broad education for an Orthodox monk of his time. After early study with teachers including John Lascaris, he traveled to Italy around 1492–1493 and spent years in its university and humanist centers — Florence, Bologna, Ferrara, Milan, Padua, and Venice — studying classical languages, philosophy, and theology.
+      - There he moved among prominent figures of the Italian Renaissance, including the printer Aldus Manutius and the philosophers Marsilio Ficino and Pico della Mirandola. For a time he was associated with the Dominican world in Florence and was influenced by the reformer Girolamo Savonarola, before leaving that life to return to Orthodox monasticism on Mount Athos.
+  - heading: Translation Work in Russia
+    body:
+      - Maximus was brought to Moscow specifically to translate Greek liturgical and patristic texts into Church Slavonic, a language he did not yet know. His first major undertaking was a translation of the Psalter, carried out with Russian collaborators including the scholar Dmitry Gerasimov; he also corrected existing liturgical books and translated commentaries of Saint John Chrysostom on the Gospels.
+      - Because Slavonic was not his native tongue, imprecisions entered some of his translations, and these later became the pretext for accusations against him. He nonetheless became a central figure in Russian intellectual life, and a manuscript associated with him is noted as containing one of the earliest references in Old Russian to the discovery of the New World.
+  - heading: Conflict, Councils, and Imprisonment
+    body:
+      - Maximus aligned himself with the Non-Possessor movement associated with Nilus of Sorsky, which opposed extensive monastic landholding, and so came into conflict with the Josephite party. His translation errors and his outspoken criticism of abuses made him vulnerable to his opponents.
+      - A council in 1525 accused him of heresy and had him exiled and imprisoned at the Joseph-Volokolamsk Monastery. A second council in 1531 renewed the condemnation, banned him from communion, and sent him to the Otroch Monastery in Tver, where he remained for about twenty years. According to the tradition preserved in his life, appeals on his behalf — including efforts attributed to the patriarchs of Antioch, Constantinople, and Jerusalem — failed to secure his release for many years.
+      - Only late in life, around 1551–1553, was he transferred to the Trinity-Saint Sergius Lavra, where the long ban was at last eased and he was able to spend his final years more freely, completing further work on the Psalter.
+  - heading: Relics and Veneration
+    body:
+      - Maximus died in 1556 at the Trinity-Saint Sergius Lavra in Sergiyev Posad and was buried there. His life records that manifestations of grace were associated with his grave. He was held in particular esteem in later Russian piety, and was formally canonized by the Russian Orthodox Church on June 6, 1988, under Patriarch Pimen I; his feast is kept on January 21.
+patronage:
+  - Translators and scholars
+  - Those unjustly imprisoned or condemned
+works:
+  - title: Translation of the Psalter into Church Slavonic
+    desc: His first and best-known undertaking in Russia, carried out with Russian collaborators including Dmitry Gerasimov.
+  - title: Translations of Saint John Chrysostom's Gospel commentaries
+    desc: Among the patristic works he rendered into Slavonic.
+  - title: Polemical and instructive writings
+    desc: A voluminous body of original treatises and translations addressing theology, church reform, and contemporary knowledge.
+sources:
+  - OCA Synaxarion (oca.org), Jan 21
+  - https://en.wikipedia.org/wiki/Maximus_the_Greek
+  - https://www.oca.org/saints/lives/2000/01/21/100258-venerable-maximus-the-greek
+  - https://orthodoxwiki.org/Maximus_the_Greek
+status: draft
+generated: "2026-06-19"

@@ -1,0 +1,37 @@
+id: OS-0917
+liturgicalTitle: Our Venerable Father Macarius the Confessor, Abbot of Pelekete
+lifespan: c. 785 – 9th c.
+overview:
+  - Macarius the Confessor was a Byzantine monk and abbot who suffered for the veneration of the holy icons during the second period of iconoclasm. Born at Constantinople around 785, he was given the name Christophoros before his monastic tonsure. Orphaned as a child, he was raised by an uncle and grew up well grounded in the Scriptures.
+  - He entered the monastery of Saint John the Theologian at Pelekete, in the region of Bithynia near the Hellespont, where the abbot was Saint Hilarion. After Hilarion's repose, Macarius was chosen by the brethren to succeed him as igumen (abbot). Sources credit him with a gift for working miracles and with serving as a spiritual father to monks and laity alike.
+  - During the reigns of the iconoclast emperors Leo V the Armenian (813–820) and Michael II (820–829), Macarius was persecuted for his defense of the icons. He was imprisoned for venerating them and was later sent into exile, ending his life in hardship on the island of Aphousia in the Sea of Marmara. He reposed in the 9th century and is commemorated on April 1.
+timeline:
+  - when: c. 785
+    title: Birth at Constantinople
+    body: Born in Constantinople and named Christophoros; orphaned as a child and raised by an uncle.
+  - when: Early life
+    title: Monk and abbot of Pelekete
+    body: Entered the monastery of Saint John the Theologian at Pelekete in Bithynia under the abbot Saint Hilarion, was tonsured Macarius, and after Hilarion's repose was chosen igumen by the brethren.
+  - when: 813–829
+    title: Confession under iconoclasm
+    body: Persecuted for venerating the holy icons under Emperors Leo V the Armenian and Michael II; imprisoned and then exiled.
+  - when: 9th c.
+    title: Repose in exile
+    body: Died in hardship on the island of Aphousia in the Sea of Marmara.
+sections:
+  - heading: Sources and uncertainties
+    body:
+      - Accounts vary on the precise dates of his life. The dates followed here place his birth around 785 and his repose in the 9th century, while some external sources give a death of 18 August 840 and an earlier birth. His Life is attributed to a monk of his own community.
+related:
+  - name: Hilarion the New of Pelecete
+    href: saint/OS-0887
+    note: His predecessor as abbot of the Pelekete monastery.
+patronage:
+  - Confessors who suffered for the holy icons
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2023/04/01/100967-venerable-makarios-igoumen-of-pelket
+  - https://en.wikipedia.org/wiki/Makarios_of_Pelekete
+  - https://orthochristian.com/112256.html
+generated: "2026-06-20"

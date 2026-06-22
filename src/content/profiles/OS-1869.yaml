@@ -1,0 +1,64 @@
+id: OS-1869
+lifespan: c. 602 - 690
+liturgicalTitle: Our Father among the Saints Theodore of Tarsus, Archbishop of Canterbury
+overview:
+  - Theodore of Tarsus was a Greek-born monk who served as Archbishop of Canterbury from 668 until his death in 690 and is counted among the major pre-schism saints of England. Born around 602 in Tarsus in Cilicia, the birthplace of the Apostle Paul, he came from a Greek-speaking diocese of the Byzantine Empire.
+  - Already an elderly and highly educated monk living in Rome, Theodore was consecrated archbishop on 26 March 668 and arrived in England in 669, near the age of seventy. Despite his advanced years he proved energetic, surveying and reorganizing the English Church, founding churches, consecrating bishops, and establishing a school at Canterbury where Greek was taught. Under his leadership the English Church attained a unity that the separate tribal kingdoms did not possess, and the diocesan structures he established long served as the basis for church administration in England.
+timeline:
+  - when: c. 602
+    title: Birth in Tarsus
+    body: Theodore was born around 602 in Tarsus in Cilicia, a Greek-speaking diocese of the Byzantine Empire and the home city of the Apostle Paul.
+  - when: c. 637
+    title: Flight to Constantinople
+    body: After studying at Antioch, a historic center of biblical exegesis, Theodore relocated to Constantinople, where he studied astronomy, ecclesiastical computus, medicine, Roman civil law, and Greek rhetoric and philosophy.
+  - when: before 668
+    title: Monastic life in Rome
+    body: He moved to Rome and lived among Eastern monks, mastering Latin literature both sacred and secular alongside his Greek learning.
+  - when: 26 March 668
+    title: Consecrated Archbishop of Canterbury
+    body: Pope Vitalian selected Theodore on the recommendation of Hadrian, after the original candidate Wighard died unexpectedly in Rome. Theodore was consecrated in Rome at roughly sixty-five years of age.
+  - when: 27 May 669
+    title: Arrival in England
+    body: Theodore reached Kent in 669, nearly seventy years old, and began traveling throughout England founding churches and consecrating bishops to fill sees left vacant by an outbreak of plague.
+  - when: 672 / 673
+    title: Synod of Hertford
+    body: He convened the first national council of the English Church at Hertford, addressing the proper calculation of Easter, episcopal authority, itinerant monks, the regular convening of future synods, and rules on marriage and consanguinity.
+  - when: "678"
+    title: Division of Northumbria
+    body: Theodore proposed subdividing the large diocese of Northumbria, which brought conflict with Bishop Wilfrid of York, whom he deposed and expelled in 678; the dispute was resolved in 686-687.
+  - when: September 680
+    title: Synod of Hatfield
+    body: He held a synod at Hatfield confirming the orthodoxy of the English Church against the Monothelite controversy.
+  - when: 19 September 690
+    title: Repose
+    body: Theodore died at age 88, after an archiepiscopate of 22 years, and was buried at Canterbury in the church then called St. Peter's, later St Augustine's Abbey. His body was reported to have remained incorrupt.
+sections:
+  - heading: Early Life and Education
+    body:
+      - Theodore was born around 602 in Tarsus in Cilicia, a Greek-speaking diocese of the Byzantine Empire. His childhood coincided with major warfare between the Roman and Persian empires, including the capture of Antioch, Damascus, and Jerusalem in 613 and 614.
+      - His studies likely took place at Antioch, following that city's distinctive exegetical tradition, and he acquired knowledge of Syriac culture and language. He later relocated to Constantinople, where his studies ranged across astronomy, ecclesiastical computus, medicine, Roman civil law, and Greek rhetoric and philosophy. Before the 660s he moved to Rome and joined an Eastern monastic community, where he added a mastery of Latin literature to his Greek learning.
+  - heading: Reform of the English Church
+    body:
+      - Upon arriving in England, Theodore conducted a survey of the English Church and appointed bishops to vacant sees. In 672 he convened the Synod of Hertford, the first national council of the English Church, which legislated on the calculation of Easter, episcopal authority, the conduct of itinerant monks, the regular convening of synods, and questions of marriage and consanguinity.
+      - He reorganized the diocesan map, most controversially by subdividing the large diocese of Northumbria, a measure that brought him into conflict with Bishop Wilfrid of York, whom he deposed in 678 before the dispute was resolved in 686-687. He also resolved an earlier dispute in Northumbria involving the bishops Wilfrid and Chad, regularizing Chad's consecration. In 679 he intervened diplomatically to prevent the escalation of war between Northumbria and Mercia after the death of Aelfwine in battle, arranging a compensation payment. Through such organizational and canonical work the English Church became united in a way the separate kingdoms were not, and the diocesan structures he established long served as the basis for church administration in England.
+  - heading: The School at Canterbury
+    body:
+      - Together with the abbot Hadrian, Theodore established a school at Canterbury that taught both Greek and Latin and trained students from both the Celtic and Roman traditions. Its curriculum included Holy Scriptures, poetry, astronomy, the calculation of the church calendar, and sacred music.
+      - Theodore introduced knowledge of the Eastern saints to the West and may have been responsible for introducing the Litany of the Saints to Western liturgy. A penitential known as the Paenitentiale Theodori was composed under his direction. The school became a center of learning whose pupils carried his curriculum throughout southern England.
+  - heading: Relics and Veneration
+    body:
+      - Theodore was buried at Canterbury in the church then called St. Peter's, later known as St Augustine's Abbey, and his body was reported to have remained incorrupt for a long time. His canonization is pre-Congregation, and he is listed in the Roman Martyrology.
+      - He is venerated in the Eastern Orthodox Church, the Catholic Church, and the Anglican Communion, with his feast kept on 19 September; Canterbury also observed a secondary commemoration on 26 March, the date of his ordination.
+works:
+  - title: Paenitentiale Theodori
+    desc: A penitential handbook compiled under Theodore's direction, reflecting the disciplinary teaching of his episcopate.
+related:
+  - name: Hadrian of Canterbury
+    note: African-born abbot who accompanied Theodore to England and co-founded the Canterbury school with him.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Theodore_of_Tarsus
+  - https://orthodoxwiki.org/Theodore_of_Tarsus
+  - https://www.oca.org/saints/lives/2015/09/19/102671-saint-theodore-of-tarsus-archbishop-of-canterbury
+status: draft
+generated: "2026-06-19"

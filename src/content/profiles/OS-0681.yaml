@@ -1,0 +1,76 @@
+id: OS-0681
+liturgicalTitle: Our Father among the Saints Leo the Great, Pope of Rome
+lifespan: c. 400 – 10 November 461
+overview:
+  - Leo the Great was Bishop of Rome from 440 to 461 and is counted among the most consequential of the early popes. A Roman of Tuscan origin who served as a deacon and archdeacon before his election, he governed the Western Church through two decades of doctrinal crisis and barbarian invasion, and his name became permanently joined to the dogmatic settlement of the Fourth Ecumenical Council of Chalcedon.
+  - His Tome to Flavian set out the Orthodox confession of the two natures of Christ, divine and human, united in one person, and was acclaimed by the Council of Chalcedon in 451 with the words "Peter has spoken through Leo." He is remembered also for going out to meet Attila the Hun in 452 and turning him back from the gates of Italy. He is venerated as a confessor and, because he belongs to the undivided Church, is honored in both the Eastern Orthodox and the Western traditions.
+timeline:
+  - when: c. 400
+    title: Birth in Tuscany
+    body: Born in Tuscany, Italy, of an aristocratic family, and well educated.
+  - when: by 431
+    title: Deacon of Rome
+    body: Served as a deacon under Pope Celestine I and Pope Sixtus III, prominent enough that John Cassian dedicated a theological work to him.
+  - when: 29 September 440
+    title: Elected Pope
+    body: Unanimously elected Bishop of Rome after the death of Sixtus III.
+  - when: "449"
+    title: The Tome of Leo
+    body: Wrote his dogmatic letter to Archbishop Flavian of Constantinople defining the two natures of Christ united in one person.
+  - when: "451"
+    title: Council of Chalcedon
+    body: His Tome was read and acclaimed at the Fourth Ecumenical Council, which condemned Eutyches and Dioscorus and confirmed the Orthodox Christology.
+  - when: "452"
+    title: Meeting with Attila
+    body: Met Attila the Hun and persuaded him to withdraw from invading Italy.
+  - when: "455"
+    title: The Vandal sack of Rome
+    body: Interceded when Gaiseric's Vandals took Rome, reportedly preventing the burning of the city and securing its major basilicas.
+  - when: 10 November 461
+    title: Repose
+    body: Died after a papacy of twenty-one years and was buried in Old St. Peter's Basilica, the first pope interred there.
+sections:
+  - heading: Early Life and Election
+    body:
+      - Leo was born about the year 400 in Tuscany, of an aristocratic family, and received an excellent education. He entered the service of the Roman Church and by the early 430s was a deacon of sufficient standing that the monastic writer John Cassian dedicated a theological work to him; he served under Popes Celestine I and Sixtus III. Toward the end of Sixtus III's reign the Emperor Valentinian III entrusted him with a mission to Gaul to settle a quarrel between the general Aetius and the magistrate Albinus.
+      - When Sixtus III died, Leo was unanimously elected Bishop of Rome and consecrated on 29 September 440. He would govern the Roman Church for the next twenty-one years, a period marked both by his defense of doctrine and by the political turbulence of the failing Western Empire.
+  - heading: The Tome and the Council of Chalcedon
+    body:
+      - Leo's most enduring contribution was doctrinal. In 449 he addressed a dogmatic letter, known as the Tome of Leo, to Flavian, Archbishop of Constantinople, setting out the teaching that in Christ two natures, divine and human, are united in one person without confusion or division. The letter answered the error of Eutyches, who had taught that Christ possessed only a single nature.
+      - At the Fourth Ecumenical Council, held at Chalcedon in 451, the Tome was read before the assembled bishops, who recognized in it the apostolic faith and exclaimed, by tradition, "Peter has spoken through Leo." The council confirmed the Orthodox confession of Christ and condemned the heretics Eutyches and Dioscorus of Alexandria. Leo had actively promoted the gathering of the council, and his letter became one of its foundational dogmatic documents.
+  - heading: Defender of Rome
+    body:
+      - Leo's authority extended into the civil crises of his age. In 452, as Attila and his Huns advanced upon Italy, Leo went out to meet the king and, according to the contemporary chronicler Prosper of Aquitaine, persuaded him to withdraw without sacking Rome. The synaxarion relates that Attila yielded both for the holiness of Leo and because of a vision of the Apostles Peter and Paul standing behind him, threatening the king with a flaming sword.
+      - Three years later, in 455, when Gaiseric and the Vandals took Rome, Leo again interceded; his intervention is credited with sparing the city from wholesale burning and with preserving its principal basilicas. He labored as well against the heresies of Pelagianism, Manicheism, and Priscillianism, and worked to strengthen the order and discipline of the Western Church.
+  - heading: Writings
+    body:
+      - A large body of Leo's preaching and correspondence survives — by the usual count, some ninety-six sermons and about a hundred and forty-three letters. The sermons treat the feasts and seasons of the Church year and the duties of the Christian life, while the letters address the doctrinal and disciplinary questions of his time. Of all of them the Tome to Flavian is the most renowned, for the place it holds in the history of Orthodox Christology.
+  - heading: Relics & Shrines
+    body:
+      - Leo reposed on 10 November 461 and was buried in Old St. Peter's Basilica in Rome, the first pope to be interred there. In 688 Pope Sergius I had his remains translated to a more prominent place in the south transept of the basilica, where they continued to be venerated.
+  - heading: Veneration
+    body:
+      - Leo is venerated as a saint and confessor in both the Eastern Orthodox and the Western Churches, since he belongs to the undivided Church before the later divisions of Christendom. In the Orthodox East his feast is kept on 18 February, while in the West it is observed on 10 November. In the Roman tradition he was later named a Doctor of the Church.
+related:
+  - name: Flavian of Constantinople
+    note: Archbishop of Constantinople to whom Leo addressed his dogmatic Tome on the two natures of Christ.
+patronage:
+  - Defenders of the Orthodox faith
+  - Those facing invasion or threat to their city
+works:
+  - title: The Tome of Leo (Epistle to Flavian)
+    desc: A dogmatic letter defining the union of the two natures of Christ in one person, acclaimed at the Council of Chalcedon.
+    date: "449"
+  - title: Sermons
+    desc: A body of about ninety-six sermons on the feasts of the Church year and the Christian life.
+    date: ""
+  - title: Letters
+    desc: A collection of roughly one hundred and forty-three letters on the doctrinal and disciplinary affairs of the Church.
+    date: ""
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Feb 18
+  - https://en.wikipedia.org/wiki/Pope_Leo_I
+  - https://orthodoxwiki.org/Leo_the_Great
+  - https://www.britannica.com/biography/Saint-Leo-I
+generated: "2026-06-19"

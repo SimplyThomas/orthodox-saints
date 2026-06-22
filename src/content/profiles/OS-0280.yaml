@@ -1,0 +1,53 @@
+id: OS-0280
+liturgicalTitle: Our Venerable Father Cloud (Clodoald) of Nogent
+lifespan: c. 522 – 560
+overview:
+  - Cloud, known in the Frankish sources by his native name Clodoald, was a Merovingian prince of the sixth century who renounced his claim to the throne to live as a hermit and monk near Paris. He was a grandson of King Clovis I and of his wife St. Clotilde, and a son of Chlodomer, King of Orléans. After his father died in battle in 524, Cloud and his two brothers were left in the care of their grandmother Clotilde.
+  - By tradition, when their uncles Childebert and Chlothar moved to seize the inheritance of Chlodomer's sons, they had the two older boys killed. Cloud alone escaped, taken to safety by faithful supporters, and thereafter renounced any claim to royal power. He withdrew from political life and devoted himself to study and prayer, becoming a disciple of the hermit Severin near Paris.
+  - Cloud was ordained priest by Eusebius, Bishop of Paris, in 551, and gathered a community of monks at Nogent, on the Seine below Paris, the place afterward called Saint-Cloud in his memory. He was remembered for his generosity to the poor and his care for the religious instruction of the people. He died on 7 September 560, the day on which he is commemorated. A pre-schism Western saint, he is venerated in the Orthodox Church, and his relics are kept in the church that bears his name.
+sections:
+  - heading: Renunciation of the Throne
+    body:
+      - The defining act of Cloud's life, as the tradition relates it, was his refusal of the royal inheritance for which his brothers had been killed. As a surviving grandson of Clovis I, he held a legitimate claim within the Merovingian dynasty, but he set it aside entirely to embrace the monastic and clerical state.
+      - Because his royal birth made solitude difficult near Paris, the tradition holds that he first withdrew further south before returning to the region of Paris. There he placed himself under the direction of the hermit Severin and gave himself to the study of Scripture.
+  - heading: Priesthood and the Monastery at Nogent
+    body:
+      - Cloud was ordained to the priesthood by Eusebius, Bishop of Paris, in 551. He afterward established a monastic community at Nogent on the Seine, a short distance below Paris. The settlement that grew around his foundation came to bear his name as Saint-Cloud, today a suburb of Paris.
+      - Accounts of his ministry emphasize his charity toward the poor and his attention to teaching and the instruction of the people in the faith, rather than the pursuit of ecclesiastical advancement.
+timeline:
+  - when: c. 522
+    title: Birth
+    body: Born a Merovingian prince, son of Chlodomer of Orléans and grandson of Clovis I and St. Clotilde.
+  - when: "524"
+    title: Death of his father
+    body: Chlodomer died in battle, leaving Cloud and his brothers in the care of their grandmother Clotilde.
+  - when: "551"
+    title: Ordained priest
+    body: Ordained to the priesthood by Eusebius, Bishop of Paris.
+  - when: "560"
+    title: Repose
+    body: Died on 7 September at Nogent (Saint-Cloud), near Paris.
+related:
+  - name: Righteous Queen Clotilde
+    note: His grandmother, wife of Clovis I, who raised him after his father's death
+    href: saint/OS-2691
+family:
+  heading: Family
+  intro: Cloud was a member of the Merovingian royal house descended from Clovis I.
+  figures:
+    - name: Clovis I
+      note: Grandfather; King of the Franks
+    - name: St. Clotilde
+      note: Grandmother; queen who raised him
+      href: saint/OS-2691
+    - name: Chlodomer
+      note: Father; King of Orléans, died in battle in 524
+patronage:
+  - Saint-Cloud and other towns named for him
+status: draft
+sources:
+  - Synaxarion
+  - https://en.wikipedia.org/wiki/Clodoald (via search summary, angelusnews.com)
+  - https://orthodoxwiki.org/Cloud
+  - https://en.wikipedia.org/wiki/Clodoald
+generated: "2026-06-20"

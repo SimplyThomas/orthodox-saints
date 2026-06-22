@@ -1,0 +1,66 @@
+id: OS-0476
+liturgicalTitle: Our Father among the Saints Cyril, Archbishop of Alexandria
+lifespan: c. 376 – 444
+overview:
+  - Cyril of Alexandria was Archbishop of Alexandria in the first half of the fifth century and one of the principal theologians of the early Church. Born of a Christian family in Egypt around 376, he was the nephew of Theophilus, Patriarch of Alexandria, under whom he was educated and ordained to the diaconate. He succeeded his uncle to the patriarchal throne in 412 and governed the Alexandrian Church for some thirty-two years until his death in 444.
+  - Cyril is remembered above all for his defense of the title Theotokos, "Mother of God," against Nestorius, Archbishop of Constantinople, who taught that Mary should rather be called Christotokos, "Birth-giver of Christ." Cyril held that this distinction divided the one Christ into two persons and undermined the union of divine and human in the Incarnation. He pressed the matter through a series of letters to Nestorius and to the wider Church, and his Third Epistle to Nestorius carried twelve anathemas summarizing the errors he sought to condemn.
+  - The controversy was settled at the Third Ecumenical Council, convened at Ephesus in 431 by the Emperor Theodosius II, over which Cyril presided. The council, attended by some two hundred bishops, condemned the teaching of Nestorius, deposed him, and affirmed the use of the title Theotokos. Cyril was a prolific writer whose works of scriptural commentary and dogmatic theology gave him an enduring authority among the Fathers, and the Orthodox Church honors him among the great defenders of the faith.
+sections:
+  - heading: Early Life and Formation
+    body:
+      - Cyril was born in Egypt around 376 into an illustrious and pious Christian family. His uncle Theophilus, Patriarch of Alexandria, oversaw his upbringing and education in scripture, Christian doctrine, and the secular learning of the day. By tradition he spent several years in his youth among the monks of the Nitrian desert, in the monastic settlement associated with Saint Macarius, before returning to the service of the Alexandrian Church.
+      - Theophilus ordained Cyril to the diaconate and appointed him to preach. Cyril accompanied his uncle to Constantinople in 403 for the synod known as the Synod of the Oak. When Theophilus died in 412, Cyril was chosen to succeed him as Patriarch of Alexandria, taking up an office he would hold for thirty-two years.
+  - heading: The Nestorian Controversy
+    body:
+      - After Nestorius became Archbishop of Constantinople in 428, he objected to the long-established title Theotokos for the Virgin Mary, preferring Christotokos and teaching a sharp distinction between the divine and human in Christ. Cyril regarded this as a denial of the true union in the one incarnate Christ, who is at once God and man.
+      - Cyril first sought to recall Nestorius from his error through private and pastoral letters, and when this failed he set the dispute before the wider Church, writing to the clergy of Constantinople, to the Emperor Theodosius II, to Pope Celestine of Rome, and to other bishops. His Second and Third Epistles to Nestorius became central documents of the controversy, the latter appending twelve anathemas against the doctrines he condemned.
+  - heading: The Council of Ephesus
+    body:
+      - The Emperor Theodosius II convened the Third Ecumenical Council at Ephesus in 431 to resolve the dispute. With Cyril presiding and some two hundred bishops gathered, the council examined and condemned the teaching of Nestorius, who, though present in the city, declined to appear before it. The council deposed Nestorius and affirmed that Mary is rightly called Theotokos, because the one born of her is God the Word made man.
+      - The proceedings were contested and Cyril himself was for a time placed under arrest amid the conflict between the parties, but the council's judgment against Nestorius stood and the deposed archbishop was sent into exile. The defense of the unity of Christ articulated at Ephesus became a permanent part of the Church's confession.
+  - heading: Writings and Repose
+    body:
+      - Cyril was a prolific theologian and exegete. Among his works are commentaries on books of the Old Testament and on the Gospel of John, the dogmatic treatise known as the Thesaurus, discourses against the Arians, dialogues on the Holy Trinity, and his writings against Nestorius, including the Five Books against Nestorius. These works secured his place among the most authoritative of the Church Fathers.
+      - Cyril reposed in 444. The Orthodox Church commemorates him on June 9 and, together with Saint Athanasius the Great of Alexandria, on January 18. In the tradition he is honored as a Pillar of Faith and is numbered among the great teachers and defenders of Orthodox doctrine.
+timeline:
+  - when: c. 376
+    title: Birth in Egypt
+    body: Cyril is born into a Christian family in Egypt, nephew of Theophilus of Alexandria.
+  - when: "403"
+    title: Synod of the Oak
+    body: Accompanies his uncle Theophilus to Constantinople for the synod.
+  - when: "412"
+    title: Patriarch of Alexandria
+    body: Succeeds Theophilus as Archbishop of Alexandria.
+  - when: "428"
+    title: Conflict with Nestorius begins
+    body: Nestorius becomes Archbishop of Constantinople and rejects the title Theotokos.
+  - when: "431"
+    title: Council of Ephesus
+    body: Presides over the Third Ecumenical Council, which condemns and deposes Nestorius.
+  - when: "444"
+    title: Repose
+    body: Cyril dies after thirty-two years as Patriarch of Alexandria.
+related:
+  - name: St. Athanasius the Great
+    note: Predecessor as Archbishop of Alexandria, with whom Cyril shares the January 18 commemoration.
+    href: saint/OS-0024
+patronage:
+  - Invoked as a defender of the Orthodox faith and of the confession of the Theotokos.
+  - Honored among teachers and theologians for his scriptural and dogmatic writings.
+works:
+  - title: Commentary on the Gospel of John
+    desc: A major exegetical commentary defending the divinity of Christ.
+  - title: Thesaurus
+    desc: A dogmatic treatise on the Holy Trinity against the Arians.
+  - title: Five Books against Nestorius
+    desc: A sustained refutation of the teaching of Nestorius.
+  - title: Third Epistle to Nestorius
+    desc: The letter containing the twelve anathemas against Nestorian doctrine.
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Jan 18
+  - https://www.oca.org/saints/lives/0578/06/09/101595-saint-cyril-archbishop-of-alexandria
+  - https://en.wikipedia.org/wiki/Cyril_of_Alexandria
+  - https://orthodoxwiki.org/Cyril_of_Alexandria
+generated: "2026-06-19"

@@ -1,0 +1,26 @@
+id: OS-0206
+liturgicalTitle: Our Father among the Saints Salvinus, Bishop of Verdun
+lifespan: died c. 420
+overview:
+  - Salvinus was the third Bishop of Verdun, a see located in the region of northern Gaul known in modern times as north-eastern France. He is recorded as the successor of St. Maurus of Verdun and is traditionally placed in the episcopal list between Maurus (who died c. 383) and Arator (who served from approximately 440). According to the chronicle tradition preserved in later ecclesiastical sources, Salvinus was elected to the see some years after the death of his predecessor and held the episcopate for approximately three decades, dying around the year 420.
+  - The historical documentation for Salvinus is extremely sparse. The Catholic Encyclopedia notes that the early bishops of Verdun — including Maurus, Salvinus, and Arator — are attested by local tradition rather than by contemporary documentary evidence; the first bishop of Verdun known from historically verified records is St. Polychronius, who lived in the mid-fifth century. Salvinus thus belongs to the legendary-traditional stratum of the early Verdun episcopal succession, his existence and sequence preserved in the diocesan memory of the Church of Verdun without surviving narrative accounts of his life or ministry.
+  - He is venerated among the pre-schism Western saints kept in the Orthodox calendar, with his feast observed on September 4. His successor in the see, St. Arator of Verdun, is likewise commemorated in the same tradition, on September 6.
+timeline:
+  - when: c. 389
+    title: Elected Bishop of Verdun
+    body: By tradition, Salvinus was elected to the see of Verdun some years after the death of his predecessor Maurus (c. 383).
+  - when: c. 420
+    title: Repose
+    body: Salvinus died around 420, having served as bishop for approximately three decades; he was succeeded by Arator.
+related:
+  - name: St. Arator of Verdun
+    note: fourth Bishop of Verdun, immediate successor of Salvinus
+    href: saint/OS-0250
+status: draft
+sources:
+  - Latin Saints of the Orthodox Patriarchate of Rome
+  - https://www.newadvent.org/cathen/15350c.htm
+  - https://en.wikipedia.org/wiki/Bishops_of_Verdun
+  - https://www.wikidata.org/wiki/Q22582423
+  - https://drjohnhutchisonhall.com/saints-west-4-sep-22-aug-2024/
+generated: "2026-06-21"

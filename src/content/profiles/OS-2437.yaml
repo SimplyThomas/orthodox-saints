@@ -1,0 +1,81 @@
+id: OS-2437
+liturgicalTitle: Our Father among the Saints Macarius, Metropolitan of Moscow and All Russia
+lifespan: c. 1482 – 1563
+overview:
+  - Macarius, Metropolitan of Moscow and All Russia, was one of the most influential hierarchs of sixteenth-century Russia. Born around 1482 in the Moscow region, with the secular name believed to have been Mikhail, he became a monk at the St. Paphnutius Monastery in Borovsk, where he served as reader, subdeacon, deacon, and priest, and learned the art of icon painting.
+  - After serving as Archbishop of Novgorod and Pskov from 1526, he was elected Metropolitan of Moscow and All Russia in 1542. In that office he presided over the coronation of Ivan IV as the first Russian tsar, convened the Stoglav Council of 1551, and directed the canonization of dozens of Russian saints. He is best remembered as the compiler of the Great Menaion Reader, a vast twelve-volume collection of saints' lives and edifying texts. He reposed in 1563 and was glorified by the Russian Orthodox Church in 1988; his feast is kept on December 30.
+sections:
+  - heading: Early Life and Episcopal Service
+    body:
+      - Macarius was born around 1482 in the region of Moscow. In the late fifteenth century he entered the St. Paphnutius Monastery in Borovsk as a monk, advancing through the ranks of reader, subdeacon, deacon, and priest, and acquiring skill as an iconographer. In 1523 Metropolitan Daniel elevated him to archimandrite of a monastery in Mozhaisk.
+      - In 1526 he was appointed Archbishop of Novgorod and Pskov, an office he held until 1542. During his Novgorod years he promoted Muscovite ecclesiastical and political interests and sponsored missionary efforts among the Finno-Ugric peoples in the 1530s.
+  - heading: The Great Menaion Reader
+    body:
+      - Macarius is principally known for the Great Menaion Reader (Velikie Minei-Chetii), a monumental twelve-volume compilation of saints' lives and other edifying writings arranged according to the months of the church year. The first edition was completed in 1541, during his tenure at Novgorod, with later editions completed in 1552 and 1554.
+      - He also initiated the Stepennaya Kniga (Book of Royal Degrees), a genealogical and historical work that traced the lineage of Ivan IV, controversially connecting it to a purported brother of the Emperor Augustus.
+  - heading: Metropolitan of Moscow
+    body:
+      - Macarius was elected Metropolitan of Moscow and All Russia on 16 March 1542. On 16 January 1547 he arranged and presided over the coronation of Ivan IV as tsar, and in the same year he blessed the tsar's marriage to Anastasia Zakharyina-Yuryeva.
+      - He took an active part in the assemblies (zemsky sobors) of 1547, 1549, and 1550, and during Ivan's Kazan campaign of 1559 he served for a time as head of state.
+  - heading: Church Councils and Canonizations
+    body:
+      - In 1551 Macarius, together with the tsar, convened the Stoglav Council (Council of the Hundred Chapters), which addressed matters of church discipline, liturgy, and reform. Through a series of synods he directed the canonization of thirty-nine all-Russian saints, an effort that gave a common, nationwide footing to the veneration of figures who had previously been honored only locally.
+  - heading: Repose and Glorification
+    body:
+      - Macarius died on 12 January 1563 in Moscow and was buried in the Cathedral of the Dormition in the Moscow Kremlin. Although his name appeared in lists of saints as early as the eighteenth century, he was formally glorified by the Russian Orthodox Church in 1988. His feast is observed on December 30.
+timeline:
+  - when: c. 1482
+    title: Birth
+    body: Born in the Moscow region; secular name believed to be Mikhail.
+  - when: "1523"
+    title: Archimandrite of Mozhaisk
+    body: Made archimandrite of a monastery in Mozhaisk by Metropolitan Daniel.
+  - when: "1526"
+    title: Archbishop of Novgorod
+    body: Appointed Archbishop of Novgorod and Pskov.
+  - when: "1541"
+    title: First edition of the Great Menaion Reader
+    body: Completed the first edition of the Great Menaion Reader.
+  - when: "1542"
+    title: Metropolitan of Moscow
+    body: Elected Metropolitan of Moscow and All Russia (16 March).
+  - when: "1547"
+    title: Coronation of Ivan IV
+    body: Crowned Ivan IV as tsar (16 January) and blessed his marriage.
+  - when: "1551"
+    title: Stoglav Council
+    body: Convened the Stoglav Council with Ivan IV.
+  - when: 1552 and 1554
+    title: Further editions of the Menaion Reader
+    body: Completed the second and third editions of the Great Menaion Reader.
+  - when: "1559"
+    title: Regent during the Kazan campaign
+    body: Served as temporary head of state during Ivan's Kazan campaign.
+  - when: "1563"
+    title: Repose
+    body: Reposed on 12 January; buried in the Cathedral of the Dormition in the Moscow Kremlin.
+  - when: "1988"
+    title: Glorification
+    body: Glorified by the Russian Orthodox Church.
+related:
+  - name: Venerable Paphnutius, Abbot of Borov
+    note: Paphnutius of Borovsk, founder of the monastery where Macarius received the monastic tonsure.
+    href: saint/OS-1087
+  - name: Hieromartyr Philip, Metropolitan of Moscow
+    note: Philip, another Metropolitan of Moscow.
+    href: saint/OS-0418
+  - name: Venerable Joseph of Volokolamsk
+    note: Joseph of Volokolamsk, a leading figure of the Russian monastic tradition of the period.
+    href: saint/OS-0330
+patronage: []
+works:
+  - title: The Great Menaion Reader (Velikie Minei-Chetii)
+    desc: A monumental twelve-volume compilation of saints' lives and edifying writings arranged by the months of the church year, with editions completed in 1541, 1552, and 1554.
+  - title: The Stepennaya Kniga (Book of Royal Degrees)
+    desc: A genealogical and historical work, which he initiated, tracing the lineage of Ivan IV.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Macarius,_Metropolitan_of_Moscow
+  - https://orthodoxwiki.org/Macarius_of_Moscow
+status: draft
+generated: "2026-06-21"

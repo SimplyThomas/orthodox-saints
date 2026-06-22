@@ -1,0 +1,44 @@
+id: OS-0790
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - en.wikipedia.org
+  - https://en.wikipedia.org/wiki/Paul_the_Simple
+  - https://www.oca.org/saints/lives/1000/03/07/100692-venerable-paul-the-simple-disciple-of-venerable-anthony-the-grea
+lifespan: 4th century
+liturgicalTitle: Our Venerable Father Paul the Simple, Disciple of Anthony the Great
+overview:
+  - Paul the Simple was a fourth-century Egyptian who came late in life to the monastic discipline of the desert. He had lived as a married farmer until, by tradition, he discovered his wife's infidelity and left the world for the wilderness, where he sought out Anthony the Great and asked to be received as a disciple.
+  - He was given the name "the Simple" for his simplicity of heart and his gentleness, qualities that the desert tradition came to hold up as a model of guileless obedience. Although he embraced the ascetic life only in old age, he was eventually granted, according to his vita, the gifts of spiritual discernment and authority over demons, becoming one of the better-known figures among the early Egyptian monks.
+timeline:
+  - when: 4th century
+    title: Life as a married farmer in Egypt
+    body: Paul lived in fourth-century Egypt and worked as a farmer. He had been married, and by the account of his life he turned to monasticism after discovering his wife's infidelity.
+  - when: c. age 60
+    title: Comes to Anthony the Great
+    body: Already about sixty years old, Paul left the world and went into the desert to Anthony the Great, asking to become a monk. Anthony at first refused him, saying he was unfit for the harshness of the hermit's life and that a man of his age should remain a pious laborer.
+  - when: after his arrival
+    title: Perseverance and testing
+    body: Paul stood outside Anthony's cell for several days, declaring that he would sooner die than depart. Anthony then received him and tested his endurance and humility through hard work, severe fasting, nightly vigils, constant singing of Psalms, and prostrations, before settling him into a separate cell.
+  - when: later life
+    title: Gifts of discernment and exorcism
+    body: Over many years of ascetic struggle the Lord granted Paul both discernment and the power to cast out demons. By his vita, Anthony directed a possessed youth to Paul, saying that this affliction was beyond his own authority but that Paul had this gift.
+sections:
+  - heading: Discipleship Under Anthony the Great
+    body:
+      - When Paul presented himself to Anthony the Great, the elder discouraged him, doubting that a man of sixty could take up so radical a way of life and urging him instead to remain content as a pious laborer. Paul refused to leave, standing outside the cell until Anthony, by one account fearing he might die from exposure, took him in.
+      - Anthony then subjected him to a deliberate course of testing. The vita describes hard labor, severe fasting, nightly vigils, constant singing of Psalms, and prostrations. The tradition relates that among his tasks Paul was set to weave rope from palm leaves, which Anthony would have him undo and redo to prove his obedience, and that at one meal Anthony gave him only a crust of bread to teach that a single crust suffices for a monk — a lesson Paul accepted without complaint. Satisfied with his dedication and humility, Anthony eventually permitted Paul a separate cell some distance from his own.
+  - heading: Miracles and Traditions
+    body:
+      - Paul became known for casting out demons, and the tradition holds that Anthony acknowledged Paul's gift as surpassing his own in this respect, saying that he himself had not received power over the prince of the demons but that Paul the Simple had this gift.
+      - "His life records that, after many years of ascetic struggle marked by numerous miracles, he departed to the Lord. The later monastic tradition cherished his memory: John Climacus, abbot of Sinai, praised him as a clear example, calling Paul the Simple the rule and type of blessed simplicity."
+  - heading: Sources and Veneration
+    body:
+      - Paul's life is preserved in the early monastic literature, notably the account associated with Palladius of Helenopolis (the Lausiac History) and that of Tyrannius Rufinus, sources that transmitted the lives of the Egyptian desert fathers to the wider Church.
+      - He is venerated in the Eastern Orthodox tradition and is also commemorated in the Roman Catholic and Anglican traditions. In Orthodox usage his feast is kept on March 7 and again on October 4.
+patronage: []
+related:
+  - name: St. Anthony the Great
+    note: His spiritual father, who received him into the desert and trained him in the monastic life.
+    href: saint/OS-0026
+status: draft
+generated: "2026-06-19"

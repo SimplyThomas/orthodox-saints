@@ -1,0 +1,40 @@
+id: OS-1243
+liturgicalTitle: Our Father among the Saints Augustine, Archbishop of Canterbury, Apostle to the English
+lifespan: died c. 604
+overview:
+  - Augustine of Canterbury was a monk of Rome whom Pope Saint Gregory the Great (Gregory the Dialogist) sent at the head of about forty brethren to preach the Gospel to the Anglo-Saxons. Landing in Kent in 597, he became the first Archbishop of Canterbury and the principal figure in the conversion of the English. He is venerated as a pre-schism Western saint and is commemorated on May 26. He is distinct from the earlier Saint Augustine of Hippo.
+  - Before his mission Augustine had been prior of the monastery of Saint Andrew in Rome. Gregory chose him to lead the company sent to Britain; according to the tradition the missionaries lost heart on the journey and turned back to consult the pope, but Gregory urged them onward, and they continued to the kingdom of Kent. There the way had in part been prepared, for King Ethelbert had married Bertha, a Christian Frankish princess, who had brought a bishop with her and so maintained Christian worship at the royal court.
+  - King Ethelbert received the missionaries and permitted them to settle and preach in his capital at Canterbury. The king was converted, and great numbers of his people followed him to baptism. Augustine was consecrated a bishop and fixed his see at Canterbury, founding there a monastery dedicated to the Apostles Peter and Paul. He labored to organize the young church, consecrating further bishops for the English, and reposed in the early seventh century, having arranged for the consecration of his successor.
+sections:
+  - heading: The Mission to the English
+    body:
+      - The mission was conceived and directed by Pope Gregory the Great, who took a personal interest in the evangelization of the Anglo-Saxons and remained in correspondence with Augustine, sending instruction and further laborers. Gregory reported that more than ten thousand Christians had been baptized, the tradition placing a great baptism at Christmas. The seed planted in Kent spread outward, and in 604 Augustine consecrated Mellitus as bishop for London and Justus as bishop for Rochester, extending the church's structure beyond Canterbury.
+      - Augustine also sought to bring the existing British (Welsh) Christians into common order and under his oversight, but the meeting with their bishops did not succeed; the tradition relates that they declined to acknowledge his authority. This left the older British church and the new mission from Rome as distinct bodies, a division that would be addressed by later generations.
+timeline:
+  - when: c. 595–596
+    title: Sent by Gregory the Great
+    body: Augustine, prior of the monastery of Saint Andrew in Rome, is chosen to lead the mission to the Anglo-Saxons.
+  - when: "597"
+    title: Landing in Kent
+    body: Augustine and his companions land in Kent and are received by King Ethelbert, whose conversion follows.
+  - when: "597"
+    title: Archbishop of Canterbury
+    body: Augustine is consecrated bishop and establishes his see at Canterbury, becoming its first archbishop.
+  - when: "604"
+    title: Bishops for London and Rochester
+    body: He consecrates Mellitus as bishop of London and Justus as bishop of Rochester.
+  - when: c. 604
+    title: Repose
+    body: Augustine reposes on May 26, having arranged for the consecration of his successor, Laurence.
+related:
+  - name: St. Gregory the Great, Pope of Rome
+    note: Pope of Rome who sent and directed the mission to England
+    href: saint/OS-0164
+patronage:
+  - Invoked as the apostle and enlightener of the English
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Augustine_of_Canterbury
+  - https://orthodoxwiki.org/Augustine_of_Canterbury
+generated: "2026-06-19"

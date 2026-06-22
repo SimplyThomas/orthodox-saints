@@ -1,0 +1,38 @@
+id: OS-2280
+liturgicalTitle: Our Father among the Saints Peter, First Catholicos of Georgia
+lifespan: fl. 460s – early 6th century
+overview:
+  - Saint Peter was the first catholicos of the Church of Kartli (eastern Georgia), the senior hierarch whose installation gave the Georgian Church its own head of the rank of catholicos. According to the tradition preserved in the Georgian and Orthodox synaxaria, he led the Church from the 460s through the beginning of the sixth century, during the reign of King Vakhtang I Gorgasali. He is commemorated on November 30, the same day as the king with whom his ministry was bound.
+  - By tradition Peter was a pupil of Saint Gregory the Theologian whom King Vakhtang met during a visit to Byzantium and to whom he became closely attached. At the king's request the Patriarch of Constantinople approved the institution of the rank of catholicos for Georgia. Because the Georgian Church remained under the jurisdiction of the Patriarch of Antioch at that time, Peter and the priest Samuel were sent to the Antiochian patriarch himself to be elevated, and the autocephaly of the Georgian Church was proclaimed upon the arrival of these holy fathers in Georgia.
+  - As catholicos Peter governed the Church according to the principle of autocephaly and established a form of self-rule for the Georgian hierarchy, helping to set in place the line of Georgian chief shepherds. The sources relate that he accompanied King Vakhtang on his war with the Persians in 502, heard the dying king's last confession, and blessed the prince Dachi to succeed him. He was succeeded as catholicos by Samuel, who had come with him to Georgia as a bishop. Saints Peter and Samuel were formally canonized by the Georgian Apostolic Orthodox Church on October 17, 2002.
+sections:
+  - heading: Institution of the Catholicate and Autocephaly
+    body:
+      - The synaxarion ties Peter's elevation directly to King Vakhtang Gorgasali's efforts to strengthen and order the Georgian Church. The king petitioned the Patriarch of Constantinople to institute the rank of catholicos for Georgia, and the patriarch approved the request. Because Georgia still lay under the canonical jurisdiction of the Patriarchate of Antioch, Peter and Samuel travelled to the Antiochian patriarch to receive their elevation.
+      - The accounts relate that twelve bishops accompanied the new catholicos to Georgia, and that the autocephaly of the Georgian Church was proclaimed upon their arrival. Under Peter the Church was administered on the principle of autocephaly and a structure of self-rule was established, an arrangement that the tradition regards as the foundation of the independent Georgian hierarchy.
+timeline:
+  - when: 460s
+    title: Begins leading the Church of Kartli
+    body: Peter heads the Georgian Church from the 460s through the early sixth century.
+  - when: fl. late 5th c.
+    title: Elevated as first catholicos
+    body: At King Vakhtang's request, and with the approval of Constantinople, Peter is elevated by the Patriarch of Antioch and autocephaly is proclaimed on his arrival in Georgia.
+  - when: "502"
+    title: Death of King Vakhtang
+    body: Peter accompanies Vakhtang to war with the Persians, hears the dying king's final confession, and blesses the prince Dachi to succeed him.
+  - when: "2002"
+    title: Canonization
+    body: Saints Peter and Samuel are canonized by the Georgian Apostolic Orthodox Church on October 17, 2002.
+related:
+  - name: St. Vakhtang Gorgasali, King of Georgia
+    note: The king at whose request Peter was elevated catholicos; commemorated the same day.
+    href: saint/OS-2279
+  - name: St. Samuel, second Catholicos of Georgia
+    note: Came with Peter to Georgia as a bishop and succeeded him as catholicos.
+    href: saint/OS-2281
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2022/11/30/205466-hierarch-peter-first-catholicos-of-georgia
+  - https://www.johnsanidopoulos.com/2017/11/holy-hierarchs-peter-and-samuel-first.html
+generated: "2026-06-21"

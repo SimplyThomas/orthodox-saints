@@ -26,9 +26,7 @@ test("a saint without a profile renders no profile sections", async ({
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
-test("Basil's timeline, holy family, and related saints render", async ({
-  page,
-}) => {
+test("Basil's timeline and companions & kin render", async ({ page }) => {
   await page.goto("./saint/OS-0021/");
   // Timeline sits in the band beneath the columns (beside the quote).
   await expect(
@@ -37,26 +35,25 @@ test("Basil's timeline, holy family, and related saints render", async ({
   expect(await page.locator(".sv-timeline li").count()).toBeGreaterThanOrEqual(
     5,
   );
+  // The deep-dives start collapsed; open the Timeline panel to read it.
+  await page.locator(".sv-tl-title").click();
   await expect(
     page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
-  // Holy Family + Related Saints sit in the "after" region beneath the legacy band.
-  const after = page.locator(".sv-after");
+  // Family + related are unified into one "companions & kin" avatar grid.
+  const kin = page.locator(".sv-related");
+  await expect(kin.locator(".sv-secthead")).toContainText("companions & kin");
   await expect(
-    after.locator("h2", { hasText: "Holy Family of Cappadocia" }),
+    kin.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (brother)
   ).toBeVisible();
   await expect(
-    after.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (family + related)
+    kin.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom (fellow hierarch)
   ).toBeVisible();
-  // Naucratius is not in the dataset → plain name, never a link.
-  await expect(after.locator("li", { hasText: "Naucratius" })).toBeVisible();
-  await expect(
-    after.locator("li", { hasText: "Naucratius" }).locator("a"),
-  ).toHaveCount(0);
-  await expect(
-    after.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom
-  ).toBeVisible();
+  // Naucratius is not in the dataset → a card with no link.
+  const nau = kin.locator(".sv-relcard", { hasText: "Naucratius" });
+  await expect(nau).toBeVisible();
+  await expect(nau.locator("a")).toHaveCount(0);
 });
 
 test("Basil's contributions & legacy render in the full-width band", async ({
@@ -66,6 +63,8 @@ test("Basil's contributions & legacy render in the full-width band", async ({
   await expect(
     page.locator(".sv-legacy-title", { hasText: "Contributions & Legacy" }),
   ).toBeVisible();
+  // Collapsed by default — open the Legacy panel to read the cards.
+  await page.locator(".sv-legacy-title").click();
   for (const h of [
     "Theology of the Holy Spirit",
     "Father of Eastern Monasticism",
@@ -86,6 +85,8 @@ test("Basil's Notable Works render beneath the legacy band", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  // Works & Further Reading is one collapsible — open it.
+  await page.locator("details.sv-deep:has(.sv-works-after) summary").click();
   const works = page.locator(".sv-after .sv-works-after");
   await expect(works.locator("h2", { hasText: "Notable Works" })).toBeVisible();
   await expect(
@@ -97,6 +98,8 @@ test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", a
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  // Works & Further Reading is one collapsible — open it.
+  await page.locator("details.sv-deep:has(.sv-reading) summary").click();
   const reading = page.locator(".sv-after .sv-reading");
   await expect(
     reading.locator("h2", { hasText: "Further Reading" }),
@@ -124,14 +127,23 @@ test("Basil's themes, life experience, and patronage sit in the icon rail", asyn
   ).toBeVisible();
 });
 
-test("Basil's page shows one sourced public-domain quote", async ({ page }) => {
+test("Basil's page shows sourced public-domain quotes in a collapsible", async ({
+  page,
+}) => {
   await page.goto("./saint/OS-0021/");
-  await expect(page.locator(".sv-quote blockquote")).toBeVisible();
+  const words = page.locator(".sv-words");
+  // "In his own words" — gender-aware label, collapsible (multiple quotes).
+  await expect(words.locator("summary")).toContainText("In his own words");
+  const quotes = words.locator(".sv-words-quote");
+  expect(await quotes.count()).toBeGreaterThanOrEqual(3);
+  // Collapsed by default — open it to read the quotes.
+  await words.locator("summary").click();
+  await expect(quotes.first().locator("blockquote")).toBeVisible();
   // Cited to On the Holy Spirit, public-domain NPNF translation.
-  await expect(page.locator(".sv-quote figcaption")).toContainText(
+  await expect(words.locator("figcaption").first()).toContainText(
     "On the Holy Spirit",
   );
-  await expect(page.locator(".sv-quote .sv-quote-trans")).toContainText("NPNF");
+  await expect(words.locator(".sv-quote-trans").first()).toContainText("NPNF");
 });
 
 test("the Theotokos page shows the vendor-permission icon attribution", async ({

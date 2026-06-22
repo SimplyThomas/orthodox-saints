@@ -1,0 +1,52 @@
+id: OS-0028
+liturgicalTitle: Our Venerable Father Pachomius the Great, Founder of Cenobitic Monasticism
+lifespan: c. 292 – c. 348
+overview:
+  - Pachomius the Great was a fourth-century Egyptian ascetic, commemorated on May 15, who is venerated as the founder of cenobitic (communal) monasticism. Where the earliest Christian ascetics had withdrawn into the desert as solitary hermits, Pachomius gathered monks into an organized community living under a common rule, sharing the same food, clothing, and labor for the good of the brotherhood. The tradition records that he was the first to set down a written monastic rule.
+  - Born in the Thebaid of Upper Egypt to pagan parents who gave him a secular education, Pachomius was conscripted as a young man into the imperial army. While he and his fellow recruits were held under guard, local Christians cared for and fed them; learning that they acted out of love for God and obedience to His commandment to love their neighbor, he resolved to become a Christian. After his release from military service he was baptized, settling at Shenesit (Chenoboskion), and sought out the desert elder Palamon, under whose guidance he was formed in the ascetic life.
+  - By tradition, at the ruins of Tabennisi an angel appeared to Pachomius in the form of a monk and gave him a tablet inscribed with a rule for the cenobitic life. There he established the first monastery of brethren living in common, and the community grew rapidly; further houses were founded along the Nile, forming a federation under his direction. Sources report that several thousand monks eventually followed his guidance across eight monasteries. He reposed during an epidemic in the middle of the fourth century, before St Anthony the Great and St Athanasius the Great.
+  - The Pachomian rule had an influence on later monasticism reaching well beyond Egypt. Translated into Latin by St Jerome in the early fifth century, it informed the monastic legislation of the Christian West, and it is counted among the sources behind the rule of St Benedict of Nursia. Through it, the communal pattern of life that Pachomius first organized spread across the Christian world.
+sections:
+  - heading: From Soldier to Monk
+    body:
+      - "Pachomius was born in the third century in the Thebaid, the region of Upper Egypt near modern Luxor, to pagan parents who provided him a sound secular education. As a young man of about twenty he was taken up in a military levy under the Emperor Constantine. The decisive turn of his life came not in battle but in confinement: while the conscripts were held under guard, Christians of the locality fed and tended them out of charity. Struck that strangers would show such love, Pachomius vowed to embrace their faith."
+      - After his discharge he was baptized and went to live at Shenesit. Seeking to give himself wholly to God, he became the disciple of the hermit Palamon, an experienced ascetic of the desert, and lived under his direction for a number of years, learning the discipline of prayer, fasting, and manual labor that prepared him for his own foundation.
+  - heading: The Founding of Cenobitic Monasticism
+    body:
+      - The tradition relates that at the deserted site of Tabennisi an angel appeared to Pachomius clothed as a monk and delivered to him a rule for life in common. Acting on this calling, Pachomius established a monastery in which the brethren no longer lived as isolated hermits but as a single household under obedience. All received the same food and the same clothing, held no personal possessions, and carried out assigned tasks for the common good, with fasting and work apportioned according to each one's strength.
+      - The community attracted many, and additional monasteries were founded, gathered into a federation along the Nile under Pachomius's oversight. Sources give varying numbers—from several hundred to several thousand monks across roughly eight monasteries—but agree that the movement grew swiftly during his lifetime. A women's community was also established under the care of his sister, with whom, by tradition, Pachomius kept strict ascetic detachment, communicating only through intermediaries.
+timeline:
+  - when: c. 292
+    title: Birth in the Thebaid
+    body: Born in Upper Egypt to pagan parents.
+  - when: c. 314
+    title: Conversion and baptism
+    body: Baptized after his release from military service, having been moved by the charity of Christians toward the conscripts.
+  - when: c. 318–323
+    title: Foundation at Tabennisi
+    body: Established the first cenobitic monastery, where the brethren lived in common under a written rule.
+  - when: c. 348
+    title: Repose
+    body: Died during an epidemic in the mid-fourth century.
+related:
+  - name: St. Anthony the Great
+    note: The father of Egyptian monasticism, his elder contemporary; Pachomius reposed before him.
+    href: saint/OS-0026
+  - name: St. Athanasius the Great
+    note: Archbishop of Alexandria during Pachomius's lifetime; Pachomius reposed before him.
+    href: saint/OS-0024
+  - name: Venerable Theodore the Sanctified
+    note: His disciple and successor, who guided the Pachomian monasteries of the Thebaid.
+    href: saint/OS-1180
+  - name: Venerable Horsiesios of Tabennisi
+    note: A later successor who organized the Pachomian federation.
+    href: saint/OS-2742
+patronage:
+  - Venerated as the founder and patron of cenobitic (communal) monastic life.
+status: draft
+sources:
+  - Synaxarion
+  - https://www.oca.org/saints/lives/2015/05/15/101384-venerable-pachomius-the-great-founder-of-coenobitic-monasticism
+  - https://en.wikipedia.org/wiki/Pachomius_the_Great
+  - https://orthodoxwiki.org/Pachomius_the_Great
+generated: "2026-06-19"

@@ -1,0 +1,37 @@
+id: OS-0714
+liturgicalTitle: Our Venerable Father Polycarp of Briansk
+lifespan: died 1620 or 1621
+overview:
+  - Polycarp of Briansk was a Russian monastic of the late sixteenth and early seventeenth centuries who, before his tonsure, was a prince and military commander known in the world as Peter Ivanovich Boryatinsky. According to the synaxarion tradition, he was a descendant of Saint Michael, Prince of Chernigov. He renounced his rank and estate late in life, settled at Briansk, and founded a monastery dedicated to the Transfiguration of the Lord, of which he became the first superior. He is commemorated on February 23.
+  - Boryatinsky's name appears in Russian documents of the sixteenth century in connection with military and administrative service. He was sent to campaign against the Swedish king at the river Sestra and, in 1576, was appointed voevod, or military governor, at Tula. In 1580, while serving as voevod at Kholm, he was taken captive by the Lithuanians during a siege led by Panin. He was released during the rule of Boris Godunov and returned home in disgrace.
+  - In 1591 he was again appointed voevod, this time at Tiumen in Siberia, but after several years he left worldly service entirely. Settling at Briansk, he received monastic tonsure with the name Polycarp and used his own means to build a monastery of the Transfiguration of the Lord, where he instituted a rule of strict ascetic life. He died and was buried at the monastery he had founded, in either 1620 or 1621.
+sections:
+  - heading: Service in the World
+    body:
+      - "Before his monastic life, Polycarp belonged to the princely Boryatinsky family and served the Muscovite state as a commander and provincial governor. The sources record a succession of appointments: a campaign against Sweden at the river Sestra, the governorship of Tula in 1576, and the governorship of Kholm in 1580. His capture by Lithuanian forces during the siege at Kholm and his subsequent return in disgrace after release mark a turn in his recorded career, followed by a final appointment as voevod at Tiumen in 1591."
+  - heading: Monastic Foundation at Briansk
+    body:
+      - After leaving state service, the prince settled at Briansk and was tonsured a monk under the name Polycarp. From his own resources he established a monastery dedicated to the Transfiguration of the Lord, later known as the Briansk Saviour-Transfiguration (Spaso-Preobrazhensk) monastery, and laid down for it a rule of strict ascetic discipline. He served as its first superior until his repose, and was buried within the monastery he had founded.
+timeline:
+  - when: "1576"
+    title: Voevod at Tula
+    body: Boryatinsky was appointed military governor at Tula.
+  - when: "1580"
+    title: Captured at Kholm
+    body: While serving as voevod at Kholm, he was taken captive by the Lithuanians during a siege led by Panin.
+  - when: "1591"
+    title: Voevod at Tiumen
+    body: He was appointed military governor at Tiumen in Siberia.
+  - when: 1620 or 1621
+    title: Repose at Briansk
+    body: He died and was buried at the Transfiguration monastery he had founded.
+related:
+  - name: Martyr Michael, Prince of Chernigov
+    note: Ancestor, according to the synaxarion tradition
+    href: saint/OS-1871
+status: draft
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2029/02/23/100590-venerable-polycarp-of-briansk
+  - https://orthochristian.com/101414.html
+generated: "2026-06-20"
