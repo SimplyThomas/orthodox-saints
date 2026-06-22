@@ -19,7 +19,9 @@ Env: BATCH_SIZE(10) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m
 WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
 PROFILEGEN_USE_WORKFLOW(on by default) — generate via scripts/profilegen.workflow.js
 (per-stage Sonnet/Opus/Sonnet/Haiku); set =0/false/off to fall back to the legacy all-Opus
-path. A clean run that emits 0 profiles is treated as a rate-limit.
+path. A clean run that emits 0 profiles is classified from the orchestrator output: a 429
+rate-limit waits a window (weekly-cap path); a transient 529 overload (or unknown) backs
+off and skips the batch — see limits.zero_production_etype.
 PROFILEGEN_ORCH_MODEL(claude-haiku-4-5-20251001) — model for the thin Workflow-invoking
 orchestrator (the per-stage models live in the script)."""
 import json
@@ -206,10 +208,11 @@ def main() -> int:
             if etype is None and USE_WORKFLOW:
                 produced = len(profiles_present(remaining))
                 outcome = classify_workflow_outcome(produced, len(remaining))
-                if outcome == "none":               # clean exit, 0 emitted → soft limit
-                    etype = "rate_limit_error"
+                if outcome == "none":               # clean exit, 0 emitted — classify cause
+                    etype = limits.zero_production_etype(out)
                     log(f"batch {n}: workflow emitted 0/{len(remaining)} profiles — "
-                        f"treating as a rate-limit signal")
+                        f"classified '{etype}' "
+                        f"({'wait a window' if etype == 'rate_limit_error' else 'backoff + skip'})")
                 else:                               # 'ok' or 'partial' — real progress
                     waits = 0
                     format_profiles(remaining)

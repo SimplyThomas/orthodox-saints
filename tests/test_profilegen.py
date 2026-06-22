@@ -682,13 +682,16 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
         def fake_run_workflow(ids, date):
             calls.append(list(ids))
             step = plan.pop(0) if plan else "all"
+            out = ""                       # a step may be (action, orchestrator_output_text)
+            if isinstance(step, tuple):
+                step, out = step
             if step == "all":
                 produced.update(ids)
             elif step == "none":
                 pass
             elif isinstance(step, int):
                 produced.update(list(ids)[:step])
-            return ("", 0)  # clean output, rc 0 → limits.parse_error_type → None
+            return (out, 0)  # rc 0; out drives limits.zero_production_etype on 0-production
 
         with mock.patch.multiple(
             runner,
@@ -719,23 +722,63 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
         # the resume invocation re-drove ONLY the missing id, not the done one
         self.assertEqual(len(calls[-1]), 1)
 
-    def test_zero_production_retries_within_run(self):
-        # rate-limit synthesis: first attempt emits nothing → wait → retry same ids
+    _RL = "429 rate limit exceeded"          # orchestrator text → rate_limit_error
+    _OVL = "Both gather stages hit 529 Overloaded errors"  # → overloaded_error (transient)
+
+    def test_rate_limited_zero_production_retries_within_run(self):
+        # genuine rate limit: 0 emitted WITH a 429 signal → wait → retry same ids
         produced, calls = set(), []
-        rc = self._run(["A", "B"], ["none", "all"], produced, calls, weekly=3)
+        rc = self._run(["A", "B"], [("none", self._RL), "all"], produced, calls, weekly=3)
         self.assertEqual(rc, 0)
         self.assertEqual(produced, {"A", "B"})
         self.assertEqual(len(calls), 2)
         self.assertEqual(calls[0], calls[1])       # same remaining ids both attempts
 
-    def test_persistent_zero_production_stops_weekly(self):
+    def test_persistent_rate_limit_stops_weekly(self):
         produced, calls = set(), []
-        rc = self._run(["A", "B"], ["none", "none", "none"], produced, calls, weekly=2)
+        rc = self._run(["A", "B"], [("none", self._RL)] * 3, produced, calls, weekly=2)
         self.assertEqual(rc, 2)                     # likely-weekly-cap exit
         self.assertEqual(len(calls), 3)            # 2 waits, then stop on the 3rd
+
+    def test_transient_overload_backs_off_and_skips(self):
+        # 529 Overloaded must NOT trigger the weekly-cap stop — back off, retry,
+        # then skip the batch (MAX_ERR=3) and let the run finish cleanly.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", self._OVL)] * 3, produced, calls, weekly=2)
+        self.assertEqual(rc, 0)                     # finished (not exit 2 weekly-cap)
+        self.assertEqual(len(calls), 3)            # MAX_ERR attempts, then skip
+        self.assertEqual(produced, set())          # nothing forced; batch skipped
+
+    def test_silent_zero_production_backs_off_not_weekly(self):
+        # 0 emitted with NO error signal → 'error' → backoff + skip, never weekly-cap
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], ["none", "none", "none"], produced, calls, weekly=2)
+        self.assertEqual(rc, 0)
+        self.assertEqual(len(calls), 3)
 
     def test_already_complete_batch_is_skipped(self):
         produced, calls = {"A", "B"}, []
         rc = self._run(["A", "B"], [], produced, calls, exclude_produced=False)
         self.assertEqual(rc, 0)
         self.assertEqual(calls, [])                 # all on disk → workflow never called
+
+
+class ZeroProductionClassifyTests(unittest.TestCase):
+    def test_429_is_rate_limit(self):
+        self.assertEqual(limits.zero_production_etype("hit 429 rate limit"), "rate_limit_error")
+
+    def test_529_is_overloaded(self):
+        self.assertEqual(
+            limits.zero_production_etype("Both gather stages hit 529 Overloaded errors"),
+            "overloaded_error")
+
+    def test_unknown_is_error(self):
+        self.assertEqual(limits.zero_production_etype("no profiles written"), "error")
+
+    def test_empty_is_error(self):
+        self.assertEqual(limits.zero_production_etype(""), "error")
+
+    def test_rate_limit_wins_when_both_present(self):
+        self.assertEqual(
+            limits.zero_production_etype("429 rate limit; also 529 overloaded"),
+            "rate_limit_error")
