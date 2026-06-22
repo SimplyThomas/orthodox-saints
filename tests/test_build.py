@@ -738,5 +738,60 @@ class ValidateSaintProfilesTests(unittest.TestCase):
             self.assertTrue(any("name must be OS-####.yaml" in e for e in errors))
 
 
+class RetiredIdsTests(unittest.TestCase):
+    """data/retired_ids.csv: retired IDs must be gone, canonical IDs must exist."""
+
+    def _run(self, retired_rows, valid_ids):
+        """Validate a synthetic retired_ids.csv against `valid_ids`."""
+        import csv as _csv
+
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = tmp / "retired_ids.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.RETIRED_IDS_HEADER)
+            w.writeheader()
+            w.writerows(retired_rows)
+        old_csv = build.RETIRED_IDS_CSV
+        try:
+            build.RETIRED_IDS_CSV = csv_path
+            return build.validate_retired_ids(valid_ids)
+        finally:
+            build.RETIRED_IDS_CSV = old_csv
+
+    def _r(self, **over):
+        row = {"retired_id": "OS-0010", "retired_name": "Old Saint",
+               "canonical_id": "OS-0001", "canonical_name": "Test Martyr",
+               "reason": "Duplicate", "date": "2026-01-01", "pr": "1"}
+        row.update(over)
+        return row
+
+    def test_clean_retired_row_validates(self):
+        errs, _ = self._run([self._r()], {"OS-0001"})
+        self.assertEqual(errs, [])
+
+    def test_retired_id_still_in_active_data_errors(self):
+        # OS-0010 is the retired ID but also in valid_ids — should fail.
+        errs, _ = self._run([self._r()], {"OS-0001", "OS-0010"})
+        self.assertTrue(any("OS-0010" in e for e in errs))
+
+    def test_canonical_id_missing_from_active_data_errors(self):
+        # canonical_id OS-0001 not in valid_ids — should fail.
+        errs, _ = self._run([self._r()], set())
+        self.assertTrue(any("OS-0001" in e for e in errs))
+
+    def test_both_violations_reported_independently(self):
+        # Retired ID still active AND canonical missing → both errors.
+        errs, _ = self._run([self._r()], {"OS-0010"})
+        self.assertTrue(any("OS-0010" in e for e in errs))
+        self.assertTrue(any("OS-0001" in e for e in errs))
+
+    def test_committed_retired_ids_validates(self):
+        valid_ids = {r["Saint ID"].strip() for r in build.load_saints()[1]
+                     if r["Saint ID"].strip()}
+        errs, _ = build.validate_retired_ids(valid_ids)
+        self.assertEqual(errs, [], "committed retired_ids.csv has errors:\n" +
+                         "\n".join(errs))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
