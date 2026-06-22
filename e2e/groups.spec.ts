@@ -15,6 +15,8 @@ test("a group landing page renders its members and type", async ({ page }) => {
 
 test("a member saint page links back to its group", async ({ page }) => {
   await page.goto("./saint/OS-0021/"); // Basil the Great
+  // "Commemorated with" is a collapsible, closed by default — open it.
+  await page.locator("details.sv-comm summary").click();
   const link = page.locator('a[href*="/group/three-hierarchs"]');
   await expect(link).toBeVisible();
   await link.click();

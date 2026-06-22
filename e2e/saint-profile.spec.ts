@@ -35,6 +35,8 @@ test("Basil's timeline and companions & kin render", async ({ page }) => {
   expect(await page.locator(".sv-timeline li").count()).toBeGreaterThanOrEqual(
     5,
   );
+  // The deep-dives start collapsed; open the Timeline panel to read it.
+  await page.locator(".sv-tl-title").click();
   await expect(
     page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
@@ -61,6 +63,8 @@ test("Basil's contributions & legacy render in the full-width band", async ({
   await expect(
     page.locator(".sv-legacy-title", { hasText: "Contributions & Legacy" }),
   ).toBeVisible();
+  // Collapsed by default — open the Legacy panel to read the cards.
+  await page.locator(".sv-legacy-title").click();
   for (const h of [
     "Theology of the Holy Spirit",
     "Father of Eastern Monasticism",
@@ -81,6 +85,8 @@ test("Basil's Notable Works render beneath the legacy band", async ({
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  // Works & Further Reading is one collapsible — open it.
+  await page.locator("details.sv-deep:has(.sv-works-after) summary").click();
   const works = page.locator(".sv-after .sv-works-after");
   await expect(works.locator("h2", { hasText: "Notable Works" })).toBeVisible();
   await expect(
@@ -92,6 +98,8 @@ test("Further Reading sits beneath the legacy band, grouped Ancient / Modern", a
   page,
 }) => {
   await page.goto("./saint/OS-0021/");
+  // Works & Further Reading is one collapsible — open it.
+  await page.locator("details.sv-deep:has(.sv-reading) summary").click();
   const reading = page.locator(".sv-after .sv-reading");
   await expect(
     reading.locator("h2", { hasText: "Further Reading" }),
@@ -128,6 +136,8 @@ test("Basil's page shows sourced public-domain quotes in a collapsible", async (
   await expect(words.locator("summary")).toContainText("In his own words");
   const quotes = words.locator(".sv-words-quote");
   expect(await quotes.count()).toBeGreaterThanOrEqual(3);
+  // Collapsed by default — open it to read the quotes.
+  await words.locator("summary").click();
   await expect(quotes.first().locator("blockquote")).toBeVisible();
   // Cited to On the Holy Spirit, public-domain NPNF translation.
   await expect(words.locator("figcaption").first()).toContainText(

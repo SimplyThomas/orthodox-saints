@@ -494,7 +494,7 @@ const wordsLabel = `In ${possessive} own words`;
       {/* in their own words — a collapsible of verbatim PD quotes */}
       {
         quoteList.length > 0 && (
-          <details class="sv-deep sv-words" open>
+          <details class="sv-deep sv-words">
             <summary class="sv-deep-sum">
               <span class="eyebrow sv-deep-eb">{wordsLabel}</span>
               {quoteList.length > 1 && (
@@ -561,7 +561,7 @@ const wordsLabel = `In ${possessive} own words`;
           <div class="sv-after">
             <div class="sv-after-inner">
               {hasTimeline && (
-                <details class="sv-deep" open>
+                <details class="sv-deep">
                   <summary class="sv-deep-sum">
                     <span class="eyebrow sv-deep-eb sv-tl-title">Timeline</span>
                     <span class="sv-deep-ct">
@@ -600,7 +600,7 @@ const wordsLabel = `In ${possessive} own words`;
               )}
 
               {hasLegacy && (
-                <details class="sv-deep" open>
+                <details class="sv-deep">
                   <summary class="sv-deep-sum">
                     <h2 class="sv-deep-eb sv-legacy-title">
                       Contributions &amp; Legacy
@@ -642,7 +642,7 @@ const wordsLabel = `In ${possessive} own words`;
               )}
 
               {(hasWorks || hasReading) && (
-                <details class="sv-deep" open>
+                <details class="sv-deep">
                   <summary class="sv-deep-sum">
                     <span class="eyebrow sv-deep-eb">
                       Works &amp; Further Reading
@@ -744,7 +744,7 @@ const wordsLabel = `In ${possessive} own words`;
               )}
 
               {hasCommemorated && (
-                <details class="sv-deep sv-comm" open>
+                <details class="sv-deep sv-comm">
                   <summary class="sv-deep-sum">
                     <span class="eyebrow sv-deep-eb">Commemorated with</span>
                     {memberGroups.length > 1 && (
@@ -919,6 +919,21 @@ const wordsLabel = `In ${possessive} own words`;
         }, 1600);
       } catch {
         /* user dismissed the share sheet, or clipboard denied — no-op */
+      }
+    });
+  }
+
+  /* Accordion: the collapsible deep-dives start closed (markup ships without
+     `open`); opening one closes any other that is open, so at most one is
+     expanded at a time. */
+  const deeps = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>("details.sv-deep"),
+  );
+  for (const d of deeps) {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      for (const other of deeps) {
+        if (other !== d && other.open) other.open = false;
       }
     });
   }
