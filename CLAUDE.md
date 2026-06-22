@@ -46,7 +46,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
-│   ├── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
+│   ├── saint_images.csv       ← self-hosted hero-portrait join (saint_id,image_path,license,credit,source)
+│   ├── image_permissions.csv  ← vendor-permission registry (vendor_slug,vendor_name,attribution,homepage,granted,status,terms)
+│   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
 │   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
@@ -227,6 +229,24 @@ detail page, add one row to `data/saint_quotes.csv`
   `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
+
+**Saint depictions (the "Depictions & Icons" carousel).** The saint page's redesign
+carries a horizontal carousel of *additional* icons (the single hero portrait still comes
+from `data/saint_images.csv`). Add **one row per card** to `data/saint_depictions.csv`
+(`saint_id,image_path,license,credit,source,kind,tag,title,era,by`) — **many rows per saint**,
+rendered in file order:
+- `image_path`, `license`, `credit`, `source` follow the **same licensing gate as
+  saint_images** (§9): an open license (`PD`/`PD-art`/`PD-old`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
+  `CC-BY*` needing a `credit`) **or** a `Permission:<vendor_slug>` token resolved against
+  `data/image_permissions.csv`. A permission card **requires** a `source` (the grant condition:
+  each card links to its specific vendor icon page); a revoked vendor's cards are dropped + warn.
+- `kind` ∈ `museum` | `iconographer` | `shop` drives the card tone; `title` (required) is the
+  card heading; `tag`, `era`, `by` are the optional badge / dateline / attribution line.
+- The build joins the cards into the record as `depictions[]` (permission cards gain
+  `permission`/`vendor`/`attribution`; open-license cards keep `license`/`credit`). The page
+  states the permission relationship in a caption naming each vendor. Self-host + resize images
+  exactly as for portraits (§5 portraits bullet); permission files live under
+  `static/icons/permission/<vendor_slug>/`.
 
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a

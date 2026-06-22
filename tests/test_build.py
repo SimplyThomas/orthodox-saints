@@ -564,6 +564,153 @@ class SaintImageTests(unittest.TestCase):
         self.assertNotIn("image", rec)
 
 
+class SaintDepictionTests(unittest.TestCase):
+    """data/saint_depictions.csv loader, validation, and carousel join."""
+
+    def _run_dep_validation(self, rows_csv, files, permissions=None):
+        """Validate a synthetic saint_depictions.csv against a temp static/ dir."""
+        import csv as _csv
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons").mkdir()
+        for f in files:
+            (tmp / f).parent.mkdir(parents=True, exist_ok=True)
+            (tmp / f).write_bytes(b"\x89PNG\r\n")
+        csv_path = tmp / "saint_depictions.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.SAINT_DEPICTIONS_HEADER)
+            w.writeheader()
+            w.writerows(rows_csv)
+        old_csv, old_static = build.SAINT_DEPICTIONS_CSV, build.STATIC
+        try:
+            build.SAINT_DEPICTIONS_CSV, build.STATIC = csv_path, tmp
+            return build.validate_saint_depictions({"OS-0001", "OS-0002"},
+                                                   permissions=permissions or {})
+        finally:
+            build.SAINT_DEPICTIONS_CSV, build.STATIC = old_csv, old_static
+
+    def _dep(self, **over):
+        row = {"saint_id": "OS-0001", "image_path": "icons/a.jpg", "license": "PD-art",
+               "credit": "", "source": "https://src", "kind": "museum",
+               "tag": "Public domain", "title": "An icon", "era": "12th c.", "by": "A museum"}
+        row.update(over)
+        return row
+
+    def test_clean_depiction_row_validates(self):
+        errs, _ = self._run_dep_validation([self._dep()], ["icons/a.jpg"])
+        self.assertEqual(errs, [])
+
+    def test_multiple_depictions_per_saint_ok(self):
+        errs, _ = self._run_dep_validation(
+            [self._dep(image_path="icons/a.jpg"), self._dep(image_path="icons/b.jpg")],
+            ["icons/a.jpg", "icons/b.jpg"])
+        self.assertEqual(errs, [])
+
+    def test_exact_duplicate_image_errors(self):
+        errs, _ = self._run_dep_validation(
+            [self._dep(image_path="icons/a.jpg"), self._dep(image_path="icons/a.jpg")],
+            ["icons/a.jpg"])
+        self.assertTrue(any("duplicate depiction row" in e for e in errs))
+
+    def test_unknown_saint_id_errors(self):
+        errs, _ = self._run_dep_validation(
+            [self._dep(saint_id="OS-9999")], ["icons/a.jpg"])
+        self.assertTrue(any("matches no saint" in e for e in errs))
+
+    def test_missing_file_errors(self):
+        errs, _ = self._run_dep_validation([self._dep()], files=[])
+        self.assertTrue(any("not found" in e for e in errs))
+
+    def test_empty_title_errors(self):
+        errs, _ = self._run_dep_validation([self._dep(title="")], ["icons/a.jpg"])
+        self.assertTrue(any("empty title" in e for e in errs))
+
+    def test_bad_kind_errors(self):
+        errs, _ = self._run_dep_validation([self._dep(kind="banner")], ["icons/a.jpg"])
+        self.assertTrue(any("is not one of" in e for e in errs))
+
+    def test_bad_license_errors(self):
+        errs, _ = self._run_dep_validation(
+            [self._dep(license="All rights reserved")], ["icons/a.jpg"])
+        self.assertTrue(any("not an accepted open license" in e for e in errs))
+
+    def test_permission_active_vendor_ok(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, _ = self._run_dep_validation(
+            [self._dep(image_path="icons/permission/theophany-works/d.jpg",
+                       license="Permission:theophany-works", kind="shop",
+                       source="https://tw/icon")],
+            ["icons/permission/theophany-works/d.jpg"], permissions=perms)
+        self.assertEqual(errs, [])
+
+    def test_permission_without_source_errors(self):
+        perms = {"theophany-works": {"status": "active"}}
+        errs, _ = self._run_dep_validation(
+            [self._dep(license="Permission:theophany-works", source="")],
+            ["icons/a.jpg"], permissions=perms)
+        self.assertTrue(any("requires a 'source'" in e for e in errs))
+
+    def test_revoked_vendor_warns_not_errors(self):
+        perms = {"theophany-works": {"status": "revoked"}}
+        errs, warns = self._run_dep_validation(
+            [self._dep(license="Permission:theophany-works", source="https://x")],
+            ["icons/a.jpg"], permissions=perms)
+        self.assertEqual(errs, [])
+        self.assertTrue(any("REVOKED" in w for w in warns))
+
+    def test_committed_depictions_file_validates(self):
+        errs, _ = build.validate_saint_depictions(
+            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        self.assertEqual(errs, [], "committed saint_depictions.csv has errors:\n" +
+                         "\n".join(errs))
+
+    def test_to_record_builds_depictions_carousel(self):
+        perms = {"theophany-works": {"name": "Theophany Works",
+                 "attribution": "Icon used with permission from Theophany Works.",
+                 "homepage": "h", "status": "active"}}
+        deps = {"OS-0001": [
+            {"path": "icons/permission/theophany-works/d.jpg",
+             "license": "Permission:theophany-works", "credit": "", "source": "https://tw/p",
+             "kind": "shop", "tag": "Available to order", "title": "A commission",
+             "era": "21st c.", "by": "Theophany Works"},
+            {"path": "icons/v.jpg", "license": "PD-art", "credit": "", "source": "https://wc",
+             "kind": "museum", "tag": "Public domain", "title": "A master", "era": "12th c.",
+             "by": "A gallery"},
+        ]}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              permissions=perms, depictions=deps)
+        cards = rec["depictions"]
+        self.assertEqual(len(cards), 2)
+        self.assertEqual(cards[0]["image"], "icons/permission/theophany-works/d.jpg")
+        self.assertTrue(cards[0]["permission"])
+        self.assertEqual(cards[0]["vendor"], "Theophany Works")
+        self.assertEqual(cards[0]["attribution"],
+                         "Icon used with permission from Theophany Works.")
+        self.assertNotIn("license", cards[0])
+        self.assertEqual(cards[1]["license"], "PD-art")
+        self.assertNotIn("permission", cards[1])
+        self.assertEqual(cards[1]["title"], "A master")
+
+    def test_to_record_excludes_revoked_vendor_depiction(self):
+        perms = {"x": {"name": "X", "attribution": "a", "homepage": "h", "status": "revoked"}}
+        deps = {"OS-0001": [
+            {"path": "icons/permission/x/d.jpg", "license": "Permission:x", "credit": "",
+             "source": "https://x", "kind": "shop", "tag": "", "title": "t", "era": "", "by": ""},
+            {"path": "icons/ok.jpg", "license": "PD", "credit": "", "source": "https://s",
+             "kind": "museum", "tag": "", "title": "kept", "era": "", "by": ""},
+        ]}
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              permissions=perms, depictions=deps)
+        self.assertEqual(len(rec["depictions"]), 1)
+        self.assertEqual(rec["depictions"][0]["title"], "kept")
+
+    def test_to_record_no_depictions_key_when_absent(self):
+        rec = build.to_record(valid_row(), vendors=[], name_variants={}, depictions={})
+        self.assertNotIn("depictions", rec)
+
+
 class ImagePermissionTests(unittest.TestCase):
     """data/image_permissions.csv registry loader + validation."""
 

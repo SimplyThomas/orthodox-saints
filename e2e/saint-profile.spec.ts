@@ -163,3 +163,32 @@ test("the Theotokos page shows the vendor-permission icon attribution", async ({
     "https://theophanyworks.com/icon-of-the-sweet-kissing-theotokos-glykophiloussa-detail-21st-c-00vmt002/",
   );
 });
+
+test("the Theotokos page shows the Depictions & Icons carousel", async ({
+  page,
+}) => {
+  const resp = await page.goto("./saint/OS-0001/");
+  expect(resp?.status()).toBe(200);
+  const deps = page.locator(".sv-deps");
+  await expect(deps).toBeVisible();
+  // One card per data/saint_depictions.csv row for OS-0001 (4 vendor + 2 PD).
+  await expect(deps.locator(".sv-dep")).toHaveCount(6);
+  // Permission cards carry the "shop" tone; PD masters the museum tone.
+  await expect(deps.locator(".sv-dep-tag--shop")).toHaveCount(4);
+  await expect(deps.locator(".sv-dep-tag--museum")).toHaveCount(2);
+  // Each permission card links to its specific vendor icon page (grant condition).
+  const vendorCard = deps
+    .locator("a.sv-dep", {
+      hasText: "The Holy Protection of the Mother of God",
+    })
+    .first();
+  await expect(vendorCard).toHaveAttribute(
+    "href",
+    "https://theophanyworks.com/icon-of-the-holy-protection-of-the-mother-of-god-usa-21st-c-00vmt019/",
+  );
+  // The permission relationship is stated on the depictions themselves.
+  await expect(deps.locator(".sv-deps-note")).toContainText(
+    "by permission of",
+  );
+  await expect(deps.locator(".sv-deps-note")).toContainText("Theophany Works");
+});
