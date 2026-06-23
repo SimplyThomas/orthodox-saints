@@ -4921,7 +4921,7 @@ a.sv-rail-chip:hover {
 }
 /* Mobile masthead: collapse the nav + search into a hamburger dropdown so the
    seven links don't stack/wrap across the bar. */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .nav-toggle {
     display: inline-flex;
   }
