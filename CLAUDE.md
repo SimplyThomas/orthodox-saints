@@ -19,10 +19,15 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 (Consider matching the GitHub repo description to it.)
 
 - **Audience:** people new to Orthodoxy looking for a saint to relate to or pray with.
-- **The core value** is the *finder*: matching a person's situation (an illness, a
-  job, grief, a region, a life experience) to saints via controlled-vocabulary facets.
-  The richness of the **Commonly Asked Intercessions** and **Life Experience** fields
-  is therefore the most important quality axis, not raw saint count.
+- **The core value is multi-path discovery** of saints, not one need-matching query.
+  People come to: (1) **read and learn about** the saints; (2) **find a saint they share
+  a name with**; (3) **find a patron whose story, life, vocation, or background they
+  relate to**; and (4) **match a need/affliction** to an intercessor. The rich per-saint
+  **profiles** drive (1) and (3); **Name / Also Known As / name-variants** drive (2); a
+  *spread* of facets (Life Experience, Vocation, Region, Era, Virtue, Commonly Asked
+  Intercessions) drives (3)–(4). No single facet is "the" axis; depth across profiles and
+  facets beats raw saint count — and **Intercessions is the narrowest path, so don't
+  over-index on it** (see §10).
 
 ### Scope (decided, do not drift)
 - **Include:** the pan-Eastern-Orthodox calendar, *including* pre-schism Western
@@ -388,9 +393,12 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **Next action: continue Phase 2 (the Greek/GOARCH merge) and/or prioritize finder-facet
-  enrichment** (Intercessions ~17.5%, Vocation ~21.6%) — enrichment is the most important
-  quality axis (§1, §10) and has drifted *down* in percentage as Phase-2 breadth landed.
+- **Next action: the review→`reviewed` gate.** Draft generation is ~94% done (≈2,586/2,740),
+  but ~88% are still `draft`/`flagged` and thus invisible in production — promoting profiles
+  (with clergy/source review, §9) is the top lever, since it unlocks the prose that serves
+  "learn about a saint" and "relate to a story" (§1). Then: resolve flagged profiles, finish
+  the ~150 remaining, and enrich relatability/background facets (**Vocation**, Life Experience)
+  — *not* Intercessions-first (§10). Phase 2 (GOARCH merge) is still the main breadth gap.
 - **Phase-2 gaps:** Joseph Samakos the Sanctified (Jan 22) is still missing. (Arsenius of
   Paros has landed.)
 - **Icon pipeline status:** the Wikimedia Commons downloader (`scripts/`, PR #142) fetched
@@ -453,7 +461,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 ## 10. Quality bar
 
-- **Intercession is the finder's engine.** Current coverage: Intercessions ~17.5%, Vocation ~21.6%, Life Experience ~60% (coverage drifts down as Phase-2 breadth lands — counter with enrichment passes). Fill wherever sources support it; don't fabricate.
+- **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now: Intercessions ~18.6%, Vocation ~21.7%, Life Experience ~56%, Region ~97%, Brief Life ~99.9%. Prioritize the **review→`reviewed` gate** (drafts don't ship) and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
 - Minimum for any row: Name, Rank, Gender, Feast, Era or Century, Short Prayer, Sources.
 - Prefer enriching high-traffic patrons over adding more bare stubs when time is limited.
 
