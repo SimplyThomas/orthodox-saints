@@ -1,0 +1,52 @@
+id: OS-0947
+lifespan: 4th century; reportedly lived to roughly 130 years of age
+patronage:
+  - Hermits
+  - Ascetics
+  - Solitaries
+overview:
+  - Mark the Anchorite of Athens was an Athenian of the early Christian centuries who, after studying philosophy in his youth and being orphaned by the death of his parents, abandoned the world for the Egyptian desert and a life of extreme solitude. He is venerated as a venerable monastic, hermit, and ascetic.
+  - According to his vita, he settled in a cave on Mount Trache (placed by the sources in the region of Ethiopia) and remained there for many decades in complete isolation, neither seeing a human face nor any beast or bird. His life is known chiefly through the account of Abba Serapion, who by divine providence visited him shortly before his death and recorded what the hermit related of his ascetic struggle.
+  - His principal feast is celebrated on April 5 in the Slavic calendar; Greek tradition also commemorates him on March 5 and May 20.
+timeline:
+  - when: 4th century (youth)
+    title: Athenian upbringing and education
+    body: Born in Athens, Mark studied philosophy in his youth before the deaths of his parents turned him toward the ascetic life.
+  - when: After his parents' death
+    title: Withdrawal into the desert
+    body: Orphaned, Mark withdrew into Egypt and settled in a cave on Mount Trache, placed by the sources in the region of Ethiopia.
+  - when: First thirty years in the cave
+    title: Years of severe hardship
+    body: "The vita relates that his first three decades were extraordinarily harsh: going barefoot in rough desert conditions, he endured winter cold and summer heat, sustained by desert plants and at times bitter seawater, while contending with demonic harassment."
+  - when: After thirty years
+    title: Reported divine consolation
+    body: "By tradition, after thirty years his trials gave way to grace: the vita relates that angels brought him food and that his body grew long hair that sheltered him from the extremes of heat and cold."
+  - when: Before his death
+    title: The visit of Abba Serapion
+    body: Near the end of his life Mark was visited by Abba Serapion, to whom he related his life; their meeting is the source of his vita. Tradition holds that during their conversation about whether saints still worked miracles, Mark caused a mountain to move and then commanded it to return.
+  - when: c. 130 years of age
+    title: Repose
+    body: The vita relates that, at roughly 130 years old, Mark prayed for the salvation of all Christians before his death, and that angels witnessed the ascent of his soul to heaven.
+sections:
+  - heading: Ascetic Life
+    body:
+      - The vita preserved through Abba Serapion presents Mark as a purely anchoritic hermit who pursued solitude in its most absolute form. After withdrawing to his cave on Mount Trache, he is said to have remained ninety-five years in complete isolation, during which he saw neither a human face nor any beast or bird.
+      - His sustenance, according to the account, came from desert plants, dust, and occasionally bitter seawater, and in the early years he went barefoot and unprotected against the desert's winter cold and summer heat. The sources describe persistent demonic harassment, with hostile forces threatening to drown him or hurl him from the mountain and demanding that he 'depart from our land.'
+  - heading: Miracles and Traditions
+    body:
+      - "Traditional Accounts: The vita reports that after thirty years of hardship divine grace transformed his experience, with angels bringing him food and his body growing long hair that shielded him from the climate. It further relates that he received visions of paradise and beheld the prophets Elijah and Enoch."
+      - "Traditional Accounts: The best-known episode recounts that, while discussing with Abba Serapion whether saints still worked miracles, Mark caused a mountain to move some distance (the sources give roughly 2.5 kilometres, or 5,000 cubits) and then commanded it to return to its place."
+  - heading: Identity and Sources
+    body:
+      - Scholarly sources note that Mark of Athens is sometimes confused with Mark the Ascetic, the fifth-century author of several theological texts, but the two are held to be distinct individuals. Mark of Athens is presented as a purely anchoritic hermit known through the narrative of Abba Serapion's visit rather than through any writings of his own.
+      - No relic-translation or formal glorification date is recorded in the sources consulted. A liturgical couplet preserved in Greek sources connects his ascetic life with imagery of Eden.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.johnsanidopoulos.com/2010/04/st-mark-anchorite-saint-who-moved.html
+  - https://www.johnsanidopoulos.com/2020/05/venerable-mark-hermit.html
+  - https://www.oca.org/saints/lives/2024/04/05
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Profile says the anchor sets Era=Pre-Nicene but describes the saint as being of 'the early Christian centuries'. The anchor's Era is 'Pre-Nicene' yet the profile places his withdrawal in the 4th century. The Pre-Nicene era ends around 325 AD (Council of Nicaea). A 4th-century figure who lived many decades as a hermit would have begun his desert life after ~325, which would be post-Nicene, not pre-Nicene. The profile accepts and uses the 4th-century framing throughout without flagging this internal tension.
+    detail: "The anchor row sets Era=Pre-Nicene (ends ~AD 325) and Century=4th. These two fields are in tension: a 4th-century figure who withdrew to the desert after his parents' death and lived 95 years there would likely have extended well into the post-Nicene period. The profile accepts Century=4th from the anchor and calls him 'an Athenian of the early Christian centuries,' which is consistent with Pre-Nicene. However, the Era=Pre-Nicene is the anchor value and must be treated as authoritative; the profile's claim that he was 'of the early Christian centuries' is consistent with but does not explicitly assert Pre-Nicene. Since the anchor itself carries this tension between Era and Century fields, and the profile does not contradict the anchor's Era field, this is a tension in the anchor rather than a profile error. Marking as supported."

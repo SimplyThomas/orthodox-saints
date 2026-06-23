@@ -1,0 +1,70 @@
+id: OS-1904
+lifespan: c. 1165 – 24 September 1228
+overview:
+  - "Saint Stephen the First-Crowned (Serbian: Stefan Prvovenčani; monastic name Symeon) was the first crowned king of Serbia and a central figure of the founding Nemanjić dynasty. Born around 1165, he was the second-eldest son of Grand Prince Stefan Nemanja (later Saint Simeon the Myrrh-streaming) and his wife Anastasija."
+  - He served as Grand Prince of Serbia from 1196, after his father's abdication, and reigned as King of Serbia from 1217 until his death in 1228, transforming the Serbian Grand Principality into the Kingdom of Serbia. His reign secured both the political independence of the Serbian state and, in close partnership with his younger brother Saint Sava, the ecclesiastical independence of the Serbian Church.
+  - At the end of his life he received monastic tonsure under the name Symeon and died soon after, on 24 September 1228. He was buried at Studenica monastery and is venerated by the Serbian Orthodox Church, commemorated on 24 September.
+patronage:
+  - Serbia
+  - Serbian statehood
+  - Rulers
+timeline:
+  - when: c. 1165
+    title: Birth
+    body: Born the second-eldest son of Grand Prince Stefan Nemanja and Anastasija. His elder brother Vukan ruled Zeta, and his younger brother Rastko became the monk Sava.
+  - when: c. 1186
+    title: Marriage to Eudokia Angelina
+    body: Married Eudokia Angelina, niece of the Byzantine Emperor Isaac II Angelos. The couple had five children, including Stefan Radoslav, Stefan Vladislav I, the future Archbishop Sava II, and Princess Komnena. They separated after June 1198.
+  - when: "1196"
+    title: Becomes Grand Prince
+    body: Succeeded as Grand Prince of Serbia following his father Stefan Nemanja's abdication and withdrawal to monastic life.
+  - when: 1202–1205
+    title: Conflict with Vukan
+    body: Faced civil conflict with his elder brother Vukan over the succession.
+  - when: 1207/1208
+    title: Marriage to Anna Dandolo
+    body: Remarried to Anna Dandolo, granddaughter of the Venetian doge Enrico Dandolo. Their son was the future King Stefan Uroš I.
+  - when: "1217"
+    title: Crowned King of Serbia
+    body: Crowned king, adopting the title 'Crowned King and Autocrat of all Serbian and coastal lands,' becoming the first Serbian king of the Nemanjić dynasty.
+  - when: "1219"
+    title: Coronation at Žiča
+    body: With the granting of autocephaly to the Serbian Church, his brother Saint Sava crowned him 'King of All Serbia' at Žiča monastery. Modern scholarship (2018) confirmed that Sava, not a papal legate, performed this coronation.
+  - when: "1228"
+    title: Monastic tonsure and repose
+    body: Received monastic tonsure under the name Symeon and died soon after, on 24 September 1228. He was buried at Studenica monastery.
+sections:
+  - heading: Family and Dynasty
+    body:
+      - Stephen belonged to the founding generation of the Nemanjić dynasty, which would rule Serbia for some two centuries. His father, Grand Prince Stefan Nemanja, abdicated to become the monk Simeon and was himself canonized; his younger brother Rastko became Saint Sava, the first Archbishop of an autocephalous Serbian Church.
+      - His elder brother Vukan ruled Zeta, and the two brothers came into open conflict between 1202 and 1205 over the succession. Stephen's first marriage, around 1186, was to Eudokia Angelina, a niece of the Byzantine Emperor Isaac II Angelos; after their separation he married Anna Dandolo, granddaughter of the Venetian doge Enrico Dandolo, around 1207/1208.
+      - "His descendants continued the dynasty: his sons by Eudokia included Kings Stefan Radoslav and Stefan Vladislav I and the future Archbishop Sava II, while his son by Anna Dandolo, Stefan Uroš I, also reigned as king."
+  - heading: Kingship and Serbian Statehood
+    body:
+      - Stephen's reign marked the transformation of the Serbian Grand Principality into the Kingdom of Serbia. His path to royal status was shaped by the political maneuvering of Hungary, Venice, Bulgaria, and the Byzantine Empire, and he secured recognition that allowed his elevation to king in 1217, earning the epithet 'the First-Crowned' (Prvovenčani).
+      - The coronation of 1219 at Žiča, performed by his brother Saint Sava once the Serbian Church had gained autocephaly, bound the monarchy's legitimacy to the Church. Stephen ordered that future Serbian kings be crowned at Žiča, which became the place where a ruler was 'never considered a true king until he was anointed.'
+  - heading: Church and Ecclesiastical Independence
+    body:
+      - Stephen provided essential political support that enabled his brother Saint Sava to establish the autocephalous Serbian Orthodox Church in 1219, an achievement that fundamentally shaped Serbian national and religious identity.
+      - He is also remembered as a church builder. Together with Saint Sava he co-founded Žiča monastery, built between roughly 1208 and 1230 in the Rascian architectural style with the assistance of Greek masters. Žiča became both the coronation church of the Serbian kings and a center of the new autocephalous Church.
+  - heading: Relics & Shrines
+    body:
+      - Stephen was buried at Studenica monastery, the spiritual center of the Nemanjić dynasty, where the relics of his father Stefan Nemanja had earlier been brought by Saint Sava. The monastery enjoyed the continual patronage of the Nemanjić rulers.
+      - Frescoes at Studenica depict the dynasty, including portraits showing Nemanja, Stefan the First-Crowned, and King Radoslav with his wife Ana in the north chapel, attesting to his place in the monastery's visual and spiritual heritage.
+  - heading: Canonization and Veneration
+    body:
+      - Stephen was canonized by the Serbian Orthodox Church and is venerated as a saint, with his feast day kept on 24 September. The OCA Synaxarion and the broader Serbian tradition commemorate him as both a right-believing ruler and, through his deathbed tonsure as Symeon, a monastic.
+      - The surviving sources record that he 'was canonized' without specifying the formal act or its date; the precise circumstances of his glorification are not independently documented in the available external sources.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Stefan_the_First-Crowned
+  - https://en.wikipedia.org/wiki/Žiča_monastery
+  - https://en.wikipedia.org/wiki/Studenica_monastery
+  - https://orthodoxwiki.org/Stefan_the_First-Crowned
+status: flagged
+generated: "2026-06-23"
+flagReasons:
+  - claim: Stephen died on 24 September 1228
+    detail: The anchor row states death in 1224, not 1228. Wikipedia gives 1228, but the anchor (CSV row) is the trusted source per the verify protocol — when the profile contradicts the anchor, the anchor wins. The profile uses 1228 in both the lifespan field and the timeline without noting the discrepancy with the anchor.
+  - claim: Lifespan given as c. 1165 – 24 September 1228
+    detail: The anchor brief gives the death year as 1224, not 1228. The lifespan endpoint contradicts the anchor. Wikipedia's 1228 date does not override the anchor per the verify rules.

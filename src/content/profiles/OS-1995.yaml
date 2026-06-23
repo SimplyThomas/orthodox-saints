@@ -1,0 +1,43 @@
+id: OS-1995
+lifespan: 9th century
+overview:
+  - Saint Theophilus the Confessor of Bulgaria was a monastic ascetic of the Balkans who suffered for the veneration of the holy icons during the period of Byzantine iconoclasm. He is commemorated on October 10.
+  - According to the synaxarion, he came from the area surrounding Tiberiada and entered the monastic life at the age of thirteen, leaving home secretly to join the monastery on Mount Selenteia, where he trained under the elder Saint Stephen and was tonsured a monk after three years.
+  - He is venerated as a confessor — one who endured suffering and public humiliation for the faith without being put to death — for openly opposing the imperial policy against the holy icons and for steadfastly defending their veneration.
+liturgicalTitle: Our Venerable Father Theophilus the Confessor of Bulgaria
+sections:
+  - heading: Monastic Beginnings
+    body:
+      - The synaxarion relates that Theophilus came from the region around Tiberiada in the Balkans. At the age of thirteen he secretly left his home to enter the monastery on Mount Selenteia, where he placed himself under the spiritual direction of the elder Saint Stephen.
+      - After three years of training he received monastic tonsure. His parents afterward asked him to establish a new monastery nearer to their home; following a period of fasting and prayer, a divine voice is said to have confirmed that he would become renowned for his many spiritual labors.
+  - heading: Confession for the Holy Icons
+    body:
+      - During the period of imperial iconoclasm, Theophilus openly opposed the policy against the veneration of images. He was subjected to beatings and paraded through the city as a criminal, then handed over to an official named Hypatius, who pressed him to renounce the holy icons.
+      - Theophilus remained steadfast. By tradition, he persuaded Hypatius himself by appealing to scriptural and traditional precedents for sacred images — the bronze serpent fashioned by Moses, the Cherubim overshadowing the Ark of the Covenant, and the Icon of Christ Not Made by Hands (the Mandylion) sent to Prince Abgar of Edessa. Won over, Hypatius secured the saint's release, and Theophilus returned to his monastery.
+  - heading: Historical Context
+    body:
+      - The synaxarion places the saint's confession in the reign of the emperor Leo the Isaurian (Leo III, 717–741), who issued a series of edicts against the veneration of religious images beginning around 726–730, including the removal of the image of Christ from the Chalke Gate and a formal prohibition in 730. The first iconoclast period ended with the restoration of the icons at the Second Council of Nicaea in 787.
+      - Modern historians note that much of the surviving evidence describing persecution under Leo III derives from later iconophile accounts written during or after the more aggressive reign of his son Constantine V, and they debate how systematically iconophile monks were persecuted in Leo's own lifetime.
+      - "There is a chronological difficulty in the received account: the OCA synaxarion states that Theophilus reposed peacefully in the year 716, yet this date precedes both the reign of Leo III (begun 717) and his iconoclast edicts (726–730) under which the saint is said to have suffered, suggesting a textual error or a non-standard chronology in the source."
+timeline:
+  - when: Age 13
+    title: Enters monastic life
+    body: Theophilus secretly leaves his home near Tiberiada to join the monastery on Mount Selenteia, where he trains under the elder Saint Stephen.
+  - when: After 3 years
+    title: Monastic tonsure
+    body: He receives monastic tonsure; his parents later ask him to found a monastery nearer their home, and a divine voice is said to confirm his future spiritual renown.
+  - when: Reign of Leo III (717–741)
+    title: Confession for the icons
+    body: He openly opposes the policy against the holy icons, is beaten and paraded as a criminal, and is handed to the official Hypatius, whom he persuades to release him by defending sacred images from Scripture and tradition.
+  - when: Oct 10
+    title: Commemoration
+    body: Saint Theophilus the Confessor of Bulgaria is commemorated. The synaxarion records his peaceful repose, though the date it gives (716) conflicts with the reign under which he is said to have confessed.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/10/10/102933-saint-theophilus-the-confessor-of-bulgaria
+  - https://www.oca.org/saints/lives/2024/10/10
+  - https://en.wikipedia.org/wiki/Leo_III_the_Isaurian
+  - https://en.wikipedia.org/wiki/Byzantine_Iconoclasm
+status: draft
+generated: "2026-06-23"

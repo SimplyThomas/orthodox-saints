@@ -1,0 +1,31 @@
+id: OS-2037
+lifespan: died early 4th century (during the reign of Diocletian, 284–305)
+liturgicalTitle: The Holy Martyr Marinus the Elder
+overview:
+  - Marinus the Elder was a Christian martyr of Anazarbus in Cilicia, a region of Asia Minor, who was put to death for confessing the Christian faith during the persecution under the Roman emperor Diocletian (284–305). According to the synaxarion, he was subjected to fierce beatings and then killed on the orders of Lysias, governor of Tarsus.
+  - The hagiographic record of Marinus is brief, preserving little beyond his origin in Cilicia, his confession of Christ, and the manner and authority of his execution. He is commemorated on October 18.
+sections:
+  - heading: Historical Context
+    body:
+      - Anazarbus, where Marinus is placed, was an ancient city of Cilicia in Asia Minor, near the modern Turkish town of Anavarza. Under the late Roman Empire it served as the capital of Cilicia Secunda and later became a significant ecclesiastical center and metropolitan see. Its proximity to Tarsus — the seat of the provincial governor — frames the account of Marinus's martyrdom, since his execution was ordered by Lysias, the governor of Tarsus.
+      - Marinus suffered during the Diocletianic Persecution, the most severe and systematic persecution of Christians in the Roman Empire. Beginning in 303, a series of edicts stripped Christians of legal rights, ordered the arrest of clergy, and ultimately required all persons to sacrifice publicly to the pagan gods or face execution. Cilicia lay within the eastern sphere governed directly by Diocletian, where enforcement was severe and regional governors held authority to arrest, torture, and execute Christians who refused to apostatize. A Christian elder who openly confessed the faith and declined to sacrifice could be put to death by the local governor's order, as the account of Marinus reflects.
+  - heading: Sources & Coverage
+    body:
+      - The surviving record of Marinus the Elder is limited to the brief OCA synaxarion entry for October 18, which names his origin in Cilicia, his confession, his beating, and his execution under Lysias during Diocletian's reign. No dedicated hagiographic article exists in the major reference works, so the wider biographical circumstances of his life, family, and arrest are not preserved. The surrounding details given here on the city of Anazarbus and on the Diocletianic Persecution are contextual rather than drawn from a life of the saint.
+timeline:
+  - when: 284–305
+    title: Reign of Diocletian
+    body: Marinus lived as a Christian in Cilicia during the reign of the Roman emperor Diocletian, the period to which his martyrdom is assigned.
+  - when: early 4th century
+    title: Martyrdom at Anazarbus
+    body: Marinus, an elder of Anazarbus in Cilicia, was beaten fiercely and then killed on the orders of Lysias, governor of Tarsus, for confessing Christ.
+  - when: October 18
+    title: Commemoration
+    body: Marinus the Elder is commemorated on this day in the synaxarion.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/10/18
+  - https://en.wikipedia.org/wiki/Anazarbus
+  - https://en.wikipedia.org/wiki/Diocletianic_Persecution
+status: draft
+generated: "2026-06-22"

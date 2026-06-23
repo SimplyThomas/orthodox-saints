@@ -1,0 +1,56 @@
+id: OS-2094
+lifespan: Born in Syrmia (date unknown); died October 28, 1266
+overview:
+  - Saint Arsenius (Arsenije I Sremac) was a thirteenth-century Serbian hierarch, a disciple of Saint Sava, who succeeded him as Archbishop of the Serbian Church and led it for three decades.
+  - Born in the village of Dabar near Slankamen in the Kingdom of Syrmia, he became a monk and entered the orbit of Saint Sava, rising through the ranks of the Žiča monastery to serve as Sava's synkellos.
+  - When Hungarian invasions threatened Serbia, Sava sent Arsenius south to establish a more secure episcopal seat; he chose Peć, and in 1253 the seat of the Serbian Church was moved there.
+  - Consecrated bishop in 1233, he served as archbishop until 1263, crowning King Stefan Uroš I and supporting royal monastic foundations before a stroke ended his tenure.
+patronage:
+  - Serbia
+  - Serbian Church
+liturgicalTitle: Our Father among the Saints Arsenius, Archbishop of Serbia
+timeline:
+  - when: Before 1233
+    title: Monastic beginnings
+    body: Born in the village of Dabar near Slankamen in the Kingdom of Syrmia on an unknown date, Arsenius took monastic vows, probably at the monastery of Saint Demetrius in Sremska Mitrovica. Learning of Saint Sava's work, he joined the Žiča monastery and became Sava's disciple and synkellos, advancing to ecclesiarch and then archimandrite.
+  - when: "1233"
+    title: Consecration as archbishop
+    body: Arsenius was consecrated bishop in 1233 and succeeded Saint Sava as Archbishop of the Serbian Church.
+  - when: "1253"
+    title: Seat moved to Peć
+    body: Amid the threat of foreign invasion, the seat of the Serbian Church was moved from Žiča to Peć, a more secure location nearer the centre of the country, where Arsenius had built a monastery and the Church of the Holy Apostles.
+  - when: "1263"
+    title: Stroke and end of tenure
+    body: Arsenius suffered a stroke in 1263, ending his service as archbishop; Sava II became head of the Serbian Church that same year.
+  - when: "1266"
+    title: Repose
+    body: Arsenius died on October 28, 1266, in Crnča. He was later canonized, and his relics rest at Ždrebaonik Monastery.
+sections:
+  - heading: Succession to Saint Sava
+    body:
+      - Arsenius was a close disciple of Saint Sava, founder of the autocephalous Serbian Church. Within the Žiča monastery he served as Sava's synkellos and rose through the offices of ecclesiarch and archimandrite on account of his devotion.
+      - When Hungarian invasions threatened Serbia, Sava dispatched Arsenius southward to establish a safer episcopal see. Arsenius chose Peć, where he built a monastery and a church initially dedicated to the Holy Apostles. Consecrated bishop in 1233, he succeeded Sava as Serbian archbishop and served until 1263.
+  - heading: Service to Church and Crown
+    body:
+      - As archbishop, Arsenius crowned King Stefan Uroš I and supported the king's construction of royal monasteries, including Sopoćani and Gradac. Sopoćani, dedicated to the Holy Trinity, was founded by Stefan Uroš I and built between 1259 and 1270 in the Raška-school style.
+      - Arsenius also took part in the relocation of Saint Sava's relics to the monastery of Mileševa. Sava's relics had been moved from Trnovo in Bulgaria, where he died, to Mileševa in 1236 by King Stefan Vladislav I.
+  - heading: The Patriarchate of Peć
+    body:
+      - The monastery complex at Peć was established in the thirteenth century, with Arsenius playing a crucial role in its development. In the first third of the century he had the Church of the Holy Apostles built on the north side of the complex; it was later decorated at his commission, with records placing the work around 1250 or 1260.
+      - "In 1253 Arsenius moved the seat of the Serbian Church from Žiča to Peć for greater security. The complex eventually comprised four churches: the Church of the Holy Apostles, the Church of Saint Demetrius, the Church of the Holy Mother of God Hodegetria, and the Church of Saint Nicholas."
+  - heading: Relics & Shrines
+    body:
+      - Arsenius was canonized as a saint of the Serbian Church. His relics are said to rest at Ždrebaonik Monastery in Montenegro.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Arsenije_I
+  - https://en.wikipedia.org/wiki/Patriarchate_of_Pe%C4%87_monastery
+  - https://en.wikipedia.org/wiki/Sopocani
+  - https://en.wikipedia.org/wiki/Mileseva_monastery
+status: flagged
+generated: "2026-06-23"
+flagReasons:
+  - claim: Arsenius supported construction of Sopoćani and Gradac.
+    detail: "Wikipedia on Arsenije I says Arsenius 'aided royal monastery construction at Sopoćani and Gradac,' but the dossier's external source on Sopoćani specifically notes: 'The article does not mention Archbishop Arsenius I by name in connection with Sopoćani's construction.' The profile presents Arsenius as actively supporting Sopoćani construction, which is not confirmed by the Sopoćani article and is only asserted by the Arsenije I Wikipedia article. The profile does accurately quote the Sopoćani Wikipedia source in the body ('founded by Stefan Uroš I and built between 1259 and 1270'), but the claim that Arsenius supported it is not independently corroborated. This is partially supported by the anchor (the Arsenije I article mentions it) but the dossier flags the contradiction."
+  - claim: Arsenius took part in the relocation of Saint Sava's relics to Mileševa.
+    detail: "The dossier's Mileševa external source explicitly states: 'No mention of Arsenius I's direct role in this translation appears in the Mileševa Wikipedia article.' The dossier notes only the Arsenije I Wikipedia article asserts this. The profile states it as fact without qualification, but this is not independently corroborated by the Mileševa source."

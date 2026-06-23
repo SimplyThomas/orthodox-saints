@@ -1,0 +1,55 @@
+id: OS-2153
+lifespan: d. c. 350
+overview:
+  - Paul the Confessor was the sixth bishop of Constantinople and a defender of Nicene Orthodoxy during the turbulent Arian controversies of the fourth century. Born in Thessalonica, he served as a presbyter of Constantinople and as secretary to the aged bishop Alexander before being elected to succeed him in 337 in the Church of Peace (Hagia Irene).
+  - His episcopate spanned three non-consecutive terms, repeatedly interrupted by imperial intervention and the rivalry of the Arian party. Emperor Constantius II, who favored the Arians, drove him from his see on multiple occasions, while the Western emperors Constans and Pope Julius I supported his cause. After his final deposition he was deported to Cucusus in Cappadocia (Armenia), where he died around 350, strangled by Arians.
+  - His relics were translated to Constantinople in 381 by order of Emperor Theodosius I. He is commemorated on November 6, and is distinct from Paul the Confessor, Bishop of Plousias.
+liturgicalTitle: Our Father among the Saints Paul the Confessor, Archbishop of Constantinople
+patronage:
+  - Confessors
+  - Defenders of Orthodoxy
+timeline:
+  - when: "337"
+    title: Elected Bishop of Constantinople
+    body: After the death of bishop Alexander, whom he had served as secretary, Paul was elected the sixth bishop of Constantinople in the Church of Peace (Hagia Irene).
+  - when: c. 339
+    title: First exile
+    body: Emperor Constantius II, returning to the city, disapproved of Paul's election without imperial consultation. He banished Paul and installed Eusebius of Nicomedia in his place. Paul fled westward to Rome, where Pope Julius I examined his case alongside those of Athanasius of Alexandria and Marcellus of Ancyra, found them all faithful to the Creed of Nicaea, and admitted them to communion.
+  - when: "341"
+    title: Restoration after the death of Eusebius
+    body: Paul recovered his see when Eusebius of Nicomedia died in 341.
+  - when: c. 342
+    title: Second exile
+    body: Arian bishops consecrated Macedonius I as a rival bishop, triggering civil conflict. Constantius II sent General Hermogenes to expel Paul; the people rioted, set fire to the house where the general was, and killed him. The emperor reduced the city's grain rations and again ordered Paul's expulsion.
+  - when: "344"
+    title: Third term begins
+    body: Paul, who had briefly resided in Trier, returned to Constantinople in 344 with the support of the Western emperor Constans, who had pressed Constantius on his behalf.
+  - when: c. 350
+    title: Final exile and death at Cucusus
+    body: After Constans died in 350, Constantius II had the prefect Philippus arrest Paul at the Zeuxippus baths and deport him by ship. He was transported through Singara and Emesa to Cucusus in Cappadocia, confined in a close, dark place, and left to starve. Having survived six days without food, he was strangled by Arians.
+  - when: "381"
+    title: Translation of relics to Constantinople
+    body: Paul's body was translated to Constantinople by order of Emperor Theodosius I.
+sections:
+  - heading: Historical Context
+    body:
+      - Paul's episcopate fell during the height of the Arian controversy, when the Nicene and Arian parties contended for the major sees of the empire and emperors took sides. Constantius II, who governed the East, favored the Arians and repeatedly intervened against Paul, while the Western emperors and the bishop of Rome upheld the Nicene cause.
+      - His repeated exiles were bound up with imperial politics as much as doctrine. His election without imperial consultation provoked Constantius II's first reprisal, and the consecration of the rival bishop Macedonius I deepened the conflict, at one point erupting into civic violence that cost the life of the general sent to expel him.
+  - heading: Confession and Death
+    body:
+      - Paul served three non-consecutive terms as archbishop — by traditional reckoning 337–339, 341–344, and 344–350 — each cut short by deposition or exile. One account numbers his banishments as four separate exiles culminating at Cucusus.
+      - After his final arrest he was deported through Singara and Emesa to Cucusus in Cappadocia, in the region of Armenia. There he was confined in a dark, close place and left without food. By tradition he survived six days of starvation, after which Arians strangled him, around the year 350. One account relates that he was set upon during the Divine Liturgy and strangled with his own omophorion.
+  - heading: Relics & Shrines
+    body:
+      - Paul's relics were translated to Constantinople in 381 by order of Emperor Theodosius the Great. They were later moved to Venice in 1226, where they were housed in the church of San Lorenzo (one account dates this translation to 1326).
+      - A fragment of his skull is venerated at the Holy Monastery of Simonopetra on Mount Athos, and a relic fragment is also kept at the Saint Alexander Nevsky Lavra in Saint Petersburg.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Paul_I_of_Constantinople
+  - https://www.oca.org/saints/lives/2024/11/06/103168-saint-paul-the-confessor-archbishop-of-constantinople
+  - https://orthodoxwiki.org/Paul_I_of_Constantinople
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Paul's third term ran from 344 to 350.
+    detail: Wikipedia gives the third term as 346–350, not 344–350. Wikipedia notes Paul 'returned in 344 with support from Western Emperor Constans' but places the third term itself at 346–350. The profile collapses his return date (344) with the start of the third term, conflicting with the dossier's explicit '346–350'.

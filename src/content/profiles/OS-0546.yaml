@@ -1,0 +1,44 @@
+id: OS-0546
+lifespan: died c. 390
+liturgicalTitle: Our Venerable Father Simeon the Ancient, Ascetic of the Syrian and Sinai Wilderness
+overview:
+  - Simeon the Ancient was a fifth-century ascetic who pursued the eremitic life in the Syrian wilderness and, by the Orthodox synaxarion tradition, later on Mount Sinai and in the Aman mountain range. He is distinguished by the epithet "the Ancient" (also rendered "the Old One") from the later Simeon the Stylite, commemorated on September 1.
+  - From childhood he withdrew into the Syrian desert and lived in a cave in complete solitude, sustaining himself on the grass and vegetation around his dwelling and devoting himself to unceasing prayer and the contemplation of God. As visitors sought his guidance, he repeatedly moved in search of greater seclusion, ultimately founding two monasteries and guiding monks in the ascetic life.
+  - His sources place his repose around 390. He is commemorated on January 26.
+sections:
+  - heading: Ascetic Life
+    body:
+      - According to the Orthodox Church in America synaxarion, Simeon went out into the Syrian wilderness in his childhood years and lived in a cave in complete solitude. His spiritual practice centered on unceasing prayer, meditation, and the contemplation of God, and he sustained himself minimally, consuming only the grass and vegetation surrounding his dwelling.
+      - When visitors began seeking his guidance, Simeon relocated to the Aman mountain range in search of greater solitude. As people continued to come to him, he moved again, this time to Mount Sinai, the mountain where, by tradition, the Prophet Moses received divine revelation. After a brief residence on Sinai, he returned to the Aman range.
+      - There he founded two monasteries — one at the summit of the mountain and one at its base — and led these communities, guiding monks through their spiritual struggles and encouraging a life directed toward salvation. The synaxarion relates that his holiness brought him the gift of wonderworking.
+  - heading: Sources and Tradition
+    body:
+      - Simeon the Ancient is an obscure saint outside the synaxarion tradition. OrthodoxWiki carries no dedicated article for him, and a search for related material returns only distinct figures such as Simeon bar-Sabba'e. He is not the subject of dedicated entries in some other modern Orthodox reference collections.
+      - The Prologue of Ohrid preserves a parallel commemoration under the name "Simeon the Old One" (Vetni), describing him as a companion and friend of St. Palladius who lived an ascetic life from his youth in a cave until his death, and who founded two monasteries. The Prologue corroborates the death date of around 390 and the cave-hermit and two-monasteries details, but places him firmly in the Syrian wilderness and makes no reference to Mount Sinai. The Sinai sojourn and the identification of the Aman range as the site of his monasteries are particular to the OCA account.
+timeline:
+  - when: 5th century
+    title: Withdrawal into the Syrian wilderness
+    body: From his childhood years Simeon goes out into the Syrian desert and lives in a cave in complete solitude, devoting himself to unceasing prayer and contemplation.
+  - when: 5th century
+    title: Movements in search of solitude
+    body: As visitors seek his guidance, Simeon relocates to the Aman mountain range, then to Mount Sinai, and finally returns to the Aman range, according to the OCA synaxarion.
+  - when: 5th century
+    title: Foundation of two monasteries
+    body: In the Aman range he founds two monasteries, one at the summit and one at the base of the mountain, and guides their monks in the ascetic life.
+  - when: c. 390
+    title: Repose
+    body: After extensive ascetic labors, Simeon departs to God around the year 390.
+patronage:
+  - Monastics and those guided in the ascetic life
+sources:
+  - OCA Synaxarion (oca.org), Jan 26
+  - https://www.oca.org/saints/all-lives/2026/01/26
+  - https://prologue.orthodox.cn/January26.htm
+  - https://orthodoxwiki.org/index.php?search=Simeon+Ancient+Sinai&title=Special:Search
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The profile describes Simeon as a 'fifth-century ascetic' while also asserting he died c. 390 — a 4th-century date. These two claims are mutually contradictory within the profile itself.
+    detail: "The external sources (OCA: 'culminated around 390 CE'; Prologue: 'died in the Lord in the year 390 AD') both place his death c. 390, which is the 4th century, not the 5th. The anchor row's Century field reads '5th,' but the profile simultaneously asserts the c. 390 death date (supported by the dossier), creating an internal contradiction. The 'fifth-century' label is not supported by the death date the profile itself claims."
+  - claim: The timeline labels all events as '5th century' while the profile's own lifespan field says 'died c. 390' (4th century).
+    detail: The profile's lifespan field states 'died c. 390,' a date confirmed by both dossier external sources (OCA and Prologue of Ohrid). 390 CE falls in the 4th century. Labeling all timeline events as '5th century' contradicts the death date the profile itself asserts.

@@ -1,0 +1,34 @@
+id: OS-1754
+lifespan: 8th century (Catholicos c. 767–774, or c. 760–774 per some sources)
+liturgicalTitle: Our Father among the Saints Sarmean, Catholicos of Kartli
+overview:
+  - Saint Sarmean was the Catholicos of Kartli, the chief shepherd of the Georgian Apostolic Church, during the latter part of the eighth century. According to the available sources, he held the office from approximately 767 — or 760, by some accounts — until 774, a tenure of roughly seven years.
+  - "He led the Georgian Church during a period of Arab-Muslim rule in Georgia, when the Christian population faced persecution. Historical records about his life are scarce: information about him survives chiefly through chronicles that list the successive chief shepherds of Georgia, and no details of his personal life, background, or specific accomplishments are preserved."
+  - His feast is celebrated on August 21.
+sections:
+  - heading: Historical Context
+    body:
+      - Sarmean's tenure fell within the era of Arab rule over the Georgian lands. The Arabs first appeared in Georgia in 645, and firm control was established by 735. The Arab Emirate of Tbilisi was established in 736, when Marwan II took Tbilisi and much of the surrounding territory and installed an Arab emir.
+      - Over time Tbilisi became largely Muslim, but Muslim influence was strictly confined to the city itself, while the surrounding countryside remained largely Christian. The consolidation of Arab rule in Tbilisi during the eighth century caused the political capital of Kartli to shift to the southwest, even as Christian culture in the countryside persisted.
+      - Despite Arab administration, the Georgian Christian community maintained its liturgy and prayers in the Georgian language. By this era, the bishops and the Catholicos were all ethnic Georgians, reflecting a shift toward a more ethnically Georgian church institution. It was within this setting — the Emirate of Tbilisi dominating the region during the period of roughly 760 to 774 — that Sarmean served as the head of the Georgian Church.
+  - heading: Sources & Reliability
+    body:
+      - The historical record concerning Saint Sarmean is genuinely thin. He is known primarily through chronicles enumerating the generations of chief shepherds of Georgia, which preserve little beyond his name, office, and the approximate dates of his tenure. No account of his personal life, monastic background, theological contributions, or particular deeds survives in the available sources.
+timeline:
+  - when: "736"
+    title: Emirate of Tbilisi established
+    body: Marwan II took Tbilisi and much of the neighbouring lands and installed an Arab emir, setting the political backdrop for the era in which Sarmean would lead the Georgian Church.
+  - when: c. 767 (or 760)
+    title: Becomes Catholicos of Kartli
+    body: Sarmean assumed the office of Catholicos of Kartli, chief shepherd of the Georgian Apostolic Church, amid Arab-Muslim rule. Sources vary on the start of his tenure between 760 and 767.
+  - when: "774"
+    title: End of tenure
+    body: Sarmean's term as Catholicos concluded, after a tenure of roughly seven years.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://oca.org/saints/lives/2023/08/21
+  - https://en.wikipedia.org/wiki/Emirate_of_Tbilisi
+  - https://en.wikipedia.org/wiki/Georgian_Church
+  - https://en.wikipedia.org/wiki/Arab_rule_in_Georgia
+status: draft
+generated: "2026-06-22"

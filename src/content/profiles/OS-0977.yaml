@@ -1,0 +1,71 @@
+id: OS-0977
+lifespan: 1495–1576
+overview:
+  - Saint Barsanuphius of Tver was a sixteenth-century Russian monastic and hierarch, born in 1495 in Serpukhov and given the baptismal name John. Taken captive by Crimean Tatars in his youth, he meekly submitted to his masters and accepted his servitude as the will of God; after three years he was ransomed by his father.
+  - Following his release he traveled to Moscow and entered monastic life at the Andronikov Monastery, where he was tonsured with the name Barsanuphius. He became known for his ascetical discipline and piety, was made igumen of the Pesnosha Monastery in 1544, and later founded a monastery dedicated to the Transfiguration of the Lord at Kazan.
+  - At Kazan he labored alongside Saint Gurias, the first Archbishop of the see, in missionary work among Muslim and pagan populations, an effort greatly aided by his fluency in the Tatar language. In 1567 he was consecrated Bishop of Tver. In old age he returned to the Kazan monastery he had founded, received the Great Schema, and reposed there in 1576.
+liturgicalTitle: Our Father among the Saints Barsanuphius, Bishop of Tver
+patronage:
+  - Captives
+  - Missionaries
+  - The sick
+timeline:
+  - when: "1495"
+    title: Birth at Serpukhov
+    body: Born in Serpukhov and given the baptismal name John; in his youth he learned to read and write.
+  - when: c. 1505–1508
+    title: Captivity and ransom
+    body: Captured at a young age by Crimean Tatars, he meekly accepted his servitude as the Lord's will and faithfully performed the work assigned to him. After three years of captivity his father ransomed him.
+  - when: after his release
+    title: Monastic tonsure at the Andronikov Monastery
+    body: He traveled to Moscow and entered monastic life at the Andronikov Monastery, receiving the monastic name Barsanuphius and devoting himself to ascetical practice.
+  - when: "1544"
+    title: Igumen of the Pesnosha Monastery
+    body: He was elevated to igumen of the Pesnosha Monastery.
+  - when: after 1544
+    title: Foundation of the Transfiguration Monastery at Kazan
+    body: He relocated to Kazan and established a monastery dedicated to the Transfiguration of the Lord, working with Saint Gurias in missionary efforts among Muslim and pagan populations; his knowledge of the Tatar language aided this work.
+  - when: "1567"
+    title: Consecration as Bishop of Tver
+    body: He was consecrated Bishop of Tver, where he became known for healing physical illnesses through medical knowledge and spiritual afflictions through pastoral care.
+  - when: "1576"
+    title: Repose at Kazan
+    body: In his advanced years he returned to the Kazan monastery he had founded, received tonsure in the Great Schema, and died there.
+  - when: October 4, 1595/1596
+    title: Uncovering of his relics
+    body: His relics were uncovered at Kazan, together with the commemoration of Saint Gurias; this date is observed as the principal feast of the two saints.
+  - when: June 20, 1630
+    title: Translation of his relics
+    body: His relics were transferred to the Cathedral of the Annunciation.
+sections:
+  - heading: Captivity and Conversion to Monastic Life
+    body:
+      - At a young age John was taken captive by Crimean Tatars. Rather than resist, he submitted meekly to his masters and dutifully accomplished the work assigned to him, accepting his condition as the will of God. After three years his father secured his ransom and freedom.
+      - Following his release he went to Moscow and entered the Andronikov Monastery, where he was tonsured a monk with the name Barsanuphius. He gave himself to ascetical practices and became known for his virtue and piety.
+  - heading: Missionary Work at Kazan
+    body:
+      - After serving as igumen of the Pesnosha Monastery from 1544, Barsanuphius relocated to Kazan and founded a monastery dedicated to the Transfiguration of the Lord.
+      - There he worked alongside Saint Gurias, the first Archbishop of Kazan, in missionary efforts among the Muslim and pagan populations of the region. The fluency in the Tatar language that he had acquired during his captivity proved invaluable to this evangelistic work.
+  - heading: Episcopate at Tver and Repose
+    body:
+      - In 1567 Barsanuphius was consecrated Bishop of Tver. He became renowned for healing both physical illnesses, through his knowledge of medicine, and spiritual afflictions, through his pastoral care.
+      - In his advanced years he returned to the monastery he had founded at Kazan, received monastic tonsure in the Great Schema, and reposed there in 1576.
+  - heading: Relics & Shrines
+    body:
+      - The relics of Saint Barsanuphius were uncovered at Kazan on October 4 (the sources give 1595 and 1596), an event commemorated together with Saint Gurias of Kazan. His relics were later transferred to the Cathedral of the Annunciation on June 20, 1630.
+  - heading: Veneration and Commemoration
+    body:
+      - Saint Barsanuphius is commemorated on April 11 (April 24 on the Old Calendar). His principal feast, observed together with Saint Gurias of Kazan, falls on October 4, the date of the uncovering of his relics, and he is also remembered among the hierarchs of Kazan.
+      - The Diocese of Tver records a Bishop Barsanuphius with a tenure dated 1567–1570, consistent with his consecration in 1567; an earlier Barsanuphius (1316–1328) of the same see is a distinct person.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/04/11/101054-saint-barsanuphius-bishop-of-tver
+  - https://en.wikipedia.org/wiki/April_11_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/October_4_(Eastern_Orthodox_liturgics)
+  - https://www.oca.org/saints/lives/2025/04/11
+  - https://en.wikipedia.org/wiki/Diocese_of_Tver
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The profile assigns specific approximate years 'c. 1505–1508' to the captivity, derived by inference from the birth year rather than from any dossier source.
+    detail: No dossier source gives the specific years of the captivity. The OCA source says only 'at a young age'; the anchor says 'in his youth.' The date range is an arithmetical inference (born 1495, captive 'at a young age,' three years duration) not attested in any cited source.
