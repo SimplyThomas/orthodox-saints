@@ -66,7 +66,16 @@ const profileSchema = z
       })
       .optional(),
     related: z.array(relatedFigure).optional(),
-    patronage: z.array(z.string()).optional(),
+    patronage: z
+      .array(
+        z
+          .string()
+          .max(
+            60,
+            "patronage entry too long for the rail chip — use a short keyword label; put descriptive prose in a profile section instead",
+          ),
+      )
+      .optional(),
     works: z
       .array(
         z.object({
