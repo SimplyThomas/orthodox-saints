@@ -1,16 +1,29 @@
 retired_id,retired_name,canonical_id,canonical_name,reason,date,pr
 OS-0120,Martyr Mamas of Caesarea,OS-0065,Martyr Mamas of Caesarea,Duplicate row; gender field incorrectly set to Male & Female,2026-06-12,153
 OS-0189,Holy Prophet Moses the God-seer,OS-0057,Holy Prophet Moses,Duplicate row added during spine walk; OS-0057 is the seed entry,2026-06-12,153
+OS-0263,Apostles Evodius & Onesiphorus,OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2756, OS-2757); see Synaxis of the Seventy",2026-06-23,
+OS-0344,"Holy Apostles Apelles, Lucius & Clement",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2758, OS-2759, OS-2760); see Synaxis of the Seventy",2026-06-23,
+OS-0688,"Apostles Archippus and Philemon of the Seventy, and Martyr Apphia",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2761, OS-2762, OS-2763); see Synaxis of the Seventy",2026-06-23,
+OS-0997,"Apostles Aristarchus, Pudens, and Trophimus of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2764, OS-2765, OS-2766); see Synaxis of the Seventy",2026-06-23,
+OS-1040,"Apostles Nathanael, Apelles, Luke, and Clement of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2758, OS-2759, OS-2760 (Nathanael=Bartholomew of the Twelve)); see Synaxis of the Seventy",2026-06-23,
+OS-1192,Apostle Andronicus of the Seventy and Junia,OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2767, OS-2768); see Synaxis of the Seventy",2026-06-23,
 OS-1334,Saint Luke the Confessor Archbishop of Simferopol,OS-0049,St. Luke Archbishop of Crimea,Duplicate row; OS-0049 is the canonical entry,2026-06-22,194
+OS-1368,"Apostles Fortunatus, Achaicus, and Stephanas of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2769, OS-2770, OS-2771); see Synaxis of the Seventy",2026-06-23,
 OS-1399,"Martyrs Inna, Pinna, and Rimma",OS-0498,"Martyrs Inna, Pinna and Rimma",Duplicate row added during spine walk (Jun 20 feast); feast merged into OS-0498,2026-06-12,153
 OS-1440,"Hieromartyr Kirion II, Catholicos-Patriarch of All Georgia",OS-0816,Kirion II Catholicos-Patriarch of All Georgia,Duplicate row; OS-0816 is the canonical entry,2026-06-09,144
 OS-1582,Martyr Paraskevi of Rome,OS-0060,St. Paraskevi of Rome,Duplicate row; OS-0060 is the canonical entry,2026-06-22,194
+OS-1589,"Apostles and Deacons Prochorus, Nicanor, Timon, and Parmenas of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2772, OS-2773, OS-2774, OS-2775); see Synaxis of the Seventy",2026-06-23,
+OS-1608,"Apostles Silas, Silvanus, Crescens, and Epenetus of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2776, OS-2777, OS-2778, OS-2779); see Synaxis of the Seventy",2026-06-23,
 OS-1703,Saint Makarios the Roman of Novgorod,OS-0490,Venerable Macarius the Roman of Novgorod,Duplicate row added during spine walk (Aug 15 feast); feast merged into OS-0490,2026-06-12,153
 OS-1712,Saint Eustathius of Serbia,OS-0386,St. Eustathius I Archbishop of Serbia,Duplicate stub (Aug 16); date merged into OS-0386 as secondary feast,2026-06-08,141
 OS-1795,Saint Phanourius the Newly-Revealed,OS-0058,St. Phanourios,Duplicate row; OS-0058 is the canonical entry,2026-06-22,194
 OS-1815,"Saint Joannicius, first Patriarch of Serbia",OS-0172,"St. Ioannicius II, Patriarch of Serbia",Duplicate row; OS-0172 is the canonical entry,2026-06-08,141
 OS-1926,Saint Michael first Metropolitan of Kiev,OS-1366,Saint Michael First Metropolitan of Kiev,Duplicate row added during spine walk (Sep 30 repose); OS-1366 holds Jun 15 (relic translation),2026-06-04,65
 OS-2101,Saint Arsenius of Cappadocia,OS-0070,St. Arsenios of Cappadocia,Duplicate row; OS-0070 is the canonical entry,2026-06-22,194
+OS-2121,"Apostles Stachys, Apelles, Amplias, Urban, and Narcissus of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2780, OS-2781, OS-2782, OS-2783 (Apelles=OS-2758)); see Synaxis of the Seventy",2026-06-23,
+OS-2151,"Apostles Patrobus, Hermes, Linus, Gaius, and Philologus of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2784, OS-2785, OS-2786, OS-2787 (Hermes=OS-0796)); see Synaxis of the Seventy",2026-06-23,
 OS-2170,Saint Nectarius of Pentapolis,OS-0046,St. Nektarios of Aegina,Duplicate row; OS-0046 is the canonical entry,2026-06-22,194
+OS-2172,"Apostles Erastus, Olympas, Herodion, Sosipater, Quartus, and Tertius of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2788, OS-2789, OS-2790, OS-2791 (Herodion=OS-0961, Tertius=OS-2110)); see Synaxis of the Seventy",2026-06-23,
 OS-2291,Saint Porphyrios of Kavsokalivia,OS-0052,St. Porphyrios of Kafsokalivia,Duplicate row; OS-0052 is the canonical entry,2026-06-08,139
+OS-2321,"Apostles Sosthenes, Apollos, Cephas, Tychicus, Epaphroditus, Caesar, and Onesiphorus of the Seventy",OS-0384,Synaxis of the Seventy Apostles,"Split into individual apostle rows (OS-2792, OS-2793, OS-2794, OS-2795, OS-2796 (Sosthenes=OS-0903, Onesiphorus=OS-2757)); see Synaxis of the Seventy",2026-06-23,
 OS-2369,Martyr Eleutherius the Cubicularius,OS-1641,Martyr Eleutherius the Cubicularius,Duplicate row added during spine walk (Dec 15 feast); feast merged into OS-1641,2026-06-12,153
