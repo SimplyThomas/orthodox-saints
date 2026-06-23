@@ -100,6 +100,25 @@ describe("quizMatches scoring", () => {
     expect(ranked[0].score).toBe(weightOf("origin"));
   });
 
+  it("reports matched reasons tagged by question (for transparent results)", () => {
+    const s = saint("Tagged", {
+      experience: ["Grief"],
+      vocation: ["Soldier"],
+    });
+    const sel = select({ experience: ["Grief"], vocation: ["Soldier"] });
+    const [m] = quizMatches([s], sel);
+    expect(m.reasons).toContainEqual({
+      key: "experience",
+      kicker: "Your Story",
+      value: "Grief",
+    });
+    expect(m.reasons).toContainEqual({
+      key: "vocation",
+      kicker: "Your Calling",
+      value: "Soldier",
+    });
+  });
+
   it("breaks ties by breadth of overlap (more values matched), then name", () => {
     // Same dimensions matched (experience), so same weighted score; the saint
     // matching more individual values should rank first.

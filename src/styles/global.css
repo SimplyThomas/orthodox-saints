@@ -1428,6 +1428,36 @@ a.qz-comp {
   letter-spacing: 0.12em;
   font-size: 12px;
 }
+.qz-patron .qz-match .lbl {
+  display: block;
+  margin-bottom: 10px;
+}
+.qz-match-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.qz-match-list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.qz-match-list .dim {
+  flex: 0 0 auto;
+  min-width: 104px;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+.qz-match-list .vals {
+  color: #dbe5ef;
+  font-size: 14.5px;
+}
 
 .qz-companions {
   margin-top: 30px;
@@ -1474,6 +1504,12 @@ a.qz-comp {
 .qz-comp .sub {
   font-size: 13px;
   color: var(--celest);
+}
+.qz-comp .shared {
+  margin-top: 3px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--gold-deep);
 }
 
 .qz-actions {

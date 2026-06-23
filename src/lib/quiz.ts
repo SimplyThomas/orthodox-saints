@@ -96,10 +96,21 @@ export function optionsFor(saints: FacetSource[], key: string): string[] {
   return facetCounts(saints, key).map(([v]) => v);
 }
 
+/** One matched value, tagged with the question it came from so the result UI
+   can show the user transparently what they matched on, grouped by dimension. */
+export interface QuizReason {
+  /** quiz group key (e.g. "experience") */
+  key: string;
+  /** the question's short label (e.g. "Your Story") */
+  kicker: string;
+  /** the facet value the user picked that this saint shares (e.g. "Grief") */
+  value: string;
+}
+
 export interface QuizMatch<T> {
   s: T;
   score: number;
-  reasons: string[];
+  reasons: QuizReason[];
 }
 
 /* Score every saint by weighted overlap with the quiz answers. */
@@ -110,15 +121,15 @@ export function quizMatches<T extends FacetSource & { name: string }>(
   const out: QuizMatch<T>[] = [];
   for (const s of saints) {
     let score = 0;
-    const reasons: string[] = [];
-    for (const { key, weight } of QUIZ) {
+    const reasons: QuizReason[] = [];
+    for (const { key, weight, kicker } of QUIZ) {
       const chosen = selected[key];
       if (!chosen.size) continue;
       let dimMatched = false;
       for (const v of valuesOf(s, key))
         if (chosen.has(v)) {
           dimMatched = true;
-          reasons.push(v);
+          reasons.push({ key, kicker, value: v });
         }
       // Normalize per dimension: a matched dimension contributes its weight
       // ONCE, regardless of how many values matched. This keeps a sparse but
