@@ -12,8 +12,10 @@ A NOTIFY_CMD (if set) is run on limit/stop/done with the message as one argument
 written to dist/profilegen/state.json each step.
 
 Launch:  nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
+Stop:    make profile-stop  (sends SIGTERM; run finishes the current batch then exits cleanly)
 Resume:  re-run the same command (prioritize excludes already-profiled saints).
-Exit:    0 done · 2 stopped (likely weekly cap) · 3 terminal error.
+Status:  make profile-status  (prints dist/profilegen/state.json)
+Exit:    0 done/stopped · 2 stopped (likely weekly cap) · 3 terminal error.
 
 Env: BATCH_SIZE(10) PROFILEGEN_MODEL(claude-opus-4-8) RESUME_AFTER(18600≈5h10m)
 WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
@@ -35,6 +37,15 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from tools.profilegen import limits, prioritize
+
+_stop_requested = False
+PID_FILE = None  # set in main() after RUN_DIR is created
+
+
+def _handle_sigterm(signum, frame):
+    global _stop_requested
+    _stop_requested = True
+    log("SIGTERM received — will stop after current batch completes")
 
 ROOT = Path(__file__).resolve().parents[2]
 # The legacy path points subagents at the lean per-stage guides (~10KB total), NOT the
@@ -200,6 +211,22 @@ def classify_workflow_outcome(produced: int, requested: int) -> str:
 
 
 def main() -> int:
+    global PID_FILE
+    RUN_DIR.mkdir(parents=True, exist_ok=True)
+    PID_FILE = RUN_DIR / "run.pid"
+    PID_FILE.write_text(str(os.getpid()), encoding="utf-8")
+    signal.signal(signal.SIGTERM, _handle_sigterm)
+
+    try:
+        return _run()
+    finally:
+        try:
+            PID_FILE.unlink(missing_ok=True)
+        except Exception:
+            pass
+
+
+def _run() -> int:
     if os.environ.get("ANTHROPIC_API_KEY"):
         log("WARNING: ANTHROPIC_API_KEY is set — headless runs bill metered API rates, "
             "not your Max subscription. `unset ANTHROPIC_API_KEY` first.")
@@ -215,6 +242,10 @@ def main() -> int:
     waits = 0  # consecutive full-window waits with no successful call between → weekly signal
     date = f"{datetime.now():%F}"  # batch date → Workflow GENERATED → canonical log paths
     for n, batch in enumerate(batches, 1):
+        if _stop_requested:
+            write_state(status="stopped", batch=n, total=len(batches), reason="sigterm")
+            notify(f"profilegen stopped cleanly at batch {n} (SIGTERM). Resume with `make profile-run`.")
+            return 0
         errs = 0
         while True:
             if USE_WORKFLOW:
