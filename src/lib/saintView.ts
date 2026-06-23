@@ -26,7 +26,6 @@ export interface SaintViewModel {
   also: string[];
   type: string;
   typeSlug: string;
-  crumb: string;
   eyebrow: string;
   /** the liturgical address (the Short Prayer) */
   address: string;
@@ -136,10 +135,7 @@ export function toSaintView(s: Saint): SaintViewModel {
     also: s.aka,
     type,
     typeSlug,
-    crumb: type.endsWith("s") ? type : `${type}s`,
-    eyebrow: [type, s.century ? `${s.century} century` : s.era]
-      .filter(Boolean)
-      .join(" · "),
+    eyebrow: s.century ? `${s.century} century` : (s.era ?? ""),
     address: s.prayer,
     brief: s.brief,
     feast: primaryFeast(s),
