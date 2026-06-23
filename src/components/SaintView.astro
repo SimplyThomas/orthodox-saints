@@ -120,7 +120,18 @@ if (saint.image) {
 } else {
   portrait = saintAvatar(saint, 286, 358, { type: primaryRank(saint) });
 }
-const showCredit = !!saint.image && !!(m.imageCredit || m.imageLicense);
+const showCredit =
+  !!saint.image && !!(m.imageCredit || m.imageLicense || m.imagePermission);
+
+// "Depictions & Icons" carousel (data/saint_depictions.csv) — museum masters, PD
+// originals, and vendor-permission icons available to commission/order. Each card
+// links to its source; a permission card honors the grant by linking to the
+// specific vendor icon page. The build already excluded any revoked-vendor cards.
+const depictions = m.depictions;
+const depImg = (raw: string) => {
+  const clean = String(raw).replace(/['"\\)\s<>]/g, "");
+  return esc(/^(https?:)?\/\//.test(clean) ? clean : withBase(clean));
+};
 const knownFor = m.virtues.length > 0 || m.vocation.length > 0;
 const citation = `${m.honorificName}. Cloud of Witnesses.`;
 
@@ -176,25 +187,47 @@ const wordsLabel = `In ${possessive} own words`;
             <div class="sv-icon-inner" set:html={portrait} />
           </div>
           {
-            showCredit && (
-              <div class="sv-icon-cap">
-                <span class="sv-icon-cap-eb">Icon</span> ·{" "}
-                {m.imageSource ? (
-                  <a
-                    href={m.imageSource}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {m.imageCredit || "source"}
-                  </a>
-                ) : (
-                  m.imageCredit
-                )}
-                {m.imageLicense && (
-                  <span class="sv-icon-lic">{m.imageLicense}</span>
-                )}
-              </div>
-            )
+            /* Permission images link "Original icon" to the specific vendor
+               page (imageSource) per the grant. m.imageVendorHome (the vendor's
+               icon homepage) is also available, reserved for a future
+               vendor-homepage link. */
+            showCredit &&
+              (m.imagePermission ? (
+                <div class="sv-icon-cap">
+                  {m.imageAttribution}
+                  {m.imageSource && (
+                    <>
+                      {" "}
+                      Original icon:{" "}
+                      <a
+                        href={m.imageSource}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View on {m.imageVendor}
+                      </a>
+                    </>
+                  )}
+                </div>
+              ) : (
+                <div class="sv-icon-cap">
+                  <span class="sv-icon-cap-eb">Icon</span> ·{" "}
+                  {m.imageSource ? (
+                    <a
+                      href={m.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {m.imageCredit || "source"}
+                    </a>
+                  ) : (
+                    m.imageCredit
+                  )}
+                  {m.imageLicense && (
+                    <span class="sv-icon-lic">{m.imageLicense}</span>
+                  )}
+                </div>
+              ))
           }
         </div>
 
@@ -300,6 +333,126 @@ const wordsLabel = `In ${possessive} own words`;
           </div>
         </div>
       </div>
+    )
+  }
+
+  {/* ══════════════ DEPICTIONS & ICONS CAROUSEL ══════════════ */}
+  {
+    depictions.length > 0 && (
+      <section class="sv-deps" aria-label="Depictions and icons">
+        <div class="sv-deps-inner">
+          <div class="sv-deps-head">
+            <div class="sv-deps-headings">
+              <div class="eyebrow sv-deps-eb">Depictions &amp; Icons</div>
+              <p class="sv-deps-sub">
+                How the Church has written this image across the centuries —
+                museum masters, hand-painted commissions, and icons you can
+                order today.
+              </p>
+            </div>
+            <div class="sv-deps-nav">
+              <button
+                type="button"
+                class="sv-deps-arrow prev"
+                aria-label="Previous depictions"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--gold-deep)"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14 6l-6 6 6 6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="sv-deps-arrow next"
+                aria-label="More depictions"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--gold-deep)"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M10 6l6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="sv-deps-track">
+            {depictions.map((d) => {
+              const inner = (
+                <>
+                  <div class="sv-dep-frame">
+                    <div class="sv-dep-mat">
+                      <div
+                        class="sv-dep-img"
+                        style={`background-image:url('${depImg(d.image)}')`}
+                      />
+                    </div>
+                  </div>
+                  <div class="sv-dep-meta">
+                    {d.tag && (
+                      <span class={`sv-dep-tag sv-dep-tag--${d.kind}`}>
+                        {d.tag}
+                      </span>
+                    )}
+                    <div class="sv-dep-title">
+                      {d.title}
+                      {d.era && <span class="sv-dep-era"> · {d.era}</span>}
+                    </div>
+                    {d.by && (
+                      <div class="sv-dep-by">
+                        <span>{d.by}</span>
+                        {d.source && (
+                          <svg
+                            width="11"
+                            height="11"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            stroke="var(--celest)"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M4 10 10 4M5 4h5v5" />
+                          </svg>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </>
+              );
+              return d.source ? (
+                <a
+                  href={d.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="sv-dep sv-dep--link"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div class="sv-dep">{inner}</div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     )
   }
 
@@ -934,5 +1087,41 @@ const wordsLabel = `In ${possessive} own words`;
         if (other !== d && other.open) other.open = false;
       }
     });
+  }
+
+  /* Depictions carousel: scroll-snap track with gold prev/next arrows that fade
+     in/out at the edges. Progressive enhancement — without JS the track still
+     scrolls natively (trackpad / touch). Mirrors the america-carousel island. */
+  const deps = document.querySelector<HTMLElement>(".sv-deps");
+  if (deps) {
+    const track = deps.querySelector<HTMLElement>(".sv-deps-track");
+    const prev = deps.querySelector<HTMLButtonElement>(".sv-deps-arrow.prev");
+    const next = deps.querySelector<HTMLButtonElement>(".sv-deps-arrow.next");
+    if (track && prev && next) {
+      const update = () => {
+        prev.classList.toggle("show", track.scrollLeft > 6);
+        next.classList.toggle(
+          "show",
+          track.scrollLeft + track.clientWidth < track.scrollWidth - 6,
+        );
+      };
+      // Advance by a full page of whole cards (derived from the live card width
+      // + gap), so each press reveals brand-new cards and lands on a card edge.
+      const page = (dir: number) => {
+        const card = track.querySelector<HTMLElement>(".sv-dep");
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 20;
+        const cardW = card
+          ? card.getBoundingClientRect().width
+          : track.clientWidth;
+        const stride = cardW + gap;
+        const perView = Math.max(1, Math.round(track.clientWidth / stride));
+        track.scrollBy({ left: dir * perView * stride, behavior: "smooth" });
+      };
+      prev.addEventListener("click", () => page(-1));
+      next.addEventListener("click", () => page(1));
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    }
   }
 </script>
