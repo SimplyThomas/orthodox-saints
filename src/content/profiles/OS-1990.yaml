@@ -1,0 +1,35 @@
+id: OS-1990
+lifespan: died c. 310
+liturgicalTitle: The Holy, Glorious Martyrs Eulampius and Eulampia and the Two Hundred who suffered with them at Nicomedia
+overview:
+  - Eulampius and Eulampia were a brother and sister of Nicomedia in Asia Minor (modern İzmit, Kocaeli, Turkey) who confessed Christ during the persecutions of the early fourth century. By tradition they died around 310, in the reign of the emperor Maximinus Daza, who renewed the persecution of Christians after the Edict of Toleration issued by Galerius.
+  - According to the synaxarion, Eulampius was arrested while attempting to buy provisions for Christians hiding in caves on the outskirts of Nicomedia. When he refused to renounce his faith under interrogation he was subjected to torture; his sister Eulampia then declared herself a Christian and was arrested in turn. The two siblings were martyred together, and two hundred witnesses moved by their endurance professed Christ and were themselves put to death.
+  - The group is commemorated together on October 10. As a named collective commemoration they are kept as a single entry.
+timeline:
+  - when: early 4th c.
+    title: Persecution at Nicomedia
+    body: Eulampius, disturbed by an imperial decree ordering the execution of Christians, refuses to renounce his faith. Tradition relates that he was arrested while seeking supplies for Christians hiding in caves near the city.
+  - when: early 4th c.
+    title: Eulampia comes forward
+    body: His sister Eulampia openly embraces him in public and declares herself a Christian, leading to her own arrest. By tradition Eulampius encouraged her, recalling the words of Matthew 10:28 concerning those who can kill the body but not the soul.
+  - when: c. 310
+    title: Martyrdom of the siblings and two hundred witnesses
+    body: Both siblings are tortured; the synaxarion relates that they were cast into a furnace yet preserved from the fire. Eulampius was beheaded and Eulampia died under torture before execution. Two hundred onlookers who confessed Christ after witnessing their suffering were also put to death.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrdom is set in Nicomedia, an imperial capital of the eastern Roman Empire and a major center of the persecutions of the early fourth century. The traditional death date of around 310 falls within the reign of Maximinus Daza, who ruled as Augustus from 310 until July 313 and conducted one of the last persecutions of Christians, acting on petitions from urban authorities seeking the expulsion of Christians from their cities. Before his death he reversed course and issued an edict of tolerance restoring to Christians the rights of assembly, of building churches, and of recovering confiscated property.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The siblings are attested as fourth-century martyrs of Nicomedia commemorated on October 10."
+      - "Traditional Accounts: The synaxarion relates that Eulampius, brought to a pagan temple, destroyed an idol of Mars; that the two siblings were cast into a furnace but miraculously protected from the flames; and that two hundred witnesses to these events confessed Christ and received martyrdom with them. These accounts are transmitted as tradition."
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Eulampius_and_Eulampia
+  - https://www.oca.org/saints/lives/2024/10/10
+  - https://en.wikipedia.org/wiki/Maximinus_Daza
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The profile names 'Maximinus Daza' as the persecuting emperor, but the anchor brief says 'under Maximian'.
+    detail: The anchor brief states 'confessed Christ under Maximian.' The profile names 'Maximinus Daza' instead. Per verification rules, the anchor row wins when contradicted. Historically Maximinus Daza is correct (the external sources, Wikipedia and OCA, both name him), so the anchor brief likely contains an error — but the verifier must flag the discrepancy rather than resolve it. A human should reconcile the anchor text and the profile.

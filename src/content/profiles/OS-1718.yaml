@@ -1,0 +1,44 @@
+id: OS-1718
+lifespan: 3rd century; died 250
+liturgicalTitle: The Holy Hieromartyr Myron the Presbyter of Cyzicus
+overview:
+  - Myron was a presbyter in the region of Achaia in southern Greece during the third century, remembered as a gentle and courageous priest who defended his congregation during the persecution of the Roman emperor Decius.
+  - According to his commemoration, he was seized during Christian worship and, after advocating for his suffering flock, was tortured and beheaded in the year 250. The Church commemorates him on August 17. On the Orthodox Church in America's calendar he is listed as Martyr Myron the Presbyter of Cyzicus, the metropolitan see of the Roman province of Hellespontus.
+sections:
+  - heading: Life and Ministry
+    body:
+      - Myron served as a presbyter in Achaia, the Roman province encompassing southern Greece, where a Christian community had existed since the apostolic preaching of Paul in the mid-first century. He is remembered for his gentle character and his spiritual devotion to his congregation, who in turn deeply respected him.
+      - By the account preserved at the Mystagogy Resource Center, a local governor named Antipater arrested worshippers during a celebration of the Nativity. When Myron spoke out in defense of his suffering flock, he was subjected to torture while the church building was destroyed. The OCA Synaxarion likewise records that he was arrested during worship and martyred. The sources present his defense of his spiritual children as an act of both kindness and spiritual fortitude under persecution.
+  - heading: Martyrdom
+    body:
+      - Myron suffered martyrdom in the year 250, during the persecution of Christians under the emperor Decius. According to the narrative account, he was beheaded with a sharp sword on the seventeenth day of the month, the date on which his feast is kept.
+      - Decius had issued an edict in late 249 requiring all inhabitants of the empire to make sacrifices for its welfare, with those who refused by a specified date facing torture and execution. The persecution, which also claimed prominent Christians elsewhere — Pope Fabian was put to death in 250 — lasted roughly eighteen months and eased after Decius died in 251.
+  - heading: Relics & Shrines
+    body:
+      - No information about the saint's relics or shrines is preserved in the available sources.
+timeline:
+  - when: Late 249
+    title: Decian edict of sacrifice
+    body: The emperor Decius issued an edict requiring all inhabitants of the empire to sacrifice for its welfare, exposing Christians who refused to torture and execution.
+  - when: "250"
+    title: Arrest and martyrdom
+    body: Myron, a presbyter in Achaia, was seized during Christian worship; after defending his flock he was tortured and beheaded. He is commemorated on August 17.
+  - when: "251"
+    title: End of the persecution
+    body: The Decian persecution eased following the emperor's death after roughly eighteen months.
+patronage:
+  - Priests
+  - Persecuted Christians
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2026/08/17
+  - https://www.johnsanidopoulos.com/search?q=Myron+Cyzicus
+  - https://en.wikipedia.org/wiki/Decius
+  - https://en.wikipedia.org/wiki/Cyzicus
+  - https://en.wikipedia.org/wiki/Achaia_(Roman_province)
+  - https://orthodoxwiki.org/August_17
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The anchor brief says Myron was 'a priest of Achaia', but the profile and the OCA list him as associated with 'Cyzicus'. Cyzicus is in the Hellespont/Asia Minor, not Achaia (southern Greece). The profile presents him as 'a presbyter in Achaia' in one place and also as 'the Presbyter of Cyzicus' in the liturgical title — these could be contradictory geographical claims.
+    detail: "The anchor brief says he was 'a priest of Achaia' (Greece), and the anchor's Region of Origin is 'Greece'. However, the OCA calendar listing explicitly names him 'Martyr Myron the Presbyter of Cyzicus' — Cyzicus is in Asia Minor (modern Turkey), not Achaia/southern Greece. The Cyzicus Wikipedia article confirms it was the metropolitan see of Hellespontus in Asia Minor. The dossier therefore presents a genuine tension: the anchor places him in Achaia (Greece), while the OCA title and the Wikipedia Cyzicus article place him at Cyzicus in Hellespontus. The profile asserts without qualification that he was 'a presbyter in the region of Achaia in southern Greece', which contradicts the OCA's placement at Cyzicus. Under the verify instructions, the anchor row wins, so the anchor's 'Achaia'/'Greece' is the authoritative source — but the OCA external source title specifically says 'Presbyter of Cyzicus', not 'of Achaia'. The profile conflates the two by calling him a presbyter in Achaia and also using 'Cyzicus' in the liturgical title without reconciling the geography. This is a potential error worth noting, though it reflects genuine source ambiguity. Given the anchor says 'Achaia' and 'Greece' as Region of Origin, the profile's identification as presbyter in Achaia is consistent with the anchor. The 'Cyzicus' in the liturgical title comes from the OCA listing. The contradiction is in the sources, not invented by the profile, so I will mark this supported with a caveat rather than flagging as unsupported."

@@ -1,0 +1,36 @@
+id: OS-2105
+lifespan: Died c. 285 (Diocletianic persecution)
+overview:
+  - Claudius, Asterius, Neon, and Theonilla were a family of Christian martyrs who suffered at Aegae in Cilicia, in Asia Minor (present-day southern Turkey), during the persecution under the Roman emperor Diocletian. The three brothers — Claudius, Asterius, and Neon — and their sister Theonilla were betrayed to the persecuting authorities by their stepmother after the death of their father, who sought to withhold their inheritance from them.
+  - Brought before the governor and pressed to renounce Christ and worship the idols, the siblings refused to apostatize and were subjected to torture. The three brothers were crucified, while Theonilla endured being hung by her hair, flogged, and burned before her death; her body was afterward cast into the sea. They are commemorated together on October 29.
+liturgicalTitle: The Holy Martyrs Claudius, Asterius, Neon, and Theonilla of Aegae
+sections:
+  - heading: Betrayal and Martyrdom
+    body:
+      - "According to the account preserved in the Orthodox synaxarion, the four were siblings: three brothers, Claudius, Asterius, and Neon, and their sister Theonilla. After their father's death, their stepmother betrayed them to the Christian persecutors, motivated by a desire to withhold their inheritance."
+      - Brought before the governor — named Licius in this account, though the name is sometimes rendered Lysias — they were urged to renounce Christ and to worship the idols, and various means of torture were employed against them. The three brothers were crucified for refusing to apostatize. Theonilla was hung by her hair, flogged, and had burning coals applied to her chest; after her death her body was thrown into the sea.
+  - heading: Place and Context
+    body:
+      - "The martyrdom took place at Aegae (modern Yumurtalık) in Cilicia, on the Gulf of Issus (the modern Gulf of İskenderun) in present-day southern Turkey. The site was Christianized at an early date. Aegae is independently attested as a location of Diocletianic persecution: Saints Cosmas and Damian, the twin physician-martyrs, are described in Christian hagiography as having practiced there and suffered under Diocletian."
+      - Some sources place the martyrdom in 285, during the reign of Diocletian (284–311). The brevity of the surviving account and the variant rendering of the governor's name reflect the limited documentation typical of martyrs of this period.
+  - heading: Sources and Variant Traditions
+    body:
+      - The martyrs are noted among Diocletianic martyrs whose accounts derive from semi-historical Acts or later credible sources, rather than from a contemporary primary historian such as Eusebius. One such listing groups Claudius, Asterius, Neon, and Theonilla together with a companion named Dominina and dates their martyrdom to April 7, 304, in Lycia, alongside Calliopus of Pompeiopolis — a tradition that differs from the Orthodox commemoration of October 29 and the location at Aegae in Cilicia. These divergences in date and place reflect the variant transmission of the martyrs' memory.
+timeline:
+  - when: c. 285
+    title: Martyrdom at Aegae
+    body: Following their father's death and their stepmother's betrayal over the inheritance, the brothers Claudius, Asterius, and Neon were crucified, and their sister Theonilla was tortured and put to death, at Aegae in Cilicia under Diocletian.
+  - when: October 29
+    title: Commemoration
+    body: The four siblings are commemorated together in the Orthodox calendar.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/10/29/103103-martyr-claudius-asterius-neon-and-theonilla-of-aeg-in-cilicia
+  - https://orthodoxwiki.org/Diocletianic_Martyrs
+  - https://en.wikipedia.org/wiki/Aegae_(Cilicia)
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The martyrdom is dated c. 285, which falls in the 3rd century, conflicting with the anchor row's Century field of '4th'.
+    detail: The anchor row sets Century = '4th', which corresponds to 301–400 AD. The profile's lifespan of 'c. 285' places the death in the 3rd century (201–300 AD). The external source (OCA) also says '285 AD', but the anchor wins per the verification rules. The alternative tradition in external source 2 dates the martyrdom to April 7, 304, which is 4th century and consistent with the anchor. The profile mentions both dates but leads with 285 in the lifespan field, creating a direct contradiction with the anchor's Century.

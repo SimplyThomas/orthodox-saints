@@ -1,0 +1,45 @@
+id: OS-1860
+lifespan: Died 7th century
+overview:
+  - Saint Eumenius was a native of Crete who, from his youth, was known for a virtuous life devoted to the service of God. Concerned for the salvation of his soul, he distributed all of his possessions to the poor and shunned worldly temptations.
+  - He was chosen as Bishop of Gortyna on the island of Crete, where he became known for pastoral compassion, charity to orphans and the destitute, and miracles attributed to his prayers. He defended Orthodox doctrine against the Monophysite heresy, and for his opposition was banished to the Thebaid in Upper Egypt, where he died in the seventh century. His body was afterward transferred and buried in Gortyna. He is commemorated on September 18.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2022/09/18/102653-saint-eumenius-bishop-of-gortyna
+  - https://www.oca.org/saints/lives/2022/09/18
+  - https://www.oca.org/saints/lives/2023/09/18
+liturgicalTitle: Our Father among the Saints Eumenius, Bishop of Gortyna, the Wonderworker
+patronage:
+  - Crete
+  - Gortyna
+sections:
+  - heading: Early Life and Renunciation
+    body:
+      - According to his life as recorded by the Orthodox Church in America, Eumenius was noted from the time of his youth for his virtuous manner of living. He sought to serve the one God and avoided worldly temptations.
+      - Out of concern for the salvation of his soul, he distributed all of his substance to the poor, embracing voluntary poverty before his elevation to the episcopate.
+  - heading: Bishop of Gortyna
+    body:
+      - Eumenius was chosen as Bishop of Gortyna, an ancient see on the island of Crete. As bishop he was remembered for pastoral compassion, comforting his flock in their sorrows and caring for orphans and the indigent.
+      - "The synaxarion relates that his prayers were powerful before God: during a drought he is said to have called forth abundant rain upon the earth."
+  - heading: Defense of Orthodoxy and Exile
+    body:
+      - Eumenius actively opposed theological error, defending Orthodox doctrine against the Monophysite heresy. For this opposition he was banished to the Thebaid, a region of Upper Egypt.
+      - He died there in the seventh century. His body was subsequently transferred and buried in Gortyna.
+  - heading: Sources and Attestation
+    body:
+      - Independent English-language attestation for Saint Eumenius is limited. As of this writing no English Wikipedia or OrthodoxWiki article was found for him, and the principal accessible account is the life published by the Orthodox Church in America, on which this profile chiefly rests.
+      - The Orthodox Church in America commemorates him on September 18, where his name appears alongside other commemorations of that day, including the Martyr Ariadne of Phrygia.
+timeline:
+  - when: 7th century
+    title: Bishop of Gortyna
+    body: Eumenius, a Cretan known from youth for his virtue and for distributing his wealth to the poor, is chosen Bishop of Gortyna on Crete.
+  - when: 7th century
+    title: Exile to the Thebaid
+    body: For opposing the Monophysite heresy, Eumenius is banished to the Thebaid in Upper Egypt, where he dies; his body is later transferred and buried in Gortyna.
+status: flagged
+generated: "2026-06-23"
+flagReasons:
+  - claim: Eumenius was a native of Crete.
+    detail: The dossier (OCA life) does not state that Eumenius was born or native to Crete. It says he became Bishop of Gortyna on Crete and was virtuous from youth, but gives no birthplace. The anchor's Region of Origin is 'Greece' (not Crete specifically), and the OCA text never calls him a native or Cretan by origin. This is an inference not supported by any external source in the dossier.
+  - claim: He embraced voluntary poverty before his elevation to the episcopate.
+    detail: The dossier (OCA life) says he distributed his wealth to the poor but does not specify that this occurred before he became bishop. The temporal ordering relative to his elevation is not stated in any source in the dossier; this is an inference beyond what is attested.

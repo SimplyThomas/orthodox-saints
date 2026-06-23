@@ -1,0 +1,40 @@
+id: OS-1840
+lifespan: Martyred c. 305–311 (under Maximian Galerius)
+overview:
+  - Theodotus, Asclepiodotus, and Maximus were eminent Christian citizens of Marcianopolis in Thrace (modern Devnya, Bulgaria) who lived devout lives in the early fourth century. Through their example and conduct they drew many others to the Christian faith and led them to baptism.
+  - They suffered martyrdom during the persecution under the Roman emperor Maximian Galerius (305–311). After enduring tortures at Adrianopolis, they were beheaded near Philippopolis when they refused to renounce Christ. Their principal feast is kept on September 15, with a secondary commemoration on September 17 in some calendrical traditions.
+liturgicalTitle: The Holy Martyrs Theodotus, Asclepiodotus, and Maximus of Adrianopolis
+sections:
+  - heading: Persecution and Trial
+    body:
+      - According to the synaxarion, Tiris, the governor of Thrace, systematically persecuted Christians throughout his jurisdiction and summoned the three before him, demanding that they renounce their faith. When they refused to apostatize, the governor ordered them beaten.
+      - Theodotus, described as a pious man, publicly condemned the governor's cruelty and was consequently hung from a tree and tortured with iron hooks. All three were then imprisoned and transported by the governor over a period of about two weeks.
+  - heading: Torture and Martyrdom
+    body:
+      - At Adrianopolis the three endured severe tortures, including being scorched with white-hot plates, and by tradition received heavenly encouragement during their suffering. They were then thrown to wild beasts in the circus; the accounts relate that a she-bear refused to attack Maximus and Theodotus and instead showed them affection, while Asclepiodota, tied to a bull, remained unharmed.
+      - Finally, at the village of Saltis near Philippopolis, the governor Tiris had all three beheaded after they once more refused to renounce Christ. The synaxarion relates that divine justice followed, as a bolt of lightning struck Tiris while he sat upon the judgment seat.
+  - heading: Names and Commemoration
+    body:
+      - The female martyr's name is rendered as Asclepiodota in Greek sources and as Asclepiodotus in Latin and Slavic sources. The group is commemorated chiefly on September 15, and a cross-reference on September 17 lists the same three martyrs as 'of Marcianopolis in Thrace,' indicating a secondary commemorative date in some traditions.
+      - Their city of origin, Marcianopolis (modern Devnya, Bulgaria), was a major city of the Roman province of Moesia Inferior, distinct from Adrianopolis (modern Edirne, Turkey), where they were tortured. An icon in the Menologion of Basil II, a tenth-century Byzantine illuminated manuscript, depicts the three martyrs together, attesting to their veneration in the Byzantine tradition.
+timeline:
+  - when: 305–311
+    title: Persecution under Maximian Galerius
+    body: During the reign of the emperor Maximian Galerius, Tiris, governor of Thrace, persecutes Christians and summons Theodotus, Asclepiodotus, and Maximus, eminent Christians of Marcianopolis.
+  - when: c. 305–311
+    title: Trial and tortures
+    body: Refusing to renounce their faith, the three are beaten, imprisoned, and transported over roughly two weeks; at Adrianopolis they are scorched with white-hot plates and thrown to wild beasts in the circus.
+  - when: c. 305–311
+    title: Martyrdom near Philippopolis
+    body: At the village of Saltis near Philippopolis the governor Tiris beheads all three after they again refuse to renounce Christ.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/09/15/102617-martyrs-theodotus-asclepiodotus-and-maximus-of-adrianopolis
+  - https://en.wikipedia.org/wiki/September_15_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/September_17_(Eastern_Orthodox_liturgics)
+status: flagged
+generated: "2026-06-23"
+flagReasons:
+  - claim: City of origin is Marcianopolis in Thrace (modern Devnya, Bulgaria)
+    detail: The anchor row sets Region of Origin = Greece, not Thrace/Bulgaria. The profile contradicts the anchor by asserting Marcianopolis in Thrace (modern Devnya, Bulgaria) as the city of origin. The anchor wins on this conflict. (The external OCA source does say Marcianopolis, which may mean the CSV Region field needs correction, but the verifier's job is to flag the contradiction with the anchor, not to adjudicate it.)

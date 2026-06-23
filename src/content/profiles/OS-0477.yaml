@@ -1,0 +1,34 @@
+id: OS-0477
+lifespan: died c. 1550
+overview:
+  - Venerable Athanasius of Syandemsk was a sixteenth-century Russian monastic, a disciple of Saint Alexander of Svir, who founded a hermitage in the forests of the Olonets region of Karelia, in the Vologda land.
+  - Following the death of his teacher, he established the Dormition hermitage on an island of Lake Syandem (Synadem), not far from the city of Olonets. Difficulties with the local inhabitants led him to return for a time to the Svir monastery, where he served as abbot, before withdrawing again to his forest hermitage, where he died in great old age around the year 1550.
+liturgicalTitle: Our Venerable Father Athanasius, Abbot of Syandemsk
+sections:
+  - heading: Monastic Life and Foundation
+    body:
+      - Athanasius was a disciple of Saint Alexander of Svir (1448–1533), the founder of the Trinity Monastery in the Novgorod lands. As a disciple, he would have entered monastic life under Alexander before the latter's death in 1533.
+      - After his teacher's repose, Athanasius withdrew into the forests of Karelia, near the city of Olonets, and established the Dormition hermitage on an island of Lake Syandem. According to the synaxarion, the criticism and hostility of the local inhabitants prompted him to return to the Svir monastery, where he became abbot (igumen). He later went back to his hermitage in the woods, where he reposed in about the year 1550 at a great age.
+  - heading: Relics & Shrines
+    body:
+      - Saint Athanasius was buried on Roschinsk island. A church dedicated to Saints Athanasius and Cyril of Alexandria was later built above his resting place. In 1720 his relics, found incorrupt, were translated to this church.
+timeline:
+  - when: before 1533
+    title: Disciple of Alexander of Svir
+    body: Athanasius entered monastic life as a disciple of Saint Alexander of Svir, founder of the Trinity (later Alexander-Svirsky) Monastery.
+  - when: after 1533
+    title: Founds the Dormition hermitage
+    body: Following his teacher's death, Athanasius established a hermitage on an island of Lake Syandem in the forests of Karelia, near Olonets.
+  - when: c. 1550
+    title: Repose
+    body: After serving for a time as abbot at the Svir monastery and then returning to his hermitage, Athanasius died in great old age and was buried on Roschinsk island.
+  - when: "1720"
+    title: Translation of relics
+    body: His incorrupt remains were translated to a church dedicated to Saints Athanasius and Cyril of Alexandria, built above his burial site.
+sources:
+  - OCA Synaxarion (oca.org), Jan 18
+  - https://www.oca.org/saints/lives/2026/01/18/100221-venerable-athanasius-abbot-of-syandemsk-vologda
+  - https://en.wikipedia.org/wiki/Alexander_of_Svir
+  - https://www.oca.org/saints/lives/2026/01/18
+status: draft
+generated: "2026-06-22"
