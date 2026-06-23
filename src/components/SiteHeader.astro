@@ -9,6 +9,7 @@ interface Props {
     | "search"
     | "calendar"
     | "america"
+    | "icons"
     | "news"
     | "quiz"
     | "about"
@@ -23,6 +24,7 @@ const NAV: { key: string; label: string; href: string }[] = [
   { key: "calendar", label: "Calendar", href: withBase("calendar") },
   { key: "search", label: "Browse", href: withBase("search") },
   { key: "america", label: "America", href: withBase("america") },
+  { key: "icons", label: "Home Icons", href: withBase("icons-home") },
   { key: "news", label: "News", href: withBase("news") },
   { key: "quiz", label: "Patron Quiz", href: withBase("quiz") },
   { key: "about", label: "About", href: withBase("about") },
