@@ -93,10 +93,22 @@ reading:
         author: Nicholas Motovilov
       - title: Chronicle of the Seraphim-Diveyevo Monastery
         author: Seraphim Chichagov
+  - heading: Modern Biographies
+    items:
+      - title: St. Seraphim of Sarov
+        author: Valentine Zander
+      - title: "Flame in the Snow: The Life of St. Seraphim of Sarov"
+        author: Iulia de Beausobre
+      - title: St. Seraphim of Sarov
+        author: Archimandrite Lazarus Moore
+      - title: The Life of St. Seraphim of Sarov
+        author: Elena Kontzevitch
   - heading: Modern Studies
     items:
       - title: St. Seraphim of Sarov
         author: Constantine Cavarnos
       - title: "The Joy of the Holy: Saint Seraphim of Sarov and Orthodox Spiritual Life"
         author: Harry Boosalis
+      - title: "Little Russian Philokalia, Volume 1: St. Seraphim of Sarov"
+        author: collected teachings
 status: reviewed
