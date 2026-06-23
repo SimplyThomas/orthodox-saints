@@ -1,0 +1,38 @@
+id: OS-2089
+lifespan: Died 304
+overview:
+  - Mark, Soterichus, and Valentine were three Christians from Asia (Asia Minor) who were arrested by the pagan authorities in 304 during the Diocletianic persecution, having been apprehended specifically on account of their Christian faith.
+  - After enduring many tortures, the three confessors were dragged over sharp stones until they died, and are venerated together as martyrs.
+  - Following their deaths, their relics were transported to the island of Thasos, situated between Thrace and the Athonite peninsula, where the martyr Mark came to be associated with the island.
+liturgicalTitle: The Holy Martyrs Mark, Soterichus, and Valentine
+sections:
+  - heading: Martyrdom
+    body:
+      - The three came from Asia and were seized by pagan authorities in 304, during the era of imperial persecution, solely because they confessed Christ.
+      - According to the synaxarion account, they endured many tortures and were then dragged over sharp stones until they were dead.
+  - heading: Relics & Shrines
+    body:
+      - After their martyrdom, the holy remains of the three were carried to the island of Thasos, which lies between Thrace and the Athonite peninsula.
+      - On account of this, Mark is named in some calendars as 'Mark of the Isle of Thasos and those with him.'
+  - heading: Commemoration
+    body:
+      - The martyrs are commemorated on October 27 in the calendar followed here. In the Greek liturgical tradition they are commemorated on October 24, where they appear as Saints Mark, Soterikos, and Valentinos.
+      - This is a genuinely obscure pre-Nicene group martyrdom with minimal surviving documentation; beyond brief synaxarion notices and bare calendar listings, little biographical detail has been preserved.
+timeline:
+  - when: "304"
+    title: Arrest and martyrdom
+    body: The three Christians from Asia were arrested by pagan authorities for confessing Christ, tortured, and put to death by being dragged over sharp stones.
+  - when: After 304
+    title: Translation of relics to Thasos
+    body: Their relics were brought to the island of Thasos, between Thrace and the Athonite peninsula.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2024/10/27
+  - https://orthodoxwiki.org/October_27
+  - https://orthodoxwiki.org/October_24
+  - https://en.wikipedia.org/wiki/Mark,_Soterichus,_and_Valentine
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The three were arrested in 304 during the Diocletianic persecution.
+    detail: Neither the anchor row nor any external source in the dossier uses the phrase 'Diocletianic persecution' or names Diocletian. The dossier says only '304 CE' and 'pagan authorities.' The specific framing of the persecution is an editorial inference not grounded in the supplied sources.

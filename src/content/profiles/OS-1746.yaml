@@ -1,0 +1,43 @@
+id: OS-1746
+lifespan: died 4th century (380 per OCA; other traditions place the martyrdom in 344)
+overview:
+  - Heliodorus and Dosa (Dausa) are commemorated together as martyrs who suffered for Christ in Persia under the Sasanian king Shapur II. The Orthodox Church of America places their death in the year 380, during the prolonged persecution of Christians that marked Shapur's reign.
+  - In the hagiographic tradition associated with Bet Zabdai (Bezabde) in Mesopotamia, Heliodorus was a bishop and Dosa a priest he consecrated as his successor before his own death. The two are kept as a single named pair in commemoration and share a feast on August 20.
+  - The sources preserve differing accounts of the circumstances of their deaths, reflecting more than one strand of tradition; the central memory shared across them is that both men confessed Christ before a hostile Persian power and were crowned as martyrs.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrdom is set during the reign of Shapur II of Persia, whose campaigns against Roman Mesopotamia beginning around 337 opened an extended period of conflict. Within his realm Christians were subjected to persecution, understood in part as a reaction against the Emperor Constantine the Great's open promotion of Christianity in the Roman world.
+      - According to one tradition, Shapur besieged and captured the fortified town of Bet Zabdai, taking Heliodorus and other captives into Persia. The synaxarion tradition further describes the king as actively demolishing churches, breaking sacred icons, and burning the relics of the saints.
+  - heading: The Two Martyrs
+    body:
+      - In the Bet Zabdai tradition, Heliodorus was the Syrian bishop of Bet Zabdai (Bezabde) in Mesopotamia. Following the capture of the town, he and others were taken as prisoners of war and compelled on a long forced march toward Bet Huzaje. During the journey he fell gravely ill and named the priest Dausa (Dosa) as his successor before dying at Daskarata on the Great Zab, his death attributed to mistreatment and exhaustion.
+      - Dausa, also called Dosa, served as a priest at Bet Zabdai. After being consecrated bishop by the dying Heliodorus, he was led onward and, in this tradition, executed at Masabadan in Media after refusing to worship the sun, said to have suffered together with a large company of companions.
+      - A separate synaxarion account (the Synaxarion of the Holy Martyrs Heliodoros and Dosa) describes both men as being of noble rank who presented themselves before King Shapur, rebuked his impiety, and proclaimed the faith of Christ. In this version Heliodoros was ninety-five years old, designated Dosa as his successor, and both endured many tortures before their deaths.
+  - heading: Differing Traditions and Dating
+    body:
+      - The sources do not agree on the year or the precise manner of the martyrdom. The Orthodox Church in America gives the year 380, the date retained here as the anchor.
+      - Other accounts following the Bet Zabdai tradition place the deaths in 344, while the synaxarion's reference to the fifty-third year of Shapur's reign would point to roughly 361 to 362. These divergences likely reflect distinct hagiographic traditions or dating variants within the Acts of the Martyrs of Bezabde rather than separate events.
+timeline:
+  - when: c. 337
+    title: Shapur II invades Roman Mesopotamia
+    body: Shapur II's campaigns against Roman Mesopotamia begin an extended conflict, during which Christians within Persia face persecution as a reaction to Constantine the Great's promotion of Christianity.
+  - when: 4th century
+    title: Capture of Bet Zabdai
+    body: In the Bet Zabdai tradition, Shapur besieges and captures the town, taking Bishop Heliodorus and others as captives into Persia and onto a forced march toward Bet Huzaje.
+  - when: during the march
+    title: Heliodorus consecrates Dosa his successor
+    body: Falling gravely ill, Heliodorus names the priest Dausa (Dosa) as his successor and dies at Daskarata on the Great Zab from mistreatment and exhaustion.
+  - when: 380 (per OCA; 344 in the Bet Zabdai tradition)
+    title: Martyrdom of the two saints
+    body: The martyrs suffer for Christ in Persia under Shapur II. Dosa is led on and, in one tradition, beheaded at Masabadan in Media with his companions after refusing to worship the sun.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Heliodorus_of_Bet_Zabdai
+  - https://en.wikipedia.org/wiki/Dausa_(bishop)
+  - https://www.johnsanidopoulos.com/2019/08/synaxarion-of-holy-martyrs-heliodoros.html
+  - https://www.oca.org/saints/all-lives/2015/08/20
+  - https://en.wikipedia.org/wiki/August_20_(Eastern_Orthodox_liturgics)
+status: draft
+generated: "2026-06-22"

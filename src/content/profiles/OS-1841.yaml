@@ -1,0 +1,38 @@
+id: OS-1841
+lifespan: Died 361
+liturgicalTitle: The Holy Martyr Porphyrius the Actor
+overview:
+  - Porphyrius (also rendered Porphyrios) was an actor who, by tradition, was martyred during the reign of the Emperor Julian the Apostate (361–363). According to his life, he was performing in a theatrical production intended to ridicule the Mystery of Holy Baptism when he underwent a genuine conversion in the very act of mocking it.
+  - Rather than completing the parody, Porphyrius immersed himself in the water and pronounced the Trinitarian baptismal formula over himself, then confessed himself a Christian before the entire audience. He was tortured at the emperor's order and beheaded. The Church commemorates him on September 15.
+sections:
+  - heading: Conversion and Martyrdom
+    body:
+      - By tradition, the events took place at a theatrical performance during the reign of Julian the Apostate. Porphyrius, an actor by profession, was cast to mock the Christian rite of Baptism before an audience that included the emperor. One account places the occasion on the emperor's birthday.
+      - In the course of the performance Porphyrius immersed himself in the water and declared, in his own person, the words of Baptism — invoking the Name of the Father, and of the Son, and of the Holy Spirit — and openly professed himself a Christian. Julian ordered him tortured, and after he endured these torments he was beheaded. One tradition places his execution at Ephesus in 361.
+  - heading: Historical Context
+    body:
+      - Julian the Apostate ruled from November 361 to June 363 and, while he did not enact a formal edict of systematic persecution, pursued measures aimed at diminishing Christian influence — among them the revocation of stipends to bishops, the removal of judicial privileges, an edict requiring state approval for public teachers, and a tolerance edict recalling exiled bishops to sow internal division. This imperial environment, hostile to Christianity without a declared persecution, is the setting in which Porphyrius made his public confession and was put to death. Julian's reign ended with his death from wounds received during his Persian campaign.
+      - Porphyrius belongs to a recognizable hagiographic type — the converted actor-martyr — that recurs across Eastern and Western Christian tradition. In the West the parallel figure is Genesius of Rome, a Roman actor said to have been converted while performing a parody of Baptism before the Emperor Diocletian (died 303); like Porphyrius, he announced his faith publicly, refused to recant, and was beheaded. Genesius is venerated as patron of actors and is commemorated on August 25; the surviving 'Acts' of his life date from the seventh century and their historical accuracy is uncertain, though a fourth-century gold-glass portrait attests to early veneration.
+  - heading: Identity and Commemoration
+    body:
+      - This Porphyrius is to be distinguished from another Saint Porphyrius the actor of an earlier period (roughly 270–275), who is commemorated on November 4. The Martyr Porphyrius honored on September 15 is commemorated alongside the Great Martyr Niketas the Goth and other saints of that day.
+timeline:
+  - when: 361–363
+    title: Reign of Julian the Apostate
+    body: Porphyrius lives and suffers during the reign of the Emperor Julian, who pursued measures hostile to Christianity without a formal edict of persecution.
+  - when: "361"
+    title: Conversion and martyrdom
+    body: While performing in a play meant to mock Holy Baptism, Porphyrius immerses himself, pronounces the Trinitarian formula, and confesses Christ before the audience. He is tortured and beheaded; one tradition places the execution at Ephesus.
+patronage:
+  - Actors
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/09/15/102620-martyr-porphyrius-the-actor
+  - https://www.oca.org/saints/lives/2024/09/15
+  - https://en.wikipedia.org/wiki/Genesius_of_Rome
+  - https://en.wikipedia.org/wiki/Julian_the_Apostate
+status: flagged
+generated: "2026-06-23"
+flagReasons:
+  - claim: Porphyrius is patron of actors
+    detail: No source in the dossier attributes patronage of actors to Porphyrius. The external source on Genesius of Rome identifies Genesius as 'patron saint of actors, comedians, lawyers, dancers, and musicians,' but no dossier source makes this claim about Porphyrius. The patronage appears to have been transferred from Genesius to Porphyrius without grounding.

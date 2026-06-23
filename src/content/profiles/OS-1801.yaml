@@ -1,0 +1,44 @@
+id: OS-1801
+lifespan: c. 244–337
+overview:
+  - Saint Alexander was the bishop of Byzantium and, after the city was renamed in 330, the first to hold the see under its new name of Constantinople. He is remembered above all for his firm defense of Orthodox teaching against Arianism during the reign of Constantine the Great.
+  - Born around 244 in Calabria, in southern Italy, to parents named George and Vryaine, he devoted himself from youth to the monastic life. He died at Constantinople in 337, having reached an advanced age of roughly ninety-three years.
+liturgicalTitle: Our Father among the Saints Alexander, Patriarch of Constantinople
+sections:
+  - heading: Episcopate and the First Ecumenical Council
+    body:
+      - Alexander served as bishop of Byzantium from around 314, succeeding Metrophanes. According to the sources, he had become vicar to Metrophanes some years earlier, when already advanced in years. When the city of Byzantium was renamed Constantinople in 330, Alexander became the first bishop to hold the see under its new name.
+      - Though elderly, Alexander represented his predecessor Metrophanes at the Council of Nicaea in 325, since Metrophanes was unable to attend on account of his age and infirmity; Alexander was regarded as his destined successor. At the council he supported Alexander of Alexandria in the defense of the Trinitarian position against the teaching of Arius.
+  - heading: Confrontation with Arianism
+    body:
+      - Alexander stood firmly against Arian doctrine throughout his episcopate. After the Council of Nicaea, the emperor Constantine commanded him to receive the heretic Arius back into communion. Alexander persisted in his refusal, despite threats of deposition and banishment, rather than compromise his doctrinal stance.
+      - Rather than yield, Alexander shut himself within the Church of Hagia Irene in fervent prayer. By the account of the sources, Arius died on his way to the church, before he could be received back into communion. Alexander nominated his vicar Paul as his successor and warned the clergy against the semi-Arian Macedonius.
+  - heading: Asceticism and Travels
+    body:
+      - From his youth Alexander gave himself to the religious life in a monastery, and his ascetic practices were remembered as remarkable. By tradition he is said to have remained unclothed for four years and to have endured hardships from the attacks of the Saracens.
+      - The sources relate that he traveled through Greece in the company of his disciples Vitalius and Nicephorus.
+timeline:
+  - when: c. 244
+    title: Birth in Calabria
+    body: Alexander is born around 244 in Calabria, in southern Italy, to parents named George and Vryaine.
+  - when: c. 314
+    title: Bishop of Byzantium
+    body: Alexander succeeds Metrophanes as bishop of Byzantium, having served as his vicar.
+  - when: "325"
+    title: Council of Nicaea
+    body: Alexander attends the First Ecumenical Council in place of the aged Metrophanes, supporting Alexander of Alexandria against Arius.
+  - when: "330"
+    title: First bishop of Constantinople
+    body: When Byzantium is renamed Constantinople, Alexander becomes the first to hold the see under its new name.
+  - when: c. 336
+    title: Death of Arius
+    body: Refusing the emperor's command to readmit Arius, Alexander prays in Hagia Irene; Arius dies on his way to the church before being received into communion.
+  - when: "337"
+    title: Repose
+    body: Alexander dies at Constantinople at roughly ninety-three years of age, having nominated Paul as his successor.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Alexander_of_Constantinople
+  - https://orthodoxwiki.org/Alexander_of_Constantinople
+status: draft
+generated: "2026-06-22"

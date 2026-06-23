@@ -1,0 +1,35 @@
+id: OS-2125
+lifespan: 13th century (martyred at the fall of Tbilisi, traditionally dated 1227; some scholarly sources date the city's capture to 1226)
+overview:
+  - The Hundred Thousand Martyrs of Tbilisi are the Orthodox Christians of the Georgian capital who were put to death after the city fell to the Khwarazmian forces of Jalal al-Din Mangburni. They are commemorated together as a single body of martyrs and are recognized as saints of the Georgian Orthodox Church.
+  - According to the account preserved in Georgian tradition, the captors removed icons of Christ and the Virgin Mary from Sioni Cathedral and laid them on the Metekhi Bridge over the Mtkvari River. Christians were ordered to cross the bridge and trample the icons, profaning them and converting to Islam, as the price of their lives. Those who refused were beheaded on the bridge.
+  - The anchor account dates the martyrdom to 1227, the year Tbilisi was captured by Jalal al-Din; several scholarly sources, including Wikipedia, place the fall of the city in 1226. The discrepancy concerns the year of the event rather than its substance. They are commemorated on October 31 (Old Style), corresponding to November 13 on the modern calendar.
+liturgicalTitle: The Holy Hundred Thousand Martyrs of Tbilisi
+patronage:
+  - Georgia
+  - Veneration of icons
+  - Confessors under persecution
+timeline:
+  - when: "1225"
+    title: Battle of Garni
+    body: Jalal al-Din Mangburni's campaign against Georgia opened with the Battle of Garni, where his army defeated the Georgian forces.
+  - when: "1226 (anchor: 1227)"
+    title: Fall of Tbilisi
+    body: Jalal al-Din marched on Tbilisi and Queen Rusudan of Georgia fled the capital. The Georgian defenders fought fiercely but were overwhelmed, particularly after local Muslims assisted the Khwarazmian forces in breaching the city. The anchor row dates the capture to 1227; Wikipedia and other scholarly sources date it to 1226.
+  - when: After the city's capture
+    title: Martyrdom on the Metekhi Bridge
+    body: Icons of Christ and the Virgin Mary were taken from Sioni Cathedral and placed on the Metekhi Bridge. Christians were ordered to walk over them and convert to Islam; those who refused to desecrate the icons were beheaded on the bridge.
+sections:
+  - heading: Historical Context
+    body:
+      - Jalal al-Din Mangburni, the last ruler of the Khwarazmian dynasty, conducted a campaign against the Kingdom of Georgia that began with his victory at the Battle of Garni in 1225. When he marched on Tbilisi, Queen Rusudan fled the capital. The Georgian defenders resisted fiercely but were overwhelmed, in part because local Muslims within the city assisted the Khwarazmian forces in breaching its defenses.
+      - After taking the city, Jalal al-Din had the dome of Sioni Cathedral torn down and replaced with his own throne as a symbol of conquest. The killing of the Christians who refused to apostatize is recorded both in Georgian sources and by Muslim historians. Ibn al-Athir and Nasawi, the biographer of Jalal al-Din, confirm that Christians were killed, and the Armenian historian Kirakos Gandzaketsi documented forced conversions, the mistreatment of women, the destruction of churches, and the removal of Christian crosses.
+  - heading: The Number of the Martyrs
+    body:
+      - The figure of one hundred thousand derives from the fourteenth-century anonymous Georgian 'Chronicle of a Hundred Years.' Scholarly analysis notes that the original Georgian phrase, ats'ni bevrni, literally means 'ten ten-thousands,' with bevrni deriving from an Old Persian word for ten thousand. The figure may therefore reflect either an actual toll near one hundred thousand or a round-number convention. The independent account of Jalal al-Din likewise reports that a hundred thousand of the city's inhabitants were put to death for not renouncing Christianity.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Hundred_Thousand_Martyrs_of_Tbilisi
+  - https://en.wikipedia.org/wiki/Jalal_al-Din_Mangburni
+status: draft
+generated: "2026-06-22"

@@ -1,0 +1,45 @@
+id: OS-2244
+lifespan: died c. 362; martyred under Julian the Apostate (361–363)
+overview:
+  - Theodore of Antioch was a young Christian, traditionally fifteen years of age, martyred in the Syrian city of Antioch during the reign of the emperor Julian the Apostate (361–363). He is commemorated in the Orthodox Church on November 23.
+  - His suffering arose from his participation in the translation of the relics of the martyr Babylas, a former bishop of Antioch, from Daphne back toward Antioch. Arrested during the choral procession that accompanied the relics, Theodore was tortured at length but survived his interrogation; according to the historian Theodoret, his constancy under torture moved Julian to abandon further persecutions of this kind. By later tradition he was afterward recaptured and beheaded, dying as a confessor of Christ while still a youth.
+liturgicalTitle: The Holy Martyr Theodore of Antioch
+sections:
+  - heading: Historical Background
+    body:
+      - The events surrounding Theodore's martyrdom center on the cult of Saint Babylas, who had served as bishop (patriarch) of Antioch and died in prison during the Decian persecution, around the year 250. In 351 the Caesar Constantius Gallus built a church in honor of Babylas at Daphne, a suburb of Antioch, and transferred his remains there to counteract the pagan temple of Apollo on the site.
+      - When Julian the Apostate later consulted the oracle of Apollo at Daphne before his Persian campaign, he received no response; he was told that the proximity of Babylas's remains prevented divination, and the oracle requested their removal. Julian accordingly ordered the Christians to translate the relics away from the shrine. The historian Theodoret, in his Ecclesiastical History, records that the Christians carried out the translation with open rejoicing, processing with the relics while singing psalms and declaring, in the words preserved by the tradition, 'Shame be to all them that worship molten images,' understanding the removal of the relics as a defeat for the demon of the oracle.
+  - heading: Martyrdom
+    body:
+      - "When Julian learned of the choral procession, he ordered its leaders arrested. According to Theodoret, the prefect Sallustius detained a young man named Theodore as he walked in the Forum, describing him as adorned with the graces of a holy enthusiasm. The prefect subjected him to severe torture: he was hung in stocks, his back was lacerated with scourges, and his sides were torn with claw-like instruments from dawn until the close of the day, after which he was bound with iron chains in prison."
+      - Theodoret relates that when Theodore was later asked whether he had felt the full force of his pains, the youth answered that at first the suffering was considerable, but that a figure then appeared who continually wiped the sweat from his face with a cool, soft cloth and bade him take courage; he said that his greater grief came when the torturers stopped, at the departure of this comforter.
+      - Soon afterward, according to the same account, a thunderbolt descended upon the shrine at Daphne and burned it, reducing the gilded statue of Apollo to dust. Julian's uncle Julianus, prefect of the East, suspecting Christian arson, scourged the temple officers; but they refused to give a false account and maintained that the fire had come from above, and nearby country people confirmed that they had seen the thunderbolt descend from heaven. By later tradition Theodore was afterward recaptured for mocking the idols and was beheaded, completing his martyrdom.
+timeline:
+  - when: c. 250
+    title: Death of Babylas of Antioch
+    body: Babylas, bishop of Antioch, dies in prison during the Decian persecution; his relics later become the focus of veneration at Antioch.
+  - when: "351"
+    title: Relics moved to Daphne
+    body: The Caesar Constantius Gallus builds a church for Babylas at Daphne and transfers his remains there, opposite the temple of Apollo.
+  - when: 361–363
+    title: Reign of Julian the Apostate
+    body: Julian, seeking to revive paganism, consults the silenced oracle of Apollo at Daphne before his Persian campaign and orders the Christians to remove Babylas's relics.
+  - when: c. 362
+    title: Procession and arrest
+    body: Christians translate the relics from Daphne with psalms and rejoicing; the prefect Sallustius arrests the youth Theodore from the procession and has him tortured throughout the day.
+  - when: c. 362
+    title: Fire at Daphne and martyrdom
+    body: The shrine of Apollo at Daphne burns and its statue is destroyed; by tradition Theodore is later recaptured and beheaded, dying as a martyr.
+patronage:
+  - Youth
+  - Martyrs
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/11/23
+  - https://www.johnsanidopoulos.com/2016/11/holy-martyr-theodore-of-antioch.html
+  - https://en.wikipedia.org/wiki/Babylas_of_Antioch
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Theodore survived his interrogation
+    detail: The anchor brief states he 'died of his torments after confessing Christ,' which implies death from the torture itself. The profile's claim that he 'survived his interrogation' contradicts this anchor phrasing. The Sanidopoulos external source supports a later beheading, but the anchor (which wins over external sources per the verify protocol) says 'died of his torments' — not 'survived and was later executed.' The two are in tension and the anchor description does not support the 'survived his interrogation' framing.

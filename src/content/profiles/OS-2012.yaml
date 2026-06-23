@@ -1,0 +1,36 @@
+id: OS-2012
+lifespan: 14th century
+overview:
+  - Benjamin of the Kiev Caves was a fourteenth-century saint of the Kyiv Pechersk Lavra in present-day Ukraine. Before entering monastic life he was, according to the synaxarion, an important and wealthy merchant.
+  - His conversion is attributed to a single moment during a church service, when he was struck by the words of Christ that 'a rich man shall hardly enter into the Kingdom of God' (Matthew 19:23). In response he distributed his wealth to those in need and embraced the monastic life.
+  - As a monk he devoted himself to fasting and prayer, by which the synaxarion says he pleased the Lord until his death. He was buried among the monastic fathers in the Far Caves of the Lavra, associated with Saint Theodosius.
+liturgicalTitle: Our Venerable Father Benjamin of the Kiev Caves
+sections:
+  - heading: Conversion and Monastic Life
+    body:
+      - The synaxarion records little of Benjamin's early life beyond that he was a merchant of considerable means. The turning point came during a church service, when the Gospel warning that wealth is an obstacle to the Kingdom of God pierced his heart.
+      - He gave away his possessions to the poor and entered the monastic community of the Kiev Caves. There he is said to have pleased the Lord through fasting and prayer for the remainder of his life.
+  - heading: Relics & Shrines
+    body:
+      - Saint Benjamin was interred in the Far Caves of the Kyiv Pechersk Lavra, the cave complex associated with Saint Theodosius, where many monastic fathers of the monastery are venerated.
+  - heading: Historical Context
+    body:
+      - The Kyiv Pechersk Lavra was founded as a cave monastery in 1051 and grew into one of the principal centers of Eastern Slavic monasticism. During Benjamin's century the monastery endured repeated hardship, having earlier been plundered by the Cumans in 1096 and the Mongols in 1240, and it was burned by forces of the Golden Horde under Edigey in 1416, not long after his lifetime.
+      - No substantial biography of Benjamin survives beyond the brief synaxarion notice; he is remembered chiefly among the company of the venerable fathers of the Caves.
+timeline:
+  - when: 14th century
+    title: Life as a merchant
+    body: Benjamin lives in the lands of present-day Ukraine as a wealthy and important merchant.
+  - when: 14th century
+    title: Conversion
+    body: Moved during a church service by Christ's words that a rich man shall hardly enter the Kingdom of God, he gives his wealth to the needy and becomes a monk of the Kiev Caves.
+  - when: 14th century
+    title: Repose
+    body: After a life of fasting and prayer he reposes and is buried in the Far Caves of the Lavra, near the relics of Saint Theodosius.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2023/10/13
+  - https://www.oca.org/saints/lives/2023/10/13/102957-venerable-benjamin-of-the-kiev-caves
+  - https://en.wikipedia.org/wiki/Pechersk_Lavra
+status: draft
+generated: "2026-06-23"

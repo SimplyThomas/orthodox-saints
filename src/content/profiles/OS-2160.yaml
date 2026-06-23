@@ -1,0 +1,34 @@
+id: OS-2160
+lifespan: Died c. 363 (Ancyra, Phrygia)
+overview:
+  - Melasippus, Karina, and their son Antoninus were a Christian family martyred at Ancyra in Phrygia during the reign of the emperor Julian the Apostate, traditionally dated to 363. Together with forty children converted by their witness, they are commemorated as a group.
+  - According to the synaxarion, Melasippus and Karina were tortured with iron hooks and died under torture. Their son Antoninus was forced to watch his parents suffer; he responded by defying the emperor and, after enduring cruel tortures from which he emerged unharmed, was beheaded. Forty youths who saw that Antoninus had been preserved through his sufferings confessed Christ openly and were themselves martyred.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrdom is set at Ancyra (modern Ankara), a city in Asia Minor with a long history of Christian martyrdom. Earlier martyrs associated with Ancyra include Proklos and Hilarios under Trajan and Bishop Clement under Diocletian in 303.
+      - Julian the Apostate reigned as Roman emperor from 361 to 363 and attempted to revive traditional Roman religious practices at the expense of Christianity, with laws that tended to target wealthy and educated Christians. By Christian accounts, when Julian passed through Ancyra in 362-363 on his way to his campaign against Persia, he engaged in a persecution of the city's Christians. His reign ended in 363 during that Persian campaign, the same year to which the martyrdom of this group is dated.
+  - heading: Sources and Reception
+    body:
+      - "The account of Melasippus, Karina, Antoninus, and the forty children is preserved chiefly in the Orthodox synaxarion tradition, which commemorates the group on November 7. Modern Orthodox reference works carry little on them: a search of OrthodoxWiki returns no article for Melasippus, Karina, or Antoninus, reflecting the group's relative obscurity in contemporary reference sources."
+timeline:
+  - when: "361"
+    title: Accession of Julian
+    body: Julian the Apostate becomes Roman emperor and begins efforts to restore traditional Roman religious practices at the expense of Christianity.
+  - when: 362-363
+    title: Julian at Ancyra
+    body: By Christian accounts, Julian passes through Ancyra on his way to his Persian campaign and persecutes the city's Christians.
+  - when: c. 363
+    title: Martyrdom of the family
+    body: Melasippus and Karina are lacerated with iron hooks and die under torture; their son Antoninus defies the emperor, endures torture unharmed, and is beheaded.
+  - when: c. 363
+    title: Martyrdom of the forty children
+    body: Forty youths, seeing Antoninus preserved through his sufferings, confess Christ openly and are martyred.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/all-lives/2024/11/07
+  - https://en.wikipedia.org/wiki/Ancyra
+  - https://en.wikipedia.org/wiki/Julian_the_Apostate
+status: draft
+generated: "2026-06-22"

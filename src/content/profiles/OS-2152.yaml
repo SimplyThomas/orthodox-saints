@@ -1,0 +1,36 @@
+id: OS-2152
+lifespan: 9th century
+liturgicalTitle: Our Father among the Saints Gregory, Archbishop of Alexandria, the Confessor
+overview:
+  - Saint Gregory was an Archbishop of Alexandria who suffered during the second period of Byzantine iconoclasm in the 9th century. According to the synaxarion, he was flogged and imprisoned in the reign of the iconoclast emperor Leo, and was left in prison without food until he died.
+  - "He is venerated as a hierarch and confessor — one who endured persecution and torture for the veneration of icons without being put to death outright, dying instead as a result of his sustained mistreatment. The surviving record of his life is brief: no account of his birth, place of origin, or date of death is preserved in the available sources, and he has no dedicated biography beyond the short synaxarion notice."
+sections:
+  - heading: Confession Under Iconoclasm
+    body:
+      - The synaxarion entry for Saint Gregory states only that he was flogged and thrown into prison during the reign of Leo the iconoclast, and that he was left there without food until he died. No further biographical detail accompanies this notice.
+      - His title of Confessor — paired with his rank as Hierarch — reflects this manner of suffering. In Orthodox usage a confessor is one who has suffered for the faith but was not martyred outright, distinguished from a martyr by having endured persecution and torture without being killed directly. Gregory's death from deprivation in prison, rather than by execution, is consistent with this designation.
+  - heading: Historical Context
+    body:
+      - The emperor named in Gregory's commemoration is identified with the second period of Byzantine iconoclasm, which Leo V the Armenian (reigned 813–820) instituted in 815. A council held that year in Hagia Sophia formally re-established iconoclasm as official doctrine, declaring the making of images neither venerable nor useful, and Leo deposed the iconodule Patriarch Nikephoros of Constantinople, who remained unwavering in his views.
+      - "Opponents of the policy were frequently sentenced to flogging and exile: Theodore the Studite, a leading iconodule, was flogged in 817, and the emperor seized the properties of iconodules and monasteries. This documented pattern of corporal punishment and imprisonment for resistant clergy aligns with the synaxarion's account of Gregory's fate, though Gregory himself is not named in the surviving general histories of the period. The second iconoclasm lasted until 843, when the Empress Theodora restored the veneration of icons."
+timeline:
+  - when: 813–820
+    title: Reign of Leo V the Armenian
+    body: Leo, the iconoclast emperor under whom Gregory suffered, reigned as Byzantine Emperor; he instituted the second period of iconoclasm in 815 following a synod in Hagia Sophia that declared icons neither venerable nor useful.
+  - when: 9th century
+    title: Flogging, imprisonment, and death
+    body: During Leo's reign Gregory, Archbishop of Alexandria, was flogged and thrown into prison for his faith. According to the synaxarion he was left in prison without food until he died, and is venerated as a confessor.
+  - when: Nov 5
+    title: Feast day
+    body: Saint Gregory, Archbishop of Alexandria, is commemorated on November 5, alongside the martyrs Galaction and Epistemis and other saints of the day.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/11/05
+  - https://en.wikipedia.org/wiki/Leo_V_the_Armenian
+  - https://en.wikipedia.org/wiki/Theodore_the_Studite
+  - https://en.wikipedia.org/wiki/Byzantine_Iconoclasm
+  - https://orthodoxwiki.org/Iconoclasm
+  - https://orthodoxwiki.org/Confessor
+  - https://en.wikipedia.org/wiki/Gregory_of_Alexandria
+status: draft
+generated: "2026-06-22"
