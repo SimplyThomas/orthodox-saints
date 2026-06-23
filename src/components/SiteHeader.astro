@@ -21,12 +21,12 @@ const { active = "" } = Astro.props;
 // /search index; "Calendar" is a placeholder route while that view is built.
 const NAV: { key: string; label: string; href: string }[] = [
   { key: "home", label: "Home", href: withBase("") },
-  { key: "calendar", label: "Calendar", href: withBase("calendar") },
   { key: "search", label: "Browse", href: withBase("search") },
-  { key: "america", label: "America", href: withBase("america") },
-  { key: "icons", label: "Home Icons", href: withBase("icons-home") },
-  { key: "news", label: "News", href: withBase("news") },
   { key: "quiz", label: "Patron Quiz", href: withBase("quiz") },
+  { key: "calendar", label: "Calendar", href: withBase("calendar") },
+  { key: "america", label: "America", href: withBase("america") },
+  { key: "news", label: "News", href: withBase("news") },
+  { key: "icons", label: "Home Icons", href: withBase("icons-home") },
   { key: "about", label: "About", href: withBase("about") },
 ];
 ---
