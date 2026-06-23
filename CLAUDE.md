@@ -46,7 +46,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── vocabulary.csv         ← SOURCE OF TRUTH for controlled vocab (category,term)
 │   ├── vendors.csv            ← icon-vendor link templates (vendor,url_template; {q}=name)
 │   ├── name_variants.csv      ← given-name equivalence groups (group,names) for search
-│   ├── saint_images.csv       ← self-hosted portrait join (saint_id,image_path,license,credit,source)
+│   ├── saint_images.csv       ← self-hosted hero-portrait join (saint_id,image_path,license,credit,source)
+│   ├── image_permissions.csv  ← vendor-permission registry (vendor_slug,vendor_name,attribution,homepage,granted,status,terms)
+│   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
 │   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
@@ -207,6 +209,9 @@ instead, add one row to `data/saint_images.csv`
 - `license` MUST be an accepted **open** license — `PD` / `PD-art` / `PD-old` / `CC0` /
   `CC-BY*` / `CC-BY-SA*`. Anything else **fails the build** (§9). `CC-BY*` additionally
   **requires** a `credit`; the detail page shows an attribution caption linking `source`.
+  Alternatively, for an image used under a vendor's written permission, use a
+  `Permission:<vendor_slug>` token instead of an open license (see §9 "Vendor-permission
+  images").
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
 - **After downloading any new icon(s), resize at JPEG quality 80** — scale width to ≤ 800 px, then top-crop height to ≤ 800 px (preserves the face). The `make download-icons` pipeline does this automatically; for manually-sourced files use `save_resized()` in `scripts/download_saint_icons.py`. (`.gif` files must be converted to `.jpg` manually before resizing.)
@@ -224,6 +229,24 @@ detail page, add one row to `data/saint_quotes.csv`
   `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
+
+**Saint depictions (the "Depictions & Icons" carousel).** The saint page's redesign
+carries a horizontal carousel of *additional* icons (the single hero portrait still comes
+from `data/saint_images.csv`). Add **one row per card** to `data/saint_depictions.csv`
+(`saint_id,image_path,license,credit,source,kind,tag,title,era,by`) — **many rows per saint**,
+rendered in file order:
+- `image_path`, `license`, `credit`, `source` follow the **same licensing gate as
+  saint_images** (§9): an open license (`PD`/`PD-art`/`PD-old`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
+  `CC-BY*` needing a `credit`) **or** a `Permission:<vendor_slug>` token resolved against
+  `data/image_permissions.csv`. A permission card **requires** a `source` (the grant condition:
+  each card links to its specific vendor icon page); a revoked vendor's cards are dropped + warn.
+- `kind` ∈ `museum` | `iconographer` | `shop` drives the card tone; `title` (required) is the
+  card heading; `tag`, `era`, `by` are the optional badge / dateline / attribution line.
+- The build joins the cards into the record as `depictions[]` (permission cards gain
+  `permission`/`vendor`/`attribution`; open-license cards keep `license`/`credit`). Each card
+  links to its `source` (a permission card's specific vendor icon page). Self-host + resize
+  images exactly as for portraits (§5 portraits bullet); permission files live under
+  `static/icons/permission/<vendor_slug>/`.
 
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a
@@ -402,6 +425,17 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   `CC-BY*`/`CC-BY-SA*` licenses pass, `CC-BY*` must carry a `credit`, and the file must
   exist under `static/`; anything else **fails the build**. The licence gate is necessary
   but not sufficient — each portrait still needs provenance/clergy review before launch.
+  **Vendor-permission images** are a separate, tracked exception to the otherwise-open
+  licensing: a revocable, per-vendor grant (not redistributable). Such a portrait uses
+  `license = Permission:<vendor_slug>` in `data/saint_images.csv`, its file lives under
+  `static/icons/permission/<vendor_slug>/`, and the vendor is recorded in
+  `data/image_permissions.csv`
+  (`vendor_slug,vendor_name,attribution,homepage,granted,status,terms`). The build
+  validates the slug against that registry and **requires a `source`** (the specific
+  vendor icon page, which the saint page links — often a condition of the grant). To
+  revoke a vendor: set its `status=revoked` (the build then excludes every image from that
+  vendor and warns), then `rm -rf static/icons/permission/<vendor_slug>/` and drop the
+  matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/`.
 - **Canonization caution.** If a person's formal glorification is uncertain (recently
   reposed elders, locally-venerated figures, "repose of…" entries), **skip and note it**
   rather than assert sainthood. Flag these to the user.

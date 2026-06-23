@@ -14,6 +14,25 @@ export interface VendorLink {
   url: string;
 }
 
+/** One "Depictions & Icons" carousel card (data/saint_depictions.csv).
+   `permission` cards (active vendor) carry vendor/attribution; open-license
+   cards carry license/credit. `source` is the per-card outbound link. */
+export interface SaintDepiction {
+  image: string;
+  /** card tone: museum (default) | iconographer | shop */
+  kind: "museum" | "iconographer" | "shop";
+  title: string;
+  tag?: string;
+  era?: string;
+  by?: string;
+  source?: string;
+  permission?: boolean;
+  vendor?: string;
+  attribution?: string;
+  license?: string;
+  credit?: string;
+}
+
 export interface Saint {
   id: string;
   name: string;
@@ -54,6 +73,13 @@ export interface Saint {
   imageLicense?: string;
   imageCredit?: string;
   imageSource?: string;
+  /** vendor-permission image (data/image_permissions.csv); absent for open-license */
+  imagePermission?: boolean;
+  imageVendor?: string;
+  imageAttribution?: string;
+  imageVendorHome?: string;
+  /** "Depictions & Icons" carousel cards (data/saint_depictions.csv); absent → no carousel */
+  depictions?: SaintDepiction[];
   /** verified public-domain quote from the saint; absent → no quote block */
   quote?: string;
   /** quote citation, present only when `quote` is */

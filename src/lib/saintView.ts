@@ -4,7 +4,7 @@
    omitted, so the layout degrades gracefully from a full Father to a long-tail
    stub. No facts are invented here; we only re-present what the record holds. */
 
-import type { Saint } from "./types";
+import type { Saint, SaintDepiction } from "./types";
 import { splitName, cleanName } from "./names";
 import { primaryRank, firstFeast, feastDates, centuryLabel } from "./saints";
 import { MONTHS, MONTHS_FULL } from "./format";
@@ -56,6 +56,12 @@ export interface SaintViewModel {
   imageLicense?: string;
   imageCredit?: string;
   imageSource?: string;
+  imagePermission?: boolean;
+  imageVendor?: string;
+  imageAttribution?: string;
+  imageVendorHome?: string;
+  /** "Depictions & Icons" carousel cards (omitted when none) */
+  depictions: SaintDepiction[];
 }
 
 /* "January 1" from a "Jan 1; Jan 30" feast string — expand the abbreviated
@@ -150,5 +156,10 @@ export function toSaintView(s: Saint): SaintViewModel {
     imageLicense: s.imageLicense,
     imageCredit: s.imageCredit,
     imageSource: s.imageSource,
+    imagePermission: s.imagePermission,
+    imageVendor: s.imageVendor,
+    imageAttribution: s.imageAttribution,
+    imageVendorHome: s.imageVendorHome,
+    depictions: s.depictions ?? [],
   };
 }

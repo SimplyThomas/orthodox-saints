@@ -68,6 +68,35 @@ SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SAINT_IMAGES_HEADER = ["saint_id", "image_path", "license", "credit", "source"]
 OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}  # public-domain / no-rights
 
+# Vendor-permission image registry (data/image_permissions.csv). A "used with
+# permission" image is NOT an open license — it is a revocable, per-vendor grant
+# (CLAUDE.md §9). Each saint_images.csv row that uses one carries a license token
+# `Permission:<vendor_slug>` joined to a row here. `status` is the kill-switch:
+# flip to `revoked` and the build stops publishing that vendor's images.
+IMAGE_PERMISSIONS_CSV = DATA / "image_permissions.csv"
+IMAGE_PERMISSIONS_HEADER = [
+    "vendor_slug", "vendor_name", "attribution", "homepage", "granted", "status", "terms"
+]
+PERMISSION_STATUSES = {"active", "revoked"}
+PERMISSION_LICENSE_RE = re.compile(r"^Permission:([a-z0-9]+(?:-[a-z0-9]+)*)$")
+
+# Additional depictions (data/saint_depictions.csv) power the saint page's
+# "Depictions & Icons" carousel — MANY images per saint (museum icons, PD masters,
+# and vendor-permission icons available to commission or order). Same licensing
+# gate as saint_images (an open license OR a Permission:<vendor> token), but
+# multiple rows per saint, each carrying the card-presentation columns
+# (kind/tag/title/era/by). `kind` drives the card tone; row order is carousel order.
+SAINT_DEPICTIONS_CSV = DATA / "saint_depictions.csv"
+SAINT_DEPICTIONS_HEADER = ["saint_id", "image_path", "license", "credit", "source",
+                           "kind", "tag", "title", "era", "by"]
+DEPICTION_KINDS = {"museum", "iconographer", "shop"}
+
+
+def permission_slug(lic: str) -> str | None:
+    """Return the vendor slug if `lic` is a `Permission:<slug>` token, else None."""
+    m = PERMISSION_LICENSE_RE.match(lic.strip())
+    return m.group(1) if m else None
+
 
 def license_ok(lic: str) -> bool:
     """True if the license is an accepted open license (public-domain family or
@@ -308,9 +337,17 @@ def validate(header: list[str], rows: list[dict[str, str]],
                          if r["Saint ID"].strip()}
     except Exception:
         _img_valid_ids = {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
-    img_errors, img_warnings = validate_saint_images(_img_valid_ids)
+    permissions = load_image_permissions()
+    perm_errors, perm_warnings = validate_image_permissions()
+    errors.extend(perm_errors)
+    warnings.extend(perm_warnings)
+    img_errors, img_warnings = validate_saint_images(_img_valid_ids, permissions)
     errors.extend(img_errors)
     warnings.extend(img_warnings)
+
+    dep_errors, dep_warnings = validate_saint_depictions(_img_valid_ids, permissions)
+    errors.extend(dep_errors)
+    warnings.extend(dep_warnings)
 
     # Validate saint_quotes.csv against the full committed saints.csv too, for the
     # same reason as images (IDs must resolve even under a unit-test subset).
@@ -617,13 +654,18 @@ def load_saint_images() -> dict[str, dict[str, str]]:
     return out
 
 
-def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+def validate_saint_images(valid_ids: set[str],
+                          permissions: dict[str, dict[str, str]] | None = None
+                          ) -> tuple[list[str], list[str]]:
     """Validate data/saint_images.csv against §9: known saint, an existing local
-    file, an accepted open license, and a credit when the license requires one."""
+    file, and an accepted open license (with a credit when required) OR a
+    Permission:<vendor> token validated against the image-permission registry."""
     errors: list[str] = []
     warnings: list[str] = []
     if not SAINT_IMAGES_CSV.exists():
         return errors, warnings
+    if permissions is None:
+        permissions = load_image_permissions()
     with SAINT_IMAGES_CSV.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         if reader.fieldnames != SAINT_IMAGES_HEADER:
@@ -657,18 +699,212 @@ def validate_saint_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 errors.append(f"{where} ({sid}): image_path {path!r} not found "
                               f"under static/ (expected {(STATIC / path)}).")
 
+            slug = permission_slug(lic)
             if not lic:
                 errors.append(f"{where} ({sid}): empty license. Self-hosted images "
-                              "must declare an open license (§9).")
+                              "must declare an open license or a Permission:<vendor> "
+                              "token (§9).")
+            elif slug is not None:
+                vendor = permissions.get(slug)
+                if vendor is None:
+                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
+                                  "not in data/image_permissions.csv.")
+                elif vendor.get("status") == "revoked":
+                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
+                                    "REVOKED — image excluded from output; delete "
+                                    f"the file under static/icons/permission/{slug}/.")
+                elif not source:
+                    errors.append(f"{where} ({sid}): permission image requires a "
+                                  "'source' linking the specific vendor icon page (§9).")
             elif not license_ok(lic):
                 errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA).")
+                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
+                              "CC-BY-SA) or a Permission:<vendor> token.")
             elif license_requires_credit(lic) and not credit:
                 errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
                               "(attribution).")
 
-            if not source:
+            if not source and permission_slug(lic) is None:
                 warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
+
+
+def load_saint_depictions() -> dict[str, list[dict[str, str]]]:
+    """saint_id -> ordered list of {path, license, credit, source, kind, tag,
+    title, era, by} (the carousel cards). Empty if the file is absent. Unlike
+    saint_images this is intentionally MANY rows per saint, kept in file order."""
+    out: dict[str, list[dict[str, str]]] = {}
+    if not SAINT_DEPICTIONS_CSV.exists():
+        return out
+    with SAINT_DEPICTIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_DEPICTIONS_HEADER:
+            sys.exit(f"FATAL: {SAINT_DEPICTIONS_CSV} header must be "
+                     f"{SAINT_DEPICTIONS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            sid = (row.get("saint_id") or "").strip()
+            if not sid:
+                continue
+            out.setdefault(sid, []).append({
+                "path": (row.get("image_path") or "").strip(),
+                "license": (row.get("license") or "").strip(),
+                "credit": (row.get("credit") or "").strip(),
+                "source": (row.get("source") or "").strip(),
+                "kind": (row.get("kind") or "").strip(),
+                "tag": (row.get("tag") or "").strip(),
+                "title": (row.get("title") or "").strip(),
+                "era": (row.get("era") or "").strip(),
+                "by": (row.get("by") or "").strip(),
+            })
+    return out
+
+
+def validate_saint_depictions(valid_ids: set[str],
+                              permissions: dict[str, dict[str, str]] | None = None
+                              ) -> tuple[list[str], list[str]]:
+    """Validate data/saint_depictions.csv: known saint, an existing local file, a
+    title, a known kind, and the SAME license gate as saint_images (open license
+    with a credit when required, OR a Permission:<vendor> token validated against
+    the registry — revoked vendors warn and are excluded). Many rows per saint are
+    expected; only an exact (saint_id, image_path) repeat is a duplicate."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not SAINT_DEPICTIONS_CSV.exists():
+        return errors, warnings
+    if permissions is None:
+        permissions = load_image_permissions()
+    with SAINT_DEPICTIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_DEPICTIONS_HEADER:
+            return ([f"saint_depictions.csv header must be {SAINT_DEPICTIONS_HEADER}, "
+                     f"got {reader.fieldnames!r}"], warnings)
+        seen: set[tuple[str, str]] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            sid = (row.get("saint_id") or "").strip()
+            path = (row.get("image_path") or "").strip()
+            lic = (row.get("license") or "").strip()
+            credit = (row.get("credit") or "").strip()
+            source = (row.get("source") or "").strip()
+            kind = (row.get("kind") or "").strip()
+            title = (row.get("title") or "").strip()
+            where = f"saint_depictions.csv line {i}"
+
+            if not sid:
+                errors.append(f"{where}: empty saint_id.")
+            elif not ID_RE.match(sid):
+                errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
+            elif sid not in valid_ids:
+                errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+            elif (sid, path) in seen:
+                errors.append(f"{where}: duplicate depiction row for {sid} "
+                              f"and image {path!r}.")
+            seen.add((sid, path))
+
+            if not path:
+                errors.append(f"{where} ({sid}): empty image_path.")
+            elif not (STATIC / path).is_file():
+                errors.append(f"{where} ({sid}): image_path {path!r} not found "
+                              f"under static/ (expected {(STATIC / path)}).")
+
+            if not title:
+                errors.append(f"{where} ({sid}): empty title (the card heading).")
+            if kind and kind not in DEPICTION_KINDS:
+                errors.append(f"{where} ({sid}): kind {kind!r} is not one of "
+                              f"{sorted(DEPICTION_KINDS)}.")
+
+            slug = permission_slug(lic)
+            if not lic:
+                errors.append(f"{where} ({sid}): empty license. Depictions must "
+                              "declare an open license or a Permission:<vendor> "
+                              "token (§9).")
+            elif slug is not None:
+                vendor = permissions.get(slug)
+                if vendor is None:
+                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
+                                  "not in data/image_permissions.csv.")
+                elif vendor.get("status") == "revoked":
+                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
+                                    "REVOKED — depiction excluded from output; delete "
+                                    f"the file under static/icons/permission/{slug}/.")
+                elif not source:
+                    errors.append(f"{where} ({sid}): permission depiction requires a "
+                                  "'source' linking the specific vendor icon page (§9).")
+            elif not license_ok(lic):
+                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
+                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
+                              "CC-BY-SA) or a Permission:<vendor> token.")
+            elif license_requires_credit(lic) and not credit:
+                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
+                              "(attribution).")
+
+            if not source and permission_slug(lic) is None:
+                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
+
+
+def load_image_permissions() -> dict[str, dict[str, str]]:
+    """vendor_slug -> {name, attribution, homepage, granted, status, terms}.
+    Empty if the file is absent. Loads ALL rows (incl. revoked) so callers can
+    decide; validation enforces correctness separately."""
+    out: dict[str, dict[str, str]] = {}
+    if not IMAGE_PERMISSIONS_CSV.exists():
+        return out
+    with IMAGE_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != IMAGE_PERMISSIONS_HEADER:
+            sys.exit(f"FATAL: {IMAGE_PERMISSIONS_CSV} header must be "
+                     f"{IMAGE_PERMISSIONS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            slug = (row.get("vendor_slug") or "").strip()
+            if not slug:
+                continue
+            out[slug] = {
+                "name": (row.get("vendor_name") or "").strip(),
+                "attribution": (row.get("attribution") or "").strip(),
+                "homepage": (row.get("homepage") or "").strip(),
+                "granted": (row.get("granted") or "").strip(),
+                "status": (row.get("status") or "").strip(),
+                "terms": (row.get("terms") or "").strip(),
+            }
+    return out
+
+
+def validate_image_permissions() -> tuple[list[str], list[str]]:
+    """Validate data/image_permissions.csv: valid slug, known status, a name and
+    attribution, and no duplicate slugs."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not IMAGE_PERMISSIONS_CSV.exists():
+        return errors, warnings
+    with IMAGE_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != IMAGE_PERMISSIONS_HEADER:
+            return ([f"image_permissions.csv header must be "
+                     f"{IMAGE_PERMISSIONS_HEADER}, got {reader.fieldnames!r}"], warnings)
+        seen: set[str] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            slug = (row.get("vendor_slug") or "").strip()
+            status = (row.get("status") or "").strip()
+            where = f"image_permissions.csv line {i}"
+            if not slug:
+                errors.append(f"{where}: empty vendor_slug.")
+            elif not SLUG_RE.match(slug):
+                errors.append(f"{where}: vendor_slug {slug!r} is not kebab-case.")
+            elif slug in seen:
+                errors.append(f"{where}: duplicate vendor_slug {slug!r}.")
+            else:
+                seen.add(slug)
+            if not (row.get("vendor_name") or "").strip():
+                errors.append(f"{where} ({slug}): empty vendor_name.")
+            if not (row.get("attribution") or "").strip():
+                errors.append(f"{where} ({slug}): empty attribution.")
+            if status not in PERMISSION_STATUSES:
+                errors.append(f"{where} ({slug}): status {status!r} must be one of "
+                              f"{sorted(PERMISSION_STATUSES)}.")
     return errors, warnings
 
 
@@ -1069,7 +1305,9 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               images: dict[str, dict[str, str]] | None = None,
               quotes: dict[str, dict[str, str]] | None = None,
               saint_groups: dict[str, list[str]] | None = None,
-              groups_by_slug: dict[str, dict] | None = None) -> dict:
+              groups_by_slug: dict[str, dict] | None = None,
+              permissions: dict[str, dict[str, str]] | None = None,
+              depictions: dict[str, list[dict[str, str]]] | None = None) -> dict:
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
@@ -1082,6 +1320,10 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
         saint_groups = load_saint_groups()
     if groups_by_slug is None:
         groups_by_slug = {g["slug"]: g for g in load_groups()}
+    if permissions is None:
+        permissions = load_image_permissions()
+    if depictions is None:
+        depictions = load_saint_depictions()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -1104,13 +1346,66 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     # (credit/license/source) rides along for the detail-page caption.
     img = images.get(r["Saint ID"].strip())
     if img and img.get("path"):
-        rec["image"] = img["path"]
-        if img.get("license"):
-            rec["imageLicense"] = img["license"]
-        if img.get("credit"):
-            rec["imageCredit"] = img["credit"]
-        if img.get("source"):
-            rec["imageSource"] = img["source"]
+        slug = permission_slug(img.get("license", ""))
+        if slug is not None:
+            vendor = permissions.get(slug)
+            # Publish a permission image only if the vendor grant is active.
+            if vendor and vendor.get("status") != "revoked":
+                rec["image"] = img["path"]
+                rec["imagePermission"] = True
+                rec["imageVendor"] = vendor.get("name", "")
+                rec["imageAttribution"] = vendor.get("attribution", "")
+                rec["imageVendorHome"] = vendor.get("homepage", "")
+                if img.get("source"):
+                    rec["imageSource"] = img["source"]
+            # revoked / unknown vendor -> no image key (monogram fallback)
+        else:
+            rec["image"] = img["path"]
+            if img.get("license"):
+                rec["imageLicense"] = img["license"]
+            if img.get("credit"):
+                rec["imageCredit"] = img["credit"]
+            if img.get("source"):
+                rec["imageSource"] = img["source"]
+    # Additional depictions (data/saint_depictions.csv) — the saint page's
+    # "Depictions & Icons" carousel. Many per saint, in file order. Each carries
+    # the card presentation (kind/tag/title/era/by) plus its rights: a permission
+    # depiction (active vendor) gets permission/vendor/attribution; an open-license
+    # one keeps license/credit. A revoked vendor's depiction is dropped (like the
+    # hero image). `source` is the per-card outbound link (grant condition for
+    # permission cards: each links to its specific icon page).
+    deps = depictions.get(r["Saint ID"].strip())
+    if deps:
+        cards: list[dict] = []
+        for d in deps:
+            if not d.get("path"):
+                continue
+            card: dict = {
+                "image": d["path"],
+                "kind": d.get("kind") or "museum",
+                "title": d.get("title", ""),
+            }
+            for k in ("tag", "era", "by"):
+                if d.get(k):
+                    card[k] = d[k]
+            if d.get("source"):
+                card["source"] = d["source"]
+            slug = permission_slug(d.get("license", ""))
+            if slug is not None:
+                vendor = permissions.get(slug)
+                if not vendor or vendor.get("status") == "revoked":
+                    continue  # unknown / revoked vendor → exclude the depiction
+                card["permission"] = True
+                card["vendor"] = vendor.get("name", "")
+                card["attribution"] = vendor.get("attribution", "")
+            else:
+                if d.get("license"):
+                    card["license"] = d["license"]
+                if d.get("credit"):
+                    card["credit"] = d["credit"]
+            cards.append(card)
+        if cards:
+            rec["depictions"] = cards
     # Verified public-domain quote (data/saint_quotes.csv), if one exists. The
     # detail page renders `quote` with a citation; `quoteSource` links the PD
     # source so the wording is verifiable (§9). Saints without one render nothing.
@@ -1175,8 +1470,11 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     quotes = load_saint_quotes()
     saint_groups = load_saint_groups()
     groups_by_slug = {g["slug"]: g for g in load_groups()}
+    permissions = load_image_permissions()
+    depictions = load_saint_depictions()
     records = [to_record(r, vendors, name_variants, images, quotes,
-                         saint_groups, groups_by_slug) for r in rows]
+                         saint_groups, groups_by_slug, permissions, depictions)
+               for r in rows]
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
