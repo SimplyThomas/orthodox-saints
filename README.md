@@ -31,6 +31,21 @@ discarded. The **frontend is [Astro](https://astro.build)** in `src/` (static-si
 generator; pre-renders one page per route and one per saint). Everything in `public/`,
 `dist/`, and `_site/` is **generated and never committed**.
 
+## Quick start (Ubuntu / WSL)
+
+On a fresh Ubuntu or WSL box, `scripts/setup-dev-env.sh` provisions the whole toolchain
+turn-key (and is idempotent — safe to re-run):
+
+```bash
+scripts/setup-dev-env.sh            # apt build tools, nvm + Node, uv, Docker, venv + npm deps
+scripts/setup-dev-env.sh --no-docker
+scripts/setup-dev-env.sh --help     # all options
+```
+
+It manages Python deps with [uv](https://docs.astral.sh/uv/) in a project `.venv` and adds
+a venv auto-activation hook to `~/.bashrc` (the `make` targets call bare `python`). Prefer
+to set things up by hand, or already have the tools? The steps below still apply.
+
 ## Build the data locally
 
 Requires **Python 3.11+**.
