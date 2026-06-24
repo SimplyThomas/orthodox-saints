@@ -26,7 +26,11 @@ const { g } = Astro.props as { g: Group };
 // order for those, alphabetize the larger synaxis lists for scanability.
 const members = g.members
   .map((id) => byId.get(id))
-  .filter((s): s is NonNullable<typeof s> => !!s);
+  .filter((s): s is NonNullable<typeof s> => !!s)
+  // A synaxis's own umbrella row (e.g. "Synaxis of the Seventy Apostles") is
+  // carried as the group's `anchor` member so its saint page can host the
+  // roster; it should not list itself among its own members here.
+  .filter((s) => !/^Synaxis\b/.test(s.name));
 const ordered =
   g.type === "feast-companions"
     ? members

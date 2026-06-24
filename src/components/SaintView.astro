@@ -87,6 +87,24 @@ const kinLabel = `${possessivePrefix} companions & kin`;
 // links to each group's landing page. Joined into the record by build.py.
 const memberGroups = saint.groups ?? [];
 
+// Synaxis roster — when THIS saint is the umbrella of a synaxis (its name begins
+// "Synaxis …" and it anchors a synaxis group), list every commemorated member
+// inline with a link to their own page. Excludes itself and any nested umbrella.
+const isSynaxisAnchor = /^Synaxis\b/.test(saint.name);
+const synaxisRosters = (
+  isSynaxisAnchor ? memberGroups.filter((g) => g.type === "synaxis") : []
+)
+  .map((g) => ({
+    group: g,
+    members: (groupBySlug.get(g.slug)?.members ?? [])
+      .filter((id) => id !== saint.id)
+      .map((id) => byId.get(id))
+      .filter((s): s is Saint => !!s && !/^Synaxis\b/.test(s.name))
+      .sort((a, b) => stripHon(a.name).localeCompare(stripHon(b.name))),
+  }))
+  .filter((r) => r.members.length > 0);
+const hasSynaxisRoster = synaxisRosters.length > 0;
+
 // Works (by the saint) and Further Reading (about the saint). A profile's rich
 // lists supersede the plain CSV-derived ones; otherwise the CSV search-link
 // lists are shown.
@@ -105,6 +123,7 @@ const hasAfter =
   hasWorks ||
   hasReading ||
   hasCommemorated ||
+  hasSynaxisRoster ||
   hasCompanions ||
   !!m.notes ||
   !!m.sources;
@@ -893,6 +912,44 @@ const wordsLabel = `In ${possessive} own words`;
                   </div>
                 </details>
               )}
+
+              {hasSynaxisRoster &&
+                synaxisRosters.map((r) => (
+                  <section class="sv-section sv-related sv-roster">
+                    <div class="sv-secthead">
+                      <span class="eyebrow">Commemorated on this day</span>
+                      <span class="sv-deep-ct">{r.members.length} saints</span>
+                    </div>
+                    <p class="sv-kin-intro">
+                      Each is venerated individually — follow a name to their
+                      own page.
+                    </p>
+                    <div class="sv-relrow">
+                      {r.members.map((s) => {
+                        const nm = splitName(s.name);
+                        return (
+                          <a
+                            class="sv-relcard"
+                            href={withBase("saint/" + s.id)}
+                          >
+                            <div
+                              class="sv-relav"
+                              set:html={saintAvatar(s, 74, 92, {
+                                type: primaryRank(s),
+                              })}
+                            />
+                            <div class="sv-relname">
+                              {nm.title}
+                              {nm.epithet && (
+                                <span class="sv-relep">{nm.epithet}</span>
+                              )}
+                            </div>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </section>
+                ))}
 
               {hasCommemorated && (
                 <details class="sv-deep sv-comm">
