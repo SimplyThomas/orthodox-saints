@@ -26,7 +26,9 @@ test("a saint without a profile renders no profile sections", async ({
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
-test("Basil's timeline and companions & kin render", async ({ page }) => {
+test("Basil's timeline, family, and companions render in separate sections", async ({
+  page,
+}) => {
   await page.goto("./saint/OS-0021/");
   // Timeline sits in the band beneath the columns (beside the quote).
   await expect(
@@ -41,19 +43,44 @@ test("Basil's timeline and companions & kin render", async ({ page }) => {
     page.locator(".sv-timeline li", { hasText: "Consecrated Archbishop" }),
   ).toBeVisible();
 
-  // Family + related are unified into one "companions & kin" avatar grid.
-  const kin = page.locator(".sv-related");
-  await expect(kin.locator(".sv-secthead")).toContainText("companions & kin");
+  // The unified "companions & kin" grid is now three distinct collapsibles.
+  // (They share a single-open accordion, so each is opened just before its
+  // assertions.)
+
+  // 1. Family — immediate kin only.
+  const family = page.locator("details.sv-deep", {
+    has: page.locator(".sv-deep-eb", { hasText: "Family" }),
+  });
+  await family.locator("summary").click();
   await expect(
-    kin.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (brother)
-  ).toBeVisible();
-  await expect(
-    kin.locator('a[href*="/saint/OS-0023"]'), // John Chrysostom (fellow hierarch)
+    family.locator('a[href*="/saint/OS-0422"]').first(), // Gregory of Nyssa (brother)
   ).toBeVisible();
   // Naucratius is not in the dataset → a card with no link.
-  const nau = kin.locator(".sv-relcard", { hasText: "Naucratius" });
+  const nau = family.locator(".sv-relcard", { hasText: "Naucratius" });
   await expect(nau).toBeVisible();
   await expect(nau.locator("a")).toHaveCount(0);
+
+  // 2. Companions & Contemporaries — documented personal relationships.
+  const comp = page.locator("details.sv-deep", {
+    has: page.locator(".sv-deep-eb", { hasText: "Companions" }),
+  });
+  await comp.locator("summary").click();
+  await expect(
+    comp.locator('a[href*="/saint/OS-0022"]').first(), // Gregory the Theologian (friend)
+  ).toBeVisible();
+  // Emperor Valens is not a commemorated saint → "not commemorated", no link.
+  const valens = comp.locator(".sv-relcard", { hasText: "Valens" });
+  await expect(valens).toContainText("not commemorated");
+  await expect(valens.locator("a")).toHaveCount(0);
+
+  // 3. Related Saints — generated from theme tags ("More <theme>" links).
+  const rel = page.locator("details.sv-deep", {
+    has: page.locator(".sv-deep-eb", { hasText: "Related Saints" }),
+  });
+  await rel.locator("summary").click();
+  expect(
+    await rel.locator("a.sv-themelink[href*='theme=']").count(),
+  ).toBeGreaterThan(0);
 });
 
 test("Basil's contributions & legacy render in the full-width band", async ({
