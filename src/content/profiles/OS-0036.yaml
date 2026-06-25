@@ -25,13 +25,18 @@ sections:
   - heading: Veneration
     body:
       - Numerous miracles were attributed to the brothers' intercession after their repose. One account relates that they appeared to deliver the wife of a man named Malchus from an assailant, after which they came to be honored as protectors of marriage and the household. Their veneration spread widely, including into Russia, and they are invoked as patrons of physicians and of the sick.
-related:
-  - name: Theodota
-    note: Their mother, who raised them as Christians after their father's death and is herself commemorated as a saint.
+family:
+  figures:
+    - name: Theodota
+      note: Their mother, who raised them as Christians after their father's death and is herself commemorated as a saint.
+      href: saint/OS-2126
+companions:
   - name: Cosmas and Damian of Rome
     note: A distinct pair of unmercenary physicians of the same names, martyred under Carinus, commemorated July 1.
+    href: saint/OS-1474
   - name: Cosmas and Damian of Arabia
     note: A distinct pair of unmercenary physicians of the same names, martyred at Aegeae in Cilicia, commemorated October 17.
+    href: saint/OS-1475
 patronage:
   - Physicians and the medical profession
   - The sick

@@ -65,7 +65,7 @@ const profileSchema = z
       .optional(),
     family: z
       .object({
-        heading: z.string(),
+        heading: z.string().optional(),
         intro: z.string().optional(),
         figures: z.array(relatedFigure),
       })
