@@ -1428,6 +1428,36 @@ a.qz-comp {
   letter-spacing: 0.12em;
   font-size: 12px;
 }
+.qz-patron .qz-match .lbl {
+  display: block;
+  margin-bottom: 10px;
+}
+.qz-match-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.qz-match-list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.qz-match-list .dim {
+  flex: 0 0 auto;
+  min-width: 104px;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+.qz-match-list .vals {
+  color: #dbe5ef;
+  font-size: 14.5px;
+}
 
 .qz-companions {
   margin-top: 30px;
@@ -1474,6 +1504,12 @@ a.qz-comp {
 .qz-comp .sub {
   font-size: 13px;
   color: var(--celest);
+}
+.qz-comp .shared {
+  margin-top: 3px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--gold-deep);
 }
 
 .qz-actions {
@@ -4788,21 +4824,72 @@ a.sv-rail-chip:hover {
   margin-left: auto;
 }
 
-/* companions & kin — avatar grid */
+/* Family / Companions — avatar grid (shared by both collapsibles) */
+.sv2 .sv-kin-head {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--byz-deep);
+  margin: 2px 0 6px;
+}
 .sv2 .sv-kin-intro {
   font-family: var(--serif);
   font-style: italic;
   font-size: 17px;
   line-height: 1.5;
   color: var(--celest);
-  margin: -8px 0 22px;
+  margin: 2px 0 22px;
   max-width: 680px;
   text-wrap: pretty;
 }
-.sv2 .sv-related .sv-relrow {
+.sv2 .sv-relrow {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 22px 14px;
+}
+/* a non-saint figure (commemorated: false) */
+.sv2 .sv-relnc {
+  margin-top: 4px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Related Saints — tag-derived "More X" links */
+.sv2 .sv-themelinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sv2 .sv-themelink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper, #fff);
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.sv2 .sv-themelink:hover {
+  border-color: var(--gold-soft);
+  background: var(--gold-wash, #fbf6ea);
+}
+.sv2 .sv-themelink-lab {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--byz-deep);
+}
+.sv2 .sv-themelink-ct {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+.sv2 .sv-themelink-glyph {
+  flex: 0 0 auto;
 }
 .sv2 .sv-relcard {
   text-align: center;

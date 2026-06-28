@@ -15,7 +15,7 @@ import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { loadProfileMap } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
-import { themeBySlug, relatedByThemes } from "../lib/themes";
+import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
 
@@ -32,56 +32,89 @@ const isDraft =
   !!profile?.status && profile.status !== "reviewed" && !isFlagged;
 const flagReasons = profile?.flagReasons ?? [];
 
-// "Companions & kin" (the design's unified human web): the curated profile
-// `related` figures and the `family` members folded into one avatar grid, each
-// resolved to its record where possible so it shows the real portrait/monogram,
-// a relationship label, and name + epithet. De-duplicated by id/name; figures
-// not in the dataset (e.g. an uncanonized brother) still show a monogram card.
-// With no profile we derive companions by shared themes.
+// The human web around a saint, now split into three distinct collapsibles:
+//   • Family — immediate kin / documented relatives (profile.family)
+//   • Companions & Contemporaries — documented personal relationships
+//     (profile.companions; falls back to the legacy mixed `related` list until
+//     a profile is migrated)
+//   • Related Saints — generated purely from theme tags ("More Bishops", …)
+// Each figure is resolved to its record where possible so the card shows the
+// real portrait/monogram, a relationship label, and name + epithet. A figure
+// not in the dataset still shows a monogram card; a non-saint (commemorated:
+// false) shows a quiet "not commemorated" marker and no link.
 const byId = new Map(SAINTS.map((s) => [s.id, s]));
-// Possessive for the section labels ("In his own words", "His companions & kin").
+// Possessive for the section labels ("In his own words").
 const possessive =
   saint.gender === "Male" ? "his" : saint.gender === "Female" ? "her" : "their";
-const possessivePrefix =
-  possessive.charAt(0).toUpperCase() + possessive.slice(1);
 const stripHon = (n: string) => n.replace(/^(Saint|St\.?|Holy)\s+/i, "");
-type Companion = {
+type Figure = {
   saint?: Saint;
   name: string;
   rel: string;
   href?: string;
   external?: string;
+  commemorated?: boolean;
 };
-const companions: Companion[] = [];
-const seenKin = new Set<string>();
-const addKin = (f: {
+// De-duplicate across both human grids (a sibling listed under Family is not
+// repeated under Companions): one shared `seen` set, Family resolved first.
+const seenFig = new Set<string>();
+const toCard = (f: {
   name: string;
   note?: string;
   href?: string;
   external?: string;
-}) => {
+  commemorated?: boolean;
+}): Figure | null => {
   const id = f.href?.match(/OS-\d{4,}/)?.[0];
   const key = id || f.name;
-  if (seenKin.has(key)) return;
-  seenKin.add(key);
-  companions.push({
+  if (seenFig.has(key)) return null;
+  seenFig.add(key);
+  return {
     saint: id ? byId.get(id) : undefined,
     name: f.name,
     rel: f.note ?? "",
     href: f.href,
     external: f.external,
-  });
+    commemorated: f.commemorated,
+  };
 };
-if (profile && (profile.related?.length || profile.family)) {
-  (profile.related ?? []).forEach(addKin);
-  (profile.family?.figures ?? []).forEach(addKin);
-} else {
-  relatedByThemes(saint, SAINTS, 6).forEach((s) =>
-    addKin({ name: s.name, note: primaryRank(s), href: "saint/" + s.id }),
-  );
-}
-const kinIntro = profile?.family?.intro;
-const kinLabel = `${possessivePrefix} companions & kin`;
+const familyCards = (profile?.family?.figures ?? [])
+  .map(toCard)
+  .filter((c): c is Figure => c !== null);
+const companionSrc = profile?.companions?.length
+  ? profile.companions
+  : (profile?.related ?? []);
+const companionCards = companionSrc
+  .map(toCard)
+  .filter((c): c is Figure => c !== null);
+const familyHeading = profile?.family?.heading;
+const familyIntro = profile?.family?.intro;
+const themeLinks = relatedThemeLinks(saint, 6);
+
+// One avatar card (portrait/monogram + relationship label + name), shared by the
+// Family and Companions grids. Returns an HTML string (rendered via <Fragment
+// set:html>) so the markup lives in exactly one place.
+const kinCard = (card: Figure): string => {
+  const nm = card.saint ? splitName(card.saint.name) : null;
+  const av = card.saint
+    ? saintAvatar(card.saint, 74, 92, { type: primaryRank(card.saint) })
+    : saintAvatar({ name: stripHon(card.name) }, 74, 92);
+  const title = nm ? nm.title : stripHon(card.name);
+  const inner =
+    `<div class="sv-relav">${av}</div>` +
+    (card.rel ? `<div class="sv-relrel">${esc(card.rel)}</div>` : "") +
+    `<div class="sv-relname">${esc(title)}` +
+    (nm?.epithet ? `<span class="sv-relep">${esc(nm.epithet)}</span>` : "") +
+    "</div>" +
+    (card.commemorated === false
+      ? '<div class="sv-relnc">not commemorated</div>'
+      : "");
+  if (card.href)
+    return `<a class="sv-relcard" href="${esc(withBase(card.href))}">${inner}</a>`;
+  if (card.external)
+    return `<a class="sv-relcard" href="${esc(card.external)}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
+  return `<div class="sv-relcard">${inner}</div>`;
+};
 
 // Group-taxonomy memberships (data/saint_groups.csv) → "Commemorated with"
 // links to each group's landing page. Joined into the record by build.py.
@@ -97,7 +130,9 @@ const hasReading = !!readingGroups || m.about.length > 0;
 
 const hasTimeline = !!profile?.timeline?.length;
 const hasLegacy = !!profile?.sections?.length;
-const hasCompanions = companions.length > 0;
+const hasFamily = familyCards.length > 0;
+const hasCompanions = companionCards.length > 0;
+const hasRelatedThemes = themeLinks.length > 0;
 const hasCommemorated = memberGroups.length > 0;
 const hasAfter =
   hasTimeline ||
@@ -105,7 +140,9 @@ const hasAfter =
   hasWorks ||
   hasReading ||
   hasCommemorated ||
+  hasFamily ||
   hasCompanions ||
+  hasRelatedThemes ||
   !!m.notes ||
   !!m.sources;
 
@@ -959,51 +996,138 @@ const wordsLabel = `In ${possessive} own words`;
                 </details>
               )}
 
-              {hasCompanions && (
-                <section class="sv-section sv-related">
-                  <div class="sv-secthead">
-                    <span class="eyebrow">{kinLabel}</span>
-                  </div>
-                  {kinIntro && <p class="sv-kin-intro">{kinIntro}</p>}
+              {hasFamily && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">Family</span>
+                    <span class="sv-deep-ct">
+                      {familyCards.length}{" "}
+                      {familyCards.length === 1 ? "relative" : "relatives"}
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Show</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  {familyHeading && (
+                    <div class="sv-kin-head">{familyHeading}</div>
+                  )}
+                  {familyIntro && <p class="sv-kin-intro">{familyIntro}</p>}
                   <div class="sv-relrow">
-                    {companions.map((card) => {
-                      const nm = card.saint ? splitName(card.saint.name) : null;
-                      const av = card.saint
-                        ? saintAvatar(card.saint, 74, 92, {
-                            type: primaryRank(card.saint),
-                          })
-                        : saintAvatar({ name: stripHon(card.name) }, 74, 92);
-                      const body = (
-                        <>
-                          <div class="sv-relav" set:html={av} />
-                          {card.rel && <div class="sv-relrel">{card.rel}</div>}
-                          <div class="sv-relname">
-                            {nm ? nm.title : stripHon(card.name)}
-                            {nm?.epithet && (
-                              <span class="sv-relep">{nm.epithet}</span>
-                            )}
-                          </div>
-                        </>
-                      );
-                      return card.href ? (
-                        <a class="sv-relcard" href={withBase(card.href)}>
-                          {body}
-                        </a>
-                      ) : card.external ? (
-                        <a
-                          class="sv-relcard"
-                          href={card.external}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {body}
-                        </a>
-                      ) : (
-                        <div class="sv-relcard">{body}</div>
-                      );
-                    })}
+                    {familyCards.map((card) => (
+                      <Fragment set:html={kinCard(card)} />
+                    ))}
                   </div>
-                </section>
+                </details>
+              )}
+
+              {hasCompanions && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">
+                      Companions &amp; Contemporaries
+                    </span>
+                    <span class="sv-deep-ct">
+                      {companionCards.length}{" "}
+                      {companionCards.length === 1 ? "figure" : "figures"}
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Show</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <div class="sv-relrow">
+                    {companionCards.map((card) => (
+                      <Fragment set:html={kinCard(card)} />
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {hasRelatedThemes && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">Related Saints</span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Show</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <p class="sv-kin-intro">
+                    Browse other saints who share {possessive} calling and
+                    place.
+                  </p>
+                  <div class="sv-themelinks">
+                    {themeLinks.map((t) => (
+                      <a
+                        class="sv-themelink"
+                        href={withBase("search?theme=" + t.slug)}
+                      >
+                        <span class="sv-themelink-lab">More {t.label}</span>
+                        <span class="sv-themelink-ct">{t.count}</span>
+                        <svg
+                          class="sv-themelink-glyph"
+                          width="13"
+                          height="13"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          stroke="var(--celest)"
+                          stroke-width="1.7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M4 10 10 4M5 4h5v5" />
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
+                </details>
               )}
 
               {m.notes && (
