@@ -49,6 +49,11 @@ family:
     - name: Saint Macrina the Elder
       note: grandmother
       href: saint/OS-2474
+    - name: Saint Basil the Elder
+      note: father
+    - name: Saint Emilia
+      note: mother
+      href: saint/OS-0374
     - name: Saint Macrina the Younger
       note: sister
       href: saint/OS-1551
@@ -60,22 +65,18 @@ family:
       href: saint/OS-0420
     - name: Saint Naucratius
       note: brother
-related:
+companions:
   - name: Saint Gregory the Theologian
-    note: fellow Cappadocian Father
+    note: lifelong friend & fellow Cappadocian Father
     href: saint/OS-0022
-  - name: Saint Gregory of Nyssa
-    note: his brother
-    href: saint/OS-0422
-  - name: Saint Macrina the Younger
-    note: his sister
-    href: saint/OS-1551
-  - name: Saint Peter of Sebaste
-    note: his brother
-    href: saint/OS-0420
-  - name: Saint John Chrysostom
-    note: fellow Holy Hierarch
-    href: saint/OS-0023
+  - name: Saint Athanasius the Great
+    note: ally in defense of Nicaea
+    href: saint/OS-0024
+  - name: Saint Amphilochius of Iconium
+    note: close friend & correspondent
+  - name: Emperor Valens
+    note: Arian emperor he confronted
+    commemorated: false
 sections:
   - heading: Defender of Nicene Orthodoxy
     body:
