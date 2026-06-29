@@ -17,10 +17,15 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   expect(await page.locator(".sp-bio p").count()).toBeGreaterThanOrEqual(4);
 });
 
-test("a saint without a profile renders no profile sections", async ({
+test("an unreviewed (draft) profile is gated out of the production build", async ({
   page,
 }) => {
-  // OS-0022 (Gregory the Theologian) has no profile in Feature A.
+  // OS-0022 (Gregory the Theologian) currently carries only a `draft` profile.
+  // The production build (what these e2e tests run against) ships `reviewed`
+  // profiles only — drafts render in dev / on preview deploys. So no profile
+  // sections should appear here. If this saint's profile is promoted to
+  // `reviewed`, this assertion will (correctly) fail — swap in another
+  // draft-only saint, or assert the profile renders instead.
   await page.goto("./saint/OS-0022/");
   await expect(page.locator(".saintview .sv-name")).toContainText("Gregory");
   await expect(page.locator(".sp-sec")).toHaveCount(0);
