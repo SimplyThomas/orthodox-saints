@@ -133,7 +133,7 @@ test("static per-saint page is real, indexable HTML", async ({ page }) => {
   expect(canon).toBe(`${SITE}/saint/OS-0021/`);
 });
 
-test("quiz walks one question per screen to an illuminated patron", async ({
+test("quiz walks one question per screen to a circle of companions", async ({
   page,
 }) => {
   await page.goto("./quiz/");
@@ -164,17 +164,21 @@ test("quiz walks one question per screen to an illuminated patron", async ({
     await page.locator(`[data-qstep="${i}"] [data-continue]`).click();
   }
 
-  // Result: illuminated patron panel, actions, and the benediction.
-  const patron = page.locator(".qz-patron");
-  await expect(patron).toBeVisible();
-  await expect(patron.locator("h1")).not.toBeEmpty();
-  // The result transparently lists what was matched, grouped by question.
-  await expect(patron.locator(".qz-match-list li").first()).toBeVisible();
-  await expect(page.locator(".qz-benediction")).toContainText(
-    /pray to God for us/,
+  // Result: a tiered "circle of companions" — no single patron.
+  await expect(page.locator(".qz-result-title")).toContainText(
+    /get to know these saints/,
   );
-  const readHref = await page.locator(".qz-read").getAttribute("href");
-  expect(readHref).toContain(`${BASE}saint/OS-`);
+  // Tier 1: a grid of equally-weighted recommendation cards, each a real link
+  // to the saint's full page.
+  const cards = page.locator(".qz-card");
+  await expect(cards.first()).toBeVisible();
+  await expect(cards.first().locator(".qz-card-name")).not.toBeEmpty();
+  const cardHref = await cards.first().getAttribute("href");
+  expect(cardHref).toContain(`${BASE}saint/OS-`);
+  // Tier 3: explore chips deep-link into the finder, pre-filtered by a facet.
+  const chip = page.locator(".qz-explore-chip").first();
+  await expect(chip).toBeVisible();
+  expect(await chip.getAttribute("href")).toContain(`${BASE}search?`);
 });
 
 test("about page tells the story; the personal email is removed", async ({

@@ -163,12 +163,17 @@ const STATUS_CARDS: StatusCard[] = [
     icon: "compass",
     status: "progress",
     title: "Patron Saint Quiz",
-    desc: ["The Patron Saint Quiz has recently received several improvements."],
-    upcomingLabel: "Still planned",
+    desc: [
+      "The Patron Saint Quiz has been reimagined as a warm conversation. Instead of church terminology, it now asks about your life — what you’re walking through, your work, your season of life, and who you hope to become — all in everyday language.",
+      "Rather than naming a single patron, it introduces you to a whole “Circle of Companions”: saints whose lives echo your own, ranked from those especially recommended for you to others you may also like — with links to keep exploring the database.",
+    ],
+    upcomingLabel: "What’s new",
     checklist: [
-      ["todo", "Refine recommendations"],
-      ["todo", "Repair broken links"],
-      ["todo", "Improve matching algorithm"],
+      ["done", "Conversational, plain-language questions"],
+      ["done", "Grouped answers you can multi-select"],
+      ["done", "Tiered “Circle of Companions” results"],
+      ["done", "Explore-by-theme links into the database"],
+      ["wip", "Refining the matching algorithm"],
     ],
     note: "We welcome community feedback.",
   },
@@ -198,6 +203,8 @@ const TIMELINE = [
   {
     period: "June 2026",
     items: [
+      "Reimagined the Patron Saint Quiz as a guided conversation",
+      "Added tiered “Circle of Companions” quiz results with explore links",
       "Expanded saint biographies",
       "Added angelology resources",
       "Updated the interactive calendar",
