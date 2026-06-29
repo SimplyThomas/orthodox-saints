@@ -20,9 +20,10 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
 test("a saint without a profile renders no profile sections", async ({
   page,
 }) => {
-  // OS-0022 (Gregory the Theologian) has no profile in Feature A.
-  await page.goto("./saint/OS-0022/");
-  await expect(page.locator(".saintview .sv-name")).toContainText("Gregory");
+  // OS-2166 (Martyr Alexander of Thessalonica) is a stub with no profile YAML,
+  // so its page renders no rich-profile sections in any build mode.
+  await page.goto("./saint/OS-2166/");
+  await expect(page.locator(".saintview .sv-name")).toContainText("Alexander");
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 
