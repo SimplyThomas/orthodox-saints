@@ -5,6 +5,15 @@ overview:
   - She appears consistently first in the Gospel lists of Jesus's female followers, a placement that reflects her prominence among them. All four canonical Gospels record that she witnessed the crucifixion, and several name her among the women present at Christ's burial by Joseph of Arimathea. In the Gospel of John (20:1-18) she discovers the empty tomb and is the first to encounter the risen Christ, who commissions her to announce the resurrection to the apostles. For this she is honored as the 'Apostle to the Apostles.' The Eastern Orthodox Church venerates her as a Myrrh-bearer and as Equal-to-the-Apostles, regarding her as a primary witness to the resurrection rather than as a penitent sinner.
 liturgicalTitle: The Holy Myrrh-bearer and Equal-to-the-Apostles Mary Magdalene
 sections:
+  - heading: She in the Holy Scriptures
+    body:
+      - "Mary Magdalene is named in all four Gospels — more frequently than most of the Twelve — and appears consistently first in the lists of the women who followed Christ. The references below trace her from her healing through her witness of the Resurrection."
+      - "Healed of seven demons and supporting the ministry: Luke 8:1-3; Mark 16:9."
+      - "Present at the Crucifixion: Matthew 27:55-56; Mark 15:40-41; John 19:25."
+      - "Witness of the burial: Matthew 27:61; Mark 15:47; Luke 23:55-56."
+      - "Coming to the tomb as a Myrrh-bearer: Matthew 28:1-10; Mark 16:1-8; Luke 24:1-12; John 20:1-18."
+      - "First to see the risen Lord and sent to announce it to the apostles: John 20:17-18; Mark 16:9-11."
+    type: object
   - heading: Discipleship and the Resurrection
     body:
       - "According to Luke 8:2-3, after the Lord expelled seven demons from her, Mary Magdalene followed Jesus through Galilee and Judea, serving alongside other women and providing for the ministry from her own means. The Gospels present her as one who remained faithful through the crucifixion: while the disciples fled, she stayed near the cross with the mother of Jesus and the Apostle John. Mark 15:40 names her among the women watching from a distance, alongside Mary the mother of James and Salome."
@@ -16,9 +25,13 @@ sections:
       - She later assisted the Apostle and Evangelist John the Theologian during his missionary work, settling at Ephesus, where, according to tradition, she remained until she reposed in peace and was buried in that city.
       - Orthodox accounts relate that Mary Magdalene came before the Emperor Tiberius Caesar and spoke to him of the resurrection. When the emperor scoffed that a man could no more rise from the dead than an egg could turn red, the egg in her hand immediately changed color. By tradition this miracle is the origin of the custom of dyeing eggs red at Pascha, accompanied by the greeting 'Christ is Risen!'
     type: object
+  - heading: Early Witnesses
+    body:
+      - "As early as the third century, Saint Hippolytus of Rome, commenting on the Song of Songs, described the women who announced the resurrection as 'apostles to the apostles' — among the earliest surviving testimonies to Mary Magdalene's distinctive role. Later Fathers carried the same honor forward: Saint John Chrysostom repeatedly praised the courage of the Myrrh-bearing women, contrasting their faithfulness with the fear of the disciples during the Passion, and Saint Gregory Palamas, in his Homily on the Myrrhbearers, emphasized Mary Magdalene as the first witness of the resurrection."
+    type: object
   - heading: Relics & Shrines
     body:
-      - According to tradition, the relics of Mary Magdalene were transferred from Ephesus to Constantinople in the ninth century, and were later moved to the Lateran Cathedral in Rome. Portions of her relics are also venerated at sites in France (Provence) and on Mount Athos.
+      - According to tradition, the relics of Mary Magdalene were transferred from Ephesus to Constantinople in the ninth century, during the reign of Emperor Leo VI, and were later moved to the Lateran Cathedral in Rome. Portions of her relics are also venerated at sites in France (Provence) and on Mount Athos.
     type: object
   - heading: Veneration and Identity
     body:
@@ -52,6 +65,24 @@ timeline:
 patronage:
   - First witness of the Resurrection
   - Myrrh-bearing women
+  - Missionaries and evangelists
+  - Those delivered from demons
+reading:
+  - heading: Scholarly Works
+    items:
+      - title: Mary Magdalene Understood
+        author: Esther A. de Boer
+        type: book
+      - title: Mary Magdalene
+        author: Bruce Chilton
+        type: book
+      - title: The Resurrection of the Son of God
+        author: N. T. Wright
+        type: book
+  - heading: For Children
+    items:
+      - title: The Tale of the Red Easter Egg
+        type: children's book
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Mary_Magdalene
