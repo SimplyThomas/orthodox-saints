@@ -147,7 +147,10 @@ CONTROLLED = [
 SINGLE_VALUE = {"Gender", "Era", "Century"}
 
 # Required non-empty fields (bootstrap §4). Era-or-Century handled separately.
-REQUIRED = ["Name", "Rank / Type", "Gender", "Feast Day(s)",
+# Feast Day(s) is NOT required: a handful of genuinely-commemorated saints have no
+# fixed (or only a movable/undocumented) feast and are entered as stubs without one.
+# When present it must still parse (see feast_recognized check below).
+REQUIRED = ["Name", "Rank / Type", "Gender",
             "Short Prayer (Intercession)", "Sources"]
 
 # Free-text multi-value columns split for the JSON (not vocab-checked).
