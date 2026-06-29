@@ -93,3 +93,35 @@ to be venerated individually with its own feast.
 | Celsus, Anthony the Presbyter, Anastasius, Marcionilla | OS-0413 | Martyrs Julian & Basilissa and companions (Jan 8) |
 | Cyprian, Dionysius, Anectus, Paul, Crescens | OS-0804 | Martyr Quadratus and Companions at Corinth (Mar 10) |
 | Lydia (wife), Macedonius & Theoprepius (sons), Amphilochius & Cronides (converts) | OS-0868 | Martyr Philetus the Senator and household (Mar 23) |
+
+## Deferred (intentionally not added)
+
+Entries reviewed and **deliberately left out of the dataset**, grouped by reason.
+Revisit a row only if clergy/source review establishes a fixed feast, a formal
+glorification, or in-scope (Chalcedonian) veneration — then promote it to the table
+above and add the saint. (Same rows are marked `deferred` in the main table.)
+
+**Out of scope — venerated chiefly in non-Chalcedonian churches (§1)**
+
+| Deferred Saint | Referenced By | Note |
+|---|---|---|
+| Palladius of Helenopolis | OS-1852 | Author of the *Lausiac History*; Coptic/Syriac veneration. Same person as the row below. |
+| Palladius of Galatia | OS-2260 | Same saint as Palladius of Helenopolis (one person, two profile refs). |
+
+**No fixed individual feast (§10 minimum not met)**
+
+| Deferred Saint | Referenced By | Note |
+|---|---|---|
+| Saint Naucratius | OS-0021 | Brother of Basil the Great; venerated but no clear individual feast day. |
+| Saint Theosebios of Arsinoe | OS-1800 | Brother of Arkadios; no clear individual feast. |
+| Isaac of the Cells | OS-2734 | Desert Father, disciple of Cronius; no distinct feast found. |
+| Saint Eubiotus | OS-2433 | Hermit of Prokonnesos; no distinct feast found. |
+
+**Canonization / feast unconfirmed (§9 caution)**
+
+| Deferred Saint | Referenced By | Note |
+|---|---|---|
+| Hieromartyr Euthymios Vlakhavas | OS-1727 | 1808 revolt leader; no confirmed feast, formal glorification unclear. |
+| New Martyr Panagiotis of the Peloponnese | OS-2487 | No confirmed feast/glorification. |
+| New Martyr Archpriest Milan Petković | OS-2649 | Local Serbian commemoration; no confirmed feast/glorification. |
+| New Martyr Archpriest Timotej Popović | OS-2649 | Local Serbian commemoration; no confirmed feast/glorification. |
