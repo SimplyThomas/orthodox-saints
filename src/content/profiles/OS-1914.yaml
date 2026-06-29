@@ -23,9 +23,10 @@ timeline:
   - when: c. 976
     title: Uncovering of relics
     body: A year after his death his relics are uncovered at his monastery and reported to be incorrupt.
-related:
+companions:
   - name: Saint Basil of Batheos Ryakos
     note: Founder and first igoumen of the Monastery of Christ the Savior, under whom Ignatius was trained in asceticism; commemorated July 1.
+    href: saint/OS-2783
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

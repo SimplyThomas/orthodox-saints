@@ -31,7 +31,7 @@ timeline:
   - when: "2025"
     title: Glorification
     body: Canonized by the Romanian Orthodox Church among sixteen twentieth-century confessors, martyrs, and spiritual fathers.
-related:
+companions:
   - name: St. Irodion of Lainici
     note: Earlier abbot of the Lainici Monastery, near whom he was buried
     href: saint/OS-2612

@@ -37,10 +37,12 @@ sections:
   - heading: Veneration
     body:
       - "The Orthodox Church commemorates Cornelius as a hieromartyr on September 13. He is also honored in the Western tradition: his feast falls on October 20 in the Roman Catholic Church and February 4 in the Episcopal Church, while the Armenian Apostolic Church commemorates him on the Tuesday following the third Sunday of Advent."
-related:
+companions:
   - name: Apostle Peter
     note: Baptized Cornelius at Caesarea, the first Gentile received into the Church (Acts 10), and by tradition ordained him a bishop.
+    href: saint/OS-0004
   - name: Apostle Timothy
     note: By tradition accompanied Cornelius on the mission to Skepsis.
+    href: saint/OS-0512
 status: draft
 generated: "2026-06-19"

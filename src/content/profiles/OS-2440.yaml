@@ -25,7 +25,7 @@ timeline:
   - when: after 1107
     title: Death
     body: Died after some two to three decades governing the see of Ochrid.
-related:
+companions:
   - name: Saint Clement of Ochrid
     note: Earlier enlightener of the Bulgarians whose life Theophylact wrote.
     href: saint/OS-1588

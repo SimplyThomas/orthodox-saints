@@ -12,7 +12,7 @@ sections:
   - heading: Foundation of Orbais
     body:
       - The act for which Regulus is best remembered is the establishment of the abbey of Orbais. The monastery was founded toward the end of the seventh century in the Surmelin valley and adopted the Rule of Saint Benedict. A number of its first monks — by one account six — came from Rebais, carrying the observance of that older house into the new foundation. Orbais grew into a significant religious community in the region.
-related:
+companions:
   - name: St. Philibert of Jumieges
     note: Fellow monk at Rebais; monastic founder under whom Regulus was formed
     href: saint/OS-2697

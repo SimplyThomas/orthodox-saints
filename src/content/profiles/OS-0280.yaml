@@ -27,21 +27,19 @@ timeline:
   - when: "560"
     title: Repose
     body: Died on 7 September at Nogent (Saint-Cloud), near Paris.
-related:
-  - name: Righteous Queen Clotilde
-    note: His grandmother, wife of Clovis I, who raised him after his father's death
-    href: saint/OS-2691
 family:
   heading: Family
   intro: Cloud was a member of the Merovingian royal house descended from Clovis I.
   figures:
     - name: Clovis I
       note: Grandfather; King of the Franks
+      commemorated: false
     - name: St. Clotilde
-      note: Grandmother; queen who raised him
+      note: Grandmother; queen who raised him after his father's death
       href: saint/OS-2691
     - name: Chlodomer
       note: Father; King of Orléans, died in battle in 524
+      commemorated: false
 patronage:
   - Saint-Cloud and other towns named for him
 status: draft

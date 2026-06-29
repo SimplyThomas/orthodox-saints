@@ -25,15 +25,19 @@ sections:
   - heading: The Hierarchs of Perm
     body:
       - Saint Jonah stands within a recognized succession of enlighteners of the Perm land and is commemorated together with Saints Gerasim, Pitirim, and Jonah as the holy hierarchs of Perm. The line traces back to Saint Stephen of Perm, who settled at Ust-Vym and became the first bishop of the region in the fourteenth century.
-related:
+companions:
   - name: Saint Stephen of Perm
     note: First bishop and enlightener of Perm, whose missionary work Jonah continued and completed.
+    href: saint/OS-1065
   - name: Saint Pitirim, Bishop of Perm
     note: Jonah's predecessor on the Perm cathedra, killed by the Vogulani in 1455; commemorated August 19.
+    href: saint/OS-0558
   - name: Saint Gerasim, Bishop of Perm
     note: An earlier hierarch of Perm, commemorated with Jonah among the holy hierarchs of Perm.
+    href: saint/OS-0524
   - name: Saint Jonah, Metropolitan of Moscow
     note: Reposed 1461; by tradition enthroned Jonah of Perm to the episcopate.
+    href: saint/OS-0908
 patronage:
   - Enlightener of Great Perm
   - Missionaries

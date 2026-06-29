@@ -21,9 +21,10 @@ sections:
     body:
       - Tradition holds that Heraclides was buried in a cave that became associated with his memory. By the fourth century a church dedicated to the saint had been built there, and by the fifth century it had developed into a monastery. The Monastery of Saint Herakleides, near Politiko in the Tamassos region of Cyprus, was destroyed during the Arab raids of the seventh century and rebuilt several times; the present structures date largely to the eighteenth century under Archbishop Chrysanthos (1773), while the basilica dates to the fifteenth century. Remains of the earlier monastery, including a mausoleum with a mosaic floor bearing a monogram of Jesus, are preserved beneath the modern foundations.
       - After being dissolved in 1821, the monastery was later restored. On July 23, 1962 it re-opened as a women's monastic community; it was subsequently restored and expanded and houses a community of nuns.
-related:
+companions:
   - name: Apostle Barnabas
     note: Apostle of Cyprus who, according to tradition, ordained Heraclides bishop of Tamassos.
+    href: saint/OS-1331
 patronage:
   - Cyprus
 status: draft

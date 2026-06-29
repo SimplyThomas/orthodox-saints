@@ -22,7 +22,7 @@ timeline:
   - when: "1107"
     title: Repose and burial
     body: Prochorus dies and is buried in the Near Caves; Prince Svyatopolk is said to have buried him personally.
-related:
+companions:
   - name: St. Anthony of the Kyiv Caves
     note: Co-founder of the Kiev Caves monastery, in whose Near (Antoniev) Caves Prochorus is buried
     href: saint/OS-0136

@@ -61,9 +61,10 @@ sources:
   - https://en.wikipedia.org/wiki/Helena_(empress)
   - https://www.oca.org/saints/lives/2025/05/21/101423-holy-empress-helen-equal-to-the-apostles
   - https://www.newadvent.org/cathen/07202b.htm
-related:
-  - name: Emperor Constantine the Great
-    note: Her son; jointly commemorated May 21 as Equals-to-the-Apostles
-    href: saint/OS-0037
+family:
+  figures:
+    - name: Emperor Constantine the Great
+      note: Her son; jointly commemorated May 21 as Equals-to-the-Apostles
+      href: saint/OS-0037
 status: reviewed
 generated: "2026-06-18"

@@ -35,7 +35,7 @@ sections:
   - heading: Legacy
     body:
       - Though less famous than Saint Theodore the Studite, Peter belongs to the same generation of monastic leaders who preserved Orthodox teaching through the iconoclast crisis and into the restoration of the icons in 843. His Life, written by his disciple Sabas, remains a valuable source for the organization of Byzantine monasteries and for the experience of iconophile resistance.
-related:
+companions:
   - name: Venerable Theodore the Studite
     note: leading defender of the icons
     href: saint/OS-2180

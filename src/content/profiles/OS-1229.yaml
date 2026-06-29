@@ -60,9 +60,11 @@ sections:
         His life was preserved in the tradition associated with Saint Theodore of
         Edessa, and his relics were honored at the Lavra of Saint Savva. He is
         commemorated on May 23 and on July 29.
-related:
-  - name: Saint Theodore of Edessa
-    note: Michael's kinsman and teacher at the Lavra of Saint Savva, in whose tradition his life is preserved
+family:
+  figures:
+    - name: Saint Theodore of Edessa
+      note: Michael's kinsman and teacher at the Lavra of Saint Savva, in whose tradition his life is preserved
+      href: saint/OS-1501
 patronage:
   - Monastics and pilgrims who keep the faith under persecution
   - Those who resist temptation and worldly favor for Christ

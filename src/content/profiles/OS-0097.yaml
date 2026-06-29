@@ -26,29 +26,26 @@ timeline:
   - when: "844"
     title: Repose
     body: Reposed having confessed the faith through the iconoclast troubles.
-related:
-  - name: St. George the Confessor, Bishop of Mytilene
-    note: younger brother and fellow confessor of the icons
-    href: saint/OS-0957
-  - name: St. David the Monk of Lesbos
-    note: eldest brother, ascetic of Mount Ida
 family:
   heading: Family
   intro: Symeon was born into a Lesbian family several of whose members became monastics; he is venerated together with two of his brothers.
   figures:
     - name: Adrianos
       note: father
+      commemorated: false
     - name: Konstanto
       note: mother
+      commemorated: false
     - name: David the Monk
       note: eldest brother, ascetic of Mount Ida
+      href: saint/OS-2777
     - name: George, Bishop of Mytilene
       note: brother and fellow confessor
       href: saint/OS-0957
 patronage:
   - Confessors and those who suffer for the faith
   - Honored among ascetics and pillar-dwellers (stylites).
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Symeon_Stylites_of_Lesbos

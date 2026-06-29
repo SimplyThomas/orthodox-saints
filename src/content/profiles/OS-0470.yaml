@@ -36,9 +36,10 @@ sections:
     body:
       - After the Battle of Maritsa in 1371, which opened the southern Balkans to further Ottoman advance, Romilus moved westward, first to Valona in Albania and then into the Serbian Despotate. He came finally to Ravanica Monastery, founded by Prince Lazar of Serbia in the late 1370s and intended in part as a refuge for Hesychast monks.
       - He reposed at Ravanica around 1385, on January 16. His relics are kept in the narthex of the monastery church. His Life was composed before 1391 by a disciple of his named Gregory; his veneration is best attested on Mount Athos and in the region surrounding Ravanica.
-related:
+companions:
   - name: Gregory of Sinai
     note: His teacher and master in the Hesychast tradition, whom he followed to Paroria.
+    href: saint/OS-1671
 patronage: []
 works: []
 reading:

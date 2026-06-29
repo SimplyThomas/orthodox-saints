@@ -29,7 +29,7 @@ timeline:
   - when: "1164"
     title: Discovery of relics
     body: His incorrupt relics found with those of Saint Leontius during excavation at Rostov (some sources 1162).
-related:
+companions:
   - name: Saint Leontius, Bishop of Rostov
     note: His predecessor in the see of Rostov; their relics were discovered together.
     href: saint/OS-1231

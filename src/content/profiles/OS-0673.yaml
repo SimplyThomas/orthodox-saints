@@ -13,10 +13,11 @@ sections:
     body:
       - During their imprisonment at Hieropolis, the Apostle Philip was put to death on a cross, while Saint Mariamne and Saint Bartholomew were set free.
       - Having buried the body of her brother, Mariamne continued the apostolic mission alone, preaching the Gospel in Lykaonia in Asia Minor. There she reposed in peace, ending her life as a missionary rather than a martyr.
-related:
-  - name: Apostle Philip of the Twelve
-    note: Her brother, whom she accompanied in the apostolic mission and buried after his martyrdom at Hierapolis.
-    href: saint/OS-2578
+family:
+  figures:
+    - name: Apostle Philip of the Twelve
+      note: Her brother, whom she accompanied in the apostolic mission and buried after his martyrdom at Hierapolis.
+      href: saint/OS-2578
 sources:
   - OCA Synaxarion (oca.org), Feb 17
   - https://www.oca.org/saints/lives/2023/02/17/100550-saint-mariamne-the-sister-of-the-apostle-philip

@@ -23,9 +23,10 @@ sections:
     body:
       - During the persecution of Diocletian, Chrysogonus was imprisoned for his faith. The emperor afterward summoned him to Aquileia in northern Italy; brought before the imperial tribunal and refusing to renounce Christ, he was condemned to death and beheaded.
       - "The tradition records that his body was thrown into the sea, washed ashore, and buried by an aged priest named Zoilus. His veneration in the West is ancient: a basilica bearing his name, San Crisogono, stood in the Trastevere district of Rome and appears in the records of a Roman synod of 499, and his name is named among the martyrs in the Roman Canon of the Mass. The Orthodox Church commemorates him on December 22 together with Saint Anastasia."
-related:
+companions:
   - name: Anastasia the Deliverer-from-Potions
     note: His disciple and spiritual daughter, whom he instructed and strengthened by letter; the two are commemorated together on December 22.
+    href: saint/OS-0071
 status: draft
 sources:
   - GOARCH calendar

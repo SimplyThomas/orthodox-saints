@@ -21,11 +21,15 @@ sections:
     body:
       - According to Antiochene Christian tradition, the relics of the mother and her sons were interred on the site of a synagogue in the Kerateion quarter of Antioch, which was later converted into a church.
       - Additional tombs believed to be those of the martyrs were discovered in the church of San Pietro in Vincoli in Rome in 1876. The Maccabean martyrs are venerated on August 1 in both the Eastern Orthodox and Roman Catholic calendars, and remain commemorated in the Traditional Latin Mass.
-related:
-  - name: Martyr Solomonia
-    note: Mother of the seven brothers, commemorated with them on August 1.
+family:
+  figures:
+    - name: Martyr Solomonia
+      note: Mother of the seven brothers, commemorated with them on August 1.
+      href: saint/OS-1621
+companions:
   - name: Teacher Eleazar
     note: The ninety-year-old scribe martyred for fidelity to the Mosaic Law, commemorated with the brothers.
+    href: saint/OS-1622
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Maccabean_Martyrs

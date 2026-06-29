@@ -43,9 +43,10 @@ sections:
   - heading: Persecution
     body:
       - His monastic life unfolded under Soviet persecution of the Church. The OCA records that he was arrested fourteen times beginning in 1929 and maintained his ministry through that period, returning from the camps in 1933 to settle at Vyritsa.
-related:
+companions:
   - name: Seraphim of Sarov
     note: The wonderworker of Sarov, whom he took as his namesake at the Great Schema and whose ascetic prayer on a rock he imitated.
+    href: saint/OS-0043
 patronage: []
 status: draft
 generated: "2026-06-19"

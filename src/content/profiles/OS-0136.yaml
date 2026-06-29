@@ -30,7 +30,7 @@ timeline:
   - when: "1073"
     title: Repose
     body: Reposed at about ninety years of age; his relics remained hidden.
-related:
+companions:
   - name: St. Theodosius of the Kyiv Caves
     note: His disciple and co-founder of the Lavra; commemorated jointly on September 2
     href: saint/OS-2745

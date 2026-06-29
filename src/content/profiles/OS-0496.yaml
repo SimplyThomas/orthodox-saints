@@ -1,0 +1,52 @@
+id: OS-0496
+lifespan: 13th century (and see note on the conflated Bishop of Turov, d. 1194)
+liturgicalTitle: Our Venerable Father Laurence the Recluse of the Kiev Caves
+overview:
+  - Laurence the Recluse is venerated among the ascetics of the Kiev Caves Lavra, remembered as a hermit who withdrew into a cave and overcame the passions through prayer and fasting, and to whom the Lord granted the gift of healing.
+  - "The record under this entry combines two feast days, January 20 and January 29, and the sources indicate that these in fact pertain to two distinct saints of the same name and the same monastery: Laurence, Recluse of the Far Caves (commemorated January 20, dated to the 13th-14th century), and Laurence, Recluse and later Bishop of Turov (died 1194, commemorated January 29, whose relics rest in the Near Caves)."
+  - Both Laurences are associated with reclusive life at the Kiev Caves and with healing, but the sources place them in different centuries and in different cave systems of the Lavra.
+patronage:
+  - Healing
+sections:
+  - heading: Identity and the Two Laurences
+    body:
+      - The sources distinguish two saints named Laurence connected with the Kiev Caves Lavra. The first is Saint Laurence, Recluse of the Far Caves, commemorated on January 20 and dated to the 13th or 14th century; his incorrupt relics lie in the Far Caves, and scientific investigation of those relics suggests he died at roughly 40 to 50 years of age. Beyond this, his biographical details remain unknown.
+      - The second is Saint Laurence, Recluse and Bishop of Turov, who died in 1194 and is commemorated on January 29; his relics rest in the Near Caves. The Wikipedia liturgical calendars and the Sanidopoulos accounts treat these as separate entries, noting that they share the name Laurence and the association with the Kiev Caves but lived in different centuries and rest in different cave systems. This profile's combined feast days (January 20; January 29) reflect that conflation in the underlying record.
+  - heading: Life of Laurence, Recluse and Bishop of Turov
+    body:
+      - According to the account drawn from the Kiev Caves Patericon, Laurence first lived as a monk at the Kiev Caves Lavra. Desiring to retire into solitude, he was forbidden to do so by the holy fathers, and so relocated to the Monastery of the Great Martyr Demetrios, which Great Prince Izyaslav had built near the Kiev Caves, where he lived as a recluse. Through his austere monastic practices the Lord granted him the gift of healing.
+      - "The Patericon records a notable miracle: a demon-possessed man from Kiev was brought to Laurence for healing. Initially unable to expel the demon himself, Laurence bound the man and sent him to the Kiev Caves Lavra, where, in a vision, thirty monks and the Theotokos appeared to him and effected his cure. Laurence later returned to the Lavra and was elevated to the See of Turov in 1182, succeeding Saint Cyril of Turov. He died in 1194 and was buried in the Near Caves of the Lavra, where he is commemorated on January 29 (February 11 on the Old Calendar)."
+  - heading: Life of Laurence, Recluse of the Far Caves
+    body:
+      - Of the Laurence commemorated on January 20, the sources relate that, disdaining the vain glory of the world, he lived in a dark cave and drove away the darkness of the passions through prayer and fasting, attaining communion with God. His incorrupt relics lie in the Far Caves of the Kiev Caves Lavra.
+      - The OCA account for January 20 gives only a brief summary and notes a Troparion and Kontakion in his honor without reproducing their texts. No detailed biographical dates are provided, and the sources state plainly that further details remain unknown. He is dated to the 13th or 14th century and is grouped among the post-Schism Orthodox saints.
+  - heading: Relics & Shrines
+    body:
+      - The relics of Laurence of the Far Caves (January 20) are described as incorrupt and resting in the Far Caves of the Kiev Caves Lavra.
+      - The relics of Laurence, Bishop of Turov (January 29), rest in the Near Caves of the Lavra, where he was buried after his death in 1194.
+  - heading: Veneration
+    body:
+      - Both saints appear among the post-Schism Orthodox saints, indicating that their veneration developed after the Great Schism. The January 29 Laurence is listed with the Old Calendar date of February 11. The January 20 commemoration is recorded in the Orthodox calendar of Pravoslavie.ru and the Greek Great Synaxaristes, as well as in the OCA Lives of the Saints.
+timeline:
+  - when: "1182"
+    title: Elevated to the See of Turov
+    body: Laurence the recluse (commemorated January 29) was raised to the bishopric of Turov, succeeding Saint Cyril of Turov, according to the account drawn from the Kiev Caves Patericon.
+  - when: "1194"
+    title: Death and burial in the Near Caves
+    body: Laurence, Bishop of Turov, died and was buried in the Near Caves of the Kiev Caves Lavra; he is commemorated on January 29 (February 11, Old Calendar).
+  - when: 13th-14th century
+    title: Laurence of the Far Caves
+    body: The Laurence commemorated on January 20 is dated by the sources to the 13th or 14th century; his incorrupt relics lie in the Far Caves, and investigation of those relics suggests he died at about 40 to 50 years of age.
+sources:
+  - OCA Synaxarion (oca.org), Jan 20
+  - https://www.johnsanidopoulos.com/2019/01/saint-laurence-recluse-of-kiev-caves.html
+  - https://en.wikipedia.org/wiki/January_29_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/January_20_(Eastern_Orthodox_liturgics)
+  - https://www.johnsanidopoulos.com/2020/01/saint-laurence-recluse-of-kiev-caves.html
+  - https://www.oca.org/saints/lives/2024/01/20/100240-saint-laurence-recluse-of-the-kiev-far-caves
+  - https://www.johnsanidopoulos.com/search?q=Laurence+Turov
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Both Laurences are associated with healing.
+    detail: The gift of healing is attributed only to Laurence of the Near Caves / Bishop of Turov (Jan 29) in the dossier sources. The sources for Laurence of the Far Caves (Jan 20) — OCA, johnsanidopoulos.com 2020, Wikipedia Jan 20 — mention only prayer, fasting, and conquest of the passions; no healing gift is attributed to him. The claim that both are associated with healing is not supported.

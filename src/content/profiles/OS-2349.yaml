@@ -13,19 +13,20 @@ sections:
     body:
       - Jacob's twelve sons — Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, and Benjamin — became the ancestors of the Twelve Tribes of Israel, and through them Jacob is reckoned the immediate father of the nation that bore his second name. Among his sons, Joseph rose to high office in Egypt and preserved his family from famine, and is himself honored by the Church as a righteous forefather and a type of Christ.
       - The renaming of Jacob as Israel after his nightlong struggle gave the people their enduring name. As an ancestor of Christ according to the flesh, Jacob is commemorated together with Abraham and Isaac on the Sunday of the Holy Forefathers, when the Church remembers those who lived before and under the Law and prepared the way for the coming of the Savior.
-related:
-  - name: Righteous Patriarch Isaac
-    note: father
-    href: saint/OS-2348
-  - name: Righteous Rebecca
-    note: mother
-    href: saint/OS-2355
-  - name: Righteous Forefather Abraham
-    note: grandfather
-    href: saint/OS-1984
-  - name: Righteous Joseph the All-Comely
-    note: son
-    href: saint/OS-2547
+family:
+  figures:
+    - name: Righteous Patriarch Isaac
+      note: father
+      href: saint/OS-2348
+    - name: Righteous Rebecca
+      note: mother
+      href: saint/OS-2355
+    - name: Righteous Forefather Abraham
+      note: grandfather
+      href: saint/OS-1984
+    - name: Righteous Joseph the All-Comely
+      note: son
+      href: saint/OS-2547
 patronage:
   - Holy Forefathers; ancestor of Christ and patriarch
 status: draft

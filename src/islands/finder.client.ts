@@ -11,6 +11,7 @@ import {
   PER_PAGE,
   matches,
   sortSaints,
+  sortByRelevance,
   activeCount,
   emptySelected,
   type Selected,
@@ -240,10 +241,12 @@ if (dataEl) {
     const clearBtn = $<HTMLButtonElement>("#clear-all");
     if (clearBtn) clearBtn.hidden = !anyActive;
 
-    const matched = sortSaints(
-      SAINTS.filter((s) => matches(s, query, selected)),
-      sortMode,
-    );
+    // With a text query, rank by relevance (name/title hits first) and use the
+    // chosen sort as the tiebreak; with no query, the sort dropdown drives order.
+    const passed = SAINTS.filter((s) => matches(s, query, selected));
+    const matched = query
+      ? sortByRelevance(passed, query, sortMode)
+      : sortSaints(passed, sortMode);
     // Mirror the active-filter count onto the mobile "Filters" toggle badge.
     const badge = $("#filter-count");
     if (badge) {
@@ -378,6 +381,32 @@ if (dataEl) {
         d.open = true;
         d.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+    }
+    // Generic facet pre-filter: ?<facetKey>=value[,value] (e.g. ?vocation=Physician
+    // or ?origin=Greece). This is how the quiz "Explore Similar Saints" chips
+    // deep-link into the finder. `themes` is handled above via ?theme=, so it is
+    // skipped here to avoid a double pass.
+    let seededFacet = false;
+    for (const f of FACETS) {
+      if (f.key === "themes") continue;
+      const raw = params.get(f.key);
+      if (!raw) continue;
+      for (const val of raw
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)) {
+        const box = $<HTMLInputElement>(
+          `#facets input[data-key="${f.key}"][value="${cssEscape(val)}"]`,
+        );
+        if (!box) continue;
+        box.checked = true;
+        selected[f.key].add(val);
+        box.closest("details")?.setAttribute("open", "");
+        seededFacet = true;
+      }
+    }
+    if (seededFacet) {
+      $("#facets")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 

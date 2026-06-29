@@ -35,7 +35,7 @@ timeline:
   - when: Dec 4, 1505
     title: Repose
     body: He reposed at the Chudov monastery and is commemorated on this day.
-related:
+companions:
   - name: Saint Joseph of Volokolamsk
     note: Monastic reformer with whom he opposed the Judaizing heresy.
     href: saint/OS-0330

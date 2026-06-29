@@ -37,8 +37,9 @@ sections:
       - Beyond their place in the Church calendar, the Bakhtrioni Uprising became a lasting theme in Georgian national memory and literature, inspiring such works as Vazha-Pshavela's epic poem Bakhtrioni and Akaki Tsereteli's novel Bashi-Achuki.
 patronage:
   - Georgia
-related:
+companions:
   - name: Shalva of Akhaltsikhe
     note: A distinct Georgian saint named Shalva; not to be confused with Shalvi of Ksani commemorated here.
+    href: saint/OS-1377
 status: draft
 generated: "2026-06-19"

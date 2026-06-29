@@ -42,11 +42,13 @@ sections:
     body:
       - Elected patriarch in 1375 after the death of Joanicius, Euthymius led the Bulgarian Church in the last years of the Second Bulgarian Empire. When the Ottoman army under Suleyman Celebi besieged the capital, he was entrusted with its defense while Tsar Ivan Shishman was occupied elsewhere.
       - Trnovo fell on 17 July 1393 after a three-month siege. Euthymius was subsequently sent into exile in the theme of Macedonia, by some accounts to the Bachkovo Monastery, and died there around 1402 to 1404. He was the last patriarch of Trnovo.
-related:
+companions:
   - name: Theodosius of Trnovo
     note: His monastic elder, under whose influence he entered the Kilifarevo Monastery and whom he accompanied to Constantinople.
+    href: saint/OS-0677
   - name: Cyprian, Metropolitan of Moscow
     note: One of his disciples, who carried the work of Slavonic textual reform into the lands of the Rus'.
+    href: saint/OS-1848
   - name: Gregory Tsamblak
     note: A disciple and prominent churchman and writer formed in the Trnovo Literary School.
 patronage: []

@@ -1,0 +1,42 @@
+id: OS-2082
+lifespan: 14th century
+overview:
+  - Saint Demetrius of Tsilibinsk was a 14th-century monastic of northern Rus' and a disciple of Saint Stephen of Perm, the apostle to the Zyrian (Komi) people. He is venerated as the founder of the Archangel Tsilibinsk wilderness monastery in what later became the Vologda diocese.
+  - According to the synaxarion, Demetrius built a church in honor of the Archangel Michael for the newly converted, beneath which he dug a cave and lived for a long time in solitude. He is commemorated on October 26.
+  - "Beyond this brief account, little survives about his life in accessible sources: no birth or death year, formal glorification date, or relic record is preserved, and he is among the more obscure saints of the northern Russian monastic tradition."
+sections:
+  - heading: Foundation of the Tsilibinsk Monastery
+    body:
+      - Demetrius founded the Archangel Tsilibinsk wilderness monastery, situated in territory that later fell within the Vologda diocese. As part of this foundation he built a church dedicated to the Archangel Michael, intended to serve the newly converted population of the region.
+      - Beneath the church he dug out a cave, where, according to the synaxarion, he lived for a long time in solitude. This pattern of pairing a community church with a hermit's cell reflects the wilderness monasticism characteristic of the northern Russian forests in this era.
+  - heading: Disciple of Saint Stephen of Perm
+    body:
+      - Demetrius was a devoted follower of Saint Stephen of Perm (commemorated April 26), the missionary who evangelized the Zyrian, or Komi, people along the Vychegda and Vym rivers. Stephen, born around 1340 in Ustyug, took monastic vows in Rostov, learned Greek, and around 1376 began his mission, devising the Old Permic script rather than imposing Church Slavonic on his converts.
+      - The bishopric of Perm was established in 1383, with Stephen consecrated as its first bishop; he died in Moscow on April 26, 1396, and was canonized in 1549. Demetrius's work building a church for 'the newly converted' situates him within this missionary effort to bring the peoples of the far north into the Church.
+      - The available accounts of Stephen of Perm do not themselves name Demetrius or the Tsilibinsk monastery; the connection rests on the synaxarion's notice of Demetrius as Stephen's disciple.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/10/26/108922-saint-demetrius-of-tsilibinsk
+  - https://en.wikipedia.org/wiki/Stephen_of_Perm
+  - https://www.oca.org/saints/lives/2024/10/26
+  - https://orthodoxwiki.org/Demetrius_of_Tsilibinsk
+  - https://orthodoxwiki.org/Stephen_of_Perm
+timeline:
+  - when: c. 1340
+    title: Birth of Saint Stephen of Perm
+    body: Stephen of Perm, whose disciple Demetrius would become, is born in Ustyug in northern Russia.
+  - when: c. 1376
+    title: Mission to the Zyrian people
+    body: Stephen of Perm begins his mission along the Vychegda and Vym rivers, devising the Old Permic script for the Komi people.
+  - when: 14th century
+    title: Foundation of the Tsilibinsk monastery
+    body: Demetrius founds the Archangel Tsilibinsk wilderness monastery, builds a church to the Archangel Michael for the newly converted, and lives in solitude in a cave beneath it.
+  - when: April 26, 1396
+    title: Repose of Saint Stephen of Perm
+    body: Demetrius's teacher dies in Moscow; Stephen is later canonized in 1549.
+  - when: October 26
+    title: Commemoration
+    body: Saint Demetrius of Tsilibinsk is commemorated; troparion and kontakion texts for him are noted in the synaxarion.
+status: draft
+generated: "2026-06-22"

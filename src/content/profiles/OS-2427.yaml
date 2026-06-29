@@ -9,11 +9,12 @@ sections:
     body:
       - Believing his own death to be near, Theophilus gave away everything that he possessed, keeping only his mantle, and gave himself over to fasting and to continuous weeping over his sins, so that, as the tradition relates, tears were his bread by day and by night. His unceasing lamentation eventually caused him to lose his sight.
       - Mark foretold that, as a confirmation of his approaching repose, Theophilus's sight would be restored to him three days before his death, and this was fulfilled. Theophilus was buried in the Near Cave together with his brother John, near the relics of Saint Mark. For his life of penitent tears he is remembered in the tradition as Theophilus the Weeper.
-related:
-  - name: Theophilus the Weeper
-    note: Monastic brother of John; humbled by the miracle at the double grave, he lived in penitent weeping until he went blind.
-  - name: John of the Kiev Caves
-    note: Monastic brother of Theophilus; died in his brother's absence and, by Mark's word, yielded the senior place in their shared grave.
+family:
+  figures:
+    - name: Theophilus the Weeper
+      note: Brother of John; humbled by the miracle at the double grave, he lived in penitent weeping until he went blind.
+    - name: John of the Kiev Caves
+      note: Brother of Theophilus; died in his brother's absence and, by Mark's word, yielded the senior place in their shared grave.
 patronage:
   - Burial of the dead and the ministry of grave-digging
   - Penitent tears and compunction

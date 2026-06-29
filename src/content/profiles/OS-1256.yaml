@@ -40,10 +40,10 @@ sections:
 patronage:
   - Care of the poor and captives
   - The city of Paris
-related:
+companions:
   - name: Saint Vincent of Saragossa
     note: Deacon and martyr whose relics were enshrined in the Parisian church that Germanus dedicated in 558.
-    href: /saint/OS-2178
+    href: saint/OS-2178
 reading:
   - heading: Related Texts
     items:

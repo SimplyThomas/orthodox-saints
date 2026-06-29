@@ -27,7 +27,7 @@ timeline:
   - when: September 19, 1992
     title: Enshrinement of relics
     body: Relics enshrined at the Holy Trinity Convent in Murom.
-related:
+companions:
   - name: Venerable Constantine, Prince of Murom
     note: An earlier prince of Murom, venerated as enlightener of the city
     href: saint/OS-1219

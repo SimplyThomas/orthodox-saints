@@ -1,0 +1,30 @@
+id: OS-2167
+lifespan: 5th century
+overview:
+  - Anthony of Apamea was a Syrian stone-mason who lived during the fifth century. With the blessing of the bishop of Apamea, a city in Syria, he undertook to build a church dedicated to the Holy Trinity.
+  - When local pagan townspeople learned of his church-building project, they entered his house by night and killed him with a sword. He is venerated as a martyr, commemorated on November 9.
+liturgicalTitle: The Holy Martyr Anthony of Apamea
+sections:
+  - heading: Historical Context
+    body:
+      - Apamea on the Orontes was a major Syrian city. By the early fifth century it had been granted the status of provincial capital of Syria Secunda, making it a Metropolitan Archbishopric and a significant center of Christian administration. Bishops documented in the city during the mid-fifth century include Alexander (active around 431), Domnus (active around 451), and Epiphanius (consecrated 451/457).
+      - "The period saw active Christian expansion in Apamea: a church was built in the fifth century on the site of a former synagogue, and the city later received substantial Byzantine reconstruction under the Emperor Justinian I. Anthony's church-building project, undertaken with episcopal blessing, fits this setting of growing Christian institutional presence amid a population that still included pagan inhabitants."
+  - heading: Sources and Uncertainty
+    body:
+      - Anthony of Apamea is a minor figure known primarily through the synaxarion of the Orthodox Church in America, which preserves the principal surviving account of his life and martyrdom. No dedicated Wikipedia or OrthodoxWiki article exists for him.
+      - A separate hagiographic tradition associated with the OrthodoxWiki article on the martyr Aristion mentions a young Anthony from the Syrian town of Aribazo who preached the Christian faith, led Aristion to belief, and was martyred at the age of twenty. Whether this Anthony is the same person as the stone-mason of Apamea is uncertain; the two accounts may represent distinct saints or variant strands of a single tradition.
+timeline:
+  - when: 5th century
+    title: Begins building a church in Apamea
+    body: With the blessing of the bishop of Apamea, Anthony, a Syrian stone-mason, undertakes the construction of a church dedicated to the Holy Trinity.
+  - when: 5th century
+    title: Martyrdom
+    body: Local pagan townspeople, having discovered the church-building project, enter Anthony's house by night and kill him with a sword.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2025/11/09/103257-martyr-anthony-of-apamea
+  - https://en.wikipedia.org/wiki/Apamea,_Syria
+  - https://www.oca.org/saints/lives/2025/11/09
+  - https://orthodoxwiki.org/Aristion
+status: draft
+generated: "2026-06-22"

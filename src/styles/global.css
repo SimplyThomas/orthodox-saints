@@ -1284,6 +1284,52 @@ a.qz-comp {
   font-size: 0.65em;
   color: var(--celest);
 }
+/* Warm, conversational one-liner beneath the question. Pulled up snug under the
+   heading, which drops its own bottom margin when a subtitle follows. */
+.qz-question:has(+ .qz-sub) {
+  margin-bottom: 12px;
+}
+.qz-sub {
+  margin: 0 0 28px;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--celest);
+}
+.qz-cluster + .qz-cluster {
+  margin-top: 26px;
+}
+/* Pastoral category header above a cluster of options (e.g. "Heart & Mind"),
+   styled as a centered eyebrow with flanking gold rules. */
+.qz-cluster-label {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--celest);
+  text-align: center;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.qz-cluster-label::before,
+.qz-cluster-label::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  max-width: 64px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--line-gold),
+    transparent
+  );
+}
 .qz-opts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1428,23 +1474,44 @@ a.qz-comp {
   letter-spacing: 0.12em;
   font-size: 12px;
 }
-
-.qz-companions {
-  margin-top: 30px;
-  text-align: center;
+.qz-patron .qz-match .lbl {
+  display: block;
+  margin-bottom: 10px;
 }
-.qz-comp-label {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 17px;
-  color: var(--ink-soft);
-  margin: 0 0 14px;
-}
-.qz-comp-row {
+.qz-match-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.qz-match-list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
   flex-wrap: wrap;
+}
+.qz-match-list .dim {
+  flex: 0 0 auto;
+  min-width: 104px;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+.qz-match-list .vals {
+  color: #dbe5ef;
+  font-size: 14.5px;
+}
+
+/* Tier 2 ("You May Also Like") — a uniform grid of compact companion cards that
+   line up in clean rows regardless of count (was a centered flex-wrap, which
+   left ragged, content-sized rows). */
+.qz-comp-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: 14px;
 }
 .qz-comp {
   display: flex;
@@ -1453,12 +1520,17 @@ a.qz-comp {
   background: #fff;
   border: 1px solid var(--line-gold);
   border-radius: 6px;
-  padding: 12px 20px 12px 12px;
+  padding: 12px 18px 12px 12px;
   box-shadow: var(--shadow-soft);
   text-align: left;
   transition:
     box-shadow 0.14s,
     transform 0.14s;
+}
+/* Let the text column shrink within its grid cell so long names/epithets wrap
+   instead of forcing the card wider than its track. */
+.qz-comp > div {
+  min-width: 0;
 }
 .qz-comp:hover {
   box-shadow: var(--shadow-card);
@@ -1475,6 +1547,12 @@ a.qz-comp {
   font-size: 13px;
   color: var(--celest);
 }
+.qz-comp .shared {
+  margin-top: 3px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--gold-deep);
+}
 
 .qz-actions {
   display: flex;
@@ -1488,20 +1566,6 @@ a.qz-comp {
   align-items: center;
   gap: 9px;
   text-decoration: none;
-}
-.qz-bene-rule {
-  max-width: 200px;
-  margin: 40px auto 16px;
-}
-.qz-benediction {
-  text-align: center;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 22px;
-  color: var(--byz);
-  margin: 0;
-  text-wrap: balance;
 }
 
 .qz-empty {
@@ -1517,6 +1581,155 @@ a.qz-comp {
 }
 .qz-empty .qz-lede {
   margin-bottom: 32px;
+}
+
+/* ── Result page: the tiered "circle of companions" ──
+   No single patron — a lead set of equally-weighted recommendation cards, a
+   wider "you may also like" row, and explore chips that deep-link into the
+   finder. (Replaces the old single qz-patron panel.) */
+.qz-result-title {
+  font-size: clamp(28px, 4.4vw, 44px);
+  color: var(--byz-deep);
+  line-height: 1.1;
+  margin: 14px 0 12px;
+  text-wrap: balance;
+}
+.qz-result-lede {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+.qz-tier {
+  margin-top: 46px;
+}
+.qz-tier .eyebrow-rule {
+  margin-bottom: 24px;
+}
+/* Tier 1 — equally-weighted recommendation cards. */
+.qz-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+}
+.qz-card {
+  display: flex;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+  transition:
+    box-shadow 0.14s,
+    transform 0.14s;
+}
+.qz-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+.qz-card-portrait {
+  flex: 0 0 auto;
+}
+.qz-card-body {
+  min-width: 0;
+}
+.qz-card-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--byz-deep);
+  line-height: 1.1;
+}
+.qz-card-epithet {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--gold-deep);
+  margin-top: 2px;
+}
+.qz-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 10px 0;
+  font-size: 12.5px;
+  color: var(--celest);
+}
+.qz-card-bio {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.qz-card-why {
+  font-size: 12.5px;
+  color: var(--gold-deep);
+}
+.qz-card-why .lbl {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10.5px;
+  color: var(--celest);
+  margin-right: 8px;
+}
+/* Tier 3 — explore chips deep-linking into the finder by one facet. */
+.qz-explore-lede {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.qz-explore-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.qz-explore-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: #fff;
+  border: 1px solid var(--line-gold);
+  border-radius: 8px;
+  padding: 9px 16px;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 0.14s,
+    transform 0.14s,
+    border-color 0.14s;
+}
+.qz-explore-chip:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-1px);
+  border-color: var(--gold-deep);
+}
+.qz-explore-chip .ex-kind {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  color: var(--celest);
+}
+.qz-explore-chip .ex-val {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--byz-deep);
 }
 
 /* ============================================================
@@ -4788,21 +5001,72 @@ a.sv-rail-chip:hover {
   margin-left: auto;
 }
 
-/* companions & kin — avatar grid */
+/* Family / Companions — avatar grid (shared by both collapsibles) */
+.sv2 .sv-kin-head {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--byz-deep);
+  margin: 2px 0 6px;
+}
 .sv2 .sv-kin-intro {
   font-family: var(--serif);
   font-style: italic;
   font-size: 17px;
   line-height: 1.5;
   color: var(--celest);
-  margin: -8px 0 22px;
+  margin: 2px 0 22px;
   max-width: 680px;
   text-wrap: pretty;
 }
-.sv2 .sv-related .sv-relrow {
+.sv2 .sv-relrow {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 22px 14px;
+}
+/* a non-saint figure (commemorated: false) */
+.sv2 .sv-relnc {
+  margin-top: 4px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Related Saints — tag-derived "More X" links */
+.sv2 .sv-themelinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sv2 .sv-themelink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper, #fff);
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.sv2 .sv-themelink:hover {
+  border-color: var(--gold-soft);
+  background: var(--gold-wash, #fbf6ea);
+}
+.sv2 .sv-themelink-lab {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--byz-deep);
+}
+.sv2 .sv-themelink-ct {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+.sv2 .sv-themelink-glyph {
+  flex: 0 0 auto;
 }
 .sv2 .sv-relcard {
   text-align: center;

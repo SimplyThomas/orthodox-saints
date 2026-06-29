@@ -37,9 +37,10 @@ timeline:
   - when: c. 812
     title: Death
     body: Died at Gellone on May 28.
-related:
+companions:
   - name: St. Benedict of Aniane
     note: Monastic reformer to whose direction William entrusted the new monastery of Gellone.
+    href: saint/OS-2776
 patronage:
   - Soldiers
   - Those turning from worldly power to repentance

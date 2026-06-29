@@ -33,12 +33,13 @@ timeline:
   - when: "1566"
     title: Translation of relics
     body: His relics were placed in a church honoring both Sabbatius and Zosimas.
-related:
+companions:
   - name: Venerable Zosimas of Solovki
     note: Fellow founder of the Solovetsky Monastery, who transferred Sabbatius's relics after his death.
     href: saint/OS-1011
   - name: Venerable German of Solovki
     note: The hermit who accompanied Sabbatius to the island and shared in its first settlement.
+    href: saint/OS-2782
 patronage:
   - Monastic life and ascetic solitude in the Russian North
 status: draft

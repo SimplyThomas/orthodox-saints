@@ -14,7 +14,7 @@ timeline:
   - when: c. 251
     title: Martyrdom at Corinth
     body: Quadratus and his companions are arrested under the persecution of Decius, tortured by the prefect Jason, and beheaded after refusing to deny Christ.
-related:
+companions:
   - name: Martyr Cyprian
     note: Companion martyred with Quadratus at Corinth
   - name: Martyr Dionysius

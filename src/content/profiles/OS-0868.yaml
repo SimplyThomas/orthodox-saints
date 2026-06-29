@@ -44,10 +44,11 @@ family:
       note: Their son, martyred with the family.
     - name: Theoprepius
       note: Their son, martyred with the family.
-    - name: Amphilochius
-      note: The military commander who tortured them and, by tradition, was converted and martyred with them.
-    - name: Cronides
-      note: A notary and jailer who believed in Christ and was imprisoned and martyred with them.
+companions:
+  - name: Amphilochius
+    note: The military commander who tortured them and, by tradition, was converted and martyred with them.
+  - name: Cronides
+    note: A notary and jailer who believed in Christ and was imprisoned and martyred with them.
 patronage: []
 reading:
   - heading: Reference

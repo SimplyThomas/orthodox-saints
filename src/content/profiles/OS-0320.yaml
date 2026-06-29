@@ -10,9 +10,10 @@ sections:
   - heading: Veneration
     body:
       - The Church commemorates Severian on September 9. He is venerated alongside the Forty Martyrs of Sebaste, whose feast is March 9, as one who was inspired by their example and immediately paid for his faith with his life. His memory is preserved in the Synaxarion and the Roman Martyrology.
-related:
+companions:
   - name: The Forty Martyrs of Sebaste
     note: The soldiers whose witness in prison inspired Severian to declare his Christian faith; martyred by exposure on a frozen pond, March 9, 320
+    href: saint/OS-0799
 status: draft
 sources:
   - Synaxarion

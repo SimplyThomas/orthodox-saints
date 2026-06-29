@@ -40,7 +40,7 @@ timeline:
   - when: "2020"
     title: Glorification
     body: Canonized by the Holy Synod of the Ecumenical Patriarchate of Constantinople.
-related:
+companions:
   - name: St. Joseph the Hesychast
     note: His spiritual father at Katounakia, from whom he received the tradition of the Jesus Prayer.
     href: saint/OS-2584

@@ -64,12 +64,14 @@ works:
     desc: An extensive commentary on the Book of Job, possibly finished as early as 591.
   - title: Homilies on Ezekiel
     desc: A series of homilies expounding the prophet Ezekiel.
-related:
+companions:
   - name: St. Augustine of Canterbury
     note: Sent by Gregory to lead the mission evangelizing the Anglo-Saxons of Britain.
+    href: saint/OS-1243
   - name: St. Benedict of Nursia
     note: Whose life Gregory preserved in his Dialogues, a principal historical source for the saint.
-status: draft
+    href: saint/OS-0822
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Pope_Gregory_I

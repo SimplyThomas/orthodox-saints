@@ -35,13 +35,16 @@ sections:
   - heading: The Gospel of Nicodemus
     body:
       - An apocryphal work known as the Gospel of Nicodemus bears his name. It is dated to about the middle of the fourth century and is largely a reworking of the earlier Acts of Pilate, recounting among other matters the descent of Christ into Hades.
-related:
+companions:
   - name: Joseph of Arimathea
     note: Joined Nicodemus in taking down and burying the body of Christ; likewise numbered among the Myrrhbearers.
+    href: saint/OS-1619
   - name: Stephen the Protomartyr
     note: His relics were discovered together with those of Nicodemus in 415.
+    href: saint/OS-0009
   - name: Gamaliel
     note: By tradition Nicodemus lived at his country house after being expelled from the synagogue; their relics were found together.
+    href: saint/OS-1625
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Nicodemus

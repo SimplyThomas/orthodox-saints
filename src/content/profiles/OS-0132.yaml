@@ -43,11 +43,12 @@ timeline:
 patronage:
   - Co-patron of Freising, Germany
   - Kidney disease and back ailments
-related:
+companions:
   - name: St. Gregory the Great
     note: Pope of Rome whose Dialogues are the sole early source for the life and miracles of Nonnosus.
   - name: St. Benedict of Nursia
     note: Father of Western monasticism and a contemporary of Nonnosus.
+    href: saint/OS-0822
 reading:
   - heading: Primary source
     items:

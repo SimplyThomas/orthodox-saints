@@ -1,0 +1,39 @@
+id: OS-2086
+lifespan: died 1390
+liturgicalTitle: Right-believing Prince Andrew of Smolensk
+overview:
+  - Andrew of Smolensk was a fourteenth-century Russian prince who abandoned his rank and lived in anonymous humility as a church servant at Pereslavl-Zalessky. He was the son of the Smolensk prince Theodore Fominsky, and as a young man became troubled by the family conflicts among his brothers.
+  - Rather than remain entangled in princely disputes, Andrew left his homeland and relocated to Pereslavl-Zalessky as a humble wanderer, where he served for roughly three decades as warden (caretaker) of the Church of Saint Nicholas. He concealed his noble origins throughout this service and was buried at the same church after his repose, traditionally dated to 1390.
+  - "His sanctity came to light only after his death: at the uncovering of his relics in 1539, investigators found tokens of his hidden nobility, and his veneration became locally anchored to Pereslavl-Zalessky."
+sections:
+  - heading: Hidden Nobility
+    body:
+      - For about thirty years Andrew lived in deliberate obscurity, serving as church warden at the Church of Saint Nicholas in Pereslavl. His humble service was remembered as a steadfast commitment to monastic values, with nothing in his outward life to mark his princely birth.
+      - "After his death, those who prepared his remains discovered tokens of his concealed status: a princely ring, a gold chain, and an inscription reading, in substance, that he was Andrew, one of the princes of Smolensk. These objects revealed the aristocratic rank he had hidden during his decades of humble service."
+  - heading: Relics & Shrines
+    body:
+      - Andrew was buried at the Church of Saint Nicholas in Pereslavl-Zalessky. The uncovering of his relics took place in 1539, roughly a century and a half after his repose, through the involvement of Saint Daniel of Pereslavl.
+      - His feast on October 27 commemorates this uncovering of his relics in 1539 rather than the date of his death. For churches following the Old Calendar, the October 27 commemoration falls on November 9 in the modern calendar.
+timeline:
+  - when: 14th century
+    title: Birth in Smolensk
+    body: Andrew is born a son of the Smolensk prince Theodore Fominsky.
+  - when: As a young man
+    title: Departure for Pereslavl
+    body: Troubled by conflicts among his brothers, Andrew leaves princely life and goes to Pereslavl-Zalessky as a humble wanderer.
+  - when: c. 30 years
+    title: Service as church warden
+    body: He serves as warden of the Church of Saint Nicholas in Pereslavl, concealing his noble origins.
+  - when: "1390"
+    title: Repose
+    body: Andrew dies and is buried at the Church of Saint Nicholas; tokens of his hidden princely status are discovered.
+  - when: "1539"
+    title: Uncovering of relics
+    body: His relics are uncovered at Pereslavl through the involvement of Saint Daniel of Pereslavl; this event is the day commemorated on October 27.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2014/10/27/103068-uncovering-of-the-relics-of-saint-andrew-prince-of-smolensk
+  - https://en.wikipedia.org/wiki/October_27_(Eastern_Orthodox_liturgics)
+  - https://www.oca.org/saints/lives/2024/10/27
+status: draft
+generated: "2026-06-23"

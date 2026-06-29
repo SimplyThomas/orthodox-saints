@@ -19,31 +19,28 @@ timeline:
   - when: "706"
     title: Repose
     body: Madalberta dies and is commemorated on September 7.
-related:
-  - name: St. Waldetrudis of Mons
-    note: Her mother, foundress of the house that became Mons Abbey.
-  - name: St. Vincent Madelgarus
-    note: Her father, founder of Hautmont Abbey and a monastery at Soignies.
-  - name: St. Aldetrudis
-    note: Her sister, whom she succeeded as abbess of Maubeuge.
-  - name: St. Aldegund
-    note: Her aunt, foundress of Maubeuge Abbey, who educated her.
 family:
   heading: Family
   intro: Madalberta belonged to a noted family of Frankish saints; her parents and all her siblings are venerated.
   figures:
     - name: St. Vincent Madelgarus
       note: Father
+      href: saint/OS-2766
     - name: St. Waldetrudis of Mons
       note: Mother
+      href: saint/OS-2767
     - name: St. Aldetrudis
       note: Sister; her predecessor as abbess of Maubeuge
+      href: saint/OS-2768
     - name: Landericus of Soignies
       note: Brother
+      href: saint/OS-2770
     - name: Dentlin of Soignies
       note: Brother
+      href: saint/OS-2771
     - name: St. Aldegund
       note: Aunt; foundress of Maubeuge Abbey and her instructor
+      href: saint/OS-2769
 patronage:
   - Honored as a patron of Maubeuge, France.
 status: draft

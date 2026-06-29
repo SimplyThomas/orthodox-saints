@@ -52,9 +52,10 @@ sections:
 works:
   - title: Paenitentiale Theodori
     desc: A penitential handbook compiled under Theodore's direction, reflecting the disciplinary teaching of his episcopate.
-related:
+companions:
   - name: Hadrian of Canterbury
     note: African-born abbot who accompanied Theodore to England and co-founded the Canterbury school with him.
+    href: saint/OS-2709
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Theodore_of_Tarsus

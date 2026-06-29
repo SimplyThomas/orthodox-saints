@@ -14,9 +14,10 @@ sections:
     body:
       - The relics of St. Simeon were kept in Constantinople, in the Church of Saint James the Brother of the Lord, raised by the Emperor Justin near Hagia Sophia. Sources place the transfer of remains believed to be his to Constantinople in the sixth century.
       - In 1273, according to tradition, the relics were being conveyed toward Venice when a storm in the Adriatic Sea diverted the vessel to Zadar in Croatia, where they remained; the Church of St. Simeon in Zadar is a major shrine. A portion of the relics is reported to have been brought to a monastery bearing his name in Jerusalem in October 2010. The feast of October 8 is associated with the celebration at Zadar.
-related:
+companions:
   - name: Anna the Prophetess
     note: The aged widow and prophetess present at the Meeting of the Lord in the Temple, commemorated with Simeon on February 3.
+    href: saint/OS-0580
 sources:
   - OCA Synaxarion (oca.org), Feb 3
   - https://en.wikipedia.org/wiki/Simeon_(Gospel_of_Luke)

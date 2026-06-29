@@ -13,9 +13,10 @@ sections:
   - heading: Monastic Life in Gaul
     body:
       - After her husband's death, Hereswith left England and travelled to Gaul to embrace the religious life. By the most common tradition she entered the abbey of Chelles, near Paris, where she remained until her repose. Bede preserves her memory in connection with his account of St. Hilda, relating that Hilda spent a year in East Anglia intending to follow Hereswith abroad to Chelles before Aidan of Lindisfarne summoned her back to Northumbria. Some modern writers have proposed that Hereswith may instead have settled at Faremoutiers, though this remains conjecture.
-related:
-  - name: St. Hilda of Whitby
-    note: Younger sister; founding abbess of the monastery of Whitby.
+family:
+  figures:
+    - name: St. Hilda of Whitby
+      note: Younger sister; founding abbess of the monastery of Whitby.
 patronage:
   - Widows and those entering monastic life from the world
 status: draft

@@ -44,7 +44,7 @@ timeline:
   - when: "1994"
     title: Glorification
     body: Glorified by the Polish Orthodox Church.
-related:
+companions:
   - name: Saint Alexis Toth
     note: Carpatho-Russian priest of the same era who led many of his people from the Unia back to Orthodoxy, in North America
     href: saint/OS-1125

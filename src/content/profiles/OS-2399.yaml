@@ -37,7 +37,7 @@ timeline:
   - when: "1339"
     title: Numbered among the saints
     body: Recognized as a saint; his relics rest in the Dormition Cathedral.
-related:
+companions:
   - name: Saint Maximus, Metropolitan of Kiev
     note: His predecessor as metropolitan, who treasured an icon Peter had painted.
     href: saint/OS-2311

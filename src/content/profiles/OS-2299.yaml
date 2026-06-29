@@ -33,7 +33,7 @@ timeline:
   - when: "1937"
     title: Martyrdom
     body: Put to death during the Great Purge, receiving the crown of martyrdom.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Bishop in America and later Patriarch, under whom Hotovitzky served on both continents
     href: saint/OS-0053

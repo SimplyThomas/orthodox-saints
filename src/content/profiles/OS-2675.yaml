@@ -36,7 +36,7 @@ timeline:
   - when: c. 599
     title: Repose
     body: Anastasius reposes after a second patriarchate of some six years; sources differ on the manner of his death.
-related:
+companions:
   - name: Pope Gregory the Great (Gregory the Dialogist)
     note: Friend and correspondent who secured Anastasius's restoration to the see of Antioch through the Emperor Maurice.
 status: draft

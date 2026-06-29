@@ -23,9 +23,10 @@ sections:
     body:
       - Asterius is venerated as a martyr in both the Eastern Orthodox Church and, by shared pre-schism commemoration, the Roman Catholic Church. In the Orthodox calendar his feast is kept on August 7, the day on which Marinus is also remembered; in the Western calendar the two are commemorated on March 3.
       - The synaxarion further relates a tradition that Asterius expelled a demon from a pagan idol at Caesarea Philippi, an act said to have halted a pagan sacrificial festival. This account is received as part of the saint's tradition rather than as independently documented history.
-related:
+companions:
   - name: Martyr Marinus the Soldier of Caesarea
     note: The soldier-martyr whose body Asterius buried; commemorated together on August 7.
+    href: saint/OS-1657
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2000/08/07/102224-martyr-asterius-the-senator-at-caesarea-in-palestine

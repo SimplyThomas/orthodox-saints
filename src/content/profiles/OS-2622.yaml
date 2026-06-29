@@ -46,12 +46,13 @@ timeline:
   - when: 2024–2025
     title: Glorification
     body: Canonized by the Romanian Orthodox Church alongside the elder Paisie Olaru.
-related:
+companions:
   - name: Saint Paisius of Sihăstria
     note: Elder and spiritual father of Cleopas; the two were canonized together.
     href: saint/OS-2621
   - name: Hieromonk Arsenie Papacioc
     note: Fellow monk with whom Cleopas hid in the Stânișoara Mountains in the early 1950s.
+    commemorated: false
 patronage:
   - Monastics, preachers, confessors, and spiritual seekers
   - Steadfastness under persecution for the faith

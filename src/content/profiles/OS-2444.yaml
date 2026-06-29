@@ -22,9 +22,10 @@ family:
       note: Daughter of Athanasia; by tradition about thirteen years old.
     - name: Eudoxia
       note: Daughter of Athanasia; by tradition about eleven years old.
-related:
+companions:
   - name: Unmercenaries Cyrus and John
     note: Physician-martyrs commemorated on January 31 with Athanasia and her daughters; they came to encourage the family in prison and were martyred with them.
+    href: saint/OS-0568
 sources:
   - OCA Synaxarion (oca.org/saints/lives, Jan 31)
   - GOARCH calendar

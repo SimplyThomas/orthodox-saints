@@ -47,13 +47,17 @@ family:
   figures:
     - name: Princess Alice of the United Kingdom
       note: Her mother, a daughter of Queen Victoria, who emphasized charity and died of diphtheria in 1878.
+      commemorated: false
     - name: Grand Duke Sergei Alexandrovich
       note: Her husband, a son of Emperor Alexander II and Governor-General of Moscow, assassinated in 1905.
+      commemorated: false
     - name: Tsarina Alexandra Feodorovna
-      note: Her younger sister, the last Empress of Russia.
-related:
+      note: Her younger sister, the last Empress of Russia, venerated among the Royal Passion-bearers.
+      href: saint/OS-1541
+companions:
   - name: Martyr Barbara (Varvara Yakovleva)
     note: A nun of the Convent of Martha and Mary who shared Elizabeth's exile and death at Alapaevsk.
+    href: saint/OS-1549
 patronage:
   - Nurses and those who serve the sick
   - The poor and those in need

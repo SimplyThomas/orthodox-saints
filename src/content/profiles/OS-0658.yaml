@@ -15,15 +15,16 @@ sections:
   - heading: Relics & Shrines
     body:
       - By tradition the Greek master-builders remained at the Kiev Caves Monastery and were buried there. The monastery's caves grew into extensive underground labyrinths of tunnels, cells, and catacombs that served as both dwellings and burial places for the monks; the relics of the Caves fathers were solemnly glorified in 1643 under Metropolitan Peter Mogila.
-related:
+companions:
   - name: Saint Anthony of the Kiev Caves
     note: Founder of the Kiev Caves Monastery (d. 1073), to whom the builders were sent.
-    href: /saint/OS-0136
+    href: saint/OS-0136
   - name: Saint Theodosius of the Kiev Caves
     note: Co-founder and abbot of the Kiev Caves Monastery (d. 1074).
-    href: /saint/OS-2745
+    href: saint/OS-2745
   - name: Saint Alypius the Iconographer of the Caves
     note: Kievan iconographer who worked alongside the Greek masters adorning the cathedral.
+    href: saint/OS-1719
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2019/02/14/100521-12-greeks-who-built-the-dormition-cathedral-in-the-kiev-caves-fa

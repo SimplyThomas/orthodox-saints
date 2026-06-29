@@ -50,7 +50,7 @@ sections:
   - heading: Wonderworker of Sarov
     body:
       - He is widely called the Wonderworker of Sarov for the many healings and graces associated with his life and continuing veneration. Childhood healing through the Kursk Root Icon, the encounter recorded by Motovilov, and other wonders are central to his received tradition and are best presented as hagiographical tradition rather than documented history.
-related:
+companions:
   - name: Saint Sergius of Radonezh
     note: father of Russian monasticism
     href: saint/OS-0042

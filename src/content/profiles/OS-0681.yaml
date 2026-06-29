@@ -51,9 +51,10 @@ sections:
   - heading: Veneration
     body:
       - Leo is venerated as a saint and confessor in both the Eastern Orthodox and the Western Churches, since he belongs to the undivided Church before the later divisions of Christendom. In the Orthodox East his feast is kept on 18 February, while in the West it is observed on 10 November. In the Roman tradition he was later named a Doctor of the Church.
-related:
+companions:
   - name: Flavian of Constantinople
     note: Archbishop of Constantinople to whom Leo addressed his dogmatic Tome on the two natures of Christ.
+    href: saint/OS-0684
 patronage:
   - Defenders of the Orthodox faith
   - Those facing invasion or threat to their city

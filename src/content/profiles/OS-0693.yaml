@@ -35,10 +35,11 @@ timeline:
   - when: "1999"
     title: Glorification
     body: Relics uncovered in April and glorified for local veneration in June.
-related:
-  - name: Righteous Admiral Theodore Ushakov
-    note: His nephew, the naval commander; the two are sometimes confused.
-    href: saint/OS-1941
+family:
+  figures:
+    - name: Righteous Admiral Theodore Ushakov
+      note: His nephew, the naval commander; the two are sometimes confused.
+      href: saint/OS-1941
 patronage:
   - Those leaving secular or military life for monasticism
 status: draft

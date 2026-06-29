@@ -30,11 +30,13 @@ sections:
     body:
       - "Betranion is commemorated as a hierarch and confessor. The historical record carries some uncertainty: he may have represented Tomis at the Second Ecumenical Council held at Constantinople in 381, though sources note that his name may have been confused with that of another bishop of Tomis, Gerontius, leaving his attendance unresolved."
       - Sources differ on the date assigned to his commemoration; one tradition records it in late January, a date that a later compiler is said to have fixed somewhat arbitrarily.
-related:
+companions:
   - name: Sabbas the Goth
     note: Martyr whose relics Betranion is credited with sending to Basil the Great in Caesarea, with an accompanying epistle.
+    href: saint/OS-1000
   - name: Basil the Great
     note: Bishop of Caesarea in Cappadocia who requested and received the relics of Sabbas the Goth from Scythia Minor.
+    href: saint/OS-0021
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - en.wikipedia.org

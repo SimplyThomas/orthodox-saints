@@ -33,11 +33,15 @@ sections:
       - Solomonia, her seven sons, and their teacher, the elder Eleazar, a ninety-year-old scribe who also suffered for the Law, are venerated together as the Holy Maccabean Martyrs. Their feast is kept on August 1 in the Eastern Orthodox Church and in traditional Catholic calendars.
       - The Church Fathers honored the martyrs in their preaching; Saint John Chrysostom and Saint Gregory Nazianzus, called the Theologian, both delivered homilies on them. Their steadfastness was also remembered as having inspired the revolt of Judas Maccabeus, who afterward purified the Temple.
       - By Antiochene Christian tradition the relics of the martyrs were interred at Antioch on the site of a former synagogue. Tombs later associated with them were reported at the church of San Pietro in Vincoli in Rome in 1876, and another in the Jewish cemetery of Safed.
-related:
-  - name: The Seven Holy Maccabee Martyrs
-    note: Solomonia's seven sons, martyred with her under Antiochus IV Epiphanes and commemorated on the same day, August 1.
+family:
+  figures:
+    - name: The Seven Holy Maccabee Martyrs
+      note: Solomonia's seven sons, martyred with her under Antiochus IV Epiphanes and commemorated on the same day, August 1.
+      href: saint/OS-1620
+companions:
   - name: Eleazar the Scribe
     note: The aged teacher of the Maccabee brothers, who also suffered for refusing to violate the Law, commemorated with the family.
+    href: saint/OS-1622
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2015/08/01/102162-the-holy-martyrs-and-maccabees-abimus-antonius-gurias-eleazar

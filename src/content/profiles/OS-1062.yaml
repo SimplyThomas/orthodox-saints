@@ -32,9 +32,10 @@ sections:
     body:
       - As spiritual father of the Buzau sketes Basil stood at the head of a wider movement of monastic renewal in eighteenth-century Romania. His most famous disciple, Saint Paisius Velichkovsky, carried this hesychast tradition into Moldavia and, through Paisius's own labors and translations, into the Slavic Orthodox world, so that Basil is counted among the forerunners of the broad Philokalic revival.
       - He is venerated as a saint by the Orthodox Church and is commemorated on April 25, the day of his repose at Poiana Marului.
-related:
+companions:
   - name: Saint Paisius Velichkovsky
     note: His disciple, tonsured by Basil on Mount Athos in 1750; leader of the hesychast revival
+    href: saint/OS-2199
     external: https://en.wikipedia.org/wiki/Paisius_Velichkovsky
 patronage:
   - Monastics and those practicing the Jesus Prayer

@@ -49,15 +49,18 @@ family:
   figures:
     - name: Melania the Elder
       note: Her paternal grandmother, herself venerated as a saint, who supported monastic life in Egypt and Palestine.
+      href: saint/OS-2758
     - name: Valerius Publicola
       note: Her father, a Roman senator.
+      commemorated: false
     - name: Caeionia Albina
       note: Her mother, who accompanied her in her travels and ascetic life.
     - name: Valerius Pinianus (Pinian)
       note: Her husband and relative, who joined her in renouncing wealth and celibacy; he reposed in the Holy Land before her.
     - name: Her two children
       note: A daughter consecrated to God and a son, both of whom died young.
-related:
+      commemorated: false
+companions:
   - name: Blessed Augustine, Bishop of Hippo
     note: Bishop in North Africa with whom Melania and Pinian founded monastic communities near Tagaste.
     href: saint/OS-1365

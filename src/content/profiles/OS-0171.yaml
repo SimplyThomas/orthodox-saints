@@ -27,9 +27,10 @@ timeline:
   - when: after 978
     title: Translation to Shaftesbury
     body: His relics are moved from Wareham to the monastery at Shaftesbury.
-related:
+companions:
   - name: St. Dunstan of Canterbury
     note: Archbishop of Canterbury and reformer who supported Edward's reign and the defense of the monasteries
+    href: saint/OS-2714
 patronage:
   - Martyrs and passion-bearers venerated in England
 status: draft

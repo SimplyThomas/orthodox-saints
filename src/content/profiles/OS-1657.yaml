@@ -28,9 +28,10 @@ sections:
       - Marinus is venerated as a patron of soldiers who face conflicts between duty and conscience. The image of the sword and the Gospel set before him and his choice of the latter has made him an enduring symbol of the Christian martyr who puts faith above earthly advancement.
 patronage:
   - Soldiers facing conflict between duty and conscience
-related:
+companions:
   - name: Astyrius of Caesarea
     note: The Roman senator who buried Marinus after his martyrdom; also venerated as a saint
+    href: saint/OS-1658
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

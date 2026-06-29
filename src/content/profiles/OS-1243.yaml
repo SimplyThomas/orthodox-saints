@@ -26,7 +26,7 @@ timeline:
   - when: c. 604
     title: Repose
     body: Augustine reposes on May 26, having arranged for the consecration of his successor, Laurence.
-related:
+companions:
   - name: St. Gregory the Great, Pope of Rome
     note: Pope of Rome who sent and directed the mission to England
     href: saint/OS-0164

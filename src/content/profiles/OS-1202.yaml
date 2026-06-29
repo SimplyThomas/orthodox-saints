@@ -18,9 +18,10 @@ sections:
   - heading: A shared commemoration
     body:
       - "On May 18 the three are remembered alongside a larger company of martyrs drawn from different regions, among them Peter of Lampsacus, the soldiers Paul and Andrew, Dionysius, and Christina. Though they came from various lands, the calendars join them in a single commemoration as fellow citizens of the heavenly kingdom through their common confession and death for Christ."
-related:
+companions:
   - name: Martyrs Peter, Dionysius, Andrew, Paul, and Christina
     note: Commemorated together with them on May 18
+    href: saint/OS-1200
 patronage:
   - Those who profess the faith openly against unbelief
 sources:

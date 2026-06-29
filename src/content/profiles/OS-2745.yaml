@@ -46,12 +46,13 @@ works:
     desc: Two letters of spiritual and pastoral counsel addressed to the Great Prince Izyaslav.
   - title: A prayer for Christians
     desc: A surviving prayer composed on behalf of the faithful.
-related:
+companions:
   - name: Saint Anthony of the Kiev Caves
     note: Founder of the Kiev Caves Monastery who tonsured Theodosius; the two are jointly commemorated on September 2.
     href: saint/OS-0136
   - name: Saint Nestor the Chronicler
     note: Monk of the Kiev Caves who recorded the life of Theodosius and, by tradition, the uncovering of his relics.
+    href: saint/OS-2085
 status: draft
 sources:
   - Synaxarion

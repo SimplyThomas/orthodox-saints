@@ -13,11 +13,13 @@ sections:
   - heading: Veneration as a healer
     body:
       - Theodosius is invoked above all as a healer, and his tomb is described in the tradition as a source of cures. A story preserved in the local veneration tells of Turks who mocked his relics and were met by a supernatural visitation, after which they returned what they had taken to his church and sought forgiveness. The persistence of this reputation for healing, more than any detailed record of his deeds, is what carried his memory forward.
-related:
+companions:
   - name: St. John the Baptist (the Forerunner)
     note: By tradition, appeared to Theodosius in a vision directing him to build the church associated with him.
+    href: saint/OS-0002
   - name: St. Peter, Bishop of Argos
     note: By one account the bishop of Argos who, after witnessing the burning-coals sign, ordained Theodosius deacon and then priest.
+    href: saint/OS-1104
 patronage:
   - Healing of the sick
   - Patron of the Peloponnese

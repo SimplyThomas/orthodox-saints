@@ -23,9 +23,10 @@ sections:
   - heading: Commemoration
     body:
       - The Orthodox Church commemorates Apostle Zenas on September 27, together with the Apostles Mark and Aristarchus, and also remembers him on January 4 within the Synaxis of the Seventy Apostles.
-related:
+companions:
   - name: Apostle Titus
     note: Recipient of the epistle in which Zenas is named and asked to be helped on his way.
+    href: saint/OS-1775
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/09/27/102738-apostle-zenas-of-the-seventy

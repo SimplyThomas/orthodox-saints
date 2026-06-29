@@ -21,7 +21,7 @@ timeline:
   - when: c. 1034
     title: Repose
     body: Macarius reposes after serving as abbot of Khakhuli.
-related:
+companions:
   - name: Saint Basil of Khakhuli
     note: son of King Bagrat III; monk at Khakhuli under his guidance
     href: saint/OS-1248

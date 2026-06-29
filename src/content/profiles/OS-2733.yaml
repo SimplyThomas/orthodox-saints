@@ -24,10 +24,11 @@ sections:
   - heading: The Sayings of the Desert Fathers
     body:
       - The Apophthegmata Patrum, in which Anoub's words survive, is a collection of stories and sayings attributed to the Desert Fathers of Egypt, gathered from roughly the fifth century. Passed down first by oral tradition in Coptic and then written in Greek, the sayings are typically framed as exchanges between younger monks and their spiritual fathers and record figures such as Anthony the Great, Arsenius, Macarius of Egypt, and Poemen alongside Anoub.
-related:
-  - name: Venerable Pimen (Poemen) the Great
-    note: His brother and spiritual elder, with whom he shared the monastic life.
-    href: saint/OS-1787
+family:
+  figures:
+    - name: Venerable Pimen (Poemen) the Great
+      note: His brother and spiritual elder, with whom he shared the monastic life.
+      href: saint/OS-1787
 sources:
   - OCA Synaxarion (oca.org)
   - OrthodoxWiki

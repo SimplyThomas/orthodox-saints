@@ -31,13 +31,15 @@ timeline:
   - when: c. 691 B.C.
     title: Death and burial
     body: He died at the age of fifty-four and was buried with great reverence at Jerusalem.
-related:
+family:
+  figures:
+    - name: Prophet-King David
+      note: Forefather of the kings of Judah, in whose line Hezekiah reigned at Jerusalem.
+      href: saint/OS-2421
+companions:
   - name: Prophet Isaiah
     note: The prophet of Judah who announced both Hezekiah's coming death and the prolonging of his life.
     href: saint/OS-1134
-  - name: Prophet-King David
-    note: Forefather of the kings of Judah, in whose line Hezekiah reigned at Jerusalem.
-    href: saint/OS-2421
 patronage:
   - Rulers who trust God in the face of invasion
   - Prayer in time of grave illness

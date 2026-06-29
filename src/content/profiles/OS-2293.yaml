@@ -30,7 +30,7 @@ timeline:
   - when: Jan 19, 1652
     title: Recovery of relics
     body: His incorrupt relics were recovered.
-related:
+companions:
   - name: St. Sergius of Radonezh
     note: His spiritual father, from whom he received the monastic tonsure
     href: saint/OS-0042

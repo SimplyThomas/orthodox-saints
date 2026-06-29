@@ -27,7 +27,7 @@ timeline:
   - when: "1727"
     title: Repose
     body: He reposed at the Tyumen monastery and is commemorated on May 31.
-related:
+companions:
   - name: St. John (Maximovitch), Metropolitan of Tobolsk
     note: Successor in the Tobolsk see and fellow enlightener of Siberia
     href: saint/OS-1324

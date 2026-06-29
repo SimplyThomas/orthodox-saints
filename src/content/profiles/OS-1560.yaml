@@ -43,7 +43,7 @@ timeline:
   - when: "2004"
     title: Glorified as a saint
     body: The Ecumenical Patriarchate glorifies him together with Mother Maria and her companions.
-related:
+companions:
   - name: Righteous Martyr Maria Skobtsova of Paris
     note: The nun whose Paris community he served as priest, glorified together with him
     href: saint/OS-1559

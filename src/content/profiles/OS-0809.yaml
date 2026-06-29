@@ -49,11 +49,12 @@ works:
     desc: A collection of twenty-three poems on liturgical feasts, the holy places of Jerusalem, and the events of his own day, including the Muslim siege of the city.
   - title: Encomium of the Martyrs Cyrus and John
     desc: A work in honor of the Alexandrian unmercenary martyrs Cyrus and John, associated with the tradition of his miraculous healing.
-related:
+companions:
   - name: John Moschus
     note: Close companion and fellow monk; author of the Spiritual Meadow, which he dedicated to Sophronius, and whom Sophronius buried at the monastery of Saint Theodosius.
   - name: Mary of Egypt
     note: The penitent ascetic whose Life Sophronius composed.
+    href: saint/OS-0027
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Sophronius_of_Jerusalem

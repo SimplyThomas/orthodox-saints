@@ -33,7 +33,7 @@ timeline:
   - when: from the 7th century
     title: Veneration at his basilica
     body: A basilica dedicated to the saint becomes the center of his veneration at Le Mans.
-related:
+companions:
   - name: Saint Martin the Merciful, Bishop of Tours
     note: Bishop of Tours, by tradition Victorius's teacher.
     href: saint/OS-2008

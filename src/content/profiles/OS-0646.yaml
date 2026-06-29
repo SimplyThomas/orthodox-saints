@@ -1,0 +1,47 @@
+id: OS-0646
+lifespan: c. 985/990 – 1066
+liturgicalTitle: Our Venerable Father Prochorus of Georgia, Builder of the Monastery of the Holy Cross in Jerusalem
+overview:
+  - Saint Prochorus of Georgia was an eleventh-century Georgian monk who reconstructed and organized the Monastery of the Holy Cross near Jerusalem, establishing it as a major center of Georgian monastic life in the Holy Land.
+  - Born into the noble Shavteli family at the end of the tenth century, Prochorus was raised in a monastery, ordained a hieromonk, and labored at the Lavra of Saint Savva before undertaking his life's work in Jerusalem.
+  - Under the blessing of his spiritual father Ekvtime Grdzeli and with the support of King Bagrat IV (Bagrat Kuropalates), he rebuilt the Monastery of the Cross, gathered some eighty monks, and gave the community its monastic rule.
+  - He is commemorated on February 12.
+patronage:
+  - Georgian monastic communities in the Holy Land
+sections:
+  - heading: Early Life and Formation
+    body:
+      - Prochorus descended from the noble Georgian Shavteli family and was born at the end of the tenth century, which Georgian scholars place at approximately 985 to 990. He grew up within a monastery, was ordained a hieromonk, and pursued the monastic life from an early age.
+      - Before his work in Jerusalem, he labored for one year at the Lavra of Saint Savva in the Holy Land, approximately between 1010 and 1015.
+  - heading: The Monastery of the Holy Cross
+    body:
+      - Under the blessing of his spiritual father Ekvtime Grdzeli, Prochorus undertook the reconstruction of the Georgian Monastery of the Holy Cross near Jerusalem, a project supported by King Bagrat IV (Bagrat Kuropalates) in the eleventh century. According to tradition, the monastery stood on ground where Abraham's nephew Lot planted three miraculous trees, believed to be connected to the wood of Christ's Cross.
+      - After beautifying the monastery, Prochorus gathered eighty monks and established the typicon, the monastic rule that governed the community's life. He later appointed his disciple Giorgi as the next abbot and withdrew into the wilderness with two disciples.
+  - heading: Legacy of the Monastery of the Cross
+    body:
+      - "The Monastery of the Cross in Jerusalem carried a deep Georgian connection that predated Prochorus: tradition holds that Constantine the Great gave the site to King Mirian III of Kartli after the conversion of his kingdom to Christianity in AD 327, and the Iberian prince Bakur, grandfather of Peter of Iberia, built the first basilica at the end of the fourth century while serving as Dux Palestinae. Prochorus's eleventh-century reconstruction is recorded as having taken place during the reign of King Bagrat IV."
+      - Georgians maintained significant control of the monastery through subsequent centuries until financial difficulties forced its sale to the Greek Orthodox Patriarch Dositheos II in 1685. Georgian inscriptions were later painted over and replaced with Greek ones, though restoration work afterward recovered some of the original Georgian text in the murals. By tradition, the medieval Georgian poet Shota Rustaveli served as a sponsor and high treasurer (mechurchletukhutsesi) of the monastery, retired there in old age, and is buried there; his portrait was painted on the eastern face of the southwest pillar of the church.
+      - Prochorus's foundation was part of a broader Georgian monastic network established outside the country during the Byzantine period, alongside houses on Mount Sinai and the Iviron monastery on Mount Athos, reflecting a wider pan-Orthodox presence in the Holy Land during the tenth and eleventh centuries.
+timeline:
+  - when: c. 985–990
+    title: Birth
+    body: Prochorus is born at the end of the tenth century into the noble Georgian Shavteli family and is raised in a monastery.
+  - when: c. 1010–1015
+    title: At the Lavra of Saint Savva
+    body: He labors for one year as a hieromonk at the Lavra of Saint Savva in the Holy Land.
+  - when: 11th century
+    title: Reconstruction of the Monastery of the Holy Cross
+    body: Under the blessing of Ekvtime Grdzeli and with the support of King Bagrat IV, he rebuilds and beautifies the Georgian Monastery of the Holy Cross near Jerusalem, gathers eighty monks, and establishes its typicon.
+  - when: "1066"
+    title: Repose
+    body: After appointing his disciple Giorgi as abbot and withdrawing into the wilderness with two disciples, Prochorus reposes between the ages of 76 and 81.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://www.oca.org/saints/lives/2025/02/12/103720-saint-prochorus-of-georgia
+  - https://en.wikipedia.org/wiki/Monastery_of_the_Cross
+  - https://en.wikipedia.org/wiki/Georgian_Orthodox_Church
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The reconstruction was supported by King Bagrat IV (Bagrat Kuropalates) — treating these as one and the same person.
+    detail: "The two external sources name different kings: the OCA source says 'King Bagrat Kuropalates' while the Wikipedia source says 'King Bagrat IV'. Historically Bagrat III held the title Kuropalates and Bagrat IV was his son and successor — they are different people. The profile conflates them in a single parenthetical as if they are one person, which is not supported by either source and is likely incorrect."

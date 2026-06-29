@@ -31,8 +31,9 @@ sections:
     body:
       - Theodota and her three sons are commemorated together on July 29 as a single family of martyrs.
       - They are also remembered on December 22 in connection with Saint Anastasia the Deliverer from Potions, reflecting the friendship recorded between the two women.
-related:
+companions:
   - name: Saint Anastasia the Deliverer from Potions
     note: A spiritual friend of Theodota according to the synaxarion; commemorated December 22, on which day Theodota and her sons are also remembered.
+    href: saint/OS-0071
 status: draft
 generated: "2026-06-19"

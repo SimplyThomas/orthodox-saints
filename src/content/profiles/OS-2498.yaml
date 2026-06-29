@@ -48,11 +48,14 @@ family:
   figures:
     - name: Symeon Uros Palaiologos
       note: His father, ruler of Thessaly and Epirus, who bore the imperial title of emperor of the Serbs and Greeks and supported the monastic settlement at Meteora.
+      commemorated: false
     - name: Thomais
       note: His mother, of ruling Greek lineage, daughter of Despot Nikephoros II by the account of one source.
+      commemorated: false
     - name: Maria Angelina
       note: His sister, a great benefactress and donatrix of the Great Meteoron monastery who assisted in its building.
-related:
+      commemorated: false
+companions:
   - name: Saint Athanasios of Meteora
     note: His spiritual father and the first founder of the Great Meteoron, with whom he is jointly commemorated as a founder of the monastery.
     href: saint/OS-1034

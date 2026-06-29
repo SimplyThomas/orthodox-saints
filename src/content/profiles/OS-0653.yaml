@@ -60,10 +60,13 @@ family:
   figures:
     - name: Saint Sava of Serbia
       note: His youngest son (Rastko), monk on Mount Athos and first Archbishop of the Serbs, who restored Hilandar with him and translated his relics to Studenica.
+      href: saint/OS-0449
     - name: Stefan the First-Crowned
       note: His middle son and successor as ruler of Serbia, in whose favor he abdicated in 1196.
+      href: saint/OS-1904
     - name: Ana
-      note: His wife, a Byzantine noblewoman, mother of his children.
+      note: His wife, a Byzantine noblewoman, mother of his children; later the nun Anastasia, venerated as a saint.
+      href: saint/OS-1403
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Stefan_Nemanja

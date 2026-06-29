@@ -13,14 +13,14 @@ sections:
   - heading: Later Life at Seleucia
     body:
       - After her travels in the company of the Apostle Paul, Thekla is said to have settled in Isaurian Seleucia, in the region of Asia Minor, where she spent many years. The tradition remembers her there as a healer of the sick and a guide who brought many to Christ, living to a great age.
-related:
+companions:
   - name: Apostle Paul
     note: The apostle whose preaching converted Thekla and whom she accompanied in proclaiming the Gospel.
     href: saint/OS-2749
 patronage:
   - Model of virginity and steadfast confession of the faith
   - Healing of the sick
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2005/09/24/102715-protomartyr-and-equal-of-the-apostles-thekla

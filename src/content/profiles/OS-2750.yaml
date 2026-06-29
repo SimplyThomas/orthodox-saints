@@ -61,9 +61,10 @@ sources:
   - https://orthodoxwiki.org/Anna
   - https://www.oca.org/saints/lives/2025/07/25/102147-the-dormition-of-righteous-anna-the-mother-of-the-theotokos
   - https://www.oca.org/saints/lives/2025/12/09/103499-the-conception-of-the-holy-theotokos-by-righteous-anna
-related:
-  - name: Righteous Joachim
-    note: Her husband; parents of the Theotokos, jointly commemorated September 9
-    href: saint/OS-0011
+family:
+  figures:
+    - name: Righteous Joachim
+      note: Her husband; parents of the Theotokos, jointly commemorated September 9
+      href: saint/OS-0011
 status: reviewed
 generated: "2026-06-18"

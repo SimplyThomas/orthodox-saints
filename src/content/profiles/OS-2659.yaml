@@ -25,9 +25,10 @@ sections:
   - heading: Veneration
     body:
       - King Archil collected the bones of the martyrs and laid them in a stone reliquary in the Transfiguration Church of the monastery. The community is honored as a single collective commemoration of the 6,000 martyrs of David Gareja, with their feast kept on Bright Tuesday, the third day of Pascha, a movable date that follows the Paschal calendar rather than a fixed day of the month.
-related:
+companions:
   - name: David of Gareja
     note: Sixth-century founder of the David Gareja monastic complex, one of the thirteen Assyrian Fathers of Georgia.
+    href: saint/OS-2652
 patronage:
   - Georgia
   - Monastics

@@ -32,13 +32,15 @@ timeline:
   - when: "1127"
     title: Repose
     body: Died and was buried at Iqalto beside Saint Zenon, founder of the monastery.
-related:
+companions:
   - name: Saint Ephraim the Lesser (Ephraim the Minor)
     note: Georgian elder near Antioch under whom Arsenius studied; Arsenius was his younger contemporary.
+    href: saint/OS-0483
   - name: Ioane Petritsi (John of Petrizos)
     note: Philosopher with whom Arsenius worked to establish Byzantine philosophical traditions in the Georgian academies.
   - name: King David IV the Builder
     note: King who summoned Arsenius back to Georgia; Arsenius attended his repose and is said to have composed his epitaph.
+    href: saint/OS-0548
 works:
   - title: Dogmatikon
     desc: A large compilation of dogmatic and polemical works drawn from sixteen Byzantine theological authors, translated and assembled in defense of the Orthodox faith.

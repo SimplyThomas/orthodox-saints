@@ -20,19 +20,16 @@ timeline:
   - when: after 1286
     title: Repose
     body: David died after 1286, the exact date being unrecorded, having lived as a monk to the end of his days.
-related:
-  - name: Saint Stephen the First-Crowned of Serbia
-    note: David's uncle, the holy King Stephen, commemorated on the same day, September 24
-    href: saint/OS-1904
 family:
   heading: Family
   intro: David belonged to the ruling Nemanjic house of Serbia.
   figures:
     - name: King Stephen the First-Crowned
-      note: His uncle, the first crowned king of Serbia
+      note: His uncle, the first crowned king of Serbia, commemorated on the same day, September 24
       href: saint/OS-1904
     - name: Vukan Nemanjic
       note: His father, grand prince of Serbia, by the historical identification with Dmitar Nemanjic
+      commemorated: false
 patronage:
   - Those withdrawing from worldly life into monasticism
 status: draft

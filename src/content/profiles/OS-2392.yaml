@@ -9,10 +9,11 @@ sections:
   - heading: Captivity in Constantinople
     body:
       - The synaxarion relates that the Byzantine Emperor Basil II brought false accusations against the nobleman Peris Jojikisdze, in whose household George served. As a consequence George of Khakhuli and his nephew, the young George, were seized and taken to Constantinople, where they remained for twelve years before being permitted to return to Georgia. Upon his homecoming, George of Khakhuli placed his nephew under the spiritual care of his brother Savva at Khakhuli, where the younger George continued his formation.
-related:
-  - name: St. George of Mount Athos (the Hagiorite)
-    note: Their nephew, raised at Khakhuli under their care; the great Georgian translator of Iveron.
-    href: saint/OS-1438
+family:
+  figures:
+    - name: St. George of Mount Athos (the Hagiorite)
+      note: Their nephew, raised at Khakhuli under their care; the great Georgian translator of Iveron.
+      href: saint/OS-1438
 patronage:
   - Scribes, translators, and the labor of Christian learning
 status: draft

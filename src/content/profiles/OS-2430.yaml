@@ -47,11 +47,13 @@ timeline:
     title: Glorification
     body: Basilisk of Siberia was glorified as a saint.
     source: https://www.oca.org/saints/lives/1950/12/29/100304-venerable-basilisk-the-hesychast-of-siberia
-related:
+companions:
   - name: Elder Zosima (Verkhovsky)
     note: Basilisk's fellow ascetic, disciple, and spiritual brother, who shared the Siberian hermitage with him and recorded his experience of the Jesus Prayer in a manuscript.
+    href: saint/OS-2796
   - name: Elder Adrian
     note: The hieromonk in the Bryansk forests who tonsured Basilisk and gave him his monastic name before departing to restore the Konevets Monastery.
+    commemorated: false
 patronage:
   - Hesychasts and those who practice the Jesus Prayer
   - Hermits and the eremitic monastic life

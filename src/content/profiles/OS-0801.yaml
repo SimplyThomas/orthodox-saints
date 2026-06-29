@@ -30,18 +30,6 @@ timeline:
   - when: c. 368
     title: Baptism and repose
     body: Was baptized, gave his goods to the poor, and reposed shortly afterward.
-related:
-  - name: St. Gregory the Theologian
-    note: elder brother, who delivered his funeral oration
-    href: saint/OS-0022
-  - name: Righteous Gorgonia
-    note: sister
-    href: saint/OS-0719
-  - name: Righteous Nonna
-    note: mother
-    href: saint/OS-1647
-  - name: St. Basil the Great
-    note: who, with Gregory, urged him to leave the world
 family:
   heading: Family
   intro: Caesarius belonged to a family numbering several saints of the Nazianzen circle.
@@ -52,11 +40,15 @@ family:
       note: mother
       href: saint/OS-1647
     - name: St. Gregory the Theologian
-      note: elder brother
+      note: elder brother, who delivered his funeral oration
       href: saint/OS-0022
     - name: Righteous Gorgonia
       note: sister
       href: saint/OS-0719
+companions:
+  - name: St. Basil the Great
+    note: who, with Gregory, urged him to leave the world
+    href: saint/OS-0021
 patronage:
   - Physicians and the medical profession
 status: draft

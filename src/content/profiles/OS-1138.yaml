@@ -44,11 +44,13 @@ timeline:
   - when: "1982"
     title: Church-wide canonization
     body: He is canonized for veneration throughout the Russian Church.
-related:
+companions:
   - name: Saint Theodosius of the Caves
     note: Founder of the Kiev Caves cenobitic life, whose Life was among Simon's sources for the Paterikon.
+    href: saint/OS-2745
   - name: Saint Anthony of the Caves
     note: Founder of the Kiev Caves Monastery; Simon's relics rest in the Antoniev (Near) Caves named for him.
+    href: saint/OS-0136
 works:
   - title: The Kiev Caves Paterikon (Simon's Epistle)
     desc: Simon's letters to the monk Polycarp, containing nine monastic biographies of the Caves community, were placed at the beginning of the Kiev Caves Paterikon and form, with Polycarp's later additions, the foundation of the work.

@@ -39,9 +39,10 @@ sections:
   - heading: Commemoration
     body:
       - Macarius is commemorated on August 15, the date of his repose, and on January 19, his nameday — the feast of Saint Macarius the Great of Egypt, after whom he was named at his tonsure.
-related:
+companions:
   - name: Saint Alexander of Svir
     note: Received Macarius into the Orthodox Church and tonsured him as a monk at the Holy Trinity monastery on the River Svir.
+    href: saint/OS-1803
 patronage: []
 works: []
 reading:

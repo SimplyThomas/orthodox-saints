@@ -1,5 +1,5 @@
 id: OS-0413
-status: draft
+status: reviewed
 generated: "2026-06-18"
 liturgicalTitle: The Holy Martyrs Julian and Basilissa of Antinoë
 lifespan: died c. 313
@@ -16,7 +16,7 @@ sections:
     body:
       - The martyrdom is traditionally placed in the persecutions of the early fourth century, with the year given as 313 and the place as Antinoë in Egypt. The Latin and Greek traditions differ over the location — Latin accounts associate the saints with Antioch in Syria — but the commemoration kept here follows the Egyptian setting of Antinoë.
       - The synaxarion relates that Julian's steadfastness under torture led to a series of conversions. Among those drawn to the faith were Celsus, a youth identified as the son of his persecutor; a woman named Marcionilla; and the priest Anthony. A dead man is said to have been raised and baptized, receiving the name Anastasius, "the Resurrected." Together with these converts, a company that the tradition numbers as twenty soldiers and seven youths shared in the martyrdom, all said to have been beheaded by the sword.
-related:
+companions:
   - name: Martyr Celsus
     note: A youth, identified in the tradition as the son of Julian's persecutor, converted and martyred with him.
   - name: Martyr Anthony the Presbyter

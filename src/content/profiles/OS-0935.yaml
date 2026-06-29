@@ -22,10 +22,11 @@ sections:
   - heading: Sources and name variants
     body:
       - Pherbutha appears in the Orthodox synaxaria under the spellings Pherbutha, Phermoutha, and Pherfutha, with her feast on April 4. The same figure — the virgin sister of Bishop Simeon, accused of bewitching the queen and sawn asunder with her sister and servant — is recorded by the 5th-century historian Sozomen under the name Tarbula (also rendered Tarbo), drawing on earlier Syriac martyrdom accounts of the Persian Christians who suffered under Shapur II.
-related:
-  - name: Symeon of Persia (Simeon, Bishop of Seleucia-Ctesiphon)
-    note: Her brother, a hieromartyr put to death under Shapur II; commemorated April 17.
-    href: /saint/OS-1006
+family:
+  figures:
+    - name: Symeon of Persia (Simeon, Bishop of Seleucia-Ctesiphon)
+      note: Her brother, a hieromartyr put to death under Shapur II; commemorated April 17.
+      href: saint/OS-1006
 patronage: []
 status: draft
 sources:

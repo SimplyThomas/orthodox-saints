@@ -37,7 +37,7 @@ timeline:
   - when: "2010"
     title: Glorification
     body: Glorified as a saint by the Serbian Orthodox Church.
-related:
+companions:
   - name: St. Nikolai of Zhicha (Velimirović)
     note: His teacher and a major influence on his life
     href: saint/OS-0846

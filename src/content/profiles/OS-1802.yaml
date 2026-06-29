@@ -20,7 +20,7 @@ timeline:
   - when: "787"
     title: Seventh Ecumenical Council
     body: The council Paul had urged was convened at Nicaea under his successor Tarasius and restored the veneration of the holy icons.
-related:
+companions:
   - name: Saint Tarasius, Patriarch of Constantinople
     note: His successor on the patriarchal throne, whom Paul recommended; presided over the Seventh Ecumenical Council.
     href: saint/OS-0722

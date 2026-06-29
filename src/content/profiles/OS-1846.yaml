@@ -18,7 +18,7 @@ timeline:
   - when: "1740"
     title: Repose at Sourvia
     body: Gerasimus dies at the Sourvia monastery on September 14, having restored it as its second founder.
-related:
+companions:
   - name: Venerable Dionysius of Olympus
     note: Sixteenth-century founder of the Sourvia monastery, which Gerasimus later restored.
     href: saint/OS-0528

@@ -26,9 +26,10 @@ sections:
 patronage:
   - Those persecuted for the faith
   - Converts facing opposition from their own people
-related:
+companions:
   - name: Sabbas the Goth
     note: A Gothic martyr who suffered in the same period of persecution.
+    href: saint/OS-1000
     external: https://en.wikipedia.org/wiki/Gothic_Christianity
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

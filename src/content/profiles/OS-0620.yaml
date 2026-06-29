@@ -9,9 +9,10 @@ sections:
       - Pancratius is numbered among the saints whose relics repose in the Far Caves of the Kyiv Pechersk Lavra. The Far Caves originated in the cave that Anthony first settled in 1051 near the Berestov mount; corridors and a church were added over time, and the system became one of the two networks of narrow underground passages — roughly one to one and a half metres wide and two to two and a half metres high — lined with living quarters, underground chapels, and the burials of the monastery's ascetics. The recluses and monks interred in the Far Caves are commemorated collectively in the Synaxis of those whose relics repose in the Far Caves of Saint Theodosius.
 patronage:
   - Healing of the sick
-related:
+companions:
   - name: Venerable Anthony of the Kiev Caves
     note: Founder of the Kiev Caves Monastery, who first settled the cave that became the Far Caves.
+    href: saint/OS-0136
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/all-lives/2016/02/09

@@ -39,10 +39,12 @@ family:
   figures:
     - name: Pepin of Landen
       note: Her father, a leading Austrasian magnate.
+      commemorated: false
     - name: Itta of Metz
       note: Her mother, who founded the monastery of Nivelles and was its first leader before Gertrude.
     - name: Grimoald the Elder
       note: Her brother.
+      commemorated: false
     - name: Begga
       note: Her sister, who married Ansegisel.
 patronage:

@@ -38,19 +38,16 @@ family:
   figures:
     - name: Stephen Brankovic
       note: Father; exiled despot of Serbia, venerated as a saint.
+      href: saint/OS-1989
     - name: Angelina Brankovic
       note: Mother; an Albanian princess (of the Arianiti family), venerated as a saint.
+      href: saint/OS-1451
     - name: John (Jovan) Brankovic
       note: Brother; despot of Serbia, also venerated as a saint.
+      href: saint/OS-2331
     - name: Djuradj Brankovic
       note: Grandfather; despot of medieval Serbia.
-related:
-  - name: Stephen Brankovic
-    note: His father, commemorated among the Serbian saints.
-  - name: Angelina Brankovic
-    note: His mother, venerated as a saint.
-  - name: John Brankovic
-    note: His brother, despot and saint.
+      commemorated: false
 patronage:
   - Peacemakers and mediators
   - Serbia

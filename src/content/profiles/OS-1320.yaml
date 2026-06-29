@@ -34,7 +34,7 @@ timeline:
   - when: c. 697-700
     title: Adomnan's Life written
     body: Adomnan, ninth abbot of Iona, composes the Life of Columba.
-related:
+companions:
   - name: St. Finnian of Movilla
     note: Abbot of Moville, whose psalter figures in the tradition of Columba's exile.
     href: saint/OS-0353

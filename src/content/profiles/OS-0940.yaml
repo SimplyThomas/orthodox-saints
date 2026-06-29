@@ -39,13 +39,14 @@ sections:
     body:
       - Plato was the uncle and primary spiritual father of Saint Theodore the Studite. After the Seventh Ecumenical Council he summoned Theodore and Theodore's brothers to the monastic life and received them at Sakkoudion, where Theodore confessed to him daily and followed his counsel.
       - When Plato withdrew from the active leadership of the monastery, Theodore succeeded him as abbot, and in his final years Plato lived under Theodore at the Studion in Constantinople. Theodore honored him with the name of father, reflecting the depth of his formative influence.
-related:
-  - name: St Theodore the Studite
-    href: saint/OS-2180
-    note: Plato's nephew and spiritual son, whom he drew into monastic life and who succeeded him as abbot.
-  - name: St Joseph, Bishop of Thessalonica
-    href: saint/OS-0547
-    note: Brother of Theodore the Studite, drawn with him into monastic life under Plato.
+family:
+  figures:
+    - name: St Theodore the Studite
+      href: saint/OS-2180
+      note: Plato's nephew and spiritual son, whom he drew into monastic life and who succeeded him as abbot.
+    - name: St Joseph, Bishop of Thessalonica
+      href: saint/OS-0547
+      note: Nephew of Plato and brother of Theodore the Studite, drawn with him into monastic life under Plato.
 patronage:
   - Confessors resisting coercion in Church discipline
   - Monastics and those under spiritual direction

@@ -1,0 +1,37 @@
+id: OS-0529
+lifespan: 10th century (Byzantine era)
+overview:
+  - Saint Philotheus of Athos was a tenth-century monastic of Mount Athos, remembered chiefly as the founder of Philotheou Monastery toward the end of that century. By tradition he is described as a disciple of Saint Athanasios the Athonite, the founder of the Great Lavra and organizer of cenobitic monasticism on the Holy Mountain.
+  - The monastery he established is conventionally dated to 992 and bears his name. It ranks twelfth in the hierarchy of the twenty Athonite monasteries and stands on the eastern side of the Athos peninsula, near the Monastery of Karakalou. Beyond his identification as the monastery's founder, the surviving record preserves little biographical detail; he does not appear in the general church synaxaria, and his commemoration is observed within his own foundation.
+sections:
+  - heading: The Foundation of Philotheou Monastery
+    body:
+      - The community Philotheus founded was originally known as the Little Monastery of Fteris, located in the Kravvatos region at the site where the Chapel of the Prophet Elias now stands. During the eleventh century the monastery was relocated to its present position, where it was rebuilt in the same architectural style as the original structure. Its main church (katholikon) is dedicated to the Annunciation of the Theotokos.
+      - Over the following centuries the monastery acquired distinct character and patronage. By the end of the fifteenth century, according to records attributed to a Russian pilgrim named Isaiah, the community was Albanian in composition. In 1539-1540 it was renovated with funds from the Georgian kings Levan of Kakheti and his son Alexander II of Kakheti. The monastery's library today holds some 250 manuscripts and 2,500 printed books, around 500 of them in Russian and Romanian, and the community numbers about sixty working monks.
+  - heading: Relics & Shrines
+    body:
+      - Philotheou Monastery preserves a number of significant relics, among them the right hand of Saint John Chrysostom and a fragment of the True Cross. It is also home to venerated icons of the Mother of God known as Glykophilousa (the Sweet-Kissing) and Gerontissa (the Eldress).
+  - heading: Commemoration
+    body:
+      - Saint Philotheus is commemorated on January 24, though he is not listed in the general church synaxaria. His feast at the monastery is observed together with all the Saints of Philotheou Monastery through the ages. These include Dionysios the Builder (died 1388), Theodosios of Trebizond (died 1391), Dionysios of Olympus (died 1541), the Venerable Martyr Damianos the New (died 1568), Symeon the Single-Tunicked and Barefooted (died 1594), Dometios the Sign-bearer (sixteenth century), and the Hieromartyr Kosmas the Aitolos (died 1779).
+timeline:
+  - when: Late 10th century
+    title: Monastic life under Athanasios the Athonite
+    body: By tradition, Philotheus lived as a disciple of Saint Athanasios the Athonite on Mount Athos.
+  - when: "992"
+    title: Foundation of Philotheou Monastery
+    body: Philotheus established the community known initially as the Little Monastery of Fteris, in the Kravvatos region of the Athos peninsula.
+  - when: 11th century
+    title: Relocation of the monastery
+    body: The monastery was moved to its present site near the Monastery of Karakalou and rebuilt in the style of the original foundation.
+patronage: []
+sources:
+  - OCA Synaxarion (oca.org), Jan 24
+  - https://www.johnsanidopoulos.com/2020/01/saint-philotheos-builder-of-philotheou.html
+  - https://en.wikipedia.org/wiki/Philotheou_monastery
+  - https://www.oca.org/saints/lives/2025/01/24
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: Athanasios the Athonite is described as 'the founder of the Great Lavra and organizer of cenobitic monasticism on the Holy Mountain'
+    detail: The dossier sources do not describe Athanasios the Athonite's role in these specific terms. The external sources only say Philotheus was 'a disciple of Saint Athanasios the Athonite' without elaborating on Athanasios's own role or titles. This characterization of Athanasios as 'founder of the Great Lavra and organizer of cenobitic monasticism' is not grounded in the dossier — it is background knowledge introduced without a source in the dossier.

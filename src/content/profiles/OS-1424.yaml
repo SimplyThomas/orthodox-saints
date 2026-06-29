@@ -20,9 +20,10 @@ timeline:
     title: Repose
     body: Dometius reposes at the monastery, some years after Dionysios's death at Trebizond. He is commemorated on June 25 together with the founder.
     source: https://www.johnsanidopoulos.com/2019/06/saint-dionysios-builder-of-athonite.html
-related:
+companions:
   - name: Saint Dionysios of Mount Athos
     note: Founder of the Dionysiou Monastery, whose companion Dometius was and whom he succeeded as abbot; the two are commemorated together on June 25.
+    href: saint/OS-1423
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.johnsanidopoulos.com/2019/06/saint-dionysios-builder-of-athonite.html

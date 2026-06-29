@@ -10,13 +10,17 @@ sections:
   - heading: Commemoration
     body:
       - The December 14 feast falls within the period of the Sunday of the Holy Forefathers, the commemoration kept on the Sunday between December 11 and 17, the second Sunday before the Nativity of Christ. On that day the Church honors the ancestors of Christ — the patriarchs and the righteous of the Old Testament from Adam onward, together with the prophets and with Joachim and Anna, the grandparents of Christ according to the flesh. Righteous Mary is venerated within this ancestral cycle as part of the lineage leading to the Incarnation.
-related:
-  - name: Righteous Anna
-    note: Daughter of Righteous Mary; mother of the Theotokos.
-  - name: The Most Holy Theotokos
-    note: Granddaughter of Righteous Mary.
-  - name: Righteous Joachim
-    note: Husband of Anna; father of the Theotokos.
+family:
+  figures:
+    - name: Righteous Anna
+      note: Daughter of Righteous Mary; mother of the Theotokos.
+      href: saint/OS-2750
+    - name: The Most Holy Theotokos
+      note: Granddaughter of Righteous Mary.
+      href: saint/OS-0001
+    - name: Righteous Joachim
+      note: Husband of Anna; father of the Theotokos.
+      href: saint/OS-0011
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

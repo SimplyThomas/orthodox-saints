@@ -28,13 +28,14 @@ sections:
   - heading: Episcopate and death
     body:
       - In 426 the see of Arles fell vacant after the murder of its archbishop Patroclus, and Honoratus was called from his solitude to govern the diocese. During his short episcopate he is recorded as contending with Arian and Manichaean disturbances while maintaining oversight of his monastic foundation. He died at Arles in 429 and was succeeded by his disciple Hilary, who delivered a discourse in his memory.
-related:
+companions:
   - name: Hilary of Arles
     note: Disciple of Honoratus at Lérins who attended his death and succeeded him as bishop of Arles.
   - name: Eucherius of Lyon
     note: Disciple who joined the community at Lérins and later became bishop of Lyon.
   - name: Lupus of Troyes
     note: Disciple at Lérins who became bishop of Troyes.
+    href: saint/OS-2689
 patronage: []
 works: []
 reading: []

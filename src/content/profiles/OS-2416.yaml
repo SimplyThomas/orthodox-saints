@@ -40,13 +40,15 @@ timeline:
   - when: "1955"
     title: Glorification by the Romanian Orthodox Church
     body: The Holy Synod decreed his general veneration; the first service in his honor was held at Craiova on 28 October 1955.
-related:
-  - name: Right-believing Prince Lazar, Great Martyr of Serbia
-    note: The fourteenth-century Serbian prince to whom tradition connects Nikodemos by kinship.
-    href: /saint/OS-1363
+family:
+  figures:
+    - name: Right-believing Prince Lazar, Great Martyr of Serbia
+      note: The fourteenth-century Serbian prince to whom tradition connects Nikodemos by kinship.
+      href: saint/OS-1363
+companions:
   - name: Saint Gerasimus of Tismana
     note: A later abbot of the Tismana monastery, commemorated on the same day, December 26.
-    href: /saint/OS-2626
+    href: saint/OS-2626
 patronage:
   - Tismana Monastery
   - Monastic life in the Romanian lands

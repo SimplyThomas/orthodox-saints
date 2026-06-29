@@ -49,9 +49,10 @@ sections:
       - He was canonized by the Holy Council of Bishops of the Russian Orthodox Church in February 2016. The solemn glorification took place on 26 February 2016 at the Cathedral of Saint Alexander Nevsky in Sofia, with the participation of Bulgarian Patriarch Neophyte and metropolitans of the Holy Synod of the Bulgarian Orthodox Church, together with a Russian Orthodox delegation led by Metropolitan Hilarion of Volokolamsk. He is glorified as Saint Seraphim of Sofia the Wonderworker, a saint shared by the Russian and Bulgarian Churches.
 patronage:
   - Russian Orthodox émigré communities in Bulgaria
-related:
+companions:
   - name: Saint John of Rila
     note: The great ascetic of Bulgaria, in whose honour Saint Seraphim composed an akathist hymn.
+    href: saint/OS-1735
 sources:
   - OrthodoxWiki
   - Russian and Bulgarian Orthodox Church glorification (2016)

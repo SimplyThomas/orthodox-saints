@@ -43,7 +43,7 @@ timeline:
   - when: "1992"
     title: Glorification
     body: Canonized by the Russian Orthodox Church among the New Martyrs and Confessors of Russia.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Patriarch of Moscow, whose election Metropolitan Vladimir is said to have announced at the 1917-1918 Council.
     href: saint/OS-0053

@@ -10,7 +10,7 @@ sections:
     body:
       - Candida's story is bound to that of Aspren (Asprenas), venerated as the first Bishop of Naples. By the same tradition, after Peter healed and baptized Candida, Aspren was brought to the faith during the Apostle's stay, whether converted directly by Peter or through Candida's witness. A further strand of the legend holds that Peter cured Aspren of sickness, consecrated him bishop, and charged him with founding an early house of prayer in the city.
       - These accounts form part of the local memory of how Christianity first took root at Naples in the Apostolic Age rather than a documented historical record. The synaxarion and martyrology traditions preserve the names and relationships, while acknowledging, as the sources hedge, that nothing certain is known of the lives behind them.
-related:
+companions:
   - name: Apostle Peter
     note: By tradition healed, converted, and baptized Candida at Naples on his way to Rome.
     href: saint/OS-0004

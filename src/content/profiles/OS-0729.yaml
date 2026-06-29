@@ -26,9 +26,10 @@ sections:
 patronage:
   - Soldiers and military veterans
   - Those seeking repentance and the forgiveness of sins
-related:
+companions:
   - name: Venerable Titus the Presbyter of the Kiev Near Caves
     note: A distinct namesake saint of the Kiev Caves, also commemorated on February 27, whose relics repose in the Near Caves.
+    href: saint/OS-0728
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2015/02/27/100612-venerable-titus-the-soldier-of-the-kiev-caves

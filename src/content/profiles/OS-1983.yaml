@@ -37,9 +37,10 @@ sections:
     body:
       - According to the tradition, Athanasia's identity became known only after her death, when a hidden writing revealed that the monk "Athanasius" had in fact been Athanasia, the wife of Andronicus.
       - Athanasia reposed first, and Andronicus reposed a short time afterward, the sources placing his death about eight days after hers; he was buried near her. They are commemorated together on October 9, and their veneration is shared across the Byzantine and other ancient Christian traditions.
-related:
+companions:
   - name: Daniel of Scetis
     note: The elder under whom Andronicus received the monastic habit in Egypt.
+    href: saint/OS-1311
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -46,7 +46,7 @@ family:
       note: son
     - name: Saint Basil the Elder
       note: husband
-    - name: Saint Macrina the Elder
+    - name: Righteous Macrina the Elder
       note: mother-in-law
       href: saint/OS-2474
 sections:
@@ -62,22 +62,19 @@ sections:
   - heading: Legacy
     body:
       - "Emilia's legacy is inseparable from the influence of her children: through Basil she touched Orthodox monasticism, charity, and theology; through Gregory of Nyssa, Christian thought and spirituality; through Macrina, one of the great female monastic figures of the age. She remains among the most significant mothers in Orthodox memory."
-related:
-  - name: Righteous Nonna of Nazianzus
-    note: mother of Gregory the Theologian
-    href: saint/OS-2507
-  - name: Saint Monica
-    note: mother of Augustine of Hippo
-    href: saint/OS-1116
-  - name: Righteous Macrina the Elder
-    note: her mother-in-law
-    href: saint/OS-2474
+companions:
   - name: Saint Gregory the Theologian
     note: associate of her children
     href: saint/OS-0022
   - name: Saint Athanasius the Great
     note: contemporary defender of Nicaea
     href: saint/OS-0024
+  - name: Righteous Nonna of Nazianzus
+    note: mother of Gregory the Theologian
+    href: saint/OS-2507
+  - name: Saint Monica
+    note: mother of Augustine of Hippo
+    href: saint/OS-1116
 patronage:
   - Mothers
   - Christian families

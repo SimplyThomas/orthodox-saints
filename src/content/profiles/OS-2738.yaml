@@ -14,13 +14,16 @@ sections:
     body:
       - Among the sayings attributed to Theodore is the maxim, 'The man who remains standing when he repents, has not kept the commandment,' linking genuine repentance to bodily humility rather than to words alone.
       - Another anecdote recounts that Theodore had acquired three good books from which he and the brethren profited, and that he asked Abba Macarius whether to keep them or sell them and give the money to the poor. Macarius answered that his actions were good, but that 'it is best of all to possess nothing'; hearing this, Theodore sold the books and gave the proceeds to the poor.
-related:
+companions:
   - name: Abba Macarius the Great
     note: Elder of Scetis whom Theodore consulted; counseled him that 'it is best of all to possess nothing.'
+    href: saint/OS-0029
   - name: Abba Pambo
     note: Desert father and teacher; gave Theodore the 'word' on showing pity to all.
+    href: saint/OS-1547
   - name: Abba Arsenius the Great
     note: Paired with Theodore in the tradition as one who abhorred the glory of men.
+    href: saint/OS-1131
 patronage:
   - Monastics seeking humility, poverty, and repentance
 status: draft

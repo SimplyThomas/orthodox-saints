@@ -10,9 +10,13 @@ sections:
       - By the dating given in those sources he is assigned to the 4th century, the era in which Egyptian monasticism reached its first great flowering in the deserts of Nitria, Scetis, and the Thebaid. While no source connects Phorbinus to a particular monastery, teacher, or recorded event, his memory is honored as one of the many desert fathers of that age whose lives were known to their contemporaries but not written down.
 patronage:
   - Monastic fathers of Egypt
-related:
-  - name: Saints Theonas and Symeon of Egypt
-    note: Egyptian ascetics commemorated together with Phorbinus on April 5 (April 4 in Greek usage).
+companions:
+  - name: Saint Theonas of Egypt
+    note: Egyptian ascetic commemorated together with Phorbinus on April 5 (April 4 in Greek usage).
+    href: saint/OS-0944
+  - name: Saint Simeon of Egypt
+    note: Egyptian ascetic commemorated together with Phorbinus on April 5 (April 4 in Greek usage).
+    href: saint/OS-0945
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/all-lives/2023/04/05

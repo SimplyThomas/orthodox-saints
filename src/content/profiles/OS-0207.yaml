@@ -30,7 +30,7 @@ timeline:
   - when: 4 September 422
     title: Repose
     body: Died at Rome and was buried in the cemetery of Maximus on the Via Salaria.
-related:
+companions:
   - name: Blessed Augustine, Bishop of Hippo
     note: Contemporary whom Boniface supported against Pelagianism; Augustine dedicated an anti-Pelagian work to him.
     href: saint/OS-1365

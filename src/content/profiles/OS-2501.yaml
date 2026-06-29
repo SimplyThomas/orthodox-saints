@@ -27,11 +27,13 @@ sections:
     body:
       - Sisinius served as a priest in Elaea and was esteemed for his virtues, his piety, and his acts of charity. After the death of Archbishop Atticus the see remained vacant for about four months amid disputes over the succession, and Sisinius was elected on 28 February 426. His consecration was convened by Emperor Theodosius II and presided over by Theodotus of Antioch.
       - His patriarchate was brief, lasting from 426 to 427, during which he addressed the lingering ecclesiastical tensions surrounding the followers of the exiled John Chrysostom. He died on 24 December 427 and was succeeded by Nestorius of Constantinople.
-related:
+companions:
   - name: Gregory the Theologian (Gregory of Nazianzus)
     note: Archbishop of Constantinople whom Nectarius succeeded at the Second Ecumenical Council in 381.
+    href: saint/OS-0022
   - name: John Chrysostom
     note: Archbishop of Constantinople; Nectarius's successor, under whom Arsacius served as archpresbyter, and around whose exile both Arsacius and Sisinius held the see.
+    href: saint/OS-0023
 sources:
   - GOARCH calendar
   - OCA / J. Sanidopoulos cross-check

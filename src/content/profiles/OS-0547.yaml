@@ -13,13 +13,14 @@ sections:
   - heading: Confession under Iconoclasm
     body:
       - When Leo V the Armenian revived the official policy of iconoclasm, Joseph was among those who refused to abandon the veneration of icons. According to the sources, he was pressed to sign the iconoclastic confession of faith, and on his refusal was subjected to torture and imprisonment. He was released under later emperors and ended his days at the Stoudios monastery, where his brother Theodore had served as abbot.
-related:
-  - name: St. Theodore the Studite
-    note: Elder brother; abbot of Stoudios and a leader of the resistance to iconoclasm
-    href: saint/OS-2180
-  - name: St. Plato of the Studion
-    note: Uncle and spiritual guide at the monastery of Sakkoudion
-    href: saint/OS-0940
+family:
+  figures:
+    - name: St. Theodore the Studite
+      note: Elder brother; abbot of Stoudios and a leader of the resistance to iconoclasm
+      href: saint/OS-2180
+    - name: St. Plato of the Studion
+      note: Uncle and spiritual guide at the monastery of Sakkoudion
+      href: saint/OS-0940
 patronage:
   - Confessors who suffered for the veneration of holy icons
   - Remembered as a hymnographer of the Lenten Triodion.

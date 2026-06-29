@@ -19,9 +19,11 @@ timeline:
   - when: c. 530
     title: Death on Inishmore
     body: Enda is reported to have died around 530 and to have been buried on Inishmore.
-related:
-  - name: St. Fanchea
-    note: His sister, an abbess, whose influence is credited in the tradition with turning him from warfare to the monastic life.
+family:
+  figures:
+    - name: St. Fanchea
+      note: His sister, an abbess, whose influence is credited in the tradition with turning him from warfare to the monastic life.
+companions:
   - name: St. Brendan the Navigator
     note: Numbered in the tradition among the Irish saints associated with Enda's monastery on Aran.
     href: saint/OS-1191

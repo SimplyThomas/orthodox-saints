@@ -23,7 +23,7 @@ timeline:
   - when: "2002"
     title: Canonization
     body: Saints Peter and Samuel are canonized by the Georgian Apostolic Orthodox Church on October 17, 2002.
-related:
+companions:
   - name: St. Vakhtang Gorgasali, King of Georgia
     note: The king at whose request Peter was elevated catholicos; commemorated the same day.
     href: saint/OS-2279

@@ -21,9 +21,10 @@ sections:
   - heading: Confession and Martyrdom
     body:
       - During the persecution under Decius, the emperor tried by various means to persuade the youths and their mother Christodoula to renounce Christ, but in vain. The children were scourged, each receiving a number of blows corresponding to his age, the eldest twelve, and the others fewer in turn. Refusing to yield, the family was put to death together with Bishop Babylas, the accounts relating that they were condemned to be burned and then beheaded. The Church commemorates them, with the hieromartyr Babylas, on September 4.
-related:
+companions:
   - name: Babylas of Antioch
     note: Bishop of Antioch and hieromartyr who raised the three boys in the faith and was martyred with the family; commemorated with them on September 4.
+    href: saint/OS-0196
 patronage: []
 status: draft
 sources:

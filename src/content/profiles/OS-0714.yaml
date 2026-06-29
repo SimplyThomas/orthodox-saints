@@ -25,10 +25,11 @@ timeline:
   - when: 1620 or 1621
     title: Repose at Briansk
     body: He died and was buried at the Transfiguration monastery he had founded.
-related:
-  - name: Martyr Michael, Prince of Chernigov
-    note: Ancestor, according to the synaxarion tradition
-    href: saint/OS-1871
+family:
+  figures:
+    - name: Martyr Michael, Prince of Chernigov
+      note: Ancestor, according to the synaxarion tradition
+      href: saint/OS-1871
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

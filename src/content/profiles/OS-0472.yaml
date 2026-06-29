@@ -1,0 +1,25 @@
+id: OS-0472
+liturgicalTitle: Our Venerable Father Anthony of Chernoezero
+overview:
+  - Anthony of Chernoezero, also called Anthony of Black Lake, was a monastic founder of the Russian Church commemorated on January 17. He is remembered as the founder of the Mother of God monastery at Black Lake (Chernoezero), located in the Novgorod region not far from Cherepovets.
+  - "Surviving accounts of his life are sparse: no birth date, death date, or date of glorification is recorded in the available sources, and his biography is limited almost entirely to his role as the monastery's founder. He is traditionally placed in the post-Byzantine period of Russian monasticism."
+sections:
+  - heading: The Monastery at Black Lake
+    body:
+      - Anthony founded a monastery dedicated to the Mother of God at Black Lake (Chernoezero), in the Novgorod region near the city of Cherepovets. The monastery stood on an island within the Schirsk countryside.
+      - "The institution suffered complete destruction twice over the course of its history: first in 1581 at the hands of the Lithuanians, and again in 1682 at the hands of the Swedes. It was ultimately closed in 1764."
+  - heading: Sources and Coverage
+    body:
+      - Anthony of Chernoezero is an obscure figure with minimal English-language documentation. The Orthodox Church in America synaxarion provides a brief stub recording his founding of the monastery and the later fate of the institution.
+      - No dedicated Wikipedia or OrthodoxWiki article exists for him, and no biographical detail beyond the monastic founding is preserved in the consulted sources. His liturgical commemoration uses a generic monastic troparion rather than a uniquely composed hymn.
+sources:
+  - OCA Synaxarion (oca.org), Jan 17
+  - https://www.oca.org/saints/lives/2022/01/17/100218-venerable-anthony-of-chernoezero
+  - https://www.oca.org/saints/lives/2026/01/17
+  - https://www.oca.org/saints/troparia/2022/01/17/100218-venerable-anthony-of-chernoezero
+  - https://en.wikipedia.org/wiki/Anthony_of_Chernoezero
+status: flagged
+generated: "2026-06-22"
+flagReasons:
+  - claim: The monastery was located near the city of Cherepovets
+    detail: The OCA external source states the monastery was 'not far from the city of Chernopovets', not 'Cherepovets'. These are different names. The profile substitutes 'Cherepovets' (a real Russian city in Vologda Oblast) for 'Chernopovets' as given in the dossier's external source. This is an unsupported alteration of a place name.
