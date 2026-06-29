@@ -1,15 +1,33 @@
 ---
 import { SAINTS } from "../lib/data";
 import { QUIZ, optionsFor } from "../lib/quiz";
+import type { QuizOptionGroup } from "../lib/quiz";
 import EyebrowRule from "./EyebrowRule.astro";
 
-// One question per screen. Options are the most-common facet values, computed
-// at build time; the island reveals one step at a time and tallies the picks.
+// One question per screen. A question with curated `optionGroups` renders those
+// (modern, pastoral labels grouped under category headers); otherwise the
+// options are the most-common facet values, computed at build time. The island
+// reveals one step at a time and tallies the picks by data-key/data-val.
 const questions = QUIZ.map((g, i) => ({
   group: g,
   i,
-  options: optionsFor(SAINTS, g.key).slice(0, 28),
+  // Plain questions only: curated questions render from group.optionGroups.
+  options: g.optionGroups ? [] : optionsFor(SAINTS, g.key).slice(0, 28),
 }));
+
+// A plain question's flat option list is presented as a single unlabeled group
+// so the template has one rendering path.
+function clustersFor(
+  optionGroups: QuizOptionGroup[] | undefined,
+  flat: string[],
+): { label: string | null; options: string[] }[] {
+  if (optionGroups)
+    return optionGroups.map((c) => ({
+      label: c.label,
+      options: c.options.map((o) => o.label),
+    }));
+  return [{ label: null, options: flat }];
+}
 ---
 
 <div id="quiz-questions">
@@ -37,34 +55,42 @@ const questions = QUIZ.map((g, i) => ({
             {group.q}
             {group.optional && <span class="opt"> &mdash; optional</span>}
           </h2>
+          {group.sub && <p class="qz-sub">{group.sub}</p>}
 
-          <div class="qz-opts">
-            {options.map((val) => (
-              <button
-                type="button"
-                class="qz-opt"
-                data-key={group.key}
-                data-val={val}
-                aria-pressed="false"
-              >
-                <span class="check" aria-hidden="true">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--byz-ink)"
-                    stroke-width="3.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+          {clustersFor(group.optionGroups, options).map((cluster) => (
+            <div class="qz-cluster">
+              {cluster.label && (
+                <h3 class="qz-cluster-label">{cluster.label}</h3>
+              )}
+              <div class="qz-opts">
+                {cluster.options.map((val) => (
+                  <button
+                    type="button"
+                    class="qz-opt"
+                    data-key={group.key}
+                    data-val={val}
+                    aria-pressed="false"
                   >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                </span>
-                {val}
-              </button>
-            ))}
-          </div>
+                    <span class="check" aria-hidden="true">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--byz-ink)"
+                        stroke-width="3.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    {val}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
 
           <div class="qz-nav">
             <button

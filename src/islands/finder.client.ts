@@ -382,6 +382,32 @@ if (dataEl) {
         d.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
+    // Generic facet pre-filter: ?<facetKey>=value[,value] (e.g. ?vocation=Physician
+    // or ?origin=Greece). This is how the quiz "Explore Similar Saints" chips
+    // deep-link into the finder. `themes` is handled above via ?theme=, so it is
+    // skipped here to avoid a double pass.
+    let seededFacet = false;
+    for (const f of FACETS) {
+      if (f.key === "themes") continue;
+      const raw = params.get(f.key);
+      if (!raw) continue;
+      for (const val of raw
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)) {
+        const box = $<HTMLInputElement>(
+          `#facets input[data-key="${f.key}"][value="${cssEscape(val)}"]`,
+        );
+        if (!box) continue;
+        box.checked = true;
+        selected[f.key].add(val);
+        box.closest("details")?.setAttribute("open", "");
+        seededFacet = true;
+      }
+    }
+    if (seededFacet) {
+      $("#facets")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   wireEvents();
