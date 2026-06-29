@@ -156,7 +156,11 @@ test("quiz walks one question per screen to an illuminated patron", async ({
   const step1 = page.locator('[data-qstep="1"]');
   await expect(step1).toBeVisible();
   await step1.locator(".qz-opt").first().click();
-  for (let i = 1; i < 6; i++) {
+  // Advance through every remaining question screen until the result appears.
+  // Derive the count from the rendered steps so this survives adding/removing
+  // quiz questions (QuizForm renders one .qz-step per QUIZ entry).
+  const stepCount = await page.locator(".qz-step").count();
+  for (let i = 1; i < stepCount; i++) {
     await page.locator(`[data-qstep="${i}"] [data-continue]`).click();
   }
 
@@ -164,6 +168,8 @@ test("quiz walks one question per screen to an illuminated patron", async ({
   const patron = page.locator(".qz-patron");
   await expect(patron).toBeVisible();
   await expect(patron.locator("h1")).not.toBeEmpty();
+  // The result transparently lists what was matched, grouped by question.
+  await expect(patron.locator(".qz-match-list li").first()).toBeVisible();
   await expect(page.locator(".qz-benediction")).toContainText(
     /pray to God for us/,
   );

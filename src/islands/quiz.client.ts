@@ -5,7 +5,12 @@
    illuminated result panel. Cards are real links to the full /saint page. */
 
 import type { FinderSaint } from "../lib/types";
-import { QUIZ, emptyQuizSelected, quizMatches } from "../lib/quiz";
+import {
+  QUIZ,
+  emptyQuizSelected,
+  quizMatches,
+  type QuizReason,
+} from "../lib/quiz";
 import {
   rankSlug,
   primaryRank,
@@ -34,6 +39,23 @@ if (dataEl && root) {
     // Each step is its own page-like screen — start it at the top.
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+  // Group a match's reasons by question, preserving QUIZ (display) order, so the
+  // result panel can show the user exactly what they matched on, per dimension.
+  function groupReasons(reasons: QuizReason[]) {
+    const by = new Map<string, { kicker: string; vals: string[] }>();
+    for (const r of reasons) {
+      const g = by.get(r.key) || { kicker: r.kicker, vals: [] };
+      if (!g.vals.includes(r.value)) g.vals.push(r.value);
+      by.set(r.key, g);
+    }
+    return [...by.values()];
+  }
+
+  // Flat list of distinct matched values (for the compact companion line).
+  const sharedValues = (reasons: QuizReason[]) => [
+    ...new Set(reasons.map((r) => r.value)),
+  ];
 
   const eyebrowRule = (label: string) => `
     <div class="eyebrow-rule">
@@ -65,9 +87,24 @@ if (dataEl && root) {
     track("Quiz Completed", { top_match: top.s.name });
     const others = matched.slice(1, 3);
     const sn = splitName(top.s.name);
-    const patronOf = (top.s.intercession || []).length
-      ? top.s.intercession.join(" · ")
-      : [...new Set(top.reasons)].slice(0, 8).join(" · ");
+    // Transparency: show exactly what the seeker matched on, grouped by question
+    // — not the saint's full (possibly unrelated) patronage list.
+    const matchGroups = groupReasons(top.reasons);
+    const matchBlock = matchGroups.length
+      ? `<div class="patron-of qz-match">
+          <span class="lbl">Why you were matched</span>
+          <ul class="qz-match-list">
+            ${matchGroups
+              .map(
+                (g) =>
+                  `<li><span class="dim">${esc(g.kicker)}</span><span class="vals">${esc(
+                    g.vals.join(" · "),
+                  )}</span></li>`,
+              )
+              .join("")}
+          </ul>
+        </div>`
+      : "";
 
     const companions = others.length
       ? `
@@ -75,8 +112,10 @@ if (dataEl && root) {
         <p class="qz-comp-label">You also walk closely with</p>
         <div class="qz-comp-row">
           ${others
-            .map(({ s }) => {
+            .map((m) => {
+              const s = m.s;
               const rsn = splitName(s.name);
+              const shared = sharedValues(m.reasons).slice(0, 3).join(" · ");
               return `
               <a class="qz-comp" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
                 ${saintAvatar(s, 42, 52, { type: primaryRank(s) })}
@@ -85,6 +124,7 @@ if (dataEl && root) {
                   <div class="sub">${esc(rsn.epithet || (s.aka && s.aka[0]) || "")}${
                     rsn.epithet || (s.aka && s.aka[0]) ? " · " : ""
                   }${esc(firstFeast(s))}</div>
+                  ${shared ? `<div class="shared">${esc(shared)}</div>` : ""}
                 </div>
               </a>`;
             })
@@ -111,11 +151,7 @@ if (dataEl && root) {
             <span>${esc(centuryLabel(top.s))}</span>
           </div>
           <p class="bio">${esc(top.s.brief || top.s.notes || "")}</p>
-          ${
-            patronOf
-              ? `<div class="patron-of"><span class="lbl">Patron of </span>${esc(patronOf)}</div>`
-              : ""
-          }
+          ${matchBlock}
         </div>
       </div>
 
