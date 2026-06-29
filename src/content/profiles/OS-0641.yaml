@@ -36,7 +36,7 @@ timeline:
   - when: "1431"
     title: Uncovering of relics
     body: His incorrupt relics were uncovered on May 20 during the rebuilding of the temple.
-related:
+companions:
   - name: St. Sergius of Radonezh
     note: The great monastic founder of the same generation; the tradition links Alexis's monastic formation to a brother of Sergius.
     href: saint/OS-0042

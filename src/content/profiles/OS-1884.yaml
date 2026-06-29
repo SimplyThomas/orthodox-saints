@@ -30,9 +30,10 @@ sections:
 patronage:
   - Protection against fire
   - Help to those in danger of drowning
-related:
+companions:
   - name: Martyr Phocas the Gardener of Sinope
     note: Distinct saint of Sinope commemorated the same day, September 22.
+    href: saint/OS-1888
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2004/09/22/102695-hieromartyr-phocas-bishop-of-sinope

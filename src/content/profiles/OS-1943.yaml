@@ -17,9 +17,10 @@ sections:
     body:
       - There are conflicting traditions about where Dionysius and his companions met their death. The Orthodox synaxarion entry dedicated to Rusticus and Eleutherius places their martyrdom at Athens during the Domitianic persecution, while a fuller narrative of Dionysius describes the three preaching westward and being martyred in Gaul.
       - In the Western (Latin) church a priest named Rusticus and a deacon named Eleutherius are likewise commemorated as martyred companions, there joined to Saint Denis of Paris. Since at least the ninth century the legends of Dionysius the Areopagite and Denis of Paris have been conflated, and later scholarship has worked to distinguish them. The Orthodox commemoration on October 3 follows the tradition that locates this pair at Athens with Dionysius the Areopagite.
-related:
+companions:
   - name: Dionysius the Areopagite
     note: Bishop of Athens whose disciples and fellow martyrs Rusticus and Eleutherius were; commemorated with them on October 3.
+    href: saint/OS-1942
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/0999/10/03/102844-martyrs-rusticus-the-presbyter-and-eleutherius-the-deacon

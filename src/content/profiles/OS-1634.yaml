@@ -35,9 +35,10 @@ sections:
       - The Georgian Orthodox Church honors Razhden as its protomartyr, with his feast kept on August 3 (August 16 on the civil calendar). The earliest account of his life is found in the History of King Vakhtang Gorgasali, a medieval Georgian work traditionally attributed to Juansher Juansheriani; his hagiography was later elaborated by Besarion Orbelishvili in the 1720s.
 patronage:
   - Georgia
-related:
+companions:
   - name: King Vakhtang I Gorgasali of Georgia
     note: The Georgian king in whose service Razhden converted and rose to command, and who translated his relics to Nikozi.
+    href: saint/OS-2279
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://orthodoxwiki.org/Razhden_the_Protomartyr

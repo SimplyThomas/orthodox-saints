@@ -32,7 +32,7 @@ timeline:
   - when: c. 670
     title: Repose
     body: Omer, blind in his old age, dies about the year 670; the town of Saint-Omer later grows from his foundation.
-related:
+companions:
   - name: St. Bertin of Sithiu
     note: A disciple sent from Luxeuil who assisted Omer's mission and became abbot of the monastery at Sithiu (Saint-Bertin).
     href: saint/OS-0235

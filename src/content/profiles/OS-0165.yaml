@@ -32,7 +32,7 @@ timeline:
   - when: c. 663
     title: Repose at Stavelot
     body: He died at Stavelot; sources differ on the precise year.
-related:
+companions:
   - name: Hieromartyr Theodard of Maastricht
     note: Disciple who succeeded Remaclus as bishop of Maastricht
     href: saint/OS-0356

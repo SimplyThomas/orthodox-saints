@@ -19,7 +19,7 @@ timeline:
   - when: "1918"
     title: Glorification
     body: Glorified by the Local Council of the Russian Orthodox Church.
-related:
+companions:
   - name: Saint Sophronius of Jerusalem
     note: The seventh-century patriarch in whose honor he received his monastic name.
     href: saint/OS-0809

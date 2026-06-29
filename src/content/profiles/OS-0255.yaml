@@ -23,11 +23,13 @@ timeline:
   - when: c. 635
     title: Repose
     body: Cagnoald reposed and is commemorated on September 6.
-related:
-  - name: St. Faro of Meaux
-    note: Brother; bishop of Meaux.
-  - name: St. Burgundofara
-    note: Sister; foundress of the convent of Faremoutiers.
+family:
+  figures:
+    - name: St. Faro of Meaux
+      note: Brother; bishop of Meaux.
+    - name: St. Burgundofara
+      note: Sister; foundress of the convent of Faremoutiers.
+companions:
   - name: St. Columbanus of Luxeuil
     note: His monastic master at Luxeuil.
     href: saint/OS-2693

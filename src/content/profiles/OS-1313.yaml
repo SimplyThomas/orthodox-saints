@@ -24,7 +24,7 @@ timeline:
   - when: "1023"
     title: Repose at Suzdal
     body: Theodore fell asleep in the Lord at Suzdal after his apostolic labors.
-related:
+companions:
   - name: Great Martyr Theodore Stratelates
     note: A distinct saint, not to be confused with the bishop of Rostov.
     href: saint/OS-0615

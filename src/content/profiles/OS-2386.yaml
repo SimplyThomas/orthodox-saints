@@ -37,7 +37,7 @@ timeline:
   - when: "1992"
     title: Glorification
     body: Glorified by the Romanian Orthodox Church.
-related:
+companions:
   - name: Saint Leontius of Radauti
     note: His spiritual director at the monastery of Saint Nicholas at Radauti
     href: saint/OS-1452

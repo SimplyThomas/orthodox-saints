@@ -30,24 +30,26 @@ timeline:
   - when: c. 647
     title: Abbess of Lyminge and repose
     body: Founded and led the community at Lyminge until her death.
-related:
-  - name: Saint Edwin, King and Martyr of Northumbria
-    note: Her husband, the Northumbrian king converted through their marriage
-    href: saint/OS-2009
-  - name: Bishop Paulinus
-    note: The bishop who accompanied her to Northumbria and shared her flight back to Kent
 family:
   heading: Family
   intro: Aethelburh belonged to the royal house of Kent, the first Anglo-Saxon dynasty to embrace Christianity.
   figures:
     - name: King Aethelberht of Kent
       note: Her father, the first Christian Anglo-Saxon king
+      href: saint/OS-2763
     - name: Queen Bertha
       note: Her Frankish Christian mother
     - name: Eadbald
       note: Her brother, king of Kent, who gave her the estate at Lyminge
+      commemorated: false
+    - name: Saint Edwin, King and Martyr of Northumbria
+      note: Her husband, the Northumbrian king converted through their marriage
+      href: saint/OS-2009
     - name: Eanflaed
       note: Her daughter by Edwin, among the first baptized in Northumbria
+companions:
+  - name: Bishop Paulinus
+    note: The bishop who accompanied her to Northumbria and shared her flight back to Kent
 patronage:
   - Foundress of monastic life in England; queen of Northumbria
 status: draft

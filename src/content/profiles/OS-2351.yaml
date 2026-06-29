@@ -25,13 +25,14 @@ timeline:
   - when: —
     title: Death at Kadesh
     body: She dies in the Wilderness of Zin and is buried at Kadesh (Numbers 20:1).
-related:
-  - name: Holy Prophet Moses
-    note: younger brother, leader of the Exodus
-    href: saint/OS-0057
-  - name: Righteous Aaron the High Priest
-    note: brother, first high priest of Israel
-    href: saint/OS-1563
+family:
+  figures:
+    - name: Holy Prophet Moses
+      note: younger brother, leader of the Exodus
+      href: saint/OS-0057
+    - name: Righteous Aaron the High Priest
+      note: brother, first high priest of Israel
+      href: saint/OS-1563
 patronage:
   - Prophetesses and women leaders in praise and thanksgiving
 status: draft

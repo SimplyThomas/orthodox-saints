@@ -29,11 +29,13 @@ timeline:
     title: Repose
     body: Zosimas reposes after many ascetic feats and is buried near the Cathedral Church of the Annunciation of the Most Holy Theotokos.
     source: https://www.johnsanidopoulos.com/2020/04/saint-zosimas-of-vorbozomsk-1550.html
-related:
+companions:
   - name: Saint Cornelius of Komel
     note: By one account, the elder under whom Zosimas was a disciple.
+    href: saint/OS-1205
   - name: Saint Cyril of White Lake
     note: The monastery of Lake Vorbozoma belonged to the wilderness-monasteries that grew up around his community in the Russian north.
+    href: saint/OS-1317
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/0216/04/04/100987-venerable-zosimas-abbot-of-vorbozomsk

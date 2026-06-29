@@ -30,11 +30,10 @@ sections:
   - heading: Veneration
     body:
       - Isaac is honored as a confessor for his stand against the Arian persecution under Valens. He is commemorated on May 30 as his principal feast, and also on March 22 and on August 3, the latter together with Saints Dalmatus and Faustus among the fathers of the Dalmatos monastery.
-family:
-  heading: Disciple and Successor
-  figures:
-    - name: Dalmatus
-      note: Isaac's disciple, whom he appointed to succeed him as head of the monastery; the house took its later name, Dalmatos, from him.
+companions:
+  - name: Dalmatus
+    note: Isaac's disciple, whom he appointed to succeed him as head of the monastery; the house took its later name, Dalmatos, from him.
+    href: saint/OS-1631
 patronage:
   - Monastics and founders of monasteries
   - Confessors who resist heresy

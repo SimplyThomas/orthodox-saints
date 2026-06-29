@@ -30,7 +30,7 @@ timeline:
   - when: c. 326
     title: Repose
     body: Alexander dies a few months after Nicaea, reportedly naming Athanasius his successor.
-related:
+companions:
   - name: St. Athanasius the Great
     note: His deacon and spokesman at Nicaea, who succeeded him as Patriarch of Alexandria.
     href: saint/OS-0024

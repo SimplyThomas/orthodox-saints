@@ -21,15 +21,19 @@ sections:
   - heading: Veneration
     body:
       - The martyrs are commemorated within the liturgical calendar of the Serbian Orthodox Church. Their commemoration was associated with the date of 28 June (Old Style), corresponding to 11 July (New Style); the diocesan observance was subsequently moved to early July. The first liturgical and all-diocesan assembly in their memory was held on 17 July 2021 at the monastery of Vozučica near Zavidovići.
-related:
+companions:
   - name: Metropolitan Petar Zimonjić of Dabar and Bosnia
     note: Leading figure of the synaxis; killed 1941, canonized 1998.
+    href: saint/OS-0222
   - name: Nestor of Mileševa
     note: Hegumen of Mileševa Monastery; died 1941.
+    href: saint/OS-2641
   - name: Seraphim of Pljevlja
     note: Hegumen of the Monastery of the Holy Trinity of Pljevlja; died 1941.
+    href: saint/OS-2643
   - name: Budimir of Dobrun
     note: New Hieromartyr among the group; died 1945.
+    href: saint/OS-2642
 patronage: []
 status: draft
 sources:

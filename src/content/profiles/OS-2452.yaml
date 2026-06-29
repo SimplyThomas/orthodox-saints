@@ -31,9 +31,10 @@ sections:
   - heading: Sources & Documentation
     body:
       - Hesychius is sparsely documented. The fullest surviving account is his synaxarion; Orthodox calendars such as OrthodoxWiki and the OCA preserve the commemoration but carry little expanded biography. As with much of the early monastic tail, the details rest on liturgical tradition rather than independent historical record.
-related:
+companions:
   - name: Hesychius the Faster of Bithynia
     note: A distinct monastic saint commemorated on March 5, with whom Hesychius of Galatia is sometimes cross-referenced but should not be conflated.
+    href: saint/OS-0783
 sources:
   - OCA calendar (Mar 6)
   - OrthodoxWiki

@@ -39,14 +39,19 @@ patronage:
   - Missionaries
   - Monastic founders
   - The English Church
-related:
-  - name: St. Chad of Lichfield
-    note: Younger brother of Cedd; Bishop of Lichfield, who succeeded Cedd as abbot of Lastingham
+family:
+  figures:
+    - name: St. Chad of Lichfield
+      note: Younger brother of Cedd; Bishop of Lichfield, who succeeded Cedd as abbot of Lastingham
+      href: saint/OS-2702
+companions:
   - name: St. Aidan of Lindisfarne
     note: Bishop of Lindisfarne, under whom Cedd received his monastic education
+    href: saint/OS-1812
   - name: St. Finan of Lindisfarne
     note: Bishop of Lindisfarne who sent Cedd to the East Saxons and later consecrated him bishop
-status: draft
+    href: saint/OS-0679
+status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Jan 7
   - https://orthodoxwiki.org/Cedd_of_Lastingham

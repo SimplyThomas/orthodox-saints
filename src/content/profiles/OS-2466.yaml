@@ -30,10 +30,11 @@ sections:
     body:
       - "Historically documented: The principal account of the saint's miracles survives in an encomium composed by George of Cyprus, who later became Patriarch of Constantinople in the thirteenth century. He wrote it at the request of Meletios, then bishop of Madytos, who had earlier been bishop of Athens."
       - "Traditional accounts: Among the posthumous miracles recorded are the healing of a widow's son from leprosy after he was anointed with the saint's myrrh; the cure of a wealthy man of Byzantium by the myrrh from the tomb; the restoration of sight to a blind woman at the tomb; the healing of a man with a withered hand; the calming of a storm at sea when his myrrh was poured into the waters; and the deliverance of a captive Roman soldier, who called upon the saint and was freed after the saint appeared to him in his sleep."
-related:
-  - name: Venerable Paraskevi of Epivates
-    note: By tradition the sister of Saint Euthymius of Madytos; the New ascetic of Epivates (Petka), commemorated October 14.
-    href: saint/OS-2019
+family:
+  figures:
+    - name: Venerable Paraskevi of Epivates
+      note: By tradition the sister of Saint Euthymius of Madytos; the New ascetic of Epivates (Petka), commemorated October 14.
+      href: saint/OS-2019
 sources:
   - GOARCH calendar
   - OCA / J. Sanidopoulos cross-check

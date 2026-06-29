@@ -20,7 +20,7 @@ timeline:
   - when: after 1083
     title: Last recorded activity
     body: Documentary traces of George the Lesser extend to after 1083; the circumstances of his death are not preserved.
-related:
+companions:
   - name: Venerable George of Mount Athos (George the Hagiorite)
     note: His master, whose Life he composed
     href: saint/OS-1438

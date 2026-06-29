@@ -28,11 +28,13 @@ timeline:
   - when: Dec 23
     title: Repose
     body: After a short episcopate, Niphon foretells his death three days in advance and reposes; he is commemorated on this day.
-related:
+companions:
   - name: St. Athanasius the Great
     note: Patriarch of Alexandria; the tradition relates that he visited Niphon before his repose.
+    href: saint/OS-0024
   - name: Patriarch Alexander of Alexandria
     note: Consecrated Niphon bishop after being directed to him by a vision.
+    href: saint/OS-2472
 patronage:
   - Those seeking repentance after a sinful life
   - Conversion of the despairing

@@ -13,7 +13,7 @@ sections:
   - heading: Dating and identity
     body:
       - The traditional synaxarion account places Mark in the fifth century and associates him with the deserts of Egypt. Scholarship on the author of the surviving treatises generally dates his death to after 430, probably before the Council of Chalcedon in 451, and some accounts associate his hermit life with regions further east. He is regarded as a disciple of St. John Chrysostom and is associated with the practical, Antiochene approach to the spiritual life.
-related:
+companions:
   - name: St. John Chrysostom
     note: By tradition Mark's teacher, who tonsured him a monk
     href: saint/OS-0023

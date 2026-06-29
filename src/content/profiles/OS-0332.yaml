@@ -14,9 +14,10 @@ sections:
   - heading: The Shartomsk Monastery
     body:
       - The St. Nicholas-Shartomsk (Nikolo-Shartomsky) Monastery stands near the small Shartoma river in what is now the Ivanovo region. Its foundation is traditionally linked to the discovery of an icon of Saint Nicholas, and the community appears in written records from the early fifteenth century. In the seventeenth century, the period in which Joachim labored there, the monastery suffered during the Time of Troubles and was later rebuilt; its Nikolsky Cathedral was consecrated in the middle of that century.
-related:
+companions:
   - name: Irinarch the Recluse of Rostov
     note: By tradition the spiritual father under whom Joachim is reckoned a disciple in the Rostov lands.
+    href: saint/OS-0441
 status: draft
 sources:
   - Synaxarion

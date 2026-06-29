@@ -35,11 +35,12 @@ timeline:
   - when: 4th century
     title: Forgiveness and repose
     body: Granted assurance of God's mercy for her tears, she is released, falls ill, and after a short time reposes in the Lord; Saint Paul the Simple beholds her place in Paradise.
-related:
+companions:
   - name: Saint Paphnutius
     note: The strict ascetic who, by the tradition, converted Thais and directed her years of repentance.
   - name: Saint Paul the Simple
     note: Disciple in the desert tradition who, the synaxarion relates, saw in a vision the place prepared for Thais in Paradise.
+    href: saint/OS-0790
   - name: Blessed Thais (Taisia) of Egypt
     note: A distinct saint of Egypt commemorated on May 10, not to be confused with Thais the Penitent.
     href: saint/OS-1142

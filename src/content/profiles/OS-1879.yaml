@@ -9,9 +9,10 @@ sections:
     body:
       - Meletius is among the many early bishops of Cyprus whose veneration is securely attested in the calendar but whose biography has not been transmitted in detail. The OCA notice supplies no historical particulars, and the fuller narrative that does survive treats him together with Isaac rather than as the subject of an independent life.
       - Because the principal accounts differ on points as basic as the manner of his commemoration and the deaths of the two bishops, the tradition is reported here as the sources report it. Where the record is silent — on dates, family, and the specific events of his episcopate — this profile leaves the matter open rather than supplying conjecture.
-related:
+companions:
   - name: Saint Isaac, Bishop of Cyprus
     note: A bishop of Cyprus, said to have held the see earlier than Meletius, with whom he is commemorated; by one tradition he died a martyr by beheading.
+    href: saint/OS-1878
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

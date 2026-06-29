@@ -20,10 +20,12 @@ timeline:
   - when: June 6, 1504
     title: Repose
     body: Died in advanced age; his relics rest beneath a crypt in the Protection monastery.
-related:
-  - name: St. Macarius of Kalyazin
-    note: Paisius's uncle, in whose monastery he was tonsured and formed
-    href: saint/OS-0839
+family:
+  figures:
+    - name: St. Macarius of Kalyazin
+      note: Paisius's uncle, in whose monastery he was tonsured and formed
+      href: saint/OS-0839
+companions:
   - name: St. Bogolep of Uglich
     note: A disciple of Paisius who worked as a baker and is said to have found the Protection icon
     href: saint/OS-1761

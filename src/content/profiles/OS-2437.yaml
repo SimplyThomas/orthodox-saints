@@ -57,7 +57,7 @@ timeline:
   - when: "1988"
     title: Glorification
     body: Glorified by the Russian Orthodox Church.
-related:
+companions:
   - name: Venerable Paphnutius, Abbot of Borov
     note: Paphnutius of Borovsk, founder of the monastery where Macarius received the monastic tonsure.
     href: saint/OS-1087

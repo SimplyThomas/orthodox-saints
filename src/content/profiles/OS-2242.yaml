@@ -31,7 +31,7 @@ timeline:
   - when: "1832"
     title: Glorification
     body: His veneration was confirmed and his glorification established, following the finding of his incorrupt relics.
-related:
+companions:
   - name: Saint Metrophanes, First Patriarch of Constantinople
     note: A distinct earlier saint of the same name (4th c.), not to be confused with the bishop of Voronezh.
     href: saint/OS-1279

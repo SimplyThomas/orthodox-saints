@@ -14,9 +14,11 @@ sections:
   - heading: Flight from Scetis
     body:
       - According to the tradition, the early fifth century brought destructive raids upon Scetis. In the wake of these incursions Pimen, with his brother Anoub and a small company of monks, withdrew from the devastated settlement to Terenuthis near the Nile, where they are said to have taken shelter for a time in an abandoned temple. The dispersal of the Scetis fathers in this period is credited with helping to spread and preserve the wisdom of the desert beyond Egypt.
-related:
-  - name: Anoub
-    note: Brother of Pimen, an Egyptian monk who shared his ascetic life and his flight from Scetis.
+family:
+  figures:
+    - name: Anoub
+      note: Brother of Pimen, an Egyptian monk who shared his ascetic life and his flight from Scetis.
+      href: saint/OS-2733
 patronage:
   - Monastics and those seeking spiritual guidance and humility
 status: draft

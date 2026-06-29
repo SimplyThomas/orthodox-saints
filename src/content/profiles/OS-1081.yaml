@@ -18,22 +18,6 @@ sections:
     body:
       - The Orthodox Church keeps the memory of the Apostle James on April 30, and he is also commemorated among the Twelve in the Synaxis of the Holy Apostles. In the Western Church his feast is observed on July 25.
       - A widespread tradition, especially in the West, holds that after his martyrdom in Jerusalem the apostle's body was carried by sea to Spain and that his relics are venerated at Santiago de Compostela in Galicia, which became one of the principal pilgrimage destinations of the medieval West along the route known as the Way of St. James.
-related:
-  - name: Apostle and Evangelist John the Theologian
-    note: Younger brother, also a son of Zebedee and one of the Twelve
-    href: saint/OS-0005
-  - name: Apostle Peter
-    note: With James and John, one of the three apostles of the Lord's inner circle
-    href: saint/OS-0004
-  - name: Apostle James the Brother of the Lord
-    note: A distinct apostle of the same name, first bishop of Jerusalem
-    href: saint/OS-2066
-  - name: Apostle James, son of Alphaeus
-    note: A distinct apostle of the same name among the Twelve
-    href: saint/OS-1982
-  - name: Holy Myrrh-bearer Salome
-    note: By tradition his mother, the wife of Zebedee
-    href: saint/OS-1638
 family:
   heading: Family
   intro: James belonged to a fishing family of Galilee. His father was Zebedee and his brother was the Apostle and Evangelist John the Theologian; tradition identifies his mother as the Myrrh-bearer Salome.
@@ -44,6 +28,16 @@ family:
     - name: Holy Myrrh-bearer Salome
       note: Mother, by tradition
       href: saint/OS-1638
+companions:
+  - name: Apostle Peter
+    note: With James and John, one of the three apostles of the Lord's inner circle
+    href: saint/OS-0004
+  - name: Apostle James the Brother of the Lord
+    note: A distinct apostle of the same name, first bishop of Jerusalem
+    href: saint/OS-2066
+  - name: Apostle James, son of Alphaeus
+    note: A distinct apostle of the same name among the Twelve
+    href: saint/OS-1982
 patronage:
   - Honored as the first martyr among the Twelve Apostles
 status: draft

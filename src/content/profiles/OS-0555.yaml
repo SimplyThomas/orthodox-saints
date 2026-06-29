@@ -31,7 +31,7 @@ timeline:
   - when: "1098"
     title: Repose
     body: Ephraim dies and is buried in the caves of the Kiev Monastery of the Caves.
-related:
+companions:
   - name: Saint Anthony of the Kiev Caves
     note: Founder of the Kiev Caves monastery who received Ephraim into monastic life and blessed his journey to Constantinople.
     href: saint/OS-0136

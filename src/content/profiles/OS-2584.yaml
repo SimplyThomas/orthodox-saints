@@ -49,7 +49,7 @@ sections:
 patronage:
   - Monastics and those drawn to the contemplative life
   - The practice of the Jesus Prayer and inner (noetic) prayer
-related:
+companions:
   - name: Ephraim of Katounakia
     note: Disciple of Joseph the Hesychast; canonized alongside him as an Athonite elder.
     href: saint/OS-2588
@@ -58,12 +58,16 @@ related:
     href: saint/OS-0295
   - name: Ephraim of Philotheou (of Arizona)
     note: Disciple who became abbot of Philotheou and founded numerous monasteries in North America.
+    commemorated: false
   - name: Joseph of Vatopaidi
     note: Disciple of Joseph the Hesychast and later a leading elder of Vatopedi Monastery.
+    commemorated: false
   - name: Charalambos of Dionysiou
     note: Disciple who became abbot of Dionysiou Monastery.
+    commemorated: false
   - name: Arsenios the Cave-Dweller
     note: Joseph's lifelong ascetic companion on Mount Athos.
+    commemorated: false
 works:
   - title: Letters of Elder Joseph the Hesychast
     desc: A body of some sixty-five published letters of spiritual counsel preserved and circulated by his disciples, treating watchfulness, the Jesus Prayer, devotion to the Mother of God, the temptations of Great Lent, and divine love.

@@ -14,9 +14,10 @@ timeline:
   - when: 7th century BC
     title: Prophesied under King Josiah
     body: Zephaniah preached repentance at the royal court during the reign of Josiah of Judah, a contemporary of the Prophet Jeremiah.
-related:
+companions:
   - name: Prophet Jeremiah
     note: A contemporary among the prophets of Judah
+    href: saint/OS-1086
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

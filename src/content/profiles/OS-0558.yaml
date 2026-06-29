@@ -28,11 +28,13 @@ sections:
     body:
       - Jonah, Bishop of Great Perm, succeeded Pitirim after his murder. In 1462 he is credited with converting the inhabitants of Great Perm to Christ, bringing in the remaining pagan tribes who lived along the Vishera, Kama, and Chusova rivers. By his efforts the idols of these peoples were destroyed and churches were built in their place, and he traveled throughout his extensive diocese to spread and consolidate the faith.
       - Jonah reposed on June 6, 1470, and was buried at the Annunciation cathedral at Ust-Vym. Together with Saint Gerasimus and Saint Pitirim he is honored among the hierarchs of Perm on January 29.
-related:
+companions:
   - name: Stephen of Perm
     note: First bishop of Perm and enlightener of the Zyrian people, whose mission Pitirim and Jonah continued.
+    href: saint/OS-1065
   - name: Gerasimus, Bishop of Perm
     note: Third bishop of Perm and predecessor, commemorated together with Pitirim and Jonah among the hierarchs of Perm on January 29.
+    href: saint/OS-0524
 patronage: []
 works:
   - title: Canon and Life of Saint Alexis, Metropolitan of Moscow

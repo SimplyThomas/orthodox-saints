@@ -47,7 +47,7 @@ timeline:
   - when: "615"
     title: Repose at Bobbio
     body: Reposes on November 21, 615, at Bobbio; his relics are kept in the abbey crypt.
-related:
+companions:
   - name: Saint Gall
     note: Disciple and companion of Columbanus who remained near Lake Constance; the Abbey of Saint Gall later arose in the region.
     external: https://en.wikipedia.org/wiki/Gall_(saint)

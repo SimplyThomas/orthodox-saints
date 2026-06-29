@@ -16,11 +16,13 @@ sections:
   - heading: Relics and later veneration
     body:
       - According to tradition, Gregory's relics were removed from Athos by Serbian monks. Later accounts connect his remains with the monastery of Gornjak in Serbia, and report that a portion was returned to Grigoriou in the twentieth century. The reverence shown to him is bound up with the continuing Serbian character of the community he founded, which a fifteenth-century pilgrim already noted as Serbian in nationality.
-related:
+companions:
   - name: St. Gregory of Sinai
     note: Leading hesychast teacher; the founder is reckoned among his circle of disciples, and the two are sometimes confused in tradition.
+    href: saint/OS-1671
   - name: St. Romylos of Ravanica
     note: A disciple of Gregory of Sinai named in some accounts among Gregory the Younger's teachers.
+    href: saint/OS-0470
 patronage:
   - Grigoriou Monastery and Serbian Athonite monasticism
 status: draft

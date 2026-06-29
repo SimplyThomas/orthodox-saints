@@ -11,13 +11,15 @@ sections:
   - heading: The Tradition Identifying Shem with Melchizedek
     body:
       - "An old tradition, found in Jewish sources such as the Targums and the Talmud and discussed by some of the Fathers, identifies Shem with Melchizedek, the king and priest of Salem who blessed Abraham (Genesis 14). Saint Ephrem the Syrian noted that because the span of Melchizedek's life would have reached down to the days of Jacob and Esau, it had been said 'with much probability' that he was Shem. This identification is a tradition and a matter of opinion rather than a settled teaching: the Orthodox Church commemorates the Righteous Melchizedek, King of Salem, as a distinct figure, honoring him above all as a type and prefiguration of Christ the eternal High Priest."
-related:
-  - name: Righteous Noah
-    note: father of Shem
-    href: saint/OS-2354
-  - name: Righteous Forefather Abraham
-    note: descendant of Shem through Arpachshad
-    href: saint/OS-1984
+family:
+  figures:
+    - name: Righteous Noah
+      note: father of Shem
+      href: saint/OS-2354
+    - name: Righteous Forefather Abraham
+      note: descendant of Shem through Arpachshad
+      href: saint/OS-1984
+companions:
   - name: Righteous Melchizedek
     note: identified with Shem in an old tradition; commemorated as a distinct figure
     href: saint/OS-1225

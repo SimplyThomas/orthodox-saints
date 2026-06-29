@@ -34,11 +34,13 @@ sections:
     body:
       - Salvius was first buried in his monastery, and his remains were later transferred to the Church of Saint-Salvi in Albi, which bears his name. Their exact location was lost following renovations of the church in the eighteenth century.
       - He is venerated as a saint in both the Eastern Orthodox and Roman Catholic Churches, and his feast is celebrated on September 10.
-related:
+family:
+  figures:
+    - name: Didier (Desiderius) of Cahors
+      note: Bishop of Cahors and a kinsman of Salvius within the ecclesiastical families of southern Gaul.
+companions:
   - name: Gregory of Tours
     note: Bishop and historian, a distant relation of Salvius, whose Histories preserve the principal account of his life and vision.
-  - name: Didier (Desiderius) of Cahors
-    note: Bishop of Cahors and a kinsman of Salvius within the ecclesiastical families of southern Gaul.
 patronage:
   - The city of Albi
 status: draft

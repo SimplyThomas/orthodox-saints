@@ -32,9 +32,10 @@ sections:
       - Eusebius further relates that Astyrius, a Roman senator of wealth and distinction, was present at the execution, took up the martyr's body, and gave it a costly and fitting burial; this senator is himself venerated as a martyr. The in-repo record places the saint's origin in Italy / Rome and observes his feast on December 16, while the historical accounts associate the soldier-martyr of this name with Caesarea in Palestine.
 patronage:
   - Soldiers and those whose duties test their faith
-related:
+companions:
   - name: Senator Astyrius (Asterius) of Caesarea
     note: By the account of Eusebius, the senator who took up Marinus's body and gave it honorable burial; himself venerated as a martyr.
+    href: saint/OS-1658
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Marinus_of_Caesarea

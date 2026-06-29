@@ -30,9 +30,10 @@ timeline:
   - when: "2005"
     title: Glorification
     body: Canonized by the Romanian Orthodox Church; feast set on September 9.
-related:
+companions:
   - name: Paisius (Velichkovsky) of Neamț
     note: Spiritual father who conferred the Great Schema; leader of the Moldavian monastic revival.
+    href: saint/OS-2199
 status: draft
 sources:
   - Synaxarion

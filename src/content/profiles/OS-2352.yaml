@@ -26,11 +26,13 @@ sections:
   - heading: Veneration
     body:
       - "The Orthodox Church commemorates the Prophet Nathan on December 14, and he is numbered among the Holy Forefathers honored in the Sundays before the Nativity. His role in David's repentance is recalled in Orthodox liturgical usage: the Prayer of Absolution in the Mystery of Confession remembers that God pardoned David through the Prophet Nathan when David confessed his sin."
-related:
+companions:
   - name: Prophet King David
     note: King whom Nathan counseled, to whom he announced the covenant, and whom he rebuked.
+    href: saint/OS-2421
   - name: Solomon
     note: King whom Nathan named Jedidiah and whose succession he secured and anointing he presided over.
+    href: saint/OS-2357
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -17,13 +17,17 @@ sections:
   - heading: Commemoration
     body:
       - Benjamin is not the subject of a fixed daily synaxarion entry but is honored together with the patriarchs and ancestors of Christ. The Sunday of the Holy Forefathers, kept on the Sunday falling within December 11-17 before the Nativity, commemorates the Old Testament forebears who lived before and under the Law, among them Adam, Noah, Abraham, Isaac, and Jacob and his sons. The anchor date of December 14 situates Benjamin within this pre-Nativity Forefathers cycle.
-related:
-  - name: Patriarch Jacob (Israel)
-    note: Father; Benjamin was the youngest of his twelve sons.
-  - name: Righteous Rachel
-    note: Mother; she died giving birth to Benjamin and named him Ben-oni.
-  - name: Righteous Joseph the All-Comely
-    note: Full brother; Benjamin is central to the Joseph narrative in Genesis.
+family:
+  figures:
+    - name: Patriarch Jacob (Israel)
+      note: Father; Benjamin was the youngest of his twelve sons.
+      href: saint/OS-2349
+    - name: Righteous Rachel
+      note: Mother; she died giving birth to Benjamin and named him Ben-oni.
+      href: saint/OS-2546
+    - name: Righteous Joseph the All-Comely
+      note: Full brother; Benjamin is central to the Joseph narrative in Genesis.
+      href: saint/OS-2547
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

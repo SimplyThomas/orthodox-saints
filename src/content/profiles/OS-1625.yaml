@@ -38,13 +38,16 @@ sections:
     body:
       - The narrative of the discovery of the relics is preserved in a letter attributed to Lucian of Caphargamala and widely circulated in the fifth century. It describes three visions in which Gamaliel appeared to the priest and identified the location of the graves. Upon excavation, four tombs were found containing the relics of Gamaliel, Stephen, Nikodemos, and Abibas.
       - "The relics were distributed widely: Stephen's remains became a major pilgrimage focus after being transferred first to Carthage and then to Rome. The relics of Gamaliel, Nikodemos, and Abibas passed to Constantinople in 428."
-related:
+companions:
   - name: Protomartyr and Archdeacon Stephen
     note: Whose body Gamaliel buried and whose relics were discovered alongside his own
+    href: saint/OS-0009
   - name: Righteous Nikodemos
     note: Fellow secret believer, buried at Caphargamala with Gamaliel
+    href: saint/OS-1624
   - name: Holy Apostle Paul
     note: Student of Gamaliel before his conversion (Acts 22:3)
+    href: saint/OS-2749
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

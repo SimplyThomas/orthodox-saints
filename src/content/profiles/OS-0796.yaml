@@ -27,12 +27,13 @@ timeline:
     title: Repose
     body: According to the Orthodox Church in America, Hermes reposed in peace.
     source: https://www.oca.org/saints/lives/1993/03/08/100701-apostle-hermes-of-the-seventy
-related:
+companions:
   - name: Apostle Herodion of the Seventy
     note: Fellow apostle of the Seventy commemorated together with Hermes in the April 8 grouping.
     external: https://www.oca.org/saints/lives/2017/04/08/101024-apostle-herodion-of-the-seventy-and-those-with-him
   - name: Apostle Titus
     note: By one tradition, Hermes succeeded Titus as Bishop of Dalmatia.
+    href: saint/OS-1775
 patronage:
   - One of the Seventy Apostles; early bishop of Dalmatia
 sources:

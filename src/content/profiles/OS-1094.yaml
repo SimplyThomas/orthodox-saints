@@ -36,7 +36,7 @@ timeline:
   - when: "1845"
     title: Uncovering of relics
     body: His relics were uncovered and translated to the Metropolitan Church of Chios.
-related:
+companions:
   - name: Saint Macarius of Corinth
     note: His chief spiritual mentor; entrusted him with completing The New Leimonarion.
     href: saint/OS-1010

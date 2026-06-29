@@ -33,10 +33,10 @@ sections:
 patronage:
   - Physicians and those in medical work
   - The sick seeking healing
-related:
+companions:
   - name: Saint Anthony of the Kyiv Caves
     note: Founder of the Kiev Caves monastery, who tonsured Agapitus and admitted him to monastic vows.
-    href: OS-0136
+    href: saint/OS-0136
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Agapetus_of_the_Kiev_Caves

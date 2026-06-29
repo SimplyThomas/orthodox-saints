@@ -26,7 +26,7 @@ sections:
     body:
       - "A group of these African confessors is commemorated together: among the names preserved are Donatian, Praesidius, Mansuetus, Germanus, Fusculus, and Laetus, who were driven out of Africa into exile for confessing the true faith."
       - Laetus was a bishop and, by the accounts, a courageous and most learned man. After being held a long time in a foul dungeon, he was burned alive; Huneric ordered his death by fire in the hope of striking fear into the rest of the Nicene camp. These events were recorded by Victor of Vita in his History of the Vandal Persecution, the principal source for the African confessors of this age. After Huneric's death in late 484, his successor Gunthamund permitted the surviving exiles to return.
-related:
+companions:
   - name: Eugenius of Carthage
     note: Bishop of Carthage, exiled by Huneric to the desert of Tripoli during the same persecution.
 patronage: []

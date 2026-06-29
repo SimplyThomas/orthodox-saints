@@ -17,13 +17,15 @@ sections:
   - heading: Place, Date, and Commemoration
     body:
       - The events are set in Egypt, in the Thebaid, with the tradition naming the city of Antinoe; the company is titled "of Alexandria" in the Orthodox commemoration, and relics are said by tradition to have been carried to Alexandria. The martyrdoms are dated to the reign of Diocletian, conventionally around 305. While some historical and Western notices record differing March dates for the individual martyrs, the Orthodox Church commemorates the company together on December 14.
-related:
+family:
+  figures:
+    - name: Martyr Theonas
+      note: Brother of Philemon, who recognized and identified him before the magistrate.
+companions:
   - name: Martyr Apollonios the Reader
     note: A Church Reader who, fearing torture, paid Philemon to sacrifice in his place; martyred with him.
   - name: Martyr Arrian (Arrianos)
     note: Governor of the Thebaid and persecutor, healed of blindness by earth from Philemon's grave and converted; martyred with his guards.
-  - name: Martyr Theonas
-    note: Brother of Philemon, who recognized and identified him before the magistrate.
 patronage:
   - Martyrs of Egypt
   - Conversion from paganism to Christ

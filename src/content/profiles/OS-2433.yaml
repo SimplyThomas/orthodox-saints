@@ -19,7 +19,7 @@ timeline:
   - when: early 4th century
     title: Exile and death on Prokonnesos
     body: Sentenced to exile on the island of Prokonnesos in the Sea of Marmara, where he died and was buried by Saint Eubiotus.
-related:
+companions:
   - name: Saint Eubiotus
     note: Hermit on Prokonnesos who received the exiled martyr and buried him.
 patronage: []

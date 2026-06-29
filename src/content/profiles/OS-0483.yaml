@@ -23,7 +23,7 @@ timeline:
   - when: c. 1101
     title: Repose
     body: Ephraim died around the turn of the twelfth century, with sources placing his repose c. 1101–1103.
-related:
+companions:
   - name: St. Dionysius the Areopagite
     note: Five of whose works Ephraim translated into Georgian
     href: saint/OS-1942

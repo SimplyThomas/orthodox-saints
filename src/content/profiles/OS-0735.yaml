@@ -23,9 +23,10 @@ sections:
     body:
       - After the death of the emperor, Basil and Prokopios were released from prison and returned to the monastic life. In his remaining years Basil instructed many in the Orthodox faith and in the virtuous life.
       - He reposed in peace about the year 750. His companion Prokopios, commemorated the previous day, likewise reposed at an advanced age around the same year.
-related:
+companions:
   - name: Venerable Prokopios the Confessor of Decapolis
     note: Co-struggler in the monastic life and fellow confessor, imprisoned with Basil under Leo the Isaurian; commemorated February 27.
+    href: saint/OS-0727
 patronage:
   - Those who suffer for the faith
   - Confessors and the persecuted

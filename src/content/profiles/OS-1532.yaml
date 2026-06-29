@@ -39,9 +39,10 @@ sections:
   - heading: Repose and Veneration
     body:
       - Nikodemos reposed on Mount Athos on 14 July 1809, at about the age of sixty. He was formally glorified by the Patriarchate of Constantinople on 31 May 1955, and his feast is kept on 14 July.
-related:
+companions:
   - name: Macarius of Corinth
     note: Lifelong friend and collaborator, with whom Nikodemos compiled the Philokalia and the Evergetinos.
+    href: saint/OS-1010
 works:
   - title: The Philokalia
     desc: An anthology of patristic writings on prayer and inner watchfulness, compiled with Macarius of Corinth.

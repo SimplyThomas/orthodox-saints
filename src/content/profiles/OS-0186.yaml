@@ -34,9 +34,10 @@ timeline:
   - when: "2000"
     title: Glorification
     body: Numbered among the New Martyrs and Confessors of the Russian Church at the Jubilee Bishops' Council of the Russian Orthodox Church.
-related:
-  - name: Hieromartyr Konstantin Bazhanov
-    note: His brother, also a priest of Selishchi, who suffered martyrdom in 1937.
+family:
+  figures:
+    - name: Hieromartyr Konstantin Bazhanov
+      note: His brother, also a priest of Selishchi, who suffered martyrdom in 1937.
 patronage:
   - New Martyrs of Russia; those enduring persecution
 status: draft

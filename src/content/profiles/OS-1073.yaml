@@ -32,9 +32,10 @@ sections:
     body:
       - Beyond his sermons Cyril composed a substantial body of prayers, including a cycle arranged for the days of the week, together with penitential and liturgical canons. The manuscript tradition preserves a large number of prayers under his name, and the accumulated body of his writings — sermons, prayers, parables, and canons — runs to dozens of pieces, an unusually large surviving corpus for a writer of his age.
       - Cyril described his own work with humility, likening himself to one who gathers sheaves of grain left by others rather than claiming originality. Some details of his biography and the attribution of his title and works are debated by modern scholars, but his place as a major literary figure of the Rus' Church is well established.
-related:
+companions:
   - name: Saints Boris and Gleb
     note: Passion-bearer princes of Rus' to whom the monastery of Cyril's tonsure was dedicated
+    href: saint/OS-0236
 patronage:
   - Preachers and homilists
   - Those who write and study the Scriptures

@@ -39,9 +39,10 @@ sections:
 works:
   - title: Apology of Aristides
     desc: An early Christian apologetic work, regarded as the oldest preserved, defending the Christian faith and presenting Christians as alone holding the true knowledge of God; addressed by tradition to the Emperor Hadrian.
-related:
+companions:
   - name: Quadratus of Athens
     note: An early Christian apologist whose defense of the faith is, by the ancient witnesses, associated with the same period as that of Aristides.
+    href: saint/OS-1874
 reading:
   - heading: Sources & Further Reading
     items:

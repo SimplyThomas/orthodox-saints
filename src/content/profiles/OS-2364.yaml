@@ -21,9 +21,11 @@ timeline:
   - when: Dec 15
     title: Commemoration
     body: The Church commemorates Eleutherius together with his mother and those martyred with him.
-related:
-  - name: Martyr Evanthia (Anthia)
-    note: His mother, said to have been baptized by the Apostle Paul; beheaded over her son's body.
+family:
+  figures:
+    - name: Martyr Evanthia (Anthia)
+      note: His mother, said to have been baptized by the Apostle Paul; beheaded over her son's body.
+companions:
   - name: Caribus (Coremonus) the Eparch
     note: The Roman eparch who presided over the torture, then confessed Christ and was beheaded.
 patronage:

@@ -15,9 +15,10 @@ sections:
   - heading: Canonization
     body:
       - The two priest-martyrs and forty student-martyrs were canonized by the Holy Assembly of Bishops of the Serbian Orthodox Church in May 2012. The formal declaration of their sainthood was made at a hierarchical Divine Liturgy at the Memorial Church of St. Sava on Vračar in Belgrade on May 19, 2012, led by Patriarch Irinej of Serbia. Their feast is kept on March 9, the same day as the Holy Martyrs of Sebaste.
-related:
+companions:
   - name: Forty Martyrs of Sebaste
     note: Commemorated on the same day, March 9; the relics of the Momišići martyrs are venerated in connection with their feast.
+    href: saint/OS-0799
 patronage:
   - Students and teachers
   - Christians under persecution

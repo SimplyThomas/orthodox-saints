@@ -22,7 +22,7 @@ timeline:
   - when: "1688"
     title: Monastery dissolved
     body: The Opochsky Monastery was abolished and its Church of the Prophet Elijah became a parish church.
-related:
+companions:
   - name: Euphrosynos of Pskov
     note: Pioneer of Pskov monasticism and founder of the Spaso-Eleazarovsky Monastery; Joachim is counted among his disciples.
 status: draft

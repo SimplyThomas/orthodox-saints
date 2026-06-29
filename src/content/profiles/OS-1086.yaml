@@ -96,11 +96,13 @@ sections:
         invaders. Another tradition relates that, long after his death, his relics were
         transferred to Alexandria. The Books of Jeremiah and of Lamentations are
         ascribed to him in the scriptural and liturgical tradition.
-related:
+companions:
   - name: Prophet Baruch
     note: Jeremiah's faithful scribe and companion, who recorded his prophecies
+    href: saint/OS-1918
   - name: Prophet Ezekiel
     note: A great prophet of the same generation, ministering among the Babylonian exiles
+    href: saint/OS-1564
 patronage:
   - Those who suffer for speaking unwelcome truth
   - Those who endure persecution for faithfulness to God

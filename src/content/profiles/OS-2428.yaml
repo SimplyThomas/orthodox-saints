@@ -20,7 +20,7 @@ timeline:
   - when: c. 818
     title: Death from his wounds
     body: After being beaten and cast outside the city walls, he is taken in by a Christian and dies of his injuries a few days later.
-related:
+companions:
   - name: Venerable Theodore the Studite
     note: Abbot of the Stoudios monastery and Thaddeus's teacher
     href: saint/OS-2180

@@ -13,16 +13,17 @@ sections:
     body:
       - Vladislav's enduring legacy is the monastery of Mileševa, which he founded in the 1230s as his royal endowment and intended burial place. The monastery's church is celebrated for its frescoes, among them the figure known as the White Angel at the empty tomb of Christ, one of the most famous works of medieval Serbian painting.
       - By tradition, Vladislav obtained the relics of his uncle Saint Sava, who had died at Trnovo in Bulgaria, and had them translated to Mileševa, where they were enshrined. The monastery thereby became a major center of veneration in the Serbian lands.
-related:
-  - name: Saint Stephen the First-Crowned of Serbia
-    note: father; first crowned king of Serbia
-    href: saint/OS-1904
-  - name: Saint Sava I, First Archbishop of Serbia
-    note: uncle; whose relics Vladislav translated to Mileševa
-    href: saint/OS-0449
-  - name: Venerable Symeon the Myrrh-gusher of Serbia
-    note: grandfather; Stefan Nemanja, founder of the Nemanjić dynasty
-    href: saint/OS-0653
+family:
+  figures:
+    - name: Saint Stephen the First-Crowned of Serbia
+      note: father; first crowned king of Serbia
+      href: saint/OS-1904
+    - name: Saint Sava I, First Archbishop of Serbia
+      note: uncle; whose relics Vladislav translated to Mileševa
+      href: saint/OS-0449
+    - name: Venerable Symeon the Myrrh-gusher of Serbia
+      note: grandfather; Stefan Nemanja, founder of the Nemanjić dynasty
+      href: saint/OS-0653
 patronage:
   - Right-believing rulers and church builders
   - Charity toward the poor and destitute

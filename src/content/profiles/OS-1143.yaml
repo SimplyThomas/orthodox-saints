@@ -28,7 +28,7 @@ timeline:
   - when: 597 or 602
     title: Repose
     body: Comgall dies; accounts vary between 597 and 602.
-related:
+companions:
   - name: Venerable Columbanus of Luxeuil
     note: Disciple trained at Bangor who founded monasteries on the continent at Luxeuil and Bobbio.
     href: saint/OS-2693

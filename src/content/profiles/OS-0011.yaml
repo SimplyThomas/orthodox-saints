@@ -60,9 +60,10 @@ sources:
   - https://oca.org/saints/lives/2024/09/09
   - https://en.wikipedia.org/wiki/Protoevangelium_of_James
   - https://en.wikipedia.org/wiki/Mary%2C_mother_of_Jesus
-related:
-  - name: Righteous Anna
-    note: His wife; parents of the Theotokos, jointly commemorated September 9
-    href: saint/OS-2750
+family:
+  figures:
+    - name: Righteous Anna
+      note: His wife; parents of the Theotokos, jointly commemorated September 9
+      href: saint/OS-2750
 status: reviewed
 generated: "2026-06-18"

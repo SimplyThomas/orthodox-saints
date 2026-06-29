@@ -39,9 +39,11 @@ patronage:
   - Those who suffer illness and bodily affliction
   - Those bearing grief and loss
   - Patience and endurance in trials
-related:
-  - name: Prophet and Patriarch Abraham
-    note: By tradition Job is reckoned a fifth-generation descendant of Abraham.
+family:
+  figures:
+    - name: Prophet and Patriarch Abraham
+      note: By tradition Job is reckoned a fifth-generation descendant of Abraham.
+      href: saint/OS-1984
 reading:
   - heading: Scripture
     items:

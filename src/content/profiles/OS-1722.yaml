@@ -23,7 +23,7 @@ timeline:
   - when: 960s
     title: Translation of relics
     body: His relics are translated from Troyes to Cologne and then to Soest in Westphalia.
-related:
+companions:
   - name: Sabinian of Troyes
     note: By tradition converted to the faith by Patroclus.
 patronage:

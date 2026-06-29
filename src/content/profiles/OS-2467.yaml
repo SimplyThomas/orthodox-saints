@@ -36,9 +36,10 @@ timeline:
     body: His incorrupt relics are discovered, and a leprous noble of Thessalonica is healed at a spring near his tomb.
 patronage:
   - Those suffering from skin diseases and severe headaches
-related:
+companions:
   - name: Euphymianos of Thessalonica
     note: A duke or prince of Thessalonica whom tradition credits with discovering the saint's relics and being healed of leprosy at his tomb.
+    commemorated: false
 status: draft
 sources:
   - GOARCH calendar

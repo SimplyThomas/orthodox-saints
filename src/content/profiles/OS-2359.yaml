@@ -9,13 +9,14 @@ sections:
     body:
       - Ruth is honored among the Holy Forefathers, the righteous men and women of the Old Testament who are ancestors of Christ according to the flesh. As a foremother she is commemorated on the Sunday of the Forefathers, the Sunday before the Nativity of Christ, when the Church recalls the lineage from which the incarnate Word was born.
       - Orthodox sources direct readers to the Book of Ruth itself for the account of her life, the narrative tradition adding little beyond the biblical text. She is venerated especially for her faithfulness to Naomi and for her embrace of the faith of Israel, by which a foreigner of Moab was brought into the ancestry of the Messiah.
-related:
-  - name: Righteous Boaz
-    note: Kinsman of Bethlehem who took Ruth as his wife; father of Obed and ancestor of David and of Christ.
-    href: saint/OS-2574
-  - name: Prophet-King David
-    note: Great-grandson of Ruth through Obed and Jesse; shepherd, king, and forefather of Christ.
-    href: saint/OS-2421
+family:
+  figures:
+    - name: Righteous Boaz
+      note: Kinsman of Bethlehem who took Ruth as his wife; father of Obed and ancestor of David and of Christ.
+      href: saint/OS-2574
+    - name: Prophet-King David
+      note: Great-grandson of Ruth through Obed and Jesse; shepherd, king, and forefather of Christ.
+      href: saint/OS-2421
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

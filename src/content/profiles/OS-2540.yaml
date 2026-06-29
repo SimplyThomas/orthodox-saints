@@ -9,13 +9,14 @@ sections:
     body:
       - "Genesis explains Peleg's name as it is given: 'And unto Eber were born two sons: the name of one was Peleg; for in his days was the earth divided; and his brother's name was Joktan' (Genesis 10:25). The same note appears in 1 Chronicles 1:19. The Hebrew name corresponds to a root meaning 'to divide' or 'division.'"
       - Traditional interpretation of the phrase has varied. Many readers, ancient and modern, have linked it to the scattering of humanity at Babel and the confusion of languages described in the chapter that follows. Other ancient traditions understood it instead as a parceling-out of the earth's lands among Noah's descendants. The Scripture itself records only that the division occurred in Peleg's days.
-related:
-  - name: Righteous Forefather Eber
-    note: His father, in the line of Shem
-    href: saint/OS-2539
-  - name: Righteous Forefather Reu
-    note: His son, continuing the line toward Abraham
-    href: saint/OS-2541
+family:
+  figures:
+    - name: Righteous Forefather Eber
+      note: His father, in the line of Shem
+      href: saint/OS-2539
+    - name: Righteous Forefather Reu
+      note: His son, continuing the line toward Abraham
+      href: saint/OS-2541
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -82,12 +82,14 @@ family:
   figures:
     - name: Licinius
       note: Her father, a pagan ruler of Magedon; by tradition converted and baptized after her deliverance
+      commemorated: false
     - name: Licinia
       note: Her mother, by tradition baptized with her father
+      commemorated: false
 patronage:
   - Those who suffer for their confession of the faith
   - Converts to the Christian faith
-related:
+companions:
   - name: Saint Timothy the priest
     note: The priest who baptized Penelope and gave her the name Irene
 sources:

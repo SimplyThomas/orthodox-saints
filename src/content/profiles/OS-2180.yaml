@@ -31,21 +31,16 @@ timeline:
   - when: "826"
     title: Repose
     body: Died after years of exile and confession for the faith.
-related:
-  - name: St. Joseph, Bishop of Thessalonica
-    note: His brother, a hymnographer and confessor who also suffered exile for the icons
-    href: saint/OS-0547
-  - name: St. Plato of the Studion
-    note: His uncle and spiritual father, founder of the Sakkoudion monastery
-    href: saint/OS-0940
 family:
   heading: Family
   intro: Theodore was born into a devout family of Constantinople that embraced the monastic life together under his uncle Plato.
   figures:
     - name: Photinus
       note: His father, an imperial tax official
+      commemorated: false
     - name: Theoctiste
       note: His mother, who oversaw his upbringing
+      commemorated: false
     - name: St. Plato
       note: His uncle and abbot of Sakkoudion
       href: saint/OS-0940

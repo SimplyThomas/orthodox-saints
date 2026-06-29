@@ -52,15 +52,20 @@ family:
   figures:
     - name: Yegor Vasil'evich Netsvetov
       note: His father, a Russian from Tobolsk who managed affairs for the Russian-American Company.
+      commemorated: false
     - name: Maria Alekseevna
       note: His mother, an Aleut of Atka Island.
+      commemorated: false
     - name: Anna Simeonovna
       note: His wife, whom he married before ordination; she died of illness in March 1836.
+      commemorated: false
     - name: Vasilii Netsvetov
       note: His nephew, who assisted him as a co-worker in the Kvikhpak Mission.
-related:
+      commemorated: false
+companions:
   - name: Saint Innocent of Alaska
     note: Hierarch and missionary with whom he corresponded on linguistics and who appointed him to the Kvikhpak Mission.
+    href: saint/OS-0054
 patronage:
   - Alaska and its native peoples
   - Orthodox missionaries and translators

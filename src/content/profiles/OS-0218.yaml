@@ -26,7 +26,7 @@ timeline:
   - when: "1937"
     title: Martyrdom
     body: Put to death in exile in the Mari ASSR under sentence of the Soviet authorities.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Patriarch of Moscow who consecrated him Bishop of Narva in 1924
     href: saint/OS-0053

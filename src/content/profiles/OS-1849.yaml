@@ -10,9 +10,10 @@ sections:
     body:
       - The fuller narrative of repeated trials and miraculous deliverances is preserved in the Eastern synaxaria, which name two successive governors—Georgios at Marcianopolis and Pompian at Heraclea. The Roman Martyrology gives a more compressed notice, placing the martyrdom under the emperor Domitian and a governor named Sergius, and recording simply that she was tormented in various ways and beheaded.
       - Her commemoration is kept on September 16 in the Eastern Orthodox calendar; some Western calendars, including the Roman Martyrology, list her on September 10.
-related:
+companions:
   - name: Apostle Paul
     note: The apostle whose disciple Sebastiana is remembered to have been, and through whom she came to the faith.
+    href: saint/OS-2749
 patronage:
   - Early martyrs who confessed Christ under persecution
 status: draft

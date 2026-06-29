@@ -21,9 +21,10 @@ timeline:
   - when: "1601"
     title: Martyrdom
     body: Arrested in connection with the rising of Dionysios the Philosopher, he was tortured and impaled, dying on December 4.
-related:
+companions:
   - name: Metropolitan Dionysios the Philosopher of Larissa
     note: Leader of the 1601 rising in whose suppression Seraphim was implicated and martyred.
+    commemorated: false
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

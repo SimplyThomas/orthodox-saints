@@ -33,10 +33,12 @@ timeline:
   - when: "1698"
     title: Canonization
     body: Formally canonized; her veneration was established within the Russian Church.
-related:
-  - name: Martyrs Michael and Theodore of Chernigov
-    note: Her father, Prince Michael of Chernigov, martyred before the Mongol khan
-    href: saint/OS-1871
+family:
+  figures:
+    - name: Martyrs Michael and Theodore of Chernigov
+      note: Her father, Prince Michael of Chernigov, martyred before the Mongol khan
+      href: saint/OS-1871
+companions:
   - name: Saint Theodore Yaroslavich
     note: Brother of Alexander Nevsky to whom she was betrothed; he reposed on the eve of his wedding
     href: saint/OS-1294

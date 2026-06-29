@@ -27,7 +27,7 @@ timeline:
   - when: "2008"
     title: Canonization
     body: The Holy Synod of the Romanian Orthodox Church canonized both fathers, setting their feast on September 7.
-related:
+companions:
   - name: Saint Stephen the Great of Moldavia
     note: Prince of Moldavia who supported the Pângărați foundation and, by tradition, enshrined Symeon's relics in 1484.
     href: saint/OS-1455

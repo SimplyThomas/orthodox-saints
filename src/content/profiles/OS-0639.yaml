@@ -30,11 +30,12 @@ sections:
   - heading: Name and Patronage
     body:
       - Her name has been connected to the Irish word for a smith (gabha), and she has been regarded as a patron of ironworkers; archaeological excavation at the Ballyvourney church site has uncovered evidence of ironworking. She is best known, however, as a patron of bees and beekeepers, and as a protector invoked against plague and pestilence.
-related:
+companions:
   - name: Saint Abban
     note: By tradition assisted in founding her community and placed her as abbess.
   - name: Saint Enda of Aran
     note: Associated in tradition with her monastic training on the Aran Islands.
+    href: saint/OS-0861
 patronage:
   - Bees and beekeepers
   - Protection against plague and pestilence

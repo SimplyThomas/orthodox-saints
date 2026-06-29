@@ -30,10 +30,10 @@ sections:
     body:
       - Nicholas Cabasilas was glorified as a saint in the Eastern Orthodox Church in 1983, and his feast is kept on June 20. He is honored as a Righteous father whose writings continue to be read as foundational expositions of the sacramental life.
 patronage: []
-related:
+companions:
   - name: St. Gregory Palamas
     note: Defender of the Hesychasts whom Cabasilas supported in the controversy of their century.
-    href: /saint/OS-0025
+    href: saint/OS-0025
 works:
   - title: The Life in Christ
     desc: His principal spiritual treatise, on union with Christ through the sacraments of the Church.

@@ -41,8 +41,9 @@ patronage:
   - Those who are blind and afflicted with eye diseases
   - Eyesight
   - The city of Syracuse
-related:
+companions:
   - name: Saint Agatha of Catania
     note: Sicilian virgin martyr at whose tomb Lucy's mother was healed; by tradition Agatha appeared to Lucy in a vision.
+    href: saint/OS-0600
 status: draft
 generated: "2026-06-19"

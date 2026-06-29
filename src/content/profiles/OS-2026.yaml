@@ -45,7 +45,7 @@ sections:
 patronage:
   - Military personnel
   - Those afflicted with blindness or diseases of the eyes
-related:
+companions:
   - name: The Holy Apostles
     note: Tradition holds that Longinus received baptism from the apostles after the Resurrection.
 status: draft

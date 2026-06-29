@@ -30,12 +30,13 @@ timeline:
   - when: Aug 25
     title: Translation of relics to Lipari
     body: His relics were brought to the island of Lipari, a commemoration kept on August 25.
-related:
+companions:
   - name: Apostle Barnabas of the Seventy
     note: Apostle commemorated on the same day, June 11.
     href: saint/OS-1331
   - name: Apostle Philip
     note: Fellow apostle with whom Bartholomew is paired in the apostolic lists and, by tradition, in his missionary labors.
+    href: saint/OS-2578
 patronage:
   - Tanners, leatherworkers, tailors, and bookbinders
 status: draft

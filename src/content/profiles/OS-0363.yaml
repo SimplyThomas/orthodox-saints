@@ -16,9 +16,10 @@ sections:
     body:
       - Cassian's abbacy belonged to the Spaso-Kamenny, or Kamenny, Monastery, set on a small island roughly 120 metres by 70 metres at the centre of Lake Kubenskoye in the Vologda region of the Russian North. By tradition the house was founded around 1260 by Duke Gleb Vasilkovich, Prince of Belozersk, who had vowed during a storm to establish a church wherever his vessel reached shore; he landed on the island, where hermits already dwelt, and raised a church dedicated to the Transfiguration of the Saviour.
       - The monastery is remembered as the first stone monastery of the Russian North. In the time of Dmitry Donskoy the Greek monk Dionisius had introduced to it the monastic rule of Mount Athos, including the communal (cenobitic) life, so that by Cassian's day it stood within a settled tradition of northern Russian monasticism.
-related:
+companions:
   - name: Saint Joasaph of Kubensk
     note: Prince Andrew of Zaozersk, whom Cassian received and tonsured at the Kamenny Monastery in 1452; later venerated as Wonderworker of Vologda.
+    href: saint/OS-0362
 reading:
   - heading: Background
     items:

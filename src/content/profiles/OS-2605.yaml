@@ -39,7 +39,7 @@ timeline:
   - when: "2007"
     title: Glorification
     body: The Romanian Orthodox Church glorifies him as a saint, with his feast on August 30.
-related:
+companions:
   - name: Saint John of Rășca and Secu
     note: Bishop of Roman and monk of the same Moldavian monasteries, commemorated on the same day, August 30.
     href: saint/OS-2609

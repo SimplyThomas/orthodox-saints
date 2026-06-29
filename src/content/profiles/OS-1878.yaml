@@ -9,9 +9,10 @@ sections:
     body:
       - The principal record of Isaac is liturgical rather than biographical. The Orthodox Church in America lists him on September 21 without a written life, while Greek-tradition calendars commemorate him on the same day alongside Meletius, naming both as bishops of Sitis in Cyprus.
       - Some notices give Isaac's name in the alternate form Akakios, and Meletius is additionally listed under September 20 in certain calendars. The variation in name and date reflects the partial and sometimes divergent transmission of the memory of early Cypriot saints rather than any settled biography.
-related:
+companions:
   - name: Saint Meletius of Cyprus
     note: Commemorated together with Isaac on September 21; named in the Greek tradition as a fellow bishop of Sitis in Cyprus.
+    href: saint/OS-1879
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

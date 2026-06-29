@@ -27,7 +27,7 @@ timeline:
   - when: c. 634
     title: Repose
     body: Modestos reposed at an advanced age; his feast is kept on December 18.
-related:
+companions:
   - name: St. Zacharias, Patriarch of Jerusalem
     note: The patriarch carried into Persian captivity in 614, for whom Modestos governed as locum tenens.
     href: saint/OS-0706
@@ -42,7 +42,7 @@ related:
     href: saint/OS-0430
 patronage:
   - Health and protection of livestock and animals
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2017/12/18/103579-saint-modestos-archbishop-of-jerusalem

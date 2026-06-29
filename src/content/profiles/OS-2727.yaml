@@ -22,11 +22,13 @@ sections:
     body:
       - Achillas occupied the see of Alexandria for only a short time, traditionally dated from late 312 to 313. He had been ordained a priest by Pope Theonas and was reckoned among the city's learned clergy, having directed the Catechetical School of Alexandria.
       - The episode for which he is remembered is his treatment of Arius. Peter, his martyred predecessor, had condemned and excommunicated the presbyter; Achillas, prevailed upon by Arius's supporters, restored him to clerical office and stationed him at an Alexandrian church. Orthodox accounts note that this is essentially the only act of his episcopate that survives in the record. After Achillas's death Arius advanced his own candidacy for the see, but the clergy and people elected Alexander instead, under whom the dispute over Arius's teaching came to a head.
-related:
+companions:
   - name: Saint Peter of Alexandria
     note: Predecessor as Patriarch of Alexandria; the 'Seal of the Martyrs' who had condemned Arius.
+    href: saint/OS-2252
   - name: Saint Alexander of Alexandria
     note: Successor as Patriarch of Alexandria, under whom the Arian controversy intensified.
+    href: saint/OS-2472
 sources:
   - OCA Synaxarion (oca.org)
   - OrthodoxWiki

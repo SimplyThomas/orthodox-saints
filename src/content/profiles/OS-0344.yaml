@@ -14,9 +14,10 @@ sections:
   - heading: Clement
     body:
       - Clement is mentioned by the Apostle Paul in his Epistle to the Philippians, where Paul speaks of his fellow workers "whose names are in the book of life" (Philippians 4:3). He is remembered as bishop of Sardica and, according to tradition, suffered wounds on behalf of Christ before departing to the Lord. He is not to be confused with Clement of Rome.
-related:
+companions:
   - name: The Seventy Apostles
     note: Apelles, Lucius, and Clement are numbered among the Seventy disciples sent out by Christ, whose synaxis is kept on January 4.
+    href: saint/OS-0384
 status: draft
 sources:
   - Synaxarion

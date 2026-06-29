@@ -30,11 +30,14 @@ sections:
     body:
       - Ita reposed around the year 570 after a life devoted to ascetic discipline. Her grave remains at the ruins of her church at Killeedy, a place of continued local devotion.
       - She is venerated as a saint in both the Orthodox and Roman Catholic traditions, and her feast is kept on January 15. She is honored as patroness of Killeedy and, with Saint Munchin, as co-patron of the Diocese of Limerick; at the request of the Bishop of Limerick, Pope Pius IX granted a special Office and Mass for her feast.
-related:
+family:
+  figures:
+    - name: Mochaemhoc
+      note: Ita's nephew, raised by her in infancy and later venerated as a saint.
+companions:
   - name: Brendan of Clonfert
     note: The seafaring abbot whom Ita fostered and taught as a child; he retained a lifelong devotion to her.
-  - name: Mochaemhoc
-    note: Ita's nephew, raised by her in infancy and later venerated as a saint.
+    href: saint/OS-1191
 patronage:
   - Killeedy
   - The Diocese of Limerick (co-patron)

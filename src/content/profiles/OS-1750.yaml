@@ -38,8 +38,9 @@ timeline:
   - when: by 450
     title: Church at Chalcedon
     body: A church in honor of the holy martyr Bassa already stood at Chalcedon, attesting to her established veneration.
-related:
-  - name: Theognis, Agapius and Pistus
-    note: Bassa's three sons, martyred with her and commemorated together on August 21.
+family:
+  figures:
+    - name: Theognis, Agapius and Pistus
+      note: Bassa's three sons, martyred with her and commemorated together on August 21.
 status: draft
 generated: "2026-06-19"

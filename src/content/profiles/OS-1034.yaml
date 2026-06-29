@@ -32,9 +32,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - The relics of Athanasius are venerated at the Monastery of the Transfiguration (the Great Meteoron), where, according to a cross-checking account, they rest together with those of his successor Joasaph.
-related:
+companions:
   - name: Joasaph of Meteora
     note: Disciple and successor of Athanasius; formerly John Uros Palaiologos, a joint king of Serbia who took the monastic habit and became the second founder and builder of the Great Meteoron.
+    href: saint/OS-2498
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - en.wikipedia.org

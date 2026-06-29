@@ -27,7 +27,7 @@ timeline:
   - when: December 7
     title: Repose
     body: Gregory dies and is buried in the monastery of Gornjak; his memory is kept on this day.
-related:
+companions:
   - name: Venerable Gregory of Sinai
     note: Founder of the Sinaitic hesychast way among the Balkan monks, in whose lineage Gregory of Gornjak stood
     href: saint/OS-1671

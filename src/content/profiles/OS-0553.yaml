@@ -29,7 +29,7 @@ timeline:
   - when: c. 826/830
     title: Slain at the altar
     body: Betrayed and pursued, Ashot is assassinated at the altar of a church in the Nigali valley.
-related:
+companions:
   - name: Venerable Gregory of Khandzta
     note: The monastic founder of the Klarjeti wilderness whose communities Ashot endowed with lands.
     href: saint/OS-1966

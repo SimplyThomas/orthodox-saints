@@ -27,11 +27,14 @@ timeline:
   - when: by tradition
     title: Reunion with Barlaam
     body: After many years of ascetic life in the wilderness, Joasaph is reunited with his teacher Barlaam.
-related:
+family:
+  figures:
+    - name: King Abenner
+      note: Joasaph's father, the Indian king who confined him; in the tradition he later turns to Christ.
+      commemorated: false
+companions:
   - name: Barlaam the monk
     note: The hermit-monk who instructed and baptized Joasaph and with whom he is commemorated on November 19; in the tradition the two are reunited in the desert.
-  - name: King Abenner
-    note: Joasaph's father, the Indian king who confined him; in the tradition he later turns to Christ.
   - name: 17 Monastic Martyrs in India
     note: Monks connected with the Barlaam and Joasaph tradition who suffered under King Abenner.
     href: saint/OS-2262

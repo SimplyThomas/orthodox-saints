@@ -25,9 +25,9 @@ timeline:
   - when: c. 709
     title: Repose
     body: Bertin reposes after appointing Rigobert his successor; the abbey is later rededicated in his name.
-related:
+companions:
   - name: St. Omer of Therouanne
-    note: Bishop and kinsman whom Bertin came north to assist in the mission to the Morini
+    note: Bishop whom Bertin came north to assist in the mission to the Morini
     href: saint/OS-0326
   - name: St. Columbanus of Luxeuil
     note: Irish founder of Luxeuil, whose rule formed Bertin's monastic life

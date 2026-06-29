@@ -46,7 +46,7 @@ timeline:
   - when: "1992"
     title: Glorification
     body: Glorified by the Russian Orthodox Church among the New Martyrs.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Patriarch of Moscow during the persecution; the renovationists accused bishops loyal to him.
     href: saint/OS-0053

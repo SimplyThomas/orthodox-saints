@@ -9,7 +9,7 @@ sections:
   - heading: Identity and distinction
     body:
       - Because several monastic figures bear the name Palladius, the tradition explicitly separates this Thessalonian ascetic from Palladius of Galatia, the fourth-century author of the Lausiac History. The two are distinct persons separated by roughly two centuries and by different regions of origin; the conflation is guarded against in the saint's own commemoration.
-related:
+companions:
   - name: Palladius of Galatia
     note: A distinct, earlier saint (commemorated January 28), the fourth-century author of the Lausiac History; the synaxarion warns against confusing the two.
 status: draft

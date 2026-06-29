@@ -40,9 +40,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - After his death in the United States in 1956, the relics of Saint Nikolai were translated to Serbia and re-interred in his native village of Lelić on May 12, 1991, where by tradition he rests near his friend and disciple Father Justin Popović. He is commemorated both on March 18 and on the feast of the translation of his relics.
-related:
+companions:
   - name: Patriarch Gavrilo V of Serbia
     note: Held with Nikolai as a 'special prisoner' at the Dachau concentration camp in 1944.
+    commemorated: false
 patronage:
   - Serbia and the Serbian Orthodox Church
   - Preachers and theological students

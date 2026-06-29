@@ -4,13 +4,14 @@ overview:
   - "Reu, called Ragau in the Septuagint and in the New Testament, is one of the patriarchs of the genealogical line that runs from Shem to Abraham. Scripture records him only within genealogy: according to Genesis 11:18-21 he was the son of Peleg and the father of Serug. He appears again in the genealogy of Christ in the Gospel of Luke (3:35), where, under the Greek form Ragau, he is named among the ancestors of the Lord according to the flesh."
   - Beyond his place in this lineage the biblical record preserves no narrative of his life, no deeds, and no words. The Masoretic text of Genesis gives his ages within the chronology of the generations after the Flood, while the Septuagint and Samaritan traditions transmit different figures; the later, non-canonical Book of Jubilees adds names for his mother and wife and associates his birth with the time of the building of the Tower of Babel in the land of Shinar, but these details lie outside the canonical Scriptures.
   - The Orthodox Church honors Reu among the Holy Forefathers, the Old Testament ancestors of Christ commemorated collectively on the Sunday of the Forefathers, the second Sunday before the Nativity. In this commemoration the patriarchs from Adam down to Abraham and beyond are remembered as those who lived in hope of the promised Messiah and through whom God prepared the way of the Incarnation. Reu is also commemorated on December 14, with his region of origin given as Mesopotamia.
-related:
-  - name: Righteous Forefather Peleg
-    note: His father, the preceding patriarch in the line from Shem to Abraham.
-    href: saint/OS-2540
-  - name: Righteous Forefather Serug
-    note: His son, the next patriarch in the genealogy leading to Abraham.
-    href: saint/OS-2542
+family:
+  figures:
+    - name: Righteous Forefather Peleg
+      note: His father, the preceding patriarch in the line from Shem to Abraham.
+      href: saint/OS-2540
+    - name: Righteous Forefather Serug
+      note: His son, the next patriarch in the genealogy leading to Abraham.
+      href: saint/OS-2542
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

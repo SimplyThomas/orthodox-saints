@@ -23,11 +23,13 @@ timeline:
   - when: "335"
     title: Synod of Tyre
     body: By tradition present at the Synod of Tyre in support of Athanasius of Alexandria.
-related:
+companions:
   - name: St. Anthony the Great
     note: By tradition Paphnutius was his disciple.
+    href: saint/OS-0026
   - name: St. Athanasius the Great of Alexandria
     note: Whom Paphnutius is said to have supported at the Synod of Tyre.
+    href: saint/OS-0024
 patronage:
   - Confessors and those who suffer for the faith
   - Defence of married clergy

@@ -43,9 +43,10 @@ sections:
 works:
   - title: Acts of the Lateran Council of 649
     desc: The conciliar definition and twenty canons issued under Martin's presidency, condemning Monothelitism and rejecting the imperial Ecthesis and Typos.
-related:
+companions:
   - name: Maximus the Confessor
     note: Defender of the same Orthodox doctrine of the two wills of Christ, arrested in connection with the same controversy.
+    href: saint/OS-0503
 patronage:
   - Defenders of the Orthodox faith
 status: draft

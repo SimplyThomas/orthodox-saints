@@ -20,9 +20,10 @@ sections:
     body:
       - Pior is listed among the named fathers of the Apophthegmata Patrum, the Sayings of the Desert Fathers, which preserves stories and counsel of the Egyptian hermits, originating as oral tradition in Coptic and later transcribed into Greek. He is remembered there alongside such figures as Anthony the Great, Moses the Black, and Syncletica of Alexandria.
       - The narrative details of his life draw on Palladius of Galatia's Lausiac History and the church history of Sozomen, together with later hagiographers.
-related:
+companions:
   - name: Anthony the Great
     note: Father of Egyptian monasticism; Pior is described as his disciple.
+    href: saint/OS-0026
 sources:
   - OCA Synaxarion (oca.org)
   - OrthodoxWiki

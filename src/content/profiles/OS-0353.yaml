@@ -19,7 +19,7 @@ timeline:
   - when: "579"
     title: Repose
     body: Finnian reposed and was honored as a patron of Ulster.
-related:
+companions:
   - name: St. Columba of Iona
     note: His pupil at Movilla, traditionally linked to the dispute over the copied psalter.
     href: saint/OS-1320

@@ -27,15 +27,17 @@ family:
   figures:
     - name: Constantine
       note: Father; died before the saint went to sea.
+      commemorated: false
     - name: Krystalia
       note: Mother; died before the saint went to sea.
-patronage:
-  - Sailors and seafarers
-  - Those who have lapsed and seek to return to the faith
-related:
+      commemorated: false
+companions:
   - name: Great Martyr George
     note: The church at Smyrna where the martyr was first buried was dedicated to him.
     href: saint/OS-0012
+patronage:
+  - Sailors and seafarers
+  - Those who have lapsed and seek to return to the faith
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2018/04/19/101154-monastic-martyr-agathangelus-of-esphigmenou-mount-athos

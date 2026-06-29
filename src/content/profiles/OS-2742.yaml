@@ -38,13 +38,16 @@ timeline:
     body: Saint Jerome translated the Testament of Horsiesios into Latin as the Liber Horsiesii.
     figures:
       - name: Jerome
-related:
+companions:
   - name: Pachomius the Great
     note: Founder of the Pachomian cenobitic federation, within which Horsiesios served as superior.
+    href: saint/OS-0028
   - name: Theodore the Sanctified
     note: Disciple of Pachomius who governed the communities during Horsiesios's first tenure and whose death in 368 returned Horsiesios to leadership.
+    href: saint/OS-1180
   - name: Athanasius the Great
     note: Archbishop of Alexandria whose letters acknowledge Horsiesios as abbot and father of monks.
+    href: saint/OS-0024
 patronage:
   - Early fathers of cenobitic monasticism; monastic leadership
 sources:

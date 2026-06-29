@@ -32,7 +32,7 @@ sections:
   - heading: Legacy
     body:
       - Eustathius is remembered as one of the significant medieval archbishops who consolidated the work of Saint Sava, his legacy especially visible in the enduring relationship between Hilandar and the Serbian Church. His ministry helped strengthen the institutional foundations on which the Serbian Church would later flourish.
-related:
+companions:
   - name: Saint Sava I of Serbia
     note: founder of the Serbian Church
     href: saint/OS-0449

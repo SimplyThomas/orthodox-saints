@@ -37,13 +37,15 @@ timeline:
   - when: c. 395
     title: Repose
     body: Reposed in great old age.
-related:
+family:
+  figures:
+    - name: St. Gregory the Theologian
+      note: Kinsman (probably first cousin) and lifelong friend; Amphilochius accompanied him to the Council of Constantinople.
+      href: saint/OS-0022
+companions:
   - name: St. Basil the Great
     note: Lifelong friend; recommended him for the see of Iconium and dedicated On the Holy Spirit to him.
     href: saint/OS-0021
-  - name: St. Gregory the Theologian
-    note: Kinsman and lifelong friend; Amphilochius accompanied him to the Council of Constantinople.
-    href: saint/OS-0022
   - name: St. Gregory of Nyssa
     note: Fellow Cappadocian Father and lifelong friend.
     href: saint/OS-0422

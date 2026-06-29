@@ -31,12 +31,15 @@ sections:
       - The week that follows is designated the Week of the Myrrhbearers.
 patronage:
   - Orthodox women
-related:
+companions:
   - name: Mary Magdalene
     note: Foremost of the Myrrh-bearing Women, present in all four Gospel accounts of the empty tomb.
+    href: saint/OS-0007
   - name: Joseph of Arimathea
     note: Numbered with the Myrrh-bearers; received the Lord's body and provided the tomb.
+    href: saint/OS-1619
   - name: Nicodemus
     note: Numbered with the Myrrh-bearers; helped prepare the Lord's body for burial.
-status: draft
+    href: saint/OS-1624
+status: reviewed
 generated: "2026-06-19"

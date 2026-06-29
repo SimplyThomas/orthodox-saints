@@ -10,12 +10,13 @@ sections:
     body:
       - By the fuller account preserved in the Greek tradition, Romanus was held at Constantinople in a dry well for forty days without food before his death, and was beheaded on January 5 or 6, 1694 (he is also commemorated on February 16). The tradition relates that after his beheading his body fell toward the east and that a light was seen over it for three days. His relics were afterward taken by ship to England, where an English captain is said to have carried them.
       - Romanus belongs to the wave of New Martyrs of the Ottoman period who, often after ascetic preparation on Mount Athos under a spiritual elder, went deliberately before Muslim authorities to confess Christ. The brief OCA synaxarion records the core facts — his birth at Karpenisi, his time as a monk on Mount Athos, his beheading at Constantinople in 1694, and the removal of his relics to England — while the Greek hagiographic tradition preserves the fuller narrative of his two confessions and his elder.
-related:
+companions:
   - name: Saint Akakios of Kavsokalyvia
     note: His spiritual elder at the Skete of Kavsokalyvia on Mount Athos
+    href: saint/OS-0988
 patronage:
   - Honored among the New Martyrs of the Ottoman period
-status: draft
+status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Jan 5
   - https://www.oca.org/saints/lives/2026/01/05/100105-venerable-romanus-the-martyr

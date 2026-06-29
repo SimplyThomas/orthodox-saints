@@ -27,11 +27,13 @@ patronage:
   - Children
   - Paediatricians
   - Orphans
-related:
+companions:
   - name: Brigid of Kildare
     note: Her writings were collected and preserved by Ultan
+    href: saint/OS-0080
   - name: Tírechán
     note: A pupil of Ultan who became hagiographer of St. Patrick
+    commemorated: false
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

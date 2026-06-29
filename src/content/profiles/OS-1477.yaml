@@ -36,7 +36,7 @@ timeline:
   - when: c. 1000
     title: Death by the collapse of the church dome
     body: Dies with six disciples when the cupola of new construction on his church collapses.
-related:
+companions:
   - name: Venerable Michael Maleinos
     note: Abbot of Kyminas who tonsured him and was his spiritual guide
     href: saint/OS-1514

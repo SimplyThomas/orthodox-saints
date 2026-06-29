@@ -23,12 +23,14 @@ timeline:
   - when: c. 670
     title: Martyrdom
     body: Murdered in the forest of Bienwald near Rulzheim while traveling in defense of his church.
-related:
+family:
+  figures:
+    - name: St. Lambert of Maastricht
+      note: His nephew and successor as bishop, who translated his relics to Liege.
+companions:
   - name: St. Remaclus of Maastricht
     note: His teacher and predecessor as abbot of Stavelot-Malmedy and as bishop of Maastricht.
     href: saint/OS-0165
-  - name: St. Lambert of Maastricht
-    note: His nephew and successor as bishop, who translated his relics to Liege.
 patronage:
   - Patron of the city of Maastricht.
   - Drovers and cattle dealers

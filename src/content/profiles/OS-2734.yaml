@@ -22,9 +22,10 @@ sections:
   - heading: Disciples
     body:
       - Cronius had disciples, the best known being Isaac of the Cells, who is recorded as having succeeded him in 395.
-related:
+companions:
   - name: Anthony the Great
     note: Cronius is remembered as a Greek interpreter for Anthony the Great.
+    href: saint/OS-0026
   - name: Isaac of the Cells
     note: Disciple of Cronius who succeeded him in 395.
 sources:

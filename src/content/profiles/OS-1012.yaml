@@ -21,9 +21,10 @@ sections:
       - According to the tradition, these martyrs were drawn to open confession by the example of the Great-Martyr George, whose endurance under torture moved many pagans to faith. Declaring themselves Christians in the hearing of all, Victor, Zoticus, Acindynus, Zeno, Severian, and Caesarius were condemned and beheaded at Nicomedia. The Church commemorates the company together as one feast.
 patronage:
   - Those suffering persecution for the faith
-related:
+companions:
   - name: George the Great-Martyr
     note: By tradition, his endurance under torture moved Victor and his companions to confess Christ
+    href: saint/OS-0012
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/1951/04/18/101136-martyr-victor-and-his-companions-of-nicomedia

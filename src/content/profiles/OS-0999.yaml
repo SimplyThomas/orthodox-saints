@@ -16,9 +16,10 @@ sections:
   - heading: Commemoration
     body:
       - Sukias and his companions are commemorated on April 15 (April 28 on the Old Calendar). They are honored as a named cluster, remembered together as one company of martyrs in the Georgian and Armenian calendars.
-related:
+companions:
   - name: Apostle Thaddeus
     note: Apostle whose disciple Chrysos preached the faith to Sukias and his companions
+    href: saint/OS-1749
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - orthochristian.com

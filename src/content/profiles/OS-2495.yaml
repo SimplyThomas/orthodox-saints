@@ -29,7 +29,7 @@ timeline:
   - when: "1971"
     title: Liturgical service published
     body: A service in his honor composed by the monk Gerasimos Mikragiannanitis was published.
-related:
+companions:
   - name: Saint Kosmas the Aitolos
     note: The itinerant preacher and new martyr whom Parthenios met at Velentziko in 1774, by local tradition.
     href: saint/OS-1772

@@ -63,9 +63,10 @@ sections:
 patronage:
   - Bishops and clergy who serve their flock in time of danger
   - Those facing violence or captivity
-related:
+companions:
   - name: Hieromartyr Macarius, Archimandrite of Kanev and Pereyaslavl
     note: A distinct later hieromartyr of the Kiev lands, sometimes confused with the Metropolitan; commemorated September 7
+    href: saint/OS-0293
     external: https://www.oca.org/saints/lives/2023/09/07/102535-hieromartyr-macarius-archimandrite-of-kanev-and-pereyaslavl
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -41,9 +41,11 @@ sections:
   - heading: Glorification
     body:
       - Anthony is numbered among the Optina Elders. According to the sources, he was glorified by the Moscow Patriarchate for universal veneration on August 7, 2000, the date that is also kept as his feast.
-related:
-  - name: Venerable Moses of Optina
-    note: His elder brother and spiritual guide, Superior of Optina Monastery, beside whom he was buried.
+family:
+  figures:
+    - name: Venerable Moses of Optina
+      note: His elder brother and spiritual guide, Superior of Optina Monastery, beside whom he was buried.
+      href: saint/OS-1374
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2013/08/07/148992-venerable-anthony-of-optina

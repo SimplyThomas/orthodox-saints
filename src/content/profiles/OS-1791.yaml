@@ -16,9 +16,10 @@ timeline:
   - when: c. 600
     title: Death by wild beasts
     body: By tradition the revelation given to him was fulfilled when wild beasts devoured him, near the end of the sixth century.
-related:
+companions:
   - name: St. Sophronius of Jerusalem
     note: With John Moschus, recorded the account of Pimen in The Spiritual Meadow.
+    href: saint/OS-0809
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -9,7 +9,7 @@ sections:
     body:
       - Pachomius had gathered his monasteries into a structured federation, often called the Koinonia, governed under a common rule from his foundation at Tabennisi in the Egyptian Thebaid. Petronius entered this movement not as a solitary recruit but as the founder and benefactor of a house he then submitted to the federation's discipline, and he rose to oversight of several of its communities during Pachomius's own lifetime.
       - His appointment on Pachomius's deathbed made him, for a brief period, the head of a movement that at its founder's death numbered in the thousands of monks. The continuity of that governance through Petronius to Horsiesius illustrates how the Pachomian system was designed to outlast its founder by passing authority to tested members of the community rather than dispersing.
-related:
+companions:
   - name: St. Pachomius the Great
     note: His teacher and the founder of the communal monastic federation, who appointed him successor
     href: saint/OS-0028

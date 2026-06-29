@@ -30,10 +30,11 @@ timeline:
   - when: Mar 4
     title: Translation of relics
     body: His relics were translated to the Church of Saint Vitus in Prague, commemorated on March 4.
-related:
-  - name: Martyr Ludmilla of Bohemia
-    note: His grandmother, who raised him in the Christian faith; commemorated September 16.
-    href: saint/OS-1853
+family:
+  figures:
+    - name: Martyr Ludmilla of Bohemia
+      note: His grandmother, who raised him in the Christian faith; commemorated September 16.
+      href: saint/OS-1853
 patronage:
   - Patron of the Czech people and Czech lands
   - Christian rulers who advance the faith among their people

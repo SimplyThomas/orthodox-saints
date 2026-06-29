@@ -36,9 +36,10 @@ sections:
     body:
       - Sophia reposed on 6 May 1974 and was buried at the Monastery of Kleisoura, where her relics are venerated by the faithful.
       - On 4 October 2011 the Holy Synod of the Ecumenical Patriarchate, under Patriarch Bartholomew, formally numbered her among the saints, fixing her feast on 6 May, the day of her repose. On 27 November 2011 the monastery celebrated her glorification, processing her holy relics and icon during the services before a large gathering of the faithful.
-related:
+companions:
   - name: Gregorios Magdalis
     note: Athonite abbot of the Monastery of Kleisoura under whose guidance Sophia placed herself.
+    commemorated: false
 status: draft
 sources:
   - John Sanidopoulos (Mystagogy)

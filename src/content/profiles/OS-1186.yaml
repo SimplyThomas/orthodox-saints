@@ -19,7 +19,7 @@ timeline:
   - when: 12th century
     title: Relics recorded
     body: His relics were seen by the Russian abbot Daniel during his travels through the East.
-related:
+companions:
   - name: St. George the Confessor, Bishop of Mytilene (Apr 7)
     note: Bishop of the same see and era honored on April 7; the relationship to the May 16 commemoration is unresolved.
     href: saint/OS-0957

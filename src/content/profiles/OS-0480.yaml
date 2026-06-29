@@ -23,10 +23,6 @@ timeline:
   - when: "1992"
     title: Glorification
     body: The Orthodox Church of Russia glorifies them on the six-hundredth anniversary of the repose of Saint Sergius.
-related:
-  - name: St. Sergius of Radonezh
-    note: Their second son, the founder of the Holy Trinity Lavra.
-    href: saint/OS-0042
 family:
   heading: Family
   intro: Cyril and Maria had three sons, raising them near Rostov and later at Radonezh.
@@ -36,8 +32,10 @@ family:
       href: saint/OS-0042
     - name: Stephen
       note: Eldest son, who married and had a family.
+      commemorated: false
     - name: Peter
       note: Youngest son, who married and raised a family.
+      commemorated: false
 patronage:
   - Parents and married couples raising children in the faith
 status: draft

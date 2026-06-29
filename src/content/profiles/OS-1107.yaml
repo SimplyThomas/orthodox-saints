@@ -56,9 +56,11 @@ sections:
 patronage:
   - Trikala (Trikka) in Thessaly
   - Interpreters and teachers of Holy Scripture
-related:
-  - name: Saint Achilles, Bishop of Larisa
-    note: By the fourth-century tradition, his uncle and fellow participant at the First Ecumenical Council
+family:
+  figures:
+    - name: Saint Achilles, Bishop of Larisa
+      note: By the fourth-century tradition, his uncle and fellow participant at the First Ecumenical Council
+      href: saint/OS-1179
 flagReasons:
   - claim: The dates and identity of Saint Ekoumenios are uncertain.
     detail: >-

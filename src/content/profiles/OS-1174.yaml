@@ -34,7 +34,7 @@ timeline:
   - when: "1606"
     title: Translation of relics
     body: Demetrius's relics are brought from Uglich to Moscow and enshrined.
-related:
+companions:
   - name: Hieromartyr Hermogenes, Patriarch of Moscow
     note: Contemporary hierarch of the Time of Troubles
     href: saint/OS-0671

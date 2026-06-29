@@ -11,7 +11,7 @@ sections:
     body:
       - The Sicilian mission is the heart of Pancratius's tradition. Having been ordained by the chief Apostles, he is presented in the synaxarion as the founder of the local church at Taormina, building its first place of worship and gathering a Christian community there within a remarkably short time. The narrative places his labors within the broader apostolic outreach to Sicily associated with disciples of the Apostle Peter, several of whom — such as Cyril of Catania, likewise an Antiochene sent by Peter — are remembered as the island's earliest bishops.
       - His death by stoning at the hands of pagans marks him as a hieromartyr, a bishop who sealed his preaching with martyrdom. The sources do not record specific miracles attributed to him; the emphasis falls instead on the swiftness of the conversion he brought about and on his faithful endurance to the point of a violent death.
-related:
+companions:
   - name: Apostle Peter
     note: By tradition baptized Pancratius's household and, with the Apostle Paul, consecrated him bishop of Taormina.
     href: saint/OS-0004

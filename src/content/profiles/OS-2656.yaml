@@ -12,7 +12,7 @@ sections:
   - heading: Relics & Shrines
     body:
       - Pyrrhus founded a monastery at Breti, on the bank of the Jvaristsqali River, and tradition holds that his holy relics are buried in the church of that monastery.
-related:
+companions:
   - name: Thirteen Assyrian Fathers
     note: The collective commemoration of John of Zedazeni and his disciples, with whom Pyrrhus is commemorated on May 7.
     href: saint/OS-1128

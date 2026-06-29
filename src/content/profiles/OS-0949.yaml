@@ -53,8 +53,10 @@ family:
   figures:
     - name: Theophiste
       note: Her daughter, dedicated to monastic life (named in the Wikipedia account); by tradition she entered the same Thessalonican community as her mother.
+      commemorated: false
     - name: Anthony and Chrysanthe
       note: Her parents on Aegina, named in the OCA account; her father is said to have later taken monastic vows.
+      commemorated: false
 reading:
   - heading: Sources
     items:

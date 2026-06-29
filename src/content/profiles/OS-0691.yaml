@@ -30,11 +30,13 @@ sections:
       - The principal source for his life is the Life of Dositheus, likely composed by another disciple of Dorotheus, which presents his obedience as the heart of his sanctity. He is commemorated on February 19 in the Slavic calendar and on August 13 in Greek usage.
 patronage:
   - Those suffering from respiratory illness
-related:
+companions:
   - name: Abba Dorotheus of Gaza
     note: Dositheus's spiritual elder, whose writings preserve and commend his disciple's obedience.
+    href: saint/OS-1298
   - name: Barsanuphius the Great
     note: Elder of the same Gazan monastery, who blessed Dositheus to depart in peace and testified to his holiness.
+    href: saint/OS-0604
 sources:
   - OCA Synaxarion (oca.org), Feb 19
   - https://en.wikipedia.org/wiki/Dositheus_of_Gaza
