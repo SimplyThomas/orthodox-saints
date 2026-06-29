@@ -25,9 +25,10 @@ timeline:
   - when: c. 383
     title: Repose
     body: After many years guiding the Abyssinian Church, Frumentius reposes in great old age.
-related:
+companions:
   - name: Saint Athanasius the Great of Alexandria
     note: Patriarch who consecrated Frumentius bishop of Abyssinia.
+    href: saint/OS-0024
 patronage:
   - Apostle and first bishop of Ethiopia
   - Mission and conversion of nations

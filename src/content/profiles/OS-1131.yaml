@@ -85,9 +85,10 @@ sections:
         sayings, gathered with those of the other desert elders in the
         Apophthegmata Patrum, made him one of the most influential teachers of
         early Christian asceticism.
-related:
+companions:
   - name: Saint John the Dwarf (Colobos)
     note: The elder of Scetis under whose direction Arsenius was received into monastic life
+    href: saint/OS-2168
 patronage:
   - Those who seek silence, stillness, and a life of prayer
   - Monastics and those withdrawing from the world

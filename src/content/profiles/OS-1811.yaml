@@ -31,7 +31,7 @@ timeline:
   - when: "471"
     title: Repose
     body: After thirteen years as patriarch he left Constantinople and reposed; he was succeeded by Acacius.
-related:
+companions:
   - name: Venerable Daniel the Stylite
     note: Ordained to the priesthood by Gennadius, who performed the rite from the ground when Daniel would not let him climb the column.
     href: saint/OS-2333

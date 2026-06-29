@@ -62,19 +62,17 @@ family:
   figures:
     - name: Barnabas
       note: The Apostle Barnabas, of the Seventy, was Mark's uncle (kinsman).
-      href: /saint/OS-1331
+      href: saint/OS-1331
     - name: Mary of Jerusalem
       note: His mother, whose house in Jerusalem adjoined the Garden of Gethsemane and served as a gathering place for the disciples.
-related:
+      href: saint/OS-2583
+companions:
   - name: Apostle Peter
     note: Mark accompanied Peter to Rome and his Gospel is associated with Peter's preaching.
-    href: /saint/OS-0004
+    href: saint/OS-0004
   - name: Apostle Paul
     note: A companion in the apostolic mission alongside Paul and Barnabas.
-    href: /saint/OS-2749
-  - name: Apostle Barnabas of the Seventy
-    note: Mark's uncle and fellow missionary, with whom he traveled through Cyprus.
-    href: /saint/OS-1331
+    href: saint/OS-2749
 works:
   - title: The Gospel according to Mark
     desc: The second of the four canonical Gospels, associated by tradition with the preaching of the Apostle Peter at Rome.

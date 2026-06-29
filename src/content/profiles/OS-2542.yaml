@@ -15,6 +15,9 @@ family:
   heading: Family
   intro: Serug stands in the line of Shem leading to Abraham, the son of Reu and the father of Nahor.
   figures:
+    - name: Peleg
+      note: grandfather, earlier in the line of Shem
+      href: saint/OS-2540
     - name: Reu
       note: father
       href: saint/OS-2541
@@ -27,22 +30,6 @@ family:
     - name: Abraham
       note: great-grandson
       href: saint/OS-1984
-related:
-  - name: Righteous Forefather Peleg
-    note: patriarch earlier in the line of Shem
-    href: saint/OS-2540
-  - name: Righteous Forefather Reu
-    note: father
-    href: saint/OS-2541
-  - name: Righteous Forefather Nahor
-    note: son
-    href: saint/OS-2543
-  - name: Righteous Forefather Terah
-    note: grandson
-    href: saint/OS-2544
-  - name: Righteous Forefather Abraham
-    note: great-grandson
-    href: saint/OS-1984
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

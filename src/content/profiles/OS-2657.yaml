@@ -13,7 +13,7 @@ sections:
     body:
       - Zeno is remembered as having preached in northern Kakheti and as the founder of the monastery at Iqalto, established in the late sixth century. The site lies in eastern Georgia, roughly ten kilometres west of the town of Telavi.
       - "The principal church of the complex, dedicated to the Holy Spirit (Khvtaeba), was built in the eighth or ninth century on the site of an older church in which Zeno had been buried. Long after his lifetime the monastery became one of the most important cultural and scholastic centres of Georgia: an academy was established there in 1106, during the reign of King David the Builder, by Arsen Ikaltoeli, where students were taught theology, rhetoric, astronomy, philosophy, geometry, music, and chanting alongside practical crafts such as viticulture and wine-making. The academy was destroyed by Persian forces under Shah Abbas I in 1616."
-related:
+companions:
   - name: The Thirteen Assyrian Fathers
     note: One of the Thirteen Assyrian (Syrian) Fathers, commemorated together
     href: saint/OS-1128

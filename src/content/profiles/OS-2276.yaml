@@ -28,7 +28,7 @@ timeline:
   - when: later
     title: Translation of relics
     body: His relics were transferred from Samtavisi to the Samtavro Monastery in Mtskheta and laid beneath the altar.
-related:
+companions:
   - name: Saint John of Zedazeni and the Thirteen Syrian Fathers
     note: Leader of the company of Syrian Fathers to which Abibus belonged
     href: saint/OS-1128

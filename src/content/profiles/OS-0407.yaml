@@ -21,7 +21,7 @@ timeline:
   - when: "1093"
     title: Repose
     body: Gregory died in 1093 and was buried in the Near Caves; the tradition connects his death with the drowning of Prince Rostislav the same year.
-related:
+companions:
   - name: St. Theodosius of the Kyiv Caves
     note: Abbot of the Kiev Caves in whose time Gregory was tonsured
     href: saint/OS-2745

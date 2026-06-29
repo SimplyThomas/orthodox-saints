@@ -30,7 +30,7 @@ timeline:
   - when: "1786"
     title: Translation of relics
     body: His relics were transferred to Yuriev.
-related:
+companions:
   - name: Passion-bearers Boris and Gleb
     note: Theoktistos consecrated a cathedral dedicated to these princely passion-bearers of Rus'.
     href: saint/OS-0236

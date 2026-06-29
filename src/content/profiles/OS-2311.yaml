@@ -26,7 +26,7 @@ timeline:
   - when: December 6, 1305
     title: Repose
     body: Saint Maximus dies and is buried in the Dormition Cathedral in Vladimir.
-related:
+companions:
   - name: Saint Peter, Metropolitan of Moscow
     note: His successor as Metropolitan of Kiev and All Rus'
     href: saint/OS-2399

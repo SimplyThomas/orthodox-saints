@@ -25,10 +25,11 @@ sections:
   - heading: Relics & Shrines
     body:
       - The Kykkos Monastery, whose foundation Esaias is remembered for inspiring, houses the icon of the Theotokos known as the Kykkotissa, traditionally counted among the icons attributed to the Evangelist Luke. The monastery has long been a major center of pilgrimage in Cyprus.
-related:
+companions:
   - name: Manuel Boutoumites
     note: Byzantine general and governor (doux) of Cyprus under Alexios I Komnenos; by tradition the founder of Kykkos Monastery, linked with Esaias in the foundation story.
     external: https://en.wikipedia.org/wiki/Manuel_Boutoumites
+    commemorated: false
 patronage:
   - Kykkos Monastery and its monastic community, Cyprus
 reading:

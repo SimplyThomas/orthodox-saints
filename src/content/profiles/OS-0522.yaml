@@ -27,7 +27,7 @@ timeline:
   - when: "431"
     title: Repose
     body: Died at about the age of seventy-eight.
-related:
+companions:
   - name: Saint Martin the Merciful, Bishop of Tours
     note: By the Western tradition, Saint Martin healed Paulinus of an eye ailment and was among the influences on his conversion.
     href: saint/OS-2008

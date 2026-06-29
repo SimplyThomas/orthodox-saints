@@ -26,12 +26,13 @@ sections:
   - heading: A Witness for Peace and Human Dignity
     body:
       - Telemachus is remembered as one who placed himself bodily between opposing sides to prevent bloodshed, and his story came to express the growing Christian conviction that human life should not be made a spectacle. Later generations linked his martyrdom with the final abolition of the games and saw in it an image of Roman society being reshaped under Christian influence.
-related:
+companions:
   - name: Saint Moses the Black
     note: desert monk turned man of peace
     href: saint/OS-0030
   - name: Saint Martin of Tours
     note: soldier who renounced violence
+    href: saint/OS-2008
   - name: Saint Basil the Great
     note: father of Eastern monasticism
     href: saint/OS-0021

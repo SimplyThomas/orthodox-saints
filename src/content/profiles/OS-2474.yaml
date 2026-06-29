@@ -34,17 +34,20 @@ family:
       note: Her son; father of Basil the Great and his siblings.
     - name: Basil the Great
       note: Her grandson; archbishop of Caesarea and one of the Cappadocian Fathers, who credited her with his early formation in the faith.
+      href: saint/OS-0021
     - name: Gregory of Nyssa
       note: Her grandson; bishop of Nyssa and a leading fourth-century theologian.
+      href: saint/OS-0422
     - name: Macrina the Younger
       note: Her granddaughter, named in her honor; commemorated separately (feast July 19).
+      href: saint/OS-1551
     - name: Peter of Sebaste
       note: Her grandson; later bishop of Sebaste, numbered among the saints of the family.
-related:
+      href: saint/OS-0420
+companions:
   - name: Gregory Thaumaturgus
     note: Bishop of Neocaesarea and her spiritual teacher, whose doctrine she preserved and transmitted.
-  - name: Macrina the Younger
-    note: Her granddaughter and namesake, a saint in her own right.
+    href: saint/OS-2204
 patronage:
   - Widows
   - Those in poverty

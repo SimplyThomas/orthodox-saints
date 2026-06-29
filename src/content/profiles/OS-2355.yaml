@@ -24,15 +24,20 @@ sections:
     body:
       - In the Orthodox Church Rebecca is venerated as one of the righteous foremothers commemorated on the Sunday of the Holy Forefathers, observed on the Sunday falling between December 11 and 17, in the period of preparation for the Nativity of Christ. The commemoration honors the patriarchs, prophets, and righteous men and women of the Old Testament understood as the ancestors of Christ according to the flesh.
       - The hymns of the feast name her alongside the other matriarchs and righteous women, including Sarah, Rachel, and Ruth, together with the patriarchs Abraham, Isaac, and Jacob.
-related:
-  - name: Isaac
-    note: Her husband, the son of Abraham and Sarah.
-  - name: Jacob
-    note: Her younger son, later named Israel, who received Isaac's blessing.
-  - name: Esau
-    note: Her elder son, the twin brother of Jacob.
-  - name: Abraham
-    note: Patriarch and father-in-law; his servant arranged her betrothal to Isaac.
+family:
+  figures:
+    - name: Isaac
+      note: Her husband, the son of Abraham and Sarah.
+      href: saint/OS-2348
+    - name: Jacob
+      note: Her younger son, later named Israel, who received Isaac's blessing.
+      href: saint/OS-2349
+    - name: Esau
+      note: Her elder son, the twin brother of Jacob.
+      commemorated: false
+    - name: Abraham
+      note: Patriarch and father-in-law; his servant arranged her betrothal to Isaac.
+      href: saint/OS-1984
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

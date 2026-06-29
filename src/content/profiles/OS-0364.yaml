@@ -38,9 +38,10 @@ timeline:
   - when: September 10, 1617
     title: Repose
     body: Reposed peacefully and was buried in the Archangel Cathedral of Ryazan.
-related:
+companions:
   - name: Saint Basil of Ryazan
     note: Earlier bishop of Ryazan whose relics Theodoritus uncovered and translated in 1609.
+    href: saint/OS-1459
 status: flagged
 sources:
   - Synaxarion

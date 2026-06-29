@@ -14,7 +14,7 @@ sections:
     body:
       - The hagiographic record offers two distinct accounts of John's death. In one, he reposes shortly after Gregory (whose death is placed around 820) and is buried near his teacher, his relics later being gathered by Joseph the Hymnographer. In the other, John outlives Gregory, becomes a wanderer for Christ, makes pilgrimage to Jerusalem, and ends his life as a hesychast in the Lavra of Saint Chariton.
       - The present entry records both traditions without resolving the discrepancy, since the sources themselves are not in agreement. The shared elements common to all accounts are John's Thessalonian tonsure under Gregory, his role in resisting Iconoclasm, and his peaceful repose.
-related:
+companions:
   - name: Venerable Gregory the Decapolite
     note: John's spiritual father and teacher, who tonsured him at Thessalonica; commemorated November 20.
     href: saint/OS-2222

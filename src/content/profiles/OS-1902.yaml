@@ -14,13 +14,15 @@ timeline:
   - when: "1224"
     title: Repose as the monk Simon
     body: By tradition tonsured a monk and given the name Simon before his death, he reposed on September 24 and was buried at Studenica.
-related:
-  - name: St Simeon the Myrrh-streaming (Stefan Nemanja)
-    note: Father; founder of the Serbian state, commemorated February 13
-    href: saint/OS-0653
-  - name: St Sava, First Archbishop of Serbia
-    note: Younger brother; first archbishop of the Serbian Church, who by tradition tonsured him the monk Simon
-    href: saint/OS-0449
+family:
+  figures:
+    - name: St Simeon the Myrrh-streaming (Stefan Nemanja)
+      note: Father; founder of the Serbian state, commemorated February 13
+      href: saint/OS-0653
+    - name: St Sava, First Archbishop of Serbia
+      note: Younger brother; first archbishop of the Serbian Church, who by tradition tonsured him the monk Simon
+      href: saint/OS-0449
+companions:
   - name: St Stephen the First-Crowned of Serbia
     note: His commemoration as first crowned king of Serbia; the same person honoured in his royal office
     href: saint/OS-1904

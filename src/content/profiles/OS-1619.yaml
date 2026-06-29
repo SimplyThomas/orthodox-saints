@@ -16,9 +16,10 @@ sections:
     body:
       - Beyond the Gospel narrative, several traditions developed around Joseph. The Gospel of Nicodemus relates that the Jewish elders imprisoned him for burying the body of Christ, but that he was miraculously delivered; Orthodox tradition holds that the risen Christ appeared to Joseph in prison. After his release and banishment from Jerusalem, tradition relates that Joseph traveled preaching the Gospel, and accounts describe him reaching Britain, where he is said to have reposed peacefully.
       - Medieval Western legend elaborated these accounts considerably, connecting Joseph with the founding of an early Christian community at Glastonbury, with the Glastonbury Thorn said to have sprung from his staff, and, in Robert de Boron's late twelfth-century romance Joseph d'Arimathie, with the Holy Grail. Historical and Catholic critical sources regard these later British and Grail legends as without firm foundation, the latter noting that the journey to Gaul and Britain and the founding of a Glastonbury oratory are not historically credible.
-related:
+companions:
   - name: Righteous Nicodemus
     note: Fellow member of the Sanhedrin and secret disciple who assisted Joseph in preparing and burying the body of Christ.
+    href: saint/OS-1624
 patronage:
   - Funeral directors and undertakers
 sources:

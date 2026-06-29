@@ -14,9 +14,11 @@ sections:
     body:
       - Alexander the soldier-martyr is commemorated on February 25 in the Greek tradition and on other dates (May 13 and May 26 are recorded) in other usages, a divergence that reflects historical variation in the transmission of his commemoration. He is distinct from Alexander of Pydna, commemorated in mid-March.
       - The February 25 entry that names Marcianopolis associates Alexander with a martyr Hypatius commemorated on the same day at the same place.
-related:
-  - name: Pimenia
-    note: His mother, who accompanied him through his sufferings and buried his remains near the River Ergina.
+family:
+  figures:
+    - name: Pimenia
+      note: His mother, who accompanied him through his sufferings and buried his remains near the River Ergina.
+      commemorated: false
 patronage:
   - Soldier-martyrs of the early Church
 status: draft

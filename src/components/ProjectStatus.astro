@@ -1,0 +1,1045 @@
+---
+/* Homepage "Project Status" section — A Living Encyclopedia.
+   A curated, museum-exhibit view of what's complete, in progress, and planned.
+   Designed to live on the homepage long-term: edit the data arrays below
+   (STATUS_CARDS, TIMELINE, ROADMAP) and the layout follows.
+   Ported from the Cloud of Witnesses design system (ProjectStatus.jsx). */
+import EyebrowRule from "./EyebrowRule.astro";
+
+type CheckState = "done" | "wip" | "plan" | "todo";
+
+/* ---- status vocabulary (colored diamond markers) ---- */
+const PS_STATUS = {
+  complete: {
+    label: "Complete",
+    color: "var(--byz-green)",
+    bg: "rgba(31,94,84,.10)",
+  },
+  progress: {
+    label: "In Progress",
+    color: "var(--gold-deep)",
+    bg: "rgba(212,175,55,.16)",
+  },
+  review: {
+    label: "Under Review",
+    color: "var(--celest)",
+    bg: "rgba(74,111,150,.14)",
+  },
+  planned: {
+    label: "Planned",
+    color: "var(--ink-soft)",
+    bg: "rgba(35,76,122,.07)",
+  },
+  low: { label: "Low Priority", color: "#5a5347", bg: "rgba(33,48,63,.07)" },
+} as const;
+type StatusKey = keyof typeof PS_STATUS;
+
+interface StatusCard {
+  id: string;
+  icon: string;
+  status: StatusKey;
+  title: string;
+  span?: number;
+  ribbon?: string;
+  priority?: string;
+  desc: string[];
+  upcomingLabel?: string;
+  checklist?: [CheckState, string][];
+  collab?: { name: string; url?: string }[];
+  milestone?: { label: string; text: string };
+  futureGoals?: string[];
+  note?: string;
+}
+
+/* ---- the status cards ---- */
+const STATUS_CARDS: StatusCard[] = [
+  {
+    id: "saints",
+    icon: "book",
+    status: "progress",
+    title: "Saint Database",
+    span: 2,
+    desc: [
+      "Over 2,700 saints currently have profiles.",
+      "We are systematically reviewing every saint page to expand biographies, improve historical accuracy, add citations, and correct errors.",
+      "Progress updates are posted weekly.",
+    ],
+    checklist: [
+      ["done", "2,700+ saint profiles"],
+      ["done", "Core database complete"],
+      ["done", "Search completed"],
+      ["done", "Daily commemorations"],
+      ["wip", "Biography expansion"],
+    ],
+    milestone: {
+      label: "Current milestone",
+      text: "Completed OS-0001 through OS-0100",
+    },
+    note: "This week: reviewing the early martyrs of Asia Minor.",
+  },
+  {
+    id: "angels",
+    icon: "wing",
+    status: "progress",
+    priority: "High Priority",
+    title: "The Heavenly Hosts",
+    span: 2,
+    ribbon: "Coming Soon",
+    desc: [
+      "One of the largest upcoming expansions of A Cloud of Witnesses is a comprehensive Orthodox encyclopedia dedicated to the holy angels and heavenly powers.",
+      "Although angels are not yet listed individually in the database, this section is under active development and is one of the project’s highest priorities.",
+    ],
+    upcomingLabel: "Planned features",
+    checklist: [
+      ["plan", "The Nine Orders of Angels"],
+      ["plan", "Named Archangels in Orthodox Tradition"],
+      ["plan", "Guardian Angels"],
+      ["plan", "Biblical angelic events"],
+      ["plan", "Angels throughout Holy Scripture"],
+      ["plan", "Revelation angelology"],
+      [
+        "plan",
+        "Second Temple Jewish literature (distinguished from canonical Scripture)",
+      ],
+      ["plan", "Early Christian angelology"],
+      ["plan", "Interactive hierarchy of the Heavenly Hosts"],
+      ["plan", "Cross-linked encyclopedia articles"],
+    ],
+    futureGoals: [
+      "Individual angel profiles",
+      "Interactive visual hierarchy",
+      "Timeline of angelic appearances in Scripture",
+      "Rich cross-linking between saints, Scripture, and angelic events",
+    ],
+  },
+  {
+    id: "icons",
+    icon: "frame",
+    status: "progress",
+    title: "Icon Partnerships",
+    desc: [
+      "We are looking for Orthodox iconographers and monasteries to obtain permission to feature their icons on the website. If you would like to work with us please reach out.",
+    ],
+    collab: [
+      { name: "Theophany Works", url: "https://www.theophanyworks.com" },
+    ],
+    note: "More partnerships coming soon.",
+  },
+  {
+    id: "calendar",
+    icon: "calendar",
+    status: "progress",
+    title: "Interactive Calendar",
+    desc: [
+      "The calendar currently supports the Revised Julian (New Calendar).",
+    ],
+    upcomingLabel: "Upcoming features",
+    checklist: [
+      ["done", "New Calendar"],
+      ["todo", "Old Calendar toggle"],
+      ["todo", "Liturgical colors"],
+      ["todo", "Feast information"],
+      ["todo", "Fast information"],
+      ["todo", "Customs and traditions"],
+    ],
+  },
+  {
+    id: "america",
+    icon: "map",
+    status: "progress",
+    title: "Saints of America",
+    desc: [
+      "This section is being expanded with additional saints, biographies, historical information, and icon permissions.",
+    ],
+    checklist: [
+      ["done", "Initial section created"],
+      ["wip", "Expanding biographies"],
+      ["wip", "Adding saints"],
+      ["wip", "Contacting monasteries"],
+    ],
+  },
+  {
+    id: "quiz",
+    icon: "compass",
+    status: "progress",
+    title: "Patron Saint Quiz",
+    desc: [
+      "The Patron Saint Quiz has been reimagined as a warm conversation. Instead of church terminology, it now asks about your life — what you’re walking through, your work, your season of life, and who you hope to become — all in everyday language.",
+      "Rather than naming a single patron, it introduces you to a whole “Circle of Companions”: saints whose lives echo your own, ranked from those especially recommended for you to others you may also like — with links to keep exploring the database.",
+    ],
+    upcomingLabel: "What’s new",
+    checklist: [
+      ["done", "Conversational, plain-language questions"],
+      ["done", "Grouped answers you can multi-select"],
+      ["done", "Tiered “Circle of Companions” results"],
+      ["done", "Explore-by-theme links into the database"],
+      ["wip", "Refining the matching algorithm"],
+    ],
+    note: "We welcome community feedback.",
+  },
+  {
+    id: "home",
+    icon: "home",
+    status: "review",
+    title: "Home Icons",
+    desc: [
+      "Most links are operational.",
+      "The traditions associated with each room are currently awaiting clergy review before publication.",
+    ],
+  },
+  {
+    id: "news",
+    icon: "news",
+    status: "low",
+    title: "Orthodox News",
+    desc: [
+      "The News section will continue expanding over time, but is currently a lower development priority while other core sections are completed.",
+    ],
+  },
+];
+
+/* ---- weekly updates timeline (add a new entry to the top) ---- */
+const TIMELINE = [
+  {
+    period: "June 2026",
+    items: [
+      "Reimagined the Patron Saint Quiz as a guided conversation",
+      "Added tiered “Circle of Companions” quiz results with explore links",
+      "Expanded saint biographies",
+      "Added angelology resources",
+      "Updated the interactive calendar",
+      "Improved search",
+    ],
+  },
+  {
+    period: "May 2026",
+    items: [
+      "Launched Saints of America feature page",
+      "Refined the Patron Saint Quiz",
+      "Reviewed OS-0001 through OS-0100",
+    ],
+  },
+];
+
+/* ---- coming soon roadmap ---- */
+const ROADMAP = [
+  { icon: "book", label: "Expanded saint biographies" },
+  { icon: "wing", label: "Angelology Encyclopedia" },
+  { icon: "map", label: "Interactive maps" },
+  { icon: "column", label: "Orthodox history" },
+  { icon: "link", label: "Better cross-linking" },
+  { icon: "timeline", label: "Timeline of Church history" },
+  { icon: "frame", label: "Additional icon partnerships" },
+  { icon: "scroll", label: "More educational resources" },
+];
+
+/* ---- illuminated line-icon paths (stroked, 24×24) ---- */
+const ICONS: Record<string, string> = {
+  book: '<path d="M4 4.5A2 2 0 0 1 6 3h13v15H6a2 2 0 0 0-2 2V4.5Z"/><path d="M4 18.5A2 2 0 0 0 6 21h13"/><path d="M9 7.5h6M9 11h6"/>',
+  frame:
+    '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/><circle cx="12" cy="12" r="2.4"/>',
+  calendar:
+    '<rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M7.5 13h2M11 13h2M14.5 13h2M7.5 16.5h2M11 16.5h2"/>',
+  map: '<path d="M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',
+  compass:
+    '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
+  home: '<path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
+  news: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M7 9h7M7 12h7M7 15h4"/><path d="M17 9h0"/>',
+  wing: '<path d="M21 7c-6 0-9 3-12 8-1-3-3-4-6-4 2 1 3 3 3 6 3-5 7-7 12-7-3 1-5 3-6 6"/>',
+  column:
+    '<path d="M5 8h14M6 8v11M10 8v11M14 8v11M18 8v11M4 19h16M5 8l7-4 7 4"/>',
+  link: '<path d="M9.5 14.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14.5 9.5a3.5 3.5 0 0 0-5 0L7 12a3.5 3.5 0 0 0 5 5l1-1"/>',
+  timeline:
+    '<path d="M5 4v16"/><circle cx="5" cy="8" r="1.4"/><circle cx="5" cy="14" r="1.4"/><path d="M8 8h11M8 14h8"/>',
+  scroll:
+    '<path d="M7 4h10a2 2 0 0 1 2 2v11a3 3 0 0 1-3 3H7"/><path d="M7 4a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h2"/><path d="M16 20a3 3 0 0 1-3-3v-1H8"/><path d="M9.5 8h5M9.5 11.5h5"/>',
+};
+
+/* ---- checklist marks (16×16) keyed by state ---- */
+const MARKS: Record<CheckState, string> = {
+  done: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.2" fill="rgba(31,94,84,.12)" stroke="var(--byz-green)" stroke-width="1"/><path d="M4.6 8.2l2.1 2.2 4.7-4.8" stroke="var(--byz-green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  plan: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.2" fill="rgba(212,175,55,.14)" stroke="var(--gold-deep)" stroke-width="1"/><path d="M4.6 8.2l2.1 2.2 4.7-4.8" stroke="var(--gold-deep)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  wip: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.2" fill="rgba(212,175,55,.16)" stroke="var(--gold-deep)" stroke-width="1"/><path d="M8 4.2v3.8l2.6 1.5" stroke="var(--gold-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  todo: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.6" y="2.6" width="10.8" height="10.8" rx="2.4" fill="none" stroke="var(--line-gold)" stroke-width="1.2"/></svg>',
+};
+---
+
+<section class="ps" id="project-status" aria-labelledby="ps-title">
+  {/* heading */}
+  <div class="ps-head">
+    <EyebrowRule label="The Workshop" />
+    <h2 id="ps-title" class="ps-title">Project Status</h2>
+    <div class="ps-titlerule">
+      <span class="ps-dot" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  {/* intro banner */}
+  <div class="ps-banner">
+    <span class="ps-banner-icon">
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--gold-soft)"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        set:html={ICONS.book}
+      />
+    </span>
+    <div class="ps-banner-body">
+      <h3 class="ps-banner-h">A Living Encyclopedia</h3>
+      <p class="ps-banner-p">
+        A Cloud of Witnesses is an ongoing effort to build a free Orthodox
+        Christian encyclopedia — thousands of biographies, historical articles,
+        angelology resources, feast information, and much more. While many
+        features are complete, every section continues to be expanded,
+        corrected, and refined. Thank you for your patience as this project
+        grows.
+      </p>
+    </div>
+  </div>
+
+  {/* legend */}
+  <div class="ps-legend">
+    {
+      (Object.keys(PS_STATUS) as StatusKey[]).map((k) => (
+        <span
+          class="ps-badge"
+          style={`color:${PS_STATUS[k].color};background:${PS_STATUS[k].bg}`}
+        >
+          <span
+            class="ps-badge-dm"
+            style={`background:${PS_STATUS[k].color}`}
+            aria-hidden="true"
+          />
+          {PS_STATUS[k].label}
+        </span>
+      ))
+    }
+  </div>
+
+  {/* status cards */}
+  <div class="ps-grid">
+    {
+      STATUS_CARDS.map((c) => {
+        const wide = c.span === 2;
+        const s = PS_STATUS[c.status];
+        return (
+          <article
+            class:list={[
+              "ps-card",
+              { "is-wide": wide, "has-ribbon": c.ribbon },
+            ]}
+          >
+            {c.ribbon && <div class="ps-ribbon">{c.ribbon}</div>}
+
+            {/* header */}
+            <div class="ps-cardhead">
+              <span class="ps-cardicon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--gold-deep)"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  set:html={ICONS[c.icon]}
+                />
+              </span>
+              <div class="ps-cardtitle">
+                <h3>{c.title}</h3>
+              </div>
+              <div class:list={["ps-cardtags", { "has-ribbon": c.ribbon }]}>
+                {c.priority && (
+                  <span class="ps-priority">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M6 1.2 7.4 4.4l3.4.3-2.6 2.3.8 3.4L6 8.9 3 10.7l.8-3.4L1.2 4.7l3.4-.3L6 1.2Z"
+                        fill="var(--byz-ink)"
+                      />
+                    </svg>
+                    {c.priority}
+                  </span>
+                )}
+                <span
+                  class="ps-badge"
+                  style={`color:${s.color};background:${s.bg}`}
+                >
+                  <span
+                    class="ps-badge-dm"
+                    style={`background:${s.color}`}
+                    aria-hidden="true"
+                  />
+                  {s.label}
+                </span>
+              </div>
+            </div>
+
+            {/* body */}
+            <div class:list={["ps-cardbody", { "is-wide": wide }]}>
+              <div>
+                {c.desc.map((d) => (
+                  <p class="ps-desc">{d}</p>
+                ))}
+                {c.futureGoals && (
+                  <div class="ps-subblock">
+                    <div class="eyebrow ps-sublabel">Future goals</div>
+                    <ul class="ps-checklist">
+                      {c.futureGoals.map((g) => (
+                        <li class="ps-check is-todo">
+                          <span class="ps-mark" set:html={MARKS.todo} />
+                          <span>{g}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div>
+                {c.upcomingLabel && (
+                  <div class="eyebrow ps-sublabel">{c.upcomingLabel}</div>
+                )}
+                {c.checklist && (
+                  <ul class="ps-checklist">
+                    {c.checklist.map(([st, txt]) => (
+                      <li class:list={["ps-check", `is-${st}`]}>
+                        <span class="ps-mark" set:html={MARKS[st]} />
+                        <span>{txt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {c.collab && (
+                  <div class="ps-subblock">
+                    <div class="eyebrow ps-sublabel">Current collaboration</div>
+                    <ul class="ps-checklist">
+                      {c.collab.map((x) => (
+                        <li class="ps-check is-done">
+                          <span class="ps-mark" set:html={MARKS.done} />
+                          <span>
+                            {x.url ? (
+                              <a
+                                class="ps-link"
+                                href={x.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {x.name}
+                              </a>
+                            ) : (
+                              x.name
+                            )}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* milestone strip */}
+            {c.milestone && (
+              <div class="ps-milestone">
+                <span class="eyebrow ps-sublabel">{c.milestone.label}</span>
+                <span class="ps-milestone-text">{c.milestone.text}</span>
+              </div>
+            )}
+
+            {/* weekly / footer note */}
+            {c.note && (
+              <div class:list={["ps-note", { "after-milestone": c.milestone }]}>
+                <span class="ps-note-dm" aria-hidden="true" />
+                {c.note}
+              </div>
+            )}
+          </article>
+        );
+      })
+    }
+  </div>
+
+  {/* ---- Latest Progress timeline ---- */}
+  <div class="ps-timeline-wrap">
+    <div class="ps-subhead">
+      <div class="eyebrow">Weekly Updates</div>
+      <h3 class="ps-subtitle">Latest Progress</h3>
+    </div>
+    <div class="ps-timeline">
+      {
+        TIMELINE.map((t) => (
+          <div class="ps-tl-row">
+            <span class="ps-tl-node" aria-hidden="true" />
+            <div class="eyebrow ps-tl-period">{t.period}</div>
+            <ul class="ps-checklist">
+              {t.items.map((it) => (
+                <li class="ps-check is-done">
+                  <span class="ps-mark" set:html={MARKS.done} />
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  {/* ---- Coming Soon roadmap ---- */}
+  <div class="ps-roadmap-wrap">
+    <div class="ps-subhead">
+      <div class="eyebrow">On the Horizon</div>
+      <h3 class="ps-subtitle">Coming Soon</h3>
+    </div>
+    <div class="ps-roadmap">
+      {
+        ROADMAP.map((r) => (
+          <div class="ps-tile">
+            <span class="ps-tile-icon">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--byz)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                set:html={ICONS[r.icon]}
+              />
+            </span>
+            <div class="ps-tile-label">{r.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .ps {
+    background: var(--ivory);
+    border-top: 1px solid var(--line);
+    padding: 64px 56px 72px;
+  }
+
+  /* ---- heading ---- */
+  .ps-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 14px;
+  }
+  .ps-title {
+    font-size: 40px;
+    color: var(--byz-deep);
+    margin: 12px 0 0;
+    line-height: 1.05;
+  }
+  .ps-titlerule {
+    max-width: 240px;
+    margin: 20px auto 0;
+    height: 1px;
+    background: var(--line-gold);
+    position: relative;
+  }
+  .ps-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--gold);
+  }
+
+  /* ---- intro banner ---- */
+  .ps-banner {
+    display: flex;
+    gap: 22px;
+    max-width: 1040px;
+    margin: 34px auto 46px;
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .ps-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    background: radial-gradient(
+      120% 140% at 0% 0%,
+      rgba(212, 175, 55, 0.1),
+      transparent 55%
+    );
+  }
+  .ps-banner-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: var(--byz);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+  }
+  .ps-banner-body {
+    position: relative;
+  }
+  .ps-banner-h {
+    font-size: 26px;
+    color: var(--byz-deep);
+    margin: 0 0 8px;
+  }
+  .ps-banner-p {
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 820px;
+  }
+
+  /* ---- legend ---- */
+  .ps-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  /* ---- status badge ---- */
+  .ps-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    font-family: var(--text);
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 5px 12px 5px 10px;
+    white-space: nowrap;
+  }
+  .ps-badge-dm {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ---- card grid ---- */
+  .ps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-auto-flow: dense;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .ps-card {
+    grid-column: span 1;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 24px 22px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .ps-card.is-wide {
+    grid-column: span 2;
+  }
+  .ps-card.has-ribbon {
+    overflow: hidden;
+  }
+  .ps-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ribbon */
+  .ps-ribbon {
+    position: absolute;
+    top: 26px;
+    right: -54px;
+    transform: rotate(45deg);
+    z-index: 4;
+    width: 190px;
+    text-align: center;
+    background: var(--gold);
+    color: var(--byz-ink);
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    box-shadow: 0 2px 8px rgba(15, 34, 56, 0.18);
+  }
+
+  /* card header */
+  .ps-cardhead {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .ps-cardicon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--ivory-2);
+    border: 1px solid var(--line-gold);
+    flex-shrink: 0;
+  }
+  .ps-cardtitle {
+    flex: 1;
+    min-width: 0;
+  }
+  .ps-cardtitle h3 {
+    font-size: 22px;
+    color: var(--byz-deep);
+    line-height: 1.1;
+    margin: 0;
+  }
+  .ps-cardtags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+  .ps-cardtags.has-ribbon {
+    margin-right: 18px;
+  }
+  .ps-priority {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--byz-ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* card body */
+  .ps-cardbody {
+    display: block;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+  .ps-cardbody.is-wide {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+  }
+  .ps-desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0 0 10px;
+    text-align: left;
+  }
+  .ps-subblock {
+    margin-top: 14px;
+  }
+  .ps-sublabel {
+    font-size: 11px;
+    margin-bottom: 8px;
+    letter-spacing: 0.2em;
+  }
+  .ps-cardbody.is-wide .ps-sublabel {
+    margin-top: 0;
+  }
+
+  /* checklist */
+  .ps-checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ps-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.45;
+    padding: 4px 0;
+  }
+  .ps-check.is-done {
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .ps-check.is-wip {
+    color: var(--gold-deep);
+    font-weight: 500;
+  }
+  .ps-check.is-plan {
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .ps-check.is-todo {
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .ps-mark {
+    margin-top: 2px;
+    flex-shrink: 0;
+    display: inline-flex;
+  }
+  .ps-link {
+    color: var(--celest);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .ps-link:hover {
+    color: var(--gold-soft);
+  }
+
+  /* milestone strip */
+  .ps-milestone {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ps-milestone .ps-sublabel {
+    font-size: 10.5px;
+    margin-bottom: 0;
+  }
+  .ps-milestone-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--byz);
+  }
+
+  /* footer note */
+  .ps-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--gold-deep);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ps-note.after-milestone {
+    margin-top: 10px;
+    padding-top: 0;
+    border-top: none;
+  }
+  .ps-note-dm {
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ---- shared subheadings ---- */
+  .ps-subhead {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .ps-subtitle {
+    font-size: 30px;
+    color: var(--byz-deep);
+    margin-top: 10px;
+  }
+
+  /* ---- timeline ---- */
+  .ps-timeline-wrap {
+    max-width: 760px;
+    margin: 64px auto 0;
+  }
+  .ps-timeline {
+    position: relative;
+    padding-left: 34px;
+  }
+  .ps-timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(var(--line-gold), rgba(168, 133, 42, 0.12));
+  }
+  .ps-tl-row {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .ps-tl-row:last-child {
+    margin-bottom: 0;
+  }
+  .ps-tl-node {
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background: var(--gold);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--line-gold);
+  }
+  .ps-tl-period {
+    color: var(--byz);
+    margin-bottom: 10px;
+  }
+
+  /* ---- roadmap ---- */
+  .ps-roadmap-wrap {
+    max-width: 1180px;
+    margin: 64px auto 0;
+  }
+  .ps-roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .ps-tile {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow-soft);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .ps-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--line-gold);
+  }
+  .ps-tile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ivory);
+    border: 1px solid var(--line-gold);
+  }
+  .ps-tile-label {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--byz-deep);
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  /* ---- entrance animation ---- */
+  @media (prefers-reduced-motion: no-preference) {
+    .ps-card,
+    .ps-tile,
+    .ps-banner {
+      animation: psRise 0.5s ease both;
+    }
+  }
+  @keyframes psRise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width: 1040px) {
+    .ps {
+      padding: 56px 32px 60px;
+    }
+    .ps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ps-card.is-wide {
+      grid-column: span 2;
+    }
+    .ps-roadmap {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 680px) {
+    .ps {
+      padding: 48px 18px 52px;
+    }
+    .ps-title {
+      font-size: 32px;
+    }
+    .ps-banner {
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px 22px;
+    }
+    .ps-grid {
+      grid-template-columns: 1fr;
+    }
+    .ps-card,
+    .ps-card.is-wide {
+      grid-column: span 1;
+    }
+    .ps-cardbody.is-wide {
+      display: block;
+    }
+    .ps-cardbody.is-wide .ps-sublabel {
+      margin-top: 14px;
+    }
+    .ps-roadmap {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

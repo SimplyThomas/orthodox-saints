@@ -16,11 +16,12 @@ sections:
   - heading: The Twelve and the Seventy
     body:
       - The Twelve Apostles are distinguished from the Seventy Apostles, the wider company of disciples whom the Lord also chose and sent out to assist in the work of preaching, as recorded in Luke 10:1-16. The Seventy have their own collective commemoration, the Synaxis of the Seventy Apostles, kept on January 4.
-related:
+companions:
   - name: Apostles Peter and Paul
     note: The chief apostles, whose feast on June 29 immediately precedes the synaxis.
   - name: Synaxis of the Seventy Apostles
     note: The collective commemoration of the wider apostolic company, kept January 4.
+    href: saint/OS-0384
 sources:
   - GOARCH calendar
   - OCA / J. Sanidopoulos cross-check

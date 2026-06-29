@@ -54,13 +54,16 @@ works:
   - title: On the Incarnation of the Lord
     desc: A doctrinal work written against the teaching of Nestorius.
     date: c. 431
-related:
+companions:
   - name: Saint Germanus
     note: Cassian's lifelong friend and companion through Bethlehem, the Egyptian desert, Constantinople, and Rome.
+    href: saint/OS-0745
   - name: Saint John Chrysostom
     note: Patriarch of Constantinople who ordained Cassian a deacon and received him as a disciple.
+    href: saint/OS-0023
   - name: Saint Benedict of Nursia
     note: Western father of monasticism whose Rule drew on Cassian's writings and commended his Conferences to monks.
+    href: saint/OS-0822
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/John_Cassian

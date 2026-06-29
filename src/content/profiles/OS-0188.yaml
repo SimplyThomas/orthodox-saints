@@ -16,9 +16,10 @@ timeline:
   - when: "1866"
     title: Repose
     body: He died in early September 1866; his body was taken, by his own wish, to the women's Sophia Monastery in Rybinsk for burial.
-related:
+companions:
   - name: Blessed John the Hairy of Rostov
     note: Fool-for-Christ (d. 1580) with whom Peter shares the September 3 commemoration.
+    href: saint/OS-0173
 status: draft
 sources:
   - Synaxarion

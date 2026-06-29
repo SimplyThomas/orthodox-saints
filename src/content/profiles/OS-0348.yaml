@@ -36,16 +36,18 @@ timeline:
   - when: "453"
     title: Death
     body: Pulcheria died, by one account at the age of fifty-four.
-related:
-  - name: Right-believing Emperor Theodosius the Younger
-    note: her younger brother, for whom she served as guardian and coregent
-    href: saint/OS-1607
+family:
+  figures:
+    - name: Right-believing Emperor Theodosius the Younger
+      note: her younger brother, for whom she served as guardian and coregent
+      href: saint/OS-1607
+    - name: Right-believing Emperor Theodosius the Great
+      note: her grandfather
+      href: saint/OS-0474
+companions:
   - name: 40 Holy Martyrs of Sebaste
     note: whose relics the synaxarion associates with her
     href: saint/OS-0799
-  - name: Right-believing Emperor Theodosius the Great
-    note: her grandfather
-    href: saint/OS-0474
 patronage:
   - Right-believing rulers; defender of Orthodoxy against heresy
 status: draft

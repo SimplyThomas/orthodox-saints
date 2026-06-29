@@ -33,7 +33,7 @@ timeline:
   - when: "1730"
     title: Relics moved again
     body: On October 1 his relics are moved to the Great Church of the Caves.
-related:
+companions:
   - name: St. Vladimir, Enlightener of Rus'
     note: The prince whose baptism in 988 inaugurated the mission Michael led.
     href: saint/OS-0040

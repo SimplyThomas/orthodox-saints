@@ -22,10 +22,12 @@ timeline:
   - when: March 20, 744
     title: Martyrdom
     body: Refusing to renounce Christ during a later Arab invasion, the aged king was beheaded.
-related:
-  - name: Equal-to-the-Apostles Mirian of Georgia
-    note: The fourth-century king under whom Georgia was converted; Archil is remembered as his descendant.
-    href: saint/OS-1935
+family:
+  figures:
+    - name: Equal-to-the-Apostles Mirian of Georgia
+      note: The fourth-century king under whom Georgia was converted; Archil is remembered as his descendant.
+      href: saint/OS-1935
+companions:
   - name: Martyr Luarsab II, King of Kartli
     note: A later Georgian royal martyr with whom Archil shares a joint commemoration on January 28.
     href: saint/OS-1476

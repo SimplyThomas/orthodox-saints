@@ -10,10 +10,11 @@ sections:
     body:
       - The synaxarion presents Sarbellus as a leading figure of the pagan cult at Edessa whose conversion was therefore conspicuous. Having sought baptism from Bishop Barsimaeus, he abandoned the temple service he had formerly led. His public renunciation of idolatry brought him to the attention of the civil authority, and he was summoned for interrogation.
       - One detailed recension names the governor Lysias (also given as Lysanias) and relates that Sarbellus, after enduring various tortures, was imprisoned for some two months and then questioned again under further torments before being condemned. His sister Bebaia was executed beside him, the tradition relating that she was killed as she spread her cloak to gather the blood of her brother. The acts survive in conflicting forms, some dating the events under Trajan and others under Hadrian, so the chronology and the precise manner of death are reported with reserve.
-related:
-  - name: Martyr Bebaia of Edessa
-    note: His sister, converted and martyred with him; commemorated together on October 15.
-    href: saint/OS-0190
+family:
+  figures:
+    - name: Martyr Bebaia of Edessa
+      note: His sister, converted and martyred with him; commemorated together on October 15.
+      href: saint/OS-0190
 patronage:
   - Converts from paganism who confessed Christ
 status: draft

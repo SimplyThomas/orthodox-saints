@@ -20,9 +20,10 @@ sections:
     body:
       - After his death his sacred relic was buried with Christian honors in the Church of the Life-Giving Spring (Zoodochos Pege) in Constantinople.
       - A portion of his relic is venerated today in the Skete of Saint Panteleimon, a dependency of Koutloumousiou Monastery on Mount Athos.
-related:
+companions:
   - name: New Martyr Panagiotis of the Peloponnese
     note: A distinct New Martyr of the same name who suffered in 1820; not to be confused with Panagiotis of Caesarea.
+    href: saint/OS-2804
 sources:
   - GOARCH calendar
   - OCA / J. Sanidopoulos cross-check

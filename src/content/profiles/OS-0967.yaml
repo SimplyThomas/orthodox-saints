@@ -13,9 +13,10 @@ sections:
   - heading: Commemoration
     body:
       - Desan is honored as a hieromartyr, the rank given to a bishop or priest who dies a martyr's death. The collective feast on April 9 keeps his memory together with that of his companions Mariabus and Abdiesus and the roughly 270 captive Christians who were martyred with them. The martyr Ia, also numbered in this company, is additionally commemorated on September 11.
-related:
+companions:
   - name: Martyr Ia of Persia
     note: Numbered among Desan's company; separately commemorated September 11.
+    href: saint/OS-1823
 patronage:
   - Steadfastness under persecution
   - Those imprisoned for the faith

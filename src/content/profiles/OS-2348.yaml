@@ -9,19 +9,6 @@ sections:
     body:
       - Isaac is commemorated in the Orthodox calendar among the holy forefathers, the ancestors of Christ according to the flesh. He is honored individually on his feast and is also remembered, together with Abraham and Jacob and the other righteous ancestors, on the Sunday of the Holy Forefathers, which falls in the second half of December shortly before the Nativity.
       - These commemorations recall the covenant promise given to Abraham, 'In thy seed shall all the nations of the earth be blessed,' and present the patriarchs as part of the lineage and preparation leading to the Incarnation of Christ.
-related:
-  - name: Righteous Forefather Abraham
-    note: father
-    href: saint/OS-1984
-  - name: Righteous Sarah
-    note: mother
-    href: saint/OS-2356
-  - name: Righteous Rebecca
-    note: wife
-    href: saint/OS-2355
-  - name: Righteous Patriarch Jacob
-    note: son
-    href: saint/OS-2349
 family:
   heading: Family
   intro: Isaac stands at the center of the patriarchal genealogy, between Abraham who received the covenant and Jacob through whom the twelve tribes descended.
@@ -40,6 +27,7 @@ family:
       href: saint/OS-2349
     - name: Esau
       note: son, twin brother of Jacob
+      commemorated: false
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

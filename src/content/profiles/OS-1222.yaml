@@ -39,8 +39,10 @@ family:
   figures:
     - name: Petrislav
       note: Father; prince of Duklja, whom Vladimir succeeded.
+      commemorated: false
     - name: Theodora Kosara
       note: Wife; pious daughter of Tsar Samuel of Bulgaria, who later became a nun and translated his relics.
+      commemorated: false
 patronage:
   - Montenegro
   - Albania

@@ -16,9 +16,10 @@ sections:
       - Later and unreliable legends, distinguished by the early sources from the historical record, include a tale of a tragic love involving a princess and an account of his defending against invaders with angelic aid before returning to his hermitage to die. These belong to the conflated Stafford tradition rather than to the early witness of Felix.
 patronage:
   - Stafford
-related:
+companions:
   - name: St. Guthlac of Crowland
     note: Hermit of Crowland whose disciple and attendant Bettelin was.
+    href: saint/OS-2704
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

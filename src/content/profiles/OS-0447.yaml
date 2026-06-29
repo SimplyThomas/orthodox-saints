@@ -12,9 +12,10 @@ sections:
   - heading: Dedications and Veneration
     body:
       - Elian's memory is attached to several sites across Wales and Cornwall. The Welsh villages of Llanelian in Anglesey and Llanelian in Denbighshire bear his name, and St. Allen's church in Cornwall is dedicated to him. By tradition a holy well in Wales, Ffynnon Elian, was associated with him and was at one time among the most noted holy wells in the country; the saint was invoked there particularly for the healing of sick children.
-related:
-  - name: Saint Ismael
-    note: By tradition a kinsman of Elian, named in some sources as a sixth-century Welsh bishop of Rhos.
+family:
+  figures:
+    - name: Saint Ismael
+      note: By tradition a kinsman of Elian, named in some sources as a sixth-century Welsh bishop of Rhos.
 patronage:
   - Healing of sick children
 status: draft

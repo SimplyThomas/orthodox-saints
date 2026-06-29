@@ -29,9 +29,10 @@ patronage:
   - Soldiers and the military
   - Arab Christians
   - Syria
-related:
+companions:
   - name: Great Martyr Demetrius of Thessalonica
     note: Fellow soldier-martyr of the same era, also venerated as a city-protector.
+    href: saint/OS-0013
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -23,10 +23,11 @@ timeline:
   - when: May 22, c. 308
     title: Execution of Basiliscus
     body: Basiliscus, kept in prison, is later put to death at Komana.
-related:
-  - name: Great Martyr Theodore the Recruit
-    note: Companion of the three martyrs; Basiliscus is identified as his nephew (commemorated February 17).
-    href: saint/OS-0018
+family:
+  figures:
+    - name: Great Martyr Theodore the Recruit
+      note: Uncle of Basiliscus and companion of the three martyrs (commemorated February 17).
+      href: saint/OS-0018
 patronage:
   - Martyrs of the fourth-century persecutions in Pontus
 status: draft

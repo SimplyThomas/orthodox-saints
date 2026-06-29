@@ -44,11 +44,13 @@ sections:
   - heading: Writings
     body:
       - Athanasius was a prolific author of theological and educational works. Between 1785 and 1806 he published six major texts, among them works titled Antipapas and Christian Apologies, as well as an Epitome produced in collaboration with Macarius of Corinth. His writings served both the defense of Orthodox teaching and the education of his people.
-related:
+companions:
   - name: Saint Nicodemus the Hagiorite
     note: Fellow leader of the Kollyvades movement; one of the three great spiritual leaders of the eighteenth century.
+    href: saint/OS-1532
   - name: Saint Macarius of Corinth
     note: Fellow Kollyvades leader who ordained Athanasius a priest and collaborated with him on an Epitome.
+    href: saint/OS-1010
 works:
   - title: Antipapas
     desc: A theological work published in his mature period of authorship.

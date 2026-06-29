@@ -13,9 +13,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - Wulfhilda was buried at Barking, where by tradition her relics were later found incorrupt. Her relics were translated together with those of Saints Hildelith and Ethelburga, earlier abbesses of Barking, the sources placing the translation in the early eleventh century.
-related:
+companions:
   - name: St. Ethelburga of Barking
     note: Foundress and first abbess of Barking, with whom Wulfhilda's relics were enshrined.
+    href: saint/OS-2002
   - name: St. Hildelith of Barking
     note: Early abbess of Barking, translated together with Wulfhilda.
 status: draft

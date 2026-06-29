@@ -12,7 +12,7 @@ timeline:
   - when: c. 420
     title: Repose
     body: Salvinus died around 420, having served as bishop for approximately three decades; he was succeeded by Arator.
-related:
+companions:
   - name: St. Arator of Verdun
     note: fourth Bishop of Verdun, immediate successor of Salvinus
     href: saint/OS-0250

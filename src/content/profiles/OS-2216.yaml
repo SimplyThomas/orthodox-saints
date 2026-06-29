@@ -20,7 +20,7 @@ timeline:
   - when: "1065"
     title: Death and burial
     body: He died at a monastery at Volhynia on returning from pilgrimage and was buried, by his own wish, in the Near Caves of the Kiev Caves monastery.
-related:
+companions:
   - name: St. Anthony of the Kiev Caves
     note: Founder of the Caves monastery, under whom Barlaam was tonsured and who appointed him first abbot
     href: saint/OS-0136

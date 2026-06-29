@@ -25,7 +25,7 @@ timeline:
   - when: c. 109
     title: Martyrdom
     body: Arrested under Trajan and taken to Puteoli, he is martyred for the faith.
-related:
+companions:
   - name: Apostle Paul
     note: Converted and baptized him; author of the Epistle to Philemon
     href: saint/OS-2749

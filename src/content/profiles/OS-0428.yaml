@@ -53,8 +53,10 @@ family:
   figures:
     - name: Gheorghe Constantin Luchian
       note: His father, a deacon in the village church of Calapodești.
+      commemorated: false
     - name: Ecaterina Manase (the nun Elisabeth)
       note: His mother, who ended her life in a women's monastery as a schemanun.
+      commemorated: false
 patronage: []
 reading:
   - heading: Sources

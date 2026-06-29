@@ -47,10 +47,14 @@ sections:
 patronage:
   - Psalmody and church singers
   - Repentance
-related:
+family:
+  figures:
+    - name: Joseph the Betrothed
+      note: Descendant of the house of David; commemorated with him on the Sunday after the Nativity.
+      href: saint/OS-0075
+companions:
   - name: Prophet Samuel
     note: The prophet who anointed David king of Israel.
-  - name: Joseph the Betrothed
-    note: Descendant of the house of David; commemorated with him on the Sunday after the Nativity.
+    href: saint/OS-1744
 status: draft
 generated: "2026-06-19"

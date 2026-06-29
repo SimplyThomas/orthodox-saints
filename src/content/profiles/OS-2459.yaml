@@ -13,9 +13,10 @@ sections:
     body:
       - The name Leonidas was borne by several early Christian saints and martyrs, which has long produced confusion among them. A separate Leonidas is commemorated on April 16 at Corinth together with companions, including Callistus and Charysius; other martyrs of the name are remembered on January 28, August 8, September 2, and April 22, the last being Leonides of Alexandria, the father of Origen.
       - There is a long-standing scholarly conflation between Leonidas of Athens, kept on April 15, and the Corinthian martyr Leonidas of April 16. The two are maintained as distinct figures on the calendar followed here, and the relationship is flagged for review. No source consulted independently establishes the year of the Athenian bishop's death or the manner of his martyrdom.
-related:
+companions:
   - name: Leonidas of Corinth and his companions
     note: A martyr of the same name commemorated April 16 at Corinth with Callistus, Charysius, and others; long conflated with Leonidas of Athens but kept distinct on the calendar.
+    href: saint/OS-1003
 sources:
   - J. Sanidopoulos, johnsanidopoulos.com
   - GOARCH calendar

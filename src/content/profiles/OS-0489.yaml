@@ -33,9 +33,10 @@ sections:
     body:
       - Theodore died in 1392. He was buried at Lubyanitsa, in the Torg quarter of Novgorod, at the church of the Great Martyr George, near the porch where he had been accustomed to keep vigil in prayer. A chapel was afterward built over his relics.
       - The citizens of Novgorod regarded him as a saint, and his memory is kept in the Russian Church on January 19.
-related:
+companions:
   - name: Nicholas Kochanov of Novgorod
     note: Fellow fool-for-Christ of Novgorod, associated with him in the staged feud across the Volkhov bridge.
+    href: saint/OS-1586
 patronage:
   - Novgorod
   - Fools-for-Christ

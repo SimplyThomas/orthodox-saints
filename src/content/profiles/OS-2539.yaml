@@ -9,19 +9,20 @@ sections:
     body:
       - The association of Eber's name with the Hebrews is attested early and was the prevailing view among many ancient and medieval writers; the Jewish historian Josephus, writing in the first century, held that the Hebrews were named after Eber. Some interpreters instead understand 'Hebrew' to mean 'those who cross over,' a reading connected with the crossing of the Euphrates. The two explanations are not necessarily exclusive, and the matter remains debated.
       - A further tradition, preserved outside the Orthodox synaxaria, relates that Eber refused to take part in the building of the Tower of Babel, and that for this reason his speech was not confused when the languages were divided. Such accounts are legendary elaborations of the Genesis narrative rather than part of the canonical text, and are noted here only as tradition.
-related:
-  - name: Righteous Forefather Salah
-    note: father of Eber
-    href: saint/OS-2538
-  - name: Righteous Forefather Peleg
-    note: son of Eber
-    href: saint/OS-2540
-  - name: Righteous Forefather Shem
-    note: ancestor; son of Noah
-    href: saint/OS-2535
-  - name: Righteous Forefather Abraham
-    note: descendant in the same line
-    href: saint/OS-1984
+family:
+  figures:
+    - name: Righteous Forefather Salah
+      note: father of Eber
+      href: saint/OS-2538
+    - name: Righteous Forefather Peleg
+      note: son of Eber
+      href: saint/OS-2540
+    - name: Righteous Forefather Shem
+      note: ancestor; son of Noah
+      href: saint/OS-2535
+    - name: Righteous Forefather Abraham
+      note: descendant in the same line
+      href: saint/OS-1984
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

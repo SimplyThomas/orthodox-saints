@@ -37,8 +37,9 @@ patronage:
   - Orphans
   - The poor and destitute
   - The sick, including those afflicted with leprosy
-related:
+companions:
   - name: Constantine the Great
     note: Emperor whom Zoticus served and who funded his charitable institutions in Constantinople.
+    href: saint/OS-0037
 status: draft
 generated: "2026-06-19"

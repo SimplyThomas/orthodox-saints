@@ -39,9 +39,10 @@ sections:
     body:
       - Eumenios reposed on May 23, 1999. In accordance with his wishes he was buried in his native village of Ethia in Crete.
       - On April 14, 2022, the Holy and Sacred Synod of the Ecumenical Patriarchate of Constantinople formally canonized him under the title 'Venerable and God-bearing Father Eumenios the New,' establishing his feast on May 23, the day of his repose.
-related:
+companions:
   - name: Nikephoros the Leper
     note: His spiritual father at the Saint Barbara leprosy hospital in Athens, who guided him from 1957 until his death in 1964.
+    href: saint/OS-0389
 status: draft
 sources:
   - John Sanidopoulos (Mystagogy)

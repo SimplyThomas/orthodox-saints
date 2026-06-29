@@ -29,9 +29,10 @@ timeline:
     title: Recognized as a wonderworker
     body: By the second half of the seventeenth century Athanasius is described as a 'venerable wonderworker'; a troparion and kontakion in his honor are in use.
     source: https://www.oca.org/saints/lives/2021/03/08/100700-venerable-athanasius-of-murom
-related:
+companions:
   - name: Lazarus of Murom
     note: Founder of the Murom monastery on Lake Onega; commemorated on the same day (March 8), with whom Athanasius is venerated together.
+    href: saint/OS-0794
     external: https://www.oca.org/saints/lives/2026/03/08/100699-venerable-lazarus-of-murom
 patronage:
   - Wonderworker at the monastery of Saint Lazarus of Murom

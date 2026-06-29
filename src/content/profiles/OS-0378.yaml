@@ -45,9 +45,11 @@ family:
   figures:
     - name: George (Yuri) Osorgin
       note: husband
+      commemorated: false
     - name: Kalistrat Osorgin
       note: son and biographer
-related:
+      commemorated: false
+companions:
   - name: Saint Monica
     note: mother sanctified in family life
     href: saint/OS-1116

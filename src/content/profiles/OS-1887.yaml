@@ -20,7 +20,7 @@ timeline:
   - when: 1 June 1589
     title: Tax relief granted
     body: Because of the monastery's poverty, Jonah obtained a release from taxes.
-related:
+companions:
   - name: Venerable Alexander, Abbot of Svir
     note: Jonah is numbered among his disciples; Alexander was the founder of the network of northern Russian monasteries.
     href: saint/OS-1803

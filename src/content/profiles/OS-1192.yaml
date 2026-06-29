@@ -33,9 +33,11 @@ timeline:
     body: Under the emperors Arcadius and Honorius, relics including those of Andronicus are uncovered near Constantinople at the gate of Eugenius.
 patronage:
   - Missionaries and preachers to the unconverted
-related:
-  - name: Apostle Paul
-    note: Their kinsman and fellow prisoner, who names them in Romans 16:7.
+family:
+  figures:
+    - name: Apostle Paul
+      note: Their kinsman and fellow prisoner, who names them in Romans 16:7.
+      href: saint/OS-2749
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Andronicus_of_Pannonia

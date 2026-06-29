@@ -20,9 +20,10 @@ timeline:
   - when: April 3, 2011
     title: Glorification
     body: The Bulgarian Orthodox Church glorifies the martyrs at the St. Alexander Nevsky Cathedral in Sofia, assigning May 9 as their feast.
-related:
+companions:
   - name: The Martyrs of Batak
     note: Killed in the church of St. Nedelya on May 17, 1876, and glorified together with the Novo Selo martyrs on April 3, 2011.
+    href: saint/OS-2669
 patronage:
   - Intercessors for those who suffered in the April Uprising
 status: draft

@@ -27,13 +27,14 @@ timeline:
   - when: c. 841
     title: Death at Apamea
     body: Died in confinement at Apamea in Bithynia, before the restoration of icon veneration.
-related:
-  - name: St. Theophanes the Confessor and Hymnographer, Bishop of Nicaea
-    note: younger brother and fellow confessor; the two were branded together
-    href: saint/OS-1999
-  - name: St. Jonah the Presbyter
-    note: by tradition the father of the two brothers
-    href: saint/OS-1886
+family:
+  figures:
+    - name: St. Theophanes the Confessor and Hymnographer, Bishop of Nicaea
+      note: younger brother and fellow confessor; the two were branded together
+      href: saint/OS-1999
+    - name: St. Jonah the Presbyter
+      note: by tradition the father of the two brothers
+      href: saint/OS-1886
 patronage:
   - Confessors who endured exile and torture for holy icons
 status: draft

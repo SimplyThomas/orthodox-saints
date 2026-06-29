@@ -54,9 +54,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - He was buried in the village cemetery at Vladychnya. Two years after his repose, when his wife was interred in the same grave, his body was found to be incorrupt, and local veneration of him began.
-related:
+companions:
   - name: Grand Duchess Elizabeth
     note: Founder of the Marfo-Mariinsky Convent, who chose him as its father-confessor and superior; also a New Martyr of Russia.
+    href: saint/OS-1548
 patronage: []
 status: draft
 generated: "2026-06-19"

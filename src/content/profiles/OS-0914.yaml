@@ -25,12 +25,13 @@ timeline:
   - when: "1507"
     title: Uncovering of relics
     body: His relics are found incorrupt; he is afterward glorified among the saints.
-related:
+companions:
   - name: St. Sergius of Radonezh
     note: Contemporary monastic founder whom Euthymius visited at the Trinity monastery.
     href: saint/OS-0042
   - name: St. Dionysius of Suzdal
     note: His tonsuring elder and spiritual mentor at the Nizhny Novgorod Caves, later Archbishop of Suzdal.
+    href: saint/OS-1432
 patronage:
   - Monastic founders; patron of the city of Suzdal
 status: draft

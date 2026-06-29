@@ -11,13 +11,14 @@ sections:
     body:
       - "The account places the martyrs within the household of a Roman master named Catullus, in whose service the whole family lived as slaves at Attalia. The narrative turns on the ordinary circumstance of a slave's daily food: because meat and wine that had been offered in pagan sacrifice were a normal part of a household's provisions, the family's refusal to share in it was the point at which their Christian confession became unavoidable."
       - The tradition presents the martyrdom as that of an entire family confessing together — husband, wife, and two sons — rather than of a single figure. In the Latin tradition the husband is known under the name Exuperius, of which the Greek Hesperus is a form.
-related:
-  - name: Martyr Zoe
-    note: wife of Hesperus, martyred with him
-  - name: Martyr Cyriacus
-    note: son of Hesperus and Zoe, martyred with the family
-  - name: Martyr Theodulus
-    note: son of Hesperus and Zoe, martyred with the family
+family:
+  figures:
+    - name: Martyr Zoe
+      note: wife of Hesperus, martyred with him
+    - name: Martyr Cyriacus
+      note: son of Hesperus and Zoe, martyred with the family
+    - name: Martyr Theodulus
+      note: son of Hesperus and Zoe, martyred with the family
 patronage:
   - Families who confess the faith together
   - Servants and the enslaved under persecution

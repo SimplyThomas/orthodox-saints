@@ -21,9 +21,10 @@ sections:
   - heading: Traditional Accounts
     body:
       - By tradition, the saint's shepherd's staff was thrust into the ground and grew into a large tree, whose branches overshadowed a church that was built over his relics.
-related:
+companions:
   - name: Blaise, Bishop of Sebaste
     note: A distinct and better-known martyr of the same name, commemorated on February 11; the two saints are often confused.
+    href: saint/OS-0634
 patronage: []
 works: []
 status: draft

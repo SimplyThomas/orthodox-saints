@@ -66,27 +66,122 @@ export function matches(
 
 export type SortMode = "feast" | "name" | "century";
 
+/* The comparator behind a given sort mode (shared by sortSaints and the
+   relevance tiebreak). */
+function sortComparator<T extends { feastSort?: number; name: string }>(
+  sortMode: SortMode,
+): (a: T, b: T) => number {
+  if (sortMode === "name")
+    return (a, b) => cleanName(a.name).localeCompare(cleanName(b.name));
+  if (sortMode === "century")
+    return (a, b) =>
+      centuryNum(a as { century?: string; era?: string }) -
+        centuryNum(b as { century?: string; era?: string }) ||
+      (a.feastSort || 0) - (b.feastSort || 0);
+  return (a, b) =>
+    (a.feastSort || 9999) - (b.feastSort || 9999) ||
+    cleanName(a.name).localeCompare(cleanName(b.name));
+}
+
 export function sortSaints<T extends { feastSort?: number; name: string }>(
   list: T[],
   sortMode: SortMode,
 ): T[] {
-  const arr = list.slice();
-  if (sortMode === "name")
-    arr.sort((a, b) => cleanName(a.name).localeCompare(cleanName(b.name)));
-  else if (sortMode === "century")
-    arr.sort(
-      (a, b) =>
-        centuryNum(a as { century?: string; era?: string }) -
-          centuryNum(b as { century?: string; era?: string }) ||
-        (a.feastSort || 0) - (b.feastSort || 0),
-    );
-  else
-    arr.sort(
-      (a, b) =>
-        (a.feastSort || 9999) - (b.feastSort || 9999) ||
-        cleanName(a.name).localeCompare(cleanName(b.name)),
-    );
-  return arr;
+  return list.slice().sort(sortComparator(sortMode));
+}
+
+/* ── Relevance ranking ───────────────────────────────────────────────────
+   A free-text query is more than a yes/no filter: a reader who types a name
+   or title ("Theotokos", "Virgin Mary") expects that saint first, not whoever
+   merely mentions the word in a facet or note. scoreMatch grades WHERE the
+   query landed — the display name ranks far above the "Also Known As" list,
+   which ranks above name variants, which rank above a deep-haystack-only hit
+   (the haystack mixes in every facet value, brief, and notes; see build.py).
+   sortByRelevance orders by that score, using the reader's chosen SortMode as
+   the tiebreak among equally-relevant saints. */
+
+export interface Scorable {
+  name: string;
+  aka?: string[];
+  variants?: string[];
+  search?: string;
+}
+
+// Field weights. A higher base means a hit there outranks every lower field.
+const NAME_BASE = 60; // name: exact 100 / prefix 90 / word 80 / substring 70
+const AKA_BASE = 30; // aka:  exact 50  / prefix 45 / word 45 / substring 35
+const NAME_TOKENS = 65; // all query words in the name, but not as one phrase
+const VARIANT = 20; // matched only via a name variant
+const HAYSTACK = 1; // matched only in facets / brief / notes
+
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Grade of `q` within one text: 4 exact, 3 prefix, 2 whole-word, 1 substring, 0 none.
+function grade(text: string, q: string): number {
+  const t = text.toLowerCase();
+  if (t === q) return 4;
+  if (t.startsWith(q)) return 3;
+  if (new RegExp(`\\b${escapeRe(q)}\\b`).test(t)) return 2;
+  if (t.includes(q)) return 1;
+  return 0;
+}
+
+function fieldScore(
+  text: string,
+  q: string,
+  base: number,
+  step: number,
+): number {
+  const g = grade(text, q);
+  return g ? base + g * step : 0;
+}
+
+/* Relevance score of a saint against a (non-empty) query. Higher = better. */
+export function scoreMatch(saint: Scorable, query: string): number {
+  const q = query.trim().toLowerCase();
+  if (!q) return 0;
+  const tokens = q.split(/\s+/).filter(Boolean);
+
+  let score = fieldScore(saint.name, q, NAME_BASE, 10);
+
+  for (const a of saint.aka || [])
+    score = Math.max(score, fieldScore(a, q, AKA_BASE, 5));
+
+  // Multi-word query whose every word appears in the name (but not contiguously):
+  // strong, but always below a true phrase hit on the name.
+  if (tokens.length > 1) {
+    const name = saint.name.toLowerCase();
+    if (tokens.every((t) => name.includes(t)))
+      score = Math.max(score, NAME_TOKENS);
+  }
+
+  if (
+    score === 0 &&
+    (saint.variants || []).some((v) => v.toLowerCase().includes(q))
+  )
+    score = VARIANT;
+
+  // Haystack fallback: every token present somewhere in the precomputed haystack.
+  if (score === 0) {
+    const hay = (saint.search || saint.name).toLowerCase();
+    if (tokens.every((t) => hay.includes(t))) score = HAYSTACK;
+  }
+  return score;
+}
+
+/* Sort by relevance to `query` (descending), tie-broken by the chosen SortMode.
+   Scores are computed once per saint, not on every comparator call. */
+export function sortByRelevance<
+  T extends Scorable & { feastSort?: number; name: string },
+>(list: T[], query: string, sortMode: SortMode): T[] {
+  const score = new Map<T, number>();
+  for (const s of list) score.set(s, scoreMatch(s, query));
+  const tie = sortComparator(sortMode);
+  return list
+    .slice()
+    .sort((a, b) => score.get(b)! - score.get(a)! || tie(a, b));
 }
 
 /* Facet value -> count across a saint list, sorted by count then label.

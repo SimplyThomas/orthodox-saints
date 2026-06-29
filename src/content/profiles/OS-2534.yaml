@@ -4,13 +4,14 @@ overview:
   - Lamech is one of the antediluvian patriarchs of the lineage of Seth recorded in the fifth chapter of Genesis. He was the son of Methuselah and the father of Noah, and the Orthodox Church numbers him among the Holy Forefathers, the Old Testament ancestors of Christ according to the flesh. His commemoration falls on December 14 and within the collective remembrance of the Forefathers kept on the Sunday before the Nativity of Christ.
   - The biblical record of Lamech is brief. According to Genesis 5:28-31, he begot Noah and afterward had other sons and daughters, living a total of 777 years (Septuagint and Masoretic chronologies differ on the interval before Noah's birth, the Septuagint giving 188 years and the Masoretic Text 182). At the birth of his son he gave him the name Noah, declaring that this child would bring comfort from the labor and toil of human hands upon the ground that the Lord had cursed (Genesis 5:29) — words the tradition reads as a prophetic anticipation of the relief that would come through Noah and, ultimately, through Christ.
   - He is to be distinguished from the other Lamech named in Genesis, the descendant of Cain in the fourth chapter; the Forefather commemorated by the Church is the son of Methuselah in the righteous line of Seth. Lamech is also named among the ancestors of the Lord in the genealogy given in the Gospel of Luke.
-related:
-  - name: Righteous Forefather Methuselah
-    note: father of Lamech
-    href: saint/OS-2533
-  - name: Righteous Noah
-    note: son of Lamech
-    href: saint/OS-2354
+family:
+  figures:
+    - name: Righteous Forefather Methuselah
+      note: father of Lamech
+      href: saint/OS-2533
+    - name: Righteous Noah
+      note: son of Lamech
+      href: saint/OS-2354
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

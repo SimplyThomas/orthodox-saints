@@ -12,7 +12,7 @@ sections:
   - heading: The Warrior Tradition
     body:
       - In Russian popular memory Elias of Murom is linked with a warrior figure of the same name. By tradition he was also called Chobotok ("Boot" in Old Russian), a name said to derive from an incident in which he fought off enemies using only his boot. A 1988 archaeological examination of the relics reported that the skeleton showed signs of great height, spinal disease, and numerous wounds — details that some have taken as consistent with the legendary accounts, though the sources continue to hedge the warrior identification itself.
-related:
+companions:
   - name: St. Anthony of the Kyiv Caves
     note: Founder of the Kiev Caves Monastery, in whose Near Caves the relics of Elias rest
     href: saint/OS-0136

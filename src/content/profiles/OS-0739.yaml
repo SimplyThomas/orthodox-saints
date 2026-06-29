@@ -10,9 +10,10 @@ sections:
     body:
       - Theodoret records that the sisters undertook extended fasts in imitation of biblical figures, completing fasts of forty days after the manner of Moses and fasts of three weeks after the manner of Daniel. The OCA synaxarion relates that during one three-year period they ate only once every forty days.
       - "Twice they left their enclosure for pilgrimage: once to Jerusalem and once to the shrine of the Protomartyr Thekla at Seleucia in Isauria. By tradition they fasted throughout these journeys, taking no food until they reached their destination."
-related:
+companions:
   - name: Protomartyr Thekla
     note: The sisters made pilgrimage to her shrine at Seleucia in Isauria.
+    href: saint/OS-0010
   - name: Theodoret of Cyrrhus
     note: Bishop and contemporary who recorded their life in his Religious History.
 patronage:

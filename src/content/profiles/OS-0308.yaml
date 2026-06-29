@@ -9,11 +9,13 @@ sections:
   - heading: Place-Names and Dedications
     body:
       - The most durable evidence for Kingsmark is toponymic. Llangynfarch ('the church-enclosure of Cynfarch') near Chepstow preserves his name directly, and a number of church dedications in Wales were associated with him. These dedications, rather than any detailed narrative life, are the chief witnesses to the extent and persistence of his veneration.
-related:
+family:
+  figures:
+    - name: St. Brychan of Brecknock
+      note: By tradition Kingsmark married a granddaughter of St. Brychan.
+companions:
   - name: St. Dyfrig (Dubricius) of Wales
     note: His teacher; one of the principal saints of south Wales, under whom Kingsmark is recorded as a disciple.
-  - name: St. Brychan of Brecknock
-    note: By tradition Kingsmark married a granddaughter of St. Brychan.
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

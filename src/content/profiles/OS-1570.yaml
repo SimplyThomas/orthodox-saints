@@ -30,9 +30,10 @@ sections:
     body:
       - The principal account of his life, the Passio Sancti Apollinaris, was probably written by Archbishop Maurus of Ravenna (642-671), centuries after the events it describes, and is recognized to present historical difficulties.
       - He is commemorated on July 23 in the Orthodox tradition. In the Roman Rite his feast was formerly kept on July 23 and is now celebrated on July 20.
-related:
+companions:
   - name: Apostle Peter
     note: By tradition, Apollinaris was his disciple and was consecrated and sent to Ravenna by him.
+    href: saint/OS-0004
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

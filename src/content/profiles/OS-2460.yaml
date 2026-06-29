@@ -12,9 +12,10 @@ sections:
   - heading: Relics and later veneration
     body:
       - After his martyrdom the relics of Paphnutius were reported to stream myrrh and to work miracles of healing, which sustained his commemoration. The composition of a canon in his honor before 842, during the Iconoclast period, shows that his cult was active in the Byzantine Church by the early ninth century; the canon notably invokes him against the iconoclast heresy of its own day.
-related:
+companions:
   - name: St. Paphnutius the Confessor of Thebes
     note: "A distinct saint: the Egyptian bishop and confessor who attended the First Ecumenical Council at Nicaea, not to be confused with the hieromartyr of Jerusalem."
+    href: saint/OS-2736
 patronage:
   - Hieromartyr and intercessor; relics venerated for healing
 status: draft

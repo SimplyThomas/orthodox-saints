@@ -24,7 +24,7 @@ timeline:
   - when: "613"
     title: Repose
     body: Theodore reposes on April 22; his Life is later written by his disciple George.
-related:
+companions:
   - name: Great Martyr George the Trophy-bearer
     note: Venerated as Theodore's lifelong protector and guide in the ascetic life
     href: saint/OS-0012

@@ -36,12 +36,14 @@ timeline:
     title: Repose
     body: Reposed peacefully; commemorated by the Church on April 2.
     source: https://georgianchurch.ca/saint-giorgi-of-atsquri-9th-10th-centuries/
-related:
+companions:
   - name: Saint Serapion of Zarzma
     note: Founder of Zarzma Monastery whose life and burial George of Atsquri witnessed and helped to record.
+    href: saint/OS-2108
     external: https://en.wikipedia.org/wiki/Serapion_of_Zarzma
   - name: Saint Gregory (Grigol) of Khandzta
     note: Georgian monastic leader to whose biographical record George of Atsquri is said to have contributed.
+    href: saint/OS-1966
     external: https://en.wikipedia.org/wiki/Gregory_of_Khandzta
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

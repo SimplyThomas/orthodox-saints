@@ -30,9 +30,10 @@ sections:
   - heading: Relics and Veneration
     body:
       - The relics of Barsanuphius are recorded as having been translated to Oria, in southern Italy, around 850. The two ascetics are commemorated together on February 6 in the Eastern Orthodox calendar; Barsanuphius is also venerated in the Roman Catholic Church, where his feast falls on April 11.
-related:
+companions:
   - name: Dorotheus of Gaza
     note: Disciple and one of the secretaries who received the counsel of Barsanuphius and John; later venerated as a teacher of the spiritual life.
+    href: saint/OS-1298
   - name: Seridus of Gaza
     note: Abbot of the monastery near Gaza who served as Barsanuphius's intermediary and recorded his answers in Greek.
 reading:

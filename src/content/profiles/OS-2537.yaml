@@ -11,13 +11,14 @@ sections:
   - heading: A Textual Note
     body:
       - Cainan son of Arphaxad is present in the Greek Septuagint and in the Gospel of Luke but absent from the Masoretic Hebrew text, which lists no generation between Arphaxad and Salah. He is also missing from the oldest Septuagint manuscripts and from the genealogical calculations of early writers such as Theophilus of Antioch, Africanus, and Eusebius. Later tradition, recorded in the Book of Jubilees and certain historical compilations, adds extra-biblical details about him; these lie outside the canonical text of Genesis and Luke.
-related:
-  - name: Righteous Forefather Arphaxad
-    note: His father, son of Shem
-    href: saint/OS-2536
-  - name: Righteous Forefather Salah
-    note: His son, named in the same genealogy
-    href: saint/OS-2538
+family:
+  figures:
+    - name: Righteous Forefather Arphaxad
+      note: His father, son of Shem
+      href: saint/OS-2536
+    - name: Righteous Forefather Salah
+      note: His son, named in the same genealogy
+      href: saint/OS-2538
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

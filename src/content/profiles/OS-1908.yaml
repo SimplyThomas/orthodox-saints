@@ -37,7 +37,7 @@ timeline:
   - when: "1549"
     title: Glorification
     body: Numbered among the saints at the Russian council of 1549.
-related:
+companions:
   - name: Venerable Savva, Abbot of Vishera
     note: The ascetic at whose monastery Ephraim was tonsured in 1437.
     href: saint/OS-1930

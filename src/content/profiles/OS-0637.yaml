@@ -36,11 +36,15 @@ sections:
     body:
       - Theodora continued to govern as regent, managing the finances of the empire and its defense, until her son Michael III came of age. With his uncle Bardas, Michael removed her from power; her advisor Theoktistos was killed, and Theodora withdrew to a convent, where she gave herself to ascetic life. She reposed in peace about the year 867.
       - She is venerated as a righteous saint of the Orthodox Church for her part in the restoration of the icons, her principal commemoration falling on February 11, and her memory is bound up with the Sunday of Orthodoxy. By later tradition her relics were brought to the island of Corfu, where they are honored.
-related:
+family:
+  figures:
+    - name: Michael III
+      note: Theodora's son, for whom she served as regent and who later removed her from power.
+      commemorated: false
+companions:
   - name: Methodius I, Patriarch of Constantinople
     note: The iconophile confessor installed as patriarch in 843, with whom Theodora restored the veneration of the icons.
-  - name: Michael III
-    note: Theodora's son, for whom she served as regent and who later removed her from power.
+    href: saint/OS-1354
 patronage: []
 works: []
 status: draft

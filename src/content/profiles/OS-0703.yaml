@@ -45,9 +45,10 @@ sections:
   - heading: Veneration
     body:
       - "Eustathius is venerated as a saint and confessor. Belonging to the undivided Church, he is honored in both the Eastern and the Western traditions: his feast is kept on 21 February in the Orthodox East and on 16 July in the West."
-related:
+companions:
   - name: Alexander of Alexandria
     note: Fellow champion of the Nicene faith against Arius, with whom Eustathius made common cause at the council.
+    href: saint/OS-2472
 patronage:
   - Defenders of the Orthodox faith against heresy
 works:

@@ -41,8 +41,9 @@ sections:
       - A widely repeated tradition connects Mercurius with the death of the emperor Julian the Apostate. According to this account, Saint Basil the Great prayed before an icon depicting Mercurius as a soldier; the image is said to have vanished and then reappeared bearing a bloodied spear, at the very time that Julian died of a mysterious spear wound during his Persian campaign, reportedly crying out, 'Thou hast conquered, O Galilean!' This is recounted as pious tradition rather than documented history.
 patronage:
   - Soldiers and warriors
-related:
+companions:
   - name: Saint Basil the Great
     note: By tradition prayed before an icon of Mercurius in connection with the death of Julian the Apostate.
+    href: saint/OS-0021
 status: draft
 generated: "2026-06-19"

@@ -43,7 +43,7 @@ timeline:
   - when: "1992"
     title: Canonization
     body: Numbered among the saints by the Ecumenical Patriarchate.
-related:
+companions:
   - name: St Nektarios of Aegina
     note: The hierarch whom Savvas served on Aegina and whose first icon he painted.
     href: saint/OS-0046

@@ -17,9 +17,10 @@ sections:
     body:
       - What is known of Eudokia derives from Christian hagiographic accounts rather than from independent historical documentation. Some modern Orthodox hagiographers have expressed doubts about her historical existence, suggesting she may be confused or identified with another saint, and noting the close parallels between her Passion and that of the Martyr Ia of Persia, also commemorated on August 4.
 patronage: []
-related:
+companions:
   - name: Martyr Ia of Persia
     note: Also commemorated on August 4; her Passion closely parallels that of Eudokia, and some hagiographers consider the two accounts related.
+    href: saint/OS-1823
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/201540/08/04/102203-martyr-eudokia-of-persia

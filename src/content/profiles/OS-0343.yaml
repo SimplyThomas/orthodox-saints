@@ -13,11 +13,12 @@ sections:
     body:
       - Many of the Glinsk elders have been canonized by the Ukrainian Orthodox Church. On 8 May 2008 thirteen elders, including Abbot Philaret (Danilevsky), were glorified as locally venerated saints. In 2010 three more elders were glorified; sources name, with some variation, Schema-Archimandrite Seraphim (Romantsov), Schema-Archimandrite Andronik (Lukash), and Schema-Metropolitan Seraphim (Mazhuga), all of whom entered Glinsk in the early twentieth century, endured the Soviet persecution, and returned after the war to serve as elders and confessors. The synaxis on September 9 commemorates these glorified elders of the hermitage together.
       - Among the individually commemorated Glinsk elders is Elder Makarios (Sharov) of Glinsk (1802-1864), who is remembered on February 21.
-related:
+companions:
   - name: St. Makarios of Glinsk Hermitage
     note: Glinsk elder (1802-1864), individually commemorated on February 21.
   - name: St. Paisius Velichkovsky
     note: Whose precepts shaped the Athonite rule introduced at Glinsk by Abbot Philaret.
+    href: saint/OS-2199
 status: draft
 sources:
   - Synaxarion

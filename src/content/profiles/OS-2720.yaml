@@ -52,14 +52,17 @@ sections:
 family:
   heading: Family and Kinship
   intro: Daughter of noble parents recorded as Dynne and Aebbe; her mother was a kinswoman of Saint Boniface, who is described in some sources as a cousin on her mother's side.
-  figures: []
-related:
-  - name: Saint Boniface
-    note: Apostle of Germany, her kinsman and the bishop she came to assist
+  figures:
+    - name: Saint Boniface
+      note: Apostle of Germany, her kinsman and the bishop she came to assist
+      href: saint/OS-2722
+companions:
   - name: Saint Tetta
     note: Abbess of Wimborne, under whom she was formed
+    href: saint/OS-2793
   - name: Saint Thecla of Kitzingen
     note: her companion on the German mission
+    href: saint/OS-2794
 patronage: []
 reading:
   - heading: Primary source

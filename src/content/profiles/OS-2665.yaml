@@ -13,7 +13,7 @@ sections:
   - heading: The Sofia martyrs named George
     body:
       - Orthodox calendars of the Bulgarian lands record more than one new martyr named George associated with Sofia, commemorated on different days, and the sources sometimes conflate their lives. The anchor record places this saint, distinguished as 'the Newest,' on February 11 and treats him as distinct from New Martyr George of Sofia and from the Great Martyr Nicholas of Sofia. Because the several accounts borrow details from one another, particulars of birthplace, age, and the exact circumstances of death differ between recensions and should be read with that caution.
-related:
+companions:
   - name: New Martyr George of Sofia
     note: Another New Martyr of Sofia bearing the name George, distinguished in the calendar.
     href: saint/OS-0638

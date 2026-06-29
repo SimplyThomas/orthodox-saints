@@ -26,11 +26,13 @@ sections:
     body:
       - It was during these labors that Gerasimus was killed. According to tradition he was strangled with his own omophorion by a Vogul servant; one account adds that this was a young man he had raised from childhood and meant to train as a preacher. The sources give the year as either 1441 or 1447.
       - He was buried in the church at Ust-Vym on the River Vychegda, the burial place of the first bishops of Perm, later the Annunciation church. Healings were reported at his relics, his commemoration was established in 1607, and he is remembered on January 24 and on January 29 among the hierarchs of Perm.
-related:
+companions:
   - name: Stephen of Perm
     note: The enlightener of the Zyrian people and first bishop of Perm, whose missionary work Gerasimus continued as third bishop of the see.
+    href: saint/OS-1065
   - name: Pitirim and Jonah, Bishops of Perm
     note: His successors in the see of Perm, commemorated together with him among the hierarchs of Perm on January 29.
+    href: saint/OS-0558
 patronage: []
 works: []
 status: draft

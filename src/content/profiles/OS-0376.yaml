@@ -35,7 +35,7 @@ sections:
   - heading: Legacy
     body:
       - Sylvester's significance lies less in theological writing — none can be confidently attributed to him — than in his historical position at a turning point. He led the Roman Church during the First Ecumenical Council, the rise of Constantine, and the building of some of Christianity's most important churches, and he remains among the most important pre-schism bishops of Rome venerated by the Orthodox.
-related:
+companions:
   - name: Saints Constantine and Helen
     note: the emperor and his mother of his age
     href: saint/OS-0037

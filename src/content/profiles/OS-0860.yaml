@@ -31,7 +31,7 @@ timeline:
   - when: c. 358
     title: Repose
     body: Sources place his death around this time.
-related:
+companions:
   - name: St. Anthony the Great
     note: Whose disciple and companion Serapion was, and from whom he received one of two sheepskin cloaks at his death.
     href: saint/OS-0026

@@ -25,7 +25,7 @@ timeline:
   - when: c. 303
     title: Martyrdom of Athenogenes
     body: The bishop is tortured and put to death by the sword at his own monastery.
-related:
+companions:
   - name: St. Basil the Great
     note: Fourth-century hierarch of Cappadocia who attested the antiquity of the hymn Phos Hilaron, traditionally linked to a martyr Athenogenes.
     href: saint/OS-0021

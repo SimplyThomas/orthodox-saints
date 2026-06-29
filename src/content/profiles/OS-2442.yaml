@@ -48,7 +48,7 @@ timeline:
   - when: "2008"
     title: Translation of relics
     body: His relics translated to the monastery church (May).
-related:
+companions:
   - name: New Hieromartyr Gorazd of Prague
     note: Bishop Gorazd (Pavlík) of Prague, in whose 1921 consecration Dositheus took part.
     href: saint/OS-1816

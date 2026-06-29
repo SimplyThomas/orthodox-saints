@@ -11,7 +11,7 @@ sections:
   - heading: Wonderworker
     body:
       - The synaxarion emphasizes Agapitus as a healer and miracle-worker, attributing to him over a hundred miracles and singling out the destruction of a man-eating dragon near his monastery as a benefit to those who sought his help. His healing of a servant of Constantine the Great brought him to imperial notice; the same gift of healing the sick continued to mark his episcopate at Synnada, and it is for this that he is venerated as a wonderworker alongside his title of confessor.
-related:
+companions:
   - name: Emperor Constantine the Great
     note: The first Christian Roman emperor, who, learning of the saint's healing power, sent him an ailing servant to be cured and granted his release from military service.
     href: saint/OS-0037

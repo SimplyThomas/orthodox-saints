@@ -13,9 +13,10 @@ sections:
   - heading: Chronology
     body:
       - The brothers are most commonly placed in the 4th century, with Julius's death given as 401. Some Orthodox synaxaria instead set their mission under the emperor Theodosius the Younger (reigned 408-450), which would place them in the 5th century. The sources do not agree, and the early date of their cult outruns the surviving documentary record.
-related:
-  - name: St. Julian the Deacon of Novara
-    note: Brother and fellow missionary, a deacon, commemorated with Julius on June 21; buried in a crypt he built near Gaudiana.
+family:
+  figures:
+    - name: St. Julian the Deacon of Novara
+      note: Brother and fellow missionary, a deacon, commemorated with Julius on June 21; buried in a crypt he built near Gaudiana.
 patronage:
   - Patron of Novara, Lake Orta, and the island of San Giulio
 status: draft

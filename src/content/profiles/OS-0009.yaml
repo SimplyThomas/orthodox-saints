@@ -35,10 +35,11 @@ sections:
 patronage:
   - Deacons and the diaconate
   - Altar servers
-related:
+companions:
   - name: Apostle Paul
-    note: Present as the young man Saul at Stephen's stoning, guarding the garments of the witnesses, before his own conversion.
-status: draft
+    note: Present at Stephen's stoning, guarding the garments of the witnesses, before his own conversion.
+    href: saint/OS-2749
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_Stephen

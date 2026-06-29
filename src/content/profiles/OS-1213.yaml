@@ -35,9 +35,11 @@ family:
   figures:
     - name: Beroukias (Berucius)
       note: His father, described in the accounts as a military commander.
+      commemorated: false
     - name: Romylia (Romila)
       note: His mother.
-related:
+      commemorated: false
+companions:
   - name: Martyrs Alexander and Asterios
     note: His executioners, converted during his torments and beheaded with him; commemorated together on May 20.
 sources:

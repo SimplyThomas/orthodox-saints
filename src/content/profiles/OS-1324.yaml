@@ -40,13 +40,15 @@ timeline:
   - when: "1715"
     title: Repose
     body: Died, by tradition while at prayer; glorified by the Russian Orthodox Church in 1916.
-related:
+family:
+  figures:
+    - name: St. John (Maximovitch) of Shanghai and San Francisco
+      note: Twentieth-century hierarch, kinsman and namesake; not to be confused with him.
+      href: saint/OS-0050
+companions:
   - name: St. Philotheos (Leshchinsky) of Tobolsk
     note: A predecessor as metropolitan of Tobolsk and enlightener of Siberia, also commemorated on June 10.
     href: saint/OS-1267
-  - name: St. John (Maximovitch) of Shanghai and San Francisco
-    note: Twentieth-century hierarch, kinsman and namesake; not to be confused with him.
-    href: saint/OS-0050
 patronage:
   - Enlightenment and mission of Siberia
   - Honored among the Saints of Siberia.

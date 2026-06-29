@@ -25,7 +25,7 @@ timeline:
   - when: "366"
     title: Repose
     body: Liberius dies peacefully at Rome.
-related:
+companions:
   - name: St. Athanasius the Great
     note: Patriarch of Alexandria, whom Liberius defended against the demand for his condemnation
     href: saint/OS-0024

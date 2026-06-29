@@ -36,14 +36,18 @@ timeline:
     source: https://www.oca.org/saints/lives/2026/03/29/100939-venerable-john-the-anchorite-of-egypt
 family:
   heading: Family
-  intro: The synaxarion names John's immediate family and his spiritual father in the desert.
+  intro: The synaxarion names John's immediate family.
   figures:
     - name: Juliania
       note: His mother, a devout widow who raised him in prayer and the Scriptures during a time of persecution.
+      commemorated: false
     - name: Themistea
       note: His sister; the two children were raised together by their widowed mother.
-    - name: Pharmutios
-      note: His spiritual father, a hermit of the Egyptian desert and disciple of Anthony the Great, commemorated with John on March 29.
+      commemorated: false
+companions:
+  - name: Pharmutios
+    note: His spiritual father, a hermit of the Egyptian desert and disciple of Anthony the Great, commemorated with John on March 29.
+    href: saint/OS-0979
 patronage:
   - The anchoritic life and perseverance against temptation
 sources:

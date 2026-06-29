@@ -35,11 +35,13 @@ sections:
 patronage:
   - Georgian monasticism
   - Monastics and hermits
-related:
+companions:
   - name: John of Zedazeni
     note: Leader of the Thirteen Syrian Fathers and Shio's teacher, under whom he labored before being sent to Georgia.
+    href: saint/OS-1128
   - name: Evagre (Evagrius) of Shio-Mgvime
     note: Disciple and appointed successor of Shio as abbot of the monastery.
+    href: saint/OS-0598
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Shio_of_Mgvime

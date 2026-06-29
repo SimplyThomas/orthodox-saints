@@ -26,9 +26,10 @@ sections:
 patronage:
   - Forgiveness and reconciliation
   - The healing of quarrels and broken friendships
-related:
+companions:
   - name: Sapricius the presbyter
     note: The Antiochene priest whose refusal to forgive Nikephoros, and subsequent denial of Christ at the place of execution, frames the account of Nikephoros's martyrdom.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2037/02/09/100466-martyr-nikephoros-of-antioch-in-syria

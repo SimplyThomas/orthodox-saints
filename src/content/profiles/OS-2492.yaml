@@ -9,9 +9,10 @@ sections:
     body:
       - The defining feature of Justus's life as preserved in the tradition is the vision of the Life-creating Cross, which is said to have moved the Roman soldier to belief in Christ. In response he gave away his property to the poor, an act the account presents as the outward sign of his new faith.
       - By decree of an official of Magnesia he was tried as a Christian and, after enduring torments, was thrown into a fire. The synaxarion relates that he surrendered his soul to God in the flames, yet his body remained unconsumed.
-related:
+companions:
   - name: Apostle Justus (Joseph Barsabbas)
     note: A distinct saint of the same name, commemorated October 30; not to be confused with the Roman soldier-martyr.
+    href: saint/OS-2111
 status: draft
 sources:
   - GOARCH calendar

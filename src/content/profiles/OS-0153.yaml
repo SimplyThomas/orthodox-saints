@@ -8,9 +8,10 @@ sections:
   - heading: Historical Context
     body:
       - Nicomedia was an imperial residence under Diocletian, and its Christian community stood at the center of the persecution that intensified in the early fourth century. The synaxarion remembers a great number of Christians of the city who suffered in these years, including the multitude burned within a church and a series of named martyrs put to death by varied means. Zeno, Chariton, and Archontius are numbered among these Nicomedian martyrs, distinguished in the commemoration by the manner of their deaths.
-related:
+companions:
   - name: Hieromartyr Anthimus, Bishop of Nicomedia
     note: Bishop of the city, commemorated on the same day with the martyrs of Nicomedia
+    href: saint/OS-0150
 status: draft
 sources:
   - Synaxarion

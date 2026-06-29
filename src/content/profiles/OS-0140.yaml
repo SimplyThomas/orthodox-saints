@@ -25,7 +25,7 @@ timeline:
   - when: "1918"
     title: Martyrdom
     body: Shot during the Soviet persecution, together with Bishop Barsanuphius of Kirillov and others.
-related:
+companions:
   - name: New Hieromartyr Barsanuphius of Kirillov
     note: Bishop of Kirillov, martyred with her in 1918 and commemorated on the same day
     href: saint/OS-0138

@@ -51,9 +51,10 @@ patronage:
   - Business and commerce
   - Monastic communities
   - Defense of Orthodox doctrine
-related:
+companions:
   - name: Nilus of Sora
     note: Leader of the Non-Possessors (Skete-dwellers), opponents of Joseph in the controversy over monastic landholding
+    href: saint/OS-1127
 status: draft
 sources:
   - Synaxarion

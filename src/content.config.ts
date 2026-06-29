@@ -6,6 +6,11 @@ const relatedFigure = z.object({
   note: z.string(),
   href: z.string().optional(), // internal "saint/OS-####"
   external: z.string().optional(),
+  // Set false for a figure who is NOT a commemorated saint (e.g. an emperor a
+  // saint confronted) — the card renders a quiet "not commemorated" marker and
+  // no link. Omit for saints (linked via `href`, or shown as a plain monogram
+  // card when the saint is not yet in the dataset).
+  commemorated: z.boolean().optional(),
 });
 
 const profileSchema = z
@@ -60,12 +65,17 @@ const profileSchema = z
       .optional(),
     family: z
       .object({
-        heading: z.string(),
+        heading: z.string().optional(),
         intro: z.string().optional(),
         figures: z.array(relatedFigure),
       })
       .optional(),
     related: z.array(relatedFigure).optional(),
+    // Documented personal relationships — teacher, disciple, fellow martyr,
+    // lifelong friend, an emperor confronted, a biographer. Rendered as the
+    // "Companions & Contemporaries" section. Distinct from `family` (kin) and
+    // from `related`, the legacy mixed list this supersedes.
+    companions: z.array(relatedFigure).optional(),
     patronage: z
       .array(
         z

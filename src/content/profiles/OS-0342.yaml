@@ -45,9 +45,10 @@ sections:
   - heading: Glorification and Veneration
     body:
       - The glorification of Theodosius took place on September 9, 1896, two centuries after his death. This became the feast day associated with the uncovering of his relics and his formal recognition as a saint. His primary feast — the anniversary of his repose — is February 5. He is venerated in the Russian Orthodox Church and among Ukrainian Orthodox communities, and is commemorated as a wonderworker and a shepherd of the Church.
-related:
+companions:
   - name: John (Maximovitch) of Tobolsk
     note: Theodosius's successor as Archbishop of Chernigov, reported healed by his intercession; also venerated as a saint
+    href: saint/OS-1324
 status: draft
 sources:
   - Synaxarion

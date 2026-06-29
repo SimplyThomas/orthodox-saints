@@ -18,7 +18,7 @@ sections:
   - heading: The Raid on Amastris
     body:
       - George's Life recounts that, after his death, his city was threatened by a raid of the Rus', who intended to plunder the saint's tomb. By tradition the raiders found their hands and feet bound as by invisible fetters and were rendered motionless. Modern scholars have given this episode particular attention because it may represent one of the earliest recorded notices of the Rus' in contact with Byzantium, though the dating and authorship of the Life make its historical value a matter of debate.
-related:
+companions:
   - name: Saint Tarasius, Patriarch of Constantinople
     note: Patriarch who consecrated George bishop of Amastris
     href: saint/OS-0722

@@ -24,13 +24,16 @@ sections:
     body:
       - Owing to his philosophical practice Theotimus wore his hair long. He was very temperate in his manner of life and is said to have kept irregular eating habits.
       - As an author he published brief, epigrammatic treatises composed in the form of dialogues and written in an old, antique style.
-related:
+companions:
   - name: John Chrysostom
     note: Theotimus was a friend of Saint John Chrysostom.
+    href: saint/OS-0023
   - name: John Cassian
     note: By tradition recorded in the OCA synaxarion, Theotimus is held to have instructed John Cassian in the monastic life.
+    href: saint/OS-0741
   - name: Germanus
     note: By the same tradition, Theotimus is held to have instructed Germanus, the companion of John Cassian, in the monastic life.
+    href: saint/OS-0745
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Theotimos_(bishop_of_Tomi)

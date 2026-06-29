@@ -34,16 +34,17 @@ timeline:
   - when: "1331"
     title: Deposed and martyred
     body: Imprisoned in the fortress of Zvečan amid a dynastic conflict and put to death.
-related:
-  - name: St. Stephen Milutin of Serbia
-    note: Father; King Stephen Uroš II Milutin
-    href: saint/OS-2116
-  - name: St. Stephen Uroš I of Serbia
-    note: Grandfather; King Uroš the Great
-    href: saint/OS-2634
-  - name: St. Helen of Serbia
-    note: Grandmother (Helen of Anjou), mother of King Milutin
-    href: saint/OS-2118
+family:
+  figures:
+    - name: St. Stephen Milutin of Serbia
+      note: Father; King Stephen Uroš II Milutin
+      href: saint/OS-2116
+    - name: St. Stephen Uroš I of Serbia
+      note: Grandfather; King Uroš the Great
+      href: saint/OS-2634
+    - name: St. Helen of Serbia
+      note: Grandmother (Helen of Anjou), mother of King Milutin
+      href: saint/OS-2118
 patronage:
   - Healing of blindness and eye afflictions
   - Those who suffer unjust accusation and persecution

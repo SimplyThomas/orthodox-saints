@@ -35,11 +35,14 @@ family:
   figures:
     - name: Priscilla (Prisca)
       note: His wife and inseparable co-worker, named with him throughout the New Testament; by tradition martyred together with him.
-related:
+      href: saint/OS-2580
+companions:
   - name: Apostle Paul
     note: Their teacher and fellow tentmaker, who baptized them and, by tradition, appointed Aquila a bishop.
+    href: saint/OS-2749
   - name: Apollos
     note: The Alexandrian preacher whom Aquila and Priscilla instructed more accurately in the way of God at Ephesus.
+    href: saint/OS-2321
 patronage:
   - Tentmakers and leatherworkers
 sources:

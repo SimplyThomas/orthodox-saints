@@ -37,7 +37,7 @@ timeline:
   - when: "1994"
     title: Glorification
     body: Glorified as a saint by the Orthodox Church in America on May 29.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Bishop who organized Orthodoxy in America in this period, later Patriarch of Moscow
     href: saint/OS-0053

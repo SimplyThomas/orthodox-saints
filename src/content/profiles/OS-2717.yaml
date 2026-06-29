@@ -43,10 +43,10 @@ sections:
 family:
   heading: Family and Kinship
   intro: Of Danish parentage. His nephew was Saint Oswald of Worcester, later Archbishop of York, whom Odo sponsored for monastic training at Fleury about 950.
-  figures: []
-related:
-  - name: Saint Oswald of Worcester
-    note: ""
+  figures:
+    - name: Saint Oswald of Worcester
+      note: Nephew, whom Odo sponsored for monastic training at Fleury; later Archbishop of York
+      href: saint/OS-2716
 patronage: []
 reading:
   - heading: Sources

@@ -37,9 +37,11 @@ sections:
 patronage:
   - Almsgiving and charity
   - Healing of the sick
-related:
-  - name: Danylo Apostol
-    note: Maternal grandfather; Hetman of the Cossack Hetmanate 1727–1734
+family:
+  figures:
+    - name: Danylo Apostol
+      note: Maternal grandfather; Hetman of the Cossack Hetmanate 1727–1734
+      commemorated: false
 status: draft
 sources:
   - Synaxarion

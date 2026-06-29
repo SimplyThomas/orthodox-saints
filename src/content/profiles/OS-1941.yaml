@@ -39,9 +39,11 @@ sections:
     body:
       - After the Sanaksar Monastery was returned to the Russian Orthodox Church, his grave was rediscovered in 1994. He was glorified as a saint by the Russian Orthodox Church in the early twenty-first century, his local glorification in 2001 being followed by wider recognition in 2004, and he was named a patron of the Russian Navy. A reliquary fashioned in the shape of a ship was made to enshrine his relics.
       - He is to be distinguished from his relative Saint Theodore of Sanaksar (1719-1791), a monastic saint of the same family.
-related:
-  - name: Saint Theodore of Sanaksar
-    note: His relative, a monastic saint of the Sanaksar Monastery (1719-1791), commemorated separately.
+family:
+  figures:
+    - name: Saint Theodore of Sanaksar
+      note: His relative, a monastic saint of the Sanaksar Monastery (1719-1791), commemorated separately.
+      href: saint/OS-0693
 patronage:
   - The Russian Navy
 status: draft

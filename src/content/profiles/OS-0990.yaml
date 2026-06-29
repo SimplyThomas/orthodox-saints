@@ -24,7 +24,7 @@ timeline:
   - when: c. 303
     title: Martyred under Diocletian
     body: Seized during Diocletian's persecution and beheaded.
-related:
+companions:
   - name: Artemon, Bishop of Seleucia
     note: A distinct saint of the same name, first bishop of Seleucia in Pisidia, commemorated March 24
     href: saint/OS-0873
