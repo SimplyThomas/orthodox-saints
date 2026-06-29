@@ -76,11 +76,12 @@ test("a non-profiled saint also shows theme badges", async ({ page }) => {
   await expect(page.locator(".sv-themes a.sv-theme").first()).toBeVisible();
 });
 
-test("a non-profiled saint shows related saints by shared themes", async ({
+test("a saint without curated kin shows Related Saints theme links", async ({
   page,
 }) => {
-  await page.goto("./saint/OS-0022/"); // Gregory the Theologian (no curated related list)
-  const rel = page.locator(".sv-after a[href*='/saint/OS-']");
+  await page.goto("./saint/OS-0022/"); // Gregory the Theologian (no curated family/companions)
+  // The tag-derived "Related Saints" collapsible offers "More <theme>" links.
+  const rel = page.locator(".sv-themelinks a.sv-themelink[href*='theme=']");
   expect(await rel.count()).toBeGreaterThan(0);
 });
 

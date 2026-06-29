@@ -36,6 +36,30 @@ export function themesByGroup(
   })).filter((g) => g.themes.length > 0);
 }
 
+// Theme groups that read as a *class of saints* (a category one could ask for
+// "more of"), as opposed to personal facets (a virtue, a struggle, a life
+// circumstance). Only these feed the saint page's "Related Saints" links.
+const RELATED_THEME_GROUPS = new Set([
+  "Historical Themes",
+  "Vocations",
+  "Miracles & Wonders",
+  "Geographic Themes",
+]);
+
+/** "Related Saints" theme links for a saint page: the saint's own theme tags,
+ *  restricted to categorical groups, rarest-first (the rarer tag is the more
+ *  distinctive "class"), and only where the destination holds enough saints to
+ *  be worth a visit. Capped at `n`. */
+export function relatedThemeLinks(saint: Saint, n = 6): ThemeMeta[] {
+  const out: ThemeMeta[] = [];
+  for (const slug of saint.themes || []) {
+    const t = themeBySlug.get(slug);
+    if (t && RELATED_THEME_GROUPS.has(t.group) && t.count >= 5) out.push(t);
+  }
+  out.sort((a, b) => a.count - b.count);
+  return out.slice(0, n);
+}
+
 /** Other saints ranked by count of shared theme slugs (desc), then feastSort. */
 export function relatedByThemes(saint: Saint, all: Saint[], n = 6): Saint[] {
   const mine = new Set(saint.themes || []);

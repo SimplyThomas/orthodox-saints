@@ -11,6 +11,7 @@ import {
   PER_PAGE,
   matches,
   sortSaints,
+  sortByRelevance,
   activeCount,
   emptySelected,
   type Selected,
@@ -240,10 +241,12 @@ if (dataEl) {
     const clearBtn = $<HTMLButtonElement>("#clear-all");
     if (clearBtn) clearBtn.hidden = !anyActive;
 
-    const matched = sortSaints(
-      SAINTS.filter((s) => matches(s, query, selected)),
-      sortMode,
-    );
+    // With a text query, rank by relevance (name/title hits first) and use the
+    // chosen sort as the tiebreak; with no query, the sort dropdown drives order.
+    const passed = SAINTS.filter((s) => matches(s, query, selected));
+    const matched = query
+      ? sortByRelevance(passed, query, sortMode)
+      : sortSaints(passed, sortMode);
     // Mirror the active-filter count onto the mobile "Filters" toggle badge.
     const badge = $("#filter-count");
     if (badge) {
