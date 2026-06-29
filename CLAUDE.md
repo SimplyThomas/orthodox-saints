@@ -184,7 +184,7 @@ Icon-download scripts load these via `python-dotenv` (`pip install python-dotenv
 | 13 | Tradition of Veneration | controlled, multi | Which jurisdiction(s) venerate. |
 | 14 | Era | controlled (single) | |
 | 15 | Century | controlled (single) | |
-| 16 | Feast Day(s) | free, multi | e.g. `Sep 4; Dec 10`. Drives calendar + dedup. |
+| 16 | Feast Day(s) | free, multi | e.g. `Sep 4; Dec 10`. Drives calendar + dedup. Not build-required (rare featless stubs allowed, §10); must parse when present. |
 | 17 | Short Prayer (Intercession) | free | Claude-composed universal form. See §10. |
 | 18 | Hymn / Apolytikion | derived link | Leave blank; build derives a search URL. |
 | 19 | Icon | derived link | A Google-Images *search* link. NOT the displayed portrait — that is the self-hosted `image` from `data/saint_images.csv` (see below). |
@@ -339,7 +339,8 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 - **Comprehensive coverage**, including obscure local saints, pre-schism Western saints,
   and the New-Martyr tail. Honest **stubs** are acceptable for obscure saints: fill
   Name, Rank, Gender, Feast, Region, Era/Century, a composed Short Prayer, and Sources;
-  leave the rest blank rather than inventing.
+  leave the rest blank rather than inventing. (Feast may be left blank for the rare saint
+  with no fixed/documented feast — see §10.)
 - **Group exactly as the source groups.** If the synaxarion lists a named cluster as one
   commemoration (e.g. "the 40 Virgin-Martyrs," a mother and her sons, a dated priest
   cohort), make **one** row and put every individual name in *Also Known As* / *Notes*
@@ -386,7 +387,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   - **If absent:** add a new row (blank ID → build assigns).
 
 ### Current status & next action
-- Data: **2,737 saints**; IDs run to **OS-2747**. **PHASE 1 (the spine walk) IS COMPLETE** —
+- Data: **2,790 saints**; IDs run to **OS-2805**. **PHASE 1 (the spine walk) IS COMPLETE** —
   the whole fixed calendar Jan 1 → Dec 31. **PHASE 2 (merge by identity) is well underway:**
   modern Greek/Athonite glorifications (#136), Romanian (#138), Serbian (#140), Georgian
   (#143), Bulgarian (#145), Antiochian (#146), Western pre-schism (#147), and
@@ -462,7 +463,12 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 ## 10. Quality bar
 
 - **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now: Intercessions ~18.6%, Vocation ~21.7%, Life Experience ~56%, Region ~97%, Brief Life ~99.9%. Prioritize the **review→`reviewed` gate** (drafts don't ship) and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
-- Minimum for any row: Name, Rank, Gender, Feast, Era or Century, Short Prayer, Sources.
+- Minimum for any row: Name, Rank, Gender, Short Prayer, Sources (the build-enforced
+  `REQUIRED` set). A Feast Day and Era/Century are **strongly expected** and present on
+  nearly every saint — but a handful of genuinely-commemorated saints have no fixed (or only
+  a movable/undocumented) feast, so the build allows a **blank Feast** for those stubs. When
+  a feast *is* present it must still parse. A featless saint is fully searchable but does not
+  appear on the calendar.
 - Prefer enriching high-traffic patrons over adding more bare stubs when time is limited.
 
 ---
