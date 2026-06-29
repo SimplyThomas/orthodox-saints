@@ -51,6 +51,7 @@ family:
       href: saint/OS-2474
     - name: Saint Basil the Elder
       note: father
+      href: saint/OS-2757
     - name: Saint Emilia
       note: mother
       href: saint/OS-0374
@@ -74,6 +75,7 @@ companions:
     href: saint/OS-0024
   - name: Saint Amphilochius of Iconium
     note: close friend & correspondent
+    href: saint/OS-2239
   - name: Emperor Valens
     note: Arian emperor he confronted
     commemorated: false
