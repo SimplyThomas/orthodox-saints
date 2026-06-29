@@ -39,13 +39,17 @@ sections:
     body:
       - For his role as the chief Western defender of Nicene orthodoxy, complementing the work of Athanasius in the East, Hilary became known as the 'Athanasius of the West.' Augustine of Hippo praised him as 'the illustrious doctor of the churches,' and in 1851 Pope Pius IX named him a Doctor of the Church.
       - Around 360-361 he encouraged Martin of Tours, later one of the great saints of Gaul, to establish a monastery at Liguge within his diocese. Hilary is venerated as a saint in the Eastern Orthodox, Roman Catholic, Anglican, and Lutheran traditions, and his feast is kept on January 13.
-related:
+family:
+  figures:
+    - name: Abra of Poitiers
+      note: Hilary's daughter, venerated as a saint, baptized with him on his conversion.
+companions:
   - name: Martin of Tours
     note: Bishop and monastic founder whom Hilary encouraged to establish a monastery at Liguge within the diocese of Poitiers.
+    href: saint/OS-2008
   - name: Athanasius of Alexandria
     note: The great Eastern defender of Nicene orthodoxy; Hilary's parallel role in the West earned him the title 'Athanasius of the West.'
-  - name: Abra of Poitiers
-    note: Hilary's daughter, venerated as a saint, baptized with him on his conversion.
+    href: saint/OS-0024
 patronage:
   - Poitiers
 works:

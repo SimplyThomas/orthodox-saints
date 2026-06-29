@@ -33,7 +33,7 @@ sections:
     body:
       - In the year 351 Caesar Constantius Gallus built a new church in honor of Babylas at Daphne, a suburb of Antioch famous for its temple of Apollo, and had the bishop's remains transferred there. This act is often described as the first recorded translation of the buried remains of a saint.
       - When the emperor Julian consulted the oracle of Apollo at Daphne in 362, he received no answer, and was told that the silence was due to the nearness of the relics of Babylas. Julian ordered the saint's sarcophagus exhumed and reburied elsewhere; only days afterward a fire broke out in the temple, consuming its roof and the statue of the god. These events made Babylas a celebrated witness in the conflict between the Church and the last pagan emperor.
-related:
+companions:
   - name: Ammonius, Donatos, and Faustus
     note: Three young students martyred together with Babylas and commemorated with him.
 patronage: []

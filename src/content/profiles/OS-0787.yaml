@@ -26,9 +26,10 @@ sections:
     body:
       - The bodies of the martyrs were secretly buried by monks at the monastery where the saints had practiced asceticism during their lives. Their relics were afterward translated to the city of Acerno in Campania, Italy.
 patronage: []
-related:
-  - name: Conon, the son (Deacon Conon of Iconium)
-    note: Conon's seventeen-year-old son, a deacon, martyred together with his father and commemorated with him on March 6.
+family:
+  figures:
+    - name: Conon, the son (Deacon Conon of Iconium)
+      note: Conon's seventeen-year-old son, a deacon, martyred together with his father and commemorated with him on March 6.
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/03/06/100681-monastic-martyrs-conon-and-his-son-conon-of-iconium

@@ -31,8 +31,10 @@ family:
   figures:
     - name: Prince Demetrius Vasilievich of Lesser Zaozersk
       note: His father, of the Zaozersk princely line, a descendant of Prince Theodore Rostislavich of Smolensk and Yaroslavl.
+      commemorated: false
     - name: Princess Maria
       note: His mother, noted with his father for deep piety.
+      commemorated: false
 patronage:
   - Healing from fever
 reading:

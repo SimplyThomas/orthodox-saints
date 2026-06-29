@@ -29,7 +29,7 @@ timeline:
   - when: "970"
     title: Repose
     body: Died peacefully on February 5, 970.
-related:
+companions:
   - name: St. Olga, Princess of Kyiv
     note: Baptized by Polyeuctus in Constantinople in 957; later venerated as Equal-to-the-Apostles.
     href: saint/OS-0041

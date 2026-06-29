@@ -14,7 +14,7 @@ timeline:
   - when: "1773"
     title: Illness, recovery, and repose
     body: Symeon falls deathly ill, lies lifeless for over an hour, then rises; he distributes his possessions and reposes in peace one week later.
-related:
+companions:
   - name: Venerable Serapion the Wonderworker of David Gareji
     note: His spiritual son, abbot of the Monastery of St. John the Baptist in the Gareji wilderness; learning of Symeon's miracle he came to comfort him, and reposed the following year (1774).
     href: saint/OS-1774

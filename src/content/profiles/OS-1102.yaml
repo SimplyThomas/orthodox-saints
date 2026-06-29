@@ -36,7 +36,7 @@ timeline:
   - when: "907"
     title: Repose
     body: Boris reposes on May 2 and is venerated as Equal-to-the-Apostles.
-related:
+companions:
   - name: Sts. Cyril and Methodius
     note: Apostles to the Slavs, whose disciples Boris received and protected
     href: saint/OS-0038

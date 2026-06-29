@@ -9,9 +9,10 @@ sections:
     body:
       - "The synaxarion places the episode in the thirty-sixth year of the kingdom, during a conflict between Judah under Asa and Israel under Baasha. Rather than trusting in divine deliverance as he had done earlier in his reign, Asa purchased the intervention of Ben-Hadad of Syria with treasures drawn from the house of God. Hanani's message turned on this misplaced reliance: the very alliance that seemed to secure victory had, in the prophet's words, allowed the Syrian army to escape Asa's hand, depriving him of a fuller deliverance."
       - Angered by the rebuke, Asa had the prophet bound and cast into prison. The Chronicler notes that the king also dealt harshly with some of the people at the same time, and Hanani is said to have had supporters whose protests were likewise suppressed. The Orthodox tradition relates that the prophet afterward reposed in peace.
-related:
-  - name: Prophet Jehu
-    note: By tradition his son, a prophet who rebuked Baasha king of Israel and Jehoshaphat king of Judah.
+family:
+  figures:
+    - name: Prophet Jehu
+      note: By tradition his son, a prophet who rebuked Baasha king of Israel and Jehoshaphat king of Judah.
 patronage:
   - Speaking truth to power; trust in God over worldly alliances
 status: draft

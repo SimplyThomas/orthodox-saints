@@ -10,10 +10,12 @@ sections:
     body:
       - The tradition relates that Euboula's marriage to the pagan Eustorgios was undertaken by her parents in the hope expressed by the Apostle Paul, that 'the unbelieving husband is sanctified by his wife' (1 Corinthians 7:14). Her son was given the name Pantaleon at birth and received the name Panteleimon at his baptism into the Christian faith.
       - The synaxarion attributes Panteleimon's early formation in Christianity to his mother's instruction. Because Euboula reposed before he reached maturity, the later stages of his conversion and his confession of faith are associated in the tradition with the priest Hermolaus of Nicomedia, who completed his catechesis.
-related:
-  - name: Great Martyr and Healer Panteleimon
-    note: Her son, the unmercenary physician martyred at Nicomedia under Diocletian.
-    href: saint/OS-0014
+family:
+  figures:
+    - name: Great Martyr and Healer Panteleimon
+      note: Her son, the unmercenary physician martyred at Nicomedia under Diocletian.
+      href: saint/OS-0014
+companions:
   - name: Hieromartyr Hermolaus of Nicomedia
     note: The priest who, by tradition, brought the young Panteleimon to Christ after his mother's repose.
     href: saint/OS-1580

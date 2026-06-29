@@ -34,7 +34,7 @@ timeline:
   - when: "847"
     title: Return of relics
     body: Following the restoration of icon veneration, his relics were brought back to Nicomedia.
-related:
+companions:
   - name: Saint Tarasius, Patriarch of Constantinople
     note: His teacher, who tonsured and later consecrated him bishop
     href: saint/OS-0722

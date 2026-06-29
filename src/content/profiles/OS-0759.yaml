@@ -10,9 +10,10 @@ sections:
     body:
       - The principal source for the martyrdom is the Dialogues of St. Gregory the Great, where the refusal to adore the sacrificed goat's head and the subsequent slaughter of the captives are described as a recent event reported by eyewitnesses. The synaxarion tradition received from this account both the circumstance of the killing and the year, customarily given as 579.
       - The number four hundred is the figure carried by the Orthodox commemoration; some Orthodox sources give the count as four hundred and forty, or describe the four hundred together with a separate band of about forty husbandmen martyred for refusing to eat food sacrificed to idols. The localization in Sicily follows the synaxarion; the underlying account in Gregory's Dialogues situates the events within Lombard-occupied Italy more broadly.
-related:
+companions:
   - name: St. Gregory the Dialogist (Gregory the Great)
     note: Bishop of Rome whose Dialogues preserve the account of the martyrdom; commemorated March 12.
+    href: saint/OS-0084
 patronage:
   - Confessors who chose death over idolatrous rites
 status: draft

@@ -31,7 +31,7 @@ timeline:
   - when: "1647"
     title: Uncovering of relics
     body: The relics of Euthymius are uncovered, following his glorification.
-related:
+companions:
   - name: The Righteous Anthony and Felix
     note: Sons of Martha Boretska, drowned in 1418 and buried at Euthymius's monastery; commemorated with him on April 18.
 patronage:

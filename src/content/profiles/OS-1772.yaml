@@ -31,7 +31,7 @@ timeline:
   - when: "1961"
     title: Glorification
     body: Formally proclaimed a saint by the Ecumenical Patriarchate of Constantinople.
-related:
+companions:
   - name: Venerable Nikodemos the Hagiorite
     note: A contemporary monk and teacher of the eighteenth-century Greek Orthodox revival on Mount Athos.
     href: saint/OS-1532

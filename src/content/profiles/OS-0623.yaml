@@ -13,9 +13,10 @@ sections:
     body:
       - Pancratius is the most fully developed figure of the three and is venerated as the first bishop of Tauromenium, the modern Taormina, where he became the principal patron of the city. By the tradition he was born at Antioch and, while still young, was brought by his parents to Jerusalem during the ministry of Jesus; the family was subsequently baptized, and Pancratius was set apart by the Apostle Peter for the Sicilian mission.
       - The manner of his death is reported differently in the surviving accounts, whether by stoning at the hands of pagans or by being secretly killed; both traditions agree that he died for the faith he had planted. His memory is kept on July 9 in the East in addition to the joint February 9 commemoration.
-related:
+companions:
   - name: Apostle Peter
     note: The chief apostle, who by the tradition baptized, ordained, and sent all three as bishops.
+    href: saint/OS-0004
 patronage:
   - First bishop and patron of Taormina in Sicily
 status: draft

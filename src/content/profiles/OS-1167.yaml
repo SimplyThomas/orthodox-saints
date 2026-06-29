@@ -33,11 +33,12 @@ timeline:
   - when: "1125"
     title: Translation of relics to Venice
     body: By tradition Isidore's remains are transferred from Chios to the Basilica of St. Mark in Venice.
-related:
+companions:
   - name: Martyr Ammonios
     note: By one account assisted Myrope in recovering and burying Isidore's body on Chios.
   - name: Martyr Hermione, daughter of the Apostle Philip
     note: By tradition Myrope was devoted to her relics before coming to Chios.
+    href: saint/OS-0192
 patronage:
   - Sailors and those at sea
 sources:

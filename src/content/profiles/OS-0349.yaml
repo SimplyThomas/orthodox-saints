@@ -17,9 +17,10 @@ timeline:
   - when: by 823
     title: Death of Saint Peter
     body: Saint Peter is recorded as having died no later than the year 823.
-related:
+companions:
   - name: St. Theodore the Studite
     note: Abbot of the Studion and opponent of iconoclasm who addressed four letters to Peter of Nicaea.
+    href: saint/OS-2180
 status: draft
 sources:
   - Synaxarion

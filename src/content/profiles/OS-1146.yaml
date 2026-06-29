@@ -24,9 +24,10 @@ sections:
   - heading: Builder and restorer of churches
     body:
       - As archbishop he built the church of Saint Demetrios at the Patriarchate of Pec and a church dedicated to Saint Sava of Serbia at Lizica. He restored the historic monastery of Zica and maintained the cell of Saint Sava on Mount Athos, sustaining the ties between the Serbian Church and the Holy Mountain from which he had come.
-related:
+companions:
   - name: Saint Sava of Serbia
     note: First Archbishop of Serbia, whose Typikon and wishes Nikodemos fulfilled
+    href: saint/OS-0449
 patronage:
   - Translators and liturgical scholars
   - Builders and restorers of churches

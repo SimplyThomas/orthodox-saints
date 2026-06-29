@@ -20,7 +20,7 @@ timeline:
   - when: c. 820
     title: Repose
     body: After ascetic labors at the monastery on the Cape of Akrita, he dies around the year 820.
-related:
+companions:
   - name: Saint Michael, Bishop of Synnada
     note: A defender of the holy icons who brought Gregory to the monastery on the Cape of Akrita.
     href: saint/OS-1226

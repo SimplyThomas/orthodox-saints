@@ -21,22 +21,19 @@ timeline:
   - when: c. 117
     title: Martyrdom under Hadrian
     body: Tortured and beheaded at Ephesus by order of the emperor Hadrian; buried at Ephesus.
-related:
-  - name: Apostle Philip of the Seventy (Philip the Deacon)
-    note: Her father, one of the seven deacons of Acts and a member of the Seventy.
-    href: saint/OS-1998
-  - name: St. Petronius of Ephesus
-    note: Disciple of the apostles who became her teacher at Ephesus; commemorated with her on September 4.
-    href: saint/OS-0194
 family:
   heading: Family
   intro: Hermione was a daughter of the Apostle Philip the Deacon and, by tradition, one of the four prophesying daughters mentioned in the Acts of the Apostles.
   figures:
     - name: Apostle Philip the Deacon
-      note: Her father, one of the seven deacons.
+      note: Her father, one of the seven deacons of Acts and a member of the Seventy.
       href: saint/OS-1998
     - name: Eutychis
       note: Her sister, who accompanied her to Asia Minor.
+companions:
+  - name: St. Petronius of Ephesus
+    note: Disciple of the apostles who became her teacher at Ephesus; commemorated with her on September 4.
+    href: saint/OS-0194
 patronage:
   - Healing; physician saints of the early Church
 status: draft

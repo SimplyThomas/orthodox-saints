@@ -27,13 +27,14 @@ timeline:
   - when: 12 March 1289
     title: Martyrdom
     body: Beheaded at Movakan after giving himself up to the Khan to spare his people.
-related:
-  - name: Right-believing Tamara, Queen of Georgia
-    note: great-grandmother
-    href: saint/OS-1093
-  - name: Saint Demetre I (Damiane), King of Georgia
-    note: earlier Georgian king and monk-hymnographer; a distinct saint of the same name commemorated May 23
-    href: saint/OS-1233
+family:
+  figures:
+    - name: Right-believing Tamara, Queen of Georgia
+      note: great-grandmother
+      href: saint/OS-1093
+    - name: Saint Demetre I (Damiane), King of Georgia
+      note: earlier Bagrationi king and monk-hymnographer, a forebear of the dynasty; a distinct saint of the same name commemorated May 23
+      href: saint/OS-1233
 patronage:
   - Self-sacrifice and passion-bearing for one's people
 status: draft

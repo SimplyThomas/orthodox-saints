@@ -8,9 +8,11 @@ sections:
   - heading: Veneration
     body:
       - Martha is commemorated in the Eastern Orthodox Church on September 1 (alongside other saints of the Syrian tradition marked on the feast of the Church New Year) and on July 4, where she is associated with the commemoration of St. Simeon of the Wonderful Mountain, another Syrian stylite. Her veneration is closely tied to that of her son, and her life is not narrated at length in surviving patristic sources independent of the Symeon Stylites tradition.
-related:
-  - name: St. Symeon Stylites the Elder
-    note: Her son, the pioneering pillar-ascetic of Syria (c. 388–459)
+family:
+  figures:
+    - name: St. Symeon Stylites the Elder
+      note: Her son, the pioneering pillar-ascetic of Syria (c. 388–459)
+      href: saint/OS-0034
 status: reviewed
 sources:
   - Synaxarion

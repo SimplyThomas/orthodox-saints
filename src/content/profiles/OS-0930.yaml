@@ -45,11 +45,13 @@ works:
     desc: A vast body of liturgical canons composed in honor of the saints, for which Joseph is named the most prolific hymnographer of the Church; tradition reckons about a thousand hymns, while modern scholarship counts hundreds of canons.
   - title: Hymns in the Parakletike and Menaion
     desc: Hymnographic compositions preserved throughout the Church's service books, including the Parakletike and the Menaion.
-related:
+companions:
   - name: Gregory the Dekapolite
     note: The elder who brought Joseph to Constantinople and with whom he defended the holy icons.
+    href: saint/OS-2222
   - name: Nicholas of Myra
     note: Appeared to Joseph during his captivity, according to tradition.
+    href: saint/OS-0019
 patronage:
   - Hymnographers and church singers
 status: draft

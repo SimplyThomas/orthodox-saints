@@ -22,7 +22,7 @@ timeline:
   - when: "1380"
     title: Battle of Kulikovo
     body: Peresvet opens the battle in single combat against the Horde's champion; the two strike each other down.
-related:
+companions:
   - name: St. Sergius of Radonezh
     note: abbot of the Trinity Lavra who blessed and sent the two monks
     href: saint/OS-0042

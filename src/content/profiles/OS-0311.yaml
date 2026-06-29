@@ -41,7 +41,7 @@ timeline:
   - when: "701"
     title: Repose
     body: Dies on September 8 and is succeeded by Pope John VI.
-related:
+companions:
   - name: Saint Willibrord, Enlightener of Frisia
     note: Consecrated bishop of the Frisians by Sergius and sent to evangelize Frisia.
     href: saint/OS-2719

@@ -43,15 +43,20 @@ family:
   figures:
     - name: Rusticus
       note: His father, of the Gallo-Roman nobility.
+      commemorated: false
     - name: Germanilla
       note: His mother.
+      commemorated: false
     - name: Eustachia
       note: His wife, prominent in imperial circles; after his consecration he is said to have lived with her as with a sister.
-related:
+      commemorated: false
+companions:
   - name: Saint Lupus of Troyes
     note: Bishop of Troyes who accompanied Germanus on his first mission to Britain against Pelagianism.
+    href: saint/OS-2689
   - name: Saint Genevieve
     note: By tradition Germanus encountered her as a girl at Nanterre on his way to Britain.
+    href: saint/OS-0081
 patronage:
   - Selby Abbey, North Yorkshire, of which he is named patron
 sources:

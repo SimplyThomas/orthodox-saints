@@ -17,7 +17,7 @@ timeline:
   - when: after his repose
     title: Burial in the Far Caves
     body: He was buried in the Far Caves, where his relics repose with those of the other fathers.
-related:
+companions:
   - name: St. Theodosius of the Kiev Caves
     note: Father of cenobitic monasticism in Rus'; the Far Caves where Rufus is buried are associated with him.
     href: saint/OS-2745

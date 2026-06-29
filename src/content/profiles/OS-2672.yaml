@@ -32,9 +32,10 @@ sections:
   - heading: Sources and veneration
     body:
       - The most detailed account of his life was composed by Ibrahim ibn Yuhanna, a Byzantine official who had known Christopher in his youth. This Life of Christopher originally existed in both Greek and Arabic, but only the Arabic version survives. Christopher is commemorated as a hieromartyr in the Antiochian tradition; the dates associated with his commemoration include May 21, May 22, and May 23, the last reflecting the day of his martyrdom.
-related:
+companions:
   - name: Saint Simeon the Stylite
     note: The monastery associated with this stylite was Christopher's place of refuge during the unrest preceding his death.
+    href: saint/OS-0034
 patronage: []
 status: draft
 sources:

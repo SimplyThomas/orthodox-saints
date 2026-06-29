@@ -46,9 +46,11 @@ sections:
   - heading: Legacy and Veneration
     body:
       - Corbinian died around September 8, 730, at Freising. His relics were translated to Freising Cathedral in 769. His brother Erembert succeeded as the first formally titled Bishop of Freising in 738. Corbinian is venerated in both the Eastern Orthodox Church (as a pre-schism Western saint of the undivided Church) and the Roman Catholic Church. He is the patron of Freising and of the Archdiocese of Munich and Freising, whose episcopal coat of arms displays the bear of his legend.
-related:
-  - name: Erembert of Freising
-    note: Corbinian's brother, who became the first formally designated Bishop of Freising in 738
+family:
+  figures:
+    - name: Erembert of Freising
+      note: Corbinian's brother, who became the first formally designated Bishop of Freising in 738
+      commemorated: false
 status: draft
 sources:
   - Roman Martyrology

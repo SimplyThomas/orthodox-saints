@@ -22,10 +22,12 @@ sections:
       - According to Eusebius, the young Origen was so eager to share in his father's martyrdom that his mother hid all his clothing to keep him from leaving the house. Prevented from going to his imprisoned father, Origen instead sent him a letter encouraging him to remain steadfast, urging him not to change his mind on the family's account. Eusebius presents Leonides as a careful Christian educator whose instruction shaped his son's early formation in the faith.
 patronage:
   - Large families
-related:
-  - name: Origen
-    note: his eldest son, an early Christian teacher and writer
-    external: https://en.wikipedia.org/wiki/Origen
+family:
+  figures:
+    - name: Origen
+      note: his eldest son, an early Christian teacher and writer
+      external: https://en.wikipedia.org/wiki/Origen
+      commemorated: false
 reading:
   - heading: Primary source
     items:

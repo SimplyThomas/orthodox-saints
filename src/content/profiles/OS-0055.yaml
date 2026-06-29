@@ -43,7 +43,7 @@ timeline:
   - when: "2000"
     title: Glorification
     body: Glorified by the Orthodox Church in America together with the Antiochian Archdiocese.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: As Archbishop of North America, co-consecrated Raphael bishop in 1904
     href: saint/OS-0053

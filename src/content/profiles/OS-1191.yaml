@@ -23,10 +23,11 @@ timeline:
   - when: c. 577
     title: Repose at Annaghdown
     body: By tradition he reposed at Annaghdown in County Galway; his feast is kept on May 16.
-related:
-  - name: St. Ita of Killeedy
-    note: By tradition his foster-mother, who raised him for five years; called the 'foster-mother of the Irish saints.'
-    href: saint/OS-0462
+family:
+  figures:
+    - name: St. Ita of Killeedy
+      note: By tradition his foster-mother, who raised him for five years; called the 'foster-mother of the Irish saints.'
+      href: saint/OS-0462
 patronage:
   - Sailors, voyagers, and travelers by sea
 status: draft

@@ -28,7 +28,7 @@ timeline:
   - when: "425"
     title: Repose
     body: Reposed at Amathus, venerated as a wonderworker of Cyprus.
-related:
+companions:
   - name: Saint Epiphanius, Bishop of Cyprus
     note: Bishop of Salamis in Cyprus, who presided at Tikhon's consecration as bishop.
     href: saint/OS-1152

@@ -11,10 +11,11 @@ sections:
   - heading: Martyrdom and the Conversion of the Executioner
     body:
       - "The narrative of Antiochus's passion turns on a chain of survived tortures — boiling water or oil, fire, and exposure to wild beasts — that culminated in beheading. The tradition's distinctive detail is the milk that flowed with his blood at his death, a wonder that the accounts present as the cause of a further conversion: Cyriacus, a participant in the execution, was so moved by the sight that he openly professed faith in Christ and was himself beheaded. The two martyrs were buried together, and Cyriacus is remembered alongside Antiochus on the same day."
-related:
-  - name: Martyr Platon of Ancyra
-    note: Brother of Antiochus, a youth who preached Christ and was martyred under pagan persecution; commemorated November 18.
-    href: saint/OS-2209
+family:
+  figures:
+    - name: Martyr Platon of Ancyra
+      note: Brother of Antiochus, a youth who preached Christ and was martyred under pagan persecution; commemorated November 18.
+      href: saint/OS-2209
 patronage:
   - Healing of the sick
 status: draft

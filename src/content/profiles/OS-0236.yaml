@@ -24,10 +24,11 @@ timeline:
   - when: May 2, 1115
     title: Translation of relics
     body: Vladimir Monomakh oversees the solemn transfer of the relics at Vyshgorod into a new stone church.
-related:
-  - name: St. Vladimir, Enlightener of Rus'
-    note: their father, Grand Prince of Kiev who baptized Rus'
-    href: saint/OS-0040
+family:
+  figures:
+    - name: St. Vladimir, Enlightener of Rus'
+      note: their father, Grand Prince of Kiev who baptized Rus'
+      href: saint/OS-0040
 patronage:
   - Patrons of Russia; models of humility and non-resistance
 status: draft

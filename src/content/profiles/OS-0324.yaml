@@ -27,7 +27,7 @@ timeline:
   - when: c. 549
     title: Repose
     body: Died of plague in his early thirties, only months after founding the monastery.
-related:
+companions:
   - name: St. Enda of Aran
     note: His teacher on Inishmore, who ordained him and counselled him to found a monastery
     href: saint/OS-0861

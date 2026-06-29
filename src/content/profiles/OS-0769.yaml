@@ -24,13 +24,14 @@ timeline:
   - when: "1238"
     title: Martyrdom
     body: Killed in the Shernsk woods after refusing to renounce his faith and serve his captors.
-related:
-  - name: Right-believing Great Prince George (Yuri) of Vladimir
-    note: His uncle and lifelong companion, who fell in the same campaign and is venerated with him as a passion-bearer.
-    href: saint/OS-0592
-  - name: Martyr Michael of Chernigov
-    note: His father-in-law; Basil married Michael's daughter Maria.
-    href: saint/OS-1871
+family:
+  figures:
+    - name: Right-believing Great Prince George (Yuri) of Vladimir
+      note: His uncle and lifelong companion, who fell in the same campaign and is venerated with him as a passion-bearer.
+      href: saint/OS-0592
+    - name: Martyr Michael of Chernigov
+      note: His father-in-law; Basil married Michael's daughter Maria.
+      href: saint/OS-1871
 patronage:
   - Fidelity under persecution and defense of one's homeland
 status: draft

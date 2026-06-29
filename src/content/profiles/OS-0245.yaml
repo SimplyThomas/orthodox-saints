@@ -26,9 +26,11 @@ sections:
     body:
       - Pressed by the governor of Melitene to sacrifice to the idols, Eudoxius firmly refused and denounced the folly of worshipping soulless images. As he removed his military belt - the mark of his rank - he threw it in the governor's face, and more than a thousand secret Christian soldiers present did the same, casting off their belts in open confession. After being tortured, Eudoxius was beheaded.
       - His friend Zeno then declared himself a Christian and was at once sentenced to death. The steward Macarius, made aware through a vision Eudoxius had granted to his wife, likewise confessed the faith and was beheaded. By the count preserved in the synaxarion the soldiers martyred with them numbered 1,104. Their feast is kept on September 6.
-related:
-  - name: Basilissa
-    note: Wife of Eudoxius, who by his charge kept the day of his martyrdom as a feast rather than a day of mourning.
+family:
+  figures:
+    - name: Basilissa
+      note: Wife of Eudoxius, who by his charge kept the day of his martyrdom as a feast rather than a day of mourning.
+      commemorated: false
 patronage:
   - Soldiers
 status: draft

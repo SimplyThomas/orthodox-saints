@@ -53,9 +53,10 @@ sections:
       - By long tradition he is depicted in art accompanied by a bear, a reference to legendary accounts of his life in the wilderness.
 patronage:
   - City and Canton of St Gallen, Switzerland
-related:
+companions:
   - name: Columbanus
     note: Irish abbot and missionary; Gall's teacher at Bangor and the leader of the continental mission he joined.
+    href: saint/OS-2693
   - name: Othmar
     note: First abbot of the Abbey of Saint Gall, formally established in 719 at the site of Gall's hermitage.
 status: draft

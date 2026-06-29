@@ -30,11 +30,13 @@ sections:
 patronage:
   - the wronged and those defrauded of property
   - the sick (through the healing spring attested by tradition)
-related:
+companions:
   - name: Julitta, mother of Quiricus
     note: A distinct martyr commemorated on July 15, not to be confused with Julitta of Caesarea.
+    href: saint/OS-1533
   - name: Basil the Great
     note: Archbishop of Caesarea, who composed an encomium in her honor about seventy years after her martyrdom.
+    href: saint/OS-0021
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2019/07/31/102155-martyr-julitta-at-caesarea

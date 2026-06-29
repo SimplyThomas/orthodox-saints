@@ -32,7 +32,7 @@ timeline:
   - when: "1156"
     title: Repose at the Kiev Caves
     body: Niphon died in peace at the Kiev Caves Monastery on April 8, 1156.
-related:
+companions:
   - name: St. Theodosius of the Kyiv Caves
     note: Father of cenobitic monasticism in Rus' who, by tradition, appeared to Niphon in a dream announcing his approaching death.
     href: saint/OS-2745

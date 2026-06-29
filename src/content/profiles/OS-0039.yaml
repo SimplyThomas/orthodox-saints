@@ -35,19 +35,21 @@ timeline:
   - when: c. 335
     title: Repose at Bodbe
     body: Nina reposes in eastern Georgia and is buried at Bodbe in Kakheti, where King Mirian builds a church over her grave.
-related:
-  - name: Great-Martyr George the Trophy-bearer
-    note: By tradition a relative of Nina.
-    href: saint/OS-0012
+family:
+  figures:
+    - name: Great-Martyr George the Trophy-bearer
+      note: By tradition a relative of Nina.
+      href: saint/OS-0012
+    - name: Saint Juvenal, Patriarch of Jerusalem
+      note: Named in the tradition as Nina's uncle, who blessed her mission.
+      href: saint/OS-1454
+companions:
   - name: Equals-to-the-Apostles Mirian and Nana of Georgia, with Sidonia
     note: The Georgian king and queen converted through Nina's mission.
     href: saint/OS-1935
   - name: Martyrs Rhipsime, Gaiane, and those with them
     note: Virgin-martyrs associated with Nina's journey, put to death in Armenia.
     href: saint/OS-1927
-  - name: Saint Juvenal, Patriarch of Jerusalem
-    note: Named in the tradition as Nina's uncle, who blessed her mission.
-    href: saint/OS-1454
 patronage:
   - Patroness of Georgia and the Georgian people
   - Missionaries and apostolic preaching

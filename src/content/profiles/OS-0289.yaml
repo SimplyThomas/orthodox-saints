@@ -31,9 +31,11 @@ sections:
   - heading: Veneration
     body:
       - John's feast is observed on September 7, the anniversary of his repose. His relics, originally interred in the Cathedral of Holy Wisdom, were desecrated during Soviet anti-religious campaigns on April 3, 1919. He is venerated as a wonderworker and as the archbishop through whom Novgorod was miraculously delivered.
-related:
-  - name: Gavril (Grigorii) of Novgorod
-    note: John's brother and immediate successor as Archbishop of Novgorod (1186–1193)
+family:
+  figures:
+    - name: Gavril (Grigorii) of Novgorod
+      note: John's brother and immediate successor as Archbishop of Novgorod (1186–1193)
+companions:
   - name: Our Lady of the Sign
     note: The icon of the Theotokos central to the miracle of the 1169 siege of Novgorod
 status: draft

@@ -11,9 +11,11 @@ sections:
     body:
       - The commemoration gathers five distinct figures around Theodore. Dioscorus, described as a pagan priest, is said to have been set the same ordeal Theodore had survived and, professing faith in Christ, to have died upon the heated plate. Socrates and Dionysius were soldiers whose conversion the synaxarion attributes to what they saw of Theodore's endurance; having confessed Christ, they shared his sufferings and were pierced with a spear.
       - Philippa, Theodore's mother, stands apart as the one bound to him by kinship rather than by the trial itself. The tradition holds that a revelation at his birth had disclosed to her that he would be crucified for Christ, and she is numbered among the martyrs, beheaded with the others.
-related:
-  - name: Martyr Philippa
-    note: Theodore's mother, beheaded with the companions; by tradition she had received a revelation at his birth that he would be crucified for Christ.
+family:
+  figures:
+    - name: Martyr Philippa
+      note: Theodore's mother, beheaded with the companions; by tradition she had received a revelation at his birth that he would be crucified for Christ.
+companions:
   - name: Martyrs Socrates and Dionysius
     note: Soldiers converted by witnessing Theodore's steadfastness; pierced with a spear.
   - name: Martyr Dioscorus

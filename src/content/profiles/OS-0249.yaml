@@ -10,7 +10,7 @@ sections:
     body:
       - The list of the bishops of Verona records a Petronius in the episcopal succession, dated by one reckoning to around the early 5th century, but supplies no further biographical detail. His commemoration as a confessor on September 6 comes through the tradition of the Latin saints of the Orthodox Patriarchate of Rome, which preserves a number of such early Italian hierarchs whose individual lives are otherwise thinly documented.
       - Much of the scholarly discussion surrounding the name attaches not to Verona but to Bologna. A sermon, 'In die ordinationis vel Natale episcopi,' was attributed by Gennadius to a Bishop Petronius of Verona; later scholarship, including the argument of Czapla, has held that the reference is in fact to Petronius of Bologna, though this reassignment is acknowledged as not certain. Other writings once linked to the name — a treatise on the monks of Egypt and a work 'De ordinatione episcopi' — have been reassigned by scholars to Rufinus of Aquileia and to an earlier Petronius, illustrating how readily the figures bearing this name have been conflated.
-related:
+companions:
   - name: St. Petronius of Bologna
     note: A near-contemporary 5th-century Italian bishop of the same name (Bishop of Bologna, consecrated c. 432), with whom Petronius of Verona is frequently confused in the sources.
 status: draft

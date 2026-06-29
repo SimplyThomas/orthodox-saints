@@ -13,9 +13,10 @@ sections:
   - heading: Sources and Uncertainties
     body:
       - The accounts of this cohort are brief. The Orthodox Church in America synaxarion names Euthymius as igumen of Vatopedi and records that he was drowned and the monks hanged, dating the events by the reigns of Michael Palaiologos (1261-1281) and the patriarch John Bekkos (1275-1282); it does not preserve the individual names of the twelve monks. A Vatopedi account places the martyrdom in 1285 and specifies the sites of Kalamitsi and Fourkovouni. The shared and well-attested facts are that Euthymius was abbot of Vatopedi, that he and twelve monks resisted the imperially-sponsored union with Rome, and that he was drowned while the twelve were hanged.
-related:
+companions:
   - name: Monastic Martyrs of Zographou
     note: Athonite monks martyred in the same era for resisting the union with Rome under Michael VIII Palaiologos
+    href: saint/OS-1882
 patronage:
   - Confessors of Orthodoxy under pressure to compromise
 status: reviewed

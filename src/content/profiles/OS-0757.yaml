@@ -14,9 +14,10 @@ sections:
       - According to the tradition preserved in the synaxarion and the Prologue of Ohrid, Saint Gregory the Wonderworker, bishop of Neocaesarea, foretold the martyrdom of Troadius. During the saint's sufferings Gregory beheld in a vision how bravely the young man withstood his tortures for Christ until he was killed.
       - In the same vision Gregory is said to have seen the soul of Troadius, after it had been separated from his body, hastening joyfully toward heaven. This account is the principal reason the martyr's memory was preserved, the brief written record otherwise giving few details of his life.
 patronage: []
-related:
+companions:
   - name: Saint Gregory the Wonderworker of Neocaesarea
     note: Bishop of Neocaesarea who foretold Troadius's martyrdom and witnessed his sufferings in a vision (commemorated November 17).
+    href: saint/OS-2204
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/1948/03/02/100637-martyr-troadius-of-neocaesarea

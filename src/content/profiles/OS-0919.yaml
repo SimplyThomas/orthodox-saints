@@ -13,9 +13,10 @@ sections:
     body:
       - John is credited with the encomiastic poem traditionally—though, scholars note, unsuitably—known as the Abdulmesiani, a title derived from Arabic meaning "Slave of the Messiah." The poem is a eulogy praising two of medieval Georgia's greatest monarchs, King David the Builder (reigned 1089–1125) and Queen Tamar, though it names neither ruler directly.
       - The work praises Tamar through coded language celebrating her beauty and her charitable works, while David is evoked by allusions to his biblical namesake and by echoes of the king's own religious compositions, including phrases drawn from David the Builder's Hymns of Penitence. John's style is marked by a strong patristic discourse and a deliberately archaic, bookish literary register.
-related:
+companions:
   - name: Eulogius the Fool-for-Christ
     note: Georgian ascetic closely associated with John in the synaxarion
+    href: saint/OS-0920
 patronage:
   - Poets, hymnographers, and Christian scholars
 sources:

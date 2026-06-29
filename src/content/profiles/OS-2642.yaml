@@ -12,9 +12,10 @@ sections:
   - heading: Martyrdom and Glorification
     body:
       - Budimir's death is placed in 1945, after the German withdrawal, when he was seized and executed by the Communist authorities and buried where his grave could not be found. He is counted among the New Martyrs of Dabar-Bosnia and Mileševa, a company of Serbian clergy and faithful — led in the wider Dabar-Bosnia witness by Metropolitan Petar (Zimonjić) — who perished during and after the war. The Serbian Orthodox Church received him into its calendar as a hieromartyr, and he is commemorated on June 28.
-related:
+companions:
   - name: Metropolitan Petar (Zimonjić) of Dabar-Bosnia
     note: Leading hieromartyr of the New Martyrs of Dabar-Bosnia, among whom Budimir is numbered
+    href: saint/OS-0222
 patronage:
   - Serbian New Martyrs; witness of faith under persecution
 status: draft

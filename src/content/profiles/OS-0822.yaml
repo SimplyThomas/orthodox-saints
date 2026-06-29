@@ -36,9 +36,11 @@ sections:
   - heading: Family
     body:
       - Benedict's sister Scholastica became a nun at one of his communities and is venerated as a saint in her own right. According to tradition, she once prayed for a rainstorm so as to enjoy more time in spiritual fellowship with her brother. Benedict later beheld her soul rising to heaven in the likeness of a dove and had her buried in his own tomb at Monte Cassino.
-related:
-  - name: Saint Scholastica
-    note: Benedict's sister, a nun at one of his communities, buried with him at Monte Cassino.
+family:
+  figures:
+    - name: Saint Scholastica
+      note: Benedict's sister, a nun at one of his communities, buried with him at Monte Cassino.
+companions:
   - name: Saint Gregory the Great (Gregory the Dialogist)
     note: Pope whose Dialogues, written c. 593, preserve the principal account of Benedict's life.
 patronage:

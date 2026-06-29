@@ -45,13 +45,15 @@ works:
     desc: A universal chronicle surveying the history of the world.
   - title: De natura rerum
     desc: A treatise on natural history and astronomy, dedicated to the Visigothic King Sisebut.
-related:
-  - name: Leander of Seville
-    note: Isidore's elder brother, his teacher and predecessor as Archbishop of Seville.
-  - name: Florentina
-    note: Isidore's sister, a nun venerated as a saint.
-  - name: Fulgentius
-    note: Isidore's brother, a bishop venerated as a saint.
+family:
+  figures:
+    - name: Leander of Seville
+      note: Isidore's elder brother, his teacher and predecessor as Archbishop of Seville.
+      href: saint/OS-0734
+    - name: Florentina
+      note: Isidore's sister, a nun venerated as a saint.
+    - name: Fulgentius
+      note: Isidore's brother, a bishop venerated as a saint.
 patronage:
   - Scholars and students
 status: draft

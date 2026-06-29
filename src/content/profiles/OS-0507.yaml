@@ -13,7 +13,7 @@ sections:
   - heading: A Note on Identity
     body:
       - Maximus the Confessor is recorded in the wider historical sources as having had two disciples named Anastasius—Anastasius the Monk and Anastasius the Apocrisiarius—both of whom shared his exile and confession. The synaxarion entry commemorated on January 21 telescopes these closely associated figures into a single martyr-disciple who suffered the same mutilation as Maximus and recorded his teacher's life.
-related:
+companions:
   - name: Venerable Maximus the Confessor
     note: His teacher, with whom he shared trial, exile, and mutilation; commemorated the same day
     href: saint/OS-0503

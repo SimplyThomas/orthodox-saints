@@ -14,9 +14,10 @@ sections:
   - heading: Veneration
     body:
       - Zosimas reposed in 1478. He has been venerated as a saint by the Russian Orthodox Church since 1547. He is commemorated on August 8, the day of his repose, with a secondary commemoration on April 17.
-related:
+companions:
   - name: Savvatiy (Savvatius) of Solovki
     note: Earlier hermit on the Greater Solovetsky Island and co-founder of the monastery; Zosimas translated his relics to a new church in 1465.
+    href: saint/OS-1910
   - name: Herman (German) of Solovki
     note: Monk who had lived with Savvatiy on the island and traveled with Zosimas to settle the Solovetsky Islands; co-founder of the monastery.
 sources:

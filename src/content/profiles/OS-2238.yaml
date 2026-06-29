@@ -49,9 +49,10 @@ sections:
     body:
       - Gromoglasov was canonized as a locally venerated saint of the Tver diocese in 1999. In August 2000 the Bishops' Council of the Russian Orthodox Church glorified him among the New Martyrs and Confessors of Russia for general veneration. He is commemorated on November 22.
 patronage: []
-related:
+companions:
   - name: New Hieromartyr Alexis (Benemanskii) of Tver
     note: Fellow Tver clergyman arrested with him in 1937; commemorated the same day.
+    href: saint/OS-2237
 reading:
   - heading: Reference
     items:

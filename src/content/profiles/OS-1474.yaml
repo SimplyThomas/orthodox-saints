@@ -20,10 +20,10 @@ patronage:
   - Physicians and surgeons
   - Pharmacists
   - The sick
-related:
+companions:
   - name: Cosmas and Damian of Asia
     note: The pair of unmercenary physician brothers of Asia Minor, commemorated November 1; distinct from the Roman pair.
-    href: /saint/OS-0036
+    href: saint/OS-0036
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Saints_Cosmas_and_Damian

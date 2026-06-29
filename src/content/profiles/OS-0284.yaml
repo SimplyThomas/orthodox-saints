@@ -23,7 +23,7 @@ timeline:
   - when: "1296"
     title: Shrine destroyed
     body: A Scottish border raid pillaged and destroyed both the church and the shrine.
-related:
+companions:
   - name: St. Tilbert of Hexham
     note: His successor as bishop of Hexham
     href: saint/OS-0285

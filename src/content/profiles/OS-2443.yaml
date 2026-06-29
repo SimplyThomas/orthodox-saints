@@ -30,9 +30,10 @@ sections:
     body:
       - Because of the holiness of his life, Simeon is said to have received from God the gift of wonderworking. He is commemorated on January 26 and is styled in the liturgical texts a venerable father associated with Mount Sinai. The epithet "the Ancient" or "the Elder" serves to distinguish him from Symeon the Stylite, commemorated on September 1.
       - His place within the wider history of Syrian asceticism is illuminated by Theodoret of Cyrrhus, whose History of the Monks of Syria (Religious History) records the lives of some thirty Syrian ascetics of the fourth and fifth centuries—many of whom Theodoret knew personally—and includes among them a figure known as Symeon the Elder.
-related:
+companions:
   - name: Symeon the Stylite
     note: The later pillar-saint (commemorated September 1) from whom Simeon the Ancient is distinguished by his epithet.
+    href: saint/OS-0034
 sources:
   - OCA Synaxarion (oca.org/saints/lives, Jan 26)
   - GOARCH calendar

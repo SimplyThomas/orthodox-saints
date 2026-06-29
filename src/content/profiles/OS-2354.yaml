@@ -33,15 +33,21 @@ sections:
       - Christ refers to "the days of Noah" in speaking of the coming of the Son of Man (Matthew 24:37-39), and the First Letter of Peter likens the deliverance of the few souls brought safely through the water in the ark to the salvation effected in baptism (1 Peter 3:20).
 patronage:
   - Ancestor of humanity; exemplar of righteousness and faith
-related:
-  - name: Shem
-    note: Son of Noah; through his line the genealogy of the patriarchs is traced.
-  - name: Ham
-    note: Son of Noah, associated in Genesis with the episode following the Flood.
-  - name: Japheth
-    note: Son of Noah, named among the three from whom the nations descend.
+family:
+  figures:
+    - name: Shem
+      note: Son of Noah; through his line the genealogy of the patriarchs is traced.
+      href: saint/OS-2535
+    - name: Ham
+      note: Son of Noah, associated in Genesis with the episode following the Flood.
+      commemorated: false
+    - name: Japheth
+      note: Son of Noah, named among the three from whom the nations descend.
+      commemorated: false
+companions:
   - name: Patriarch Abraham
     note: A later forefather commemorated together with Noah among the Holy Forefathers before the Nativity.
+    href: saint/OS-1984
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

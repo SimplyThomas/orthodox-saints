@@ -4,12 +4,14 @@ overview:
   - Balin (also recorded as Balloin or Belinus) was an English-born monastic of the seventh century who, by tradition, left Northumbria for Ireland in the wake of the Synod of Whitby. The tradition counts him among the brothers of Saint Gerald of Mayo and describes him as a disciple of Saint Colman of Lindisfarne, whom he accompanied first to Iona and then to Ireland, where the company of Anglo-Saxon monks settled in the province of Connaught. He is a very obscure figure, known chiefly through later hagiographic accounts of Saint Gerald rather than from any independent record of his own.
   - According to these accounts, Balin and his brothers came from England after the middle of the seventh century and established themselves at Tech-Saxon ("the House of the Saxons"), placed by later sources in the Diocese of Tuam, in County Galway. The settlement belongs to the broader movement of Northumbrian monks who withdrew with Colman of Lindisfarne after the Synod of Whitby adopted the Roman reckoning of Easter, a migration that also produced the monastery known as "Mayo of the Saxons."
   - The details of Balin's life rest on tradition rather than firm documentation, and modern scholars have questioned whether his claimed kinship with Gerald of Mayo and the other named brothers is literal or whether they were rather companions and disciples. His feast is kept on September 7; some Irish martyrologies record a commemoration on September 3.
-related:
+family:
+  figures:
+    - name: Saint Gerald of Mayo
+      note: By tradition Balin's brother and a fellow Anglo-Saxon disciple of Colman; founding abbot of "Mayo of the Saxons."
+companions:
   - name: Saint Colman of Lindisfarne
     note: The bishop whom Balin followed from Lindisfarne to Iona and then to Ireland after the Synod of Whitby.
     href: saint/OS-0686
-  - name: Saint Gerald of Mayo
-    note: By tradition Balin's brother and a fellow Anglo-Saxon disciple of Colman; founding abbot of "Mayo of the Saxons."
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

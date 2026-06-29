@@ -32,9 +32,10 @@ sections:
 patronage:
   - Spiritual writers and editors of patristic texts
   - Those seeking renewal of the hesychast tradition
-related:
+companions:
   - name: Nikodemos of the Holy Mountain
     note: Fellow Kollyvades leader and co-editor of the Philokalia
+    href: saint/OS-1532
   - name: Athanasios of Paros
     note: Fellow leader of the Kollyvades movement
 works:

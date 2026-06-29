@@ -41,7 +41,7 @@ timeline:
   - when: "846"
     title: Translation of relics
     body: Relics returned to Constantinople and enshrined in the Church of the Holy Apostles.
-related:
+companions:
   - name: Saint Tarasius, Patriarch of Constantinople
     note: His predecessor on the patriarchal throne and likewise a defender of the icons.
     href: saint/OS-0722

@@ -35,7 +35,7 @@ timeline:
   - when: "473"
     title: Repose
     body: Died on January 20 at an advanced age; his relics remained at his monastery.
-related:
+companions:
   - name: Venerable Theoctistus of Palestine
     note: Fellow ascetic and co-founder of their first community near Jericho
     href: saint/OS-0154

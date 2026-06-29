@@ -33,9 +33,11 @@ sections:
   - heading: Relics and Veneration
     body:
       - Dionysios reposed on 17 December 1622. His relics were found to be incorrupt and are kept on Zakynthos, where he is honored as the island's patron saint; his canonization was proclaimed by the Patriarch of Constantinople. His feast is celebrated on December 17, and the translation of his holy relics is commemorated on August 24.
-related:
-  - name: Constantine Sigouros
-    note: The saint's brother, whose murderer Dionysios forgave and sheltered.
+family:
+  figures:
+    - name: Constantine Sigouros
+      note: The saint's brother, whose murderer Dionysios forgave and sheltered.
+      commemorated: false
 patronage:
   - The island of Zakynthos
   - Forgiveness and reconciliation

@@ -9,9 +9,10 @@ sections:
     body:
       - The decisive moment in Anthusa's life, as the synaxarion relates it, was the proposal that she be baptized by an Arian. The suggestion came from Sunilda, the wife of the city prefect, a figure of civic authority. Anthusa's refusal was understood not as a rejection of baptism itself but as a refusal of the Arian confession, holding instead to the Orthodox faith into which Saint Ambrose had baptized her.
       - Her sentence was death by fire. The tradition records that she endured this and so received the crown of martyrdom, placing her among those who suffered for adherence to the Nicene faith during the long aftermath of the Arian controversy.
-related:
+companions:
   - name: Saint Ambrose of Milan
     note: The bishop who, by tradition, baptized Anthusa into the Orthodox faith; commemorated December 7.
+    href: saint/OS-2312
 patronage:
   - Women martyrs who refused heterodox baptism
 status: draft

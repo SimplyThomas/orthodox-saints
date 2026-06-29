@@ -41,22 +41,6 @@ timeline:
   - when: c. 394
     title: Repose
     body: Gregory dies in old age, shortly after the Council, having participated in further synods.
-related:
-  - name: St. Basil the Great
-    note: Elder brother and metropolitan of Caesarea, who consecrated Gregory bishop of Nyssa.
-    href: saint/OS-0021
-  - name: St. Gregory the Theologian
-    note: Friend and fellow Cappadocian Father who encouraged Gregory toward the ascetic life.
-    href: saint/OS-0022
-  - name: St. Peter, Bishop of Sebaste
-    note: Younger brother, also a bishop.
-    href: saint/OS-0420
-  - name: Venerable Macrina the Younger
-    note: Elder sister, whose life and death Gregory recorded; the dialogue On the Soul and the Resurrection is set as a conversation with her.
-    href: saint/OS-1551
-  - name: Blessed Theosebia the Deaconess
-    note: Sister, a deaconess of the Church.
-    href: saint/OS-0427
 family:
   heading: Family
   intro: Gregory belonged to one of the most remarkable families in Christian history, several of whose members are venerated as saints.
@@ -76,6 +60,10 @@ family:
     - name: Blessed Theosebia the Deaconess
       note: Sister.
       href: saint/OS-0427
+companions:
+  - name: St. Gregory the Theologian
+    note: Friend and fellow Cappadocian Father who encouraged Gregory toward the ascetic life.
+    href: saint/OS-0022
 patronage:
   - Teacher and defender of the Holy Trinity and Holy Spirit
 works:

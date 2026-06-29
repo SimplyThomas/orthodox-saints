@@ -34,9 +34,10 @@ sections:
     body:
       - "Julian the Apostate (r. 361-363) reversed the Constantinian policy of favouring Christianity and sought to restore traditional Roman religion. While he did not institute a systematic persecution, Christians who came to his attention through denunciation could face death. Eusignius's case illustrates this dynamic: he was not sought out as a Christian but was denounced by a private enemy."
       - The detail that he rebuked Julian to his face before being condemned is a standard feature of martyr accounts from this period and underscores the hagiographic theme of fearless confession. Eusignius is said to have been about 110 years old at the time of his death, a figure that, if computed from the traditional birth year of 252, is consistent with execution in 362.
-related:
+companions:
   - name: Martyr Basiliscus of Amasea
     note: Whose martyrdom Eusignius witnessed during his military years
+    href: saint/OS-0762
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

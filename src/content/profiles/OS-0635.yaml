@@ -31,11 +31,13 @@ sections:
 patronage:
   - Vologda and the Russian North
   - The poor and suffering
-related:
+companions:
   - name: Saint Sergius of Radonezh
     note: Friend and spiritual guide whom Demetrius met in 1334; his influence drew Demetrius to the monastic life of the Russian North.
+    href: saint/OS-0042
   - name: Demetrius Donskoy (Grand Prince Demetrius Ioannovich)
     note: Grand Prince whose children Demetrius is said to have baptized as godfather.
+    href: saint/OS-1210
 works:
   - title: Spaso-Prilutsky (Savior-Priluki) Monastery
     desc: Cenobitic monastery he founded at a bend of the Vologda River, regarded as the first cenobitic monastery of the Russian North; its wooden Savior cathedral was built in 1371.

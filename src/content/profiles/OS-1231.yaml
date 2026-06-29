@@ -41,8 +41,9 @@ sections:
 patronage:
   - Missionaries and the work of evangelization
   - The city and region of Rostov
-related:
+companions:
   - name: Saint Isaiah the Wonderworker, Bishop of Rostov
     note: A successor in the see of Rostov, likewise honored among the saints and enlighteners of that land.
+    href: saint/OS-1173
 status: draft
 generated: "2026-06-19"

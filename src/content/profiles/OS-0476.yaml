@@ -41,7 +41,7 @@ timeline:
   - when: "444"
     title: Repose
     body: Cyril dies after thirty-two years as Patriarch of Alexandria.
-related:
+companions:
   - name: St. Athanasius the Great
     note: Predecessor as Archbishop of Alexandria, with whom Cyril shares the January 18 commemoration.
     href: saint/OS-0024

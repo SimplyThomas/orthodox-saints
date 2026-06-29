@@ -52,11 +52,14 @@ works:
     desc: A lament attributed to Stephen for his father, Prince Lazar, dating to 1389.
   - title: Code of Mines
     desc: Legislation issued by Stephen in 1412 regulating the mining center of Novo Brdo.
-related:
-  - name: Holy Prince Lazar of Serbia
-    note: Stephen's father, who fell at the Battle of Kosovo in 1389.
-  - name: Holy Princess Milica (Eugenia)
-    note: Stephen's mother, who served as regent during his minority and is commemorated with him.
+family:
+  figures:
+    - name: Holy Prince Lazar of Serbia
+      note: Stephen's father, who fell at the Battle of Kosovo in 1389.
+      href: saint/OS-1363
+    - name: Holy Princess Milica (Eugenia)
+      note: Stephen's mother, who served as regent during his minority and is commemorated with him.
+      href: saint/OS-1556
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

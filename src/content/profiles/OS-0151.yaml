@@ -16,9 +16,10 @@ sections:
   - heading: Historical Context
     body:
       - Nicomedia was an imperial residence under Diocletian, which placed its Christian community at the center of the persecution that opened in 303. The synaxarion connects this company of martyrs with the destruction of the city's principal church and with Bishop Anthimus, who hid in a village, sent letters of encouragement, and was eventually captured and beheaded. The same bishop and his companions are commemorated on September 3, while the great multitude burned in the church is also remembered on December 28.
-related:
+companions:
   - name: Hieromartyr Anthimus, Bishop of Nicomedia
     note: Bishop of the city, commemorated with this company; martyred by beheading
+    href: saint/OS-0150
 status: draft
 sources:
   - Synaxarion

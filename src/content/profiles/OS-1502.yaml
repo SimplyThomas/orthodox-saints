@@ -30,7 +30,7 @@ timeline:
   - when: "1956"
     title: Chapel at the cave
     body: The monk Gerasimos established a chapel at the saints' original cave.
-related:
+companions:
   - name: Saint Metrophanes
     note: Disciple of Dionysios; preached in the villages of Halkidiki and is commemorated together with him.
 patronage:

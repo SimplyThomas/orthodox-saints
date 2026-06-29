@@ -14,10 +14,11 @@ sections:
     body:
       - Olga journeyed to Constantinople and was baptized, receiving the name Helen. By tradition the Patriarch Theophylactus performed the baptism and the emperor Constantine Porphyrogenitos stood as her godfather. She is thus counted the first ruler of Rus' to embrace the Christian faith.
       - Returning home, she built churches and sought to spread Christianity, though her son Svyatoslav held to the old religion and was not converted. Her enduring influence came through her grandson Vladimir, whom she helped to raise; it was he who, in the next generation, brought Rus' as a whole to baptism. For this reason Olga is honored as the spiritual root of Christianity among the Rus'.
-related:
-  - name: St. Vladimir, Enlightener of Rus'
-    note: Her grandson, who completed the baptism of Rus'.
-    href: saint/OS-0040
+family:
+  figures:
+    - name: St. Vladimir, Enlightener of Rus'
+      note: Her grandson, who completed the baptism of Rus'.
+      href: saint/OS-0040
 patronage:
   - Widows
   - Converts to the faith

@@ -39,10 +39,11 @@ timeline:
   - when: "925"
     title: Repose
     body: Died and was buried at the Monastery of Galakrinon.
-related:
-  - name: St. Photios the Great, Patriarch of Constantinople
-    note: Relative and teacher of Nicholas; the elder patriarch under whom he first served.
-    href: saint/OS-0603
+family:
+  figures:
+    - name: St. Photios the Great, Patriarch of Constantinople
+      note: Relative and teacher of Nicholas; the elder patriarch under whom he first served.
+      href: saint/OS-0603
 patronage:
   - Canonical order and integrity against worldly pressure
 status: draft

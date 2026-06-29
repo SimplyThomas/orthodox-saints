@@ -14,9 +14,10 @@ sections:
     body:
       - Philogonius was elevated directly to the bishopric of Antioch without having first served as a priest, a step the sources describe as an exception made on account of his manner of life and his knowledge of the faith. As bishop he endured the persecutions of his time, which earned him the title of confessor, and he stood among the early opponents of Arianism. When Bishop Alexander of Alexandria condemned Arius and made the condemnation known by a synodal letter, Philogonius upheld the orthodox confession at Antioch.
       - His memory was honored a generation later by Saint John Chrysostom, who in 386 delivered a panegyric on Philogonius's feast day. Chrysostom's homily is the principal early witness to Philogonius's reputation and praises the flourishing of true virtue and piety in the Church of Antioch during his episcopate.
-related:
+companions:
   - name: St. John Chrysostom
     note: Preached a panegyric in honor of Philogonius at Antioch in 386, the principal early witness to his memory.
+    href: saint/OS-0023
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

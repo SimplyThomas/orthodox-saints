@@ -36,13 +36,16 @@ sections:
     body:
       - According to tradition, Timothy met his death at Ephesus when he tried to stop a pagan festival in which idols were carried through the city with songs and ceremonies. Preaching the faith of Christ to the crowd, he was attacked, beaten, dragged along the ground, and stoned. The sources place his martyrdom in the 90s, the OCA giving the year 93 and other accounts around 97.
       - In the fourth century his relics were brought to Constantinople and laid in the Church of the Holy Apostles, near those of the Apostles Andrew and Luke. He is honored as one of the Seventy Apostles, and is commemorated on January 22.
-related:
+companions:
   - name: Apostle Paul
     note: His spiritual father and companion, who converted him, took him on his missionary journeys, appointed him bishop of Ephesus, and addressed two epistles to him.
+    href: saint/OS-2749
   - name: Apostle Luke
     note: Apostle and Evangelist whose relics were laid near Timothy's in the Church of the Holy Apostles at Constantinople.
+    href: saint/OS-0006
   - name: Apostle Andrew the First-Called
     note: Apostle whose relics rested near Timothy's in the Church of the Holy Apostles at Constantinople.
+    href: saint/OS-0003
 patronage:
   - Those with ailments of the stomach
 works: []

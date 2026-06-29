@@ -10,11 +10,12 @@ sections:
     body:
       - "According to Flodoard's account, after his consecration Genebald resumed relations with his former wife, who bore him a son. Acknowledging the gravity of the act, he asked that the child be named Latro, meaning 'thief,' saying he had begotten him by theft; the tradition records a further lapse that produced a daughter. When the matter became known, Remigius did not depose him outright but imposed a penance: Genebald was enclosed for seven years in a small cell near the church of Saint Julian, living on bread and water, while Remigius oversaw the affairs of the see."
       - By tradition his penance ended with a vision in which an angel announced that the door of heaven was opened to him, and Remigius restored him to his episcopal office. Genebald is said to have remained chaste for the rest of his life. His son Latro, according to the same tradition, later succeeded him as bishop of Laon.
-related:
-  - name: St. Remigius of Rheims
-    note: Bishop of Rheims and kinsman of Genebald, who appointed him first bishop of Laon and later imposed and lifted his penance.
-  - name: Latro of Laon
-    note: By tradition the son of Genebald, who later succeeded him as bishop of Laon.
+family:
+  figures:
+    - name: St. Remigius of Rheims
+      note: Bishop of Rheims and kinsman of Genebald by marriage, who appointed him first bishop of Laon and later imposed and lifted his penance.
+    - name: Latro of Laon
+      note: By tradition the son of Genebald, who later succeeded him as bishop of Laon.
 patronage:
   - Repentance for grave sin and perseverance in penance
 timeline:

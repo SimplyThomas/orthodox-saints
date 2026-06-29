@@ -27,7 +27,7 @@ timeline:
   - when: "432"
     title: Repose
     body: He died peacefully; he is commemorated April 8 in the East and April 6 in the West.
-related:
+companions:
   - name: St. Patrick, Enlightener of Ireland
     note: By Western tradition commissioned for the Irish mission during Celestine's pontificate.
     href: saint/OS-0079

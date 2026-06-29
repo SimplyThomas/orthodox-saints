@@ -19,7 +19,7 @@ timeline:
   - when: 1st century
     title: Martyrdom under Libanius
     body: Brought before the prefect Libanius and, refusing to deny Christ, put to death after severe torments.
-related:
+companions:
   - name: Apostle Titus of the Seventy
     note: Their teacher, who ordained them to the priesthood
     href: saint/OS-1775

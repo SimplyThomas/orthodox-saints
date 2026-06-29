@@ -33,11 +33,13 @@ patronage:
   - Protection against eye diseases
   - Protection against snakebite
   - Protection of cattle
-related:
+companions:
   - name: Columbanus
     note: Irish missionary saint with whose circle Magnus is associated
+    href: saint/OS-2693
   - name: Gall of Switzerland
     note: Companion of Columbanus; Magnus is linked to the same missionary tradition
+    href: saint/OS-2512
 status: draft
 sources:
   - Synaxarion

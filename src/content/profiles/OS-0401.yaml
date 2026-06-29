@@ -21,7 +21,7 @@ timeline:
   - when: "1515"
     title: Repose
     body: Pakhomios reposed at the Keno Monastery he had founded, at an advanced age.
-related:
+companions:
   - name: St. Alexander of Oshevensk
     note: His teacher and the elder under whom he was a fellow ascetic.
     href: saint/OS-1026

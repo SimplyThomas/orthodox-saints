@@ -32,9 +32,10 @@ sections:
     body:
       - After his death on Euboea, his disciples took his incorrupt relics and returned them to his own monastery on Patmos. There they are enshrined in a chapel in the narthex; originally placed in a marble sarcophagus, the relics now rest in a gold- and silver-plated wooden chest atop the sepulchre for veneration.
       - By tradition the relics remain incorrupt and are reported to emit a sweet fragrance. Christodoulos is also commemorated on October 21, the feast of the transfer of his holy relics.
-related:
+companions:
   - name: Saint John the Theologian
     note: The Evangelist to whom Christodoulos dedicated his monastery on Patmos, the island associated with the Book of Revelation.
+    href: saint/OS-0005
 patronage:
   - The island of Patmos
   - Monastics

@@ -27,7 +27,7 @@ timeline:
   - when: "662"
     title: Repose
     body: Died in Syracuse after leading the see; healings were reported at his tomb.
-related:
+companions:
   - name: St. Faustus of Syracuse
     note: Abbot of the monastery of St. Lucy in Syracuse where Zosimus was formed
     href: saint/OS-0254

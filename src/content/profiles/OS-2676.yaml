@@ -41,12 +41,11 @@ family:
       external: https://en.wikipedia.org/wiki/Simeon_Stylites_the_Younger
     - name: John
       note: Her husband, who died early in their marriage, after which Martha devoted herself to raising their son.
-related:
-  - name: Saint Symeon Stylites the Younger
-    note: Her son, the stylite of the Wonderful Mountain.
-    external: https://en.wikipedia.org/wiki/Simeon_Stylites_the_Younger
+      commemorated: false
+companions:
   - name: Saint John the Forerunner (the Baptist)
-    note: Whom Martha particularly venerated and who, by tradition, appeared to her and counseled her marriage.
+    note: Whom Martha particularly venerated and who, by tradition, appeared to her in visions and counseled her marriage.
+    href: saint/OS-0002
 sources:
   - OCA Synaxarion (oca.org), Jul 4
   - https://www.oca.org/saints/lives/2018/07/04/101895-venerable-martha-mother-of-venerable-simeon-stylites-the-younger

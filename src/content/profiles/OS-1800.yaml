@@ -17,9 +17,11 @@ sections:
   - heading: Veneration
     body:
       - Local veneration of Arkadios is associated with the Paphos region of Cyprus. According to the tradition, a monastery built in the fifth century near Kinousa honored his memory, and shrines connected with him existed in the villages of Kathikas and Giolou.
-related:
-  - name: Saint Theosebios the God-bearer of Arsinoe
-    note: Named in the tradition as the brother of Arkadios, also venerated at Arsinoe in Cyprus.
+family:
+  figures:
+    - name: Saint Theosebios the God-bearer of Arsinoe
+      note: Named in the tradition as the brother of Arkadios, also venerated at Arsinoe in Cyprus.
+companions:
   - name: Bishop Nikon of Arsinoe
     note: Arkadios's predecessor on the episcopal throne of Arsinoe, who according to the tradition first drew him into the clergy.
 patronage:

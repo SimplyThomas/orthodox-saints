@@ -46,7 +46,7 @@ timeline:
   - when: "2000"
     title: Glorification
     body: Numbered among the New Martyrs and Confessors of Russia; general veneration approved in August.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Patriarch under whom Seraphim served in North America and who elevated him to archbishop
     href: saint/OS-0053

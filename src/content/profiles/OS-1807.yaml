@@ -28,7 +28,7 @@ timeline:
   - when: "1574"
     title: Repose
     body: Macarius dies in September and is soon venerated as a saint.
-related:
+companions:
   - name: Saint Sava I, First Archbishop of Serbia
     note: Founder of the autocephalous Serbian Church; Macarius is reckoned its most important primate after him.
     href: saint/OS-0449
@@ -38,8 +38,10 @@ family:
   figures:
     - name: Mehmed-paša Sokolović
       note: Ottoman grand vizier and Macarius's close relative (named in the sources as his brother or cousin), whose influence helped restore the Patriarchate of Peć.
+      commemorated: false
     - name: Metropolitan Antonije of Herzegovina (Antonije Sokolović)
       note: Macarius's nephew, whom he appointed as his successor in 1570/71.
+      commemorated: false
 patronage:
   - Serbian church life, monastic renewal, and education
 status: draft

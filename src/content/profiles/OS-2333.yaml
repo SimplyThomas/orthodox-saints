@@ -39,9 +39,10 @@ sections:
     body:
       - Daniel lived during the doctrinal controversies that followed the Council of Chalcedon. The sources record that he opposed monophysitism and that he stood against the usurper Basiliscus, who favored that party, descending from his pillar to take part in the dispute over orthodox doctrine at the capital.
 patronage: []
-related:
+companions:
   - name: Simeon the Stylite
     note: The pioneering pillar-saint whose blessing Daniel received and whose example he is said to have followed.
+    href: saint/OS-0034
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

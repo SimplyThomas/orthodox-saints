@@ -47,10 +47,8 @@ family:
       href: saint/OS-1210
     - name: Dmitry Konstantinovich of Suzdal
       note: Her father, Grand Prince of Suzdal and Nizhny Novgorod.
-related:
-  - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
-    note: Her husband, with whom she shared the rule of Moscow; commemorated May 19.
-    href: saint/OS-1210
+      commemorated: false
+companions:
   - name: Saint Alexis, Metropolitan of Moscow
     note: A spiritual guide of her household; Metropolitan of Moscow.
     href: saint/OS-0641

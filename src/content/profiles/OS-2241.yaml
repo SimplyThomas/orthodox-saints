@@ -50,9 +50,11 @@ sections:
     body:
       - Alexander Nevsky's relics were found incorrupt in 1380 following a vision before the Battle of Kulikovo. In 1724 Peter the Great ordered their transfer to the new capital of Saint Petersburg and founded the Alexander Nevsky Lavra to house them. A silver shrine for the relics was created in 1753. During the Soviet period his relics were temporarily seized (1922) but were returned to the Holy Trinity Cathedral of the Lavra in 1989. In September 2023 the relics were re-enshrined in a new ceremony.
       - His legacy in Russian cultural memory extends well beyond the Church. He was the subject of Sergei Eisenstein's celebrated 1938 film, which deployed his memory for wartime patriotic mobilization. An Order of Saint Alexander Nevsky, originally established in 1725, was revived by the Soviet government in 1942. In a 2008 public poll, Russians voted him the 'greatest Russian' of all time.
-related:
-  - name: Daniel of Moscow
-    note: Son of Alexander Nevsky; venerated as a saint of the Russian Church.
+family:
+  figures:
+    - name: Daniel of Moscow
+      note: Son of Alexander Nevsky; venerated as a saint of the Russian Church.
+      href: saint/OS-0770
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

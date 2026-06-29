@@ -18,11 +18,12 @@ sections:
     body:
       - Following their burial at the warm springs of Pythia, portions of the sisters' relics were later kept on Mount Athos. The tradition records relics at the Monastery of St. Panteleimon, and the hand of Metrodora is said to be preserved at the Monastery of the Pantocrator.
       - Their principal commemoration is September 10; some calendars also note September 23.
-related:
-  - name: Martyr Metrodora
-    note: The middle of the three sisters, martyred with Menodora and Nymphodora and commemorated with them on September 10.
-  - name: Martyr Nymphodora
-    note: The youngest of the three sisters, beaten to death with iron rods after the deaths of her elder sisters.
+family:
+  figures:
+    - name: Martyr Metrodora
+      note: The middle of the three sisters, martyred with Menodora and Nymphodora and commemorated with them on September 10.
+    - name: Martyr Nymphodora
+      note: The youngest of the three sisters, beaten to death with iron rods after the deaths of her elder sisters.
 patronage:
   - Sisters and those embracing virginity and ascetic withdrawal
   - Healing of the sick

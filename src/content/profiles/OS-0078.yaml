@@ -25,10 +25,12 @@ timeline:
   - when: "898"
     title: Relics translated to Constantinople
     body: Emperor Leo VI the Wise transfers the relics to Constantinople; the event is commemorated on October 17.
-related:
-  - name: Righteous Martha and Mary, the Sisters of Lazarus
-    note: his sisters, who witnessed his raising
-    href: saint/OS-1280
+family:
+  figures:
+    - name: Righteous Martha and Mary, the Sisters of Lazarus
+      note: his sisters, who witnessed his raising
+      href: saint/OS-1280
+companions:
   - name: Apostle Barnabas of the Seventy
     note: founder of the Church of Cyprus; by tradition co-ordained Lazarus bishop of Kition
     href: saint/OS-1331

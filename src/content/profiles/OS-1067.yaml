@@ -70,14 +70,13 @@ sections:
         modern era, including the destruction of its buildings and the violation
         of the saint's tomb during the upheavals in Kosovo at the close of the
         twentieth century.
-related:
+companions:
   - name: Saint Peter of Koriša
     note: Earlier Serbian ascetic in whose cave at the Black River Joannicius is said to have lived
-family:
-  heading: Patron and founder
-  figures:
-    - name: Prince George (Djuradj) Branković
-      note: Serbian despot whose daughter the saint healed and who founded the monastery of Devič in gratitude
+    href: saint/OS-1299
+  - name: Prince George (Djuradj) Branković
+    note: Serbian despot whose daughter the saint healed and who founded the monastery of Devič in gratitude
+    commemorated: false
 patronage:
   - The mentally ill and those troubled by affliction
   - Monastics and founders of monasteries

@@ -47,8 +47,9 @@ sections:
 patronage:
   - Scholars and translators
   - The Church of Romania
-related:
+companions:
   - name: St. Pachomius the Great
     note: Dionysius translated the Life of Saint Pachomius into Latin.
+    href: saint/OS-0028
 status: reviewed
 generated: "2026-06-19"

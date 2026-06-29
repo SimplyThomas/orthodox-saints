@@ -39,9 +39,10 @@ timeline:
   - when: "2010"
     title: Glorification
     body: Canonized by the Serbian Orthodox Church on 2 May 2010.
-related:
+companions:
   - name: St. Justin (Popovic) of Celije
     note: Serbian theologian who visited Simeon and was canonized together with him in 2010.
+    href: saint/OS-2591
 patronage:
   - Monastic founder and elder of Montenegro; healing at Dajbabe
 status: draft

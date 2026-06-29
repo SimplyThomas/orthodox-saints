@@ -32,7 +32,7 @@ timeline:
   - when: 1st century
     title: Martyrdom
     body: Refusing the prefect Lucian's demand to sacrifice to idols, Ananias was tortured and then stoned to death outside the city.
-related:
+companions:
   - name: Apostle Paul
     note: Ananias restored his sight and baptized him at Damascus.
     external: https://en.wikipedia.org/wiki/Paul_the_Apostle

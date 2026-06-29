@@ -35,9 +35,10 @@ sections:
       - The Holy Synod of the Romanian Orthodox Church numbered him among the saints; the canonization is recorded as a synodal act of October 2010, with his commemoration fixed on May 3. The Lainici Monastery in Oltenia remains the center of his veneration.
 patronage:
   - Monastic father of Lainici Monastery, Oltenia
-related:
+companions:
   - name: Saint Calinic of Cernica
     note: Abbot of Cernica and later Bishop of Ramnic; Irodion's spiritual mentor, whom he later served by tradition as confessor.
+    href: saint/OS-0981
 status: draft
 sources:
   - John Sanidopoulos (Mystagogy)

@@ -65,9 +65,10 @@ sources:
   - https://www.oca.org/saints/lives/2024/05/21/101455-holy-great-equal-to-the-apostles-emperor-constantine
   - https://orthodoxwiki.org/Constantine_I
   - https://www.newadvent.org/cathen/04295c.htm
-related:
-  - name: Empress Helen
-    note: His mother; jointly commemorated May 21 as Equals-to-the-Apostles
-    href: saint/OS-2751
+family:
+  figures:
+    - name: Empress Helen
+      note: His mother; jointly commemorated May 21 as Equals-to-the-Apostles
+      href: saint/OS-2751
 status: reviewed
 generated: "2026-06-18"

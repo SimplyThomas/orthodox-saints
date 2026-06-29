@@ -26,10 +26,11 @@ timeline:
   - when: "596"
     title: Repose
     body: Fell asleep in the Lord at about seventy-five, after sixty-eight years as a stylite.
-related:
-  - name: Righteous Martha, his mother
-    note: His mother, venerated as a saint and commemorated together with him on July 4.
-    href: saint/OS-0094
+family:
+  figures:
+    - name: Righteous Martha, his mother
+      note: His mother, venerated as a saint and commemorated together with him on July 4.
+      href: saint/OS-0094
 patronage:
   - Healing of the sick
 status: draft

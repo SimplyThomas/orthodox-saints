@@ -17,10 +17,11 @@ timeline:
   - when: c. 558
     title: Martyrdom
     body: Strangled and drowned for confessing Christ during the reign of Chosroes the Elder, at the age of eighteen.
-related:
-  - name: Martyr Golinduc of Persia
-    note: A kinswoman and fellow Persian convert and martyr, baptized Mary (commemorated July 12).
-    href: saint/OS-1518
+family:
+  figures:
+    - name: Martyr Golinduc of Persia
+      note: A kinswoman and fellow Persian convert and martyr, baptized Mary (commemorated July 12).
+      href: saint/OS-1518
 patronage:
   - Converts to the faith
   - Those persecuted by family for their belief

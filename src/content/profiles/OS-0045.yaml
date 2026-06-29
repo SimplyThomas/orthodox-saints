@@ -38,9 +38,11 @@ sections:
   - heading: Repose and Glorification
     body:
       - John reposed at Kronstadt on 20 December 1908. His coffin was carried through St. Petersburg with great ceremony, and he was buried at the Ioannovsky (St. John) Convent, which is dedicated to him. He was glorified as a saint by the Russian Orthodox Church Outside Russia in 1964, its first canonization made independently of Moscow, and by the Moscow Patriarchate in 1990. His principal feasts are kept on December 20 (his repose) and October 19 (his glorification).
-related:
-  - name: Elizabeth Sergieva
-    note: His wife, daughter of the archpriest of St. Andrew's Cathedral, with whom he lived in a celibate marriage.
+family:
+  figures:
+    - name: Elizabeth Sergieva
+      note: His wife, daughter of the archpriest of St. Andrew's Cathedral, with whom he lived in a celibate marriage.
+      commemorated: false
 patronage:
   - Parish clergy and pastors
   - Charitable work among the poor

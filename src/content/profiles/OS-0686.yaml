@@ -39,13 +39,13 @@ sections:
   - heading: Relics and Veneration
     body:
       - Colman reposed at Inishbofin and is venerated as a saint in the Eastern Orthodox, Roman Catholic, and Anglican traditions. His principal commemoration falls on February 18, with additional feasts recorded on August 8 and November 13. The relics he is said to have carried from Lindisfarne, including those of St. Aidan, linked the Irish foundations he established to the Northumbrian mission he had served.
-related:
-  - id: OS-0679
-    name: Saint Finan of Lindisfarne
+companions:
+  - name: Saint Finan of Lindisfarne
     note: Colman's predecessor as bishop of Lindisfarne, whom he succeeded in 661.
-  - id: OS-1812
-    name: Saint Aidan of Lindisfarne
+    href: saint/OS-0679
+  - name: Saint Aidan of Lindisfarne
     note: The first Iona-trained bishop of Lindisfarne, whose relics Colman is said to have carried to Ireland.
+    href: saint/OS-1812
 sources:
   - OCA Synaxarion (oca.org), Feb 18
   - https://en.wikipedia.org/wiki/Colm%C3%A1n_of_Lindisfarne

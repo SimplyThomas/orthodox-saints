@@ -45,9 +45,10 @@ family:
   figures:
     - name: Gefal
       note: By tradition, his father, a prince.
+      commemorated: false
     - name: St. Gregory the Illuminator
       note: Reported by tradition to be a relative.
-related: []
+      href: saint/OS-0089
 patronage: []
 works: []
 reading:

@@ -28,7 +28,7 @@ timeline:
   - when: c. 348
     title: Repose
     body: Died during an epidemic in the mid-fourth century.
-related:
+companions:
   - name: St. Anthony the Great
     note: The father of Egyptian monasticism, his elder contemporary; Pachomius reposed before him.
     href: saint/OS-0026

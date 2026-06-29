@@ -36,7 +36,7 @@ timeline:
   - when: "1633"
     title: Repose
     body: Reposed on May 12 and was buried in the Trinity-Sergiev Lavra.
-related:
+companions:
   - name: St. Sergius of Radonezh
     note: Founder of the Trinity Lavra, where Dionysius served as archimandrite
     href: saint/OS-0042

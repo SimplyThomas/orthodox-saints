@@ -24,7 +24,7 @@ timeline:
   - when: "953"
     title: Repose
     body: Dies near Stiris; commemorated on February 7.
-related:
+companions:
   - name: Great Martyr Barbara
     note: The church at Luke's hermitage near Stiris was dedicated to her.
     href: saint/OS-0016

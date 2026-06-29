@@ -26,7 +26,7 @@ timeline:
   - when: c. 251
     title: Death in prison
     body: Arrested in the persecution of Decius, he dies in chains, by tradition at Caesarea.
-related:
+companions:
   - name: Saint Narcissus, Bishop of Jerusalem
     note: The aged patriarch of Jerusalem with whom Alexander served as coadjutor.
     href: saint/OS-1667

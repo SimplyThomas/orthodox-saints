@@ -50,9 +50,11 @@ family:
       note: By tradition possibly the brother of Castor; bishop of Frejus.
     - name: Castor's wife
       note: His unnamed wife, who by mutual consent entered a convent when Castor took up the monastic life.
-related:
+      commemorated: false
+companions:
   - name: John Cassian
     note: Composed the Institutes (and, by tradition, the Conferences) at Castor's request, for the use of his monastic foundation.
+    href: saint/OS-0741
 reading:
   - heading: Further reading
     items:

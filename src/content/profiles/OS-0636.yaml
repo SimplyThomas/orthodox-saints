@@ -36,10 +36,11 @@ timeline:
   - when: Nov 27
     title: Uncovering of relics
     body: His relics are uncovered and translated to the Trinity cathedral.
-related:
-  - name: Right-believing Great Prince Rostislav-Michael of Kiev
-    note: Brother; another son of Mstislav the Great
-    href: saint/OS-0824
+family:
+  figures:
+    - name: Right-believing Great Prince Rostislav-Michael of Kiev
+      note: Brother; another son of Mstislav the Great
+      href: saint/OS-0824
 patronage:
   - Venerated as a protector of the city of Pskov.
   - Invoked for protection from danger.

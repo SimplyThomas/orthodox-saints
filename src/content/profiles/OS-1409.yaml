@@ -28,9 +28,10 @@ timeline:
   - when: c. 414
     title: Repose
     body: Niketas dies after a long episcopate at Remesiana; sources place his repose around 414, some between 414 and 420.
-related:
+companions:
   - name: St. Paulinus of Nola
     note: Friend and contemporary who praised Niketas in verse for his missionary work and called him father of the whole north.
+    href: saint/OS-0522
 works:
   - title: Instructions for Candidates for Baptism
     desc: Principal surviving work; a catechetical treatise in six books on orthodox Trinitarian doctrine, containing one of the earliest uses of the phrase communion of saints.

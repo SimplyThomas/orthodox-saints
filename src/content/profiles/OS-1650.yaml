@@ -30,7 +30,7 @@ timeline:
   - when: August 5, 642
     title: Martyrdom at Maserfield
     body: Fell in battle against Penda of Mercia; his body was dismembered and he came to be venerated as a martyr.
-related:
+companions:
   - name: St. Aidan of Lindisfarne
     note: The monk Oswald summoned from Iona, to whom he granted Lindisfarne and whose preaching he translated.
     href: saint/OS-1812

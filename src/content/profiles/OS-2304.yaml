@@ -46,7 +46,7 @@ timeline:
   - when: "1965"
     title: Return of relics
     body: His relics, taken to Venice by Crusaders, were returned to Mar Saba.
-related:
+companions:
   - name: Venerable Euthymius the Great
     note: His spiritual father in the Judean desert
     href: saint/OS-0494

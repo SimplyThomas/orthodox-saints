@@ -30,9 +30,10 @@ sections:
   - heading: Sources and tradition
     body:
       - Macarius of Alexandria figures in early monastic literature, including the Lausiac History of Palladius, which preserved tales of his ascetic feats. Tradition also holds that he and Macarius of Egypt were exiled together under the emperor Valens to an island, which they are said to have won to the faith. He reposed around the years 394 to 395.
-related:
+companions:
   - name: Macarius the Great of Egypt
     note: Contemporary, friend, and fellow desert father; the two are distinguished as Macarius the Great and Macarius the Younger.
+    href: saint/OS-0029
 patronage: []
 works: []
 reading:

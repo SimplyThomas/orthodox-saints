@@ -16,9 +16,10 @@ sections:
     body:
       - Petronia is a genuinely obscure figure. The calendar listings and the dedicated synaxarion stub that name her agree only on her commemoration date, her rank as a martyr, and her death by the sword; none assigns her a century or relates a biography. The entry in this database reflects that thinness, recording what the tradition has preserved without supplying detail the sources do not.
 patronage: []
-related:
+companions:
   - name: Venerable Cyriacus the Anchorite of Palestine
     note: Commemorated on the same day, September 29.
+    href: saint/OS-1920
 works: []
 sources:
   - GOARCH calendar

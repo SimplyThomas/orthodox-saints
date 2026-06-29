@@ -11,13 +11,15 @@ sections:
     body:
       - Hezron is not honored by an individual biography but as one of the righteous ancestors of Christ. The Orthodox Church commemorates the Old Testament forefathers, patriarchs, and righteous of the genealogical line on the Sunday of the Holy Forefathers, observed in the period before the Nativity of Christ, when the genealogy of Christ is read.
       - This commemoration emphasizes the connection of the Incarnation to the lineage of Israel, honoring those who, by their place in salvation history, belong to the ancestry through which Christ was born according to the flesh.
-related:
-  - name: Patriarch Judah
-    note: Ancestor; Hezron descends from Judah through Perez.
-  - name: Righteous Perez (Pharez)
-    note: Father of Hezron; son of Judah.
-  - name: King David
-    note: Descendant of Hezron through his son Ram.
+family:
+  figures:
+    - name: Patriarch Judah
+      note: Ancestor; Hezron descends from Judah through Perez.
+    - name: Righteous Perez (Pharez)
+      note: Father of Hezron; son of Judah.
+    - name: King David
+      note: Descendant of Hezron through his son Ram.
+      href: saint/OS-2421
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

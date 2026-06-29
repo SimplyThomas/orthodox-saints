@@ -23,9 +23,10 @@ sections:
 patronage:
   - Soldiers
   - Those who confess the faith under persecution
-related:
+companions:
   - name: George the New Martyr of Sofia (the goldsmith)
     note: A distinct later new martyr of Sofia (d. 1515), commemorated February 11.
+    href: saint/OS-0638
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/all-lives/2021/03/26

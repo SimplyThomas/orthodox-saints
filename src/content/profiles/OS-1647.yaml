@@ -42,14 +42,18 @@ sections:
 patronage:
   - Christian mothers and wives
   - the conversion of unbelieving family members
-related:
-  - name: Gregory the Theologian
-    note: Her son, hierarch and teacher of the Church.
-  - name: Gregory of Nazianzus the Elder
-    note: Her husband, whom she converted to Christianity; bishop of Nazianzus.
-  - name: Gorgonia
-    note: Her daughter, venerated as a saint.
-  - name: Caesarius
-    note: Her son, venerated as a saint.
+family:
+  figures:
+    - name: Gregory the Theologian
+      note: Her son, hierarch and teacher of the Church.
+      href: saint/OS-0022
+    - name: Gregory of Nazianzus the Elder
+      note: Her husband, whom she converted to Christianity; bishop of Nazianzus.
+    - name: Gorgonia
+      note: Her daughter, venerated as a saint.
+      href: saint/OS-0719
+    - name: Caesarius
+      note: Her son, venerated as a saint.
+      href: saint/OS-0801
 status: draft
 generated: "2026-06-19"

@@ -20,7 +20,7 @@ timeline:
   - when: Dec 19, 1337
     title: Repose
     body: After fourteen years as archbishop he reposed; some accounts date his death to 1338.
-related:
+companions:
   - name: Saint Stephen Milutin of Serbia
     note: Serbian king to whom Daniel was a close associate before his monastic life
     href: saint/OS-2116

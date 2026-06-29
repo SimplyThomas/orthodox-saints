@@ -42,11 +42,13 @@ sections:
   - heading: Veneration at Tuman
     body:
       - Jacob's grave became a focus of veneration at Tuman Monastery, the same house that keeps the memory of the medieval ascetic Zosimas of Tuman. His relics were uncovered in December 2014 and reported to be incorrupt, and in 2017 the Serbian Orthodox Church formally numbered him among the saints as Venerable Jacob the New of Tuman. He is commemorated on August 8, together with Saint Zosimas, at the monastery where both are honored.
-related:
+companions:
   - name: Saint Zosimas of Tuman
     note: Commemorated together at Tuman Monastery
+    href: saint/OS-1674
   - name: Saint Nikolai Velimirović
     note: Hierarch whose influence shaped Jacob's turn to the monastic and missionary life
+    href: saint/OS-0846
 patronage:
   - Confessors under communist persecution
   - Converts from secular and academic life to monasticism

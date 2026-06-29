@@ -43,7 +43,7 @@ timeline:
   - when: "2005"
     title: Glorification
     body: Numbered among the Synaxis of New Martyrs and Confessors of Russia.
-related:
+companions:
   - name: St. Tikhon of Moscow
     note: Patriarch of Moscow who consecrated him Bishop of Schlüsselburg in 1923
     href: saint/OS-0053

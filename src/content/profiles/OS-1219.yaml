@@ -38,10 +38,10 @@ family:
       note: Constantine's son, sent ahead as an emissary and killed by the pagans of Murom.
     - name: Theodore
       note: Constantine's son, who assisted him in spreading the faith among the people of Murom.
-related:
-  - name: St. Vladimir, Enlightener of Rus'
-    note: Constantine is described in the tradition as a descendant of St. Vladimir.
-    href: saint/OS-0040
+    - name: St. Vladimir, Enlightener of Rus'
+      note: Constantine is described in the tradition as a descendant of St. Vladimir.
+      href: saint/OS-0040
+companions:
   - name: Passion-bearers Boris & Gleb
     note: Constantine dedicated one of his Murom churches to these first canonized saints of Rus'.
     href: saint/OS-0236

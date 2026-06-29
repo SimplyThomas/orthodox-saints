@@ -21,11 +21,13 @@ sections:
     body:
       - Orthodox tradition and modern scholarship distinguish two Old Testament figures whose names are rendered alike in English. The first is Micaiah son of Imlah, the contemporary of Ahab and Elias described above (commemorated January 5). The second is Micah of Moresheth, from Moresheth-Gath in southwest Judah, the sixth of the Twelve Minor Prophets, who prophesied in the eighth century BC alongside Isaiah, Amos, and Hosea and authored the Book of Micah with its prophecy of Bethlehem as the birthplace of the Messiah (Micah 5:2); his feast falls on August 14.
       - Because the two share the name 'Prophet Micah,' Orthodox liturgical sources frequently pair or conflate them, and a single commemoration may carry both the January 5 and August 14 dates, as it does in this record.
-related:
+companions:
   - name: Prophet Elias (Elijah)
     note: The great prophet of Israel under Ahab, among whose disciples tradition numbers Micaiah son of Imlah.
+    href: saint/OS-0056
   - name: Prophet Micah of Moresheth
     note: The writing prophet of the Book of Micah, commemorated August 14, with whom this Prophet Micah shares a name and is sometimes paired.
+    href: saint/OS-1700
 reading:
   - heading: Scripture
     items:

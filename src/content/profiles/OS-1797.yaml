@@ -29,7 +29,7 @@ timeline:
   - when: mid-1550s
     title: Veneration established
     body: His incorrupt relics having been discovered, his commemoration is formalized and his life compiled.
-related:
+companions:
   - name: Venerable Euphrosynus, Abbot of Pskov
     note: Founder of monastic life near Pskov associated with the River Tolva, where Savva labored before withdrawing to Krypetsk.
     href: saint/OS-1178

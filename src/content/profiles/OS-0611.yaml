@@ -17,7 +17,7 @@ timeline:
   - when: 4th c.
     title: Repose
     body: By tradition he foretold his own death and reposed in his old age.
-related:
+companions:
   - name: Emperor Constantine the Great
     note: The reigning emperor who, by tradition, authorized and funded Parthenios's building of a church on the site of pagan temples.
     href: saint/OS-0037

@@ -28,21 +28,19 @@ timeline:
   - when: "1050"
     title: Tonsure and repose
     body: Tonsured a nun with the name Anna shortly before her repose in 1050.
-related:
-  - name: Right-believing Prince Vladimir Yaroslavich of Novgorod
-    note: Her son, prince of Novgorod, venerated as a saint
-    href: saint/OS-1949
 family:
   heading: Family
   intro: Anna was the wife of Yaroslav the Wise and mother of a large family whose marriages linked Rus' to the royal houses of Europe.
   figures:
     - name: Yaroslav the Wise
       note: Her husband, Grand Prince of Novgorod and Kiev
+      commemorated: false
     - name: Vladimir Yaroslavich of Novgorod
       note: Her son, prince of Novgorod, venerated as a saint
       href: saint/OS-1949
     - name: Anna Yaroslavna
       note: Her daughter, who married King Henry I of France
+      commemorated: false
 status: draft
 sources:
   - OCA Synaxarion (oca.org)

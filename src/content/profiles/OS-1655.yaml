@@ -12,11 +12,13 @@ sections:
   - heading: Veneration
     body:
       - Pimen is included in the enumeration of the saints of the Kiev Near Caves whose relics are venerated in the Anthony Caves. He is invoked particularly as an intercessor for those who suffer prolonged bodily illness, his patient endurance being the defining feature of his sanctity. The tradition that he was healed only at the moment of death frames his entire life as a sustained martyrdom of illness.
-related:
+companions:
   - name: Venerable Anthony of the Kiev Caves
     note: Founder of the Near Caves in which Pimen's relics rest
+    href: saint/OS-0136
   - name: Pimen the Faster of the Kiev Far Caves
     note: A different Pimen venerated on the same feast day (7 August) at the Far Caves; not to be confused with Pimen the Much-Ailing
+    href: saint/OS-1133
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

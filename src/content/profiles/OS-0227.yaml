@@ -23,9 +23,10 @@ sections:
     body:
       - Brought before the emperor, Juventinus and Maximinus refused to take back what they had said or to offer sacrifice to the idols. According to the Roman Martyrology, Julian had them stripped of their property, beaten, and beheaded. John Chrysostom notes that they were executed in the middle of the night on a charge of high treason, an attempt to keep them from being honored as martyrs for the faith. They are reckoned to have died about the 29th of January, 363.
       - Saint John Chrysostom composed a panegyric in their honor, the principal early witness to their cult. They are commemorated in the Eastern Church on September 5 and on October 9, and in the West on January 25. Major contemporary historians, including Ammianus Marcellinus, Gregory of Nazianzus, and Socrates of Constantinople, do not mention them.
-related:
+companions:
   - name: John Chrysostom
     note: Archbishop of Constantinople who, while at Antioch, preached a panegyric preserving the memory of the two martyrs.
+    href: saint/OS-0023
 patronage: []
 status: draft
 sources:

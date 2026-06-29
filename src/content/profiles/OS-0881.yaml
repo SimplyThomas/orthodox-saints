@@ -26,9 +26,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - After their remains were recovered from the Sava River, they were, according to the sources, transported to Rome and interred in the Catacombs of Saint Priscilla on the Salarian Way, where they are said to have remained for some 1,500 years.
-related:
-  - name: Maxima
-    note: Wife of Montanus, martyred with him; the two are commemorated together.
+family:
+  figures:
+    - name: Maxima
+      note: Wife of Montanus, martyred with him; the two are commemorated together.
 patronage: []
 status: draft
 generated: "2026-06-19"
