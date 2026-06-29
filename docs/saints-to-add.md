@@ -22,21 +22,21 @@ row's **Status** to `added`.
 | Saint Basil the Elder | OS-0021 | Family | father | ~May 30 | Commemorated with his wife St Emilia (already `OS-0374`) | added OS-2757 |
 | Saint Naucratius | OS-0021 | Family | brother | ~Jun 8 | Brother of Basil the Great & St Macrina the Younger | todo |
 | Saint Amphilochius of Iconium | OS-0021 | Companions | close friend & correspondent | Nov 23 | Bishop of Iconium; *On the Holy Spirit* was dedicated to him. Distinct from `OS-0291` / `OS-1991` / `OS-2006` | added OS-2239 (was already in DB) |
-| St Vincent Madelgarus | OS-0282 | Family | father | — | Founder of Hautmont Abbey; 7th c. Gaul | todo |
-| St Waldetrudis of Mons | OS-0282 | Family | mother | Apr 9 | Foundress of Mons Abbey; 7th c. | todo |
-| St Aldetrudis | OS-0282 | Family | sister | Feb 25 | Predecessor as abbess of Maubeuge | todo |
-| Landericus of Soignies | OS-0282 | Family | brother | — | 7th c. Gaul | todo |
-| Dentlin of Soignies | OS-0282 | Family | brother | — | 7th c. Gaul | todo |
-| St Aldegund | OS-0282 | Family | aunt | Jan 30 | Foundress of Maubeuge Abbey | todo |
+| St Vincent Madelgarus | OS-0282 | Family | father | — | Founder of Hautmont Abbey; 7th c. Gaul | added OS-2766 |
+| St Waldetrudis of Mons | OS-0282 | Family | mother | Apr 9 | Foundress of Mons Abbey; 7th c. | added OS-2767 |
+| St Aldetrudis | OS-0282 | Family | sister | Feb 25 | Predecessor as abbess of Maubeuge | added OS-2768 |
+| Landericus of Soignies | OS-0282 | Family | brother | — | 7th c. Gaul | added OS-2770 |
+| Dentlin of Soignies | OS-0282 | Family | brother | — | 7th c. Gaul | added OS-2771 |
+| St Aldegund | OS-0282 | Family | aunt | Jan 30 | Foundress of Maubeuge Abbey | added OS-2769 |
 | King Aethelberht of Kent | OS-0309 | Family | father | Feb 24/25 | First Christian Anglo-Saxon king | added OS-2763 |
-| Queen Bertha | OS-0309 | Family | mother | May 1 | Frankish Christian queen; 6th–7th c. | todo |
-| Eanflaed | OS-0309 | Family | daughter | Nov 24 | 7th c. Northumbria | todo |
-| Paulinus of York | OS-0309 | Companions | accompanied her to Northumbria | Oct 10 | 7th c.; distinct from Paulinus of Nola (`OS-0522`) | todo |
+| Queen Bertha | OS-0309 | Family | mother | May 1 | Frankish Christian queen; 6th–7th c. | added OS-2772 |
+| Eanflaed | OS-0309 | Family | daughter | Nov 24 | 7th c. Northumbria | added OS-2773 |
+| Paulinus of York | OS-0309 | Companions | accompanied her to Northumbria | Oct 10 | 7th c.; distinct from Paulinus of Nola (`OS-0522`) | added OS-2774 |
 | St Eucherius of Lyon | OS-0352 | Family | father | Nov 16 | Archbishop of Lyon, monk of Lérins, †c.449 | added OS-2759 |
-| Salonius of Geneva | OS-0352 | Family | brother | — | Bishop of Geneva; 5th c. Gaul | todo |
-| David the Monk of Lesbos | OS-0097 | Family | brother | Feb 1 | Ascetic of Mt Ida, fellow Confessor of Lesbos; 9th c. | todo |
+| Salonius of Geneva | OS-0352 | Family | brother | — | Bishop of Geneva; 5th c. Gaul | added OS-2775 |
+| David the Monk of Lesbos | OS-0097 | Family | brother | Feb 1 | Ascetic of Mt Ida, fellow Confessor of Lesbos; 9th c. | added OS-2777 |
 | Eugene Botkin | OS-1541 | Companions | court physician who died with the Royal Family | Jul 17 | Canonized 2016 as righteous passion-bearer; 20th c. | added OS-2760 |
-| Benedict of Aniane | OS-1259 | companions | Monastic reformer to whose direction William entrusted the new monastery of Gellone | Feb 11/12 | 9th-century Frankish monastic reformer; individually venerated saint, absent from dataset | todo |
+| Benedict of Aniane | OS-1259 | companions | Monastic reformer to whose direction William entrusted the new monastery of Gellone | Feb 11/12 | 9th-century Frankish monastic reformer; individually venerated saint, absent from dataset | added OS-2776 |
 | Fronto (Frontonus) of Périgueux | OS-1282 | companions | Bishop of Périgueux who sent the four as missionaries and buried their relics | Oct 25 | Pre-schism Gallic saint venerated individually; absent from dataset | todo |
 | Martyr Basilides the Soldier | OS-1312 | companions | Soldier who escorted Potamiaena to execution and converted after she appeared to him; baptized and beheaded. | June 30 | Venerated individually as a martyr in his own right; absent from dataset. Existing 'Gerontius and Basilides' (OS-0918) is a distinct pair, not this person. | todo |
 | Amphibalus | OS-1408 | companions | The fleeing priest Alban sheltered and in whose place he was arrested | June 25 | Martyred afterward at Redbourn by tradition; venerated individually but absent from dataset | todo |
