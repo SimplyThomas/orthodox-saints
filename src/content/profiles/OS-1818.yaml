@@ -13,6 +13,7 @@ sections:
 companions:
   - name: Venerable Basil, Founder of Batheos Ryako
     note: First abbot and founder of the Deep Stream monastery, commemorated July 1.
+    href: saint/OS-2783
   - name: Saint Ignatius of Christ the Savior Monastery
     note: Recorded by some sources as the second abbot of the Deep Stream monastery; died 970, commemorated September 27.
     href: saint/OS-1914

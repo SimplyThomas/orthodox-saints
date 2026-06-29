@@ -59,8 +59,10 @@ family:
 companions:
   - name: Saint Tetta
     note: Abbess of Wimborne, under whom she was formed
+    href: saint/OS-2793
   - name: Saint Thecla of Kitzingen
     note: her companion on the German mission
+    href: saint/OS-2794
 patronage: []
 reading:
   - heading: Primary source

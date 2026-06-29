@@ -39,6 +39,7 @@ family:
       href: saint/OS-2763
     - name: Queen Bertha
       note: Her Frankish Christian mother
+      href: saint/OS-2772
     - name: Eadbald
       note: Her brother, king of Kent, who gave her the estate at Lyminge
       commemorated: false
@@ -47,9 +48,11 @@ family:
       href: saint/OS-2009
     - name: Eanflaed
       note: Her daughter by Edwin, among the first baptized in Northumbria
+      href: saint/OS-2773
 companions:
   - name: Bishop Paulinus
     note: The bishop who accompanied her to Northumbria and shared her flight back to Kent
+    href: saint/OS-2774
 patronage:
   - Foundress of monastic life in England; queen of Northumbria
 status: draft

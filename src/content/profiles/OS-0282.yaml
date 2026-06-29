@@ -25,16 +25,22 @@ family:
   figures:
     - name: St. Vincent Madelgarus
       note: Father
+      href: saint/OS-2766
     - name: St. Waldetrudis of Mons
       note: Mother
+      href: saint/OS-2767
     - name: St. Aldetrudis
       note: Sister; her predecessor as abbess of Maubeuge
+      href: saint/OS-2768
     - name: Landericus of Soignies
       note: Brother
+      href: saint/OS-2770
     - name: Dentlin of Soignies
       note: Brother
+      href: saint/OS-2771
     - name: St. Aldegund
       note: Aunt; foundress of Maubeuge Abbey and her instructor
+      href: saint/OS-2769
 patronage:
   - Honored as a patron of Maubeuge, France.
 status: draft
