@@ -39,5 +39,13 @@ sections:
       - While traveling from Vladimir toward Zvenigorod-Galitsk, Yaropolk was treacherously slain by Neradets, one of his own retainers; the synaxarion relates that the assassin had been bribed by the Rostislavichi, and the chronicle tradition associates the deed with Rurik and Vasilko Rostislavich. The killer fled afterward to Peremyshl.
       - "His body was brought to Kiev and buried on December 5 in the church of Saint Peter, which he had founded. He is venerated in the Orthodox Church as a passion-bearer, commemorated on November 22, the day of his death. As a passion-bearer he is honored for facing death in a Christ-like manner: such saints are not necessarily killed for confessing the faith, but are remembered for the piety and faith with which they bore an unjust death."
 patronage: []
+family:
+  figures:
+    - name: St. Vladimir, Enlightener of Rus'
+      note: His great-grandfather, the grand prince who baptized Rus'; Yaropolk is remembered as a prince of his line.
+      href: saint/OS-0040
+    - name: Righteous Anna of Novgorod
+      note: His grandmother, the Swedish-born wife of Yaroslav the Wise and mother of his father Izyaslav.
+      href: saint/OS-0629
 status: draft
 generated: "2026-06-20"

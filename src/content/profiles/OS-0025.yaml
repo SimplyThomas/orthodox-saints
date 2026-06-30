@@ -76,5 +76,64 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Gregory_Palamas
   - https://orthodoxwiki.org/Gregory_Palamas
+family:
+  figures:
+    - name: Constantine Palamas
+      note: Father; a senator at the court of Andronikos II who reposed as a monk
+    - name: Kale (Kalloni)
+      note: Mother
+      commemorated: false
+    - name: Theodosius
+      note: Brother
+      commemorated: false
+    - name: Makarios
+      note: Brother
+      commemorated: false
+    - name: Epicharis
+      note: Sister
+      commemorated: false
+    - name: Theodote
+      note: Sister
+      commemorated: false
+companions:
+  - name: Saint Philotheos Kokkinos
+    note: His disciple and biographer, Patriarch who promoted his canonization
+    href: saint/OS-1997
+  - name: Isidore I of Constantinople
+    note: Close ally and Patriarch who supported him
+  - name: Barlaam of Calabria
+    note: His principal theological opponent
+    commemorated: false
+  - name: Gregory Akindynos
+    note: Opponent in the Hesychast controversy
+    commemorated: false
+  - name: John VI Kantakouzenos
+    note: Emperor who backed his cause
+    commemorated: false
+related:
+  - name: Symeon the New Theologian
+    note: Forerunner of the Hesychast tradition he defended
+    href: saint/OS-0035
+  - name: Maximus the Confessor
+    note: Theological predecessor on the divine energies
+    href: saint/OS-0503
+  - name: John of Damascus
+    note: Father whose theology he drew upon
+    href: saint/OS-2300
+  - name: Basil the Great
+    note: Father whose teaching on the Spirit underlies Hesychasm
+    href: saint/OS-0021
+  - name: Gregory the Theologian
+    note: Father he cited in defense of the vision of God
+    href: saint/OS-0022
+  - name: Athanasius the Great
+    note: Father of the doctrine of deification
+    href: saint/OS-0024
+  - name: Paisios the Athonite
+    note: Later Athonite saint embodying the Hesychast life
+    href: saint/OS-0051
+  - name: Joseph the Hesychast
+    note: Later Athonite elder who renewed the prayer of the heart
+    href: saint/OS-2584
 status: reviewed
 generated: "2026-06-18"

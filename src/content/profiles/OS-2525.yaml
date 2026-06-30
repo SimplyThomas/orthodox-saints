@@ -28,5 +28,17 @@ sections:
     body:
       - Eve is commemorated among the Holy Forefathers, the cluster of Old Testament righteous remembered on the Sundays before the Nativity of Christ. The Sunday of the Holy Forefathers falls in mid-December in the Eastern Orthodox Church, the cycle beginning around December 11; the saint's record fixes her commemoration on December 14.
       - The Forefathers commemorated in this period include the great patriarchs Abraham, Isaac and Jacob and the matriarchs, prophets such as Daniel, Ezekiel and Elijah, and, in the synaxarion's reckoning, 'judges, kings, and all who lived of the flesh and under the Law.' Adam and Eve are numbered among those honored on both of the pre-Nativity Sundays.
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Adam
+      note: Her husband, the first-formed man.
+      href: saint/OS-2524
+    - name: Righteous Forefather Seth
+      note: Son; the genealogy of Christ continued through him.
+      href: saint/OS-2527
+    - name: Righteous Abel
+      note: Son, slain by his brother Cain; counted the first righteous martyr.
+      href: saint/OS-2526
 status: draft
 generated: "2026-06-21"

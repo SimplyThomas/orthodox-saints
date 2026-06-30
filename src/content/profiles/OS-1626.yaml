@@ -30,6 +30,18 @@ timeline:
   - when: "428"
     title: Translation to Constantinople
     body: The relics of Stephen, Gamaliel, Abibas, and Nikodemus are transferred from Jerusalem to Constantinople and placed in the church of the holy deacon Laurence.
+family:
+  figures:
+    - name: The Righteous Gamaliel
+      note: "Father: the Pharisee and teacher of the Apostle Paul, with whom Abibas was baptized and buried at Caphargamala."
+      href: saint/OS-1625
+companions:
+  - name: Righteous Nicodemus
+    note: "Fellow saint: buried with Abibas and his father at Caphargamala; their relics were uncovered together in 415."
+    href: saint/OS-1624
+  - name: Protomartyr and Archdeacon Stephen
+    note: "Fellow saint: whose relics were found with those of Abibas, Gamaliel, and Nicodemus at Caphargamala in 415."
+    href: saint/OS-0009
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Abibon

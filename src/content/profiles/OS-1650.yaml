@@ -37,6 +37,17 @@ companions:
   - name: St. Cuthbert of Lindisfarne
     note: Later bishop of Lindisfarne; Oswald's relics were gathered with his at Durham.
     href: saint/OS-0082
+family:
+  heading: Family
+  intro: Oswald belonged to the rival royal houses of Northumbria, his mother joining the lines of Bernicia and Deira.
+  figures:
+    - name: Saint Edwin, King and Martyr of Northumbria
+      note: His maternal uncle, brother of his mother Acha of Deira.
+      href: saint/OS-2009
+related:
+  - name: Saint Columba of Iona
+    note: Founder of the monastery of Iona, where Oswald was baptized and formed during his years of exile.
+    href: saint/OS-1320
 patronage:
   - Martyr-kings and defenders of the Christian faith
   - Healing

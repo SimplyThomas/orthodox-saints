@@ -65,5 +65,12 @@ reading:
         type: Encyclopedia article
       - title: Willibrord of Utrecht
         type: OrthodoxWiki article
+related:
+  - name: Saint Egbert of Iona
+    note: Ecgberht of Ripon, his teacher at Rath Melsigi in Ireland, who commissioned Willibrord and sent him with eleven companions on the mission to the Frisians.
+    href: saint/OS-2710
+  - name: Saint Wilfrid of York
+    note: Bishop of York whose influence shaped the young Willibrord at Ripon, where he had been given as a child oblate.
+    href: saint/OS-2703
 status: draft
 generated: "2026-06-21"

@@ -28,6 +28,9 @@ timeline:
     title: Repose
     body: He died peacefully; he is commemorated April 8 in the East and April 6 in the West.
 companions:
+  - name: St. Cyril, Archbishop of Alexandria
+    note: "Ally against Nestorius at the Council of Ephesus (431); Celestine endorsed Cyril's cause, set the ten-day ultimatum to Nestorius, and sent legates charged to act in concert with him."
+    href: saint/OS-0476
   - name: St. Patrick, Enlightener of Ireland
     note: By Western tradition commissioned for the Irish mission during Celestine's pontificate.
     href: saint/OS-0079

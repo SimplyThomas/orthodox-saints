@@ -50,6 +50,15 @@ sections:
   - heading: Repose and Legacy
     body:
       - John died at the Monastery of Saint Sabbas near Jerusalem on December 4, 749, at approximately seventy-two to seventy-four years of age, revered as a Father of the Church. The Orthodox Church commemorates him on December 4. In the Western Church, Pope Leo XIII declared him a Doctor of the Church in 1890.
+family:
+  figures:
+    - name: Saint Cosmas the Hymnographer, Bishop of Maiuma
+      note: His foster-brother, orphaned and adopted into the household of John's father Sergius; the two were raised and schooled together and became monks together at Mar Saba.
+      href: saint/OS-2005
+related:
+  - name: Venerable Savva the Sanctified
+    note: Founder of the Monastery of Saint Sabbas (Mar Saba) near Jerusalem, where John lived as a monk and composed his works
+    href: saint/OS-2304
 patronage:
   - Theology and theological writing
   - Iconographers and the defense of sacred images

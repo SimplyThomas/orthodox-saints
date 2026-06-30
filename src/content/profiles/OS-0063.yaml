@@ -52,6 +52,19 @@ timeline:
 patronage:
   - Patron saint of the island of Cephalonia
   - Invoked on behalf of those afflicted in mind
+related:
+  - name: Spyridon of Trimythous
+    note: Fellow patron of an Ionian island (Corfu), venerated for his incorrupt relics
+    href: saint/OS-0020
+  - name: Dionysios of Zakynthos
+    note: Fellow patron of an Ionian island (Zakynthos), venerated for his incorrupt relics
+    href: saint/OS-0073
+  - name: Anthimus the Blind of Cephalonia
+    note: Fellow ascetic of Cephalonia
+    href: saint/OS-0215
+  - name: Nektarios of Aegina
+    note: Greek wonderworker venerated for his fragrant, wonderworking relics
+    href: saint/OS-0046
 sources:
   - Synaxarion
   - https://orthodoxwiki.org/Gerasimos_of_Kephalonia

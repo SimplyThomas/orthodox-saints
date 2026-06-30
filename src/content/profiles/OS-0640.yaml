@@ -39,6 +39,23 @@ sections:
   - heading: Relics & Shrines
     body:
       - According to the sources, the relics of Meletius were transferred from Constantinople to Antioch after his repose, where tradition holds that he was buried near St. Babylas, an earlier bishop and martyr of the city.
+companions:
+  - name: Saint John Chrysostom
+    note: Ordained by Meletius to the diaconate at Antioch before John's later priesthood and episcopate.
+    href: saint/OS-0023
+related:
+  - name: Saint Gregory the Theologian
+    note: Fellow father of the Second Ecumenical Council (381), over which Meletius presided and during whose sessions he reposed, around the time of Gregory's enthronement at Constantinople.
+    href: saint/OS-0022
+  - name: Saint Flavian, Archbishop of Antioch
+    note: Consecrated as Meletius's successor in the see of Antioch after his death.
+    href: saint/OS-0669
+  - name: Saint Eustathius, Archbishop of Antioch
+    note: Earlier Nicene archbishop of Antioch whose partisans, the Eustathian party, opposed Meletius and sustained the Meletian Schism.
+    href: saint/OS-0703
+  - name: Hieromartyr Babylas of Antioch
+    note: Earlier bishop and martyr of Antioch near whom Meletius was buried when his relics were returned to the city.
+    href: saint/OS-0196
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Meletius_of_Antioch

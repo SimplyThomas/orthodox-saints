@@ -23,6 +23,22 @@ sections:
     body:
       - Andrew went with his faithful soldiers to Tarsus, where they were baptized by the local bishop Peter together with Bishop Nonos of Beroea. After further persecution they withdrew toward Mount Taurus. In a deep gorge within the mountains the Roman army overtook and ambushed them, and Andrew together with all 2,593 soldiers was slain, the steadfast martyrs being beheaded with swords. The tradition places their death around the year 300.
       - One account relates that, as Andrew prayed, a spring of water issued from the ground, and that a member of the clergy who drank from it was healed.
+companions:
+  - name: Bishop Peter of Tarsus and Bishop Nonos of Beroea
+    note: Bishops who baptized Andrew and his soldiers at Tarsus before their martyrdom.
+related:
+  - name: Greatmartyr Theodore Stratelates
+    note: Fellow soldier-martyr who, like Andrew, bore the title Stratelates (commander) and confessed Christ before a pagan ruler.
+    href: saint/OS-0615
+  - name: Great Martyr George the Trophy-bearer
+    note: Fellow soldier-martyr of the early-fourth-century persecutions, venerated among the warrior-saints.
+    href: saint/OS-0012
+  - name: Great Martyr Demetrius the Myrrh-streamer
+    note: Fellow soldier-martyr venerated among the great warrior-saints of the Church.
+    href: saint/OS-0013
+  - name: Great Martyr Procopius of Caesarea
+    note: Fellow soldier-martyr, a military officer who turned to Christ and was beheaded under Diocletian.
+    href: saint/OS-1494
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -33,5 +33,14 @@ sections:
 patronage:
   - Travelers and those undertaking journeys
   - Marriage and the married
+family:
+  figures:
+    - name: Righteous Tobit
+      note: His father, the blind and righteous almsgiver of Nineveh, whose sight Tobias restored with the gall of the fish on his return.
+      href: saint/OS-2571
+    - name: Anna
+      note: His mother, the wife of Tobit.
+    - name: Sarah
+      note: His wife, daughter of Raguel of Ecbatana, freed from the demon Asmodeus at their marriage — the Sarah of the Book of Tobit, not the matriarch Sarah, wife of Abraham.
 status: draft
 generated: "2026-06-21"

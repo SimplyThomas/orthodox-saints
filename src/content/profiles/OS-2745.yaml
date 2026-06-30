@@ -53,6 +53,10 @@ companions:
   - name: Saint Nestor the Chronicler
     note: Monk of the Kiev Caves who recorded the life of Theodosius and, by tradition, the uncovering of his relics.
     href: saint/OS-2085
+related:
+  - name: Venerable Nikon of the Caves
+    note: Senior monk of the Kiev Caves who labored under Anthony and Theodosius and succeeded Theodosius as abbot of the monastery.
+    href: saint/OS-0867
 status: draft
 sources:
   - Synaxarion

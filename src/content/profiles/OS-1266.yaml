@@ -39,6 +39,20 @@ sections:
   - heading: Glorification
     body:
       - The Russian Orthodox Church Outside of Russia included Ornatsky and his sons among the New Martyrs and Confessors of Russia in 1981. They were glorified for general veneration by the Council of Bishops of the Russian Orthodox Church (Moscow Patriarchate) in August 2000, when more than a thousand victims of the Soviet persecutions were canonized. Father, and sons are commemorated together on May 31.
+family:
+  heading: His Martyred Sons
+  intro: Two of Father Philosophos's grown sons were arrested and shot together with him in 1918 and are commemorated with him as a single family of New Martyrs.
+  figures:
+    - name: Boris Ornatsky
+      note: Son — a staff captain, martyred with his father near the Gulf of Finland in 1918.
+      commemorated: true
+    - name: Nicholas Ornatsky
+      note: Son — a military doctor, martyred with his father in 1918.
+      commemorated: true
+companions:
+  - name: Saint John of Kronstadt
+    note: Close associate in the ministry of the capital, to whom Ornatsky was also related by marriage.
+    href: saint/OS-0045
 patronage:
   - Preachers and catechists
   - Those who suffer persecution for the faith

@@ -25,6 +25,13 @@ companions:
   - name: St. Theodosius of the Kyiv Caves
     note: Abbot of the Kiev Caves in whose time Gregory was tonsured
     href: saint/OS-2745
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: "Founder: co-founder of the Kiev Caves monastery in whose community (under his disciple Theodosius) Gregory was tonsured."
+    href: saint/OS-0136
+  - name: Venerable Gregory the Recluse of the Kiev Caves
+    note: "Distinct namesake: a fourteenth-century recluse of the Far Caves commemorated the same day (Jan 8), not to be confused with this Gregory."
+    href: saint/OS-0408
 patronage:
   - Repentance and conversion of wrongdoers
 status: draft

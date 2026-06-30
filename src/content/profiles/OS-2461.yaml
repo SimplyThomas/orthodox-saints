@@ -15,6 +15,13 @@ sections:
       - These details belong to the later hagiographical tradition rather than to the scriptural record, and the sources present them as received tradition concerning the apostle's subsequent ministry.
 patronage:
   - Repentance, conversion, restitution of wrongs, almsgiving
+related:
+  - name: Jesus Christ
+    note: The Lord whose call at Jericho — summoning Zacchaeus down from the sycamore and lodging at his house — brought about the repentance that defines his memory (Luke 19).
+    href: saint/OS-0000
+  - name: Apostle Peter
+    note: By tradition Zacchaeus followed Peter after the Ascension, and Peter ordained him bishop of Caesarea in Palestine.
+    href: saint/OS-0004
 status: draft
 sources:
   - OrthodoxWiki

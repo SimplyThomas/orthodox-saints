@@ -30,6 +30,17 @@ timeline:
   - when: "1452"
     title: Relics enshrined
     body: His relics were enshrined in the fifteenth century, his grave already a pilgrimage site.
+companions:
+  - name: Venerable Anthony of Dymsk
+    note: Disciple and successor; the friend whom Barlaam named to succeed him as abbot of Khutyn, later founder of the monastery on Lake Dymsk near Novgorod.
+    href: saint/OS-0471
+  - name: St. Xenophon of Robeika
+    note: Disciple; a superior of the Khutyn monastery who later founded a community on the River Robeika.
+    href: saint/OS-0544
+related:
+  - name: Venerable Constantine and Cosmas, Abbots of Kosinsk
+    note: Disciples in his tradition; founders of the Kosinsk monastery near Staraya Russa, remembered in the line of Barlaam and Anthony of Dymsk.
+    href: saint/OS-1600
 patronage:
   - Wonderworker of Novgorod and the Russian north
   - Monastic founders and ascetic labor

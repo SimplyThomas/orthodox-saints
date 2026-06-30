@@ -13,8 +13,11 @@ sections:
 family:
   figures:
     - name: Great Martyr and Healer Panteleimon
-      note: Her son, the unmercenary physician martyred at Nicomedia under Diocletian.
+      note: "Son: the unmercenary physician martyred at Nicomedia under Diocletian, whom she raised in the faith from his earliest years."
       href: saint/OS-0014
+    - name: Eustorgios
+      note: "Husband: the pagan of Nicomedia whom her parents married her to, in the hope that 'the unbelieving husband is sanctified by his wife.'"
+      commemorated: false
 companions:
   - name: Hieromartyr Hermolaus of Nicomedia
     note: The priest who, by tradition, brought the young Panteleimon to Christ after his mother's repose.

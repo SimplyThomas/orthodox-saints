@@ -40,6 +40,13 @@ timeline:
     body: Under Diocletian's persecution, Cyprian and Justina were arrested, tortured, and beheaded at Nicomedia; the witness Theoctistus converted and was martyred with them.
 patronage:
   - Invoked against occult influence.
+companions:
+  - name: Martyr Theoctistus
+    note: A witness moved to convert at their suffering, beheaded together with them
+    commemorated: false
+  - name: Aglaidas
+    note: The pagan suitor who hired Cyprian's sorcery against Justina
+    commemorated: false
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Cyprian_and_Justina

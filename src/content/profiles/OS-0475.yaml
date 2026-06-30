@@ -28,6 +28,13 @@ timeline:
   - when: 5th century
     title: Repose
     body: The synaxarion records that Saint Achilles reposed in peace; no further details of his death are preserved.
+companions:
+  - name: Abba Isaiah
+    note: "Fellow desert father: the elder whom Achilles found eating palm leaves with salt out of thirst, the occasion of his teaching on dietary discipline (identity uncertain among the several Desert Fathers named Isaiah)."
+related:
+  - name: St. Ammon of Egypt
+    note: "Fellow desert father: named together with Achilles in the Canon for Cheesefare Saturday as the two 'flowers of the desert.'"
+    href: saint/OS-1956
 sources:
   - OCA Synaxarion (oca.org), Jan 17
   - https://www.oca.org/saints/lives/2025/01/17/109028-venerable-achilles

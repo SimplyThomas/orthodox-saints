@@ -24,10 +24,16 @@ timeline:
   - when: "1023"
     title: Repose at Suzdal
     body: Theodore fell asleep in the Lord at Suzdal after his apostolic labors.
-companions:
-  - name: Great Martyr Theodore Stratelates
-    note: A distinct saint, not to be confused with the bishop of Rostov.
-    href: saint/OS-0615
+related:
+  - name: Saint Leontius, Bishop of Rostov
+    note: "Same see: Rostov; a later bishop and enlightener of the city, honored with Theodore in the Synaxis of the Saints of Rostov and Yaroslavl."
+    href: saint/OS-1231
+  - name: Saint Isaiah, Bishop of Rostov
+    note: "Same see: Rostov; bishop of the city honored in the Synaxis of the Saints of Rostov and Yaroslavl."
+    href: saint/OS-1173
+  - name: Saint Ignatius, Bishop of Rostov
+    note: "Same see: Rostov; bishop of the city honored in the Synaxis of the Saints of Rostov and Yaroslavl."
+    href: saint/OS-1252
 patronage:
   - Enlightener and missionary of Rostov and Suzdal
 sources:

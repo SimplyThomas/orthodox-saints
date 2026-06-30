@@ -25,6 +25,20 @@ sections:
   - heading: Relics & Shrines
     body:
       - Saint Philo was buried at Carpasia. A church dedicated to him survives near Rizokarpaso in the Karpas (Karpasia) peninsula of Cyprus, traditionally associated with the saint and built on the site of earlier ruins.
+companions:
+  - name: St. Epiphanius of Salamis
+    note: Spiritual father and Church Father of Cyprus, bishop of Salamis, who ordained him bishop of Carpasia.
+    href: saint/OS-1152
+related:
+  - name: St. Synesius of Carpasia
+    note: Successor in the see of Carpasia and, like him, within the circle of St. Epiphanius of Salamis.
+    href: saint/OS-2471
+  - name: St. Sabinus of Cyprus
+    note: Fellow disciple of St. Epiphanius who embraced monasticism and became a hierarch in Cyprus.
+    href: saint/OS-1155
+  - name: St. Polybius of Cyprus
+    note: Fellow disciple of St. Epiphanius and chronicler of his teacher's life, a bishop in Cyprus.
+    href: saint/OS-1156
 patronage:
   - Cyprus
   - Carpasia (Karpasia)

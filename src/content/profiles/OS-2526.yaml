@@ -32,5 +32,17 @@ timeline:
     title: Slain by Cain
     body: Cain, in anger, rises against Abel and kills him in the field; God declares that Abel's blood cries out from the ground. Christian tradition counts him the first righteous martyr.
 patronage: []
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Adam
+      note: His father, the first-formed man.
+      href: saint/OS-2524
+    - name: Righteous Foremother Eve
+      note: His mother, the mother of all the living.
+      href: saint/OS-2525
+    - name: Righteous Forefather Seth
+      note: His brother, through whom the genealogy of Christ continued.
+      href: saint/OS-2527
 status: draft
 generated: "2026-06-21"

@@ -30,6 +30,11 @@ timeline:
   - when: "1285"
     title: Repose
     body: He dies at the Briansk monastery, where he had lived as a strict ascetic, and is buried in the monastery church.
+family:
+  figures:
+    - name: Martyrs Michael and Theodore of Chernigov
+      note: His grandfather, Prince Michael of Chernigov, martyred at the Golden Horde in 1246 for refusing pagan obeisance.
+      href: saint/OS-1871
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2023/09/20/102680-saint-oleg-prince-of-briansk

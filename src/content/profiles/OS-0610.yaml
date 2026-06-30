@@ -32,6 +32,15 @@ timeline:
 patronage:
   - Missionaries and enlighteners
   - Patron of Flanders and Ghent
+companions:
+  - name: Bishop Austregisilus of Bourges
+    note: "Teacher: the bishop near Bourges under whose direction the young Amand lived some fifteen years in ascetic solitude before his consecration."
+  - name: Saint Remaclus of Maastricht
+    note: "Fellow missionary: a contemporary Frankish missionary bishop of the Low Countries who succeeded to the see of Maastricht that Amand had held."
+    href: saint/OS-0165
+  - name: Martin the Confessor, Pope of Rome
+    note: "Contemporary: the pope Amand consulted on questions of clerical discipline and the Monothelite controversy during his episcopate at Maastricht."
+    href: saint/OS-0989
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Feb 6

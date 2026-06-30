@@ -25,6 +25,13 @@ companions:
   - name: Apostle Barnabas
     note: Apostle of Cyprus who, according to tradition, ordained Heraclides bishop of Tamassos.
     href: saint/OS-1331
+related:
+  - name: Apostle Paul
+    note: Came to Cyprus with Barnabas and Mark; by tradition he baptized Herakleon and gave him the name Heraclides.
+    href: saint/OS-2749
+  - name: Apostle and Evangelist Mark
+    note: Accompanied Paul and Barnabas on the Cyprus mission through which Heraclides was converted and made a guide.
+    href: saint/OS-1061
 patronage:
   - Cyprus
 status: draft

@@ -37,6 +37,13 @@ timeline:
   - when: c. 230
     title: Repose
     body: Urban died around 230, traditionally honored as a martyr though some scholars hold he died of natural causes; he was succeeded by Pontian.
+companions:
+  - name: Hieromartyr Callistus I, Pope of Rome
+    note: Predecessor — the bishop of Rome whom Urban succeeded, and whose stand against Hippolytus he continued
+    href: saint/OS-2680
+  - name: Martyr Pontian, Pope of Rome
+    note: Successor — followed Urban as bishop of Rome
+    href: saint/OS-2681
 patronage:
   - Family doctors
 sources:

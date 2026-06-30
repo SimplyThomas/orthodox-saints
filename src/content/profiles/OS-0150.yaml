@@ -30,6 +30,10 @@ sections:
   - heading: Dating
     body:
       - The traditional date of Anthimus's martyrdom is 303, under Diocletian. Some scholars, however, note that a fragmentary letter attributed to the priest Lucian of Antioch, who was imprisoned in 311-312 under Maximinus Daia, refers to Anthimus's martyrdom as recent, which has been taken to suggest the death may instead belong to the persecution under Maximinus. The matter remains unresolved, and may reflect a conflation of distinct phases of persecution.
+companions:
+  - name: Martyrs of Nicomedia (Theophilus the Deacon & Companions)
+    note: The company of his court and clergy martyred with St. Anthimus at Nicomedia under Diocletian (commemorated September 3); the deacon Theophilus carried his letter and died under torture without betraying him.
+    href: saint/OS-0151
 patronage: []
 status: draft
 generated: "2026-06-19"

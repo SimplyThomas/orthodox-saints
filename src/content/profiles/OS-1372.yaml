@@ -1,4 +1,8 @@
 id: OS-1372
+companions:
+  - name: St. John Chrysostom
+    note: Archbishop of Constantinople whose clergy and partisans they were, suffering in the persecution that followed his exile.
+    href: saint/OS-0023
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2014/06/16/101741-martyrs-tigrius-the-presbyter-and-eutropius-the-reader-of-consta

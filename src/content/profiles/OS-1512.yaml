@@ -38,6 +38,10 @@ timeline:
   - when: Aug 14, 1798
     title: Placement in a stone coffin
     body: The relics are placed in a stone coffin that had been the resting place of his elder, Saint Ephraim, until 1572; August 14 commemorates this placement.
+companions:
+  - name: Ephraim of Novy Torg
+    note: His spiritual father and elder, who guided his fool-for-Christ struggle; under Ephraim he was tonsured and gave himself to obedience at the Boris and Gleb monastery at Torzhok, and was later enshrined beside him.
+    href: saint/OS-0554
 patronage:
   - Healing
 sources:

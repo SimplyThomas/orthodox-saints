@@ -22,6 +22,32 @@ timeline:
   - when: "1271"
     title: Repose
     body: Died after guiding the Serbian Church; he was succeeded as Archbishop by Danilo I. Some sources variously date his death to 1268, 1269, or 1271.
+family:
+  heading: The Nemanjić Dynasty
+  intro: Sava II, born Predislav, was a son of the royal house of Nemanjić, which gave the Serbian Church and crown a remarkable line of saints.
+  figures:
+    - name: Saint Stephen the First-Crowned of Serbia
+      note: His father, the first crowned King of Serbia, who took monastic vows as Simeon before his death in 1227.
+      href: saint/OS-1904
+    - name: Venerable Symeon the Myrrh-gusher of Serbia
+      note: His grandfather, Stefan Nemanja, founder of the Nemanjić dynasty who reposed as the monk Simeon.
+      href: saint/OS-0653
+    - name: Venerable Anastasia of Serbia
+      note: His grandmother, Anna, wife of Stefan Nemanja and mother of Saint Sava I.
+      href: saint/OS-1403
+    - name: Saint Sava I, First Archbishop of Serbia
+      note: His uncle, the first Serbian Archbishop, whose monastic name and ascetic example Predislav took as his own.
+      href: saint/OS-0449
+    - name: Saint Vladislav of Serbia
+      note: His brother, King Vladislav of Serbia, also a son of Stephen the First-Crowned.
+      href: saint/OS-1900
+    - name: Saint Stephen Uroš I of Serbia
+      note: His half-brother, who reigned as King of Serbia.
+      href: saint/OS-2634
+related:
+  - name: Saint Arsenius, Archbishop of Serbia
+    note: His immediate predecessor as Archbishop of Serbia (Arsenije I), whom he succeeded in the Peć line of succession.
+    href: saint/OS-2094
 sections:
   - heading: Family and Lineage
     body:

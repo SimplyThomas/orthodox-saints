@@ -44,6 +44,14 @@ family:
     - name: Salonius of Geneva
       note: His brother; educated with him at Lérins and later Bishop of Geneva.
       href: saint/OS-2775
+companions:
+  - name: St. Vincent of Lerins
+    note: "Teacher; one of the masters of the Lérins circle under whom Veranus was formed."
+    href: saint/OS-1237
+related:
+  - name: St. Honoratus of Arles
+    note: "Same monastery: Lérins, the island community he founded and in which Veranus was trained."
+    href: saint/OS-0468
 patronage:
   - Vence
 status: draft

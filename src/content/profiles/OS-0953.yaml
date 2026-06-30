@@ -18,6 +18,13 @@ sections:
   - heading: Relics
     body:
       - The synaxarion relates that Saint Shandulios, commemorated on November 3, concealed the relics of the 120 martyrs to preserve them from desecration.
+related:
+  - name: Symeon of Persia
+    note: Leading hieromartyr of the Church in Persia, put to death in the same great persecution of Shapur II that claimed the 120 martyrs
+    href: saint/OS-1006
+  - name: Hieromartyr Sadoc, Bishop of Persia
+    note: Bishop and martyr of the same Shapur II persecution in the Sasanian Empire
+    href: saint/OS-0699
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2018/04/06

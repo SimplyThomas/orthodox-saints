@@ -30,5 +30,13 @@ sources:
   - https://www.oca.org/saints/lives/2022/07/24/102085-venerable-polycarp-archimandrite-of-the-kiev-far-caves
   - https://stjohndc.org/en/list-of-relics/polycarp-archimandrite-kiev-caves-venerable-near-caves
   - http://spproc.org/holy-relics-in-our-church/st-polycarp-archimandrite-of-the-kiev-caves-monastery/
+companions:
+  - name: Saint Simon, Bishop of Vladimir and Suzdal
+    note: Kinsman and teacher — his relative, who instructed him in the spiritual life and related to him the accounts of the Caves ascetics that Polycarp recorded.
+    href: saint/OS-1138
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: Founder — Polycarp upheld the monastic rule that Saint Theodosius had given the Kiev Caves Lavra.
+    href: saint/OS-2745
 status: draft
 generated: "2026-06-19"

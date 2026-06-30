@@ -60,6 +60,37 @@ patronage:
   - Those enduring family separation or discord
   - Torture victims
   - The cities of Madrid and Matera
+family:
+  intro: Eustathius was baptized together with his household and martyred together with them; they are commemorated as one on September 20.
+  figures:
+    - name: Theopiste
+      note: Wife, baptized and martyred with him
+      commemorated: false
+    - name: Agapios
+      note: Son, baptized and martyred with him
+      commemorated: false
+    - name: Theopistos
+      note: Son, baptized and martyred with him
+      commemorated: false
+related:
+  - name: Great Martyr George
+    note: Fellow soldier-martyr
+    href: saint/OS-0012
+  - name: Demetrius of Thessalonica
+    note: Fellow soldier-martyr
+    href: saint/OS-0013
+  - name: Theodore the Recruit
+    note: Fellow soldier-martyr
+    href: saint/OS-0018
+  - name: Theodore Stratelates
+    note: Fellow soldier-martyr
+    href: saint/OS-0615
+  - name: Great Martyr Mercurius
+    note: Fellow soldier-martyr
+    href: saint/OS-2247
+  - name: Great Martyr Menas
+    note: Fellow soldier-martyr
+    href: saint/OS-0059
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_Eustace

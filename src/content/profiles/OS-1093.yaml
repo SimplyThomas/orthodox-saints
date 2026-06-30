@@ -32,6 +32,25 @@ sections:
     body:
       - Tamara's care for the Church was a defining feature of her rule. Orthodox accounts relate that she summoned a Church assembly to set aside disorder and to replace unworthy hierarchs, acting to restore good order among the clergy. She built many churches and supported monastic life, and her patronage reached beyond Georgia to Georgian monastic communities in Jerusalem and the eastern Mediterranean and to centers on Mount Athos.
       - Her solicitude for the poor, for widows, and for orphans is remembered alongside her ecclesiastical works, and she assisted in the spiritual development of Georgia. For these cares and her generous gifts to the Church, she was added to the roster of saints; many Georgians have venerated her as a healer of infirmities.
+family:
+  heading: The Bagrationi royal saints
+  intro: Tamara belonged to the Bagrationi dynasty, the royal house of Georgia that gave the Church a line of saint-kings and queens across the medieval centuries.
+  figures:
+    - name: King George III of Georgia
+      note: Her father, who had her crowned co-ruler in his own lifetime to secure the succession.
+      commemorated: false
+    - name: Saint Demetre I (Damiane), King of Georgia
+      note: Her grandfather, the king who laid down the crown to become a monk and hymnographer; commemorated May 23.
+      href: saint/OS-1233
+    - name: Blessed David IV the Builder, King of Georgia
+      note: Her great-grandfather, the great king-saint who renewed the medieval Georgian kingdom at the dawn of its golden age.
+      href: saint/OS-0548
+    - name: Saint Demetrius II the Self-Sacrificing, King of Georgia
+      note: Her great-grandson, the passion-bearer king who gave himself up to the Mongols to spare his people and was beheaded in 1289.
+      href: saint/OS-0815
+    - name: Holy King Ashot of Georgia
+      note: Progenitor of the Bagrationi royal house from which Tamara descended.
+      href: saint/OS-0553
 patronage:
   - Rulers and those in positions of civil authority
   - Those who defend and serve the Church

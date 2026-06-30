@@ -30,5 +30,13 @@ sources:
   - https://www.oca.org/saints/lives/2025/07/29/102124-venerable-constantine-and-cosmas-abbots-of-kosinsk
   - https://orthodoxwiki.org/Constantine_(disambiguation)
   - https://ru.wikipedia.org/wiki/Константин_Косинский_(преподобный)
+companions:
+  - name: Venerable Anthony of Dymsk
+    note: Abbot of Khutyn and successor of Saint Barlaam, under whom Constantine and Cosmas were formed before departing to found Kosinsk.
+    href: saint/OS-0471
+related:
+  - name: Venerable Barlaam of Khutyn
+    note: Their monastic father; founder of the Khutyn monastery in whose Novgorod tradition they were formed.
+    href: saint/OS-1420
 status: draft
 generated: "2026-06-19"

@@ -18,6 +18,15 @@ sections:
     body:
       - Mahalaleel is venerated not for a recorded individual story but as one of the righteous forefathers of the Old Covenant. On the Sunday of the Holy Forefathers, which falls between December 11 and 17 before the feast of the Nativity, the Church commemorates the ancestors of Christ according to the flesh who lived before the Law and under the Law, especially the Patriarch Abraham, and among whom the antediluvian patriarchs of the Sethite line from Adam to Noah are numbered.
       - His commemoration thus rests on his place in the genealogy that the Gospel traces back to Adam, rather than on any narrative beyond it.
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Cainan
+      note: His father in the genealogy of Christ.
+      href: saint/OS-2529
+    - name: Righteous Forefather Jared
+      note: Son; the line continued through him.
+      href: saint/OS-2531
 status: flagged
 generated: "2026-06-21"
 flagReasons:

@@ -36,6 +36,17 @@ sections:
   - heading: Commemoration
     body:
       - "St. Xenophon is honored on three occasions: June 28, the anniversary of his repose; January 26, the feast of his patron saint, Xenophon of Constantinople; and the third Sunday after Pentecost, the Synaxis of the Novgorod Saints."
+companions:
+  - name: Venerable Anthony of Dymsk
+    note: Fellow disciple of St. Barlaam of Khutyn who likewise founded a monastery near Novgorod; their lives became intertwined in the later hagiographic record.
+    href: saint/OS-0471
+related:
+  - name: Venerable Barlaam of Khutyn
+    note: His spiritual father and the founder of Khutyn Monastery, in whose tradition Xenophon was formed and whose abbacy he later held.
+    href: saint/OS-1420
+  - name: Venerable Xenophon of Constantinople
+    note: His patron saint and namesake, on whose feast (January 26) he is also commemorated.
+    href: saint/OS-0543
 sources:
   - OCA Synaxarion (oca.org), Jan 26
   - https://www.oca.org/saints/lives/2025/06/28/107807-venerable-xenophon-abbot-of-robeika-novgorod

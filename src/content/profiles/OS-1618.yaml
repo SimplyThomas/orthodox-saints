@@ -29,11 +29,8 @@ sections:
     body:
       - Following his repose on Mount Athos, Arsenius was first buried at the Iveron Monastery's church of Saint Simeon the Stylite. Saint George the Hagiorite subsequently transferred his relics to the ossuary of the monastery's catholicon, where they were laid near the resting place of Euthymius of Athos.
 companions:
-  - name: Euthymius of Athos (Ekvtime)
-    note: Abbot of the Iveron Monastery whom Arsenius assisted in translating Scripture and theological works.
-    href: saint/OS-1165
-  - name: John the Iberian
-    note: Founder of the Georgian Iveron Monastery who, with Euthymius, invited Arsenius to Mount Athos.
+  - name: Saints Euthymius and John the Iberian of Iveron
+    note: "Fellow monastics: the founders of the Georgian Iveron Monastery on Athos — John, who with Euthymius invited Arsenius there, and Euthymius (Ekvtime), whom Arsenius assisted in translating Scripture and theological works."
     href: saint/OS-1165
   - name: George the Hagiorite
     note: Later figure of the Iveron Monastery who translated Arsenius's relics to the catholicon's ossuary.

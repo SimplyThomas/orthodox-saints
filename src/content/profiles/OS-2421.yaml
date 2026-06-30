@@ -52,9 +52,34 @@ family:
     - name: Joseph the Betrothed
       note: Descendant of the house of David; commemorated with him on the Sunday after the Nativity.
       href: saint/OS-0075
+    - name: Prophet-King Solomon
+      note: His son by Bathsheba, whom he chose to succeed him on the throne of Israel.
+      href: saint/OS-2357
+    - name: Righteous Jesse
+      note: His father, the Bethlehemite, from whose root the Church sings that the Messiah springs.
+      href: saint/OS-2576
+    - name: Righteous Obed
+      note: His grandfather, son of Boaz and Ruth.
+      href: saint/OS-2575
+    - name: Righteous Boaz
+      note: His great-grandfather, husband of Ruth, of the line of Judah.
+      href: saint/OS-2574
+    - name: Righteous Ruth
+      note: His great-grandmother, the Moabitess grafted into Israel, foremother in his line.
+      href: saint/OS-2359
 companions:
   - name: Prophet Samuel
     note: The prophet who anointed David king of Israel.
     href: saint/OS-1744
+related:
+  - name: Apostle James the Brother of the Lord
+    note: Commemorated together with David and Joseph the Betrothed on the Sunday after the Nativity.
+    href: saint/OS-2066
+  - name: Righteous Patriarch Judah
+    note: Forefather of David's tribe, the royal line of Judah through which the Messiah was promised.
+    href: saint/OS-2764
+  - name: Righteous Hezron
+    note: An ancestor in the genealogy of David and of Christ according to the flesh.
+    href: saint/OS-2347
 status: draft
 generated: "2026-06-19"

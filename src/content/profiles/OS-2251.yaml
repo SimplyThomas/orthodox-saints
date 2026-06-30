@@ -53,5 +53,12 @@ reading:
       - title: First Epistle of Clement to the Corinthians
         author: Clement of Rome
         type: Apostolic Father
+related:
+  - name: Apostle Peter
+    note: By ancient Roman tradition (reported by Tertullian) Clement was ordained by Peter, and he is counted among the first of Peter's successors as bishop of Rome.
+    href: saint/OS-0004
+  - name: Apostle Paul
+    note: Eusebius describes Clement as a co-laborer of Paul; the apostle's letter to the Philippians names a Clement long identified with him in tradition.
+    href: saint/OS-2749
 status: draft
 generated: "2026-06-20"

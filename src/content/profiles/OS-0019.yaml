@@ -47,7 +47,8 @@ sections:
   - heading: Relics & Shrines
     body:
       - After his repose Nicholas was buried at Myra, where his relics were said to remain incorrupt and to flow with a fragrant, healing myrrh or manna.
-      - In 1087, while Myra lay under Turkish occupation, merchants from Bari in Italy seized the major portion of his bones and carried them to their city. Pope Urban II inaugurated the Basilica of San Nicola in Bari in 1089, where the relics were placed beneath the altar and where a substance known as the Manna di San Nicola is said to flow from them, valued for its medicinal powers. Around 1100 Venetian sailors obtained the remaining fragments. The Emperor Justinian I had earlier built a church in Nicholas's honor at Constantinople in the sixth century.
+      - In 1087, while Myra lay under Turkish occupation, merchants from Bari in Italy seized the major portion of his bones and carried them to their city. Pope Urban II inaugurated the Basilica of San Nicola in Bari in 1089, where the relics were placed beneath the altar. Around 1100 Venetian sailors obtained the remaining fragments. The Emperor Justinian I had earlier built a church in Nicholas's honor at Constantinople in the sixth century.
+      - "A clear, watery liquid known as the Manna (or Myrrh) of Saint Nicholas seeps from his relics in the crypt at Bari. Each year on May 9 — the feast of the translation of his relics — the rector ceremonially draws the manna from the tomb in the Rite of the Holy Manna; it is diluted in holy water and distributed to pilgrims in small vials, long prized for its healing intercession. The relics at Myra were likewise said to flow with a fragrant, curative myrrh before the translation."
   - heading: Miracles & Traditions
     body:
       - "Historically Documented: The earliest and best-attested account is Nicholas's secret provision of dowries for the three daughters of a poor man, which underlies his reputation for hidden almsgiving. His distribution of his inherited wealth to the poor and his imprisonment under Diocletian and release under Constantine are also part of the established record of his life."
@@ -73,5 +74,51 @@ sources:
   - https://www.oca.org/saints/lives/2024/12/06/103484-saint-nicholas-the-wonderworker-archbishop-of-myra-in-lycia
   - https://www.newadvent.org/cathen/11063b.htm
   - https://orthodoxwiki.org/Nicholas_of_Myra
+family:
+  figures:
+    - name: Theophanes
+      note: Father (traditional); a pious and wealthy Christian of Patara
+      commemorated: false
+    - name: Nonna
+      note: Mother (traditional)
+      commemorated: false
+    - name: Nicholas, Bishop of Patara
+      note: Uncle (traditional), who ordained him reader and priest
+      commemorated: false
+companions:
+  - name: Constantine the Great
+    note: Emperor who freed him from prison; appeared to him in a dream to free the condemned officers
+    href: saint/OS-0037
+  - name: Spyridon of Trimythous
+    note: Fellow wonderworking bishop of the Nicene generation
+    href: saint/OS-0020
+  - name: Alexander of Alexandria
+    note: Fellow defender of Nicaea against Arius
+    href: saint/OS-2472
+  - name: Athanasius the Great
+    note: Fellow champion of the Nicene faith
+    href: saint/OS-0024
+  - name: Arius
+    note: The heretic he confronted at Nicaea (by tradition)
+    commemorated: false
+related:
+  - name: John the Merciful
+    note: Fellow bishop renowned for almsgiving
+    href: saint/OS-2184
+  - name: Basil the Great
+    note: Fellow great hierarch
+    href: saint/OS-0021
+  - name: John Chrysostom
+    note: Fellow great hierarch
+    href: saint/OS-0023
+  - name: Gregory the Theologian
+    note: Fellow great hierarch
+    href: saint/OS-0022
+  - name: Gregory the Wonderworker
+    note: Fellow wonderworking bishop
+    href: saint/OS-2204
+  - name: Martin of Tours
+    note: Fellow fourth-century wonderworking bishop and almsgiver
+    href: saint/OS-2008
 status: reviewed
 generated: "2026-06-18"

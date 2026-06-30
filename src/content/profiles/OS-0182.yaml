@@ -14,6 +14,11 @@ timeline:
   - when: "1923"
     title: Martyrdom
     body: Shot by the Soviet authorities near the town of Taldy, having served as a priest at Georgievka in the Semirechye region.
+companions:
+  - name: Protopriest Vladimir Tsedrinsky
+    note: Fellow priest of the Semirechye region remembered together with him as sharing in the same Soviet persecution.
+  - name: Priest George Stepanyuk
+    note: Fellow priest of the Semirechye region remembered together with him as sharing in the same Soviet persecution.
 patronage:
   - New Martyrs of Russia; endurance under persecution
 status: draft

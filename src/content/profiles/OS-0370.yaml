@@ -39,6 +39,12 @@ sections:
     body:
       - Tatiana was arrested for the last time in September 1937. At her interrogation she denied the charges of anti-Soviet agitation and sabotage brought against her. She was sentenced to death and shot at the Butovo firing range near Moscow on 23 September 1937, at the age of thirty-three, and was buried in an unmarked mass grave.
       - She was legally rehabilitated in 1991, and on 17 July 2002 the Holy Synod of the Russian Orthodox Church numbered her among the New Martyrs and Confessors of Russia. Her feast is kept on September 10/23, and she is also commemorated with the Synaxis of the New Martyrs of Butovo.
+family:
+  heading: Family
+  figures:
+    - name: Archpriest Anthony Misiurov
+      note: Grandfather — the archpriest who shaped her early Orthodox faith.
+      commemorated: false
 patronage:
   - Prisoners and those who aid them
 status: draft

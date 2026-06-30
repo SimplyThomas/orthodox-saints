@@ -42,5 +42,34 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/30/103038-apostle-justus-of-the-seventy
   - https://en.wikipedia.org/wiki/Seventy_disciples
   - https://www.johnsanidopoulos.com/search?q=Justus+Seventy+apostle
+family:
+  heading: Son of Joseph the Betrothed
+  intro: The Synaxarion numbers Justus among the children of Saint Joseph the Betrothed, and thus among the brethren of the Lord.
+  figures:
+    - name: St. Joseph the Betrothed
+      note: His father, the betrothed of the Theotokos.
+      href: saint/OS-0075
+    - name: Apostle James the Brother of the Lord
+      note: His brother, first Bishop of Jerusalem.
+      href: saint/OS-2066
+    - name: Apostle Jude the Brother of the Lord
+      note: His brother, numbered among the Twelve.
+      href: saint/OS-1384
+related:
+  - name: Apostle Matthias
+    note: The other man proposed to fill the place left by Judas Iscariot; the lot fell upon Matthias rather than Justus (Acts 1:21-26).
+    href: saint/OS-1676
+  - name: Apostle Tertius of the Seventy
+    note: Fellow Apostle of the Seventy commemorated together with him on October 30.
+    href: saint/OS-2110
+  - name: Apostle Artemas of the Seventy
+    note: Fellow Apostle of the Seventy commemorated together with him on October 30.
+    href: saint/OS-2112
+  - name: Apostle Mark of the Seventy
+    note: Fellow Apostle of the Seventy commemorated together with him on October 30.
+    href: saint/OS-1911
+  - name: Synaxis of the Seventy Apostles
+    note: Justus is numbered among the Seventy Disciples, honored collectively at their synaxis on January 4.
+    href: saint/OS-0384
 status: draft
 generated: "2026-06-22"

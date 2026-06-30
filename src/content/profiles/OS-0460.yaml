@@ -34,6 +34,16 @@ timeline:
   - when: 1276–1320
     title: Royal patronage
     body: According to Serbian chronicles, King Milutin commissions a church dedicated to Saint Prochorus.
+related:
+  - name: Venerable Gabriel of Lesnovo
+    note: "Fellow hermit: one of the four contemporary South Slavic anchorite saints, with Prochorus, John of Rila, and Joachim of Osogovo."
+    href: saint/OS-0461
+  - name: Venerable John of Rila
+    note: "Fellow hermit: counted by tradition among the four great anchorites of the medieval Balkans alongside Prochorus."
+    href: saint/OS-1735
+  - name: Saint Joachim of Osogovo
+    note: "Fellow hermit: one of the four South Slavic hermit saints traditionally associated with Prochorus."
+    href: saint/OS-1710
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 15

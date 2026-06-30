@@ -1,4 +1,17 @@
 id: OS-1195
+family:
+  heading: Family
+  figures:
+    - name: Emperor Basil I the Macedonian
+      note: His father (officially), founder of the Macedonian dynasty; a Byzantine emperor, not a commemorated saint.
+      commemorated: false
+    - name: Emperor Leo VI the Wise
+      note: His elder brother, who reigned as emperor; not a commemorated saint.
+      commemorated: false
+companions:
+  - name: St. Photius the Great, Patriarch of Constantinople
+    note: The patriarch of Constantinople under whom Stephen was ordained to the priesthood.
+    href: saint/OS-0603
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Stephen_I_of_Constantinople

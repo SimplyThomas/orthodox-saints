@@ -12,6 +12,20 @@ timeline:
   - when: c. 833
     title: Martyrdom
     body: Refusing to renounce Christianity, Enravota was put to death on Malamir's order.
+family:
+  heading: Family
+  intro: Enravota belonged to the ruling house of the pagan khans of Bulgaria; his nearest kin were not Christians.
+  figures:
+    - name: Khan Omurtag
+      note: His father, the pagan ruler of Bulgaria, after whose death Enravota came to the Christian faith.
+      commemorated: false
+    - name: Malamir
+      note: His younger brother, who succeeded their father on the Bulgarian throne and put Enravota to death for refusing to renounce Christ.
+      commemorated: false
+related:
+  - name: "Saint Boris, Equal of the Apostles, Baptizer of Bulgaria"
+    note: The ruler under whom the Bulgarian people were baptized some decades after Enravota's death, which is honored as preceding and foreshadowing that conversion.
+    href: saint/OS-1102
 patronage:
   - Honored as the protomartyr of the Bulgarian land.
 status: draft

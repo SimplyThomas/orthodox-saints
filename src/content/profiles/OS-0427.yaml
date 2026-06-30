@@ -40,9 +40,22 @@ family:
     - name: St. Peter of Sebaste
       note: Brother; bishop of Sebaste.
       href: saint/OS-0420
+    - name: Venerable Macrina the Younger
+      note: Sister; ascetic and guide of the family's monastic community.
+      href: saint/OS-1551
     - name: Righteous Emilia
       note: Mother of this family of saints.
       href: saint/OS-0374
+    - name: Righteous Macrina the Elder
+      note: Grandmother of the family of saints.
+      href: saint/OS-2474
+    - name: Righteous Basil the Elder
+      note: Father of the family of saints.
+      href: saint/OS-2757
+companions:
+  - name: St. Gregory the Theologian
+    note: "Family friend: eulogized Theosebia after her death in his Epistle 197, honoring her as an ornament of the Church."
+    href: saint/OS-0022
 reading:
   - heading: Primary Source
     items:

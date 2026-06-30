@@ -62,5 +62,49 @@ sources:
   - https://en.wikipedia.org/wiki/Saint_George
   - https://en.wikipedia.org/wiki/Saint_George#Eastern_Christianity
   - https://orthodoxwiki.org/George_the_Trophy-bearer
+family:
+  figures:
+    - name: Gerontius
+      note: Father (traditional); a Christian officer of Cappadocia, martyred while George was young
+      commemorated: false
+    - name: Polychronia
+      note: Mother (traditional); a Christian of Palestine who raised him in the faith
+      commemorated: false
+companions:
+  - name: Martyr Empress Alexandra
+    note: Confessed Christ on witnessing his endurance and was martyred soon after
+    href: saint/OS-1044
+  - name: Martyrs Anatolius and Protoleon
+    note: Officers converted by his witness and martyred with him
+    href: saint/OS-1045
+  - name: Athanasius the Magician
+    note: Sent to expose his miracles, he was converted and martyred
+  - name: Glycerius
+    note: Converted on witnessing him and executed
+  - name: Diocletian
+    note: Emperor who ordered his execution
+    commemorated: false
+related:
+  - name: Demetrius of Thessalonica
+    note: Fellow great-martyr and soldier-saint
+    href: saint/OS-0013
+  - name: Theodore the Recruit
+    note: Fellow soldier-martyr
+    href: saint/OS-0018
+  - name: Theodore Stratelates
+    note: Fellow soldier-martyr
+    href: saint/OS-0615
+  - name: Great Martyr Mercurius
+    note: Fellow soldier-martyr
+    href: saint/OS-2247
+  - name: Great Martyr Menas
+    note: Fellow soldier-martyr
+    href: saint/OS-0059
+  - name: Great Martyr Procopius
+    note: Fellow soldier-martyr
+    href: saint/OS-1494
+  - name: Martyr Sebastian
+    note: Fellow soldier-martyr
+    href: saint/OS-2381
 status: reviewed
 generated: "2026-06-18"

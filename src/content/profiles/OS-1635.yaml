@@ -21,6 +21,13 @@ sections:
   - heading: Miracles & Traditions
     body:
       - "Historically Documented: The earliest account, transmitted in the Spiritual Meadow on the testimony of the presbyter Abba Basil, relates that when Basil came to venerate Cosmas's grave he found there a beggar who declared, 'It is a great Elder whom you have buried here.' The man said he had been paralyzed for twelve years and had received healing through the prayers of Saint Cosmas."
+related:
+  - name: Blessed John Moschus
+    note: "Biographer: the monk whose Spiritual Meadow preserves the account of Cosmas on the testimony of Abba Basil."
+    href: saint/OS-2761
+  - name: Gregory of Antioch
+    note: "Hierarch: the Patriarch of Antioch who, by the Prologue of Ohrid, buried Cosmas at his monastery."
+    href: saint/OS-1028
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/1999/08/03/102194-venerable-cosmas-the-eunuch-and-hermit-of-palestine

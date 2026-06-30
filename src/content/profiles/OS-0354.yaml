@@ -41,6 +41,10 @@ family:
 companions:
   - name: Gregory of Tours
     note: Bishop and historian, a distant relation of Salvius, whose Histories preserve the principal account of his life and vision.
+related:
+  - name: St. Carissima of Albi
+    note: "Same city: Albi; a fifth-century anchoress venerated in the same city of which Salvius later became bishop."
+    href: saint/OS-0279
 patronage:
   - The city of Albi
 status: draft

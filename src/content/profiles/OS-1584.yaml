@@ -30,5 +30,22 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Sava_III
   - https://www.crkvenikalendar.com/zitije_en.php?pok=0&id=ZBK
+companions:
+  - name: Saint Stephen Milutin of Serbia
+    note: Contemporary King of Serbia, who consulted Savva on the founding of the Banjska Monastery and in whose charters Savva is styled Archbishop of all the Serbian and Maritime lands.
+    href: saint/OS-2116
+related:
+  - name: St. Sava I, First Archbishop of Serbia
+    note: Founder of the autocephalous Serbian Church and first holder of the archiepiscopal throne Savva later occupied.
+    href: saint/OS-0449
+  - name: St. Eustathius I, Archbishop of Serbia
+    note: Fellow holy Archbishop of the Serbian Church in the Žiča–Peć succession.
+    href: saint/OS-0386
+  - name: Saint Jacob, Archbishop of Serbia
+    note: Fellow holy Archbishop of the Serbian Church in the Žiča–Peć succession.
+    href: saint/OS-0589
+  - name: Saint Arsenius, Archbishop of Serbia
+    note: Fellow holy Archbishop of the Serbian Church in the Žiča–Peć succession.
+    href: saint/OS-2094
 status: draft
 generated: "2026-06-19"

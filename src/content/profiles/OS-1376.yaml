@@ -1,4 +1,18 @@
 id: OS-1376
+family:
+  heading: The Holy Family of Brychan
+  intro: Nectan was reckoned the eldest of the many children of King Brychan, a kindred whose members became saints across Wales, Cornwall, and Devon.
+  figures:
+    - name: King Brychan of Brycheiniog
+      note: Father, the Welsh king whose many children are venerated as a holy family.
+      commemorated: true
+    - name: Saint Endellion, Recluse of Cornwall
+      note: Sister among the children of Brychan, who by tradition stayed with him at Hartland before settling in Cornwall.
+      href: saint/OS-1080
+related:
+  - name: St. Anthony the Great
+    note: Desert Father whose example inspired him to take up the eremitic life.
+    href: saint/OS-0026
 lifespan: c. 468 – c. 510
 patronage:
   - Hartland, Devon

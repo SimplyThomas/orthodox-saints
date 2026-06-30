@@ -66,5 +66,18 @@ family:
     - name: Righteous Joachim
       note: Her husband; parents of the Theotokos, jointly commemorated September 9
       href: saint/OS-0011
+    - name: Most Holy Theotokos (Virgin Mary)
+      note: Her daughter, conceived and borne in old age after long barrenness
+      href: saint/OS-0001
+    - name: Jesus Christ
+      note: Her grandson, born of her daughter the Theotokos
+      href: saint/OS-0000
+    - name: Righteous Mary, grandmother of the Theotokos
+      note: Her mother, by tradition
+      href: saint/OS-2360
+related:
+  - name: Righteous Elizabeth
+    note: Mother of John the Forerunner, named in tradition as a kinswoman of Anna
+    href: saint/OS-2752
 status: reviewed
 generated: "2026-06-18"

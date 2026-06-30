@@ -36,6 +36,13 @@ sections:
   - heading: Relics & Shrines
     body:
       - Roman was buried in the Transfiguration Cathedral in Uglich. In 1486 his relics were found to be incorrupt and were transferred to the new cathedral, and he was later reburied in a stone church. In 1595, on account of the fame of miracles reported at his tomb, the relics were examined by Metropolitan Hermogenes, afterward Patriarch of Moscow, with the blessing of Patriarch Job, and Roman was formally numbered among the saints. Orthodox tradition relates that a Polish invasion in 1609 destroyed both his relics and his written biography. He is venerated as a local saint, and liturgical sources call him a new wonderworker of Russia.
+family:
+  heading: Family
+  intro: Roman belonged to the princely house of Uglich, a branch of the Rostov line of Rurikid princes.
+  figures:
+    - name: Right-believing Prince Basil (Vasilko) of Rostov
+      note: Paternal uncle; the prince of Rostov captured and martyred by the Mongols in 1238, brother of Roman's father Prince Vladimir of Uglich.
+      href: saint/OS-0769
 patronage:
   - Care of the poor and the sick
   - Builders and benefactors of churches

@@ -53,5 +53,33 @@ sources:
   - https://en.wikipedia.org/wiki/James,_brother_of_Jesus
   - https://www.oca.org/saints/lives/2024/10/23/103039-apostle-james-the-brother-of-the-lord
   - https://orthodoxwiki.org/James_the_Just
+family:
+  figures:
+    - name: St. Joseph the Betrothed
+      note: By Orthodox tradition (drawing on the Protoevangelion) his father, from a marriage before Joseph's betrothal to the Theotokos — making James a stepbrother of the Lord. Commemorated with James and King David on the Sunday after the Nativity.
+      href: saint/OS-0075
+    - name: Apostle Jude the Brother of the Lord
+      note: His brother, likewise a son of Joseph the Betrothed and a kinsman of the Lord, author of the catholic Epistle of Jude.
+      href: saint/OS-1384
+    - name: Holy Myrrh-bearer Mary, the Wife of Cleopas
+      note: A daughter of Joseph the Betrothed, and so his sister in the Orthodox reckoning of the Lord's kinsfolk.
+      href: saint/OS-1230
+companions:
+  - name: Apostle Peter
+    note: One of the three 'pillars' of the Church with James and John (Gal 2:9); with John he set James as bishop of Jerusalem after the Ascension.
+    href: saint/OS-0004
+  - name: Apostle & Evangelist John the Theologian
+    note: Named with Peter and James as a 'pillar' of the Church (Gal 2:9); shared in establishing James over the Jerusalem church.
+    href: saint/OS-0005
+  - name: Apostle Paul
+    note: Named James among the 'pillars' (Gal 2:9), knew him personally, and consulted him at Jerusalem; with James and Peter he spoke at the Council of Jerusalem, where James's judgment proved decisive.
+    href: saint/OS-2749
+related:
+  - name: Hieromartyr Simeon, Kinsman of the Lord, Bishop of Jerusalem
+    note: A kinsman of the Lord (son of Cleopas) who succeeded James as second bishop of Jerusalem.
+    href: saint/OS-1069
+  - name: Prophet-King David
+    note: Commemorated together with James and Joseph the Betrothed on the Sunday after the Nativity (Dec 28) as forebears and kinsmen of the Lord according to the flesh.
+    href: saint/OS-2421
 status: draft
 generated: "2026-06-23"

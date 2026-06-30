@@ -32,6 +32,15 @@ timeline:
   - when: after 446
     title: Repose
     body: Dalmatus dies peacefully at the age of ninety; his son Faustus succeeds him as leader of the monastery.
+family:
+  figures:
+    - name: Venerable Faustus the Ascetic
+      note: "Son: tonsured with Dalmatus by Saint Isaac and his successor as igumen of the Dalmatian Monastery."
+      href: saint/OS-1632
+companions:
+  - name: Isaac the Confessor of Dalmatos
+    note: "Teacher: the founder of the monastery near Constantinople who tonsured Dalmatus and named him his successor as igumen."
+    href: saint/OS-0863
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://oca.org/saints/lives/2025/08/03

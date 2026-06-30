@@ -68,6 +68,23 @@ patronage:
   - English history and historians
   - Scholars and students
   - Biblical scholarship and learning
+companions:
+  - name: Benedict Biscop
+    note: Founder of Wearmouth-Jarrow, his first abbot
+    href: saint/OS-2705
+  - name: Ceolfrith
+    note: Abbot who raised and taught him; with whom he kept the services through the plague
+    commemorated: false
+  - name: John of Beverley
+    note: Bishop who ordained him deacon and priest
+    href: saint/OS-2706
+related:
+  - name: Cuthbert of Lindisfarne
+    note: Northumbrian wonderworker whose Life he wrote
+    href: saint/OS-0082
+  - name: Aidan of Lindisfarne
+    note: Apostle of Northumbria, central to his Ecclesiastical History
+    href: saint/OS-1812
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Bede

@@ -42,5 +42,16 @@ sources:
   - https://www.oca.org/saints/lives/2024/01/12/100157-venerable-martinian-abbot-of-belozersk
   - https://www.oca.org/saints/lives/2024/10/07/102892-uncovering-of-the-relics-of-venerable-martinian-abbot-of-belozer
   - https://en.wikipedia.org/wiki/Ferapontov_Monastery
+companions:
+  - name: Venerable Cyril, Abbot of White Lake
+    note: "Teacher: Martinian came to Cyril as a boy of thirteen, was formed under him in the monastic discipline, learned reading and writing, and copied books with his elder's blessing."
+    href: saint/OS-1317
+related:
+  - name: Venerable Therapon, Abbot of White Lake
+    note: "Same monastery: a companion of St Cyril who founded the Ferapontov (Therapon) monastery, which Martinian afterward led as igumen."
+    href: saint/OS-1245
+  - name: St. Sergius of Radonezh
+    note: "Same monastery: founder of the Trinity Lavra, which Martinian was called to govern as superior from 1447."
+    href: saint/OS-0042
 status: draft
 generated: "2026-06-22"

@@ -24,6 +24,10 @@ sections:
 patronage:
   - Monastics
   - Iconographers
+companions:
+  - name: St. Cornelius of Komel
+    note: His spiritual father, at whose monastery Adrian was tonsured and whose strict monastic rule he carried into the Dormition house he founded.
+    href: saint/OS-1205
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Adrian_of_Poshekhonye

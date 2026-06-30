@@ -25,5 +25,9 @@ timeline:
   - when: "1588"
     title: Hermitage assigned to Cornelius of Komel's monastery
     body: The Pertsov hermitage was attached to the monastery founded by Venerable Cornelius of Komel; that house was later abolished in 1764.
+related:
+  - name: Venerable Cornelius, Abbot of Komel
+    note: "Same region: Vologda; the Pertsov hermitage of the two fathers was assigned in 1588 to the monastery Cornelius founded."
+    href: saint/OS-1205
 status: draft
 generated: "2026-06-19"

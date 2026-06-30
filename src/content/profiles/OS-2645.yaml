@@ -39,5 +39,12 @@ sections:
 patronage:
   - Victims of persecution
   - Those who suffer for the faith
+companions:
+  - name: New Martyr Vukašin of Klepci
+    note: Serbian layman of Herzegovina who died at Jasenovac, named among the martyrs of the camp.
+    href: saint/OS-1189
+  - name: Hieromartyr Platon of Banja Luka
+    note: Serbian bishop killed in 1941, numbered among the Serbian new martyrs of the Second World War.
+    href: saint/OS-1043
 status: draft
 generated: "2026-06-19"

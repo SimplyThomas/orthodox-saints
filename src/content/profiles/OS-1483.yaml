@@ -15,5 +15,21 @@ sections:
   - heading: Relics and Shrines
     body:
       - His relics rest in the Far Caves of the Kiev Pechersk Lavra. The monastery, traced to the eleventh-century settlement of the Venerable Anthony and the abbacy of the Venerable Theodosius, became renowned for the incorrupt relics of its many monastic saints, who were glorified in 1643 under Metropolitan Peter Mogila. The fathers of the Far Caves are venerated together in a general synaxis, within which Sisoes is numbered.
+companions:
+  - name: Gregory the Faster of the Far Caves
+    note: Fellow ascetic of the Far Caves; the canon of the Far Caves fathers joins their names in restraining the passions through fasting.
+related:
+  - name: Anthony of the Kyiv Caves
+    note: Founder of the Kiev Caves monastery to whose community Sisoes belonged.
+    href: saint/OS-0136
+  - name: Theodosius of the Kyiv Caves
+    note: Co-founder and organizer of the Kiev Caves monastic life.
+    href: saint/OS-2745
+  - name: Sisoes the Great
+    note: Distinct earlier Egyptian Desert Father of the same name who shares the July 6 feast.
+    href: saint/OS-1482
+  - name: Sisoes the Recluse of the Kiev Near Caves
+    note: Distinct namesake of the same Lavra whose relics rest in the Near Caves.
+    href: saint/OS-2071
 status: draft
 generated: 20260619_b13

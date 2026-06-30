@@ -81,5 +81,74 @@ sources:
   - https://en.wikipedia.org/wiki/Innocent_of_Alaska
   - https://www.oca.org/saints/lives/2024/10/06/102858-innocent-metropolitan-of-moscow-and-apostle-to-america-and-siberia
   - https://orthodoxwiki.org/Innocent_of_Alaska
+family:
+  figures:
+    - name: Catherine (Ekaterina) Veniaminova
+      note: Wife, a priest's daughter, who reposed in 1838
+      commemorated: false
+    - name: Children
+      note: His children, born before his monastic tonsure
+      commemorated: false
+    - name: Ivan Popov
+      note: Father, a church servant
+      commemorated: false
+    - name: Evsevia Popova
+      note: Mother
+      commemorated: false
+companions:
+  - name: Jacob Netsvetov
+    note: Aleut-Yupik priest and fellow enlightener of Alaska
+    href: saint/OS-1579
+  - name: Nicholas Kasatkin
+    note: Nicholas of Japan, contemporary missionary hierarch
+    href: saint/OS-0590
+  - name: Philaret (Drozdov) of Moscow
+    note: Metropolitan of Moscow whom Innocent succeeded
+    href: saint/OS-2221
+related:
+  - name: Herman of Alaska
+    note: Missionary predecessor in the American mission
+    href: saint/OS-0044
+  - name: Peter the Aleut
+    note: Aleut martyr of the same mission
+    href: saint/OS-1894
+  - name: Tikhon of Moscow
+    note: Later apostle to America and patriarch
+    href: saint/OS-0053
+  - name: Raphael of Brooklyn
+    note: Bishop of the North American mission
+    href: saint/OS-0055
+  - name: John of Shanghai and San Francisco
+    note: Later wonderworking hierarch of the diaspora
+    href: saint/OS-0050
+works:
+  - title: Indication of the Way into the Kingdom of Heaven
+    desc: His best-known work, a guide to the Christian life for the peoples of Alaska
+  - title: Notes on the Islands of the Unalaska District
+    desc: Landmark ethnographic study of the Aleut people
+  - title: Aleut Grammar
+    desc: One of the first grammars of the Aleut language
+  - title: Aleut Dictionary and Linguistic Works
+    desc: Vocabularies and language studies for missionary use
+  - title: Translations into Aleut
+    desc: Scripture, services, and catechisms
+  - title: Catechetical Instructions
+    desc: Educational materials introducing the Orthodox faith
+  - title: Sermons and Homilies
+    desc: Preached in Alaska, Siberia, and as Metropolitan of Moscow
+  - title: Pastoral Letters
+    desc: Correspondence on missionary strategy and parish life
+  - title: Missionary Reports and Official Correspondence
+    desc: Reports to the Holy Synod on the Alaskan and Siberian missions
+reading:
+  - heading: Biographies
+    items:
+      - title: The Life of St. Innocent, Metropolitan of Moscow, Enlightener of Alaska and Siberia
+        type: Biography
+      - title: Apostle to America
+        type: Biography
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 status: reviewed
 generated: "2026-06-18"

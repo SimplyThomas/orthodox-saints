@@ -38,6 +38,11 @@ sections:
     body:
       - The narrative of the discovery of the relics is preserved in a letter attributed to Lucian of Caphargamala and widely circulated in the fifth century. It describes three visions in which Gamaliel appeared to the priest and identified the location of the graves. Upon excavation, four tombs were found containing the relics of Gamaliel, Stephen, Nikodemos, and Abibas.
       - "The relics were distributed widely: Stephen's remains became a major pilgrimage focus after being transferred first to Carthage and then to Rome. The relics of Gamaliel, Nikodemos, and Abibas passed to Constantinople in 428."
+family:
+  figures:
+    - name: The Righteous Abibas
+      note: "Son: Gamaliel's son, baptized with him and buried at Caphargamala; their relics were found together in 415."
+      href: saint/OS-1626
 companions:
   - name: Protomartyr and Archdeacon Stephen
     note: Whose body Gamaliel buried and whose relics were discovered alongside his own

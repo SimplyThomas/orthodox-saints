@@ -36,6 +36,16 @@ timeline:
   - when: "1908"
     title: Excavation of the house
     body: Archaeological work uncovers the preserved wooden framework of Theodore and John's house at the site.
+family:
+  heading: Family
+  intro: Theodore and his son John were a Varangian father and son who confessed Christ together and were killed by the pagan crowd of Kiev, becoming the first martyrs of the Russian land.
+  figures:
+    - name: Saint John
+      note: Son of Theodore, the youth on whom the sacrificial lot fell; killed with his father when Theodore refused to surrender him.
+related:
+  - name: Vladimir, Enlightener of Rus'
+    note: The then-pagan prince of Kiev whose men demanded John for sacrifice; tradition holds their martyrdom moved him toward his later conversion, and he raised the Church of the Tithes over the site.
+    href: saint/OS-0040
 patronage:
   - Invoked by women who have miscarried.
 sources:

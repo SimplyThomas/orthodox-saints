@@ -33,6 +33,10 @@ sections:
     body:
       - "Historically Documented: The Passion records the saint's two arrests, his trial and confession before the Persian governors, and his beheading; it names Catholicos Samoel as the one who baptized him and who received his relics for burial at Svetitskhoveli."
       - "Traditional Accounts: The synaxarion preserves words attributed to Eustathius in refusing the Persian celebration and in confessing the faith, including the statement that he was stamped with the seal of Christ and far removed from every darkness, and his declaration that he was prepared to endure torture and death itself for the sake of Christ."
+companions:
+  - name: Saint Samuel, second Catholicos of Georgia
+    note: "Baptized by: the sixth-century Catholicos of Mtskheta who, according to the synaxarion, received Eustathius into the Church and later received his relics for burial at Svetitskhoveli Cathedral."
+    href: saint/OS-2281
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Eustathius_of_Mtskheta

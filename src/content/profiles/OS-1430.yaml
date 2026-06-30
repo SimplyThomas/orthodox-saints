@@ -46,6 +46,14 @@ timeline:
   - when: "1322"
     title: Death
     body: He dies after about four decades as metropolitan; Nikephoros Choumnos composes a eulogy on his death.
+companions:
+  - name: Saint Gregory Palamas
+    note: Hesychast theologian who in his youth received spiritual instruction from Theoleptos and counted him among his teachers of the prayer of stillness.
+    href: saint/OS-0025
+related:
+  - name: Venerable Nikephoros of Mount Athos
+    note: Fellow teacher of the hesychast prayer of the heart in the generation before the Hesychast controversy.
+    href: saint/OS-1115
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

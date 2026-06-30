@@ -21,6 +21,16 @@ sections:
     body:
       - "Historically Documented: The early diffusion of Febronia's Life and the dedication of churches and a monastery in her honor attest to an established cult from antiquity, and her commemoration is shared across the Eastern Orthodox, Oriental Orthodox, and Roman Catholic calendars."
       - "Traditional Accounts: Her Life recounts that her chief torturer, Selinus, was afterward driven to madness and died striking his head against marble, while Lysimachus and Primus were baptized and embraced the monastic life, and the convert Hieria gave her wealth to the convent. These episodes are transmitted as part of the hagiographic tradition rather than independently documented history."
+family:
+  heading: Kin and Spiritual Mother
+  intro: Febronia was raised from childhood in the women's monastery of Nisibis, under the care of her aunt the abbess.
+  figures:
+    - name: Abbess Bryaena of Nisibis
+      note: Aunt and abbess who raised Febronia in the monastery and set her a stricter rule of life than the other sisters.
+related:
+  - name: Saint James, Bishop of Nisibis
+    note: Bishop of Nisibis who, by tradition, built a church in Febronia's honor and translated a portion of her relics after her martyrdom.
+    href: saint/OS-0444
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/06/25/101812-virgin-martyr-febronia-of-nisibis

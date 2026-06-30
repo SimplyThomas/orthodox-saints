@@ -25,6 +25,13 @@ timeline:
     body: Her surviving Life is set down in a collection belonging to Holmcultram Abbey.
 patronage:
   - Protector of the poor and oppressed in the Cumbrian region
+companions:
+  - name: St. Aidan of Lindisfarne
+    note: By her Life, the bishop from whom she received the monastic veil before establishing her community at St Bees (a traditional, hagiographic account).
+    href: saint/OS-1812
+  - name: St. Oswald of Northumbria
+    note: By tradition the Northumbrian king who counselled her to enter the convent when Viking raiders threatened the Cumbrian coast (a legendary, hagiographic account).
+    href: saint/OS-1650
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

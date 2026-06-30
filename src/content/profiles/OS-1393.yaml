@@ -31,5 +31,14 @@ sources:
   - https://en.wikipedia.org/wiki/Galerius
   - https://en.wikipedia.org/wiki/Tamassos
   - https://en.wikipedia.org/wiki/Salamis,_Cyprus
+companions:
+  - name: Deacon Demetrian
+    note: "Co-martyr: deacon of the cathedral of Tamassos, beheaded with Aristocles at Salamis in 306."
+  - name: Reader Athanasius
+    note: "Co-martyr: reader of the Cypriot church who confessed Christ and suffered with Aristocles and Demetrian."
+related:
+  - name: Apostle Barnabas of Cyprus
+    note: "Apostle of Cyprus: the three confessors met and took counsel at the Church of the Apostle Barnabas before setting out to their martyrdom."
+    href: saint/OS-1331
 status: draft
 generated: "2026-06-22"

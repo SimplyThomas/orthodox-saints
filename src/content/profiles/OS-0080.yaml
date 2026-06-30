@@ -54,6 +54,23 @@ timeline:
 patronage:
   - Patroness of Ireland
   - One of Ireland's three patron saints
+companions:
+  - name: Mael of Ardagh
+    note: Bishop who received her monastic vows
+    commemorated: false
+  - name: Conleth
+    note: Hermit she appointed first Bishop of Kildare
+    commemorated: false
+related:
+  - name: Patrick of Ireland
+    note: Enlightener of Ireland; by tradition baptized her mother, and she wove his burial shroud
+    href: saint/OS-0079
+  - name: Columba of Iona
+    note: Fellow patron of Ireland; the three rest together at Downpatrick
+    href: saint/OS-1320
+  - name: Genevieve of Paris
+    note: Influential consecrated woman of the early Western Church
+    href: saint/OS-0081
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Brigid_of_Kildare

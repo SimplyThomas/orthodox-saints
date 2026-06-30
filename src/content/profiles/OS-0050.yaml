@@ -88,6 +88,74 @@ timeline:
 patronage:
   - Refugees and the displaced
   - Orphans and destitute children
+companions:
+  - name: Anthony (Khrapovitsky)
+    note: Metropolitan, his mentor and spiritual father in Belgrade
+  - name: Jonah of Hankou
+    note: Fellow ROCOR hierarch and wonderworker of China
+  - name: Seraphim (Sobolev)
+    note: ROCOR hierarch of Sofia and contemporary
+    href: saint/OS-2667
+  - name: Philaret (Voznesensky)
+    note: ROCOR First Hierarch and contemporary
+  - name: Archbishop Leonty (Filippovich)
+    note: ROCOR hierarch and contemporary
+    commemorated: false
+  - name: The Orphans of Shanghai
+    note: The destitute children he gathered and raised in his orphanage
+related:
+  - name: John of Tobolsk
+    note: His ancestor, patron, and namesake
+    href: saint/OS-1324
+  - name: Herman of Alaska
+    note: Wonderworker and forerunner of the Orthodox mission in America
+    href: saint/OS-0044
+  - name: Tikhon of Moscow
+    note: Patriarch who served the American mission before him
+    href: saint/OS-0053
+  - name: Raphael of Brooklyn
+    note: Missionary bishop of the Orthodox flock in America
+    href: saint/OS-0055
+  - name: Alexis Toth
+    note: Confessor who gathered immigrants into the American Church
+    href: saint/OS-1125
+  - name: Nektarios of Aegina
+    note: Greek wonderworker he revered
+    href: saint/OS-0046
+  - name: John of Kronstadt
+    note: Russian wonderworking pastor whose canonization he championed
+    href: saint/OS-0045
+  - name: Seraphim of Sarov
+    note: Beloved Russian elder and wonderworker
+    href: saint/OS-0043
+works:
+  - title: The Orthodox Veneration of the Mother of God
+    desc: His best-known theological work, on the veneration of the Theotokos
+  - title: Homilies and Sermons
+    desc: Preaching across his decades of episcopal ministry
+  - title: Pastoral Letters
+    desc: Letters of guidance to his scattered flock
+  - title: Theological Articles
+    desc: Essays on doctrine and the life of the Church
+  - title: Liturgical Texts and Services
+    desc: Including his restoration of pre-Schism Western local saints
+  - title: Recorded Teachings
+    desc: Spiritual counsels preserved by those who knew him
+reading:
+  - heading: Biographies
+    items:
+      - title: Blessed John the Wonderworker
+        author: Peter Lukianoff
+      - title: "The Man of God: Saint John of Shanghai and San Francisco"
+        author: Archpriest Seraphim Gan
+      - title: "St. John Maximovitch: A Holy Man"
+        author: Holy Trinity Monastery
+  - heading: Miracles
+    items:
+      - title: Collections of Miracles
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_of_Shanghai_and_San_Francisco

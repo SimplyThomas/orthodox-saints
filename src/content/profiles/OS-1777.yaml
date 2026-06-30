@@ -30,5 +30,13 @@ sections:
   - heading: Traditional Accounts
     body:
       - The synaxarion relates a miracle from his patriarchate in which a Jewish child who had received Communion was cast into a fiery furnace by his angry father, yet was found unharmed after three days; the account adds that the child and his mother were thereby brought to faith.
+companions:
+  - name: Agapitus of Rome
+    note: "Consecrator: Pope Agapitus I of Rome, who took part in consecrating Menas — by tradition the first time a bishop of Rome consecrated a patriarch of Constantinople."
+    href: saint/OS-1008
+related:
+  - name: Saint Eutychius of Constantinople
+    note: "Successor: The patriarch who succeeded Menas and presided over the Fifth Ecumenical Council, convened after Menas's death."
+    href: saint/OS-0951
 status: draft
 generated: "2026-06-20"

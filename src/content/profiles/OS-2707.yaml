@@ -82,5 +82,22 @@ sources:
   - https://www.newadvent.org/cathen/01280b.htm
   - https://anastpaul.com/2023/05/25/saint-of-the-day-25-may-st-aldhelm-of-sherborne-640-709-confessor-abbot-bishop/
   - https://catholicreadings.org/st-aldhelm-of-sherborne/
+family:
+  heading: Family and Kinship
+  intro: Said to have been of the royal house of Wessex.
+  figures:
+    - name: Saint Ine of Wessex
+      note: King of Wessex and Aldhelm's kinsman, during whose reign he served as abbot of Malmesbury and first bishop of Sherborne.
+      href: saint/OS-0313
+related:
+  - name: Saint Adrian (Hadrian) of Canterbury
+    note: African-born abbot at Canterbury under whom Aldhelm studied, gaining instruction in Roman law, astronomy, and the reckoning of the calendar.
+    href: saint/OS-2709
+  - name: Saint Theodore of Tarsus
+    note: Archbishop of Canterbury whose school, founded with Hadrian, gave Aldhelm the Mediterranean learning he joined to his earlier Irish formation.
+    href: saint/OS-1869
+companions:
+  - name: Saint Egwin of Worcester
+    note: Bishop of Worcester and friend, associated with the crosses set up along the route by which Aldhelm's body was carried to Malmesbury for burial.
 status: draft
 generated: "2026-06-21"

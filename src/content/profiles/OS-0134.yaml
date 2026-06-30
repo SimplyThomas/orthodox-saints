@@ -34,6 +34,17 @@ sections:
     body:
       - Several traditions, first recorded in documents only from the fifteenth century and presented in the sources as legend rather than contemporary record, attach to Agricola's name. According to one such account he stayed an invasion of storks over Avignon by his blessing, and from this he became known as a patron of storks, depicted with them as his emblem in art.
       - Other traditions hold that his prayers were said to obtain rain, good weather, and fine harvests, so that the faithful invoked him for these and against the plague. In 1647 he was declared the patron saint of the city of Avignon.
+family:
+  figures:
+    - name: St. Magnus of Avignon
+      note: His father, by tradition a Gallo-Roman who became a monk and bishop of Avignon, whom Agricola assisted and then succeeded in the see
+companions:
+  - name: St. Veredemus
+    note: His successor as bishop of Avignon
+related:
+  - name: St. Honoratus of Arles
+    note: Founder of the Abbey of Lerins, the monastery where Agricola was professed a monk
+    href: saint/OS-0468
 patronage:
   - Avignon
   - Storks

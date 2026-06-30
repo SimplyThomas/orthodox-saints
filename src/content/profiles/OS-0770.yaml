@@ -5,6 +5,17 @@ overview:
   - "His reign of roughly three decades was marked by an unusual avoidance of warfare: in thirty years he engaged in only one significant military action, defeating Constantine of Ryazan near Pereyaslavl. He laid the foundation for the city's later prominence, founding monasteries and the first stone church in the Moscow Kremlin, and is remembered as the forefather of the Princes of Moscow and the founder of the Daniilovichi dynasty."
   - Shortly before his death on 4 March 1303, at about the age of forty-two, Daniel took monastic vows. By his own wish he was buried not with princely honors but in the cemetery of the monastery he had founded, a choice his veneration remembers as an act of humility. He was canonized by the Russian Orthodox Church in 1791.
 liturgicalTitle: The Holy Right-believing Prince Daniel of Moscow
+family:
+  heading: House of the Daniilovichi
+  intro: Daniel was the youngest son of Saint Alexander Nevsky, and through him became the forefather of the princes — and later tsars — of Moscow.
+  figures:
+    - name: Saint Alexander Nevsky
+      note: His father, Grand Prince of Vladimir; Daniel was his youngest son and inherited the small Moscow appanage from him.
+      href: saint/OS-2241
+related:
+  - name: Venerable Daniel the Stylite
+    note: His patron saint, the fifth-century Constantinopolitan ascetic after whom he was named at birth.
+    href: saint/OS-2333
 sections:
   - heading: Rule of Moscow
     body:

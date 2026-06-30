@@ -36,6 +36,12 @@ timeline:
 patronage:
   - Patron of Nizhny Novgorod
   - Right-believing rulers of the Russian land
+family:
+  heading: Kin
+  figures:
+    - name: Basil (Vasilko) of Rostov
+      note: Nephew, son of George's elder brother Constantine; the young prince of Rostov was captured at the Battle of the Sit and martyred by the Mongols soon after George himself fell.
+      href: saint/OS-0769
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Feb 4

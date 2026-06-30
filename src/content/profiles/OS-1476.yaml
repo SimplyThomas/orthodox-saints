@@ -30,6 +30,14 @@ companions:
   - name: Greatmartyr Ketevan, Queen of Georgia
     note: Georgian queen martyred under the same Shah Abbas of Persia
     href: saint/OS-1834
+  - name: Hieromartyr Theodore of Kvelta
+    note: Georgian village priest who, by tradition, led the invading Persians astray to spare the king they hunted, and was killed for it
+    href: saint/OS-1316
+family:
+  figures:
+    - name: George X of Kartli
+      note: His father, King of Kartli, said to have been poisoned by Shah Abbas I of Persia
+      commemorated: false
 patronage:
   - Royal martyr and confessor of the Georgian Church
 status: draft

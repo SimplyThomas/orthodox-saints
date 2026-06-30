@@ -45,5 +45,53 @@ sources:
   - https://en.wikipedia.org/wiki/John_Chrysostom
   - https://oca.org/saints/lives/2023/11/13/202154-st-john-chrysostom-archbishop-of-constantinople
   - https://orthodoxwiki.org/John_Chrysostom
+family:
+  figures:
+    - name: Anthusa
+      note: Mother; a devout widow who raised him in the faith
+      commemorated: false
+    - name: Secundus
+      note: Father; an army officer who died in John's infancy
+      commemorated: false
+companions:
+  - name: Meletius of Antioch
+    note: Who baptized him and ordained him reader
+    href: saint/OS-0640
+  - name: Saint Flavian of Antioch
+    note: Who ordained him priest at Antioch
+    href: saint/OS-0669
+  - name: Olympias the Deaconess
+    note: His closest spiritual disciple and correspondent
+    href: saint/OS-1577
+  - name: Epiphanius of Salamis
+    note: Bishop drawn into the controversy around him
+    href: saint/OS-1152
+  - name: Diodore of Tarsus
+    note: His teacher in the Antiochene school
+  - name: Theophilus of Alexandria
+    note: Opponent who engineered his condemnation at the Synod of the Oak
+    commemorated: false
+  - name: Empress Eudoxia
+    note: Whose enmity led to his exile
+    commemorated: false
+related:
+  - name: Basil the Great
+    note: Fellow ecumenical teacher among the Three Holy Hierarchs
+    href: saint/OS-0021
+  - name: Gregory the Theologian
+    note: Fellow ecumenical teacher among the Three Holy Hierarchs
+    href: saint/OS-0022
+  - name: Athanasius the Great
+    note: Elder father of the Nicene faith
+    href: saint/OS-0024
+  - name: Gregory of Nyssa
+    note: Cappadocian Father of the same generation
+    href: saint/OS-0422
+  - name: Cyril of Alexandria
+    note: Successor in the defense of Orthodox doctrine
+    href: saint/OS-0476
+  - name: John the Merciful
+    note: Later Patriarch and almsgiver who honored his memory
+    href: saint/OS-2184
 status: reviewed
 generated: "2026-06-18"

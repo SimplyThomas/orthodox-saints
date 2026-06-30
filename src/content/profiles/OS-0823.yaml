@@ -34,5 +34,12 @@ sections:
   - heading: Veneration
     body:
       - Theognostus was buried in the Cathedral of the Dormition (Assumption) in Moscow. He was canonized by the Russian Orthodox Church in the 19th century and is commemorated on March 14.
+related:
+  - name: Saint Peter, Metropolitan of Moscow
+    note: Predecessor; Theognostus succeeded him as Metropolitan of Kiev and All Russia and continued his work of consolidating the metropolitan see at Moscow.
+    href: saint/OS-2399
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: Designated successor; anticipating his death, Theognostus recommended Alexis to succeed him as metropolitan.
+    href: saint/OS-0641
 status: draft
 generated: 2026-06-21-b3

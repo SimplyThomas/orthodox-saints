@@ -46,6 +46,10 @@ reading:
       - title: Saint Justus, Bishop of Lyon (+389)
         author: John Sanidopoulos
         type: Article
+related:
+  - name: Elpidius of Lyon
+    note: Successor in the see of Lyon a generation later (through Justus's own successor Antiochus); fellow pre-schism bishop and confessor of Lyon.
+    href: saint/OS-0131
 status: draft
 sources:
   - Roman Martyrology

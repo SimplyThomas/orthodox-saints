@@ -35,6 +35,21 @@ sections:
   - heading: Identity
     body:
       - In the medieval West, Mary of Bethany was often conflated with Mary Magdalene and with the unnamed sinful woman of Luke's Gospel. The Eastern Church has consistently treated these as distinct persons, and the Roman Catholic Church likewise came to distinguish them in its more recent liturgical revisions.
+family:
+  heading: The Household at Bethany
+  intro: Martha and Mary kept house at Bethany with their brother Lazarus, whom Christ raised from the dead and who shared their later exile.
+  figures:
+    - name: Saint Lazarus the Four-Days-Dead
+      note: Brother — raised by Christ at Bethany, later first bishop of Kition on Cyprus, whom the sisters followed into exile.
+      href: saint/OS-0078
+companions:
+  - name: The Holy Myrrh-bearing Women
+    note: The women who came to the tomb of Christ, among whom the sisters of Bethany are numbered on the Sunday of the Myrrh-bearers.
+    href: saint/OS-0076
+related:
+  - name: Jesus Christ
+    note: The Lord who was received in their home at Bethany, taught Mary at His feet, and raised their brother Lazarus.
+    href: saint/OS-0000
 patronage: []
 status: draft
 generated: "2026-06-19"

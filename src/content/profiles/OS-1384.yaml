@@ -23,17 +23,26 @@ sections:
       - Following the Lord's Ascension and the descent of the Holy Spirit, Jude carried the Gospel through a wide territory. The synaxarion names Judea, Samaria, Galilee, Idumea, Syria, Arabia, Mesopotamia, and Armenia among the lands of his preaching, and the wider tradition links him with Edessa and with the region of Beirut.
       - The Orthodox tradition relates that, while preaching in the country around Mount Ararat, the apostle was captured by pagans and put to death, being crucified and shot with arrows. Other traditions concerning the apostle's death exist outside the Orthodox synaxarion, including an Armenian account of martyrdom under King Sanatruk and a Western account placing his death near Beirut together with the Apostle Simon the Zealot; these are noted as variants of the tradition of his end.
 family:
+  heading: Of the Brethren of the Lord
+  intro: Jude is counted among the brethren of the Lord, the children of Joseph the Betrothed by an earlier marriage, and so a brother of James and a kinsman of Christ.
   figures:
-    - name: St. Joseph the Betrothed
-      note: His father, by an earlier marriage; the guardian of the Christ Child
+    - name: Joseph the Betrothed
+      note: "Father: by tradition his father, by an earlier marriage; the guardian of the Christ Child."
       href: saint/OS-0075
-    - name: Apostle James the Brother of the Lord
-      note: His brother, the first bishop of Jerusalem, named in the Epistle of Jude
+    - name: James the Brother of the Lord
+      note: "Brother: among the brethren of the Lord; first bishop of Jerusalem, whose epistle Jude echoes."
       href: saint/OS-2066
+    - name: Jesus Christ
+      note: "Kinsman: called the Brother of the Lord as a son of Joseph; the Lord whom he served as an apostle."
+      href: saint/OS-0000
 companions:
   - name: Apostle Simon the Zealot
-    note: A fellow apostle with whom a variant Western tradition links his martyrdom
+    note: "Fellow apostle: paired with Jude in tradition as the two preached together and, in the Western reckoning, suffered martyrdom together."
     href: saint/OS-1137
+related:
+  - name: Simeon, Kinsman of the Lord
+    note: "Kinsman: numbered among the kinsmen of the Lord and second bishop of Jerusalem; by tradition associated with the brethren of the Lord."
+    href: saint/OS-1069
 patronage:
   - Preaching of the Gospel
   - Those in difficult and seemingly hopeless circumstances

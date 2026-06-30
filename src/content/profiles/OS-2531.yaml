@@ -17,5 +17,14 @@ sections:
     body:
       - In the Orthodox Church, Jared is honored as one of the Righteous Forefathers - the Old Testament ancestors of Christ. These figures, from Adam through the patriarchs and prophets, are commemorated together on the Sunday of the Holy Forefathers, which falls on the Sunday between December 11 and 17, the second Sunday before the Nativity, during the Nativity Fast.
       - The commemoration remembers the righteous who lived before the Law and under the Law, and gives thanks for the ancestral line through which, in Orthodox understanding, the promise to the patriarchs was fulfilled in the incarnation of Christ. As a forefather standing in this lineage, Jared is venerated within that collective memory rather than through an individual cult, relics, or shrine.
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Mahalaleel
+      note: His father in the genealogy of Christ.
+      href: saint/OS-2530
+    - name: Righteous Forefather Enoch
+      note: Son, who walked with God; the line continued through him.
+      href: saint/OS-2532
 status: draft
 generated: "2026-06-21"

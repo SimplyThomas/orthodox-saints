@@ -29,11 +29,15 @@ timeline:
     source: https://www.oca.org/saints/lives/1993/03/08/100701-apostle-hermes-of-the-seventy
 companions:
   - name: Apostle Herodion of the Seventy
-    note: Fellow apostle of the Seventy commemorated together with Hermes in the April 8 grouping.
-    external: https://www.oca.org/saints/lives/2017/04/08/101024-apostle-herodion-of-the-seventy-and-those-with-him
+    note: Fellow apostle of the Seventy commemorated together with Hermes in the April 8 grouping (Herodion, Agabus, Rufus, Asyncritus, Phlegon, and Hermes).
+    href: saint/OS-0961
   - name: Apostle Titus
     note: By one tradition, Hermes succeeded Titus as Bishop of Dalmatia.
     href: saint/OS-1775
+related:
+  - name: Apostle Paul
+    note: The Apostle whose co-worker Hermes is reckoned to be, greeting him among the believers at Rome (Romans 16:14).
+    href: saint/OS-2749
 patronage:
   - One of the Seventy Apostles; early bishop of Dalmatia
 sources:

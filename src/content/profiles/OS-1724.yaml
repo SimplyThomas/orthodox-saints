@@ -64,6 +64,14 @@ timeline:
   - when: 2002–2003
     title: Glorification
     body: Locally glorified at Kola in 2002; canonized as Venerable in 2003.
+related:
+  - name: Saint Stephen, Bishop of Perm
+    note: Model — Theodoritus devised the first Sami alphabet on the pattern of the Perm script that Stephen had created for the Zyrians.
+    href: saint/OS-1065
+companions:
+  - name: Prince Andrei Kurbsky
+    note: Spiritual son and biographer — his vita of Theodoritus is the principal source for the saint's life.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://oca.org/saints/lives/2025/08/17/102321-venerable-theodoritus-enlightener-of-the-lapps-solovki

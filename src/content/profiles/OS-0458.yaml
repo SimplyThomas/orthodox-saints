@@ -36,6 +36,14 @@ sections:
     body:
       - John's parents built a church at the site of his burial together with an adjacent hostel for travelers, and were themselves eventually buried in that church.
       - "By tradition, his relics were later dispersed: an account relates that in the twelfth century Crusaders carried his head to Besançon in France, while other relics were transferred to Rome, where a church was built in his honor."
+companions:
+  - name: Venerable Marcellus of the Unsleeping Ones
+    note: "His igumen: the abbot of the Akoimetoi monastery who tonsured John and blessed his departure."
+    href: saint/OS-2426
+related:
+  - name: Venerable Alexander, Founder of the Monastery of the Unsleeping Ones
+    note: "Founder of his community: established the Akoimetoi ('Unsleeping Ones'), the monastery where John was tonsured."
+    href: saint/OS-0716
 patronage: []
 reading:
   - heading: Primary Accounts

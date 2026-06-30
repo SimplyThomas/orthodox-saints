@@ -48,5 +48,19 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Matthias_the_Apostle
   - https://www.oca.org/saints/lives/2024/08/09
+companions:
+  - name: Apostle Peter
+    note: "Fellow apostle — who proposed to the assembled disciples that the vacant apostolic place left by Judas be filled."
+    href: saint/OS-0004
+  - name: Apostle Justus of the Seventy
+    note: "Co-nominee — Joseph called Barsabbas (Justus), the other man put forward before the lot fell to Matthias."
+    href: saint/OS-2111
+  - name: Righteous Simeon the God-Receiver
+    note: "Teacher — under whose guidance, by the OCA synaxarion, Matthias studied the Law of God in his youth."
+    href: saint/OS-0579
+related:
+  - name: Synaxis of the Holy Twelve Apostles
+    note: "Numbered among — chosen by lot after the Ascension to be reckoned with the eleven, completing the Twelve."
+    href: saint/OS-2486
 status: draft
 generated: "2026-06-22"

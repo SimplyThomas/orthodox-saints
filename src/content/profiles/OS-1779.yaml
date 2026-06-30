@@ -26,5 +26,9 @@ sections:
     body:
       - The defining work of John's patriarchate was the healing of the Acacian schism, a division between the sees of Constantinople and Rome that had persisted since the late fifth century over the reception of the Council of Chalcedon. With the accession of the Chalcedonian emperor Justin I, the conditions for reconciliation were in place.
       - In July 518 John presided over councils at Constantinople that publicly affirmed the four ecumenical councils, restored the name of Pope Leo I to the diptychs, and anathematized Severus of Antioch. The reconciliation was completed in March 519, when John accepted the Formula of Hormisdas brought by the papal legates and signed it in both Greek and Latin, restoring full communion between the two sees.
+companions:
+  - name: Saint Epiphanius of Constantinople
+    note: "Successor: His syncellus, who accompanied him on the 519 mission to Macedonia and succeeded him as Patriarch of Constantinople."
+    href: saint/OS-1780
 status: draft
 generated: "2026-06-20"

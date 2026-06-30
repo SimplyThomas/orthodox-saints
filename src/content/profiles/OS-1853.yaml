@@ -54,6 +54,15 @@ sections:
     body:
       - Ludmilla is venerated as a patroness of Bohemia, and as a patron of converts, duchesses, those with in-law difficulties, and widows. As a pre-schism Western and Slavic saint, she is honored in both Western and Orthodox tradition.
       - "Her memory has also entered the cultural sphere: Antonín Dvořák composed an oratorio titled Saint Ludmila (1885–1886) for the Leeds Festival."
+family:
+  figures:
+    - name: Right-believing Prince Wenceslas of the Czech Lands
+      note: Ludmilla's grandson, whom she helped raise in the Christian faith; after her martyrdom he translated her relics to Prague.
+      href: saint/OS-0773
+related:
+  - name: Sts. Cyril & Methodius
+    note: Ludmilla and her husband Bořivoj received Baptism through the Slavic mission of Saint Methodius, Archbishop of Moravia.
+    href: saint/OS-0038
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Ludmila_of_Bohemia

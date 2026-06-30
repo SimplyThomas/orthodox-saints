@@ -33,6 +33,17 @@ sections:
     body:
       - Kevin's life is associated with a strict ascetic regime. He is said to have subsisted on herbs and fish and, by tradition, to have stood up to his neck in the cold water of the Upper Lake while at prayer.
       - "A cycle of traditional accounts depicts his gentleness toward animals: an otter is said to have retrieved his book of psalms from the water, and his best-known legend tells of a blackbird that built its nest and laid eggs in his outstretched hand during Lent, which he is said to have held motionless until the young had hatched. These are devotional traditions rather than independently documented events; the blackbird story in particular has been widely depicted in later art and literature."
+companions:
+  - name: Saint Columba of Iona
+    note: Contemporary Irish abbot and monastic founder whom tradition numbers among those Kevin visited.
+    href: saint/OS-1320
+  - name: Venerable Comgall of Bangor
+    note: Contemporary Irish abbot whom tradition numbers among those Kevin visited.
+    href: saint/OS-1143
+related:
+  - name: Saint Kieran of Clonmacnoise
+    note: Fellow sixth-century Irish monastic founder of the same generation, associated with Kevin in the tradition of the Irish saints.
+    href: saint/OS-0324
 patronage:
   - Dublin
   - Glendalough

@@ -5,6 +5,19 @@ overview:
   - Ephraim of Novy Torg, also called Ephraim the Wonderworker of Torzhok, was an eleventh-century monastic, the founder of the monastery of Saints Boris and Gleb in the town of Novy Torg, now Torzhok. He is commemorated on January 28.
   - By the accounts he was a native of Hungary who, together with his brothers Saint Moses the Hungarian and Saint George, left his homeland and entered the service of the Russian princes. His brother George was slain together with the holy passion-bearer Boris in the year 1015.
   - After his brother's martyrdom Ephraim withdrew from the world. He founded at Torzhok a monastery dedicated to the holy passion-bearers Boris and Gleb, together with a hostel for the care of travelers and the poor, and he reposed in the year 1053.
+family:
+  heading: A family of three Hungarian brothers
+  intro: By tradition Ephraim was one of three Hungarian-born brothers who left their homeland to serve the Russian princes.
+  figures:
+    - name: Venerable Moses the Hungarian of the Kiev Caves
+      note: Brother of Ephraim; a servant of Prince Boris taken captive to Poland, who later became a monk of the Kiev Caves.
+      href: saint/OS-1581
+    - name: Saint George the Hungarian
+      note: Brother of Ephraim; a servant of Prince Boris who was slain together with the passion-bearer Boris in 1015.
+related:
+  - name: Passion-bearers Boris & Gleb
+    note: The princely martyrs to whom Ephraim dedicated his monastery at Torzhok, and with whom his brother George was slain in 1015.
+    href: saint/OS-0236
 patronage:
   - Hospitality to travelers and the poor
 status: draft

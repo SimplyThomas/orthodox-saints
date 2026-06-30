@@ -33,10 +33,19 @@ timeline:
   - when: "2004"
     title: Glorified
     body: Canonized by the Ecumenical Patriarchate of Constantinople; commemorated July 20.
+family:
+  figures:
+    - name: Yuri Skobtsov
+      note: Her son, who shared in the rescue work, was deported with the household, and was glorified together with her in 2004.
 companions:
   - name: Priest-martyr Demetrius Klepinin
     note: Her chaplain and co-worker, who provided baptismal certificates to Jews; martyred and glorified with her, commemorated July 20.
     href: saint/OS-1560
+  - name: Priest-martyr Alexei Medvedkov
+    note: Parish priest in Savoy (Alexis of Ugine), canonized together with her by the Ecumenical Patriarchate in 2004.
+    href: saint/OS-1561
+  - name: Ilya Fondaminsky
+    note: Associate of the Rue de Lourmel community who perished in the camps and was glorified together with her in 2004.
 patronage:
   - Charity and hospitality toward the poor and homeless
   - Those who shelter and rescue the persecuted

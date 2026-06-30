@@ -18,6 +18,20 @@ sections:
     body:
       - The service text for Anastasius records that he possessed such steadfastness in God that he received everything he asked for. A troparion and kontakion for the saint are preserved in the Orthodox Church in America's synaxarion.
       - Anastasius is genuinely obscure within the Near Caves tradition. No dedicated account of his martyrdom, his relics, or a glorification date was found in the accessible sources, and he is not individually treated in the Kyiv-Pechersk Patericon, the principal hagiographic compilation of the Lavra's monks.
+family:
+  heading: Family
+  intro: ""
+  figures:
+    - name: Venerable Titus the Presbyter of the Kiev Caves
+      note: "Brother: identified by the hieromonk Athanasius the Sooty as the brother of Anastasius; a priest of the same Near Caves, commemorated February 27."
+      href: saint/OS-0728
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: "Monastery founder: co-founder of the Kiev Caves Monastery, the community in whose Near Caves Anastasius lived and is buried."
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: "Monastery founder: co-founder and organizer of the Kiev Caves Monastery, where Anastasius labored as a deacon."
+    href: saint/OS-2745
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 22

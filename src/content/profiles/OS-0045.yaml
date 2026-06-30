@@ -40,15 +40,82 @@ sections:
       - John reposed at Kronstadt on 20 December 1908. His coffin was carried through St. Petersburg with great ceremony, and he was buried at the Ioannovsky (St. John) Convent, which is dedicated to him. He was glorified as a saint by the Russian Orthodox Church Outside Russia in 1964, its first canonization made independently of Moscow, and by the Moscow Patriarchate in 1990. His principal feasts are kept on December 20 (his repose) and October 19 (his glorification).
 family:
   figures:
-    - name: Elizabeth Sergieva
-      note: His wife, daughter of the archpriest of St. Andrew's Cathedral, with whom he lived in a celibate marriage.
+    - name: Ilya Sergiev
+      note: Father, a poor church clerk of Sura
       commemorated: false
+    - name: Feodora Sergieva
+      note: Mother
+      commemorated: false
+    - name: Elizabeth Konstantinovna Sergieva
+      note: His wife, daughter of the archpriest of St. Andrew's Cathedral, with whom he lived in a celibate marriage
+      commemorated: false
+companions:
+  - name: Tsar Nicholas II
+    note: Emperor of his final years, whom he counseled
+  - name: Elizabeth Feodorovna
+    note: Grand Duchess and New Martyr of his era
+  - name: John Kochurov
+    note: Priest of his time and protomartyr of the Russian persecution
+    href: saint/OS-2120
+  - name: Silouan the Athonite
+    note: Athonite contemporary and teacher of prayer
+    href: saint/OS-0087
+  - name: Konstantin Pobedonostsev
+    note: Over-Procurator of the Holy Synod in his day
+    commemorated: false
+  - name: Leo Tolstoy
+    note: Writer whose teaching he publicly opposed
+    commemorated: false
+related:
+  - name: Seraphim of Sarov
+    note: Russian wonderworker of the preceding generation
+    href: saint/OS-0043
+  - name: Paisius Velichkovsky
+    note: Renewer of the Philokalic tradition in Russia
+    href: saint/OS-2199
+  - name: Theophan the Recluse
+    note: Russian teacher of inner prayer
+    href: saint/OS-0429
+  - name: Alexis Toth
+    note: Priest who returned Carpatho-Russians to Orthodoxy in America
+    href: saint/OS-1125
+  - name: Tikhon of Moscow
+    note: Patriarch and confessor of the Russian Church
+    href: saint/OS-0053
 patronage:
   - Parish clergy and pastors
   - Charitable work among the poor
 works:
   - title: My Life in Christ
-    desc: A spiritual journal combining theological reflection with personal observation, translated into several languages.
+    desc: His best-known work, a spiritual diary on prayer, repentance, the Eucharist, humility, and pastoral ministry.
+  - title: Spiritual Counsels
+    desc: Gathered teachings on the Christian life.
+  - title: Season of Repentance
+    desc: His Lenten sermons.
+  - title: The Christian Meaning of Life
+    desc: Reflections on the purpose of human life in Christ.
+  - title: On Prayer
+    desc: Counsel on the life of prayer.
+  - title: Sermons
+    desc: Homilies preached at St. Andrew's Cathedral, Kronstadt.
+  - title: Pastoral Letters
+    desc: Letters of spiritual direction and pastoral care.
+reading:
+  - heading: Biographies
+    items:
+      - title: The Life of St. John of Kronstadt
+        author: Holy Trinity Monastery, Jordanville
+        type: Biography
+      - title: "Father John of Kronstadt: A Life"
+        type: Biography
+      - title: "Saint John of Kronstadt: His Life"
+        author: St. Herman of Alaska Brotherhood
+        type: Biography
+  - heading: Liturgical Texts
+    items:
+      - title: Service to St. John of Kronstadt
+      - title: Akathist
+      - title: Canon
 status: reviewed
 sources:
   - Synaxarion

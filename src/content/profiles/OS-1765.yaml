@@ -36,6 +36,10 @@ sections:
     body:
       - The monastic site linked to the saints developed into the Abbazia di Sant'Eutizio near Norcia, which long preserved the cult of Eutychius. A gilded reliquary commissioned by Abbot Giovanni Mensurati in 1544 is reported to have contained Eutychius's hair shirt. The reliquary was stolen from the abbey in 1883 and later recovered without the relic, and was subsequently moved to Spoleto.
       - Local observance at Norcia kept the memory of Eutychius on dates distinct from the August 23 commemoration shared in the Orthodox calendar.
+related:
+  - name: St. Gregory the Dialogist
+    note: "Biographer: Pope Gregory the Great, whose Dialogues are the chief source preserving the lives of the two Nursian ascetics."
+    href: saint/OS-0084
 patronage:
   - Monastics
   - The town of Nursia (Norcia)

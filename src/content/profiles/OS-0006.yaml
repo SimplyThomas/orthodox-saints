@@ -62,5 +62,37 @@ sources:
   - https://en.wikipedia.org/wiki/Luke_the_Evangelist
   - https://www.oca.org/saints/lives/2024/10/18/102993-apostle-and-evangelist-luke
   - https://www.newadvent.org/cathen/09420a.htm
+companions:
+  - name: Apostle Paul
+    note: His traveling companion and closest collaborator
+    href: saint/OS-2749
+  - name: Mark the Evangelist
+    note: Fellow Evangelist and missionary
+    href: saint/OS-1061
+  - name: Apostle Barnabas
+    note: Of the Pauline missionary circle
+    href: saint/OS-1331
+  - name: Apostle Timothy
+    note: Of the Pauline missionary circle
+    href: saint/OS-0512
+  - name: Apostle Silvanus
+    note: Of the Pauline missionary circle
+    href: saint/OS-1608
+  - name: Apostle Titus
+    note: Of the Pauline missionary circle
+    href: saint/OS-1775
+  - name: John the Theologian
+    note: Fellow apostle and Evangelist (later tradition)
+    href: saint/OS-0005
+  - name: Apostle Cleopas of the Seventy
+    note: By tradition the companion with whom he met the risen Christ on the road to Emmaus
+    href: saint/OS-2513
+  - name: The Most Holy Theotokos
+    note: By tradition the first to be painted in icon by Luke
+    href: saint/OS-0001
+related:
+  - name: Apostle and Evangelist Matthew
+    note: Fellow Evangelist
+    href: saint/OS-2201
 status: reviewed
 generated: "2026-06-18"

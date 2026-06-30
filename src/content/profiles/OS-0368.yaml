@@ -10,6 +10,10 @@ sections:
     body:
       - The Soviet campaign against religion subjected the Orthodox Church to waves of repression from the 1920s onward, intensifying sharply in 1937 and 1938. Clergy were among the most heavily targeted groups, and many were executed at mass sites such as the Butovo firing range near Moscow, the largest known execution and burial ground of victims of the period, where numerous priests were shot.
       - The Russian Orthodox Church has since glorified large numbers of these victims as the New Martyrs and Confessors of Russia. The September 10 commemoration of priests martyred in 1937 belongs to this broader act of remembrance, which also names individual hieromartyrs and lay martyrs of the same year on the same date.
+companions:
+  - name: Holy New Martyr Symeon Turkin
+    note: "Co-martyr — the lay church-elder (starosta) arrested with Peter Yurkov, one of these twelve priests, on Sep 9, 1937 and shot together with him at Butovo on Sep 23, 1937."
+    href: saint/OS-0369
 patronage:
   - New Martyrs and Confessors of Russia, especially clergy
 status: draft

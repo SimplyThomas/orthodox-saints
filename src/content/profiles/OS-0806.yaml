@@ -34,6 +34,26 @@ timeline:
   - when: "1200"
     title: Translation of relics
     body: Her relics are recorded as having been translated to Constantinople.
+companions:
+  - name: Venerable Daniel of Sketis
+    note: "Spiritual father: the elder of Sketis who clothed Anastasia in male monastic garb as the 'eunuch Anastasius' and guided her hidden hermit life until her death."
+    href: saint/OS-1311
+related:
+  - name: Venerable Apollinaria of Egypt
+    note: "Fellow woman ascetic disguised as a monk: daughter of a Roman official who lived in the Egyptian desert as the monk Dorotheus."
+    href: saint/OS-0395
+  - name: Venerable Mary (Marinus) of Alexandria
+    note: "Fellow woman ascetic disguised as a monk: entered a men's monastery as the monk Marinus and bore false accusation in silence."
+    href: saint/OS-0643
+  - name: Venerable Theodora of Alexandria
+    note: "Fellow woman ascetic disguised as a monk: a penitent who entered a men's monastery in male disguise."
+    href: saint/OS-1820
+  - name: Venerable Euphrosyne of Alexandria
+    note: "Fellow woman ascetic disguised as a monk: fled marriage to live in a men's monastery as the monk Smaragdus."
+    href: saint/OS-1905
+  - name: Venerable Pelagia the Penitent
+    note: "Fellow woman ascetic disguised as a monk: a converted penitent who lived in asceticism near Jerusalem in male monastic guise."
+    href: saint/OS-1977
 patronage: []
 sections_note: ""
 sources:

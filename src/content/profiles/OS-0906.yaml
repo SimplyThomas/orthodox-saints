@@ -29,10 +29,11 @@ timeline:
     body: Died in Syracuse after leading the see; healings were reported at his tomb.
 companions:
   - name: St. Faustus of Syracuse
-    note: Abbot of the monastery of St. Lucy in Syracuse where Zosimus was formed
+    note: "Abbot: head of the monastery of St. Lucy in Syracuse where Zosimus was formed from boyhood."
     href: saint/OS-0254
+related:
   - name: Virgin Martyr Lucy of Syracuse
-    note: Patron of the monastery and the tomb Zosimus is said to have guarded
+    note: "Patron of his monastery: the third-century martyr of Syracuse whose monastery formed Zosimus and whose tomb he is said to have guarded, generations before his own day."
     href: saint/OS-2342
 patronage:
   - Healing of the sick

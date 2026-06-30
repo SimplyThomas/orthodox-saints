@@ -38,6 +38,10 @@ timeline:
   - when: c. 515 BC
     title: Dedication of the Second Temple
     body: By tradition Zachariah returned from Babylon as an elderly man shortly before the dedication of the rebuilt temple in Jerusalem.
+related:
+  - name: Prophet Haggai
+    note: Contemporary prophet of the return from exile whose ministry the Book of Ezra associates with Zachariah's, both rousing the people to rebuild the Second Temple.
+    href: saint/OS-2372
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Zechariah_(Hebrew_prophet)

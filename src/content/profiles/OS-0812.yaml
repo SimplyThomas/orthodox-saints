@@ -48,5 +48,9 @@ works:
     desc: His chief printed work, a collection of precepts and sermons for the Sundays and feasts of the year, influential in the formation of modern Bulgarian prose.
   - title: Life and Sufferings of Sinful Sophronius
     desc: An autobiography recounting the hardships of his life and of his people under Ottoman rule.
+related:
+  - name: Venerable Paisius of Hilandar
+    note: Inspiration of his life's work — in 1765 Sophronius was the first to copy Paisius's Istoriya Slavyanobolgarskaya, carrying forward the foundational text of the Bulgarian National Revival they both helped shape.
+    href: saint/OS-1389
 status: draft
 generated: 2026-06-21-b3

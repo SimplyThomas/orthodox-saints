@@ -39,6 +39,13 @@ sections:
   - heading: Commemorated With
     body:
       - Ignatius is venerated alongside two other Athonite new-martyrs of the same period, Euthymius and Acacius, the three being commemorated together on May 1. Euthymius, a native of Demitsana in the Peloponnese, was beheaded at Constantinople on March 22, 1814; Acacius, of Bulgarian peasant stock from Neochorion in Macedonia, was beheaded at Constantinople on May 1, 1816. The three were connected through the monastic milieu of Mount Athos and shared spiritual fathers and companions who prepared and accompanied them to martyrdom.
+companions:
+  - name: New Martyr Euthymius of Mount Athos
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; the monk from Demitsana whom Ignatius met at Bucharest, beheaded at Constantinople in March 1814.
+    href: saint/OS-1088
+  - name: New Martyr Acacius of Mount Athos and Seres
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; beheaded at Constantinople in 1816, his head kept with Ignatius's at the Monastery of Saint Panteleimon on Athos.
+    href: saint/OS-1090
 patronage:
   - New-martyrs under Ottoman rule
   - Bulgarian Orthodox faithful

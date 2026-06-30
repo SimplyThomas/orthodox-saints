@@ -19,6 +19,13 @@ timeline:
   - when: "1630"
     title: Martyrdom
     body: According to the historian Platon Ioseliani, Kozman was taken captive and tortured to death during a Dagestani raid on the Davit-Gareji Wilderness.
+related:
+  - name: Venerable David of Gareja
+    note: Founder of the David-Gareji monastic wilderness where Kozman lived and served.
+    href: saint/OS-2652
+  - name: Greatmartyr Ketevan, Queen of Georgia
+    note: The martyred queen (d. 1624) in whose honor Kozman composed a set of hymns, now lost.
+    href: saint/OS-1834
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/07/18

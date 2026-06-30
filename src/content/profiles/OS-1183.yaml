@@ -30,6 +30,9 @@ companions:
   - name: Saint Narcissus, Bishop of Jerusalem
     note: The aged patriarch of Jerusalem with whom Alexander served as coadjutor.
     href: saint/OS-1667
+  - name: Clement of Alexandria
+    note: His teacher in the faith, the learned catechist of Alexandria; an early Christian writer not himself commemorated as a saint.
+    commemorated: false
 patronage:
   - Christian learning and preservation of sacred books
 status: draft

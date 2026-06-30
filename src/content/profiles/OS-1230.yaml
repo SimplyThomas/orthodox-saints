@@ -22,6 +22,25 @@ sections:
   - heading: Veneration
     body:
       - Mary, the wife of Cleopas, is commemorated in the Eastern Orthodox calendar on May 23, and she is honored collectively with the other myrrh-bearers on the Sunday of the Myrrh-bearers. In the Western calendar a commemoration is kept on April 24. Relics traditionally associated with her are connected to the church of Saintes-Maries-de-la-Mer in southern France.
+family:
+  heading: Family
+  figures:
+    - name: St. Joseph the Betrothed
+      note: Father — by tradition Mary was Joseph's daughter by his first wife, a childhood companion of the Virgin in his household
+      href: saint/OS-0075
+    - name: Cleopas
+      note: Husband — younger brother of Joseph the Betrothed, to whom Joseph gave her in marriage (distinct in Orthodox tradition from Cleopas of Emmaus)
+      commemorated: false
+    - name: Hieromartyr Simeon, Kinsman of the Lord
+      note: Son — the second bishop of Jerusalem, numbered among the Seventy
+      href: saint/OS-1069
+companions:
+  - name: Holy Myrrh-bearing Women
+    note: Fellow Myrrh-bearer — among the women who followed Christ, stood by the Cross, and came to the tomb with spices
+    href: saint/OS-0076
+  - name: St. Mary Magdalene
+    note: Fellow Myrrh-bearer named beside her at the Cross (John 19:25)
+    href: saint/OS-0007
 patronage: []
 status: draft
 generated: "2026-06-19"

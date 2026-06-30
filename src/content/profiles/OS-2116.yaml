@@ -56,5 +56,31 @@ sources:
   - https://en.wikipedia.org/wiki/Stefan_Uro%C5%A1_II_Milutin
   - https://en.wikipedia.org/wiki/Gra%C4%8Danica_monastery
   - https://www.oca.org/saints/lives/2025/10/30
+family:
+  heading: The Nemanjić Dynasty
+  intro: Milutin belonged to the holy Nemanjić line of Serbian rulers; his parents, his brother, and his son are all venerated as saints.
+  figures:
+    - name: Saint Helen of Serbia
+      note: His mother, the dowager-queen renowned for her charity and monastic foundations.
+      href: saint/OS-2118
+    - name: Saint Stephen Uroš I of Serbia
+      note: His father, King of Serbia.
+      href: saint/OS-2634
+    - name: Venerable Dragutin of Serbia
+      note: His elder brother, who ceded the crown to him in 1282 and ended his life as the monk Theoctistus.
+      href: saint/OS-2117
+    - name: Saint Stephen of Dečani
+      note: His son and successor, builder of the Dečani monastery.
+      href: saint/OS-2182
+    - name: Saint Stephen the First-Crowned of Serbia
+      note: His grandfather, the first crowned king of Serbia.
+      href: saint/OS-1904
+    - name: Venerable Symeon the Myrrh-gusher (Stefan Nemanja)
+      note: His great-grandfather, founder of the Nemanjić dynasty and progenitor of the Serbian holy line.
+      href: saint/OS-0653
+related:
+  - name: St. Sava I, First Archbishop of Serbia
+    note: His great-granduncle and first archbishop of the autocephalous Serbian Church, the spiritual founder of his holy dynasty.
+    href: saint/OS-0449
 status: draft
 generated: "2026-06-22"

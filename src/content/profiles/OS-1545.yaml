@@ -16,6 +16,10 @@ sections:
     body:
       - "Historically Documented: The principal sources for John's life are the synaxarion and the lives of the Kiev Caves monastic fathers, which record his decades-long ascetic struggle and his repose in 1160."
       - "Traditional Accounts: The synaxarion relates that John endured fearsome spiritual trials, including a serpent breathing fire and sparks that sought to swallow him; on the night of Christ's Resurrection it is said to have seized his head in its jaws, whereupon a flash of lightning drove it away. He is invoked by tradition by those struggling against fleshly temptation."
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of the Kiev Caves Lavra, at whose relics John prayed and from whom, by tradition, he was directed to the reclusive life.
+    href: saint/OS-0136
 patronage:
   - Deliverance from fleshly lust and carnal temptation
 sources:

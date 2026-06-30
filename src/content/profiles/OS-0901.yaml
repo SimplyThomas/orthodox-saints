@@ -19,9 +19,15 @@ timeline:
   - when: "1918"
     title: Glorification
     body: Glorified by the Local Council of the Russian Orthodox Church.
-companions:
+related:
+  - name: Saint Innocent, first Bishop of Irkutsk
+    note: "Same see: the first bishop of Irkutsk and likewise a venerated wonderworker of Siberia, whose see Sophronius held a generation later."
+    href: saint/OS-2255
+  - name: St. Innocent of Alaska
+    note: "Enlightener of Siberia: a later Russian missionary-hierarch who evangelized Siberia and the Far East, sharing Sophronius's apostolic labor among the peoples of the region."
+    href: saint/OS-0054
   - name: Saint Sophronius of Jerusalem
-    note: The seventh-century patriarch in whose honor he received his monastic name.
+    note: "Namesake and patron: the seventh-century patriarch in whose honor he received his monastic name."
     href: saint/OS-0809
 patronage:
   - Wonderworker and missionary enlightener of Siberia

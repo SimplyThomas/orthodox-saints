@@ -35,6 +35,10 @@ sections:
   - heading: Sources and Historicity
     body:
       - Basil is a historically attested bishop, named in the records of the Synods of Ancyra and Neocaesarea and cited by Athanasius. The surviving narrative of his passion, however, is regarded by historians as a later and largely legendary composition; the details of Glaphyra, the intercepted letter, and the recovery of the relics belong to this hagiographical tradition rather than to contemporary record.
+companions:
+  - name: Righteous Virgin-Martyr Glaphyra
+    note: The maiden of the empress Constantia's household whom Basil sheltered at Amasea; commemorated with him on April 26
+    href: saint/OS-1066
 patronage: []
 status: draft
 generated: "2026-06-20"

@@ -11,6 +11,10 @@ sections:
 companions:
   - name: Synaxis of the Saints of Messenia
     note: Agathocles is numbered among the saints venerated in the region of Messenia.
+related:
+  - name: St. Rufus of Thessaloniki
+    note: "Same council: fellow hierarch connected with the Third Ecumenical Council at Ephesus (431); also commemorated September 9."
+    href: saint/OS-0321
 status: draft
 sources:
   - Synaxarion

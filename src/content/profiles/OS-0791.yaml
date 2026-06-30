@@ -27,6 +27,10 @@ timeline:
   - when: c. 850
     title: Repose
     body: Saint Paul the Confessor reposes around the year 850, a few years after the Triumph of Orthodoxy.
+companions:
+  - name: Saint Theophylactus the Confessor, Bishop of Nicomedia
+    note: Fellow ninth-century confessor of the holy icons, commemorated the following day (March 8), with whom Paul endured persecution and exile under the renewed iconoclasm.
+    href: saint/OS-0793
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

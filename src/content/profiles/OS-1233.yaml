@@ -46,6 +46,19 @@ sections:
   - heading: Relics & Shrines
     body:
       - Demetre, the monk Damiane, was buried at Gelati Monastery, the great monastic and cultural center associated with his father's reign, to whose completion the sources connect him.
+family:
+  heading: Family
+  figures:
+    - name: Blessed David IV the Builder
+      note: Father — King of Georgia who proclaimed Demetre co-ruler and crowned him by his own hand
+      href: saint/OS-0548
+    - name: Right-believing Tamara
+      note: Granddaughter — the great queen Tamar of Georgia, of his Bagrationi line
+      href: saint/OS-1093
+related:
+  - name: Saint Demetrius II the Self-Sacrificing
+    note: Later king of his Bagrationi house, likewise venerated as a holy ruler of Georgia
+    href: saint/OS-0815
 patronage:
   - Hymnographers and church singers
   - Monastics drawn from worldly rank

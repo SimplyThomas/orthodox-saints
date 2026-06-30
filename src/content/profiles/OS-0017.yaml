@@ -45,5 +45,39 @@ sources:
   - https://www.oca.org/saints/lives/2024/07/17/102042-great-martyr-marina-margaret-of-antioch
   - https://orthodoxwiki.org/Marina_of_Antioch
   - https://en.wikipedia.org/wiki/Margaret_of_Antioch
+family:
+  figures:
+    - name: Aedesius
+      note: Father; a pagan priest of Antioch in Pisidia
+      commemorated: false
+    - name: Her Christian nurse
+      note: Unnamed; raised her secretly in the faith
+      commemorated: false
+companions:
+  - name: Olybrius
+    note: Roman governor who sought her and condemned her
+    commemorated: false
+related:
+  - name: Great Martyr Barbara
+    note: Fellow great virgin-martyr
+    href: saint/OS-0016
+  - name: Great Martyr Catherine of Alexandria
+    note: Fellow great virgin-martyr
+    href: saint/OS-0015
+  - name: Paraskevi of Rome
+    note: Fellow virgin-martyr
+    href: saint/OS-0060
+  - name: Anastasia the Deliverer-from-Potions
+    note: Fellow virgin-martyr
+    href: saint/OS-0071
+  - name: Great Martyr Irene
+    note: Fellow great virgin-martyr
+    href: saint/OS-0072
+  - name: Lucy of Syracuse
+    note: Fellow virgin-martyr
+    href: saint/OS-2342
+  - name: Thekla the Protomartyr
+    note: Forerunner among women confessors
+    href: saint/OS-0010
 status: reviewed
 generated: "2026-06-18"

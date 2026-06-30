@@ -51,5 +51,18 @@ sources:
   - https://en.wikipedia.org/wiki/Iviron
   - https://en.wikipedia.org/wiki/John_the_Iberian
   - https://en.wikipedia.org/wiki/Battle_of_Pankalia
+family:
+  heading: The Georgian Fathers of Iveron
+  intro: John (Tornike) founded the Iviron Monastery together with his kinsmen, the Georgian fathers of the Holy Mountain.
+  figures:
+    - name: John the Iberian
+      note: Kinsman (brother-in-law) and co-founder of the Iviron Monastery
+      href: saint/OS-1165
+    - name: Euthymius the Iberian
+      note: Nephew, son of John the Iberian, who adorned Iviron with his translations (commemorated within the Georgian Fathers of Iveron)
+companions:
+  - name: Athanasius the Athonite
+    note: Father of Athonite cenobitism, to whose Great Lavra he withdrew as a monk
+    href: saint/OS-1477
 status: draft
 generated: "2026-06-22"

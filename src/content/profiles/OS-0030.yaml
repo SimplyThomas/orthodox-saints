@@ -54,6 +54,43 @@ sections:
   - heading: Sources & Legacy
     body:
       - "Moses is recorded in several foundational early sources, including Palladius's Lausiac History, Sozomen's Ecclesiastical History, and The Paradise of the Holy Fathers. Sozomen, writing roughly seventy years after Moses's death, described his transformation as without precedent: 'So sudden a conversion from vice to virtue was never before witnessed, nor such rapid attainments in monastical philosophy.'"
+      - His dramatic passage from robber to saint has made him a beloved subject of modern retellings, including a recently released feature film dramatizing his conversion and martyrdom.
+companions:
+  - name: Saint Macarius the Great
+    note: Father of Scetis under whom he matured in the monastic life
+    href: saint/OS-0029
+  - name: Arsenius the Great
+    note: Fellow desert father of Scetis
+    href: saint/OS-1131
+  - name: Pambo of Egypt
+    note: Fellow desert father
+    href: saint/OS-1547
+  - name: Poemen the Great
+    note: Desert father of the younger Scetis tradition
+    href: saint/OS-1787
+  - name: Isidore the Priest of Scetis
+    note: His spiritual father, who counseled him to patience
+  - name: The seven monks martyred with him
+    note: Who remained at his side and received the crown of martyrdom
+related:
+  - name: Anthony the Great
+    note: Father of the desert tradition he entered
+    href: saint/OS-0026
+  - name: Mary of Egypt
+    note: Fellow penitent who turned from a life of sin
+    href: saint/OS-0027
+  - name: Pelagia the Penitent
+    note: Fellow penitent saint
+    href: saint/OS-1977
+  - name: Thais the Penitent
+    note: Fellow penitent saint of Egypt
+    href: saint/OS-2747
+  - name: Syncletica of Alexandria
+    note: Desert mother and ascetic
+    href: saint/OS-0393
+  - name: John Climacus
+    note: Who gathered the desert's wisdom in The Ladder
+    href: saint/OS-0033
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Moses_the_Black

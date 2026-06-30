@@ -28,6 +28,14 @@ timeline:
   - when: April 29, 1671
     title: Repose at Ostrog
     body: Died peacefully and was buried at Ostrog Monastery; his relics are venerated as incorrupt and wonderworking.
+family:
+  figures:
+    - name: Hieromonk Serafim of Zavala
+      note: His paternal uncle and hegumen of Zavala Monastery, under whom the young Stojan first studied
+      commemorated: false
+companions:
+  - name: Patriarch Paisius of Peć
+    note: Serbian patriarch who, by tradition, consecrated Basil to the episcopate of Herzegovina
 patronage:
   - Healing of soul and body
 status: draft

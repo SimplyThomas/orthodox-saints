@@ -37,6 +37,15 @@ timeline:
 works:
   - title: The Flower Garden
     desc: A twelve-volume compilation of the Lives of the Saints made while he had charge of the Georgian library at Iveron Monastery.
+family:
+  heading: Family
+  figures:
+    - name: Hierodeacon Stepane
+      note: His uncle, a hermit and hierodeacon, who raised the future saint from the age of six.
+      commemorated: false
+    - name: Princess Mariam
+      note: His wife, whom he married at the suggestion of King Solomon II of Imereti; she reposed about two years into the marriage, after which he embraced the monastic life.
+      commemorated: false
 status: draft
 sources:
   - OCA Synaxarion (oca.org)

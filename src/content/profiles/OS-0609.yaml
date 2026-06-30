@@ -41,6 +41,13 @@ companions:
   - name: King David IV the Builder
     note: King who summoned Arsenius back to Georgia; Arsenius attended his repose and is said to have composed his epitaph.
     href: saint/OS-0548
+related:
+  - name: Venerable Zeno of Iqalto
+    note: "Predecessor: one of the Thirteen Assyrian Fathers and founder of the Iqalto monastic site, beside whom Arsenius was buried centuries later."
+    href: saint/OS-2657
+  - name: John Shavteli
+    note: "Same school, later era: a Georgian monk and hymnographer educated at the Gelati Academy, heir to the Byzantine learning Arsenius helped plant in the Georgian academies."
+    href: saint/OS-0919
 works:
   - title: Dogmatikon
     desc: A large compilation of dogmatic and polemical works drawn from sixteen Byzantine theological authors, translated and assembled in defense of the Orthodox faith.

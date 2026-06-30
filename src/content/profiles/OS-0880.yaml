@@ -43,6 +43,14 @@ timeline:
     title: Composition of the Vita
     body: Basil's pupil Gregory composes the Vita sancti Basilii iunioris, the principal source for his life and the toll-house vision.
 sections_note: ""
+companions:
+  - name: Venerable Theodora of Constantinople
+    note: His servant and disciple, whose passage through the aerial toll houses after death was revealed to his pupil Gregory.
+    href: saint/OS-2435
+related:
+  - name: Gregory, disciple of Basil the New
+    note: His pupil, who composed his Life and recorded the vision of the aerial toll houses.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Basil_the_New

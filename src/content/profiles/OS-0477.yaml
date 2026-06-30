@@ -25,6 +25,26 @@ timeline:
   - when: "1720"
     title: Translation of relics
     body: His incorrupt remains were translated to a church dedicated to Saints Athanasius and Cyril of Alexandria, built above his burial site.
+companions:
+  - name: St. Alexander, Abbot of Svir
+    note: "Teacher: Athanasius entered monastic life as a disciple of Alexander of Svir, and after his teacher's repose withdrew to found the Syandemsk hermitage."
+    href: saint/OS-1803
+related:
+  - name: St. Gennadius of Kostroma
+    note: "Fellow disciple of Alexander of Svir: founded a monastery in the Kostroma forests."
+    href: saint/OS-0519
+  - name: St. Nikephoros of Vazheozersk
+    note: "Fellow disciple of Alexander of Svir: labored near Lake Vazhe in the Olonets region."
+    href: saint/OS-0621
+  - name: St. Gennadius of Vazheozersk
+    note: "Fellow disciple of Alexander of Svir: a solitary by Lake Vazhe."
+    href: saint/OS-0622
+  - name: St. Macarius of Oredezhsk
+    note: "Fellow disciple of Alexander of Svir: founded a monastery on the Oredezha River near Lake Ladoga."
+    href: saint/OS-1680
+  - name: St. Adrian, Abbot of Ondrusov
+    note: "Fellow disciple of Alexander of Svir: a nobleman converted by Alexander who founded Ondrusov Monastery."
+    href: saint/OS-1783
 sources:
   - OCA Synaxarion (oca.org), Jan 18
   - https://www.oca.org/saints/lives/2026/01/18/100221-venerable-athanasius-abbot-of-syandemsk-vologda

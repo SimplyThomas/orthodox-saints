@@ -40,5 +40,13 @@ sections:
 patronage:
   - Tax-collectors and civil servants
   - Accountants and bankers
+family:
+  figures:
+    - name: Apostle James, son of Alphaeus
+      note: His brother, also numbered among the Twelve Apostles; tradition names them both sons of Alphaeus.
+      href: saint/OS-1982
+    - name: Apostle Alphaeus of the Seventy
+      note: Honored in tradition as the father of both Matthew and the Apostle James son of Alphaeus.
+      href: saint/OS-1240
 status: draft
 generated: "2026-06-19"

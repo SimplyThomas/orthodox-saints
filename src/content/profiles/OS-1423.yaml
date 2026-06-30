@@ -29,5 +29,35 @@ sections:
     body:
       - The monastery Dionysios established lies in a steep, secluded part of the Athonite peninsula and is dedicated to Saint John the Baptist, the Forerunner. According to the synaxarion the foundation took place around 1375, and a chrysobull of September 1374 issued by Alexios III Komnenos of Trebizond, still held in the monastery's archives, attests to the imperial role in its establishment.
       - The emperor's patronage was secured in part through Dionysios's brother Theodosios, who served as a metropolitan in Trebizond. The synaxarion records that the emperor provided substantial sums for the construction, given as fifty somia together with a further grant of komminata. Dionysiou remains one of the twenty ruling monasteries of the Holy Mountain.
+family:
+  heading: Family
+  intro: Dionysios secured imperial patronage for his monastery partly through his brother, a metropolitan in Trebizond.
+  figures:
+    - name: Venerable Theodosius, Metropolitan of Trebizond
+      note: Brother of Dionysios; his standing as a metropolitan in Trebizond helped secure Emperor Alexios III's patronage for the monastery.
+      href: saint/OS-0433
+companions:
+  - name: Venerable Dometius of Dionysiou
+    note: Close companion and fellow ascetic who shared the vision marking the monastery's site and succeeded him as abbot; commemorated with him on June 25.
+    href: saint/OS-1424
+related:
+  - name: Saint Joseph of Dionysiou
+    note: Later monastic-martyr of the Dionysiou monastery he founded.
+    href: saint/OS-0674
+  - name: Venerable-Martyr Gennadius of Dionysiou
+    note: Later monastic-martyr of the Dionysiou monastery he founded.
+    href: saint/OS-0956
+  - name: Monastic-Martyr Christopher of Dionysiou
+    note: Later monastic-martyr of the Dionysiou monastery he founded.
+    href: saint/OS-1004
+  - name: Venerable Leontius the Hagiorite of Dionysiou
+    note: Later monastic of the Dionysiou monastery he founded.
+    href: saint/OS-1383
+  - name: Monastic Martyr Macarius of Dionysiou
+    note: Later monastic-martyr of the Dionysiou monastery he founded.
+    href: saint/OS-1838
+  - name: Venerable Philotheus of Dionysiou
+    note: Later monastic of the Dionysiou monastery he founded.
+    href: saint/OS-2053
 status: draft
 generated: 20260619_b13

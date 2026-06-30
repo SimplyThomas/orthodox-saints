@@ -64,5 +64,12 @@ reading:
         type: Encyclopedia article
       - title: Dunstan of Canterbury
         type: OrthodoxWiki article
+related:
+  - name: Saint Odo of Canterbury
+    note: His predecessor as Archbishop of Canterbury, credited with consecrating Dunstan a bishop and a forerunner of the monastic reform Dunstan carried through.
+    href: saint/OS-2717
+  - name: Saint Alphege of Canterbury
+    note: Bishop of Winchester, consecrated with Dunstan's support, and later the martyred Archbishop of Canterbury who fostered Dunstan's cult and was buried beside him.
+    href: saint/OS-2718
 status: draft
 generated: "2026-06-21"

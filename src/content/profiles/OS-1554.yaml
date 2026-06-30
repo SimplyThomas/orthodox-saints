@@ -12,6 +12,10 @@ sections:
     body:
       - The relics of Venerable Paisius repose in the Far Caves of the Kiev Caves Lavra, also called the Caves of Saint Theodosius. He is one of the monks whose relics rest there, and he is commemorated collectively with them in the Synaxis of the Saints of the Far Caves on August 28.
       - Fragmentary relics of the saint are also held elsewhere; the Russian Orthodox Cathedral of Saint John the Baptist in Washington, D.C., records two relic fragments of Venerable Paisius among its collection.
+companions:
+  - name: Venerable Mercurius the Faster of the Kiev Caves
+    note: His inseparable companion (commemorated Nov 24), bound to him in oneness of mind; they shared a single cell and were laid in one grave.
+    href: saint/OS-2144
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/1991/07/19/102057-venerable-paisius-of-the-kiev-far-caves

@@ -32,5 +32,17 @@ sections:
 patronage:
   - Strength in adversity
   - Deliverance from enemies
+family:
+  heading: Family
+  intro: Samson the Nazirite, of the tribe of Dan, was the last of the great judges, set apart from the womb to begin Israel's deliverance from the Philistines.
+  figures:
+    - name: Manoah
+      note: His father, of Zorah in the tribe of Dan, to whose barren wife the Angel of the Lord announced Samson's birth.
+    - name: Manoah's wife
+      note: His mother, long childless, instructed to raise the child as a Nazirite who would drink no wine and never cut his hair.
+related:
+  - name: Righteous Abdon
+    note: A fellow judge of Israel; Samson is reckoned the last of the judges before Samuel, and the Epistle to the Hebrews numbers him among the faithful who through trust in God grew mighty in war.
+    href: saint/OS-2559
 status: draft
 generated: "2026-06-21"

@@ -23,6 +23,10 @@ timeline:
   - when: "1609"
     title: Martyrdom
     body: After leading the invaders astray into the mountains, he is beheaded when the deception is discovered.
+related:
+  - name: Martyr Luarsab II, King of Kartli
+    note: "Protected: the young king whom Theodore's deliberate misdirection of the invaders saved from capture in 1609; Luarsab himself later died a martyr under the Persians."
+    href: saint/OS-1476
 patronage:
   - Martyr for king and country among Georgian saints
 status: draft

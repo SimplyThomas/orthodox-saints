@@ -14,6 +14,10 @@ companions:
   - name: St. Lupus of Troyes
     note: Bishop of Troyes who, by tradition, sent Memorius and his companions to petition Attila and who is himself associated with the sparing of the city.
     href: saint/OS-2689
+related:
+  - name: Genevieve of Paris
+    note: Contemporary whose intercession is associated with the same 451 Hunnic invasion of Gaul under Attila.
+    href: saint/OS-0081
 patronage:
   - Martyrs of the Hunnic invasion of Gaul; city of Troyes
 status: draft

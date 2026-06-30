@@ -31,5 +31,13 @@ sections:
 patronage:
   - Monastics of the Russian north
   - Those who suffer in time of war or raid
+companions:
+  - name: Stephen of Makhrishche
+    note: Founder of the Avnezh monastery, whose disciple Gregory helped establish it
+    href: saint/OS-1528
+related:
+  - name: Sergius of Radonezh
+    note: Father of the northern monastic movement of which their foundation was part
+    href: saint/OS-0042
 status: draft
 generated: "2026-06-19"

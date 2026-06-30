@@ -44,6 +44,22 @@ timeline:
     title: Birth of Benjamin and Rachel's death
     body: Near Ephrath Rachel dies in a difficult labor bearing Benjamin, and is buried on the road to Bethlehem.
 patronage: []
+family:
+  heading: Family
+  intro: Rachel, the beloved younger daughter of Laban, was the wife of the Patriarch Jacob and mother of Joseph and Benjamin.
+  figures:
+    - name: Righteous Patriarch Jacob
+      note: Her husband, who labored fourteen years for Laban to win her.
+      href: saint/OS-2349
+    - name: Righteous Foremother Leah
+      note: Her elder sister and Jacob's other wife.
+      href: saint/OS-2545
+    - name: Righteous Joseph the All-Comely
+      note: Her firstborn son, sold into Egypt, who rose to govern the land.
+      href: saint/OS-2547
+    - name: Righteous Benjamin
+      note: Her younger son, in whose birth at Ephrath she died.
+      href: saint/OS-2345
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

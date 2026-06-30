@@ -43,5 +43,13 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2023/06/13/101713-saint-triphyllius-bishop-of-leucosia-nicosia-cyprus
   - https://en.wikipedia.org/wiki/Triphyllius
+companions:
+  - name: Spyridon of Trimythous
+    note: Spiritual father and guide, who repeatedly corrected his learned pride
+    href: saint/OS-0020
+related:
+  - name: Athanasius the Great
+    note: Fellow defender of Orthodoxy whom he supported against the Arians
+    href: saint/OS-0024
 status: draft
 generated: "2026-06-22"

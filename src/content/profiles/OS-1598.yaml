@@ -23,5 +23,13 @@ sources:
   - https://oca.org/saints/lives/2011/07/28/205463-venerable-george-of-mt-athos-the-builder
   - https://orthodoxwiki.org/Iviron_Monastery_(Athos)
   - https://en.wikipedia.org/wiki/Monastery_of_Iviron
+companions:
+  - name: Saint Euthymius the New and the Georgian Fathers of Iveron
+    note: The founding fathers of the Iveron Monastery, including Saint John the Iberian, his uncle and the monastery's founder, and Euthymius, whom George succeeded as abbot.
+    href: saint/OS-1165
+related:
+  - name: Venerable George of Mount Athos
+    note: Not to be confused with; George the Hagiorite, the noted translator of the same Iveron Monastery, commemorated June 27.
+    href: saint/OS-1438
 status: draft
 generated: "2026-06-19"

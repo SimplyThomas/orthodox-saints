@@ -44,6 +44,13 @@ timeline:
   - when: May 1649
     title: Relics recovered
     body: His incorrupt body is found and reburied by the monks of the Simeonov monastery.
+related:
+  - name: Venerable Job of Pochaev
+    note: Contemporary abbot and wonderworker of Volhynia, a leading defender of Orthodoxy against the Union of Brest in the Polish-Lithuanian Commonwealth.
+    href: saint/OS-2096
+  - name: Hieromartyr Macarius of Kanev
+    note: Contemporary archimandrite and hieromartyr who, like Athanasius, served at the Kupyatitsk monastery near Pinsk and upheld Orthodoxy under pressure of the Union.
+    href: saint/OS-0293
 patronage:
   - Defender of Orthodoxy under persecution in Belarus
 status: draft

@@ -66,5 +66,76 @@ sources:
   - https://en.wikipedia.org/wiki/Andrew_the_Apostle
   - https://en.wikipedia.org/wiki/Andrew_the_Apostle#Relics
   - https://www.newadvent.org/cathen/01471a.htm
+family:
+  figures:
+    - name: Jonah (John)
+      note: Father
+    - name: Apostle Peter
+      note: Brother; the chief apostle, whom Andrew brought to Christ
+      href: saint/OS-0004
+companions:
+  - name: Jesus Christ
+    note: Lord and Teacher
+    href: saint/OS-0000
+  - name: John the Forerunner
+    note: His first teacher, before he followed Christ
+    href: saint/OS-0002
+  - name: John the Theologian
+    note: Fellow apostle, called with him at the Jordan
+    href: saint/OS-0005
+  - name: Philip the Apostle
+    note: Fellow apostle of Bethsaida
+    href: saint/OS-2578
+  - name: Apostle James, son of Zebedee
+    note: Fellow apostle
+    href: saint/OS-1081
+  - name: Apostle Thomas
+    note: Fellow apostle
+    href: saint/OS-1969
+  - name: Apostle Matthias
+    note: Fellow apostle
+    href: saint/OS-1676
+  - name: Apostle Bartholomew
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1330
+  - name: Apostle and Evangelist Matthew
+    note: Fellow apostle of the Twelve
+    href: saint/OS-2201
+  - name: Apostle James, son of Alphaeus
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1982
+  - name: Apostle Jude the Brother of the Lord
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1384
+  - name: Apostle Simon the Zealot
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1137
+  - name: Apostle Paul
+    note: Apostle to the nations
+    href: saint/OS-2749
+  - name: Aegeas
+    note: Proconsul of Patras who condemned him
+    commemorated: false
+  - name: Maximilla
+    note: Whom he converted at Patras
+    commemorated: false
+related:
+  - name: Apostle Stachys
+    note: Missionary successor — ordained by Andrew as first bishop of Byzantium
+    href: saint/OS-2121
+  - name: Apostle Titus
+    note: Fellow apostle of the Seventy
+    href: saint/OS-1775
+  - name: Byzantios
+    note: Traditional disciple of the Byzantine tradition
+  - name: John Chrysostom
+    note: Successor in the see of Constantinople, which Andrew founded
+    href: saint/OS-0023
+  - name: Gregory the Theologian
+    note: Archbishop of Constantinople in Andrew's apostolic line
+    href: saint/OS-0022
+  - name: Tarasius of Constantinople
+    note: Patriarch in the succession of the see Andrew founded
+    href: saint/OS-0722
 status: reviewed
 generated: "2026-06-18"

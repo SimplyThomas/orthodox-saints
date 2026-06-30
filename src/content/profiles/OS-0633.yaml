@@ -27,6 +27,10 @@ works:
   - title: Explanations of the Gospels of Mark and Luke (translations)
     desc: Georgian translations of the commentaries on the Gospels of Mark and Luke by Blessed Theophylact of Bulgaria.
     date: ""
+related:
+  - name: Saint Theophylact of Ochrid
+    note: Archbishop of Ohrid whose commentaries on the Gospels of Mark and Luke John Chimchimeli translated into Georgian.
+    href: saint/OS-2440
 status: draft
 sources:
   - OCA Synaxarion (oca.org)

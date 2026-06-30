@@ -28,6 +28,13 @@ timeline:
     body: Reposed at an age the tradition gives as 118 and was buried in the church of Euphemia.
 patronage:
   - Venerated as a model for ascetics and monastics.
+related:
+  - name: Symeon the Stylite the Elder
+    note: The first and most famous of the pillar-dwelling ascetics, with whom later tradition ranks Alypius among the foremost stylites.
+    href: saint/OS-0034
+  - name: Daniel the Stylite
+    note: A fellow pillar-ascetic near Constantinople with whom tradition numbers Alypius among the foremost stylites.
+    href: saint/OS-2333
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

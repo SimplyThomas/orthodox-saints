@@ -29,6 +29,18 @@ sections:
       - John was proclaimed a saint by the Serbian Orthodox Church; according to Wikipedia his cult began in the first half of the 16th century. He is commemorated together with his parents, Saint Stephen and Saint Angelina, on December 10.
 patronage:
   - Serbia
+family:
+  heading: The Branković household
+  figures:
+    - name: Saint Stephen the Blind of Serbia
+      note: His father, the blinded and exiled Despot of Serbia; commemorated together with John on December 10.
+      href: saint/OS-1989
+    - name: Saint Angelina of Serbia
+      note: His mother, who raised a household of Serbian saints in exile; commemorated together with John on December 10.
+      href: saint/OS-1451
+    - name: Saint Maximus (George) Branković
+      note: His elder brother, who relinquished the despotate to become a monk and later archbishop of Serbia.
+      href: saint/OS-0482
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

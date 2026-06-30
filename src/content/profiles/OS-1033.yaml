@@ -27,6 +27,10 @@ sections:
   - heading: Traditional Accounts
     body:
       - Beyond the canonical Gospel, several later traditions attach to Zacchaeus. The Apostolic Constitutions identify him as the first bishop of Caesarea. A medieval Western legend associated him with Saint Amadour and the French sanctuary of Rocamadour, and Clement of Alexandria has been read as reporting that some identified Zacchaeus with the apostle Matthew or Matthias. These identifications are traditional rather than firmly attested.
+companions:
+  - name: Apostle Peter
+    note: Apostle whom Zacchaeus accompanied after the Ascension and by whom, in tradition, he was appointed bishop of Caesarea in Palestine.
+    href: saint/OS-0004
 patronage:
   - Repentance and conversion
   - Restitution and almsgiving

@@ -32,5 +32,12 @@ sections:
 patronage:
   - Convents and monastic communities
   - The poor, orphans, and widows
+companions:
+  - name: St. Tarasius, Patriarch of Constantinople
+    note: Patriarch who gave Anthusa the monastic tonsure, after which she entered the monastery of Saint Euthymia.
+    href: saint/OS-0722
+related:
+  - name: Anthusa of Mantineon
+    note: Namesake abbess and confessor whom Constantine V tortured for venerating icons and who, by tradition, foretold the safe birth of Anthusa and her twin brother.
 status: draft
 generated: "2026-06-20"

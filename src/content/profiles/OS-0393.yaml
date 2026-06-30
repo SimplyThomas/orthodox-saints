@@ -32,6 +32,22 @@ timeline:
   - when: 4th century
     title: Final three-year illness and death
     body: She dies at the age of 80 after a three-year illness, described in her vita as afflicting her lungs and vocal cords, then her teeth and gums, and finally blackening her jaw.
+related:
+  - name: St. Anthony the Great
+    note: Inspired by; her vita compares her renunciation to Anthony's, whom she followed in leaving home, distributing her wealth to the poor, and living as an anchorite in the desert
+    href: saint/OS-0026
+  - name: Venerable Theodora of Alexandria
+    note: Fellow Desert Mother (amma); her sayings stand beside Synkletike's among the three women elders preserved in the Sayings of the Desert Fathers
+    href: saint/OS-1820
+  - name: Venerable Abbess Sarah of Sketis
+    note: Fellow Desert Mother (amma); numbered with Synkletike among the three ammas of the Apophthegmata
+    href: saint/OS-1526
+  - name: St. Mary of Egypt
+    note: Fellow woman ascetic of the Egyptian desert
+    href: saint/OS-0027
+  - name: St. Moses the Black
+    note: Fellow ascetic of the Egyptian desert
+    href: saint/OS-0030
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 5

@@ -27,6 +27,14 @@ sections:
   - heading: Relics & Shrines
     body:
       - Onuphrius was buried in the Nativity church of the monastery he founded at Malsk, in a chapel dedicated to him, which became the focus of his local veneration.
+companions:
+  - name: Venerable Euphrosynus, Abbot of Pskov
+    note: "Spiritual father: by tradition Onuphrius's teacher, the leading organizer of monastic life in the Pskov lands."
+    href: saint/OS-1178
+related:
+  - name: Saint Savva of Krypetsk
+    note: "Same spiritual tradition: a monastic of the Pskov region and disciple of Euphrosynus of Pskov."
+    href: saint/OS-1797
 patronage:
   - Monastics of the Pskov region
   - Agricultural increase and protection of crops

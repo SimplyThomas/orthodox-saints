@@ -70,5 +70,72 @@ family:
     - name: Empress Helen
       note: His mother; jointly commemorated May 21 as Equals-to-the-Apostles
       href: saint/OS-2751
+    - name: Constantius Chlorus
+      note: His father, a Roman caesar under Diocletian
+      commemorated: false
+    - name: Fausta
+      note: His wife
+      commemorated: false
+    - name: Crispus
+      note: His eldest son
+      commemorated: false
+    - name: Constantine II
+      note: His son and successor emperor
+      commemorated: false
+    - name: Constantius II
+      note: His son and successor emperor
+      commemorated: false
+    - name: Constans
+      note: His son and successor emperor
+      commemorated: false
+    - name: Constantina
+      note: His daughter
+    - name: Helena
+      note: His daughter
+      commemorated: false
+companions:
+  - name: Sylvester I of Rome
+    note: Pope of Rome during his reign, by tradition associated with his baptism
+    href: saint/OS-0376
+  - name: Athanasius the Great
+    note: Defender of Nicene Orthodoxy against Arianism in his era
+    href: saint/OS-0024
+  - name: Alexander of Alexandria
+    note: Patriarch who first opposed Arius and attended Nicaea
+    href: saint/OS-2472
+  - name: Nicholas of Myra
+    note: Bishop present at the First Ecumenical Council
+    href: saint/OS-0019
+  - name: Spyridon of Trimythous
+    note: Wonderworking bishop present at Nicaea
+    href: saint/OS-0020
+  - name: Eusebius of Caesarea
+    note: Bishop and historian of his court
+    commemorated: false
+  - name: Arius
+    note: Heresiarch condemned at Nicaea
+    commemorated: false
+  - name: Licinius
+    note: Co-emperor and later rival
+    commemorated: false
+related:
+  - name: Basil the Great
+    note: Later defender of Nicene Orthodoxy
+    href: saint/OS-0021
+  - name: Gregory the Theologian
+    note: Later defender of Nicene Orthodoxy
+    href: saint/OS-0022
+  - name: Vladimir the Great
+    note: Equal-to-the-Apostles ruler who baptized his nation
+    href: saint/OS-0040
+  - name: Olga of Kyiv
+    note: Equal-to-the-Apostles ruler and forerunner of the baptism of Rus'
+    href: saint/OS-0041
+  - name: Nina of Georgia
+    note: Equal-to-the-Apostles enlightener of Georgia
+    href: saint/OS-0039
+  - name: Cyril and Methodius
+    note: Equals-to-the-Apostles, teachers of the Slavs
+    href: saint/OS-0038
 status: reviewed
 generated: "2026-06-18"

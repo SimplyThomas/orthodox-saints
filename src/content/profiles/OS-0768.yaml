@@ -34,6 +34,13 @@ sections:
   - heading: Commemoration
     body:
       - Joasaph is commemorated on 4 March. One modern enumeration of Russian saints records a church-wide canonization in 1987 and notes a commemoration in the third week of Great Lent.
+companions:
+  - name: Hieromartyr Basil, Abbot of the Mirozh Monastery
+    note: Fellow Pskov abbot who perished the same day, 4 March 1299, in the parallel burning of the Mirozh monastery and is commemorated together with Joasaph as a hieromartyr of the Pskov monasteries.
+related:
+  - name: Blessed Dovmont, Prince of Pskov
+    note: Prince who repelled the German raid in which Joasaph was martyred and afterward built a stone church at the Snetogorsk monastery in place of the one that had burned.
+    href: saint/OS-1214
 patronage:
   - Monastics
   - Pskov

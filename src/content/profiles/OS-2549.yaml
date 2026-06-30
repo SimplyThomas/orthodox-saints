@@ -39,6 +39,19 @@ timeline:
     title: Inheritance of Hebron
     body: Caleb asks Joshua for the promised hill country and is granted Hebron and its region; he gives his daughter Achsah to Othniel, who captures Debir.
 patronage: []
+family:
+  heading: Family
+  intro: Caleb son of Jephunneh, of the tribe of Judah, was one of the twelve spies and a faithful elder of the conquest generation.
+  figures:
+    - name: Righteous Othniel
+      note: His younger kinsman (son of Kenaz), the first judge of Israel, to whom he gave his daughter Achsah in marriage.
+      href: saint/OS-2550
+    - name: Achsah
+      note: His daughter, given in marriage to Othniel after the capture of Debir.
+companions:
+  - name: Righteous Joshua, Son of Nun
+    note: His fellow faithful spy, with whom alone he urged Israel to trust God and go up to the land; together they survived the forty years' wandering to enter Canaan.
+    href: saint/OS-0090
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

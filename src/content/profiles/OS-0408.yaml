@@ -17,6 +17,13 @@ companions:
   - name: Venerable Gregory, Wonderworker of the Kiev Near Caves
     note: An earlier, distinct saint of the same name commemorated on January 8, an eleventh-century monk of the Near Caves.
     href: saint/OS-0407
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: "Founder: co-founder of the Kiev Caves monastery whose cave complex Gregory inhabited as a recluse centuries later."
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: "Founder: co-founder of the Lavra; Gregory's relics repose in the Far Caves associated with him."
+    href: saint/OS-2745
 patronage:
   - Healing of the sick
 status: draft

@@ -47,6 +47,50 @@ timeline:
   - when: 6 April 885
     title: Repose of Methodius
     body: Methodius dies in Great Moravia, recommending his disciple Gorazd as successor, and is buried in the main cathedral church of Moravia.
+family:
+  intro: Cyril (born Constantine) and Methodius (born Michael) were brothers of a senatorial family of Thessalonica.
+  figures:
+    - name: Leo of Thessalonica
+      note: Father; a droungarios (officer) of the theme of Thessalonica
+      commemorated: false
+    - name: Maria
+      note: Mother
+      commemorated: false
+companions:
+  - name: Photius the Great
+    note: Patriarch of Constantinople who sent them on the mission to the Slavs
+    href: saint/OS-0603
+  - name: Clement of Ohrid and his Companions
+    note: Their five disciples (Clement, Naum, Gorazd, Angelar, Sava) who carried on their work; with the brothers, honored as the Seven
+    href: saint/OS-1588
+  - name: Rostislav of Great Moravia
+    note: The prince who invited them to teach the Slavs in their own tongue
+    href: saint/OS-1147
+  - name: Pope Adrian II
+    note: Who authorized the Slavonic liturgy and consecrated Methodius bishop
+    commemorated: false
+  - name: Emperor Michael III
+    note: Who, with Patriarch Photius, sent them to the Khazars and the Slavs
+    commemorated: false
+related:
+  - name: Clement of Rome
+    note: Whose relics they recovered and bore to Rome
+    href: saint/OS-2251
+  - name: Constantine the Great
+    note: Fellow Equal-to-the-Apostles
+    href: saint/OS-0037
+  - name: Nina of Georgia
+    note: Fellow Equal-to-the-Apostles, enlightener of a nation
+    href: saint/OS-0039
+  - name: Olga of Kyiv
+    note: Equal-to-the-Apostles whose people received the Slavonic letters they devised
+    href: saint/OS-0041
+  - name: Vladimir the Great
+    note: Equal-to-the-Apostles enlightener of Rus', heir to their Slavonic mission
+    href: saint/OS-0040
+  - name: Empress Helen
+    note: Fellow Equal-to-the-Apostles
+    href: saint/OS-2751
 patronage:
   - Translators
   - The Slavic Church

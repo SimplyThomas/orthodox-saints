@@ -28,6 +28,23 @@ sections:
   - heading: Relics & Shrines
     body:
       - According to the tradition, Saint Jesse was buried in the Tsilkani Church of the Most Holy Theotokos, where his relics are said to rest.
+companions:
+  - name: Venerable Shio of Mgvime
+    note: A fellow member of the Thirteen Syrian Fathers who labored with him to strengthen the faith in Georgia
+    href: saint/OS-0624
+  - name: St. Anthony of Martqopi
+    note: A fellow of the Thirteen Syrian Fathers, called a founder of Georgian monasticism
+    href: saint/OS-0493
+  - name: Venerable Joseph, Abbot of Alaverdi
+    note: A fellow of the Thirteen Syrian Fathers and missionary in Georgia
+    href: saint/OS-1843
+  - name: Hieromartyr Abibus, Bishop of Nekresi
+    note: A fellow of the Thirteen Syrian Fathers, likewise consecrated bishop for the Georgian mission
+    href: saint/OS-2276
+related:
+  - name: Saint John Zedazeni and his Twelve Disciples
+    note: Leader of the Thirteen Syrian Fathers, who brought Jesse to Georgia and recommended his consecration as bishop
+    href: saint/OS-1128
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/12/02/103463-saint-jesse-bishop-of-tsilkani-georgia

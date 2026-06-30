@@ -31,5 +31,16 @@ sections:
       - James was a trained singing master in the Roman and Kentish manner. He taught plainsong, also described as the Gregorian chant attributed to Saint Gregory, to many people in the north. Sources relate that when peace returned and the churches reopened, their services were enriched by the chant that James had taught.
 patronage:
   - Church music and chant
+companions:
+  - name: Saint Paulinus of York
+    note: First bishop of York, whom James served as deacon on the Gregorian mission to Northumbria; when Paulinus withdrew to Kent after Edwin's death, James remained to sustain the northern church.
+    href: saint/OS-2774
+related:
+  - name: Saint Edwin, King and Martyr of Northumbria
+    note: The Northumbrian king whose conversion the mission served and whose death in 633 scattered it, leaving James to carry on the work alone.
+    href: saint/OS-2009
+  - name: Saint Aethelburh of Kent
+    note: The Christian queen of Edwin whom the Gregorian mission accompanied to Northumbria, and with whom Paulinus fled to Kent after the king's death.
+    href: saint/OS-0309
 status: draft
 generated: "2026-06-19"

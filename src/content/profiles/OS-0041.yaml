@@ -16,9 +16,50 @@ sections:
       - Returning home, she built churches and sought to spread Christianity, though her son Svyatoslav held to the old religion and was not converted. Her enduring influence came through her grandson Vladimir, whom she helped to raise; it was he who, in the next generation, brought Rus' as a whole to baptism. For this reason Olga is honored as the spiritual root of Christianity among the Rus'.
 family:
   figures:
+    - name: Igor of Kyiv
+      note: Her husband, the Grand Prince slain by the Drevlians
+      commemorated: false
+    - name: Sviatoslav I of Kyiv
+      note: Her son, who remained a pagan
+      commemorated: false
     - name: St. Vladimir, Enlightener of Rus'
       note: Her grandson, who completed the baptism of Rus'.
       href: saint/OS-0040
+    - name: Boris and Gleb
+      note: Her great-grandsons, the first canonized Russian saints
+      href: saint/OS-0236
+companions:
+  - name: Sviatoslav I of Kyiv
+    note: Her son, who held to the old religion
+    commemorated: false
+  - name: Polyeuctus of Constantinople
+    note: Patriarch of Constantinople in the era of her baptism
+    href: saint/OS-2446
+  - name: Constantine VII Porphyrogenitus
+    note: Byzantine emperor who stood as her godfather
+    commemorated: false
+  - name: Gregory
+    note: The priest who accompanied her to Constantinople
+    commemorated: false
+related:
+  - name: Constantine the Great
+    note: Equal-to-the-Apostles emperor and model of the Christian ruler
+    href: saint/OS-0037
+  - name: Empress Helen
+    note: Equal-to-the-Apostles whose baptismal name she received
+    href: saint/OS-2751
+  - name: Nina of Georgia
+    note: Equal-to-the-Apostles enlightener of another nation
+    href: saint/OS-0039
+  - name: Cyril and Methodius
+    note: Equals-to-the-Apostles whose Slavonic letters enabled the baptism of Rus'
+    href: saint/OS-0038
+  - name: Patrick of Ireland
+    note: Apostolic enlightener of a people
+    href: saint/OS-0079
+  - name: Photini the Samaritan Woman
+    note: Apostolic woman-evangelist
+    href: saint/OS-0008
 patronage:
   - Widows
   - Converts to the faith

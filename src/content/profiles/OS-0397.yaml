@@ -17,6 +17,13 @@ timeline:
   - when: second half of the 6th century
     title: Repose
     body: He died peacefully; tradition records that myrrh later flowed from his relics.
+related:
+  - name: St. John Climacus
+    note: "Same monastery: Mount Sinai; St John Climacus, abbot of Sinai, recorded Menas in The Ladder of Divine Ascent (Step 4) as a model of obedience"
+    href: saint/OS-0033
+  - name: Anastasius of Sinai
+    note: "Same monastery: Mount Sinai (St Catherine's)"
+    href: saint/OS-1029
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Jan 5

@@ -31,6 +31,16 @@ companions:
   - name: St. Dunstan of Canterbury
     note: Archbishop of Canterbury and reformer who supported Edward's reign and the defense of the monasteries
     href: saint/OS-2714
+related:
+  - name: St. Edmund, King of East Anglia
+    note: Fellow English royal saint venerated as a king-martyr and passion-bearer
+    href: saint/OS-2713
+  - name: St. Oswald, King and Martyr of Northumbria
+    note: Fellow English royal saint venerated as a king-martyr and passion-bearer
+    href: saint/OS-1650
+  - name: St. Edwin, King and Martyr of Northumbria
+    note: Fellow English royal saint venerated as a king-martyr
+    href: saint/OS-2009
 patronage:
   - Martyrs and passion-bearers venerated in England
 status: draft

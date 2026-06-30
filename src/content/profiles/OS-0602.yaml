@@ -19,6 +19,20 @@ timeline:
   - when: February 6
     title: Commemoration
     body: Bucolus is commemorated on February 6, alongside such saints as Photius Patriarch of Constantinople, Barsanuphius and John the Prophet, the Virgin Martyr Dorothy, and the Martyr Julian of Emesa.
+companions:
+  - name: Apostle and Evangelist John the Theologian
+    note: "Teacher: Bucolus is remembered in the Orthodox tradition as a disciple of the Apostle John, from whom he received the faith he carried to Smyrna."
+    href: saint/OS-0005
+  - name: Hieromartyr Polycarp of Smyrna
+    note: "Successor: before his repose Bucolus chose and consecrated Polycarp as the next bishop of Smyrna, continuing the apostolic succession of the see."
+    href: saint/OS-0713
+related:
+  - name: Hieromartyr Irenaeus of Lyons
+    note: "Heir of the see's lineage: a disciple of Polycarp who carried the Smyrnaean apostolic tradition into Gaul a generation after Bucolus."
+    href: saint/OS-1764
+  - name: Hieromartyr Pionius of Smyrna
+    note: "Hagiographer: the later priest of Smyrna to whom the Vita Polycarpi, which preserves the list of early bishops of Smyrna including Bucolus, is attributed."
+    href: saint/OS-0811
 sections:
   - heading: Bishop of Smyrna
     body:

@@ -66,5 +66,56 @@ sources:
   - https://www.oca.org/saints/lives/2024/09/04/102490-holy-prophet-and-god-seer-moses
   - https://www.newadvent.org/cathen/10596a.htm
   - https://en.wikipedia.org/wiki/Mount_Nebo
+family:
+  figures:
+    - name: Amram
+      note: Father, of the tribe of Levi
+    - name: Jochebed
+      note: Mother, who hid him on the Nile
+    - name: Aaron
+      note: Elder brother and first high priest
+      href: saint/OS-1563
+    - name: Miriam
+      note: Elder sister and prophetess
+      href: saint/OS-2351
+    - name: Zipporah
+      note: Wife, a daughter of the priest of Midian
+    - name: Gershom
+      note: Son
+      commemorated: false
+    - name: Eliezer
+      note: Son
+      commemorated: false
+    - name: Jethro
+      note: Father-in-law, priest of Midian
+companions:
+  - name: Joshua
+    note: His servant and successor who led Israel into Canaan
+    href: saint/OS-0090
+  - name: Caleb
+    note: Faithful spy who entered the Promised Land
+    href: saint/OS-2549
+  - name: Pharaoh
+    note: King of Egypt who opposed the Exodus
+    commemorated: false
+  - name: Korah
+    note: Levite who led a rebellion against him
+    commemorated: false
+  - name: Balaam
+    note: Hired soothsayer who blessed Israel instead
+    commemorated: false
+related:
+  - name: Elijah
+    note: Appeared with him at the Transfiguration
+    href: saint/OS-0056
+  - name: Jesus Christ
+    note: The new Moses whom the Law prefigures
+    href: saint/OS-0000
+  - name: John the Forerunner
+    note: Last of the prophets in the line of the Law
+    href: saint/OS-0002
+  - name: Gregory of Nyssa
+    note: Author of The Life of Moses
+    href: saint/OS-0422
 status: reviewed
 generated: "2026-06-18"

@@ -24,6 +24,10 @@ companions:
   - name: Abba Arsenius the Great
     note: Paired with Theodore in the tradition as one who abhorred the glory of men.
     href: saint/OS-1131
+related:
+  - name: Abba Poemen the Great
+    note: Fellow desert father of the next generation; the Apophthegmata records Poemen recalling and commending the sayings of Abba Theodore of Pherme.
+    href: saint/OS-1787
 patronage:
   - Monastics seeking humility, poverty, and repentance
 status: draft

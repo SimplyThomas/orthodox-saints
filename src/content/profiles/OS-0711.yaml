@@ -27,6 +27,13 @@ sections:
     body:
       - Athanasius the Confessor is commemorated on February 22. His feast is recorded in the Byzantine synaxaria; the Menologion of Basil II, an illuminated Byzantine manuscript documenting the saints' commemorations, includes an image identified as Saint Athanasius the Confessor of Constantinople.
 patronage: []
+related:
+  - name: Venerable Theodore the Studite
+    note: Fellow defender of the holy icons during the second iconoclasm, named in his Life among the leading monastics of the age.
+    href: saint/OS-2180
+  - name: Venerable John of Cathares the Confessor
+    note: Abbot of the Katharon Monastery and fellow confessor for the icons, associated with him in the synaxarion accounts.
+    href: saint/OS-2465
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2012/02/22/100588-saint-athanasius-the-confessor-of-constantinople

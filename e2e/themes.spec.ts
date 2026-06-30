@@ -79,7 +79,7 @@ test("a non-profiled saint also shows theme badges", async ({ page }) => {
 test("a saint without curated kin shows Related Saints theme links", async ({
   page,
 }) => {
-  await page.goto("./saint/OS-0022/"); // Gregory the Theologian (no curated family/companions)
+  await page.goto("./saint/OS-0031/"); // Ephraim the Syrian (no curated family/companions/related)
   // The tag-derived "Related Saints" collapsible offers "More <theme>" links.
   const rel = page.locator(".sv-themelinks a.sv-themelink[href*='theme=']");
   expect(await rel.count()).toBeGreaterThan(0);

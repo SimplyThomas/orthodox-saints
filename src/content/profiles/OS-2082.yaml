@@ -38,5 +38,9 @@ timeline:
   - when: October 26
     title: Commemoration
     body: Saint Demetrius of Tsilibinsk is commemorated; troparion and kontakion texts for him are noted in the synaxarion.
+related:
+  - name: Saint Stephen of Perm
+    note: The missionary bishop and apostle to the Zyrian (Komi) people; Demetrius was his disciple and built a church for the newly converted in the lands Stephen evangelized.
+    href: saint/OS-1065
 status: draft
 generated: "2026-06-22"

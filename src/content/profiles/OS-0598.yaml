@@ -24,6 +24,14 @@ timeline:
     title: Commemoration
     body: Saint Evagrius is commemorated on February 4 in the Orthodox Church, especially in the Georgian tradition, as the disciple of Saint Shio.
 patronage: []
+companions:
+  - name: Shio of Mgvime
+    note: Founder of the Shio-Mgvime monastery and one of the Thirteen Syrian Fathers, under whose discipline Evagrius abandoned his rank and took up the monastic life.
+    href: saint/OS-0624
+related:
+  - name: John of Zedazeni
+    note: Leader of the Thirteen Syrian (Assyrian) Fathers who came from Mesopotamia to Georgia; the master of Evagrius's own teacher, Shio of Mgvime.
+    href: saint/OS-1128
 sources:
   - OCA Synaxarion (oca.org), Feb 4
   - https://www.oca.org/saints/lives/2025/02/04

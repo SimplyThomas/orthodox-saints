@@ -32,6 +32,10 @@ timeline:
     body: His relics were translated.
 patronage:
   - Monastic solitude, stillness, and ascetic endurance
+related:
+  - name: Saint Savva of Pskov
+    note: Founder of the Krypetsk monastery near Pskov where Nilus was tonsured; Nilus is counted among his spiritual disciples.
+    href: saint/OS-1797
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

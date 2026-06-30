@@ -46,6 +46,10 @@ sections:
   - heading: Works About the Saint
     body:
       - A biography of Arsenius was composed in the sixteenth century by Igumen Barlaam and published in 1850 alongside liturgical texts.
+related:
+  - name: Saints Sergius and Herman of Valaam
+    note: "Same region: Lake Ladoga; Konevets, founded by Arsenius, is reckoned a twin monastic foundation with nearby Valaam."
+    href: saint/OS-1441
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2022/06/12/101700-venerable-arsenius-abbot-of-konevits

@@ -49,6 +49,16 @@ patronage:
 companions:
   - name: Holy New Martyrs and Confessors of Solovetsky
     note: Monks of Philip's monastery who would later suffer under Soviet persecution in the same location
+related:
+  - name: Venerable Zosimas of Solovki
+    note: "Same monastery: co-founder of the Solovetsky Monastery, where Philip was tonsured and which he later led as hegumen roughly a century afterward."
+    href: saint/OS-1011
+  - name: Venerable Sabbatius of Solovki
+    note: "Same monastery: with St. Herman, the first to settle the Solovki islands, founders of the community Philip would later govern."
+    href: saint/OS-1910
+  - name: Venerable Herman of Solovki
+    note: "Same monastery: co-founder of the Solovetsky Monastery in the generation before Philip's tenure as hegumen."
+    href: saint/OS-2782
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Jan 9

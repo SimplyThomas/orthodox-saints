@@ -1,4 +1,39 @@
 id: OS-1362
+companions:
+  - name: St. Paula of Rome
+    note: Disciple and patron, who funded his monastery at Bethlehem and followed him to the Holy Land.
+    href: saint/OS-0550
+  - name: St. Gregory the Theologian
+    note: Teacher under whom he studied Scripture at Constantinople.
+    href: saint/OS-0022
+  - name: St. Eustochium
+    note: Disciple and daughter of St. Paula, who pursued the ascetic life under his direction at Bethlehem.
+    commemorated: true
+  - name: St. Marcella of Rome
+    note: Roman widow and disciple who gathered an ascetic circle under his guidance.
+    commemorated: true
+  - name: Pope St. Damasus I of Rome
+    note: Pope who made him his secretary and entrusted to him the revision of the Latin Bible.
+    commemorated: true
+related:
+  - name: Blessed Augustine of Hippo
+    note: Contemporary Great Latin Father with whom he corresponded.
+    href: saint/OS-1365
+  - name: St. Ambrose of Milan
+    note: Fellow Great Latin Father of the Western Church.
+    href: saint/OS-2312
+  - name: St. Gregory the Dialogist
+    note: Fellow Great Latin Father of the Western Church.
+    href: saint/OS-0084
+  - name: Venerable Malchus of Syria
+    note: Subject of his Life of Malchus the Captive Monk.
+    href: saint/OS-0879
+  - name: Venerable Paul of Thebes
+    note: Subject of his Life of Paul the First Hermit.
+    href: saint/OS-0457
+  - name: St. Hilarion the Great
+    note: Subject of his Life of Hilarion.
+    commemorated: true
 lifespan: c. 342–347 – 30 September 420
 liturgicalTitle: Our Venerable Father Jerome of Stridon, the Priest
 overview:

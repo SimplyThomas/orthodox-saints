@@ -62,5 +62,12 @@ reading:
     items:
       - title: English Wikipedia, "Ælfheah of Canterbury"
       - title: The Anglo-Saxon Chronicle (on the events of 1011–1012)
+related:
+  - name: Saint Dunstan of Canterbury
+    note: Archbishop of Canterbury who supported Alphege's consecration as Bishop of Winchester; Alphege commissioned a Life of Dunstan and was later buried beside him.
+    href: saint/OS-2714
+  - name: Saint Aethelwold of Winchester
+    note: His predecessor as Bishop of Winchester, whose local cult Alphege fostered and whose relics he translated in 996.
+    href: saint/OS-2715
 status: draft
 generated: "2026-06-21"

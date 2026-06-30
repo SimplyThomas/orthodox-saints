@@ -35,6 +35,10 @@ family:
     - name: Princess Maria
       note: His mother, noted with his father for deep piety.
       commemorated: false
+companions:
+  - name: Saint Cassian, Abbot of the Spaso-Kamenny Monastery
+    note: "Tonsured by — abbot of the Spaso-Kamenny (Kamenny) Monastery who received the young Prince Andrew and tonsured him a monk with the name Joasaph in 1452."
+    href: saint/OS-0363
 patronage:
   - Healing from fever
 reading:

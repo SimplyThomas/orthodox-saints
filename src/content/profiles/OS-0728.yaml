@@ -23,6 +23,15 @@ sections:
       - The episode is preserved in the tradition of the Kiev Caves as a vivid lesson on the spiritual peril of unforgiveness and the power of reconciliation.
 patronage:
   - Healing of enmity and reconciliation of those at strife
+family:
+  figures:
+    - name: Venerable-Martyr Anastasius the Deacon of the Kiev Caves
+      note: "Brother: identified by the hieromonk Athanasius the Sooty as the brother of Titus the Presbyter; a deacon of the same Near Caves."
+      href: saint/OS-0514
+companions:
+  - name: Venerable Titus the Soldier of the Kiev Caves
+    note: "Distinct namesake: a different Saint Titus of the Kiev Caves, the former soldier whose relics rest in the Far Caves, also commemorated February 27."
+    href: saint/OS-0729
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

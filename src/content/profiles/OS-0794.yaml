@@ -44,6 +44,14 @@ timeline:
     title: Church of the Resurrection of Lazarus moved to Kizhi
     body: The wooden Church of the Resurrection of Lazarus, regarded as among the most ancient surviving in the Russian North, was relocated to the Kizhi open-air museum on Lake Onega.
     source: https://www.johnsanidopoulos.com/2019/03/saint-lazarus-of-murom-1391.html
+companions:
+  - name: Saint Athanasius, Abbot of Murom
+    note: Abbot of the Murom monastery in the generation after its founding, venerated together with Lazarus on the same day (March 8).
+    href: saint/OS-0795
+related:
+  - name: Saint Moses, Archbishop of Novgorod
+    note: Hierarch of Novgorod who blessed the founding of the Murom monastery, providing an antimension and church vessels for it.
+    href: saint/OS-0533
 patronage:
   - Wonderworker and monastic founder in the Russian North
   - Spread of Christianity in the Lake Onega region

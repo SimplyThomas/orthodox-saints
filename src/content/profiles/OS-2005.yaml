@@ -42,5 +42,14 @@ sources:
   - https://en.wikipedia.org/wiki/Cosmas_of_Maiuma
   - https://www.oca.org/saints/lives/2024/10/12/102944-saint-cosmas-the-hymnographer-bishop-of-maiuma
   - https://www.johnsanidopoulos.com/search?q=Cosmas+Hymnographer
+family:
+  figures:
+    - name: Venerable John of Damascus
+      note: Orphaned young, Cosmas was adopted into the household of John's father Sergius; the two were raised together as foster-brothers, schooled together, and together became monks at Mar Saba.
+      href: saint/OS-2300
+related:
+  - name: St. Gregory the Theologian
+    note: Cosmas built the first canon of the Nativity upon a sermon of Gregory and composed scholia (commentaries) on Gregory's poems.
+    href: saint/OS-0022
 status: draft
 generated: "2026-06-23"

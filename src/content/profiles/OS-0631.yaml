@@ -37,6 +37,14 @@ sections:
   - heading: Veneration
     body:
       - Longinus is commemorated on February 10 and October 16. In 2018 he was included in the Assembly (Sobor) of Arkhangelsk Saints. A special liturgical service and a biographical account were composed after his lifetime.
+companions:
+  - name: Venerable Simon of Soiga
+    note: Fellow ascetic who settled with Longinus near the Koryazhema River before departing to found his own monastery on the Soyga River.
+    href: saint/OS-2250
+related:
+  - name: Venerable Paul of Obnora
+    note: Founder of the Pavlo-Obnorsky Monastery, where Longinus began his monastic life and was formed as an elder.
+    href: saint/OS-0425
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.holytrinityorthodox.com/calendar/los/February/10-04.htm

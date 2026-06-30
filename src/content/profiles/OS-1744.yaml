@@ -31,5 +31,21 @@ sections:
     body:
       - Samuel is venerated as a prophet across Jewish, Christian, and Islamic tradition. In the Eastern Orthodox Church his feast is observed on August 20, a date shared by the Roman Catholic and Lutheran calendars; the Armenian Apostolic Church commemorates him on July 30.
 patronage: []
+family:
+  figures:
+    - name: Prophetess Hannah, mother of Samuel
+      note: Mother of Samuel, who bore him in answer to prayer and dedicated him to God at Shiloh.
+      href: saint/OS-2324
+companions:
+  - name: Eli the High Priest
+    note: High priest and judge at Shiloh who raised the young Samuel and whom he succeeded as judge over Israel.
+    commemorated: false
+related:
+  - name: Prophet-King David
+    note: Israel's king, whom Samuel anointed and to whom he gave refuge during Saul's pursuit.
+    href: saint/OS-2421
+  - name: King Saul
+    note: Israel's first king, whom Samuel anointed at the people's demand and later denounced for disobedience.
+    commemorated: false
 status: draft
 generated: "2026-06-19"

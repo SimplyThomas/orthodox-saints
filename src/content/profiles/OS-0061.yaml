@@ -45,6 +45,26 @@ patronage:
   - Kotor, Montenegro
   - Moscow, Russia
   - Birds (in Russian veneration; depicted with a falcon)
+companions:
+  - name: Licius the Prefect
+    note: Pagan prefect at Nicaea whom he converted before his martyrdom
+    commemorated: false
+related:
+  - name: Great-Martyr and Healer Panteleimon
+    note: Fellow Holy Unmercenary and healer
+    href: saint/OS-0014
+  - name: Holy Unmercenaries Cosmas and Damian
+    note: Fellow unmercenary physician-saints
+    href: saint/OS-0036
+  - name: Holy Unmercenaries Cyrus and John
+    note: Fellow unmercenary physician-martyrs
+    href: saint/OS-0568
+  - name: Sampson the Hospitable
+    note: Fellow physician-saint and healer
+    href: saint/OS-1434
+  - name: Unmercenary Diomedes of Tarsus
+    note: Fellow physician-saint
+    href: saint/OS-1704
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Tryphon_of_Campsada

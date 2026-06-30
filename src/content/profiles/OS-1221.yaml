@@ -58,9 +58,16 @@ sections:
         commemoration of Basiliscus on July 30.
 family:
   figures:
+    - name: Great Martyr Theodore the Recruit
+      note: Uncle — by tradition Basiliscus was a nephew of Theodore Tyro (the Recruit)
+      href: saint/OS-0018
     - name: Martyrs Eutropius, Cleonicus, and Basiliscus
       note: Group commemoration of the three kinsmen-martyrs on March 3, in which Basiliscus is named
       href: saint/OS-0762
+related:
+  - name: St. John Chrysostom
+    note: By tradition Basiliscus appeared to Chrysostom shortly before his repose at Comana, in the church raised over the martyr's relics
+    href: saint/OS-0023
 patronage:
   - Those imprisoned and awaiting trial for the faith
 sources:

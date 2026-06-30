@@ -39,5 +39,55 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Photini
   - https://orthodoxwiki.org/Photini
+family:
+  heading: Martyred Together
+  intro: Photini's whole household confessed Christ and received the crown of martyrdom with her; they are commemorated together on her feast (February 26).
+  figures:
+    - name: Victor (Photinus)
+      note: Son
+    - name: Joses
+      note: Son
+    - name: Anatole
+      note: Sister
+    - name: Photo
+      note: Sister
+    - name: Photis
+      note: Sister
+    - name: Paraskeve
+      note: Sister
+    - name: Kyriake
+      note: Sister
+companions:
+  - name: Jesus Christ
+    note: The Lord, whom she met at Jacob's well
+    href: saint/OS-0000
+  - name: Domnina
+    note: Daughter of Nero, whom Photini converted
+    commemorated: false
+  - name: Emperor Nero
+    note: Under whom she and her household were martyred
+    commemorated: false
+related:
+  - name: Mary Magdalene
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0007
+  - name: Thekla the Protomartyr
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0010
+  - name: Nina, Enlightener of Georgia
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0039
+  - name: Empress Helen
+    note: Fellow saint Equal-to-the-Apostles
+    href: saint/OS-2751
+  - name: Olga, Princess of Kyiv
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0041
+  - name: Constantine the Great
+    note: Fellow saint Equal-to-the-Apostles
+    href: saint/OS-0037
+  - name: Vladimir, Enlightener of Rus'
+    note: Fellow saint Equal-to-the-Apostles
+    href: saint/OS-0040
 status: reviewed
 generated: "2026-06-20"

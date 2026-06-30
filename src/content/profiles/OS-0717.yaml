@@ -26,6 +26,13 @@ timeline:
     title: Repose
     body: Saint Damian reposes in his cell; according to tradition a miraculous fragrance issues from his grave for forty days. His Life is later written by his friend Saint Cosmas of Zographou.
 patronage: []
+companions:
+  - name: Saint Cosmas of Zographou
+    note: His friend and contemporary on Mount Athos, who afterward wrote his Life.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Father of Russian monasticism, in one of whose former Athonite caves Damian is said to have struggled.
+    href: saint/OS-0136
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2023/02/23/100600-venerable-damian-of-esphigmenou-of-mount-athos

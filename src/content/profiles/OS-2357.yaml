@@ -42,6 +42,18 @@ works:
   - title: The Book of Wisdom
     desc: A wisdom book attributed by some traditions to Solomon, though dated by scholars to the 2nd century BC.
 patronage: []
+family:
+  figures:
+    - name: Prophet-King David
+      note: Father; Solomon succeeded him to the throne of Israel.
+      href: saint/OS-2421
+    - name: Bathsheba
+      note: Mother, through whom Solomon was proclaimed king.
+      commemorated: false
+companions:
+  - name: Prophet Nathan
+    note: Court prophet who named Solomon Jedidiah and secured and presided over his anointing.
+    href: saint/OS-2352
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Solomon

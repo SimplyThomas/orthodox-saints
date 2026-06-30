@@ -67,6 +67,13 @@ reading:
       - title: Life of Sabbas
         author: Cyril of Scythopolis
         type: hagiography
+related:
+  - name: Venerable John of Damascus
+    note: The great hymnographer and theologian, who lived as a monk of Sabbas's Great Lavra (Mar Saba) some two centuries after its founder.
+    href: saint/OS-2300
+  - name: Venerable Theodosius the Cenobiarch
+    note: Fellow founder of Palestinian monasticism in the Judean desert and a contemporary of Sabbas.
+    href: saint/OS-0430
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
