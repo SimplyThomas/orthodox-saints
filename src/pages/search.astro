@@ -4,13 +4,22 @@ import Finder from "../components/Finder.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import SearchGlyph from "../components/icons/SearchGlyph.astro";
 import { FINDER_SAINTS } from "../lib/data";
+import { reviewedIds } from "../lib/saint-profiles";
+
+// Flag fully-reviewed entries so the island can render the "reviewed dove"
+// beside their name (the seal is keyed off profile status, which lives in the
+// content collection — not in data.json).
+const reviewed = await reviewedIds();
+const finderData = FINDER_SAINTS.map((s) =>
+  reviewed.has(s.id) ? { ...s, humanReviewed: true } : s,
+);
 
 // Inline the trimmed finder index for the client island. Escaping "<" prevents
 // any "</script>" sequence in saint text from breaking out of the JSON block.
 // TODO(scale): this ships the full (trimmed) dataset on the search page. Per
 // CLAUDE.md §11 that is comfortable to ~5000 saints; past that, split to an
 // on-demand list index. Per-saint detail pages are already lean (one record).
-const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+const finderJson = JSON.stringify(finderData).replace(/</g, "\\u003c");
 const total = FINDER_SAINTS.length;
 
 // Quick "browse by type" chips under the hero search — each toggles the

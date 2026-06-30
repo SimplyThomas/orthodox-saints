@@ -5,8 +5,17 @@ import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
 import { QUIZ } from "../lib/quiz";
 import { FINDER_SAINTS } from "../lib/data";
+import { reviewedIds } from "../lib/saint-profiles";
 
-const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+// Flag fully-reviewed entries so the result cards can carry the "reviewed dove"
+// beside the name (the seal is keyed off profile status, which lives in the
+// content collection — not in data.json).
+const reviewed = await reviewedIds();
+const finderData = FINDER_SAINTS.map((s) =>
+  reviewed.has(s.id) ? { ...s, humanReviewed: true } : s,
+);
+
+const finderJson = JSON.stringify(finderData).replace(/</g, "\\u003c");
 
 const COUNT_WORDS = [
   "Zero",

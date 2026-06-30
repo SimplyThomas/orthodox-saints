@@ -9,7 +9,7 @@
    from the Saint record via toSaintView(). */
 import type { Saint } from "../lib/types";
 import { toSaintView } from "../lib/saintView";
-import { saintAvatar } from "../lib/icons";
+import { saintAvatar, reviewedDove } from "../lib/icons";
 import { primaryRank } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
@@ -27,6 +27,7 @@ const m = toSaintView(saint);
 const profile = (await loadProfileMap())[saint.id];
 
 // Editorial review state — surfaced as a full-width band beneath the hero.
+const isReviewed = profile?.status === "reviewed";
 const isFlagged = profile?.status === "flagged";
 const isDraft =
   !!profile?.status && profile.status !== "reviewed" && !isFlagged;
@@ -285,6 +286,7 @@ const wordsLabel = `In ${possessive} own words`;
 
           <h1 class="sv-name">
             {m.title}{m.epithet && <span class="sv-epithet"> {m.epithet}</span>}
+            {isReviewed && <Fragment set:html={reviewedDove(44)} />}
           </h1>
           {profile?.lifespan && <p class="sv-lifespan">{profile.lifespan}</p>}
           {

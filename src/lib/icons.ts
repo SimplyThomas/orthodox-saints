@@ -36,6 +36,15 @@ export function domeMark(w = 200, color = "#D4AF37"): string {
     style="width:100%;height:auto" aria-hidden="true">${domes}</svg>`;
 }
 
+/* The "reviewed dove" — a quiet seal that an entry has been fully reviewed by
+   a human (profile status === "reviewed"). The emblem (a descending dove on a
+   deep-indigo disc) is self-hosted vector at static/dove-emblem.svg; it appears
+   beside a saint's name wherever a reviewed saint is shown. Returned as an HTML
+   string so it composes into both .astro (set:html) and the client islands. */
+export function reviewedDove(size = 22): string {
+  return `<img class="reviewed-dove" src="${esc(withBase("dove-emblem.svg"))}" width="${size}" height="${size}" alt="Reviewed entry" title="This entry has been fully reviewed" loading="lazy" decoding="async" />`;
+}
+
 /* ---- Production tiered saint avatar (the design's SaintAvatar) ----
    Real icon when `image` is set; otherwise an auto monogram — the saint's
    given-name initial under a small cross, on a ground colour-coded by rank/type.

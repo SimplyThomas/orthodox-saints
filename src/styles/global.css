@@ -4422,6 +4422,37 @@ a.sv-rail-chip:hover {
   font-weight: 500;
   color: var(--gold-soft);
 }
+
+/* ── The "reviewed dove" seal ──────────────────────────────────────────────
+   A dove emblem (static/dove-emblem.svg) shown beside the name of any saint
+   whose profile is fully reviewed — on the finder rows, the patron-quiz result
+   cards, and the saint profile header. Self-hosted vector; sized per context. */
+.reviewed-dove {
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+/* Finder rows + quiz "you may also like" — small inline seal on a light card. */
+.saint-row .title-line .reviewed-dove {
+  align-self: center;
+}
+.qz-comp .nm .reviewed-dove {
+  margin-left: 6px;
+}
+/* Quiz top-match card — name + seal share a centred line (design TopCard). */
+.qz-card-nameline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+/* Profile hero — the seal sits beside the large title. The hero ground is dark,
+   so the emblem's indigo disc gains a gold hairline ring to read against it. */
+.sv2 .sv-name .reviewed-dove {
+  margin-left: 14px;
+  box-shadow: 0 0 0 1.5px var(--gold-soft);
+}
+
 .sv2 .sv-lifespan {
   font-family: var(--serif);
   font-style: italic;

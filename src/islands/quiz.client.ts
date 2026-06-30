@@ -18,7 +18,7 @@ import {
 import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
-import { saintAvatar } from "../lib/icons";
+import { saintAvatar, reviewedDove } from "../lib/icons";
 import { track } from "../lib/analytics";
 
 const dataEl = document.getElementById("finder-data");
@@ -62,7 +62,7 @@ if (dataEl && root) {
       <a class="qz-card" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
         <div class="qz-card-portrait">${saintAvatar(s, 76, 94, { type: primaryRank(s) })}</div>
         <div class="qz-card-body">
-          <h3 class="qz-card-name">${esc(sn.title)}</h3>
+          <div class="qz-card-nameline"><h3 class="qz-card-name">${esc(sn.title)}</h3>${s.humanReviewed ? reviewedDove(25) : ""}</div>
           ${epithet ? `<div class="qz-card-epithet">${esc(epithet)}</div>` : ""}
           <div class="qz-card-meta">
             <span class="tag ${esc(rankSlug(s))}"><i></i>${esc(primaryRank(s))}</span>
@@ -85,7 +85,7 @@ if (dataEl && root) {
       <a class="qz-comp" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
         ${saintAvatar(s, 42, 52, { type: primaryRank(s) })}
         <div>
-          <div class="nm">${esc(rsn.title)}</div>
+          <div class="nm">${esc(rsn.title)}${s.humanReviewed ? reviewedDove(18) : ""}</div>
           <div class="sub">${esc(epithet)}${epithet ? " · " : ""}${esc(firstFeast(s))}</div>
           ${shared ? `<div class="shared">${esc(shared)}</div>` : ""}
         </div>
