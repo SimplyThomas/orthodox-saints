@@ -83,6 +83,10 @@ reading:
     items:
       - title: The Tale of the Red Easter Egg
         type: children's book
+  - heading: About the Myrrh-bearing Women
+    items:
+      - title: Lives of the Holy Myrrh-bearing Women
+      - title: Women of the Gospel and the Early Church
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Mary_Magdalene
@@ -129,14 +133,5 @@ related:
   - name: Thekla the Protomartyr
     note: Fellow woman Equal-to-the-Apostles
     href: saint/OS-0010
-reading:
-  - heading: For Children
-    items:
-      - title: The Miracle of the Red Egg
-        type: Children's book
-  - heading: About the Myrrh-bearing Women
-    items:
-      - title: Lives of the Holy Myrrh-bearing Women
-      - title: Women of the Gospel and the Early Church
 status: reviewed
 generated: "2026-06-20"
