@@ -16,5 +16,13 @@ sources:
   - https://www.oca.org/saints/lives/2026/02/23/100602-monastic-martyr-damian-of-philotheou
   - https://orthodoxwiki.org/August_7
   - https://en.wikipedia.org/wiki/Philotheou_Monastery
+companions:
+  - name: Venerable-Martyr Damian of Philotheou
+    note: "Disciple — withdrew to a hermitage under Dometius's guidance as elder, before his martyrdom by the Turkish authorities in 1568."
+    href: saint/OS-0718
+related:
+  - name: Venerable Philotheus of Athos
+    note: "Founder — established Philotheou Monastery, the Athonite house to which Dometius belonged."
+    href: saint/OS-0529
 status: draft
 generated: "2026-06-19"

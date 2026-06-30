@@ -31,6 +31,18 @@ companions:
   - name: St. Enda of Aran
     note: His teacher on Inishmore, who ordained him and counselled him to found a monastery
     href: saint/OS-0861
+  - name: St. Finnian of Clonard
+    note: "Teacher; Kieran studied under Finnian at the monastic school of Clonard. (Distinct from Finnian of Movilla, OS-0353.)"
+related:
+  - name: St. Columba of Iona
+    note: "Fellow Apostle of Ireland; numbered with Kieran among the Twelve Apostles of Ireland, the disciples of Finnian of Clonard."
+    href: saint/OS-1320
+  - name: St. Brendan the Navigator
+    note: "Fellow Apostle of Ireland; numbered among the Twelve Apostles of Ireland."
+    href: saint/OS-1191
+  - name: St. Comgall of Bangor
+    note: "Fellow Apostle of Ireland; numbered among the Twelve Apostles of Ireland."
+    href: saint/OS-1143
 patronage:
   - Honoured as the patron saint of Connacht.
   - Monastic foundations and the religious life

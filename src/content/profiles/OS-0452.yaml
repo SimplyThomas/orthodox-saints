@@ -25,6 +25,20 @@ family:
     - name: St. Nilus of Sinai (Nilus the Faster)
       note: His father, the monastic writer who accompanied him to Mount Sinai and later recorded the slaughter of the Sinai monks and the captivity of his son.
       href: saint/OS-2185
+companions:
+  - name: St. Joseph Analytinus of Raithu
+    note: "Fellow Sinai father: a contemporary ascetic of the Raithu desert, commemorated together on January 14 among the Holy Fathers of Sinai and Raithu."
+    href: saint/OS-0451
+related:
+  - name: Holy Fathers Slain at Sinai and Raithu
+    note: "Commemorated together: the monks of Sinai and Raithu killed by desert raiders, among whom Theodulus is commemorated on January 14."
+    href: saint/OS-0450
+  - name: St. John Climacus
+    note: "Same monastic tradition: the great abbot of Sinai, heir to the monastic life of the Sinai fathers."
+    href: saint/OS-0033
+  - name: Anastasius of Sinai
+    note: "Same monastic tradition: a later father and abbot of the Sinai monastic community."
+    href: saint/OS-1029
 works:
   - title: Account of the slaughter of the monks at Sinai (recorded with his father Nilus)
     desc: Theodulus is associated with the recording of the slaughter of the holy Fathers at Raithu; his captivity and the Saracen raid are described in the narrative written by his father Nilus concerning the slaying of the monks of Mount Sinai.

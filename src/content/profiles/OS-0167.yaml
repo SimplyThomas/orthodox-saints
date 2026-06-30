@@ -17,6 +17,20 @@ family:
   figures:
     - name: St. Hilda of Whitby
       note: Younger sister; founding abbess of the monastery of Whitby.
+    - name: St. Edwin, King and Martyr of Northumbria
+      note: Kinsman of the royal house of Deira; her father Hereric was a nephew of King Edwin.
+      href: saint/OS-2009
+companions:
+  - name: St. Paulinus of York
+    note: First bishop of York, who baptized Hereswith with her household at York in 627
+    href: saint/OS-2774
+related:
+  - name: St. Aethelburh of Kent
+    note: Queen of King Edwin whose marriage and the mission that came with her brought the faith to the Northumbrian royal house
+    href: saint/OS-0309
+  - name: St. Eanflaed of Whitby
+    note: Daughter of King Edwin and kinswoman of Hereswith; in widowhood abbess of Whitby, the monastery of her sister St. Hilda
+    href: saint/OS-2773
 patronage:
   - Widows and those entering monastic life from the world
 status: draft

@@ -41,5 +41,19 @@ sections:
   - heading: Feast and commemoration
     body:
       - He is commemorated on June 26, the feast of Saint David of Thessalonica, the patron whose name he had borne at baptism before his monastic tonsure.
+companions:
+  - name: Euthymius of Suzdal
+    note: Disciple formed under Dionysius's guidance at his Nizhny Novgorod monastery, later abbot and wonderworker of Suzdal.
+    href: saint/OS-0914
+  - name: Venerable Makarios, Abbot of Zheltovod and Unzha
+    note: Disciple formed under Dionysius's guidance at his Nizhny Novgorod monastery, later a noted monastic founder.
+    href: saint/OS-1578
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Co-founder of the Kiev Caves monastery where Dionysius was tonsured and whose blessing-icon of the Mother of God he carried to the Volga.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves monastery where Dionysius was tonsured and whose blessing-icon of the Mother of God he carried to the Volga.
+    href: saint/OS-2745
 status: draft
 generated: 20260619_b13

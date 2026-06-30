@@ -51,6 +51,16 @@ companions:
     href: saint/OS-1848
   - name: Gregory Tsamblak
     note: A disciple and prominent churchman and writer formed in the Trnovo Literary School.
+related:
+  - name: Venerable John of Rila
+    note: "Subject of his hagiography: Euthymius composed a Life of the great Bulgarian ascetic."
+    href: saint/OS-1735
+  - name: Venerable Paraskevi of Serbia
+    note: "Subject of his hagiography: he wrote the Life of St. Petka (Paraskeva), whose relics rested at Trnovo."
+    href: saint/OS-2019
+  - name: Saint Philothea of Thrace
+    note: "Subject of his hagiography: he composed a Life of St. Philothea (of Temnishka)."
+    href: saint/OS-2317
 patronage: []
 works:
   - title: Hagiographies of Bulgarian saints

@@ -54,6 +54,9 @@ family:
       note: Isidore's sister, a nun venerated as a saint.
     - name: Fulgentius
       note: Isidore's brother, a bishop venerated as a saint.
+companions:
+  - name: Braulio of Saragossa
+    note: His disciple and literary executor — the pupil who urged Isidore to complete the Etymologiae, arranged the work into its books, and later became Bishop of Saragossa.
 patronage:
   - Scholars and students
 status: draft

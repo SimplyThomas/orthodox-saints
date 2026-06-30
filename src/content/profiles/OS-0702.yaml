@@ -36,6 +36,13 @@ patronage:
   - Healing of the sick
   - Deliverance from evil spirits
   - Monastics
+companions:
+  - name: Venerable Theocteristus, Abbot of Symbola
+    note: "Teacher: The abbot of the Symbola Monastery under whose guidance Timothy took up the ascetic life."
+    href: saint/OS-2175
+  - name: Plato of Sakkoudion
+    note: "Fellow disciple: A fellow pupil at Symbola who later founded the neighboring Sakkoudion Monastery."
+    href: saint/OS-0940
 sources:
   - OCA Synaxarion (oca.org), Feb 21
   - https://www.johnsanidopoulos.com/2015/02/saint-timothy-of-monastery-of-symboloi.html

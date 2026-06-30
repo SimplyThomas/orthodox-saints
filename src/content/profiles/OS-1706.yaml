@@ -27,6 +27,10 @@ sections:
   - heading: Name and Legacy
     body:
       - The name Martqopi is traditionally derived from the Georgian word for one who lives in seclusion, reflecting the solitary life Anton kept. He is counted among the founders of organized monasticism in Georgia, and the monastery associated with him preserved his memory and his icon.
+companions:
+  - name: Saint John of Zedazeni
+    note: Father and leader; head of the Thirteen Syrian (Assyrian) Fathers, the band of ascetics Anton came to Georgia with to plant monastic life.
+    href: saint/OS-1128
 patronage:
   - Georgia
   - Monastics

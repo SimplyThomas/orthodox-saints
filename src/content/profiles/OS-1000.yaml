@@ -32,6 +32,21 @@ timeline:
   - when: 373 or 374
     title: Translation of relics
     body: Junius Soranus, commander of Scythia Minor, sent the relics to Basil of Caesarea with a letter in Greek, possibly written by Bretannio of Tomis.
+companions:
+  - name: Priest Sansalas
+    note: Fellow confessor with whom Savva kept Easter, arrested and racked alongside him in 372.
+  - name: Saint Basil the Great
+    note: Bishop who honored Savva as an athlete of Christ and obtained his relics from Scythia Minor in 373/374.
+    href: saint/OS-0021
+  - name: Saint Vetranion (Bretannio) of Tomis
+    note: Bishop of Tomis connected with the translation of Savva's relics, by tradition the author of the Greek letter that accompanied them.
+    href: saint/OS-0542
+  - name: Saint Ascholius of Thessalonica
+    note: Bishop into whose keeping Savva's recovered relics first came.
+related:
+  - name: The 26 Martyrs of the Goths
+    note: Fellow Gothic Christians martyred in the same fourth-century Gothic persecution.
+    href: saint/OS-0878
 patronage:
   - Romania
   - Gothic Christians

@@ -56,6 +56,37 @@ timeline:
 patronage:
   - Armenia
   - the Armenian Church
+family:
+  figures:
+    - name: Anak the Parthian
+      note: Father, a nobleman of Arsacid descent
+      commemorated: false
+    - name: Mariam
+      note: Wife, daughter of a Christian named David
+      commemorated: false
+    - name: Aristaces and Vrtanes
+      note: His sons, who succeeded him as patriarchs of the Armenian Church
+      commemorated: false
+companions:
+  - name: Martyrs Rhipsime, Gaiane, and those with them
+    note: Virgin-martyrs put to death by Tiridates during Gregory's imprisonment
+    href: saint/OS-1927
+  - name: King Tiridates III
+    note: The Armenian king he converted after thirteen years in the pit of Khor Virap
+    commemorated: false
+  - name: Leontius of Caesarea
+    note: Who consecrated him first bishop of the Armenians
+    commemorated: false
+related:
+  - name: Nina of Georgia
+    note: Fellow Equal-to-the-Apostles, enlightener of the neighboring Caucasus nation
+    href: saint/OS-0039
+  - name: Constantine the Great
+    note: Fellow Equal-to-the-Apostles of the same age, who gave the Church peace
+    href: saint/OS-0037
+  - name: Patrick of Ireland
+    note: Fellow Equal-to-the-Apostles, enlightener of a nation
+    href: saint/OS-0079
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Gregory_the_Illuminator

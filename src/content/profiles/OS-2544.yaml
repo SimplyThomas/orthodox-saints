@@ -28,6 +28,20 @@ timeline:
     title: Death in Haran
     body: Terah dies in Haran; the Masoretic text of Genesis gives his age at death as 205.
 patronage: []
+family:
+  heading: Family
+  intro: Terah stands in the genealogy of Genesis 11 as the link between the patriarchs of the line of Shem and the calling of Abraham.
+  figures:
+    - name: Righteous Forefather Nahor
+      note: His father, the preceding patriarch in the line from Shem to Abraham.
+      href: saint/OS-2543
+    - name: Righteous Forefather Abraham
+      note: His son, called by God out of Haran to become the father of the faithful.
+      href: saint/OS-1984
+    - name: Nahor
+      note: His son and brother of Abraham, namesake of his own grandfather and grandfather of Rebecca.
+    - name: Haran
+      note: His son, father of Lot, who died in Ur of the Chaldees before the family set out for Canaan.
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

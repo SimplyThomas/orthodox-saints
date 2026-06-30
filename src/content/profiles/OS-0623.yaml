@@ -17,6 +17,10 @@ companions:
   - name: Apostle Peter
     note: The chief apostle, who by the tradition baptized, ordained, and sent all three as bishops.
     href: saint/OS-0004
+related:
+  - name: Pancratius, Bishop of Taormina
+    note: The same Pancratius named in this commemoration, also venerated on his own as first bishop and patron of Taormina, kept on July 9.
+    href: saint/OS-1499
 patronage:
   - First bishop and patron of Taormina in Sicily
 status: draft

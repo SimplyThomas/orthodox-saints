@@ -39,6 +39,10 @@ timeline:
   - when: "1995"
     title: Glorification
     body: The Georgian Orthodox Church canonized him as a confessor.
+companions:
+  - name: Kirion II, Catholicos-Patriarch of All Georgia
+    note: Fellow Catholicos-Patriarch of the restored Georgian autocephaly, who suffered for the Church in the same era of Soviet persecution.
+    href: saint/OS-0816
 patronage:
   - Defender of Georgian Church independence under persecution
 status: draft

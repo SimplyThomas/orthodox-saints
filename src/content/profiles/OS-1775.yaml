@@ -42,6 +42,19 @@ timeline:
   - when: "1966"
     title: Return of the relic
     body: Titus's skull, kept in Venice during the Ottoman rule over Crete, was returned to the Church of St. Titus in Heraklion.
+companions:
+  - name: Apostle Paul
+    note: "Teacher: The apostle who baptized Titus, took him as secretary and interpreter, and ordained him the first Bishop of Crete."
+    href: saint/OS-2749
+  - name: Apostle Barnabas of the Seventy
+    note: "Fellow companion: Accompanied Paul and Titus up to the apostolic council at Jerusalem."
+    href: saint/OS-1331
+  - name: Apostle Timothy of the Seventy
+    note: "Fellow co-worker: A fellow disciple of Paul and, like Titus, the addressee of one of his pastoral epistles."
+    href: saint/OS-0512
+  - name: Apostle Silas of the Seventy
+    note: "Fellow co-worker: A fellow companion of the Apostle Paul among the Seventy."
+    href: saint/OS-1608
 patronage:
   - Crete
 sources:

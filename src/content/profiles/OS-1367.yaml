@@ -1,4 +1,18 @@
 id: OS-1367
+companions:
+  - name: Venerable Moses of Optina
+    note: Roslavl Forest hermit, later Elder of Optina, who recorded his great fast and attended his repose.
+    href: saint/OS-1374
+  - name: Venerable Anthony of Optina
+    note: Roslavl Forest hermit present at his death, to whom he appeared on the fortieth day.
+    href: saint/OS-1662
+  - name: Venerable Paisios Velichkovsky
+    note: Elder of Neamts Monastery under whose guidance he lived for three years in Moldavia.
+    href: saint/OS-2199
+related:
+  - name: Venerable Nicetas of the Roslavl Forests
+    note: Fellow ascetic of the Roslavl Forest.
+    href: saint/OS-0900
 lifespan: d. June 15, 1819
 overview:
   - Saint Theophanes of the Roslavl Forests, born Theodore Talunin in Vladimir Province, was a Russian monastic ascetic of the late eighteenth and early nineteenth centuries who became renowned for his extreme feats of fasting and prayer. A former Cossack soldier, he turned to the monastic life after his military discharge and spent his final years associated with Optina Hermitage and the hermit fathers of the Roslavl Forest, a noted refuge for those seeking stillness.

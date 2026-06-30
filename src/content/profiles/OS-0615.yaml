@@ -34,6 +34,20 @@ timeline:
 patronage:
   - Soldiers and military commanders
   - The city of Venice
+companions:
+  - name: Varus the notary
+    note: His servant, who by tradition witnessed his martyrdom and set down the account of his sufferings.
+    commemorated: false
+related:
+  - name: Great Martyr Theodore the Recruit
+    note: The other Theodore, the soldier-martyr Theodore Tyro, with whom he is paired throughout tradition and whom modern scholarship debates may be one and the same figure.
+    href: saint/OS-0018
+  - name: Great Martyr George the Trophy-bearer
+    note: Fellow soldier-martyr and dragon-slayer venerated alongside him among the military saints.
+    href: saint/OS-0012
+  - name: Great Martyr Demetrius the Myrrh-streamer
+    note: Fellow soldier-martyr venerated alongside him among the military saints.
+    href: saint/OS-0013
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Theodore_Stratelates

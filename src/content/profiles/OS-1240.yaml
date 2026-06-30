@@ -17,6 +17,19 @@ sections:
     body:
       - Tradition associates Alphaeus with a household that gave several figures to the early Church. Beyond James and Matthew, he is by tradition the husband of a Mary numbered among the women who followed Christ, and later commemorations also name children Abercius and Helena among his offspring, though the detailed accounts of these vary by source.
       - "Because the early notices are sparse, the profile keeps to what the synaxarion and the scriptural lists attest: his place among the Seventy, his Galilean origin, and his standing as father of two apostles."
+family:
+  heading: Family
+  figures:
+    - name: Apostle James, son of Alphaeus
+      note: Son — one of the Twelve Apostles, called the son of Alphaeus in the Gospel lists
+      href: saint/OS-1982
+    - name: Apostle and Evangelist Matthew
+      note: Son — the tax-collector Levi, called son of Alphaeus (Mark 2:14), Apostle and Evangelist
+      href: saint/OS-2201
+companions:
+  - name: The Holy Apostle Carpus of the Seventy
+    note: Fellow Apostle of the Seventy, commemorated together with Alphaeus on May 26
+    href: saint/OS-1239
 patronage: []
 status: draft
 generated: "2026-06-19"

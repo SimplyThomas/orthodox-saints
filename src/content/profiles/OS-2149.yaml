@@ -37,6 +37,13 @@ sections:
 companions:
   - name: Eutolmius
     note: Episteme's servant, said to have been converted and baptized by Galaction and to have joined the couple in the monastic life.
+family:
+  intro: Galaction's life opens with the conversion of his parents' wealthy pagan household, into which he was born and raised in the faith.
+  figures:
+    - name: Kletophon
+      note: Galaction's father, a distinguished pagan who was baptized after the conversion of his long-childless wife and the birth of their son.
+    - name: Leukippe
+      note: Galaction's mother, converted and baptized by a wandering monk before Galaction was born.
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

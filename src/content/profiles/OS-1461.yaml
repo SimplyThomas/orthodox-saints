@@ -13,5 +13,12 @@ sections:
     body:
       - "The Orthodox Church in America synaxarion lists both saints under the title 'Wonderworker of Yarenga, Solovki' but records no extended life for either: the July 3 entry for John reads only that no information is available, and the entry for Longinus simply cross-references his October 16 commemoration. Their veneration is thus attested chiefly through liturgical commemoration rather than a developed hagiography."
       - Reference sources identify the pair as monks of the Solovetsky monastery and assign them to the sixteenth century, with the precise years of their lives left uncertain. The narrative of their death in a storm on the White Sea and the translation of their relics to Yarenga is preserved in the tradition surrounding them.
+related:
+  - name: Zosimas of Solovki
+    note: Principal founder and first abbot of the Solovetsky monastery, their monastic home
+    href: saint/OS-1011
+  - name: Herman of Solovki
+    note: Co-founder of the Solovetsky monastery among whose brethren they are numbered
+    href: saint/OS-2782
 status: draft
 generated: 20260619_b13

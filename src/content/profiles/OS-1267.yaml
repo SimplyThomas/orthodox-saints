@@ -31,6 +31,10 @@ companions:
   - name: St. John (Maximovitch), Metropolitan of Tobolsk
     note: Successor in the Tobolsk see and fellow enlightener of Siberia
     href: saint/OS-1324
+related:
+  - name: Saint Innocent, first Bishop of Irkutsk
+    note: Fellow enlightener of Siberia in the same early-eighteenth-century missionary generation, numbered with him among the Synaxis of the Saints of Siberia.
+    href: saint/OS-2255
 patronage:
   - Enlightener and missionary of Siberia
 status: draft

@@ -27,5 +27,11 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Zenobius_and_Zenobia
   - https://www.oca.org/saints/lives/2024/10/30/103165-hieromartyr-zenobios-bishop-of-aegae-in-cilicia-and-his-sister
+family:
+  heading: Brother and Sister
+  intro: Zenobios and Zenobia were a brother and sister of Aegae in Cilicia, raised in the faith from childhood and martyred together.
+  figures:
+    - name: Martyr Zenobia
+      note: Zenobios's sister, who confessed Christ on seeing her brother's torture and was beheaded with him, the two buried together in a single grave.
 status: draft
 generated: "2026-06-22"

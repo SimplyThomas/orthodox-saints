@@ -17,5 +17,9 @@ sections:
     body:
       - Barlaam's relics are kept at the Vladychny Monastery, housed within the main cathedral. The kontakion appointed for his commemoration describes his relics as hidden, while honoring him as a source of miracles and healings for the faithful who keep his memory.
       - The monastic community at Serpukhov continued through the centuries and was re-established as a convent in 1806, when Metropolitan Platon obtained permission to settle nuns there. Several of its churches survive from the sixteenth and seventeenth centuries.
+companions:
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: His spiritual father and guide in the monastic life, who founded the Vladychny Monastery at Serpukhov that Barlaam built and led as its first abbot.
+    href: saint/OS-0641
 status: draft
 generated: "2026-06-19"

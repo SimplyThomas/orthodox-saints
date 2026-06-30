@@ -32,6 +32,10 @@ timeline:
   - when: Middle Ages
     title: Spread of the cult to the West
     body: Thyrsus's relics were translated to Constantinople and later in part to France; his veneration spread across the Iberian Peninsula as Santo Tirso and San Tirso, and he became patron of Sisteron.
+related:
+  - name: Hieromartyr Cornutus, Bishop of Iconium
+    note: Possible identity — the OCA notes that Coronatus of this group may be the same person as Cornutus of Iconium, commemorated September 12.
+    href: saint/OS-2510
 patronage:
   - Sisteron, France
 sources:

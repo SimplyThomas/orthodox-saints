@@ -38,6 +38,13 @@ sections:
     body:
       - Peter's life was recorded around 1310 by the monk Teodosije the Hilandarian (Teodosije of Hilandar), whose 'Life of Petar of Koriša' is noted for its vivid, realistic narrative manner. He is commemorated by the Serbian Orthodox Church on 5 June (Old Calendar).
       - He holds a distinctive place in Serbian hagiography as a saint who was neither a member of the ruling dynasty nor a hierarch of the Church, unusual among the early Serbian saints, and he is often described as the first hermit-saint of medieval Serbia.
+family:
+  heading: Peter and his Sister Helena
+  intro: After their parents' deaths Peter and his younger sister Helena sold the family inheritance, gave it to the poor, and together sought the monastic life before Peter withdrew into solitude.
+  figures:
+    - name: Helena, sister of Peter of Korisha
+      note: Sister — who entered a nearby women's monastic community when the two siblings forsook the world together.
+      commemorated: false
 patronage:
   - Hermits and solitaries
   - Monastics

@@ -24,6 +24,10 @@ sections:
   - heading: The Seven Martyrs
     body:
       - By tradition, seven men who witnessed the bishop's execution openly praised his steadfastness and were themselves seized. Named in the sources as Peregrinus, Lucian, Pompeius, Hesychius, Papius, Saturninus, and Germanus, they were bound and drowned in the Adriatic Sea, and are commemorated separately on July 7. A later legend relates that their bodies were carried ashore, hidden in the sand by Christians, and that the martyrs afterward made their resting place known so that a church could be raised over them.
+companions:
+  - name: Martyrs Peregrinus and Companions of Dyrrachium
+    note: Fellow martyrs — the seven Christians who, beholding Astius crucified, confessed Christ themselves and were drowned in the Adriatic Sea, commemorated together on July 7.
+    href: saint/OS-1490
 patronage:
   - City of Durres
 status: draft

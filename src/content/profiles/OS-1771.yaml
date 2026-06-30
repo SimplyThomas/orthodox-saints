@@ -17,6 +17,10 @@ timeline:
   - when: "718"
     title: Death of George Limniotes
     body: After his nose is cut off and his head burned, George dies of his sufferings; his repose is placed by tradition in 718 (some accounts give 716).
+companions:
+  - name: Emperor Leo III the Isaurian
+    note: "Emperor confronted: The iconoclast emperor whose campaign against the holy icons George openly rebuked, suffering the cutting off of his nose and the burning of his head."
+    commemorated: false
 patronage:
   - Confessors for the veneration of the holy icons
 status: draft

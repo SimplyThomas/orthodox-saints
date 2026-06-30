@@ -45,6 +45,23 @@ sections:
   - heading: Veneration
     body:
       - George the Hagiorite was canonized by the Georgian Orthodox Church. He is commemorated on June 27; the Georgian Church also keeps his memory on July 10.
+companions:
+  - name: Saint George the God-Bearer of the Black Mountain
+    note: Georgian elder on the Black Mountain near Antioch under whom George lived as a disciple after his pilgrimage to Jerusalem.
+    href: saint/OS-1467
+related:
+  - name: George Mtsire of Georgia
+    note: His disciple and biographer, who composed the Life of George the Hagiorite.
+    href: saint/OS-0939
+  - name: Saint Euthymius the New and the Georgian Fathers of Iveron
+    note: The Georgian founders of Iveron, whose Life George wrote and whose work of translation and the Iviron abbacy he continued.
+    href: saint/OS-1165
+  - name: Saint John (Tornike) of Mount Athos
+    note: Georgian founder of the Iveron monastery that George later led as hegumen.
+    href: saint/OS-1343
+  - name: Saint John of Khakhuli the Oqropiri
+    note: Georgian saint of the Khakhuli monastery where George was educated and later took monastic tonsure.
+    href: saint/OS-0807
 works:
   - title: Translation of the Gospels into Georgian
     desc: An updated Georgian translation of the Gospels, part of his broader work of rendering the Scriptures and service-books of the Church into Georgian.

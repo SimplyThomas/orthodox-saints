@@ -34,12 +34,12 @@ patronage:
   - Georgia
   - Monastics
 companions:
-  - name: Prokhore the Georgian
-    note: Georgian saint associated with the Holy Cross (Jvari) Monastery of Jerusalem.
-    external: https://georgianorthodoxchurch.wordpress.com/2013/02/26/the-jvari-monastery-of-jerusalem-and-saints-prokhore-the-georgian-luka-of-jerusalem-and-nikoloz-dvali/
-  - name: Luka of Jerusalem
-    note: Georgian saint associated with the Holy Cross (Jvari) Monastery of Jerusalem.
-    external: https://georgianorthodoxchurch.wordpress.com/2013/02/26/the-jvari-monastery-of-jerusalem-and-saints-prokhore-the-georgian-luka-of-jerusalem-and-nikoloz-dvali/
+  - name: Prochorus of Georgia
+    note: Georgian builder and restorer of the Holy Cross (Jvari) Monastery of Jerusalem where Nikoloz later lived; reposed 1066.
+    href: saint/OS-0646
+  - name: Luke of Jerusalem, the Georgian
+    note: Fellow Georgian martyr-saint of the Holy Cross (Jvari) Monastery of Jerusalem; beheaded in the thirteenth century.
+    href: saint/OS-0649
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/1948/02/12/103815-martyr-nicholas-nikoloz-dvali-in-jerusalem

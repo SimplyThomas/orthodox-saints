@@ -28,6 +28,23 @@ sections:
   - heading: Relics and Veneration
     body:
       - Saint Jonah is remembered as a wonderworker. His relics, uncovered in 1472, rest in the Dormition Cathedral of the Moscow Kremlin. He is commemorated on March 31 and June 15, with the translation of his relics kept on May 27, and he is numbered among the Synaxis of the Hierarchs of Moscow commemorated on October 5.
+companions:
+  - name: Saint Photius, Metropolitan of Kiev
+    note: "Predecessor who blessed him: at the Simonov Monastery the metropolitan foretold that Jonah would become a great hierarch of the Russian Church."
+    href: saint/OS-1453
+  - name: Euthymius of Novgorod
+    note: "Contemporary hierarch: archbishop of Novgorod during Jonah's metropolitanate, the great northern see under the authority of Moscow in his day."
+    href: saint/OS-0810
+related:
+  - name: Saint Peter, Metropolitan of Moscow
+    note: "Synaxis of Moscow hierarchs: the first metropolitan to fix his residence in Moscow, an earlier holder of the see Jonah came to lead, commemorated with him on October 5."
+    href: saint/OS-2399
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: "Synaxis of Moscow hierarchs: a fourteenth-century metropolitan of Moscow and predecessor in the see, commemorated with Jonah on October 5."
+    href: saint/OS-0641
+  - name: Hieromartyr Hermogenes, Patriarch of Moscow
+    note: "Synaxis of Moscow hierarchs: a later successor in the primatial see of Moscow, commemorated with Jonah among the hierarchs of Moscow on October 5."
+    href: saint/OS-0671
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

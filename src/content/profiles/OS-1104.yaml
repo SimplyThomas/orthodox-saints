@@ -37,6 +37,12 @@ sections:
     body:
       - "Peter was first buried at Argos in the Church of the Dormition. By tradition his body exuded a fragrant oil or myrrh and worked healings. Accounts of the relics' later history differ: the Orthodox synaxarion records a translation from Argos to Nauplion in 1421, while other accounts relate that during the period of Latin (Venetian and Frankish) rule in Greece the relics were carried off and eventually came to rest near Rome."
       - The relics were rediscovered in a monastery chapel near Rome and ceremonially returned to the Cathedral of Argos on 19 January 2008, where they are now venerated. The cathedral of Argos itself was founded in 1859 by Bishop Gerasimos Pagonis and inaugurated on 18 April 1865.
+family:
+  heading: A Family of Monastics
+  intro: According to the synaxarion, Peter embraced the monastic life together with his parents and brothers. When Peter declined the see of Corinth to remain a monk, his brother Paul was consecrated bishop there in his stead; his brothers Dionysius and Platon likewise entered monasticism.
+  figures:
+    - name: Saint Paul, Bishop of Corinth
+      note: His brother, consecrated Bishop of Corinth after Peter declined that see.
 patronage:
   - Argos and the Peloponnese
   - Relief in times of famine

@@ -25,5 +25,9 @@ sections:
       - In 1715 a sarcophagus recovered from beneath the altar of the lower church was formally recognized by Bishop Ludovico Anselmo Gualterio as containing the relics of Terentian.
 patronage:
   - Todi
+companions:
+  - name: Flaccus
+    note: A pagan priest he is said to have healed and baptized, beheaded together with him
+    commemorated: false
 status: reviewed
 generated: "2026-06-19"

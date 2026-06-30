@@ -65,5 +65,35 @@ sources:
   - https://en.wikipedia.org/wiki/Saint_Barbara
   - https://orthodoxwiki.org/Barbara_of_Heliopolis
   - https://www.oca.org/saints/lives/2024/12/04/103472-greatmartyr-barbara-and-martyr-juliana-at-heliopolis-in-syria
+family:
+  figures:
+    - name: Dioscorus
+      note: Father; a pagan who imprisoned and denounced her, and by tradition struck the fatal blow
+      commemorated: false
+companions:
+  - name: Juliana
+    note: Fellow martyr who suffered with her at Heliopolis (traditional)
+  - name: Marcian
+    note: Governor who condemned her
+    commemorated: false
+related:
+  - name: Great Martyr Catherine of Alexandria
+    note: Fellow great virgin-martyr
+    href: saint/OS-0015
+  - name: Great Martyr Marina
+    note: Fellow great virgin-martyr
+    href: saint/OS-0017
+  - name: Paraskevi of Rome
+    note: Fellow virgin-martyr
+    href: saint/OS-0060
+  - name: Anastasia the Deliverer-from-Potions
+    note: Fellow virgin-martyr
+    href: saint/OS-0071
+  - name: Lucy of Syracuse
+    note: Fellow virgin-martyr
+    href: saint/OS-2342
+  - name: Great Martyr Irene
+    note: Fellow great virgin-martyr
+    href: saint/OS-0072
 status: reviewed
 generated: "2026-06-18"

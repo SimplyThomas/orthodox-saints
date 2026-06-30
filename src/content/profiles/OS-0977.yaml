@@ -57,6 +57,14 @@ sections:
     body:
       - Saint Barsanuphius is commemorated on April 11 (April 24 on the Old Calendar). His principal feast, observed together with Saint Gurias of Kazan, falls on October 4, the date of the uncovering of his relics, and he is also remembered among the hierarchs of Kazan.
       - The Diocese of Tver records a Bishop Barsanuphius with a tenure dated 1567–1570, consistent with his consecration in 1567; an earlier Barsanuphius (1316–1328) of the same see is a distinct person.
+companions:
+  - name: Saint Gurias, Archbishop of Kazan
+    note: Fellow missionary at Kazan; the two labored together among the Muslim and pagan peoples, their relics were uncovered together, and their principal feast (October 4) is kept jointly.
+    href: saint/OS-2305
+related:
+  - name: Hieromartyr Hermogenes, Patriarch of Moscow
+    note: As Metropolitan of Kazan he directed the uncovering of the relics of Barsanuphius and Gurias in 1595 and compiled their Life.
+    href: saint/OS-0671
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/04/11/101054-saint-barsanuphius-bishop-of-tver

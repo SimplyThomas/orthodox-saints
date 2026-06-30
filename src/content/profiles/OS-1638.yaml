@@ -26,6 +26,23 @@ timeline:
   - when: 1st century
     title: At the Tomb
     body: As one of the Myrrh-bearing women she came to the tomb with spices and learned of the Resurrection from an angel.
+family:
+  heading: Wife and Mother of Apostles
+  intro: Salome is identified in tradition as the wife of Zebedee and the mother of two of the Twelve.
+  figures:
+    - name: Apostle James, Brother of Saint John the Theologian
+      note: "Son: James the Greater, son of Zebedee, the first apostle to be martyred — a sorrow Salome lived to witness."
+      href: saint/OS-1081
+    - name: Apostle and Evangelist John the Theologian
+      note: "Son: the beloved disciple, son of Zebedee and Salome, who alone of the apostles reposed in peace."
+      href: saint/OS-0005
+    - name: Zebedee
+      note: "Husband: the Galilean fisherman, father of the apostles James and John."
+      commemorated: false
+related:
+  - name: Most Holy Theotokos
+    note: "Kinswoman: by the Orthodox account a kinswoman of the Virgin Mary, named in one tradition as her first cousin."
+    href: saint/OS-0001
 patronage:
   - Myrrh-bearing Women
 sources:

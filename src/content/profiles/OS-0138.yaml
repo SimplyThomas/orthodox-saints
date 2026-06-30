@@ -14,6 +14,12 @@ companions:
   - name: New Martyr Seraphima of Therapontov
     note: Abbess of the Therapontov Convent, martyred together with him on the same day
     href: saint/OS-0140
+  - name: New Hieromartyr John Ivanov
+    note: Parish priest of the Therapontov Convent, led to execution at Zolotukha Hill in the same group in 1918
+    href: saint/OS-0139
+  - name: New Martyrs of St. Cyril of White Lake Monastery
+    note: The four laymen shot alongside him at Zolotukha Hill on the same day in 1918
+    href: saint/OS-0141
 patronage:
   - Those persecuted for confessing Christ
 status: draft

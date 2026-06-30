@@ -36,6 +36,10 @@ timeline:
     title: Repose
     body: Martyrius dies after preparing his own grave and coffin; his relics are buried beneath the Trinity church crypt.
 patronage: []
+companions:
+  - name: Elder Bogolep
+    note: Martyrius's spiritual father, the widowed priest Boris who tonsured him and shared a single cell with him for seven years.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2014/03/01/100626-venerable-martyrius-of-zelenets-pskov

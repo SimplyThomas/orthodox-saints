@@ -10,6 +10,17 @@ sections:
     body:
       - By the celebrated account preserved in the tradition, when Paul was about 113 years of age, Anthony the Great was told in a vision of the existence of an older hermit and went out to seek him in the desert. The two ascetics met and conversed for a day and a night, and it is said that during their meeting the raven brought a whole loaf of bread for the two of them.
       - Paul reposed around the year 341. The tradition relates that when Anthony came to him again he found Paul already dead; he wrapped the body and buried it, and by the account two lions came and dug the grave. Through this meeting the memory of Paul was preserved, and he is honored as the forerunner of the eremitic monastic life that Anthony would carry forward.
+companions:
+  - name: St. Anthony the Great
+    note: "Visited by him: the father of monasticism who sought out the aged Paul, conversed with him a day and a night, and buried him after his repose."
+    href: saint/OS-0026
+related:
+  - name: Saint Jerome of Stridon
+    note: "Hagiographer: composed the Life of Paul the First Hermit, by which the saint's memory was preserved in the West."
+    href: saint/OS-1362
+  - name: Venerable-Martyr Pansophius of Alexandria
+    note: "Same persecution: an Egyptian ascetic put to death in the same Decian persecution that Paul fled into the desert."
+    href: saint/OS-0459
 patronage:
   - First Christian hermit; solitary eremitic monastic life
 status: draft

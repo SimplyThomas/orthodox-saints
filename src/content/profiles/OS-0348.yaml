@@ -44,10 +44,16 @@ family:
     - name: Right-believing Emperor Theodosius the Great
       note: her grandfather
       href: saint/OS-0474
+    - name: Emperor Marcian
+      note: Spouse; she consented to marry him to secure the throne for Orthodoxy while preserving her vow of virginity, and together they convened the Council of Chalcedon (451).
+      commemorated: false
 companions:
   - name: 40 Holy Martyrs of Sebaste
     note: whose relics the synaxarion associates with her
     href: saint/OS-0799
+  - name: Leo the Great, Pope of Rome
+    note: Correspondent; co-defender of Orthodoxy at Chalcedon (451), whose Tome the council she convened upheld, and with whom she exchanged letters in support of the council.
+    href: saint/OS-0681
 patronage:
   - Right-believing rulers; defender of Orthodoxy against heresy
 status: draft

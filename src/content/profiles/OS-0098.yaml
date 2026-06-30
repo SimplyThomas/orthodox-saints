@@ -11,6 +11,10 @@ sections:
       - Scholars have noted a possible confusion in the sources. In the year 443, a man named Priscus, an exile from North Africa and reputed for great sanctity, was elected bishop of Capua; it has been suggested that popular tradition may have carried this later bishop's name back to the beginning of the episcopal list. The relationship between the apostolic-age founder and the fifth-century African exile remains unresolved in the historical record.
 patronage:
   - Patron of Capua as its first bishop
+companions:
+  - name: Apostle Peter
+    note: By tradition appointed him first bishop of Capua
+    href: saint/OS-0004
 status: reviewed
 sources:
   - Roman Martyrology

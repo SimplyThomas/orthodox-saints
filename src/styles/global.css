@@ -5032,6 +5032,11 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
 }
 
+/* "Browse similar" sub-heading, shown beneath curated Related Saints cards */
+.sv2 .sv-browse-intro {
+  margin-top: 26px;
+  font-size: 15px;
+}
 /* Related Saints — tag-derived "More X" links */
 .sv2 .sv-themelinks {
   display: flex;

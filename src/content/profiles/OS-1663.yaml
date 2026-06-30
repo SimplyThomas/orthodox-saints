@@ -44,5 +44,13 @@ sources:
   - https://en.wikipedia.org/wiki/Theodora_of_Sihla
   - https://orthodoxwiki.org/Theodora_of_Sihla
   - https://www.oca.org/saints/lives/1000/08/07/149013-saint-theodora-of-sihla
+family:
+  intro: After a childless marriage, Theodora and her husband mutually resolved to enter the monastic life.
+  figures:
+    - name: Eleutherios the Hesychast
+      note: "Husband — tonsured Eleutherius when the couple parted to take up the ascetic life, and remembered as a hesychast."
+companions:
+  - name: Hieromonk Barsanuphius of the Sihastria Skete
+    note: "Spiritual guide — counseled her to withdraw to the eremitic life in the Neamt wilderness of Mount Sihla."
 status: draft
 generated: "2026-06-19"

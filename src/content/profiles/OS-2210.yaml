@@ -38,6 +38,10 @@ timeline:
     title: Martyrdom
     body: On Galerius's orders his tongue is cut out; after further tortures in prison he is put to death by strangulation.
 patronage: []
+companions:
+  - name: Martyr Barulas the Youth of Caesarea
+    note: A young boy who, by the tradition transmitted through Prudentius, confessed Christ while witnessing Romanus's torture and was martyred with him; they share the November 18 feast.
+    href: saint/OS-2211
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Romanus_of_Caesarea

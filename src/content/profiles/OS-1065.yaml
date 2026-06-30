@@ -49,6 +49,19 @@ timeline:
   - when: "1549"
     title: Canonization
     body: The Russian Orthodox Church formally canonizes Saint Stephen of Perm.
+companions:
+  - name: Saint Sergius of Radonezh
+    note: Acquaintance of his monastic years with whom, by tradition, he exchanged a bow at a distance in 1390
+    href: saint/OS-0042
+  - name: Epiphanius the Wise
+    note: Fellow monk at Rostov who knew him and later wrote his Life
+related:
+  - name: Saint Gerasimus, Bishop of Perm
+    note: Successor in the see of Perm that Stephen founded, among the Synaxis of the hierarchs of Perm
+    href: saint/OS-0524
+  - name: Saints Pitirim and Jonah, Bishops of Perm
+    note: Later successors in the see of Perm who completed the conversion of the Permian peoples
+    href: saint/OS-0558
 patronage:
   - The Permian (Zyrian / Komi) people, whom he enlightened
   - Missionaries and Scripture translators

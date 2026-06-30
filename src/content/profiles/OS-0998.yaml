@@ -23,6 +23,13 @@ sections:
     body:
       - The principal account of the two women comes from the Orthodox synaxarion, which presents them as disciples of Peter and Paul whose charity toward the persecuted Church led to their own martyrdom. Both the Orthodox Church and the Roman Catholic Church venerate them, and they are regarded by tradition as patrons of tailors.
       - Later Western tradition adds further detail to the account of their suffering, describing tortures that included the tearing out of their tongues and the mutilation of their bodies before they were beheaded. Their relics are said to be kept at the church of Santa Maria della Pace in Rome, and a statue of Basilissa stands among the figures of the colonnade in St. Peter's Square.
+companions:
+  - name: Apostle Peter
+    note: Apostle who, with Paul, converted the two women; by tradition they recovered and buried his body after his martyrdom at Rome.
+    href: saint/OS-0004
+  - name: Apostle Paul
+    note: Apostle who, with Peter, converted the two women; by tradition they recovered and buried his body after his martyrdom at Rome.
+    href: saint/OS-2749
 patronage:
   - Tailors
 status: draft

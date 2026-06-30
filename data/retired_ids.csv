@@ -1,5 +1,6 @@
 retired_id,retired_name,canonical_id,canonical_name,reason,date,pr
 OS-0120,Martyr Mamas of Caesarea,OS-0065,Martyr Mamas of Caesarea,Duplicate row; gender field incorrectly set to Male & Female,2026-06-12,153
+OS-0164,"St. Gregory the Great, Pope of Rome",OS-0084,St. Gregory the Dialogist,Duplicate row; OS-0084 is the canonical entry; Sep 3 feast / Mercy virtue / Roman Martyrology source merged into OS-0084,2026-06-29,
 OS-0189,Holy Prophet Moses the God-seer,OS-0057,Holy Prophet Moses,Duplicate row added during spine walk; OS-0057 is the seed entry,2026-06-12,153
 OS-1334,Saint Luke the Confessor Archbishop of Simferopol,OS-0049,St. Luke Archbishop of Crimea,Duplicate row; OS-0049 is the canonical entry,2026-06-22,194
 OS-1399,"Martyrs Inna, Pinna, and Rimma",OS-0498,"Martyrs Inna, Pinna and Rimma",Duplicate row added during spine walk (Jun 20 feast); feast merged into OS-0498,2026-06-12,153

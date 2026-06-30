@@ -40,6 +40,14 @@ sections:
   - heading: Relics & Shrines
     body:
       - Therapon was buried at the Luzhetsk Monastery in Mozhaisk, where he reposed. His relics were uncovered in 1514, and his veneration spread thereafter. The relics were again recovered at the monastery on May 26, 1999, after the house had returned to ecclesiastical use. His repose is commemorated on May 27, and the discovery of his relics on December 27.
+companions:
+  - name: Venerable Cyril, Abbot of White Lake
+    note: "Fellow monk and companion: known to Therapon at the Simonov Monastery in Moscow; Therapon settled about fifteen versts from Cyril's community in the White Lake country."
+    href: saint/OS-1317
+related:
+  - name: Venerable Martinian of Belozersk
+    note: "Fellow Belozersk monastic: a disciple of Cyril of White Lake who later served as abbot of Therapon's Ferapontov Monastery."
+    href: saint/OS-0435
 patronage:
   - Monastics of the Russian north
   - Monastery founders

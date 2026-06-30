@@ -37,6 +37,17 @@ sections:
   - heading: Relics & Shrines
     body:
       - Saint Paphnutius's relics are preserved at the monastery he founded near Borovsk, in present-day Kaluga Oblast, where they remain an object of veneration.
+companions:
+  - name: Venerable Joseph of Volokolamsk
+    note: Disciple — the youth John Sanin, whom Paphnutius tonsured with the name Joseph at Borovsk; he went on to found the Volokolamsk monastery and became a leading figure of the later Russian Church.
+    href: saint/OS-0330
+  - name: Saint Leucius of Volokolamsk
+    note: Disciple — a monk formed under Paphnutius at Borovsk who later founded the Dormition Monastery on the Ruza and served as spiritual elder to Daniel of Pereyaslavl.
+    href: saint/OS-1725
+related:
+  - name: Venerable Daniel, Abbot of Pereslavl-Zalessky
+    note: Monastic formation — as a youth he came to the Borovsk monastery, where Paphnutius received him and entrusted him to the Elder Leucius for his training.
+    href: saint/OS-0958
 patronage: []
 status: draft
 generated: "2026-06-19"

@@ -78,5 +78,16 @@ reading:
       - title: OCA Synaxarion (oca.org)
       - title: "Wikipedia: Æthelwold of Winchester"
       - title: "Wikipedia: Benedictional of St Æthelwold"
+companions:
+  - name: Saint Dunstan of Canterbury
+    note: Abbot of Glastonbury under whom Aethelwold was formed as a monk, and the foremost of the three leaders of the English Benedictine reform they shared.
+    href: saint/OS-2714
+  - name: Saint Oswald of Worcester
+    note: Bishop of Worcester and Archbishop of York, the third leader of the tenth-century English monastic reform.
+    href: saint/OS-2716
+related:
+  - name: Saint Alphege of Canterbury
+    note: His successor as Bishop of Winchester, who fostered his cult and presided over the translation of his relics in 996.
+    href: saint/OS-2718
 status: draft
 generated: "2026-06-21"

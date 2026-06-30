@@ -61,6 +61,16 @@ sources:
   - https://www.johnsanidopoulos.com/2010/10/saint-abramius-recluse-and-his-niece.html
   - https://www.oca.org/saints/lives/2024/10/29/103100-venerable-abramius-the-recluse-and-his-niece-blessed-mary-of-mes
   - https://en.wikipedia.org/wiki/October_29_(Eastern_Orthodox_liturgics)
+family:
+  heading: Uncle and Niece
+  intro: This commemoration joins an uncle and his niece, who shared a single hermitage in the Mesopotamian desert near Edessa.
+  figures:
+    - name: Blessed Mary of Mesopotamia
+      note: Abramius's orphaned niece, raised from the age of seven in the outer chamber of his cell; after a grievous fall she was sought out and restored by him to a life of penitence.
+related:
+  - name: St. Ephraim the Syrian
+    note: Their contemporary in fourth-century Mesopotamia, recorded by tradition as having documented the lives of Abramius and Mary.
+    href: saint/OS-0031
 status: flagged
 generated: "2026-06-22"
 flagReasons:

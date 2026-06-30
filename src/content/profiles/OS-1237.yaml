@@ -27,6 +27,26 @@ sections:
   - heading: Relics & Shrines
     body:
       - Vincent's relics are preserved at the monastery of Lerins, on the Ile Saint-Honorat where he had lived as a monk.
+family:
+  heading: Family
+  figures:
+    - name: Saint Lupus, Bishop of Troyes
+      note: Brother — by tradition Vincent was a brother of Lupus of Troyes
+      href: saint/OS-2689
+companions:
+  - name: St. Honoratus of Arles
+    note: Founder and abbot of the Lérins monastery where Vincent was tonsured a monk and ordained priest
+    href: saint/OS-0468
+  - name: Saint Eucherius
+    note: Fellow monk of Lérins and contemporary, who praised Vincent for his eloquence and learning
+    href: saint/OS-2759
+related:
+  - name: Saint Caesarius, Bishop of Arles
+    note: Later monk of Lérins, heir to the school of the same monastery
+    href: saint/OS-1794
+  - name: St. Veranus of Vence
+    note: Of the Lérins circle, son of Eucherius
+    href: saint/OS-0352
 patronage: []
 status: draft
 generated: "2026-06-19"

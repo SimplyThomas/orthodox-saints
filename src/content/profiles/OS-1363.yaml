@@ -1,4 +1,25 @@
 id: OS-1363
+family:
+  heading: Household of Holy Prince Lazar
+  intro: Lazar's wife and son are both venerated among the Serbian saints; his line carried the Serbian state through the first generation of Ottoman overlordship.
+  figures:
+    - name: Right-believing Princess Militsa of Serbia
+      note: Wife, who governed Serbia after his fall at Kosovo and reposed as the nun Euphrosyne.
+      href: saint/OS-1556
+    - name: Blessed Stephen Lazarevic, Despot of Serbia
+      note: Son, who succeeded him and ruled Serbia as despot.
+      href: saint/OS-1555
+companions:
+  - name: St. Ephraim, Patriarch of Serbia
+    note: Patriarch of Serbia who, by tradition, crowned him.
+    href: saint/OS-1364
+related:
+  - name: Venerable Romilus of Ravanica
+    note: Hesychast elder associated with Lazar's foundation of Ravanica, where his relics repose.
+    href: saint/OS-0470
+  - name: Venerable Gregory of Gornjak
+    note: Monastic founder whose Gornjak monastery Lazar endowed and restored.
+    href: saint/OS-2520
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Lazar_of_Serbia

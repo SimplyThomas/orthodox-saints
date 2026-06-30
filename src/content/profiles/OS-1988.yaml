@@ -32,5 +32,9 @@ sections:
 patronage:
   - France
   - Paris
+companions:
+  - name: Martyrs Rusticus the Presbyter and Eleutherius the Deacon
+    note: His clergy, arrested and beheaded with him near Paris.
+    href: saint/OS-1943
 status: draft
 generated: "2026-06-19"

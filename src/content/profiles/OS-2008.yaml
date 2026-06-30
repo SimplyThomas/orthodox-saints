@@ -59,6 +59,13 @@ works:
   - title: Life of Saint Martin (by Sulpicius Severus)
     desc: A contemporary biography written by Sulpicius Severus, a disciple who knew Martin personally; one of the foundational texts of Western hagiography.
     date: c. 397
+related:
+  - name: St. Hilary of Poitiers
+    note: After leaving military service Martin became a disciple of Bishop Hilary, who guided his early formation and under whom he founded the monastery at Ligugé.
+    href: saint/OS-0445
+  - name: Saint Ninian of Whithorn
+    note: Ninian, apostle of the southern Picts, is said to have been formed under Martin's influence at Marmoutier and dedicated his church at Whithorn to Martin.
+    href: saint/OS-2700
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

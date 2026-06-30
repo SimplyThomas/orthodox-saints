@@ -40,5 +40,13 @@ sections:
     body:
       - Juvenal's acceptance of Chalcedon was bitterly resisted in Palestine. Monks loyal to Dioscorus went into open revolt; according to the sources their leader Theodosius seized Jerusalem with violence and was installed in Juvenal's place, while Bishop Severianus of Scythopolis was killed amid the disorder.
       - Although he kept the support of figures such as Euthymius the Great, Juvenal was driven out and fled to the capital. He was restored by imperial troops in 453 and governed without further upheaval until his repose.
+companions:
+  - name: Venerable Euthymius the Great
+    note: Judean desert father whose Laura he consecrated (428/429) and who supported him through the Chalcedonian crisis.
+    href: saint/OS-0494
+related:
+  - name: St. Cyril, Archbishop of Alexandria
+    note: His ally at the Council of Ephesus (431) in the condemnation of Nestorius.
+    href: saint/OS-0476
 status: draft
 generated: 20260619_b13

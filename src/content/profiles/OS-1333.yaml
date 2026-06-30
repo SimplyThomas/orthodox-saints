@@ -45,6 +45,24 @@ sections:
   - heading: Note on Identity
     body:
       - Metrophanes Chang of Peking is commemorated with the Martyrs of China on June 11. He is distinct from St Metrophanes of Constantinople, commemorated on June 4.
+family:
+  heading: Martyred Household
+  intro: Metrophanes's wife and sons perished with him in the Boxer Rising and are numbered among the Holy Martyrs of China.
+  figures:
+    - name: Martyr Tatiana
+      note: "Wife: beheaded on June 12, 1900, among the Holy Martyrs of China."
+    - name: Martyr Isaiah
+      note: "Son: a soldier, beheaded on June 7, 1900, among the Holy Martyrs of China."
+    - name: Martyr Ioann (John)
+      note: "Son: a boy of eight, killed on June 10, 1900, among the Holy Martyrs of China."
+companions:
+  - name: St. Nicholas (Kasatkin), Enlightener of Japan
+    note: "Ordained by: the Equal-to-the-Apostles enlightener of Japan, who ordained Metrophanes to the priesthood about 1882."
+    href: saint/OS-0590
+related:
+  - name: The Holy Martyrs of China
+    note: "Same martyrdom: leader of the Peking mission and the first of the 222 Chinese martyrs of the Boxer Rising, commemorated together on June 11."
+    href: saint/OS-2754
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://orthodoxwiki.org/Martyrs_of_China

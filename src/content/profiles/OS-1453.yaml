@@ -35,5 +35,15 @@ sections:
   - heading: Relics and Veneration
     body:
       - Photius was buried in the Dormition Cathedral of the Moscow Kremlin, where his relics were uncovered during the cathedral's reconstruction in the early 1470s. He is commemorated on July 2, the day of his repose, with a further commemoration of the translation of his relics observed on May 27.
+related:
+  - name: Saint Cyprian, Metropolitan of Moscow and All Russia
+    note: His predecessor as Metropolitan of Kiev and All Russia, whose relics rest beside his in the Dormition Cathedral.
+    href: saint/OS-1848
+  - name: St. Jonah, Metropolitan of Moscow and All Russia
+    note: A successor in the line of Moscow hierarchs, whose relics likewise rest in the Dormition Cathedral of the Kremlin.
+    href: saint/OS-0908
+  - name: Venerable Paul of Obnora
+    note: Monastic founder for whose Obnora monastery Photius, as Metropolitan, gave his blessing.
+    href: saint/OS-0425
 status: draft
 generated: 20260619_b13

@@ -44,6 +44,10 @@ family:
       note: Wife of Ine, who accompanied him to Rome and died there; commemorated with him.
     - name: Cuthburh
       note: Sister of Ine, founder of the abbey of Wimborne.
+companions:
+  - name: Saint Aldhelm of Sherborne
+    note: Leading churchman of Wessex in Ine's reign, whom Ine made first Bishop of Sherborne.
+    href: saint/OS-2707
 patronage:
   - Right-believing rulers of pre-schism England; almsgiving
 status: draft

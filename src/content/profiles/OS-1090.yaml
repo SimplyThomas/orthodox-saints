@@ -39,6 +39,13 @@ sections:
   - heading: Commemoration
     body:
       - Acacius is commemorated on May 1, jointly with the new martyrs Euthymius and Ignatius. By tradition the three are grouped together as Athonite new martyrs of the early nineteenth century whose relics are venerated on Mount Athos.
+companions:
+  - name: New Martyr Euthymius of Mount Athos
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; beheaded at Constantinople in 1814, his name joined with Ignatius's on the church at Iveron where Acacius was buried.
+    href: saint/OS-1088
+  - name: New Martyr Ignatius of Mount Athos
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; the church at Iveron where Acacius's relics were buried was dedicated to Ignatius and Euthymius.
+    href: saint/OS-1089
 patronage:
   - Penitents and those returning to the faith after apostasy
   - Monastics of Mount Athos

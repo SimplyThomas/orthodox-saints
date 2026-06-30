@@ -15,6 +15,13 @@ sections:
   - heading: Veneration
     body:
       - Tilbert was held to be a saint within his own lifetime and continued to be venerated after his death. He is commemorated on 7 September alongside his predecessor Alcmund, both honoured as bishops of the ancient Northumbrian see of Hexham. He is included among the pre-schism Western saints venerated as Orthodox.
+companions:
+  - name: St. Alchmund of Hexham
+    note: His predecessor as bishop of Hexham, with whom he is jointly commemorated on September 7.
+    href: saint/OS-0284
+  - name: Aethelbeorht of Hexham
+    note: His successor in the see of Hexham.
+    commemorated: false
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome
   - https://en.wikipedia.org/wiki/Tilbeorht

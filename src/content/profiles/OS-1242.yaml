@@ -29,6 +29,10 @@ sections:
     body:
       - The period of John's monastic life coincided with the second wave of Byzantine iconoclasm, reopened under Leo V the Armenian, when those who venerated the holy icons were again subjected to persecution. According to the synaxarion, John was a vigorous defender of the icons and is said to have converted many from the iconoclast party through his witness.
       - When he was led away for interrogation and ordered to subscribe to a renunciation of icon veneration, he refused outright and rebuked his accusers, naming the emperor a heretic. For this he was banished repeatedly. The tradition emphasizes the moral force of his bearing, recounting that his very appearance unsettled his opponents and encouraged those who shared his confession, so that he was widely honored.
+companions:
+  - name: Emperor Leo V the Armenian
+    note: "Persecutor: the iconoclast emperor (reigned 813-820) whose renewed campaign against the holy icons John resisted, denouncing him as a heretic and suffering repeated exile."
+    commemorated: false
 patronage: []
 status: draft
 generated: "2026-06-19"

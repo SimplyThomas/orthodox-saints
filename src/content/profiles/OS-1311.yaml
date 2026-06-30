@@ -55,5 +55,16 @@ sources:
   - https://en.wikipedia.org/wiki/Daniel_of_Scetis
   - https://en.wikipedia.org/wiki/Arsenius_the_Great
   - https://en.wikipedia.org/wiki/Sayings_of_the_Desert_Fathers
+companions:
+  - name: Saint Anastasia the Patrician of Alexandria
+    note: "Spiritual father: Daniel directed her hidden ascetic life in a remote cell and discovered she was a woman only when preparing her body for burial."
+    href: saint/OS-0806
+related:
+  - name: Saint Eulogius the Stonecutter
+    note: "Same dossier: a figure whose story is preserved among the Tales of Daniel of Sketis."
+    href: saint/OS-1071
+  - name: Martyr Thomais of Alexandria
+    note: "Same dossier: her account of martyrdom for chastity is transmitted among the tales gathered around Daniel of Sketis."
+    href: saint/OS-0992
 status: draft
 generated: "2026-06-22"

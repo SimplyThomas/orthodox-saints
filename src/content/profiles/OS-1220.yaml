@@ -44,6 +44,16 @@ timeline:
   - when: late 1930s
     title: Destruction of the monastery
     body: The monastery he founded is blown up under the Communist authorities.
+companions:
+  - name: Bishop Joasaph of Rostov
+    note: The bishop near whom Cassian first settled and whom he followed to the Ferapont (Therapon) monastery, where he was tonsured.
+related:
+  - name: Venerable Martinian of Belozersk
+    note: A former abbot of the Ferapont (Therapon) monastery whose appearance in a nocturnal vision urged Constantine toward the monastic life.
+    href: saint/OS-0435
+  - name: Venerable John Cassian the Roman
+    note: The Roman-born father after whom he took his monastic name, since he too was a Roman.
+    href: saint/OS-0741
 patronage:
   - Patron and wonderworker of Uglich
 sources:

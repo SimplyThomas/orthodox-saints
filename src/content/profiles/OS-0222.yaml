@@ -19,6 +19,19 @@ sections:
 companions:
   - name: The Serbian New Martyrs
     note: Commemorated among the Serbian hierarchs, clergy, and faithful who suffered during the Second World War.
+related:
+  - name: Hieromartyr Platon of Banja Luka
+    note: Fellow Serbian hierarch (Bishop of Banja Luka) martyred in 1941 under the wartime persecution of the Independent State of Croatia.
+    href: saint/OS-1043
+  - name: Hieromartyr Savva (Trlajic) of Serbia
+    note: Fellow Serbian bishop (of Gornji Karlovac) martyred in 1941 during the same wartime persecution.
+    href: saint/OS-1042
+  - name: Hieromartyr Joanikije, Metropolitan of Montenegro
+    note: Fellow Serbian hierarch and new-hieromartyr killed during the Second World War.
+    href: saint/OS-1291
+  - name: Holy New Martyrs of Jasenovac
+    note: The Serbian faithful martyred at the Jasenovac camp, where tradition places Metropolitan Peter's own death.
+    href: saint/OS-2645
 status: draft
 sources:
   - Synaxarion

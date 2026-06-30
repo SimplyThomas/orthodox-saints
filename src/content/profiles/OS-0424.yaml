@@ -37,6 +37,13 @@ sections:
     body:
       - Marcian was buried at the monastery of Saint John the Forerunner in Constantinople, according to the tradition recorded of his repose.
 patronage: []
+companions:
+  - name: Saint Gennadius, Patriarch of Constantinople
+    note: "Superior: as patriarch (458–471) he appointed Marcian treasurer (oeconomos) of the Great Church."
+    href: saint/OS-1811
+  - name: Saint Anatolius, Patriarch of Constantinople
+    note: "Ordaining hierarch: by one account ordained Marcian to the presbyterate."
+    href: saint/OS-1465
 reading:
   - heading: Sources
     items:

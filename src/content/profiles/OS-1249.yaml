@@ -27,5 +27,13 @@ sections:
   - heading: Miracles and Traditional Accounts
     body:
       - The synaxarion relates that Michael was granted the gift of working wonders. By tradition, after he left his cell to dwell atop a large boulder, the devil once caused him to stumble and fall from the rock, but he was preserved unharmed; Gregory of Khandzta afterward set up a cross on either side of his cell. The same accounts report that many pilgrims who visited his grave at Parekhi were healed of their infirmities.
+companions:
+  - name: Venerable Gregory of Khandzta
+    note: "Contemporary: leading figure of the Tao-Klarjeti monastic revival to which Parekhi belonged; tradition relates that Gregory set up a cross on either side of Michael's cell."
+    href: saint/OS-1966
+related:
+  - name: Saint Serapion of Zarzma
+    note: "Disciple: one of the two disciples whom Michael directed to Samtskhe, where they founded the monastery of Zarzma."
+    href: saint/OS-2108
 status: draft
 generated: "2026-06-19"

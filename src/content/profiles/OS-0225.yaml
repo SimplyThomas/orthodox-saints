@@ -19,6 +19,13 @@ timeline:
   - when: "1967"
     title: Uncovering of relics
     body: His relics were uncovered, an event commemorated on September 4.
+related:
+  - name: New Martyr Luke of Mytilene
+    note: Fellow New Martyr of Mytilene who confessed Christ under Ottoman rule.
+    href: saint/OS-0870
+  - name: New Martyrs Raphael, Nicholas and Irene of Lesbos
+    note: Fellow New Martyrs of Lesbos who suffered for the faith under Ottoman rule.
+    href: saint/OS-0971
 patronage:
   - Those who have lapsed from the faith and seek to return
 status: draft

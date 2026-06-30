@@ -27,5 +27,9 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Julian_of_Tarsus
   - https://www.oca.org/saints/all-lives/2014/06/21
+related:
+  - name: John Chrysostom
+    note: "Panegyrist: Saint John Chrysostom is said to have delivered an encomium in Julian's honor at Antioch, where his memory was kept."
+    href: saint/OS-0023
 status: draft
 generated: "2026-06-19"

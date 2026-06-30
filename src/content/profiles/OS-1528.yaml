@@ -35,6 +35,13 @@ timeline:
   - when: "1550"
     title: Relics found incorrupt
     body: During construction of a new stone Holy Trinity church at Makhrishsche, his relics are discovered incorrupt.
+companions:
+  - name: Sergius of Radonezh
+    note: "Friend and fellow-laborer: the great abbot of the Holy Trinity, whom Stephen received and to whom he gave his disciple Simon to help found the Kirzhach monastery."
+    href: saint/OS-0042
+  - name: Cassian and Gregory of Avnezh
+    note: "Disciple: Gregory was Stephen's disciple, with whom he founded the second Holy Trinity monastery on the River Avnezha."
+    href: saint/OS-1359
 patronage:
   - Those afflicted by sickness and misfortune
 sources:

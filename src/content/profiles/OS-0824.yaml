@@ -39,6 +39,14 @@ timeline:
   - when: March 14, 1167
     title: Repose
     body: Falling ill on his return from a Novgorod campaign, he dies; his body is brought to the Theodosiev monastery in Kiev in accordance with his last wishes.
+family:
+  intro: Rostislav was a Rurikid prince, a son of Saint Mstislav the Great and a grandson of Vladimir Monomakh.
+  figures:
+    - name: Saint Vsevolod-Gabriel of Pskov
+      note: Brother; another son of Mstislav the Great, prince of Novgorod and later Pskov, glorified as a wonderworker.
+      href: saint/OS-0636
+    - name: Saint Mstislav the Great
+      note: Father; Grand Prince of Kiev and son of Vladimir Monomakh, who in 1125 granted Rostislav the principality of Smolensk as his inheritance.
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

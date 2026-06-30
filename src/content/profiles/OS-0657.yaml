@@ -29,6 +29,13 @@ sections:
   - heading: Relics and veneration
     body:
       - Isaac's relics repose in the Near (St. Anthony's) Caves of the Kiev Caves Lavra, among the venerable fathers of that monastery. A portion of his relics was transferred to Toropets, his native city, in 1711. He is commemorated on February 14.
+companions:
+  - name: Saint Anthony of the Kiev Caves
+    note: Founder of the Kiev Caves Monastery, who tonsured Isaac and, with Theodosius, personally nursed him through his long affliction.
+    href: saint/OS-0136
+  - name: Saint Theodosius of the Kiev Caves
+    note: Co-founder and abbot of the monastery, who together with Saint Anthony tended Isaac during his incapacitation.
+    href: saint/OS-2745
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2022/02/14/100520-venerable-isaac-the-recluse-of-the-kiev-near-caves

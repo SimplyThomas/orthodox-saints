@@ -19,6 +19,26 @@ sections:
     body:
       - The brief reign of Julian the Apostate (361-363) saw a deliberate imperial effort to revive paganism and to marginalize Christians who had been favored under Constantine and his successors. Antioch, a major Christian center where Julian himself resided for a period, was a focal point of these tensions. Eugene and Macarius belong to the company of clergy who refused the emperor's demands and suffered exile or worse as a result.
       - Because they confessed Christ under persecution and were exiled rather than put to death outright, the tradition remembers them as confessors. The surviving accounts of their lives are brief and are preserved chiefly in synaxarion notices for February 19.
+companions:
+  - name: Theodoritus of Antioch
+    note: Fellow presbyter of the Church of Antioch martyred under Julian the Apostate when he refused to surrender the church's sacred vessels.
+    href: saint/OS-0797
+related:
+  - name: Martyr Basil of Ancyra
+    note: Presbyter martyred under Julian the Apostate, of the same persecution that exiled Eugene and Macarius.
+    href: saint/OS-0373
+  - name: Mark, Bishop of Arethusa
+    note: Bishop tortured under Julian the Apostate for destroying a pagan temple, of the same persecution.
+    href: saint/OS-0895
+  - name: Cyril the Deacon of Heliopolis
+    note: Deacon martyred under Julian the Apostate, of the same persecution.
+    href: saint/OS-0896
+  - name: Martyr Eupsychius of Caesarea
+    note: Martyred under Julian the Apostate, of the same persecution.
+    href: saint/OS-0966
+  - name: Martyrs Juventinus and Maximinus
+    note: Soldier-martyrs of Antioch put to death under Julian the Apostate, of the same persecution in the same city.
+    href: saint/OS-0227
 patronage:
   - Those who suffer for their faith under persecution
   - Priests and confessors who resist pressure to deny Christ

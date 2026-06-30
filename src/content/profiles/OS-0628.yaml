@@ -45,6 +45,25 @@ timeline:
   - when: "1598"
     title: Translation of St. Joachim's relics
     body: The relics of St. Joachim of Korsun are transferred from the Church of Joachim and Anne into the Cathedral of Holy Wisdom.
+related:
+  - name: John (Ilya) of Novgorod
+    note: Numbered among the hierarchs of this synaxis; the first archbishop of Novgorod, whose apparition gave rise to the commemoration.
+    href: saint/OS-0289
+  - name: Niketas the Recluse, Bishop of Novgorod
+    note: Numbered among the hierarchs of this synaxis; his relics rest in the Sophia Cathedral.
+    href: saint/OS-0569
+  - name: Euthymius II of Novgorod
+    note: Numbered among the hierarchs of this synaxis; the archbishop to whom St. John appeared, instituting the panikhida for the Novgorod hierarchs.
+    href: saint/OS-0810
+  - name: Niphon, Bishop of Novgorod
+    note: Numbered among the hierarchs of this synaxis; archbishop of Novgorod and builder of its churches.
+    href: saint/OS-0962
+  - name: Martyrius, Archbishop of Novgorod
+    note: Numbered among the hierarchs of this synaxis interred in the Cathedral of Holy Wisdom.
+    href: saint/OS-1773
+  - name: Gennadius, Archbishop of Novgorod
+    note: Numbered among the hierarchs of this synaxis interred in the Cathedral of Holy Wisdom.
+    href: saint/OS-2302
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2024/02/10

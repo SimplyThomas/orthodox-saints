@@ -67,5 +67,79 @@ sources:
   - https://en.wikipedia.org/wiki/Tikhon_of_Moscow
   - https://www.oca.org/saints/lives/2025/04/07/101026-saint-tikhon-patriarch-of-moscow-and-all-russia-and-enlightener-of-north
   - https://orthodoxwiki.org/Tikhon_of_Moscow
+family:
+  figures:
+    - name: Ivan Bellavin
+      note: Father, a rural priest
+      commemorated: false
+    - name: Anna Bellavina
+      note: Mother
+      commemorated: false
+    - name: Siblings
+      note: Brothers and sisters
+      commemorated: false
+companions:
+  - name: John of Kronstadt
+    note: Beloved pastor of the same era who blessed his ministry
+    href: saint/OS-0045
+  - name: Nicholas II
+    note: The last Russian emperor, whose murder Tikhon condemned
+  - name: Elizabeth Feodorovna
+    note: New-martyr grand duchess of the same period
+  - name: Benjamin of Petrograd
+    note: New-martyr metropolitan of the persecution years
+  - name: Luke of Crimea
+    note: Surgeon-confessor who endured the Soviet persecution
+    href: saint/OS-0049
+  - name: Alexis Toth
+    note: Confessor of the American mission Tikhon shepherded
+    href: saint/OS-1125
+  - name: Vladimir (Bogoyavlensky)
+    note: New-martyr metropolitan of Kiev, first hierarch martyred under the Soviets
+    href: saint/OS-0537
+  - name: Lenin
+    note: Bolshevik leader whose regime persecuted the Church
+    commemorated: false
+related:
+  - name: Raphael of Brooklyn
+    note: Bishop Tikhon co-consecrated on American soil
+    href: saint/OS-0055
+  - name: Herman of Alaska
+    note: Founding missionary of the American Church
+    href: saint/OS-0044
+  - name: John of Shanghai and San Francisco
+    note: Later wonderworking hierarch of the Russian diaspora
+    href: saint/OS-0050
+  - name: Benjamin of Petrograd
+    note: New-martyr metropolitan
+  - name: Nicholas II
+    note: The martyred last emperor
+works:
+  - title: Sermons and Homilies
+    desc: Preached across his ministry in Russia and North America
+  - title: Pastoral Letters
+    desc: Correspondence with clergy and faithful on Church life
+  - title: Patriarchal Encyclicals and Official Messages
+    desc: Official messages on the Revolution and the persecution of the Church, historically significant
+    date: 1917–1925
+  - title: Addresses to the All-Russian Church Council
+    desc: Speeches at the 1917-1918 council that restored the Patriarchate
+    date: 1917–1918
+  - title: Missionary Addresses in North America
+    desc: Pastoral writings from his years as bishop in America
+  - title: Official Correspondence
+    desc: Administrative and pastoral letters from his patriarchate
+reading:
+  - heading: Biographies
+    items:
+      - title: The Life of St. Tikhon, Patriarch of Moscow
+        type: Biography
+      - title: "St. Tikhon: Confessor and Patriarch"
+        type: Biography
+      - title: Tikhon and the American Mission
+        type: Biography
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 status: reviewed
 generated: "2026-06-18"

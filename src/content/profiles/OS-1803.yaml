@@ -63,5 +63,22 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Alexander_of_Svir
   - https://orthodoxwiki.org/Alexander_of_Svir
+family:
+  heading: Family
+  intro: Alexander was the son of peasants who themselves later embraced the monastic life.
+  figures:
+    - name: Stefan (the monk Sergius)
+      note: His father, a peasant of Mandera who took monastic vows in his later years.
+      commemorated: false
+    - name: Vassa (the nun Varvara)
+      note: His mother, who likewise entered monastic life late in life.
+      commemorated: false
+related:
+  - name: Saint Serapion, Archbishop of Novgorod
+    note: The hierarch who appointed Alexander hegumen of the Trinity (Svir) monastery in 1506.
+    href: saint/OS-0830
+  - name: Saint Macarius, Metropolitan of Moscow
+    note: Presided over the 1547 council that glorified Alexander and blessed the writing of his Life.
+    href: saint/OS-2437
 status: draft
 generated: "2026-06-22"

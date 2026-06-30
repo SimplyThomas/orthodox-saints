@@ -33,6 +33,10 @@ timeline:
   - when: "425"
     title: Repose at Amida
     body: Acacius dies in Amida.
+related:
+  - name: Hieromartyr Avdas, Bishop of Persia, and Martyr Benjamin the Deacon
+    note: "Connected through the Roman–Persian persecution of c. 420; Avdas's death sparked Bahram V's persecution of Persian Christians, which Acacius's ransom of the war-captives helped move the king to relent."
+    href: saint/OS-0911
 patronage:
   - Ransom and relief of prisoners and captives
   - Works of charity and almsgiving

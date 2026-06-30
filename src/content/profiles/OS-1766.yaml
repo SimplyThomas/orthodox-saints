@@ -22,6 +22,10 @@ timeline:
   - when: "705"
     title: Arrest and blinding
     body: On Justinian II's return to power, Callinicus was arrested, blinded, and confined to a monastery.
+companions:
+  - name: Emperor Justinian II
+    note: "Emperor confronted: The Byzantine emperor who demolished the Blachernae church over Callinicus's refusal to bless its destruction and, on regaining the throne in 705, had the patriarch blinded and confined."
+    commemorated: false
 patronage:
   - Those who suffer for conscience and fidelity to the Church
   - Intercessor against the destruction of holy places

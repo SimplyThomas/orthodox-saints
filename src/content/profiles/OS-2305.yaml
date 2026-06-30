@@ -42,5 +42,16 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Gurias_of_Kazan
   - https://orthodoxwiki.org/Gury_of_Kazan
+companions:
+  - name: Saint Herman, Archbishop of Kazan
+    note: Second Archbishop of Kazan and his fellow-laborer in the newly founded Kazan mission.
+    href: saint/OS-2155
+  - name: Saint Barsanuphius of Tver
+    note: Archimandrite who came with Gurias to establish monastic life in the new Kazan diocese.
+    href: saint/OS-0977
+related:
+  - name: Venerable Joseph of Volokolamsk
+    note: Founder of the monastery where Gurias was tonsured and served as abbot, in whose disciplined monastic tradition he was formed.
+    href: saint/OS-0330
 status: draft
 generated: "2026-06-20"

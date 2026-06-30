@@ -13,13 +13,62 @@ sections:
   - heading: Later Life at Seleucia
     body:
       - After her travels in the company of the Apostle Paul, Thekla is said to have settled in Isaurian Seleucia, in the region of Asia Minor, where she spent many years. The tradition remembers her there as a healer of the sick and a guide who brought many to Christ, living to a great age.
+  - heading: Veneration and Traditions
+    body:
+      - The cave-shrine of Thekla at Maaloula in Syria and her sanctuary at Seleucia (Meriamlik) became major centers of early pilgrimage, where the faithful sought her healing intercession; her cult spread across the Christian East and into the West from the fourth century onward.
+      - "Thekla is invoked by name in the Orthodox prayers for the departing soul, which ask God to receive the dying as he delivered Thekla from her trials. As the first woman to confess Christ amid martyrdom's torments, she is held the model and patron of women monastics and of all who renounce the world for the Gospel, and she is especially venerated in Cyprus and across Asia Minor."
+family:
+  figures:
+    - name: Theocleia
+      note: Mother
+      commemorated: false
+    - name: Thamyris
+      note: Her betrothed, whom she renounced for Christ
+      commemorated: false
 companions:
   - name: Apostle Paul
     note: The apostle whose preaching converted Thekla and whom she accompanied in proclaiming the Gospel.
     href: saint/OS-2749
+  - name: Apostle Onesiphorus
+    note: Paul's host, an early supporter who sheltered her teacher
+    href: saint/OS-0263
+  - name: Queen Tryphaena
+    note: Noblewoman of Antioch who protected and sheltered her
+  - name: Alexander of Antioch
+    note: Whose advances she resisted, leading to her trial by beasts
+    commemorated: false
+related:
+  - name: Apostle Timothy
+    note: Of the Pauline circle she served in
+    href: saint/OS-0512
+  - name: Apostle Titus
+    note: Of the Pauline circle she served in
+    href: saint/OS-1775
+  - name: Mary Magdalene
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0007
+  - name: Photini the Samaritan Woman
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0008
+  - name: Nina, Enlightener of Georgia
+    note: Later missionary saint bearing the same title
+    href: saint/OS-0039
+  - name: Empress Helen
+    note: Later saint Equal-to-the-Apostles
+    href: saint/OS-2751
+  - name: Olga, Princess of Kyiv
+    note: Later missionary saint bearing the same title
+    href: saint/OS-0041
 patronage:
   - Model of virginity and steadfast confession of the faith
   - Healing of the sick
+reading:
+  - heading: Works & Further Reading
+    items:
+      - title: The Acts of Paul and Thecla
+        type: Early Christian text (apocryphal)
+      - title: Life and Miracles of Saint Thekla
+        type: Late-antique hagiography
 status: reviewed
 sources:
   - Synaxarion

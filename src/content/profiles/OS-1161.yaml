@@ -23,5 +23,15 @@ sections:
     body:
       - Glyceria's relics were enshrined in the church of the Holy Martyrs Florus and Laurus in Great Novgorod, where they had been uncovered. Her veneration spread beyond Novgorod over time.
       - By tradition, a chapel in her honor was built in the Tikhvin church of the Moscow Simonov Monastery in the middle of the nineteenth century. After 1917 the whereabouts of her relics are reported to have become unknown.
+family:
+  heading: Family
+  figures:
+    - name: Panteleimon of Legoscha Street
+      note: Father — an official of Legoscha Street in Great Novgorod, named in her tradition as her father; not himself a commemorated saint.
+      commemorated: false
+related:
+  - name: Virgin Martyr Glyceria at Heraclea
+    note: Distinct — the early virgin-martyr of Heraclea (2nd c.) with whom this 16th-century righteous maiden of Novgorod shares a name and is expressly not to be confused.
+    href: saint/OS-1159
 status: draft
 generated: "2026-06-19"

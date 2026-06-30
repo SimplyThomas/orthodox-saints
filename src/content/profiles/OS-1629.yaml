@@ -32,6 +32,14 @@ timeline:
   - when: 2 August 257
     title: Martyrdom under Valerian
     body: Stephen died in Rome during Valerian's persecution, by tradition beheaded; he was succeeded by Sixtus II. He is venerated as a hieromartyr in the Orthodox tradition.
+companions:
+  - name: Martyrs Pope Sixtus II, Felicissimus, Agapitus, and Romanus of Rome
+    note: "Successor: the pope who succeeded Stephen and was himself martyred under Valerian soon after, in 258."
+    href: saint/OS-2755
+related:
+  - name: Hieromartyr Cyprian of Carthage
+    note: "Disputant: the Bishop of Carthage who opposed Stephen over the rebaptism of those baptized by schismatics."
+    href: saint/OS-1810
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Pope_Stephen_I

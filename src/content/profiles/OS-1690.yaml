@@ -34,5 +34,12 @@ sections:
 patronage:
   - Care of the poor
   - Monastics
+companions:
+  - name: Venerable Euthymius the Great
+    note: His contemporary — the great Palestinian monastic father at whose laura's consecration in 428 Passarion was present, the two named together by Cyril of Scythopolis.
+    href: saint/OS-0494
+  - name: Saint Juvenal, Patriarch of Jerusalem
+    note: His contemporary — Patriarch of Jerusalem, present with Passarion and the presbyter Hesychius at the consecration of Euthymius's laura.
+    href: saint/OS-1454
 status: draft
 generated: "2026-06-20"

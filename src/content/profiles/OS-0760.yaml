@@ -36,6 +36,16 @@ timeline:
   - when: "1848"
     title: Iron chains sent to the Holy Synod
     body: The heavy iron chains he wore in asceticism are sent to the Holy Synod.
+related:
+  - name: Saint Arsenius, Bishop of Tver
+    note: Bishop of Tver who blessed the foundation of Sabbatius's hermitage (Savvatieva Pustyn) near the city.
+    href: saint/OS-0755
+  - name: Venerable Cornelius, Abbot of Komel
+    note: Later Russian ascetic who, by tradition, came to Sabbatius's hermitage to learn the monastic life.
+    href: saint/OS-1205
+  - name: Venerable Joseph of Volokolamsk
+    note: Later Russian ascetic who, by tradition, came to Sabbatius's hermitage to learn the monastic life.
+    href: saint/OS-0330
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D0%B2%D0%B0%D1%82%D0%B8%D0%B9_%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B9

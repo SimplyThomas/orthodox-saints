@@ -17,5 +17,9 @@ sections:
   - heading: Sources and Transmission
     body:
       - The episode is transmitted in the hagiographic tradition connected with St Gregory the Great, also called St Gregory the Dialogist, whose Dialogues gather such accounts of Italian holy men of the sixth century. The Orthodox synaxarion preserves Severus among the righteous of the Western pre-schism Church.
+related:
+  - name: St. Gregory the Dialogist
+    note: Pope of Rome whose Dialogues preserve the account of Severus and the parishioner recalled to life by his tears.
+    href: saint/OS-0084
 status: draft
 generated: 20260619_b13

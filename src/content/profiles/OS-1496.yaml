@@ -34,6 +34,10 @@ sections:
     body:
       - "Historically Documented: Archaeological excavation at Halmyris in 2001 recovered skeletal remains identified with the two martyrs; anthropological analysis reported ages of approximately sixty-four and about thirty-five, with marks consistent with beheading, matching the details preserved in their passion."
       - "Traditional Accounts: The saints' passion relates that Epictetus healed a deaf-mute boy and that Astion cured a man whose legs and toes had been crushed, and that great numbers of the local pagan population were brought to Christianity through these wonders and the saints' preaching; their accounts also describe exorcisms and the conversion and baptism of a local figure named Vigilantius."
+companions:
+  - name: Hieromartyr Evangelicus, Bishop of Tomis
+    note: Bishop of Tomis who baptized Astion's parents at Halmyris after his martyrdom and appears in the saints' Act of Martyrdom.
+    href: saint/OS-1491
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2026/07/08/101960-monastic-martyrs-epictetus-and-astion-at-halmyris

@@ -32,6 +32,10 @@ timeline:
 patronage:
   - The Holy Land and Jerusalem
   - Christians in captivity
+companions:
+  - name: Modestus of Jerusalem
+    note: "Successor: Administered the church of Jerusalem as locum tenens during Zacharias's captivity in Persia, and succeeded him as patriarch."
+    href: saint/OS-0066
 sources:
   - OCA Synaxarion (oca.org), Feb 21
   - https://en.wikipedia.org/wiki/Zacharias_of_Jerusalem

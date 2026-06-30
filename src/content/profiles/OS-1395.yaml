@@ -47,5 +47,22 @@ sources:
   - https://en.wikipedia.org/wiki/Callistus_I_of_Constantinople
   - https://orthodoxwiki.org/Callistus_I_of_Constantinople
   - https://www.oca.org/saints/lives/2024/06/20
+companions:
+  - name: Gregory of Sinai
+    note: "Teacher: the Sinaite elder whose disciple Callistus was, and whose Life he afterward composed."
+    href: saint/OS-1671
+  - name: Theodosius of Trnovo
+    note: "Fellow disciple: a brother-disciple of Gregory of Sinai in the hesychast community of Paroria."
+    href: saint/OS-0677
+  - name: Romilus of Ravanica
+    note: "Fellow disciple: an ascetic of the Paroria brotherhood gathered around Gregory of Sinai."
+    href: saint/OS-0470
+  - name: Philotheus, Patriarch of Constantinople
+    note: "Fellow patriarch: the hesychast who shared Callistus's defense of the hesychast fathers and succeeded him on the patriarchal throne."
+    href: saint/OS-1997
+related:
+  - name: Gregory Palamas
+    note: "Defender of the hesychasts: Callistus presided over the synod that upheld Palamas and the hesychast teaching."
+    href: saint/OS-0025
 status: draft
 generated: "2026-06-22"

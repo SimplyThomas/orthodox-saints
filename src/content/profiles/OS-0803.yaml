@@ -40,6 +40,16 @@ sections:
   - heading: Traditional Accounts
     body:
       - Tradition holds that Vitalius lived in great familiarity with wild animals during his years in the cave between Torri and Armento, taming them through his blessing. These accounts are reported by the synaxarion as part of his ascetic renown rather than as documented events.
+companions:
+  - name: Saint Luke of Demena
+    note: "Fellow Italo-Greek ascetic: the synaxarion records that Luke visited Vitalius, with whom he prayed and discussed spiritual matters."
+related:
+  - name: Venerable Nilus the Younger of Rossano
+    note: "Fellow Italo-Greek monastic founder: a contemporary Greek-speaking ascetic of Byzantine Calabria who founded the monastery of Grottaferrata."
+    href: saint/OS-2687
+  - name: Saint Fantinus of Calabria
+    note: "Fellow Italo-Greek monastic: a contemporary Calabrian ascetic and wonderworker of the same Byzantine south-Italian monastic world."
+    href: saint/OS-1805
 patronage:
   - Castronovo di Sicilia
   - Armento, Basilicata

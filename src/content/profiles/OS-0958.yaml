@@ -45,6 +45,20 @@ timeline:
   - when: December 30, 1653
     title: Authentication of relics
     body: Metropolitan Jonah of Rostov and Yaroslavl formally authenticates the relics; the event is commemorated annually on December 30.
+companions:
+  - name: Saint Leucius of Volokolamsk
+    note: His elder at Borov Monastery, under whom he passed roughly ten years of monastic formation
+    href: saint/OS-1725
+related:
+  - name: Venerable Paphnutius, Abbot of Borov
+    note: Abbot of Borov Monastery, who received the young Demetrius and placed him under Elder Leucius
+    href: saint/OS-1087
+  - name: Venerable Joseph of Volokolamsk
+    note: Fellow heir of the Borov-Paphnutius monastic tradition and an associate of Daniel's elder Leucius
+    href: saint/OS-0330
+  - name: St. Symeon the Stylite
+    note: The early pillar-ascetic whom Daniel emulated in his youth by binding a rope about his body
+    href: saint/OS-0034
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

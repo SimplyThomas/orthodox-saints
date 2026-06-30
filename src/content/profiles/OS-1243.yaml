@@ -29,7 +29,19 @@ timeline:
 companions:
   - name: St. Gregory the Great, Pope of Rome
     note: Pope of Rome who sent and directed the mission to England
-    href: saint/OS-0164
+    href: saint/OS-0084
+  - name: Righteous King Ethelbert of Kent
+    note: "Convert and patron: king of Kent who received the mission, granted the missionaries his capital at Canterbury, and was himself baptized, his people following him."
+    href: saint/OS-2763
+  - name: Righteous Queen Bertha of Kent
+    note: "Contemporary: the Christian Frankish queen of Kent whose worship at the royal court before the mission's arrival had helped prepare the way for it."
+    href: saint/OS-2772
+  - name: St. Laurence of Canterbury
+    note: "Successor: a companion of the mission whom Augustine arranged to consecrate as his successor in the see of Canterbury."
+  - name: St. Mellitus
+    note: "Fellow missionary: consecrated by Augustine in 604 as the first bishop of London."
+  - name: St. Justus of Rochester
+    note: "Fellow missionary: consecrated by Augustine in 604 as the first bishop of Rochester."
 patronage:
   - Invoked as the apostle and enlightener of the English
 status: draft

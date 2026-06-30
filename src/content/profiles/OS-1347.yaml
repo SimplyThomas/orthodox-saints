@@ -18,5 +18,16 @@ sections:
     body:
       - In his old age Andronikos handed over the administration of the monastery to his disciple Savva and withdrew to prepare for the end of his life, following the example of his own elder, Saint Sergius. Savva thus became abbot of the Andronikov community and continued the work his teacher had begun.
       - "The sources differ on the precise dates of this transition and of Savva's tenure: some place his assumption of the abbacy in 1395, the year they give for Andronikos's repose, while other accounts give 1404 as the year of Andronikos's death; one tradition records that Savva himself reposed in 1410. The brevity and divergence of these accounts mean that the chronology of his abbacy is not fixed with certainty."
+companions:
+  - name: Andronikos of Moscow
+    note: Teacher and founding abbot whom he succeeded at the Andronikov monastery
+    href: saint/OS-1346
+related:
+  - name: Sergius of Radonezh
+    note: Founder of the monastic tradition in which his community stood
+    href: saint/OS-0042
+  - name: Andrew Rublev the Iconographer
+    note: Iconographer of the same Andronikov community
+    href: saint/OS-1469
 status: draft
 generated: "2026-06-19"

@@ -12,6 +12,16 @@ sections:
     body:
       - By the synaxarion's account, Polychronia raised her son George in the Christian faith and remained close to him throughout his imprisonment and trial, strengthening him by bringing him Holy Communion. When the emperor questioned who she was, she is said to have answered openly that she was a Christian like her son, declaring that the punishments inflicted on George were in fact preparing a heavenly crown for him.
       - "The tradition relates that Diocletian then ordered her to be tortured: she was suspended and her body torn, her wounds burned with lit candles, and, in some retellings, red-hot iron shoes placed upon her feet. She endured these torments steadfastly and surrendered her soul, after which Christians are said to have recovered and buried her remains. A parallel account names her husband as Gerontios, an officer from Cappadocia who was himself martyred, and records a secondary commemoration on November 4."
+family:
+  heading: Family
+  intro: Polychronia is remembered chiefly within the tradition of her son, the Great Martyr George.
+  figures:
+    - name: Great Martyr George the Trophy-bearer
+      note: Her son, whom she raised in the faith and attended through his imprisonment and trial; she confessed Christ at his martyrdom.
+      href: saint/OS-0012
+    - name: Gerontios
+      note: Her husband; the synaxarion followed here remembers him as an idolater, while a parallel account names him a Cappadocian officer himself martyred and commemorated November 4 — the traditions diverge.
+      commemorated: false
 patronage: []
 status: draft
 generated: "2026-06-19"

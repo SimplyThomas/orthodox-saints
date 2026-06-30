@@ -16,5 +16,18 @@ sections:
     body:
       - Mount Olympus in Bithynia, the mountain known in Turkish as Uludag in the region of Bursa, was one of the principal monastic centers of the Byzantine world. The sources record that it held a large number of monasteries and hermitages and that it flourished particularly from the eighth through the tenth and eleventh centuries.
       - The prestige of the mountain in this period is associated with the resistance of its monks to the iconoclast policy of the Byzantine emperors, which made it a refuge for iconophile monks during the Iconoclastic Controversy of the eighth and ninth centuries. It was within this setting that the Georgian community attributed to Michael and Arsenius was established.
+family:
+  heading: Kin and Fellow Georgian Fathers
+  figures:
+    - name: Saint Ephraim the Great of Atsquri
+      note: Described in the tradition as a relative of Arsenius; a Georgian hierarch of the same ninth-century monastic circle.
+      href: saint/OS-1001
+companions:
+  - name: Macarius of Leteti
+    note: A Georgian monk alongside whom Arsenius labored at the monasteries of Palestine before founding the Georgian community on Mount Olympus.
+related:
+  - name: Venerable Gregory of Khandzta
+    note: Named in the Georgian tradition as a possible teacher of Arsenius, and a leading father of the ninth-century Georgian monastic revival.
+    href: saint/OS-1966
 status: draft
 generated: "2026-06-19"

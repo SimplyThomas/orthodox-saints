@@ -32,6 +32,15 @@ timeline:
     title: Raised up as deliverer and judge
     body: In answer to the people's cry, God raises up Othniel, who delivers Israel from Cushan-rishathaim and judges the people; the land has rest for forty years (Judges 3:9-11).
 patronage: []
+family:
+  heading: Family
+  intro: Othniel son of Kenaz, the first of the judges of Israel, was kinsman to Caleb and delivered Israel from the king of Aram-Naharaim.
+  figures:
+    - name: Righteous Caleb
+      note: His elder kinsman, the faithful spy, whose daughter Achsah he won in marriage by capturing Debir.
+      href: saint/OS-2549
+    - name: Achsah
+      note: His wife, daughter of Caleb.
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

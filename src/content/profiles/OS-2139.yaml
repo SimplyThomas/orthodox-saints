@@ -43,5 +43,12 @@ sources:
   - https://www.johnsanidopoulos.com/2020/11/holy-princess-anna-vsevolodna-1112.html
   - https://en.wikipedia.org/wiki/Vsevolod_I_of_Kiev
   - https://oca.org/saints/lives/2023/11/03
+family:
+  figures:
+    - name: Princess Anna of Novgorod
+      note: Her paternal grandmother (St Ingegerd-Irene), wife of Grand Prince Yaroslav the Wise.
+      href: saint/OS-0629
+    - name: Grand Prince Vsevolod Yaroslavich of Kiev
+      note: Her father, son of Yaroslav the Wise, who supported her monastic foundation in Kiev.
 status: draft
 generated: "2026-06-22"

@@ -57,5 +57,55 @@ sources:
   - https://en.wikipedia.org/wiki/Mary_Magdalene
   - https://orthodoxwiki.org/Mary_Magdalene
   - https://www.oca.org/saints/lives/2024/07/22/102070-myrrhbearer-and-equal-of-the-apostles-mary-magdalene
+companions:
+  - name: Jesus Christ
+    note: The Lord, to whom she first announced the Resurrection
+    href: saint/OS-0000
+  - name: The Most Holy Theotokos
+    note: With her at the Cross
+    href: saint/OS-0001
+  - name: Myrrh-bearer Salome
+    note: Fellow Myrrh-bearing Woman
+    href: saint/OS-1638
+  - name: Joanna the Myrrh-bearer
+    note: Fellow Myrrh-bearing Woman
+    href: saint/OS-1435
+  - name: Myrrh-bearer Susanna
+    note: Fellow Myrrh-bearing Woman
+    href: saint/OS-2579
+  - name: Mary, the wife of Clopas
+    note: Fellow Myrrh-bearing Woman
+    href: saint/OS-1230
+  - name: Martha and Mary of Bethany
+    note: Friends of the Lord, later associated with her mission
+    href: saint/OS-1280
+  - name: Lazarus the Four-Days-Dead
+    note: Friend of the Lord, later associated with her mission
+    href: saint/OS-0078
+  - name: Righteous Joseph of Arimathea
+    note: Myrrh-bearer who buried the Lord; at the tomb with her
+    href: saint/OS-1619
+  - name: Righteous Nicodemus
+    note: Myrrh-bearer who shared in the Lord's burial
+    href: saint/OS-1624
+  - name: Tiberius
+    note: Emperor before whom she proclaimed the Resurrection (the red egg)
+    commemorated: false
+related:
+  - name: Photini the Samaritan Woman
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0008
+  - name: Thekla the Protomartyr
+    note: Fellow woman Equal-to-the-Apostles
+    href: saint/OS-0010
+reading:
+  - heading: For Children
+    items:
+      - title: The Miracle of the Red Egg
+        type: Children's book
+  - heading: About the Myrrh-bearing Women
+    items:
+      - title: Lives of the Holy Myrrh-bearing Women
+      - title: Women of the Gospel and the Early Church
 status: reviewed
 generated: "2026-06-20"

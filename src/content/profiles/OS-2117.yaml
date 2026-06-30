@@ -53,5 +53,31 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Stefan_Dragutin
   - https://www.oca.org/saints/lives/2024/10/30
+family:
+  heading: The Nemanjić Dynasty
+  intro: Dragutin belonged to the holy Nemanjić line of Serbian rulers; his parents, his brother, and his nephew are venerated as saints.
+  figures:
+    - name: Saint Helen of Serbia
+      note: His mother, the dowager-queen whose charitable and ecclesiastical works he supported.
+      href: saint/OS-2118
+    - name: Saint Stephen Uroš I of Serbia
+      note: His father, King of Serbia, whom he forced to abdicate after the Battle of Gacko.
+      href: saint/OS-2634
+    - name: Saint Stephen Milutin of Serbia
+      note: His younger brother, to whom he ceded the crown in 1282.
+      href: saint/OS-2116
+    - name: Saint Stephen of Dečani
+      note: His nephew, son and successor of his brother Milutin.
+      href: saint/OS-2182
+    - name: Saint Stephen the First-Crowned of Serbia
+      note: His grandfather, the first crowned king of Serbia.
+      href: saint/OS-1904
+    - name: Venerable Symeon the Myrrh-gusher (Stefan Nemanja)
+      note: His great-grandfather, founder of Đurđevi Stupovi Monastery, where Dragutin was buried and is honored as second founder.
+      href: saint/OS-0653
+related:
+  - name: St. Sava I, First Archbishop of Serbia
+    note: His great-granduncle and first archbishop of the Serbian Church, of his holy dynasty.
+    href: saint/OS-0449
 status: draft
 generated: "2026-06-22"

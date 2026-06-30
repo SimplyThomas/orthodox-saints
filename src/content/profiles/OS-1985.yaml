@@ -47,5 +47,10 @@ sources:
   - https://en.wikipedia.org/wiki/Lot_(biblical_figure)
   - https://www.oca.org/saints/lives/2023/10/09
   - https://www.oca.org/saints/lives/2024/10/09
+family:
+  figures:
+    - name: Righteous Forefather Abraham
+      note: His uncle, whom he accompanied from Ur and who rescued him from Sodom's fate.
+      href: saint/OS-1984
 status: draft
 generated: "2026-06-23"

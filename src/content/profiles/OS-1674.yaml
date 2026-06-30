@@ -29,5 +29,9 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Tuman_Monastery
   - https://en.wikipedia.org/wiki/Tumane_monastery
+companions:
+  - name: "Miloš Obilić"
+    note: "Penitent benefactor — the Serbian knight who, having accidentally wounded the hermit while hunting, began building a church at his hermitage in repentance."
+    commemorated: false
 status: draft
 generated: "2026-06-21"

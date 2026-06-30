@@ -30,6 +30,20 @@ sections:
     body:
       - In his funeral oration Gregory of Nyssa bestowed the highest praise on Flaccilla's life, picturing her as the helpmate of the emperor in all good works, an ornament of the empire, a leader of justice, and an image of beneficence. He treated her sudden death as a divine mystery rather than dwelling on its circumstances.
       - She is venerated as a saint, her feast kept on September 14 in both the Eastern Orthodox and Roman Catholic traditions. The anchor record classes her among the right-believing rulers and the righteous.
+family:
+  heading: Family
+  figures:
+    - name: Theodosius I the Great
+      note: Husband; Roman emperor and, with Flaccilla, a firm defender of the Nicene faith.
+      href: saint/OS-0474
+    - name: Arcadius
+      note: Son; later Eastern Roman emperor.
+    - name: Honorius
+      note: Son; later Western Roman emperor.
+related:
+  - name: Gregory of Nyssa
+    note: Cappadocian Father who delivered her funeral oration, praising her hands-on charity and zeal for the Nicene faith.
+    href: saint/OS-0422
 patronage:
   - Those who care for the sick and the poor
   - Works of charity and almsgiving

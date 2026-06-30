@@ -51,5 +51,15 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Piroska_of_Hungary
   - https://www.oca.org/saints/lives/2025/08/13
+family:
+  heading: House of Arpad and the Komnenoi
+  intro: Born a Hungarian princess of the House of Arpad, Irene married into the imperial Komnenian dynasty of Byzantium.
+  figures:
+    - name: King Ladislaus I of Hungary
+      note: Her father — King of Hungary, himself venerated as a saint in the West though not commemorated in the Orthodox calendar.
+      commemorated: false
+    - name: Emperor John II Komnenos
+      note: Her husband — Byzantine emperor (1118-1143), with whom the sources record a harmonious marriage and eight children.
+      commemorated: false
 status: draft
 generated: "2026-06-22"

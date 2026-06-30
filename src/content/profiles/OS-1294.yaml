@@ -30,6 +30,23 @@ sections:
     body:
       - Theodore was buried in the Yuriev Monastery in Novgorod. According to the synaxarion, his tomb was desecrated by Swedish forces in 1614, after which Metropolitan Isidore transferred his remains to the cathedral of Hagia Sophia in Novgorod.
       - There his relics were venerated until 1919, when they were removed during the early Soviet period.
+family:
+  heading: A Prince of the House of Yaroslav
+  intro: Theodore was the elder son of Grand Prince Yaroslav Vsevolodovich and the brother of Alexander Nevsky, sent while still a boy to govern Novgorod on their father's behalf.
+  figures:
+    - name: St. Alexander Nevsky
+      note: Younger brother — with whom Theodore was stationed to govern Novgorod, and who outlived him to become the great defender of Rus'.
+      href: saint/OS-2241
+    - name: Grand Prince Yaroslav Vsevolodovich
+      note: Father — the prince of Vladimir who sent his sons to rule Novgorod in his stead.
+      commemorated: false
+related:
+  - name: Venerable Euphrosyne of Suzdal
+    note: His betrothed — Theodulia, daughter of Michael of Chernigov, who after Theodore's sudden death renounced the world and was tonsured as the nun Euphrosyne.
+    href: saint/OS-1864
+  - name: Martyr Michael of Chernigov
+    note: Father of his betrothed — the prince-martyr whose daughter Theodulia was promised to Theodore in marriage.
+    href: saint/OS-1871
 patronage:
   - Novgorod
 status: draft

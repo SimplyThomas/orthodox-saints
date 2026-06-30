@@ -41,6 +41,16 @@ sections:
   - heading: Veneration
     body:
       - Monica is commemorated on May 4 in the Eastern Orthodox tradition and on August 27 in the Latin Church and the Church of England. As a pre-schism Western saint she is venerated across the Orthodox, Catholic, Anglican, and Lutheran traditions.
+family:
+  heading: Family
+  intro: Monica's perseverance in prayer was directed above all toward her son Augustine, whose conversion and baptism she lived to see; she also bore patiently with her pagan husband Patricius, whom tradition says she brought to the faith before his death.
+  figures:
+    - name: Blessed Augustine, Bishop of Hippo
+      note: Her son, for whose conversion she prayed through long years of his dissolute life and Manichaeism; she lived to see his baptism by Saint Ambrose at Milan.
+      href: saint/OS-1365
+    - name: Patricius
+      note: Her husband, a pagan municipal official of Tagaste whom tradition says she won to Christian baptism before his death.
+      commemorated: false
 patronage:
   - Married women and wives in difficult marriages
   - Mothers

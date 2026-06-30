@@ -31,6 +31,10 @@ timeline:
   - when: "2020"
     title: Recognition as a saint
     body: Formally recognized as a saint by the Ecumenical Patriarchate of Constantinople; feast kept on September 7.
+companions:
+  - name: St. Nektarios of Aegina
+    note: Contemporary hierarch and wonderworker with whom Daniel maintained a correspondence.
+    href: saint/OS-0046
 patronage:
   - Monastics and those seeking spiritual guidance
   - Mount Athos and the Katounakia ascetic community

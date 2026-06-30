@@ -38,6 +38,34 @@ timeline:
   - when: When Jesus was twelve
     title: The Temple in Jerusalem
     body: Joseph's final appearance in the Gospels occurs at the Temple in Jerusalem when Jesus was twelve years old; he is not mentioned thereafter.
+family:
+  intro: Joseph, of the House of David, was the betrothed guardian of the Theotokos and legal father of the Lord; the brethren of the Lord are his children by an earlier marriage.
+  figures:
+    - name: The Most Holy Theotokos
+      note: His betrothed, whom he guarded as a virgin
+      href: saint/OS-0001
+    - name: Jesus Christ
+      note: His foster-son, whom he raised and protected
+      href: saint/OS-0000
+    - name: James the Brother of the Lord
+      note: His son; first Bishop of Jerusalem
+      href: saint/OS-2066
+    - name: Apostle Jude the Brother of the Lord
+      note: His son; one of the Twelve
+      href: saint/OS-1384
+    - name: Mary, the wife of Clopas
+      note: His daughter (by tradition); a Myrrh-bearing Woman
+      href: saint/OS-1230
+    - name: Joses and Simon
+      note: His sons, the brethren of the Lord
+      commemorated: false
+    - name: Salome
+      note: His first wife (by tradition)
+      commemorated: false
+related:
+  - name: Prophet-King David
+    note: His forefather; Joseph was of the House of David, and is commemorated with him on the Sunday after Nativity
+    href: saint/OS-2421
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_Joseph

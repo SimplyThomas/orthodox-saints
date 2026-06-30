@@ -12,9 +12,10 @@ sections:
       - His passio is held by scholars to have been composed at least a century after the events it describes, and its details are not wholly consistent — the persecution is variously attributed to Valerian and to an edict of Decius. In later centuries his story passed into Western literature, most notably in Pierre Corneille's tragedy Polyeucte (1642), which in turn inspired operatic settings by Donizetti and Gounod.
 companions:
   - name: Nearchus
-    note: His fellow-soldier and Christian friend, whose zeal moved him to convert and who, by tradition, recorded the account of his martyrdom.
+    note: "Fellow-soldier: his Christian friend, whose zeal moved Polyeuktos to convert and who, by tradition, recorded the account of his martyrdom."
+related:
   - name: Venerable Euthymius the Great
-    note: By tradition born in 376 to parents who prayed for a child at the church of St. Polyeuktos in Melitene.
+    note: "Later patron: by tradition born in 376 to parents who prayed for a child at the church of St. Polyeuktos in Melitene, over a century after the martyr's death."
     href: saint/OS-0494
 patronage:
   - Patron of vows and treaties

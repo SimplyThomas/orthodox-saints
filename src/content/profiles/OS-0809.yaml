@@ -52,8 +52,16 @@ works:
 companions:
   - name: John Moschus
     note: Close companion and fellow monk; author of the Spiritual Meadow, which he dedicated to Sophronius, and whom Sophronius buried at the monastery of Saint Theodosius.
-  - name: Mary of Egypt
-    note: The penitent ascetic whose Life Sophronius composed.
+    href: saint/OS-2761
+related:
+  - name: Venerable Maximus the Confessor
+    note: "Fellow opponent of Monothelitism: Sophronius's struggle for the two wills of Christ was carried on by Maximus, whose confession prevailed at the Sixth Ecumenical Council."
+    href: saint/OS-0503
+  - name: Holy Unmercenaries Cyrus and John
+    note: "Subjects of his writing: Sophronius composed an encomium of these Alexandrian unmercenary martyrs in thanksgiving for the healing of his eyesight."
+    href: saint/OS-0568
+  - name: Saint Mary of Egypt
+    note: "Subject of his hagiography: the penitent ascetic of an earlier age whose Life Sophronius composed, read during the services of Great Lent."
     href: saint/OS-0027
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

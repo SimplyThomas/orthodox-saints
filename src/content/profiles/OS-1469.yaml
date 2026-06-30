@@ -47,6 +47,24 @@ timeline:
 patronage:
   - Iconographers and church painters
   - Christian artists
+companions:
+  - name: Daniel Chorny (Daniel the Black)
+    note: Fellow monk-iconographer with whom he painted the Dormition Cathedral in Vladimir and the Trinity Lavra frescoes
+  - name: Nikon of Radonezh
+    note: Abbot of the Trinity Lavra under whom he lived and who commissioned the Trinity icon
+    href: saint/OS-2205
+  - name: Theophanes the Greek
+    note: Byzantine master alongside whom he decorated the Annunciation Cathedral in the Moscow Kremlin
+related:
+  - name: Sergius of Radonezh
+    note: Founder of the Trinity monastery whose spiritual ideal formed him; his Trinity icon was painted in Sergius's honor
+    href: saint/OS-0042
+  - name: Andronikos of Moscow
+    note: Founding abbot of the Savior-Andronikov Monastery, where Rublev labored and was buried
+    href: saint/OS-1346
+  - name: Savva of Moscow
+    note: Second abbot of the Savior-Andronikov Monastery, Rublev's monastic home
+    href: saint/OS-1347
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Andrei_Rublev

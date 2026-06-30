@@ -41,6 +41,25 @@ timeline:
     body: Relics are transferred to the women's convent at Eschau in Alsace, where they have since been preserved; the cult subsequently spreads into Germany.
 patronage:
   - Widows (Sophia became the patroness of widows)
+family:
+  intro: Sophia and her three daughters are commemorated together; the daughters bear the names of the theological virtues.
+  figures:
+    - name: Faith (Pistis / Vera)
+      note: Daughter, martyred at age twelve
+      commemorated: false
+    - name: Hope (Elpis / Nadezhda)
+      note: Daughter, martyred at age ten
+      commemorated: false
+    - name: Love (Agape / Lyubov)
+      note: Daughter, martyred at age nine
+      commemorated: false
+companions:
+  - name: Antiochus
+    note: The official who denounced the family to the emperor
+    commemorated: false
+  - name: Emperor Hadrian
+    note: Under whom the daughters were martyred at Rome
+    commemorated: false
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2024/09/17/102638-martyr-sophia-and-her-three-daughters-at-rome

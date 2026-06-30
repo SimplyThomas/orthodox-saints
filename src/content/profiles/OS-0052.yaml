@@ -57,6 +57,68 @@ sections:
 patronage:
   - Invoked for spiritual discernment and guidance
   - Invoked for the healing of the sick
+family:
+  figures:
+    - name: Leonidas Bairaktaris
+      note: Father
+      commemorated: false
+    - name: Eleni Bairaktari
+      note: Mother
+      commemorated: false
+    - name: Brothers and sisters
+      note: His siblings
+      commemorated: false
+companions:
+  - name: Elder Panteleimon
+    note: One of his spiritual fathers at the skete of Kafsokalyvia
+  - name: Elder Ioannikios
+    note: One of his spiritual fathers at the skete of Kafsokalyvia
+  - name: Paisios the Athonite
+    note: Fellow Athonite elder and wonderworker
+    href: saint/OS-0051
+  - name: Iakovos (Tsalikis)
+    note: Contemporary Greek elder of Evia
+    href: saint/OS-2585
+  - name: Sophrony (Sakharov)
+    note: Contemporary elder and theologian of prayer
+    href: saint/OS-2587
+  - name: Amphilochios (Makris)
+    note: Contemporary Greek elder of Patmos
+    href: saint/OS-2586
+  - name: Nektarios of Aegina
+    note: Greek wonderworker of the modern era
+    href: saint/OS-0046
+related:
+  - name: Silouan the Athonite
+    note: Athonite elder and witness to humble love
+    href: saint/OS-0087
+  - name: Joseph the Hesychast
+    note: Athonite renewer of hesychast prayer
+    href: saint/OS-2584
+  - name: Gregory Palamas
+    note: Athonite hierarch and defender of hesychasm
+    href: saint/OS-0025
+  - name: Seraphim of Sarov
+    note: Beloved Russian elder and wonderworker
+    href: saint/OS-0043
+  - name: John of Kronstadt
+    note: Russian wonderworking pastor of the modern era
+    href: saint/OS-0045
+reading:
+  - heading: Principal Source
+    items:
+      - title: Wounded by Love
+        type: The definitive collection of his teachings, compiled posthumously from recorded conversations, letters, and notes
+  - heading: Other
+    items:
+      - title: Counsels on the Spiritual Life
+      - title: Letters of St. Porphyrios
+      - title: "Elder Porphyrios: Testimonies and Experiences"
+      - title: The Life of Elder Porphyrios
+        author: Holy Convent of Chrysopigi
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 sources:
   - OCA Synaxarion (oca.org)
   - Ecumenical Patriarchate glorification (2013)

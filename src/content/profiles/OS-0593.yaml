@@ -47,6 +47,10 @@ sections:
     body:
       - "Historically Documented: Cyril is venerated in the Russian Church as a wonderworker, and the November 7 commemoration of the finding of his relics reflects the enduring veneration of his community."
       - "Traditional Accounts: Hagiographic tradition surrounds his life with signs of divine favor, including the account that as an infant in his mother's womb he cried out 'Holy, Holy, Holy, Lord of Sabaoth' during the Divine Liturgy, the apparition of the Mother of God at Tikhvin, and the vision of a pillar of fire that led him to found his monastery."
+companions:
+  - name: Cornelius of Komel
+    note: Spiritual father and abbot who received the fifteen-year-old Cyril, tonsured him, and shaped his monastic formation.
+    href: saint/OS-1205
 sources:
   - OCA Synaxarion (oca.org), Feb 4
   - https://ru.wikipedia.org/wiki/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB_%D0%9D%D0%BE%D0%B2%D0%BE%D0%B5%D0%B7%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9

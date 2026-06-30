@@ -39,6 +39,45 @@ works:
     date: early 7th century
   - title: Letter to the Shepherd (Pastor)
     desc: A companion work addressed to John of Raithu, offering guidance to abbots on the pastoral care of their communities.
+companions:
+  - name: Martyrius of Sinai
+    note: Elder who tonsured and guided him as a novice
+  - name: George of Arselaos
+    note: Abbot and fellow ascetic at Sinai
+    commemorated: false
+  - name: Monks of St. Catherine's Monastery
+    note: The Sinai community he later governed as abbot
+  - name: Anastasius of Sinai
+    note: Sinai monastic father and writer
+    href: saint/OS-1029
+related:
+  - name: Anthony the Great
+    note: Father of the desert tradition
+    href: saint/OS-0026
+  - name: Macarius the Great
+    note: Father of the Egyptian desert
+    href: saint/OS-0029
+  - name: Isaac the Syrian
+    note: Fellow master of the interior life
+    href: saint/OS-0032
+  - name: Ephraim the Syrian
+    note: Fellow ascetical father
+    href: saint/OS-0031
+  - name: Maximus the Confessor
+    note: Theological master of the spiritual life
+    href: saint/OS-0503
+  - name: Symeon the New Theologian
+    note: Heir in the mystical tradition
+    href: saint/OS-0035
+  - name: Gregory Palamas
+    note: Later Hesychast heir
+    href: saint/OS-0025
+  - name: Paisios the Athonite
+    note: Modern saint who embodied The Ladder
+    href: saint/OS-0051
+  - name: Joseph the Hesychast
+    note: Modern saint who embodied The Ladder
+    href: saint/OS-2584
 status: reviewed
 sources:
   - Synaxarion

@@ -21,5 +21,14 @@ sections:
     body:
       - Cainan has no individual biography in the Orthodox synaxarion; he is honored corporately among the Holy Forefathers rather than for any recorded deeds of his own. His commemoration falls on the Sunday of the Holy Forefathers, the second Sunday before the Nativity of Christ, on which the Church celebrates the patriarchs, prophets, kings, and righteous ancestors who lived before and under the Law.
       - The liturgical texts of that Sunday present these forefathers as having been justified by faith and as having prepared, through their descent, the way for Christ's coming. Cainan is numbered among the antediluvian patriarchs of the line of Seth who are recalled in this commemoration.
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Enos
+      note: His father in the genealogy of Christ.
+      href: saint/OS-2528
+    - name: Righteous Forefather Mahalaleel
+      note: Son; the line continued through him.
+      href: saint/OS-2530
 status: draft
 generated: "2026-06-21"

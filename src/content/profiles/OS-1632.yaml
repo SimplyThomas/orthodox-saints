@@ -13,6 +13,15 @@ sections:
   - heading: The Dalmatian Monastery
     body:
       - The monastery in which Faustus lived was founded by Saint Isaac of Dalmatia, who became its first abbot. Upon Isaac's death, leadership passed to his disciple Dalmatus, after whom the community came to be called the Dalmatian Monastery. Faustus belonged to this same line of succession, following his father as its head.
+family:
+  figures:
+    - name: Venerable Dalmatus the Ascetic
+      note: "Father: the former soldier with whom Faustus took monastic tonsure and whom he succeeded as igumen of the Dalmatian Monastery."
+      href: saint/OS-1631
+companions:
+  - name: Isaac the Confessor of Dalmatos
+    note: "Teacher: the founder of the monastery who tonsured both Faustus and his father Dalmatus."
+    href: saint/OS-0863
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/08/03/102191-venerable-faustus-the-ascetic-of-the-dalmatian-monastery-at-cons

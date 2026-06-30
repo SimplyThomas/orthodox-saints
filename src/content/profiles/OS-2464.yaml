@@ -31,6 +31,11 @@ timeline:
     body: He dies at Gangra, having withdrawn there during his exile.
 patronage:
   - Confessor and defender of Orthodox doctrine and Chalcedon
+family:
+  figures:
+    - name: Saint Gennadius, Patriarch of Constantinople
+      note: By tradition the earlier patriarch of Constantinople and Macedonius's uncle.
+      href: saint/OS-1811
 status: draft
 sources:
   - OrthodoxWiki

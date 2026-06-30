@@ -37,6 +37,13 @@ timeline:
   - when: "843"
     title: Triumph of Orthodoxy
     body: Icon veneration is restored under Empress Theodora at the Council of Constantinople, vindicating the cause for which Eustathius and his fellow confessors suffered.
+related:
+  - name: "Hieromartyr Euthymius, Bishop of Sardis"
+    note: Fellow 9th-century bishop and confessor for the holy icons, exiled and ultimately martyred in the same second period of Iconoclasm.
+    href: saint/OS-2413
+  - name: Saint Niketas the Confessor of Paphlagonia
+    note: Fellow 9th-century confessor who endured exile and persecution in defense of the veneration of the holy icons.
+    href: saint/OS-2015
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

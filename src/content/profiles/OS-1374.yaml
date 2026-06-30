@@ -1,4 +1,31 @@
 id: OS-1374
+family:
+  heading: Household of Elder Moses
+  intro: Moses entered the Roslavl Forest with his younger brother, who became an Optina elder beside him.
+  figures:
+    - name: Venerable Anthony of Optina
+      note: Younger brother (Alexander Putilov), who joined him in the Roslavl Forest and became Elder Anthony of Optina.
+      href: saint/OS-1662
+companions:
+  - name: St. Seraphim of Sarov
+    note: Wonderworker of Sarov who blessed him to take up the monastic life.
+    href: saint/OS-0043
+  - name: Venerable Leonid of Optina
+    note: First of the great Optina elders, whom he invited to Optina and to whose guidance he submitted.
+    href: saint/OS-2003
+  - name: St. Macarius of Optina
+    note: Optina elder of the line of eldership he established at the monastery.
+    href: saint/OS-0294
+  - name: Saint Theophanes of the Roslavl Forests
+    note: Roslavl Forest ascetic whose forty-day fast he documented and whose repose he attended.
+    href: saint/OS-1367
+related:
+  - name: Venerable Paisios Velichkovsky
+    note: Hesychast renewer of whose lineage he was an heir through his elder Athanasius of the Roslavl Forest.
+    href: saint/OS-2199
+  - name: Venerable Nicetas of the Roslavl Forests
+    note: Fellow ascetic of the Roslavl Forest.
+    href: saint/OS-0900
 lifespan: 1782–1862
 overview:
   - Moses of Optina (1782–1862), baptized Timothy Putilov, was the abbot who gathered and built up Optina Monastery during the period of its spiritual flowering, sheltering the great elders and making the house a center of eldership (starchestvo) and charity. Born January 15, 1782, in Borisogleb in the Yaroslavl province of Russia, he was one of five children of John Putilov; his younger brother Alexander would become the Optina elder Anthony.

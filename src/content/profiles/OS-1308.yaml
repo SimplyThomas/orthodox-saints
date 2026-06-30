@@ -26,6 +26,10 @@ sections:
   - heading: Relics & Shrines
     body:
       - In the Western tradition, the bodies of Cyriacus and his fellow deacons were first buried near the place of their execution on the Salarian Way and were soon afterward translated to a farm of the matron Lucina on the Ostian Road. This translation is recorded under August 8 in the ancient Liberian Calendar of Rome.
+companions:
+  - name: Hieromartyr Marcellinus, Pope of Rome
+    note: "Ordained by: Bishop Marcellinus of Rome, who ordained Sisinius a deacon of the Church of Rome."
+    href: saint/OS-1307
 patronage: []
 status: draft
 generated: "2026-06-19"

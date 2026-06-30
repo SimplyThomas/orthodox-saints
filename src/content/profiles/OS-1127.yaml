@@ -36,8 +36,11 @@ patronage:
   - Those striving for non-attachment and simplicity
 companions:
   - name: Saint Joseph of Volokolamsk
-    note: Contemporary abbot who defended monastic landholding against the Non-Possessors
-    external: https://en.wikipedia.org/wiki/Joseph_of_Volokolamsk
+    note: Contemporary abbot whose defense of monastic landholding opposed Nilus and the Non-Possessors at the council of 1503
+    href: saint/OS-0330
+  - name: Saint Innocent of Komel and Vologda
+    note: Disciple who travelled with Nilus to the Christian East and afterward founded his own monastery on the Nurma
+    href: saint/OS-0849
 works:
   - title: The Tradition (Predanie)
     desc: An instruction for a disciple wishing to live the skete and wilderness life.

@@ -33,6 +33,13 @@ family:
     - name: Apostle Barnabas
       note: Brother of Aristobulus; an apostle and companion of Paul.
       href: saint/OS-1331
+companions:
+  - name: Apostle Paul
+    note: Co-worker whom Aristobulus, like his brother Barnabas, is said by tradition to have accompanied in preaching the Gospel westward.
+    href: saint/OS-2749
+  - name: Apostles Stachys, Apelles, Amplias, Urban, and Narcissus of the Seventy
+    note: Fellow helpers of the Apostle Andrew and Apostles of the Seventy, grouped with Aristobulus in the synaxaria and commemorated together on October 31.
+    href: saint/OS-2121
 patronage:
   - Britain
 sources:

@@ -46,6 +46,20 @@ timeline:
     title: Canonized
     body: He was formally canonized by the Russian Orthodox Church at the Moscow Council of 1549.
     source: https://en.wikipedia.org/wiki/Euthymius_II_of_Novgorod
+companions:
+  - name: Saint Jonah, Metropolitan of Moscow
+    note: "Contemporary hierarch: Metropolitan of Moscow and All Russia whose letter of absolution, arriving after Euthymius's repose, occasioned the discovery of his incorrupt relics."
+    href: saint/OS-0908
+related:
+  - name: Saint Moses, Archbishop of Novgorod
+    note: "Fellow hierarch of the see of Novgorod: an earlier archbishop likewise renowned for building churches and monasteries for the city."
+    href: saint/OS-0533
+  - name: Saint John of Novgorod
+    note: "Fellow hierarch of the see of Novgorod: an archbishop and wonderworker of the same see in an earlier century."
+    href: saint/OS-0289
+  - name: Saint Serapion, Archbishop of Novgorod
+    note: "Fellow hierarch of the see of Novgorod: a later archbishop of the same see."
+    href: saint/OS-0830
 patronage:
   - Wonderworker and hierarch of Novgorod
   - Patron of church-building and sacred art

@@ -29,7 +29,10 @@ patronage:
 companions:
   - name: Saint Grigol (Gregory) of Khandzta
     note: His teacher, leader of the ninth-century Georgian monastic revival
-    external: https://en.wikipedia.org/wiki/Grigol_of_Khandzta
+    href: saint/OS-1966
+  - name: Saint Arsenius the Great, Catholicos of Georgia
+    note: "Fellow disciple: formed in the same ninth-century Khandzta monastic revival of the Georgian Church"
+    href: saint/OS-1907
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/all-lives/2021/04/15

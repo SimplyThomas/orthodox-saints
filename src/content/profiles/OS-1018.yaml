@@ -27,5 +27,13 @@ sections:
       - The defining feature of this commemoration is its link to Saint George the Great Martyr, whose own feast falls on April 23. The synaxarion presents Christopher, Theonas, and Anthony as soldiers who stood near George during his sufferings and were converted by what they saw and heard. One Greek source specifies that their conversion followed George's raising of a dead man through prayer, after which they immediately discarded the insignia of their military rank.
       - Because the sources treat the three together and offer little biographical detail apart from this shared episode, the Orthodox calendar keeps them as a single joint commemoration rather than three separate lives. A Greek synaxarial source records their feast on April 20, while the Orthodox Church in America commemorates them on April 19.
 patronage: []
+companions:
+  - name: George the Great-Martyr
+    note: "Witnessed: soldiers converted by seeing George's steadfastness and the signs at his trial, whereupon they confessed Christ before the emperor"
+    href: saint/OS-0012
+related:
+  - name: Martyrs Victor, Zoticus, and their companions of Nicomedia
+    note: "Same conversion episode: another company likewise moved to confess Christ by witnessing the Great-Martyr George under torture"
+    href: saint/OS-1012
 status: draft
 generated: "2026-06-19"

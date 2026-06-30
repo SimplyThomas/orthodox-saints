@@ -20,5 +20,9 @@ sections:
   - heading: Repose
     body:
       - George the God-Bearer reposed in 1068, the sources note, after the death of his disciple George of the Holy Mountain, who died in 1065. His feast is kept on July 3.
+companions:
+  - name: George of Mount Athos (the Hagiorite)
+    note: His disciple, whom he trained for three years on the Black Mountain before sending him to Iveron to continue the Georgian translation work
+    href: saint/OS-1438
 status: draft
 generated: 20260619_b13

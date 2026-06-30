@@ -24,6 +24,15 @@ sections:
   - heading: Traditional Accounts
     body:
       - Later hagiographic tradition identifies Salome more fully as a princess of the Armenian Arsacid dynasty, by some accounts a daughter of King Tiridates III, whose birth name was Beoun before her marriage. Such details belong to the traditional embellishment of her story and are not all firmly attested; the secure core of the record is simply that she and Perozhavra were Georgian noblewomen and companions of Saint Nino.
+family:
+  figures:
+    - name: Mirian and Nana of Georgia
+      note: "In-laws: Salome married Rev (Revi), son of King Mirian III and Queen Nana of Iberia."
+      href: saint/OS-1935
+companions:
+  - name: Nina (Nino), Enlightener of Georgia
+    note: "Teacher: St Nino, who converted both women and counted them among her closest helpers; Perozhavra is said to have been present at her deathbed."
+    href: saint/OS-0039
 reading:
   - heading: Further Reading
     items:

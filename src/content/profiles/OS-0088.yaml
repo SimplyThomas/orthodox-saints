@@ -46,6 +46,19 @@ timeline:
     body: Chariton dies at an advanced age in the Judean desert and is buried at the Pharan monastery.
 patronage:
   - Patron saint of Konya (Iconium)
+related:
+  - name: Thekla the Protomartyr
+    note: Fellow native of Iconium, whose example inspired him in his youth
+    href: saint/OS-0010
+  - name: Euthymius the Great
+    note: Later father of the Judean desert monasticism he pioneered
+    href: saint/OS-0494
+  - name: Savva the Sanctified
+    note: Later organizer of the Judean desert lavras after his pattern
+    href: saint/OS-2304
+  - name: Theodosius the Cenobiarch
+    note: Father of cenobitic life in the same Judean wilderness
+    href: saint/OS-0430
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Chariton_the_Confessor

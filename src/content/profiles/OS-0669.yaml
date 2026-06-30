@@ -37,6 +37,13 @@ timeline:
   - when: "415"
     title: Schism healed
     body: The Eustathian schism was fully resolved under Alexander of Antioch, more than a decade after Flavian's death.
+companions:
+  - name: Saint Meletius, Archbishop of Antioch
+    note: His bishop, who ordained him to the priesthood and whom Flavian succeeded on the throne of Antioch in 381.
+    href: saint/OS-0640
+  - name: St. John Chrysostom
+    note: Contemporary and ally at Antioch, whom Flavian ordained priest; as Patriarch of Constantinople, Chrysostom later brokered Flavian's recognition as sole legitimate Patriarch of Antioch in 399.
+    href: saint/OS-0023
 sources:
   - OCA Synaxarion (oca.org), Feb 16
   - https://en.wikipedia.org/wiki/Flavian_I_of_Antioch

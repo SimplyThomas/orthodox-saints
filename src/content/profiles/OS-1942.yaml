@@ -63,5 +63,19 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/03/102758-hieromartyr-dionysius-the-areopagite-bishop-of-athens
   - https://orthodoxwiki.org/Dionysius_the_Areopagite
   - https://www.johnsanidopoulos.com/search?q=Dionysius+Areopagite
+companions:
+  - name: Rusticus the Presbyter and Eleutherius the Deacon
+    note: His fellow martyrs, put to death with him; commemorated together on October 3.
+    href: saint/OS-1943
+related:
+  - name: Apostle Paul
+    note: Converted him to Christ at the Areopagus in Athens (Acts 17:34).
+    href: saint/OS-2749
+  - name: Hierotheus, Bishop of Athens
+    note: His teacher, a fellow Areopagite converted by Paul who instructed him in the divine mysteries.
+    href: saint/OS-1948
+  - name: Damaris of Athens
+    note: An Athenian converted by the Apostle Paul at the same preaching at the Areopagus (Acts 17:34).
+    href: saint/OS-1947
 status: draft
 generated: "2026-06-22"

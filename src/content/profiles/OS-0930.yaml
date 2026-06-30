@@ -52,6 +52,13 @@ companions:
   - name: Nicholas of Myra
     note: Appeared to Joseph during his captivity, according to tradition.
     href: saint/OS-0019
+related:
+  - name: Apostle Bartholomew
+    href: saint/OS-1330
+    note: The Apostle whose relics Joseph venerated and who, by tradition, appeared to him in a vision and inspired his hymn-writing.
+  - name: Niketas the Confessor of Medikion
+    href: saint/OS-0925
+    note: The iconodule confessor of Medikion for whom Joseph composed a liturgical Canon.
 patronage:
   - Hymnographers and church singers
 status: draft

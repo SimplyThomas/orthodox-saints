@@ -32,5 +32,14 @@ timeline:
   - when: Antediluvian era
     title: Death at 969 years
     body: Methuselah dies at the age of nine hundred and sixty-nine years, the longest life recorded in Scripture (Genesis 5:27).
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Enoch
+      note: His father, who walked with God.
+      href: saint/OS-2532
+    - name: Righteous Forefather Lamech
+      note: Son; the line continued through him to Noah.
+      href: saint/OS-2534
 status: draft
 generated: "2026-06-21"

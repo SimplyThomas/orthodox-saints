@@ -36,23 +36,30 @@ sections:
     body:
       - The documented core of her life — her consecrated vocation, her standing in Paris, her relief work, her ties to church and civic leaders — is distinguished in the sources from the miraculous traditions (prophetic insight, healings, the protection of Paris from Attila, the multiplication of food) that derive chiefly from the Vita Sanctae Genovefae and later hagiography.
 companions:
-  - name: Righteous Queen Clotilde
-    note: queen who helped establish Christian France
-    href: saint/OS-2691
+  - name: Germanus of Auxerre
+    note: Bishop who recognized her vocation and encouraged her as a child at Nanterre
+    commemorated: false
   - name: Saint Lupus, Bishop of Troyes
-    note: companion of Germanus of Auxerre
+    note: Who passed through Nanterre with Germanus and blessed her
     href: saint/OS-2689
+  - name: Righteous Queen Clotilde
+    note: Frankish queen of her era who helped establish Christian France
+    href: saint/OS-2691
+  - name: Symeon the Stylite
+    note: The Syrian pillar-saint with whom she is said to have corresponded
+    href: saint/OS-0034
+related:
   - name: Saint Brigid of Kildare
-    note: influential woman saint of the West
+    note: Influential consecrated woman of the early Western Church
     href: saint/OS-0080
   - name: Venerable Radegund of Poitiers
     note: Frankish royal saint devoted to charity
     href: saint/OS-2692
   - name: Venerable Melania the Younger
-    note: ascetic woman of Late Antiquity
+    note: Ascetic woman of Late Antiquity
     href: saint/OS-2438
   - name: Saint Caesarius of Arles
-    note: major church leader of the same era
+    note: Major church leader of the same era
     href: saint/OS-1794
 patronage:
   - The city of Paris and France

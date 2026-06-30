@@ -26,5 +26,16 @@ sections:
       - Josiah is numbered among the genealogy of Jesus Christ as recorded in the Gospel of Matthew, and so among the ancestors of the Lord according to the flesh. The Orthodox Church commemorates him with the Holy Forefathers, the righteous men and women who lived before the Law and under the Law and whose faith prepared for the coming of Christ.
       - This commemoration is observed especially on the Sunday of the Holy Forefathers, the Sunday falling between December 11 and 17 before the Nativity, when the Church remembers the ancestors of Christ together, particularly the Patriarch Abraham, to whom God promised that in his seed all the nations of the earth would be blessed.
 patronage: []
+family:
+  figures:
+    - name: Amon
+      note: His father, king of Judah, after whose assassination the eight-year-old Josiah came to the throne.
+related:
+  - name: Prophet-King David
+    note: His forefather; Josiah, the most thoroughgoing of Judah's reforming kings, reigned in the line of David and is named in the genealogy of Christ (Matthew 1:10-11).
+    href: saint/OS-2421
+  - name: Prophet-King Solomon
+    note: His ancestor in the Davidic succession of the kings of Judah.
+    href: saint/OS-2357
 status: draft
 generated: "2026-06-21"

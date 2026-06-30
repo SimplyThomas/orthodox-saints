@@ -28,6 +28,19 @@ sections:
     body:
       - Anastasia is associated with Studenica Monastery, the great foundation of her husband, where her veneration was maintained within the monastic community. Frescoes painted during a restoration of the monastery's principal church in 1569 include a portrait depicting Nemanja's wife Ana as the nun Anastasia, a witness to her enduring commemoration.
       - Tradition records that a reliquary containing her relics is kept at Studenica. She is honored as a venerable mother in the Eastern Orthodox Church and especially in the Serbian Orthodox tradition.
+family:
+  heading: The Nemanjić House
+  intro: Anastasia stood at the heart of the family that gave the Serbian people both its ruling dynasty and its independent Church.
+  figures:
+    - name: Venerable Symeon the Myrrh-gusher of Serbia
+      note: Husband; Grand Prince Stefan Nemanja, founder of the Nemanjić dynasty, who abdicated in 1196 and was tonsured the monk Symeon.
+      href: saint/OS-0653
+    - name: St. Sava I, First Archbishop of Serbia
+      note: Son; born Rastko, who withdrew to Mount Athos as the monk Sava and organized the autocephalous Serbian Church.
+      href: saint/OS-0449
+    - name: Saint Stephen the First-Crowned of Serbia
+      note: Son; Stefan, who succeeded his father and became the first crowned king of Serbia.
+      href: saint/OS-1904
 patronage:
   - Mothers
   - Serbia

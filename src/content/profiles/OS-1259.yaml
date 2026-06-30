@@ -41,6 +41,9 @@ companions:
   - name: St. Benedict of Aniane
     note: Monastic reformer to whose direction William entrusted the new monastery of Gellone.
     href: saint/OS-2776
+  - name: Emperor Charlemagne
+    note: "Kinsman and lord: the emperor to whom William was related and under whom he served as count and commander before entering monastic life; by tradition Charlemagne gave the abbey of Gellone a relic of the True Cross."
+    commemorated: false
 patronage:
   - Soldiers
   - Those turning from worldly power to repentance

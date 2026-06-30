@@ -50,31 +50,56 @@ sections:
   - heading: Wonderworker of Sarov
     body:
       - He is widely called the Wonderworker of Sarov for the many healings and graces associated with his life and continuing veneration. Childhood healing through the Kursk Root Icon, the encounter recorded by Motovilov, and other wonders are central to his received tradition and are best presented as hagiographical tradition rather than documented history.
+family:
+  figures:
+    - name: Isidore Moshnin
+      note: Father, a Kursk merchant
+      commemorated: false
+    - name: Agathia Moshnina
+      note: Mother, known for her devotion
+      commemorated: false
+    - name: Alexei Moshnin
+      note: Brother
+      commemorated: false
 companions:
-  - name: Saint Sergius of Radonezh
-    note: father of Russian monasticism
+  - name: Pachomius of Sarov
+    note: Abbot of Sarov who received him into the monastery
+  - name: Joseph of Sarov
+    note: Elder of Sarov and his spiritual guide
+  - name: Alexandra of Diveyevo
+    note: Founder of the Diveyevo women's community
+  - name: The Diveyevo community
+    note: The women's monastery he guided through his life
+  - name: Nicholas Motovilov
+    note: Layman who recorded his conversation on the Holy Spirit
+    commemorated: false
+  - name: Tsar Nicholas II
+    note: Present with the imperial family at his 1903 glorification
+related:
+  - name: Sergius of Radonezh
+    note: Father of Russian monasticism
     href: saint/OS-0042
-  - name: Saint Herman of Alaska
-    note: Russian monastic of the same age
-    href: saint/OS-0044
-  - name: Saint Ambrose of Optina
-    note: beloved Russian elder
-    href: saint/OS-0074
-  - name: Saint Tikhon of Zadonsk
-    note: Russian bishop and spiritual writer
-    href: saint/OS-1696
-  - name: Saint Theophan the Recluse
+  - name: Paisius Velichkovsky
+    note: Renewer of the Philokalic tradition in Russia
+    href: saint/OS-2199
+  - name: Theophan the Recluse
     note: Russian teacher of inner prayer
     href: saint/OS-0429
-  - name: Saint John of Kronstadt
-    note: later Russian priest and wonderworker
+  - name: John of Kronstadt
+    note: Later Russian priest and wonderworker
     href: saint/OS-0045
-  - name: New Hieromartyr Seraphim (Chichagov)
-    note: his biographer, later a New Martyr
-    href: saint/OS-2269
-  - name: Saint Xenia of St. Petersburg
-    note: beloved Russian saint of hidden holiness
-    href: saint/OS-0047
+  - name: Silouan the Athonite
+    note: Athonite teacher of humility and prayer
+    href: saint/OS-0087
+  - name: Paisios the Athonite
+    note: Modern Athonite elder and wonderworker
+    href: saint/OS-0051
+  - name: Joseph the Hesychast
+    note: Athonite renewer of hesychast prayer
+    href: saint/OS-2584
+  - name: Anthony the Great
+    note: Father of monasticism
+    href: saint/OS-0026
 patronage:
   - Monastics and hermits
   - Spiritual fathers

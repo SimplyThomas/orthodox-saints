@@ -40,6 +40,20 @@ patronage:
   - Patron saint of Wales
   - Honored by monastics for his austere Rule
   - Associated by tradition with poets
+family:
+  heading: Family
+  intro: By the tradition of his Life, David was born of holy and noble Welsh stock.
+  figures:
+    - name: Saint Non
+      note: His mother, by tradition a holy woman of Wales venerated in her own right; David is held to be her son.
+companions:
+  - name: Saint Teilo
+    note: Fellow Welsh saint who, by the tradition of David's Life, accompanied him on pilgrimage to Jerusalem, where the three were consecrated bishops.
+  - name: Saint Padarn
+    note: Fellow Welsh saint and companion with David and Teilo on the traditional pilgrimage to Jerusalem.
+related:
+  - name: Saint Paulinus of Wales
+    note: His teacher, the Welsh master (Paulinus Aurelian) under whom David studied in his youth. (Distinct from Paulinus of Nola and Paulinus of York.)
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

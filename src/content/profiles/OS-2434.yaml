@@ -29,6 +29,15 @@ timeline:
     body: Dies after years of fasting, vigil, and prayer, having worn iron chains; commemorated on December 30.
 patronage: []
 works: []
+family:
+  intro: Born to a long-childless couple who vowed to dedicate her to God; her mother brought her to the monastery of Saint Anna.
+  figures:
+    - name: The patrician Theophilus
+      note: Her father, a Cappadocian nobleman.
+      commemorated: false
+    - name: Theodora the elder
+      note: Her mother, who brought her to the convent of Saint Anna in fulfillment of their vow.
+      commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/12/30/103695-venerable-theodora-of-caesarea-in-cappadocia

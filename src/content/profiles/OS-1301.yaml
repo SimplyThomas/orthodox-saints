@@ -35,5 +35,22 @@ sections:
     body:
       - Hilarion's monastic career unfolded during the second phase of Byzantine Iconoclasm, the imperial campaign against the veneration of religious images that resumed under Leo the Armenian in 815 and continued under Theophilus. As abbot of a prominent Constantinopolitan monastery, he was among the monastic confessors whose resistance to imperial policy carried personal cost, and whose release came only with the restoration of the icons under the Empress Theodora.
       - His formation linked him to Saint Gregory the Dekapolite, a noted monastic teacher of the same period, and his appointment as abbot at the urging of Patriarch Nikephoros placed him within the circle of churchmen who upheld the veneration of icons against the iconoclast court.
+companions:
+  - name: Venerable Gregory the Decapolite
+    note: "Teacher: the noted monastic father under whom Hilarion was formed at the Dalmatus monastery."
+    href: saint/OS-2222
+  - name: Saint Nikephoros the Confessor, Patriarch of Constantinople
+    note: "Consecrated by: persuaded the reluctant Hilarion to accept the abbacy, and a fellow confessor for the holy icons under the iconoclast emperors."
+    href: saint/OS-1273
+related:
+  - name: Isaac the Confessor of Dalmatos
+    note: "Same monastery: the Dalmatus (Dalmaton) monastery of Constantinople, of which Isaac was the founding father and Hilarion a later abbot."
+    href: saint/OS-0863
+  - name: Venerable Theodore the Studite
+    note: "Fellow confessor: a leading Constantinopolitan abbot who likewise resisted the Second Iconoclasm in the same generation."
+    href: saint/OS-2180
+  - name: Venerable John, Disciple of Gregory of Decapolis
+    note: "Fellow disciple: also formed under Saint Gregory the Decapolite."
+    href: saint/OS-0980
 status: draft
 generated: "2026-06-19"

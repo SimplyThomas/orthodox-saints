@@ -4,6 +4,14 @@ lifespan: d. c. 309
 overview:
   - Eubulus was a martyr of Caesarea in Palestine and, by the accounts, the very last to suffer in the great persecution there, about the year 309. He is commemorated on February 3, together with the Martyr Adrian, his companion.
   - By the accounts he had gone to Caesarea to visit and comfort the Christians held in prison, and there he was arrested by the governor Firmilianus. He was given over to the wild beasts and at the last was slain by the sword, and so received the crown of martyrdom.
+companions:
+  - name: Martyr Adrian of Caesarea
+    note: Fellow martyr; suffered with Eubulus at Caesarea in Palestine about 309, the last to die in the persecution there as recorded by Eusebius.
+    href: saint/OS-0585
+related:
+  - name: Martyr Pamphilius the Presbyter and his Companions at Caesarea
+    note: Fellow martyrs of the same Diocletianic persecution at Caesarea in Palestine recorded by Eusebius; Eubulus had come to the city to comfort these imprisoned confessors when he was seized.
+    href: saint/OS-0667
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Feb 3

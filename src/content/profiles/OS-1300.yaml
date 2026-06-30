@@ -30,6 +30,13 @@ timeline:
   - when: 4th–5th century
     title: Death
     body: After a life of severe asceticism and wonderworking in the Egyptian desert, Bessarion departs peacefully to the Lord at a great age.
+companions:
+  - name: Venerable Isidore of Pelusium
+    note: Teacher — the learned monk and priest of Pelusium whose disciple Bessarion became after receiving monastic tonsure.
+    href: saint/OS-0591
+  - name: Gerasimus of the Jordan
+    note: Fellow ascetic — whom Bessarion visited in the wilderness of the Jordan while learning the monastic life among the desert communities there.
+    href: saint/OS-0766
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

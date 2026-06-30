@@ -40,6 +40,17 @@ sections:
     body:
       - Susanna's life was recorded by her confessor Iakob (Yakov) of Tsurtavi, a contemporary and participant in the events, who composed The Martyrdom of the Holy Queen Shushanik. This work is regarded as the earliest surviving piece of original Georgian literature, written within a few years of her death.
       - The text survives in eleven manuscripts, the earliest being a tenth-century codex, and saw its first printed edition in 1882. In 1979 the 1,500th anniversary of her martyrdom was internationally commemorated, and the work has been translated into several European languages. Beyond the Georgian Church she is also venerated within the Armenian tradition.
+family:
+  figures:
+    - name: Vardan Mamikonian
+      note: Father; the Armenian military commander who led the Christian resistance to Persian Zoroastrian domination, in whose devout household Susanna was raised.
+      commemorated: false
+    - name: Varsken
+      note: Husband; the regional ruler who apostatized to Zoroastrianism and, when Susanna refused to follow him, imprisoned and ill-treated her until her death.
+      commemorated: false
+companions:
+  - name: Iakob of Tsurtavi
+    note: Confessor and chronicler; her priest and a contemporary witness, who recorded her sufferings in The Martyrdom of the Holy Queen Shushanik, the earliest surviving work of Georgian literature.
 patronage: []
 status: draft
 generated: "2026-06-19"

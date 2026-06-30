@@ -45,6 +45,13 @@ family:
 patronage:
   - Confessors and those who suffer for the faith
   - Honored among ascetics and pillar-dwellers (stylites).
+related:
+  - name: Symeon the Stylite
+    note: The first and greatest of the stylites, whose pillar-discipline he took up
+    href: saint/OS-0034
+  - name: Daniel the Stylite
+    note: Fellow pillar-ascetic in the stylite tradition
+    href: saint/OS-2333
 status: reviewed
 sources:
   - Synaxarion

@@ -36,6 +36,16 @@ sections:
       - "The monastery of Choziba preserves the relics of three of its saints: John of Choziba, George of Choziba, and the more recent John (Iacob) the Romanian (1913-1960)."
 patronage: []
 works: []
+companions:
+  - name: Antony of Choziba
+    note: "Disciple: George's disciple who composed his Life and recorded eyewitness accounts of the Persian invasion of 614."
+related:
+  - name: Saint John the Chozebite, Bishop of Caesarea
+    note: "Founder of Choziba: the John of Choziba who organized the community George later governed; his relics rest at the monastery beside George's."
+    href: saint/OS-1945
+  - name: Saint John Jacob the Chozebite
+    note: "Same monastery, later era: a twentieth-century Romanian hermit of Choziba whose incorrupt relics are kept alongside George's."
+    href: saint/OS-1651
 reading:
   - heading: Further Reading
     items:

@@ -36,6 +36,13 @@ timeline:
   - when: "1292"
     title: End of episcopate
     body: Jacob's tenure as archbishop ended; he was succeeded in office by Jevstatije II.
+related:
+  - name: St. Eustathius I, Archbishop of Serbia
+    note: Immediate predecessor in the see; Jacob succeeded Eustathius I as Archbishop of Serbia and Metropolitan of Peć in 1286.
+    href: saint/OS-0386
+  - name: St. Sava I, First Archbishop of Serbia
+    note: Founder of the autocephalous Serbian Church (1219), in whose line of successor-archbishops Jacob served.
+    href: saint/OS-0449
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Feb 3

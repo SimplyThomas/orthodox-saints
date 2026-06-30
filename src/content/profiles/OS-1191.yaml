@@ -1,4 +1,14 @@
 id: OS-1191
+companions:
+  - name: Enda of Aran
+    note: Abbot of the Aran Islands whom, by tradition, Brendan visited to seek counsel and a blessing before his great sea voyage.
+    href: saint/OS-0861
+  - name: Erc of Slane
+    note: The bishop who, by tradition, baptized the infant Brendan; an early Irish saint not yet in this database.
+related:
+  - name: Venerable Comgall of Bangor
+    note: A leading founder of the same sixth-century Irish monastic generation (the 'Twelve Apostles of Ireland'), associated with Brendan in the Irish tradition.
+    href: saint/OS-1143
 liturgicalTitle: Our Venerable Father Brendan the Navigator, Abbot of Clonfert
 lifespan: c. 484 – c. 577
 overview:

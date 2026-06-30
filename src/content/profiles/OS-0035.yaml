@@ -36,6 +36,45 @@ works:
     desc: Treatises and catechetical discourses on the spiritual life, several of which were later gathered into the Philokalia.
 patronage:
   - Monastics and those seeking spiritual guidance
+companions:
+  - name: Symeon the Studite
+    note: Spiritual father
+  - name: Nikita Stethatos
+    note: Disciple, editor, and biographer
+  - name: Stephen of Nicomedia
+    note: Archbishop who opposed his teaching
+    commemorated: false
+  - name: Sergius II of Constantinople
+    note: Patriarch of his era
+    commemorated: false
+  - name: Monks of St. Mamas
+    note: Community he governed as abbot
+    commemorated: false
+related:
+  - name: John the Theologian
+    note: Fellow bearer of the title "the Theologian"
+    href: saint/OS-0005
+  - name: Gregory the Theologian
+    note: Fellow bearer of the title "the Theologian"
+    href: saint/OS-0022
+  - name: John Climacus
+    note: Major spiritual predecessor
+    href: saint/OS-0033
+  - name: Isaac the Syrian
+    note: Major spiritual predecessor
+    href: saint/OS-0032
+  - name: Maximus the Confessor
+    note: Theological predecessor
+    href: saint/OS-0503
+  - name: Gregory Palamas
+    note: Later theological heir
+    href: saint/OS-0025
+  - name: Paisios the Athonite
+    note: Modern heir to his tradition
+    href: saint/OS-0051
+  - name: Joseph the Hesychast
+    note: Modern heir to his tradition
+    href: saint/OS-2584
 status: reviewed
 sources:
   - Synaxarion

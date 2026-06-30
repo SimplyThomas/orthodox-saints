@@ -39,6 +39,10 @@ sections:
       - No independent Life of Germanus survives, and there is no separate hagiographic article devoted to him; he is documented exclusively as Cassian's companion, both in Cassian's own Institutes and Conferences and in synaxarion entries centered on Cassian.
       - The tradition that Germanus was ordained priest is not confirmed by the external sources surveyed, which give no details of his ordination. His death date, place of repose, and relics are likewise unknown from the extant record.
 patronage: []
+companions:
+  - name: Saint John Cassian the Roman
+    note: Germanus's inseparable friend and relative, with whom he shared a single monastic journey from Tomis to Bethlehem, the Egyptian desert, Constantinople, and Rome.
+    href: saint/OS-0741
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2000/02/29/100597-venerable-germanus-of-dacia-pontica

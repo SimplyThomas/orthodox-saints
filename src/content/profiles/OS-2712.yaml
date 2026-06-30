@@ -57,5 +57,16 @@ companions:
     external: https://en.wikipedia.org/wiki/Aidan_of_Lindisfarne
 patronage:
   - Tynemouth
+family:
+  heading: Family and Kinship
+  intro: Of the royal house of Deira, son of Osric.
+  figures:
+    - name: Saint Eanflaed of Whitby
+      note: His second cousin and queen of Northumbria, who in penance for his killing persuaded King Oswiu to found Gilling Abbey to pray for Oswine's soul.
+      href: saint/OS-2773
+related:
+  - name: Saint Oswald of Northumbria
+    note: King and martyr whose death divided Northumbria, after which Oswine ruled Deira; both kings were close supporters of Bishop Aidan's mission from Lindisfarne.
+    href: saint/OS-1650
 status: draft
 generated: "2026-06-21"

@@ -43,6 +43,13 @@ patronage:
 works:
   - title: Introductions to the Philokalic Fathers
     desc: Forewords and instructions composed for the writings of teachers such as Gregory of Sinai and Nilus of Sora on watchfulness and the prayer of the heart.
+related:
+  - name: Venerable Gregory of Sinai
+    note: Philokalic teacher of the prayer of the heart for whose writings Basil composed introductions
+    href: saint/OS-1671
+  - name: Venerable Nilus of Sora
+    note: Russian teacher of inner watchfulness and non-acquisition to whose works Basil wrote forewords
+    href: saint/OS-1127
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/04/25/149026-saint-basil-of-poiana-marului

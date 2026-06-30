@@ -47,6 +47,12 @@ family:
       commemorated: false
     - name: Begga
       note: Her sister, who married Ansegisel.
+related:
+  - name: Saint Amand of Maastricht
+    note: Missionary bishop who encouraged her mother Itta's foundation of the monastery of Nivelles.
+    href: saint/OS-0610
+  - name: Foillan of Fosses
+    note: Irish monk welcomed at Nivelles on his way to Péronne, whose relics were brought to the monastery after his murder.
 patronage:
   - Travelers and pilgrims
   - Gardeners

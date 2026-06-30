@@ -39,6 +39,16 @@ timeline:
   - when: May 23, 1972
     title: Glorification
     body: The Church of Constantinople formally glorifies Saint Lydia.
+companions:
+  - name: Apostle Paul
+    note: The apostle whose riverside preaching at Philippi converted her; she and her household were baptized, the first recorded converts in Europe (Acts 16).
+    href: saint/OS-2749
+  - name: Apostles Silas and Silvanus
+    note: Paul's companion on the second missionary journey, present at Philippi at her conversion and afterward lodged in her home.
+    href: saint/OS-1608
+  - name: Apostle Timothy of the Seventy
+    note: Paul's companion at Philippi when Lydia received the faith, who likewise lodged with her household.
+    href: saint/OS-0512
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Lydia_of_Thyatira

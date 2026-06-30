@@ -23,6 +23,12 @@ companions:
   - name: Venerable Euphrosynus, Abbot of Pskov
     note: His spiritual father, founder of the Spaso-Eleazarovsky Monastery
     href: saint/OS-1178
+  - name: Venerable Serapion of Pskov
+    note: Fellow disciple of St Euphrosynus of Pskov, a monk of the same Spaso-Eleazar Monastery.
+    href: saint/OS-0292
+  - name: Venerable Dositheus, Abbot of Verkneostrov
+    note: Fellow disciple of St Euphrosynus of Pskov who founded the Peter and Paul Monastery on Lake Pskov.
+    href: saint/OS-1978
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

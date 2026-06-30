@@ -36,6 +36,25 @@ timeline:
 patronage:
   - Married women and mothers
   - Christian family life
+family:
+  heading: The Family of Nazianzus
+  intro: Gorgonia belonged to one of the most distinguished Christian families of the fourth century; her parents and both her brothers are numbered among the saints.
+  figures:
+    - name: Saint Gregory of Nazianzus the Elder
+      note: Her father, bishop of Nazianzus.
+      href: saint/OS-2756
+    - name: Righteous Nonna, Mother of Saint Gregory the Theologian
+      note: Her mother, likened by Gregory to Sarah.
+      href: saint/OS-1647
+    - name: St. Gregory the Theologian
+      note: Her brother, who delivered her funeral oration (Oration VIII, On his Sister Gorgonia).
+      href: saint/OS-0022
+    - name: Righteous Caesarius of Nazianzus
+      note: Her brother, a physician who served at the imperial court.
+      href: saint/OS-0801
+    - name: Alypius of Iconium
+      note: Her husband, with whom she raised five children.
+      commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://orthodoxwiki.org/Gorgonia

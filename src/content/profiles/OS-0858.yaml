@@ -31,6 +31,13 @@ sections:
     body:
       - The troubles foretold in Thomas's lifetime are recorded as following soon after his death. His successor, Patriarch Sergius I, embraced the heresy of Monothelitism, and war with Persia devastated Byzantine Asia Minor, leading to the fall of Jerusalem and the capture of the True Cross by the Persians.
       - Thomas is commemorated by the Church on March 21.
+companions:
+  - name: St. Theodore the Sykeote, Bishop of Anastasiopolis
+    note: Ascetic of Galatia whom Thomas esteemed as a spiritual brother and whose prayers he sought; Theodore interpreted the portent of the shaking crosses during his patriarchate.
+    href: saint/OS-1039
+  - name: St. John the Faster, Patriarch of Constantinople
+    note: Patriarch under whom Thomas served as deacon and sakellarios of Hagia Sophia.
+    href: saint/OS-0124
 patronage: []
 status: draft
 generated: 2026-06-21-b3

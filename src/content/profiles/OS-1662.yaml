@@ -46,6 +46,16 @@ family:
     - name: Venerable Moses of Optina
       note: His elder brother and spiritual guide, Superior of Optina Monastery, beside whom he was buried.
       href: saint/OS-1374
+    - name: Igumen Isaiah Putilov
+      note: "Brother — a third of the Putilov brothers, who became igumen at Sarov."
+      commemorated: false
+companions:
+  - name: St. Macarius of Optina
+    note: "Fellow elder — whom Anthony and his brother Moses brought to live at and nourish the Optina skete."
+    href: saint/OS-0294
+  - name: Venerable Leonid of Optina
+    note: "Fellow elder — settled with Macarius in the skete Anthony oversaw, anchoring the Optina tradition of eldership."
+    href: saint/OS-2003
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2013/08/07/148992-venerable-anthony-of-optina

@@ -37,6 +37,20 @@ sections:
     body:
       - Basil was buried in Moscow following his death; by tradition his grave lay at the site that became the cathedral of the Protection on Red Square, the church commissioned by Ivan the Terrible after the conquest of Kazan and thereafter popularly known as St. Basil's Cathedral.
       - His chains are reported to be preserved at the Moscow Theological Academy.
+companions:
+  - name: Saint Macarius, Metropolitan of Moscow
+    note: "Officiant: the Metropolitan of Moscow who, by tradition, served Basil's funeral with many clergy."
+    href: saint/OS-2437
+related:
+  - name: Blessed John of Moscow the Fool-for-Christ
+    note: "Fellow fool: a holy fool of Moscow in the same era, venerated in the same city."
+    href: saint/OS-1462
+  - name: Blessed Maximus of Moscow
+    note: "Fellow fool: an earlier holy fool of Moscow honored as a hidden intercessor for the city."
+    href: saint/OS-2181
+  - name: Blessed Basil of Kamen
+    note: "Distinct namesake: a separate fool-for-Christ who shares the August 2 feast, whose relics were enshrined in a church dedicated to Basil of Moscow."
+    href: saint/OS-1628
 patronage:
   - Fools-for-Christ
 sources:

@@ -20,6 +20,17 @@ sections:
     body:
       - Local veneration of Peter, together with the Martyr Stephen of Kazan, began shortly after the city was finally retaken by Russian forces. The two martyrs are commemorated together on March 24, even though, according to the sources, they never met one another.
       - Both are remembered as sixteenth-century martyrs of the Kazan region who suffered for confessing Christ amid the upheaval that followed the Russian incorporation of the khanate. They are recorded in the synaxarion as distinct individuals in separate entries.
+companions:
+  - name: Martyr Stephen of Kazan
+    note: A newly-baptized Tatar martyred at Kazan for confessing Christ; commemorated together on March 24, though the two never met.
+    href: saint/OS-0875
+related:
+  - name: Hieromartyr Hermogenes, Patriarch of Moscow
+    note: As Metropolitan of Kazan, recorded the lives of the Kazan saints and promoted the veneration of its martyrs.
+    href: saint/OS-0671
+  - name: Saint Gurias, Archbishop of Kazan
+    note: First hierarch of the newly-established see of Kazan, whose mission to the Tatars formed the setting of these conversions.
+    href: saint/OS-2305
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

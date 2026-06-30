@@ -33,6 +33,14 @@ timeline:
   - when: "1538"
     title: Destruction of the hermitage
     body: The monastery is destroyed in a Tatar raid, then later rebuilt and maintained into the eighteenth century.
+companions:
+  - name: Venerable Nilus of Sora
+    note: His spiritual father and teacher, with whom he made the pilgrimage to the Christian East and settled in the sketes by the Sora River.
+    href: saint/OS-1127
+related:
+  - name: Venerable Cyril, Abbot of White Lake
+    note: Founder of the Monastery of Saint Cyril of White Lake, where Innocent took monastic vows.
+    href: saint/OS-1317
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

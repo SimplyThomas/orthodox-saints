@@ -64,5 +64,75 @@ sources:
   - https://en.wikipedia.org/wiki/John_the_Apostle
   - https://orthodoxwiki.org/John_the_Theologian
   - https://www.newadvent.org/cathen/08492a.htm
+family:
+  figures:
+    - name: Myrrh-bearer Salome
+      note: Mother; one of the Myrrh-bearing Women
+      href: saint/OS-1638
+    - name: Apostle James, son of Zebedee
+      note: Brother; fellow apostle of the inner circle
+      href: saint/OS-1081
+    - name: Zebedee
+      note: Father; a fisherman of Galilee
+      commemorated: false
+companions:
+  - name: Jesus Christ
+    note: Lord and Teacher; the beloved disciple leaned on his breast
+    href: saint/OS-0000
+  - name: The Most Holy Theotokos
+    note: Entrusted to his care at the Cross
+    href: saint/OS-0001
+  - name: Apostle Peter
+    note: His partner in the Gospels and Acts
+    href: saint/OS-0004
+  - name: Andrew the Apostle
+    note: Called with him at the Jordan
+    href: saint/OS-0003
+  - name: Apostle Philip
+    note: Fellow apostle of the Twelve
+    href: saint/OS-2578
+  - name: Apostle Bartholomew
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1330
+  - name: Apostle Thomas
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1969
+  - name: Apostle and Evangelist Matthew
+    note: Fellow apostle of the Twelve and fellow Evangelist
+    href: saint/OS-2201
+  - name: Apostle James, son of Alphaeus
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1982
+  - name: Apostle Jude the Brother of the Lord
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1384
+  - name: Apostle Simon the Zealot
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1137
+  - name: Apostle Matthias
+    note: Fellow apostle, chosen to replace Judas
+    href: saint/OS-1676
+  - name: Apostle Paul
+    note: Apostle to the nations
+    href: saint/OS-2749
+  - name: Apostle Prochorus
+    note: His disciple and companion, who recorded the Apocalypse
+    href: saint/OS-1589
+  - name: Polycarp of Smyrna
+    note: His disciple, a bridge to the Apostolic Fathers
+    href: saint/OS-0713
+  - name: Ignatius of Antioch
+    note: Of the apostolic generation he taught
+    href: saint/OS-2393
+  - name: Cerinthus
+    note: Heretic he opposed at Ephesus
+    commemorated: false
+related:
+  - name: Mark the Evangelist
+    note: Fellow Evangelist
+    href: saint/OS-1061
+  - name: Apostle and Evangelist Luke
+    note: Fellow Evangelist
+    href: saint/OS-0006
 status: reviewed
 generated: "2026-06-18"

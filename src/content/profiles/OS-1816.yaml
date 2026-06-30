@@ -43,6 +43,14 @@ timeline:
 patronage:
   - Patron of the Orthodox Church in the Czech lands
   - Those who suffer persecution for the faith
+companions:
+  - name: New Martyrs of the Czech Lands
+    note: His clergy and faithful, martyred with him in the 1942 Nazi reprisal following the assassination of Reinhard Heydrich.
+    href: saint/OS-0240
+related:
+  - name: Sts. Cyril & Methodius
+    note: Apostles of the Slavs whose mission Gorazd consciously revived; his cathedral was dedicated to them and he took the monastic name of Methodius's disciple.
+    href: saint/OS-0038
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -1,4 +1,17 @@
 id: OS-1182
+companions:
+  - name: "Venerable Cornelius, Abbot of Komel"
+    note: Teacher and founder of the Komel monastery, who entrusted the community to Laurence before his death.
+    href: saint/OS-1205
+  - name: "Venerable Cassian, Abbot of Komel"
+    note: Fellow disciple of Cornelius and abbot of Komel, commemorated together with him on May 16.
+    href: saint/OS-1181
+  - name: Venerable Cyril of Novoezersk
+    note: Fellow disciple of Cornelius of Komel who went on to found a monastery on New Lake (Novoozero).
+    href: saint/OS-0593
+  - name: "Venerable Herodion, Abbot of Iloezersk"
+    note: Fellow disciple of Cornelius of Komel who founded a community at Elias Lake.
+    href: saint/OS-1917
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2022/05/16/101396-venerable-laurence-abbot-of-komel

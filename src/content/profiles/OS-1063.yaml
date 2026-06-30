@@ -30,6 +30,17 @@ sections:
     body:
       - Sylvester was buried to the right of the wooden Resurrection church, and his burial place was venerated as a source of healings. His relics were regarded as incorrupt and, by the nineteenth century, were enshrined in a bronze, silver-plated tomb. Accounts relate that the relics were lost during the upheavals of the 1920s and have since been returned to the church.
       - The same Obnora River region is associated with other monastic saints, among them Venerable Paul of Obnora and Sergius of Nurom, who were later glorified for their ascetic labors in that wilderness.
+companions:
+  - name: Saint Sergius of Radonezh
+    note: His teacher at the Holy Trinity Monastery, who blessed his withdrawal into the Obnora wilderness
+    href: saint/OS-0042
+  - name: Saint Alexis, Metropolitan of Moscow
+    note: Contemporary hierarch who gave the blessing and antimension for Sylvester's Resurrection church
+    href: saint/OS-0641
+related:
+  - name: Venerable Paul of Obnora
+    note: Fellow disciple of Saint Sergius who labored as a hermit in the same Obnora wilderness
+    href: saint/OS-0425
 patronage:
   - Monastics and hermits
   - Founders of monasteries

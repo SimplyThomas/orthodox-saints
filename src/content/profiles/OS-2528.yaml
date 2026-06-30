@@ -19,5 +19,14 @@ sections:
   - heading: Commemoration
     body:
       - Enos is honored among the Holy Forefathers, the Old Testament ancestors and forebears of Christ — patriarchs, prophets, and the righteous who lived before and under the Law. In the Orthodox calendar these are gathered into the commemoration of the Sunday of the Forefathers, kept on a fixed Sunday in the weeks before the Nativity of Christ, which sets the lineage of the incarnate Lord before the faithful as the Nativity feast approaches. His own fixed commemoration falls on December 14.
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Seth
+      note: His father in the genealogy of Christ.
+      href: saint/OS-2527
+    - name: Righteous Forefather Cainan
+      note: Son; the line continued through him.
+      href: saint/OS-2529
 status: draft
 generated: "2026-06-21"

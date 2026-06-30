@@ -32,5 +32,18 @@ sections:
   - heading: Hymnography
     body:
       - Anatolius is credited with composing liturgical hymns, including verses for Sundays and for the feasts of the Nativity, Theophany, and the martyrs. These compositions are designated as 'Anatolian' verses in the service books.
+companions:
+  - name: Flavian the Confessor of Constantinople
+    note: His predecessor on the patriarchal throne, deposed at the Robber Council of Ephesus (449) which Anatolius then filled
+    href: saint/OS-0684
+  - name: Leo the Great, Pope of Rome
+    note: Ally at the Council of Chalcedon whose Tome against Eutychianism Anatolius upheld
+    href: saint/OS-0681
+  - name: Pulcheria the Empress
+    note: Empress whose support helped convene the Council of Chalcedon (451) over which he presided
+    href: saint/OS-0348
+  - name: Cyril of Alexandria
+    note: Patriarch of Alexandria who ordained him deacon and under whom he began his service
+    href: saint/OS-0476
 status: draft
 generated: 20260619_b13

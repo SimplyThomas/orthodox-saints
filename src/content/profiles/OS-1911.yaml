@@ -32,6 +32,23 @@ timeline:
     title: Episcopate at Byblos
     body: By tradition Mark serves as Bishop of Byblos in Phoenicia; later accounts relate that after the death of Barnabas he travels to Ephesus.
 patronage: []
+companions:
+  - name: Apostle Paul
+    note: The apostle whom Mark accompanied as assistant on the first missionary journey, traveling to Cyprus and Perga before returning to Jerusalem; the disagreement over taking Mark again later parted Paul and Barnabas.
+    href: saint/OS-2749
+  - name: Apostle Barnabas of the Seventy
+    note: His fellow-laborer, who took Mark back to Cyprus after the parting from Paul.
+    href: saint/OS-1331
+related:
+  - name: Apostle and Evangelist Mark
+    note: Bishop of Alexandria and writer of the second Gospel; the OCA cycle distinguishes the two, though some sources consider the Mark of Byblos identical to the Evangelist.
+    href: saint/OS-1061
+  - name: Apostle Zenas of the Seventy
+    note: Bishop of Diospolis, commemorated together with Mark on September 27.
+    href: saint/OS-1912
+  - name: Apostles Aristarchus, Pudens, and Trophimus of the Seventy
+    note: Aristarchus is commemorated together with Mark and Zenas on September 27.
+    href: saint/OS-0997
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/John_Mark

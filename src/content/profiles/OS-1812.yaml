@@ -40,5 +40,19 @@ sections:
 patronage:
   - Northumbria
   - Missionaries
+companions:
+  - name: Saint Oswald, King and Martyr of Northumbria
+    note: The Northumbrian king who invited Aidan from Iona and acted as his interpreter in preaching to the English.
+    href: saint/OS-1650
+  - name: Saint Finan of Lindisfarne
+    note: His successor as bishop of Lindisfarne, who came likewise from Iona.
+    href: saint/OS-0679
+related:
+  - name: St. Cuthbert of Lindisfarne
+    note: Later bishop of Lindisfarne who, as a youth, was moved to the monastic life by a vision on the night of Aidan's death.
+    href: saint/OS-0082
+  - name: Saint Colman of Lindisfarne
+    note: The third bishop of Lindisfarne in Aidan's Ionan line, who upheld the Celtic usages at the Synod of Whitby.
+    href: saint/OS-0686
 status: draft
 generated: "2026-06-19"

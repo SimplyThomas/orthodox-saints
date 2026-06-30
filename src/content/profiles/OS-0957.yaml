@@ -31,5 +31,12 @@ sections:
     body:
       - George is venerated as a wonderworker, and tradition holds that miracles attended him both during his life and after his death. The most frequently repeated account relates that at the hour of his repose a bright star shone in the heavens over the city of Mytilene.
       - His feast is kept on April 7.
+related:
+  - name: Saint George, Bishop of Mytilene
+    note: Fellow bishop of the same see of Mytilene in the iconoclast era, likewise venerated as a confessor of the holy icons
+    href: saint/OS-1186
+  - name: Venerable Theodore the Studite
+    note: Foremost monastic confessor of the icons under the renewed iconoclasm of Leo the Armenian, the same persecution George resisted
+    href: saint/OS-2180
 status: draft
 generated: "2026-06-20"

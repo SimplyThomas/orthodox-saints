@@ -89,6 +89,13 @@ companions:
   - name: Saint John the Dwarf (Colobos)
     note: The elder of Scetis under whose direction Arsenius was received into monastic life
     href: saint/OS-2168
+related:
+  - name: Saint Macarius the Great
+    note: Founder of the Scetis settlement where Arsenius lived; John the Dwarf, Arsenius's guide, was formed in Macarius's monastic tradition.
+    href: saint/OS-0029
+  - name: Saint Anthony the Great
+    note: Father of Egyptian monasticism whose desert ideal Arsenius followed; both are numbered among the Desert Fathers of the Apophthegmata.
+    href: saint/OS-0026
 patronage:
   - Those who seek silence, stillness, and a life of prayer
   - Monastics and those withdrawing from the world

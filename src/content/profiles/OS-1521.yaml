@@ -32,6 +32,19 @@ sections:
     body:
       - "Historically Documented: The events of the era at the Lavra of Saint Sabbas are recorded in the writings of Leontius of Damascus in his work The Life of St. Stephen the Sabaite."
       - "Traditional Accounts: The synaxarion relates that Stephen possessed the gifts of healing and discernment, and that he foretold in advance the day of his own repose."
+family:
+  heading: Family
+  figures:
+    - name: John of Damascus
+      note: "Uncle: the great hymnographer and theologian of Mar Saba, through whom Stephen was brought as a child into the monastic life of the same community."
+      href: saint/OS-2300
+related:
+  - name: Sabbas the Sanctified
+    note: "Monastic founder: founder of the Great Lavra (Mar Saba) in the Judean desert, where Stephen passed his entire monastic life."
+    href: saint/OS-2304
+  - name: Holy Fathers slain at the Monastery of St Sabbas
+    note: "Fellow Sabaites: monks of the same Lavra of Mar Saba, a number of whom were slain in the raids that fell upon the community in Stephen's era."
+    href: saint/OS-0851
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/all-lives/2016/07/13

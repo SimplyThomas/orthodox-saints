@@ -9,6 +9,15 @@ sections:
       - The Sunday of the Holy Forefathers, observed on the Sunday that falls between December 11 and 17, commemorates the Old Testament ancestors of Christ — beginning with Adam and continuing through Seth, Enoch, Noah and his sons, and the patriarchs leading to Abraham and beyond. The Church keeps this commemoration to affirm that Christ entered history within a real human lineage. As a son of Shem standing in the line that runs from Noah to Abraham, Arphaxad is numbered among these forefathers.
 patronage:
   - Holy Forefather and ancestor of Christ in the flesh
+family:
+  heading: Family
+  figures:
+    - name: Righteous Forefather Shem
+      note: His father, the son of Noah.
+      href: saint/OS-2535
+    - name: Righteous Forefather Cainan (son of Arphaxad)
+      note: Son; the line continued through him.
+      href: saint/OS-2537
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

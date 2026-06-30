@@ -48,5 +48,28 @@ sources:
   - https://en.wikipedia.org/wiki/Joseph_(Genesis)
   - https://en.wikipedia.org/wiki/Great_and_Holy_Monday
   - https://en.wikipedia.org/wiki/Joseph_in_Islam
+family:
+  heading: Family
+  intro: Joseph the All-Comely was the firstborn son of Jacob by Rachel, sold into Egypt by his brothers yet raised up to preserve them in the famine.
+  figures:
+    - name: Righteous Patriarch Jacob
+      note: His father, who loved him above his brothers and mourned him as dead.
+      href: saint/OS-2349
+    - name: Righteous Foremother Rachel
+      note: His mother, who died bearing his younger brother Benjamin.
+      href: saint/OS-2546
+    - name: Righteous Asenath
+      note: His wife, daughter of Potiphera the priest of On, mother of Manasseh and Ephraim.
+      href: saint/OS-2548
+    - name: Righteous Benjamin
+      note: His full younger brother, the only other son of Rachel.
+      href: saint/OS-2345
+    - name: Righteous Patriarch Judah
+      note: His elder half-brother, who pleaded for his life and offered himself as surety for Benjamin.
+      href: saint/OS-2764
+related:
+  - name: Jesus Christ
+    note: Joseph the All-Comely is honored as a type of Christ — betrayed by his own brethren, sold for silver, and exalted after his humiliation to become the savior of his people.
+    href: saint/OS-0000
 status: draft
 generated: "2026-06-21"

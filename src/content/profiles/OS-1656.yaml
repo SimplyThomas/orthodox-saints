@@ -32,6 +32,17 @@ timeline:
 patronage:
   - Monastic fathers of the Kiev Caves Monastery
   - Associated with the city and see of Smolensk
+companions:
+  - name: Venerable Paisius of the Kiev Far Caves
+    note: Caves father with whom Mercurius shared a deep spiritual bond and was originally buried.
+    href: saint/OS-1554
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of the Caves; Mercurius's relics rest in the Near Caves associated with him.
+    href: saint/OS-0136
+  - name: Holy Martyr Mercurius of Smolensk
+    note: A soldier-martyr of Smolensk commemorated on the same day (August 7); a wholly separate saint, not to be confused with the bishop.
+    href: saint/OS-1666
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/08/07/102222-saint-mercurius-bishop-of-smolensk-kiev-near-caves

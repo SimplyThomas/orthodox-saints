@@ -10,6 +10,13 @@ sections:
       - "What can be said with confidence is therefore limited: that he was an ascetic of Egypt, honored as a monastic saint, and kept in the Church's memory alongside Theonas and Phorbinus. Sources that place him in the fourth century associate him with the formative era of Egyptian monasticism, but no surviving account narrates his birth, his repose, a particular monastery, or his relics. The profile is kept short out of fidelity to the record rather than from neglect."
 patronage:
   - Ascetic fathers of Egypt
+companions:
+  - name: Saint Theonas of Egypt
+    note: Fellow Egyptian ascetic; one of the three desert fathers commemorated together on April 5 (April 4 in Greek usage).
+    href: saint/OS-0944
+  - name: Saint Phorbinus of Egypt
+    note: Fellow Egyptian ascetic; one of the three desert fathers commemorated together on April 5 (April 4 in Greek usage).
+    href: saint/OS-0946
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2001/04/05

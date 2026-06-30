@@ -28,6 +28,13 @@ timeline:
 patronage:
   - Invoked as a model of fasting and ascetic discipline.
   - Confession and repentance
+companions:
+  - name: Eutychius of Constantinople
+    note: His immediate predecessor on the patriarchal throne of Constantinople, after whose death in 582 John was raised to the see.
+    href: saint/OS-0951
+  - name: Gregory the Great (the Dialogist), Pope of Rome
+    note: Contemporary who, as papal legate (apocrisiarius) at Constantinople and later as pope, objected to the title 'Ecumenical Patriarch' used in John's synod.
+    href: saint/OS-0084
 status: draft
 sources:
   - Synaxarion

@@ -16,5 +16,12 @@ sections:
   - heading: Relics & Shrines
     body:
       - His relics rest in the Near Caves of the Kiev Caves Monastery, where the bodies of the monastic saints have long been venerated. Left uncovered during the Soviet period, they were after the fall of the Soviet Union covered with a cloth and remain so, the caves continuing as a place of pilgrimage.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of the Near Caves of the Kiev Caves Monastery, where his relics repose.
+    href: saint/OS-0136
+  - name: Anatolius the Recluse of the Far Caves of Kiev
+    note: Distinct namesake commemorated the same day (July 3), whose relics repose in the Far Caves; not to be conflated with him.
+    href: saint/OS-1458
 status: draft
 generated: 20260619_b13

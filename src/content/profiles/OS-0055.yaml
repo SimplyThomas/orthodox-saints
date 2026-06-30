@@ -43,13 +43,70 @@ timeline:
   - when: "2000"
     title: Glorification
     body: Glorified by the Orthodox Church in America together with the Antiochian Archdiocese.
+family:
+  figures:
+    - name: Michael Hawaweeny
+      note: Father
+      commemorated: false
+    - name: Mariam Hawaweeny
+      note: Mother, a Damascus priest's daughter
+      commemorated: false
+    - name: Siblings
+      note: Brothers and sisters
+      commemorated: false
 companions:
-  - name: St. Tikhon of Moscow
-    note: As Archbishop of North America, co-consecrated Raphael bishop in 1904
+  - name: Tikhon of Moscow
+    note: Archbishop of North America and his closest collaborator, who co-consecrated him bishop in 1904
     href: saint/OS-0053
-  - name: St. Innocent of Alaska
-    note: Honored as a fellow apostle to America in the Russian mission to the New World
+  - name: Alexis Toth
+    note: Confessor of the American mission in the same era
+    href: saint/OS-1125
+  - name: Nicholas II
+    note: The reigning Russian emperor of his episcopate
+  - name: Alexander Hotovitzky
+    note: New-martyr priest of the North American mission
+    href: saint/OS-2299
+  - name: Syrian Orthodox faithful in North America
+    note: The Arabic-speaking flock he gathered into parish life
+related:
+  - name: Herman of Alaska
+    note: Founding missionary of the American Church
+    href: saint/OS-0044
+  - name: Innocent of Alaska
+    note: Enlightener of the Aleuts and apostle to America
     href: saint/OS-0054
+  - name: John of Shanghai and San Francisco
+    note: Later wonderworking hierarch of the American diaspora
+    href: saint/OS-0050
+  - name: Nicholas Kasatkin
+    note: Apostle to Japan of the same missionary age
+    href: saint/OS-0590
+  - name: John of Kronstadt
+    note: Pastor and wonderworker of the era
+    href: saint/OS-0045
+works:
+  - title: Sermons and Homilies
+    desc: Preached throughout his North American missionary travels
+  - title: Pastoral Letters
+    desc: Guidance to clergy and faithful of the Syrian mission
+  - title: Articles in Al-Kalimat (The Word)
+    desc: The first Arabic-language Orthodox periodical in North America, which he founded and edited, the centerpiece of his literary legacy
+  - title: Translations
+    desc: Arabic and English liturgical and theological texts
+  - title: Catechetical and Instructional Writings
+    desc: Short works explaining Orthodox belief and practice
+  - title: Official Correspondence
+    desc: Letters on diocesan administration and missionary strategy
+reading:
+  - heading: Biographies
+    items:
+      - title: The Life of St. Raphael, Bishop of Brooklyn
+        type: Biography
+      - title: "St. Raphael of Brooklyn: Good Shepherd of the Lost Sheep in America"
+        type: Biography
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 patronage:
   - Orthodox Christians in North America
   - Missionary work among scattered communities

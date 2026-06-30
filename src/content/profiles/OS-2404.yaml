@@ -15,6 +15,10 @@ sections:
 patronage:
   - Patrons of Crete
   - Those who suffer persecution or pressure to deny their faith
+related:
+  - name: Saint Paul the Confessor, Archbishop of Constantinople
+    note: By tradition translated the martyrs' relics from Crete to Constantinople about a century after their death, as a safeguard for the city.
+    href: saint/OS-2153
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

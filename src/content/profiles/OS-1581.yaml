@@ -41,5 +41,25 @@ sources:
   - https://www.oca.org/saints/lives/2022/07/26/102095-venerable-moses-the-hungarian-of-the-kiev-near-caves
   - https://www.johnsanidopoulos.com/2018/07/saint-moses-hungarian-of-kiev-caves-1043.html
   - https://full-of-grace-and-truth.blogspot.com/2008/10/st-moses-hungarian.html
+family:
+  heading: Family
+  intro: Moses was one of three brothers of Hungarian (Transylvanian) origin who entered the service of the holy Prince Boris of Kiev.
+  figures:
+    - name: Venerable Ephraim of Novy Torg
+      note: Brother; the surviving brother who became a monk and is venerated as the wonderworker of Torzhok (Novy Torg).
+      href: saint/OS-0554
+    - name: George the Hungarian
+      note: Brother; servant of Prince Boris who was slain together with him on the Alta River in 1015.
+companions:
+  - name: Passion-bearers Boris and Gleb
+    note: Served in the retinue of; Moses and his brothers entered the service of the holy Prince Boris before his murder in 1015.
+    href: saint/OS-0236
+related:
+  - name: Venerable John the Long-Suffering of the Kiev Near Caves
+    note: Fellow ascetic of the Kiev Caves who, by tradition, sought Moses's intercession in his own struggle against fleshly temptation.
+    href: saint/OS-1545
+  - name: Venerable Moses the Wonderworker of the Kiev Caves
+    note: Not to be confused with; a distinct, later monk of the Kiev Caves commemorated on July 28.
+    href: saint/OS-1591
 status: draft
 generated: "2026-06-20"

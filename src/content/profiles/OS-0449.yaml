@@ -65,6 +65,31 @@ sections:
     body:
       - "Historically Documented: When Sava brought his father's relics back to Studenica, their reported incorruptibility was credited with helping reconcile his feuding brothers and reunify the divided kingdom. Following the translation of his own relics to Mileseva in 1237, many healings were reported, and his grave attracted pilgrims of various faiths."
       - "Traditional Accounts: By tradition, while on pilgrimage at Mar Saba he received the Trojerucica (the Three-handed Theotokos icon) and the crosier of St. Sabbas the Sanctified, both later kept at Hilandar. The synaxarion accounts relate that as a youth of seventeen he met a monk from Mount Athos and secretly departed for the monastic life, sending his worldly possessions and a letter home after receiving tonsure."
+family:
+  heading: Family (the House of Nemanjić)
+  figures:
+    - name: Venerable Symeon the Myrrh-gusher of Serbia
+      note: "Father: Grand Prince Stefan Nemanja, founder of the medieval Serbian state, who abdicated to join Sava on Athos as the monk Simeon; together they restored Hilandar."
+      href: saint/OS-0653
+    - name: Venerable Anastasia of Serbia
+      note: "Mother: Ana, wife of Stefan Nemanja, who likewise took monastic vows as the nun Anastasia."
+      href: saint/OS-1403
+    - name: St. Stephen the First-Crowned of Serbia
+      note: "Brother: the first crowned King of Serbia, whom Sava crowned in 1220 and whose feuds Sava reconciled."
+      href: saint/OS-1904
+    - name: St. Sava II, Archbishop of Serbia
+      note: "Nephew: son of Stephen the First-Crowned, who later himself held the archiepiscopal see of Serbia."
+      href: saint/OS-0617
+    - name: Vukan Nemanjić
+      note: "Brother: the eldest son of Stefan Nemanja and Prince of Zeta, one of the feuding brothers Sava reconciled."
+      commemorated: false
+companions:
+  - name: St. Arsenije I Sremac of Serbia
+    note: "Disciple and successor: Sava's loyal pupil, whom he appointed to the archbishopric of Serbia before his final pilgrimage."
+related:
+  - name: Venerable Savva the Sanctified
+    note: "Namesake: the sixth-century Palestinian abbot in whose honor Rastko took the monastic name Sava; at Mar Saba Sava received the crosier of St. Sabbas."
+    href: saint/OS-2304
 patronage:
   - Serbia and the Serbian people
   - Serbian schools and schoolchildren

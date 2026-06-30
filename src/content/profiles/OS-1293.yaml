@@ -39,6 +39,10 @@ timeline:
   - when: "1159"
     title: Death and final request
     body: Constantine dies, asking in his will that his body be cast out rather than buried. After three days of storms and the appearance of fiery pillars over his body, the Prince of Kiev has his remains honorably buried in the church where Prince Igor was interred, and calm returns.
+related:
+  - name: Right-believing Prince Igor of Kiev and Chernigov
+    note: Linked by burial — Constantine's remains were laid in the church where the passion-bearer Prince Igor lay; the translation of Igor's relics is also kept on June 5.
+    href: saint/OS-1870
 patronage:
   - Humility and self-judgment in ecclesiastical office
 sources:

@@ -27,5 +27,15 @@ timeline:
   - when: July 15, 1099
     title: Prophecy fulfilled
     body: By the account, Mstislav is struck in the chest by an arrow during internecine warfare, fulfilling Basil's dying prophecy.
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: Cenobiarch of their monastery — Theodore settled in the Varangian Cave adjoining the Near Caves of Saint Theodosius, founder of cenobitic life at the Kiev Caves.
+    href: saint/OS-2745
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of their monastery — the first father of the Kiev Caves, whose Near Caves were the setting of their ascetic struggle and martyrdom.
+    href: saint/OS-0136
+  - name: Saint Theodore of Ostrog
+    note: Fellow Kiev Caves father commemorated the same day (August 11) — a later monk of the same monastery whose incorrupt relics rest in the Far Caves.
+    href: saint/OS-1687
 status: draft
 generated: "2026-06-21"

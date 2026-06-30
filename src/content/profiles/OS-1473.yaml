@@ -45,6 +45,21 @@ sections:
     body:
       - "Historically Documented: Andrew was canonized as a saint in the Russian Orthodox Church in 1702, and his burial is commemorated in the synaxarion on July 4. The icon he brought to Vladimir endured in the Russian Church as the Vladimir icon of the Mother of God."
       - "Traditional Accounts: The synaxarion connects his epithet 'Bogoliubsky' ('God-loving') with his devotion to prayer, and tradition associates the Church of the Intercession on the Nerl with a son lost in his campaigns."
+family:
+  figures:
+    - name: Gleb Andreevich of Vladimir
+      note: His son, the young prince venerated as a saint
+      href: saint/OS-1392
+    - name: Yuri Dolgorukiy
+      note: His father, Grand Prince of Kiev and Suzdal and founder of Moscow
+      commemorated: false
+    - name: Vladimir II Monomakh
+      note: His grandfather, Grand Prince of Kiev
+      commemorated: false
+related:
+  - name: Passion-bearers Boris and Gleb
+    note: The first-glorified Rus' passion-bearers in whose tradition Andrew is honored as a princely passion-bearer
+    href: saint/OS-0236
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Andrey_Bogolyubsky

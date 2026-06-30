@@ -55,6 +55,28 @@ sections:
     body:
       - Stephen was canonized by the Serbian Orthodox Church and is venerated as a saint, with his feast day kept on 24 September. The OCA Synaxarion and the broader Serbian tradition commemorate him as both a right-believing ruler and, through his deathbed tonsure as Symeon, a monastic.
       - The surviving sources record that he 'was canonized' without specifying the formal act or its date; the precise circumstances of his glorification are not independently documented in the available external sources.
+family:
+  heading: Family
+  intro: Stephen belonged to the founding generation of the Nemanjić dynasty, which would rule Serbia for some two centuries.
+  figures:
+    - name: St Simeon the Myrrh-gusher (Stefan Nemanja)
+      note: His father, founder of the Serbian state, who abdicated to become the monk Simeon on Mount Athos; commemorated February 13.
+      href: saint/OS-0653
+    - name: St Sava, First Archbishop of Serbia
+      note: His younger brother Rastko, first archbishop of the autocephalous Serbian Church, who crowned him king at Žiča in 1219.
+      href: saint/OS-0449
+    - name: Vukan Nemanjić
+      note: His elder brother, ruler of Zeta, with whom he contested the succession between 1202 and 1205; the father of St David of Serbia.
+      commemorated: false
+    - name: St Vladislav of Serbia
+      note: His son, who reigned as king of Serbia and built Mileševa Monastery; commemorated the same day, September 24.
+      href: saint/OS-1900
+    - name: St Stephen Uroš I of Serbia
+      note: His son by Anna Dandolo, who reigned as king and reposed as a monk in 1277.
+      href: saint/OS-2634
+    - name: St David of Serbia
+      note: His nephew, son of his brother Vukan, who founded Davidovica Monastery and ended his life as a monk; commemorated the same day, September 24.
+      href: saint/OS-1903
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Stefan_the_First-Crowned

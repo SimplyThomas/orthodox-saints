@@ -29,5 +29,19 @@ sections:
   - heading: Relics and Shrines
     body:
       - A liturgical service to Niphon is preserved at the hermitage of Kavsokalyvia on Mount Athos, where, by tradition, the cave of his asceticism and a small chapel dedicated to him can be found.
+companions:
+  - name: Maximus Kavsokalyvites
+    note: Elder and spiritual father with whom he struggled for many years on Athos
+    href: saint/OS-0446
+  - name: Gregory Palamas
+    note: Defender of the hesychast cause who upheld him against accusations of heresy
+    href: saint/OS-0025
+  - name: Callistus I of Constantinople
+    note: Patriarch and hesychast who likewise defended him
+    href: saint/OS-1395
+related:
+  - name: Peter the Athonite
+    note: First hermit of the Holy Mountain, in whose cave near the Great Lavra he settled
+    href: saint/OS-1336
 status: draft
 generated: 20260619_b13

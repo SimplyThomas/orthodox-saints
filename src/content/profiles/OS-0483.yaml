@@ -23,18 +23,18 @@ timeline:
   - when: c. 1101
     title: Repose
     body: Ephraim died around the turn of the twelfth century, with sources placing his repose c. 1101–1103.
-companions:
+related:
   - name: St. Dionysius the Areopagite
-    note: Five of whose works Ephraim translated into Georgian
+    note: "Translated: rendered five works of the Areopagitic corpus into Georgian."
     href: saint/OS-1942
   - name: St. Basil the Great
-    note: Whose Ascetic Rules Ephraim translated
+    note: "Translated: rendered Basil's Ascetic Rules into Georgian."
     href: saint/OS-0021
   - name: St. Ephraim the Syrian
-    note: Whose writings Ephraim the Lesser rendered into Georgian
+    note: "Translated: rendered the Syrian father's writings into Georgian."
     href: saint/OS-0031
   - name: St. John of Damascus
-    note: Among the authors Ephraim translated
+    note: "Translated: among the patristic authors Ephraim rendered into Georgian."
     href: saint/OS-2300
 patronage:
   - Translators, scholars, and theological education

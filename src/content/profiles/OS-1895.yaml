@@ -43,6 +43,12 @@ sections:
 companions:
   - name: Synaxis of All Saints of Alaska
     note: Juvenal is numbered among the saints of Alaska commemorated together on September 24.
+  - name: Martyr Peter the Aleut
+    note: Fellow protomartyr of America, an Aleut convert killed for the faith, commemorated with him on September 24.
+    href: saint/OS-1894
+  - name: St. Herman of Alaska
+    note: Fellow monastic of the Valaam mission that brought Orthodoxy to Alaska in 1794.
+    href: saint/OS-0044
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Juvenaly_of_Alaska

@@ -25,6 +25,15 @@ timeline:
   - when: c. 1524–1525
     title: Tonsure and repose
     body: After some thirty-two years of imprisonment, John receives the monastic tonsure with the name Ignatius shortly before his death.
+family:
+  heading: Family
+  figures:
+    - name: Prince Demetrius (Dmitry)
+      note: His brother, imprisoned together with him in Vologda by their uncle Ivan III; not separately commemorated.
+      commemorated: false
+    - name: Andrey Vasilyevich Bolshoy, Prince of Uglich
+      note: His father, summoned to Moscow and arrested by his brother Ivan III, who died in prison in 1493; not commemorated.
+      commemorated: false
 patronage:
   - Endurance of imprisonment and long-suffering
 sources:

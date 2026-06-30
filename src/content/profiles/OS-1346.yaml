@@ -36,5 +36,19 @@ sections:
 patronage:
   - Monastics
   - Iconographers
+companions:
+  - name: Sergius of Radonezh
+    note: Elder and teacher under whom he was formed in the monastic life
+    href: saint/OS-0042
+  - name: Alexis of Moscow
+    note: Metropolitan who requested him to found the monastery on the Yauza
+    href: saint/OS-0641
+  - name: Savva of Moscow
+    note: Disciple and successor as abbot of the Andronikov monastery
+    href: saint/OS-1347
+related:
+  - name: Andrew Rublev the Iconographer
+    note: Iconographer of the monastery he founded, who labored and was buried there
+    href: saint/OS-1469
 status: draft
 generated: "2026-06-19"

@@ -27,5 +27,9 @@ sections:
       - The principal source for Isaac's life is the Dialogues of Pope Gregory the Great (Gregory the Dialogist), specifically his accounts of the lives and miracles of the Italian Fathers, which document Isaac's gift of clairvoyance.
       - "Among the episodes related of him: a church warden who struck Isaac and accused him of hypocrisy was, by tradition, seized by a demon that Isaac then cast out, after which news of the event spread through the city; robbers who came to the monastery were turned to honest labor after finding spades left out; and on other occasions Isaac is said to have exposed travelers who concealed fine clothing and to have detected a hidden beehive together with a warning of snakes within it. Tradition holds that he used his discernment to expose deceptions and prompt repentance rather than out of malice."
 patronage: []
+related:
+  - name: St. Gregory the Dialogist
+    note: Pope of Rome whose Dialogues are the principal surviving source for Isaac's life and miracles at Spoleto.
+    href: saint/OS-0084
 status: draft
 generated: "2026-06-20"

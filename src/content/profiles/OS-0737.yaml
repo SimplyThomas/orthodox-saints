@@ -23,6 +23,13 @@ timeline:
     body: The anti-Chalcedonian party elects Timothy Aelurus, and Proterius is killed amid the upheaval in Alexandria.
 patronage:
   - Confessor of the Chalcedonian definition of the faith
+related:
+  - name: Saint Leo the Great, Pope of Rome
+    note: Fellow defender of Chalcedon, whose Tome of Leo was the council's doctrinal standard; he supported Proterius's legitimate patriarchate at Alexandria.
+    href: saint/OS-0681
+  - name: Saint Anatolius, Patriarch of Constantinople
+    note: Fellow Chalcedonian patriarch who, with the emperor Leo, intervened on behalf of the Chalcedonian cause at Alexandria after Proterius's murder.
+    href: saint/OS-1465
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

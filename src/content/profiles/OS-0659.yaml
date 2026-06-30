@@ -29,6 +29,10 @@ sections:
   - heading: Disciples and Legacy
     body:
       - Among Maron's disciples, Abraham of Cyrrhus is the best remembered; he came to be called the Apostle of Lebanon for his missionary labors in that region. A monastic community that grew up around Maron's memory carried his name forward, and the broader movement that traced its origins to him became known in later centuries as the Maronite tradition. Maron is distinct from the later figure of St. John Maron, with whom he is sometimes conflated.
+companions:
+  - name: Saint Abraham, Bishop of Charres in Mesopotamia
+    note: Remembered by tradition as Maron's best-known disciple, the Apostle of Lebanon, who later became bishop of Charres.
+    href: saint/OS-0660
 sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Maron

@@ -1,4 +1,14 @@
 id: OS-1185
+family:
+  heading: Family
+  figures:
+    - name: Probus
+      note: Her brother, who related the account of her life to Saint Gregory; not himself commemorated as a saint.
+      commemorated: false
+related:
+  - name: St. Gregory the Dialogist
+    note: Pope of Rome who preserved the whole account of Musa's life in his Dialogues, received from her brother Probus.
+    href: saint/OS-0084
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/0578/05/16/101401-blessed-child-musa-of-rome

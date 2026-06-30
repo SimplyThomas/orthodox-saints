@@ -26,6 +26,19 @@ sections:
   - heading: Identity
     body:
       - Several saints named Pimen are associated with the Kiev Caves, and care is needed to distinguish them. Pimen the Faster of the Far Caves is distinct from Pimen the Much-Ailing of the Near Caves and from the Pimen of the Near Caves remembered together with the Hieromartyr Kuksha.
+related:
+  - name: Saint Anthony of the Kyiv Caves
+    note: Founder of the Kiev Caves monastery where Pimen labored.
+    href: saint/OS-0136
+  - name: Saint Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves; Pimen's relics rest in the Far Caves named for him.
+    href: saint/OS-2745
+  - name: Venerable Pimen the Much-Ailing of the Kiev Near Caves
+    note: Distinct saint — a different Pimen of the Near Caves, not to be confused with Pimen the Faster of the Far Caves.
+    href: saint/OS-1655
+  - name: Hieromartyr Kuksha and Venerable Pimen of the Kiev Near Caves
+    note: Distinct saint — the Pimen of the Near Caves commemorated with Kuksha, distinguished from Pimen the Faster of the Far Caves.
+    href: saint/OS-1788
 patronage:
   - Fasting and abstinence
   - Monastics

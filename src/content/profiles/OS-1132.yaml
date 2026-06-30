@@ -20,6 +20,13 @@ sections:
   - heading: Relics and Commemoration
     body:
       - Arsenius is counted among the saints whose relics repose in the Far Caves of Saint Theodosius. On August 28 the Church keeps the Synaxis of the Holy Fathers of the Kiev Caves whose relics rest there, a collective commemoration of the many monks and hierarchs of the community, each of whom also has an individual feast. Arsenius is remembered individually on May 8.
+related:
+  - name: Saint Anthony of the Kyiv Caves
+    note: Founder of the Kiev Caves monastery where Arsenius lived and labored.
+    href: saint/OS-0136
+  - name: Saint Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves cenobitic life; Arsenius's relics rest in the Far Caves named for him.
+    href: saint/OS-2745
 patronage:
   - Diligence and manual labor
   - Monastics

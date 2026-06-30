@@ -29,6 +29,10 @@ sections:
   - heading: Legacy
     body:
       - Apollonia's memory left a notable cultural trace. Portuguese navigators are said to have named the island of Mauritius "Santa Apolónia" in 1507. External sources record some fifty-two surviving images of her in English churches, and she is counted among the patron saints of Catania, Sicily. Her image also appears as a supporter on the arms of the British Dental Association, reflecting her enduring association with dentistry.
+related:
+  - name: Dionysius the Great of Alexandria
+    note: "Hagiographer: her bishop during the Decian persecution, whose letter to Fabius of Antioch is the primary witness to her martyrdom."
+    href: saint/OS-1964
 patronage:
   - Invoked against toothache and dental suffering
   - Patron of dentists

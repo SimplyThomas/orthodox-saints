@@ -17,6 +17,12 @@ sections:
     body:
       - "Historically Documented: The sources offer no independently documented miracles."
       - "Traditional Accounts: By one tradition, when Cyrilla was raised upon wood and her flesh torn, blood flowed from her wounds together with milk from her breasts. The same tradition relates that she had earlier been cured of a severe headache through the prayers of Bishop Theodore of Cyrene."
+companions:
+  - name: Hieromartyr Theodore, Bishop of Cyrene
+    note: Bishop of Cyrene whom she attended in prison and through whose prayers she was healed before her own martyrdom
+    href: saint/OS-1471
+  - name: Martyrs Lucia and Aroa of Cyrene
+    note: Fellow women of Cyrene who ministered to Bishop Theodore and were beheaded under the governor Dignianus
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2005/07/05/101912-martyr-cyrilla-of-cyrene-in-libya-a-widow

@@ -22,6 +22,16 @@ timeline:
   - when: 1st century
     title: Onesiphorus refreshes Paul
     body: Onesiphorus sought out and refreshed the imprisoned Apostle Paul, who commends him and his household in 2 Timothy.
+companions:
+  - name: Apostle Peter
+    note: Evodius is held by tradition to have been the first bishop of Antioch after the Apostle Peter, who established that see.
+    href: saint/OS-0004
+  - name: Hieromartyr Ignatius of Antioch
+    note: Traditionally Evodius's successor in the see of Antioch, cited as honoring his predecessor.
+    href: saint/OS-2393
+  - name: Apostle Paul
+    note: Onesiphorus sought out and refreshed the imprisoned Paul at Rome, who commends him and his household in 2 Timothy 1:16-18.
+    href: saint/OS-2749
 patronage:
   - Numbered among the Seventy Apostles
   - Associated with the church of Antioch (Evodius)

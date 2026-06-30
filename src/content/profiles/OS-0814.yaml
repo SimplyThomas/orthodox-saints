@@ -47,6 +47,20 @@ works:
   - title: Chronographia
     desc: A Byzantine chronicle covering roughly the years 284-813, continued at the request of George Syncellus. It synthesizes earlier sources within a detailed chronological framework and is among the most important historical records of the early Byzantine period.
     date: early 9th century
+companions:
+  - name: Saint Tarasius, Patriarch of Constantinople
+    note: Fellow restorer of the icons — as Patriarch of Constantinople, Tarasius presided over the Second Council of Nicaea (787), whose decrees affirming the holy icons Theophanes signed as abbot.
+    href: saint/OS-0722
+  - name: Saint Nikephoros the Confessor, Patriarch of Constantinople
+    note: Fellow confessor under Leo V — Patriarch Nikephoros was deposed and exiled for resisting the same revived iconoclasm under which Theophanes was imprisoned and banished.
+    href: saint/OS-1273
+  - name: Venerable Theodore the Studite
+    note: Fellow confessor of the icons — Theodore the Studite led the monastic resistance to Leo V's iconoclasm in the same struggle for which Theophanes suffered imprisonment and exile.
+    href: saint/OS-2180
+related:
+  - name: George Syncellus
+    note: Collaborator on the Chronographia — George began the chronicle and on his deathbed entrusted its continuation to Theophanes, who completed it as the Chronographia.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Theophanes_the_Confessor

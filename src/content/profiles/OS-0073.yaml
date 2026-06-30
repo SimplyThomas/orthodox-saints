@@ -38,6 +38,13 @@ family:
     - name: Constantine Sigouros
       note: The saint's brother, whose murderer Dionysios forgave and sheltered.
       commemorated: false
+related:
+  - name: Gerasimos of Kefalonia
+    note: Fellow patron of an Ionian island (Cephalonia), venerated for his incorrupt relics
+    href: saint/OS-0063
+  - name: Spyridon of Trimythous
+    note: Fellow patron of an Ionian island (Corfu), venerated for his incorrupt relics
+    href: saint/OS-0020
 patronage:
   - The island of Zakynthos
   - Forgiveness and reconciliation

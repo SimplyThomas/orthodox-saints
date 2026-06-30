@@ -19,6 +19,20 @@ sections:
   - heading: Repose
     body:
       - According to tradition, Stephen foresaw his own death and departed peacefully. Witnesses are reported to have seen his soul ascend accompanied by angels. He is commemorated on January 14.
+companions:
+  - name: St. Germanus, Patriarch of Constantinople
+    note: "Patron and supporter: the iconodule patriarch who received Stephen at Constantinople and supported his founding of the Monastery of Khenolakkos."
+    href: saint/OS-1153
+related:
+  - name: Venerable Euthymius the Great
+    note: "Monastic model: among the Palestinian founders whose monastery and Typikon Stephen studied before establishing his own."
+    href: saint/OS-0494
+  - name: Venerable Savva the Sanctified
+    note: "Monastic model: a Palestinian founder whose Rule Stephen studied during his travels."
+    href: saint/OS-2304
+  - name: Venerable Theodosius the Cenobiarch
+    note: "Monastic model: a Palestinian founder whose cenobitic Typikon Stephen studied before founding Khenolakkos."
+    href: saint/OS-0430
 timeline:
   - when: 8th century
     title: Birth in Cappadocia

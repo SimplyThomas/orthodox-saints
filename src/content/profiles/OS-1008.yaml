@@ -33,5 +33,9 @@ sections:
     body:
       - Agapitus died at Constantinople in 536. By the Western tradition his remains were placed in a lead coffin and carried back to Rome, where they were deposited in the basilica of Saint Peter. Despite the brevity of his reign, he is remembered for his firm defense of the faith during his mission, and he is honored as a saint in both the Eastern and Western Churches, his feast being kept on April 17 in the East.
 patronage: []
+companions:
+  - name: Saint Menas, Patriarch of Constantinople
+    note: "Consecrated: Agapitus deposed Anthimus and personally consecrated Menas patriarch of Constantinople in 536"
+    href: saint/OS-1777
 status: draft
 generated: "2026-06-19"

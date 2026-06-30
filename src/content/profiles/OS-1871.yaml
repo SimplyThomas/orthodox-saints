@@ -44,6 +44,16 @@ timeline:
   - when: "1578"
     title: Translation of relics to Moscow
     body: Tsar Ivan the Terrible has Michael's relics transferred (February 14) from Chernigov toward Moscow; since 1774 they rest in the Holy Archangels Cathedral in the Kremlin.
+family:
+  heading: Family
+  intro: Saints arose among Prince Michael's descendants in the generations that followed.
+  figures:
+    - name: Venerable Euphrosyne of Suzdal
+      note: His eldest daughter (baptized Theodoulia), who renounced her rank for the monastic life at Suzdal.
+      href: saint/OS-1864
+    - name: Venerable Oleg, Prince of Briansk
+      note: His grandson, who left his princedom to become a monk at the Briansk monastery he founded.
+      href: saint/OS-1872
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

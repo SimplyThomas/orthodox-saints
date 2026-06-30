@@ -27,6 +27,16 @@ timeline:
   - when: "1591"
     title: Death
     body: Died after some seven years leading the Georgian Church.
+family:
+  heading: Family
+  intro: Nicholas was a prince of the Bagrationi dynasty who left the royal house of Kakheti for the monastic life.
+  figures:
+    - name: King Levan I of Kakheti
+      note: Father of Nicholas, who reigned over the eastern Georgian kingdom of Kakheti from 1520 to 1574.
+      commemorated: false
+    - name: King Alexandre II of Kakheti
+      note: Elder brother of Nicholas, who succeeded their father on the throne of Kakheti in 1574.
+      commemorated: false
 patronage:
   - Those who set aside worldly rank for the monastic life
 status: draft

@@ -25,9 +25,9 @@ timeline:
   - when: 4th century
     title: Early veneration
     body: Bishop Ambrose of Milan, Pope Damasus, and the poet Prudentius wrote of her within a century of her death.
-companions:
+related:
   - name: St. Ambrose of Milan
-    note: Fourth-century bishop and the earliest writer to give an account of Agnes, in his De virginibus.
+    note: "Hagiographer: bishop of the generation after Agnes who gave one of the earliest accounts of her in his De virginibus, fixing her memory in the Western Church."
     href: saint/OS-2312
 patronage:
   - Invoked as a patron of young girls and of virgins.

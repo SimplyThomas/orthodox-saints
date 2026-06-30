@@ -30,5 +30,9 @@ sections:
     body:
       - Saint Bogolep is commemorated on August 22. The synaxarion suggests this date may have been chosen because the fourth-century martyr Theoprepios — whose Greek name corresponds in meaning to the Slavic 'Bogolep,' rendered roughly as 'becoming to God' — is commemorated on that day, together with the martyr Agathonikos of Nicomedia.
       - As a member of the Synaxis of the Rostov-Yaroslavl Saints, he is also commemorated with that assembly, kept on May 23.
+companions:
+  - name: St. Paisius of Uglich
+    note: "Spiritual father: His elder at the Uglich Theophany Monastery, to whom Bogolep reported the finding of the wonderworking Protection icon."
+    href: saint/OS-0410
 status: draft
 generated: "2026-06-20"

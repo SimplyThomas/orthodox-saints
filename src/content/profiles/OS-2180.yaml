@@ -47,6 +47,16 @@ family:
     - name: St. Joseph of Thessalonica
       note: His brother, a bishop and confessor
       href: saint/OS-0547
+related:
+  - name: St. Tarasius, Patriarch of Constantinople
+    note: Patriarch during the early years of Theodore's abbacy, with whom he was allied in defense of the icons
+    href: saint/OS-0722
+  - name: St. Nicephorus the Confessor, Patriarch of Constantinople
+    note: Fellow confessor and iconodule patriarch during the second iconoclasm
+    href: saint/OS-1273
+  - name: St. Nicholas the Confessor, Abbot of Studion
+    note: His disciple at the Studion and a fellow Studite confessor under iconoclasm
+    href: saint/OS-0597
 patronage:
   - Patron of monastics and cenobitic monastic life
   - Confessor and defender of icon veneration

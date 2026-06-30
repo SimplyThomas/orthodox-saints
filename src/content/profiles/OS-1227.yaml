@@ -25,6 +25,15 @@ timeline:
   - when: "1173"
     title: Reposes in Jerusalem
     body: Dies on pilgrimage at the Russian monastery of the Most Holy Theotokos; the synaxarion gives May 24, 1173.
+family:
+  heading: Family
+  figures:
+    - name: Eupraxia
+      note: Sister — accompanied Euphrosyne on her final pilgrimage to Constantinople and Jerusalem
+      commemorated: false
+    - name: David
+      note: Nephew — accompanied Euphrosyne on her pilgrimage to the Holy Land
+      commemorated: false
 patronage:
   - Patroness of women's monasticism in the Russian Church
   - Honored as a patron saint of Belarus.

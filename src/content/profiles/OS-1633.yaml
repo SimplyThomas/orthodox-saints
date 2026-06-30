@@ -44,6 +44,17 @@ timeline:
   - when: "1597"
     title: Canonization
     body: Anthony is canonized as a saint by the Russian Orthodox Church.
+companions:
+  - name: Venerable Niketas the Recluse, Bishop of Novgorod
+    note: "Hierarch: the bishop of Novgorod who blessed Anthony's founding of his monastery on the site where his stone arrived."
+    href: saint/OS-0569
+  - name: Saint Niphon, Bishop of Novgorod
+    note: "Hierarch: the bishop of Novgorod who appointed Anthony igumen and buried him at his monastery in 1147."
+    href: saint/OS-0962
+related:
+  - name: Venerable Ananias the Iconographer
+    note: "Spiritual heir: an iconographer of the Antoniev Monastery that Anthony founded at Novgorod."
+    href: saint/OS-1380
 patronage:
   - Novgorod and the Antoniev Monastery
 sources:

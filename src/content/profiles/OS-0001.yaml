@@ -55,5 +55,65 @@ sources:
   - https://en.wikipedia.org/wiki/Nativity_of_Mary
   - https://orthodoxwiki.org/Theotokos
   - https://orthodoxwiki.org/Dormition_of_the_Theotokos
+family:
+  heading: The Holy Family
+  intro: No saint stands at the center of so wide a web of holy kinship. Around the Theotokos gather her parents and the household of Joseph, the kinsfolk of the Forerunner, and her Son, the incarnate Word.
+  figures:
+    - name: Jesus Christ
+      note: Her Son, the incarnate Word of God
+      href: saint/OS-0000
+    - name: Righteous Joachim
+      note: Father
+      href: saint/OS-0011
+    - name: Righteous Anna
+      note: Mother
+      href: saint/OS-2750
+    - name: Joseph the Betrothed
+      note: Betrothed and guardian
+      href: saint/OS-0075
+    - name: James the Brother of the Lord
+      note: Step-son, son of Joseph by his first marriage
+      href: saint/OS-2066
+    - name: Joses
+      note: Step-son, son of Joseph (traditional)
+    - name: Simon
+      note: Step-son, son of Joseph (traditional)
+    - name: Apostle Jude the Brother of the Lord
+      note: Step-son of Joseph (traditional); one of the Twelve Apostles
+      href: saint/OS-1384
+    - name: Salome
+      note: Joseph's first wife (traditional)
+      commemorated: false
+companions:
+  - name: John the Forerunner
+    note: Kinsman and Forerunner of the Lord
+    href: saint/OS-0002
+  - name: Righteous Elizabeth
+    note: Kinswoman; mother of the Forerunner
+    href: saint/OS-2752
+  - name: Prophet Zechariah
+    note: Father of the Forerunner
+    href: saint/OS-0085
+  - name: John the Theologian
+    note: The beloved disciple, into whose care she was entrusted at the Cross
+    href: saint/OS-0005
+  - name: Apostle Peter
+    note: Chief of the apostles, with her at Pentecost
+    href: saint/OS-0004
+  - name: Apostle Paul
+    note: Apostle to the nations
+    href: saint/OS-2749
+  - name: Mary Magdalene
+    note: Myrrh-bearer, present at the Cross and the empty tomb
+    href: saint/OS-0007
+  - name: Mary, the wife of Clopas
+    note: Kinswoman and childhood companion; a Myrrh-bearing Woman
+    href: saint/OS-1230
+  - name: Martha and Mary of Bethany
+    note: Sisters of Lazarus, friends of the Lord
+    href: saint/OS-1280
+  - name: Lazarus the Four-Days-Dead
+    note: Friend of the Lord, raised from the tomb
+    href: saint/OS-0078
 status: reviewed
 generated: "2026-06-18"

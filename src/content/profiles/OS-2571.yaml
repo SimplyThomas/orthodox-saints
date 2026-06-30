@@ -25,5 +25,12 @@ sections:
 patronage:
   - Almsgiving and charity
   - Burial of the dead
+family:
+  figures:
+    - name: Anna
+      note: His wife, who supported the household by her labor during his blindness.
+    - name: Righteous Tobias
+      note: His son, whom he sent to Media to recover his deposited silver and who returned with the means of his father's healing.
+      href: saint/OS-2572
 status: draft
 generated: "2026-06-21"

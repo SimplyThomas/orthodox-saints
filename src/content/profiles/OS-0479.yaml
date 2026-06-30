@@ -36,6 +36,12 @@ timeline:
   - when: c. 444
     title: Recorded by Theodoret
     body: Theodoret of Cyrrhus includes Marcian among the thirty ascetics of his Historia Religiosa, preserving his life as a model of Syrian desert monasticism.
+companions:
+  - name: St. Flavian, Archbishop of Antioch
+    note: "Hierarch who sought him out: Patriarch Flavian I of Antioch and other bishops entreated Marcian to leave his cell for public ministry, which he declined."
+    href: saint/OS-0669
+  - name: Eusebius
+    note: "Disciple: his principal disciple, whom Marcian charged to bury him secretly and far from his cell to forestall veneration and disputes over his relics (not securely identifiable in the data)."
 patronage:
   - Healing
 sources:

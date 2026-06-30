@@ -25,6 +25,13 @@ sections:
   - heading: Commemorated With
     body:
       - Saint Photina is commemorated on February 13 together with Saint Martinian of Caesarea and Saint Zoe. By tradition Zoe had been a prostitute who wagered that she could seduce Martinian; she repented and was sent to Bethlehem to Saint Paula, where she lived as a nun in strict asceticism for twelve years until her blessed end.
+companions:
+  - name: Saint Martinian of Caesarea in Palestine
+    note: The hermit on whose rocky island she took up the solitary life after her shipwreck; commemorated with her on February 13.
+    href: saint/OS-0650
+  - name: Saint Zoe of Caesarea in Palestine
+    note: A penitent brought to repentance through Martinian's example; commemorated together with Martinian and Photina on February 13.
+    href: saint/OS-0651
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2026/02/13/100513-saints-martinian-zoe-and-photina-of-caesarea-in-palestine

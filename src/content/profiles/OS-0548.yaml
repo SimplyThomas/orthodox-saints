@@ -10,6 +10,17 @@ sections:
     body:
       - On August 12, 1121, at the Battle of Didgori, David's army defeated a far larger Seljuk force, a victory that broke Turkish dominance in the Caucasus. In the following year, 1122, he took Tbilisi, which had been under Muslim rule for nearly five centuries, and made it once more the capital of a Christian kingdom.
       - A friend of the Church and a promoter of Christian learning, David was a builder of churches and monasteries; he is especially associated with the monastery of Gelati, where he was buried. He died on January 24, 1125, after a reign of some thirty-four years, and the Georgian Church numbers him among its saints, honoring him as David the Builder.
+family:
+  heading: Family
+  intro: David the Builder founded a royal house that gave several saints to the Georgian Church.
+  figures:
+    - name: St. Demetre I (Damiane), King of Georgia
+      note: His son and successor on the throne, who at the end of his reign laid down the crown to become a monk and hymnographer.
+      href: saint/OS-1233
+related:
+  - name: Venerable Arsenius of Iqalto
+    note: Learned monk, translator, and hymnographer of David's reign who founded the Iqalto Academy under the king's patronage.
+    href: saint/OS-0609
 patronage:
   - Patron of Georgia and model of a just Christian king
 status: draft

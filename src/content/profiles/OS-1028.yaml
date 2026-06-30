@@ -34,5 +34,13 @@ sections:
   - heading: Sources
     body:
       - The principal witness to Gregory's life is Evagrius Scholasticus, a Syrian scholar and lawyer who served as the patriarch's aide, drew up his official reports, and accompanied him to Constantinople. Evagrius's Ecclesiastical History, in six books, covers the Church from the First Council of Ephesus down into the reign of Maurice. The monk John Moschus additionally records that Gregory had been abbot of Pharan.
+companions:
+  - name: John the Faster
+    note: Contemporary patriarch; John IV the Faster of Constantinople interceded for Gregory and helped him retain the see of Antioch after the accusation brought by Anatolius.
+    href: saint/OS-0124
+related:
+  - name: Anastasius I of Antioch
+    note: Predecessor and successor in the see of Antioch; Gregory was enthroned in 571 after Anastasius I was deposed, and Anastasius resumed the patriarchate following Gregory's death in 593.
+    href: saint/OS-2675
 status: draft
 generated: "2026-06-20"

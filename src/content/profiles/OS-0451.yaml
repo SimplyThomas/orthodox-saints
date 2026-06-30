@@ -17,6 +17,23 @@ sections:
     body:
       - Raithu — also spelled Raitha or Raithou — was an ancient monastic site in the Sinai peninsula, in the region surrounding what is now El Tor, Egypt, situated between Saint Catherine and the Red Sea on the western shore near the Gulf of Suez. It lay distinct from Mount Sinai itself.
       - The monks of Raithu lived as anchorites, early Christian hermits. The desert fathers there were vulnerable to raids from neighboring desert peoples; the Blemmyes, an Eastern Desert people generally identified with the modern Beja, inhabited Lower Nubia and the Eastern Desert of Egypt, and their territory bordered the Red Sea coast, making raids on the monastic communities of the region historically plausible. A monastery was later established at the site, commissioned in the 6th century by the Byzantine emperor Justinian.
+companions:
+  - name: St. Theodulus of Sinai
+    note: "Fellow Sinai father: a contemporary monastic of the Sinai desert, commemorated together on January 14 among the Holy Fathers of Sinai and Raithu."
+    href: saint/OS-0452
+related:
+  - name: Holy Fathers Slain at Sinai and Raithu
+    note: "Commemorated together: the monks of Sinai and Raithu killed by desert raiders, with whose memory Joseph's peaceful repose is joined on January 14."
+    href: saint/OS-0450
+  - name: St. John Climacus
+    note: "Same monastic tradition: the great abbot of Sinai, heir to the eremitic life of the Sinai and Raithu fathers."
+    href: saint/OS-0033
+  - name: Anastasius of Sinai
+    note: "Same monastic tradition: a later father and abbot of the Sinai monastic community."
+    href: saint/OS-1029
+  - name: Venerable Neilos the Ascetic of Sinai
+    note: "Same monastic tradition: a Sinai father of the same era who recorded the sufferings of the Sinai monks."
+    href: saint/OS-2185
 timeline:
   - when: 4th–5th century
     title: Ascetic life at Raithu

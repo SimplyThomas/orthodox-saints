@@ -10,6 +10,26 @@ sections:
     body:
       - The most celebrated episode of his Christian life followed the massacre of the people in the hippodrome of Thessalonica in the year 390. Though the emperor was at Milan, he accepted responsibility for the slaughter. Bishop Ambrose of Milan called him to public penance, and Theodosius submitted, laying aside his imperial robes and remaining outside the communion of the Church until he was at last reconciled. His submission to the discipline of the Church became a lasting example of the ordering of imperial power under the authority of the Gospel.
       - Theodosius died on January 17, 395, at Milan, and was buried in the Church of the Holy Apostles at Constantinople. His funeral oration was delivered by Saint Ambrose.
+family:
+  heading: Family
+  intro: Theodosius founded a dynasty that ruled both halves of the empire after him.
+  figures:
+    - name: Righteous Empress Aelia Flaccilla
+      note: "Wife: his pious first empress, mother of his sons Arcadius and Honorius."
+      href: saint/OS-2508
+    - name: Right-believing Emperor Theodosius the Younger
+      note: "Grandson: Theodosius II, son of Arcadius, who reigned in the East and convened the Council of Ephesus in 431."
+      href: saint/OS-1607
+companions:
+  - name: St. Ambrose of Milan
+    note: "Bishop and confessor: imposed public penance on Theodosius after the massacre at Thessalonica (390) and later delivered his funeral oration at Milan."
+    href: saint/OS-2312
+  - name: St. Gregory the Theologian
+    note: "Hierarch he upheld: on entering Constantinople in 380 Theodosius confirmed Gregory in the archiepiscopal see, and Gregory presided over the opening of the council Theodosius convened in 381."
+    href: saint/OS-0022
+  - name: St. Flavian, Archbishop of Antioch
+    note: "Hierarch who interceded with him: Flavian I of Antioch entreated Theodosius to spare the citizens of Antioch after their revolt against imperial taxes."
+    href: saint/OS-0669
 patronage:
   - Christian rulers who uphold the Orthodox faith
 status: draft

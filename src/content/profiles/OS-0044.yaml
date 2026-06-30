@@ -52,6 +52,41 @@ sections:
     body:
       - At his glorification, Herman's relics were transferred from beneath the Sts. Sergius and Herman of Valaam Chapel on Spruce Island to Holy Resurrection Cathedral in Kodiak, Alaska.
       - A portion of his relics is enshrined at the St. Ignatius Chapel at the Antiochian Village in Pennsylvania.
+companions:
+  - name: Nazarius of Valaam
+    note: Abbot of Valaam who tonsured and formed him
+  - name: Joasaph of Kodiak
+    note: Leader of the Alaska mission, later its first bishop
+  - name: Juvenaly of Alaska
+    note: Fellow Valaam missionary and protomartyr of America
+  - name: Macarius
+    note: Fellow monk of the Valaam mission to Alaska
+  - name: Gerasim
+    note: Fellow monk of the Valaam mission to Alaska
+  - name: Athanasius
+    note: Fellow monk of the Valaam mission to Alaska
+  - name: Alexander Baranov
+    note: Governor of the Russian-American Company he opposed
+    commemorated: false
+related:
+  - name: Innocent of Alaska
+    note: Apostle to America and missionary bishop
+    href: saint/OS-0054
+  - name: Peter the Aleut
+    note: Native Alaskan martyr
+    href: saint/OS-1894
+  - name: Jacob Netsvetov
+    note: Native Alaskan priest and enlightener
+    href: saint/OS-1579
+  - name: Tikhon of Moscow
+    note: Patriarch who served the American mission
+    href: saint/OS-0053
+  - name: Raphael of Brooklyn
+    note: Bishop and shepherd of Orthodoxy in America
+    href: saint/OS-0055
+  - name: Seraphim of Sarov
+    note: Russian wonderworker of the same era
+    href: saint/OS-0043
 patronage:
   - Alaska and the indigenous peoples of Alaska
   - Orthodox missionaries in North America

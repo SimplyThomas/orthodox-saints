@@ -30,5 +30,19 @@ sections:
       - Early lists associated with Hippolytus assign Timon the see of Bostra and name Parmenas bishop of Soli, placed by various accounts either in Cyprus or in Asia Minor. All are remembered as first-century laborers of the apostolic age.
 patronage:
   - The diaconate and the Church's charitable ministry
+companions:
+  - name: First-Martyr & Archdeacon Stephen
+    note: Fellow deacon; the Protomartyr, chosen with them among the Seven set apart to serve the Jerusalem community (Acts 6:1-6).
+    href: saint/OS-0009
+  - name: Apostle Philip of the Seventy
+    note: Fellow deacon and evangelist among the Seven of Acts 6.
+    href: saint/OS-1998
+  - name: Apostle & Evangelist John the Theologian
+    note: Prochorus accompanied John the Theologian as his disciple and scribe, sharing his exile on Patmos where the Apocalypse was written.
+    href: saint/OS-0005
+related:
+  - name: Apostle Peter
+    note: By tradition Prochorus was a companion of the Apostle Peter, who appointed him bishop of Nicomedia.
+    href: saint/OS-0004
 status: draft
 generated: "2026-06-19"

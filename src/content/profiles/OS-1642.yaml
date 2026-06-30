@@ -38,6 +38,10 @@ companions:
   - name: Martyr Basiliscus of Amasea
     note: Whose martyrdom Eusignius witnessed during his military years
     href: saint/OS-0762
+related:
+  - name: Emperor Constantine the Great
+    note: Emperor under whom Eusignius served and witnessed the vision of the luminous Cross that confirmed his own faith.
+    href: saint/OS-0037
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

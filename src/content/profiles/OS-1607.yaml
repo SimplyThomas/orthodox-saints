@@ -61,6 +61,18 @@ timeline:
   - when: 28 July 450
     title: Death
     body: Dies aged forty-nine after a fall from his horse crossing the River Lycus; buried in the Church of the Holy Apostles.
+family:
+  heading: Family
+  figures:
+    - name: St. Pulcheria the Empress
+      note: "Sister: his elder sister and guardian, a consecrated virgin who directed his Christian formation and set the devout tone of the imperial court."
+      href: saint/OS-0348
+    - name: Empress Eudocia (Athenais)
+      note: "Spouse: his wife, of Athenian origin, whom he married in June 421."
+related:
+  - name: St. Cyril, Archbishop of Alexandria
+    note: "Council of Ephesus: the archbishop who presided over the Third Ecumenical Council (431), which Theodosius convened and whose deposition of Nestorius the emperor ratified."
+    href: saint/OS-0476
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
