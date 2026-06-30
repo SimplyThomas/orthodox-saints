@@ -21,9 +21,11 @@ family:
   figures:
     - name: Saint Theosebios the God-bearer of Arsinoe
       note: Named in the tradition as the brother of Arkadios, also venerated at Arsinoe in Cyprus.
+      href: saint/OS-2799
 companions:
   - name: Bishop Nikon of Arsinoe
     note: Arkadios's predecessor on the episcopal throne of Arsinoe, who according to the tradition first drew him into the clergy.
+    href: saint/OS-2798
 patronage:
   - Against demonic affliction
   - Healing of the sick

@@ -66,9 +66,10 @@ family:
       href: saint/OS-0420
     - name: Saint Naucratius
       note: brother
-    - name: Theosebia
+      href: saint/OS-2802
+    - name: Saint Theosebia the Deaconess
       note: sister
-      commemorated: false
+      href: saint/OS-0427
 companions:
   - name: Saint Gregory the Theologian
     note: lifelong friend & fellow Cappadocian Father
