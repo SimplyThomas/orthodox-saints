@@ -417,11 +417,11 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   await expect(home).toBeHidden();
   await toggle.click();
   await expect(home).toBeVisible();
-  // Grouped links are inline accordions — expand "Feasts & Fasts" to reveal
+  // Grouped links are inline accordions — expand "The Church Year" to reveal
   // "The Calendar" without leaving the menu.
   const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
   await expect(calendar).toBeHidden();
-  await page.getByRole("button", { name: /Feasts & Fasts/ }).click();
+  await page.getByRole("button", { name: /The Church Year/ }).click();
   await expect(calendar).toBeVisible();
   // Escape collapses the whole panel.
   await page.keyboard.press("Escape");

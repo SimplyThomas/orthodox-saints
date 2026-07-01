@@ -70,7 +70,7 @@ export const NAV: NavItem[] = [
   },
   {
     key: "feasts-fasts",
-    label: "Feasts & Fasts",
+    label: "The Church Year",
     children: [
       { key: "calendar", label: "The Calendar", href: withBase("calendar") },
       { key: "feasts", label: "Feasts", href: withBase("feasts") },
@@ -79,7 +79,7 @@ export const NAV: NavItem[] = [
   },
   {
     key: "little-church",
-    label: "The Little Church",
+    label: "The Orthodox Home",
     children: [
       {
         key: "icons",
