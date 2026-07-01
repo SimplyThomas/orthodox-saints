@@ -2561,13 +2561,17 @@ a.news-card:hover .news-h {
   margin: 0 0 16px;
 }
 .cw-foot-site {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 9px;
   text-decoration: none;
   color: #b9c8d8;
   font-size: 14.5px;
   transition: color 0.15s;
+}
+.cw-foot-site + .cw-foot-site {
+  margin-top: 10px;
 }
 .cw-foot-site:hover {
   color: var(--gold-soft);
@@ -6074,6 +6078,16 @@ a.sv-rail-chip:hover {
 }
 .as-col .as-list + .as-p {
   margin-top: 6px;
+}
+.as-mail {
+  color: var(--byz);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(35, 76, 122, 0.35);
+  transition: border-color 0.15s;
+}
+.as-mail:hover {
+  border-bottom-color: var(--byz);
 }
 
 /* drop-capped opening paragraph */
