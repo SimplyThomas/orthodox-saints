@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "./icons/DomeMark.astro";
+import EyebrowRule from "./EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+interface Props {
+  /** Nav key so the masthead highlights the right section. */
+  active?: string;
+  /** Page + <h1> title. */
+  title: string;
+  /** Small-caps eyebrow above the title. */
+  eyebrow?: string;
+  /** One-line lede beneath the title. */
+  blurb?: string;
+  /** <meta name="description"> override. */
+  description?: string;
+}
+const {
+  active = "",
+  title,
+  eyebrow = "In Preparation",
+  blurb,
+  description,
+} = Astro.props;
+---
+
+<BaseLayout
+  active={active}
+  title={title}
+  description={description ?? `${title} — coming soon to Cloud of Witnesses.`}
+>
+  <div class="soon">
+    <section class="soon-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="soon-inner">
+        <EyebrowRule label={eyebrow} />
+        <h1 class="soon-title">{title}</h1>
+        {blurb && <p class="soon-lede">{blurb}</p>}
+        <div class="soon-panel">
+          <div class="rule"><span class="dot"></span></div>
+          <p class="soon-label">Coming soon</p>
+          <p class="soon-body">
+            This page is on its way. In the meantime, explore the saints already
+            in the database.
+          </p>
+          <div class="soon-actions">
+            <a class="btn btn--gold" href={withBase("search")}
+              >Browse the saints</a
+            >
+            <a class="btn btn--ghost" href={withBase("quiz")}
+              >Find your patron</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .soon-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(64px, 12vw, 120px) 20px clamp(72px, 14vw, 132px);
+    overflow: hidden;
+  }
+  .soon-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .soon-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    margin: 18px 0 0;
+    line-height: 1.05;
+  }
+  .soon-lede {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+    color: var(--ink-soft);
+    margin: 16px auto 0;
+    max-width: 44ch;
+  }
+  .soon-panel {
+    margin: clamp(32px, 6vw, 52px) auto 0;
+    max-width: 560px;
+    padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 44px)
+      clamp(30px, 5vw, 46px);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 16px;
+    background: var(--parchment, #fbf7ee);
+    box-shadow: 0 18px 44px rgba(15, 34, 56, 0.08);
+  }
+  .soon-panel .rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .soon-panel .rule .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow:
+      -16px 0 0 -2px rgba(212, 175, 55, 0.5),
+      16px 0 0 -2px rgba(212, 175, 55, 0.5);
+  }
+  .soon-label {
+    font-family: var(--serif);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.82rem;
+    color: var(--gold-deep, #a9852a);
+    margin: 0 0 12px;
+  }
+  .soon-body {
+    color: var(--ink-soft);
+    margin: 0 auto 24px;
+    max-width: 42ch;
+    line-height: 1.6;
+  }
+  .soon-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

@@ -450,6 +450,7 @@ a.qz-comp {
   flex: 1;
 }
 .header-search {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -458,23 +459,118 @@ a.qz-comp {
   border-radius: 999px;
   padding: 8px 16px;
   font-size: 14px;
-  min-width: 180px;
-  cursor: pointer;
+  min-width: 210px;
   background: transparent;
-  text-decoration: none;
   transition:
     border-color 0.15s,
     color 0.15s;
 }
-.header-search:hover {
+.header-search:focus-within {
   border-color: var(--gold);
   color: var(--gold-soft);
 }
 .header-search .ico {
   display: flex;
+  cursor: text;
 }
-.header-search span {
-  color: inherit;
+/* The typed-in quick-search input, transparent inside the pill. */
+.hs-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-family: var(--text);
+  font-size: 14px;
+  color: var(--gold-soft);
+}
+.hs-input::placeholder {
+  color: #8fa3b8;
+  opacity: 1;
+}
+.hs-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+/* Typeahead results panel — mirrors the nav dropdown treatment. */
+.hs-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: 0;
+  min-width: 280px;
+  max-height: min(70vh, 460px);
+  overflow-y: auto;
+  padding: 6px;
+  background: var(--byz-ink);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(15, 34, 56, 0.45);
+  z-index: 60;
+}
+.hs-panel[hidden] {
+  display: none;
+}
+.hs-group {
+  padding: 8px 10px 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8fa3b8;
+}
+.hs-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #b9c8d8;
+}
+.hs-opt:hover,
+.hs-opt.active {
+  background: rgba(212, 175, 55, 0.09);
+}
+.hs-ic {
+  flex: none;
+  width: 16px;
+  text-align: center;
+  color: var(--gold);
+  font-size: 14px;
+}
+.hs-ic--page {
+  color: #8fa3b8;
+  font-size: 18px;
+  line-height: 1;
+}
+.hs-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.hs-name {
+  color: var(--gold-soft);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hs-meta {
+  color: #8fa3b8;
+  font-size: 12px;
+}
+.hs-empty {
+  padding: 12px 10px;
+  color: #8fa3b8;
+  font-size: 13px;
+}
+.hs-seeall {
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 8px 8px;
+  color: var(--gold-soft);
+  font-size: 13px;
 }
 
 /* Mobile menu: desktop keeps the inline layout (the wrapper is transparent to
@@ -502,6 +598,93 @@ a.qz-comp {
 }
 .nav-toggle .ico-close {
   display: none;
+}
+
+/* ---- Dropdown navigation (top-level groups) ---- */
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-trigger .caret {
+  transition: transform 0.15s;
+  opacity: 0.8;
+}
+.nav-item.open .nav-trigger .caret {
+  transform: rotate(180deg);
+}
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  min-width: 224px;
+  background: var(--byz-ink);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(15, 34, 56, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-6px);
+  transition:
+    opacity 0.15s,
+    transform 0.15s,
+    visibility 0.15s;
+  z-index: 40;
+}
+/* A small hover bridge so the pointer can cross the gap to the panel. */
+.nav-menu::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.nav-menu li {
+  margin: 0;
+}
+.nav-menu a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 7px;
+  border-bottom: 0;
+  color: #b9c8d8;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-menu a:hover {
+  color: var(--gold-soft);
+  background: rgba(212, 175, 55, 0.09);
+}
+.nav-menu a.active {
+  color: var(--gold-soft);
+  font-weight: 600;
+  background: rgba(212, 175, 55, 0.09);
+}
+.nav-item.open > .nav-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+/* Hover / keyboard-focus open — desktop only (mobile uses click accordion). */
+@media (min-width: 1001px) {
+  .nav-item:hover > .nav-menu,
+  .nav-item:focus-within > .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .loading {
@@ -5387,6 +5570,48 @@ a.sv-rail-chip:hover {
   }
   .site-nav a.active {
     border-bottom-color: var(--gold);
+  }
+  /* Groups become inline accordions inside the mobile panel. */
+  .nav-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nav-trigger {
+    justify-content: space-between;
+    width: 100%;
+    padding: 13px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .nav-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+    min-width: 0;
+    width: 100%;
+    padding: 2px 0 8px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+  }
+  .nav-menu::before {
+    display: none;
+  }
+  .nav-item.open > .nav-menu {
+    display: block;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+  .nav-menu a {
+    padding: 11px 4px 11px 22px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: normal;
   }
   .header-search {
     width: 100%;
