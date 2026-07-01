@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
+import { withBase } from "../lib/format";
 
 // Editorial Standards — a long-form About sub-page in the illuminated
 // reading-column treatment. Ported from the Claude Design "About Pages" mock;
@@ -129,24 +130,15 @@ const sources = [
           <span class="ln"></span><h2>The Verified Symbol</h2>
         </div>
         <div class="as-verified">
-          <div class="mark">
-            <svg
-              width="34"
-              height="34"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--gold-soft)"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M21 5c-2.4 1.2-4 .8-6 .2-3-1-6 .4-7 3.3-.7 2 0 4-1.5 5.8C5 16 3.4 16.6 3 18c2.8.6 6 .4 8.4-1.2 2.6-1.8 3.4-4.8 3.6-7.3.1-1.3.6-2.2 2-3z"
-              ></path>
-              <path d="M3 18c3-.5 5-2 6.5-4"></path>
-            </svg>
-          </div>
+          <img
+            class="mark"
+            src={withBase("dove-emblem.svg")}
+            width="64"
+            height="64"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
           <div>
             <div class="eyebrow">The Verified Mark</div>
             <p>

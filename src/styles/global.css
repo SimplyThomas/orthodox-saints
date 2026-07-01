@@ -6321,11 +6321,12 @@ a.sv-rail-chip:hover {
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  /* the shared dove-emblem.svg carries its own deep-indigo disc, so the
+     medallion only adds the gilt ring around it (matches the site-wide seal) */
   background: var(--byz);
   border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  display: block;
 }
 .as-verified .eyebrow {
   margin-bottom: 6px;
