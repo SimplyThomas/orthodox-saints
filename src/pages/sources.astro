@@ -1,10 +1,280 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Sources & Methodology — a long-form About sub-page in the illuminated
+// reading-column treatment. Ported from the Claude Design "About Pages" mock;
+// the header area reuses the Browse & Search hero primitives.
+const researchAims = [
+  "Confirm the historical identity of the individual.",
+  "Distinguish saints with similar or identical names.",
+  "Verify feast days using official liturgical calendars.",
+  "Compare multiple biographies and historical accounts.",
+  "Identify the earliest available sources for major events.",
+  "Note where traditions differ or historical uncertainty exists.",
+  "Record alternative names, spellings, and regional titles.",
+  "Cross-reference relationships between saints, historical figures, places, monasteries, and events.",
+  "Provide recommendations for further reading whenever reliable resources are available.",
+];
+const liturgical = [
+  "Synaxaria",
+  "Menaia",
+  "Service texts",
+  "Hymnography",
+  "Liturgical calendars",
+];
+const distinctions = [
+  "Early historical evidence",
+  "Long-standing ecclesiastical tradition",
+  "Local or regional tradition",
+  "Later historical interpretation",
+  "Modern scholarly conclusions",
+];
+const ancientLit = [
+  "Second Temple Jewish literature",
+  "Early Christian literature",
+  "Apocryphal writings",
+  "Ancient ecclesiastical traditions",
+];
+const imageSources = [
+  "Public-domain collections",
+  "Freely licensed archives",
+  "Museums and libraries",
+  "Official Church organizations",
+  "Iconographers and photographers who have granted permission",
+];
 ---
 
-<ComingSoon
+<BaseLayout
   active="sources"
   title="Sources & Methodology"
-  eyebrow="About"
-  blurb="The references and process behind every entry in the database."
-/>
+  description="Where the information on Cloud of Witnesses comes from — Scripture, liturgical texts, patristic and ancient sources, and modern scholarship — and how we weigh them."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Sources &amp; Methodology</h1>
+        <p class="sr-lede">
+          Where our information comes from &mdash; and how we weigh history,
+          tradition, and scholarship.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          Cloud of Witnesses is built from a wide range of historical,
+          ecclesiastical, and academic sources. Because the lives of the saints
+          span more than two thousand years and many different cultures, no
+          single source contains every detail. Our goal is to bring together the
+          best available information while clearly distinguishing between
+          established historical evidence, ecclesiastical tradition, and later
+          local traditions.
+        </p>
+        <p class="as-p">
+          Rather than relying on a single publication or website, we compare
+          multiple sources whenever possible and seek to present information
+          responsibly, transparently, and with appropriate historical context.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Our Research Process</h2>
+        </div>
+        <p class="as-p">
+          Each profile is developed through a process of collecting, comparing,
+          and evaluating information from a variety of sources.
+        </p>
+        <p class="as-p">Whenever possible, we seek to:</p>
+        <ul class="as-list">
+          {researchAims.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          As additional research becomes available, profiles may be updated to
+          reflect improved historical understanding.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Types of Sources We Use</h2>
+        </div>
+
+        <h3 class="as-sub">Holy Scripture</h3>
+        <p class="as-p last">
+          The Holy Scriptures remain the primary source for the lives of
+          biblical figures, including the prophets, apostles, evangelists, and
+          other individuals commemorated by the Orthodox Church.
+        </p>
+
+        <h3 class="as-sub">Liturgical Sources</h3>
+        <p class="as-p">
+          Liturgical texts preserve the Church&rsquo;s living memory of the
+          saints and often provide important historical, theological, and
+          devotional information.
+        </p>
+        <p class="as-p">Examples include:</p>
+        <ul class="as-list">
+          {liturgical.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          These sources are especially valuable for understanding how the Church
+          has commemorated a saint through the centuries.
+        </p>
+
+        <h3 class="as-sub">Patristic Writings</h3>
+        <p class="as-p last">
+          Whenever available, we consult the writings of the Church Fathers and
+          other early Christian authors, particularly when they were
+          contemporaries of the individuals being described or preserve early
+          historical traditions.
+        </p>
+
+        <h3 class="as-sub">Ancient Historical Sources</h3>
+        <p class="as-p">
+          For many saints, especially those of the early Church, valuable
+          historical information survives in ancient chronicles, letters,
+          ecclesiastical histories, legal documents, pilgrimage accounts, and
+          other primary historical texts.
+        </p>
+        <p class="as-p last">
+          Whenever possible, we seek the earliest surviving witnesses to
+          historical events.
+        </p>
+
+        <h3 class="as-sub">Modern Scholarship</h3>
+        <p class="as-p">
+          Modern historians, archaeologists, linguists, and theologians often
+          provide valuable insight into chronology, historical context,
+          manuscript traditions, and questions of attribution.
+        </p>
+        <p class="as-p last">
+          Academic scholarship is used to help clarify historical questions
+          while recognizing that historical research continues to develop over
+          time.
+        </p>
+
+        <h3 class="as-sub">Official Orthodox Sources</h3>
+        <p class="as-p">
+          Whenever available, we consult publications produced by Orthodox
+          jurisdictions, monasteries, seminaries, and other recognized Orthodox
+          institutions.
+        </p>
+        <p class="as-p last">
+          These sources are particularly valuable for feast days, liturgical
+          commemorations, glorifications, official biographies, and contemporary
+          saints.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Evaluating Historical Traditions</h2>
+        </div>
+        <p class="as-p">
+          Many saints are remembered through traditions that developed over
+          centuries. Some details are supported by early historical evidence,
+          while others come from later local traditions or devotional
+          literature.
+        </p>
+        <p class="as-p">When possible, we seek to distinguish between:</p>
+        <ul class="as-list">
+          {distinctions.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          Our goal is not to dismiss later traditions, but to provide readers
+          with enough context to understand where particular accounts originate.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>
+            Ancient Jewish and Early Christian Literature
+          </h2>
+        </div>
+        <p class="as-p">
+          Some articles discuss figures or traditions preserved in important
+          ancient writings outside the biblical canon, such as:
+        </p>
+        <ul class="as-list">
+          {ancientLit.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p">
+          When these works are referenced, we clearly identify their historical
+          status and avoid presenting non-canonical material as though it were
+          part of Holy Scripture.
+        </p>
+        <p class="as-p last">
+          These sources are used to help explain the historical development of
+          Jewish and Christian thought, not to blur the distinction between
+          canonical and non-canonical texts.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Images and Visual Resources</h2>
+        </div>
+        <p class="as-p">Whenever possible, images are obtained from:</p>
+        <ul class="as-list">
+          {imageSources.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p">
+          Every effort is made to credit creators appropriately and respect
+          copyright and licensing requirements.
+        </p>
+        <p class="as-p last">
+          If you believe an image has been misattributed or used incorrectly, we
+          encourage you to contact us so that we can correct the record
+          promptly.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Continuing Research</h2>
+        </div>
+        <p class="as-p">Cloud of Witnesses is an ongoing editorial project.</p>
+        <p class="as-p">
+          New manuscripts are digitized. Historical publications are translated.
+          Archaeological discoveries are made. Local churches publish new
+          material. Modern saints are glorified. Better photographs become
+          available. For these reasons, our work is never truly finished.
+        </p>
+        <p class="as-p last">
+          We regularly expand biographies, improve relationship networks, update
+          bibliographies, add newly available sources, and refine historical
+          information as additional research becomes available.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>A Collaborative Effort</h2>
+        </div>
+        <p class="as-p">
+          We are grateful to the clergy, monastics, historians, translators,
+          librarians, archivists, iconographers, photographers, scholars, parish
+          communities, and readers whose work helps preserve the history of the
+          Orthodox Church.
+        </p>
+        <p class="as-pull" style="margin-bottom:16px">
+          If you know of an important source that we have overlooked, have
+          access to historical material that could improve a page, or would like
+          to recommend additional reading, we would be delighted to hear from
+          you.
+        </p>
+        <p class="as-p last">
+          Every thoughtful contribution helps strengthen this resource for
+          future readers.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>
