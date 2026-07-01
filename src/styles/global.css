@@ -2425,6 +2425,10 @@ a.news-card:hover .news-h {
   padding-top: 28px;
   padding-bottom: 4px;
 }
+/* the last movement is the final content before the footer, so give it room */
+.ab-movements.ab-became:last-of-type {
+  padding-bottom: clamp(56px, 9vw, 96px);
+}
 .ab-move {
   display: grid;
   grid-template-columns: 186px 1fr;
@@ -2479,20 +2483,6 @@ a.news-card:hover .news-h {
   line-height: 0.72;
   margin: 6px 12px 0 0;
 }
-.ab-prose p.ab-pull {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(20px, 2.6vw, 24px);
-  color: var(--byz);
-  line-height: 1.4;
-  margin: 4px 0 18px;
-  padding-left: 22px;
-  border-left: 3px solid var(--gold);
-  text-align: left;
-  hyphens: none;
-}
-
 /* closing band: benediction + contact */
 /* ============================================================
    Footer — reverent dark colophon
