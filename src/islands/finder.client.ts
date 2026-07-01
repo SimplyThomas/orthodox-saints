@@ -26,7 +26,7 @@ import {
 } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, cssEscape, withBase } from "../lib/format";
-import { byzCross, saintAvatar } from "../lib/icons";
+import { byzCross, saintAvatar, reviewedDove } from "../lib/icons";
 import { track } from "../lib/analytics";
 import { matchThemeAlias } from "../lib/theme-aliases";
 import { themeBySlug } from "../lib/themes";
@@ -68,7 +68,7 @@ if (dataEl) {
         <div class="main">
           <div class="title-line"><h3>${esc(sn.title)}</h3>${
             sn.epithet ? `<span class="epithet">${esc(sn.epithet)}</span>` : ""
-          }</div>
+          }${s.humanReviewed ? reviewedDove(20) : ""}</div>
           ${via ? `<div class="match-via">matched &ldquo;${esc(via)}&rdquo;</div>` : ""}
           <p class="bio">${esc(s.brief || s.notes || "")}</p>
           <div class="row-tags">
