@@ -6138,3 +6138,320 @@ a.sv-rail-chip:hover {
     position: static;
   }
 }
+
+/* =====================================================================
+   About sub-pages — the illuminated reading-column long-form treatment
+   shared by Our Mission, Editorial Standards, Contributors, Sources &
+   Methodology, and Contact. Ported from the Claude Design "About Pages"
+   mock. Each page reuses the search page's .sr-hero primitives for its
+   header area (so it matches Browse & Search) and this .as-* block for
+   the reading column below.
+   ===================================================================== */
+.as-body {
+  padding: clamp(40px, 6vw, 54px) clamp(16px, 5vw, 56px) 8px;
+  background: var(--paper);
+}
+.as-col {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.as-p {
+  font-size: 18.5px;
+  color: var(--ink);
+  line-height: 1.74;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.as-p.last {
+  margin-bottom: 0;
+}
+.as-col .as-list + .as-p {
+  margin-top: 6px;
+}
+
+/* drop-capped opening paragraph */
+.as-dropcap::first-letter {
+  float: left;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--gold-deep);
+  font-size: 70px;
+  line-height: 0.72;
+  margin: 6px 12px 0 0;
+}
+
+/* H2 section head: short gold segment · gilt line, then serif title */
+.as-head {
+  margin: clamp(34px, 5vw, 46px) 0 16px;
+}
+.as-head .ln {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.as-head .ln::before {
+  content: "";
+  height: 1px;
+  width: 30px;
+  background: var(--gold);
+  flex: 0 0 auto;
+}
+.as-head .ln::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  margin-left: 14px;
+  background: var(--line-gold);
+}
+.as-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 4.5vw, 34px);
+  color: var(--byz-deep);
+  line-height: 1.12;
+  margin: 0;
+}
+
+/* H3 sub-head with a gold dot marker */
+.as-sub {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(20px, 3.5vw, 23px);
+  color: var(--byz);
+  line-height: 1.2;
+  margin: 30px 0 10px;
+}
+.as-sub::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* gold-marker list */
+.as-list {
+  list-style: none;
+  margin: 6px 0 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.as-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.as-list li::before {
+  content: "";
+  flex: 0 0 auto;
+  margin-top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* closing italic pull-quote */
+.as-pull {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 3.5vw, 24px);
+  color: var(--byz);
+  line-height: 1.42;
+  margin: 6px 0 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--gold);
+}
+
+/* gilt-bordered CTA callout (Contributors) */
+.as-callout {
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 12px;
+  padding: 26px 30px;
+  box-shadow: var(--shadow-soft);
+  margin: 6px 0 18px;
+}
+.as-callout .eyebrow {
+  margin-bottom: 8px;
+}
+.as-callout h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(21px, 3.6vw, 25px);
+  color: var(--byz-deep);
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.as-callout p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+.as-callout p + p {
+  margin-top: 10px;
+}
+
+/* the "Verified mark" callout (Editorial Standards) */
+.as-verified {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-soft);
+  margin: 4px 0 22px;
+}
+.as-verified .mark {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--byz);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.as-verified .eyebrow {
+  margin-bottom: 6px;
+}
+.as-verified p {
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* cross-link cards to sibling About pages (Contact) */
+.as-linkcards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0 4px;
+}
+.as-linkcard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    transform 0.12s,
+    box-shadow 0.15s;
+}
+.as-linkcard:hover,
+.as-linkcard:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(15, 34, 56, 0.08);
+}
+.as-linkcard .dmnd {
+  flex: 0 0 auto;
+  margin-top: 7px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+.as-linkcard .lc-body {
+  flex: 1;
+}
+.as-linkcard h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--byz-deep);
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+.as-linkcard p {
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+.as-linkcard .arw {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  color: var(--gold-deep);
+}
+
+/* named-credit card (Contributors) */
+.as-credit {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-soft);
+  margin: 4px 0;
+}
+.as-credit .dmnd {
+  flex: 0 0 auto;
+  margin-top: 9px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+.as-credit p {
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0;
+}
+.as-credit a {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--byz-deep);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--gold);
+}
+
+/* small vertical spacer between a list and the paragraph that follows */
+.as-gap {
+  height: 4px;
+}
+
+/* closing gilt flourish */
+.as-flourish {
+  padding: clamp(34px, 5vw, 44px) clamp(16px, 5vw, 56px) clamp(48px, 8vw, 64px);
+  background: var(--paper);
+}
+.as-flourish .rule {
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 560px) {
+  .as-verified {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
