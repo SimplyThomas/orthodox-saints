@@ -1,30 +1,14 @@
 ---
-import { withBase } from "../lib/format";
+import { NAV } from "../lib/nav";
 
 // Reverent dark colophon: brand block + navigation + connect, over a thin
-// legal bar that keeps the standing clergy-review / licensing disclaimer.
-const cols: { head: string; links: { label: string; href: string }[] }[] = [
-  {
-    head: "Explore",
-    links: [
-      { label: "Saints", href: withBase("") },
-      { label: "The Calendar", href: withBase("calendar") },
-      { label: "Browse the Index", href: withBase("search") },
-      { label: "Saints of America", href: withBase("america") },
-      { label: "Icons in the Home", href: withBase("icons-home") },
-      { label: "Saints in the News", href: withBase("news") },
-    ],
-  },
-  {
-    head: "The Project",
-    links: [
-      { label: "About", href: withBase("about") },
-      { label: "Find Your Patron", href: withBase("quiz") },
-      { label: "Contribute", href: withBase("contribute") },
-      { label: "Corrections", href: withBase("corrections") },
-    ],
-  },
-];
+// legal bar. The link columns mirror the primary nav (src/lib/nav.ts) — every
+// dropdown group becomes a footer column — so the footer and header never
+// drift. (Home is a direct link, reached via the brand wordmark above.)
+const cols = NAV.filter((item) => item.children).map((item) => ({
+  head: item.label,
+  links: item.children!,
+}));
 const year = new Date().getFullYear();
 ---
 
@@ -43,63 +27,66 @@ const year = new Date().getFullYear();
       </p>
     </div>
 
-    {
-      cols.map((c) => (
-        <nav class="cw-foot-col" aria-label={c.head}>
-          <div class="eyebrow on-blue">{c.head}</div>
-          <div class="cw-foot-links">
-            {c.links.map((l) => (
-              <a href={l.href}>{l.label}</a>
-            ))}
-          </div>
-        </nav>
-      ))
-    }
+    <div class="cw-foot-cols">
+      {
+        cols.map((c) => (
+          <nav class="cw-foot-col" aria-label={c.head}>
+            <div class="eyebrow on-blue">{c.head}</div>
+            <div class="cw-foot-links">
+              {c.links.map((l) => (
+                <a href={l.href}>{l.label}</a>
+              ))}
+            </div>
+          </nav>
+        ))
+      }
 
-    <div class="cw-foot-col">
-      <div class="eyebrow on-blue">Connect</div>
-      <p class="cw-foot-note">
-        For corrections, contributions, icons, or just to say hello &mdash; we
-        would love to hear from you.
-      </p>
-      <a class="cw-foot-site" href="mailto:contact@orthodoxsaintfinder.com">
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--celest-soft)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+      <div class="cw-foot-col">
+        <div class="eyebrow on-blue">Connect</div>
+        <p class="cw-foot-note">
+          For corrections, contributions, icons, or just to say hello &mdash; we
+          would love to hear from you.
+        </p>
+        <a class="cw-foot-site" href="mailto:contact@orthodoxsaintfinder.com">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--celest-soft)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 7l9 6 9-6"></path>
+          </svg>
+          contact@orthodoxsaintfinder.com
+        </a>
+        <a
+          class="cw-foot-site"
+          href="https://orthodoxsaintfinder.com"
+          rel="noopener"
         >
-          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-          <path d="M3 7l9 6 9-6"></path>
-        </svg>
-        contact@orthodoxsaintfinder.com
-      </a>
-      <a
-        class="cw-foot-site"
-        href="https://orthodoxsaintfinder.com"
-        rel="noopener"
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--celest-soft)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="9"></circle>
-          <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
-        </svg>
-        orthodoxsaintfinder.com
-      </a>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--celest-soft)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"
+            ></path>
+          </svg>
+          orthodoxsaintfinder.com
+        </a>
+      </div>
     </div>
   </div>
 
