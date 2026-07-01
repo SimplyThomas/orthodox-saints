@@ -2579,18 +2579,6 @@ a.news-card:hover .news-h {
 .cw-footer-legal {
   border-top: 1px solid rgba(212, 175, 55, 0.14);
 }
-.cw-legal-disclaimer {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 18px clamp(16px, 4vw, 56px) 0;
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: #8499ad;
-  text-align: center;
-}
-.cw-legal-disclaimer strong {
-  color: var(--gold-soft);
-}
 .cw-legal-bar {
   max-width: 1400px;
   margin: 0 auto;
@@ -2608,9 +2596,6 @@ a.news-card:hover .news-h {
 .cw-copy {
   letter-spacing: 0.06em;
   color: var(--gold-soft);
-}
-.cw-dot {
-  color: #4f6076;
 }
 .cw-foot-flex {
   flex: 1;
