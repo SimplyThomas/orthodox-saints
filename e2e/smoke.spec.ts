@@ -407,35 +407,70 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   await page.goto("./");
   const toggle = page.locator(".nav-toggle");
   await expect(toggle).toBeVisible();
-  // Links are hidden in the closed dropdown, revealed on toggle, hidden on Escape.
-  const link = page.locator(".site-nav a", { hasText: "Calendar" });
-  await expect(link).toBeHidden();
+  // The top-level Home link lives directly in the panel: hidden when the
+  // dropdown is closed, revealed on toggle, hidden again on Escape.
+  const home = page.locator(".site-nav > a", { hasText: "Home" });
+  await expect(home).toBeHidden();
   await toggle.click();
-  await expect(link).toBeVisible();
+  await expect(home).toBeVisible();
+  // Grouped links are inline accordions — expand "Feasts & Fasts" to reveal
+  // "The Calendar" without leaving the menu.
+  const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
+  await expect(calendar).toBeHidden();
+  await page.getByRole("button", { name: /Feasts & Fasts/ }).click();
+  await expect(calendar).toBeVisible();
+  // Escape collapses the whole panel.
   await page.keyboard.press("Escape");
-  await expect(link).toBeHidden();
+  await expect(home).toBeHidden();
 });
 
 test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
-  const nav = page.locator(".site-nav");
-  for (const label of [
-    "Home",
-    "Calendar",
-    "Browse",
-    "America",
-    "News",
-    "Patron Quiz",
-    "About",
-  ]) {
-    const href = await nav
-      .getByRole("link", { name: label, exact: true })
-      .getAttribute("href");
+  // Every nav anchor (top-level Home + all dropdown leaves) must be
+  // base-prefixed; getAttribute reads them regardless of dropdown visibility.
+  const links = page.locator(".site-nav a");
+  const count = await links.count();
+  expect(count).toBeGreaterThan(0);
+  for (let i = 0; i < count; i++) {
+    const href = await links.nth(i).getAttribute("href");
     expect(href?.startsWith(BASE)).toBe(true);
   }
-  // The header quick-search pill routes to the search page.
-  const qs = await page.locator(".header-search").getAttribute("href");
+  // The header quick-search form submits (Enter, no-JS fallback) to /search.
+  const qs = await page.locator(".header-search").getAttribute("action");
   expect(qs).toContain(`${BASE}search`);
+});
+
+test("header quick-search offers a whole-site typeahead", async ({ page }) => {
+  await page.goto("./");
+  const input = page.locator("#site-search");
+  const panel = page.locator(".hs-panel");
+  await expect(panel).toBeHidden();
+
+  // Typing a saint name surfaces jump-to saint results.
+  await input.click();
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  const firstSaint = panel.locator("a.hs-opt").first();
+  await expect(firstSaint).toHaveAttribute("href", /\/saint\/OS-\d+/);
+
+  // Section pages are searchable too (whole-site scope).
+  await input.fill("fasts");
+  const pageOpt = panel.locator("a.hs-opt", { hasText: "Fasts" });
+  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}fasts`);
+
+  // A "see all" row deep-links into the full finder with the query.
+  const seeAll = panel.locator("a.hs-seeall");
+  await expect(seeAll).toHaveAttribute("href", /\/search\?q=fasts/);
+
+  // Escape closes the panel.
+  await page.keyboard.press("Escape");
+  await expect(panel).toBeHidden();
+
+  // Enter with no highlighted option submits to the full search page.
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  await input.press("Enter");
+  await expect(page).toHaveURL(/\/search\?q=basil/);
 });
 
 test("contribute page renders, validates, and is linked from the footer", async ({

@@ -1,34 +1,14 @@
 ---
 import { withBase } from "../lib/format";
+import { NAV, isItemActive } from "../lib/nav";
 import SearchGlyph from "./icons/SearchGlyph.astro";
 import logo from "../assets/logo-ivory.svg";
 
 interface Props {
-  active?:
-    | "home"
-    | "search"
-    | "calendar"
-    | "america"
-    | "icons"
-    | "news"
-    | "quiz"
-    | "about"
-    | "";
+  /** The nav key of the current page (a leaf or top-level key from lib/nav). */
+  active?: string;
 }
 const { active = "" } = Astro.props;
-
-// The dark masthead carries the full site nav. "Browse" routes to the faceted
-// /search index; "Calendar" is a placeholder route while that view is built.
-const NAV: { key: string; label: string; href: string }[] = [
-  { key: "home", label: "Home", href: withBase("") },
-  { key: "search", label: "Browse", href: withBase("search") },
-  { key: "quiz", label: "Patron Quiz", href: withBase("quiz") },
-  { key: "calendar", label: "Calendar", href: withBase("calendar") },
-  { key: "america", label: "America", href: withBase("america") },
-  { key: "news", label: "News", href: withBase("news") },
-  { key: "icons", label: "Home Icons", href: withBase("icons-home") },
-  { key: "about", label: "About", href: withBase("about") },
-];
 ---
 
 <header class="site-header">
@@ -73,42 +53,189 @@ const NAV: { key: string; label: string; href: string }[] = [
   <div class="site-menu" id="site-menu">
     <nav class="site-nav" aria-label="Primary">
       {
-        NAV.map((n) => (
-          <a href={n.href} class={active === n.key ? "active" : undefined}>
-            {n.label}
-          </a>
-        ))
+        NAV.map((item) =>
+          item.children ? (
+            <div class="nav-item">
+              <button
+                type="button"
+                class:list={[
+                  "nav-trigger",
+                  isItemActive(item, active) && "active",
+                ]}
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={`navmenu-${item.key}`}
+              >
+                <span>{item.label}</span>
+                <svg
+                  class="caret"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul class="nav-menu" id={`navmenu-${item.key}`}>
+                {item.children.map((c) => (
+                  <li>
+                    <a
+                      href={c.href}
+                      class:list={[active === c.key && "active"]}
+                      aria-current={active === c.key ? "page" : undefined}
+                    >
+                      {c.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <a
+              href={item.href}
+              class:list={[active === item.key && "active"]}
+              aria-current={active === item.key ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ),
+        )
       }
     </nav>
-    <a
+    <form
       class="header-search"
-      href={`${withBase("search")}#q`}
-      aria-label="Search saints"
+      role="search"
+      action={withBase("search")}
+      method="get"
     >
       <span class="ico"
         ><SearchGlyph size={16} color="var(--celest-soft)" /></span
-      ><span>Quick search&hellip;</span>
-    </a>
+      >
+      <input
+        type="search"
+        name="q"
+        id="site-search"
+        class="hs-input"
+        placeholder="Quick search…"
+        autocomplete="off"
+        aria-label="Search saints and pages"
+        role="combobox"
+        aria-expanded="false"
+        aria-controls="hs-results"
+        aria-autocomplete="list"
+      />
+      <div class="hs-panel" id="hs-results" role="listbox" hidden></div>
+    </form>
   </div>
 </header>
 
 <script>
-  // Mobile dropdown: toggle the nav panel; close on link click or Escape.
+  // Primary nav behaviour:
+  //  • Desktop: dropdowns open on hover / focus-within (CSS) and toggle on
+  //    click (JS); click-outside and Escape close them.
+  //  • Mobile: the hamburger reveals the panel; each group is an inline
+  //    accordion you expand in place without leaving the menu.
+  //  • Keyboard: triggers are buttons (Enter/Space toggle); ArrowDown enters a
+  //    menu, ArrowUp/Down move within it, Escape closes and returns focus.
   const header = document.querySelector<HTMLElement>(".site-header");
   const toggle = header?.querySelector<HTMLButtonElement>(".nav-toggle");
+  const items = Array.from(
+    header?.querySelectorAll<HTMLElement>(".nav-item") ?? [],
+  );
+
+  const closeItem = (item: HTMLElement) => {
+    item.classList.remove("open");
+    item
+      .querySelector<HTMLButtonElement>(".nav-trigger")
+      ?.setAttribute("aria-expanded", "false");
+  };
+  const closeAll = (except?: HTMLElement) => {
+    items.forEach((it) => it !== except && closeItem(it));
+  };
+
   if (header && toggle) {
-    const set = (open: boolean) => {
+    const setMenu = (open: boolean) => {
       header.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      if (!open) closeAll();
     };
     toggle.addEventListener("click", () =>
-      set(!header.classList.contains("nav-open")),
+      setMenu(!header.classList.contains("nav-open")),
     );
+    // Only leaf links (real navigation) collapse the mobile panel; the group
+    // triggers just expand their accordion section in place, and the search
+    // box stays open while the reader types.
     header
-      .querySelectorAll(".site-menu a")
-      .forEach((a) => a.addEventListener("click", () => set(false)));
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") set(false);
-    });
+      .querySelectorAll(".nav-menu a, .site-nav > a")
+      .forEach((a) => a.addEventListener("click", () => setMenu(false)));
   }
+
+  items.forEach((item) => {
+    const trigger = item.querySelector<HTMLButtonElement>(".nav-trigger");
+    const menu = item.querySelector<HTMLElement>(".nav-menu");
+    if (!trigger || !menu) return;
+    const links = Array.from(menu.querySelectorAll<HTMLAnchorElement>("a"));
+
+    trigger.addEventListener("click", () => {
+      const open = !item.classList.contains("open");
+      closeAll(item);
+      item.classList.toggle("open", open);
+      trigger.setAttribute("aria-expanded", String(open));
+    });
+
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        closeAll(item);
+        item.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+        links[0]?.focus();
+      }
+    });
+
+    menu.addEventListener("keydown", (e) => {
+      const idx = links.indexOf(document.activeElement as HTMLAnchorElement);
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        links[Math.min(idx + 1, links.length - 1)]?.focus();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (idx <= 0) trigger.focus();
+        else links[idx - 1]?.focus();
+      } else if (e.key === "Escape") {
+        closeItem(item);
+        trigger.focus();
+      }
+    });
+  });
+
+  // Click outside any dropdown closes them all.
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    if (
+      !header?.contains(target) ||
+      !(target as Element).closest?.(".nav-item")
+    )
+      closeAll();
+  });
+
+  // Escape closes dropdowns and the mobile panel.
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    closeAll();
+    if (header?.classList.contains("nav-open")) {
+      header.classList.remove("nav-open");
+      toggle?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>
+
+<script>
+  import "../islands/site-search.client.ts";
 </script>
