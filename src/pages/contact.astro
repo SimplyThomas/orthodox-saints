@@ -38,6 +38,18 @@ const links = [
     href: withBase("contributors"),
   },
 ];
+const helpLinks = [
+  {
+    title: "Contribute",
+    desc: "Share research, sources, photographs, translations, or icon permissions.",
+    href: withBase("contribute"),
+  },
+  {
+    title: "Corrections",
+    desc: "Report an incorrect date, name, feast day, source, or historical detail.",
+    href: withBase("corrections"),
+  },
+];
 ---
 
 <BaseLayout
@@ -193,6 +205,34 @@ const links = [
           Cloud of Witnesses exists because of a shared love for the history of
           the Orthodox Church, and we look forward to hearing from you.
         </p>
+
+        <div class="as-linkcards">
+          {
+            helpLinks.map((l) => (
+              <a class="as-linkcard" href={l.href}>
+                <span class="dmnd" aria-hidden="true" />
+                <span class="lc-body">
+                  <h3>{l.title}</h3>
+                  <p>{l.desc}</p>
+                </span>
+                <svg
+                  class="arw"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
       </div>
     </section>
 
