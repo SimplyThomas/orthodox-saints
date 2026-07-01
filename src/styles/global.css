@@ -2494,12 +2494,17 @@ a.news-card:hover .news-h {
 }
 .cw-footer-grid {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr 1.25fr;
+  grid-template-columns: minmax(240px, 1.2fr) 3fr;
   gap: 44px;
   padding: 44px clamp(16px, 4vw, 56px) 34px;
   align-items: start;
   max-width: 1400px;
   margin: 0 auto;
+}
+.cw-foot-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 40px;
 }
 .cw-foot-word {
   font-family: var(--serif);
@@ -5291,6 +5296,9 @@ a.sv-rail-chip:hover {
     width: 100%;
     justify-content: center;
   }
+  .cw-foot-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---- Arch motif as a crown ABOVE the heading ----
@@ -5349,11 +5357,14 @@ a.sv-rail-chip:hover {
     grid-template-columns: 1fr;
   }
   .cw-footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 32px;
   }
   .cw-foot-brand {
     grid-column: 1 / -1;
+  }
+  .cw-foot-cols {
+    grid-template-columns: 1fr 1fr;
   }
   .cloud-grid {
     grid-template-columns: 1fr;

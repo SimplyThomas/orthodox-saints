@@ -477,7 +477,7 @@ test("header quick-search offers a whole-site typeahead", async ({ page }) => {
   await expect(page).toHaveURL(/\/search\?q=basil/);
 });
 
-test("contribute page renders, validates, and is linked from the footer", async ({
+test("contribute page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./contribute/");
@@ -488,13 +488,14 @@ test("contribute page renders, validates, and is linked from the footer", async 
   await page.locator(".cb-send").click();
   await expect(page.locator('.err[data-for="cb-name"]')).toBeVisible();
   await expect(page).toHaveURL(/\/contribute\/?$/);
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/contribute"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/contribute"]')).toHaveCount(
+    1,
+  );
 });
 
-test("corrections page renders, validates, and is linked from the footer", async ({
+test("corrections page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./corrections/");
@@ -504,8 +505,9 @@ test("corrections page renders, validates, and is linked from the footer", async
   // Empty submit reveals validation (no GitHub tab opened on invalid input).
   await page.locator(".cr-send").click();
   await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/corrections"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/corrections"]')).toHaveCount(
+    1,
+  );
 });
