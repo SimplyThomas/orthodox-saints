@@ -20,11 +20,20 @@ import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { saintAvatar, reviewedDove } from "../lib/icons";
 import { track } from "../lib/analytics";
+import { loadFinderData } from "../lib/finder-data.client";
 
-const dataEl = document.getElementById("finder-data");
 const root = document.getElementById("quiz");
-if (dataEl && root) {
-  const SAINTS: FinderSaint[] = JSON.parse(dataEl.textContent || "[]");
+if (root && root.dataset.finderSrc) {
+  // The dataset downloads in the background while the seeker walks the intro
+  // and question screens; the result step awaits it (finishQuiz).
+  let SAINTS: FinderSaint[] = [];
+  const dataReady: Promise<boolean> = loadFinderData().then(
+    (data) => {
+      SAINTS = data;
+      return true;
+    },
+    () => false,
+  );
   const quizSel = emptyQuizSelected();
   const resultsBox = document.getElementById("quiz-results")!;
 
@@ -170,6 +179,28 @@ if (dataEl && root) {
     document.getElementById("quiz-retake")?.addEventListener("click", restart);
   }
 
+  // The last "Continue" lands here: show the result screen, wait for the
+  // background download if it hasn't finished, then render the companions.
+  async function finishQuiz() {
+    show("result");
+    // Only visible when the fetch is still in flight (slow network).
+    resultsBox.innerHTML = `
+      <div class="qz-empty">
+        ${eyebrowRule("One Moment")}
+        <p class="qz-lede">Gathering the cloud of witnesses&hellip;</p>
+      </div>`;
+    if (await dataReady) {
+      renderResult();
+    } else {
+      resultsBox.innerHTML = `
+        <div class="qz-empty">
+          ${eyebrowRule("A Gentle Word")}
+          <h2>We couldn&rsquo;t load the saints</h2>
+          <p class="qz-lede">Please check your connection and refresh the page.</p>
+        </div>`;
+    }
+  }
+
   function restart() {
     QUIZ.forEach((g) => quizSel[g.key].clear());
     root!.querySelectorAll(".qz-opt.on").forEach((b) => {
@@ -209,10 +240,7 @@ if (dataEl && root) {
 
     if (t.closest("[data-continue]") && !Number.isNaN(stepIdx)) {
       if (stepIdx + 1 < QUIZ.length) show(stepIdx + 1);
-      else {
-        renderResult();
-        show("result");
-      }
+      else void finishQuiz();
       return;
     }
 
