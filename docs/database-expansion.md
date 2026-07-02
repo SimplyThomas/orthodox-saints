@@ -69,8 +69,6 @@ plain cards can be backfilled opportunistically.)
 | Antony of Choziba | Anthony of Choziba | Palestine (Judean desert) | OS-0404 | 1 | Low | Disciple and biographer of St. George the Chozebite; Choziba-monastery lineage. |
 | Caprasius of Lérins | Caprais | Gaul | OS-0468 | 1 | Low | Co-founder of Lérins Abbey with Honoratus. |
 | Leontius of Fréjus | Leontius of Frejus | Gaul | OS-0468 | 1 | Low | Bishop of Fréjus, friend of Honoratus and John Cassian; Lérins circle. |
-| Eustochium | Julia Eustochium | Rome / Bethlehem | OS-0550 | 1 | Medium | Daughter of St. Paula; abbess at Bethlehem, recipient of Jerome's Epistle 108; part of the Jerome/Roman-ascetic circle (likely to recur). Feast Sep 28. |
-| Marcella of Rome | — | Rome | OS-0550 | 1 | Medium | Foundress of the Roman ascetic women's circle around Jerome; feast Jan 31. (Distinct from Markella of Chios, OS-1568.) |
 | Meletios the Younger | Meletios of Myoupolis | Greece (Boeotia) | OS-0551 | 1 | Medium | 11th-c. monastic founder of Mt. Myoupolis; among the Saints of Boeotia. Feast Sep 1. |
 | Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | Nektarios of the Apsaras family | Nektarios of Meteora | Greece (Meteora) | OS-0584 | 1 | Low | Co-founder (with brother Theophanes) of Barlaam Monastery, Meteora; disciple of Savva of Ioannina. Feast May 17. |
@@ -124,7 +122,6 @@ plain cards can be backfilled opportunistically.)
 | Chariton of Kudinsk | — | Russia (Pskov) | OS-1178 | 1 | Low | Disciple of St. Euphrosynus of Pskov. |
 | Procopius of Ustiug | Prokopy of Veliky Ustyug | Russia (Ustyug) | OS-1260 | 1 | Medium | Lübeck-born first fool-for-Christ of Russia (d. 1303). NOTE: distinct from Procopius of Ustya/Vologda OS-1495 — earlier flagged for DB-expansion; confirm which (if either) is truly absent. |
 | Abraham of Paleostrov | Abramius of Paleostrov | Russia (Olonets) | OS-1206 | 1 | Low | Co-founder with St. Cornelius of Paleostrov; feast Aug 21. |
-| Pope Damasus I | — | Rome | OS-1362 | 1 | Medium | Pope who commissioned Jerome's Vulgate; correspondent of the Latin Fathers. |
 | Possidius of Calama | — | North Africa | OS-1365 | 1 | Low | Disciple and biographer of St. Augustine of Hippo. |
 | Alypius of Thagaste | — | North Africa | OS-1365 | 1 | Low | Friend of St. Augustine; bishop of Thagaste. |
 | Ursus of Ravenna | — | Italy (Ravenna) | OS-1328 | 1 | Low | 4th–5th-c. Bishop of Ravenna; co-consecrator of St. Bassianus of Lodi. |
@@ -140,7 +137,6 @@ plain cards can be backfilled opportunistically.)
 | Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
 | Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
 | Cyriacus the Executioner | Kyriakos | Sebaste | OS-1537 | 1 | Low | Executioner converted at the martyrdom of St. Antiochus the Physician; venerated with him (Jul 16). |
-| Sabina of Rome | — | Rome | OS-1601 | 1 | Low | Roman matron-martyr; convert/burier connected to St. Seraphima of Antioch. |
 | Theoteknus of Caesarea | Theotecnus | Palestine (Caesarea) | OS-1657 | 1 | Low | 3rd-c. bishop; buried St. Marinus the Soldier (distinct from Theotecnus of Antioch OS-1993). |
 | Theophilus of Caesarea | — | Palestine (Caesarea) | OS-1667 | 1 | Low | 2nd-c. bishop; co-president of the Palestinian Pascha council with St. Narcissus of Jerusalem. |
 | Eleutherios the Hesychast | — | Romania (Sihla) | OS-1663 | 1 | Low | Husband/co-ascetic of St. Theodora of Sihla. |
@@ -165,8 +161,6 @@ plain cards can be backfilled opportunistically.)
 | Athenodorus of Pontus | Athenodorus, Bishop of Pontus | Pontus (Neocaesarea) | OS-2204 | 1 | Low | Brother of St. Gregory the Wonderworker; bishop in Pontus; venerated. Distinct from Athenodorus Martyr of Mesopotamia (OS-2316). |
 | Aedesius of Ethiopia | Aedesius (Edesius) | Ethiopia (Axum) | OS-2278 | 1 | Low | Brother of St. Frumentius and co-evangelizer of Ethiopia; venerated. Distinct from Aedesius of Lycia (OS-2457). |
 | Maria of Amnia | Empress Maria | Byzantium (Amnia) | OS-2283 | 1 | Low | Granddaughter of St. Philaret the Merciful; first wife of Emperor Constantine VI; locally venerated. |
-| Marcellina of Rome | Marcellina, sister of St. Ambrose | Rome / Milan | OS-2312 | 1 | Low | Consecrated-virgin elder sister of St. Ambrose of Milan; venerated (Jul 17). |
-| Satyrus of Milan | Uranius Satyrus | Milan | OS-2312 | 1 | Low | Brother of St. Ambrose, who preached his funeral oration; venerated (Sep 17). |
 | John the Acoemete | John the Sleepless | Constantinople (Acoemetae) | OS-2426 | 1 | Medium | Founder-abbot of the Acoemetae ("Unsleeping Ones"); predecessor of St. Marcellus; venerated. |
 | Naucratius of Cappadocia | Naucratius, brother of St. Basil | Cappadocia (Pontus) | OS-2474 | 1 | Medium | Brother of Sts. Basil the Great, Gregory of Nyssa, Macrina the Younger & Peter of Sebaste; hermit on the Iris; venerated (Jun 8). |
 | Bathild of Chelles | Balthild, Queen of the Franks | Francia (Chelles) | OS-2694 | 1 | Medium | Anglo-Saxon slave who became Merovingian queen-regent and nun; contemporary of St. Eligius; venerated (Jan 30). |
@@ -216,6 +210,15 @@ cross-reference cards were wired to the new pages at the same time).
 - **King Anna of East Anglia** → `OS-2835`
 - **Seaxburh of Ely** → `OS-2836`
 - **Egwin of Worcester** → `OS-2837`
+
+### Roman / Jerome ascetic circle — Rome · Milan (issue #227)
+
+- **Marcella of Rome** → `OS-2838`
+- **Eustochium** → `OS-2839`
+- **Pope Damasus I** → `OS-2840`
+- **Marcellina of Rome** → `OS-2841`
+- **Satyrus of Milan** → `OS-2842`
+- **Sabina of Rome** → `OS-2843`
 
 ## Considered and excluded (this round)
 
