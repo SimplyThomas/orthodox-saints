@@ -86,8 +86,7 @@ const STATUS_CARDS: StatusCard[] = [
   {
     id: "angels",
     icon: "wing",
-    // TODO: add static/home-icons/heavenly-hosts-icon.png (design asset too
-    // large to fetch through the design tool) then set iconImage here.
+    iconImage: "home-icons/heavenly-hosts-icon.png",
     status: "progress",
     priority: "High Priority",
     title: "The Heavenly Hosts",
@@ -123,8 +122,7 @@ const STATUS_CARDS: StatusCard[] = [
   {
     id: "icons",
     icon: "frame",
-    // TODO: add static/home-icons/contributors-icon.png (design asset too
-    // large to fetch through the design tool) then set iconImage here.
+    iconImage: "home-icons/contributors-icon.png",
     status: "progress",
     title: "Contributors",
     desc: [
@@ -247,7 +245,7 @@ const ICONS: Record<string, string> = {
     '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
   home: '<path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
   news: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M7 9h7M7 12h7M7 15h4"/><path d="M17 9h0"/>',
-  wing: '<path d="M21 7c-6 0-9 3-12 8-1-3-3-4-6-4 2 1 3 3 3 6 3-5 7-7 12-7-3 1-5 3-6 6"/>',
+  wing: '<path d="M20 6c-9 1-15 7-16 14"/><path d="M20 6c-7 2-11 8-12 14"/><path d="M20 6c-5 3-7 9-8 14"/><path d="M20 6c-3 4-4 9-4 14"/>',
   column:
     '<path d="M5 8h14M6 8v11M10 8v11M14 8v11M18 8v11M4 19h16M5 8l7-4 7 4"/>',
   link: '<path d="M9.5 14.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14.5 9.5a3.5 3.5 0 0 0-5 0L7 12a3.5 3.5 0 0 0 5 5l1-1"/>',
