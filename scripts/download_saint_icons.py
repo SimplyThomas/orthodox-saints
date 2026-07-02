@@ -331,10 +331,24 @@ def save_resized(raw: bytes, dest: Path) -> bool:
             img = img.crop((0, 0, img.width, MAX_DIM))
         dest.parent.mkdir(parents=True, exist_ok=True)
         img.save(dest, "JPEG", quality=JPEG_QUALITY, optimize=True)
+        _save_thumb(dest)
         return True
     except Exception as e:  # noqa: BLE001
         log.warning("resize/save failed for %s: %s", dest.name, e)
         return False
+
+
+def _save_thumb(dest: Path) -> None:
+    """Companion <=200px avatar thumb (static/icons/thumbs/<rel>.jpg).
+    build.py emits `imageThumb` only when the thumb file exists, so a failure
+    here degrades to the full-size portrait, never a broken image."""
+    try:
+        from make_icon_thumbs import ICONS_DIR, make_thumb, thumb_dest
+
+        if ICONS_DIR in dest.parents:
+            make_thumb(dest, thumb_dest(dest))
+    except Exception as e:  # noqa: BLE001
+        log.warning("thumb failed for %s: %s", dest.name, e)
 
 
 # --------------------------------------------------------------------------- #
