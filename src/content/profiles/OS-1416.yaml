@@ -47,8 +47,10 @@ family:
   figures:
     - name: King Anna of East Anglia
       note: Father; King of the East Angles, into whose notably holy family she was born.
+      href: saint/OS-2835
     - name: Seaxburh of Ely
       note: Sister; her successor as Abbess of Ely, who translated her reportedly incorrupt relics in 695.
+      href: saint/OS-2836
 companions:
   - name: Saint Wilfrid of York
     note: Bishop and supporter; by Bede's account he upheld Etheldreda's vow of perpetual virginity and her withdrawal from marriage to the monastic life.

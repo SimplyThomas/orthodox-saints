@@ -63,8 +63,10 @@ family:
   figures:
     - name: St. Caesaria the Elder
       note: Sister; Caesarius set her over the convent for women he founded at Arles, for which he composed his Rule for Virgins.
+      href: saint/OS-2848
     - name: St. Caesaria the Younger
       note: Niece; appointed by Caesarius around 525 to succeed her aunt as abbess of the women's convent at Arles.
+      href: saint/OS-2849
 related:
   - name: St. Honoratus of Arles
     note: Founder of Lérins; the island monastery he established was the school in which Caesarius received his monastic formation.
