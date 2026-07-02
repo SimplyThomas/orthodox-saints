@@ -75,7 +75,11 @@ function ihHeading(o: {
 /* ---------- saint marker / avatar inside a card ---------- */
 function marker(s: ResolvedSaint | null, w: number, h: number): string {
   if (s)
-    return saintAvatar({ name: s.name, image: s.image, type: s.type }, w, h);
+    return saintAvatar(
+      { name: s.name, image: s.image, imageThumb: s.imageThumb, type: s.type },
+      w,
+      h,
+    );
   return `<span style="flex:0 0 auto;width:${w}px;height:${h}px;border-radius:6px;background:var(--ivory-2);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;transform:rotate(45deg);background:var(--gold)"></span></span>`;
 }
 
@@ -93,7 +97,7 @@ function ebHtml(txt: string, mb = 14): string {
 function relatedCard(slug: string, w = 40, h = 50): string {
   const s = resolveSaint(slug);
   if (!s) return "";
-  return `<a class="ih-related" href="${withBase("saint/" + s.id)}" style="display:flex;align-items:center;gap:12px;background:var(--ivory);border:1px solid var(--line-gold);border-radius:8px;padding:8px 16px 8px 8px;text-decoration:none">${saintAvatar({ name: s.name, image: s.image, type: s.type }, w, h)}<span><span style="display:block;font-family:var(--serif);font-size:18px;color:var(--byz-deep);line-height:1.05">${esc(s.name)} <span style="font-style:italic;color:var(--celest);font-size:15px">${esc(s.epithet)}</span></span><span style="display:block;font-size:11.5px;color:var(--ink-soft)">Feast · ${esc(s.feast)}</span></span></a>`;
+  return `<a class="ih-related" href="${withBase("saint/" + s.id)}" style="display:flex;align-items:center;gap:12px;background:var(--ivory);border:1px solid var(--line-gold);border-radius:8px;padding:8px 16px 8px 8px;text-decoration:none">${saintAvatar({ name: s.name, image: s.image, imageThumb: s.imageThumb, type: s.type }, w, h)}<span><span style="display:block;font-family:var(--serif);font-size:18px;color:var(--byz-deep);line-height:1.05">${esc(s.name)} <span style="font-style:italic;color:var(--celest);font-size:15px">${esc(s.epithet)}</span></span><span style="display:block;font-size:11.5px;color:var(--ink-soft)">Feast · ${esc(s.feast)}</span></span></a>`;
 }
 
 /* ---------- a rich-card entry ---------- */
@@ -187,7 +191,7 @@ function entrywayCardHtml(): string {
 
   const left = `<div>${ebHtml("Primary icons · the most universal")}<div style="display:flex;flex-direction:column;gap:22px;margin-bottom:34px">${D.primary.map((p, i) => iconEntry({ idx: i + 1, n: p.n, sub: p.sub, why: p.why, footLabel: "Traditions", foot: p.trad })).join("")}</div>${ebHtml("Common additional saints")}<div style="display:flex;flex-direction:column;gap:22px">${D.additional.map((p, i) => iconEntry({ idx: i + 3, n: p.n, why: p.why, footLabel: "Most common in", foot: p.where, avatar: p.id === "nicholas" ? "nicholas" : undefined })).join("")}</div></div>`;
 
-  const right = `<div style="display:flex;flex-direction:column;gap:20px"><div style="background:var(--ivory);border:1px solid var(--line-gold);border-radius:10px;padding:18px 22px"><div class="eyebrow" style="margin-bottom:12px">Quick facts</div><div style="display:flex;flex-direction:column;gap:11px">${D.facts.map((f, i) => `<div style="display:flex;flex-direction:column;gap:1px;border-top:${i ? "1px solid var(--line)" : "none"};padding-top:${i ? 10 : 0}px"><span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600">${esc(f[0])}</span><span style="font-family:var(--serif);font-size:18px;color:var(--byz-deep);line-height:1.2">${esc(f[1])}</span></div>`).join("")}</div></div>${nick ? `<a class="ih-related" href="${withBase("saint/" + nick.id)}" style="display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line-gold);border-radius:8px;padding:8px 16px 8px 8px;text-decoration:none">${saintAvatar({ name: nick.name, image: nick.image, type: nick.type }, 42, 52)}<span><span class="eyebrow" style="display:block;margin-bottom:2px">In our database</span><span style="display:block;font-family:var(--serif);font-size:19px;color:var(--byz-deep);line-height:1.05">${esc(nick.name)} <span style="font-style:italic;color:var(--celest);font-size:16px">${esc(nick.epithet)}</span></span></span></a>` : ""}</div>`;
+  const right = `<div style="display:flex;flex-direction:column;gap:20px"><div style="background:var(--ivory);border:1px solid var(--line-gold);border-radius:10px;padding:18px 22px"><div class="eyebrow" style="margin-bottom:12px">Quick facts</div><div style="display:flex;flex-direction:column;gap:11px">${D.facts.map((f, i) => `<div style="display:flex;flex-direction:column;gap:1px;border-top:${i ? "1px solid var(--line)" : "none"};padding-top:${i ? 10 : 0}px"><span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600">${esc(f[0])}</span><span style="font-family:var(--serif);font-size:18px;color:var(--byz-deep);line-height:1.2">${esc(f[1])}</span></div>`).join("")}</div></div>${nick ? `<a class="ih-related" href="${withBase("saint/" + nick.id)}" style="display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line-gold);border-radius:8px;padding:8px 16px 8px 8px;text-decoration:none">${saintAvatar({ name: nick.name, image: nick.image, imageThumb: nick.imageThumb, type: nick.type }, 42, 52)}<span><span class="eyebrow" style="display:block;margin-bottom:2px">In our database</span><span style="display:block;font-family:var(--serif);font-size:19px;color:var(--byz-deep);line-height:1.05">${esc(nick.name)} <span style="font-style:italic;color:var(--celest);font-size:16px">${esc(nick.epithet)}</span></span></span></a>` : ""}</div>`;
 
   const regions = `<div style="margin-top:38px;padding-top:32px;border-top:1px solid var(--line-gold)">${ebHtml("One faith, many homes")}<h4 style="font-size:27px;color:var(--byz-deep);line-height:1.05;margin:0 0 20px">Regional customs at the door</h4><div class="ih-grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${D.regions.map((r) => `<div style="background:var(--ivory);border:1px solid var(--line-gold);border-radius:10px;padding:20px 22px 22px;display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">${domeMark(34, "var(--gold-deep)")}<h5 style="font-size:23px;color:var(--byz-deep);margin:0">${esc(r.place)}</h5></div><div style="display:flex;flex-wrap:wrap;gap:5px 8px;margin-bottom:12px">${r.icons.map(chip).join("")}</div><p style="font-size:14.5px;color:var(--ink);line-height:1.6;margin:0;text-align:left">${esc(r.custom)}</p></div>`).join("")}<div style="background:var(--byz);border-radius:10px;padding:22px 24px;display:flex;align-items:center"><p style="font-family:var(--serif);font-style:italic;font-size:17.5px;color:var(--gold-soft);line-height:1.5;margin:0;text-align:left;text-wrap:pretty">&ldquo;${esc(D.tooltip)}&rdquo;</p></div></div></div>`;
 
@@ -469,7 +473,12 @@ const johnQuoteLede =
             const s = resolveSaint(c.id);
             const inner = s
               ? saintAvatar(
-                  { name: s.name, image: s.image, type: s.type },
+                  {
+                    name: s.name,
+                    image: s.image,
+                    imageThumb: s.imageThumb,
+                    type: s.type,
+                  },
                   50,
                   62,
                 )
