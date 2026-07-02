@@ -60,8 +60,6 @@ plain cards can be backfilled opportunistically.)
 | Name | Aliases | Region / Tradition | First Ref | Refs | Priority | Notes |
 |---|---|---|---|--:|---|---|
 | Arsenije I Sremac of Serbia | Arsenios I; Arsenije Sremac | Serbia | OS-0449 | 1 | Medium | Successor of St. Sava as Archbishop of Serbia; recurs in Serbian archiepiscopal succession, so likely to be referenced again. |
-| Theodorite of Kola | Feodorit of Kola; Theodoret | Russia (Kola / North) | OS-0464 | 1 | Medium | Enlightener of the Lapps (Sami); part of the northern-missionary network (distinct from Tryphon of Pechenga). |
-| Procopius of Ustyug | Prokopy of Ustyug | Russia (Veliky Ustyug) | OS-0465 | 1 | Medium | First Russian fool-for-Christ; a major figure likely to recur in the fools-for-Christ and northern-saints clusters. |
 | Naucratius | Naucratios | Cappadocia / Pontus | OS-0420 | 1 | Medium | Brother of St. Basil the Great; member of the Cappadocian household network (Basil-the-Great family). |
 | Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
 | Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
@@ -93,7 +91,6 @@ plain cards can be backfilled opportunistically.)
 | Romanus of Subiaco | — | Italy | OS-0822 | 1 | Low | The monk who clothed St. Benedict and supplied him at the cave of Subiaco; feast May 22. |
 | Maximus of Jerusalem | — | Jerusalem | OS-0843 | 1 | Low | Bishop of Jerusalem; predecessor of St. Cyril of Jerusalem; feast May 5. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
-| Gury Shalochsky | — | Russian North (Novgorod) | OS-0852 | 1 | Low | Co-founder of the Sinozero (Blue Jay Lake) hermitage with St. Euphrosynus. |
 | Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
 | Pope Evaristus | — | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); predecessor of St. Alexander I; Western pre-schism (weak/obscure). |
 | Pope Sixtus I | Xystus I | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); successor of St. Alexander I; Western pre-schism (weak/obscure). |
@@ -114,8 +111,6 @@ plain cards can be backfilled opportunistically.)
 | Paul, Bishop of Corinth | — | Greece (Peloponnese) | OS-1104 | 1 | Low | Brother of St. Peter the Wonderworker of Argos; 10th c. |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
 | Chariton of Kudinsk | — | Russia (Pskov) | OS-1178 | 1 | Low | Disciple of St. Euphrosynus of Pskov. |
-| Procopius of Ustiug | Prokopy of Veliky Ustyug | Russia (Ustyug) | OS-1260 | 1 | Medium | Lübeck-born first fool-for-Christ of Russia (d. 1303). NOTE: distinct from Procopius of Ustya/Vologda OS-1495 — earlier flagged for DB-expansion; confirm which (if either) is truly absent. |
-| Abraham of Paleostrov | Abramius of Paleostrov | Russia (Olonets) | OS-1206 | 1 | Low | Co-founder with St. Cornelius of Paleostrov; feast Aug 21. |
 | Possidius of Calama | — | North Africa | OS-1365 | 1 | Low | Disciple and biographer of St. Augustine of Hippo. |
 | Alypius of Thagaste | — | North Africa | OS-1365 | 1 | Low | Friend of St. Augustine; bishop of Thagaste. |
 | Ursus of Ravenna | — | Italy (Ravenna) | OS-1328 | 1 | Low | 4th–5th-c. Bishop of Ravenna; co-consecrator of St. Bassianus of Lodi. |
@@ -126,7 +121,6 @@ plain cards can be backfilled opportunistically.)
 | Gregory the Faster of the Far Caves | — | Russia (Kiev) | OS-1483 | 1 | Low | Kiev Far-Caves ascetic; co-commemorated with Sisoes the Schemamonk. |
 | Abba Or (Hor) | — | Egypt (Scetis/Thebaid) | OS-1482 | 1 | Low | Egyptian Desert Father of the Apophthegmata. |
 | Bryaena of Nisibis | — | Mesopotamia (Nisibis) | OS-1421 | 1 | Low | Abbess; aunt of St. Febronia of Nisibis; feast Jun 25. |
-| Niphon of Kozhe Lake | — | Russia (North) | OS-1436 | 1 | Low | Co-founder of the Kozheozersky monastery with St. Serapion. |
 | Amma Theodora | Theodora of the Apophthegmata | Egypt (Sketis) | OS-1526 | 1 | Medium | Desert Mother of the Alphabetical *Sayings*; distinct from the penitent Theodora OS-1820. |
 | Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
 | Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
@@ -225,6 +219,14 @@ cross-reference cards were wired to the new pages at the same time).
 - **Itta of Metz** → `OS-2850`
 - **Begga of Andenne** → `OS-2851`
 - **Bathild of Chelles** → `OS-2852`
+
+### Russian North monastics — Kola · Ustyug · Onega · Kozhe Lake (issue #227)
+
+- **Theodorite of Kola** → `OS-2853`
+- **Procopius of Ustyug** → `OS-2854`  _(the two register entries "Procopius of Ustyug" and "Procopius of Ustiug" were the same Lübeck-born fool-for-Christ; confirmed distinct from Procopius of Ustya/Vologda `OS-1495`, who shares the Jul 8 feast — a reciprocal cross-reference was added to both rows)_
+- **Gury Shalochsky** → `OS-2855`  _(feast poorly attested; featless stub flagged for review)_
+- **Abraham of Paleostrov** → `OS-2856`
+- **Niphon of Kozhe Lake** → `OS-2857`  _(no separate feast attested; featless stub flagged for review)_
 
 ## Considered and excluded (this round)
 
