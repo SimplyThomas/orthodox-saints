@@ -134,8 +134,7 @@ export function saintAvatar(
     const chosen = w <= 200 && s.imageThumb ? s.imageThumb : s.image;
     const raw = String(chosen).replace(/['"\\)\s<>]/g, "");
     const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
-    const clip = `path('${AVATAR_ARCH}')`;
-    return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;clip-path:${clip};-webkit-clip-path:${clip};background:#efe3cb center top/cover no-repeat url('${url}')"></div></div>`;
+    return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;background:#efe3cb center top/cover no-repeat url('${url}')"></div></div>`;
   }
 
   // Monogram tier. monogramLetter already returns a single [A-Za-z?] char;
