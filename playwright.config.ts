@@ -4,7 +4,11 @@ import { defineConfig, devices } from "@playwright/test";
 // the configured base path — the only way to catch base-path regressions.
 // (Root "/" since the move to the orthodoxsaintfinder.com custom domain.)
 const BASE = "/";
-const PORT = 4321;
+// E2E_PORT lets parallel checkouts/worktrees run the suite side by side —
+// with a fixed port, reuseExistingServer latches onto whatever is already
+// listening there (e.g. another session's dev server, dev toolbar and all)
+// instead of this build's preview.
+const PORT = Number(process.env.E2E_PORT) || 4321;
 
 export default defineConfig({
   testDir: "./e2e",
