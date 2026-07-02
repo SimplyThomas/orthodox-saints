@@ -87,10 +87,8 @@ plain cards can be backfilled opportunistically.)
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Varus the notary | — | Asia Minor (Heraclea) | OS-0615 | 1 | Low | Servant who recorded St. Theodore Stratelates's martyrdom; independent veneration to verify (borderline). |
-| Honorius of Canterbury | — | Canterbury (Kent) | OS-0798 | 1 | Medium | Archbishop of Canterbury (d. 653); sent St. Felix to East Anglia. |
 | Fulgentius of Astigi | Fulgentius of Écija | Spain (Visigothic) | OS-0734 | 1 | Low | Bishop of Astigi; brother of Sts. Leander, Isidore & Florentina. |
 | Florentina of Cartagena | — | Spain (Visigothic) | OS-0734 | 1 | Low | Abbess; sister of Sts. Leander, Isidore & Fulgentius. |
-| Sigeberht of East Anglia | — | East Anglia | OS-0798 | 1 | Low | Martyr-king who invited Sts. Felix & Fursey; 7th c. |
 | Julian the Physician of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyred under Julian the Apostate; feast Mar 6. |
 | Eubolos of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyr; feast Mar 6. |
 | Basil, Abbot of Mirozh | — | Pskov, Rus' | OS-0768 | 1 | Low | Pskov hieromartyr (1299); co-sufferer of St. Joasaph of Snetogorsk. (Distinct from Abramius of Mirozh OS-1899.) |
@@ -124,19 +122,13 @@ plain cards can be backfilled opportunistically.)
 | Paul, Bishop of Corinth | — | Greece (Peloponnese) | OS-1104 | 1 | Low | Brother of St. Peter the Wonderworker of Argos; 10th c. |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
 | Chariton of Kudinsk | — | Russia (Pskov) | OS-1178 | 1 | Low | Disciple of St. Euphrosynus of Pskov. |
-| Laurence of Canterbury | — | England (Kent) | OS-1243 | 1 | Medium | Companion and successor of St. Augustine of Canterbury; 2nd Archbishop. |
-| Mellitus of Canterbury | Mellitus of London | England | OS-1243 | 1 | Low | Member of the Gregorian mission; first Bishop of London, later Archbishop of Canterbury. |
-| Justus of Rochester | — | England | OS-1243 | 1 | Low | Member of the Gregorian mission; first Bishop of Rochester, later Archbishop of Canterbury. |
 | Procopius of Ustiug | Prokopy of Veliky Ustyug | Russia (Ustyug) | OS-1260 | 1 | Medium | Lübeck-born first fool-for-Christ of Russia (d. 1303). NOTE: distinct from Procopius of Ustya/Vologda OS-1495 — earlier flagged for DB-expansion; confirm which (if either) is truly absent. |
 | Abraham of Paleostrov | Abramius of Paleostrov | Russia (Olonets) | OS-1206 | 1 | Low | Co-founder with St. Cornelius of Paleostrov; feast Aug 21. |
 | Pope Damasus I | — | Rome | OS-1362 | 1 | Medium | Pope who commissioned Jerome's Vulgate; correspondent of the Latin Fathers. |
 | Possidius of Calama | — | North Africa | OS-1365 | 1 | Low | Disciple and biographer of St. Augustine of Hippo. |
 | Alypius of Thagaste | — | North Africa | OS-1365 | 1 | Low | Friend of St. Augustine; bishop of Thagaste. |
-| Ceolfrith of Wearmouth | — | England (Northumbria) | OS-1378 | 1 | Low | Abbot of Wearmouth-Jarrow; teacher of St. Bede; commissioned the Codex Amiatinus. |
 | Ursus of Ravenna | — | Italy (Ravenna) | OS-1328 | 1 | Low | 4th–5th-c. Bishop of Ravenna; co-consecrator of St. Bassianus of Lodi. |
 | Felix of Como | — | Italy (Como) | OS-1328 | 1 | Low | First Bishop of Como (4th c.). |
-| King Anna of East Anglia | — | England (East Anglia) | OS-1416 | 1 | Low | Holy king; father of St. Etheldreda of Ely and a line of saintly daughters. |
-| Seaxburh of Ely | Sexburga | England | OS-1416 | 1 | Low | Sister of St. Etheldreda; queen-abbess of Ely. |
 | Daniel the Black (Chorny) | — | Russia (Moscow) | OS-1469 | 1 | Medium | Iconographer; co-worker of St. Andrei Rublev at the Andronikov & Trinity monasteries. |
 | Theophanes the Greek | — | Byzantium / Russia | OS-1469 | 1 | Medium | Master iconographer; teacher/collaborator of St. Andrei Rublev (Novgorod, Moscow). |
 | Theodosia, mother of Procopius | — | Palestine (Caesarea) | OS-1494 | 1 | Low | Martyred with her son, Great Martyr Procopius of Caesarea; feast Jul 8. |
@@ -178,7 +170,6 @@ plain cards can be backfilled opportunistically.)
 | John the Acoemete | John the Sleepless | Constantinople (Acoemetae) | OS-2426 | 1 | Medium | Founder-abbot of the Acoemetae ("Unsleeping Ones"); predecessor of St. Marcellus; venerated. |
 | Naucratius of Cappadocia | Naucratius, brother of St. Basil | Cappadocia (Pontus) | OS-2474 | 1 | Medium | Brother of Sts. Basil the Great, Gregory of Nyssa, Macrina the Younger & Peter of Sebaste; hermit on the Iris; venerated (Jun 8). |
 | Bathild of Chelles | Balthild, Queen of the Franks | Francia (Chelles) | OS-2694 | 1 | Medium | Anglo-Saxon slave who became Merovingian queen-regent and nun; contemporary of St. Eligius; venerated (Jan 30). |
-| Egwin of Worcester | Ecgwine, Bishop of Worcester | England (Worcester) | OS-2707 | 1 | Medium | Third Bishop of Worcester, founder of Evesham Abbey; friend of St. Aldhelm; venerated (Dec 30). |
 
 ---
 
@@ -213,6 +204,18 @@ cross-reference cards were wired to the new pages at the same time).
 - **Padarn** → `OS-2827`
 - **Paulinus of Wales** → `OS-2828`
 
+
+### Anglo-Saxon England batch — Canterbury · East Anglia · Northumbria (issue #227)
+
+- **Honorius of Canterbury** → `OS-2829`
+- **Laurence of Canterbury** → `OS-2830`
+- **Justus of Rochester** → `OS-2831`
+- **Mellitus of Canterbury** → `OS-2832`
+- **Ceolfrith of Wearmouth** → `OS-2833`
+- **Sigeberht of East Anglia** → `OS-2834`
+- **King Anna of East Anglia** → `OS-2835`
+- **Seaxburh of Ely** → `OS-2836`
+- **Egwin of Worcester** → `OS-2837`
 
 ## Considered and excluded (this round)
 
