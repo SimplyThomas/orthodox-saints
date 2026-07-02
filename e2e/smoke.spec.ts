@@ -50,7 +50,7 @@ test("hero search submits to the /search page with the query", async ({
 
 test("search page filters the results", async ({ page }) => {
   await page.goto("./search/");
-  // Results render client-side from the inlined finder data.
+  // Results render client-side from the fetched finder data.
   await expect(page.locator("#results .saint-row").first()).toBeVisible();
 
   const totalText = (await page.locator("#count").innerText()).match(
@@ -67,6 +67,19 @@ test("search page filters the results", async ({ page }) => {
       Number((await page.locator("#count").innerText()).match(/\d+/)?.[0]),
     )
     .toBeLessThan(total);
+  await expect(
+    page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
+  ).toBeVisible();
+});
+
+test("search tolerates a misspelled name and ranks the saint first", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await expect(page.locator("#results .saint-row").first()).toBeVisible();
+
+  // Fuzzy matching (lib/search): a one-letter slip still finds the saints.
+  await page.fill("#q", "Nicholaus");
   await expect(
     page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
   ).toBeVisible();

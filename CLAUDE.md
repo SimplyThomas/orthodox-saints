@@ -111,9 +111,9 @@ GitHub Actions     ── python build.py → astro build → deploy _site/ ─�
 - **Astro consumes `public/data.json` at build time** (read from disk in `src/lib/data.ts`,
   not fetched at runtime) and pre-renders one HTML page per route **and one per saint**
   (`/saint/OS-####`). The search/quiz islands fetch a content-hashed static
-  `/finder-data/<hash>.json` on demand (emitted at build from the same data); the home page
-  inlines a lighter card index; per-saint pages ship only their own record. `python build.py`
-  MUST run before `astro build`.
+  `/finder-data/<hash>.json` on demand and the home island a lighter `/card-data/<hash>.json`
+  (both emitted at build from the same data); per-saint pages ship only their own record.
+  `python build.py` MUST run before `astro build`.
 - The build **fails loudly** on any validation error. A failing build must never deploy.
 
 ---
@@ -222,6 +222,7 @@ instead, add one row to `data/saint_images.csv`
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
 - **After downloading any new icon(s), resize at JPEG quality 80** — scale width to ≤ 800 px, then top-crop height to ≤ 800 px (preserves the face). The `make download-icons` pipeline does this automatically; for manually-sourced files use `save_resized()` in `scripts/download_saint_icons.py`. (`.gif` files must be converted to `.jpg` manually before resizing.)
+- **Every portrait also gets a ~200 px avatar thumb** at `static/icons/thumbs/<same rel path>.jpg` — the finder/quiz/card avatars load it (~10 KB) instead of the ~100 KB original; the detail-page hero keeps the original. The download pipeline emits thumbs on ingest; after adding icons manually run `python scripts/make_icon_thumbs.py` (needs Pillow). `build.py` emits `imageThumb` only when the thumb file exists and `make validate` warns on portraits missing one, so a forgotten thumb degrades gracefully, never 404s.
 
 **Saint quotes (the detail-page quote block).** To show a saint's own words on their
 detail page, add one row to `data/saint_quotes.csv`
@@ -486,23 +487,28 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
   via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
   `build.py` cross-checks every profile filename/id against the saints.
-- **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
-  `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
-  browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
-  without a measured need.) The build still expands each haystack with **name variants** from
-  `data/name_variants.csv` (so "Lucy" finds Lucia, "Ivan" finds John; a result names the
-  matched variant). The **patron-saint quiz** is now its own route (`/quiz`); it scores saints
-  by facet overlap (intercessions weigh most) — match quality scales with facet coverage (§10).
+- **Search is client-side and stays that way** — no browser storage, no backend. The finder's
+  text path is **MiniSearch** (`src/lib/search.ts`, the one search library — added for the
+  fuzzy/ranked requirement): token-AND with prefix + typo tolerance, ranked by field boosts
+  (name > Also Known As > name variants > haystack), **unioned with the legacy substring
+  filter** over the precomputed `search` haystack as a recall floor, so no query matches less
+  than it used to. Facet filters remain hand-rolled set intersection (`src/lib/filter.ts`);
+  the header typeahead keeps its own substring index (`/search-index.json`). The build still
+  expands each haystack with **name variants** from `data/name_variants.csv` (so "Lucy" finds
+  Lucia, "Ivan" finds John; a result names the matched variant). The **patron-saint quiz** is
+  its own route (`/quiz`); it scores saints by facet overlap (intercessions weigh most) —
+  match quality scales with facet coverage (§10).
 - **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
   indexable, shareable; each ships only its own record). The /search and /quiz islands **fetch**
   the trimmed finder dataset from a content-hashed static `/finder-data/<hash>.json`
   (`src/lib/finder-payload.ts` + `src/pages/finder-data/[hash].json.ts`; one browser-cached
   download shared by both pages), with the first page of results SSR'd for instant paint /
   SEO / no-JS. The ceiling is now the fetch's gzip weight (~540 KB at 2.8k saints, linear) —
-  comfortable well past 10k saints; re-measure there before restructuring. The home page still
-  inlines the lighter card index (no `search` haystack) — split it the same way if it grows
-  heavy. The calendar pre-renders the whole corpus on one page: see the `TODO(scale)` in
-  `src/pages/calendar.astro` (split per-month around ~4k saints).
+  comfortable well past 10k saints; re-measure there before restructuring. The home island
+  fetches the lighter card index (no `search` haystack) the same way from
+  `/card-data/<hash>.json` (`src/lib/card-payload.ts`); shard it per-month if the deferred
+  fetch grows heavy. The calendar pre-renders the whole corpus on one page: see the
+  `TODO(scale)` in `src/pages/calendar.astro` (split per-month around ~4k saints).
 - **SEO:** `@astrojs/sitemap` emits `sitemap-index.xml` over every route (incl. all saint
   pages); `static/robots.txt` points crawlers at it. `BaseLayout` emits OpenGraph/Twitter
   meta on every page (default share card `static/og-default.png`; saint pages with a

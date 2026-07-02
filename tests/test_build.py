@@ -408,6 +408,56 @@ class SaintImageTests(unittest.TestCase):
         rec = build.to_record(valid_row(), vendors=[], name_variants={}, images={})
         self.assertNotIn("image", rec)
 
+    def test_image_thumb_paths(self):
+        """image_thumb: icons/<rel> -> icons/thumbs/<rel>.jpg when the thumb
+        file exists; None for missing thumbs, absolute URLs, non-icons paths."""
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons" / "thumbs" / "permission" / "v").mkdir(parents=True)
+        (tmp / "icons" / "thumbs" / "a.jpg").write_bytes(b"\xff\xd8")
+        (tmp / "icons" / "thumbs" / "anim.jpg").write_bytes(b"\xff\xd8")
+        (tmp / "icons" / "thumbs" / "permission" / "v" / "x.jpg").write_bytes(
+            b"\xff\xd8")
+        old_static = build.STATIC
+        try:
+            build.STATIC = tmp
+            self.assertEqual(build.image_thumb("icons/a.jpg"),
+                             "icons/thumbs/a.jpg")
+            # extension is normalized to .jpg (e.g. a .gif original)
+            self.assertEqual(build.image_thumb("icons/anim.gif"),
+                             "icons/thumbs/anim.jpg")
+            self.assertEqual(build.image_thumb("icons/permission/v/x.jpg"),
+                             "icons/thumbs/permission/v/x.jpg")
+            self.assertIsNone(build.image_thumb("icons/missing.jpg"))
+            self.assertIsNone(build.image_thumb("https://example.com/a.jpg"))
+            self.assertIsNone(build.image_thumb("other/a.jpg"))
+        finally:
+            build.STATIC = old_static
+
+    def test_to_record_joins_image_thumb_when_present(self):
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons" / "thumbs").mkdir(parents=True)
+        (tmp / "icons" / "thumbs" / "test.jpg").write_bytes(b"\xff\xd8")
+        images = {"OS-0001": {"path": "icons/test.jpg", "license": "PD",
+                              "credit": "", "source": "https://ex"}}
+        old_static = build.STATIC
+        try:
+            build.STATIC = tmp
+            rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                                  images=images)
+            self.assertEqual(rec["imageThumb"], "icons/thumbs/test.jpg")
+            (tmp / "icons" / "thumbs" / "test.jpg").unlink()
+            rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                                  images=images)
+            self.assertNotIn("imageThumb", rec)
+        finally:
+            build.STATIC = old_static
+
     def _run_image_validation(self, rows_csv, files, permissions=None):
         """Validate a synthetic saint_images.csv against a temp static/ dir.
         `permissions` is an optional {slug: {...}} registry."""

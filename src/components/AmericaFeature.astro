@@ -139,9 +139,14 @@ const awaiting = WITNESSES.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
-                type: s.cat,
-              })}
+              set:html={saintAvatar(
+                { name, image: hit?.image, imageThumb: hit?.imageThumb },
+                84,
+                104,
+                {
+                  type: s.cat,
+                },
+              )}
             />
             <div class="body">
               <h3>{name}</h3>
@@ -179,9 +184,14 @@ const awaiting = WITNESSES.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
-                type: s.cat,
-              })}
+              set:html={saintAvatar(
+                { name, image: hit?.image, imageThumb: hit?.imageThumb },
+                84,
+                104,
+                {
+                  type: s.cat,
+                },
+              )}
             />
             <div class="body">
               <h3>{name}</h3>

@@ -3,28 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeHero from "../components/HomeHero.astro";
 import CloudBand from "../components/CloudBand.astro";
 import ProjectStatus from "../components/ProjectStatus.astro";
-import { CARD_SAINTS } from "../lib/data";
+import { cardDataPath } from "../lib/card-payload";
+import { withBase } from "../lib/format";
 
 // The home page is a landing page: hero search (submits to /search), saint of
-// the day, the "From the Cloud" shuffle, and the news band. The full faceted
-// finder lives on /search. Only the light card projection ships here — enough
-// for the saint-of-the-day island and the shuffle deck.
-const cardJson = JSON.stringify(CARD_SAINTS).replace(/</g, "\\u003c");
+// the day, and the "From the Cloud" shuffle. The full faceted finder lives on
+// /search. The light card dataset is no longer inlined here (it was ~1.1 MB —
+// 96% of the page): the cloud-band island fetches the content-hashed static
+// JSON named by data-card-src after first paint.
+const cardSrc = withBase(cardDataPath());
 ---
 
 <BaseLayout active="home">
-  <div id="home">
+  <div id="home" data-card-src={cardSrc}>
     <HomeHero />
     <CloudBand />
     <ProjectStatus />
   </div>
 
-  <script
-    type="application/json"
-    id="card-data"
-    set:html={cardJson}
-    is:inline
-  />
   <script>
     import "../islands/cloud-band.client.ts";
   </script>
