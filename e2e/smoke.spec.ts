@@ -18,7 +18,7 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   expect(logoResp.status()).toBe(200);
 });
 
-test("home is a landing page: saint of the day, shuffle, news — no finder", async ({
+test("home is a landing page: saint of the day, shuffle — no finder", async ({
   page,
 }) => {
   await page.goto("./");
@@ -28,8 +28,9 @@ test("home is a landing page: saint of the day, shuffle, news — no finder", as
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
   await page.click("#shuffle");
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
-  // News band is present; the full results list is not on this page.
-  await expect(page.locator(".news-band .news-card")).toHaveCount(4);
+  // The news band has been removed from the home page (feature not built out);
+  // the full results list also does not appear here.
+  await expect(page.locator(".news-band")).toHaveCount(0);
   await expect(page.locator("#results")).toHaveCount(0);
 });
 

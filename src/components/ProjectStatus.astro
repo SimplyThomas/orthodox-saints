@@ -2,9 +2,10 @@
 /* Homepage "Project Status" section — A Living Encyclopedia.
    A curated, museum-exhibit view of what's complete, in progress, and planned.
    Designed to live on the homepage long-term: edit the data arrays below
-   (STATUS_CARDS, TIMELINE, ROADMAP) and the layout follows.
+   (STATUS_CARDS, TIMELINE) and the layout follows.
    Ported from the Cloud of Witnesses design system (ProjectStatus.jsx). */
 import EyebrowRule from "./EyebrowRule.astro";
+import { withBase } from "../lib/format";
 
 type CheckState = "done" | "wip" | "plan" | "todo";
 
@@ -37,6 +38,8 @@ type StatusKey = keyof typeof PS_STATUS;
 interface StatusCard {
   id: string;
   icon: string;
+  /* optional custom PNG under static/home-icons/; falls back to the `icon` SVG */
+  iconImage?: string;
   status: StatusKey;
   title: string;
   span?: number;
@@ -48,7 +51,7 @@ interface StatusCard {
   collab?: { name: string; url?: string }[];
   milestone?: { label: string; text: string };
   futureGoals?: string[];
-  note?: string;
+  note?: string | string[];
 }
 
 /* ---- the status cards ---- */
@@ -56,6 +59,7 @@ const STATUS_CARDS: StatusCard[] = [
   {
     id: "saints",
     icon: "book",
+    iconImage: "home-icons/saint-database-icon.png",
     status: "progress",
     title: "Saint Database",
     span: 2,
@@ -71,15 +75,18 @@ const STATUS_CARDS: StatusCard[] = [
       ["done", "Daily commemorations"],
       ["wip", "Biography expansion"],
     ],
-    milestone: {
-      label: "Current milestone",
-      text: "Completed OS-0001 through OS-0100",
-    },
-    note: "This week: reviewing the early martyrs of Asia Minor.",
+    milestone: { label: "This week:", text: "" },
+    note: [
+      "Updating familial relationship links.",
+      "Finding missing saints.",
+      "Expanding their biographies.",
+      "Installing a verification image to show the progress of each saint.",
+    ],
   },
   {
     id: "angels",
     icon: "wing",
+    iconImage: "home-icons/heavenly-hosts-icon.png",
     status: "progress",
     priority: "High Priority",
     title: "The Heavenly Hosts",
@@ -115,21 +122,23 @@ const STATUS_CARDS: StatusCard[] = [
   {
     id: "icons",
     icon: "frame",
+    iconImage: "home-icons/contributors-icon.png",
     status: "progress",
-    title: "Icon Partnerships",
+    title: "Contributors",
     desc: [
       "We are looking for Orthodox iconographers and monasteries to obtain permission to feature their icons on the website. If you would like to work with us please reach out.",
     ],
     collab: [
       { name: "Theophany Works", url: "https://www.theophanyworks.com" },
     ],
-    note: "More partnerships coming soon.",
+    note: "Please contact us at contact@orthodoxsaintfinder.com to join the cloud.",
   },
   {
     id: "calendar",
     icon: "calendar",
-    status: "progress",
-    title: "Interactive Calendar",
+    iconImage: "home-icons/interactive-calendar-icon.png",
+    status: "planned",
+    title: "The Church Year",
     desc: [
       "The calendar currently supports the Revised Julian (New Calendar).",
     ],
@@ -142,10 +151,15 @@ const STATUS_CARDS: StatusCard[] = [
       ["todo", "Fast information"],
       ["todo", "Customs and traditions"],
     ],
+    milestone: { label: "This week:", text: "" },
+    note: [
+      "We added new pages for the Feasts & Fasts — those pages should be filled within the next few weeks.",
+    ],
   },
   {
     id: "america",
     icon: "map",
+    iconImage: "home-icons/saints-of-america-icon.png",
     status: "progress",
     title: "Saints of America",
     desc: [
@@ -157,34 +171,20 @@ const STATUS_CARDS: StatusCard[] = [
       ["wip", "Adding saints"],
       ["wip", "Contacting monasteries"],
     ],
-  },
-  {
-    id: "quiz",
-    icon: "compass",
-    status: "progress",
-    title: "Patron Saint Quiz",
-    desc: [
-      "The Patron Saint Quiz has been reimagined as a warm conversation. Instead of church terminology, it now asks about your life — what you’re walking through, your work, your season of life, and who you hope to become — all in everyday language.",
-      "Rather than naming a single patron, it introduces you to a whole “Circle of Companions”: saints whose lives echo your own, ranked from those especially recommended for you to others you may also like — with links to keep exploring the database.",
+    milestone: { label: "This week:", text: "" },
+    note: [
+      "We identified more American saints, and recognized that information specific to America needs to be added.",
     ],
-    upcomingLabel: "What’s new",
-    checklist: [
-      ["done", "Conversational, plain-language questions"],
-      ["done", "Grouped answers you can multi-select"],
-      ["done", "Tiered “Circle of Companions” results"],
-      ["done", "Explore-by-theme links into the database"],
-      ["wip", "Refining the matching algorithm"],
-    ],
-    note: "We welcome community feedback.",
   },
   {
     id: "home",
     icon: "home",
+    iconImage: "home-icons/little-church-icon.png",
     status: "review",
-    title: "Home Icons",
+    title: "The Orthodox Home",
     desc: [
-      "Most links are operational.",
-      "The traditions associated with each room are currently awaiting clergy review before publication.",
+      "Icons in the Home is now available with an interactive guide to creating an Orthodox home. The page is currently undergoing review as we continue expanding its content.",
+      "Liturgical Living has launched as a new section and is actively in development. It will offer practical guides for living the Church Year at home, including family traditions, home prayer, and seasonal customs that accompany the feasts and fasting seasons.",
     ],
   },
   {
@@ -201,36 +201,36 @@ const STATUS_CARDS: StatusCard[] = [
 /* ---- weekly updates timeline (add a new entry to the top) ---- */
 const TIMELINE = [
   {
+    period: "July 2026",
+    items: [
+      "Introduced a redesigned navigation system with dropdown menus",
+      "Added the About section and contact page",
+      "Began building the Heavenly Hosts section",
+      "Expanded saint relationship networks",
+      "Continued historical review and correction of saint profiles",
+    ],
+  },
+  {
     period: "June 2026",
     items: [
-      "Reimagined the Patron Saint Quiz as a guided conversation",
-      "Added tiered “Circle of Companions” quiz results with explore links",
-      "Expanded saint biographies",
-      "Added angelology resources",
-      "Updated the interactive calendar",
-      "Improved search",
+      "Completed the initial saint database",
+      "Began comprehensive profile expansion and verification",
+      "Modernized the Patron Saint Quiz",
+      "Partnered with Theophany Works",
+      "Published editorial standards and research methodology",
+      "Expanded Saints of America",
+      "Improved the interactive liturgical calendar",
     ],
   },
   {
     period: "May 2026",
     items: [
-      "Launched Saints of America feature page",
-      "Refined the Patron Saint Quiz",
-      "Reviewed OS-0001 through OS-0100",
+      "Launched OrthodoxSaintFinder.com",
+      "Published the initial searchable database",
+      "Released the Patron Saint Quiz",
+      "Introduced the interactive calendar",
     ],
   },
-];
-
-/* ---- coming soon roadmap ---- */
-const ROADMAP = [
-  { icon: "book", label: "Expanded saint biographies" },
-  { icon: "wing", label: "Angelology Encyclopedia" },
-  { icon: "map", label: "Interactive maps" },
-  { icon: "column", label: "Orthodox history" },
-  { icon: "link", label: "Better cross-linking" },
-  { icon: "timeline", label: "Timeline of Church history" },
-  { icon: "frame", label: "Additional icon partnerships" },
-  { icon: "scroll", label: "More educational resources" },
 ];
 
 /* ---- illuminated line-icon paths (stroked, 24×24) ---- */
@@ -245,7 +245,7 @@ const ICONS: Record<string, string> = {
     '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
   home: '<path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
   news: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M7 9h7M7 12h7M7 15h4"/><path d="M17 9h0"/>',
-  wing: '<path d="M21 7c-6 0-9 3-12 8-1-3-3-4-6-4 2 1 3 3 3 6 3-5 7-7 12-7-3 1-5 3-6 6"/>',
+  wing: '<path d="M20 6c-9 1-15 7-16 14"/><path d="M20 6c-7 2-11 8-12 14"/><path d="M20 6c-5 3-7 9-8 14"/><path d="M20 6c-3 4-4 9-4 14"/>',
   column:
     '<path d="M5 8h14M6 8v11M10 8v11M14 8v11M18 8v11M4 19h16M5 8l7-4 7 4"/>',
   link: '<path d="M9.5 14.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14.5 9.5a3.5 3.5 0 0 0-5 0L7 12a3.5 3.5 0 0 0 5 5l1-1"/>',
@@ -338,19 +338,31 @@ const MARKS: Record<CheckState, string> = {
 
             {/* header */}
             <div class="ps-cardhead">
-              <span class="ps-cardicon">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--gold-deep)"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  set:html={ICONS[c.icon]}
+              {c.iconImage ? (
+                <img
+                  class="ps-cardicon-img"
+                  src={withBase(c.iconImage)}
+                  alt=""
+                  width="42"
+                  height="42"
+                  loading="lazy"
+                  decoding="async"
                 />
-              </span>
+              ) : (
+                <span class="ps-cardicon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    set:html={ICONS[c.icon]}
+                  />
+                </span>
+              )}
               <div class="ps-cardtitle">
                 <h3>{c.title}</h3>
               </div>
@@ -455,8 +467,12 @@ const MARKS: Record<CheckState, string> = {
             {/* weekly / footer note */}
             {c.note && (
               <div class:list={["ps-note", { "after-milestone": c.milestone }]}>
-                <span class="ps-note-dm" aria-hidden="true" />
-                {c.note}
+                {(Array.isArray(c.note) ? c.note : [c.note]).map((line) => (
+                  <div class="ps-note-line">
+                    <span class="ps-note-dm" aria-hidden="true" />
+                    <span>{line}</span>
+                  </div>
+                ))}
               </div>
             )}
           </article>
@@ -485,36 +501,6 @@ const MARKS: Record<CheckState, string> = {
                 </li>
               ))}
             </ul>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-
-  {/* ---- Coming Soon roadmap ---- */}
-  <div class="ps-roadmap-wrap">
-    <div class="ps-subhead">
-      <div class="eyebrow">On the Horizon</div>
-      <h3 class="ps-subtitle">Coming Soon</h3>
-    </div>
-    <div class="ps-roadmap">
-      {
-        ROADMAP.map((r) => (
-          <div class="ps-tile">
-            <span class="ps-tile-icon">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--byz)"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                set:html={ICONS[r.icon]}
-              />
-            </span>
-            <div class="ps-tile-label">{r.label}</div>
           </div>
         ))
       }
@@ -719,6 +705,14 @@ const MARKS: Record<CheckState, string> = {
     border: 1px solid var(--line-gold);
     flex-shrink: 0;
   }
+  .ps-cardicon-img {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
   .ps-cardtitle {
     flex: 1;
     min-width: 0;
@@ -862,17 +856,23 @@ const MARKS: Record<CheckState, string> = {
     color: var(--gold-deep);
     font-style: italic;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
   }
   .ps-note.after-milestone {
     margin-top: 10px;
     padding-top: 0;
     border-top: none;
   }
+  .ps-note-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
   .ps-note-dm {
     width: 5px;
     height: 5px;
+    margin-top: 6px;
     transform: rotate(45deg);
     background: var(--gold);
     flex-shrink: 0;
@@ -930,59 +930,9 @@ const MARKS: Record<CheckState, string> = {
     margin-bottom: 10px;
   }
 
-  /* ---- roadmap ---- */
-  .ps-roadmap-wrap {
-    max-width: 1180px;
-    margin: 64px auto 0;
-  }
-  .ps-roadmap {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-  .ps-tile {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 26px 22px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    box-shadow: var(--shadow-soft);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
-  }
-  .ps-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card);
-    border-color: var(--line-gold);
-  }
-  .ps-tile-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--ivory);
-    border: 1px solid var(--line-gold);
-  }
-  .ps-tile-label {
-    font-family: var(--serif);
-    font-size: 19px;
-    color: var(--byz-deep);
-    line-height: 1.2;
-    text-wrap: balance;
-  }
-
   /* ---- entrance animation ---- */
   @media (prefers-reduced-motion: no-preference) {
     .ps-card,
-    .ps-tile,
     .ps-banner {
       animation: psRise 0.5s ease both;
     }
@@ -1009,9 +959,6 @@ const MARKS: Record<CheckState, string> = {
     .ps-card.is-wide {
       grid-column: span 2;
     }
-    .ps-roadmap {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
   @media (max-width: 680px) {
     .ps {
@@ -1037,9 +984,6 @@ const MARKS: Record<CheckState, string> = {
     }
     .ps-cardbody.is-wide .ps-sublabel {
       margin-top: 14px;
-    }
-    .ps-roadmap {
-      grid-template-columns: 1fr 1fr;
     }
   }
 </style>
