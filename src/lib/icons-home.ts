@@ -52,6 +52,7 @@ export interface ResolvedSaint {
   epithet: string;
   feast: string;
   image?: string;
+  imageThumb?: string;
   /** first rank term — feeds the avatar colour family */
   type: string;
 }
@@ -96,6 +97,7 @@ export function resolveById(id?: string | null): ResolvedSaint | null {
     epithet,
     feast: cleanFeast(s.feast),
     image: s.image,
+    imageThumb: s.imageThumb,
     type: (s.rank && s.rank[0]) || "",
   };
 }

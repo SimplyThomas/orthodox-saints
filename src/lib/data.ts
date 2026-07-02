@@ -50,6 +50,7 @@ export function toFinderSaint(s: Saint): FinderSaint {
       : {}),
     ...(s.variants ? { variants: s.variants } : {}),
     ...(s.image ? { image: s.image } : {}),
+    ...(s.imageThumb ? { imageThumb: s.imageThumb } : {}),
   };
 }
 
@@ -71,6 +72,7 @@ export function toCardSaint(s: Saint): CardSaint {
     brief: s.brief,
     notes: s.notes,
     ...(s.image ? { image: s.image } : {}),
+    ...(s.imageThumb ? { imageThumb: s.imageThumb } : {}),
   };
 }
 
