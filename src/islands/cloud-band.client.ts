@@ -2,8 +2,10 @@
    Build-time `new Date()` would freeze "today" to the build day, so the saint
    of the day runs client-side using the visitor's real date. The shuffle deck
    re-deals a random handful of saints on load and on every Shuffle click —
-   the spot where lesser-known saints get their moment. Reads the light
-   card-data payload (id/name/rank/feast/brief/image…), not the finder index. */
+   the spot where lesser-known saints get their moment. The light card dataset
+   (id/name/rank/feast/brief/image…, not the finder index) is fetched from the
+   content-hashed static JSON named by data-card-src (see lib/card-payload);
+   until it lands, the SSR'd placeholder card and fallback deck stand in. */
 
 import type { CardSaint } from "../lib/types";
 import {
@@ -17,10 +19,22 @@ import { splitName } from "../lib/names";
 import { esc, withBase, MONTHS_FULL, WEEKDAYS } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 
-const dataEl = document.getElementById("card-data");
-if (dataEl) {
-  const SAINTS: CardSaint[] = JSON.parse(dataEl.textContent || "[]");
+const home = document.getElementById("home");
+if (home && home.dataset.cardSrc) {
+  fetch(home.dataset.cardSrc)
+    .then((res) => {
+      if (!res.ok) throw new Error(`card data: HTTP ${res.status}`);
+      return res.json() as Promise<CardSaint[]>;
+    })
+    .then(initCloudBand, () => {
+      const status = document.querySelector("#sotd .sotd-loading");
+      if (status)
+        status.textContent =
+          "Couldn’t load today’s commemoration — please refresh.";
+    });
+}
 
+function initCloudBand(SAINTS: CardSaint[]) {
   function notableFeatured(n: number): CardSaint[] {
     const enriched = SAINTS.filter(
       (s) => s.brief && (s.intercession || []).length,
