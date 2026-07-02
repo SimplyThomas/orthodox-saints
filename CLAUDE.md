@@ -108,10 +108,12 @@ GitHub Actions     ── python build.py → astro build → deploy _site/ ─�
 - **SQLite is a build-time tool only.** It is created fresh from the CSV on every run,
   used for validation and querying, then discarded (or published as a read-only
   artifact). It is **never** the source of truth and is **never** committed.
-- **Astro consumes `public/data.json` at build time** (a static `import`, not a runtime
-  fetch) and pre-renders one HTML page per route **and one per saint** (`/saint/OS-####`).
-  The home/quiz pages inline a trimmed finder index for their client islands; per-saint
-  pages ship only their own record. `python build.py` MUST run before `astro build`.
+- **Astro consumes `public/data.json` at build time** (read from disk in `src/lib/data.ts`,
+  not fetched at runtime) and pre-renders one HTML page per route **and one per saint**
+  (`/saint/OS-####`). The search/quiz islands fetch a content-hashed static
+  `/finder-data/<hash>.json` on demand (emitted at build from the same data); the home page
+  inlines a lighter card index; per-saint pages ship only their own record. `python build.py`
+  MUST run before `astro build`.
 - The build **fails loudly** on any validation error. A failing build must never deploy.
 
 ---
@@ -492,10 +494,15 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   matched variant). The **patron-saint quiz** is now its own route (`/quiz`); it scores saints
   by facet overlap (intercessions weigh most) — match quality scales with facet coverage (§10).
 - **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
-  indexable, shareable; each ships only its own record). The finder home/quiz pages still inline
-  the (trimmed) dataset for client filtering — comfortable to **~5,000 enriched saints** per the
-  old estimate. Past that, split the inlined home index to on-demand fetch (per-saint pages are
-  already lean — half the work is done). See the `TODO(scale)` in `src/pages/search.astro`.
+  indexable, shareable; each ships only its own record). The /search and /quiz islands **fetch**
+  the trimmed finder dataset from a content-hashed static `/finder-data/<hash>.json`
+  (`src/lib/finder-payload.ts` + `src/pages/finder-data/[hash].json.ts`; one browser-cached
+  download shared by both pages), with the first page of results SSR'd for instant paint /
+  SEO / no-JS. The ceiling is now the fetch's gzip weight (~540 KB at 2.8k saints, linear) —
+  comfortable well past 10k saints; re-measure there before restructuring. The home page still
+  inlines the lighter card index (no `search` haystack) — split it the same way if it grows
+  heavy. The calendar pre-renders the whole corpus on one page: see the `TODO(scale)` in
+  `src/pages/calendar.astro` (split per-month around ~4k saints).
 - **SEO:** `@astrojs/sitemap` emits `sitemap-index.xml` over every route (incl. all saint
   pages); `static/robots.txt` points crawlers at it. `BaseLayout` emits OpenGraph/Twitter
   meta on every page (default share card `static/og-default.png`; saint pages with a

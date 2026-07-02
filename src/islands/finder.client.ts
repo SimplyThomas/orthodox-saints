@@ -1,9 +1,12 @@
-/* Finder island: faceted client-side search over the inlined finder data on
-   the /search page. Ported from app.js (render/row/pager/chips/facets wiring).
-   Rows are real links to the full /saint/[id] page. Arriving with ?q= seeds
-   the query (the home hero search submits
-   here); ?browse= opens that facet group; the typed query is mirrored back
-   into the URL so results are shareable. */
+/* Finder island: faceted client-side search over the finder dataset on the
+   /search page. Ported from app.js (render/row/pager/chips/facets wiring).
+   The dataset is fetched (lib/finder-data.client) rather than inlined; until
+   it resolves, the SSR'd first page (Finder.astro) carries the paint, every
+   interaction still records state, and the first render() after resolution
+   applies it all. Rows are real links to the full /saint/[id] page. Arriving
+   with ?q= seeds the query (the home hero search submits here); ?browse=
+   opens that facet group; the typed query is mirrored back into the URL so
+   results are shareable. */
 
 import type { FinderSaint } from "../lib/types";
 import {
@@ -17,23 +20,20 @@ import {
   type Selected,
   type SortMode,
 } from "../lib/filter";
-import {
-  valuesOf,
-  rankSlug,
-  primaryRank,
-  firstFeast,
-  centuryLabel,
-} from "../lib/saints";
-import { splitName } from "../lib/names";
-import { esc, cssEscape, withBase } from "../lib/format";
-import { byzCross, saintAvatar, reviewedDove } from "../lib/icons";
+import { cssEscape } from "../lib/format";
+import { byzCross } from "../lib/icons";
 import { track } from "../lib/analytics";
 import { matchThemeAlias } from "../lib/theme-aliases";
 import { themeBySlug } from "../lib/themes";
+import { loadFinderData } from "../lib/finder-data.client";
+import { finderRowHTML } from "../lib/finder-row";
 
-const dataEl = document.getElementById("finder-data");
-if (dataEl) {
-  const SAINTS: FinderSaint[] = JSON.parse(dataEl.textContent || "[]");
+if (
+  document.querySelector("[data-finder-src]") &&
+  document.getElementById("finder")
+) {
+  let SAINTS: FinderSaint[] = [];
+  let ready = false;
 
   const $ = <T extends Element = Element>(sel: string) =>
     document.querySelector<T>(sel);
@@ -58,30 +58,8 @@ if (dataEl) {
   }
 
   function row(s: FinderSaint): HTMLLIElement {
-    const sn = splitName(s.name);
     const li = document.createElement("li");
-    const place = valuesOf(s, "origin").join(" · ");
-    const via = matchedVia(s);
-    li.innerHTML = `
-      <a class="saint-row" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
-        <div class="portrait">${saintAvatar(s, 58, 72, { type: primaryRank(s) })}</div>
-        <div class="main">
-          <div class="title-line"><h3>${esc(sn.title)}</h3>${
-            sn.epithet ? `<span class="epithet">${esc(sn.epithet)}</span>` : ""
-          }${s.humanReviewed ? reviewedDove(20) : ""}</div>
-          ${via ? `<div class="match-via">matched &ldquo;${esc(via)}&rdquo;</div>` : ""}
-          <p class="bio">${esc(s.brief || s.notes || "")}</p>
-          <div class="row-tags">
-            <span class="tag ${rankSlug(s)}"><i></i>${esc(primaryRank(s))}</span>
-            ${place ? `<span class="place">${esc(place)}</span>` : ""}
-          </div>
-        </div>
-        <div class="aside">
-          <div class="feast">${esc(firstFeast(s))}</div>
-          <div class="century">${esc(centuryLabel(s))}</div>
-          ${s.era ? `<div class="rank">${esc(s.era)}</div>` : ""}
-        </div>
-      </a>`;
+    li.innerHTML = finderRowHTML(s, matchedVia(s));
     return li;
   }
 
@@ -237,6 +215,9 @@ if (dataEl) {
   }
 
   function render() {
+    // Until the dataset lands, the SSR'd first page stands in; interactions
+    // before then only record state, and the load handler re-renders once.
+    if (!ready) return;
     const anyActive = !!query || activeCount(selected) > 0;
     const clearBtn = $<HTMLButtonElement>("#clear-all");
     if (clearBtn) clearBtn.hidden = !anyActive;
@@ -412,5 +393,22 @@ if (dataEl) {
 
   wireEvents();
   initFromURL();
-  render();
+  // Arriving with a seeded query/filter, the SSR'd list (first page,
+  // unfiltered) doesn't reflect it yet — say so until the data lands.
+  if (query || activeCount(selected) > 0) {
+    const count = $("#count");
+    if (count) count.textContent = "Loading…";
+  }
+  loadFinderData().then(
+    (data) => {
+      SAINTS = data;
+      ready = true;
+      render();
+    },
+    () => {
+      const count = $("#count");
+      if (count)
+        count.textContent = "Couldn’t load the saints — please refresh.";
+    },
+  );
 }
