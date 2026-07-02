@@ -222,6 +222,7 @@ instead, add one row to `data/saint_images.csv`
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
 - **After downloading any new icon(s), resize at JPEG quality 80** — scale width to ≤ 800 px, then top-crop height to ≤ 800 px (preserves the face). The `make download-icons` pipeline does this automatically; for manually-sourced files use `save_resized()` in `scripts/download_saint_icons.py`. (`.gif` files must be converted to `.jpg` manually before resizing.)
+- **Every portrait also gets a ~200 px avatar thumb** at `static/icons/thumbs/<same rel path>.jpg` — the finder/quiz/card avatars load it (~10 KB) instead of the ~100 KB original; the detail-page hero keeps the original. The download pipeline emits thumbs on ingest; after adding icons manually run `python scripts/make_icon_thumbs.py` (needs Pillow). `build.py` emits `imageThumb` only when the thumb file exists and `make validate` warns on portraits missing one, so a forgotten thumb degrades gracefully, never 404s.
 
 **Saint quotes (the detail-page quote block).** To show a saint's own words on their
 detail page, add one row to `data/saint_quotes.csv`

@@ -107,6 +107,9 @@ export interface AvatarSaint {
   type?: string;
   /** optional real-icon URL; absent → monogram */
   image?: string;
+  /** optional ~200px thumb of `image` (build.py emits it only when the file
+      exists); small renderings prefer it over the full-size portrait */
+  imageThumb?: string;
 }
 
 export function saintAvatar(
@@ -125,7 +128,11 @@ export function saintAvatar(
   // is inert even if the data channel were ever attacker-controlled (and so
   // CodeQL can prove the innerHTML flows in the islands are sanitized).
   if (s.image) {
-    const raw = String(s.image).replace(/['"\\)\s<>]/g, "");
+    // Small renderings (every avatar ≤ 92px wide except the 286px detail-page
+    // hero) use the ~200px ingest thumb when one exists — crisp at 2x DPR,
+    // ~10 KB instead of a ~100 KB original.
+    const chosen = w <= 200 && s.imageThumb ? s.imageThumb : s.image;
+    const raw = String(chosen).replace(/['"\\)\s<>]/g, "");
     const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
     return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;background:#efe3cb center top/cover no-repeat url('${url}')"></div></div>`;
   }

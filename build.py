@@ -657,6 +657,21 @@ def load_saint_images() -> dict[str, dict[str, str]]:
     return out
 
 
+def image_thumb(path: str) -> str | None:
+    """static/-relative avatar thumb for a self-hosted portrait, or None.
+    Thumbs mirror static/icons/ under static/icons/thumbs/ as JPEGs
+    (scripts/make_icon_thumbs.py; the download pipeline emits them on ingest).
+    Returned only when the file actually exists, so a missing thumb degrades
+    to the full-size portrait — never a broken image. Absolute URLs and
+    non-icons/ paths have no thumb."""
+    if re.match(r"^(https?:)?//", path) or not path.startswith("icons/"):
+        return None
+    rel = path[len("icons/"):]
+    stem, _, _ = rel.rpartition(".")
+    thumb = f"icons/thumbs/{stem or rel}.jpg"
+    return thumb if (STATIC / thumb).is_file() else None
+
+
 def validate_saint_images(valid_ids: set[str],
                           permissions: dict[str, dict[str, str]] | None = None
                           ) -> tuple[list[str], list[str]]:
@@ -701,6 +716,10 @@ def validate_saint_images(valid_ids: set[str],
             elif not (STATIC / path).is_file():
                 errors.append(f"{where} ({sid}): image_path {path!r} not found "
                               f"under static/ (expected {(STATIC / path)}).")
+            elif image_thumb(path) is None:
+                warnings.append(f"{where} ({sid}): no avatar thumb for {path!r} — "
+                                "cards/finder will load the full-size portrait. "
+                                "Run: python scripts/make_icon_thumbs.py")
 
             slug = permission_slug(lic)
             if not lic:
@@ -1355,6 +1374,9 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             # Publish a permission image only if the vendor grant is active.
             if vendor and vendor.get("status") != "revoked":
                 rec["image"] = img["path"]
+                thumb = image_thumb(img["path"])
+                if thumb:
+                    rec["imageThumb"] = thumb
                 rec["imagePermission"] = True
                 rec["imageVendor"] = vendor.get("name", "")
                 rec["imageAttribution"] = vendor.get("attribution", "")
@@ -1364,6 +1386,9 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             # revoked / unknown vendor -> no image key (monogram fallback)
         else:
             rec["image"] = img["path"]
+            thumb = image_thumb(img["path"])
+            if thumb:
+                rec["imageThumb"] = thumb
             if img.get("license"):
                 rec["imageLicense"] = img["license"]
             if img.get("credit"):
