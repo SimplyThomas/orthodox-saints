@@ -14,12 +14,12 @@ import {
   PER_PAGE,
   matches,
   sortSaints,
-  sortByRelevance,
   activeCount,
   emptySelected,
   type Selected,
   type SortMode,
 } from "../lib/filter";
+import { buildSearchIndex, type FinderSearchIndex } from "../lib/search";
 import { cssEscape } from "../lib/format";
 import { byzCross } from "../lib/icons";
 import { track } from "../lib/analytics";
@@ -33,6 +33,7 @@ if (
   document.getElementById("finder")
 ) {
   let SAINTS: FinderSaint[] = [];
+  let searchIndex: FinderSearchIndex | undefined;
   let ready = false;
 
   const $ = <T extends Element = Element>(sel: string) =>
@@ -222,12 +223,15 @@ if (
     const clearBtn = $<HTMLButtonElement>("#clear-all");
     if (clearBtn) clearBtn.hidden = !anyActive;
 
-    // With a text query, rank by relevance (name/title hits first) and use the
-    // chosen sort as the tiebreak; with no query, the sort dropdown drives order.
-    const passed = SAINTS.filter((s) => matches(s, query, selected));
+    // With a text query, the MiniSearch index ranks by fuzzy/field-boosted
+    // relevance (lib/search) and the facet filters narrow that ranked list;
+    // with no query, the sort dropdown drives order.
     const matched = query
-      ? sortByRelevance(passed, query, sortMode)
-      : sortSaints(passed, sortMode);
+      ? searchIndex!.search(query).filter((s) => matches(s, "", selected))
+      : sortSaints(
+          SAINTS.filter((s) => matches(s, "", selected)),
+          sortMode,
+        );
     // Mirror the active-filter count onto the mobile "Filters" toggle badge.
     const badge = $("#filter-count");
     if (badge) {
@@ -402,6 +406,9 @@ if (
   loadFinderData().then(
     (data) => {
       SAINTS = data;
+      // One-time index build (~100-300 ms at today's size) — still inside the
+      // fetch shadow, well off the per-keystroke path.
+      searchIndex = buildSearchIndex(SAINTS);
       ready = true;
       render();
     },
