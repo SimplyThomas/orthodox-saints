@@ -92,8 +92,6 @@ plain cards can be backfilled opportunistically.)
 | Macarius of Jerusalem | — | Jerusalem | OS-0843 | 1 | Medium | Bishop of Jerusalem (d. ~335); ordained St. Cyril of Jerusalem; associated with the finding of the Cross. Feast Aug 16. |
 | Romanus of Subiaco | — | Italy | OS-0822 | 1 | Low | The monk who clothed St. Benedict and supplied him at the cave of Subiaco; feast May 22. |
 | Maximus of Jerusalem | — | Jerusalem | OS-0843 | 1 | Low | Bishop of Jerusalem; predecessor of St. Cyril of Jerusalem; feast May 5. |
-| Itta of Metz | Iduberga | Francia (Belgium) | OS-0841 | 1 | Low | Mother of St. Gertrude of Nivelles; foundress of Nivelles Abbey; feast May 8. |
-| Begga of Andenne | — | Francia (Belgium) | OS-0841 | 1 | Low | Sister of St. Gertrude of Nivelles; foundress of Andenne; feast Dec 17. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
 | Gury Shalochsky | — | Russian North (Novgorod) | OS-0852 | 1 | Low | Co-founder of the Sinozero (Blue Jay Lake) hermitage with St. Euphrosynus. |
 | Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
@@ -157,7 +155,6 @@ plain cards can be backfilled opportunistically.)
 | Maria of Amnia | Empress Maria | Byzantium (Amnia) | OS-2283 | 1 | Low | Granddaughter of St. Philaret the Merciful; first wife of Emperor Constantine VI; locally venerated. |
 | John the Acoemete | John the Sleepless | Constantinople (Acoemetae) | OS-2426 | 1 | Medium | Founder-abbot of the Acoemetae ("Unsleeping Ones"); predecessor of St. Marcellus; venerated. |
 | Naucratius of Cappadocia | Naucratius, brother of St. Basil | Cappadocia (Pontus) | OS-2474 | 1 | Medium | Brother of Sts. Basil the Great, Gregory of Nyssa, Macrina the Younger & Peter of Sebaste; hermit on the Iris; venerated (Jun 8). |
-| Bathild of Chelles | Balthild, Queen of the Franks | Francia (Chelles) | OS-2694 | 1 | Medium | Anglo-Saxon slave who became Merovingian queen-regent and nun; contemporary of St. Eligius; venerated (Jan 30). |
 
 ---
 
@@ -222,6 +219,12 @@ cross-reference cards were wired to the new pages at the same time).
 - **Austregisilus of Bourges** → `OS-2847`
 - **Caesaria the Elder** → `OS-2848`
 - **Caesaria the Younger** → `OS-2849`
+
+### Frankish / Merovingian batch — Nivelles · Chelles (issue #227)
+
+- **Itta of Metz** → `OS-2850`
+- **Begga of Andenne** → `OS-2851`
+- **Bathild of Chelles** → `OS-2852`
 
 ## Considered and excluded (this round)
 
