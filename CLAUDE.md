@@ -487,13 +487,17 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
   via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
   `build.py` cross-checks every profile filename/id against the saints.
-- **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
-  `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
-  browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
-  without a measured need.) The build still expands each haystack with **name variants** from
-  `data/name_variants.csv` (so "Lucy" finds Lucia, "Ivan" finds John; a result names the
-  matched variant). The **patron-saint quiz** is now its own route (`/quiz`); it scores saints
-  by facet overlap (intercessions weigh most) — match quality scales with facet coverage (§10).
+- **Search is client-side and stays that way** — no browser storage, no backend. The finder's
+  text path is **MiniSearch** (`src/lib/search.ts`, the one search library — added for the
+  fuzzy/ranked requirement): token-AND with prefix + typo tolerance, ranked by field boosts
+  (name > Also Known As > name variants > haystack), **unioned with the legacy substring
+  filter** over the precomputed `search` haystack as a recall floor, so no query matches less
+  than it used to. Facet filters remain hand-rolled set intersection (`src/lib/filter.ts`);
+  the header typeahead keeps its own substring index (`/search-index.json`). The build still
+  expands each haystack with **name variants** from `data/name_variants.csv` (so "Lucy" finds
+  Lucia, "Ivan" finds John; a result names the matched variant). The **patron-saint quiz** is
+  its own route (`/quiz`); it scores saints by facet overlap (intercessions weigh most) —
+  match quality scales with facet coverage (§10).
 - **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
   indexable, shareable; each ships only its own record). The /search and /quiz islands **fetch**
   the trimmed finder dataset from a content-hashed static `/finder-data/<hash>.json`
