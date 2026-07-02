@@ -63,21 +63,14 @@ plain cards can be backfilled opportunistically.)
 | Theodorite of Kola | Feodorit of Kola; Theodoret | Russia (Kola / North) | OS-0464 | 1 | Medium | Enlightener of the Lapps (Sami); part of the northern-missionary network (distinct from Tryphon of Pechenga). |
 | Procopius of Ustyug | Prokopy of Ustyug | Russia (Veliky Ustyug) | OS-0465 | 1 | Medium | First Russian fool-for-Christ; a major figure likely to recur in the fools-for-Christ and northern-saints clusters. |
 | Naucratius | Naucratios | Cappadocia / Pontus | OS-0420 | 1 | Medium | Brother of St. Basil the Great; member of the Cappadocian household network (Basil-the-Great family). |
-| Declan of Ardmore | Déclán | Ireland | OS-0462 | 1 | Medium | Pre-Patrician Irish bishop-saint; likely to recur across the Irish/Celtic cluster. |
 | Hilary of Arles | Hilarius of Arles | Gaul (Provence) | OS-0468 | 1 | Medium | Lérins monk; successor of Honoratus at Arles — recurs in the Lérins-school network. |
-| Serf (Servanus) | Servanus; Sair | Scotland | OS-0454 | 1 | Medium | Teacher of St. Kentigern (Mungo); Scottish saint likely to recur in the Brittonic/Pictish cluster. |
-| Asaph of Wales | Asa | Wales | OS-0454 | 1 | Medium | Disciple/successor of Kentigern at Llanelwy; Welsh saint. |
 | Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
 | Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
 | Antony of Choziba | Anthony of Choziba | Palestine (Judean desert) | OS-0404 | 1 | Low | Disciple and biographer of St. George the Chozebite; Choziba-monastery lineage. |
 | Caprasius of Lérins | Caprais | Gaul | OS-0468 | 1 | Low | Co-founder of Lérins Abbey with Honoratus. |
 | Leontius of Fréjus | Leontius of Frejus | Gaul | OS-0468 | 1 | Low | Bishop of Fréjus, friend of Honoratus and John Cassian; Lérins circle. |
-| Thenew | Theneva; Thaney; St. Enoch | Scotland | OS-0454 | 1 | Low | Mother of St. Kentigern; venerated at Glasgow (commemorated, so listed despite being kin). |
-| Ismael of Wales | Ysfael | Wales | OS-0447 | 1 | Low | Welsh bishop-saint associated with St. Elian of Cornwall. |
-| Mochaemhoc | Mochoemoc; Pulcherius | Ireland | OS-0462 | 1 | Low | Irish abbot-saint connected to St. Ita of Killeedy (her foster-son by tradition). |
 | Eustochium | Julia Eustochium | Rome / Bethlehem | OS-0550 | 1 | Medium | Daughter of St. Paula; abbess at Bethlehem, recipient of Jerome's Epistle 108; part of the Jerome/Roman-ascetic circle (likely to recur). Feast Sep 28. |
 | Marcella of Rome | — | Rome | OS-0550 | 1 | Medium | Foundress of the Roman ascetic women's circle around Jerome; feast Jan 31. (Distinct from Markella of Chios, OS-1568.) |
-| Cybi of Holyhead | Cybi the Tanned | Wales (Anglesey) | OS-0578 | 1 | Medium | 6th-c. Celtic monastic founder; friend of St. Seiriol — likely to recur in the Welsh/Celtic cluster. |
 | Meletios the Younger | Meletios of Myoupolis | Greece (Boeotia) | OS-0551 | 1 | Medium | 11th-c. monastic founder of Mt. Myoupolis; among the Saints of Boeotia. Feast Sep 1. |
 | Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | Nektarios of the Apsaras family | Nektarios of Meteora | Greece (Meteora) | OS-0584 | 1 | Low | Co-founder (with brother Theophanes) of Barlaam Monastery, Meteora; disciple of Savva of Ioannina. Feast May 17. |
@@ -88,21 +81,15 @@ plain cards can be backfilled opportunistically.)
 | Mstislav-Theodore the Great | Mstislav I of Kiev | Rus' (Kiev) | OS-0636 | 1 | Medium | Right-believing Grand Prince of Kiev (d. 1132), father of St. Vsevolod-Gabriel of Pskov. |
 | Abba Seridos of Gaza | Seridus | Palestine (Gaza) | OS-0604 | 1 | Low | Abbot of the Gaza monastery of Sts. Barsanuphius & John; anchor of the Gaza monastic cluster. |
 | Austregisilus of Bourges | Outrille | Gaul (France) | OS-0610 | 1 | Low | Bishop of Bourges (d. 624); teacher of St. Amand of Maastricht. Feast May 20. |
-| Abban of Ireland | Abán | Ireland | OS-0639 | 1 | Low | 6th-c. Irish abbot connected to St. Gobnait of Ballyvourney. Feast Oct 27. |
 | Pope Leo II of Rome | Leo II | Rome / Sicily | OS-0700 | 1 | Low | Pope (d. 683) who confirmed the Sixth Ecumenical Council; Western pre-schism. |
 | Pope Donus of Rome | Donus | Rome | OS-0700 | 1 | Low | 7th-c. Pope (predecessor of Pope Agathon); Western pre-schism. |
 | Vassian Muromtsev | — | Pskov, Rus' | OS-0698 | 1 | Low | Martyred disciple of St. Cornelius of the Pskov Caves (16th c.). |
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Varus the notary | — | Asia Minor (Heraclea) | OS-0615 | 1 | Low | Servant who recorded St. Theodore Stratelates's martyrdom; independent veneration to verify (borderline). |
-| Fursey | Fursa | Ireland / East Anglia | OS-0798 | 1 | Medium | Irish monk and visionary; mission to East Anglia; feast Jan 16. |
 | Honorius of Canterbury | — | Canterbury (Kent) | OS-0798 | 1 | Medium | Archbishop of Canterbury (d. 653); sent St. Felix to East Anglia. |
-| Non of Wales | Nonna | Wales | OS-0753 | 1 | Medium | Mother of St. David of Wales; feast ~Mar 3. Recurs in the Welsh cluster. |
-| Teilo | — | Wales | OS-0753 | 1 | Medium | Welsh bishop-saint, companion of St. David; feast Feb 9. |
 | Fulgentius of Astigi | Fulgentius of Écija | Spain (Visigothic) | OS-0734 | 1 | Low | Bishop of Astigi; brother of Sts. Leander, Isidore & Florentina. |
 | Florentina of Cartagena | — | Spain (Visigothic) | OS-0734 | 1 | Low | Abbess; sister of Sts. Leander, Isidore & Fulgentius. |
-| Padarn | Paternus | Wales | OS-0753 | 1 | Low | Welsh abbot-bishop; feast Apr 15. |
-| Paulinus of Wales | Paulinus Aurelian | Wales / Brittany | OS-0753 | 1 | Low | Teacher of St. David; feast Nov 22. (Not Paulinus of Nola OS-0522 or of York OS-2774.) |
 | Sigeberht of East Anglia | — | East Anglia | OS-0798 | 1 | Low | Martyr-king who invited Sts. Felix & Fursey; 7th c. |
 | Julian the Physician of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyred under Julian the Apostate; feast Mar 6. |
 | Eubolos of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyr; feast Mar 6. |
@@ -115,15 +102,12 @@ plain cards can be backfilled opportunistically.)
 | Maximus of Jerusalem | — | Jerusalem | OS-0843 | 1 | Low | Bishop of Jerusalem; predecessor of St. Cyril of Jerusalem; feast May 5. |
 | Itta of Metz | Iduberga | Francia (Belgium) | OS-0841 | 1 | Low | Mother of St. Gertrude of Nivelles; foundress of Nivelles Abbey; feast May 8. |
 | Begga of Andenne | — | Francia (Belgium) | OS-0841 | 1 | Low | Sister of St. Gertrude of Nivelles; foundress of Andenne; feast Dec 17. |
-| Foillan of Fosses | Faolán | Ireland / Francia | OS-0841 | 1 | Low | Irish abbot-martyr (brother of St. Fursey); abbey of Fosses; feast Oct 31. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
-| Fanchea | Fainche of Rossory | Ireland | OS-0861 | 1 | Low | Abbess; sister of St. Enda of Aran; feast ~Jan 1. |
 | Gury Shalochsky | — | Russian North (Novgorod) | OS-0852 | 1 | Low | Co-founder of the Sinozero (Blue Jay Lake) hermitage with St. Euphrosynus. |
 | Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
 | Pope Evaristus | — | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); predecessor of St. Alexander I; Western pre-schism (weak/obscure). |
 | Pope Sixtus I | Xystus I | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); successor of St. Alexander I; Western pre-schism (weak/obscure). |
 | Cyril of Scythopolis | — | Palestine (Judean desert) | OS-0905 | 1 | Medium | 6th-c. monk-hagiographer of the great Judean-desert fathers (Sabbas, Euthymius, John the Silent); a major source-figure. |
-| Palladius of Ireland | Palladius the Deacon | Ireland / Rome | OS-0965 | 1 | Medium | First bishop sent to the Irish (by Pope Celestine, 431), before St. Patrick; feast Jul 7. (Distinct from Palladius of Antioch OS-0556 / Thessalonica OS-2260.) |
 | Braulio of Saragossa | — | Spain (Visigothic) | OS-0937 | 1 | Medium | Bishop of Saragossa (d. 651); disciple and literary executor of St. Isidore of Seville. |
 | Ascholius of Thessalonica | Acholius | Thessalonica (Greece) | OS-1000 | 1 | Medium | 4th-c. bishop who baptized Emperor Theodosius; correspondent of St. Basil. |
 | Patriarch Elias of Jerusalem | Elias I | Jerusalem | OS-0905 | 1 | Low | 5th–6th-c. Patriarch of Jerusalem; associated with St. John the Silent. |
@@ -139,8 +123,6 @@ plain cards can be backfilled opportunistically.)
 | Paisius Yaroslavov | — | Russia (Kirillo-Belozersk) | OS-1127 | 1 | Medium | Elder of St. Nilus of Sora; Trinity-Sergius hegumen; Non-Possessor circle (locally venerated). |
 | Paul, Bishop of Corinth | — | Greece (Peloponnese) | OS-1104 | 1 | Low | Brother of St. Peter the Wonderworker of Argos; 10th c. |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
-| Erc of Slane | — | Ireland | OS-1191 | 1 | Low | Early Irish bishop; baptizer of St. Brendan the Navigator; feast Nov 2. |
-| Jarlath of Tuam | — | Ireland | OS-1191 | 1 | Low | Irish saint, founder of Tuam; tradition links St. Brendan's schooling to him; feast Jun 6. |
 | Chariton of Kudinsk | — | Russia (Pskov) | OS-1178 | 1 | Low | Disciple of St. Euphrosynus of Pskov. |
 | Laurence of Canterbury | — | England (Kent) | OS-1243 | 1 | Medium | Companion and successor of St. Augustine of Canterbury; 2nd Archbishop. |
 | Mellitus of Canterbury | Mellitus of London | England | OS-1243 | 1 | Low | Member of the Gregorian mission; first Bishop of London, later Archbishop of Canterbury. |
@@ -148,10 +130,6 @@ plain cards can be backfilled opportunistically.)
 | Procopius of Ustiug | Prokopy of Veliky Ustyug | Russia (Ustyug) | OS-1260 | 1 | Medium | Lübeck-born first fool-for-Christ of Russia (d. 1303). NOTE: distinct from Procopius of Ustya/Vologda OS-1495 — earlier flagged for DB-expansion; confirm which (if either) is truly absent. |
 | Abraham of Paleostrov | Abramius of Paleostrov | Russia (Olonets) | OS-1206 | 1 | Low | Co-founder with St. Cornelius of Paleostrov; feast Aug 21. |
 | Pope Damasus I | — | Rome | OS-1362 | 1 | Medium | Pope who commissioned Jerome's Vulgate; correspondent of the Latin Fathers. |
-| Cainnech of Aghaboe | Kenneth | Ireland | OS-1320 | 1 | Medium | Major Irish abbot; companion of Columba of Iona; feast Oct 11. |
-| Finnian of Clonard | — | Ireland | OS-1320 | 1 | Medium | "Teacher of the saints of Ireland"; mentor of the Twelve Apostles of Ireland; feast Dec 12. |
-| Adomnan of Iona | Adamnan | Iona / Ireland | OS-1320 | 1 | Medium | 9th abbot of Iona; biographer of St. Columba; feast Sep 23. |
-| Brychan of Brycheiniog | — | Wales | OS-1080 | 2 | Medium | Welsh chieftain-saint, progenitor of many Cornish/Devon/Welsh saints (Nectan, Endellion); feast Apr 6. (refs OS-1080, OS-1376) |
 | Possidius of Calama | — | North Africa | OS-1365 | 1 | Low | Disciple and biographer of St. Augustine of Hippo. |
 | Alypius of Thagaste | — | North Africa | OS-1365 | 1 | Low | Friend of St. Augustine; bishop of Thagaste. |
 | Ceolfrith of Wearmouth | — | England (Northumbria) | OS-1378 | 1 | Low | Abbot of Wearmouth-Jarrow; teacher of St. Bede; commissioned the Codex Amiatinus. |
@@ -200,10 +178,41 @@ plain cards can be backfilled opportunistically.)
 | John the Acoemete | John the Sleepless | Constantinople (Acoemetae) | OS-2426 | 1 | Medium | Founder-abbot of the Acoemetae ("Unsleeping Ones"); predecessor of St. Marcellus; venerated. |
 | Naucratius of Cappadocia | Naucratius, brother of St. Basil | Cappadocia (Pontus) | OS-2474 | 1 | Medium | Brother of Sts. Basil the Great, Gregory of Nyssa, Macrina the Younger & Peter of Sebaste; hermit on the Iris; venerated (Jun 8). |
 | Bathild of Chelles | Balthild, Queen of the Franks | Francia (Chelles) | OS-2694 | 1 | Medium | Anglo-Saxon slave who became Merovingian queen-regent and nun; contemporary of St. Eligius; venerated (Jan 30). |
-| Sinell of Cleenish | Sinell of Cluaninis | Ireland (Lough Erne) | OS-2693 | 1 | Low | Abbot of Cleenish, teacher of St. Columbanus before his continental mission; venerated (Nov 12). |
 | Egwin of Worcester | Ecgwine, Bishop of Worcester | England (Worcester) | OS-2707 | 1 | Medium | Third Bishop of Worcester, founder of Evesham Abbey; friend of St. Aldhelm; venerated (Dec 30). |
 
 ---
+
+## Added to the database
+
+Saints from this register that have since been given an `OS-####` row (their plain
+cross-reference cards were wired to the new pages at the same time).
+
+### Insular Celtic batch — Ireland · Wales · Scotland (issue #227)
+
+- **Declan of Ardmore** → `OS-2806`
+- **Fursey** → `OS-2807`
+- **Palladius of Ireland** → `OS-2808`
+- **Cainnech of Aghaboe** → `OS-2809`
+- **Finnian of Clonard** → `OS-2810`
+- **Adomnan of Iona** → `OS-2811`
+- **Mochaemhoc** → `OS-2812`
+- **Abban of Ireland** → `OS-2813`
+- **Fanchea** → `OS-2814`
+- **Erc of Slane** → `OS-2815`
+- **Jarlath of Tuam** → `OS-2816`
+- **Foillan of Fosses** → `OS-2817`
+- **Sinell of Cleenish** → `OS-2818`
+- **Serf (Servanus)** → `OS-2819`
+- **Thenew** → `OS-2820`
+- **Asaph of Wales** → `OS-2821`
+- **Non of Wales** → `OS-2822`
+- **Teilo** → `OS-2823`
+- **Cybi of Holyhead** → `OS-2824`
+- **Brychan of Brycheiniog** → `OS-2825`
+- **Ismael of Wales** → `OS-2826`
+- **Padarn** → `OS-2827`
+- **Paulinus of Wales** → `OS-2828`
+
 
 ## Considered and excluded (this round)
 

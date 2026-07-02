@@ -33,6 +33,7 @@ sections:
 companions:
   - name: Saint Abban
     note: By tradition assisted in founding her community and placed her as abbess.
+    href: saint/OS-2813
   - name: Saint Enda of Aran
     note: Associated in tradition with her monastic training on the Aran Islands.
     href: saint/OS-0861

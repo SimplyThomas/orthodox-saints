@@ -34,14 +34,17 @@ family:
   figures:
     - name: St. Theneva (Thaney)
       note: "Mother: a daughter of King Lleuddun, venerated in connection with Glasgow, whose son Kentigern became the city's apostle."
+      href: saint/OS-2820
 companions:
   - name: St. Serf (Servanus)
     note: "Teacher: the missionary among the Picts who raised and educated the young Kentigern and gave him the name Mungo."
+    href: saint/OS-2819
   - name: David of Wales
     note: "Host in exile: the Welsh abbot-bishop with whom Kentigern lodged during his exile from Strathclyde."
     href: saint/OS-0753
   - name: St. Asaph
     note: "Disciple and successor: left in charge of the monastery at Llanelwy (St Asaph) when Kentigern returned to Scotland."
+    href: saint/OS-2821
 related:
   - name: Saint Columba of Iona
     note: "Fellow enlightener: a contemporary apostle of Scotland whom tradition records meeting Kentigern."

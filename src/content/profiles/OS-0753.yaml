@@ -46,14 +46,18 @@ family:
   figures:
     - name: Saint Non
       note: His mother, by tradition a holy woman of Wales venerated in her own right; David is held to be her son.
+      href: saint/OS-2822
 companions:
   - name: Saint Teilo
     note: Fellow Welsh saint who, by the tradition of David's Life, accompanied him on pilgrimage to Jerusalem, where the three were consecrated bishops.
+    href: saint/OS-2823
   - name: Saint Padarn
     note: Fellow Welsh saint and companion with David and Teilo on the traditional pilgrimage to Jerusalem.
+    href: saint/OS-2827
 related:
   - name: Saint Paulinus of Wales
     note: His teacher, the Welsh master (Paulinus Aurelian) under whom David studied in his youth. (Distinct from Paulinus of Nola and Paulinus of York.)
+    href: saint/OS-2828
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
