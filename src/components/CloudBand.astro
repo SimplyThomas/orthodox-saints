@@ -15,9 +15,20 @@ const featured = pool.slice(0, 4);
 <section class="cloud-band" id="cloud-band">
   <div class="cloud-grid">
     {
-      /* Saint of the day — needs the visitor's real "today", filled by the island. */
+      /* Saint of the day — needs the visitor's real "today"; the island
+         replaces this placeholder once the card dataset fetch resolves. */
     }
-    <div id="sotd"></div>
+    <div id="sotd">
+      <div class="eyebrow" style="margin-bottom:14px">Today</div>
+      <div
+        class="sotd-card"
+        style="min-height:220px;display:flex;align-items:center;justify-content:center"
+      >
+        <span class="stat sotd-loading"
+          >Finding today&rsquo;s commemoration&hellip;</span
+        >
+      </div>
+    </div>
     <div class="divider" aria-hidden="true"></div>
     <div>
       <div class="featured-head">
