@@ -18,7 +18,7 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   expect(logoResp.status()).toBe(200);
 });
 
-test("home is a landing page: saint of the day, shuffle, news — no finder", async ({
+test("home is a landing page: saint of the day, shuffle — no finder", async ({
   page,
 }) => {
   await page.goto("./");
@@ -28,8 +28,9 @@ test("home is a landing page: saint of the day, shuffle, news — no finder", as
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
   await page.click("#shuffle");
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
-  // News band is present; the full results list is not on this page.
-  await expect(page.locator(".news-band .news-card")).toHaveCount(4);
+  // The news band has been removed from the home page (feature not built out);
+  // the full results list also does not appear here.
+  await expect(page.locator(".news-band")).toHaveCount(0);
   await expect(page.locator("#results")).toHaveCount(0);
 });
 
@@ -181,22 +182,26 @@ test("quiz walks one question per screen to a circle of companions", async ({
   expect(await chip.getAttribute("href")).toContain(`${BASE}search?`);
 });
 
-test("about page tells the story; the personal email is removed", async ({
+test("about page tells the story; the footer carries the project contact", async ({
   page,
 }) => {
   const resp = await page.goto("./about/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".ab-hero h1")).toHaveText("About");
+  await expect(page.locator(".ab-hero h1")).toHaveText("Our Story");
   // The conversation is now folded into the story as a numbered movement
   // rather than a standalone box.
   await expect(page.locator(".ab-move")).toHaveCount(4);
   await expect(
     page.getByText("And that was the beginning of this journey."),
   ).toBeVisible();
-  // The personal email has been removed pending a project address; the contact
-  // card now carries a placeholder note rather than a mailto link.
-  await expect(page.locator(".ab-contact .ab-email")).toBeVisible();
-  expect(await page.locator("a[href^='mailto:']").count()).toBe(0);
+  // No personal email anywhere; the only mailto is the shared project address
+  // in the footer.
+  const mails = page.locator("a[href^='mailto:']");
+  await expect(mails).toHaveCount(1);
+  await expect(mails).toHaveAttribute(
+    "href",
+    "mailto:contact@orthodoxsaintfinder.com",
+  );
 });
 
 test("america page shows three gilded carousels with arrows", async ({
@@ -413,11 +418,11 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   await expect(home).toBeHidden();
   await toggle.click();
   await expect(home).toBeVisible();
-  // Grouped links are inline accordions — expand "Feasts & Fasts" to reveal
+  // Grouped links are inline accordions — expand "The Church Year" to reveal
   // "The Calendar" without leaving the menu.
   const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
   await expect(calendar).toBeHidden();
-  await page.getByRole("button", { name: /Feasts & Fasts/ }).click();
+  await page.getByRole("button", { name: /The Church Year/ }).click();
   await expect(calendar).toBeVisible();
   // Escape collapses the whole panel.
   await page.keyboard.press("Escape");
@@ -473,7 +478,7 @@ test("header quick-search offers a whole-site typeahead", async ({ page }) => {
   await expect(page).toHaveURL(/\/search\?q=basil/);
 });
 
-test("contribute page renders, validates, and is linked from the footer", async ({
+test("contribute page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./contribute/");
@@ -484,13 +489,14 @@ test("contribute page renders, validates, and is linked from the footer", async 
   await page.locator(".cb-send").click();
   await expect(page.locator('.err[data-for="cb-name"]')).toBeVisible();
   await expect(page).toHaveURL(/\/contribute\/?$/);
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/contribute"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/contribute"]')).toHaveCount(
+    1,
+  );
 });
 
-test("corrections page renders, validates, and is linked from the footer", async ({
+test("corrections page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./corrections/");
@@ -500,8 +506,9 @@ test("corrections page renders, validates, and is linked from the footer", async
   // Empty submit reveals validation (no GitHub tab opened on invalid input).
   await page.locator(".cr-send").click();
   await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/corrections"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/corrections"]')).toHaveCount(
+    1,
+  );
 });

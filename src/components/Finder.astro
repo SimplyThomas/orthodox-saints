@@ -1,5 +1,19 @@
 ---
 import FacetSidebar from "./FacetSidebar.astro";
+import { FINDER_SAINTS } from "../lib/data";
+import { reviewedIds } from "../lib/saint-profiles";
+import { sortSaints, PER_PAGE } from "../lib/filter";
+import { finderRowHTML } from "../lib/finder-row";
+
+/* SSR the first page of results (feast order — the island's default sort) so
+   the reader sees saints at first paint, crawlers index a real list, and the
+   page shows something meaningful without JS. The island re-renders the list
+   once the fetched dataset arrives (see lib/finder-data.client). */
+const reviewed = await reviewedIds();
+const total = FINDER_SAINTS.length;
+const firstPage = sortSaints(FINDER_SAINTS, "feast")
+  .slice(0, PER_PAGE)
+  .map((s) => (reviewed.has(s.id) ? { ...s, humanReviewed: true } : s));
 ---
 
 <section class="finder" id="finder">
@@ -12,7 +26,9 @@ import FacetSidebar from "./FacetSidebar.astro";
       <div class="results-head">
         <div>
           <h2 id="results-title">All saints</h2>
-          <div class="count" id="count" role="status"></div>
+          <div class="count" id="count" role="status">
+            <b>{total}</b> commemorations
+          </div>
         </div>
         <div class="results-controls">
           <button
@@ -60,8 +76,16 @@ import FacetSidebar from "./FacetSidebar.astro";
       </div>
       <div class="theme-suggest" id="theme-suggest" hidden></div>
       <div class="active-chips" id="active-chips"></div>
-      <ol class="results" id="results"></ol>
+      <ol class="results" id="results">
+        {firstPage.map((s) => <li set:html={finderRowHTML(s)} />)}
+      </ol>
       <div class="pager" id="pager"></div>
+      <noscript>
+        <p class="count">
+          Showing the first {PER_PAGE} of {total} saints — searching and filtering
+          need JavaScript.
+        </p>
+      </noscript>
     </section>
   </div>
 </section>

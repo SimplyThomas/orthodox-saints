@@ -1,10 +1,206 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Contributors — a long-form About sub-page in the illuminated reading-column
+// treatment. Ported from the Claude Design "About Pages" mock; the header area
+// reuses the Browse & Search hero primitives.
+const helpWays = [
+  "Recommending reliable historical sources",
+  "Suggesting corrections or clarifications",
+  "Expanding biographies",
+  "Sharing local parish or monastery histories",
+  "Translating historical texts",
+  "Providing photographs of churches, monasteries, relics, or historical sites",
+  "Granting permission to feature icons or other artwork",
+  "Identifying public-domain or freely licensed images",
+  "Reporting broken links or technical issues",
+  "Suggesting saints or historical topics for future expansion",
+];
+const recognition = [
+  "Researchers",
+  "Historians",
+  "Clergy",
+  "Monasteries and parish communities",
+  "Iconographers",
+  "Photographers",
+  "Translators",
+  "Publishers",
+  "Libraries and archives",
+  "Organizations that have granted permission to use images or other materials",
+];
 ---
 
-<ComingSoon
+<BaseLayout
   active="contributors"
   title="Contributors"
-  eyebrow="About"
-  blurb="The hands and prayers behind this project."
-/>
+  description="Recognizing the clergy, historians, iconographers, translators, and communities helping preserve and share the history of the Orthodox Church."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Contributors</h1>
+        <p class="sr-lede">
+          Recognizing the many hands that help preserve and share the history of
+          the Orthodox Church.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          Cloud of Witnesses is a community-supported project. While it is
+          maintained by a small team, it has already benefited from the
+          generosity of clergy, parishioners, historians, iconographers,
+          photographers, translators, publishers, and countless others who have
+          shared their knowledge, resources, and encouragement.
+        </p>
+        <p class="as-p last">
+          This page is dedicated to recognizing those who have helped preserve
+          and share the history of the Orthodox Church.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>A Shared Work</h2>
+        </div>
+        <p class="as-p">
+          The history of the Orthodox Church spans more than two thousand years,
+          every inhabited continent, and thousands of saints. No single
+          person&mdash;or even a small team&mdash;can uncover every manuscript,
+          local tradition, historical record, photograph, or icon.
+        </p>
+        <p class="as-p">
+          Every correction submitted, source recommended, translation shared,
+          permission granted, or historical detail uncovered helps make Cloud of
+          Witnesses a more accurate and valuable resource for everyone.
+        </p>
+        <p class="as-p last">
+          We are deeply grateful to everyone who contributes to this work.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>How You Can Help</h2>
+        </div>
+        <p class="as-p">There are many ways to contribute, including:</p>
+        <ul class="as-list">
+          {helpWays.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          Whether your contribution is large or small, it helps improve the
+          database for future readers.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Recognition</h2></div>
+        <p class="as-p">We believe that generosity deserves acknowledgment.</p>
+        <p class="as-p">
+          With permission, contributors whose work is incorporated into Cloud of
+          Witnesses may be recognized on the relevant pages or listed here.
+          Recognition may include:
+        </p>
+        <ul class="as-list">
+          {recognition.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          We are happy to acknowledge individuals by their preferred name,
+          organization, or anonymously if requested.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Current Contributors</h2>
+        </div>
+        <p class="as-p last">
+          This section will continue to grow as the project develops.
+        </p>
+
+        <h3 class="as-sub">Parish Communities</h3>
+        <p class="as-p last">
+          We are grateful to the many Orthodox parishes whose clergy and
+          parishioners have answered questions, shared local histories, and
+          encouraged this project.
+        </p>
+
+        <h3 class="as-sub">Iconographers &amp; Artists</h3>
+        <p class="as-p">
+          We are deeply thankful to the talented iconographers and artists who
+          have graciously allowed their work to be featured on Cloud of
+          Witnesses.
+        </p>
+        <div class="as-credit">
+          <span class="dmnd"></span>
+          <p>
+            <a
+              href="https://www.theophanyworks.com"
+              target="_blank"
+              rel="noopener noreferrer">Theophany Works</a
+            >
+            &nbsp;&mdash; For generously granting permission to feature selected iconography
+            and collaborate in making beautiful Orthodox artwork more accessible to
+            visitors.
+          </p>
+        </div>
+
+        <h3 class="as-sub">Researchers &amp; Historians</h3>
+        <p class="as-p last">
+          We thank the many authors, historians, scholars, translators,
+          librarians, and archivists whose published work helps preserve the
+          history of the Orthodox Church and makes projects like this possible.
+        </p>
+
+        <h3 class="as-sub">Community Contributors</h3>
+        <p class="as-p last">
+          This section is reserved for readers who have contributed corrections,
+          historical information, photographs, translations, or other meaningful
+          improvements to the database.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Get Involved</h2></div>
+        <div class="as-callout">
+          <div class="eyebrow">Request Additional Research</div>
+          <h3>Looking for more information about a particular saint?</h3>
+          <p>
+            If there is a saint whose page you would like to see expanded, let
+            us know. We regularly prioritize research requests from our
+            community and are always looking for opportunities to improve the
+            database.
+          </p>
+        </div>
+        <div class="as-callout">
+          <div class="eyebrow">Submit a Correction or Contribution</div>
+          <h3>Historical reference works improve through collaboration.</h3>
+          <p>
+            If you notice an error, have access to reliable historical
+            information, possess photographs or icons that may be shared, know
+            of an important publication, or simply have a suggestion that could
+            improve the project, we would love to hear from you.
+          </p>
+          <p>
+            Every thoughtful contribution is carefully reviewed before being
+            incorporated into the database.
+          </p>
+        </div>
+
+        <p class="as-pull" style="margin-top:22px">
+          Thank you to everyone who has helped&mdash;and to those who will help
+          in the future. Cloud of Witnesses is stronger because of your
+          generosity, knowledge, and love for the history of the Orthodox
+          Church.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>

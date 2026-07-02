@@ -2425,6 +2425,10 @@ a.news-card:hover .news-h {
   padding-top: 28px;
   padding-bottom: 4px;
 }
+/* the last movement is the final content before the footer, so give it room */
+.ab-movements.ab-became:last-of-type {
+  padding-bottom: clamp(56px, 9vw, 96px);
+}
 .ab-move {
   display: grid;
   grid-template-columns: 186px 1fr;
@@ -2479,94 +2483,7 @@ a.news-card:hover .news-h {
   line-height: 0.72;
   margin: 6px 12px 0 0;
 }
-.ab-prose p.ab-pull {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(20px, 2.6vw, 24px);
-  color: var(--byz);
-  line-height: 1.4;
-  margin: 4px 0 18px;
-  padding-left: 22px;
-  border-left: 3px solid var(--gold);
-  text-align: left;
-  hyphens: none;
-}
-
 /* closing band: benediction + contact */
-.ab-closing-wrap {
-  padding: 40px clamp(16px, 4vw, 56px) 64px;
-}
-.ab-closing {
-  position: relative;
-  background: var(--byz);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--gold-deep);
-  box-shadow: var(--shadow-card);
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  align-items: center;
-}
-.ab-bene {
-  padding: 46px 44px 46px 52px;
-  text-align: center;
-}
-.ab-bene .rule {
-  max-width: 150px;
-  margin: 0 auto 18px;
-  color: var(--gold-soft);
-}
-.ab-bene blockquote {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(22px, 3vw, 31px);
-  color: var(--gold-soft);
-  line-height: 1.42;
-  margin: 0;
-  text-wrap: balance;
-}
-.ab-contact {
-  padding: 46px 52px 46px 44px;
-  border-left: 1px solid rgba(212, 175, 55, 0.28);
-  text-align: left;
-}
-.ab-contact h2 {
-  font-size: clamp(26px, 3vw, 32px);
-  color: var(--ivory);
-  line-height: 1.05;
-  margin: 12px 0 14px;
-}
-.ab-contact p {
-  font-size: 16.5px;
-  color: #cdd9e6;
-  line-height: 1.55;
-  margin: 0 0 22px;
-}
-.ab-email {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  text-decoration: none;
-  background: rgba(212, 175, 55, 0.14);
-  border: 1px solid var(--gold-deep);
-  border-radius: 999px;
-  padding: 12px 24px;
-  color: var(--gold-soft);
-  font-family: var(--text);
-  font-size: 16px;
-  letter-spacing: 0.02em;
-  transition: background 0.15s;
-}
-.ab-email:hover {
-  background: rgba(212, 175, 55, 0.24);
-  color: var(--gold-soft);
-}
-.ab-email--soon {
-  cursor: default;
-}
-
 /* ============================================================
    Footer — reverent dark colophon
    ============================================================ */
@@ -2577,12 +2494,17 @@ a.news-card:hover .news-h {
 }
 .cw-footer-grid {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr 1.25fr;
+  grid-template-columns: minmax(240px, 1.2fr) 3fr;
   gap: 44px;
   padding: 44px clamp(16px, 4vw, 56px) 34px;
   align-items: start;
   max-width: 1400px;
   margin: 0 auto;
+}
+.cw-foot-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 40px;
 }
 .cw-foot-word {
   font-family: var(--serif);
@@ -2644,7 +2566,8 @@ a.news-card:hover .news-h {
   margin: 0 0 16px;
 }
 .cw-foot-site {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 9px;
   text-decoration: none;
@@ -2652,23 +2575,14 @@ a.news-card:hover .news-h {
   font-size: 14.5px;
   transition: color 0.15s;
 }
+.cw-foot-site + .cw-foot-site {
+  margin-top: 10px;
+}
 .cw-foot-site:hover {
   color: var(--gold-soft);
 }
 .cw-footer-legal {
   border-top: 1px solid rgba(212, 175, 55, 0.14);
-}
-.cw-legal-disclaimer {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 18px clamp(16px, 4vw, 56px) 0;
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: #8499ad;
-  text-align: center;
-}
-.cw-legal-disclaimer strong {
-  color: var(--gold-soft);
 }
 .cw-legal-bar {
   max-width: 1400px;
@@ -2687,9 +2601,6 @@ a.news-card:hover .news-h {
 .cw-copy {
   letter-spacing: 0.06em;
   color: var(--gold-soft);
-}
-.cw-dot {
-  color: #4f6076;
 }
 .cw-foot-flex {
   flex: 1;
@@ -5385,6 +5296,9 @@ a.sv-rail-chip:hover {
     width: 100%;
     justify-content: center;
   }
+  .cw-foot-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---- Arch motif as a crown ABOVE the heading ----
@@ -5398,6 +5312,8 @@ a.sv-rail-chip:hover {
 .ab-hero .dome-bg,
 .am-hero .dome-bg,
 .cal-soon .dome-bg,
+.cal-hero .dome-bg,
+.soon-hero .dome-bg,
 .qz-title-block .dome-bg {
   position: static;
   left: auto;
@@ -5441,11 +5357,14 @@ a.sv-rail-chip:hover {
     grid-template-columns: 1fr;
   }
   .cw-footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 32px;
   }
   .cw-foot-brand {
     grid-column: 1 / -1;
+  }
+  .cw-foot-cols {
+    grid-template-columns: 1fr 1fr;
   }
   .cloud-grid {
     grid-template-columns: 1fr;
@@ -5661,17 +5580,6 @@ a.sv-rail-chip:hover {
   }
   .ab-rail-head .ln {
     max-width: 80px;
-  }
-  .ab-closing {
-    grid-template-columns: 1fr;
-  }
-  .ab-bene {
-    padding: 40px 32px 28px;
-  }
-  .ab-contact {
-    padding: 28px 32px 40px;
-    border-left: none;
-    border-top: 1px solid rgba(212, 175, 55, 0.28);
   }
 }
 @media (max-width: 720px) {
@@ -6136,5 +6044,321 @@ a.sv-rail-chip:hover {
   }
   #calendar-page .cal-panel {
     position: static;
+  }
+}
+
+/* =====================================================================
+   About sub-pages — the illuminated reading-column long-form treatment
+   shared by Our Mission, Editorial Standards, Contributors, Sources &
+   Methodology, and Contact. Ported from the Claude Design "About Pages"
+   mock. Each page reuses the search page's .sr-hero primitives for its
+   header area (so it matches Browse & Search) and this .as-* block for
+   the reading column below.
+   ===================================================================== */
+.as-body {
+  padding: clamp(40px, 6vw, 54px) clamp(16px, 5vw, 56px) 8px;
+  background: var(--paper);
+}
+.as-col {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.as-p {
+  font-size: 18.5px;
+  color: var(--ink);
+  line-height: 1.74;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.as-p.last {
+  margin-bottom: 0;
+}
+.as-col .as-list + .as-p {
+  margin-top: 6px;
+}
+.as-mail {
+  color: var(--byz);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(35, 76, 122, 0.35);
+  transition: border-color 0.15s;
+}
+.as-mail:hover {
+  border-bottom-color: var(--byz);
+}
+
+/* drop-capped opening paragraph */
+.as-dropcap::first-letter {
+  float: left;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--gold-deep);
+  font-size: 70px;
+  line-height: 0.72;
+  margin: 6px 12px 0 0;
+}
+
+/* H2 section head: short gold segment · gilt line, then serif title */
+.as-head {
+  margin: clamp(34px, 5vw, 46px) 0 16px;
+}
+.as-head .ln {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 12px;
+  background: var(--line-gold);
+}
+.as-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 4.5vw, 34px);
+  color: var(--byz-deep);
+  line-height: 1.12;
+  margin: 0;
+}
+
+/* H3 sub-head with a gold dot marker */
+.as-sub {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(20px, 3.5vw, 23px);
+  color: var(--byz);
+  line-height: 1.2;
+  margin: 30px 0 10px;
+}
+.as-sub::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* gold-marker list */
+.as-list {
+  list-style: none;
+  margin: 6px 0 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.as-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.as-list li::before {
+  content: "";
+  flex: 0 0 auto;
+  margin-top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* closing italic pull-quote */
+.as-pull {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 3.5vw, 24px);
+  color: var(--byz);
+  line-height: 1.42;
+  margin: 6px 0 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--gold);
+}
+
+/* gilt-bordered CTA callout (Contributors) */
+.as-callout {
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 12px;
+  padding: 26px 30px;
+  box-shadow: var(--shadow-soft);
+  margin: 6px 0 18px;
+}
+.as-callout .eyebrow {
+  margin-bottom: 8px;
+}
+.as-callout h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(21px, 3.6vw, 25px);
+  color: var(--byz-deep);
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.as-callout p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+.as-callout p + p {
+  margin-top: 10px;
+}
+
+/* the "Verified mark" callout (Editorial Standards) */
+.as-verified {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-soft);
+  margin: 4px 0 22px;
+}
+.as-verified .mark {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  /* the shared dove-emblem.svg carries its own deep-indigo disc, so the
+     medallion only adds the gilt ring around it (matches the site-wide seal) */
+  background: var(--byz);
+  border: 2px solid var(--gold);
+  object-fit: cover;
+  display: block;
+}
+.as-verified .eyebrow {
+  margin-bottom: 6px;
+}
+.as-verified p {
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* cross-link cards to sibling About pages (Contact) */
+.as-linkcards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0 4px;
+}
+.as-linkcard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    transform 0.12s,
+    box-shadow 0.15s;
+}
+.as-linkcard:hover,
+.as-linkcard:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(15, 34, 56, 0.08);
+}
+.as-linkcard .dmnd {
+  flex: 0 0 auto;
+  margin-top: 7px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+.as-linkcard .lc-body {
+  flex: 1;
+}
+.as-linkcard h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--byz-deep);
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+.as-linkcard p {
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+.as-linkcard .arw {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  color: var(--gold-deep);
+}
+
+/* named-credit card (Contributors) */
+.as-credit {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--ivory);
+  border: 1px solid var(--line-gold);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-soft);
+  margin: 4px 0;
+}
+.as-credit .dmnd {
+  flex: 0 0 auto;
+  margin-top: 9px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+.as-credit p {
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0;
+}
+.as-credit a {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--byz-deep);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--gold);
+}
+
+/* small vertical spacer between a list and the paragraph that follows */
+.as-gap {
+  height: 4px;
+}
+
+/* closing gilt flourish */
+.as-flourish {
+  padding: clamp(34px, 5vw, 44px) clamp(16px, 5vw, 56px) clamp(48px, 8vw, 64px);
+  background: var(--paper);
+}
+.as-flourish .rule {
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 560px) {
+  .as-verified {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }

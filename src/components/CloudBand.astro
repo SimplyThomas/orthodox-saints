@@ -4,7 +4,6 @@ import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
-import NewsBand from "./NewsBand.astro";
 
 // Server-rendered fallback picks (no-JS): notable saints with a brief life and
 // intercessions. The island re-deals a random handful on load and on Shuffle.
@@ -83,5 +82,4 @@ const featured = pool.slice(0, 4);
       </div>
     </div>
   </div>
-  <NewsBand />
 </section>
