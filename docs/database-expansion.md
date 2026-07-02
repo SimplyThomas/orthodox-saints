@@ -63,12 +63,9 @@ plain cards can be backfilled opportunistically.)
 | Theodorite of Kola | Feodorit of Kola; Theodoret | Russia (Kola / North) | OS-0464 | 1 | Medium | Enlightener of the Lapps (Sami); part of the northern-missionary network (distinct from Tryphon of Pechenga). |
 | Procopius of Ustyug | Prokopy of Ustyug | Russia (Veliky Ustyug) | OS-0465 | 1 | Medium | First Russian fool-for-Christ; a major figure likely to recur in the fools-for-Christ and northern-saints clusters. |
 | Naucratius | Naucratios | Cappadocia / Pontus | OS-0420 | 1 | Medium | Brother of St. Basil the Great; member of the Cappadocian household network (Basil-the-Great family). |
-| Hilary of Arles | Hilarius of Arles | Gaul (Provence) | OS-0468 | 1 | Medium | Lérins monk; successor of Honoratus at Arles — recurs in the Lérins-school network. |
 | Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
 | Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
 | Antony of Choziba | Anthony of Choziba | Palestine (Judean desert) | OS-0404 | 1 | Low | Disciple and biographer of St. George the Chozebite; Choziba-monastery lineage. |
-| Caprasius of Lérins | Caprais | Gaul | OS-0468 | 1 | Low | Co-founder of Lérins Abbey with Honoratus. |
-| Leontius of Fréjus | Leontius of Frejus | Gaul | OS-0468 | 1 | Low | Bishop of Fréjus, friend of Honoratus and John Cassian; Lérins circle. |
 | Meletios the Younger | Meletios of Myoupolis | Greece (Boeotia) | OS-0551 | 1 | Medium | 11th-c. monastic founder of Mt. Myoupolis; among the Saints of Boeotia. Feast Sep 1. |
 | Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | Nektarios of the Apsaras family | Nektarios of Meteora | Greece (Meteora) | OS-0584 | 1 | Low | Co-founder (with brother Theophanes) of Barlaam Monastery, Meteora; disciple of Savva of Ioannina. Feast May 17. |
@@ -78,7 +75,6 @@ plain cards can be backfilled opportunistically.)
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
 | Mstislav-Theodore the Great | Mstislav I of Kiev | Rus' (Kiev) | OS-0636 | 1 | Medium | Right-believing Grand Prince of Kiev (d. 1132), father of St. Vsevolod-Gabriel of Pskov. |
 | Abba Seridos of Gaza | Seridus | Palestine (Gaza) | OS-0604 | 1 | Low | Abbot of the Gaza monastery of Sts. Barsanuphius & John; anchor of the Gaza monastic cluster. |
-| Austregisilus of Bourges | Outrille | Gaul (France) | OS-0610 | 1 | Low | Bishop of Bourges (d. 624); teacher of St. Amand of Maastricht. Feast May 20. |
 | Pope Leo II of Rome | Leo II | Rome / Sicily | OS-0700 | 1 | Low | Pope (d. 683) who confirmed the Sixth Ecumenical Council; Western pre-schism. |
 | Pope Donus of Rome | Donus | Rome | OS-0700 | 1 | Low | 7th-c. Pope (predecessor of Pope Agathon); Western pre-schism. |
 | Vassian Muromtsev | — | Pskov, Rus' | OS-0698 | 1 | Low | Martyred disciple of St. Cornelius of the Pskov Caves (16th c.). |
@@ -143,8 +139,6 @@ plain cards can be backfilled opportunistically.)
 | Barsanuphius of Sihastria | — | Romania | OS-1663 | 1 | Low | Spiritual guide of St. Theodora of Sihla. |
 | Arsenios of Crete | — | Crete / Athos | OS-1671 | 1 | Low | Cretan teacher of St. Gregory of Sinai. |
 | Mother Alexandra of Diveyevo | Agafia Melgunova | Russia (Diveyevo) | OS-1757 | 1 | Medium | Foundress/first superior of the Diveyevo convent; recurs across the Diveyevo saints. |
-| Caesaria the Elder | — | Gaul (Arles) | OS-1794 | 1 | Low | Sister of St. Caesarius of Arles; first abbess of his convent; feast Jan 12. |
-| Caesaria the Younger | — | Gaul (Arles) | OS-1794 | 1 | Low | Niece/successor of St. Caesarius of Arles as abbess. |
 | Theosebios of Arsinoe | Theosebius the God-bearer | Cyprus (Arsinoe) | OS-1800 | 1 | Low | Cypriot ascetic; brother of St. Arkadios the Wonderworker of Arsinoe. |
 | Paul of Atroa | Paul the Younger of Atroa | Bithynia (Atroa) | OS-1835 | 1 | Medium | Founder of the Atroa monastic circle; teacher of St. Peter of Atroa; iconodule. |
 | Sabbas of Atroa | Sabas | Bithynia (Atroa) | OS-1835 | 1 | Low | Disciple and biographer of St. Peter of Atroa. |
@@ -219,6 +213,15 @@ cross-reference cards were wired to the new pages at the same time).
 - **Marcellina of Rome** → `OS-2841`
 - **Satyrus of Milan** → `OS-2842`
 - **Sabina of Rome** → `OS-2843`
+
+### Gaulish Lérins school — Provence · Arles · Bourges (issue #227)
+
+- **Hilary of Arles** → `OS-2844`
+- **Caprasius of Lérins** → `OS-2845`
+- **Leontius of Fréjus** → `OS-2846`
+- **Austregisilus of Bourges** → `OS-2847`
+- **Caesaria the Elder** → `OS-2848`
+- **Caesaria the Younger** → `OS-2849`
 
 ## Considered and excluded (this round)
 

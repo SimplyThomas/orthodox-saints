@@ -31,6 +31,7 @@ sections:
 companions:
   - name: Hilary of Arles
     note: Disciple of Honoratus at Lérins who attended his death and succeeded him as bishop of Arles.
+    href: saint/OS-2844
   - name: Eucherius of Lyon
     note: Disciple who joined the community at Lérins and later became bishop of Lyon.
     href: saint/OS-2759
@@ -39,8 +40,10 @@ companions:
     href: saint/OS-2689
   - name: Caprasius of Lérins
     note: "Fellow ascetic: the hermit who guided Honoratus on his eastern pilgrimage and shared in the founding of Lérins."
+    href: saint/OS-2845
   - name: Leontius of Fréjus
     note: "Fellow bishop: the bishop of Fréjus who encouraged Honoratus to settle on the island of Lérins."
+    href: saint/OS-2846
 related:
   - name: Vincent of Lérins
     note: "Same monastery: a monk and theologian of Lérins whose Commonitorium grew out of the community Honoratus founded."
