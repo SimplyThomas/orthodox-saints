@@ -63,7 +63,6 @@ plain cards can be backfilled opportunistically.)
 | Naucratius | Naucratios | Cappadocia / Pontus | OS-0420 | 1 | Medium | Brother of St. Basil the Great; member of the Cappadocian household network (Basil-the-Great family). |
 | Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
 | Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
-| Antony of Choziba | Anthony of Choziba | Palestine (Judean desert) | OS-0404 | 1 | Low | Disciple and biographer of St. George the Chozebite; Choziba-monastery lineage. |
 | Meletios the Younger | Meletios of Myoupolis | Greece (Boeotia) | OS-0551 | 1 | Medium | 11th-c. monastic founder of Mt. Myoupolis; among the Saints of Boeotia. Feast Sep 1. |
 | Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | Nektarios of the Apsaras family | Nektarios of Meteora | Greece (Meteora) | OS-0584 | 1 | Low | Co-founder (with brother Theophanes) of Barlaam Monastery, Meteora; disciple of Savva of Ioannina. Feast May 17. |
@@ -72,7 +71,6 @@ plain cards can be backfilled opportunistically.)
 | George the Hungarian | — | Rus' / Hungarian | OS-0554 | 1 | Low | Brother of Sts. Ephraim of Novy Torg and Moses the Hungarian; slain with St. Boris (1015). Borderline — venerated chiefly within the Boris & Gleb narrative; review independence before adding. |
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
 | Mstislav-Theodore the Great | Mstislav I of Kiev | Rus' (Kiev) | OS-0636 | 1 | Medium | Right-believing Grand Prince of Kiev (d. 1132), father of St. Vsevolod-Gabriel of Pskov. |
-| Abba Seridos of Gaza | Seridus | Palestine (Gaza) | OS-0604 | 1 | Low | Abbot of the Gaza monastery of Sts. Barsanuphius & John; anchor of the Gaza monastic cluster. |
 | Vassian Muromtsev | — | Pskov, Rus' | OS-0698 | 1 | Low | Martyred disciple of St. Cornelius of the Pskov Caves (16th c.). |
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
@@ -85,15 +83,11 @@ plain cards can be backfilled opportunistically.)
 | Kodratos, Akakios & Stratonikos of Ptolemais | — | Ptolemais (Phoenicia) | OS-0771 | 1 | Low | Soldier co-martyrs converted at the martyrdom of Sts. Paul & Juliana. |
 | Nestor of Isauria | — | Isauria | OS-0776 | 1 | Low | Father of St. Conon of Isauria; remembered as a martyr (identity uncertain — borderline). |
 | Scholastica | — | Italy (Nursia/Monte Cassino) | OS-0822 | 1 | Medium | Sister of St. Benedict of Nursia; foundress of Benedictine nuns; feast Feb 10. |
-| Macarius of Jerusalem | — | Jerusalem | OS-0843 | 1 | Medium | Bishop of Jerusalem (d. ~335); ordained St. Cyril of Jerusalem; associated with the finding of the Cross. Feast Aug 16. |
 | Romanus of Subiaco | — | Italy | OS-0822 | 1 | Low | The monk who clothed St. Benedict and supplied him at the cave of Subiaco; feast May 22. |
-| Maximus of Jerusalem | — | Jerusalem | OS-0843 | 1 | Low | Bishop of Jerusalem; predecessor of St. Cyril of Jerusalem; feast May 5. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
 | Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
-| Cyril of Scythopolis | — | Palestine (Judean desert) | OS-0905 | 1 | Medium | 6th-c. monk-hagiographer of the great Judean-desert fathers (Sabbas, Euthymius, John the Silent); a major source-figure. |
 | Braulio of Saragossa | — | Spain (Visigothic) | OS-0937 | 1 | Medium | Bishop of Saragossa (d. 651); disciple and literary executor of St. Isidore of Seville. |
 | Ascholius of Thessalonica | Acholius | Thessalonica (Greece) | OS-1000 | 1 | Medium | 4th-c. bishop who baptized Emperor Theodosius; correspondent of St. Basil. |
-| Patriarch Elias of Jerusalem | Elias I | Jerusalem | OS-0905 | 1 | Low | 5th–6th-c. Patriarch of Jerusalem; associated with St. John the Silent. |
 | James of Kastoria | Iakovos of Kastoria | Greece (Kastoria / Athos) | OS-0938 | 1 | Low | New Martyr (d. 1519); spiritual father of St. Theonas of Thessalonica. |
 | Nicephorus (Kuchin) of Solovki | — | Russia (Solovki) | OS-0941 | 1 | Low | New Hieromartyr (glorified 2000); co-martyr of St. Benjamin (Kononov), same Apr 4 feast. |
 | Eleni (Susanna) of Lesbos | — | Lesbos (Aegean Greece) | OS-0971 | 1 | Low | Cousin of St. Irene; commemorated with the New Martyrs Raphael, Nicholas & Irene of Lesbos. |
@@ -113,7 +107,6 @@ plain cards can be backfilled opportunistically.)
 | Felix of Como | — | Italy (Como) | OS-1328 | 1 | Low | First Bishop of Como (4th c.). |
 | Daniel the Black (Chorny) | — | Russia (Moscow) | OS-1469 | 1 | Medium | Iconographer; co-worker of St. Andrei Rublev at the Andronikov & Trinity monasteries. |
 | Theophanes the Greek | — | Byzantium / Russia | OS-1469 | 1 | Medium | Master iconographer; teacher/collaborator of St. Andrei Rublev (Novgorod, Moscow). |
-| Theodosia, mother of Procopius | — | Palestine (Caesarea) | OS-1494 | 1 | Low | Martyred with her son, Great Martyr Procopius of Caesarea; feast Jul 8. |
 | Gregory the Faster of the Far Caves | — | Russia (Kiev) | OS-1483 | 1 | Low | Kiev Far-Caves ascetic; co-commemorated with Sisoes the Schemamonk. |
 | Abba Or (Hor) | — | Egypt (Scetis/Thebaid) | OS-1482 | 1 | Low | Egyptian Desert Father of the Apophthegmata. |
 | Bryaena of Nisibis | — | Mesopotamia (Nisibis) | OS-1421 | 1 | Low | Abbess; aunt of St. Febronia of Nisibis; feast Jun 25. |
@@ -121,8 +114,6 @@ plain cards can be backfilled opportunistically.)
 | Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
 | Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
 | Cyriacus the Executioner | Kyriakos | Sebaste | OS-1537 | 1 | Low | Executioner converted at the martyrdom of St. Antiochus the Physician; venerated with him (Jul 16). |
-| Theoteknus of Caesarea | Theotecnus | Palestine (Caesarea) | OS-1657 | 1 | Low | 3rd-c. bishop; buried St. Marinus the Soldier (distinct from Theotecnus of Antioch OS-1993). |
-| Theophilus of Caesarea | — | Palestine (Caesarea) | OS-1667 | 1 | Low | 2nd-c. bishop; co-president of the Palestinian Pascha council with St. Narcissus of Jerusalem. |
 | Eleutherios the Hesychast | — | Romania (Sihla) | OS-1663 | 1 | Low | Husband/co-ascetic of St. Theodora of Sihla. |
 | Barsanuphius of Sihastria | — | Romania | OS-1663 | 1 | Low | Spiritual guide of St. Theodora of Sihla. |
 | Arsenios of Crete | — | Crete / Athos | OS-1671 | 1 | Low | Cretan teacher of St. Gregory of Sinai. |
@@ -232,6 +223,18 @@ cross-reference cards were wired to the new pages at the same time).
 - **Pope Donus of Rome** → `OS-2863`
 
 _(Pope Damasus I was added earlier with the Roman/Jerome-circle batch, `OS-2840`.)_
+
+### Palestine / Judean-desert / Holy Land — Jerusalem · Caesarea · Gaza (issue #227)
+
+- **Macarius of Jerusalem** → `OS-2866`
+- **Maximus of Jerusalem** → `OS-2867`
+- **Patriarch Elias of Jerusalem** → `OS-2869`
+- **Cyril of Scythopolis** → `OS-2868`  _(featless stub flagged for review)_
+- **Antony of Choziba** → `OS-2864`  _(featless stub flagged for review)_
+- **Abba Seridos of Gaza** → `OS-2865`
+- **Theodosia, mother of Procopius** → `OS-2870`
+- **Theoteknus of Caesarea** → `OS-2871`  _(featless stub flagged for review)_
+- **Theophilus of Caesarea** → `OS-2872`
 
 ## Considered and excluded (this round)
 
