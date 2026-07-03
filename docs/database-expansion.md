@@ -73,8 +73,6 @@ plain cards can be backfilled opportunistically.)
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
 | Mstislav-Theodore the Great | Mstislav I of Kiev | Rus' (Kiev) | OS-0636 | 1 | Medium | Right-believing Grand Prince of Kiev (d. 1132), father of St. Vsevolod-Gabriel of Pskov. |
 | Abba Seridos of Gaza | Seridus | Palestine (Gaza) | OS-0604 | 1 | Low | Abbot of the Gaza monastery of Sts. Barsanuphius & John; anchor of the Gaza monastic cluster. |
-| Pope Leo II of Rome | Leo II | Rome / Sicily | OS-0700 | 1 | Low | Pope (d. 683) who confirmed the Sixth Ecumenical Council; Western pre-schism. |
-| Pope Donus of Rome | Donus | Rome | OS-0700 | 1 | Low | 7th-c. Pope (predecessor of Pope Agathon); Western pre-schism. |
 | Vassian Muromtsev | — | Pskov, Rus' | OS-0698 | 1 | Low | Martyred disciple of St. Cornelius of the Pskov Caves (16th c.). |
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
@@ -92,8 +90,6 @@ plain cards can be backfilled opportunistically.)
 | Maximus of Jerusalem | — | Jerusalem | OS-0843 | 1 | Low | Bishop of Jerusalem; predecessor of St. Cyril of Jerusalem; feast May 5. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
 | Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
-| Pope Evaristus | — | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); predecessor of St. Alexander I; Western pre-schism (weak/obscure). |
-| Pope Sixtus I | Xystus I | Rome | OS-0832 | 1 | Low | Early bishop of Rome (2nd c.); successor of St. Alexander I; Western pre-schism (weak/obscure). |
 | Cyril of Scythopolis | — | Palestine (Judean desert) | OS-0905 | 1 | Medium | 6th-c. monk-hagiographer of the great Judean-desert fathers (Sabbas, Euthymius, John the Silent); a major source-figure. |
 | Braulio of Saragossa | — | Spain (Visigothic) | OS-0937 | 1 | Medium | Bishop of Saragossa (d. 651); disciple and literary executor of St. Isidore of Seville. |
 | Ascholius of Thessalonica | Acholius | Thessalonica (Greece) | OS-1000 | 1 | Medium | 4th-c. bishop who baptized Emperor Theodosius; correspondent of St. Basil. |
@@ -136,14 +132,12 @@ plain cards can be backfilled opportunistically.)
 | Sabbas of Atroa | Sabas | Bithynia (Atroa) | OS-1835 | 1 | Low | Disciple and biographer of St. Peter of Atroa. |
 | Theophilus of Gothia | Theophilus the Gothic Bishop | Gothia (Crimea/Danube) | OS-1839 | 1 | Medium | Gothic bishop, signatory of Nicaea (325); recurs with the Gothic martyrs (Niketas, Sabbas). |
 | Elias Speleotes | Elias the Cave-Dweller of Calabria | Calabria (Italo-Greek) | OS-1805 | 1 | Low | Italo-Greek hermit; spiritual associate of St. Fantinus of Calabria. |
-| Pope Cornelius of Rome | Cornelius, Bishop of Rome | Rome | OS-1810 | 1 | Medium | Mid-3rd-c. pope, correspondent of St. Cyprian of Carthage; recurs with Cyprian. |
 | Nonnus of Heliopolis | Nonnus, Bishop of Edessa/Heliopolis | Syria (Heliopolis/Edessa) | OS-1977 | 1 | Medium | Bishop who converted and baptized St. Pelagia the Penitent; venerated (Nov 10). |
 | Yaroslav the Wise | Yaroslav I, Grand Prince of Kiev | Kievan Rus' | OS-1949 | 1 | Low | Grand Prince, father of St. Vladimir Yaroslavich; locally venerated (UOC, 2008). |
 | Epiphanius, disciple of Andrew the Fool | Epiphanius of Constantinople | Constantinople | OS-1938 | 1 | Low | Disciple who shared St. Andrew's vision of the Theotokos (Protection/Pokrov); identity sometimes linked to a later patriarch. |
 | Papias of Hierapolis | Papias, Bishop of Hierapolis | Phrygia (Hierapolis) | OS-2061 | 1 | Medium | Apostolic Father, hearer of the Apostle John; predecessor of St. Averkios; venerated. |
 | Peter the Pionite | Peter Pionites | Egypt (Scetis) | OS-2064 | 1 | Low | Desert Father, disciple of Abba Lot of Egypt; appears in the Apophthegmata. |
 | Valerius of Saragossa | Valerius of Zaragoza | Spain (Saragossa) | OS-2178 | 1 | Medium | Bishop of Saragossa under whom St. Vincent served as deacon; arrested/tried with him; venerated (Jan 28). |
-| Pope Julius I of Rome | Julius I, Bishop of Rome | Rome | OS-2153 | 1 | Medium | 4th-c. pope who defended St. Athanasius and St. Paul the Confessor against the Arians; venerated (Apr 12). Distinct from Julius of Aegina (OS-0573) and Julius of Novara (OS-1402). |
 | Athenodorus of Pontus | Athenodorus, Bishop of Pontus | Pontus (Neocaesarea) | OS-2204 | 1 | Low | Brother of St. Gregory the Wonderworker; bishop in Pontus; venerated. Distinct from Athenodorus Martyr of Mesopotamia (OS-2316). |
 | Aedesius of Ethiopia | Aedesius (Edesius) | Ethiopia (Axum) | OS-2278 | 1 | Low | Brother of St. Frumentius and co-evangelizer of Ethiopia; venerated. Distinct from Aedesius of Lycia (OS-2457). |
 | Maria of Amnia | Empress Maria | Byzantium (Amnia) | OS-2283 | 1 | Low | Granddaughter of St. Philaret the Merciful; first wife of Emperor Constantine VI; locally venerated. |
@@ -227,6 +221,17 @@ cross-reference cards were wired to the new pages at the same time).
 - **Gury Shalochsky** → `OS-2855`  _(feast poorly attested; featless stub flagged for review)_
 - **Abraham of Paleostrov** → `OS-2856`
 - **Niphon of Kozhe Lake** → `OS-2857`  _(no separate feast attested; featless stub flagged for review)_
+
+### Roman Popes (pre-schism) — Rome (issue #227)
+
+- **Pope Cornelius of Rome** → `OS-2858`
+- **Pope Julius I of Rome** → `OS-2859`
+- **Pope Evaristus** → `OS-2860`
+- **Pope Sixtus I** → `OS-2861`
+- **Pope Leo II of Rome** → `OS-2862`
+- **Pope Donus of Rome** → `OS-2863`
+
+_(Pope Damasus I was added earlier with the Roman/Jerome-circle batch, `OS-2840`.)_
 
 ## Considered and excluded (this round)
 
