@@ -40,8 +40,10 @@ sections:
 companions:
   - name: Saint Nektarios of the Apsaras family
     note: Disciple; received the monastic schema from Savva in 1495 and remained under his direction for about ten years before founding, with his brother Theophanes, the Barlaam Monastery at Meteora.
+    href: saint/OS-2880
   - name: Saint Theophanes of the Apsaras family
     note: Disciple; brother of Nektarios, formed under Savva at Lake Ioannina, with whom he later founded the Barlaam Monastery at Meteora.
+    href: saint/OS-2881
 sources:
   - OCA Synaxarion (oca.org), Feb 3
   - https://www.oca.org/saints/lives/2026/02/03/100414-saint-savva-of-ioannina
