@@ -40,12 +40,14 @@ family:
   figures:
     - name: Saint Scholastica
       note: Sister; a nun at one of his communities, buried with him at Monte Cassino.
+      href: saint/OS-2903
 companions:
   - name: Saint Gregory the Great (Gregory the Dialogist)
     note: Biographer; the pope whose Dialogues (c. 593) preserve the principal account of Benedict's life, drawn from the testimony of his disciples.
     href: saint/OS-0084
   - name: The monk Romanus of Subiaco
     note: Early helper; the monk who clothed Benedict in the monastic habit and brought him food during his three years as a hermit in the cave at Subiaco.
+    href: saint/OS-2904
 patronage:
   - Monastics and monastic communities
   - Europe (in the Western Church)

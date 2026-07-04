@@ -62,7 +62,6 @@ plain cards can be backfilled opportunistically.)
 | Arsenije I Sremac of Serbia | Arsenios I; Arsenije Sremac | Serbia | OS-0449 | 1 | Medium | Successor of St. Sava as Archbishop of Serbia; recurs in Serbian archiepiscopal succession, so likely to be referenced again. |
 | Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
 | Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
-| Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | George the Hungarian | — | Rus' / Hungarian | OS-0554 | 1 | Low | Brother of Sts. Ephraim of Novy Torg and Moses the Hungarian; slain with St. Boris (1015). Borderline — venerated chiefly within the Boris & Gleb narrative; review independence before adding. |
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
@@ -72,9 +71,6 @@ plain cards can be backfilled opportunistically.)
 | Eubolos of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyr; feast Mar 6. |
 | Kodratos, Akakios & Stratonikos of Ptolemais | — | Ptolemais (Phoenicia) | OS-0771 | 1 | Low | Soldier co-martyrs converted at the martyrdom of Sts. Paul & Juliana. |
 | Nestor of Isauria | — | Isauria | OS-0776 | 1 | Low | Father of St. Conon of Isauria; remembered as a martyr (identity uncertain — borderline). |
-| Scholastica | — | Italy (Nursia/Monte Cassino) | OS-0822 | 1 | Medium | Sister of St. Benedict of Nursia; foundress of Benedictine nuns; feast Feb 10. |
-| Romanus of Subiaco | — | Italy | OS-0822 | 1 | Low | The monk who clothed St. Benedict and supplied him at the cave of Subiaco; feast May 22. |
-| Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
 | Ascholius of Thessalonica | Acholius | Thessalonica (Greece) | OS-1000 | 1 | Medium | 4th-c. bishop who baptized Emperor Theodosius; correspondent of St. Basil. |
 | Anthusa of Mantineon | — | Asia Minor (Mantineon) | OS-0986 | 1 | Low | Abbess-confessor tortured under Constantine V; foretold the birth of St. Anthusa of Constantinople; feast Jul 27. |
 | Sansalas | — | Gothia / Wallachia | OS-1000 | 1 | Low | Priest arrested with St. Sabbas the Goth; 4th-c. Gothic martyr (feast ~Apr 12). |
@@ -84,8 +80,6 @@ plain cards can be backfilled opportunistically.)
 | Anthony & Felix of Karelia | — | Russia (Karelia) | OS-1015 | 1 | Low | Righteous sons of Marfa Boretskaya; among the Synaxis of Karelian Saints (local veneration — verify). |
 | Paisius Yaroslavov | — | Russia (Kirillo-Belozersk) | OS-1127 | 1 | Medium | Elder of St. Nilus of Sora; Trinity-Sergius hegumen; Non-Possessor circle (locally venerated). |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
-| Ursus of Ravenna | — | Italy (Ravenna) | OS-1328 | 1 | Low | 4th–5th-c. Bishop of Ravenna; co-consecrator of St. Bassianus of Lodi. |
-| Felix of Como | — | Italy (Como) | OS-1328 | 1 | Low | First Bishop of Como (4th c.). |
 | Theophanes the Greek | — | Byzantium / Russia | OS-1469 | 1 | Medium | Master iconographer; teacher/collaborator of St. Andrei Rublev (Novgorod, Moscow). |
 | Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
 | Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
@@ -95,7 +89,6 @@ plain cards can be backfilled opportunistically.)
 | Paul of Atroa | Paul the Younger of Atroa | Bithynia (Atroa) | OS-1835 | 1 | Medium | Founder of the Atroa monastic circle; teacher of St. Peter of Atroa; iconodule. |
 | Sabbas of Atroa | Sabas | Bithynia (Atroa) | OS-1835 | 1 | Low | Disciple and biographer of St. Peter of Atroa. |
 | Theophilus of Gothia | Theophilus the Gothic Bishop | Gothia (Crimea/Danube) | OS-1839 | 1 | Medium | Gothic bishop, signatory of Nicaea (325); recurs with the Gothic martyrs (Niketas, Sabbas). |
-| Elias Speleotes | Elias the Cave-Dweller of Calabria | Calabria (Italo-Greek) | OS-1805 | 1 | Low | Italo-Greek hermit; spiritual associate of St. Fantinus of Calabria. |
 | Nonnus of Heliopolis | Nonnus, Bishop of Edessa/Heliopolis | Syria (Heliopolis/Edessa) | OS-1977 | 1 | Medium | Bishop who converted and baptized St. Pelagia the Penitent; venerated (Nov 10). |
 | Epiphanius, disciple of Andrew the Fool | Epiphanius of Constantinople | Constantinople | OS-1938 | 1 | Low | Disciple who shared St. Andrew's vision of the Theotokos (Protection/Pokrov); identity sometimes linked to a later patriarch. |
 | Papias of Hierapolis | Papias, Bishop of Hierapolis | Phrygia (Hierapolis) | OS-2061 | 1 | Medium | Apostolic Father, hearer of the Apostle John; predecessor of St. Averkios; venerated. |
@@ -245,6 +238,16 @@ _Held for a follow-up pass (uncertain individual glorification / hagiographer-wr
 - **Valerius of Saragossa** → `OS-2901`
 - **Possidius of Calama** → `OS-2899`
 - **Alypius of Thagaste** → `OS-2900`
+
+### Italy & Italo-Greek saints — Campania · Nursia · Ravenna · Lucania · Calabria (issue #227)
+
+- **Scholastica** → `OS-2903`
+- **Romanus of Subiaco** → `OS-2904`
+- **Felix of Nola** → `OS-2902`
+- **Ursus of Ravenna** → `OS-2905`
+- **Felix of Como** → `OS-2906`  _(featless stub — conflicting feast dates, flagged for review)_
+- **Luke of Demena** → `OS-2907`
+- **Elias Speleotes** → `OS-2908`
 
 ## Considered and excluded (this round)
 
