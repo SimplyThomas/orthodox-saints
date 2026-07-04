@@ -60,12 +60,8 @@ plain cards can be backfilled opportunistically.)
 | Name | Aliases | Region / Tradition | First Ref | Refs | Priority | Notes |
 |---|---|---|---|--:|---|---|
 | Arsenije I Sremac of Serbia | Arsenios I; Arsenije Sremac | Serbia | OS-0449 | 1 | Medium | Successor of St. Sava as Archbishop of Serbia; recurs in Serbian archiepiscopal succession, so likely to be referenced again. |
-| Michael Bleive | Mihail Bleive | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia (glorified 2000); co-martyr of Hieromartyr Platon of Tallinn (OS-0456). |
-| Nikolai Bezhanitsky | Nikolai Bezhanitski | Estonia | OS-0456 | 1 | Medium | New Martyr of Estonia; co-martyr of Platon of Tallinn (OS-0456). |
 | George the Hungarian | — | Rus' / Hungarian | OS-0554 | 1 | Low | Brother of Sts. Ephraim of Novy Torg and Moses the Hungarian; slain with St. Boris (1015). Borderline — venerated chiefly within the Boris & Gleb narrative; review independence before adding. |
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
-| Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
-| Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Varus the notary | — | Asia Minor (Heraclea) | OS-0615 | 1 | Low | Servant who recorded St. Theodore Stratelates's martyrdom; independent veneration to verify (borderline). |
 | Kodratos, Akakios & Stratonikos of Ptolemais | — | Ptolemais (Phoenicia) | OS-0771 | 1 | Low | Soldier co-martyrs converted at the martyrdom of Sts. Paul & Juliana. |
 | Nestor of Isauria | — | Isauria | OS-0776 | 1 | Low | Father of St. Conon of Isauria; remembered as a martyr (identity uncertain — borderline). |
@@ -78,8 +74,6 @@ plain cards can be backfilled opportunistically.)
 | Paisius Yaroslavov | — | Russia (Kirillo-Belozersk) | OS-1127 | 1 | Medium | Elder of St. Nilus of Sora; Trinity-Sergius hegumen; Non-Possessor circle (locally venerated). |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
 | Theophanes the Greek | — | Byzantium / Russia | OS-1469 | 1 | Medium | Master iconographer; teacher/collaborator of St. Andrei Rublev (Novgorod, Moscow). |
-| Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
-| Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
 | Eleutherios the Hesychast | — | Romania (Sihla) | OS-1663 | 1 | Low | Husband/co-ascetic of St. Theodora of Sihla. |
 | Barsanuphius of Sihastria | — | Romania | OS-1663 | 1 | Low | Spiritual guide of St. Theodora of Sihla. |
 | Epiphanius, disciple of Andrew the Fool | Epiphanius of Constantinople | Constantinople | OS-1938 | 1 | Low | Disciple who shared St. Andrew's vision of the Theotokos (Protection/Pokrov); identity sometimes linked to a later patriarch. |
@@ -250,6 +244,15 @@ _Held for a follow-up pass (uncertain individual glorification / hagiographer-wr
 - **Sabbas of Atroa** → `OS-2915`  _(featless stub flagged for review)_
 - **Julian the Physician of Cyprus** → `OS-2916`
 - **Eubolos of Cyprus** → `OS-2917`
+
+### 20th-century New Martyrs — Estonia · Butovo · Paris (issue #227)
+
+- **Michael Bleive** → `OS-2918`
+- **Nikolai Bezhanitsky** → `OS-2919`
+- **Theodosius (Bobkov)** → `OS-2920`
+- **Nicholas Pospelov** → `OS-2921`
+- **Yuri Skobtsov** → `OS-2922`
+- **Ilya Fondaminsky** → `OS-2923`
 
 ## Considered and excluded (this round)
 
