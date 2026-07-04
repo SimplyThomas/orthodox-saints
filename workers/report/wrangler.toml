@@ -1,0 +1,35 @@
+# Cloud of Witnesses — data-quality report Worker.
+#
+# Deploy:  npx wrangler deploy   (after `wrangler secret put` for the two secrets)
+# Dev:     npx wrangler dev      (see README for a local test recipe)
+
+name = "cow-report"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# --- Same-origin route (PREFERRED — no CORS) ---------------------------------
+# The form POSTs to https://orthodoxsaintfinder.com/api/report. Because the
+# domain is proxied through Cloudflare, this route intercepts that path before
+# it would reach GitHub Pages. The Worker ignores the path, so /api/report works.
+# Requires the apex DNS record to be proxied (orange cloud) in Cloudflare.
+routes = [
+  { pattern = "orthodoxsaintfinder.com/api/report", zone_name = "orthodoxsaintfinder.com" }
+]
+
+# Also keep the *.workers.dev URL live as a fallback for direct testing.
+workers_dev = true
+
+# --- Public, non-secret configuration ----------------------------------------
+# Secrets (GITHUB_TOKEN, TURNSTILE_SECRET_KEY) are NOT here — set them with
+# `wrangler secret put NAME` (see README). Never commit secrets.
+[vars]
+REPO_OWNER = "SimplyThomas"
+REPO_NAME  = "orthodox-saints"
+# Comma-separated allow-list for cross-origin (workers.dev) use. Same-origin
+# requests need no entry here. Include the Cloudflare Pages preview origin if you
+# want previews to reach the live Worker.
+ALLOWED_ORIGIN = "https://orthodoxsaintfinder.com,https://orthodoxsaintregistry.com,https://patronsaintfinder.com"
+
+# Observability: keep Worker logs so failed GitHub calls are debuggable.
+[observability]
+enabled = true

@@ -10,6 +10,9 @@ package-lock.json
 # Design-reference bundle (prototypes + screenshots); not production code
 design_handoff_cloud_of_witnesses/
 
+# Cloudflare Worker — its own package/toolchain, formatted independently
+workers/
+
 # Python data pipeline + source data (not Prettier's concern)
 data/
 *.py

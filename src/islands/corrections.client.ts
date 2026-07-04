@@ -1,12 +1,24 @@
-/* Corrections island: chip selection + validation, then build a pre-filled
-   GitHub "new issue" URL and open it in a new tab. No backend or secrets — the
-   visitor reviews the issue and presses "Submit new issue". Mirrors the Claude
-   Design "Corrections" mock. */
+/* Corrections island. Validates the form, then POSTs JSON to the report Worker
+   (see workers/report/), which verifies a Turnstile token and files a GitHub
+   issue labelled `data-quality`. The visitor needs no GitHub account. Inline
+   success/error states; no page reload. Subject is prefilled from a ?subject=
+   (or ?saint=) query param, or from the referring saint page. */
 
-const REPO = "SimplyThomas/orthodox-saints";
+// Minimal shape of the Cloudflare Turnstile global we rely on.
+interface Turnstile {
+  reset: (widget?: string) => void;
+  getResponse: (widget?: string) => string | undefined;
+}
+declare global {
+  interface Window {
+    turnstile?: Turnstile;
+  }
+}
 
 const form = document.getElementById("cr-form") as HTMLFormElement | null;
 if (form) {
+  const endpoint = form.dataset.endpoint || "/api/report";
+
   const chips = [
     ...document
       .getElementById("cr-types")!
@@ -15,7 +27,12 @@ if (form) {
   const thanks = document.getElementById("cr-thanks")!;
   const alt = document.getElementById("cr-alt")!;
   const again = document.getElementById("cr-again")!;
-  const reopen = document.getElementById("cr-reopen") as HTMLAnchorElement;
+  const submitBtn = document.getElementById("cr-submit") as HTMLButtonElement;
+  const sendLabel = form.querySelector<HTMLElement>(".cr-send-label")!;
+  const formErr = document.getElementById("cr-formerr")!;
+  const issueLink = document.getElementById(
+    "cr-issue-link",
+  ) as HTMLAnchorElement;
 
   const get = (id: string) =>
     document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
@@ -24,16 +41,38 @@ if (form) {
   const suggest = get("cr-suggest");
   const source = get("cr-source");
   const name = get("cr-name");
+  const email = get("cr-email");
+  const honeypot = form.querySelector<HTMLInputElement>(
+    'input[name="website"]',
+  );
 
   let typeId = chips[0]?.dataset.type ?? "feast";
-  let typeLabel = chips[0]?.dataset.label ?? "Correction";
   for (const chip of chips) {
     chip.addEventListener("click", () => {
       chips.forEach((c) => c.classList.remove("on"));
       chip.classList.add("on");
       typeId = chip.dataset.type ?? typeId;
-      typeLabel = chip.dataset.label ?? typeLabel;
     });
+  }
+
+  // --- prefill the subject -------------------------------------------------
+  const params = new URLSearchParams(location.search);
+  const fromParam = params.get("subject") || params.get("saint") || "";
+  if (fromParam) {
+    subject.value = fromParam.slice(0, 200);
+  } else if (document.referrer) {
+    // Came from one of our own saint pages? Use that URL as the subject.
+    try {
+      const ref = new URL(document.referrer);
+      if (
+        ref.origin === location.origin &&
+        ref.pathname.startsWith("/saint/")
+      ) {
+        subject.value = ref.href;
+      }
+    } catch {
+      /* ignore malformed referrer */
+    }
   }
 
   const showErr = (id: string, on: boolean) => {
@@ -41,64 +80,107 @@ if (form) {
     if (el) el.hidden = !on;
   };
 
-  const buildIssueUrl = () => {
-    const subj = subject.value.trim() || "a page";
-    const title = `[Correction] ${typeLabel} — ${subj}`.slice(0, 120);
-    const lines = [
-      `**Saint / page:** ${subject.value.trim() || "—"}`,
-      `**Type of correction:** ${typeLabel}`,
-      "",
-      "**What needs fixing**",
-      desc.value.trim() || "—",
-    ];
-    if (suggest.value.trim())
-      lines.push("", "**Suggested correction**", suggest.value.trim());
-    if (source.value.trim())
-      lines.push("", "**Source / citation**", source.value.trim());
-    lines.push(
-      "",
-      "---",
-      `_Submitted via the Corrections form${
-        name.value.trim() ? ` by ${name.value.trim()}` : ""
-      }._`,
-    );
-    const params = new URLSearchParams({
-      title,
-      body: lines.join("\n"),
-      labels: "correction",
-    });
-    return `https://github.com/${REPO}/issues/new?${params.toString()}`;
+  const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+
+  const setSending = (on: boolean) => {
+    submitBtn.disabled = on;
+    sendLabel.textContent = on ? "Sending…" : "Send report";
   };
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const okSubject = !!subject.value.trim();
-    const okDesc = !!desc.value.trim();
+    formErr.hidden = true;
+
+    const subjVal = subject.value.trim();
+    const descVal = desc.value.trim();
+    const emailVal = email.value.trim();
+
+    const okSubject = !!subjVal;
+    const okDesc = !!descVal;
+    const okEmail = !emailVal || isEmail(emailVal);
     showErr("cr-subject", !okSubject);
     showErr("cr-desc", !okDesc);
-    if (!okSubject || !okDesc) return;
+    showErr("cr-email", !okEmail);
 
-    const url = buildIssueUrl();
-    window.open(url, "_blank", "noopener");
-    reopen.href = url;
-    form.hidden = true;
-    alt.hidden = true;
-    thanks.hidden = false;
-    thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+    // Turnstile token is injected as a hidden input inside the form once solved.
+    const token =
+      window.turnstile?.getResponse() ??
+      form.querySelector<HTMLInputElement>(
+        'input[name="cf-turnstile-response"]',
+      )?.value ??
+      "";
+    const okToken = !!token;
+    showErr("cr-turnstile", !okToken);
+
+    if (!okSubject || !okDesc || !okEmail || !okToken) return;
+
+    const payload = {
+      type: typeId,
+      subject: subjVal,
+      description: descVal,
+      suggestion: suggest.value.trim(),
+      source: source.value.trim(),
+      name: name.value.trim(),
+      email: emailVal,
+      website: honeypot?.value ?? "",
+      "cf-turnstile-response": token,
+    };
+
+    setSending(true);
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        number?: number;
+      };
+
+      if (res.ok && data.ok) {
+        // Success — show the thanks panel.
+        if (typeof data.number === "number") {
+          issueLink.href = `https://github.com/SimplyThomas/orthodox-saints/issues/${data.number}`;
+          issueLink.hidden = false;
+        }
+        form.hidden = true;
+        alt.hidden = true;
+        thanks.hidden = false;
+        thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      // Server rejected it — show its friendly message and let them retry.
+      formErr.textContent =
+        data.error || "Something went wrong. Please try again.";
+      formErr.hidden = false;
+      window.turnstile?.reset();
+    } catch {
+      formErr.textContent =
+        "We couldn’t reach the server. Please check your connection and try again.";
+      formErr.hidden = false;
+      window.turnstile?.reset();
+    } finally {
+      setSending(false);
+    }
   });
 
   again.addEventListener("click", () => {
     form.reset();
     chips.forEach((c, i) => c.classList.toggle("on", i === 0));
     typeId = chips[0]?.dataset.type ?? "feast";
-    typeLabel = chips[0]?.dataset.label ?? "Correction";
     showErr("cr-subject", false);
     showErr("cr-desc", false);
+    showErr("cr-email", false);
+    showErr("cr-turnstile", false);
+    formErr.hidden = true;
+    issueLink.hidden = true;
+    window.turnstile?.reset();
     thanks.hidden = true;
     alt.hidden = false;
     form.hidden = false;
     form.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-
-  void typeId;
 }
