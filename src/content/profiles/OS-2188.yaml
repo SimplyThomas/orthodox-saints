@@ -1,0 +1,38 @@
+id: OS-2188
+lifespan: Died 308 (martyred)
+patronage:
+  - Confessors under persecution
+  - Bold public witness
+overview:
+  - Nikephoros, Antoninus, and Germanus were three Christians martyred by beheading at Caesarea in Palestine during the persecution of the early fourth century. They are commemorated together as a single group on November 13.
+  - According to the surviving accounts, the three men openly confessed their faith before a pagan crowd and were condemned by Firmilian, the Roman governor at Caesarea, who ordered them beheaded. The synaxarion places their death in the year 308.
+  - Commemorated on the same day is Manetha (Manatho) of Caesarea, a Christian woman associated with their martyrdom, who was seized, tortured, and burned to death for her faith.
+sections:
+  - heading: Martyrdom
+    body:
+      - By the account preserved in the Prologue of Ohrid, the three men witnessed a pagan festival at which idols were being worshipped and came forward before the assembled crowd to preach one God in Trinity. Their bold public proclamation enraged Firmilian, the regional governor of Caesarea in Palestine, who immediately ordered them to be beheaded.
+      - 'The synaxarion records that they suffered martyrdom in the year 308. The Orthodox Church in America''s listing summarizes the event plainly: they "were beheaded in Caesarea of Palestine during the reign of Maximian by the ruler Firmilian."'
+  - heading: Historical Context
+    body:
+      - Caesarea Maritima was a principal center of the Diocletianic persecution in the province of Judaea. Firmilian served as Roman governor there, the third in a succession of governors — following Flavianus and Urbanus — who carried out the persecution in the region. Sources describe the whole persecution at Caesarea under these governors as lasting some twelve years.
+      - The anchor tradition names Maximian as the reigning emperor at the time of the martyrdom. The years 306–313 saw several co-emperors sharing power in the East (Maximian, Galerius, and Maximinus II), which accounts for the varying imperial names attached to the persecution. Firmilian himself was later beheaded, around 310, by order of Maximinus II — as his predecessor Urbanus had been two years before.
+  - heading: Martyr Manetha of Caesarea
+    body:
+      - The same November 13 commemoration includes Manetha (Manatho), a Christian woman of Caesarea in Palestine. Rather than fleeing, she followed the three condemned men to the place of execution. She was seized by the authorities, subjected to cruel tortures, and burned to death for her faith.
+timeline:
+  - when: c. 306–310
+    title: Persecution at Caesarea
+    body: Firmilian, third in a line of governors of Judaea after Flavianus and Urbanus, carries out the Diocletianic persecution at Caesarea in Palestine.
+  - when: "308"
+    title: Martyrdom of the three
+    body: Nikephoros, Antoninus, and Germanus publicly confess one God in Trinity before a pagan crowd and are beheaded by order of Firmilian; Manetha is seized and burned alive the same day.
+  - when: c. 310
+    title: Death of Firmilian
+    body: The governor Firmilian is himself beheaded by order of Emperor Maximinus II.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/11/13
+  - https://prologue.orthodox.cn/November13.htm
+  - https://en.wikipedia.org/wiki/Firmilian_(Roman_governor)
+status: draft
+generated: "2026-07-03"

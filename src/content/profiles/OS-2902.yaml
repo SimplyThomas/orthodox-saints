@@ -1,0 +1,60 @@
+id: OS-2902
+lifespan: c. early 3rd century – c. 260
+overview:
+  - Felix of Nola was a third-century priest of Nola in Campania, Italy, who confessed Christ and endured imprisonment during the Decian persecution but was spared martyrdom, and is consequently venerated as a Confessor of the Faith.
+  - Born in Nola to Hermias, a Syrian centurion who had retired to the city, Felix sold most of his inherited property after his father's death, gave the proceeds to the poor, and pursued a clerical vocation under Saint Maximus, bishop of Nola.
+  - He is remembered chiefly through the letters and poetry of Saint Paulinus of Nola, who regarded Felix as his heavenly advocate and made the saint's shrine at Cimitile the center of his own spiritual life. Felix is venerated in both the Eastern Orthodox and Roman Catholic traditions, with a feast day on January 14.
+liturgicalTitle: The Holy Confessor Felix, Priest of Nola
+sections:
+  - heading: Life and Ministry
+    body:
+      - Felix was born early in the third century at Nola, in the Campania region of Italy. His father, Hermias, was a Syrian centurion who had settled in Nola upon retiring from military service. After Hermias's death, Felix disposed of most of his property, distributed the proceeds among the poor, and entered the service of the Church.
+      - He was ordained by and worked alongside Saint Maximus of Nola, the city's bishop. When the emperor Decius (reigned 249–251) began his persecution of Christians, Maximus withdrew to the mountains, leaving Felix to face arrest in the bishop's stead. Felix was seized and beaten for confessing the Christian faith.
+  - heading: Confession and Escape
+    body:
+      - According to tradition, an angel freed Felix from prison so that he might come to the aid of the ailing Bishop Maximus. Felix found Maximus alone, ill, and helpless, and concealed him in a vacant building. By one account a spider spun a web across the entrance, leading the pursuing soldiers to judge the building abandoned and pass by without searching it.
+      - Tradition relates a second such deliverance, in which a spider quickly wove a web over a hiding place where Felix himself had taken shelter, enabling another escape. The two men remained hidden until the death of Decius in 251.
+      - After the death of Maximus, the Christian community wished to make Felix their bishop, but he declined in favor of Quintus, a priest of slightly greater seniority. Felix remained a priest, farmed the land that remained to him, and gave most of its yield to those poorer than himself. He died around the year 260, though some accounts place his repose during the reign of the emperor Valerian (253–260).
+  - heading: Veneration and Legacy
+    body:
+      - Because Felix survived his sufferings rather than dying under torture, he is listed in the General Roman Calendar as a Confessor of the Faith. His feast is kept on January 14, and much of what is known of his life derives from the letters and poems of Saint Paulinus of Nola.
+      - Felix is regarded as a patron of lost animals and of spiders, an association drawn from the traditional accounts of his escapes. He is venerated in both the Eastern Orthodox and Roman Catholic Churches.
+  - heading: Relics & Shrines
+    body:
+      - Felix was buried at Cimitile, in the necropolis just outside Nola. Five churches were eventually raised at his original burial site. His relics are kept in Nola Cathedral, with portions distributed to Rome, Benevento, and other places.
+      - Saint Paulinus of Nola, who credited his conversion to Felix, built a road for pilgrims and a hospice for the poor near the shrine while serving as governor of Campania, and later rebuilt the complex at Cimitile, restoring the ancient basilica erected in the martyr's honor and constructing a new basilica dedicated to Felix around 402–403. In 398 Nicetas, bishop of Remesiana, made a pilgrimage to Nola to visit the grave of Felix and there gained the friendship of Paulinus.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Felix's imprisonment and beating during the Decian persecution, his refusal of the episcopate in favor of the priest Quintus, and his life of voluntary poverty are the biographical elements transmitted through the writings of Paulinus of Nola."
+      - "Traditional Accounts: Tradition holds that an angel released Felix from prison, and that on two occasions a spider's web spun across a doorway or hiding place caused pursuers to overlook him, delivering him from capture. These accounts underlie his later patronage of spiders and lost animals."
+timeline:
+  - when: early 3rd century
+    title: Birth at Nola
+    body: Felix is born at Nola in Campania to Hermias, a retired Syrian centurion.
+  - when: c. 249–251
+    title: Confession under Decius
+    body: During the persecution of Decius, Felix is arrested and beaten for the faith after Bishop Maximus withdraws to the mountains; by tradition he is freed to aid the ailing bishop.
+  - when: "251"
+    title: Death of Decius
+    body: Felix and Maximus emerge from hiding after the emperor's death.
+  - when: after 251
+    title: Declines the episcopate
+    body: Following the death of Maximus, Felix refuses election as bishop in favor of the senior priest Quintus and remains a priest, farming and giving to the poor.
+  - when: c. 260
+    title: Repose
+    body: Felix dies at Nola, some accounts placing his death under the emperor Valerian; he is buried at Cimitile.
+patronage:
+  - Lost animals
+  - Spiders
+sources:
+  - OrthodoxWiki
+  - Wikipedia (Felix of Nola)
+  - https://en.wikipedia.org/wiki/Felix_of_Nola
+  - https://en.wikipedia.org/wiki/Paulinus_of_Nola
+  - https://www.johnsanidopoulos.com/search?q=felix+of+nola
+  - https://www.oca.org/saints/lives/2025/01/14
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Profile uses the phrase 'the martyr's honor' to describe the ancient basilica built for Felix, contradicting the anchor's Confessor designation and the profile's own statement that Felix was spared martyrdom
+    detail: The anchor row gives Rank = Confessor, not Martyr; the profile itself states Felix was 'spared martyrdom' and is 'venerated as a Confessor of the Faith.' The phrase 'the martyr's honor' — though borrowed from the Wikipedia Paulinus article, which uses 'the ancient basilica erected in the martyr's honour' — applies the descriptor 'martyr' to Felix in context, directly contradicting the anchor. The anchor row wins (verify.md §a).

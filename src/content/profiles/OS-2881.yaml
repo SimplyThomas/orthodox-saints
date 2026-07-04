@@ -1,0 +1,65 @@
+id: OS-2881
+lifespan: late 15th century – 17 May 1544
+liturgicalTitle: Our Venerable Father Theophanes of Meteora, Co-Founder of the Barlaam Monastery
+overview:
+  - Theophanes was a hieromonk of the eminent Apsarades family of Ioannina who, with his elder brother Nektarios, rebuilt and refounded the Barlaam Monastery on its rock at Meteora in the first half of the sixteenth century.
+  - Born in the late fifteenth century, he received his education and monastic formation at the Monastery of Philanthropinon on the island of Ioannina and took monastic vows under the elder Savvas in 1495.
+  - After a decade with their spiritual father and a period of foundation work at Ioannina, he and Nektarios relocated to Meteora around 1510/11, eventually settling on the Barlaam rock in 1517/18, where they raised a community and its churches.
+  - He reposed on 17 May 1544, the very day the monastery's principal church of All Saints was completed, and is commemorated together with his brother on that date.
+sections:
+  - heading: Family and Formation
+    body:
+      - Theophanes and his brother Nektarios were born to the prominent Apsarades family of Ioannina in the late fifteenth century. According to the tradition preserved in their life, their parents and three sisters all embraced the monastic schema, establishing themselves in a cell on the island of Ioannina.
+      - Both brothers received an excellent education and monastic formation at the renowned Monastery of Philanthropinon under Abbot Makarios. In 1495 they received monastic vows from the elder Savvas at the Hermitage of the Honorable Forerunner on the island of Ioannina, remaining with their spiritual father until his death on 9 April 1505.
+      - After Savvas's repose, the brothers travelled to Mount Athos, where they met the former Ecumenical Patriarch Niphon II at the Monastery of Dionysiou. Returning to Ioannina, they established the Monastery of the Honorable Forerunner, completing its church in 1507, and built the Hermitage of Saint Nicholas in Lepenos for members of their family.
+  - heading: The Rebuilding of Barlaam Monastery
+    body:
+      - Around 1510/11 the brothers moved to Meteora. After spending roughly seven years on the Forerunner pillar at the Great Meteoron, they settled on the Barlaam rock in October 1517/18, having received permission from Metropolitan Bessarion of Larissa and the abbot of the Great Meteoron.
+      - The tradition recounted in accounts of Meteora holds that the brothers spent many years hoisting building materials to the summit of the rock formation, though the construction of the church itself is reported to have taken only a short span of days. Construction of the main church, dedicated to All Saints, began in 1542.
+      - The monastery they refounded was reputed to house notable relics, and it has remained an active community into modern times.
+  - heading: Repose
+    body:
+      - On Saturday 17 May 1544, at the ninth hour, the Church of All Saints was completed. Theophanes, who had been bedridden for ten months and was near death, reposed that same day.
+      - His life relates that as the church was finished a bright star came and stood above the saint's cell, shining with a supernatural light, and that his soul departed at sunset.
+      - His brother Nektarios reposed later, on 7 April 1550, during Renewal Week.
+  - heading: Relics & Shrines
+    body:
+      - "The incorrupt relics of the two brothers are venerated at the Barlaam Monastery at Meteora: Nektarios's right hand and Theophanes's left hand, preserved with incorrupt skin."
+      - Their joint feast is kept on 17 May, the day of Theophanes's repose.
+timeline:
+  - when: late 15th c.
+    title: Birth in Ioannina
+    body: Born to the eminent Apsarades family of Ioannina; his parents and three sisters also embraced the monastic life.
+  - when: "1495"
+    title: Monastic tonsure
+    body: He and his brother Nektarios received monastic vows from the elder Savvas at the Hermitage of the Honorable Forerunner on the island of Ioannina.
+  - when: "1505"
+    title: Death of their elder and pilgrimage to Athos
+    body: After Savvas's repose on 9 April 1505, the brothers visited Mount Athos, meeting the former Patriarch Niphon II at Dionysiou.
+  - when: "1507"
+    title: Foundations at Ioannina
+    body: They established the Monastery of the Honorable Forerunner, completing its church, and built the Hermitage of Saint Nicholas in Lepenos.
+  - when: 1517/18
+    title: Settlement on the Barlaam rock
+    body: After about seven years on the Forerunner pillar at the Great Meteoron, the brothers settled on the Barlaam rock, with permission of Metropolitan Bessarion of Larissa.
+  - when: "1542"
+    title: Church of All Saints begun
+    body: Construction of the monastery's main church, dedicated to All Saints, commenced.
+  - when: 17 May 1544
+    title: Completion of the church and repose
+    body: The Church of All Saints was completed at the ninth hour; Theophanes, long bedridden, reposed that same day.
+patronage:
+  - Meteora
+  - Monastics
+sources:
+  - OrthodoxWiki
+  - Vema (Saints Nektarios and Theophanes of Barlaam, May 17)
+  - https://www.johnsanidopoulos.com/2017/05/saints-nektarios-and-theophanes.html
+  - https://en.wikipedia.org/wiki/Meteora
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Nektarios is identified as Theophanes's 'elder' brother
+    detail: No source in the dossier explicitly identifies which brother was the elder. The anchor and external texts consistently say 'his brother' or 'brothers' without specifying relative age. The johnsanidopoulos source names 'Nektarios and Theophanes' (Nektarios first), but naming order is not a statement of birth order.
+  - claim: Patronage includes 'Meteora'
+    detail: No source in the dossier names Theophanes as a patron of Meteora. The association is inferred from his geographical role as monastery founder there, but no source states a patronage over the place.

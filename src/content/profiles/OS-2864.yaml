@@ -1,0 +1,34 @@
+id: OS-2864
+lifespan: 7th century (active c. 634)
+overview:
+  - Antony of Choziba, also called Antony the Chozibite, was a Byzantine monk and hagiographer of the Monastery of Choziba in the Judean desert, active around the early-to-mid seventh century. He was a disciple of Saint George the Chozebite, whose Life he composed.
+  - His writings preserve an eyewitness account of the Persian invasion of Palestine and the sack of Jerusalem in 614, making him a valued historical witness to the impact of that invasion on the monasteries of the Holy Land.
+liturgicalTitle: Our Venerable Father Antony of Choziba
+patronage:
+  - Monastics
+  - Hagiographers and biographers
+sections:
+  - heading: Life and Monastic Setting
+    body:
+      - Antony was a monk of the Monastery of Choziba, situated in Wadi Qelt in the Judean desert, along the ancient Roman road between Jerusalem and Jericho. Monastic life at the site began as a lavra around 420, and between roughly 480 and 530 John of Thebes reorganized it into a formal coenobium, or communal monastery, dedicated to the Mother of God. The community later became known as the Monastery of Saint George of Choziba after Antony's own teacher.
+      - Antony served as a disciple of Saint George the Chozebite, a Greek Cypriot monk who remained at the monastery rather than fleeing when the Persians invaded Palestine and sacked Jerusalem in 614.
+  - heading: Writings
+    body:
+      - Antony composed two significant works in Byzantine Greek. The first is the Life of Saint George of Choziba (Vita sancti Georgii chozebitae; BHG 669, CPG 7985), a biographical account of his mentor. The second is an account of miracles attributed to the Virgin Mary at Choziba (Miracula beatae virginis Mariae in Choziba).
+      - Antony's Life of George is described as a conventional hagiography that nonetheless offers an eyewitness account of the Persian invasion of 614, providing valuable historical perspective on the invasion's effect on the monasteries of Palestine.
+      - The earliest scholarly editions of his work were published by C. House in the Analecta Bollandiana in 1888. A modern English translation by T. Vivian and A. N. Athanassakis appeared in 1994, titled The Life of Saint George of Choziba and the Miracles of the Most Holy Mother of God at Choziba.
+timeline:
+  - when: "614"
+    title: Persian invasion of Palestine
+    body: The Persians invaded Palestine and sacked Jerusalem; the Monastery of Choziba was swept through and its monks massacred. Antony later recorded an eyewitness account of the invasion in his writings.
+  - when: c. 634
+    title: Hagiographical activity
+    body: Antony was active as a hagiographer at the Monastery of Choziba, composing the Life of Saint George of Choziba and an account of the miracles of the Virgin Mary at Choziba.
+sources:
+  - OrthodoxWiki
+  - encountered on the St. George the Chozebite profile (OS-0404)
+  - https://en.wikipedia.org/wiki/Antony_of_Choziba
+  - https://en.wikipedia.org/wiki/George_of_Choziba
+  - https://en.wikipedia.org/wiki/Monastery_of_Choziba
+status: draft
+generated: "2026-07-04"

@@ -1,0 +1,29 @@
+id: OS-2130
+overview:
+  - The Martyrs Caesarius, Dacius, and those with them are a group of seven Christians commemorated by the Orthodox Church for suffering martyrdom at Damascus in the seventh century. The full group is named as Caesarius, Adrian, Dacius, Savva (Sabbas), Sabinian, Agrippa, and Thomas.
+  - According to the synaxarion tradition, they suffered for Christ at Damascus during its capture in the seventh century, placing their deaths in the context of the Muslim (Rashidun Caliphate) conquest of Syria. Of the group, Caesarius and Dacius are recorded as having been beheaded, while the remaining five are described as those who suffered with them. Their commemoration falls on November 1.
+  - Beyond the names, the seventh-century dating, and the location at Damascus, the surviving synaxarion accounts preserve no further biographical detail about the individuals' backgrounds, the precise year, or the manner of death of the five companions.
+lifespan: 7th century (died at Damascus)
+sections:
+  - heading: The Seven Martyrs
+    body:
+      - "The group is enumerated in the synaxarion as seven: Caesarius, Adrian, Dacius, Savva (also given as Sabbas), Sabinian, Agrippa, and Thomas. They are kept as a single commemoration rather than as separate entries, reflecting how the tradition preserved them together as a named group."
+      - The Holy Trinity Orthodox Church synaxarion specifies that Caesarius and Dacius were beheaded. The other five are named as those who 'suffered with them,' though the specific manner of their deaths is not recorded. The OCA commemorates the whole group on November 1 with dedicated troparia and kontakia.
+  - heading: Historical Context
+    body:
+      - "The martyrdom is associated with the fall of Damascus during the Muslim conquest of Syria. Damascus fell to Rashidun Caliphate forces between August and September of 634, becoming the first major city of the Eastern Roman Empire to be taken in that conquest. The city was captured through a combination of military assault and negotiated surrender: Khalid ibn al-Walid breached the Eastern Gate while Abu Ubaidah ibn al-Jarrah negotiated a capitulation at the Jabiya Gate with the Byzantine commander Thomas."
+      - The surrender agreement granted the safety of the Christian inhabitants, their property, and their churches in exchange for payment of the jizya. Despite the overall treaty, the presence of these martyrs in the calendar — recorded as killed during or immediately after the capture — indicates that some Christians died in the violence of the conquest before or outside the terms of the peace. Their commemoration thus stands among the earliest recorded martyrdoms of the Arab conquest period.
+timeline:
+  - when: "634"
+    title: Fall of Damascus
+    body: Damascus falls to Rashidun Caliphate forces, becoming the first major city of the Eastern Roman Empire captured in the Muslim conquest of Syria.
+  - when: 7th century
+    title: Martyrdom at Damascus
+    body: Caesarius, Dacius, and five companions suffer for Christ at Damascus during the city's capture; Caesarius and Dacius are beheaded.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/11/01/103141-martyrs-csarius-dacius-savva-sabinian-agrippa-adrian-and-thomas-at-damascus
+  - https://www.holytrinityorthodox.com/calendar/los/November/01-05.htm
+  - https://en.wikipedia.org/wiki/Siege_of_Damascus_(634)
+status: draft
+generated: "2026-07-03"

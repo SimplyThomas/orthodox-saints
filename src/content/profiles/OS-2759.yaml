@@ -1,0 +1,52 @@
+id: OS-2759
+lifespan: c. 380 – c. 449
+overview:
+  - Eucherius of Lyon (c. 380 – c. 449) was a Gallo-Roman nobleman who, after a married life, withdrew into monastic solitude and was later called to serve as Bishop of Lyon, becoming one of the most influential figures of the early Gallic Church.
+  - A learned writer, he married a woman named Galla (also given as Gallia), with whom he had two sons who themselves became bishops. Following his wife's death, he and his sons withdrew to the island monastery of Lérins, founded by Saint Honoratus off the coast of Antibes.
+  - He is venerated as a pre-schism Western saint in both the Eastern Orthodox and Roman Catholic Churches, with a feast on November 16.
+liturgicalTitle: Our Father among the Saints Eucherius, Bishop of Lyon
+patronage: []
+timeline:
+  - when: c. 380
+    title: Birth in Gaul
+    body: Eucherius is born into a high-born Gallo-Roman family in fifth-century Christian Gaul.
+  - when: early 5th c.
+    title: Marriage and family
+    body: He marries Galla (Gallia) and together they have sons Veranus and Salonius, later bishops of Vence and Geneva; some sources also name daughters Consortia and Tullia. The couple practiced an austere restriction of life to essentials in support of prayer and devotion.
+  - when: c. 428
+    title: Withdrawal to Lérins and Lerona
+    body: After his wife's death, Eucherius withdraws with his sons to the monastery of Lérins, founded by Saint Honoratus, then relocates to the neighboring island of Lerona (now Île Sainte-Marguerite) for severe asceticism and scholarly study. Around this time he composes De laude Eremi.
+  - when: c. 434
+    title: Bishop of Lyon
+    body: Eucherius is made Bishop of Lyon, succeeding Sicarius, and serves as metropolitan of the see.
+  - when: "441"
+    title: Council of Orange
+    body: He attends the first Council of Orange as Metropolitan of Lyon.
+  - when: c. 449
+    title: Repose
+    body: Eucherius dies as Bishop of Lyon; the historian Henry Wace ranked him the most distinguished occupant of that see after Irenaeus.
+sections:
+  - heading: Monastic Withdrawal at Lérins
+    body:
+      - Following a common fifth-century ascetic pattern, Eucherius withdrew after his wife's death with his sons Veranus and Salonius to Lérins Abbey, the island monastery founded by Saint Honoratus off Antibes. He subsequently moved to the neighboring island of Lerona, now Île Sainte-Marguerite, where he devoted himself to severe asceticism and scholarly study, probably around 428.
+      - He consulted John Cassian, the Egyptian-trained hermit living at Marseille, regarding a possible withdrawal to the Eastern desert communities. Cassian dedicated his second set of Conferences (Collationes nos. 11–17), treating the hermit life of the Egyptian Thebaid, grace and free will, and the interpretation of Scripture, to both Eucherius and Honoratus.
+      - Eucherius maintained scholarly contact with leading figures of Gallic Christianity, including Hilary of Arles, Saint Honoratus, Claudianus Mamertus, Agroecius, Sidonius Apollinaris, and his kinsman Valerian.
+  - heading: Episcopate and Legacy
+    body:
+      - Eucherius became Bishop of Lyon around 434, succeeding Sicarius, and held the see until his death about 449. He attended the first Council of Orange in 441 as Metropolitan of Lyon.
+      - The church historian Henry Wace judged him the most distinguished occupant of the see of Lyon after Irenaeus. He is venerated in both the Eastern Orthodox Church and the Roman Catholic Church, with a feast day of November 16.
+  - heading: Writings
+    body:
+      - Eucherius was among the more accomplished writers of the early Gallic Church. His De laude Eremi ('In Praise of the Desert,' c. 428) is an epistolary essay in praise of the eremitic life, addressed to Bishop Hilary of Arles.
+      - His Epistola paraenetica ad Valerianum cognatum, de contemptu mundi, addressed to his kinsman Valerian, expresses eschatological concern about worldly decline; it was later edited by Erasmus and published at Basel in 1520.
+      - In the Liber formularum spiritalis intelligentiae, addressed to his son Veranius, he defended the allegorical interpretation of Scripture, employing the term anagoge for the application of a text to the heavenly Jerusalem. His Institutiones ad Salonium is a work of instruction addressed to his son Salonius.
+sources:
+  - https://www.johnsanidopoulos.com/2017/11/saint-eucherius-bishop-of-lyon-449.html
+  - https://en.wikipedia.org/wiki/Eucherius_of_Lyon
+status: flagged
+generated: "2026-07-03"
+flagReasons:
+  - claim: The withdrawal to Lérins (and then to Lerona) happened after the wife's death.
+    detail: The anchor brief states he withdrew 'with his wife's consent' — implying she was alive at the time of withdrawal. The profile repeatedly asserts the withdrawal was triggered by her death ('Following his wife's death' in the overview; 'After his wife's death' in the timeline and in the Monastic Withdrawal section). These directly contradict the anchor. Per verify rules, the anchor wins. The external sources (Sanidopoulos, Wikipedia) do say 'after his wife's death,' but the anchor record takes priority over external items when there is a contradiction.
+  - claim: "After his wife's death (timeline): 'After his wife's death, Eucherius withdraws with his sons to the monastery of Lérins'"
+    detail: Same contradiction with the anchor as above. The anchor brief says 'with his wife's consent, withdrew to the monastery of Lerins,' presupposing her survival at the time of withdrawal. This second instance of the claim reinforces the unsupported characterisation.
