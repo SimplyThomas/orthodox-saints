@@ -5,11 +5,14 @@ have a profile (resumable).
 Limit handling (see tools/profilegen/limits.py for why it must be this way):
   * terminal error (billing/auth)        -> stop now (exit 3)
   * rate_limit_error                      -> wait RESUME_AFTER (a full 5-hour window) and retry
+  * instant non-zero exit (usage cap)    -> treated as rate_limit_error (wait, don't skip) —
+                                            a sub-minute `claude -p` failure did no work
   * still rate-limited after              -> infer the weekly cap and stop (exit 2)
       WEEKLY_AFTER_WAITS such waits
   * other error                           -> bounded backoff, then skip the batch
 A NOTIFY_CMD (if set) is run on limit/stop/done with the message as one argument; state is
-written to dist/profilegen/state.json each step.
+written to dist/profilegen/state.json each step. The raw output of any failed/zero-production
+batch is saved under dist/profilegen/errors/ so a recurrence is diagnosable at a glance.
 
 Launch:  nohup python -m tools.profilegen.run > dist/profilegen/nohup.out 2>&1 & disown
 Stop:    make profile-stop  (sends SIGTERM; run finishes the current batch then exits cleanly)
@@ -101,6 +104,22 @@ def write_state(**kw) -> None:
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     kw["updated"] = f"{datetime.now():%F %T}"
     (RUN_DIR / "state.json").write_text(json.dumps(kw, indent=2), encoding="utf-8")
+
+
+def save_error_output(date: str, batch_n: int, out: str, etype: str) -> None:
+    """Persist the raw `claude -p` output for a failed/zero-production batch under
+    dist/profilegen/errors/ so the *next* cap is diagnosable at a glance. run.log records
+    only the classification, which is why 2026-07-04's silent 'error' failures had to be
+    reverse-engineered from timestamps. Best-effort — a write failure must never kill the
+    run; only the trailing 20 KB is kept (enough to see the error, bounded on disk)."""
+    try:
+        errdir = RUN_DIR / "errors"
+        errdir.mkdir(parents=True, exist_ok=True)
+        stamp = f"{datetime.now():%H%M%S}"
+        (errdir / f"{date}-b{batch_n:02d}-{stamp}-{etype}.log").write_text(
+            (out or "")[-20000:], encoding="utf-8")
+    except Exception as e:
+        log(f"(could not save error output: {e})")
 
 
 def run_claude(ids: list[str]) -> tuple[str, int]:
@@ -258,15 +277,29 @@ def _run() -> int:
             write_state(status="running", batch=n, total=len(batches),
                         action="generating", remaining=len(remaining))
             log(f"batch {n}/{len(batches)} ({len(remaining)} ids)")
+            t0 = time.monotonic()
             out, rc = (run_workflow(remaining, date) if USE_WORKFLOW
                        else run_claude(remaining))
-            etype = limits.parse_error_type(out) or ("error" if rc != 0 else None)
+            elapsed = time.monotonic() - t0
+            etype = limits.parse_error_type(out)
+            if etype is None and rc != 0:
+                # Non-zero exit, no parseable error type. An instant exit is a usage-cap /
+                # quota / auth-refresh refusal that did no work → wait a window (below).
+                # A slower non-zero exit is a genuine mid-run error → fast backoff + skip.
+                if limits.hard_startup_failure(out, rc, elapsed):
+                    etype = "rate_limit_error"
+                    log(f"batch {n}: claude -p exited rc={rc} in {elapsed:.0f}s with no "
+                        f"parseable error — treating as a usage-window cap (wait, not skip)")
+                else:
+                    etype = "error"
+                save_error_output(date, n, out, etype)
 
             if etype is None and USE_WORKFLOW:
                 produced = len(profiles_present(remaining))
                 outcome = classify_workflow_outcome(produced, len(remaining))
                 if outcome == "none":               # clean exit, 0 emitted — classify cause
                     etype = limits.zero_production_etype(out)
+                    save_error_output(date, n, out, etype)
                     log(f"batch {n}: workflow emitted 0/{len(remaining)} profiles — "
                         f"classified '{etype}' "
                         f"({'wait a window' if etype == 'rate_limit_error' else 'backoff + skip'})")
