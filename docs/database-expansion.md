@@ -59,17 +59,12 @@ plain cards can be backfilled opportunistically.)
 
 | Name | Aliases | Region / Tradition | First Ref | Refs | Priority | Notes |
 |---|---|---|---|--:|---|---|
-| Arsenije I Sremac of Serbia | Arsenios I; Arsenije Sremac | Serbia | OS-0449 | 1 | Medium | Successor of St. Sava as Archbishop of Serbia; recurs in Serbian archiepiscopal succession, so likely to be referenced again. |
 | George the Hungarian | — | Rus' / Hungarian | OS-0554 | 1 | Low | Brother of Sts. Ephraim of Novy Torg and Moses the Hungarian; slain with St. Boris (1015). Borderline — venerated chiefly within the Boris & Gleb narrative; review independence before adding. |
-| Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
 | Varus the notary | — | Asia Minor (Heraclea) | OS-0615 | 1 | Low | Servant who recorded St. Theodore Stratelates's martyrdom; independent veneration to verify (borderline). |
-| Kodratos, Akakios & Stratonikos of Ptolemais | — | Ptolemais (Phoenicia) | OS-0771 | 1 | Low | Soldier co-martyrs converted at the martyrdom of Sts. Paul & Juliana. |
 | Nestor of Isauria | — | Isauria | OS-0776 | 1 | Low | Father of St. Conon of Isauria; remembered as a martyr (identity uncertain — borderline). |
-| Anthusa of Mantineon | — | Asia Minor (Mantineon) | OS-0986 | 1 | Low | Abbess-confessor tortured under Constantine V; foretold the birth of St. Anthusa of Constantinople; feast Jul 27. |
 | Sansalas | — | Gothia / Wallachia | OS-1000 | 1 | Low | Priest arrested with St. Sabbas the Goth; 4th-c. Gothic martyr (feast ~Apr 12). |
 | Shandulios | — | Persia (Sasanian) | OS-0953 | 1 | Low | Concealed the relics of the Persian martyrs under Shapur II (borderline — verify veneration). |
 | Epiphanius the Wise | — | Russia (Moscow) | OS-1065 | 1 | Medium | Hagiographer of Sts. Stephen of Perm and Sergius of Radonezh; major 14th–15th-c. writer. |
-| Patriarch Paisius of Peć | Pajsije | Serbia | OS-1077 | 1 | Low | Patriarch of Serbia who consecrated St. Basil of Ostrog; feast Nov 3. |
 | Anthony & Felix of Karelia | — | Russia (Karelia) | OS-1015 | 1 | Low | Righteous sons of Marfa Boretskaya; among the Synaxis of Karelian Saints (local veneration — verify). |
 | Paisius Yaroslavov | — | Russia (Kirillo-Belozersk) | OS-1127 | 1 | Medium | Elder of St. Nilus of Sora; Trinity-Sergius hegumen; Non-Possessor circle (locally venerated). |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
@@ -254,6 +249,16 @@ _Held for a follow-up pass (uncertain individual glorification / hagiographer-wr
 - **Yuri Skobtsov** → `OS-2922`
 - **Ilya Fondaminsky** → `OS-2923`
 
+### Serbian hierarchs, Byzantine confessors & early martyrs (issue #227)
+
+- **St. Marcian the Emperor** (Feb 17, with St. Pulcheria) → `OS-2924`
+- **Venerable Anthusa, Abbess of Mantineon** (Jul 27, +759) → `OS-2925`
+- **St. Arsenije I, Archbishop of Serbia** (Oct 28) → `OS-2926`
+- **St. Paisije, Patriarch of Serbia** (Oct 3; glorified 2017) → `OS-2927`
+- **Martyrs Kodratos, Akakios & Stratonikos of Ptolemais** (Aug 17; Mar 4) → `OS-2928` (one group row — three undifferentiated soldier co-martyrs)
+
+_Paisije's feast is Oct 3 (O.S.), not the "Nov 3" earlier noted in the register._
+
 ## Considered and excluded (this round)
 
 Kept for transparency so the same figures aren't re-evaluated each pass:
@@ -261,6 +266,11 @@ Kept for transparency so the same figures aren't re-evaluated each pass:
 - **Theodoret of Cyrus** (ref. OS-0520/0535/0561/0564/0575/0626/0659/0660) — the 5th-c. bishop-historian who chronicled the Syrian solitaries; his Christology was condemned (Three Chapters / Constantinople II) and his veneration is disputed — excluded. (He appears only as a *chronicler*, never as a relationship card; note OS-0797 "Theodoritus the Presbyter" is a different person. A stray Theodoret companion card on OS-0660 was removed during the OS-0601–0700 consolidation.)
 - **Pachomios of Chios** (ref. OS-0666) — Pachomios the New (1840–1905); locally venerated but pan-Orthodox glorification not confirmed; excluded under the canonization-caution guardrail (§9) pending verification.
 - **Theodotus of Heliopolis** (ref. OS-0746) — bishop who baptized St. Eudokia; veneration/feast unconfirmed; excluded as uncertain pending source review.
+- **Maria of Amnia** (ref. OS-2283) — granddaughter of St. Philaret the Merciful and first wife of Emperor Constantine VI; appears only as a historical figure in Philaret's life, with no independent commemoration/feast found. Held under the canonization-caution guardrail (§9).
+- **Epiphanius, disciple of Andrew the Fool** (ref. OS-1938) — depicted beside St. Andrew in the Protection (Pokrov) icon, but no independent feast/veneration is established and his identity is uncertain. Held (§9).
+- **Sansalas the priest** (ref. OS-1000) — companion of St. Sabbas the Goth; his own martyrdom/independent veneration is not clearly attested (Sabbas alone was drowned). Held pending verification (§9).
+- **Eleutherios the Hesychast** and **Barsanuphius of Sihastria** (ref. OS-1663) — husband and spiritual guide of St. Theodora of Sihla; individual canonization not confirmed (St. Theodora herself was glorified 1992). Held pending verification (§9).
+- **Macarius of Leteti** (ref. OS-1106) — 9th-c. Georgian monk; no feast day or clear independent veneration found. Held pending Georgian-source review (§9).
 
 > **False-negative note (verify before logging):** several "absent" flags from subagents turned out to be already in the database under a different spelling/epithet — **Dionysius the Great of Alexandria = OS-1964**, **Jerome of Stridon = OS-1362**, **Modestus of Jerusalem = OS-0066**, **Arsen of Ninotsminda = OS-1618**. Always `grep data/saints.csv` to confirm true absence before adding a row here. **Two more found this round: Naucratius of Cappadocia (brother of St. Basil) = OS-2802** and **Abba Or / Hor of the Thebaid = OS-1659** — both were flagged for DB-expansion but already present; their cards were wired to the existing rows. **Also this round: Meletios the Younger of Myoupolis = OS-0113** ("St. Meletius the Younger of Thebes", feast Sep 1) — already present, card wired. **Also this round: Theosebios of Arsinoe = OS-2799** ("Theosebios the God-bearer of Arsinoe", Oct 12) — already present, card wired. (The erroneous Dionysius row was removed; OS-0625/OS-0706/OS-0807 were wired to the existing OS-1964 / OS-0066 / OS-1618.)
 
