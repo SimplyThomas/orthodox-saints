@@ -65,8 +65,6 @@ plain cards can be backfilled opportunistically.)
 | Felix of Nola | — | Italy (Campania) | OS-0522 | 1 | Low | Confessor of Nola; the saint to whom St. Paulinus of Nola was devoted. Feast Jan 14. |
 | George the Hungarian | — | Rus' / Hungarian | OS-0554 | 1 | Low | Brother of Sts. Ephraim of Novy Torg and Moses the Hungarian; slain with St. Boris (1015). Borderline — venerated chiefly within the Boris & Gleb narrative; review independence before adding. |
 | Emperor Marcian | Marcian | Constantinople (Byzantine) | OS-0681 | 2 | Medium | Co-convener of Chalcedon (451) with Pulcheria; commemorated Feb 17. (refs OS-0681, OS-0684) |
-| Mstislav-Theodore the Great | Mstislav I of Kiev | Rus' (Kiev) | OS-0636 | 1 | Medium | Right-believing Grand Prince of Kiev (d. 1132), father of St. Vsevolod-Gabriel of Pskov. |
-| Vassian Muromtsev | — | Pskov, Rus' | OS-0698 | 1 | Low | Martyred disciple of St. Cornelius of the Pskov Caves (16th c.). |
 | Theodosius (Bobkov) | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Nicholas Pospelov | — | Russia (Butovo) | OS-0678 | 1 | Low | New Martyr of Bylovo; co-martyr of Hieromartyr Nicholas Kandaurov (Feb 17 / Butovo). |
 | Varus the notary | — | Asia Minor (Heraclea) | OS-0615 | 1 | Low | Servant who recorded St. Theodore Stratelates's martyrdom; independent veneration to verify (borderline). |
@@ -74,16 +72,13 @@ plain cards can be backfilled opportunistically.)
 | Florentina of Cartagena | — | Spain (Visigothic) | OS-0734 | 1 | Low | Abbess; sister of Sts. Leander, Isidore & Fulgentius. |
 | Julian the Physician of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyred under Julian the Apostate; feast Mar 6. |
 | Eubolos of Cyprus | — | Cyprus | OS-0788 | 1 | Low | Disciple of St. Arcadius of Cyprus, martyr; feast Mar 6. |
-| Basil, Abbot of Mirozh | — | Pskov, Rus' | OS-0768 | 1 | Low | Pskov hieromartyr (1299); co-sufferer of St. Joasaph of Snetogorsk. (Distinct from Abramius of Mirozh OS-1899.) |
 | Kodratos, Akakios & Stratonikos of Ptolemais | — | Ptolemais (Phoenicia) | OS-0771 | 1 | Low | Soldier co-martyrs converted at the martyrdom of Sts. Paul & Juliana. |
 | Nestor of Isauria | — | Isauria | OS-0776 | 1 | Low | Father of St. Conon of Isauria; remembered as a martyr (identity uncertain — borderline). |
 | Scholastica | — | Italy (Nursia/Monte Cassino) | OS-0822 | 1 | Medium | Sister of St. Benedict of Nursia; foundress of Benedictine nuns; feast Feb 10. |
 | Romanus of Subiaco | — | Italy | OS-0822 | 1 | Low | The monk who clothed St. Benedict and supplied him at the cave of Subiaco; feast May 22. |
 | Luke of Demena | Luke of Armento | Italo-Greek (Lucania) | OS-0803 | 1 | Low | 10th-c. Italo-Greek monastic founder; companion of St. Vitalius of Castronovo; feast Oct 13. |
-| Barnabas of Gethsemane | Varnava of Gethsemane | Russia (Sergiev Posad) | OS-0859 | 1 | Low | Hieroschemamonk of the Gethsemane Skete (d. 1906); spiritual father of St. Seraphim of Vyritsa. |
 | Braulio of Saragossa | — | Spain (Visigothic) | OS-0937 | 1 | Medium | Bishop of Saragossa (d. 651); disciple and literary executor of St. Isidore of Seville. |
 | Ascholius of Thessalonica | Acholius | Thessalonica (Greece) | OS-1000 | 1 | Medium | 4th-c. bishop who baptized Emperor Theodosius; correspondent of St. Basil. |
-| Nicephorus (Kuchin) of Solovki | — | Russia (Solovki) | OS-0941 | 1 | Low | New Hieromartyr (glorified 2000); co-martyr of St. Benjamin (Kononov), same Apr 4 feast. |
 | Anthusa of Mantineon | — | Asia Minor (Mantineon) | OS-0986 | 1 | Low | Abbess-confessor tortured under Constantine V; foretold the birth of St. Anthusa of Constantinople; feast Jul 27. |
 | Sansalas | — | Gothia / Wallachia | OS-1000 | 1 | Low | Priest arrested with St. Sabbas the Goth; 4th-c. Gothic martyr (feast ~Apr 12). |
 | Shandulios | — | Persia (Sasanian) | OS-0953 | 1 | Low | Concealed the relics of the Persian martyrs under Shapur II (borderline — verify veneration). |
@@ -92,26 +87,21 @@ plain cards can be backfilled opportunistically.)
 | Anthony & Felix of Karelia | — | Russia (Karelia) | OS-1015 | 1 | Low | Righteous sons of Marfa Boretskaya; among the Synaxis of Karelian Saints (local veneration — verify). |
 | Paisius Yaroslavov | — | Russia (Kirillo-Belozersk) | OS-1127 | 1 | Medium | Elder of St. Nilus of Sora; Trinity-Sergius hegumen; Non-Possessor circle (locally venerated). |
 | Macarius of Leteti | — | Georgia | OS-1106 | 1 | Low | 9th-c. Georgian monk who laboured with Ss. Michael & Arsenius of Ulompo in Palestine. |
-| Chariton of Kudinsk | — | Russia (Pskov) | OS-1178 | 1 | Low | Disciple of St. Euphrosynus of Pskov. |
 | Possidius of Calama | — | North Africa | OS-1365 | 1 | Low | Disciple and biographer of St. Augustine of Hippo. |
 | Alypius of Thagaste | — | North Africa | OS-1365 | 1 | Low | Friend of St. Augustine; bishop of Thagaste. |
 | Ursus of Ravenna | — | Italy (Ravenna) | OS-1328 | 1 | Low | 4th–5th-c. Bishop of Ravenna; co-consecrator of St. Bassianus of Lodi. |
 | Felix of Como | — | Italy (Como) | OS-1328 | 1 | Low | First Bishop of Como (4th c.). |
-| Daniel the Black (Chorny) | — | Russia (Moscow) | OS-1469 | 1 | Medium | Iconographer; co-worker of St. Andrei Rublev at the Andronikov & Trinity monasteries. |
 | Theophanes the Greek | — | Byzantium / Russia | OS-1469 | 1 | Medium | Master iconographer; teacher/collaborator of St. Andrei Rublev (Novgorod, Moscow). |
-| Gregory the Faster of the Far Caves | — | Russia (Kiev) | OS-1483 | 1 | Low | Kiev Far-Caves ascetic; co-commemorated with Sisoes the Schemamonk. |
 | Yuri Skobtsov | George Skobtsov | France (Paris) | OS-1559 | 1 | Low | Son of St. Maria Skobtsova; glorified 2004 among the Paris/Western-European martyrs. |
 | Ilya Fondaminsky | Elijah Fondaminsky | France (Paris) | OS-1559 | 1 | Low | Of the Rue de Lourmel circle; glorified 2004 with Sts. Maria Skobtsova & Demetrius Klepinin. |
 | Eleutherios the Hesychast | — | Romania (Sihla) | OS-1663 | 1 | Low | Husband/co-ascetic of St. Theodora of Sihla. |
 | Barsanuphius of Sihastria | — | Romania | OS-1663 | 1 | Low | Spiritual guide of St. Theodora of Sihla. |
-| Mother Alexandra of Diveyevo | Agafia Melgunova | Russia (Diveyevo) | OS-1757 | 1 | Medium | Foundress/first superior of the Diveyevo convent; recurs across the Diveyevo saints. |
 | Theosebios of Arsinoe | Theosebius the God-bearer | Cyprus (Arsinoe) | OS-1800 | 1 | Low | Cypriot ascetic; brother of St. Arkadios the Wonderworker of Arsinoe. |
 | Paul of Atroa | Paul the Younger of Atroa | Bithynia (Atroa) | OS-1835 | 1 | Medium | Founder of the Atroa monastic circle; teacher of St. Peter of Atroa; iconodule. |
 | Sabbas of Atroa | Sabas | Bithynia (Atroa) | OS-1835 | 1 | Low | Disciple and biographer of St. Peter of Atroa. |
 | Theophilus of Gothia | Theophilus the Gothic Bishop | Gothia (Crimea/Danube) | OS-1839 | 1 | Medium | Gothic bishop, signatory of Nicaea (325); recurs with the Gothic martyrs (Niketas, Sabbas). |
 | Elias Speleotes | Elias the Cave-Dweller of Calabria | Calabria (Italo-Greek) | OS-1805 | 1 | Low | Italo-Greek hermit; spiritual associate of St. Fantinus of Calabria. |
 | Nonnus of Heliopolis | Nonnus, Bishop of Edessa/Heliopolis | Syria (Heliopolis/Edessa) | OS-1977 | 1 | Medium | Bishop who converted and baptized St. Pelagia the Penitent; venerated (Nov 10). |
-| Yaroslav the Wise | Yaroslav I, Grand Prince of Kiev | Kievan Rus' | OS-1949 | 1 | Low | Grand Prince, father of St. Vladimir Yaroslavich; locally venerated (UOC, 2008). |
 | Epiphanius, disciple of Andrew the Fool | Epiphanius of Constantinople | Constantinople | OS-1938 | 1 | Low | Disciple who shared St. Andrew's vision of the Theotokos (Protection/Pokrov); identity sometimes linked to a later patriarch. |
 | Papias of Hierapolis | Papias, Bishop of Hierapolis | Phrygia (Hierapolis) | OS-2061 | 1 | Medium | Apostolic Father, hearer of the Apostle John; predecessor of St. Averkios; venerated. |
 | Valerius of Saragossa | Valerius of Zaragoza | Spain (Saragossa) | OS-2178 | 1 | Medium | Bishop of Saragossa under whom St. Vincent served as deacon; arrested/tried with him; venerated (Jan 28). |
@@ -237,6 +227,21 @@ _(Pope Damasus I was added earlier with the Roman/Jerome-circle batch, `OS-2840`
 - **Eleni (Susanna) of Lesbos** → `OS-2883`
 - **Paul, Bishop of Corinth** → `OS-2884`  _(featless stub flagged for review)_
 - **Arsenios of Crete** → `OS-2885`  _(featless stub flagged for review)_
+
+### Russian / Rus' monastic saints, martyrs & princes (issue #227)
+
+- **Mstislav-Theodore the Great** → `OS-2886`
+- **Yaroslav the Wise** → `OS-2887`
+- **Vassian Muromtsev** → `OS-2888`
+- **Basil, Abbot of Mirozh** → `OS-2889`
+- **Chariton of Kudinsk** → `OS-2890`  _(featless stub flagged for review)_
+- **Barnabas of Gethsemane** → `OS-2891`
+- **Nicephorus (Kuchin) of Solovki** → `OS-2892`
+- **Daniel the Black (Chorny)** → `OS-2893`
+- **Gregory the Faster of the Far Caves** → `OS-2894`
+- **Mother Alexandra of Diveyevo** → `OS-2895`
+
+_Held for a follow-up pass (uncertain individual glorification / hagiographer-writers, §9): **Theophanes the Greek** (no formal canonization found), **Epiphanius the Wise**, **Paisius Yaroslavov** — all remain in the register above._
 
 ## Considered and excluded (this round)
 
