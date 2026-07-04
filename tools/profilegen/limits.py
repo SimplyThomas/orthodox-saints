@@ -32,7 +32,7 @@ def parse_error_type(out: str) -> str | None:
         if isinstance(obj, dict) and obj.get("type") == "error":
             return (obj.get("error") or {}).get("type") or "error"
     if not saw_json and re.search(
-        r"\b429\b|rate.?limit|too many requests", out or "", re.I
+        r"\b429\b|rate.?limit|too many requests|usage limit", out or "", re.I
     ):
         return "rate_limit_error"
     return None
@@ -41,6 +41,27 @@ def parse_error_type(out: str) -> str | None:
 def is_terminal(error_type: str | None) -> bool:
     """True for errors that won't clear by waiting (billing / auth / permission / not-found)."""
     return error_type in TERMINAL_TYPES
+
+
+# A live batch runs ~15 min (a 10-saint Workflow); anything that exits non-zero in well
+# under a minute never did real work.
+INSTANT_FAIL_SECONDS = 60
+
+
+def hard_startup_failure(out: str, rc: int, elapsed: float,
+                         threshold: float = INSTANT_FAIL_SECONDS) -> bool:
+    """True when `claude -p` exited non-zero almost immediately with no parseable error —
+    the fingerprint of a usage-window/quota/auth-refresh *refusal* (the CLI declined before
+    doing any work), NOT a mid-generation content error. Callers route these to the
+    rate-limit *wait* path instead of the fast backoff-and-skip that churned ~20 batches
+    into 'skipped' in one hour on 2026-07-04. A wall-clock timeout (rc 124 / 'TIMEOUT'
+    marker) is excluded: it ran the full BATCH_TIMEOUT, so by definition it is not an
+    instant startup refusal."""
+    if rc == 0:
+        return False
+    if "TIMEOUT" in (out or ""):
+        return False
+    return elapsed < threshold
 
 
 _RATELIMIT_RE = re.compile(r"\b429\b|rate.?limit|too many requests|usage limit", re.I)
