@@ -13,12 +13,18 @@ const env = {
 let lastGithubBody = null;
 function stubFetch({ turnstileOk = true, githubOk = true } = {}) {
   globalThis.fetch = async (url, init) => {
-    if (String(url).includes("siteverify")) {
+    // Route by exact host (+ path), not substring: a substring match on a URL is
+    // unsound (e.g. https://evil.example/api.github.com) — and CodeQL flags it.
+    const { hostname, pathname } = new URL(url);
+    if (
+      hostname === "challenges.cloudflare.com" &&
+      pathname === "/turnstile/v0/siteverify"
+    ) {
       return new Response(JSON.stringify({ success: turnstileOk }), {
         status: 200,
       });
     }
-    if (String(url).includes("api.github.com")) {
+    if (hostname === "api.github.com") {
       lastGithubBody = JSON.parse(init.body);
       return githubOk
         ? new Response(JSON.stringify({ number: 123 }), { status: 201 })
