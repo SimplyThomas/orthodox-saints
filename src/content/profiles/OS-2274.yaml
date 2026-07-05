@@ -1,0 +1,38 @@
+id: OS-2274
+lifespan: d. 274
+liturgicalTitle: The Holy Martyr Phaedrus
+overview:
+  - Phaedrus is an early martyr of the Church commemorated on November 29, of whom no detailed biography survives. He is remembered chiefly through the manner of his death and his continued liturgical commemoration.
+  - According to the surviving tradition he was put to death in 274 by having hot resin (molten pitch) poured over him. His martyrdom is placed at Ancyra, the capital of the Roman province of Galatia (modern Ankara, Turkey), during the persecution of Christians under the emperor Aurelian (270–275), with the governor Felix presiding.
+  - Phaedrus is grouped in the November 29 commemoration alongside two fellow martyrs of Ancyra in the same year, Philoumenos of Ancyra and Valerian. Where a fuller vita survives for Philoumenos, the sources record for Phaedrus little beyond his name, the year of his death, and the method of his execution.
+timeline:
+  - when: "274"
+    title: Martyrdom at Ancyra
+    body: Phaedrus is put to death by having hot resin poured over him, during the persecution of the emperor Aurelian under the governor Felix at Ancyra in Galatia.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrdom is set during the reign of the emperor Aurelian (270–275), remembered in the Church's calendars for a renewed persecution of Christians. The three martyrs of Ancyra commemorated on November 29 — Phaedrus, Philoumenos, and Valerian — are all assigned to the year 274 and to the same governor, Felix, who is named as presiding over the trials.
+      - "Ancyra (modern Ankara), the capital of the Roman province of Galatia, recurs in the martyrologies as a place of Christian suffering in this period. For Phaedrus specifically the sources preserve only the essentials: his name, the year, and that he was killed by having hot resin poured over him."
+  - heading: Commemorated With
+    body:
+      - Phaedrus is listed within a single November 29 commemoration together with Martyr Philoumenos of Ancyra and Martyr Valerian, all three martyred in 274. The calendars record their deaths by different means — Phaedrus by hot resin, Valerian by the sword, and Philoumenos after prolonged torture and loss of blood.
+      - A fuller account survives only for Philoumenos, described as a bread merchant (in some accounts a traveling grain merchant from Lycaonia) arrested at Ancyra after being denounced as a Christian. His narrative supplies the shared setting — Aurelian's persecution under the governor Felix — against which Phaedrus and Valerian are commemorated, though no comparable biographical detail for the latter two has come down.
+  - heading: Veneration
+    body:
+      - "Distinct liturgical texts for Phaedrus survive, including a Troparion in Tone 3 and a Kontakion in Tone 2. These are standard martyrial formularies: the Troparion honors him as a martyr who received an incorruptible crown and overcame his adversaries, and the Kontakion hails him as a bright star announcing Christ and enlightening the faithful."
+      - The existence of these proper texts indicates that Phaedrus has been commemorated as a martyr in his own right, and not merely as a name appended to the feast of Philoumenos.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://orthodoxwiki.org/November_29
+  - https://en.wikipedia.org/wiki/November_29_(Eastern_Orthodox_liturgics)
+  - https://www.oca.org/saints/lives/2021/11/29/103444-martyr-philoumenus-of-ancyra
+  - https://www.johnsanidopoulos.com/2015/11/saint-philoumenos-of-ancyra.html
+  - https://www.oca.org/saints/troparia/2021/11/29/103446-martyr-phaedrus
+status: flagged
+generated: "2026-07-03"
+flagReasons:
+  - claim: The method of execution was 'hot resin (molten pitch)'
+    detail: Every dossier source — anchor Notes, OrthodoxWiki, Wikipedia, and the OCA pages — consistently says 'hot resin.' The parenthetical '(molten pitch)' appears nowhere in the dossier. Pitch and resin are related but distinct substances; the gloss is an addition without any sourcing in the dossier.
+  - claim: Ancyra 'recurs in the martyrologies as a place of Christian suffering in this period'
+    detail: The dossier documents only this single 274 CE group at Ancyra. No external item in the dossier cites additional martyrdom events at Ancyra to support the claim that it 'recurs' as a site of persecution. The assertion goes beyond what the dossier provides.

@@ -1,0 +1,54 @@
+id: OS-2822
+lifespan: Flourished c. 500 (5th–6th century)
+overview:
+  - Non, also called Nonna or Nonnita, was a Welsh holy woman of the late fifth and early sixth centuries, remembered chiefly as the mother of Saint David, the patron saint of Wales. Tradition places her origin in Pembrokeshire, and some sources name her as the daughter of the nobleman Cynyr of Caer Goch.
+  - The principal historical account of her life derives from Rhigyfarch's Life of St David, written around 1095, which frames Non's story within the birth and upbringing of her more famous son. She is venerated as a monastic saint (Venerable) across Wales, Cornwall, and Brittany, and is commemorated in the Eastern Orthodox Church as a pre-schism Western saint, as well as in the Anglican Communion.
+  - "Her cult spread widely along the western seaboard: churches, chapels, and holy wells bearing her name survive in Wales, Cornwall, and Devon, and her shrine lies at Dirinon in Brittany, where tradition holds she died and was buried."
+liturgicalTitle: Our Venerable Mother Non of Wales
+timeline:
+  - when: 5th century
+    title: Birth in Wales
+    body: Non is born, probably in Pembrokeshire, and by some accounts is the daughter of the nobleman Cynyr of Caer Goch.
+  - when: c. 500
+    title: Birth of Saint David
+    body: According to tradition, Non conceives after being assaulted by Sanctus (Sant), king of Ceredigion, and gives birth to David. The birth is placed atop a cliff during a violent storm.
+  - when: After David's birth
+    title: Ascetic life and monastic profession
+    body: Non is said to have lived celibately both before and after the birth, subsisting on bread and water alone, and to have become a nun at Ty Gwyn near Whitesands Bay in Pembrokeshire.
+  - when: Later life
+    title: Raising David and possible foundation at Llanon
+    body: Tradition holds that she raised David at Henfeynyw near Aberaeron and may have founded a convent at what is now called Llanon, a village named after her.
+  - when: End of life
+    title: Death at Dirinon, Brittany
+    body: Non is said to have travelled to Cornwall and then to Brittany, ending her days in a Breton convent. She died at Dirinon, some ten miles east of Brest, where she is buried and her shrine survives in the parish church.
+sections:
+  - heading: Historical Context and Sources
+    body:
+      - Almost all that is recorded of Non comes through the life of her son. The earliest substantial source is Rhigyfarch's Life of St David (c. 1095), composed at a remove of nearly six centuries from the events it describes, so much of the surviving account has the character of hagiographical tradition rather than contemporary record.
+      - Accounts differ on the circumstances of David's birth. Several traditions relate that Non was assaulted by Sanctus, king of Ceredigion, and conceived David as a result; other versions describe a chieftain named Sant or Sanctus as David's father, and disagree over whether the two were married before or after the birth. The tradition consistently emphasises Non's subsequent celibate and ascetic life.
+  - heading: Cult, Relics and Shrines
+    body:
+      - Non's veneration left a dense trail of dedications along the Welsh, Cornish, and Breton coasts. In Pembrokeshire, the Chapel of St Non (Capel Non) marks the traditional site of David's birth, with an associated holy well nearby; a chapel dedicated to Our Lady and Saint Non was built there in 1934. Multiple churches in Devon, Ceredigion, and Carmarthenshire bear her name.
+      - In Cornwall she is patroness of Pelynt, which has St Nonna's Holy Well, and St Nonna's Church stands at Altarnun; a further dedication is found at Bradstone in Devon. Her relics were initially venerated at Altarnun but were destroyed during the Reformation.
+      - Her shrine at Dirinon in Brittany, where tradition holds she died and was buried, can still be seen in the parish church.
+  - heading: Traditions and Legends
+    body:
+      - "Traditional Accounts: A vivid birth narrative attaches to the storm in which David was said to have been born. Tradition holds that Non's pain was so intense that her fingers left marks in the rock she grasped, and that the stone split asunder — in some versions struck by lightning — in sympathy with her labour. Legend adds that the broken pieces of rock became foundation stones for St David's Cathedral and St Non's Chapel."
+patronage:
+  - Pelynt, Cornwall
+  - Mothers
+  - Victims of assault
+sources:
+  - Wikipedia (Saint Non)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Saint_Non
+  - https://orthodoxwiki.org/Non_of_Wales
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Llanon is a village named after Non.
+    detail: Neither Wikipedia nor OrthodoxWiki explicitly states that Llanon is named after Non. Wikipedia calls it 'what is now called Llanon' without attribution; OrthodoxWiki merely mentions 'Llanon' as where David was raised. The naming claim is an unsupported inference.
+  - claim: The Chapel of St Non (Capel Non) marks the traditional site of David's birth.
+    detail: Wikipedia says 'The Chapel of St Non marks her birthplace at Capel Non in Pembrokeshire' — i.e., Non's birthplace, not David's. OrthodoxWiki says 'The birthplace in South Wales is now called Capel Non' without specifying whose birthplace. The profile reverses the attribution.
+  - claim: Non is patroness of Mothers.
+    detail: The dossier does not support this patronage. Wikipedia lists her as 'patroness of raped women and the village of Pelynt'; OrthodoxWiki makes no mention of patronage of mothers. 'Mothers' is an unsupported addition.

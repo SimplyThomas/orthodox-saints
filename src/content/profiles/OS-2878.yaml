@@ -1,0 +1,47 @@
+id: OS-2878
+lifespan: early 4th century (d. c. 302–311)
+liturgicalTitle: The Holy Martyr Cyriacus the Executioner, of Sebaste
+overview:
+  - Cyriacus (Kyriakos) was, according to Orthodox tradition, an executioner at Sebaste (Sebastea) in Cappadocia, Asia Minor, whose sudden confession of Christ at the scaffold turned him from executioner into martyr. His account survives not as an independent hagiography but embedded within the passion of Saint Antiochus the Physician of Sebaste, the martyr whose death he was appointed to carry out.
+  - The tradition relates that as Antiochus was beheaded, blood mixed with milk flowed from the wound. Moved by this sign and by the physician's guiltless suffering, Cyriacus openly confessed his own faith in Christ before all present and, in some accounts, denounced the governor and his idols. He was beheaded in his turn and buried beside Antiochus; the two are commemorated together on July 16.
+  - Because his story is preserved only within Antiochus's vita, the sources record little of Cyriacus's own life beyond his office and his conversion at the point of death. He is not separately attested in OrthodoxWiki or in the Prologue of Ohrid for July 16, and the surviving details are consistent across the Greek, Slavic, and Serbian calendar traditions.
+sections:
+  - heading: Martyrdom at Sebaste
+    body:
+      - "Antiochus of Sebaste, a physician and the brother of the Martyr Platon, was brought to trial when his Christian faith was discovered, and endured a series of tortures from which, the tradition holds, he emerged unharmed: he was thrown into boiling water yet remained uninjured, and exposed to wild beasts that instead lay peacefully at his feet. He was finally condemned to death by beheading."
+      - The Greek tradition, as preserved by the Mystagogy Resource Center, sets the confrontation before the governor Adrian in Galatia and describes Antiochus being suspended and burned, immersed in oil heated for seven days, and given to beasts, all without harm. At the execution, it records, blood mixed with milk ran from his neck.
+      - It was this miracle at the scaffold that occasioned Cyriacus's conversion. Appointed to take part in the execution, he witnessed the martyr's suffering and the sign that accompanied his death, and was converted to Christ. He confessed his faith in front of everyone and, by the Greek account, anathematized the governor Adrian and his idols. For this open declaration he was beheaded as Antiochus had been.
+  - heading: Burial and Commemoration
+    body:
+      - Christians buried the two martyrs side by side, and they are commemorated together on July 16. The joint burial and shared feast are noted uniformly across the OCA Synaxarion, the Holy Trinity Orthodox calendar, and the Serbian Orthodox calendar, each of which carries Cyriacus's account only as the closing episode of Antiochus's passion.
+  - heading: Miracles & Traditions
+    body:
+      - "Traditional Accounts: The central tradition attached to Cyriacus is the miracle that prompted his confession — that at Antiochus's beheading blood mixed with milk flowed from the wound, a sign the sources present as moving the executioner to faith. The accompanying wonders of Antiochus's passion (surviving boiling water and unharmed among beasts, and, by some accounts, the crumbling of pagan idols through his prayers) are related in the same traditional register."
+      - "Historically Documented: Beyond the shared liturgical commemoration on July 16 and the tradition of the two men's joint burial, the sources preserve no independently documented detail of Cyriacus's life."
+timeline:
+  - when: early 4th century
+    title: Executioner at Sebaste
+    body: Cyriacus serves as an official taking part in executions at Sebaste (Sebastea) in Cappadocia, during the persecution in which the physician Antiochus is condemned.
+  - when: at the martyrdom of Antiochus
+    title: Confession of Christ
+    body: Witnessing Antiochus's suffering and the sign of blood mixed with milk at his beheading, Cyriacus is converted and openly confesses Christ before all.
+  - when: same day
+    title: Beheading
+    body: Cyriacus is beheaded for his confession and buried beside Antiochus.
+  - when: July 16
+    title: Joint commemoration
+    body: Cyriacus is commemorated together with the Martyr Antiochus the Physician of Sebaste.
+patronage: []
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org), Jul 16
+  - https://www.oca.org/saints/all-lives/2026/07/16
+  - https://www.johnsanidopoulos.com/2016/07/holy-martyr-antiochos-physician-of.html
+  - https://www.holytrinityorthodox.com/calendar/los/July/16-03.htm
+  - https://www.crkvenikalendar.com/zitije_en.php?pok=0&id=ZBAK
+  - /home/tom/saints-db/src/content/profiles/OS-1537.yaml
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The lifespan field asserts a specific death date range of c. 302–311, implying the Diocletianic persecution.
+    detail: "No dossier source — anchor, OCA, Sanidopoulos, Holy Trinity, Serbian calendar, or OS-1537 — gives a specific date or date range for the martyrdom of Cyriacus or Antiochus. The anchor records only Era: Pre-Nicene and Century: 4th. The range 302–311 is invented precision not grounded in any source consulted."

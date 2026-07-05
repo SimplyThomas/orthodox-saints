@@ -1,0 +1,35 @@
+id: OS-2795
+lifespan: reposed 1587/1588
+overview:
+  - "Saint Anthony was Bishop of Vologda in northern Russia in the late sixteenth century, remembered as a monastic hierarch of holy life. Little of his biography is recorded in surviving English-language sources: no birth date, birthplace, or pre-episcopal history is attested, and he is commemorated chiefly for having given the episcopal blessing that authorized the founding of the Zaonikiev Monastery near his see."
+  - His feast is kept on October 26, with his repose additionally noted on January 17. Diocesan records place his episcopate from October 11, 1585 to October 26, 1587, though he is commonly recorded as reposing in 1588 — a discrepancy that may reflect the older Russian reckoning of the year from September 1.
+liturgicalTitle: Our Father among the Saints Anthony, Bishop of Vologda
+sections:
+  - heading: The Zaonikiev Monastery
+    body:
+      - Bishop Anthony is chiefly remembered in connection with the Zaonikiev Monastery of Saint Joseph, which arose in the forest near Vologda. According to the life of Saint Joseph of Zaonikiev, the wonderworking Zaonikiev Icon of the Mother of God appeared in 1588, healing Joseph, who then cleared the forest and built a chapel on the site of his ascetic labors.
+      - The synaxarion relates that it was with the blessing of Saint Anthony, Bishop of Vologda, that the monastery formally emerged on the place of Joseph's exploits — the bishop supplying the ecclesiastical authority that sanctioned the new community. The monastery's name is traced to a brigand named Anikios who had once dwelt in the forest; a monk named Anthony, distinct from the bishop, was later chosen as its igumen on the advice of Saint Joseph, who out of humility declined the abbatial office.
+  - heading: Sources & Uncertainty
+    body:
+      - No dedicated hagiographic narrative of Bishop Anthony himself survives in accessible English-language sources. He appears in the menaia and liturgical calendars as a bare commemorative entry, and in the fuller accounts only within the story of Saint Joseph of Zaonikiev, where he figures as the hierarch who blessed the monastery's founding.
+      - The firmest external anchor for his tenure is the succession list of the Diocese of Vologda, which gives his episcopate as October 11, 1585 to October 26, 1587. This entry serves as a genuine stub; the details of his life beyond his office and his role in the monastery's establishment are not attested.
+timeline:
+  - when: October 11, 1585
+    title: Consecrated Bishop of Vologda
+    body: Diocesan records place the beginning of Anthony's episcopate on this date.
+  - when: "1588"
+    title: Blessing of the Zaonikiev Monastery
+    body: Following the appearance of the wonderworking Zaonikiev Icon and the healing of Saint Joseph, Bishop Anthony gave the blessing under which the Zaonikiev Monastery formally emerged near Vologda.
+  - when: 1587/1588
+    title: Repose
+    body: Diocesan succession lists close his tenure on October 26, 1587, while he is commonly recorded as reposing in 1588; his repose is also noted on January 17.
+sources:
+  - https://orthodox.net/menaion/october.html
+  - https://en.wikipedia.org/wiki/October_26_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/January_17_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/Diocese_of_Vologda
+  - https://www.oca.org/saints/lives/2016/09/21/102686-venerable-joseph-of-zaonikiev-monastery-vologda
+  - https://www.johnsanidopoulos.com/2019/09/saint-joseph-of-zaonikiev-1612.html
+  - https://www.oca.org/saints/all-lives/0577/09/21
+status: draft
+generated: "2026-07-03"

@@ -1,0 +1,53 @@
+id: OS-2854
+lifespan: d. 1303
+overview:
+  - Blessed Procopius of Ustyug (also called Procopius of Lübeck) was a merchant from the German city of Lübeck who converted from Roman Catholicism to Eastern Orthodoxy and took up the ascetic discipline of folly for Christ at Veliky Ustyug. He is honoured in Russian tradition as the first fool-for-Christ of the Russian land.
+  - By tradition, Procopius came to Novgorod as a merchant and was so moved by the beauty of Orthodox worship that he forsook his wealth and former creed, receiving Orthodox baptism. He then abandoned commerce entirely and lived for roughly sixty years in voluntary poverty and self-abasement as a yurodivy, becoming renowned as a wonderworker.
+  - He reposed on July 8, 1303, at Veliky Ustyug. The Russian Orthodox Church canonized him at the Council of 1547, and his universal celebration was formally established in 1818.
+liturgicalTitle: Blessed Procopius, Fool-for-Christ and Wonderworker of Ustyug
+sections:
+  - heading: From Lübeck to Ustyug
+    body:
+      - Procopius was born in the Free City of Lübeck, within the Holy Roman Empire, though his exact birth date and worldly name are not reliably known. One tradition identifies him as Jacob Potharst, the son of a Lübeck merchant, but this identification is unconfirmed, and his surname, date, and place of birth remain uncertain.
+      - Originally a Roman Catholic merchant, he converted to Eastern Orthodox Christianity in the course of his travels. Coming to Veliky Ustyug in the Vladimir-Suzdal lands, he embraced the demanding path of folly for Christ, which he followed for approximately sixty years.
+  - heading: Prophecy and the Ustyug Storm
+    body:
+      - Procopius became known for miraculous insight. In 1290 he foretold a catastrophe near Veliky Ustyug, associated in the accounts with the fall of a meteorite, together with a tornado and conflagration in the same area. The synaxarion relates that on June 25, 1290, he prayed with intense fervour before an icon, seeking divine protection for the city of Ustyug before the disaster. His warning and intercession established his lasting reputation as a wonderworker.
+  - heading: Relics & Shrines
+    body:
+      - Procopius reposed on July 8, 1303, at Veliky Ustyug. His incorrupt relics were discovered in the eighteenth century near the Church of the Entrance of the Theotokos into the Temple in Veliky Ustyug and placed within the church, where they remained in open view for about two hundred years and were held to be the source of numerous healings.
+      - In the 1960s the Russian Orthodox Church Outside of Russia built St. Prokop Church in Hamburg, Germany, honouring this Lübeck-born saint in the land of his birth.
+timeline:
+  - when: "1290"
+    title: Prophecy of the Ustyug disaster
+    body: Procopius foretells a catastrophe near Veliky Ustyug, associated with a meteorite fall along with a tornado and conflagration, and (per the synaxarion) prays before an icon on June 25 for the city's protection.
+  - when: "1303"
+    title: Repose at Veliky Ustyug
+    body: Procopius dies on July 8 after roughly sixty years as a fool-for-Christ.
+  - when: "1547"
+    title: Canonization
+    body: The Russian Orthodox Church canonizes Procopius at the Council of 1547.
+  - when: 18th century
+    title: Discovery of the relics
+    body: His incorrupt relics are found near the Church of the Entrance of the Theotokos into the Temple in Veliky Ustyug and placed in open view, remaining so for about two hundred years.
+  - when: "1818"
+    title: Universal celebration established
+    body: His universal liturgical celebration is formally established.
+  - when: 1960s
+    title: St. Prokop Church, Hamburg
+    body: The Russian Orthodox Church Outside of Russia builds a church in Hamburg, Germany, honouring the Lübeck-born saint.
+patronage:
+  - Veliky Ustyug
+  - converts
+  - fools-for-Christ
+sources:
+  - OrthodoxWiki
+  - Wikipedia (Procopius of Ustyug)
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Procopius_of_Ustyug
+  - https://www.oca.org/saints/lives/2024/07/08
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Profile specifies he received Orthodox baptism as part of his conversion
+    detail: Neither the anchor nor any external source mentions baptism. The anchor says only that he 'forsook his wealth and former creed'; Wikipedia says only that 'he converted to Eastern Orthodox Christianity during his travels'. The specific sacramental mode of reception is not attested in the dossier — this is added specificity without grounding.
