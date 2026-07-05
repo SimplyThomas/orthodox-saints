@@ -2,7 +2,7 @@
    mailto: and open the visitor's mail app. No backend or secrets — the mail
    client does the sending. Mirrors the Claude Design "Contribute" mock. */
 
-const CONTACT = "shelby.e.krug@gmail.com";
+const CONTACT = "contact@orthodoxsaintfinder.com";
 
 const form = document.getElementById("cb-form") as HTMLFormElement | null;
 if (form) {
