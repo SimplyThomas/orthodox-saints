@@ -1,0 +1,49 @@
+id: FF-0065
+overview:
+  - The Circumcision of the Lord is the feast on which the Orthodox Church commemorates the circumcision of Jesus Christ on the eighth day after His Nativity, in accordance with the Law of Moses, and His reception of the name Jesus. It is kept on January 1, within the twelve days of the Nativity.
+  - The feast recalls the moment when, according to Jewish law, a newborn boy was circumcised on the eighth day and given his formal name. In submitting to a rite He Himself had given, Christ is shown to fulfill the Law rather than abolish it, and to have truly assumed human flesh.
+  - January 1 is a fast-free day. Though it commemorates an event in the life of the Lord, the feast is not counted among the Twelve Great Feasts, and it observes neither a forefeast nor an afterfeast. It falls together with the commemoration of St. Basil the Great, whose memory is closely joined to the day in liturgical practice.
+history:
+  - The biblical foundation of the feast is the Gospel of Luke, which records that when eight days were fulfilled for the circumcision of the child, He was named Jesus, the name given by the angel before His conception. The event follows the Jewish law requiring circumcision on the eighth day after birth, performed in a ceremony (the Brit Milah) at which the child also received his formal name.
+  - The feast is first recorded in connection with a church council held at Tours in 567, though it was evidently already long established by that date. In the East it came to be fixed on January 1, eight days after the Nativity of December 25, and there it stands without a forefeast or afterfeast period.
+  - Early Byzantine art treated the subject with reserve. Representations such as those in the Menologion of Basil II (979–984) showed Mary and Joseph with the infant Jesus outside a building as a priest approached with a knife, deliberately avoiding any graphic depiction of the rite itself. Depictions became more common in later Western altarpieces, and by the Renaissance the theme was widely painted. The art historian Leo Steinberg, in a study published in 1983, examined how late medieval artists increasingly displayed the humanity of Christ through explicit imagery as a theological statement, before Counter-Reformation decrees shifted artistic conventions.
+  - In the East the day has long been observed together with the commemoration of St. Basil the Great, whose feast coincides with it, so that the two celebrations are kept as one in the services and popular custom.
+meaning:
+  - The Church draws several interlocking themes from the feast. By submitting to circumcision, Christ demonstrated that He is the fullness and completion of the Old Covenant, keeping the divine ordinances He Himself had given. The circumcision and naming together mark the transition from the old covenant to the new, and remind Christians that they have entered into a New Covenant with God.
+  - The event also served an apologetic purpose. The Fathers teach that the Lord underwent circumcision so that no one could later doubt that He had truly assumed human flesh, directly countering heretical claims — particularly Docetism — that His incarnation was an appearance rather than a material reality. The rite confirmed the genuineness of His human body.
+  - "The feast commemorates two joined events: the Lord's circumcision and His reception of the name Jesus, which means Savior. In the naming the Church sees the beginning of Christ's saving work under the Law. The Epistle reading, from Colossians, connects this bodily rite to the spiritual transformation of believers, teaching that in Him the whole fullness of deity dwells bodily and that the faithful have come to fullness of life in Him."
+  - Tradition further reads the circumcision as the first shedding of Christ's blood, prefiguring the Passion, and connects the naming and the entry into covenant with Christian baptism. Throughout, the feast presents Christ's voluntary submission to the Law and to human custom despite His divine nature as an act of condescension and love for mankind.
+scripture:
+  - ref: Luke 2:21
+    note: The circumcision of the child on the eighth day and His naming as Jesus, the name given by the angel before His conception — the primary biblical account of the feast.
+  - ref: Colossians 2:9-11
+    note: "The Epistle reading, joining Christ's circumcision to the spiritual transformation of believers: in Him the fullness of deity dwells bodily."
+iconography:
+  - Early Byzantine images of the subject treated it with restraint. In representations such as those of the Menologion of Basil II (979–984), Mary and Joseph are shown with the infant Jesus outside a building as a priest approaches with a knife, the composition deliberately avoiding any graphic depiction of the rite itself. In the later Western tradition the scene became a common subject of altarpieces, and by the Renaissance was frequently painted.
+hymnography:
+  - The hymns of the feast celebrate Christ's voluntary submission to human custom despite His divine nature. The Troparion in the first tone addresses the Lord who willed to be born on earth of the unwedded handmaid, His Mother, and glorifies His condescension as the only Lover of mankind. The Kontakion in the third tone proclaims that the Lord of all accepts to be circumcised, and as the Good One excises the sins of mortal men; it also commemorates St. Basil the Great, whose feast coincides with the day.
+fastingPractice:
+  - January 1 is a fast-free day, falling within the twelve days of the Nativity.
+customs:
+  - In the Greek tradition the day is kept together with St. Basil the Great, marked by the cutting of the vasilopita (St. Basil's bread), in which a coin is baked.
+timeline:
+  - when: "567"
+    title: First recorded at the Council of Tours
+    body: The feast is first recorded in connection with a church council held at Tours, though it was evidently already long established by that date.
+  - when: 979–984
+    title: Menologion of Basil II
+    body: An early Byzantine depiction shows Mary and Joseph with the infant Jesus outside a building as a priest approaches, avoiding graphic depiction of the rite.
+related:
+  - name: St. Basil the Great
+    note: Commemorated on January 1 together with the feast; in the Greek tradition the day is kept jointly, with the cutting of the vasilopita.
+    href: saint/OS-0021
+sources:
+  - OCA Synaxarion (oca.org)
+  - Greek Orthodox Archdiocese (goarch.org)
+  - https://en.wikipedia.org/wiki/Circumcision_of_Christ
+  - https://orthodoxwiki.org/Circumcision_of_our_Lord
+status: flagged
+generated: "2026-07-05"
+flagReasons:
+  - claim: The Kontakion passage closely reproduces a specific liturgical translation nearly verbatim rather than describing the hymn theme.
+    detail: Possible copyrighted liturgical translation (§9). The phrase 'the Lord of all accepts to be circumcised, and as the Good One excises the sins of mortal men' reproduces nearly verbatim the Kontakion text quoted in the external Orthodox Wiki source ('The Lord of all accepts to be circumcised, Thus, as He is good, excises the sins of mortal men'). This reads as a quoted liturgical translation rather than a described theme or short incipit, and its provenance/copyright status is unverified. The profile should describe the Kontakion's theme without reproducing its translated text.

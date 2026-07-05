@@ -1,0 +1,39 @@
+id: FF-0064
+overview:
+  - The Sunday of All Saints of the Local Church is an observance kept on the second Sunday after Pentecost, on which many local autocephalous Orthodox Churches commemorate all the saints, known and unknown, who have shone forth within their own territory. It falls immediately after the universal Sunday of All Saints, which is kept on the first Sunday after Pentecost.
+  - Rather than a single fixed feast, this commemoration is a shared liturgical pattern expressed under many local titles. Concrete examples include All Saints of Russia, All Saints of North America, All Saints of Romania, All Saints of Serbia, All Saints of Georgia, All Saints of Bulgaria, and All Saints of Mount Athos, each kept by the Church of its own land or monastic community.
+  - As a Pascha-dependent observance it moves with the paschal cycle, always falling on the second Sunday after Pentecost, and it belongs to the closing arc of the Pentecostarion season that turns toward ordinary time after Pentecost.
+history:
+  - The commemoration of All Saints as a collective feast has ancient roots. The Eastern Orthodox Church observes All Saints on the Sunday following Pentecost rather than on November 1. A homily of St. John Chrysostom from the late fourth or early fifth century — numbered the 74th in his corpus — attests the observance of a feast of all the martyrs on the first Sunday after Pentecost. The commemoration gained greater prominence during the reign of the Byzantine emperor Leo VI (866–911), when it expanded from honoring only the martyrs to honoring all the saints.
+  - From this universal Sunday of All Saints there developed the practice by which each local Orthodox Church commemorates its own saints on the following Sunday. On the second Sunday after Pentecost the various national and territorial Churches keep a synaxis under titles such as All Saints of Romania, All Saints of America, or All Saints of the Holy Mountain, acknowledging their regional spiritual traditions. This pattern is attested for Russia, Romania, Serbia, Georgia, Bulgaria, and Mount Athos, among others.
+  - "The Orthodox Church in America keeps this tradition on the second Sunday after Pentecost as the Synaxis of All Saints of North America, remembering both recognized and lesser-known holy figures of the region. In some places the commemoration is extended further: a third Sunday after Pentecost may be used for still more localized groups of saints, and Saturdays throughout the year are also designated as general days for commemorating all the saints."
+  - The observance sits at the close of the Pentecostarion, the liturgical season running from Pascha to Pentecost and its aftermath. That season ends with the universal All Saints Sunday, after which the local All Saints commemorations follow and ordinary time resumes. The Apostles' Fast begins on the Monday after the first Sunday after Pentecost, so the local All Saints Sunday falls within the early days of that fast.
+meaning:
+  - "The placement of All Saints immediately after Pentecost expresses a theological sequence: the descent of the Holy Spirit upon the apostles bears fruit in the sanctification of human lives across every age and nation. The universal commemoration on the first Sunday after Pentecost honors the whole body of the saints; the local commemoration on the second Sunday shows that same holiness taking root in a particular land, people, or monastic community."
+  - By keeping its own saints, each local Church confesses that sanctity is not abstract but incarnate in real places and histories. The commemoration deliberately embraces saints of all times and every country, including both those formally recognized and the lesser-known and unknown, affirming that holiness extends far beyond the names the Church has been able to record.
+  - The observance also reflects the Orthodox understanding of Pentecost itself. In Orthodox theology Pentecost marks not the Church's beginning but the manifestation of the Holy Spirit's power, the bestowal of charismatic gifts upon the apostles to fulfill Christ's redemptive mission. The saints of each land are the continuing evidence of that gift, the visible harvest of the Spirit within a particular tradition's history.
+timeline:
+  - when: late 4th–early 5th c.
+    title: Chrysostom's homily on the martyrs
+    body: The 74th homily attributed to St. John Chrysostom attests a feast of all the martyrs kept on the first Sunday after Pentecost.
+  - when: reign of Leo VI (886–912)
+    title: Expansion to all the saints
+    body: Under the Byzantine emperor Leo VI (866–911) the commemoration grew from honoring only the martyrs to honoring all the saints, gaining greater prominence.
+hymnography:
+  - To the ordinary Sunday services of the day are added special scriptural readings and hymns addressed to all the saints, both known and unknown. In its local form the commemoration draws on hymns proper to the saints of the particular Church — the holy men and women of a given land or monastic mountain — sung alongside the resurrectional material of the Sunday.
+fastingPractice:
+  - The observance falls within the opening days of the Apostles' Fast, which begins on the Monday after the first Sunday after Pentecost. As a Sunday, however, the day itself carries the festal relaxation customary for the Lord's Day. Typikon prescriptions for the Apostles' Fast vary between traditions, and the faithful are directed to consult their own parish and spiritual father.
+customs:
+  - Each local autocephalous Church keeps the commemoration under its own title — for example the Synaxis of All Saints of Russia, of North America, of Romania, of Serbia, of Georgia, of Bulgaria, or of Mount Athos — honoring the saints of its own territory.
+sources:
+  - oca.org
+  - goarch.org
+  - en.wikipedia.org
+  - https://www.oca.org/saints/lives/2024/07/07
+  - https://en.wikipedia.org/wiki/Pentecostarion
+  - https://en.wikipedia.org/wiki/All_Saints%27_Day
+status: flagged
+generated: "2026-07-05"
+flagReasons:
+  - claim: The timeline 'when' field gives Leo VI's reign as '(886–912)', conflicting with the history text's '(866–911)' and not supported by any dossier item
+    detail: No dossier external item gives '886–912' for Leo VI. The only dossier source (Wikipedia All Saints Day) gives '(866-911)'. The profile's own history paragraph uses '(866–911)'. The timeline 'when' value '(886–912)' is internally inconsistent and unsupported.

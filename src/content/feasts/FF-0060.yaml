@@ -1,0 +1,50 @@
+id: FF-0060
+overview:
+  - The Sunday of the Fathers of the First Ecumenical Council is a movable observance kept on the seventh Sunday of Pascha, the Sunday after the Ascension of the Lord and before Pentecost. It honors the bishops — traditionally numbered as 318 — who gathered at Nicaea in 325 to confess the Son of God as consubstantial with the Father and to give the Church the Creed that bears the council's name.
+  - Falling in the days between Ascension and Pentecost, the commemoration sets the labor of the Council within the interval when the Church awaits the descent of the Holy Spirit, remembering the shepherds who defended the apostolic faith. The appointed Gospel is Christ's high-priestly prayer for the unity of His disciples (John 17:1-13), joining the Fathers' work to the Lord's own petition that His followers be one.
+  - Because it is anchored to Pascha, the observance shifts each year; in the Church's paschal reckoning it falls on the forty-second day after Pascha.
+history:
+  - The First Council of Nicaea convened in the Bithynian city of Nicaea (modern İznik, in present-day Turkey) in 325, traditionally opening on May 20, with formal sessions beginning after the arrival of the Emperor. It was the first attempt to summon a general council of the whole Church. The Roman Emperor Constantine I, who is commemorated by the Church as Saint Constantine the Great, issued the call to bishops across the empire and provided imperial transportation and financial support for those who attended, relocating the meeting to Nicaea for easier participation. Constantine sought unity across the Roman Empire and presided over sessions.
+  - The council was summoned in response to a theological dispute that had arisen in Alexandria between Archbishop Alexander and the presbyter Arius concerning the nature of Jesus and His relationship to God the Father. Arius taught that the Father alone was eternal and that the Son was created or begotten by the Father, having a defined point of origin and being subordinate to the Father. Saint Alexander of Alexandria had already addressed the teaching at a local council around 320-321 that condemned Arius, but the controversy had passed beyond the possibility of local control, prompting Constantine to seek a comprehensive solution through an ecumenical council.
+  - Estimates of the number of bishops present vary, with figures ranging from roughly 218 to 250, but the traditional number came to be fixed at 318 — a figure of mystical significance to early Christians. The bishops were drawn predominantly from the Eastern churches; only a handful of Western bishops attended, among them Hosius of Corduba (Cordova), who likely presided as Constantine's representative, together with papal legates. Among the notable participants were the young deacon Athanasius of Alexandria, the principal opponent of Arius, along with Saint Nicholas of Myra and Saint Spyridon of Tremithous (Trimythous). Eusebius of Nicomedia and Eusebius of Caesarea were counted among the supporters of Arius.
+  - The council formulated a creed declaring that Christ is 'begotten, not made' and 'of one substance with the Father,' introducing the Greek term homoousios (of one essence) to clarify that the Son of God is of one essence with the Father and to replace ambiguous biblical language open to Arian interpretation. The creed concluded with anathemas rejecting the claims that 'there was once when he was not' and that the Son was mutable or subject to change. Nearly all the assembled bishops signed; Arius and two dissenting bishops, Theonas and Secundus, refused the creed and were sent into exile and excommunicated, and Constantine ordered Arius's writings confiscated and burned.
+  - As a secondary matter, the council resolved that the calculation of Easter (Pascha) should be independent of the Jewish calendar, adopting the reckoning in use at Rome and Alexandria — the celebration of Pascha on the first Sunday after the first full moon following the vernal equinox. The council also promulgated a body of canons — variously counted as twelve or twenty — addressing ecclesiastical discipline, including the ordination of clergy, synodal meetings, penance, jurisdiction, and sacramental validity, establishing a precedent for later ecumenical councils to adopt creeds and canons together.
+meaning:
+  - "Through this commemoration the Church remembers the Fathers of Nicaea as the God-bearing shepherds who guarded the apostolic confession of Christ against the Arian teaching that denied His full divinity. The central questions the council faced concerned the nature of the Son and His relationship to the Father: whether the Son had always existed eternally with the Father or was created at some point, and whether He was equal to the Father or subordinate to Him. Arius affirmed subordination and temporal creation; the Fathers confessed the Son's eternal coexistence and equality with the Father."
+  - The decisive word inserted into the Symbol of Faith was homoousios — 'consubstantial,' 'of one essence' — affirming that Jesus Christ is true God, co-eternal and consubstantial with God the Father. By this term the council definitively rejected Arianism and its degradation of the Son's status, which Orthodox theologians, and Athanasius above all, held to undermine the divine equality within the Godhead. The Creed thus safeguarded the Church's teaching that the salvation accomplished in Christ is the work of one who is himself fully God.
+  - "The appointed Gospel, Christ's high-priestly prayer that His disciples 'may be one' (John 17:1-13), gives the feast its interior sense: the Fathers' defense of the true confession is presented as service to the unity for which the Lord prayed, since the internal strife of heresy, in Constantine's own words to the council, is more ruinous than external threats. Kept in the days between Ascension and Pentecost, the observance holds the memory of the Church's teachers before the faithful as they await the coming of the Spirit who leads the Church into all truth."
+timeline:
+  - when: c. 320-321
+    title: Local council at Alexandria
+    body: Saint Alexander, Bishop of Alexandria, addresses the teaching of the presbyter Arius through a local council that condemns him; the controversy soon spreads beyond local control.
+  - when: "325"
+    title: First Ecumenical Council at Nicaea
+    body: Summoned by Emperor Constantine I and traditionally opening on May 20, the council gathers the bishops (traditionally numbered 318) at Nicaea, formulates the Creed with the term homoousios, condemns Arianism, exiles Arius, sets the reckoning of Pascha, and issues canons of ecclesiastical discipline.
+scripture:
+  - ref: John 17:1-13
+    note: "The appointed Gospel: Christ's high-priestly prayer for the unity of His disciples."
+related:
+  - name: Emperor Constantine the Great
+    note: Roman Emperor who summoned and presided over the First Ecumenical Council at Nicaea in 325.
+    href: saint/OS-0037
+  - name: Athanasius of Alexandria
+    note: The young deacon at the council who conclusively refuted the teaching of Arius; principal anti-Arian figure.
+  - name: Nicholas of Myra
+    note: Bishop remembered among the Fathers present at Nicaea.
+  - name: Spyridon of Tremithous
+    note: Bishop remembered among the Fathers present at Nicaea.
+  - name: Alexander of Alexandria
+    note: Archbishop whose dispute with the presbyter Arius occasioned the council.
+sources:
+  - oca.org
+  - goarch.org
+  - https://en.wikipedia.org/wiki/First_Council_of_Nicaea
+  - https://orthodoxwiki.org/First_Ecumenical_Council
+  - https://www.oca.org/saints/lives/2025/06/01/102023-sunday-of-the-holy-fathers-of-the-first-ecumenical-council
+  - https://www.newadvent.org/cathen/11044a.htm
+  - https://en.wikipedia.org/wiki/Arianism
+status: flagged
+generated: "2026-07-05"
+flagReasons:
+  - claim: The profile states the attendance range is 'roughly 218 to 250' bishops, but external 1 (Wikipedia) gives 'approximately 250-318 bishops' and external 4 (New Advent) gives 'Approximately 218-237.' The profile's upper bound of 250 is actually the *lower* bound of external 1's range, misrepresenting that source's estimate.
+    detail: External 1 states 'approximately 250-318 bishops'; external 4 states 'Approximately 218-237.' No dossier source gives a range of 218-250. The profile conflates these two sources in a way that suppresses the upper end (318) documented in external 1, producing a range not attested in any dossier item.

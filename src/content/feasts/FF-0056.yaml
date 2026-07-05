@@ -1,0 +1,50 @@
+id: FF-0056
+overview:
+  - Mid-Pentecost, also called Midfeast or Meso-Pentecost, is an observance of the Paschal season kept on the Wednesday that falls exactly midway between Pascha and Pentecost — the twenty-fifth day after Pascha, the fourth Wednesday after the feast of the Resurrection. Standing at the center of the fifty days, it joins the theme of the empty tomb to the coming descent of the Holy Spirit.
+  - The feast draws its name and its principal Gospel from Christ's teaching in the Temple. The reading recounts how, about the middle of the Jewish feast of Tabernacles, Jesus went up and taught, and how He called the thirsty to come to Him for living water. The observance thus celebrates Christ as Teacher, the Messiah who reveals Himself in the midst of the feast.
+  - Though it carries an afterfeast of seven days and is reckoned a Feast of the Lord, Mid-Pentecost does not rank among the Great Feasts of the church year. Its texts are drawn from the Pentecostarion, the book of propers for the period between Pascha and Pentecost, and its hymns blend with the other Paschal-season services through the eight days of its celebration.
+history:
+  - No documented testimony survives regarding the feast's precise origins, but it was widely known by the fifth century. Peter Chrysologus, Bishop of Ravenna (c. 380-450), described it as a divine festival received from the tradition of the apostolic fathers. It also appears in a homily attributed to John Chrysostom, in sixth-century Antioch under Severus of Antioch, in seventh-century Jerusalem, and in sixth-century Constantinople through a homily by Leontios.
+  - "A succession of Church fathers contributed the liturgical texts still associated with the feast: Patriarch Elias of Jerusalem (494-513), Patriarch Anatolios of Constantinople (449-458), Andrew of Crete in the seventh century, John of Damascus in the eighth, and Theophan the Confessor in the ninth."
+  - Before the tenth century the appointed Gospel was John 9:1-14, the healing of the man born blind. This was later replaced with John 7:14-30, on account of its phrase 'about the middle of the feast,' which originally referred to the Jewish feast of Tabernacles and matched the day's midpoint character.
+  - The feast was also observed in Western rites, including the Ambrosian tradition, but never took full hold there. Its Western observance declined after the establishment of the feast of the Ascension, which appears to have absorbed the need for a separate Mid-Pentecost celebration in the West.
+  - In Constantinople, Mid-Pentecost was bound to the great cathedral of Hagia Sophia, which was dedicated to the Wisdom of God, the Second Person of the Holy Trinity, and kept the feast as its altar feast. Emperor Constantine Porphyrogennetos recorded that the celebration lasted eight days. The imperial ceremony was originally held at the Church of Saint Mokios, but after an assassination attempt on Emperor Leo VI there in 903, it was relocated to Hagia Sophia, permanently connecting the great church with the observance.
+meaning:
+  - The theological heart of the feast is Christ's declaration in the Temple, 'If anyone thirst, let him come to Me and drink.' Through this word the Church proclaims Christ as the source of eternal life and spiritual sustenance — the Wellspring of life and the source of immortality for all who believe. The water He offers signifies both His own living water and the life-giving gifts of the Holy Spirit soon to be poured out at Pentecost.
+  - "Set at the midpoint of the fifty days, the feast binds the two great celebrations it stands between: it looks back to the Resurrection and forward to the descent of the Spirit. In this way its central image of water carries a double sense — Christ as the true living water, and the Spirit whose gifts flow to the faithful."
+  - The feast also celebrates Christ as Teacher, emphasizing His role as Rabbi. Beyond the Temple discourse of John's Gospel, the theme draws on the account of the twelve-year-old Jesus in the Temple discussing the Scriptures with the elders. According to the synaxarion, Christ had shortly before healed a paralytic on the Sabbath, and then at the feast of Tabernacles taught in Jerusalem despite opposition, revealing His identity as the Messiah and mediator between humanity and God the Father.
+scripture:
+  - ref: John 7:14-30
+    note: "The principal Gospel: Christ teaching in the Temple about the middle of the feast; from the tenth century onward, replacing the earlier reading of John 9:1-14."
+  - ref: John 7:37
+    note: "'If anyone thirst, let him come to Me and drink' — the verse to which the feast's liturgy appeals."
+  - ref: Acts 14:6-18
+    note: The appointed Apostolic reading.
+  - ref: Luke 2:46-47
+    note: The twelve-year-old Jesus in the Temple among the elders, informing the feast's theme of Christ as Teacher.
+iconography:
+  - The festal icon depicts the young Jesus in the Temple at Jerusalem, seated in conversation with the elders. In traditional Orthodox depictions Jesus is rendered notably larger than the elders around Him, a compositional device signifying His superior spiritual status.
+hymnography:
+  - The propers of the feast are drawn from the Pentecostarion, the book of texts for the season between Pascha and Pentecost, and its hymns blend with the Paschal-season services throughout the eight days of the celebration. The troparion anticipates the commemoration of the Samaritan Woman, kept on the following Sunday, again on the theme of living water. The liturgical texts were composed and shaped by a series of hymnographers, among them Patriarch Elias of Jerusalem, Patriarch Anatolios of Constantinople, Andrew of Crete, John of Damascus, and Theophan the Confessor.
+customs:
+  - A Small Blessing of the Waters (Lesser Blessing of Water) traditionally follows the main liturgy, in a rite of processing from the church to a spring or source of water, a practice the Church connects to Old Testament usage.
+  - An all-night vigil may be celebrated in some places, though it is not required by the Typicon.
+sections:
+  - heading: The altar feast of Hagia Sophia
+    body:
+      - The great cathedral of Hagia Sophia in Constantinople was dedicated to the Wisdom of God, the Second Person of the Holy Trinity, and kept Mid-Pentecost as its altar feast. The church's own annual commemoration was originally observed near Christmas, coinciding with its inaugurations (December 27, 537, and December 24, 563 after the reconstruction of the dome), and was kept on December 23 by traditional record.
+      - Later scholarship has suggested that churches dedicated to the Wisdom of God should properly observe Mid-Pentecost as their feast, and the church's own hymnography indicates this was long the case. After the assassination attempt on Emperor Leo VI in 903 at the Church of Saint Mokios, the previous venue of the imperial ceremony, the celebration was moved to Hagia Sophia, elevating its status and binding the great church permanently to the feast.
+sources:
+  - oca.org
+  - goarch.org
+  - https://en.wikipedia.org/wiki/Mid-Pentecost
+  - https://www.johnsanidopoulos.com/2018/05/history-of-feast-of-mid-pentecost.html
+  - https://www.johnsanidopoulos.com/2011/05/feast-of-mid-pentecost.html
+  - https://www.johnsanidopoulos.com/2011/05/mid-pentecost-and-hagia-sophia.html
+status: flagged
+generated: "2026-07-05"
+flagReasons:
+  - claim: The feast falls on 'the twenty-fifth day after Pascha,' implying P+25.
+    detail: The anchor's Begins token is P+24, meaning 24 days after Pascha. 'The twenty-fifth day after Pascha' literally reads as P+25. Wikipedia describes it as 'the 25th day after Easter' counting Pascha itself as day 1 (= P+24). The profile's phrasing conflicts with the anchor's validated date token of P+24.
+  - claim: Mid-Pentecost 'is reckoned a Feast of the Lord.'
+    detail: The anchor's Category field is 'Observance,' not 'Feast of the Lord.' The profile's claim that it is 'reckoned a Feast of the Lord' directly contradicts the anchor, which is the ground truth for the controlled-vocabulary Category. Wikipedia's phrasing ('ranking as a Feast of the Lord') comes from the external source, but the anchor wins per the verification rules.

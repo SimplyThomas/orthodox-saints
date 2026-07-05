@@ -1,0 +1,44 @@
+id: FF-0029
+overview:
+  - Meatfare Sunday, also known as the Sunday of the Last Judgment, is a pre-Lenten observance of the Orthodox Church whose appointed Gospel reading, Matthew 25:31–46, proclaims Christ's Last Judgment, in which the Son of Man, seated in glory and surrounded by the angels, parts the sheep from the goats according to their works of mercy. On the New (Revised Julian) calendar the day falls on P‒56, two weeks before Great Lent begins on Clean Monday.
+  - 'It is the third of the preparatory Sundays leading into Great Lent and is served from the Lenten Triodion, the liturgical book that governs the Lenten services. The name "Meatfare" marks its practical significance: it is the last day on which meat is eaten before Pascha, after which the faithful enter the transitional week that immediately precedes the fast.'
+  - The observance joins a doctrinal theme—the General Judgment of all humanity—to a disciplinary one—the final relaxation before the intensifying pre-Lenten diet—so that the Church's remembrance of the age to come coincides with the beginning of the body's preparation for the fast.
+history:
+  - "Meatfare Sunday occupies the third position among the preparatory Sundays of the Lenten cycle, arriving before the start of Great Lent on Clean Monday. From this day forward the services are drawn from the Lenten Triodion, and the pre-Lenten Sundays each carry a distinct emphasis within Orthodox practice: tradition distinguishes the weeks of preparation, which exercise the mind, from the fasting of Great Lent, which focuses on the body, and from the services of Holy Week, which exercise the spirit."
+  - The day takes its practical name from the discipline that follows it. Meatfare Sunday is the final day before Great Lent on which the eating of meat is permitted; in the week after Meatfare Sunday—known in the Slavic tradition as Maslenitsa, and elsewhere as Cheesefare week—meat is set aside while eggs, fish, and dairy remain permitted on any day. This gradual progression eases the faithful into the stricter disciplines of the fast that begins the following week.
+  - "The eschatological doctrine that the day proclaims is ancient and, according to the tradition, has been held at all times and in all places within the Church. The General Judgment appears as an article in the major ancient creeds—the Apostles' Creed, the Nicene Creed, and the Athanasian Creed—and patristic testimony from the first four centuries is described as clear and unanimous on the matter. The Church distinguishes two judgments: the particular judgment experienced by each person at death, associated with the fortieth day after repose, and the General or Final Judgment that follows the Second Coming."
+meaning:
+  - The spiritual emphasis of the day is set by its Gospel, Matthew 25:31–46, the parable of the sheep and the goats. Through this reading the Church teaches that salvation requires more than witnessing Christ or recognizing one's own need for redemption; it demands actively following Christ and serving Him through others. The liturgy stresses that the final judgment will rest upon deeds rather than upon intentions alone—the feeding of the hungry, the clothing of the naked, and the visiting of the sick and imprisoned, done or left undone toward "the least of these."
+  - "In the Orthodox understanding, this judgment is presented not as punitive torture but as humanity's own response to the presence of God. Those who love God experience the resurrection and His presence as paradise, while those who reject Him experience the same presence as torment. God's justice and His love are thus held together: He desires the salvation of all, yet respects human freedom to refuse communion with Him. Salvation is confessed as a free gift of divine grace, even as individual deeds bear significantly upon how each person is judged."
+  - The doctrine of the General Judgment that the day proclaims runs throughout Scripture. Christ Himself foretells the event, and the Apostles emphasize it in their letters. The judgment is taught to embrace all people and all deeds—good and bad, forgiven and unforgiven—with Christ appearing as Judge, seated upon a cloud and surrounded by the hosts of angels. Placed on the threshold of the fast, the observance sets the coming of the age to come before the faithful as the horizon against which Lenten repentance is undertaken.
+scripture:
+  - ref: Matthew 25:31-46
+    note: 'The appointed Gospel: Christ''s Last Judgment, separating the sheep from the goats according to works of mercy toward "the least of these"; the day''s liturgical focus.'
+  - ref: Matthew 24:27
+    note: Christ foretelling the coming of the Son of Man.
+  - ref: Romans 2:5-16
+    note: Apostolic teaching on the day of judgment.
+  - ref: 1 Corinthians 4:5
+    note: Judgment revealing the hidden things of the heart.
+  - ref: 2 Corinthians 5:10
+    note: All appearing before the judgment seat of Christ.
+iconography:
+  - Orthodox icons of the Last Judgment share a set of distinctive compositional elements. Christ is seated at the center, flanked by angels and by the Virgin Mary and John the Evangelist in a Deesis group. Saint Michael is shown weighing the deceased or directing the proceedings, while the dead rise from their graves at the base of the composition. The saved are led toward heaven, depicted as a fortified gateway, and the damned are herded toward hell by demons. A characteristic river of fire, rendered as a serpent-like band, descends from Christ's feet toward hell, and the figures of Adam and Eve are often shown below Christ or the empty throne prepared for judgment (the hetoimasia).
+fastingPractice:
+  - Meatfare Sunday is the last day on which meat is eaten before Pascha. In the week that follows—called Maslenitsa in the Slavic tradition and Cheesefare week elsewhere—the Church's practice sets meat aside while permitting eggs, fish, and dairy on any day of the week. This transitional week forms a gradual step toward the stricter disciplines that begin with Great Lent, so that the fast is entered by degrees rather than all at once. Practice and typikon prescriptions vary by tradition; the faithful are directed to their own priest for how the discipline is kept.
+customs:
+  - The eating of meat ceases after Meatfare Sunday; it is the last day meat is permitted before Great Lent.
+  - In the following week (Maslenitsa in the Slavic tradition, Cheesefare week elsewhere), eggs, fish, and dairy remain permitted on any day while meat is set aside.
+sources:
+  - OCA
+  - GOARCH
+  - https://orthodoxwiki.org/Meatfare_Sunday
+  - https://orthodoxwiki.org/Triodion
+  - https://www.newadvent.org/cathen/08552a.htm
+  - https://www.oca.org/orthodoxy/the-orthodox-faith/doctrine-theology/the-last-things/judgment
+  - https://en.wikipedia.org/wiki/Last_Judgment
+status: flagged
+generated: "2026-07-05"
+flagReasons:
+  - claim: Meatfare Sunday falls on P-56, two weeks before Great Lent begins on Clean Monday.
+    detail: The anchor confirms Begins = P-56. Clean Monday (start of Great Lent) is P-48. P-56 to P-48 is 8 days — one week and one day — not two weeks (14 days). The 'two weeks before' description is arithmetically inconsistent with the anchor's own date token.
