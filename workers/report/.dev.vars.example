@@ -1,0 +1,4 @@
+# Copy to `.dev.vars` for local `wrangler dev`. NEVER commit the real .dev.vars.
+# These mirror the production secrets (set in prod via `wrangler secret put`).
+GITHUB_TOKEN="github_pat_xxx_your_fine_grained_token"
+TURNSTILE_SECRET_KEY="0x4AAAAAAA_your_turnstile_secret"

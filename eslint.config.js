@@ -17,6 +17,8 @@ export default [
       "design_handoff_cloud_of_witnesses/",
       // Python virtualenv — not project code.
       ".venv/",
+      // Cloudflare Worker — its own package/toolchain, not the Astro frontend.
+      "workers/",
     ],
   },
   js.configs.recommended,
