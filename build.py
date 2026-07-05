@@ -29,6 +29,7 @@ import unicodedata
 import urllib.parse
 from pathlib import Path
 
+import feastlib
 import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
@@ -1549,7 +1550,9 @@ def copy_web():
 # Emit xlsx
 # --------------------------------------------------------------------------- #
 def emit_xlsx(header: list[str], rows: list[dict[str, str]],
-              vocab: dict[str, set[str]]):
+              vocab: dict[str, set[str]],
+              feasts_header: list[str] | None = None,
+              feasts_rows: list[dict[str, str]] | None = None):
     from openpyxl import Workbook
     from openpyxl.styles import Font
 
@@ -1564,6 +1567,15 @@ def emit_xlsx(header: list[str], rows: list[dict[str, str]],
     for r in rows:
         ws.append([r[c] for c in header])
     ws.freeze_panes = "A2"
+
+    if feasts_rows:
+        fs = wb.create_sheet("Feasts & Fasts")
+        fs.append(feasts_header)
+        for cell in fs[1]:
+            cell.font = Font(bold=True)
+        for r in feasts_rows:
+            fs.append([r[c] for c in feasts_header])
+        fs.freeze_panes = "A2"
 
     vs = wb.create_sheet("Controlled Vocabulary")
     vs.append(["category", "term"])
@@ -1625,6 +1637,7 @@ def main() -> int:
 
     vocab = load_vocab()
     header, rows = load_saints()
+    f_header, f_rows = feastlib.load_feasts()
 
     # The priority report is a read-only authoring aid: validate quietly so the
     # ranking reflects the committed data, but never write files or assign IDs.
@@ -1639,9 +1652,15 @@ def main() -> int:
     if not args.check_only:
         if assign_ids(rows):
             write_saints(header, rows)
+        if feastlib.assign_ids(f_rows):
+            feastlib.write_feasts(f_header, f_rows)
 
     conn = build_db(header, rows, vocab)
     errors, warnings = validate(header, rows, vocab)
+    saint_ids = {r["Saint ID"].strip() for r in rows}
+    f_errors, f_warnings = feastlib.validate(f_rows, vocab, saint_ids)
+    errors.extend(f_errors)
+    warnings.extend(f_warnings)
 
     # Finder-coverage nudges are bulk and low-signal; summarize them. Other
     # warnings (e.g. possible duplicate saints) are surfaced individually.
@@ -1658,7 +1677,7 @@ def main() -> int:
             print(f"  ERROR: {e}", file=sys.stderr)
         return 1
 
-    print(f"VALIDATION CLEAN — {len(rows)} saints, "
+    print(f"VALIDATION CLEAN — {len(rows)} saints, {len(f_rows)} feasts, "
           f"{len(warnings)} warning(s), 0 errors.")
 
     report_coverage(rows)
@@ -1667,16 +1686,17 @@ def main() -> int:
         return 0
 
     if args.xlsx_only:
-        emit_xlsx(header, rows, vocab)
+        emit_xlsx(header, rows, vocab, f_header, f_rows)
         return 0
 
     records = emit_data_json(rows)
     emit_themes_json(records)
     emit_groups_json()
+    feastlib.emit_feasts_json(f_rows)
     copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
-        emit_xlsx(header, rows, vocab)
+        emit_xlsx(header, rows, vocab, f_header, f_rows)
     if args.sqlite:
         emit_sqlite(conn)
 
