@@ -1,0 +1,33 @@
+id: OS-2889
+lifespan: died 4 March 1299
+overview:
+  - Basil was the abbot (igumen) of the Savior-Transfiguration Mirozh Monastery at Pskov, in north-western Rus', during the thirteenth century. He is venerated as a hieromartyr for his death in the burning of his monastery during a Livonian raid on 4 March 1299.
+  - He is commemorated together with Saint Joasaph, abbot of the neighbouring Snetogorsk Monastery, the two being remembered as hieromartyrs of the most ancient of the Pskov monasteries who suffered in the same assault.
+liturgicalTitle: The Holy Hieromartyr Basil, Abbot of the Mirozh Monastery
+sections:
+  - heading: The Mirozh Monastery
+    body:
+      - The Savior-Transfiguration Mirozh Monastery had been founded in 1156 by Saint Niphon, Bishop of Novgorod, together with Saint Abraham of Mirozh. It stood outside the city walls of Pskov, at the point where the Mirozha River joins the left bank of the Velikaya. Basil directed this house as its abbot.
+      - The monastery is renowned for its Transfiguration Cathedral, one of only two surviving pre-Mongol buildings in Pskov, celebrated for its twelfth-century frescoes. In 2019 the monastery was inscribed as part of the UNESCO World Heritage Site of the Churches of the Pskov School of Architecture.
+  - heading: Martyrdom
+    body:
+      - On 4 March 1299 forces of the Livonian Order attacked Pskov and set fire to the undefended monasteries lying outside the city walls, among them Mirozh and Snetogorsk. In the burning of the church, Basil, the abbot Joasaph, and other monks endured an agonizing death.
+      - The assault prompted Prince Dovmont-Timothy to lead a military response, defeating the invaders in a battle by the river near Pskov. Dovmont afterward funded a replacement stone church and supported the restoration of monastic life at the ruined sites. The martyrs were interred in crypts beneath their monastery churches.
+timeline:
+  - when: "1156"
+    title: Foundation of the Mirozh Monastery
+    body: The Savior-Transfiguration Mirozh Monastery is founded at Pskov by Saint Niphon, Bishop of Novgorod, and Saint Abraham of Mirozh; Basil later serves as its abbot.
+  - when: 4 March 1299
+    title: Livonian raid and martyrdom
+    body: Livonian Order forces attack Pskov and burn the undefended Mirozh and Snetogorsk monasteries; Basil, Joasaph, and other monks perish in the flames. Prince Dovmont-Timothy defeats the raiders in the battle that follows.
+patronage:
+  - Pskov
+  - monastics
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org), Mar 4
+  - https://www.oca.org/saints/lives/2016/03/04/100651-venerable-joasaph-of-snetogorsk-pskov
+  - https://en.wikipedia.org/wiki/Dovmont_of_Pskov
+  - https://en.wikipedia.org/wiki/Mirozhsky_Monastery
+status: draft
+generated: "2026-07-04"

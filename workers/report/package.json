@@ -1,0 +1,17 @@
+{
+  "name": "cow-report-worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloudflare Worker that turns the Cloud of Witnesses correction form into a GitHub issue (Turnstile-verified, no GitHub account needed for visitors).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "check": "node --check src/index.js",
+    "test": "node smoke.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.95.0"
+  }
+}

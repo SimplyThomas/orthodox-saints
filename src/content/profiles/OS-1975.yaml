@@ -1,0 +1,49 @@
+id: OS-1975
+overview:
+  - The 99 Holy Fathers of Crete were a community of ninety-nine ascetics who, according to tradition, gathered under the leadership of a wonderworking monk named John and settled near Azogires in western Crete. Church records place their activity most probably in the 14th century.
+  - "By tradition the community assembled in stages during a journey toward Crete: John began in Egypt with a group of companions, further ascetics joined in Cyprus, and still more in Attaleia (modern Antalya), until the number reached ninety-nine. Settling in the caves near Azogires, they eventually built a monastery there."
+  - Their leader John was renowned for extraordinary devotion in prayer and is remembered as a wonderworker. The fathers are commemorated together on October 7 (October 20 on the Julian calendar), their feast having been formally established in 1632 by Patriarch Cyril Loukaris.
+lifespan: 14th century (traditional)
+liturgicalTitle: Our Venerable Fathers John the Hermit and the Ninety-Eight Fathers of Crete
+patronage:
+  - Crete
+  - Monastics
+timeline:
+  - when: Journey (traditional)
+    title: The community gathers
+    body: According to tradition, Saint John set out from Egypt with a group of companions; further ascetics joined in Cyprus and again in Attaleia (modern Antalya, Turkey), until the company numbered ninety-nine monks bound for Crete.
+  - when: 24 days at Gavdos
+    title: Halt at Gavdos
+    body: During a violent storm the fathers stopped at the island of Gavdos, where tradition holds they remained for twenty-four days before continuing toward Crete.
+  - when: Settlement
+    title: Azogires
+    body: The fathers settled in the caves near Azogires in western Crete and in time built a monastery. John later withdrew to live as a solitary hermit.
+  - when: "1632"
+    title: Feast established
+    body: Patriarch Cyril Loukaris officially established the feast of the fathers on October 7.
+  - when: "1879"
+    title: Liturgical service issued
+    body: A liturgical service dedicated to the fathers was issued in Heraklion, Crete.
+sections:
+  - heading: The Community and Its Leader
+    body:
+      - The fathers are remembered as ascetics drawn from Egypt, Cyprus, and Asia Minor who came together under Saint John. Tradition records that John began the company in Egypt with thirty-five companions, that thirty-nine more joined in Cyprus, and that a further twenty-four joined at Attaleia, bringing the total to ninety-nine.
+      - John himself was celebrated for his devotion to prayer. The synaxarion relates that he knelt in prayer so continually that he lost the ability to walk and moved about on his knees, a manner of locomotion that once astonished a woodsman who came upon him.
+  - heading: Traditional Accounts
+    body:
+      - "By tradition, when the fathers departed the island of Gavdos, John became invisible to his companions and was left behind. The others later heard him calling from the shore and witnessed a miracle: John is said to have crossed to Crete in three hours while standing upon his tunic."
+      - Tradition also relates that before John withdrew to live as a hermit, the monks swore a solemn common oath that when one of them died the rest would follow. All ninety-nine are said to have reposed peacefully at about the same time, in fulfillment of that oath.
+  - heading: Commemoration and Veneration
+    body:
+      - The fathers are commemorated on October 7 (October 20 on the Old Calendar), a feast formally established in 1632 by Patriarch Cyril Loukaris. In the Orthodox calendar the day is variously titled the 99 Holy Fathers of Crete and Venerable John the Hermit and the 98 Fathers of Crete.
+      - Their veneration is documented in the writings of Saint Nicodemus the Hagiorite and in the Great Synaxaristes, and a liturgical service in their honor was issued at Heraklion in 1879. They are especially honored by the Orthodox Church in Crete.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/10/07
+  - https://www.johnsanidopoulos.com/search?q=99+fathers+crete
+  - https://en.wikipedia.org/wiki/October_7_(Eastern_Orthodox_liturgics)
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The fathers settled near Azogires in western Crete.
+    detail: No dossier source uses the qualifier 'western.' External 2 says 'to Azogires in Crete' and 'settled near Azogires in caves' without any directional qualifier. The anchor's Region of Origin is simply 'Greece.' 'Western Crete' is an addition not found in any supplied source.

@@ -1,0 +1,63 @@
+id: OS-2701
+lifespan: d. c. 660
+overview:
+  - "Saint Winifred (Welsh: Gwenffrewi; Latin: Wenefreda) was a seventh-century Welsh virgin and, by tradition, abbess, venerated across medieval Wales and England. She was born in Tegeingl, in what is now Flintshire, to the nobleman Tyfid ap Eiludd; her mother, Wenlo, was a niece of Saint Beuno and connected to the royal families of south Wales."
+  - According to the surviving hagiographic accounts, a suitor named Caradog beheaded Winifred when she refused his advances and chose the monastic life. A healing spring is said to have risen where her head fell, at Holywell in Flintshire, and Saint Beuno restored her to life, leaving only a thin white line around her neck as a trace of the injury. After some years at Holywell she moved inland to Gwytherin in Denbighshire, where she lived as a nun and abbess until her death around 660.
+  - The earliest written lives date only to the twelfth century, several centuries after her lifetime, and historians since the nineteenth century have questioned how much can be recovered of her history. Fragments of an eighth-century oak reliquary discovered in 1991, however, offer good evidence that she was recognized as a saint shortly after her death, supporting her existence as a historical person. She is commemorated on 3 November in England and Wales and is venerated in the Orthodox, Roman Catholic, and Anglican traditions.
+liturgicalTitle: Our Venerable Mother Winifred of Wales
+sections:
+  - heading: Life and Legend
+    body:
+      - The accounts of Winifred's life center on a single dramatic episode. Having resolved to become a nun, she rejected the advances of a suitor named Caradog, who in his rage struck off her head. Tradition holds that a spring of water burst forth at the spot where her head came to rest, and that Saint Beuno, her mother's kinsman, replaced her head and restored her to life. The only lasting sign of the wound was said to be a thin white line encircling her neck. Caradog, by the same tradition, fell dead when Beuno invoked divine punishment upon him.
+      - Tradition further relates that Beuno promised that whoever asked a benefit from God three times in Winifred's name would obtain the grace sought, provided it was for the good of the soul.
+      - After roughly eight years at Holywell, Winifred is said to have travelled inland to Gwytherin in Denbighshire, where she became a nun and later abbess of the community there. She died about the year 660.
+  - heading: Historicity
+    body:
+      - The surviving lives of Winifred were composed in the twelfth century, long after her death, and from the nineteenth century onward historians have questioned whether she can be treated as a historical figure at all.
+      - "Evidence recovered in 1991 shifted the picture: fragments of an oak reliquary dated to the eighth century indicate that Winifred was already honoured as a saint within a century or so of her reputed death, which is taken as good evidence that she was a real person venerated early. The Vatican regards her as having a historical basis, though she was never formally canonized under the modern procedures that were developed in later centuries."
+  - heading: Relics & Shrines
+    body:
+      - In 1138 Winifred's relics were translated from Gwytherin to Shrewsbury Abbey by Prior Robert, and Shrewsbury became a major pilgrimage destination until the abbey was destroyed under Henry VIII in 1540. A series of holy wells across Britain bear her name, marking the legendary route by which her remains were carried to Shrewsbury.
+      - St Winefride's Well at Holywell in Flintshire, the site associated with her beheading, remained an active shrine and is unusual among Britain's sacred sites in maintaining an uninterrupted pilgrimage tradition through the Reformation and the subsequent anti-Catholic legislation. The chapel that stands over the well was funded by Abbot Thomas Pennant of Basingwerk Abbey around 1512, built in the Perpendicular Gothic style, with a well crypt below containing a star-shaped basin. Several English monarchs visited, including Richard II in 1398, Henry IV in 1403, Edward IV around 1461, and James II in 1687. In November 2023 the well was designated a National Shrine for England and Wales.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: The well at Holywell drew large numbers of pilgrims across the centuries, and traditional devotion there involved passing three times through the small pool. In 1917 the spring dried up because of nearby mining operations but resumed flowing on 22 September of that year after water was diverted from underground sources. In 1805 the reported cure of a paralysed woman named Winefrid White renewed public interest in the shrine."
+      - "Traditional Accounts: The core traditions surrounding Winifred — the miraculous spring that rose where her head fell, her restoration to life by Saint Beuno, and the white line left about her neck — are transmitted through the medieval lives and remain the substance of her cult rather than independently documented events."
+  - heading: Legacy
+    body:
+      - Winifred became one of the most widely venerated of the Welsh saints in medieval Britain. She is named in the medieval poem Sir Gawain and the Green Knight, and in the modern era she features prominently in Ellis Peters' Brother Cadfael novels, which are set in and around Shrewsbury. A bronze statue of the saint was presented in Hudson, New York, in 1896.
+patronage:
+  - Holywell
+  - Wales
+  - healing springs
+timeline:
+  - when: 7th century
+    title: Birth in Tegeingl
+    body: Winifred is born in Tegeingl, in present-day Flintshire, to the nobleman Tyfid ap Eiludd and his wife Wenlo, a niece of Saint Beuno.
+  - when: c. 660
+    title: Death at Gwytherin
+    body: After years at Holywell and then at Gwytherin in Denbighshire, where she served as nun and abbess, Winifred dies.
+  - when: "1138"
+    title: Translation to Shrewsbury
+    body: Prior Robert translates Winifred's relics from Gwytherin to Shrewsbury Abbey, which becomes a major pilgrimage site.
+  - when: "1540"
+    title: Destruction of Shrewsbury Abbey
+    body: Shrewsbury Abbey is destroyed under Henry VIII.
+  - when: "1991"
+    title: Discovery of the oak reliquary
+    body: Fragments of an eighth-century oak reliquary are discovered, providing evidence that Winifred was recognized as a saint shortly after her death.
+  - when: November 2023
+    title: National Shrine designation
+    body: St Winefride's Well at Holywell is designated a National Shrine for England and Wales.
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Saint_Winifred
+  - https://en.wikipedia.org/wiki/Winefride
+  - https://en.wikipedia.org/wiki/St_Winefride%27s_Well
+  - https://orthodoxwiki.org/Winifred_of_Wales
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: "The profile asserts Welsh and Latin name forms: Welsh 'Gwenffrewi' and Latin 'Wenefreda'."
+    detail: Neither name form appears in any of the dossier external texts. The dossier sources use 'Winifred,' 'Winefride,' and 'Winefrid' but do not confirm the Welsh form 'Gwenffrewi' or the Latin form 'Wenefreda'.

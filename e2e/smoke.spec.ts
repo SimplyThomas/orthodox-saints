@@ -515,8 +515,15 @@ test("corrections page renders, validates, and is linked from the Contact page",
   const resp = await page.goto("./corrections/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".cr-title")).toHaveText("Suggest a Correction");
-  await expect(page.locator("#cr-types .chip")).toHaveCount(6);
-  // Empty submit reveals validation (no GitHub tab opened on invalid input).
+  await expect(page.locator("#cr-types .chip")).toHaveCount(7);
+  // Backend wiring is present: same-origin endpoint, Turnstile widget, honeypot.
+  await expect(page.locator("#cr-form")).toHaveAttribute(
+    "data-endpoint",
+    "/api/report",
+  );
+  await expect(page.locator(".cf-turnstile")).toHaveCount(1);
+  await expect(page.locator('input[name="website"]')).toHaveCount(1);
+  // Empty submit reveals validation and never POSTs to the worker.
   await page.locator(".cr-send").click();
   await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
   // Reached from the Contact page's help cards.

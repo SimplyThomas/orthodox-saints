@@ -1,0 +1,51 @@
+id: OS-2820
+lifespan: 6th century
+overview:
+  - Thenew, also recorded in Latin as Theneva and in numerous other forms including Teneu, Thaney, Tannoch, and the Welsh Denw, was a legendary Christian saint of sixth-century Britain, traditionally described as a Brittonic princess of the ancient kingdom of Gododdin in the region that became Lothian in southern Scotland.
+  - According to tradition her father was King Lleuddun (also named as King Lot), from whom the district of Lothian is sometimes said to take its name. Cast out after becoming pregnant, she survived to give birth at Culross to a son, Kentigern, who became the missionary bishop and patron of Glasgow.
+  - Thenew and her son are together regarded as the co-patrons of the city of Glasgow, where she was venerated in the medieval period. She is commemorated on 18 July and is honored in both the Eastern Orthodox and Roman Catholic traditions, having been recognized as a saint through pre-Congregation processes.
+timeline:
+  - when: 6th century
+    title: A princess of the Gododdin
+    body: By tradition Thenew was born a princess of the Brittonic kingdom of Gododdin, in the region later known as Lothian; her father was King Lleuddun, also referred to as King Lot.
+  - when: 6th century
+    title: Pregnancy and condemnation
+    body: "Accounts of her pregnancy differ: some describe an assault by the Welsh prince Owain mab Urien while he was disguised as a woman, others a love affair. On learning she was pregnant, her father condemned her and, by tradition, had her hurled from the cliff of Traprain Law."
+  - when: 6th century
+    title: Cast adrift to Culross
+    body: Tradition holds that she miraculously survived the fall and was set adrift in a coracle, crossing the Firth of Forth to Culross, where she was given shelter within the community of Saint Serf.
+  - when: c. 518
+    title: Birth of Kentigern
+    body: At Culross she gave birth to her son Kentigern, whom Saint Serf raised and affectionately nicknamed Mungo. Kentigern went on to found his church on the site of present-day Glasgow.
+  - when: 18 July
+    title: Veneration at Glasgow
+    body: Thenew came to be venerated as a co-patron of Glasgow alongside her son. St Enoch Square in the city is said to mark the site of a medieval chapel dedicated to her, the name 'St. Enoch' being understood as a corruption of 'St. Teneu.'
+sections:
+  - heading: Name and Identity
+    body:
+      - "Her name survives in a striking variety of forms across the medieval record: Thaney in the earliest hagiography of her son, Taneu in the Vita Kentigerni, Thenewe in the Aberdeen Breviary, and Denyw in Welsh sources; the Latin form is Theneva, and Tannoch and Thanea also appear."
+      - The scholar Alex Woolf has proposed that the character of Teneu may ultimately derive from Danaë, the mother of the classical hero Perseus, reflecting the legendary and composite nature of the surviving traditions about her.
+  - heading: Mother of Saint Kentigern
+    body:
+      - Thenew's principal historical significance lies in her motherhood of Saint Kentigern, the missionary bishop remembered as the founder and patron of Glasgow. Tradition places his birth at Culross around the year 518.
+      - Raised at Culross by Saint Serf, who gave him the pet-name Mungo, Kentigern later established a church beside the Molendinar Burn at the site of modern Glasgow, where Glasgow Cathedral now stands. He died in Glasgow, traditionally on 13 January 614. His feast is kept on 13 January in the Western churches and on 14 January in the Eastern Orthodox Church.
+  - heading: Relics & Shrines
+    body:
+      - St Enoch Square in Glasgow is traditionally identified as the site of a medieval chapel dedicated to Thenew, said to have been built on or near her grave. The dedication 'St. Enoch' is understood to be a corruption of 'St. Teneu.'
+      - Her son's tomb lies in the crypt of Glasgow Cathedral, which became a major place of pilgrimage until the Scottish Reformation.
+  - heading: Legacy
+    body:
+      - Thenew's story has continued to draw literary and artistic treatment, including Kathleen Herbert's novel Bride of the Spear (1982) and Nigel Tranter's Druid Sacrifice (1993).
+      - In 2025 the writer Rebecca Sharp created a site-specific poetry play titled Maiden Mother Mage, performed at Culross Abbey and Glasgow Cathedral.
+patronage:
+  - Glasgow
+sources:
+  - Wikipedia (Teneu)
+  - Archdiocese of Thyateira (Saints of the British Isles)
+  - https://en.wikipedia.org/wiki/Teneu
+  - https://en.wikipedia.org/wiki/Kentigern
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: King Lleuddun is identified as the person from whom the district of Lothian is sometimes said to take its name.
+    detail: Neither dossier external source makes this etymological connection. Wikipedia (Teneu) says only 'Her father was King Lleuddun (also referenced as King Lot)'; Wikipedia (Kentigern) says Lleuddun 'ruled territory around present-day Lothian, Scotland' — ruling the territory is not the same as the territory taking its name from him. The Lothian-etymology claim is not grounded in the dossier.

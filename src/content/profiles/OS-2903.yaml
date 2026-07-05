@@ -1,0 +1,49 @@
+id: OS-2903
+lifespan: c. 480 – 543
+overview:
+  - Scholastica was a sixth-century monastic of central Italy, the sister of Saint Benedict of Nursia and, by his rule, regarded as the foundress of Benedictine women's monasticism. Born about 480 in Nursia (Norcia) in Umbria to wealthy parents, she was consecrated to God from an early age, and a ninth-century tradition holds that she was Benedict's twin.
+  - According to Gregory the Great's Dialogues, she established a community of nuns near her brother's monastery at Monte Cassino and met with him once each year for spiritual conversation. At their final meeting she prayed that a sudden storm keep him from departing, and three days later Benedict beheld her soul rise to heaven in the form of a dove. She reposed on February 10, 543, and is commemorated on that day in the Orthodox calendar.
+liturgicalTitle: Our Venerable Mother Scholastica of Nursia
+sections:
+  - heading: Life and Monastic Foundation
+    body:
+      - Scholastica was born about 480 in Nursia, in the Umbrian region of Italy, to wealthy parents. Later tradition names her father Anicius Eupropius and her mother Claudia Abondantia Reguardati. Gregory the Great records that she was dedicated to God from a young age, and a ninth-century tradition makes her the twin sister of Benedict of Nursia. The siblings were raised together until Benedict left to pursue his studies in Rome.
+      - She established a monastic community roughly five miles from Benedict's monastery at Monte Cassino, at a place later identified as Plombariola. Described as the first convent of Benedictine nuns and living under the Benedictine Rule, the community was directed by her brother, and Scholastica is traditionally regarded as the foundress of the Benedictine nuns.
+    heading_note: ""
+  - heading: The Yearly Meeting and Her Repose
+    body:
+      - "Because monastic rules prevented the siblings from entering one another's monasteries, Scholastica and Benedict met once each year at a house convenient to both communities to discuss sacred matters. Gregory the Dialogist's Dialogues preserve the celebrated account of their last such meeting: when Benedict prepared to leave, Scholastica asked him to stay longer, and when he refused, she bowed in prayer. A violent storm arose at once, making departure impossible and compelling the two to pass the night in spiritual conversation."
+      - Three days later, from his cell, Benedict saw his sister's soul leaving her body and ascending to heaven in the form of a shining white dove. Scholastica died on February 10, 543, near Monte Cassino, at about sixty-two or sixty-three years of age. Benedict laid her body in the tomb he had prepared for himself, arranging that he too would one day be buried there.
+  - heading: Veneration
+    body:
+      - Scholastica is venerated in the Eastern Orthodox Church, the Catholic Church, and the Anglican Communion, with a feast day on February 10. In Western tradition she is honored as the patron of Benedictine nuns and is invoked against storms and rain, an association drawn from the account of her final meeting with her brother.
+      - In art she is depicted in a Benedictine habit, often as an abbess, holding the Rule of Saint Benedict, and accompanied by a crucifix or an ascending dove. Orthodox iconography likewise shows her as a nun in habit, sometimes holding a crosier with a dove nearby, and at times together with her brother Benedict.
+timeline:
+  - when: c. 480
+    title: Birth in Nursia
+    body: Born to wealthy parents in Nursia (Norcia), Umbria, Italy, and consecrated to God from an early age; by a ninth-century tradition, the twin sister of Benedict of Nursia.
+  - when: 6th century
+    title: Monastic foundation near Monte Cassino
+    body: Established a community of nuns about five miles from Benedict's monastery, living under the Benedictine Rule and later regarded as the first convent of Benedictine nuns.
+  - when: c. 543
+    title: Final meeting with Benedict
+    body: At their yearly conference she prayed that a storm prevent Benedict's departure, and the two spent the night in spiritual conversation, as recorded in Gregory the Great's Dialogues.
+  - when: February 10, 543
+    title: Repose
+    body: Died near Monte Cassino at about sixty-two; three days earlier Benedict had seen her soul rise to heaven as a dove. He buried her in the tomb prepared for himself.
+patronage:
+  - Benedictine nuns
+  - Education
+  - Protection from storms
+sources:
+  - OrthodoxWiki
+  - Wikipedia (Scholastica)
+  - https://en.wikipedia.org/wiki/Scholastica
+  - https://orthodoxwiki.org/Scholastica
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: When Benedict refused to stay, she bowed in prayer and a storm arose
+    detail: Neither external source says she bowed. Wikipedia says 'Scholastica closed her hands in prayer'; OrthodoxWiki says 'Scholastica turned to a brief prayer to God.' The specific gesture of bowing is not attested in any dossier source.
+  - claim: Timeline Repose entry states 'three days earlier Benedict had seen her soul rise to heaven as a dove' — implying the vision preceded her death by three days
+    detail: "This is a factual error. Both sources (Wikipedia and OrthodoxWiki) state Benedict saw her soul ascending at the moment of her death (three days AFTER their final meeting, not three days before her death). The body text of the same profile correctly renders the sequence: 'Three days later...Benedict saw his sister's soul leaving her body and ascending to heaven...Scholastica died on February 10, 543.' The timeline entry inverts this, erroneously placing the vision on c. February 7, before the February 10 death."

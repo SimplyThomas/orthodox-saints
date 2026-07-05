@@ -1,0 +1,47 @@
+id: OS-2865
+lifespan: Died c. 540–544
+overview:
+  - Seridos (Seridus) was a sixth-century monastic founder and abbot in the region of Thabatha, a village about five miles south of Gaza in Palestine. The coenobitic monastery he established, surrounded by hermits' cells, became one of the most influential centers of monastic spirituality in the late-antique Holy Land.
+  - His enduring significance lies in his role as intermediary for the two great recluses who lived beside his monastery, Saints Barsanuphius the Great and John the Prophet. Because Barsanuphius did not know Greek, Seridos transcribed his counsels; these transcribed replies to the questions of monks and laypeople became the classic collection known as the Questions and Answers, of which over 850 letters survive.
+  - Seridos is commemorated on August 13, together with the wider circle of the Gaza monastery, which also formed Saints Dorotheus of Gaza and his disciple Dositheus.
+liturgicalTitle: Our Venerable Father Seridos, Abbot of the Monastery near Gaza
+sections:
+  - heading: Historical Context
+    body:
+      - In the early sixth century the hermit Barsanuphius settled in the hilly region of Thabatha near Gaza. The monastery of Seridos stood nearby and became instrumental in supporting the recluse and the monastic community that gathered around him. Seridos served as its abbot and as the mediator between Barsanuphius, who remained in strict seclusion, and those who sought his counsel.
+      - Because Barsanuphius did not know Greek, Seridos recorded his answers in that language, making the abbot the indispensable link between the Great Old Man and the outside world. The founding of the monastery is associated with the reign of the Emperor Justin I (518–527).
+  - heading: The Monastery and Its Circle
+    body:
+      - Between 525 and 527, John the Prophet arrived at the monastery as Barsanuphius's disciple. John took up a teaching role parallel to Seridos's function of mediation and became the spiritual teacher of Dorotheus of Gaza. Together the two hermits produced the more than 850 surviving letters that offered spiritual direction on matters ranging from the practical to the theological.
+      - Dorotheus of Gaza was a member of the same community, advancing under Seridos from porter to overseer of the guesthouse. Seridos, recognizing his ability, entrusted him with responsibilities despite Dorotheus's initial reluctance, and Dorotheus worked with Barsanuphius and John to establish and run the monastery's hospital. Dorotheus's own first disciple, the young Dositheus, also belonged to this circle.
+  - heading: Death and Legacy
+    body:
+      - Seridos and John the Prophet died within about two weeks of one another, an event placed by tradition around 540 and by some accounts between 543 and 544. Upon their deaths Barsanuphius withdrew into complete seclusion.
+      - "Following these deaths Aelianos was elected the new abbot, and Dorotheus left the monastery, later either founding a new house between Gaza and Maiuma or retiring to a hermitage. An ancient verse honors the founder: it names Seridos alongside God the Word as one in whom glory is beheld."
+timeline:
+  - when: 518–527
+    title: Foundation near Gaza
+    body: Seridos founds his coenobitic monastery at Thabatha, about five miles south of Gaza, during the reign of the Emperor Justin I; Barsanuphius settles nearby and Seridos becomes his abbot and intermediary.
+  - when: 525–527
+    title: Arrival of John the Prophet
+    body: John the Prophet arrives as Barsanuphius's disciple and takes up a teaching role, becoming the teacher of Dorotheus of Gaza.
+  - when: c. 540–544
+    title: Death of Seridos
+    body: Seridos and John the Prophet die within about two weeks of each other; Barsanuphius withdraws into total seclusion, Aelianos is elected abbot, and Dorotheus leaves the monastery.
+patronage:
+  - Monastics
+  - Abbots
+  - Spiritual direction
+sources:
+  - OrthodoxWiki (Abba Seridus of Gaza)
+  - johnsanidopoulos.com
+  - https://en.wikipedia.org/wiki/Barsanuphius_of_Gaza
+  - https://en.wikipedia.org/wiki/Dorotheus_of_Gaza
+  - https://www.johnsanidopoulos.com/search/label/Seridos
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The profile states the transcription was necessary because Barsanuphius did not know Greek.
+    detail: "The dossier external source (Wikipedia, Barsanuphius of Gaza) states the opposite: 'Since Seridus did not know Coptic, he recorded the answers in Greek.' The direction of the language barrier is reversed — the dossier says it was Seridus who lacked Coptic, not Barsanuphius who lacked Greek. These are contradictory claims about different people lacking different languages."
+  - claim: Same language-barrier claim repeated in the Historical Context section.
+    detail: Repeated unsupported claim. The dossier (Wikipedia) says 'Since Seridus did not know Coptic, he recorded the answers in Greek' — the reason stated in the profile contradicts the dossier on both who lacked which language.

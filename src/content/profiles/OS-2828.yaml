@@ -1,0 +1,45 @@
+id: OS-2828
+lifespan: 6th century
+overview:
+  - Saint Paulinus of Wales was a sixth-century Welsh abbot, hermit, and teacher venerated in Carmarthenshire in southwest Wales. He is chiefly remembered as the master of the monastic school usually identified with Whitland (Ty Gwyn), where both Saint David, the patron of Wales, and Saint Teilo received their formation.
+  - "According to Rhigyfarch's Life of Saint David, Paulinus was a scribe and a disciple of Saint Germanus the bishop. His influence extended beyond his school: it was Paulinus who advised Bishop Dubricius to invite the then-obscure abbot David to the Synod of Llanddewi Brefi (c. 545), an intervention that led directly to David's rise as the leading ecclesiastical figure in Wales."
+  - He is commemorated in the database on November 22 (Wikipedia records his feast as November 23). A sixth-century inscribed stone found at Caeo, now in the Carmarthen Museum, preserves an epitaph honoring him.
+sections:
+  - heading: The School at Whitland
+    body:
+      - Paulinus directed a monastic school at a site usually identified as Whitland (Ty Gwyn), rendered in the sources as Wincdi-Lantquendi. The school was a significant centre of formation in the early-to-mid sixth century, active while its most famous pupils were young men.
+      - Among his students were Saint Teilo, later patron of Llandaff, who is said to have been born around the year 500, and Saint David. It was at Paulinus's school that Teilo met and became a close companion of David. The presence of two of the foremost saints of Wales as fellow pupils marks the school as a formative institution of the Welsh church.
+  - heading: The Synod of Llanddewi Brefi
+    body:
+      - The Synod of Llanddewi Brefi, held around 545 in Ceredigion, was convened to address the Pelagian heresy. According to tradition, it was Paulinus who advised Saint Dubricius, the senior bishop present, to invite David, then only a minor abbot, to the gathering.
+      - David was initially reluctant to attend, but on Paulinus's recommendation he was invited and delivered an eloquent address. Dubricius afterward retired in David's favour, a turning point that established David as the leading ecclesiastical voice in Wales. Paulinus is thus identified as the figure who directly facilitated David's emergence to prominence.
+  - heading: Ministry and Legacy
+    body:
+      - Beyond his teaching, Paulinus is remembered as a hermit and as a founder of churches and chapels in the region around Llandovery. Rhigyfarch's Life of Saint David also relates that when Paulinus became blind, his former pupil David miraculously restored his sight.
+      - A sixth-century inscribed stone discovered at Caeo in Carmarthenshire, now housed in the Carmarthen Museum, honors him with an epitaph that refers to him as a preserver of the faith, a constant lover of his country, and a champion of righteousness.
+  - heading: Identity and Scholarly Debate
+    body:
+      - The scholar G. H. Doble proposed that Paulinus of Wales and Saint Paul Aurelian might be the same person. Paul Aurelian was a distinct figure born in Glamorgan, who studied under Saint Illtud at Llantwit Major, trained on Caldey Island alongside Samson of Dol and Gildas, and later emigrated to Brittany where he became the first bishop of the See of Leon.
+      - Hywel David Emanuel considered the identification of Paulinus with Paul Aurelian doubtful, and modern scholarship generally treats the two as separate individuals. Claims that Paulinus founded the church at Paul in Cornwall are likewise described as dubious. He is distinct from Paulinus of Nola and Paulinus of York.
+timeline:
+  - when: c. 500
+    title: Teilo's birth dates the school
+    body: Saint Teilo, later a pupil of Paulinus, is said to have been born around this year, placing Paulinus's school in active operation in the early sixth century.
+  - when: Early-to-mid 6th c.
+    title: Master of the school at Whitland
+    body: Paulinus directs the monastic school at the site identified with Whitland (Ty Gwyn), where Saints David and Teilo are formed and become close companions.
+  - when: c. 545
+    title: The Synod of Llanddewi Brefi
+    body: Paulinus advises Bishop Dubricius to invite David to the synod against the Pelagian heresy; David's address leads to Dubricius retiring in his favour.
+patronage:
+  - Wales
+  - Teachers
+  - Monastic schools
+sources:
+  - Wikipedia (Paulinus of Wales)
+  - https://en.wikipedia.org/wiki/Paulinus_of_Wales
+  - https://en.wikipedia.org/wiki/Teilo
+  - https://en.wikipedia.org/wiki/Synod_of_Llanddewi_Brefi
+  - https://en.wikipedia.org/wiki/Paul_Aurelian
+status: draft
+generated: "2026-07-03"

@@ -1,0 +1,31 @@
+id: OS-2857
+lifespan: 16th century (reposed at Moscow, date unrecorded)
+overview:
+  - Niphon (rendered Niphont in Russian sources) was a sixteenth-century anchorite of the Russian far north and, with his disciple Saint Serapion, a founder of the Kozheozersky (Kozhe Lake) Monastery. He had formerly been a monk at the Syryinsky Monastery near the village of Chekuyevo in the lower Onega River region, and by tradition withdrew to Lake Kozhozero in 1552, seeking a location more remote than the already-populated Onega valley for the solitary life. Settling on a peninsula of the lake, he lived as a hermit on a diet of grass and berries.
+  - Around 1557 (per Wikipedia) or 1560 (per the OCA account), Niphon received a visitor named Sergius — a baptized Tatar prince who had been brought to Moscow as a captive in 1551. The two shared the ascetic life together, and after Sergius proved his sincerity Niphon tonsured him a monk with the name Serapion. As other monks gathered and the hermitage grew into a community, Niphon travelled to Moscow to petition the government for a land grant for the monastery, but he reposed there before he could complete the business. Serapion afterward carried the task forward, securing a land charter in 1584 and building the community's first churches.
+sections:
+  - heading: Historical Context and Legacy
+    body:
+      - Niphon's withdrawal to Lake Kozhozero belongs to the broader monastic colonization of the Russian north, in which hermits sought out the remote lakes and forests of the Onega and White Sea regions for solitary ascetic life. His hermitage on the lake peninsula became the seed of the Kozheozersky Monastery.
+      - "The fullest surviving account of Niphon comes not from a life of his own but from the OCA synaxarion life of his disciple, Venerable Serapion of Kozhe Lake. There Niphon appears as the elder who received Serapion — originally the Tatar myrza Turtas Gravirovich, captured and brought to Moscow in 1551, baptized as Sergius, and once a member of the household of the boyar Zachariah Plescheev — and gave him the monastic tonsure. Under Serapion the community he began was formally established: a land charter was granted by Tsar Theodore, dated September 30, 1584, and with a metropolitan's blessing the monks cleared the forest and raised two churches, one dedicated to the Holy Theophany and one to Saint Nicholas. Serapion reposed on June 27, 1611, leaving roughly forty monks."
+      - No details of Niphon's death date survive, and his prior monastic background is preserved only in the Russian sources. A note in the Wikipedia article on the Kozheozersky Monastery observes that the only monastery saint recognized there was Nikodim of Khozyuga, which suggests that neither Niphon nor Serapion carries a confirmed formal act of glorification; the OCA calendar nonetheless commemorates them as Venerable. Niphon has no separate feast attested and is commemorated among the Kozheozersk saints. This entry needs clergy and source review.
+timeline:
+  - when: "1552"
+    title: Withdrawal to Lake Kozhozero
+    body: A former monk of the Syryinsky Monastery near Chekuyevo in the lower Onega region, Niphon by tradition arrived at Lake Kozhozero seeking a location more remote than the populated Onega valley, and settled as an anchorite on a peninsula of the lake.
+  - when: c. 1557–1560
+    title: Reception and tonsure of Serapion
+    body: Niphon received Sergius, a baptized Tatar prince brought to Moscow as a captive in 1551. They shared a harsh reclusive life on grass and berries, and after Sergius proved himself Niphon tonsured him a monk with the name Serapion. Wikipedia dates the meeting to 1557, the OCA account to 1560.
+  - when: 16th century
+    title: Journey to Moscow and repose
+    body: When a fair number of monks had gathered around the hermitage, Niphon went to Moscow to petition the government for a land grant for the monastery, but reposed there before he could conduct the business. No death date is recorded. Serapion afterward secured the community's land charter in 1584.
+sources:
+  - OrthodoxWiki
+  - encountered on the St. Serapion of Kozhe Lake profile (OS-1436)
+  - https://en.wikipedia.org/wiki/Kozheozersky_Monastery
+  - https://www.oca.org/saints/lives/2026/06/27/107806-venerable-serapion-of-kozhe-lake
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: During his solo hermit period, Niphon lived on a diet of grass and berries
+    detail: The dossier's grass-and-berries detail comes exclusively from the shared period with Serapion. External source 1 says 'Together they shared... their food consisted of grass and berries'; external source 2 similarly attributes the diet to the joint life. No source attests this diet for Niphon's solo anchorite period before Serapion's arrival.
