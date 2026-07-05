@@ -13,6 +13,16 @@ const relatedFigure = z.object({
   commemorated: z.boolean().optional(),
 });
 
+const timelineEntry = z.object({
+  when: z.string(),
+  title: z.string(),
+  body: z.string(),
+  figures: z
+    .array(z.object({ name: z.string(), href: z.string().optional() }))
+    .optional(),
+  source: z.string().optional(),
+});
+
 const profileSchema = z
   .object({
     id: z.string().regex(/^OS-\d{4,}$/),
@@ -47,19 +57,7 @@ const profileSchema = z
         }),
       )
       .optional(),
-    timeline: z
-      .array(
-        z.object({
-          when: z.string(),
-          title: z.string(),
-          body: z.string(),
-          figures: z
-            .array(z.object({ name: z.string(), href: z.string().optional() }))
-            .optional(),
-          source: z.string().optional(),
-        }),
-      )
-      .optional(),
+    timeline: z.array(timelineEntry).optional(),
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
@@ -130,4 +128,52 @@ const profiles = defineCollection({
   schema: profileSchema,
 });
 
-export const collections = { profiles };
+// Rich feast/fast profiles (src/content/feasts/FF-####.yaml) — the history and
+// meaning of each liturgical feast/fast in data/feasts.csv. Same status gate
+// as saint profiles: production ships only `reviewed`. §9 guardrails carry
+// over: hymnography is DESCRIBED, never reproduced from copyrighted
+// translations; customs are church-blessed only; fastingPractice stays
+// descriptive (the frontend adds the pastoral disclaimer).
+const feastProfileSchema = z
+  .object({
+    id: z.string().regex(/^FF-\d{4,}$/),
+    status: z.enum(["draft", "reviewed", "flagged"]).default("draft"),
+    flagReasons: z
+      .array(z.object({ claim: z.string(), detail: z.string() }))
+      .optional(),
+    sources: z.array(z.string()).optional(),
+    generated: z.string().optional(), // ISO date
+    humanReviewed: z.boolean().optional().default(false),
+    overview: z.array(z.string()).min(1),
+    // The two first-class prose axes of the feasts database: how the
+    // feast/fast arose and developed, and what it means theologically.
+    history: z.array(z.string()).optional(),
+    meaning: z.array(z.string()).optional(),
+    timeline: z.array(timelineEntry).optional(),
+    scripture: z
+      .array(z.object({ ref: z.string(), note: z.string().optional() }))
+      .optional(),
+    iconography: z.array(z.string()).optional(),
+    hymnography: z.array(z.string()).optional(), // describes, never quotes (§9)
+    fastingPractice: z.array(z.string()).optional(),
+    customs: z.array(z.string()).optional(),
+    sections: z
+      .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
+      .optional(),
+    related: z.array(relatedFigure).optional(),
+  })
+  .superRefine((p, ctx) => {
+    if (p.status !== "reviewed" && !(p.sources && p.sources.length)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `${p.id}: ${p.status} profiles must list at least one source`,
+      });
+    }
+  });
+
+const feasts = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/feasts" }),
+  schema: feastProfileSchema,
+});
+
+export const collections = { profiles, feasts };

@@ -56,8 +56,11 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
-│   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
+│   ├── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
+│   └── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
+├── feastlib.py                ← the Feasts & Fasts pipeline (load/assign FF ids/validate/emit), orchestrated by build.py
+├── pascha.py                  ← Orthodox Pascha computus (Meeus Julian algorithm, 1900–2099)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
@@ -69,7 +72,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
 │   ├── content/profiles/      ← per-saint YAML rich profiles (OS-####.yaml) — a data Content Collection
-│   ├── content.config.ts      ← the `profiles` collection + its Zod schema (validated at build)
+│   ├── content/feasts/        ← per-feast YAML rich profiles (FF-####.yaml) — the `feasts` collection (§5a)
+│   ├── content.config.ts      ← the `profiles` + `feasts` collections + their Zod schemas (validated at build)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
@@ -97,10 +101,11 @@ Everything in `public/` and `dist/` is generated and **must not be committed**.
 
 ```
 data/saints.csv ──┐
-                  ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
+data/feasts.csv ──┼─► build.py (+feastlib) ─► (in-memory SQLite) ─► validate ─► EMIT:
 data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
+                                                           ├─ public/feasts.json (feasts + Pascha table 2020–2040)
                                                            ├─ public/saints.sqlite (optional artifact)
-                                                           └─ dist/Orthodox_Saints_Database.xlsx
+                                                           └─ dist/Orthodox_Saints_Database.xlsx (+ Feasts & Fasts sheet)
 src/ (Astro SSG)   ── imports public/data.json at BUILD TIME ──► _site/ (static HTML per page + per saint)
 GitHub Actions     ── python build.py → astro build → deploy _site/ ──► GitHub Pages
 ```
@@ -132,6 +137,9 @@ Use the Makefile targets (or the underlying python directly):
   **lack a real icon** by a data-derived priority score, so each icon batch (§5 "Saint
   portraits") is self-directing — run it and paste the top N into the batch prompt instead
   of hand-picking. Local authoring aid only; writes no files and is not a CI gate.
+- `make feast-batch N=10` / `make feast-run` / `make feast-status` / `make feast-stop`
+  → the feastgen pipeline (§5a): rank profile-less feasts / run the resumable bulk
+  generator / inspect / stop. Same auth + limit handling as profilegen.
 
 **Frontend (Astro; needs Node 24+).** Run `make web-install` (`npm ci`) once, then:
 - `make serve` / `make web-dev` → `python build.py --no-xlsx && npm run dev` : the live Astro dev server.
@@ -284,6 +292,64 @@ quote joins) re-link the members of a collective commemoration and make group me
 - To add a genuinely missing term, add it to `data/vocabulary.csv` **first** (§12.2).
 
 ---
+
+## 5a. The Feasts & Fasts database (`data/feasts.csv`, `FF-####`)
+
+A second structured database, sibling to the saints table, covering the liturgical
+**feasts, fasts, and observances** of the year — so the calendar can overlay them and
+each entry can carry the **history and meaning** of the celebration. Design spec:
+`docs/superpowers/specs/2026-07-05-feasts-fasts-database-design.md`. Owned by
+**`feastlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
+covers it). Emits `public/feasts.json` (records + a resolved Pascha table
+2020–2040 from `pascha.py`) and a "Feasts & Fasts" xlsx sheet.
+
+**19 columns:** Feast ID · Name · Also Known As · Category · Dedication · Begins ·
+Ends · Forefeast · Apodosis · Fasting Discipline · Fasting Notes · Brief ·
+Customs & Traditions · Tradition of Observance · Related Saints · Related Feasts ·
+Icon · Notes · Sources. Multi-value cells use `"; "`; the file is CRLF like the
+other CSVs.
+
+- **`FF-####` ids follow the exact OS-#### rules (§6):** opaque, permanent, never
+  reused/renumbered; add rows with a **blank** id and the build assigns + writes back.
+- **The date-token grammar** — every date cell (`Begins`/`Ends`/`Forefeast`/`Apodosis`)
+  holds exactly ONE token in one of three forms, complete for the Orthodox calendar:
+  - **`Mon D`** — fixed date: `Dec 25`
+  - **`P+n` / `P-n`** — Pascha-relative offset in days (Pascha = `P+0`, Palm Sunday
+    `P-7`, Clean Monday `P-48`, Pentecost `P+49`); valid range **−78…+63**
+  - **`Dow before|after Mon D`** — weekday-anchored: `Sun before Dec 25` (the nearest
+    such weekday strictly within the 7 days before/after the anchor)
+  A span sets Begins + Ends; the two token kinds may mix in one row (the Apostles'
+  Fast begins `P+57` and ends `Jun 28`). The **cycle (fixed/paschal/hybrid) is
+  derived, never authored.** `feasts.json` emits tokens structurally
+  (`{type:"paschal",offset:49}`; `dow` uses the JS getDay convention, 0=Sun) — the
+  frontend never re-parses strings. Dates follow the **New (Revised Julian) calendar**
+  convention, like the saints data.
+- **Controlled vocab** (in `data/vocabulary.csv`): `Feast Category` (Feast of Feasts ·
+  Great Feast · Feast · Fast Season · Fast Day · Fast-Free Week · Observance),
+  `Dedication` (Lord · Theotokos · Cross · Forerunner · Apostles · Angels · Saints ·
+  Departed), `Fasting Discipline` (Strict Fast · Wine & Oil · Fish Allowed · Dairy
+  Allowed · Fast-Free · Varies). **Tradition of Observance reuses the Tradition of
+  Veneration terms** (blank = pan-Orthodox).
+- **Cross-refs are validated:** Related Saints ids must exist in `data/saints.csv`
+  (verify the row's Name before citing an id!); Related Feasts ids must exist in
+  feasts.csv and not self-reference.
+- **Scope rules:** a saint's own feast day belongs in the saints table, NOT here —
+  this table carries event-feasts of the Lord/Theotokos/Cross, **angelic feasts**
+  (which §7 excludes from saints.csv), fasts, fast-free weeks, and calendar
+  observances (named Sundays/Saturdays, synaxes tied to Great Feasts). The weekly
+  Wed/Fri fast is a rule, not an event — no row. **Fasting stays season-summary,
+  descriptive not prescriptive** (the frontend adds a "consult your priest"
+  disclaimer); forefeast/afterfeast periods are columns on the feast's row, not rows.
+- **Rich prose** lives in `src/content/feasts/FF-####.yaml` (the `feasts` collection
+  in `content.config.ts`): `overview` + first-class **`history`** and **`meaning`**
+  paragraph arrays, plus optional timeline/scripture/iconography/hymnography/
+  fastingPractice/customs/sections/related. Same `status: draft|reviewed|flagged`
+  production gate as saint profiles; §9 guardrails carry over (hymnography is
+  DESCRIBED, never quoted from copyrighted translations).
+- **feastgen (`tools/feastgen/`)** mirrors profilegen: gather → write → verify →
+  emit, anchored on the feast's CSV row; phantom flags demoted, not dropped; drafts
+  never auto-publish. `make feast-run` is the resumable bulk runner (state under
+  `dist/feastgen/`), `make feast-batch` previews the next batch.
 
 ## 6. Saint identity & deduplication (critical)
 
