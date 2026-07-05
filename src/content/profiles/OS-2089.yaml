@@ -1,7 +1,7 @@
 id: OS-2089
 lifespan: Died 304
 overview:
-  - Mark, Soterichus, and Valentine were three Christians from Asia (Asia Minor) who were arrested by the pagan authorities in 304 during the Diocletianic persecution, having been apprehended specifically on account of their Christian faith.
+  - Mark, Soterichus, and Valentine were three Christians from Asia (Asia Minor) who were arrested by the pagan authorities in 304, having been apprehended specifically on account of their Christian faith.
   - After enduring many tortures, the three confessors were dragged over sharp stones until they died, and are venerated together as martyrs.
   - Following their deaths, their relics were transported to the island of Thasos, situated between Thrace and the Athonite peninsula, where the martyr Mark came to be associated with the island.
 liturgicalTitle: The Holy Martyrs Mark, Soterichus, and Valentine
@@ -33,6 +33,3 @@ sources:
   - https://en.wikipedia.org/wiki/Mark,_Soterichus,_and_Valentine
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The three were arrested in 304 during the Diocletianic persecution.
-    detail: Neither the anchor row nor any external source in the dossier uses the phrase 'Diocletianic persecution' or names Diocletian. The dossier says only '304 CE' and 'pagan authorities.' The specific framing of the persecution is an editorial inference not grounded in the supplied sources.

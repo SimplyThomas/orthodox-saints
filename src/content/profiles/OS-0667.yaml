@@ -14,7 +14,7 @@ timeline:
     body: He studies under Pierius, head of the catechetical school of Alexandria, becoming deeply devoted to the works of Origen, before settling at Caesarea Maritima where he is ordained a presbyter.
   - when: November 307
     title: Arrest under Urbanus
-    body: Pamphilius is arrested during the Diocletianic persecution under the governor Urbanus. Imprisoned for two years, he continues his scholarly work, with Eusebius writing a defense of Origen.
+    body: Pamphilius is arrested during the Diocletianic persecution under the governor Urbanus. Imprisoned for two years, he continues his scholarly work, composing together with Eusebius a defense of Origen.
   - when: 16 February 309
     title: Martyrdom at Caesarea
     body: Under the governor Firmilian, Pamphilius is tried together with his companions and beheaded. The bodies of all twelve martyrs lie unburied for four days, untouched by beast or bird, before Christian burial is permitted.
@@ -28,7 +28,7 @@ sections:
       - Pamphilius's partnership with the historian Eusebius of Caesarea was so close that Eusebius adopted the surname "Pamphili" as a tribute to him. During Pamphilius's two-year imprisonment the two collaborated on an Apology for Origen in five books; only the first book survives, in a Latin translation by Rufinus. Eusebius also recorded the details of Pamphilius's life in a three-book account that has since been lost, but which preserved much of what is known of him.
   - heading: The Companions
     body:
-      - The commemoration honors twelve martyrs together. Valens, a deacon of Jerusalem, was an elderly man well-versed in the Holy Scriptures who had assisted Pamphilius. Paul was ardent in his faith and love for Christ. These three were imprisoned for two years before their martyrdom.
+      - The commemoration honors twelve martyrs together. Valens, a deacon of Jerusalem, had assisted Pamphilius. Paul was ardent in his faith and love for Christ. These three were imprisoned for two years before their martyrdom.
       - Five young men — Samuel, Elias, Daniel, Jeremiah, and Isaiah — had accompanied a company of Christians condemned to the gold mines of Cilicia; returning toward Egypt, they were detained at Caesarea. Taking the names of Old Testament prophets and declaring themselves citizens of the heavenly Jerusalem when interrogated, they were tortured at length under the governor Firmilian and condemned with the others.
       - Several more were drawn into martyrdom by their reverence for the condemned. Porphyrios, an eighteen-year-old servant of Pamphilius, asked permission to bury the martyrs' bodies and was burned alive. Seleukos, a former soldier, publicly praised the martyrs and was beheaded. Theodoulos, a man of venerable age and a secret Christian, embraced the condemned and was crucified. Julian, from Cappadocia, venerated the unburied bodies and was burned alive.
   - heading: Veneration and Legacy
@@ -57,9 +57,4 @@ sources:
   - https://orthodoxwiki.org/Pamphilius_of_Caesarea
   - https://en.wikipedia.org/wiki/Theological_Library_of_Caesarea_Maritima
 status: flagged
-flagReasons:
-  - claim: Timeline says the Apology for Origen was written 'with Eusebius writing a defense of Origen'
-    detail: "This understates Pamphilius's role: the sources have Pamphilius himself, imprisoned, as primary author collaborating with Eusebius. The profile's own friendship section says as much; the timeline phrasing is misleadingly incomplete."
-  - claim: Valens called 'a deacon of Jerusalem' and 'an elderly man well-versed in the Holy Scriptures'
-    detail: The anchor names him only 'Valens the Deacon.' The OCA account gives the 'elderly, well-versed in Scripture' description to Elias, not Valens — the profile appears to conflate the two.
 generated: "2026-06-18"

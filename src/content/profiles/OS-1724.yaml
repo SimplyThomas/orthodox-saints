@@ -19,7 +19,7 @@ sections:
       - By 1531 two churches—the Annunciation and St. Nicholas—had been built among the Lapps, marking the foundation of the city of Kola. He was ordained to the priesthood in Novgorod and, in 1540, founded the Troitsky Ust-Kolsky (Holy Trinity) Monastery as a cenobitic community among his converts. In 1548 the monks expelled him over the strictness of his discipline.
   - heading: Later Service, Conflict, and Exile
     body:
-      - After leaving the Kola monastery, Theodoritus served from 1548 to 1551 at the Kandalaksha Monastery. He then held the office of archimandrite of the Savior–Saint Euthymius (Spaso-Evfimiev) Monastery in Suzdal, where he served about five years before being exiled to the Kirillov–Beloozero (White Lake) Monastery amid conflict over strict observance.
+      - After leaving the Kola monastery, Theodoritus served from 1548 to 1551 at the Kandalaksha Monastery. He then held the office of archimandrite of the Savior–Saint Euthymius (Spaso-Evfimiev) Monastery in Suzdal, where he served for several years before being exiled to the Kirillov–Beloozero (White Lake) Monastery amid conflict over strict observance.
       - In 1554 he was falsely accused and imprisoned for two years. Accounts differ on the precise sequence of his Suzdal years and exile, but agree that disputes over monastic discipline marked this period of his life. He later settled at the Spaso-Prilutsky Monastery in Vologda and periodically returned to visit his Sami converts on the Kola River.
   - heading: Mission to Constantinople
     body:
@@ -52,7 +52,7 @@ timeline:
   - when: "1548"
     title: Expelled from Kola
     body: Expelled by the monks over the strictness of his discipline; serves at Kandalaksha Monastery 1548–1551.
-  - when: 1551–1556
+  - when: 1551–1554
     title: Archimandrite at Suzdal
     body: Serves as archimandrite of the Savior–Saint Euthymius Monastery in Suzdal; later exiled to the Kirillov–Beloozero Monastery over disputes about observance.
   - when: 1557–1558
@@ -78,6 +78,3 @@ sources:
   - https://ru.wikipedia.org/wiki/%D0%A4%D0%B5%D0%BE%D0%B4%D0%BE%D1%80%D0%B8%D1%82_%D0%9A%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: Profile timeline specifies '1551–1556' as the period of his archimandrite service at Suzdal
-    detail: "External source 2 explicitly states 'From 1551 to 1554 he was Archimandrite of Spaso-Evfimiev Monastery in Suzdal.' The end date '1556' is not stated in any dossier source. External source 1 says 'five years,' which the profile uses to project to 1556, but that is an unsupported inference: the only source giving an explicit end date says 1554, not 1556."
