@@ -112,6 +112,22 @@ const PROFILE_SCHEMA_JSON = {
         },
       },
     },
+    // Declared explicitly so the StructuredOutput layer rejects the stringified-
+    // array drift seen in the 2026-07-05 bulk run (43/83 profiles emitted
+    // `related` as a JSON-encoded STRING; undeclared fields pass through
+    // unvalidated and only fail later at the Astro/Zod gate).
+    related: {
+      type: "array",
+      items: {
+        type: "object",
+        required: ["name", "note"],
+        properties: {
+          name: { type: "string" },
+          note: { type: "string" },
+          href: { type: "string" },
+        },
+      },
+    },
   },
 };
 
