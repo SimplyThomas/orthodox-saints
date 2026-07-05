@@ -71,8 +71,9 @@ PASCHAL_TOKEN_RE = re.compile(r"^P([+-]\d{1,3})$")
 ANCHORED_TOKEN_RE = re.compile(
     rf"^({'|'.join(DOW)}) (before|after) ({'|'.join(MONTHS)}) (\d{{1,2}})$")
 
-# Zacchaeus Sunday (P-77) .. start of the Apostles' Fast (P+57).
-PASCHAL_OFFSET_MIN, PASCHAL_OFFSET_MAX = -78, 57
+# Zacchaeus Sunday (P-77) .. the local All-Saints Sundays (P+63, the second
+# Sunday after Pentecost — the latest entry in the paschal cycle).
+PASCHAL_OFFSET_MIN, PASCHAL_OFFSET_MAX = -78, 63
 
 # Short JSON keys, stable (the saints data.json convention). Maps CSV column ->
 # json key; date columns are handled structurally in to_record().

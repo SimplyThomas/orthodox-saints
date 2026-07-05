@@ -72,8 +72,9 @@ token in one of three forms — this is complete for the Orthodox calendar:
 
 1. **`Mon D`** — fixed date: `Dec 25` (same format the saints CSV uses).
 2. **`P+n` / `P-n`** — Pascha-relative offset in days: Pentecost `P+49`,
-   Palm Sunday `P-7`, Clean Monday `P-48`. Valid range **−78…+57**
-   (Zacchaeus Sunday through the start of the Apostles' Fast).
+   Palm Sunday `P-7`, Clean Monday `P-48`. Valid range **−78…+63**
+   (Zacchaeus Sunday through the local All-Saints Sundays, the second
+   Sunday after Pentecost).
 3. **`Dow before Mon D` / `Dow after Mon D`** — weekday-anchored: Sunday of
    the Holy Fathers `Sun before Dec 25`, Demetrius Soul Saturday
    `Sat before Oct 26`. `Dow` ∈ `Mon Tue Wed Thu Fri Sat Sun`. The anchored
