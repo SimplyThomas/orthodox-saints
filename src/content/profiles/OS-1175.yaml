@@ -26,5 +26,16 @@ sections:
 patronage:
   - Monastics
   - Manual laborers
+companions:
+  - name: Venerable Sylvester of the Kiev Caves
+    note: Fellow Near Caves father — named together with Isaiah in the Service to the saints of the Caves; commemorated Jan 2.
+    href: saint/OS-0377
+  - name: Venerable Onuphrius the Silent of the Kiev Caves
+    note: Fellow Near Caves father — named with Isaiah and Sylvester in the Service as a "triple-stranded sling against the demons"; commemorated Jul 21.
+    href: saint/OS-1566
+related:
+  - name: Saint Isaiah the Wonderworker, Bishop of Rostov
+    note: Distinct — the bishop of Rostov honored the same day (May 15) from whom this Near Caves monk is to be distinguished; two different saints.
+    href: saint/OS-1173
 status: draft
 generated: "2026-06-19"

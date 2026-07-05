@@ -53,5 +53,39 @@ sources:
   - https://www.oca.org/saints/lives/2025/07/27/102139-great-martyr-and-healer-panteleimon
   - https://orthodoxwiki.org/Panteleimon
   - https://www.newadvent.org/cathen/11447a.htm
-status: reviewed
+family:
+  figures:
+    - name: Saint Euboula
+      note: Mother; a devout Christian who raised him in the faith
+      href: saint/OS-0904
+    - name: Eustorgius
+      note: Father; a pagan senator of Nicomedia
+      commemorated: false
+companions:
+  - name: Hieromartyr Hermolaus
+    note: His teacher and the priest who baptized him; martyred with Hermippus and Hermocrates
+    href: saint/OS-1580
+  - name: Maximian
+    note: Emperor under whom he was martyred
+    commemorated: false
+related:
+  - name: Holy Unmercenaries Cosmas and Damian
+    note: Fellow unmercenary physician-saints
+    href: saint/OS-0036
+  - name: Holy Unmercenaries Cyrus and John
+    note: Fellow unmercenary physician-saints
+    href: saint/OS-0568
+  - name: Sampson the Hospitable
+    note: Fellow physician-saint and healer
+    href: saint/OS-1434
+  - name: Unmercenary Diomedes of Tarsus
+    note: Fellow physician-saint
+    href: saint/OS-1704
+  - name: Martyr Tryphon
+    note: Fellow healer-saint invoked against sickness
+    href: saint/OS-0061
+  - name: Apostle and Evangelist Luke
+    note: Physician and Evangelist
+    href: saint/OS-0006
+status: draft
 generated: "2026-06-18"

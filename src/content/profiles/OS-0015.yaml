@@ -64,5 +64,45 @@ sources:
   - https://orthodoxwiki.org/Catherine_of_Alexandria
   - https://www.oca.org/saints/lives/2022/11/24/103382-great-martyr-katherine-of-alexandria
   - https://www.newadvent.org/cathen/03445a.htm
-status: reviewed
+family:
+  figures:
+    - name: Costus
+      note: Father (traditional); a governor of Alexandria
+      commemorated: false
+companions:
+  - name: Maxentius
+    note: Emperor who condemned her after she confounded his philosophers
+    commemorated: false
+  - name: The Empress (Augusta)
+    note: Converted by her witness and martyred
+    commemorated: false
+  - name: Porphyrius
+    note: Officer converted with his soldiers and martyred
+    commemorated: false
+  - name: The Fifty Philosophers
+    note: Sent to refute her, they were converted and martyred
+    commemorated: false
+related:
+  - name: Great Martyr Barbara
+    note: Fellow great virgin-martyr
+    href: saint/OS-0016
+  - name: Great Martyr Marina
+    note: Fellow great virgin-martyr
+    href: saint/OS-0017
+  - name: Paraskevi of Rome
+    note: Fellow virgin-martyr
+    href: saint/OS-0060
+  - name: Anastasia the Deliverer-from-Potions
+    note: Fellow virgin-martyr
+    href: saint/OS-0071
+  - name: Lucy of Syracuse
+    note: Fellow virgin-martyr
+    href: saint/OS-2342
+  - name: Great Martyr Irene
+    note: Fellow great virgin-martyr
+    href: saint/OS-0072
+  - name: Photini the Samaritan Woman
+    note: Fellow woman of the early Church
+    href: saint/OS-0008
+status: draft
 generated: "2026-06-18"

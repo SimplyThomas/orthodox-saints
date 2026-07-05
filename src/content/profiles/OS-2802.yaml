@@ -1,0 +1,58 @@
+id: OS-2802
+lifespan: c. 336 – 357
+overview:
+  - Naucratius was a fourth-century ascetic of Cappadocia and Pontus, a member of the celebrated Christian household that produced Saint Basil the Great, Saint Gregory of Nyssa, Saint Macrina the Younger, and Saint Peter of Sebaste. He was a son of Basil the Elder and Emmelia of Caesarea.
+  - Having trained as a rhetorician and won early public success, he renounced a promising secular career around the year 352 to live as a hermit on the banks of the Iris river in Pontus, where he supported himself by hunting and fishing and devoted himself to the care of poor and elderly people living nearby.
+  - After roughly five years of this solitary life he died suddenly in an accident while still a young man, an event recorded by his brother Gregory of Nyssa in the Life of Macrina. His death profoundly affected his family and is remembered as a turning point in the household's turn toward the ascetic life.
+liturgicalTitle: The Holy and Righteous Naucratius
+sections:
+  - heading: The Holy Family of Cappadocia
+    body:
+      - Naucratius belonged to one of the most remarkable Christian families of the fourth century. His parents were Basil the Elder and Emmelia of Caesarea, and his siblings included Basil the Great, Gregory of Nyssa, Macrina the Younger, and Peter of Sebaste. Gregory of Nyssa, in his Life of Macrina, describes Naucratius as the second of the four brothers, coming after Basil.
+      - According to Gregory, Naucratius excelled his siblings in natural gifts and physical endowments — in beauty, strength, speed, and ability. Family tradition also preserved a memory of him as a jurist, and later accounts within the household associate him with legal learning.
+      - His sudden death shifted responsibilities within the family, giving Macrina a more central role in caring for their mother Emmelia and in guiding the domestic life of the household toward asceticism.
+  - heading: Withdrawal and the Ascetic Life
+    body:
+      - Around the year 352, at about the age of twenty-one and after demonstrating his rhetorical skill in public, Naucratius chose to despise the success already within his grasp and withdraw from the world. Gregory attributes this decision to divine providence guiding him toward a higher way of life.
+      - He departed with a single servant named Chrysapius, who followed him voluntarily out of affection and shared purpose. Together they settled in a solitary place on the banks of the Iris, a river flowing through the midst of Pontus, far removed from the noise of the city.
+      - There Naucratius lived by the labor of his own hands, hunting and fishing to provide for himself. Gregory records that he looked after some old people living in poverty and feebleness, using the provisions he gathered to sustain them while disciplining himself through physical toil. Gregory calls this his life as a "philosopher," using the term in its ascetic sense.
+  - heading: Death and Its Aftermath
+    body:
+      - In 357, during the fifth year of his solitary life, Naucratius was killed suddenly while on one of the expeditions by which he provided necessities for the old men in his care. He and his companion Chrysapius both died, apparently in a hunting accident, without any preceding illness, and their bodies were brought back home together.
+      - "Gregory relates that their mother Emmelia collapsed under the weight of grief, and that Macrina so supported her by reasoned consolation that Emmelia rose above her sorrow. The loss is remembered as a decisive moment in the family's spiritual history: it is connected with Basil's return from his studies at Athens and his own subsequent move toward the hermit's life."
+  - heading: Commemoration and Legacy
+    body:
+      - Naucratius has no widely fixed individual feast day. A liturgical list drawn from Sergei Bulgakov's handbook of the saints, reproduced in a modern resource on the Saturday of Cheesefare, notes a commemoration for him on June 8, indicating that this date is observed in at least some Orthodox tradition. He is also commemorated collectively among the ascetic fathers and mothers remembered on the Saturday of Cheesefare.
+      - His memory as one who fed the hungry from what he caught by hunting and fishing has inspired later initiatives bearing his name. The Order of Naucratius, established within the Episcopal Diocese of Western Michigan, honors him by connecting hunters and anglers who share their harvests with communities in need.
+timeline:
+  - when: c. 336
+    title: Birth in Cappadocia
+    body: Naucratius is born to Basil the Elder and Emmelia of Caesarea, the second of four brothers in the family that also produced Macrina the Younger, Basil the Great, Gregory of Nyssa, and Peter of Sebaste.
+  - when: c. 352
+    title: Renunciation of a secular career
+    body: At about twenty-one, after early success as a rhetorician, he abandons a promising public career and withdraws to live as a hermit, accompanied by his servant Chrysapius, on the banks of the Iris river in Pontus.
+  - when: c. 352–357
+    title: Life as a hermit
+    body: He supports himself by hunting and fishing, using the provisions to care for poor and elderly people living nearby while disciplining himself through physical labor.
+  - when: "357"
+    title: Sudden death
+    body: In the fifth year of his ascetic life, Naucratius and Chrysapius die suddenly in an accident while gathering provisions; the loss deeply marks his family and is linked to Basil's turn toward the ascetic life.
+patronage:
+  - Hunters
+  - Anglers
+  - Care of the poor
+  - Care of the elderly
+sources:
+  - OCA Synaxarion (oca.org), Jan 1
+  - https://en.wikipedia.org/wiki/Basil_of_Caesarea
+  - https://en.wikipedia.org/wiki/Naucratius
+  - https://www.tertullian.org/fathers/gregory_macrina_1_life.htm
+  - https://en.wikipedia.org/wiki/Macrina_the_Younger
+  - https://www.johnsanidopoulos.com/2011/03/saturday-of-cheesefare-commemoration-of.html
+status: flagged
+generated: "2026-07-03"
+flagReasons:
+  - claim: Birth year stated as c. 336 in both the lifespan and the timeline
+    detail: "The Gregory of Nyssa source (tertullian.org/fathers) states Naucratius was in his 'twenty-first year' when he withdrew, and the Wikipedia (Naucratius) source places that withdrawal 'around 352.' 352 − 21 = c. 331, not c. 336. A birth of c. 336 would make him only ~16 at withdrawal, contradicting the source's 'twenty-first year.' The profile also internally contradicts itself: the timeline simultaneously claims birth 'c. 336' and withdrawal 'at about twenty-one' in 'c. 352,' which is impossible — and if birth were 336 and death 357 the total lifespan is only ~21 years, leaving no room for five years of hermit life preceded by a rhetorical career."
+  - claim: Timeline birth entry repeats the unsupported birth year c. 336
+    detail: "Same as above: the external source (Life of Macrina via tertullian.org) says he was 21 when he withdrew c. 352, placing birth c. 331. The timeline entry 'c. 336' repeats the unsupported date."

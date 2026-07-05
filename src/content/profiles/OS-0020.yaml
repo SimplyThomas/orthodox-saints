@@ -37,5 +37,44 @@ sources:
   - Synaxarion
   - https://orthodoxwiki.org/Spyridon_of_Trimythous
   - https://www.newadvent.org/cathen/14171b.htm
-status: reviewed
+family:
+  figures:
+    - name: Irene
+      note: Daughter, who shared his pious household
+    - name: His wife
+      note: Unnamed; he lived as a married shepherd before his episcopacy
+      commemorated: false
+companions:
+  - name: Saint Triphyllius of Leucosia
+    note: His disciple, whom he taught and formed (a genuine teacher–disciple bond)
+    href: saint/OS-1345
+  - name: Nicholas of Myra
+    note: Fellow wonderworking bishop of the Nicene generation
+    href: saint/OS-0019
+  - name: Constantine the Great
+    note: Emperor who convened the Council of Nicaea, which Spyridon attended
+    href: saint/OS-0037
+  - name: Athanasius the Great
+    note: Fellow defender of Nicaea
+    href: saint/OS-0024
+  - name: Alexander of Alexandria
+    note: Fellow father of the Council of Nicaea
+    href: saint/OS-2472
+  - name: Arius
+    note: The heretic whose teaching he opposed at Nicaea
+    commemorated: false
+related:
+  - name: Basil the Great
+    note: Fellow great hierarch
+    href: saint/OS-0021
+  - name: John the Merciful
+    note: Fellow Cypriot-venerated hierarch and almsgiver
+    href: saint/OS-2184
+  - name: Gregory the Wonderworker
+    note: Fellow wonderworking bishop
+    href: saint/OS-2204
+  - name: Nektarios of Aegina
+    note: Later wonderworking bishop
+    href: saint/OS-0046
+status: draft
 generated: "2026-06-18"

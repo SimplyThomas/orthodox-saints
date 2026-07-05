@@ -1,4 +1,30 @@
 id: OS-1365
+family:
+  heading: Household of Augustine
+  intro: Augustine's conversion is traditionally credited to the long perseverance of his mother, herself venerated as a saint.
+  figures:
+    - name: Saint Monica
+      note: Mother, whose prayers and tears over many years are credited with his conversion.
+      href: saint/OS-1116
+companions:
+  - name: Saint Ambrose of Milan
+    note: Bishop of Milan whose preaching brought about his conversion and who baptized him at the Easter Vigil of 387.
+    href: saint/OS-2312
+  - name: Saint Possidius of Calama
+    note: Disciple and friend who wrote his Life.
+    href: saint/OS-2899
+    commemorated: true
+  - name: Saint Alypius of Thagaste
+    note: Close friend, baptized with him, who became Bishop of Thagaste.
+    href: saint/OS-2900
+    commemorated: true
+related:
+  - name: Our Venerable Father Jerome of Stridon
+    note: Contemporary Great Latin Father with whom he corresponded.
+    href: saint/OS-1362
+  - name: St. Gregory the Dialogist
+    note: Fellow Great Latin Father of the Western Church.
+    href: saint/OS-0084
 lifespan: 354–430
 liturgicalTitle: Our Father among the Saints Augustine, Bishop of Hippo
 overview:
@@ -82,5 +108,5 @@ sources:
   - https://orthodoxwiki.org/Augustine_of_Hippo
   - https://www.oca.org/saints/lives/2024/06/15/101736-blessed-augustine-bishop-of-hippo
   - https://www.newadvent.org/cathen/02084a.htm
-status: reviewed
+status: draft
 generated: "2026-06-18"

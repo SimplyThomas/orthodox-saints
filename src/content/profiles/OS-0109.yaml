@@ -34,6 +34,12 @@ family:
     - name: King Childeric II
       note: Frankish king of Austrasia; by tradition Nivard was his brother-in-law.
       commemorated: false
+companions:
+  - name: Saint Regulus (Reol) of Reims
+    note: Monk who succeeded Nivard as archbishop of Reims and entered Nivard's foundation of Hautvillers in 662.
+    href: saint/OS-0168
+  - name: Saint Bercarius
+    note: Monastic founder who helped Nivard establish the abbey of Hautvillers.
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome
   - https://anastpaul.com/2023/09/01/saint-of-the-day-1-septembert-saint-nivard-of-rheims-died-673/

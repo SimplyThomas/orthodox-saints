@@ -31,5 +31,18 @@ sections:
     body:
       - Psoi's relics are venerated incorrupt in the monasteries of the desert of Sketis. The synaxarion places them in the monastery of Al-Sirian (Deir al-Surian), within a fifth-century church on the left side of the iconostasis.
 patronage: []
+companions:
+  - name: St. Pachomius the Great
+    note: "Teacher — whose disciple Psoi is named in the Eastern Orthodox synaxarion (the parallel Coptic tradition names a different teacher)."
+    href: saint/OS-0028
+  - name: Abba John of Egypt
+    note: "Elder — near whose cave Psoi first settled, and who blessed him to go to the Nitrian desert."
+related:
+  - name: St. Macarius the Great
+    note: "Fellow desert father — in whose Nitrian wilderness Psoi settled, roughly fifteen kilometres from Macarius's cell."
+    href: saint/OS-0029
+  - name: St. Ephraim the Syrian
+    note: "By tradition — a tamarisk at Psoi's monastery is said to have sprung from Ephraim's staff, though whether the two saints met is debated."
+    href: saint/OS-0031
 status: draft
 generated: "2026-06-20"

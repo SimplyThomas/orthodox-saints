@@ -46,6 +46,16 @@ companions:
   - name: Saint Aidan of Lindisfarne
     note: The first Iona-trained bishop of Lindisfarne, whose relics Colman is said to have carried to Ireland.
     href: saint/OS-1812
+related:
+  - name: Saint Columba of Iona
+    note: Founder of the Iona monastery where Colman was formed and from which the Lindisfarne mission, including its Celtic Easter usage, derived.
+    href: saint/OS-1320
+  - name: Saint Cedd of Lastingham
+    note: Irish-trained Northumbrian bishop who acted as interpreter at the Synod of Whitby in 664, where Colman defended the Celtic observances.
+    href: saint/OS-0403
+  - name: Saint Cuthbert of Lindisfarne
+    note: Later bishop of Lindisfarne who carried on the see Colman left after Whitby, reconciling its community to the Roman usage.
+    href: saint/OS-0082
 sources:
   - OCA Synaxarion (oca.org), Feb 18
   - https://en.wikipedia.org/wiki/Colm%C3%A1n_of_Lindisfarne

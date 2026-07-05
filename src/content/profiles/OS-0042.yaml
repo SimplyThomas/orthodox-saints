@@ -56,6 +56,43 @@ sections:
   - heading: Veneration
     body:
       - Sergius is venerated in the Eastern Orthodox Church and is also commemorated in the Catholic Church and the Anglican Communion. His feast days are September 25, marking his repose, and July 5, marking the translation (discovery) of his relics.
+family:
+  figures:
+    - name: Cyril and Maria of Radonezh
+      note: His parents, boyars of Rostov, jointly commemorated as saints
+      href: saint/OS-0480
+    - name: Stephen of Radonezh
+      note: Brother, who shared his early hermit life
+    - name: Peter
+      note: Brother
+      commemorated: false
+companions:
+  - name: Stephen of Radonezh
+    note: Brother and early companion in the forest hermitage
+  - name: Nikon of Radonezh
+    note: Disciple and his successor as abbot
+    href: saint/OS-2205
+  - name: Stephen of Perm
+    note: Contemporary enlightener of the Komi people
+  - name: Dmitry Donskoy
+    note: Grand Prince he blessed before the Battle of Kulikovo
+    href: saint/OS-1210
+  - name: Alexander Peresvet and Andrew Oslyabya
+    note: The two warrior-monks he blessed and sent to the Battle of Kulikovo
+    href: saint/OS-0290
+  - name: Alexius of Moscow
+    note: Metropolitan and friend who sought him as successor
+    href: saint/OS-0641
+related:
+  - name: Cyril of Belozersk
+    note: Disciple-tradition founder of the White Lake monastery
+    href: saint/OS-1317
+  - name: Nilus of Sora
+    note: Later heir of the Russian contemplative tradition
+    href: saint/OS-1127
+  - name: Seraphim of Sarov
+    note: Later wonderworker of the Russian monastic revival
+    href: saint/OS-0043
 patronage:
   - Beloved patron of Russian students.
 sources:
@@ -63,5 +100,5 @@ sources:
   - https://en.wikipedia.org/wiki/Sergius_of_Radonezh
   - https://www.oca.org/saints/lives/2024/09/25/102730-venerable-sergius-of-radonezh-abbot-and-wonderworker-of-all-russia
   - https://orthodoxwiki.org/Sergius_of_Radonezh
-status: reviewed
+status: draft
 generated: "2026-06-18"

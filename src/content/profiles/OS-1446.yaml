@@ -42,5 +42,15 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/06/30/101856-saint-peter-prince-of-ordinsk-rostov
   - https://en.wikipedia.org/wiki/Golden_Horde
+related:
+  - name: Apostle Peter
+    note: Chief apostle whose name he received at baptism and in whose honor — after a vision of Peter and Paul — he founded his monastery near Lake Nera.
+    href: saint/OS-0004
+  - name: Apostle Paul
+    note: Apostle who, together with Apostle Peter, appeared to him in the vision after which he founded a monastery dedicated to the two.
+    href: saint/OS-2749
+companions:
+  - name: Bishop Cyril of Rostov
+    note: Bishop of Rostov whose accounts of Christian miracles drew the prince to the faith and who received him for baptism at Rostov.
 status: draft
 generated: "2026-06-22"

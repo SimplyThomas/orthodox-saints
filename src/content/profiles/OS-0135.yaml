@@ -9,6 +9,11 @@ sections:
     body:
       - What is known of Lolan comes chiefly from medieval Scottish liturgical sources and place-names rather than a continuous vita. The Aberdeen Breviary commemorates him as a bishop and confessor, and by tradition names Saint Serf (Servanus) as his maternal uncle. Beyond this, his episcopal see, the events of his life, and even his precise dates are not securely recorded.
       - "His memory survives most clearly in dedications: the church of Kincardine in Menteith was dedicated to him, with a further possible association at Bonhill. The relics traditionally connected with him at Kincardine — a bell and a staff — were, by later record, kept by hereditary relic-keepers (deoradh) who held land to support that office. The church of Kincardine itself was granted to the canons of Cambuskenneth Abbey by King William in the late twelfth century."
+family:
+  figures:
+    - name: St. Serf (Servanus)
+      note: His maternal uncle by tradition, as recorded in the Aberdeen Breviary
+      href: saint/OS-2819
 patronage:
   - Kincardine in Menteith, Scotland
 sources:

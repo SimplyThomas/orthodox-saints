@@ -66,9 +66,29 @@ sections:
 patronage:
   - Northumbria
   - The Diocese of Hexham and Newcastle
+companions:
+  - name: Aidan of Lindisfarne
+    note: Apostle of Northumbria, whose soul Cuthbert saw carried to heaven, prompting his monastic call
+    href: saint/OS-1812
+  - name: Eata of Hexham
+    note: Abbot under whom he entered Melrose and whom he succeeded at Lindisfarne
+    commemorated: false
+  - name: Boisil of Melrose
+    note: Prior of Melrose who taught him the Scriptures
+    commemorated: false
+related:
+  - name: Bede the Venerable
+    note: Northumbrian monk who wrote his Life
+    href: saint/OS-0083
+  - name: Finan of Lindisfarne
+    note: Fellow bishop of Lindisfarne
+    href: saint/OS-0679
+  - name: Columba of Iona
+    note: Father of the Celtic monasticism of the North
+    href: saint/OS-1320
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Cuthbert
   - https://orthodoxwiki.org/Cuthbert_of_Lindisfarne
-status: reviewed
+status: draft
 generated: "2026-06-18"

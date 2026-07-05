@@ -4,9 +4,14 @@ import QuizForm from "../components/QuizForm.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
 import { QUIZ } from "../lib/quiz";
-import { FINDER_SAINTS } from "../lib/data";
+import { finderDataPath } from "../lib/finder-payload";
+import { withBase } from "../lib/format";
 
-const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+// The finder dataset is no longer inlined here (it was ~3.4 MB of HTML): the
+// island fetches the content-hashed static JSON named by data-finder-src
+// below in the background while the seeker walks the intro and questions;
+// the result step awaits it. Shares the /search download (one cached URL).
+const finderSrc = withBase(await finderDataPath());
 
 const COUNT_WORDS = [
   "Zero",
@@ -29,7 +34,7 @@ const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
   title="Find Your Patron Saint"
   description="A short pilgrimage of the heart — a guided finder that points you to Orthodox saints whose lives echo your own: their story, calling, background, and the prayers you carry."
 >
-  <div id="quiz" class="quiz-flow">
+  <div id="quiz" class="quiz-flow" data-finder-src={finderSrc}>
     {/* ============ INTRO ============ */}
     <section class="qz-screen qz-intro" data-qstep="intro">
       <div class="qz-intro-inner">
@@ -38,7 +43,7 @@ const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
             <DomeMark w={540} color="var(--byz)" />
           </div>
           <div class="qz-title-inner">
-            <EyebrowRule label="A Short Pilgrimage of the Heart" />
+            <EyebrowRule label="The Saints" />
             <h1>Find Your Patron Saint</h1>
           </div>
         </div>
@@ -68,6 +73,12 @@ const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
             <span class="dm" aria-hidden="true"></span>
             <span>skip any</span>
           </div>
+          <noscript>
+            <p class="qz-instructions">
+              The quiz needs JavaScript — you can still
+              <a href={withBase("search")}>browse and filter every saint</a>.
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -81,12 +92,6 @@ const countWord = COUNT_WORDS[QUIZ.length] || String(QUIZ.length);
     </section>
   </div>
 
-  <script
-    type="application/json"
-    id="finder-data"
-    set:html={finderJson}
-    is:inline
-  />
   <script>
     import "../islands/quiz.client.ts";
   </script>

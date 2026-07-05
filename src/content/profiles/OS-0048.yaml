@@ -53,9 +53,53 @@ patronage:
   - The blind and those with afflictions of sight
   - The sick, who seek healing through her intercession
   - Those in distress or danger seeking guidance
+family:
+  figures:
+    - name: Dimitri Nikonov
+      note: Father
+      commemorated: false
+    - name: Natalia Nikonova
+      note: Mother
+      commemorated: false
+    - name: Brothers and sister
+      note: Her siblings
+      commemorated: false
+companions:
+  - name: John of Kronstadt
+    note: Wonderworking pastor who by tradition recognized her future holiness
+    href: saint/OS-0045
+  - name: Spiritual children and pilgrims
+    note: The countless visitors who came to her for counsel and prayer
+  - name: Women who sheltered her
+    note: Friends and hosts who took her in across Moscow under Soviet rule
+  - name: Soviet authorities
+    note: The atheist state that persecuted believers in her lifetime
+    commemorated: false
+related:
+  - name: Xenia of St. Petersburg
+    note: Russian fool-for-Christ and wonderworker
+    href: saint/OS-0047
+  - name: Seraphim of Sarov
+    note: Beloved Russian elder and wonderworker
+    href: saint/OS-0043
+  - name: Nektarios of Aegina
+    note: Greek wonderworker of the same era
+    href: saint/OS-0046
+  - name: Paisios the Athonite
+    note: Modern Greek elder and wonderworker
+    href: saint/OS-0051
+  - name: Porphyrios of Kavsokalyvia
+    note: Athonite elder and wonderworker
+    href: saint/OS-0052
+  - name: Luke the Surgeon
+    note: Confessor-bishop and physician of Crimea
+    href: saint/OS-0049
+  - name: Tikhon of Moscow
+    note: Patriarch and confessor of the Russian Church
+    href: saint/OS-0053
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Matrona_of_Moscow
   - https://orthodoxwiki.org/Matrona_of_Moscow
-status: reviewed
+status: draft
 generated: "2026-06-18"

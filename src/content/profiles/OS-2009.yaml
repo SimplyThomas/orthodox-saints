@@ -34,5 +34,17 @@ sections:
       - After Edwin's death his head was buried at York and his remains at Whitby. Most of the early English calendars list him as a martyr, and his feast is kept on 12 October.
 patronage:
   - Converts
+family:
+  figures:
+    - name: St. Aethelburh of Kent
+      note: Edwin's marriage to the Christian princess Ethelburga of Kent brought the faith to his court and prepared the way for his baptism.
+      href: saint/OS-0309
+related:
+  - name: Saint Paulinus of York
+    note: Paulinus came north with Ethelburga and baptized Edwin at York in 627; his northern mission depended on the king's support.
+    href: saint/OS-2774
+  - name: Saint Oswald, King and Martyr of Northumbria
+    note: Oswald succeeded to Northumbria after Edwin's death in battle and completed the stone church at York that Edwin had begun.
+    href: saint/OS-1650
 status: draft
 generated: "2026-06-19"

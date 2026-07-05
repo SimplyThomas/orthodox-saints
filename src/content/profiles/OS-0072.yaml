@@ -41,10 +41,36 @@ patronage:
   - Invoked for peace and concord.
   - Patron saint of the Greek island of Santorini.
   - Formerly patron saint of Lecce, Italy
+companions:
+  - name: Apellian
+    note: Her Christian tutor, who instructed her in the faith and buried her
+    commemorated: false
+  - name: Timothy the Priest
+    note: Who baptized her and gave her the name Irene
+    commemorated: false
+related:
+  - name: Great Martyr Catherine of Alexandria
+    note: Fellow great virgin-martyr
+    href: saint/OS-0015
+  - name: Great Martyr Barbara
+    note: Fellow great virgin-martyr
+    href: saint/OS-0016
+  - name: Great Martyr Marina
+    note: Fellow great virgin-martyr
+    href: saint/OS-0017
+  - name: Paraskevi of Rome
+    note: Fellow virgin-martyr
+    href: saint/OS-0060
+  - name: Anastasia the Deliverer-from-Potions
+    note: Fellow great virgin-martyr
+    href: saint/OS-0071
+  - name: Lucy of Syracuse
+    note: Fellow virgin-martyr
+    href: saint/OS-2342
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2023/05/05/101318-great-martyr-irene
   - https://en.wikipedia.org/wiki/Irene_of_Lecce
   - https://www.johnsanidopoulos.com/2019/05/saint-irene-great-martyr-resource-page.html
-status: reviewed
+status: draft
 generated: "2026-06-18"

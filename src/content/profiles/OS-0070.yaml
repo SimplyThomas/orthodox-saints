@@ -52,9 +52,23 @@ timeline:
     body: Recognized as a saint by the Ecumenical Patriarchate under Patriarch Demetrios I.
 patronage:
   - Healing of the sick
+companions:
+  - name: Paisios the Athonite
+    note: Whom he baptized as an infant, giving the child his own name; Paisios later wrote his life
+    href: saint/OS-0051
+related:
+  - name: Nektarios of Aegina
+    note: Fellow modern Greek wonderworker
+    href: saint/OS-0046
+  - name: Porphyrios of Kavsokalyvia
+    note: Fellow modern Greek wonderworker-elder
+    href: saint/OS-0052
+  - name: Iakovos (Tsalikis)
+    note: Fellow modern Greek wonderworker-elder
+    href: saint/OS-2585
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Arsenios_the_Cappadocian
   - https://orthodoxwiki.org/Arsenios_of_Cappadocia
-status: reviewed
+status: draft
 generated: "2026-06-18"

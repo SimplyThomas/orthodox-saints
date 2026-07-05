@@ -45,6 +45,12 @@ companions:
   - name: Saint Willibrord, Enlightener of Frisia
     note: Consecrated bishop of the Frisians by Sergius and sent to evangelize Frisia.
     href: saint/OS-2719
+  - name: Saint Wilfrid of York
+    note: Whose appeal Sergius upheld at the Roman synod, restoring him to his see.
+    href: saint/OS-2703
+  - name: Saint Aldhelm of Sherborne
+    note: To whom Sergius granted a privilege for his monastery at Malmesbury.
+    href: saint/OS-2707
 patronage:
   - Missions to Frisia and Germany
 status: draft

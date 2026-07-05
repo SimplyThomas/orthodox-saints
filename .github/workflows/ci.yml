@@ -1,10 +1,60 @@
 name: CI
+# Runs on pull_request only (plus manual dispatch): every change lands via PR
+# (branch protection), and the old extra `push` trigger double-ran the whole
+# suite on each push to an open PR branch. Pre-PR branches still get
+# Cloudflare Pages preview builds; use workflow_dispatch for an ad-hoc run.
 on:
   pull_request:
-  push:
-    branches-ignore: [main]
+  workflow_dispatch:
+
+# A newer push to the same PR/branch cancels the still-running older run.
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  # Detect which areas a PR touches so docs-only (and other unrelated) changes
+  # skip the heavy jobs. `validate` and `frontend` are required checks; when
+  # their job-level `if` skips them, GitHub reports "skipped", which satisfies
+  # branch protection. On workflow_dispatch everything runs.
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      data: ${{ github.event_name != 'pull_request' || steps.filter.outputs.data }}
+      frontend: ${{ github.event_name != 'pull_request' || steps.filter.outputs.frontend }}
+    steps:
+      - uses: dorny/paths-filter@d1c1ffe0248fe513906c8e24db8ea791d46f8590 # v3.0.3
+        if: github.event_name == 'pull_request'
+        id: filter
+        with:
+          filters: |
+            data:
+              - 'data/**'
+              - 'build.py'
+              - 'tests/**'
+              - 'tools/**'
+              - 'requirements.txt'
+              - 'src/content/profiles/**'
+              - '.github/workflows/ci.yml'
+            frontend:
+              - 'data/**'
+              - 'build.py'
+              - 'requirements.txt'
+              - 'src/**'
+              - 'e2e/**'
+              - 'static/**'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'astro.config.mjs'
+              - 'tsconfig.json'
+              - 'eslint.config.js'
+              - 'vitest.config.ts'
+              - 'playwright.config.ts'
+              - '.github/workflows/ci.yml'
+
   validate:
+    needs: changes
+    if: needs.changes.outputs.data == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -17,6 +67,8 @@ jobs:
       - run: python build.py --check-only
 
   frontend:
+    needs: changes
+    if: needs.changes.outputs.frontend == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -33,8 +85,29 @@ jobs:
       - run: npm ci
       - run: npm run lint                        # eslint + prettier --check
       - run: npm run test:unit                   # vitest unit tests (pure lib logic)
+      # Astro's content-layer store (.astro/): restoring it lets the profiles
+      # collection re-parse only changed YAML files instead of all ~2.6k.
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: .astro
+          key: astro-datastore-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/content/profiles/**') }}
+          restore-keys: |
+            astro-datastore-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
       - run: npm run build                       # astro build must succeed
-      - run: npx playwright install --with-deps chromium
+      # Cache the Playwright browser download (~150 MB) keyed on the installed
+      # @playwright/test version; OS deps still install on a cache hit (fast).
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      - if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
       - run: npm test                            # playwright smoke tests (build base-path, modal, quiz)
 
   worker:

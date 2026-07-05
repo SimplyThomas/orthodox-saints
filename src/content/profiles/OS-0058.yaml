@@ -43,5 +43,42 @@ sources:
   - https://en.wikipedia.org/wiki/Phanourios_(saint)
   - https://orthodoxwiki.org/Phanourios
   - https://en.wikipedia.org/wiki/Saint_Phanourios
-status: reviewed
+family:
+  figures:
+    - name: His Mother
+      note: Unnamed in his tradition, remembered in the Phanouropita custom
+      commemorated: false
+companions:
+  - name: Roman persecutors
+    note: The magistrate and torturers of his martyrdom
+    commemorated: false
+related:
+  - name: George the Great Martyr
+    note: Soldier-martyr venerated alongside him
+    href: saint/OS-0012
+  - name: Demetrius
+    note: Great-martyr and myrrh-streamer
+    href: saint/OS-0013
+  - name: Theodore the Recruit
+    note: Soldier-martyr of the early Church
+    href: saint/OS-0018
+  - name: Theodore Stratelates
+    note: General and martyr
+    href: saint/OS-0615
+  - name: Mercurius
+    note: Soldier-martyr and wonderworker
+    href: saint/OS-2247
+  - name: Great Martyr Procopius
+    note: Fellow soldier-martyr
+    href: saint/OS-1494
+  - name: Martyr Sebastian
+    note: Fellow soldier-martyr
+    href: saint/OS-2381
+  - name: Menas of Egypt
+    note: Soldier-martyr invoked to find what is lost
+    href: saint/OS-0059
+  - name: Panteleimon
+    note: Great-martyr and unmercenary healer
+    href: saint/OS-0014
+status: draft
 generated: "2026-06-18"

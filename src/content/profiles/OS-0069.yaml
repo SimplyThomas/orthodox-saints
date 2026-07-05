@@ -50,10 +50,18 @@ patronage:
   - Invoked for sick children
   - Invoked by those suffering from cancer and serious illness
   - Captives and the enslaved
+companions:
+  - name: His master the Agha
+    note: The Ottoman cavalry officer he served faithfully through his captivity
+    commemorated: false
+related:
+  - name: Great Martyr George
+    note: The martyr at whose cave-church in Prokopion he worshipped and was buried
+    href: saint/OS-0012
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_the_Russian
   - https://orthodoxwiki.org/John_the_Russian
   - https://www.oca.org/saints/lives/2025/05/27/101545-saint-john-the-russian-and-confessor-whose-relics-are-on-the-isl
-status: reviewed
+status: draft
 generated: "2026-06-18"

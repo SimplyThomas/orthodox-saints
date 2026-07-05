@@ -40,6 +40,16 @@ companions:
   - name: Venerable Michael Maleinos
     note: Abbot of Kyminas who tonsured him and was his spiritual guide
     href: saint/OS-1514
+  - name: John (Tornike) of Mount Athos
+    note: Georgian monk and former general who entered the Great Lavra under him before founding Iviron
+    href: saint/OS-1343
+  - name: Nikephoros Phokas
+    note: Byzantine general and later emperor, his lifelong patron who asked him to found the Great Lavra
+    commemorated: false
+related:
+  - name: Peter the Athonite
+    note: The earlier solitary patron of the Holy Mountain whose eremitic legacy preceded Athanasius's cenobitic foundation
+    href: saint/OS-1336
 patronage:
   - Monastics and those drawn to the cenobitic common life
   - Mount Athos and the Great Lavra

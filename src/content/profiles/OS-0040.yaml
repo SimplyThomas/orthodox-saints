@@ -58,5 +58,54 @@ sections:
     body:
       - Vladimir is venerated as Equal-to-the-Apostles, and is commemorated by both the Eastern Orthodox and the Catholic Church on July 15 (15/28 July); he is also commemorated on the second Sunday of Great Lent.
       - By tradition, Saint Alexander Nevsky instituted Vladimir's feast after his victory at the Neva River in 1240, attributing his success to Vladimir's intercession.
-status: reviewed
+family:
+  figures:
+    - name: Sviatoslav I of Kyiv
+      note: His father, the pagan Grand Prince
+      commemorated: false
+    - name: Malusha
+      note: His mother, a Christian, Sviatoslav's housekeeper
+      commemorated: false
+    - name: Olga of Kyiv
+      note: His grandmother, who helped raise him in the faith
+      href: saint/OS-0041
+    - name: Anna Porphyrogenita
+      note: His wife, sister of the Byzantine emperors
+    - name: Boris and Gleb
+      note: His sons, the first canonized Russian saints
+      href: saint/OS-0236
+    - name: Yaroslav the Wise
+      note: His son and successor as Grand Prince
+      href: saint/OS-2887
+      commemorated: false
+companions:
+  - name: Anna Porphyrogenita
+    note: His wife, brought from Constantinople with clergy
+  - name: Michael I of Kyiv
+    note: First metropolitan associated with the baptism of Rus'
+  - name: Basil II
+    note: Byzantine emperor whose sister he married
+    commemorated: false
+  - name: Constantine VIII
+    note: Byzantine co-emperor of his day
+    commemorated: false
+related:
+  - name: Anna Porphyrogenita
+    note: Byzantine princess who shared in his Christian rule
+  - name: Constantine the Great
+    note: Equal-to-the-Apostles emperor and model of the Christian ruler
+    href: saint/OS-0037
+  - name: Empress Helen
+    note: Equal-to-the-Apostles mother of Constantine
+    href: saint/OS-2751
+  - name: Nina of Georgia
+    note: Equal-to-the-Apostles enlightener of another nation
+    href: saint/OS-0039
+  - name: Cyril and Methodius
+    note: Equals-to-the-Apostles whose Slavonic letters enabled the baptism of Rus'
+    href: saint/OS-0038
+  - name: Patrick of Ireland
+    note: Apostolic enlightener of a people
+    href: saint/OS-0079
+status: draft
 generated: "2026-06-18"

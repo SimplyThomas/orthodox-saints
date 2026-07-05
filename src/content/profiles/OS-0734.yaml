@@ -54,8 +54,18 @@ family:
       href: saint/OS-0937
     - name: Saint Fulgentius
       note: Brother; Bishop of Astigi.
+      href: saint/OS-2896
     - name: Saint Florentina
       note: Sister; consecrated to the monastic life, for whom Leander composed a rule.
+      href: saint/OS-2897
+companions:
+  - name: Saint Gregory the Dialogist
+    note: Friend and lifelong correspondent, whom Leander met during his exile in Constantinople.
+    href: saint/OS-0084
+related:
+  - name: Martyr Hermenegild the Goth of Spain
+    note: Visigothic prince whose conversion from Arianism to the Orthodox faith Leander supported and who was later killed for refusing to return to heresy.
+    href: saint/OS-2129
 works:
   - title: De institutione virginum et contemptu mundi
     desc: A monastic rule composed for his sister Florentina.

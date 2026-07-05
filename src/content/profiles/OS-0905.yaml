@@ -51,6 +51,20 @@ sections:
     body:
       - John the Silent stands as one of the foremost examples of the hesychast tradition of silence and inner stillness in early Palestinian monasticism. His life was recorded by his contemporary Cyril of Scythopolis, a principal source for the monastic history of sixth-century Palestine.
       - He is commemorated in the Eastern Orthodox Church on December 3, with an additional commemoration on March 30 noted in the OCA listing. He is also known by the names John the Hesychast and John Silentiarius.
+companions:
+  - name: Venerable Savva the Sanctified
+    note: "Elder: the founder of the Great Lavra, under whom John entered as a concealed novice and lived in obedience for the rest of his life."
+    href: saint/OS-2304
+  - name: Patriarch Elias of Jerusalem
+    note: "Bishop who guided him: learning of his hidden episcopal rank, the patriarch directed him to live in silence — the discipline from which his epithet derives."
+    href: saint/OS-2869
+  - name: Cyril of Scythopolis
+    note: "Biographer: his younger contemporary in Palestinian monasticism, who recorded John's life as a principal source for the period."
+    href: saint/OS-2868
+related:
+  - name: Venerable Euthymius the Great
+    note: "Judean Desert: the founding father of the Judean Desert monastic tradition of an earlier generation, whose disciple Savva later gathered John into that same lineage."
+    href: saint/OS-0494
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/John_the_Silent

@@ -28,6 +28,19 @@ sections:
 patronage:
   - Those who seek the gift of repentance and compunction
   - Honored as a hermit and ascetic of the Syrian desert
+related:
+  - name: Venerable Maron the Hermit of Syria
+    note: "Fellow Syrian solitary: a contemporary ascetic of the Cyrrhus region whom Theodoret recorded in the same Religious History."
+    href: saint/OS-0659
+  - name: Venerable Marcian of Cyrrhus
+    note: "Fellow Syrian solitary: an ascetic of the Chalcis desert described by Theodoret in the Religious History."
+    href: saint/OS-0479
+  - name: Venerable Thalassius and Limnaeus of Syria
+    note: "Fellow Syrian solitaries: ascetics of the same region chronicled by Theodoret in the Religious History."
+    href: saint/OS-0709
+  - name: Venerable Baradates the Hermit of Syria
+    note: "Fellow Syrian solitary: an enclosed ascetic likewise described by Theodoret of Cyrrhus in the Religious History."
+    href: saint/OS-0710
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

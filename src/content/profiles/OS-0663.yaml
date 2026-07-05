@@ -12,6 +12,13 @@ sections:
     body:
       - The Kiev Caves Lavra (Kyiv Pechersk Lavra) was co-founded in the mid-eleventh century, around 1051, by Anthony of Kiev and Theodosius of Kiev. Anthony established cave-dwelling monasticism at Kyiv and, even as the communal monastery grew, withdrew to the Far Caves to maintain a solitary, hermitic life, so that the tradition of reclusion (zatvornichestvo) was foundational to the monastery from its origins.
       - The cave complex comprises two systems, the Near Caves and the Far Caves, connected by narrow underground corridors with living cells and underground chapels. More than a hundred burials of saints are housed within them. As a recluse of the thirteenth century, Paphnutius would have lived roughly a century and a half to two centuries after the monastery's founding, in a period when the Mongol invasion of Rus' (1237–1241) disrupted monastic life across the region. The anchoritic discipline he continued traces back to the example of Anthony himself.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of the Kiev Caves monastery and of its eremitic tradition of reclusion, which Paphnutius continued generations later.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves Lavra, the community to which Paphnutius belonged.
+    href: saint/OS-2745
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Feb 15

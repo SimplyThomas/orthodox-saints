@@ -48,11 +48,29 @@ patronage:
   - Shepherds and herdsmen
   - Protection of flocks
   - Those in danger
+family:
+  figures:
+    - name: Theodotus and Rufina of Caesarea
+      note: His parents, martyred for the faith and commemorated with him on September 2
+      href: saint/OS-1814
+    - name: Ammia
+      note: The wealthy Christian widow who adopted and raised the orphaned boy
+      commemorated: false
+related:
+  - name: Gregory the Theologian
+    note: Delivered a panegyric in his honor (383)
+    href: saint/OS-0022
+  - name: Basil the Great
+    note: Praised him in an encomium and testified to his intercessory power
+    href: saint/OS-0021
+  - name: Symeon the New Theologian
+    note: Later served as abbot of the Monastery of St Mamas in Constantinople
+    href: saint/OS-0035
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Mammes_of_Caesarea
   - https://orthodoxwiki.org/Mamas_of_Caesarea
   - https://www.johnsanidopoulos.com/2016/09/synaxarion-of-saint-mamas-martyr.html
   - https://www.johnsanidopoulos.com/2020/09/the-veneration-of-saint-mamas-in.html
-status: reviewed
+status: draft
 generated: "2026-06-18"

@@ -25,6 +25,10 @@ sections:
     body:
       - Domnica is a genuinely obscure early Byzantine ascetic whose individual biography survives primarily through Theodoret's Philotheos Historia. No dedicated encyclopedia article treats her in her own right; the fuller external descriptions concern Marana and Kyra and mention Domnica only indirectly as their companion. The particular details of her small hut, her continual weeping in prayer, her diet of lentils, and her repose about the year 460 derive from the OCA anchor account, which itself draws on Theodoret. This profile is therefore brief by the nature of the surviving record rather than by incomplete research.
 patronage: []
+companions:
+  - name: The Venerable Marina and Kyra of Syria
+    note: The enclosed sisters of Beroea whose ascetic life Domnina shared, dwelling in a small hut beside their walled enclosure.
+    href: saint/OS-0739
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/02/28

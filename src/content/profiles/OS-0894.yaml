@@ -9,6 +9,10 @@ sections:
     body:
       - Hesychius is remembered above all as a biblical commentator. He wrote consecutive commentaries on whole books of Scripture and brief explanatory notes (scholia) on others, applying throughout the allegorical approach that read the events and images of the Old Testament as figures of Christ and the mysteries of the Church.
       - His surviving and attested works include commentaries on Leviticus, the Psalms, and Luke, and scholia on the Twelve Minor Prophets, Isaiah, and Ezekiel. Through them later scholars have been able to recover rare variant readings of the biblical text and to trace early systems of stichometry and chapter division.
+companions:
+  - name: St. Gregory the Theologian
+    note: By tradition his teacher; Hesychius is remembered as a disciple of Saint Gregory the Theologian before giving himself to the ascetic and scholarly life in Jerusalem.
+    href: saint/OS-0022
 patronage:
   - Teachers and interpreters of Holy Scripture
 status: draft

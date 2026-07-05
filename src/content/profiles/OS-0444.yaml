@@ -49,6 +49,13 @@ family:
     - name: St. Gregory the Illuminator
       note: Reported by tradition to be a relative.
       href: saint/OS-0089
+companions:
+  - name: St. Ephraim the Syrian
+    note: "Disciple: his spiritual son at Nisibis, said to have been baptized by him and to have remained at his side."
+    href: saint/OS-0031
+  - name: St. Athanasius the Great
+    note: "Fellow Father of Nicaea: a co-defender of Orthodoxy against Arius at the Council of 325, who held James in high regard."
+    href: saint/OS-0024
 patronage: []
 works: []
 reading:

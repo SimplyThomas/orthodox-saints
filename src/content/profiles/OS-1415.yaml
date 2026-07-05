@@ -19,6 +19,13 @@ sections:
   - heading: The Companions
     body:
       - His life records his association with three other ascetics, remembered with him in the June 23 commemoration. Tradition identifies them as Theodore, described as a priest; Daniel, connected with the region of Patras and remembered for hospitality; and Gregory, associated with the area of Mystras and ascetic struggle on Euboea. The sources present these figures as distinct ascetics named in Niketas's biography rather than as a uniform community, and the details attached to each survive only in brief, later accounts.
+companions:
+  - name: Theodore
+    note: Fellow ascetic; a priest named in Niketas's life and remembered with him in the June 23 commemoration.
+  - name: Daniel
+    note: Fellow ascetic; connected in tradition with the region of Patras and remembered for hospitality.
+  - name: Gregory
+    note: Fellow ascetic; associated in tradition with the area of Mystras and ascetic struggle on Euboea.
 patronage:
   - Thebes and the region of Boeotia
 status: draft

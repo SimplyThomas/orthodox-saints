@@ -28,6 +28,16 @@ timeline:
   - when: 3rd century
     title: Martyrdom by beheading
     body: After enduring torments, Paul and Juliana were beheaded. By tradition three soldiers — Kodratos, Akakios, and Stratonikos — converted at the sight of their endurance and were also beheaded.
+companions:
+  - name: Soldier-Martyr Kodratos
+    note: Fellow martyr, a soldier who took pity on Paul and Juliana, believed in Christ at the sight of their endurance, and was beheaded with them.
+    href: saint/OS-2928
+  - name: Soldier-Martyr Akakios
+    note: Fellow martyr, a soldier who together with Kodratos believed in Christ while the siblings suffered and was beheaded with them.
+    href: saint/OS-2928
+  - name: Soldier-Martyr Stratonikos
+    note: Fellow martyr, a soldier moved with compassion for Juliana who confessed Christ and was likewise beheaded by the emperor.
+    href: saint/OS-2928
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

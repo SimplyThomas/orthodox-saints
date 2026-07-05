@@ -34,6 +34,13 @@ sections:
 companions:
   - name: Monks of the Kiev Caves
     note: The fathers of the Kiev Caves monastery, whose prayers rescued Niketas from his spiritual delusion.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Related as the founder of the Kiev Caves monastery where Niketas was tonsured and pursued the reclusive life.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Related as co-founder of the Kiev Caves monastery, organizer of its cenobitic life under whose tradition Niketas was formed.
+    href: saint/OS-2745
 patronage: []
 works: []
 status: draft

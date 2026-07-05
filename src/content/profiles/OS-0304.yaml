@@ -28,6 +28,13 @@ sections:
 patronage:
   - Those who suffer persecution for the faith
   - Parish clergy
+companions:
+  - name: New Hieromartyr Pachomius of Skanov
+    note: "Co-martyr; condemned and shot together on September 20, 1937 in the Karaganda labour camps with Metropolitan Eugene (Zernov)."
+    href: saint/OS-0303
+  - name: New Hieromartyr Eugene of Nizhny Novgorod
+    note: "Co-martyr; Metropolitan Eugene (Zernov) of Nizhny Novgorod, with whom he was shot on September 20, 1937 in the Karaganda region."
+    href: saint/OS-0299
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/September_7_(Eastern_Orthodox_liturgics)

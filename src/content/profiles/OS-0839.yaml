@@ -47,6 +47,12 @@ sections:
     body:
       - The incorrupt relics of Macarius were uncovered on May 26, 1521 during building work at the Kalyazin monastery he had founded.
       - The uncovering is commemorated separately on May 26 (Old Calendar June 8), distinct from his principal feast of repose on March 17.
+family:
+  heading: Family
+  figures:
+    - name: St. Paisius of Uglich
+      note: Nephew of Macarius, who entered his uncle's monastery as a child and was formed there in the monastic life.
+      href: saint/OS-0410
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/03/17/100824-venerable-macarius-the-wonderworker-abbot-of-kalyazin

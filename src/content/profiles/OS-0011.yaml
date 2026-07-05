@@ -61,9 +61,43 @@ sources:
   - https://en.wikipedia.org/wiki/Protoevangelium_of_James
   - https://en.wikipedia.org/wiki/Mary%2C_mother_of_Jesus
 family:
+  heading: Ancestors of God
+  intro: Joachim stands at the head of the Holy Family — husband of Anna, father of the Theotokos, and grandfather according to the flesh of the Lord himself.
   figures:
     - name: Righteous Anna
-      note: His wife; parents of the Theotokos, jointly commemorated September 9
+      note: His wife; jointly commemorated with him on September 9
       href: saint/OS-2750
-status: reviewed
+    - name: The Most Holy Theotokos
+      note: Daughter
+      href: saint/OS-0001
+    - name: Jesus Christ
+      note: Grandson according to the flesh
+      href: saint/OS-0000
+    - name: Matthan
+      note: Father (traditional)
+      commemorated: false
+    - name: Estha
+      note: Mother (traditional)
+      commemorated: false
+companions:
+  - name: Issachar the High Priest
+    note: Who turned away his sacrifice on account of his childlessness
+    commemorated: false
+related:
+  - name: Prophet-King David
+    note: Forefather; Joachim was of the tribe of Judah and the line of King David
+    href: saint/OS-2421
+  - name: Joseph the Betrothed
+    note: Son-in-law; guardian of the Theotokos
+    href: saint/OS-0075
+  - name: Righteous Elizabeth
+    note: Kinswoman through Anna's family
+    href: saint/OS-2752
+  - name: Prophet Zechariah
+    note: Kinsman; father of the Forerunner
+    href: saint/OS-0085
+  - name: John the Forerunner
+    note: Kinsman of the Holy Family
+    href: saint/OS-0002
+status: draft
 generated: "2026-06-18"

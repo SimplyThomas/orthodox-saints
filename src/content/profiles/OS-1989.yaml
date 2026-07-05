@@ -54,5 +54,16 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/09
   - https://en.wikipedia.org/wiki/Angelina_of_Serbia
   - https://en.wikipedia.org/wiki/Grgur_Brankovi%C4%87
+family:
+  figures:
+    - name: Saint Angelina of Serbia
+      note: His wife, who shared his exile and ended her days in monastic life.
+      href: saint/OS-1451
+    - name: St. Maximus Brankovic, Archbishop of Serbia
+      note: His son, who became a monk and archbishop.
+      href: saint/OS-0482
+    - name: Righteous John of Serbia
+      note: His son, with whom he and Angelina are commemorated.
+      href: saint/OS-2331
 status: draft
 generated: "2026-06-22"

@@ -43,5 +43,39 @@ sections:
 patronage:
   - Monastics and the ascetic life
   - Desert fathers and the monastic settlement of Scetis
-status: reviewed
+companions:
+  - name: Anthony the Great
+    note: His spiritual mentor, whom he visited in the desert
+    href: saint/OS-0026
+  - name: Macarius of Alexandria
+    note: His close companion, often confused with him
+    href: saint/OS-0485
+  - name: Pachomius the Great
+    note: Parallel founder of Egyptian monasticism
+    href: saint/OS-0028
+  - name: Pambo of Egypt
+    note: Fellow father of the Egyptian desert
+    href: saint/OS-1547
+  - name: Arsenius the Great
+    note: Fellow desert father of Scetis
+    href: saint/OS-1131
+  - name: Moses the Black
+    note: Desert father of Scetis whom he formed
+    href: saint/OS-0030
+  - name: Athanasius the Great
+    note: Archbishop of Alexandria in his lifetime
+    href: saint/OS-0024
+  - name: Evagrius Ponticus
+    note: His important disciple in the desert
+related:
+  - name: Syncletica of Alexandria
+    note: Desert mother and ascetic
+    href: saint/OS-0393
+  - name: Mary of Egypt
+    note: Penitent of the same desert tradition
+    href: saint/OS-0027
+  - name: John Climacus
+    note: Who gathered the desert's wisdom in The Ladder
+    href: saint/OS-0033
+status: draft
 generated: "2026-06-19"

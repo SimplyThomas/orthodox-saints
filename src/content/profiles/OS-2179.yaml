@@ -27,5 +27,9 @@ sections:
       - The Orthodox account followed here derives from the synaxarion as preserved in the Lives of the Saints, which places the martyrdom under Marcus Aurelius and gives Stephanida's age as fifteen.
       - Some Western-influenced retellings identify Stephanida with the martyr Corona ('crown') venerated in Austria and Bavaria and report differing emperors and dates; these variants are noted but not relied upon, the synaxarion's account being taken as authoritative.
 patronage: []
+companions:
+  - name: Martyr Victor of Damascus
+    note: The soldier-martyr whose endurance moved her to confess Christ; they were buried together and share the Nov 11 feast
+    href: saint/OS-2177
 status: draft
 generated: "2026-06-19"

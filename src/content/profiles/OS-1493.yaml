@@ -56,6 +56,17 @@ works:
     desc: A short treatise on grace and free will addressed as a letter to Rufinus.
   - title: Epigrams and maxims from Augustine
     desc: A collection of epigrams and a body of maxims compiled from the writings of Augustine of Hippo.
+companions:
+  - name: Pope Leo the Great
+    note: Served in his papal chancery from about 440; by the testimony of Gennadius drafted Leo's letters against the heresiarch Eutyches.
+    href: saint/OS-0681
+  - name: Pope Celestine I
+    note: Appealed to him at Rome in 431 in defense of Augustinian teaching on grace; Celestine answered with the letter Apostolici Verba to the bishops of Gaul.
+    href: saint/OS-0965
+related:
+  - name: Augustine of Hippo
+    note: Foremost lay disciple and defender of Augustine's theology of grace; corresponded with him though they never met, and abridged and propagated his works after his death.
+    href: saint/OS-1365
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Prosper_of_Aquitaine

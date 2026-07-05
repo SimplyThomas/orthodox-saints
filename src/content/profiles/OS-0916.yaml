@@ -24,6 +24,17 @@ sections:
     body:
       - Gerontius's relics rest in the Far (Theodosian) Caves of the Kiev Caves Lavra. By tradition his relics lie alongside those of Leontius, another young canonarch of the same monastery.
       - Beyond his individual feast on April 1, Gerontius is honored among the broader Synaxis of the Saints whose relics are housed in the Far Caves, celebrated on August 28.
+companions:
+  - name: Leontius the Canonarch
+    note: Fellow young canonarch of the Far Caves of Kiev, whose incorrupt relics lie beside those of Gerontius.
+    href: saint/OS-1382
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Co-founder of the Kiev Caves Lavra, the monastery where Gerontius passed his whole monastic life and is buried.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves Lavra and organizer of its cenobitic life, the community of Gerontius's monastic obedience.
+    href: saint/OS-2745
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/04/01/100966-venerable-gerontius-the-canonarch-of-the-kiev-far-caves

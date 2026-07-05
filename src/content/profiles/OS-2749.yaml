@@ -78,5 +78,30 @@ companions:
   - name: Apostle Peter
     note: Jointly commemorated June 29 as the Chief Apostles
     href: saint/OS-0004
-status: reviewed
+related:
+  - name: Righteous Gamaliel
+    note: The renowned teacher of the Law in Jerusalem under whom Saul was trained as a Pharisee.
+    href: saint/OS-1625
+  - name: Apostle Ananias of Damascus
+    note: The disciple at Damascus who restored Saul's sight and baptized him after his conversion.
+    href: saint/OS-1928
+  - name: Apostle Barnabas of the Seventy
+    note: Companion and co-worker who introduced Paul to the apostles and labored with him on the first missionary journey.
+    href: saint/OS-1331
+  - name: Apostle Timothy of the Seventy
+    note: Disciple recruited at Lystra and frequent co-worker, recipient of two of Paul's epistles.
+    href: saint/OS-0512
+  - name: Apostle Titus of the Seventy
+    note: Disciple and co-worker whom Paul left as bishop of Crete and addressed in an epistle.
+    href: saint/OS-1775
+  - name: Apostle Silas (Silvanus) of the Seventy
+    note: Companion who traveled with Paul on the second missionary journey through Macedonia and Greece.
+    href: saint/OS-1608
+  - name: Apostle & Evangelist Luke
+    note: Physician and traveling companion of Paul who recorded much of his ministry in the Acts of the Apostles.
+    href: saint/OS-0006
+  - name: Saint Thekla
+    note: Convert and disciple at Iconium, the protomartyr among women, won to Christ through Paul's preaching.
+    href: saint/OS-0010
+status: draft
 generated: "2026-06-18"

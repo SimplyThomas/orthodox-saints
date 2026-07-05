@@ -29,5 +29,16 @@ sections:
 patronage:
   - Converts received into the faith
   - Hospitality and the sheltering of strangers
+family:
+  figures:
+    - name: Salmon
+      note: Her husband, of the tribe of Judah, named in the genealogy of Christ (Matthew 1:5).
+    - name: Righteous Boaz
+      note: Her son, the kinsman-redeemer of Ruth and great-grandfather of King David.
+      href: saint/OS-2574
+related:
+  - name: Prophet-King David
+    note: Her descendant through Boaz; Rahab stands among the ancestresses of David and so of Christ — a Gentile woman of Jericho gathered into the Messianic line.
+    href: saint/OS-2421
 status: draft
 generated: "2026-06-21"

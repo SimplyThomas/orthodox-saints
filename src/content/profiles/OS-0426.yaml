@@ -33,6 +33,13 @@ timeline:
   - when: "1683"
     title: Documented local veneration
     body: An icon depicting both Saint Makarios and Saint Paul of Obnora is recorded, marking the earliest firm evidence of the saint's local veneration.
+companions:
+  - name: St. Sergius of Radonezh
+    note: "Teacher: trained Makarios in the monastic life at the Holy Trinity monastery."
+    href: saint/OS-0042
+  - name: St. Paul of Obnora
+    note: "Fellow disciple of Sergius of Radonezh: close companion whose monastery was linked to the Pisma hermitage; they share the January 10 commemoration."
+    href: saint/OS-0425
 patronage:
   - Kostroma region
   - Monastics of the Sergius of Radonezh tradition

@@ -56,5 +56,25 @@ sections:
 patronage:
   - Milan
   - Beekeepers
+family:
+  heading: Family
+  intro: Ambrose was the youngest of three children of a senior Roman official; both his brother and sister are venerated as saints.
+  figures:
+    - name: Satyrus of Milan
+      note: His elder brother, who managed the temporal affairs of the see of Milan; venerated as a saint.
+      href: saint/OS-2842
+    - name: Marcellina
+      note: His elder sister, a consecrated virgin at Rome to whom he addressed his treatises on virginity.
+      href: saint/OS-2841
+related:
+  - name: Blessed Augustine, Bishop of Hippo
+    note: Won to the Catholic faith through Ambrose's preaching at Milan and baptized by him at Pascha in 387.
+    href: saint/OS-1365
+  - name: Martyrs Gervasius and Protasius
+    note: Milanese martyrs whose relics Ambrose discovered in 386 and laid beneath the altar of his basilica.
+    href: saint/OS-2018
+  - name: Saint Monica
+    note: Mother of Augustine, whom Ambrose counseled at Milan and guided in her devotional practice.
+    href: saint/OS-1116
 status: draft
 generated: "2026-06-19"

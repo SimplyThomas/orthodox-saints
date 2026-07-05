@@ -41,5 +41,10 @@ patronage:
 companions:
   - name: Theophilus of Gothia
     note: The Gothic bishop who baptized Niketas and took part in the First Ecumenical Council at Nicaea in 325.
+    href: saint/OS-2910
+related:
+  - name: Martyr Sabbas the Goth
+    note: A fellow Christian of the Goths martyred under the same persecution of King Athanaric in 372, drowned for the faith; both are remembered among the Gothic martyrs of that era.
+    href: saint/OS-1000
 status: draft
 generated: "2026-06-19"

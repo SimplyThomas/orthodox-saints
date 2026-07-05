@@ -1,0 +1,38 @@
+id: OS-2879
+lifespan: Died c. 250 (3rd century)
+overview:
+  - Isidore is a martyr of the third-century Decian persecution, remembered as the companion of the Martyr Jadorus. The Orthodox calendar preserves the two together, and almost nothing beyond their names and shared witness survives.
+  - He is commemorated on February 4. The sources are careful to distinguish this Isidore from the Venerable Isidore of Pelusium, the monastic writer who is honored on the same date, and from the Martyr Isidore of Chios, a Roman naval officer commemorated on May 14.
+sections:
+  - heading: Historical Context
+    body:
+      - The martyrdom is placed in the reign of the emperor Decius (249–251). In late 249 Decius issued an edict requiring all inhabitants of the empire to offer sacrifice before local magistrates and to receive a signed certificate, the libellus, as proof of compliance. Christians who refused faced torture and execution.
+      - The persecution lasted roughly eighteen months, until Decius died in June 251. Its prominent victims included Pope Fabian of Rome and Babylas of Antioch. Isidore and Jadorus belong to the far larger number of Christians of that persecution whose names alone have come down through the Church's commemoration.
+  - heading: Sources and the Limits of the Record
+    body:
+      - The principal witnesses to Isidore's commemoration are the OCA Lives of the Saints and the Eastern Orthodox liturgical calendars, including the entries drawing on Pravoslavie.ru and the Moscow Patriarchate calendar. These record only that he suffered martyrdom together with Jadorus under Decius.
+      - No location, method of martyrdom, or personal background is preserved. Searches of OrthodoxWiki for both Jadorus and this Isidore return no dedicated article, confirming the scarcity of documentation. He is one of the most sparsely attested martyrs of the Decian persecution.
+timeline:
+  - when: "249"
+    title: Edict of Decius
+    body: Emperor Decius orders all inhabitants of the Roman Empire to sacrifice before magistrates and obtain a certificate of compliance, opening a persecution of Christians who refuse.
+  - when: c. 250
+    title: Martyrdom
+    body: Isidore is put to death together with the Martyr Jadorus during the Decian persecution.
+  - when: "251"
+    title: End of the persecution
+    body: The persecution subsides after Decius dies in June 251.
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org), Feb 4
+  - https://www.oca.org/saints/lives/2020/02/04
+  - https://en.wikipedia.org/wiki/February_4_(Eastern_Orthodox_liturgics)
+  - https://en.wikipedia.org/wiki/Decian_persecution
+  - https://en.wikipedia.org/wiki/Isidore_of_Chios
+  - https://orthodoxwiki.org/Jadorus
+  - https://www.oca.org/saints/lives/2016/02/04/100427-martyr-jadorus
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The sources distinguish this Isidore from the Martyr Isidore of Chios, a Roman naval officer commemorated on May 14.
+    detail: No primary liturgical or hagiographic source in the dossier (OCA, OrthodoxWiki, Pravoslavie.ru, Moscow Patriarchate) makes this distinction. Only the distinction from Isidore of Pelusium appears in the OCA synaxarion entry. The Wikipedia article on Isidore of Chios is an article about that entirely separate saint and does not claim to distinguish him from the Feb 4 Isidore; it was included by the researcher for context, not as a primary witness to this saint's commemoration. Attributing this distinction to 'the sources' overstates what the liturgical witnesses do.

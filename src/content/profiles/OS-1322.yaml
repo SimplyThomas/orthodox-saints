@@ -27,6 +27,10 @@ sections:
     body:
       - After his martyrdom, the holy relics of Timothy were transferred to Constantinople. By tradition the relics were held to be miracle-working, regarded as a continuing means of help to the faithful.
 patronage: []
+companions:
+  - name: Julian the Apostate
+    note: "Persecutor: the emperor (361-363) who imprisoned Timothy and ordered his beheading for continuing to preach Christ."
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/06/10/101680-hieromartyr-timothy-bishop-of-prusa

@@ -26,12 +26,12 @@ timeline:
   - when: "1638"
     title: Veneration recorded
     body: Records indicate his veneration among the fathers of the Near Caves by this date.
-companions:
+related:
   - name: Anthony of the Kiev Caves
-    note: Founder of the Monastery of the Caves who, with Theodosius, appeared to Erasmus in his final illness.
+    note: "Monastery founder: founder of the Kiev Caves Monastery who, with Theodosius, appeared to Erasmus in his final illness to assure him of God's mercy."
     href: saint/OS-0136
   - name: Theodosius of the Kiev Caves
-    note: Co-founder of the Kiev Caves monastery, named in Erasmus's deathbed vision.
+    note: "Monastery founder: co-founder of the Kiev Caves Monastery, named with Anthony in Erasmus's deathbed vision."
     href: saint/OS-2745
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

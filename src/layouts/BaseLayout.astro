@@ -13,16 +13,8 @@ interface Props {
   ogImageAlt?: string;
   /** OpenGraph object type; saint pages pass "profile". */
   ogType?: "website" | "profile" | "article";
-  active?:
-    | "home"
-    | "search"
-    | "calendar"
-    | "america"
-    | "icons"
-    | "news"
-    | "quiz"
-    | "about"
-    | "";
+  /** Nav key of the current page (a leaf/top-level key from lib/nav). */
+  active?: string;
 }
 const {
   title = "Cloud of Witnesses",

@@ -26,6 +26,10 @@ companions:
   - name: Hilarion the New of Pelecete
     href: saint/OS-0887
     note: His predecessor as abbot of the Pelekete monastery.
+related:
+  - name: St. Tarasius of Constantinople
+    note: Patriarch of Constantinople who ordained Macarius to the priesthood.
+    href: saint/OS-0722
 patronage:
   - Confessors who suffered for the holy icons
 status: draft

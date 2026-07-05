@@ -33,6 +33,17 @@ sections:
   - heading: Veneration
     body:
       - Isaac is commemorated on 22 August, the day of his repose, and together with all the Optina Elders on 11 October. He is distinguished from Isaac II of Optina (born 1865), a later superior of the same monastery.
+companions:
+  - name: St. Macarius of Optina
+    note: "Elder: The Optina elder under whose eldership Isaac was formed at the hermitage."
+    href: saint/OS-0294
+  - name: St. Ambrose of Optina
+    note: "Spiritual father: The Optina elder who, the sources note, chiefly shaped Isaac's monastic life."
+    href: saint/OS-0074
+related:
+  - name: Venerable Isaac II of Optina
+    note: "Same office: A later schema-archimandrite and superior of the Optina Hermitage, from whom Isaac I is distinguished."
+    href: saint/OS-2418
 patronage:
   - Monastics
   - Optina Monastery

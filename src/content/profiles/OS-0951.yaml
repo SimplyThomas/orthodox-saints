@@ -41,6 +41,13 @@ sections:
   - heading: Traditional Accounts
     body:
       - By tradition, during his years in exile Eutychius was credited with miraculous healings of the body and with the gift of prophecy. These accounts belong to the synaxarion tradition surrounding his life rather than to the documented record of his public acts as patriarch.
+related:
+  - name: Saint John Scholasticus, Patriarch of Constantinople
+    note: Successor in the see of Constantinople, who held the patriarchate through Eutychius's years of exile; Eutychius was restored only after John's death
+    href: saint/OS-0705
+  - name: Saint Menas, Patriarch of Constantinople
+    note: Predecessor in the see of Constantinople, on whose death in 552 Eutychius was elevated to the patriarchate
+    href: saint/OS-1777
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - en.wikipedia.org

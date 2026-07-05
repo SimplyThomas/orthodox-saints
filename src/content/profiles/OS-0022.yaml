@@ -45,5 +45,59 @@ sources:
   - https://en.wikipedia.org/wiki/Gregory_of_Nazianzus
   - https://orthodoxwiki.org/Gregory_the_Theologian
   - https://www.newadvent.org/cathen/07010b.htm
-status: reviewed
+family:
+  heading: A Household of Saints
+  intro: Gregory was born into a saintly family of Nazianzus; his father, mother, brother, and sister are all commemorated in the Church.
+  figures:
+    - name: Gregory of Nazianzus the Elder
+      note: Father; Bishop of Nazianzus
+      href: saint/OS-2756
+    - name: Righteous Nonna
+      note: Mother
+      href: saint/OS-1647
+    - name: Righteous Gorgonia
+      note: Sister
+      href: saint/OS-0719
+    - name: Righteous Caesarius
+      note: Brother
+      href: saint/OS-0801
+companions:
+  - name: Basil the Great
+    note: Lifelong friend and fellow Cappadocian Father
+    href: saint/OS-0021
+  - name: Gregory of Nyssa
+    note: Fellow Cappadocian Father, Basil's brother
+    href: saint/OS-0422
+  - name: Saint Peter of Sebaste
+    note: Fellow Cappadocian, brother of Basil
+    href: saint/OS-0420
+  - name: Amphilochius of Iconium
+    note: Cappadocian friend and bishop
+    href: saint/OS-2239
+  - name: Athanasius the Great
+    note: Elder champion of Nicaea whom he revered
+    href: saint/OS-0024
+  - name: Meletius of Antioch
+    note: Who presided at the Second Ecumenical Council with him
+    href: saint/OS-0640
+  - name: Theodosius I
+    note: Emperor who installed him on the throne of Constantinople
+    commemorated: false
+  - name: Maximus the Cynic
+    note: Rival who intrigued against him for the see of Constantinople
+    commemorated: false
+related:
+  - name: John Chrysostom
+    note: Fellow ecumenical teacher among the Three Holy Hierarchs
+    href: saint/OS-0023
+  - name: Cyril of Alexandria
+    note: Later defender of Orthodox doctrine
+    href: saint/OS-0476
+  - name: Maximus the Confessor
+    note: Theologian who drew deeply on his writings
+    href: saint/OS-0503
+  - name: John of Damascus
+    note: Later theologian who systematized the Fathers' teaching
+    href: saint/OS-2300
+status: draft
 generated: "2026-06-18"

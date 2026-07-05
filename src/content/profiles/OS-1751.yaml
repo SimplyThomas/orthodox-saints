@@ -45,5 +45,12 @@ sources:
   - https://www.oca.org/saints/lives/2024/08/21/102360-venerable-abramius-the-wonderworker-archimandrite-of-smolensk
   - https://orthodoxwiki.org/Abraham_of_Smolensk
   - https://www.oca.org/saints/lives/2024/08/21/102361-venerable-ephraim-the-wonderworker-disciple-of-abramius-and-arch
+companions:
+  - name: Venerable Ephraim of Smolensk
+    note: Disciple and biographer who composed the Life and service of Abramius.
+    href: saint/OS-1752
+  - name: Saint Ignatius, Bishop of Smolensk
+    note: Bishop who ordained Abramius presbyter, reopened and vindicated his case, and set him over a new monastery.
+    href: saint/OS-0559
 status: draft
 generated: "2026-06-22"

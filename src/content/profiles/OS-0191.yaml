@@ -15,6 +15,9 @@ family:
     - name: Martyr Bebaia of Edessa
       note: His sister, converted and martyred with him; commemorated together on October 15.
       href: saint/OS-0190
+companions:
+  - name: Bishop Barsimaeus of Edessa
+    note: The bishop of Edessa who instructed and baptized him, giving him the Christian name Thathuel.
 patronage:
   - Converts from paganism who confessed Christ
 status: draft

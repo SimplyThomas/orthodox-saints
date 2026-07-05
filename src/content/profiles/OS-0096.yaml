@@ -51,5 +51,9 @@ companions:
   - name: St. Pachomius the Great
     note: Dionysius translated the Life of Saint Pachomius into Latin.
     href: saint/OS-0028
-status: reviewed
+related:
+  - name: Bede the Venerable
+    note: Northumbrian computist who took up and spread his Anno Domini reckoning, and addressed him as "abbas"
+    href: saint/OS-0083
+status: draft
 generated: "2026-06-19"

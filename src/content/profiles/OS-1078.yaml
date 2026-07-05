@@ -38,5 +38,12 @@ sections:
     body:
       - Nectarius was glorified by the Russian Orthodox Church Outside Russia in 1990. Within the Moscow Patriarchate, local veneration was authorized on June 13, 1996, and he was glorified for general veneration on August 7, 2000.
       - He is commemorated on April 29 and, together with all the Optina Elders, on October 11.
+companions:
+  - name: Saint Ambrose of Optina
+    note: The renowned Optina elder under whose direction the young Nectarius first came at the monastery
+    href: saint/OS-0074
+  - name: Venerable Anatole I (Zertsalov) of Optina
+    note: His principal spiritual father for some twenty years, himself an Optina elder
+    href: saint/OS-0539
 status: draft
 generated: "2026-06-19"

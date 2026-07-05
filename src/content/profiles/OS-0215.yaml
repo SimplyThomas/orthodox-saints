@@ -36,6 +36,10 @@ timeline:
 patronage:
   - Invoked as a patron of the island of Astypalaia.
   - Those who are blind
+related:
+  - name: St. Gerasimos of Kefalonia
+    note: Fellow ascetic and patron saint of Cephalonia; Gerasimos's tradition remembers Anthimos among the island's influential ascetics.
+    href: saint/OS-0063
 status: draft
 sources:
   - Synaxarion

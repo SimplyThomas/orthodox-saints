@@ -12,7 +12,23 @@ sections:
       - Accounts of his end vary in detail. The Prologue of Ohrid and the Orthodox Church in America's synaxarion describe five years of exile ending in his death around 820, while a Serbian calendar account states that he was imprisoned in 815 for the Orthodox faith and died there as a confessor. In every account he is remembered as one who endured deprivation and suffering rather than compromise, and the liturgical texts honor him as a champion of the faith and a boast of Cyzicus.
 patronage:
   - Confessor and defender of holy icons against iconoclasm
-status: reviewed
+companions:
+  - name: Saint Nikephoros the Confessor, Patriarch of Constantinople
+    note: "Fellow confessor: the Patriarch who led the bishops' resistance to Leo the Armenian and was likewise driven into exile for the icons."
+    href: saint/OS-1273
+  - name: Hieromartyr Euthymius, Bishop of Sardis
+    note: "Fellow confessor: a bishop who stood with Emilian against Leo the Armenian's iconoclasm and suffered exile and death."
+    href: saint/OS-2413
+  - name: Saint Michael the Confessor, Bishop of Synnada
+    note: "Fellow confessor: a bishop who resisted Leo the Armenian over the holy icons and ended his days in exile."
+    href: saint/OS-1226
+  - name: Theophylactus of Nicomedia
+    note: "Fellow confessor: a bishop exiled under Leo the Armenian for defending the veneration of the icons."
+    href: saint/OS-0793
+  - name: St. Joseph, Bishop of Thessalonica
+    note: "Fellow confessor: a bishop and hymnographer who suffered exile under the same iconoclast persecution for venerating the icons."
+    href: saint/OS-0547
+status: draft
 sources:
   - OCA Synaxarion (oca.org), Jan 8
   - https://www.oca.org/saints/lives/2010/01/08/100114-saint-emilian-the-confessor-bishop-of-cyzicus

@@ -37,23 +37,52 @@ timeline:
     body: Nina reposes in eastern Georgia and is buried at Bodbe in Kakheti, where King Mirian builds a church over her grave.
 family:
   figures:
+    - name: Zabulon and Sosanna
+      note: Her parents, who dedicated themselves to God; commemorated together.
+      href: saint/OS-1216
     - name: Great-Martyr George the Trophy-bearer
       note: By tradition a relative of Nina.
       href: saint/OS-0012
-    - name: Saint Juvenal, Patriarch of Jerusalem
-      note: Named in the tradition as Nina's uncle, who blessed her mission.
-      href: saint/OS-1454
 companions:
   - name: Equals-to-the-Apostles Mirian and Nana of Georgia, with Sidonia
-    note: The Georgian king and queen converted through Nina's mission.
+    note: The Georgian king and queen converted through Nina's mission, with Sidonia.
     href: saint/OS-1935
   - name: Martyrs Rhipsime, Gaiane, and those with them
     note: Virgin-martyrs associated with Nina's journey, put to death in Armenia.
     href: saint/OS-1927
+  - name: Abiatar
+    note: A priest of Mtskheta converted through Nina, father of Sidonia.
+  - name: The Patriarch of Jerusalem
+    note: Her maternal uncle, according to tradition, who blessed her mission.
+related:
+  - name: Constantine the Great
+    note: Equal-to-the-Apostles ruler of her age who established the Church.
+    href: saint/OS-0037
+  - name: Empress Helen
+    note: Equal-to-the-Apostles who found the True Cross.
+    href: saint/OS-2751
+  - name: Olga of Kyiv
+    note: Equal-to-the-Apostles enlightener of another nation.
+    href: saint/OS-0041
+  - name: Vladimir the Great
+    note: Equal-to-the-Apostles enlightener of Rus'.
+    href: saint/OS-0040
+  - name: Cyril and Methodius
+    note: Equals-to-the-Apostles, teachers of the Slavs.
+    href: saint/OS-0038
+  - name: Photini the Samaritan Woman
+    note: Apostolic woman-evangelist.
+    href: saint/OS-0008
+  - name: Protomartyr Thekla
+    note: Equal-to-the-Apostles woman-evangelist.
+    href: saint/OS-0010
+  - name: Mary Magdalene
+    note: Myrrh-bearer and Equal-to-the-Apostles.
+    href: saint/OS-0007
 patronage:
   - Patroness of Georgia and the Georgian people
   - Missionaries and apostolic preaching
-status: reviewed
+status: draft
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2014/01/14/100191-saint-nino-nina-equal-of-the-apostles-enlightener-of-georgia

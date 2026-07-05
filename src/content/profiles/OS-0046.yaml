@@ -80,10 +80,79 @@ sections:
     body:
       - "Historically Documented: His relics were exhumed in 1953 and reported to be fragrant, and his glorification followed in 1961. His funeral in 1920 was attended by multitudes from both Greece and Egypt."
       - "Traditional Accounts: Thousands of miracles have been attributed to his intercession, particularly the healing of cancer and other serious illnesses. The first posthumous miracle is traditionally recounted as the healing of a paralyzed man whose bed had accidentally been touched with the saint's shirt."
+companions:
+  - name: Sophronius IV of Alexandria
+    note: Patriarch of Alexandria, his primary mentor who discovered, ordained, and promoted him
+  - name: Anthimos VII of Constantinople
+    note: Ecumenical Patriarch and contemporary hierarch
+  - name: Theophilos II of Alexandria
+    note: Patriarch of Alexandria in his later years
+    commemorated: false
+  - name: Abbess Xenia
+    note: First abbess of the Holy Trinity Monastery he founded on Aegina
+    commemorated: false
+  - name: Nuns of Holy Trinity Monastery
+    note: The monastic community he founded and guided on Aegina
+related:
+  - name: Paisios the Athonite
+    note: Beloved Greek elder and wonderworker of the modern era
+    href: saint/OS-0051
+  - name: Porphyrios of Kavsokalyvia
+    note: Athonite elder and wonderworker of the same generation
+    href: saint/OS-0052
+  - name: Iakovos (Tsalikis)
+    note: Contemporary Greek elder of Evia
+    href: saint/OS-2585
+  - name: Amphilochios (Makris)
+    note: Contemporary Greek elder of Patmos
+    href: saint/OS-2586
+  - name: Arsenios the Cappadocian
+    note: Cappadocian wonderworker and confessor
+    href: saint/OS-0070
+  - name: Nicholas Planas
+    note: Simple wonderworking parish priest of Athens, a contemporary
+    href: saint/OS-2600
+  - name: John of Kronstadt
+    note: Russian wonderworking pastor of the same generation
+    href: saint/OS-0045
+works:
+  - title: A Study Concerning the Mother of God
+    desc: Orthodox teaching on the Theotokos from Scripture, the Fathers, and the liturgy
+  - title: Christology
+    desc: A study of the doctrine of Christ
+  - title: The Ecumenical Councils
+    desc: An overview of the Seven Ecumenical Councils
+  - title: Know Thyself
+    desc: On self-examination, repentance, humility, and virtue
+  - title: The Path to Happiness
+    desc: A guide to the Christian life of blessedness
+  - title: Meditation on the Holy Eucharist
+    desc: Reflections on the mystery of Holy Communion
+  - title: Historical Studies
+    desc: Scholarly studies in Church history
+  - title: Pastoral Letters
+    desc: Letters of spiritual counsel and guidance
+  - title: Sermons and Homilies
+    desc: Preaching for the feasts and the faithful
+  - title: Hymns and Liturgical Poetry
+    desc: Including Agni Parthene (O Pure Virgin), his famous devotional hymn to the Theotokos
+reading:
+  - heading: Biographies
+    items:
+      - title: "Saint Nektarios: The Saint of Our Century"
+        author: Sotos Chondropoulos
+      - title: St. Nektarios the Wonderworker
+        author: Holy Trinity Monastery, Jordanville
+  - heading: Miracles
+    items:
+      - title: Collections of Miracles
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Nektarios_of_Aegina
   - https://orthodoxwiki.org/Nektarios_of_Aegina
   - https://www.johnsanidopoulos.com/search?q=nektarios+aegina
-status: reviewed
+status: draft
 generated: "2026-06-18"

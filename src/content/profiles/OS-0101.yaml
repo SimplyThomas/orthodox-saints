@@ -23,6 +23,13 @@ timeline:
   - when: c. 300
     title: Repose
     body: Sixtus reposes around the year 300, apparently not as a martyr; Sinicius is said to succeed him as bishop of Reims.
+companions:
+  - name: Saint Sinicius of Reims
+    note: Companion in the mission to Gaul with whom Sixtus founded the sees of Reims and Soissons; by tradition his successor as bishop of Reims.
+related:
+  - name: Pope Sixtus II of Rome
+    note: By the tradition preferred by Archbishop Hincmar of Reims, Sixtus was sent from Rome to evangelize Gaul by Pope Saint Sixtus II.
+    href: saint/OS-2755
 sources:
   - Roman Martyrology
   - https://en.wikipedia.org/wiki/Sixtus_of_Reims

@@ -34,5 +34,17 @@ sections:
       - After his repose Theodore, in monasticism Theodosius, was buried in the Far Caves of the Kiev Caves Lavra, in the cave that bears his name. His body was discovered incorrupt and continues to rest there.
       - Beyond his individual feast on August 11, he is numbered among the monastic fathers of the Far Caves whose collective commemoration is kept on August 28.
 patronage: []
+family:
+  figures:
+    - name: St. Vladimir, Equal-to-the-Apostles
+      note: Ancestor — Theodore descended from the line of Saint Vladimir, baptizer of Rus, through Vladimir's great-grandson Svyatopolk-Michael of Kiev.
+      href: saint/OS-0040
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: Father of his monastery — the cenobiarch of the Kiev Caves Lavra, in whose Far Caves Theodore (in monasticism Theodosius) was tonsured and buried.
+    href: saint/OS-2745
+  - name: Martyrs Basil and Theodore of the Kiev Caves
+    note: Fellow Kiev Caves fathers commemorated the same day (August 11) — earlier ascetics of the same monastery martyred over a supposed hidden treasure.
+    href: saint/OS-1686
 status: draft
 generated: "2026-06-20"

@@ -19,6 +19,16 @@ family:
     - name: Anoub
       note: Brother of Pimen, an Egyptian monk who shared his ascetic life and his flight from Scetis.
       href: saint/OS-2733
+companions:
+  - name: St. John the Dwarf
+    note: Fellow Desert Father of Egypt, remembered in the Sayings of the Desert Fathers as standing in the monastic tradition of Saint Pimen.
+    href: saint/OS-2168
+  - name: St. Sisoes the Great
+    note: Fellow Desert Father of the Egyptian desert whose sayings are gathered alongside Pimen's in the Apophthegmata Patrum.
+    href: saint/OS-1482
+  - name: St. Arsenius the Great
+    note: Fellow Desert Father of Scetis whom Abba Pimen revered; their counsels stand together in the Sayings of the Desert Fathers.
+    href: saint/OS-1131
 patronage:
   - Monastics and those seeking spiritual guidance and humility
 status: draft

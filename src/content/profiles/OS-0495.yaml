@@ -37,5 +37,15 @@ sources:
   - https://en.wikipedia.org/wiki/Schema_(monastic_rank)
   - https://en.wikipedia.org/wiki/Kiev_Pechersk_Lavra
   - https://www.johnsanidopoulos.com/search?q=Euthymius+Kiev+Caves
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: "Founder: co-founder of the Kiev Caves Lavra, the monastery where Euthymius later kept his silence."
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: "Founder: co-founder of the Kiev Caves Lavra, in whose Far Caves Euthymius's relics repose."
+    href: saint/OS-2745
+  - name: Venerable Laurence the Recluse of the Kiev Caves
+    note: "Same monastery: a fellow recluse-ascetic of the Kiev Caves of a neighboring era."
+    href: saint/OS-0496
 status: draft
 generated: "2026-06-22"

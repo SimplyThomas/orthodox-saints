@@ -51,7 +51,39 @@ works:
     desc: Biblical commentary on Tatian's harmony of the four Gospels, the oldest surviving Syriac commentary on the Gospels.
   - title: Commentary on the Pentateuch
     desc: The first Syriac commentary on the first five books of the Old Testament.
-status: reviewed
+companions:
+  - name: James of Nisibis
+    note: Bishop, mentor, and lifelong spiritual father
+    href: saint/OS-0444
+  - name: Basil the Great
+    note: Cappadocian father with whom he is said to have had a famous meeting
+    href: saint/OS-0021
+  - name: Gregory the Theologian
+    note: Cappadocian contemporary and defender of Nicene orthodoxy
+    href: saint/OS-0022
+  - name: Athanasius the Great
+    note: Contemporary champion of Nicaea against Arianism
+    href: saint/OS-0024
+  - name: Julian the Apostate
+    note: Roman emperor who sought to restore paganism
+    commemorated: false
+  - name: Valens
+    note: Arian-leaning Roman emperor of his later years
+    commemorated: false
+related:
+  - name: John Chrysostom
+    note: Great hierarch and preacher of the same era
+    href: saint/OS-0023
+  - name: Isaac the Syrian
+    note: Spiritual heir in the Syriac ascetical tradition
+    href: saint/OS-0032
+  - name: Romanos the Melodist
+    note: Liturgical successor in hymnography
+    href: saint/OS-1929
+  - name: John of Damascus
+    note: Later hymnographer of the Church
+    href: saint/OS-2300
+status: draft
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Ephrem_the_Syrian

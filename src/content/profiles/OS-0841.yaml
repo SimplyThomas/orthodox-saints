@@ -42,11 +42,20 @@ family:
       commemorated: false
     - name: Itta of Metz
       note: Her mother, who founded the monastery of Nivelles and was its first leader before Gertrude.
+      href: saint/OS-2850
     - name: Grimoald the Elder
       note: Her brother.
       commemorated: false
     - name: Begga
       note: Her sister, who married Ansegisel.
+      href: saint/OS-2851
+related:
+  - name: Saint Amand of Maastricht
+    note: Missionary bishop who encouraged her mother Itta's foundation of the monastery of Nivelles.
+    href: saint/OS-0610
+  - name: Foillan of Fosses
+    href: saint/OS-2817
+    note: Irish monk welcomed at Nivelles on his way to Péronne, whose relics were brought to the monastery after his murder.
 patronage:
   - Travelers and pilgrims
   - Gardeners

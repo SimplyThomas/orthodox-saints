@@ -44,10 +44,47 @@ patronage:
   - Apothecaries
   - Healers
   - Those harmed by poisons, potions, and spells
+family:
+  figures:
+    - name: Fausta
+      note: Mother, a secret Christian who raised her in the faith
+      commemorated: false
+    - name: Praetextatus
+      note: Father, a Roman of illustrious rank
+      commemorated: false
+    - name: Publius Patricius
+      note: Her pagan husband, who mistreated her; he drowned early in the marriage
+      commemorated: false
+companions:
+  - name: Martyr Chrysogonus
+    note: Her teacher and spiritual guide, commemorated with her on December 22
+    href: saint/OS-2522
+related:
+  - name: Great Martyr Catherine of Alexandria
+    note: Fellow great virgin-martyr
+    href: saint/OS-0015
+  - name: Great Martyr Barbara
+    note: Fellow great virgin-martyr
+    href: saint/OS-0016
+  - name: Great Martyr Marina
+    note: Fellow great virgin-martyr
+    href: saint/OS-0017
+  - name: Great Martyr Irene
+    note: Fellow great virgin-martyr
+    href: saint/OS-0072
+  - name: Paraskevi of Rome
+    note: Fellow virgin-martyr
+    href: saint/OS-0060
+  - name: Lucy of Syracuse
+    note: Fellow virgin-martyr
+    href: saint/OS-2342
+  - name: Great-Martyr and Healer Panteleimon
+    note: Fellow healer-saint; she is invoked against poisons and potions
+    href: saint/OS-0014
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Anastasia_of_Sirmium
   - https://orthodoxwiki.org/Anastasia_the_Deliverer_from_Potions
   - https://www.oca.org/saints/lives/2024/12/22
-status: reviewed
+status: draft
 generated: "2026-06-18"

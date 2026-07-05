@@ -16,6 +16,13 @@ sections:
   - heading: Martyrdom
     body:
       - Each is said to have suffered a distinct death for the faith. Abercius, by tradition, was bound naked and exposed to bees, dying from their stings. Helen was put to death by stoning. Both were martyred for their confession of Christ, and the Orthodox Church commemorates them together on May 26.
+family:
+  heading: Family
+  intro: By tradition Abercius and Helen were the children of the Apostle Alphaeus, though this relationship is not regarded as definitively established.
+  figures:
+    - name: Apostle Alphaeus of the Seventy
+      note: "Father (by tradition): the apostle traditionally named as their father, associated with Capernaum in Galilee; the connection is reported but not certainly attested."
+      href: saint/OS-1240
 patronage: []
 status: draft
 generated: "2026-06-19"

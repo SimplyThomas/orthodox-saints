@@ -67,6 +67,9 @@ family:
     - name: Saint Naucratius
       note: brother
       href: saint/OS-2802
+    - name: Saint Theosebia the Deaconess
+      note: sister
+      href: saint/OS-0427
 companions:
   - name: Saint Gregory the Theologian
     note: lifelong friend & fellow Cappadocian Father
@@ -77,9 +80,24 @@ companions:
   - name: Saint Amphilochius of Iconium
     note: close friend & correspondent
     href: saint/OS-2239
+  - name: Saint Ephraim the Syrian
+    note: Contemporary ascetic who, by tradition, sought him out at Caesarea
+    href: saint/OS-0031
+  - name: Eusebius of Caesarea in Cappadocia
+    note: Bishop he served as presbyter and later succeeded
   - name: Emperor Valens
     note: Arian emperor he confronted
     commemorated: false
+related:
+  - name: John Chrysostom
+    note: Fellow ecumenical teacher among the Three Holy Hierarchs
+    href: saint/OS-0023
+  - name: Spyridon of Trimythous
+    note: Fellow father of the Nicene generation
+    href: saint/OS-0020
+  - name: Nicholas of Myra
+    note: Fellow great hierarch and wonderworker
+    href: saint/OS-0019
 sections:
   - heading: Defender of Nicene Orthodoxy
     body:

@@ -31,5 +31,14 @@ sections:
   - heading: Commemoration
     body:
       - The Eastern Orthodox Church commemorates the Apostle James, son of Alphaeus, on October 9, and again on June 30 as one of the members honored in the Synaxis of the Twelve Apostles. In Western calendars his feast is kept on May 3 in the Roman Catholic Church and on May 1 in the Anglican Communion.
+family:
+  figures:
+    - name: Apostle and Evangelist Matthew
+      note: His brother; the tradition names James and Matthew (Levi) both as sons of Alphaeus.
+      href: saint/OS-2201
+related:
+  - name: Synaxis of the Holy Twelve Apostles
+    note: Commemorated among the Twelve in their joint synaxis.
+    href: saint/OS-2486
 status: draft
 generated: "2026-06-19"

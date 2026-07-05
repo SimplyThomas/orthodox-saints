@@ -23,10 +23,17 @@ family:
   figures:
     - name: St. Fanchea
       note: His sister, an abbess, whose influence is credited in the tradition with turning him from warfare to the monastic life.
+      href: saint/OS-2814
 companions:
   - name: St. Brendan the Navigator
     note: Numbered in the tradition among the Irish saints associated with Enda's monastery on Aran.
     href: saint/OS-1191
+  - name: St. Kieran of Clonmacnoise
+    note: Numbered in the tradition among the Irish saints associated with Aran; first abbot of Clonmacnoise and one of the Twelve Apostles of Ireland.
+    href: saint/OS-0324
+  - name: St. Finnian of Moville
+    note: Numbered in the tradition among the Irish saints associated with Aran; founder and first abbot of Moville in Ulster.
+    href: saint/OS-0353
 patronage:
   - Irish monasticism and the Aran Islands
 status: draft

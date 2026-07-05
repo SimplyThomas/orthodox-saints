@@ -13,6 +13,16 @@ timeline:
   - when: 813–820
     title: Iconoclast persecution under Leo the Armenian
     body: According to the OCA, Niketas championed the veneration of the holy icons during the reign of the iconoclast emperor Leo the Armenian and was exiled for his confession.
+related:
+  - name: Venerable Theodore the Studite
+    note: Leading defender of the holy icons during the same second-period iconoclasm under Leo the Armenian.
+    href: saint/OS-2180
+  - name: Theophanes the Confessor of Sigriane
+    note: Fellow confessor exiled for venerating the icons under the same emperor, Leo the Armenian.
+    href: saint/OS-0814
+  - name: Nikephoros the Confessor, Patriarch of Constantinople
+    note: Patriarch deposed and exiled for defending the icons in the same persecution under Leo the Armenian.
+    href: saint/OS-1273
 patronage:
   - Defender of holy icon veneration in the iconoclast era
 status: draft

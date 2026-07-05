@@ -51,5 +51,33 @@ sources:
   - https://orthodoxwiki.org/Peter_of_Sebaste
   - https://www.oca.org/saints/lives/2024/01/09/100137-saint-peter-bishop-of-sebaste-in-armenia
   - https://en.wikipedia.org/wiki/Basil_of_Caesarea#Family
+family:
+  heading: The Household of Saints of Caesarea
+  intro: Peter was the youngest of the ten children of a family counted among the most remarkable of the patristic age; after their father's death his eldest sister Macrina directed his spiritual formation.
+  figures:
+    - name: Righteous Basil the Elder
+      note: "Father: a renowned rhetorician of Caesarea in Cappadocia who, with his wife Emilia, raised a household of saints."
+      href: saint/OS-2757
+    - name: Righteous Emilia
+      note: "Mother: with her husband Basil the Elder, mother of this family of saints."
+      href: saint/OS-0374
+    - name: Righteous Macrina the Elder
+      note: "Grandmother: a disciple of St. Gregory Thaumaturgus who handed on the faith to the household."
+      href: saint/OS-2474
+    - name: St. Basil the Great
+      note: "Brother: ordained Peter to the priesthood around 370 and entrusted him with ecclesiastical affairs."
+      href: saint/OS-0021
+    - name: St. Gregory of Nyssa
+      note: "Brother: whom Peter advised on theology and inspired to write against Arianism and Macedonianism."
+      href: saint/OS-0422
+    - name: Venerable Macrina the Younger
+      note: "Sister (the eldest): directed Peter's ascetic and spiritual formation after their father's death."
+      href: saint/OS-1551
+    - name: Blessed Theosebia the Deaconess
+      note: "Sister: served the Church as a deaconess."
+      href: saint/OS-0427
+    - name: Naucratius
+      note: "Brother: a sibling honored as a saint, who withdrew to the ascetic life and died young."
+      href: saint/OS-2802
 status: draft
 generated: "2026-06-22"

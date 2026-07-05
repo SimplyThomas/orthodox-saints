@@ -24,6 +24,10 @@ timeline:
   - when: "1551"
     title: Martyrdom
     body: Nikodemos, a monastic of the Great Meteoron, suffers martyrdom for his faith during the Ottoman period. He is commemorated on August 16th.
+related:
+  - name: Saint Athanasius of Meteora
+    note: Monastic forefather; founder of the Great Meteoron, the community to which Nikodemos belonged.
+    href: saint/OS-1034
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/08/16/108991-hieromartyr-ikdmos-of-meteora

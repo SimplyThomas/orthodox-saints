@@ -37,6 +37,12 @@ timeline:
     title: Death of Paphnutius
     body: Paphnutius, having become a monk and lived about ten years in his daughter's cell, died and was buried beside her.
 patronage: []
+family:
+  heading: Family
+  figures:
+    - name: Paphnutius of Alexandria
+      note: Her father, a wealthy Alexandrian who received her through prayer; he sought her in his grief without recognizing her and, after her death, became a monk and lived out his years in her cell.
+      commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Euphrosyne_of_Alexandria

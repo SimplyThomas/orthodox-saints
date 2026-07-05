@@ -42,6 +42,19 @@ family:
     - name: Saint Euphrosyne (Eudokia) of Moscow
       note: His wife, Grand Princess of Moscow, foundress of the Ascension Convent, commemorated May 17
       href: saint/OS-1193
+companions:
+  - name: St. Sergius of Radonezh
+    note: The abbot who blessed Demetrios before the battle of Kulikovo, foretold his victory, and sent two of his monks to accompany the army.
+    href: saint/OS-0042
+  - name: St. Alexis, Metropolitan of Moscow
+    note: The metropolitan who guided and helped form Demetrios as a ruler after he was orphaned in childhood.
+    href: saint/OS-0641
+  - name: Sts. Alexander Peresvet & Andrew Oslyabya
+    note: The two schema-monks of St. Sergius's monastery sent with the army to Kulikovo at the prince's request.
+    href: saint/OS-0290
+  - name: St. Cyprian, Metropolitan of Moscow
+    note: Metropolitan of Moscow during the latter part of his reign and his contemporary in the leadership of the Russian Church.
+    href: saint/OS-1848
 patronage:
   - Russia and the Russian land
   - Rulers and soldiers

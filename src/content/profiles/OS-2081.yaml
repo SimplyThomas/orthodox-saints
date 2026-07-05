@@ -1,0 +1,42 @@
+id: OS-2081
+lifespan: reposed ca. 814
+overview:
+  - Athanasius of Medikion was a Byzantine monk of the Medikion Monastery in Bithynia (Asia Minor), remembered as a companion of Saint Nicetas of Medikion and commemorated on October 26.
+  - According to the synaxarion, Athanasius loved the monastic life from his youth and secretly left his parental home to pursue it, but was forcibly brought back by his father; only later did he enter the Medikion Monastery with his father's consent, where he lived out his ascetic struggle.
+  - He reposed around the year 814. A cypress tree is said to have grown upon his grave, and many healings were attributed to it. He is a minor figure with limited dedicated secondary coverage, the Orthodox Church in America synaxarion being the principal textual source for his life.
+liturgicalTitle: Our Venerable Father Athanasius of Medikion
+sections:
+  - heading: Historical Context
+    body:
+      - Athanasius belonged to the Medikion Monastery, situated near Trigleia (modern Tirilye) in Bithynia in what is now northwestern Turkey. The community was established around 780 by Nikephoros, who restored a ruined church dedicated to Saint Michael and served as its first abbot until his death in 813.
+      - Nikephoros was succeeded as hegoumenos by Saint Nicetas, whom the synaxarion names as Athanasius's companion. Nicetas had entered the monastery young, was ordained presbyter in 790, and later led the community; he was imprisoned twice and exiled for opposing the second period of Iconoclasm under Emperor Leo V (r. 813-820), dying in 824 at a monastery near Constantinople, after which his remains were returned to Medikion.
+      - Athanasius's repose around 814 places his life within this same turbulent era of the monastery's early history and the renewed Iconoclast controversy.
+  - heading: Miracles & Traditions
+    body:
+      - "Traditional Accounts: The synaxarion relates that after Athanasius's death a cypress tree grew up on his grave, and that many healings occurred through it by the grace of God. This posthumous account is the tradition for which he is chiefly remembered."
+timeline:
+  - when: ca. 780
+    title: Medikion Monastery founded
+    body: Nikephoros establishes the Medikion Monastery in Bithynia, the community to which Athanasius would belong.
+  - when: Youth
+    title: Secret pursuit of monastic life
+    body: Athanasius, loving the monastic life, secretly leaves his parental home, but is forcibly brought back by his father.
+  - when: Later
+    title: Entry into Medikion
+    body: With his father's consent, Athanasius enters the Medikion Monastery, where he becomes a companion of Saint Nicetas.
+  - when: ca. 814
+    title: Repose
+    body: Athanasius reposes. A cypress tree is said to grow on his grave, through which many healings are reported.
+patronage:
+  - Healing of the sick
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://www.oca.org/saints/lives/2024/10/26/103063-venerable-athanasius-of-medikion-monastery
+  - https://en.wikipedia.org/wiki/Medikion_Monastery
+  - https://en.wikipedia.org/wiki/Nicetas_of_Medikion
+  - https://www.oca.org/saints/lives/2024/10/26
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The profile says Athanasius 'loved the monastic life from his youth,' adding a detail not present in any source.
+    detail: The OCA synaxarion (the sole primary source) says only that he 'loved the monastic life and secretly left his parental home.' The phrase 'from his youth' is not in the anchor, the OCA text, or any external item. It is an unsupported embellishment.

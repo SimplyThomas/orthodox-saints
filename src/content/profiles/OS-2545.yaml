@@ -31,6 +31,19 @@ timeline:
     title: Buried at Machpelah
     body: Leah dies before Jacob and is held by tradition to be buried in the Cave of the Patriarchs at Hebron.
 patronage: []
+family:
+  heading: Family
+  intro: Leah, elder daughter of Laban, was the first wife of the Patriarch Jacob and a mother of the sons from whom the tribes of Israel descended.
+  figures:
+    - name: Righteous Patriarch Jacob
+      note: Her husband, whom she married through Laban's substitution before he wed her younger sister Rachel.
+      href: saint/OS-2349
+    - name: Righteous Foremother Rachel
+      note: Her younger sister and Jacob's other wife, mother of Joseph and Benjamin.
+      href: saint/OS-2546
+    - name: Righteous Patriarch Judah
+      note: Her son, ancestor of the royal line of David and of Christ according to the flesh.
+      href: saint/OS-2764
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

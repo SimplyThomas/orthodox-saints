@@ -43,6 +43,22 @@ sections:
   - heading: Relics & Shrines
     body:
       - Nikon was buried in the Near Caves of Saint Anthony at the Kiev Caves monastery, where his relics are venerated among those of the Caves fathers.
+companions:
+  - name: St. Anthony of the Kiev Caves
+    note: Founder of the Kiev Caves monastery, whose earliest companion and fellow-ascetic Nikon was; Nikon was buried in the Near Caves of Saint Anthony.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kiev Caves
+    note: Co-founder and great abbot of the Caves, whom Nikon as a priest received and tonsured; Nikon later lived under him in obedience and instructed the brethren in his absence.
+    href: saint/OS-2745
+  - name: Venerable Barlaam of the Kiev Caves
+    note: A favorite of Prince Izyaslav whom Nikon tonsured, drawing the prince's anger; he became the first abbot of the Caves monastery.
+    href: saint/OS-2216
+  - name: St. Ephraim, Bishop of Pereyaslavl
+    note: A court official of Prince Izyaslav whom Nikon tonsured at the Caves before he became Bishop of Pereyaslavl.
+    href: saint/OS-0555
+  - name: Venerable Stephen of the Kiev Caves
+    note: Abbot of the Caves whose departure preceded Nikon's election as igumen of the monastery.
+    href: saint/OS-1070
 patronage: []
 status: draft
 generated: 2026-06-21-b3

@@ -42,6 +42,16 @@ sections:
     body:
       - "Historically Documented: The principal narrative of Sampson's life records that he healed the Emperor Justinian after the imperial physicians had failed, and that he asked for a hospital for the poor rather than a personal reward."
       - "Traditional Accounts: His life relates that he received from God the grace of working miracles and healed many ailments. Many miracles of healing were said to take place at his tomb at the Church of Saint Mokios, and tradition holds that the saint appeared twice to admonish a negligent worker at the hospice he had founded."
+related:
+  - name: Holy Unmercenaries Cosmas and Damian of Asia
+    note: Fellow unmercenary physicians who healed without payment, the tradition to which Sampson belongs.
+    href: saint/OS-0036
+  - name: Holy Unmercenary Physician Diomedes
+    note: Fellow unmercenary physician-saint who healed freely for the love of Christ.
+    href: saint/OS-1704
+  - name: Saint Justinian the Emperor
+    note: Emperor whom Sampson healed when the imperial physicians had failed, and who in return built and endowed the hospice that bore the saint's name.
+    href: saint/OS-2192
 patronage:
   - Physicians and medical care
   - The sick and those seeking healing
@@ -51,5 +61,5 @@ sources:
   - https://en.wikipedia.org/wiki/Sampson_the_Hospitable
   - https://orthodoxwiki.org/Sampson_the_Hospitable
   - https://www.mystagogyresourcecenter.com/2025/06/june-day-27-saint-sampson-hospitable.html
-status: reviewed
+status: draft
 generated: "2026-06-18"

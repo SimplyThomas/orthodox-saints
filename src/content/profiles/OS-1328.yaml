@@ -39,6 +39,16 @@ sections:
     body:
       - Bassianus is honored as the patron saint of Lodi, where by tradition he was invoked against leprosy. His relics were enshrined in the cathedral of Lodi, dedicated to the Assumption of the Blessed Virgin Mary.
       - When Milanese forces destroyed Lodi in 1158, his relics were carried to Milan; following the intervention of Frederick Barbarossa and the rebuilding of the city, they were returned in 1163 and placed in the cathedral crypt, where they remain a focus of veneration.
+companions:
+  - name: St. Ambrose of Milan
+    note: "Consecrated by: close friend who consecrated Bassianus bishop of Lodi; Bassianus was present at Ambrose's repose in 397."
+    href: saint/OS-2312
+  - name: St. Ursus of Ravenna
+    note: "Co-consecrator and kinsman: the bishop of Ravenna, a relative of Bassianus, who consecrated him together with Ambrose."
+    href: saint/OS-2905
+  - name: St. Felix of Como
+    note: "Fellow bishop: present with Ambrose at Bassianus's dedication of the church of the Holy Apostles at Lodi in 381."
+    href: saint/OS-2906
 patronage:
   - City of Lodi
   - Invoked against leprosy

@@ -43,6 +43,10 @@ companions:
   - name: Simeon the Stylite
     note: The pioneering pillar-saint whose blessing Daniel received and whose example he is said to have followed.
     href: saint/OS-0034
+related:
+  - name: Alypius the Stylite
+    note: A later pillar-dweller reckoned together with Symeon the Elder and Daniel among the foremost of the stylite ascetics.
+    href: saint/OS-2254
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

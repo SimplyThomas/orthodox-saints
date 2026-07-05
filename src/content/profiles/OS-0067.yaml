@@ -36,9 +36,23 @@ sections:
     body:
       - His feast is celebrated on February 10 (February 23 on the Old Calendar). He is a popular protector against epidemics and contagious disease.
       - By tradition, on some Greek islands bulls are ritually sacrificed on his feast day as a customary honor.
+companions:
+  - name: Porphyrius and Baptus
+    note: Two soldiers who confessed Christ at his martyrdom and were beheaded with him
+    commemorated: false
+  - name: Galina
+    note: By tradition a daughter of the emperor, converted through his witness
+    commemorated: false
+related:
+  - name: Great-Martyr and Healer Panteleimon
+    note: Fellow wonderworker invoked for healing and against sickness
+    href: saint/OS-0014
+  - name: Martyr Tryphon
+    note: Fellow protector invoked against pestilence and harm
+    href: saint/OS-0061
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_Charalambos
   - https://www.oca.org/saints/lives/2024/02/10/100389-hieromartyr-charalampos-bishop-of-magnesia-his-companions
-status: reviewed
+status: draft
 generated: "2026-06-18"

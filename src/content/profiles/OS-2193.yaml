@@ -34,6 +34,11 @@ sections:
     body:
       - Theodora and Justinian are depicted together in the celebrated sixth-century mosaics of the Basilica of San Vitale in Ravenna, completed about a year before her death. She was commemorated at the Church of the Holy Apostles in Constantinople, where she was buried.
       - Beyond the Eastern Orthodox commemoration on November 14, she is also remembered on June 28 in the Syriac Orthodox tradition.
+family:
+  figures:
+    - name: St. Justinian the Emperor
+      note: Her husband, the Emperor Justinian I, who treated her as a full partner in his rule; they share a feast on November 14.
+      href: saint/OS-2192
 patronage: []
 status: draft
 generated: "2026-06-20"

@@ -20,5 +20,12 @@ sections:
       - He is numbered in the Synaxis of the Saints of the Kiev Caves whose relics repose in the Far Caves of Venerable Theodosius, a collective commemoration the Church observes on August 28.
 patronage:
   - Monastics and those pursuing silence and seclusion
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: Founder of the Far Caves of the Kiev Caves Monastery, where his relics repose.
+    href: saint/OS-2745
+  - name: Anatolius of the Near Caves of Kiev
+    note: Distinct namesake commemorated the same day (July 3), whose relics repose in the Near Caves; not to be conflated with him.
+    href: saint/OS-1457
 status: draft
 generated: 20260619_b13

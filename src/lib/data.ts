@@ -1,11 +1,21 @@
-/* Build-time data source. Astro/Vite inlines public/data.json (emitted by the
-   Python pipeline, build.py) at build time — it is NOT fetched at runtime. The
-   Python build MUST run before `astro build`, or this import fails. */
+/* Build-time data source. public/data.json (emitted by the Python pipeline,
+   build.py) is read from disk when server code first imports this module — it
+   is NOT fetched at runtime. The Python build MUST run before `astro build`
+   (or `astro dev`), or this read fails. A plain fs read — not an ES-module
+   import — keeps Vite from parsing the multi-MB JSON into a JS literal and
+   embedding it in every prerender chunk, which is the dominant build
+   memory/time cost as the dataset grows. The path is resolved from the
+   project root (astro always runs there); import.meta.url would break once
+   Vite relocates this code into a build chunk. Note: unlike the old import,
+   the dev server does not watch data.json — restart `make serve` after a
+   data rebuild. */
 
+import { readFileSync } from "node:fs";
 import type { Saint, FinderSaint, CardSaint } from "./types";
-import raw from "../../public/data.json";
 
-export const SAINTS = raw as unknown as Saint[];
+const raw = JSON.parse(readFileSync("public/data.json", "utf8")) as unknown;
+
+export const SAINTS = raw as Saint[];
 
 export const byId: Map<string, Saint> = new Map(SAINTS.map((s) => [s.id, s]));
 
@@ -40,6 +50,7 @@ export function toFinderSaint(s: Saint): FinderSaint {
       : {}),
     ...(s.variants ? { variants: s.variants } : {}),
     ...(s.image ? { image: s.image } : {}),
+    ...(s.imageThumb ? { imageThumb: s.imageThumb } : {}),
   };
 }
 
@@ -61,6 +72,7 @@ export function toCardSaint(s: Saint): CardSaint {
     brief: s.brief,
     notes: s.notes,
     ...(s.image ? { image: s.image } : {}),
+    ...(s.imageThumb ? { imageThumb: s.imageThumb } : {}),
   };
 }
 

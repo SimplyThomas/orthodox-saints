@@ -31,6 +31,13 @@ sections:
   - heading: Miracles & Traditions
     body:
       - "Traditional Accounts: The tradition relates that Macarius was frequently ill as a child and was offered to the monastery in fulfillment of his parents' vow upon his recovery, and that the Lord granted him the gift of wonderworking. These details are preserved in the synaxarion rather than in independent historical record."
+related:
+  - name: St. Theodosius of the Kyiv Caves
+    note: "Same monastery: co-founder of the Kiev Caves Lavra whose Far Caves (the Theodosius Caves) hold Macarius's relics."
+    href: saint/OS-2745
+  - name: Macarius the Faster of the Near Caves
+    note: "Same monastery: an earlier deacon of the Kiev Caves who also bore the name Macarius, resting among the Near Caves fathers; commemorated on the same day, Jan 19."
+    href: saint/OS-0487
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 19

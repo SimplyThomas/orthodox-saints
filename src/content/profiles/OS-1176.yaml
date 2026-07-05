@@ -42,5 +42,12 @@ sections:
 patronage:
   - Monastics
   - The Nerekhta and Kostroma region
+related:
+  - name: St. Pachomius the Great
+    note: Namesake — Pachomius took his monastic name from the great Egyptian cenobiarch and shares his May 15 feast.
+    href: saint/OS-0028
+  - name: Our Venerable Father Silvanus of Nerekhta
+    note: Associated — commemorated the same day and year (1384), within the orbit of the Nerekhta monastic community.
+    href: saint/OS-1177
 status: draft
 generated: "2026-06-19"

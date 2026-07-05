@@ -71,5 +71,46 @@ sources:
   - https://en.wikipedia.org/wiki/Athanasius_of_Alexandria
   - https://orthodoxwiki.org/Athanasius_of_Alexandria
   - https://www.newadvent.org/cathen/02035a.htm
-status: reviewed
+companions:
+  - name: Alexander of Alexandria
+    note: His teacher and predecessor, whom he served as deacon at Nicaea
+    href: saint/OS-2472
+  - name: Anthony the Great
+    note: The desert father he befriended and whose Life he wrote
+    href: saint/OS-0026
+  - name: Pachomius the Great
+    note: Founder of cenobitic monasticism, whom he supported
+    href: saint/OS-0028
+  - name: Basil the Great
+    note: Cappadocian who inherited his defense of Nicaea
+    href: saint/OS-0021
+  - name: Gregory the Theologian
+    note: Cappadocian Father who carried on his cause
+    href: saint/OS-0022
+  - name: Constantine the Great
+    note: Emperor who convened Nicaea
+    href: saint/OS-0037
+  - name: Arius
+    note: The heretic whose teaching he spent his life refuting
+    commemorated: false
+  - name: Constantius II
+    note: Emperor who exiled him for refusing compromise
+    commemorated: false
+  - name: Julian the Apostate
+    note: Emperor under whom he suffered a fourth exile
+    commemorated: false
+related:
+  - name: Cyril of Alexandria
+    note: Successor on the throne of Alexandria, with whom he is jointly commemorated
+    href: saint/OS-0476
+  - name: Hilary of Poitiers
+    note: The Athanasius of the West in the fight against Arianism
+    href: saint/OS-0445
+  - name: Nicholas of Myra
+    note: Fellow defender of Nicaea
+    href: saint/OS-0019
+  - name: Spyridon of Trimythous
+    note: Fellow father of the Nicene generation
+    href: saint/OS-0020
+status: draft
 generated: "2026-06-18"

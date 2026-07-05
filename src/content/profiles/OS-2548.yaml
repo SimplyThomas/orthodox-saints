@@ -17,6 +17,17 @@ sections:
       - Asenath is remembered in the Orthodox Church among the Holy Forefathers, the righteous ancestors of the Old Testament commemorated together on the Sunday before the Nativity of Christ. An individual veneration of Asenath apart from this collective commemoration is not clearly attested, and no distinct cult, relics, or shrine is recorded in the sources consulted.
 timeline: []
 patronage: []
+family:
+  heading: Family
+  intro: Asenath, daughter of Potiphera the priest of On (Heliopolis), was given by Pharaoh to be the wife of Joseph in Egypt.
+  figures:
+    - name: Righteous Joseph the All-Comely
+      note: Her husband, the patriarch who governed Egypt and preserved many peoples during the famine.
+      href: saint/OS-2547
+    - name: Manasseh
+      note: Her elder son, born to her in Egypt, who became a tribe of Israel.
+    - name: Ephraim
+      note: Her younger son, born in Egypt, whom Jacob blessed above his elder brother.
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

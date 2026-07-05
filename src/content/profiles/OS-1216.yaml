@@ -31,6 +31,19 @@ sections:
     body:
       - The accounts of Zabulon and Sosanna survive chiefly within the hagiographical tradition surrounding their daughter, Saint Nino. According to these sources Zabulon was related to the Great-Martyr George, and Sosanna was the sister of Patriarch Juvenal of Jerusalem.
       - Some accounts add that, after Zabulon's monastic departure, Patriarch Juvenal ordained Sosanna a deaconess, and that the young Nino was placed in the care of an elderly woman, Sara Niaphor, who instructed her in the Christian faith. As with much early hagiography, these details are preserved as pious tradition rather than independently documented history.
+family:
+  heading: Family
+  intro: Zabulon and Sosanna are remembered chiefly as the parents of St. Nino, and the tradition surrounding their daughter connects them to other holy figures of the age.
+  figures:
+    - name: St. Nina (Nino), Enlightener of Georgia
+      note: Their daughter, the Equal-to-the-Apostles who brought Christianity to Georgia.
+      href: saint/OS-0039
+    - name: Saint Juvenal, Patriarch of Jerusalem
+      note: By tradition Sosanna's brother, in whose service Zabulon entered before their marriage and who later ordained Sosanna a deaconess.
+      href: saint/OS-1454
+    - name: Great Martyr George the Trophy-bearer
+      note: To whom Zabulon was related by kinship, according to the Georgian tradition.
+      href: saint/OS-0012
 patronage:
   - Parents and married couples
   - Those entering the monastic or ascetic life

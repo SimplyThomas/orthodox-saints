@@ -44,6 +44,13 @@ companions:
   - name: Saint Brendan the Navigator
     note: Numbered among the saints to whom Comgall was connected.
     href: saint/OS-1191
+related:
+  - name: St. Finnian of Movilla
+    note: One of the prominent Irish teachers under whom Comgall is said to have studied before founding Bangor.
+    href: saint/OS-0353
+  - name: St. Kieran of Clonmacnoise
+    note: A leading monastic father (Ciaran of Clonmacnoise) named among Comgall's early teachers.
+    href: saint/OS-0324
 patronage:
   - Irish monasticism and missionary endeavor
 status: draft

@@ -18,7 +18,7 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   expect(logoResp.status()).toBe(200);
 });
 
-test("home is a landing page: saint of the day, shuffle, news — no finder", async ({
+test("home is a landing page: saint of the day, shuffle — no finder", async ({
   page,
 }) => {
   await page.goto("./");
@@ -28,8 +28,9 @@ test("home is a landing page: saint of the day, shuffle, news — no finder", as
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
   await page.click("#shuffle");
   await expect(page.locator("#featured .feat-card")).toHaveCount(4);
-  // News band is present; the full results list is not on this page.
-  await expect(page.locator(".news-band .news-card")).toHaveCount(4);
+  // The news band has been removed from the home page (feature not built out);
+  // the full results list also does not appear here.
+  await expect(page.locator(".news-band")).toHaveCount(0);
   await expect(page.locator("#results")).toHaveCount(0);
 });
 
@@ -49,7 +50,7 @@ test("hero search submits to the /search page with the query", async ({
 
 test("search page filters the results", async ({ page }) => {
   await page.goto("./search/");
-  // Results render client-side from the inlined finder data.
+  // Results render client-side from the fetched finder data.
   await expect(page.locator("#results .saint-row").first()).toBeVisible();
 
   const totalText = (await page.locator("#count").innerText()).match(
@@ -66,6 +67,19 @@ test("search page filters the results", async ({ page }) => {
       Number((await page.locator("#count").innerText()).match(/\d+/)?.[0]),
     )
     .toBeLessThan(total);
+  await expect(
+    page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
+  ).toBeVisible();
+});
+
+test("search tolerates a misspelled name and ranks the saint first", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await expect(page.locator("#results .saint-row").first()).toBeVisible();
+
+  // Fuzzy matching (lib/search): a one-letter slip still finds the saints.
+  await page.fill("#q", "Nicholaus");
   await expect(
     page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
   ).toBeVisible();
@@ -181,22 +195,26 @@ test("quiz walks one question per screen to a circle of companions", async ({
   expect(await chip.getAttribute("href")).toContain(`${BASE}search?`);
 });
 
-test("about page tells the story; the personal email is removed", async ({
+test("about page tells the story; the footer carries the project contact", async ({
   page,
 }) => {
   const resp = await page.goto("./about/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".ab-hero h1")).toHaveText("About");
+  await expect(page.locator(".ab-hero h1")).toHaveText("Our Story");
   // The conversation is now folded into the story as a numbered movement
   // rather than a standalone box.
   await expect(page.locator(".ab-move")).toHaveCount(4);
   await expect(
     page.getByText("And that was the beginning of this journey."),
   ).toBeVisible();
-  // The personal email has been removed pending a project address; the contact
-  // card now carries a placeholder note rather than a mailto link.
-  await expect(page.locator(".ab-contact .ab-email")).toBeVisible();
-  expect(await page.locator("a[href^='mailto:']").count()).toBe(0);
+  // No personal email anywhere; the only mailto is the shared project address
+  // in the footer.
+  const mails = page.locator("a[href^='mailto:']");
+  await expect(mails).toHaveCount(1);
+  await expect(mails).toHaveAttribute(
+    "href",
+    "mailto:contact@orthodoxsaintfinder.com",
+  );
 });
 
 test("america page shows three gilded carousels with arrows", async ({
@@ -407,38 +425,73 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   await page.goto("./");
   const toggle = page.locator(".nav-toggle");
   await expect(toggle).toBeVisible();
-  // Links are hidden in the closed dropdown, revealed on toggle, hidden on Escape.
-  const link = page.locator(".site-nav a", { hasText: "Calendar" });
-  await expect(link).toBeHidden();
+  // The top-level Home link lives directly in the panel: hidden when the
+  // dropdown is closed, revealed on toggle, hidden again on Escape.
+  const home = page.locator(".site-nav > a", { hasText: "Home" });
+  await expect(home).toBeHidden();
   await toggle.click();
-  await expect(link).toBeVisible();
+  await expect(home).toBeVisible();
+  // Grouped links are inline accordions — expand "The Church Year" to reveal
+  // "The Calendar" without leaving the menu.
+  const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
+  await expect(calendar).toBeHidden();
+  await page.getByRole("button", { name: /The Church Year/ }).click();
+  await expect(calendar).toBeVisible();
+  // Escape collapses the whole panel.
   await page.keyboard.press("Escape");
-  await expect(link).toBeHidden();
+  await expect(home).toBeHidden();
 });
 
 test("primary nav links are base-prefixed and resolve", async ({ page }) => {
   await page.goto("./");
-  const nav = page.locator(".site-nav");
-  for (const label of [
-    "Home",
-    "Calendar",
-    "Browse",
-    "America",
-    "News",
-    "Patron Quiz",
-    "About",
-  ]) {
-    const href = await nav
-      .getByRole("link", { name: label, exact: true })
-      .getAttribute("href");
+  // Every nav anchor (top-level Home + all dropdown leaves) must be
+  // base-prefixed; getAttribute reads them regardless of dropdown visibility.
+  const links = page.locator(".site-nav a");
+  const count = await links.count();
+  expect(count).toBeGreaterThan(0);
+  for (let i = 0; i < count; i++) {
+    const href = await links.nth(i).getAttribute("href");
     expect(href?.startsWith(BASE)).toBe(true);
   }
-  // The header quick-search pill routes to the search page.
-  const qs = await page.locator(".header-search").getAttribute("href");
+  // The header quick-search form submits (Enter, no-JS fallback) to /search.
+  const qs = await page.locator(".header-search").getAttribute("action");
   expect(qs).toContain(`${BASE}search`);
 });
 
-test("contribute page renders, validates, and is linked from the footer", async ({
+test("header quick-search offers a whole-site typeahead", async ({ page }) => {
+  await page.goto("./");
+  const input = page.locator("#site-search");
+  const panel = page.locator(".hs-panel");
+  await expect(panel).toBeHidden();
+
+  // Typing a saint name surfaces jump-to saint results.
+  await input.click();
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  const firstSaint = panel.locator("a.hs-opt").first();
+  await expect(firstSaint).toHaveAttribute("href", /\/saint\/OS-\d+/);
+
+  // Section pages are searchable too (whole-site scope).
+  await input.fill("fasts");
+  const pageOpt = panel.locator("a.hs-opt", { hasText: "Fasts" });
+  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}fasts`);
+
+  // A "see all" row deep-links into the full finder with the query.
+  const seeAll = panel.locator("a.hs-seeall");
+  await expect(seeAll).toHaveAttribute("href", /\/search\?q=fasts/);
+
+  // Escape closes the panel.
+  await page.keyboard.press("Escape");
+  await expect(panel).toBeHidden();
+
+  // Enter with no highlighted option submits to the full search page.
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  await input.press("Enter");
+  await expect(page).toHaveURL(/\/search\?q=basil/);
+});
+
+test("contribute page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./contribute/");
@@ -449,13 +502,14 @@ test("contribute page renders, validates, and is linked from the footer", async 
   await page.locator(".cb-send").click();
   await expect(page.locator('.err[data-for="cb-name"]')).toBeVisible();
   await expect(page).toHaveURL(/\/contribute\/?$/);
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/contribute"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/contribute"]')).toHaveCount(
+    1,
+  );
 });
 
-test("corrections page renders, validates, and is linked from the footer", async ({
+test("corrections page renders, validates, and is linked from the Contact page", async ({
   page,
 }) => {
   const resp = await page.goto("./corrections/");
@@ -472,8 +526,9 @@ test("corrections page renders, validates, and is linked from the footer", async
   // Empty submit reveals validation and never POSTs to the worker.
   await page.locator(".cr-send").click();
   await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
-  // Footer links here.
-  await expect(
-    page.locator('.cw-foot-links a[href$="/corrections"]'),
-  ).toHaveCount(1);
+  // Reached from the Contact page's help cards.
+  await page.goto("./contact/");
+  await expect(page.locator('.as-linkcard[href$="/corrections"]')).toHaveCount(
+    1,
+  );
 });

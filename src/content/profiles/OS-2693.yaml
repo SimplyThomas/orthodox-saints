@@ -50,9 +50,11 @@ timeline:
 companions:
   - name: Saint Gall
     note: Disciple and companion of Columbanus who remained near Lake Constance; the Abbey of Saint Gall later arose in the region.
+    href: saint/OS-2512
     external: https://en.wikipedia.org/wiki/Gall_(saint)
   - name: Comgall of Bangor
     note: Abbot of Bangor in Ireland under whom Columbanus was formed before his mission to the continent.
+    href: saint/OS-1143
     external: https://en.wikipedia.org/wiki/Comgall
 patronage:
   - Father of continental monasticism

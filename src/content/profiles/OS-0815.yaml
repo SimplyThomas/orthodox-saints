@@ -28,6 +28,8 @@ timeline:
     title: Martyrdom
     body: Beheaded at Movakan after giving himself up to the Khan to spare his people.
 family:
+  heading: The Bagrationi royal saints
+  intro: Demetrius belonged to the Bagrationi dynasty, the royal house of Georgia that gave the Church a line of saint-kings and queens across the medieval centuries.
   figures:
     - name: Right-believing Tamara, Queen of Georgia
       note: great-grandmother
@@ -35,6 +37,12 @@ family:
     - name: Saint Demetre I (Damiane), King of Georgia
       note: earlier Bagrationi king and monk-hymnographer, a forebear of the dynasty; a distinct saint of the same name commemorated May 23
       href: saint/OS-1233
+    - name: Blessed David IV the Builder, King of Georgia
+      note: Bagrationi forebear — the great king-saint who renewed the medieval Georgian kingdom, an ancestor in Demetrius's own royal line.
+      href: saint/OS-0548
+    - name: Holy King Ashot of Georgia
+      note: progenitor of the dynasty — Ashot Kuropalates founded the Bagrationi royal house from which Demetrius descended.
+      href: saint/OS-0553
 patronage:
   - Self-sacrifice and passion-bearing for one's people
 status: draft

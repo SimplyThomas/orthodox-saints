@@ -46,6 +46,10 @@ sections:
     body:
       - The sole historical source for Malchus's life is Jerome's biography, titled 'Life of Malchus the Captive Monk,' written around 391–392. Jerome compiled the account from a personal interview with Malchus and his companion, conducted at Malchus's home in Maronia while both were still alive.
       - After their return, Malchus entered a men's monastery in Maronia under Bishop Evagrius, where he drew on his own trials to instruct other monks in the value of monastic obedience. His companion entered a women's monastery in the same place. He is commemorated on March 26 by the Eastern Orthodox and Eastern Catholic Churches, and is listed in the Roman Martyrology under October 21.
+related:
+  - name: Saint Jerome of Stridon
+    note: Recorded his Life after interviewing him in person at Maronia; Jerome's account is the sole source for his story.
+    href: saint/OS-1362
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Malchus_of_Syria

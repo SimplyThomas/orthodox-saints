@@ -38,5 +38,9 @@ sections:
   - heading: Episcopacy in Volhynia
     body:
       - In 1091 Stephen was consecrated Bishop of Vladimir in Volhynia. In that year he also took part in the solemn transfer of the relics of Saint Theodosius from the cave where they had been laid into the monastery church. As bishop he is remembered for his labors to bring the inhabitants of Volhynia to the Christian faith, before reposing in old age on April 27, 1094.
+companions:
+  - name: Saint Theodosius of the Kiev Caves
+    note: His teacher and the founder he succeeded as abbot, whose relics he helped translate into the monastery church
+    href: saint/OS-2745
 status: draft
 generated: "2026-06-19"

@@ -64,10 +64,30 @@ timeline:
 patronage:
   - Defenders of Orthodox doctrine and confessors of the faith
   - Theologians
+companions:
+  - name: Sophronius of Jerusalem
+    note: "Teacher: the elder defender of Orthodoxy under whom Maximus studied Christology in North Africa before becoming the foremost opponent of Monothelitism."
+    href: saint/OS-0809
+  - name: Martin the Confessor, Pope of Rome
+    note: "Fellow confessor: convened the Lateran Council of 649 against Monothelitism in which Maximus took part; both were arrested by Constans II and died confessors in exile."
+    href: saint/OS-0989
+  - name: Martyr Anastasius, Disciple of St. Maximus
+    note: "Disciple: shared his master's trial, exile, and mutilation, and wrote the Life of his teacher; commemorated the same day."
+    href: saint/OS-0507
+related:
+  - name: St. Gregory the Theologian
+    note: "Interpreted: Maximus's Ambigua is an extended exegesis of difficult passages in Gregory's orations."
+    href: saint/OS-0022
+  - name: St. Symeon the New Theologian
+    note: "Heir: later Byzantine theologian whose mystical theology drew on Maximus's vision of deification."
+    href: saint/OS-0035
+  - name: St. Gregory Palamas
+    note: "Heir: the hesychast theology of the uncreated energies built directly on Maximus's teaching on the wills and deification."
+    href: saint/OS-0025
 sources:
   - OCA Synaxarion (oca.org), Jan 21
   - https://en.wikipedia.org/wiki/Maximus_the_Confessor
   - https://orthodoxwiki.org/Maximus_the_Confessor
   - https://www.oca.org/saints/lives/2025/01/21/100249-venerable-maximus-the-confessor
-status: reviewed
+status: draft
 generated: "2026-06-18"

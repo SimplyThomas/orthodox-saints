@@ -1,0 +1,58 @@
+id: OS-1966
+lifespan: 759–861
+overview:
+  - Gregory of Khandzta (759–861) was a Georgian monastic founder and one of the principal architects of monastic life in the Tao-Klarjeti region during the period of Arab domination. Born in Kartli into an aristocratic family, he was educated broadly in ecclesiastical and secular learning before choosing the monastic life over the priesthood his family expected of him.
+  - Settling in the Klarjeti wilderness, he established Khandzta Monastery around 782 and, with the support of Georgian feudal lords and the Bagratid dynasty, made it the center of monastic life in the region. His disciples went on to found further monasteries, and he oversaw an influential network of ascetic communities and manuscript workshops that helped shape Georgian ecclesiastical culture and the movement toward church autocephaly.
+  - He died at Khandzta in 861 at an advanced age. His life was recorded in 951 by the monk Giorgi Merchule in a hagiography celebrated as a landmark of Georgian literature.
+liturgicalTitle: Our Venerable Father Gregory, Archimandrite and Builder of Khandzta and Shatberdi
+patronage:
+  - Georgia
+  - Georgian monasticism
+  - monastic founders
+timeline:
+  - when: "759"
+    title: Birth in Kartli
+    body: Gregory is born on October 5, 759, in Kartli, into a noble Georgian family; he was a nephew of the wife of Nerse, Eristavi (feudal lord) of Kartli.
+  - when: c. 780–782
+    title: To the Klarjeti wilderness
+    body: After training at Opiza Monastery under the hermit Evodius, Gregory relocates to the Khandzta region in Tao-Klarjeti and, with the support of the feudal lord Gabriel Dapanchuli, establishes a church, refectory, and monastic cells around 782.
+  - when: 9th century
+    title: Foundation of Shatberdi
+    body: Ashot I the Great grants Gregory land at Shatberdi, where he founds a major center of manuscript copying and illustration.
+  - when: "860"
+    title: Election of Catholicos Arsenius I
+    body: Wielding considerable ecclesiastical authority, Gregory influences the election of Arsenius I as Catholicos of Kartli (860–887).
+  - when: "861"
+    title: Repose at Khandzta
+    body: Gregory dies at Khandzta in 861 at an advanced age (reported as 102), leaving behind a network of monasteries and disciples.
+  - when: "951"
+    title: Composition of his Vita
+    body: The monk Giorgi Merchule compiles 'The Vita of Grigol Khandzteli,' about ninety years after Gregory's death; it is later expanded by the Bagratid prince Bagrat II between 958 and 966.
+sections:
+  - heading: Early Life and Education
+    body:
+      - "Gregory was born in 759 in Kartli, an aristocratic Georgian region, into a noble family connected to the ruling class: he was the nephew of the wife of Nerse of Iberia, Eristavi of Kartli. He received a comprehensive education in the ecclesiastical sciences, liturgical chant, Georgian literature, philosophy, and foreign languages."
+      - Although his family expected him to enter the priesthood, Gregory chose the monastic life instead. He fled to Opiza Monastery together with his cousin Savva—later Bishop of Ishkhani—and two companions. After roughly two years at Opiza, he moved to the Khandzta region in Tao-Klarjeti to live with the hermit Evodius.
+  - heading: Monastic Foundations
+    body:
+      - Around 782, with the support of the feudal lord Gabriel Dapanchuli, Gregory and his companions established a church, refectory, and monastic cells at what became Khandzta Monastery. His monastic rule followed strict ascetic principles inspired by the Lavra of Saint Sabbas the Sanctified in Palestine. Under his direction Khandzta soon became the center of monastic life in Tao-Klarjeti.
+      - "Ashot I the Great granted Gregory land at Shatberdi, where he founded a major center of manuscript copying and illustration. His disciples extended the network further: Theodore founded Nedzvi, Christofor founded Kviriketsminda, and Hilarion of Jerusalem established Ubisi. Gregory also oversaw a women's monastery at Mere and restored the church of Ishkhani."
+      - He held considerable ecclesiastical authority in the region, influencing the election of Arsenius I as Catholicos of Kartli (860–887). The Klarjeti communities he shaped articulated ideas of Georgian unity and church autocephaly during the crucial period of Bagratid consolidation.
+  - heading: Khandzta Monastery
+    body:
+      - "The monastery Gregory founded in the Tao-Klarjeti region has been identified with ruins near the village of Pırnallı in Artvin province, present-day Turkey. Its construction developed in stages: an initial wooden church, dining hall, and living quarters were built in 782; a stone church replaced the wooden structure in 820 under the patron Gabriel Dapanchuli; and the surviving church was built between 918 and 941 from high-quality sandstone transported over long distances."
+      - A bell-tower was added in the 16th century before Ottoman integration led to the site's eventual abandonment. The main church structure still stands, though its cupola collapsed in 2007.
+  - heading: Legacy and Hagiography
+    body:
+      - Gregory's life was recorded in 'The Vita of Grigol Khandzteli,' composed by the monk Giorgi Merchule in 951, about ninety years after Gregory's death. Its full title styles Gregory as the archimandrite and builder of Khandzta and Shatberdi and includes commemorations of other blessed fathers of the region. The work was later expanded by the Bagratid prince Bagrat II between 958 and 966.
+      - Merchule, himself a monk at Khandzta, wrote prose praised as eloquent and imaginative and regarded as unsurpassed in Georgian hagiography, weaving together intimate detail, historical fact, and a characteristic interest in the surrounding world. Beyond its literary merit, the Vita gave voice to ideas of Georgian unity and ecclesiastical autocephaly, and Gregory is remembered as a central figure of Georgian monasticism and a patron of Georgia.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Gregory_of_Khandzta
+  - https://en.wikipedia.org/wiki/Giorgi_Merchule
+  - https://en.wikipedia.org/wiki/Khandzta
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: The timeline entry says Gregory trained at Opiza Monastery under the hermit Evodius, implying Evodius was at Opiza. The dossier says Gregory went to Opiza first, then moved to the Khandzta region to live with the hermit Evodius — Evodius was in Khandzta, not Opiza.
+    detail: "Wikipedia/Gregory of Khandzta states: 'He fled to Opiza Monastery with his cousin Savva… After two years at Opiza, he relocated to the Khandzta region in Tao-Klarjeti to live with the hermit Evodius.' Evodius was in the Khandzta region, not at Opiza. The timeline conflates the two distinct phases. (The sections correctly separate them.)"

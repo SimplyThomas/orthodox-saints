@@ -36,6 +36,10 @@ sections:
     body:
       - Adrian is commemorated on August 26, the day of his repose, and on May 17, which marks the discovery and translation of his relics. His relics were interred in the church he had built at Ondrusov.
       - He is venerated as a saint of the Valaam and Lake Ladoga monastic tradition, associated with the wider circle of ascetics gathered around Saint Alexander of Svir in the northern Russian wilderness.
+companions:
+  - name: St. Alexander of Svir
+    note: Spiritual father; the elder of Svir whose meeting drew the nobleman Andrew to the monastic life, under whose blessing Adrian was tonsured at Valaam and withdrew to found Ondrusov Monastery.
+    href: saint/OS-1803
 patronage: []
 status: draft
 generated: "2026-06-20"

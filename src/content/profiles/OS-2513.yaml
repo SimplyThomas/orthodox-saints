@@ -19,6 +19,26 @@ sections:
     body:
       - The New Testament records nothing of Cleopas after the return from Emmaus, and historical evidence for his later life is sparse. Orthodox synaxaria relate that he continued to preach Christ and was put to death for the faith, by tradition slain in the very house at Emmaus where the risen Lord had been made known to him in the breaking of bread.
       - "The Western calendar preserves a parallel account: the Roman Martyrology commemorates Cleopas on September 25 as a disciple of Christ said to have been killed for confessing the faith in the same house in which he had received the Lord. The Eastern Orthodox feast is kept on October 30."
+family:
+  heading: Family
+  intro: Orthodox tradition, transmitted through the Church Fathers, identifies Cleopas with the Clopas of John 19:25 and counts him among the kinsmen of the Lord; these links rest on patristic tradition rather than explicit Scripture.
+  figures:
+    - name: Mary, the Wife of Cleopas
+      note: Wife; the myrrh-bearer named standing by the Cross in John 19:25 (Clopas identified with Cleopas).
+      href: saint/OS-1230
+    - name: Joseph the Betrothed
+      note: Brother, by the tradition of Hegesippus, which makes Cleopas a kinsman of the Lord.
+      href: saint/OS-0075
+    - name: Hieromartyr Simeon, Kinsman of the Lord
+      note: Son by tradition; second bishop of Jerusalem.
+      href: saint/OS-1069
+related:
+  - name: Jesus Christ
+    note: The risen Lord, who joined Cleopas and his companion on the road to Emmaus and was made known to them in the breaking of bread (Luke 24).
+    href: saint/OS-0000
+  - name: Apostle and Evangelist Luke
+    note: By a longstanding tradition the unnamed second traveler to Emmaus who walked with Cleopas.
+    href: saint/OS-0006
 patronage: []
 status: draft
 generated: "2026-06-19"

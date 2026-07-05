@@ -46,5 +46,15 @@ sources:
   - https://en.wikipedia.org/wiki/Hermenegild
   - https://www.oca.org/saints/lives/2024/11/01/103140-martyr-hermenegild-the-goth-of-spain
   - https://www.johnsanidopoulos.com/search?q=hermenegild
+family:
+  figures:
+    - name: King Leovigild
+      note: His father, the Arian Visigothic king, who imprisoned and ultimately had him put to death for refusing to return to Arianism.
+    - name: Reccared I
+      note: His brother, who succeeded their father and later led the Visigoths into the Orthodox faith at the Third Council of Toledo (589).
+related:
+  - name: Saint Leander, Bishop of Seville
+    note: The bishop who instructed and received him from Arianism into the Orthodox faith.
+    href: saint/OS-0734
 status: draft
 generated: "2026-06-22"

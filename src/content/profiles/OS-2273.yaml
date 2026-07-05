@@ -1,0 +1,28 @@
+id: OS-2273
+lifespan: died 274 (by tradition)
+overview:
+  - "Valerian is an early Christian martyr commemorated by the Eastern Orthodox Church on November 29 (December 12 on the Old Calendar). Almost nothing of his life survives: he is known chiefly by name, feast day, and the manner and traditional year of his death."
+  - Calendar sources record that he died by the sword in the year 274, and list him together with two other martyrs of the same year, Philoumenos of Ancyra and Phaedrus. Because no continuous life (vita) has come down, his profile remains an honest stub drawn from these brief liturgical notices.
+liturgicalTitle: The Holy Martyr Valerian
+sections:
+  - heading: Historical Context
+    body:
+      - Valerian's traditional date of martyrdom, 274, falls within the reign of the Emperor Aurelian, a period associated in the calendar tradition with persecution of Christians. He is grouped in the same November 29 commemoration as Philoumenos of Ancyra, who by tradition suffered under Aurelian at Ancyra (modern Ankara, Turkey) after refusing to sacrifice to idols, and as Phaedrus.
+      - The shared feast day and year have led sources to suggest that Valerian belonged to the same wave of persecution, possibly in or near Ancyra, though no source records the place of his own martyrdom directly. The calendar preserves only that he died by the sword.
+  - heading: Veneration
+    body:
+      - The Orthodox Church in America appoints a troparion for Valerian at his commemoration, a sign that he is honored liturgically even though his life is not otherwise documented. Beyond his name, feast day, traditional year of death, and manner of martyrdom, no further narrative or hagiographical detail is preserved in the calendar listings.
+timeline:
+  - when: 274 (by tradition)
+    title: Martyrdom
+    body: According to the calendar tradition, Valerian died by the sword in the year 274, during a period associated with the persecution under the Emperor Aurelian.
+  - when: November 29
+    title: Feast day
+    body: The Church commemorates Martyr Valerian on November 29 (December 12 on the Old Calendar), together with Martyrs Philoumenos of Ancyra and Phaedrus.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/November_29_(Eastern_Orthodox_liturgics)
+  - https://orthodoxwiki.org/November_29
+  - https://www.oca.org/saints/troparia/2024/11/29
+status: draft
+generated: "2026-07-03"

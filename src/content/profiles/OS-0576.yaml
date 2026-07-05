@@ -29,6 +29,14 @@ timeline:
   - when: c. 512
     title: Repose of Vendemianus
     body: After some forty-two years in his cliffside cell on Mount Oxia, Vendemianus dies.
+companions:
+  - name: Venerable Auxentius of Bithynia
+    note: >-
+      His spiritual father and teacher, the hermit of Mount Oxia near Chalcedon
+      and a Father of the Council of Chalcedon, whom Vendemianus followed into
+      the monastic life and beside whose hermitage he settled in his cliffside
+      cell.
+    href: saint/OS-0656
 patronage:
   - Healing
 sources:

@@ -18,6 +18,18 @@ timeline:
   - when: early 9th c.
     title: Repose
     body: He died a confessor, and many miracles of healing were reported from his relics.
+family:
+  heading: Family
+  figures:
+    - name: Saint Ignatius
+      note: "Brother: commemorated together with Niketas and remembered in the canon of his liturgical service; also exiled in the iconoclast persecution."
+companions:
+  - name: Emperor Leo V the Armenian
+    note: "Persecutor: the iconoclast emperor whose renewed campaign against the holy icons Niketas denounced, for which he was tortured and exiled."
+    commemorated: false
+related:
+  - name: Joseph of Constantinople
+    note: "Hymnographer of his service: the priest who composed the Canon for Niketas, in which his brother Ignatius is also remembered."
 patronage:
   - Care for the poor, travelers, orphans, and widows
 status: draft

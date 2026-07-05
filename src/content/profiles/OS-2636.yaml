@@ -32,6 +32,16 @@ timeline:
     body: He reposed and was buried at the Patriarchal Monastery of Pec.
 patronage:
   - Restorer of Serbian hagiographical and liturgical literature
+related:
+  - name: Saint Stephen Urosh, King of Serbia
+    note: The last Nemanjić ruler, whose Life and liturgical service Paisius composed, helping to establish his veneration.
+    href: saint/OS-2290
+  - name: Saint Stephen the First-Crowned
+    note: First crowned King of Serbia (the monk Simeon), for whom Paisius wrote a Life and a liturgical service.
+    href: saint/OS-1904
+  - name: Saint Stephen Stiljanovic of Serbia
+    note: The righteous despot whose biography Paisius composed, drawing his memory into the liturgical life of the Church.
+    href: saint/OS-1958
 status: draft
 sources:
   - https://en.wikipedia.org/wiki/List_of_saints_of_the_Serbian_Orthodox_Church

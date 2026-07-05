@@ -32,5 +32,9 @@ sections:
   - heading: Relics & Shrines
     body:
       - His holy relics were reported to have been found incorrupt, and accounts relate that many received healing at his tomb. His relics are kept in the church of Bogdana Monastery in Radauti.
+companions:
+  - name: Venerable Daniel the Hesychast
+    note: Disciple who gathered around him at Radauti; later the renowned Moldavian hermit and spiritual father of Stephen the Great.
+    href: saint/OS-2386
 status: draft
 generated: 20260619_b13

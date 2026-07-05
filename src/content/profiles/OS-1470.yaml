@@ -15,6 +15,10 @@ timeline:
   - when: c. 108
     title: Martyrdom at Caesarea
     body: According to the synaxarion, Theodotus and Theodotia are put to death at Caesarea in Cappadocia under the emperor Trajan for refusing to sacrifice to idols. Some liturgical sources give the year as 108 and name a companion martyr, Hyacinth.
+companions:
+  - name: Hyacinth of Caesarea
+    note: Martyr of Caesarea in Cappadocia under Trajan whom some liturgical sources name among their companions
+    href: saint/OS-1456
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/07/04

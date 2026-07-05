@@ -27,6 +27,20 @@ sections:
   - heading: Relics & Shrines
     body:
       - The two monks were buried at Pertominsk, and a chapel was built over their grave in 1599 by Elder Mamant of the Trinity-Sergius Monastery. The monastery founded at the site in 1623 preserved their memory. The finding of their relics is kept on June 5, distinct from their commemoration on June 12.
+companions:
+  - name: Hieromartyr Philip, Metropolitan of Moscow
+    note: "Spiritual father: their igumen at the Solovki Transfiguration Monastery, later Metropolitan of Moscow."
+    href: saint/OS-0418
+related:
+  - name: Venerable Zosimas of Solovki
+    note: "Same monastery: Solovki Transfiguration; co-founder of the house where Bassian and Jonah were professed."
+    href: saint/OS-1011
+  - name: Venerable Sabbatius of Solovki
+    note: "Same monastery: Solovki Transfiguration; co-founder of the island community."
+    href: saint/OS-1910
+  - name: Venerable Herman of Solovki
+    note: "Same monastery: Solovki Transfiguration; co-founder alongside Zosimas and Sabbatius."
+    href: saint/OS-2782
 patronage:
   - Fishermen and sailors of the White Sea coast
 status: draft

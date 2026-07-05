@@ -1,0 +1,58 @@
+id: OS-2832
+lifespan: d. 624
+overview:
+  - Mellitus was a member of the Gregorian mission to the Anglo-Saxons, becoming the first historically attested Bishop of London and, later, the third Archbishop of Canterbury. Bede described him as a man of noble birth, and he may have been Italian like other bishops consecrated by Augustine of Canterbury. Before his mission he was an abbot; OrthodoxWiki identifies him as abbot of St. Andrew's monastery on the Coelian Hill in Rome.
+  - Pope Gregory I sent Mellitus to England in June 601 as reinforcement for Augustine's efforts, bringing books and ecclesiastical supplies and traveling through Gaul with papal letters of introduction to bishops and Frankish rulers. Consecrated Bishop of London in 604, he was later driven into exile amid a pagan reaction, restored to Canterbury rather than London, and elevated to the archbishopric in 619. He died on 24 April 624 and was venerated as a saint, his shrine at St Augustine's Abbey becoming a place of pilgrimage.
+liturgicalTitle: Our Father among the Saints Mellitus, Archbishop of Canterbury
+sections:
+  - heading: The Gregorian Mission and Bishopric of London
+    body:
+      - Pope Gregory I dispatched Mellitus to England in June 601 as part of a second wave supporting Augustine's mission to convert the Anglo-Saxons. He carried books and ecclesiastical supplies for the young church, possibly including the manuscript now known as the St Augustine Gospels (preserved at Cambridge), and traveled through Gaul bearing papal letters of introduction to numerous bishops and Frankish rulers.
+      - After spending time in Kent, Mellitus was consecrated by Augustine as the first Bishop of London in 604. He baptized Sæberht, nephew of the East Saxon king, which enabled the establishment of the bishopric. London was chosen strategically as a hub of the southern road network. In 610 Mellitus attended a papal council in Italy and returned bearing papal letters for the leaders of the English church.
+    title: The Gregorian Mission and Bishopric of London
+  - heading: Exile and the Archbishopric of Canterbury
+    body:
+      - Following the deaths of Kings Æthelberht and Sæberht around 616-618, Sæberht's pagan sons expelled Mellitus from London. Bede records that Mellitus refused the brothers' request for a taste of the sacramental bread. He fled to Canterbury, but finding Æthelberht's successor Eadbald also pagan, he took refuge in Gaul with Bishop Justus.
+      - After Eadbald's conversion by Archbishop Laurence, Mellitus was recalled, though he could not return to London, whose inhabitants remained pagan. In 619 he succeeded Laurence as the third Archbishop of Canterbury. Bede noted his sound mind while recording that he suffered from gout.
+  - heading: Relics & Shrines
+    body:
+      - Mellitus died on 24 April 624 and was buried at St Augustine's Abbey in Canterbury, where he came to be venerated as a saint with a feast day of 24 April. His shrine was visited by pilgrims seeking relief from gout, the ailment he himself had endured.
+      - After the Norman Conquest, the hagiographer Goscelin wrote a life of Mellitus, noting that his shrine flanked that of Augustine, together with Laurence, in the eastern central chapel of the presbytery at Canterbury.
+  - heading: Miracles & Traditions
+    body:
+      - "Historically Documented: Bede and later sources record the concrete circumstances of Mellitus's episcopate, exile, and death, including his refusal to give communion to the apostate sons of Sæberht and his affliction with gout."
+      - "Traditional Accounts: During his tenure as archbishop he is said to have performed a miracle in 623, diverting a fire that had broken out in Canterbury and so saving the cathedral and much of the town."
+timeline:
+  - when: "601"
+    title: Sent to England
+    body: Pope Gregory I dispatched Mellitus to England in June as reinforcement for Augustine's mission, traveling through Gaul with books, supplies, and papal letters of introduction.
+  - when: "604"
+    title: First Bishop of London
+    body: Augustine consecrated Mellitus as the first Bishop of London; he baptized Sæberht's nephew, enabling the bishopric's establishment.
+  - when: "610"
+    title: Papal council in Italy
+    body: Mellitus attended a papal council in Italy and returned bearing papal letters for the leaders of the English church.
+  - when: c. 616-618
+    title: Exile from London
+    body: After the deaths of Æthelberht and Sæberht, the pagan reaction drove Mellitus from London; he took refuge in Gaul before returning to England.
+  - when: "619"
+    title: Archbishop of Canterbury
+    body: Mellitus succeeded Laurence as the third Archbishop of Canterbury.
+  - when: "623"
+    title: The fire of Canterbury
+    body: By tradition, Mellitus diverted a fire that had started in Canterbury, saving the cathedral and much of the town.
+  - when: "624"
+    title: Repose
+    body: Mellitus died on 24 April and was buried at St Augustine's Abbey in Canterbury, where he was venerated as a saint.
+patronage:
+  - Against gout
+sources:
+  - OrthodoxWiki
+  - Wikipedia (Mellitus)
+  - https://en.wikipedia.org/wiki/Mellitus
+  - https://orthodoxwiki.org/Mellitus
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: In the 604 timeline entry, Mellitus baptized Sæberht's nephew (implying the baptized person was Sæberht's nephew, not Sæberht himself)
+    detail: The dossier (Wikipedia) states Mellitus baptized Sæberht, who was the East Saxon king's nephew — not Sæberht's nephew. The profile's own section body correctly reads 'He baptized Sæberht, nephew of the East Saxon king'; the timeline inverts the relationship, making 'Sæberht's nephew' a different (unattested) person.

@@ -5,6 +5,19 @@ overview:
   - Photius the Great was the ninth-century Patriarch of Constantinople, a scholar and statesman of vast learning who twice held the patriarchal throne and twice suffered deposition and exile. Born into a noble Constantinopolitan family around 815, he became one of the foremost intellects of the Byzantine world before being raised, while still a layman, to the highest ecclesiastical office in the empire.
   - He is remembered as a defender of Orthodoxy who opposed the addition of the Filioque to the Nicene Creed, asserted the autonomy of the Eastern Church against the jurisdictional claims of the Roman papacy, and presided over the period that sent the mission to the Slavs. His extensive theological and scholarly writings, including the Bibliotheca, earned him recognition as a leading figure of the ninth-century intellectual renaissance.
   - The Orthodox Church venerates him as Saint Photius the Great, honoring him with the titles Confessor of the Faith, Equal to the Apostles, and Pillar of Orthodoxy. His feast is kept on February 6.
+family:
+  heading: Kin
+  figures:
+    - name: Saint Tarasius, Patriarch of Constantinople
+      note: "Kinsman: a relative of Photius's iconophile family, and an earlier patriarch of Constantinople who presided over the Seventh Ecumenical Council."
+      href: saint/OS-0722
+companions:
+  - name: Saint Ignatius, Patriarch of Constantinople
+    note: "Contemporary: the rival patriarch whom Photius alternated with on the throne through the Photian conflict and with whom he was finally reconciled before succeeding him."
+    href: saint/OS-2067
+  - name: Saints Cyril and Methodius
+    note: "Contemporary: as patriarch, Photius sponsored and dispatched the mission to the Slavs; Cyril had been his pupil and associate in Constantinople."
+    href: saint/OS-0038
 sections:
   - heading: Family and Early Life
     body:
@@ -76,5 +89,5 @@ sources:
   - https://en.wikipedia.org/wiki/Photios_I_of_Constantinople
   - https://orthodoxwiki.org/Photios_the_Great
   - https://en.wikipedia.org/wiki/Photios_I_of_Constantinople#Legacy_and_veneration
-status: reviewed
+status: draft
 generated: "2026-06-18"

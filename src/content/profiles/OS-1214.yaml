@@ -37,6 +37,15 @@ timeline:
   - when: May 20, 1299
     title: Repose
     body: He died and was buried in the Trinity cathedral of Pskov.
+family:
+  heading: Family
+  figures:
+    - name: His wife, daughter of Grand Prince Demetrius of Pereslavl
+      note: Whom Dovmont married after settling in Pskov; she was of the princely line of St. Alexander Nevsky. Not separately commemorated.
+      commemorated: false
+    - name: Saint Alexander Nevsky
+      note: Grand Prince of Vladimir, of whose line Dovmont's wife was descended (her father Demetrius was Alexander's son).
+      href: saint/OS-2241
 patronage:
   - Defender of cities and the Orthodox faith against invasion
   - Honored among right-believing rulers and soldiers

@@ -20,6 +20,16 @@ timeline:
   - when: "308"
     title: Martyrdom at Caesarea
     body: Having confessed Christ without fear, the sisters Alevtina and Chionia are burned to death, and Paul is beheaded.
+family:
+  heading: Family
+  intro: Paul, Chionia, and Alevtina are commemorated together as one group of martyrs, remembered by the Church on the same day.
+  figures:
+    - name: Chionia (Thea)
+      note: "Sister: martyred with her sister Alevtina, burned to death at Caesarea."
+    - name: Alevtina (Valentina)
+      note: "Sister: martyred with her sister Chionia, burned to death at Caesarea."
+    - name: Paul
+      note: "Fellow martyr: confessed Christ with the two sisters and was beheaded; the sources do not state his kinship to them."
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

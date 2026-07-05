@@ -51,5 +51,37 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Theodore_Tiron
   - https://www.oca.org/saints/lives/2024/02/17
-status: reviewed
+companions:
+  - name: Brincas
+    note: Governor who tried him for burning the temple of Cybele
+    commemorated: false
+  - name: Maximian
+    note: Emperor under whom he was martyred
+    commemorated: false
+related:
+  - name: Theodore Stratelates
+    note: The other Theodore, with whom he is paired throughout tradition
+    href: saint/OS-0615
+  - name: Great Martyr George
+    note: Fellow soldier-martyr and dragon-slayer
+    href: saint/OS-0012
+  - name: Demetrius of Thessalonica
+    note: Fellow soldier-martyr
+    href: saint/OS-0013
+  - name: Great Martyr Mercurius
+    note: Fellow soldier-martyr
+    href: saint/OS-2247
+  - name: Great Martyr Menas
+    note: Fellow soldier-martyr
+    href: saint/OS-0059
+  - name: Great Martyr Procopius
+    note: Fellow soldier-martyr
+    href: saint/OS-1494
+  - name: Martyr Sebastian
+    note: Fellow soldier-martyr
+    href: saint/OS-2381
+  - name: Gregory of Nyssa
+    note: Preached the encomium in his honor at his shrine (381), attesting his early veneration
+    href: saint/OS-0422
+status: draft
 generated: "2026-06-18"

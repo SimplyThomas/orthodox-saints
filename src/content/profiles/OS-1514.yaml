@@ -31,5 +31,22 @@ sections:
     body:
       - Michael's most consequential disciple was Athanasius the Athonite, who trained under him before founding the Great Lavra on Mount Athos on the pattern of Michael's community, linking the Kyminas tradition to the development of Athonite monasticism. Through his family Michael also exercised influence over his nephew, the general and later emperor Nikephoros II Phokas, who reigned from 963 to 969.
       - In later centuries he was venerated in Russia as the patron saint of Mikhail Feodorovich, the first Romanov tsar, and was widely honored by the Romanov dynasty, with chapels dedicated to him during the seventeenth century.
+companions:
+  - name: Athanasius the Athonite
+    note: His disciple, who trained under Michael at Mount Kyminas and modeled the Great Lavra of Mount Athos upon Michael's community.
+    href: saint/OS-1477
+family:
+  heading: Family
+  intro: Michael was born into the aristocratic Maleinos house of Cappadocia, kin by blood and marriage to the imperial and military elite of tenth-century Byzantium.
+  figures:
+    - name: Emperor Nikephoros II Phokas
+      note: His nephew, the general who reigned as emperor (963-969).
+      commemorated: false
+    - name: Emperor Romanos I Lekapenos
+      note: A relative of Michael's mother.
+      commemorated: false
+    - name: Bardas Phokas the Elder
+      note: General who married Michael's sister, tying the Maleinos household to the Phokas dynasty.
+      commemorated: false
 status: draft
 generated: 20260619_b13

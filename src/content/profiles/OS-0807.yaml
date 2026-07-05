@@ -36,6 +36,28 @@ timeline:
   - when: After 1019
     title: Death on the Holy Mountain
     body: According to 'The Life of Giorgi of the Holy Mountain,' John dies on Mount Athos.
+companions:
+  - name: Saint Euthymius (Ekvtime) the Athonite
+    note: "Fellow Georgian Athonite: John assisted Euthymius at the Iveron monastery on Mount Athos and formed a close spiritual friendship with him."
+  - name: Saint Arsen of Ninotsminda
+    note: "Travelling companion: a Georgian monk and translator who set out with John from Khakhuli to Mount Athos around 1019."
+    href: saint/OS-1618
+related:
+  - name: Saint Euthymius the New and the Georgian Fathers of Iveron
+    note: "Same Athonite community: the Georgian fathers of the Iveron monastery on Mount Athos, whom John joined and served."
+    href: saint/OS-1165
+  - name: Venerable Macarius the Faster of Khakhuli
+    note: "Same monastery: an abbot of the Khakhuli monastery in Georgia, remembered for strict fasting."
+    href: saint/OS-2403
+  - name: Saint Basil of Khakhuli
+    note: "Same monastery: a fellow monastic of Khakhuli, son of King Bagrat III, John's contemporary."
+    href: saint/OS-1248
+  - name: Venerable George the Hagiorite of Iveron
+    note: "Same monastery, later era: tonsured at Khakhuli and later hegumen of the Georgian Iveron monastery on Athos, completing the Georgian translations."
+    href: saint/OS-1438
+  - name: Saint John Chrysostom
+    note: "Namesake: John earned the epithet Oqropiri (Golden-mouthed) for his eloquence, after Saint John Chrysostom of Constantinople."
+    href: saint/OS-0023
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/03/10/103828-saint-john-of-khakhuli-the-oqropiri-also-called-chrysostom

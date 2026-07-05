@@ -34,6 +34,13 @@ timeline:
   - when: After death
     title: Burial in the Far Caves
     body: His incorrupt relics are interred among the saints of the Far Caves of the Kyiv Pechersk Lavra.
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Founder of his monastery — the first hermit of the Kyiv Pechersk Lavra, who dug the Far Caves in which Joseph's relics rest.
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder of his monastery — with Anthony, organizer of the cenobitic life of the Kyiv Pechersk Lavra where Joseph lived and was buried.
+    href: saint/OS-2745
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.johnsanidopoulos.com/2017/04/saint-joseph-much-ailing-of-kiev-caves.html

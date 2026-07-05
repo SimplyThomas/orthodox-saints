@@ -69,6 +69,8 @@ export interface Saint {
   vendors: VendorLink[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;
+  /** ~200px avatar thumb (icons/thumbs/…); present only when the file exists */
+  imageThumb?: string;
   /** image attribution, present only when `image` is */
   imageLicense?: string;
   imageCredit?: string;
@@ -115,6 +117,7 @@ export interface CardSaint {
   brief: string;
   notes: string;
   image?: string;
+  imageThumb?: string;
 }
 
 /** The trimmed projection shipped to the finder island (no heavy detail fields). */
@@ -146,6 +149,8 @@ export interface FinderSaint {
   variants?: string[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;
+  /** ~200px avatar thumb (icons/thumbs/…); present only when the file exists */
+  imageThumb?: string;
   /** true when a human has personally reviewed this profile */
   humanReviewed?: boolean;
 }

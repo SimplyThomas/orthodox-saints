@@ -48,6 +48,17 @@ sections:
     body:
       - "Historically Documented: According to the Russian biographical tradition, within several years of Bassian's repose two men received healing at his relics — a demon-possessed man named Gerasim and a paralyzed man named Valerian. The discovery of his incorrupt relics in 1548 accompanied his formal glorification."
       - "Traditional Accounts: Bassian is commemorated on three days in the Russian tradition: February 12 (his repose), June 6 (together with his teacher Saint Paisius of Uglich), and May 23 (with the Synaxis of the Rostov–Yaroslavl saints)."
+related:
+  - name: St. Paisius of Uglich
+    note: Spiritual father; Bassian received the monastic tonsure from him and lived some twenty years in his Pokrov Monastery near Uglich.
+    href: saint/OS-0410
+companions:
+  - name: Saint Adrian of Uglich
+    note: Fellow disciple of Saint Paisius of Uglich in the same late-fifteenth-century Uglich monastic circle.
+    href: saint/OS-1784
+  - name: Saint Bogolep of Uglich
+    note: Fellow disciple of Saint Paisius of Uglich in the same late-fifteenth-century Uglich monastic circle.
+    href: saint/OS-1761
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2026/02/12

@@ -28,5 +28,9 @@ sections:
   - heading: Relics & Shrines
     body:
       - According to the synaxarion, the relics of Theophilus were found and placed in the church or cell of Saint Basil in the Kapsala area near Karyes on Mount Athos, where they were reported to gush a fragrant myrrh. By tradition the myrrh-bearing relics were later enshrined at the Pantokrator Monastery on the Holy Mountain.
+companions:
+  - name: Niphon, Patriarch of Constantinople
+    note: Patriarch who sent Theophilus to Egypt to verify the wonders reported of Patriarch Joachim of Alexandria.
+    href: saint/OS-1689
 status: draft
 generated: 20260619_b13

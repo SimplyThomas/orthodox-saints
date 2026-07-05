@@ -28,6 +28,13 @@ sections:
   - heading: Relics & Shrines
     body:
       - The head of Saint Euthymius is preserved at the Monastery of Saint Panteleimon on Mount Athos.
+companions:
+  - name: New Martyr Ignatius of Mount Athos
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; the Bulgarian-born monk whom Euthymius met at Bucharest and who was hanged at Constantinople in October 1814.
+    href: saint/OS-1089
+  - name: New Martyr Acacius of Mount Athos and Seres
+    note: Fellow Athonite new-martyr — commemorated with him on May 1; beheaded at Constantinople in 1816 after returning from apostasy, his relics venerated beside Euthymius's on the Holy Mountain.
+    href: saint/OS-1090
 patronage:
   - Those returning to the faith after apostasy or lapse
   - Penitents

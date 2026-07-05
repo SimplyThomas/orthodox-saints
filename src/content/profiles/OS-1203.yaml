@@ -35,6 +35,19 @@ sections:
   - heading: Miracles & Traditions
     body:
       - "Traditional Accounts: By tradition, when David's staff fell to the ground after his death it was transformed into a large tree; two centuries later Christians are said to have divided the holy wood among themselves. After the murders Theodosius was struck blind, and his sight was restored when the brothers' mother Tagine anointed his eyes with earth from David's blood. It is also related that a divine light illumined the bodies of the brothers each evening when night fell."
+family:
+  heading: Family
+  intro: David and Tarichan were brothers of a noble Georgian family related to the king; their martyrdom grew out of a conflict within their own household.
+  figures:
+    - name: Vardan
+      note: Their father, a pious Christian of noble Georgian birth, who died while the brothers were still children.
+      commemorated: false
+    - name: Tagine
+      note: Their mother, who by tradition restored the sight of the blinded Theodosius by anointing his eyes with earth from David's blood.
+      commemorated: false
+    - name: Theodosius
+      note: Their pagan uncle, who seized the family's property, pressed the brothers to renounce Christ, and had them killed, and by tradition later repented and converted.
+      commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2025/05/18/101433-martyrs-david-and-tarichan-of-georgia

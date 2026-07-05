@@ -32,6 +32,20 @@ timeline:
   - when: c. 429
     title: Repose
     body: Sisoes died about 429. By tradition his face shone at his death as he reported visions of Anthony, the prophets, and the apostles, still asking for more time to repent.
+companions:
+  - name: Abba Or (Hor)
+    note: Elder under whom Sisoes first lived in the desert of Scetis before seeking deeper solitude.
+    href: saint/OS-1659
+  - name: John the Short (the Dwarf)
+    note: Fellow Desert Father of Egypt whose sayings stand beside his in the Apophthegmata Patrum.
+    href: saint/OS-2168
+  - name: Pimen (Poemen) the Great
+    note: Fellow Desert Father of Egypt whose sayings are gathered with his in the Apophthegmata Patrum.
+    href: saint/OS-1787
+related:
+  - name: Anthony the Great
+    note: Settled in the cave at Mount Colzim that Anthony had hallowed and where he died; reported a vision of Anthony at his own repose.
+    href: saint/OS-0026
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -59,5 +59,47 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Paraskevi_of_Rome
   - https://www.oca.org/saints/lives/2024/07/26
-status: reviewed
+family:
+  figures:
+    - name: Agathon
+      note: Father, a Christian of Greek origin
+      commemorated: false
+    - name: Politia
+      note: Mother
+      commemorated: false
+companions:
+  - name: Antoninus Pius
+    note: Emperor who, by tradition, persecuted then released her
+    commemorated: false
+  - name: Roman governors and judges
+    note: Officials who tried and tortured her in her travels
+    commemorated: false
+  - name: Christians converted through her witness
+    note: Onlookers who came to faith at her endurance
+related:
+  - name: Catherine
+    note: Virgin-martyr and bride of Christ
+    href: saint/OS-0015
+  - name: Barbara
+    note: Virgin-martyr of the early Church
+    href: saint/OS-0016
+  - name: Marina
+    note: Virgin-martyr who contended with the enemy
+    href: saint/OS-0017
+  - name: Great Martyr Irene
+    note: Fellow great virgin-martyr
+    href: saint/OS-0072
+  - name: Anastasia
+    note: Great-martyr and deliverer from bonds
+    href: saint/OS-0071
+  - name: Kyriaki
+    note: Virgin-martyr named for the Lord's Day
+    href: saint/OS-1492
+  - name: Lucy of Syracuse
+    note: Virgin-martyr and patron of the eyes
+    href: saint/OS-2342
+  - name: Panteleimon
+    note: Great-martyr and unmercenary healer
+    href: saint/OS-0014
+status: draft
 generated: "2026-06-18"

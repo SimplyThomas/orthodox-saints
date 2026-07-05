@@ -42,6 +42,13 @@ timeline:
     title: Monastery rebuilt
     body: After damage from Livonian forces, the monastery is rebuilt by the Pskovian dyak Mikhail Munekhin-Misyur.
     source: https://en.wikipedia.org/wiki/Pskovo-Pechersky_Monastery
+related:
+  - name: "Hieromartyr Cornelius, Abbot of the Pskov Caves"
+    note: The great later abbot of the monastery they founded, who restored Saint Mark's name to the Synodikon and honored the founders in its caves.
+    href: saint/OS-0698
+  - name: Hieromartyr Isidore and Seventy-Two Martyrs of Yuriev
+    note: Jonah's fellow priest at Iuriev (Tartu), whose martyrdom prompted Jonah to withdraw to the caves and maintain an Orthodox presence there.
+    href: saint/OS-0409
 patronage:
   - Founders of the Pskov Caves Monastery
 sources:

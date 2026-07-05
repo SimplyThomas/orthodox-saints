@@ -47,5 +47,66 @@ sources:
   - https://en.wikipedia.org/wiki/John_the_Baptist
   - https://orthodoxwiki.org/John_the_Baptist
   - https://www.oca.org/saints/lives/2025/06/24/101792-nativity-of-the-holy-glorious-prophet-forerunner-and-baptist-john
-status: reviewed
+family:
+  figures:
+    - name: Prophet Zechariah
+      note: Father; a priest of the course of Abia
+      href: saint/OS-0085
+    - name: Righteous Elizabeth
+      note: Mother; kinswoman of the Theotokos
+      href: saint/OS-2752
+    - name: The Most Holy Theotokos
+      note: Kinswoman
+      href: saint/OS-0001
+    - name: Jesus Christ
+      note: Kinsman according to the flesh; the Messiah whose way he prepared
+      href: saint/OS-0000
+companions:
+  - name: Andrew the Apostle
+    note: Disciple of John before following Christ
+    href: saint/OS-0003
+  - name: John the Theologian
+    note: By early tradition a disciple of John before following Christ
+    href: saint/OS-0005
+  - name: Apostle Peter
+    note: Brought to Christ at the Jordan
+    href: saint/OS-0004
+  - name: Apostle James, son of Zebedee
+    note: Among the first apostles called at the Jordan
+    href: saint/OS-1081
+  - name: Philip the Apostle
+    note: Among the first disciples drawn from John's circle
+    href: saint/OS-2578
+  - name: Righteous Joseph of Arimathea
+    note: Traditionally associated with John's burial
+    href: saint/OS-1619
+  - name: Herod Antipas
+    note: Tetrarch who imprisoned and beheaded him
+    commemorated: false
+  - name: Herodias
+    note: Who sought his death
+    commemorated: false
+  - name: Salome, daughter of Herodias
+    note: Who asked for his head at the feast
+    commemorated: false
+related:
+  - name: Prophet Elijah
+    note: John came in the spirit and power of Elijah; Christ named him the Elijah who was to come
+    href: saint/OS-0056
+  - name: Righteous Aaron
+    note: Priestly ancestry; John descended from the line of Aaron
+    href: saint/OS-1563
+  - name: Prophet Isaiah
+    note: Fulfilled prophecy — the voice crying in the wilderness (Isaiah 40:3)
+    href: saint/OS-1134
+  - name: Prophet Malachi
+    note: Fulfilled prophecy of the messenger before the Lord (Malachi 3:1; 4:5)
+    href: saint/OS-0381
+  - name: Simeon the God-Receiver
+    note: Righteous elder of the Temple who awaited the Messiah
+    href: saint/OS-0579
+  - name: Anna the Prophetess
+    note: Prophetess of the Temple who awaited the Messiah
+    href: saint/OS-0580
+status: draft
 generated: "2026-06-18"

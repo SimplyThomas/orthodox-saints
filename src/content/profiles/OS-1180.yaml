@@ -40,5 +40,19 @@ sections:
 patronage:
   - Monastics
   - Cenobitic communities
+companions:
+  - name: St. Petronius of Egypt
+    note: Fellow disciple — whom Pachomius named his successor over the Koinonia before its leadership passed in time to Theodore.
+    href: saint/OS-0201
+  - name: Venerable Horsiesios of Tabennisi
+    note: Fellow Koinonia leader — who governed the Pachomian federation in the unstable years around Theodore's own direction of it.
+    href: saint/OS-2742
+related:
+  - name: St. Pachomius the Great
+    note: Teacher — the founder of cenobitic monasticism whose foremost disciple Theodore was, and whom he attended in his final illness.
+    href: saint/OS-0028
+  - name: St. Athanasius the Great
+    note: Acquaintance — the Patriarch of Alexandria to whom Theodore, as head of the Thebaid communities, was well known.
+    href: saint/OS-0024
 status: draft
 generated: "2026-06-19"

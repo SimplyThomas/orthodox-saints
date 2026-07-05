@@ -60,5 +60,9 @@ companions:
   - name: Othmar
     note: First abbot of the Abbey of Saint Gall, formally established in 719 at the site of Gall's hermitage.
     href: saint/OS-2762
+related:
+  - name: Comgall of Bangor
+    note: Abbot of Bangor in Ireland under whom Gall trained alongside Columbanus before the continental mission.
+    href: saint/OS-1143
 status: draft
 generated: "2026-06-19"

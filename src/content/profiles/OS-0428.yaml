@@ -57,6 +57,10 @@ family:
     - name: Ecaterina Manase (the nun Elisabeth)
       note: His mother, who ended her life in a women's monastery as a schemanun.
       commemorated: false
+companions:
+  - name: Hieromonk Niphon
+    note: "Elder: the Moldavian hieromonk on Mount Athos who guided Antipas and entrusted him with the fundraising missions for the Romanian foundation."
+    commemorated: false
 patronage: []
 reading:
   - heading: Sources

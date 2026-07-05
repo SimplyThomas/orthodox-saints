@@ -41,6 +41,13 @@ works:
   - title: Commentary on monastic cell-life rules
     desc: A written guide on the discipline and rules governing the life of monks in their cells.
 reading: []
+companions:
+  - name: Venerable Irenarchus, Abbot of Solovki
+    note: "Tonsurer: the abbot of the Solovetsky Monastery who received Eleazar into monastic life."
+    href: saint/OS-1540
+  - name: Patriarch Nikon of Moscow
+    note: "Disciple: the hieromonk Nikita, who lived several years under Eleazar's guidance at Anzer before becoming Patriarch of Moscow."
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Jan 13
   - https://www.oca.org/saints/lives/2022/01/13/100167-venerable-eleazar-of-anzersk-island-solovki

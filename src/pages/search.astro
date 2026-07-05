@@ -4,13 +4,14 @@ import Finder from "../components/Finder.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import SearchGlyph from "../components/icons/SearchGlyph.astro";
 import { FINDER_SAINTS } from "../lib/data";
+import { finderDataPath } from "../lib/finder-payload";
+import { withBase } from "../lib/format";
 
-// Inline the trimmed finder index for the client island. Escaping "<" prevents
-// any "</script>" sequence in saint text from breaking out of the JSON block.
-// TODO(scale): this ships the full (trimmed) dataset on the search page. Per
-// CLAUDE.md §11 that is comfortable to ~5000 saints; past that, split to an
-// on-demand list index. Per-saint detail pages are already lean (one record).
-const finderJson = JSON.stringify(FINDER_SAINTS).replace(/</g, "\\u003c");
+// The finder dataset is no longer inlined here (it was ~3.4 MB of HTML): the
+// island fetches the content-hashed static JSON named by data-finder-src
+// below, while the SSR'd first page of results (Finder.astro) carries the
+// first paint. One cached download serves both /search and /quiz.
+const finderSrc = withBase(await finderDataPath());
 const total = FINDER_SAINTS.length;
 
 // Quick "browse by type" chips under the hero search — each toggles the
@@ -29,7 +30,7 @@ const quickRanks = [
   title="Search the Saints"
   description="Search and filter Orthodox saints by intercession, life experience, rank, vocation, region, tradition, era, and century."
 >
-  <div id="search-page">
+  <div id="search-page" data-finder-src={finderSrc}>
     {/* ---------- reverent hero with the brand hero-search ---------- */}
     <section class="sr-hero">
       <div class="dome-bg" aria-hidden="true">
@@ -38,7 +39,7 @@ const quickRanks = [
       <div class="sr-hero-inner">
         <div class="eyebrow-rule" aria-hidden="true">
           <span class="ln"></span><span class="dm"></span>
-          <span class="lbl">The Cloud of Witnesses</span>
+          <span class="lbl">The Saints</span>
           <span class="dm"></span><span class="ln"></span>
         </div>
         <h1 class="sr-title">Browse and Search Your Favorite Saints</h1>
@@ -82,12 +83,6 @@ const quickRanks = [
     </div>
   </div>
 
-  <script
-    type="application/json"
-    id="finder-data"
-    set:html={finderJson}
-    is:inline
-  />
   <script>
     import "../islands/finder.client.ts";
 

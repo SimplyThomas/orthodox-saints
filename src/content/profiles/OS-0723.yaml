@@ -61,10 +61,14 @@ sections:
       - Porphyrius's life is known chiefly from a vita preserved in Greek and Georgian recensions. Scholars debate its historical reliability, but many affirm a general historical core to its account of his episcopate and the Christianization of Gaza.
 patronage:
   - Gaza, of which he was bishop
+related:
+  - name: St. Macarius the Great
+    note: "Spiritual elder: by the tradition of his vita, Porphyrius took up the ascetic life in the Nitrian desert of Egypt under Macarius the Great."
+    href: saint/OS-0029
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Porphyrius_of_Gaza
   - https://www.oca.org/saints/lives/2025/02/26/100584-saint-porphyrius-archbishop-of-gaza
   - https://en.wikipedia.org/wiki/Church_of_Saint_Porphyrius
-status: reviewed
+status: draft
 generated: "2026-06-18"

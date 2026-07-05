@@ -12,6 +12,16 @@ timeline:
   - when: c. 400
     title: Death
     body: Pamphilus died circa 400; his relics were subsequently translated to and enshrined in Benevento, Campania.
+companions:
+  - name: Pope Siricius of Rome
+    note: Consecrated him Bishop of Capua during his pontificate (384–399).
+related:
+  - name: Priscus of Capua
+    note: First bishop of the see of Capua, the same see Pamphilus later held.
+    href: saint/OS-0098
+  - name: Paulinus the Merciful of Nola
+    note: Contemporary hierarch of neighboring Nola, shaping Christian life in Campania during Pamphilus's tenure.
+    href: saint/OS-0522
 patronage:
   - Venerated in the Campania region of southern Italy
 status: draft

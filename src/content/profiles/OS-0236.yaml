@@ -29,6 +29,13 @@ family:
     - name: St. Vladimir, Enlightener of Rus'
       note: their father, Grand Prince of Kiev who baptized Rus'
       href: saint/OS-0040
+    - name: St. Olga, Princess of Kyiv
+      note: their great-grandmother, the first ruler of Rus' to receive baptism
+      href: saint/OS-0041
+    - name: Yaroslav the Wise
+      note: their elder brother, Grand Prince of Kiev, who defeated Sviatopolk and gathered their relics at Vyshgorod
+      href: saint/OS-2887
+      commemorated: false
 patronage:
   - Patrons of Russia; models of humility and non-resistance
 status: draft

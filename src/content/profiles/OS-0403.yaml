@@ -51,7 +51,17 @@ companions:
   - name: St. Finan of Lindisfarne
     note: Bishop of Lindisfarne who sent Cedd to the East Saxons and later consecrated him bishop
     href: saint/OS-0679
-status: reviewed
+  - name: Saint Colman of Lindisfarne
+    note: "Fellow participant at the Synod of Whitby (664): the bishop of Lindisfarne who upheld the Celtic usages while Cedd served as interpreter between the parties."
+    href: saint/OS-0686
+  - name: Saint Wilfrid of York
+    note: "Fellow participant at the Synod of Whitby (664): the leading advocate of the Roman usages, opposite the Celtic party with which Cedd was aligned."
+    href: saint/OS-2703
+related:
+  - name: St. Cuthbert of Lindisfarne
+    note: "Same Lindisfarne tradition: a younger Northumbrian monk-bishop formed in the Irish-influenced monasticism of Lindisfarne that shaped Cedd."
+    href: saint/OS-0082
+status: draft
 sources:
   - OCA Synaxarion (oca.org), Jan 7
   - https://orthodoxwiki.org/Cedd_of_Lastingham

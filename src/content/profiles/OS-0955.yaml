@@ -13,5 +13,13 @@ sections:
     body:
       - According to the synaxarion, Gregory was born in Constantinople and withdrew to Mount Athos, where he took up the ascetic life at the Lavra of Saint Athanasius. Founded in the tenth century by Athanasius the Athonite, the Great Lavra stood as the senior house of the Holy Mountain, and Gregory is numbered among the ascetics who lived there.
       - He is identified in the tradition as the spiritual guide of Saint Gregory Palamas, later Archbishop of Thessalonica and the principal theological defender of hesychasm. Palamas, born in Constantinople about 1296, withdrew to Athos around 1316 and, after periods under earlier elders, transferred to the Great Lavra, where he served in the refectory and as a church cantor. The accounts of Palamas's formation place the Great Lavra among the stages of his ascetic training, which is the documented setting for Gregory's role as his guide.
+companions:
+  - name: St. Gregory Palamas
+    note: His spiritual disciple at the Great Lavra, later Archbishop of Thessalonica and the foremost defender of hesychasm
+    href: saint/OS-0025
+related:
+  - name: Venerable Athanasius of Athos
+    note: Founder of the Great Lavra in the tenth century, the senior Athonite house where Gregory pursued the ascetic life
+    href: saint/OS-1477
 status: draft
 generated: "2026-06-20"

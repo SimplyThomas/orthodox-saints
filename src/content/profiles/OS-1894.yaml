@@ -39,6 +39,13 @@ sections:
   - heading: Relics & Shrines
     body:
       - No relics of Peter the Aleut are documented.
+companions:
+  - name: Hieromartyr Juvenal of Alaska
+    note: Fellow protomartyr of America from the Valaam mission to Alaska, commemorated with him on September 24.
+    href: saint/OS-1895
+  - name: St. Herman of Alaska
+    note: Elder of the Valaam Alaska mission whose community received Peter into the Church and reported his martyrdom.
+    href: saint/OS-0044
 patronage:
   - Protomartyr of America; Alaska and Aleut people
 sources:

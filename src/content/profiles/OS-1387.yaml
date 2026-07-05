@@ -43,5 +43,13 @@ sources:
   - https://www.oca.org/saints/lives/2015/06/19/101755-venerable-paisius-the-great
   - https://www.johnsanidopoulos.com/2017/06/saint-paisios-great-417.html
   - https://en.wikipedia.org/wiki/Paisius_the_Great
+companions:
+  - name: Pambo the Hermit of Egypt
+    note: "Teacher: the Nitrian elder under whom Paisius was trained in monastic obedience."
+    href: saint/OS-1547
+related:
+  - name: John the Short
+    note: "Fellow desert father: an ascetic of the same Egyptian desert, remembered with him in the Sayings of the Desert Fathers."
+    href: saint/OS-2168
 status: draft
 generated: "2026-06-19"

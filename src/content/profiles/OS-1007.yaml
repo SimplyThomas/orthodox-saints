@@ -29,5 +29,16 @@ sections:
     body:
       - By the accounts preserved in the synaxarion, several miracles are attributed to Acacius. During a drought, the wine in the chalice is said to have been replenished by rain; on another occasion a swollen river was held back at a stone marker he set; and during the Divine Liturgy the dome of a church is related to have been suspended mid-collapse, remaining intact until the service had concluded. These accounts are traditional rather than independently documented.
 patronage: []
+companions:
+  - name: Saint Cyril, Archbishop of Alexandria
+    note: "Fellow father of Ephesus (431): stood with him at the Third Ecumenical Council against the teaching of Nestorius"
+    href: saint/OS-0476
+  - name: Venerable Euthymius the Great
+    note: "Teacher of: counted by tradition among the early instructors of Euthymius, a fellow native of Melitene"
+    href: saint/OS-0494
+related:
+  - name: Saint Acacius the Confessor, Bishop of Melitene
+    note: "Same see (earlier era): an earlier bishop of Melitene, a third-century confessor, with whom this Acacius is not to be confused"
+    href: saint/OS-0913
 status: draft
 generated: "2026-06-19"

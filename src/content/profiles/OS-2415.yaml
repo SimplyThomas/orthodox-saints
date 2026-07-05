@@ -17,6 +17,13 @@ timeline:
     body: By tradition he reposed at the age of seventy-five.
 patronage:
   - Studite monastic asceticism and ascetic discipline
+related:
+  - name: Venerable Theodore the Studite
+    note: Abbot and reformer of the Studion monastery in Evarestus's day, who made it the leading center of Byzantine monasticism.
+    href: saint/OS-2180
+  - name: St. Ephraim the Syrian
+    note: The ascetic writer to whose works Evarestus was especially devoted from his youth.
+    href: saint/OS-0031
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

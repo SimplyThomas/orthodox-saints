@@ -68,5 +68,46 @@ sources:
   - https://en.wikipedia.org/wiki/Anthony_the_Great
   - https://www.oca.org/saints/lives/2026/01/17/100029-our-venerable-father-among-the-saints-anthony-the-great
   - https://orthodoxwiki.org/Anthony_the_Great
-status: reviewed
+family:
+  figures:
+    - name: His younger sister
+      note: Unnamed; he settled her with a community of virgins before withdrawing
+      commemorated: false
+companions:
+  - name: Paul of Thebes
+    note: The first hermit, whom he sought out and buried (their famous meeting)
+    href: saint/OS-0457
+  - name: Athanasius the Great
+    note: His friend, who came to him in the desert and wrote his Life
+    href: saint/OS-0024
+  - name: Macarius the Great
+    note: His spiritual heir among the Egyptian desert fathers
+    href: saint/OS-0029
+  - name: Amoun of Nitria
+    note: Father of the Nitrian monks, whom he knew
+  - name: Didymus the Blind
+    note: Alexandrian whom he counseled
+  - name: Constantine the Great
+    note: Emperor who corresponded with him
+    href: saint/OS-0037
+  - name: Arius
+    note: The heretic he left the desert to refute
+    commemorated: false
+related:
+  - name: Pachomius the Great
+    note: Parallel founder of cenobitic monasticism
+    href: saint/OS-0028
+  - name: Macarius of Alexandria
+    note: Leader of the Egyptian desert fathers
+    href: saint/OS-0485
+  - name: Arsenius the Great
+    note: Desert father in his ascetic line
+    href: saint/OS-1131
+  - name: Hilarion the Great
+    note: Who carried his monastic example into Palestine
+    href: saint/OS-2048
+  - name: Ephraim the Syrian
+    note: Fellow father of the ascetic tradition
+    href: saint/OS-0031
+status: draft
 generated: "2026-06-18"

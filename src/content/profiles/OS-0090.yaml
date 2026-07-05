@@ -20,7 +20,18 @@ sections:
 works:
   - title: Book of Joshua
     desc: The sixth book of the Old Testament, which narrates the conquest and division of Canaan; tradition ascribes authorship to Joshua himself.
-status: reviewed
+companions:
+  - name: Prophet Moses the God-seer
+    note: His master, whom he served and succeeded as leader of Israel
+    href: saint/OS-0057
+  - name: Righteous Caleb
+    note: Fellow faithful spy, with whom alone he entered the Promised Land
+    href: saint/OS-2549
+related:
+  - name: Jesus Christ
+    note: The true Joshua, whose name he bears and whose leading into rest he prefigures (Hebrews 4)
+    href: saint/OS-0000
+status: draft
 sources:
   - Synaxarion
   - Book of Joshua

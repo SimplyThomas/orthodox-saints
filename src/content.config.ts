@@ -70,6 +70,11 @@ const profileSchema = z
         figures: z.array(relatedFigure),
       })
       .optional(),
+    // Curated "Related Saints" — specific cross-linked saints connected by
+    // theology, typology, vocation, or succession (not necessarily
+    // contemporaries). Rendered as its own card grid above the auto-generated
+    // theme links. Distinct from `family` (kin) and `companions` (people the
+    // saint personally knew).
     related: z.array(relatedFigure).optional(),
     // Documented personal relationships — teacher, disciple, fellow martyr,
     // lifelong friend, an emperor confronted, a biographer. Rendered as the

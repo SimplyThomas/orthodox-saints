@@ -42,5 +42,18 @@ sources:
   - https://en.wikipedia.org/wiki/Aaron
   - https://www.oca.org/saints/lives/2024/07/20
   - https://en.wikipedia.org/wiki/Aaron#Religious_perspectives
+family:
+  heading: Family
+  intro: Aaron was of the tribe of Levi; among his close kin several are venerated as Old Testament saints.
+  figures:
+    - name: Holy Prophet Moses
+      note: Brother — his younger brother, the Prophet and Lawgiver, before whom Aaron served as spokesman to Pharaoh.
+      href: saint/OS-0057
+    - name: Righteous Miriam
+      note: Sister — his elder sister, the prophetess.
+      href: saint/OS-2351
+    - name: Righteous Eleazar
+      note: Son — his third son, who succeeded him as High Priest (commemorated with his own son Phinehas).
+      href: saint/OS-0119
 status: draft
 generated: "2026-06-22"

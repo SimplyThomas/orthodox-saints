@@ -20,6 +20,23 @@ sections:
 patronage:
   - Healing of the sick
   - Physicians
+companions:
+  - name: Martyr Athanasia and her Daughters
+    note: Co-martyrs put to death with Cyrus and John at Canopus near Alexandria; Athanasia and her daughters Theodota, Theoctiste, and Eudoxia suffered with them and share their feast.
+    href: saint/OS-2444
+related:
+  - name: Holy Unmercenaries Cosmas and Damian of Asia
+    note: Related as fellow Holy Unmercenaries (Anargyroi), physicians who healed without payment and are invoked together for the sick.
+    href: saint/OS-0036
+  - name: Great Martyr & Healer Panteleimon
+    note: Related as a fellow Unmercenary healer numbered with the Anargyroi in the Church's commemoration of the physician-saints.
+    href: saint/OS-0014
+  - name: Holy Unmercenary Physician Diomedes
+    note: Related as a fellow Unmercenary physician who treated the sick freely for Christ's sake.
+    href: saint/OS-1704
+  - name: Saint Sampson the Hospitable of Constantinople
+    note: Related as a fellow unmercenary physician who gave his healing without charge.
+    href: saint/OS-1434
 timeline:
   - when: c. 304 or 311
     title: Martyrdom
@@ -30,5 +47,5 @@ sources:
   - https://www.oca.org/saints/lives/2024/1/31
   - https://orthodoxwiki.org/Cyrus_and_John
   - https://www.newadvent.org/cathen/04547a.htm
-status: reviewed
+status: draft
 generated: "2026-06-18"

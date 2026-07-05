@@ -54,5 +54,40 @@ sources:
   - https://en.wikipedia.org/wiki/Demetrius_of_Thessaloniki
   - https://www.oca.org/saints/lives/2024/10/26/103014-great-martyr-demetrius-the-myrrh-streamer-of-thessalonica
   - https://orthodoxwiki.org/Demetrius_of_Thessaloniki
-status: reviewed
+companions:
+  - name: Martyr Nestor of Thessalonica
+    note: His disciple, whom he blessed to defeat the gladiator Lyaeus
+    href: saint/OS-2084
+  - name: Martyr Lupus of Thessalonica
+    note: His servant, who gathered his blood and was martyred
+    href: saint/OS-1763
+  - name: Galerius
+    note: Caesar under whom he was martyred
+    commemorated: false
+  - name: Lyaeus
+    note: The emperor's gladiator, slain by Nestor
+    commemorated: false
+related:
+  - name: Great Martyr George
+    note: Fellow great-martyr and soldier-saint
+    href: saint/OS-0012
+  - name: Theodore the Recruit
+    note: Fellow soldier-martyr
+    href: saint/OS-0018
+  - name: Theodore Stratelates
+    note: Fellow soldier-martyr
+    href: saint/OS-0615
+  - name: Great Martyr Mercurius
+    note: Fellow soldier-martyr
+    href: saint/OS-2247
+  - name: Great Martyr Menas
+    note: Fellow soldier-martyr
+    href: saint/OS-0059
+  - name: Great Martyr Procopius
+    note: Fellow soldier-martyr
+    href: saint/OS-1494
+  - name: Martyr Sebastian
+    note: Fellow soldier-martyr
+    href: saint/OS-2381
+status: draft
 generated: "2026-06-18"

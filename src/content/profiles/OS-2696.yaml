@@ -1,0 +1,63 @@
+id: OS-2696
+lifespan: c. 600 – 668
+overview:
+  - Wandrille of Fontenelle (also Wandregisel) was a Frankish nobleman who abandoned a career at the Merovingian court to become a monk and, later, the founder and first abbot of the Abbey of Fontenelle in Normandy. Born near Verdun around the year 600, he was a kinsman of the Austrasian nobility and served King Dagobert I before withdrawing to monastic life in 629.
+  - After years as a hermit and student of the monastic tradition of Columbanus — including a period at Bobbio in Italy and at Romainmôtier in the Tarentaise valley — he settled in Normandy on land obtained through his friendship with Audoin (Ouen), Archbishop of Rouen, and established Fontenelle Abbey, which grew into an important center of learning. He reposed there on 22 July 668.
+  - He is venerated in both the Eastern Orthodox and Roman Catholic Churches, and his cult was known in pre-Conquest England.
+liturgicalTitle: Our Venerable Father Wandrille, Abbot of Fontenelle
+patronage:
+  - Fontenelle Abbey
+  - Monastic founders
+timeline:
+  - when: c. 600
+    title: Birth near Verdun
+    body: Born into the Austrasian nobility near Verdun. His father, Walchisus, was a kinsman of Pepin of Landen; some accounts place his birth around 605. He was educated at the Frankish court in Metz.
+  - when: before 629
+    title: Service at the royal court
+    body: Served King Dagobert I in a high position, alongside figures such as Audoin (Ouen), the future Archbishop of Rouen, and Didier of Cahors.
+  - when: "629"
+    title: Withdrawal to monastic life
+    body: Left the court to become a monk at Montfaucon-d'Argonne under the guidance of Saint Balderic, receiving the tonsure. When summoned, Dagobert approved his choice of the monastic life.
+  - when: c. 630s
+    title: Hermitage and study
+    body: Lived as a hermit at Saint-Ursanne in the Jura Mountains following the Columbanian tradition, spent time around 635 at Bobbio Abbey in Italy, and by 642 reached Romainmôtier in the Tarentaise valley.
+  - when: c. 648–649
+    title: Foundation of Fontenelle
+    body: Returned to Normandy and, on land obtained through Archbishop Audoin of Rouen, founded the Abbey of Fontenelle near Caudebec-en-Caux, adopting the Columbanian rule.
+  - when: "657"
+    title: Consecration of the abbey church
+    body: The basilica dedicated to Saint Peter, nearly 300 feet long, was consecrated by Saint Ouen (Audoin).
+  - when: 22 July 668
+    title: Repose
+    body: Died at Fontenelle. His feast is kept on 22 July.
+sections:
+  - heading: From Court to Cloister
+    body:
+      - "Wandrille belonged to the Austrasian nobility: his father, Walchisus, was a kinsman of Pepin of Landen, and he was educated at the Frankish court in Metz. He served King Dagobert I and moved in the circle of men who would themselves become saints and bishops, including Audoin (Ouen) and Didier of Cahors."
+      - In 629 he left the court to enter the monastery of Montfaucon-d'Argonne under Saint Balderic, receiving the tonsure without formal courtly authorization. Summoned to explain himself, he obtained Dagobert's approval of his choice. He then sought a stricter, more eremitical life, living as a hermit at Saint-Ursanne in the Jura Mountains in the tradition of Columbanus and Saint Ursicinus.
+  - heading: Formation in the Columbanian Tradition
+    body:
+      - Wandrille's monastic formation was shaped by the Irish-influenced Columbanian movement then spreading through Gaul and northern Italy. Around 635 he spent time at Bobbio Abbey in Italy, Columbanus's own foundation, and by 642 he had reached Romainmôtier in the Tarentaise valley — reportedly while attempting to travel to Ireland — where he is said to have remained for roughly a decade.
+      - This grounding in Columbanian monasticism shaped the rule he would later give his own community.
+  - heading: The Foundation of Fontenelle
+    body:
+      - After his ordination Wandrille returned to Normandy, arriving around 648, and founded the Abbey of Fontenelle near Caudebec-en-Caux in what is now Seine-Maritime. The land was obtained through his friendship with Audoin (Ouen), Archbishop of Rouen, with the grant traced to the noble Erchinoald; the abbey is generally dated to 649. He is said to have been assisted by his nephew Godo.
+      - Wandrille built the community on the Columbanian rule and raised a large church dedicated to Saint Peter, nearly 300 feet long, which Saint Ouen consecrated in 657. The monastery prospered, acquiring extensive property and exemptions from river tolls on the Seine, and became renowned for its library and school, with an emphasis on calligraphy, arts, and sciences. Some thirty saints and blessed are said to have come from its community.
+  - heading: Relics & Shrines
+    body:
+      - "Wandrille's relics were dispersed during the Viking raids of the ninth century: when the Northmen burned the abbey in 852, the monks fled carrying his relics, and the community remained in exile for more than a century before returning in 966 under Abbot Maynard."
+      - His skull was later rediscovered in Liège and returned to the abbey after the dedication of its new church in 1967. The abbey itself, suppressed during the French Revolution in 1791, was resettled by Benedictine monks in 1893 and again in 1931.
+  - heading: Legacy
+    body:
+      - Wandrille is venerated in both the Eastern Orthodox and Roman Catholic Churches, and his cult was celebrated in pre-Conquest England. The abbey he founded — long known by his name — endured as a major center of learning through the medieval period.
+      - Some accounts have traced the Western adoption of unleavened bread for the Eucharist to Wandrille, a practice reported to have met resistance from traditionalists into the eleventh century.
+sources:
+  - OrthodoxWiki
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Wandregisel
+  - https://en.wikipedia.org/wiki/Fontenelle_Abbey
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: By 642 he reached Romainmôtier, reportedly while attempting to travel to Ireland, where he is said to have remained for roughly a decade
+    detail: The dossier (Fontenelle Abbey Wikipedia) says Wandrille 'later studied at Bobbio Abbey and Romainmôtier Abbey (approximately ten years)' — the ~ten years covers BOTH Bobbio and Romainmôtier combined, not Romainmôtier alone. Bobbio is dated c. 635 and he returned to Normandy in 648, so Romainmôtier alone was roughly 6 years (642–648). Applying 'roughly a decade' specifically to Romainmôtier is not supported by the dossier.

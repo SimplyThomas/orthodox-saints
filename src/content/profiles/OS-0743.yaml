@@ -32,6 +32,10 @@ sections:
 patronage:
   - Defenders of the holy icons
   - Monastics under persecution
+related:
+  - name: Saint Stephen the New
+    note: Fellow defender of the holy icons under Constantine V, named in the same synaxarion entry among those who suffered in that persecution.
+    href: saint/OS-2263
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2032/02/29/100624-heiromartyr-theokteristus

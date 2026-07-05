@@ -43,6 +43,25 @@ timeline:
     title: Commemoration formally established
     body: Patriarch Job, together with a council of bishops, formally establishes the saint's commemoration.
 sections_note: ""
+companions:
+  - name: Venerable Cassian, Abbot of Komel
+    note: His disciple, whom he set over the community as abbot when he withdrew to Lake Sura and who strictly kept his Rule.
+    href: saint/OS-1181
+  - name: Venerable Laurence, Abbot of Komel
+    note: His disciple, to whom he entrusted the monastery on his return and who succeeded him as igumen in 1538.
+    href: saint/OS-1182
+  - name: Venerable Cyril, Abbot of Novoezersk
+    note: His disciple, who went on to found the monastery of New Lake (Novoezersk).
+    href: saint/OS-0593
+  - name: Venerable-Martyr Adrian of Poshekhonye
+    note: His disciple, who left Komel to found a monastery at Poshekhonye, where he was later martyred.
+    href: saint/OS-0784
+  - name: Venerable Gennadius of Kostroma
+    note: His disciple (Gennadius of Liubimograd), founder of a monastery in the Kostroma region.
+    href: saint/OS-0519
+  - name: Venerable Herodion, Abbot of Iloezersk
+    note: His disciple, founder of the hermitage at Ilozero (Iloezersk).
+    href: saint/OS-1917
 patronage:
   - Synaxis of the Saints of Vologda
   - Synaxis of the Saints of Tver

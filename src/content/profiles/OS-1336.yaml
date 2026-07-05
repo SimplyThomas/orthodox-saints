@@ -30,5 +30,15 @@ sections:
   - heading: Relics & Shrines
     body:
       - His relics were initially kept at the monastery of Saint Clement on Athos, a site later associated with the Monastery of Iviron. According to the OCA synaxarion they were hidden during the Iconoclast period and transferred in 969 to Photokami in Thrace.
+related:
+  - name: St. Nicholas the Wonderworker
+    note: "Heavenly helper: invoked by Peter in his captivity at Samara; by tradition appeared to deliver him and turn him to the monastic life."
+    href: saint/OS-0019
+  - name: Righteous Simeon the God-Receiver
+    note: "Heavenly helper: invoked at Saint Nicholas's counsel; by tradition loosed Peter's chains and freed him from prison."
+    href: saint/OS-0579
+  - name: Venerable Athanasius of Athos
+    note: "Same mountain: Athos; Peter is revered as its first hermit, the forerunner of the organized monasticism Athanasius later established."
+    href: saint/OS-1477
 status: draft
 generated: "2026-06-19"

@@ -50,6 +50,38 @@ timeline:
   - when: "1988"
     title: Canonization by the Russian Orthodox Church
     body: Formally canonized on June 6, 1988 during the Local Council of the Russian Orthodox Church.
+family:
+  figures:
+    - name: Andrei Petrov
+      note: Her husband, a colonel and court chorister, whose sudden death set her on the path of foolishness for Christ
+      commemorated: false
+companions:
+  - name: The poor of Saint Petersburg
+    note: Those among whom she lived and to whom she gave all she had
+  - name: Builders of the Smolensk Church
+    note: Laborers she secretly aided by carrying bricks by night
+related:
+  - name: Andrew the Fool-for-Christ
+    note: Early model of holy foolishness
+    href: saint/OS-1938
+  - name: Basil the Blessed
+    note: Fool-for-Christ of Moscow
+    href: saint/OS-1627
+  - name: John of Kronstadt
+    note: Beloved wonderworker of the same city
+    href: saint/OS-0045
+  - name: Seraphim of Sarov
+    note: Russian wonderworker of her era
+    href: saint/OS-0043
+  - name: Matrona of Moscow
+    note: Later Russian woman of hidden holiness
+    href: saint/OS-0048
+  - name: Nicholas Planas
+    note: Humble parish priest and holy fool in spirit
+    href: saint/OS-2600
+  - name: Paisios the Athonite
+    note: Modern elder of simplicity and love
+    href: saint/OS-0051
 patronage:
   - Patron saint of Saint Petersburg
   - Marriage and spousal matters
@@ -62,5 +94,5 @@ sources:
   - https://en.wikipedia.org/wiki/Xenia_of_Saint_Petersburg
   - https://orthodoxwiki.org/Xenia_of_St._Petersburg
   - https://www.oca.org/saints/lives/2026/01/24/100231-st-xenia-of-st-petersburg-fool-for-christ
-status: reviewed
+status: draft
 generated: "2026-06-18"

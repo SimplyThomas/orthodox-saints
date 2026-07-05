@@ -50,5 +50,9 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Paisius_of_Hilendar
   - https://en.wikipedia.org/wiki/Istoriya_Slavyanobolgarskaya
+companions:
+  - name: Sophronius of Vratsa
+    note: "Disciple and copyist: the bishop who transcribed Paisius's Slavo-Bulgarian History and carried his work of national awakening forward."
+    href: saint/OS-0812
 status: draft
 generated: "2026-06-19"

@@ -43,6 +43,19 @@ sections:
     body:
       - The tradition recorded in his Life states that Saint Paul reposed at an advanced age, his final words urging the brethren to keep love for one another and to hold to the rule of the monastic community. His Life was composed about 1546, and his glorification took place in 1547.
       - He is commemorated on January 10. Within the Russian tradition additional commemorations are observed, and relics attributed to him have been distributed; fragments are kept, for example, in a reliquary at the Russian Orthodox Cathedral of St. John the Baptist in Washington, D.C.
+companions:
+  - name: St. Sergius of Radonezh
+    note: "Teacher: Paul lived several years as his disciple at the Holy Trinity monastery before taking up the hermit's life with his blessing."
+    href: saint/OS-0042
+  - name: St. Makarios of Pisma
+    note: "Fellow disciple of Sergius of Radonezh: close companion in the northern forests, sharing the January 10 commemoration."
+    href: saint/OS-0426
+  - name: Venerable Abramius of Galich
+    note: "Fellow disciple of Sergius: Paul spent time with him in the wilderness before settling in the Komel forest."
+    href: saint/OS-1557
+  - name: Saint Photius, Metropolitan of Kiev
+    note: "Hierarch: gave his agreement for Paul's foundation of the Holy Trinity church in 1414."
+    href: saint/OS-1453
 patronage: []
 works:
   - title: Monastic Rule for the Obnora brotherhood

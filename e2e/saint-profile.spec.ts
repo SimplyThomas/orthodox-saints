@@ -74,11 +74,17 @@ test("Basil's timeline, family, and companions render in separate sections", asy
   await expect(valens).toContainText("not commemorated");
   await expect(valens.locator("a")).toHaveCount(0);
 
-  // 3. Related Saints — generated from theme tags ("More <theme>" links).
+  // 3. Related Saints — curated cross-linked saints (profile.related), with the
+  //    tag-derived "More <theme>" links demoted to a "Browse similar" sub-row.
   const rel = page.locator("details.sv-deep", {
     has: page.locator(".sv-deep-eb", { hasText: "Related Saints" }),
   });
   await rel.locator("summary").click();
+  // Curated card: John Chrysostom links to his saint page.
+  await expect(
+    rel.locator('a.sv-relcard[href*="/saint/OS-0023"]').first(),
+  ).toBeVisible();
+  // Browse-similar theme links still render beneath the curated cards.
   expect(
     await rel.locator("a.sv-themelink[href*='theme=']").count(),
   ).toBeGreaterThan(0);

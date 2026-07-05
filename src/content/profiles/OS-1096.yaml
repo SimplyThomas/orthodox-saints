@@ -39,6 +39,14 @@ sections:
   - heading: Relics & Shrines
     body:
       - Gerasimus was buried in the southern aisle of the Trinity Cathedral at his Boldino monastery. His relics were discovered on July 17, 2001 at a depth of more than three meters, with the identification supported by sixteenth-century ceramics, the remains of a wooden coffin, and leather shoes recovered from the burial.
+companions:
+  - name: Venerable Daniel, Abbot of Pereslavl-Zalessky
+    note: Elder — Gerasimus entered monastic life as a youth under Daniel at the Trinity Danilov Monastery, where he was tonsured and passed some twenty-six years of formation before founding his own communities.
+    href: saint/OS-0958
+related:
+  - name: Venerable Joseph of Volokolamsk
+    note: Monastic model — Gerasimus drew on Joseph's cenobitic discipline and Rule in governing the monasteries he founded.
+    href: saint/OS-0330
 patronage:
   - Monastics
   - Monastery founders

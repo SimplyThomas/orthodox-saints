@@ -40,9 +40,13 @@ companions:
   - name: Venerable Theodosius the Cenobiarch
     note: Founder of the Palestinian monastery of which Modestos became superior.
     href: saint/OS-0430
+related:
+  - name: Martyr Mamas of Caesarea
+    note: Fellow protector of flocks and herdsmen, invoked for the health of animals
+    href: saint/OS-0065
 patronage:
   - Health and protection of livestock and animals
-status: reviewed
+status: draft
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2017/12/18/103579-saint-modestos-archbishop-of-jerusalem

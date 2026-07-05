@@ -41,9 +41,23 @@ timeline:
   - when: "444"
     title: Repose
     body: Cyril dies after thirty-two years as Patriarch of Alexandria.
+family:
+  heading: Family
+  intro: Cyril was raised for the Church by his uncle, his predecessor on the Alexandrian throne.
+  figures:
+    - name: Theophilus of Alexandria
+      note: "Uncle and predecessor: the Patriarch of Alexandria who oversaw Cyril's education, ordained him deacon, and whom Cyril succeeded in 412."
+      commemorated: false
 companions:
+  - name: St. Celestine, Pope of Rome
+    note: "Ally against Nestorius: Cyril wrote to Celestine, who condemned Nestorius at a Roman synod and entrusted Cyril to act on Rome's behalf at Ephesus."
+    href: saint/OS-0965
+  - name: Right-believing Emperor Theodosius the Younger
+    note: "Emperor he appealed to: Theodosius II, to whom Cyril addressed his defense of the Theotokos and who convened the Council of Ephesus in 431."
+    href: saint/OS-1607
+related:
   - name: St. Athanasius the Great
-    note: Predecessor as Archbishop of Alexandria, with whom Cyril shares the January 18 commemoration.
+    note: "Predecessor: an earlier Archbishop of Alexandria and defender of Nicaea, with whom Cyril shares the January 18 commemoration."
     href: saint/OS-0024
 patronage:
   - Defender of Orthodoxy and confession of the Theotokos

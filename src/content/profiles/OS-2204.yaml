@@ -55,5 +55,16 @@ works:
     desc: A statement of Trinitarian doctrine, dated c. 260-270, emphasizing the eternity and equality of the three divine Persons.
   - title: Metaphrasis of Ecclesiastes
     desc: A paraphrase of the book of Ecclesiastes attributed to Gregory.
+family:
+  figures:
+    - name: Athenodorus
+      note: His brother, who accompanied him to Caesarea and study under Origen and who likewise became a bishop in Pontus.
+      href: saint/OS-2876
+related:
+  - name: Origen of Alexandria
+    note: The theologian and head of the Catechetical School under whom Gregory studied for some seven years and was gradually won to the Christian faith. (Not a canonized saint.)
+  - name: Righteous Macrina the Elder
+    note: Numbered in his Pontic flock; she preserved the faith he taught through persecution and handed it down to the family of Saint Basil the Great.
+    href: saint/OS-2474
 status: draft
 generated: "2026-06-20"

@@ -43,6 +43,13 @@ timeline:
   - when: 1541 (or 16th century)
     title: Repose
     body: Died at an advanced age and was buried in the portico of the monastery he founded on Olympus; commemorated on January 24.
+related:
+  - name: Venerable Philotheus of Athos
+    note: Founder of Philotheou Monastery on Athos, where Dionysius was trained and later proposed as abbot; both are numbered among the saints of Philotheou.
+    href: saint/OS-0529
+  - name: Venerable Theodosius, Metropolitan of Trebizond
+    note: Earlier abbot of Philotheou Monastery, the Athonite house with which Dionysius was associated; numbered among its saints.
+    href: saint/OS-0433
 patronage:
   - Mount Olympus and its monastic community
   - Monastics and founders of monasteries

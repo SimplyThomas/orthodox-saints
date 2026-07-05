@@ -63,9 +63,77 @@ timeline:
 patronage:
   - Military communications corps of the Church of Greece
   - Patron saint of the Greek Orthodox Archdiocese of Australia
+family:
+  figures:
+    - name: Prodromos Eznepidis
+      note: Father
+      commemorated: false
+    - name: Evlampia Eznepidis
+      note: Mother
+      commemorated: false
+    - name: Brothers and sisters
+      note: His siblings
+      commemorated: false
+companions:
+  - name: Arsenios the Cappadocian
+    note: The saint who baptized him and a lifelong inspiration
+    href: saint/OS-0070
+  - name: Porphyrios of Kavsokalyvia
+    note: Fellow Athonite elder and wonderworker
+    href: saint/OS-0052
+  - name: Iakovos (Tsalikis)
+    note: Contemporary Greek elder of Evia
+    href: saint/OS-2585
+  - name: Amphilochios (Makris)
+    note: Contemporary Greek elder of Patmos
+    href: saint/OS-2586
+  - name: Sophrony (Sakharov)
+    note: Contemporary elder and disciple of Silouan the Athonite
+    href: saint/OS-2587
+  - name: Joseph the Hesychast
+    note: Athonite elder who renewed hesychast prayer on the Holy Mountain
+    href: saint/OS-2584
+related:
+  - name: Silouan the Athonite
+    note: Athonite elder and witness to humble love
+    href: saint/OS-0087
+  - name: Nektarios of Aegina
+    note: Greek wonderworker of the modern era
+    href: saint/OS-0046
+  - name: Seraphim of Sarov
+    note: Beloved Russian elder and wonderworker
+    href: saint/OS-0043
+  - name: Gregory Palamas
+    note: Athonite hierarch and defender of hesychasm
+    href: saint/OS-0025
+works:
+  - title: Epistles
+    desc: His surviving letters of spiritual counsel
+reading:
+  - heading: Compiled Teachings — Spiritual Counsels (6 volumes, Souroti)
+    items:
+      - title: "I: With Pain and Love for Contemporary Man"
+      - title: "II: Spiritual Awakening"
+      - title: "III: Spiritual Struggle"
+      - title: "IV: Family Life"
+      - title: "V: Passions and Virtues"
+      - title: "VI: On Prayer"
+  - heading: Biographies
+    items:
+      - title: Saint Paisios of Mount Athos
+        author: Holy Hesychasterion of St John the Theologian, Souroti
+      - title: Elder Paisios of Mount Athos
+        author: Hieromonk Isaac
+        type: Definitive multi-volume biography
+  - heading: Popular
+    items:
+      - title: The Gurus, the Young Man, and Elder Paisios
+  - heading: Liturgical Texts
+    items:
+      - title: Service, Akathist, and Canon
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Paisios_of_Mount_Athos
   - https://orthodoxwiki.org/Paisios_of_Mount_Athos
-status: reviewed
+status: draft
 generated: "2026-06-18"

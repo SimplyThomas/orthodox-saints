@@ -29,6 +29,9 @@ companions:
   - name: Saint Clement of Ochrid
     note: Earlier enlightener of the Bulgarians whose life Theophylact wrote.
     href: saint/OS-1588
+related:
+  - name: Michael Psellus
+    note: The Constantinopolitan philosopher under whom Theophylact studied in his formation as a scholar and teacher of rhetoric.
 works:
   - title: Commentaries on the Gospels, Acts, and the Pauline Epistles
     desc: New Testament exegesis founded on the homilies of Saint John Chrysostom.

@@ -51,6 +51,26 @@ timeline:
   - when: "404"
     title: Death at Bethlehem
     body: Paula dies on January 26, 404, at age 56, and is buried near the Church of the Nativity; she is recognized as a saint within a year.
+family:
+  heading: Family
+  intro: Paula's household was deeply bound to the ascetic movement of the late fourth century, and several of her children are themselves venerated.
+  figures:
+    - name: St. Eustochium
+      note: Her daughter, who accompanied her on the pilgrimage to the Holy Land and succeeded her as abbess of the Bethlehem convent.
+      href: saint/OS-2839
+related:
+  - name: St. Jerome of Stridon
+    note: Her spiritual father and lifelong collaborator, whom she followed to Bethlehem and beside whom she is buried near the Church of the Nativity.
+    href: saint/OS-1362
+  - name: St. Epiphanius, Bishop of Cyprus
+    note: One of the bishops under whom she studied Scripture in Rome, and in whose company Jerome came to Rome in 382.
+    href: saint/OS-1152
+  - name: Venerable Melania the Elder of Rome
+    note: Same circle — a fellow noble Roman ascetic woman of the age, whom Paula encountered in the course of her pilgrimage.
+    href: saint/OS-2758
+  - name: St. Marcella of Rome
+    note: Same circle — the Roman noblewoman whose semi-monastic household first drew Paula into the ascetic life.
+    href: saint/OS-2838
 patronage:
   - Co-patroness of the Order of Saint Jerome (Hieronymites)
   - Widows
@@ -59,5 +79,5 @@ sources:
   - OCA Synaxarion (oca.org), Jan 26
   - https://en.wikipedia.org/wiki/Paula_of_Rome
   - https://www.oca.org/saints/lives/2025/01/26/100322-saint-paula
-status: reviewed
+status: draft
 generated: "2026-06-18"

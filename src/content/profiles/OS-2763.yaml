@@ -1,0 +1,58 @@
+id: OS-2763
+lifespan: c. 550 – 24 February 616
+overview:
+  - Ethelbert (Æthelberht) of Kent, who reigned from about 589 to 616, was the first Anglo-Saxon king to convert to Christianity and thereby opened the English kingdoms to the faith. The son of Eormenric, he had married Bertha, the Christian daughter of the Frankish king Charibert I, around 580, on the condition that she be free to continue practising her religion.
+  - When the mission of Augustine of Canterbury, sent by Pope Gregory I, landed on the Isle of Thanet in 597, Ethelbert received the missionaries and gave them freedom to preach. His own baptism followed, and by 601 Pope Gregory addressed him in letters as a Christian king. His conversion legitimised the Christian message in Kent and enabled the large-scale conversions on which the English Church was founded.
+  - Ethelbert also issued the earliest surviving written laws in the English language, a code that gave the newly established Church a recognised place in Kentish society. He died on 24 February 616 and was buried at the monastery he had endowed at Canterbury; he is venerated as a saint in both the Western and Eastern Orthodox traditions.
+liturgicalTitle: The Holy and Righteous Ethelbert, King of Kent
+sections:
+  - heading: Marriage to Bertha and the Frankish Christian Presence
+    body:
+      - Around 580, before he became king, Ethelbert married Bertha of Kent, the Christian daughter of Charibert I, king of the Franks. The marriage was concluded on the condition that Bertha be allowed to practise her faith, and she brought with her a chaplain, Bishop Liudhard.
+      - Bertha secured the use of a restored Roman church outside Canterbury, dedicated to Saint Martin of Tours, as her private chapel; it survives as the Church of St Martin's, Canterbury. Her established Christian presence prepared the ground for Augustine's mission, and Pope Gregory I engaged her directly in his strategy, writing to urge her to incline her husband's heart toward the faith and later, in 601, complimenting her on her faith and learning.
+  - heading: The Augustine Mission and Conversion
+    body:
+      - Pope Gregory I chose Kent as the target for Augustine's mission because Ethelbert commanded major influence over neighbouring Anglo-Saxon kingdoms and was already married to a Christian Frankish princess. The mission arrived on the Isle of Thanet in 597, and Ethelbert, wary of sorcery, at first insisted on meeting the missionaries outdoors.
+      - An old tradition places his baptism on 1 June in the year Augustine arrived, and a later medieval chronicle names Whit Sunday, 2 June 597, though the sources note the exact date is uncertain. By 601 Pope Gregory's letters confirm the king had been baptised, addressing him as his son. Because large-scale conversion in the early medieval period generally required the ruler's conversion first, Ethelbert's own baptism allowed Augustine to win large numbers of converts within a year.
+      - "Ethelbert supported the mission concretely: he permitted the missionaries to settle and preach in Canterbury, granted them the use of St Martin's Church, donated land outside the city walls for a monastery (later St Augustine's Abbey, dedicated to Saints Peter and Paul), and helped build St Paul's in London. Through his authority he also influenced the conversion of his nephew Sæberht, king of Essex."
+  - heading: The Law Code and Legacy
+    body:
+      - About 602–603 Ethelbert issued a law code of ninety sections, written in Anglo-Saxon. It is described as the earliest surviving code composed in any of the Germanic countries and among the first documents written in the English language, and it was preserved in the twelfth-century manuscript known as the Textus Roffensis.
+      - The code opens with a provision concerning the Church and sets graduated compensation fines for wrongs against bishops, deacons, and priests, calibrated to the victim's rank. It reflects the integration of Christian ecclesiastical order into Kentish law as a direct consequence of the king's conversion. Kent enjoyed strong trade connections across the English Channel during his reign, and the first coins minted in Kent may date to it, though none bear his name.
+      - The Venerable Bede lists Ethelbert as the third king to hold imperium, or overlordship, over other Anglo-Saxon kingdoms, and the Anglo-Saxon Chronicle names him bretwalda, 'Britain-ruler.' He is venerated as a saint for establishing Christianity among the Anglo-Saxons.
+  - heading: Veneration
+    body:
+      - Ethelbert died on 24 February 616 and was buried at St Augustine's Abbey, Canterbury. His feast was originally kept on 24 February and was later moved to 25 February; he is listed in the 2004 Roman Martyrology under 24 February and is venerated in the Eastern Orthodox Church as Saint Ethelbert, King of Kent.
+      - As with other pre-schism Western saints venerated in the East, no formal modern act of glorification underlies his commemoration; Orthodox veneration rests on his traditional inclusion as a saint of the undivided Church.
+timeline:
+  - when: c. 550
+    title: Birth
+    body: Ethelbert is born, the son of Eormenric, whom he succeeds as king of Kent.
+  - when: c. 580
+    title: Marriage to Bertha
+    body: He marries the Christian Frankish princess Bertha, daughter of Charibert I, on the condition that she may continue to practise her faith.
+  - when: c. 589
+    title: Accession
+    body: Ethelbert becomes king of Kent, holding influence over neighbouring Anglo-Saxon kingdoms.
+  - when: "597"
+    title: Augustine's mission arrives
+    body: The mission of Augustine of Canterbury lands on the Isle of Thanet; Ethelbert receives the missionaries and gives them freedom to preach. Tradition places his baptism in this year.
+  - when: c. 602–603
+    title: Law code issued
+    body: Ethelbert issues the earliest surviving written English laws, a code of ninety sections that gives the Church a recognised place in Kentish law.
+  - when: 24 February 616
+    title: Death
+    body: Ethelbert dies and is buried at St Augustine's Abbey in Canterbury; he is venerated as a saint.
+patronage:
+  - England
+  - Converts
+  - Rulers
+sources:
+  - https://en.wikipedia.org/wiki/%C3%86thelberht_of_Kent
+  - https://en.wikipedia.org/wiki/Augustine_of_Canterbury
+  - https://en.wikipedia.org/wiki/Bertha_of_Kent
+status: flagged
+generated: "2026-07-03"
+flagReasons:
+  - claim: Liudhard is called 'Bishop Liudhard' in the profile, but the dossier only calls him Bertha's 'chaplain'.
+    detail: The dossier external (Bertha of Kent source) says only 'She brought her chaplain Liudhard to England' — the title 'Bishop' is not present anywhere in the provided dossier text. The profile adds an ecclesiastical rank not attested in the dossier.

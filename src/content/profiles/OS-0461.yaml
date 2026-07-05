@@ -42,6 +42,17 @@ timeline:
   - when: 14th century
     title: Lesnovo Monastery rebuilt
     body: Despot Jovan Oliver, a Serbian magnate serving Emperor Dušan, built the great church of St Michael and new dwellings; in 1342 he gave the monastery to Chilandar on Mount Athos, and in 1347 Lesnovo became the seat of the Zletovo bishopric.
+companions:
+  - name: Joachim of Osogovo
+    note: "Fellow hermit: a contemporary ascetic of Mount Osogovo, counted with Gabriel among the Balkan hermit-saints of the region."
+    href: saint/OS-1710
+  - name: Prochorus of Pshinja
+    note: "Fellow hermit: a contemporary Balkan ascetic linked with Gabriel in the regional monastic memory; commemorated the same day (Jan 15)."
+    href: saint/OS-0460
+related:
+  - name: John of Rila
+    note: "Spiritual model: the great Bulgarian hermit whose ascetic tradition Gabriel is said to have followed."
+    href: saint/OS-1735
 patronage:
   - Lesnovo Monastery
   - Healing

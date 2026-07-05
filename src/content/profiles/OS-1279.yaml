@@ -30,6 +30,22 @@ sections:
     body:
       - Orthodox tradition holds that Constantine the Great had the Fathers of the First Ecumenical Council bestow the title of Patriarch upon Metrophanes, making him the first patriarch of Constantinople. Historians note a difficulty with this account, since Byzantium became the imperial capital only around 330 and the see was formally elevated to a patriarchate only at the Council of Chalcedon in 451; the patriarchal title is therefore generally understood as an honor applied to him in retrospect by tradition.
       - The sources also differ on the dates of his episcopate and repose. The synaxarion places his death in 326 at a very great age, after the Council of Nicaea, while historical-critical reckoning dates his episcopate to roughly 306–314 and holds that he had likely died before the council met. The profile follows the liturgical tradition while noting this divergence.
+family:
+  heading: A Household of the See of Byzantium
+  intro: The traditional life places Metrophanes in a family closely bound to the early Byzantine church, his father and brother having held the episcopal throne of the city before him.
+  figures:
+    - name: Dometius of Byzantium
+      note: Father — a convert to Christianity who came to Byzantium with his sons, was ordained presbyter, and was afterward raised to the episcopal throne of the city.
+    - name: Probus of Byzantium
+      note: Brother — said to have held the see of Byzantium before Metrophanes succeeded him.
+companions:
+  - name: Saint Alexander, Patriarch of Constantinople
+    note: His vicar (chorepiscopos) whom the aged Metrophanes sent to represent him at the First Ecumenical Council and designated as his successor in the see.
+    href: saint/OS-1801
+related:
+  - name: Emperor Constantine the Great
+    note: The emperor who, by tradition, esteemed Metrophanes' piety, brought him into the life of the new capital, and had the title of Patriarch bestowed upon him.
+    href: saint/OS-0037
 patronage: []
 status: draft
 generated: "2026-06-19"

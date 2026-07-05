@@ -22,6 +22,19 @@ timeline:
     body: The community was moved to Geraardsbergen and renamed the Abbey of Saint Adrian.
 patronage:
   - Patron of Dendermonde, Belgium (with Christiana)
+companions:
+  - name: Christiana of Dendermonde
+    note: An English woman who joined Hilduard's mission and lived as a recluse under his guidance; her relics were translated with his to Dendermonde, of which both are honored as patrons.
+    commemorated: false
+  - name: Brinus
+    note: One of the two companions who traveled with Hilduard and later succeeded him as abbot of Dickelvenne.
+    commemorated: false
+  - name: Bittinus
+    note: One of the two companions who traveled with Hilduard and later succeeded him as abbot of Dickelvenne.
+    commemorated: false
+  - name: Bishop Bertinus of Toul
+    note: By tradition the bishop who educated Hilduard before his missionary labors.
+    commemorated: false
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

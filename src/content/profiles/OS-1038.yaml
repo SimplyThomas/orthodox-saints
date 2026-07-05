@@ -26,6 +26,17 @@ sections:
     body:
       - Maximian's accession came at a moment of acute crisis for the Church of Constantinople. The Council of Ephesus in 431 had condemned and deposed his predecessor Nestorius, whose teaching on the person of Christ had provoked a wide schism, and the capital's churches were in disorder.
       - In his administration the sources align him with his predecessors John Chrysostom, Atticus, and Sisinnius I, and emphasize his efforts to heal the breach with the Eastern bishops led by John of Antioch. Of his correspondence, his letters to Saint Cyril of Alexandria are reported to survive.
+companions:
+  - name: Cyril of Alexandria
+    note: Contemporary; Maximian corresponded with Cyril and encouraged him to set aside obstacles to reconciliation with the Eastern bishops after the Council of Ephesus. His letters to Cyril are reported to survive.
+    href: saint/OS-0476
+  - name: Patriarch Sisinnius I
+    note: Ordaining hierarch; Sisinnius I of Constantinople ordained Maximian presbyter before Maximian's own elevation to the patriarchal throne.
+    href: saint/OS-2501
+related:
+  - name: Proclus of Constantinople
+    note: Successor; Proclus succeeded Maximian as Patriarch of Constantinople upon his repose in 434.
+    href: saint/OS-2223
 patronage: []
 status: draft
 generated: "2026-06-19"

@@ -10,6 +10,13 @@ sections:
       - His memory belongs to the broad company of the Egyptian desert fathers, whose ascetic labors during the early Christian centuries shaped the monastic tradition of the Church. In his case, however, the record is limited to the bare commemoration, and the standard reference works note plainly that no detailed biography is available.
 patronage:
   - Ascetic fathers of Egypt
+companions:
+  - name: Saint Simeon of Egypt
+    note: Fellow Egyptian ascetic; one of the three desert fathers commemorated together on April 5 (April 4 in Greek usage).
+    href: saint/OS-0945
+  - name: Saint Phorbinus of Egypt
+    note: Fellow Egyptian ascetic; one of the three desert fathers commemorated together on April 5 (April 4 in Greek usage).
+    href: saint/OS-0946
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/1949/04/05/101000-saint-theonas-of-egypt

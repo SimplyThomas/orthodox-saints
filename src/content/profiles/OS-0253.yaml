@@ -33,6 +33,13 @@ reading:
       - title: Dialogues, Book 3
         author: St. Gregory the Great
         type: primary source
+companions:
+  - name: St. Gregory the Dialogist
+    note: Friend and chief witness of his life; Eleutherius lived for a long time in Gregory's monastery of Saint Andrew in Rome, and Gregory recorded his sanctity in the Dialogues.
+    href: saint/OS-0084
+  - name: St. Isaac the Syrian of Spoleto
+    note: Holy contemporary of the Spoleto region with whom, by Gregory's Dialogues, Eleutherius was familiarly acquainted.
+    href: saint/OS-0984
 status: draft
 sources:
   - Roman Martyrology

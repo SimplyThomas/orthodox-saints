@@ -42,6 +42,23 @@ timeline:
   - when: "1547"
     title: Canonization
     body: Recognized as a saint by the Makaryev Sobors of the Russian Orthodox Church.
+companions:
+  - name: Venerable Therapon, Abbot of White Lake
+    note: "Fellow monk: left the Simonov Monastery together with Cyril and settled near him in the White Lake country, founding the nearby Ferapontov Monastery."
+    href: saint/OS-1245
+  - name: Saint Sergius of Radonezh
+    note: "Spiritual mentor: visited Cyril for conversation at the Simonov Monastery and counseled his withdrawal to the north."
+    href: saint/OS-0042
+  - name: Saint Theodore, Archbishop of Rostov
+    note: "Tonsured by: the founder of the Simonov Monastery and nephew of Saint Sergius, who received Cyril into monastic life."
+    href: saint/OS-2267
+  - name: Venerable Martinian of Belozersk
+    note: "Disciple: a monk formed under Cyril at the Kirillo-Belozersky Monastery."
+    href: saint/OS-0435
+related:
+  - name: Saint Alexander of Oshevensk
+    note: "Same monastery: formed at Cyril's Kirillo-Belozersky Monastery before founding his own house in the Russian North."
+    href: saint/OS-1026
 patronage:
   - Monastics and founders of monastic communities
   - The monastic life of the Russian north

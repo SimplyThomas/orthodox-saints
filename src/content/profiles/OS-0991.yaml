@@ -24,10 +24,10 @@ sections:
       - Crescens is honored as an ante-Nicene martyr. He is commemorated on April 13 in the Slavic tradition and on April 15 in the Greek. The tradition notes his connection to Myra of Lycia, the same city associated with Saint Nicholas the Wonderworker; Saint Andrew of Crete is said to have recalled Crescens when speaking of Saint Nicholas, both having come from Myra.
 patronage:
   - Those who confess the faith under pressure to compromise
-companions:
+related:
   - name: Saint Nicholas the Wonderworker of Myra
-    note: Fellow saint of Myra in Lycia, recalled together in tradition
-    external: https://en.wikipedia.org/wiki/Saint_Nicholas
+    note: Fellow saint of Myra in Lycia; Saint Andrew of Crete recalled Crescens when speaking of Nicholas.
+    href: saint/OS-0019
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/all-lives/2021/04/13

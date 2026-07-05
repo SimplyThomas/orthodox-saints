@@ -30,6 +30,17 @@ sections:
   - heading: Relics & Shrines
     body:
       - The collegiate church of St Endellion in North Cornwall stands on the hill identified by tradition as the site of the saint's grave and bears her name, an anglicized form of Endelienta. Her shrine within the church drew pilgrims throughout the Middle Ages; the shrine was destroyed at the Reformation, though its base is reported to survive.
+family:
+  heading: The Holy Family of Brychan
+  figures:
+    - name: Saint Nectan of Hartland
+      note: Her brother, with whom tradition says she stayed at Hartland before settling in Cornwall
+      href: saint/OS-1376
+    - name: King Brychan of Brycheiniog
+      note: Her father, the Welsh king whose many children became a celebrated holy family of Wales and Cornwall
+      href: saint/OS-2825
+    - name: Dilic
+      note: Her sister, who by tradition settled near her at Trentinney
 patronage:
   - Cornwall
   - St Endellion

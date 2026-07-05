@@ -32,6 +32,18 @@ timeline:
   - when: c. 401
     title: Repose at Lake Orta
     body: After a life of asceticism and prayer, he reposed peacefully on the island in Lake Orta now called Isola San Giulio, by tradition at the age of seventy-one.
+family:
+  heading: Family
+  intro: >-
+    Julius labored alongside his brother, the deacon Julian, who shared his
+    apostolic manner of life and his church-building mission in the Lake Orta
+    region of northern Italy.
+  figures:
+    - name: Julian the Deacon
+      note: >-
+        His brother and fellow missionary, the deacon who set out with him to
+        preach and baptize and who labored beside him to overthrow the idols and
+        raise churches throughout the Novara region.
 patronage:
   - Diocese of Hydra, Spetses and Aegina
 sources:

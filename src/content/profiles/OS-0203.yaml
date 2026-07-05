@@ -11,6 +11,13 @@ sections:
       - Because his surviving life exists in two later recensions and contains legendary elements, including parallels with local Gaulish religious traditions, modern scholarship treats much of its narrative detail with caution while regarding the underlying cult as ancient and well established. A church and cult in his honor at Chalon-sur-Saône are attested from an early date, and he is venerated as a patron of Chalon-sur-Saône and of Lyon.
 patronage:
   - Patron of Chalon-sur-Saône and of Lyon in France
+related:
+  - name: The Martyrs of Lyons
+    note: Suffered in the persecution of 177 at Lyon, the same persecution that Marcellus, by tradition a Christian of Lyon, fled before his own martyrdom shortly after
+    href: saint/OS-2682
+  - name: Hieromartyr Irenaeus of Lyons
+    note: Bishop of Lyon in the same era and region, with which Marcellus was traditionally associated as a missionary
+    href: saint/OS-1764
 status: draft
 sources:
   - Roman Martyrology

@@ -26,22 +26,44 @@ sections:
     body:
       - Numerous miracles were attributed to the brothers' intercession after their repose. One account relates that they appeared to deliver the wife of a man named Malchus from an assailant, after which they came to be honored as protectors of marriage and the household. Their veneration spread widely, including into Russia, and they are invoked as patrons of physicians and of the sick.
 family:
+  intro: Cosmas and Damian commemorated here are themselves the twin brothers, raised by their widowed mother after their father's death.
   figures:
     - name: Theodota
       note: Their mother, who raised them as Christians after their father's death and is herself commemorated as a saint.
       href: saint/OS-2126
-companions:
+    - name: Their father
+      note: A pagan who died during the brothers' childhood; not named in their life.
+      commemorated: false
+related:
   - name: Cosmas and Damian of Rome
     note: A distinct pair of unmercenary physicians of the same names, martyred under Carinus, commemorated July 1.
     href: saint/OS-1474
   - name: Cosmas and Damian of Arabia
     note: A distinct pair of unmercenary physicians of the same names, martyred at Aegeae in Cilicia, commemorated October 17.
     href: saint/OS-1475
+  - name: Great-Martyr and Healer Panteleimon
+    note: Fellow unmercenary physician and healer.
+    href: saint/OS-0014
+  - name: Hieromartyr Hermolaus
+    note: Priest and teacher among the unmercenary healers.
+    href: saint/OS-1580
+  - name: Unmercenaries Cyrus and John
+    note: Physician-martyrs numbered among the Holy Unmercenaries.
+    href: saint/OS-0568
+  - name: Sampson the Hospitable
+    note: Physician who served the sick without payment.
+    href: saint/OS-1434
+  - name: Martyr Tryphon
+    note: Wonderworker invoked alongside the unmercenary healers.
+    href: saint/OS-0061
+  - name: Luke the Surgeon of Crimea
+    note: Modern physician-saint and archbishop.
+    href: saint/OS-0049
 patronage:
   - Physicians and the medical profession
   - The sick
   - Marriage and the household
-status: reviewed
+status: draft
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Cosmas_and_Damian

@@ -42,6 +42,17 @@ sections:
   - heading: Veneration
     body:
       - As a saint of the undivided Church who reposed before the Council of Chalcedon, Eusebius is venerated in both the Eastern Orthodox and Roman Catholic traditions. In the Orthodox calendar he is commemorated on June 22.
+companions:
+  - name: St. Basil the Great
+    note: Fellow defender of Nicaea; through the combined efforts of Eusebius and Gregory Nazianzen, Basil was elected Archbishop of Caesarea in Cappadocia in 370.
+    href: saint/OS-0021
+  - name: St. Gregory the Theologian
+    note: Fellow Nicene hierarch; with Eusebius he helped secure the election of Basil the Great in 370.
+    href: saint/OS-0022
+related:
+  - name: Saint Meletius, Archbishop of Antioch
+    note: Fellow Nicene confessor; Eusebius held the official record of Meletius's 360 election to Antioch and refused, even under threat, to surrender it to the Arians.
+    href: saint/OS-0640
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Eusebius_of_Samosata

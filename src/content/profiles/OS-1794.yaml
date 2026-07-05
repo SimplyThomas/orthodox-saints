@@ -59,6 +59,27 @@ timeline:
   - when: 27 August 542
     title: Death in Arles
     body: Dies in Arles after roughly four decades as bishop; commemorated on August 27.
+family:
+  figures:
+    - name: St. Caesaria the Elder
+      note: Sister; Caesarius set her over the convent for women he founded at Arles, for which he composed his Rule for Virgins.
+      href: saint/OS-2848
+    - name: St. Caesaria the Younger
+      note: Niece; appointed by Caesarius around 525 to succeed her aunt as abbess of the women's convent at Arles.
+      href: saint/OS-2849
+related:
+  - name: St. Honoratus of Arles
+    note: Founder of Lérins; the island monastery he established was the school in which Caesarius received his monastic formation.
+    href: saint/OS-0468
+  - name: St. Vincent of Lérins
+    note: Fellow monk of Lérins, the community of theology and asceticism in which Caesarius was formed.
+    href: saint/OS-1237
+  - name: St. Eucherius of Lyon
+    note: Fellow monk of Lérins of the generation just before Caesarius, who likewise left the island to serve as a bishop of Gaul.
+    href: saint/OS-2759
+  - name: Blessed Augustine of Hippo
+    note: Theological master; Caesarius was esteemed as "the faithful champion of Augustine," and the Council of Orange he led in 529 vindicated Augustine's teaching on grace.
+    href: saint/OS-1365
 patronage:
   - Preachers
   - Monastics

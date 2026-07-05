@@ -33,6 +33,32 @@ timeline:
   - when: c. 444
     title: Recorded by Theodoret
     body: Theodoret of Cyrrhus documents both hermits in his Historia Religiosa, a collection of sketches of thirty Syrian ascetics.
+companions:
+  - name: Venerable Maron the Hermit of Syria
+    note: "Teacher of Limnaeus: The hermit of Cyrrhus to whom Limnaeus attached himself after his discipleship under Thalassius."
+    href: saint/OS-0659
+related:
+  - name: Venerable Baradates, Hermit of Syria
+    note: "Fellow Syrian solitary: A hermit of the same diocese of Cyrrhus, commemorated on the same day and recorded with them by Theodoret."
+    href: saint/OS-0710
+  - name: Venerable Marcian of Cyrrhus
+    note: "Fellow Syrian solitary: A hermit of the same diocese of Cyrrhus among the ascetics recorded by Theodoret in his Historia Religiosa."
+    href: saint/OS-0479
+  - name: Venerable Thalelaeus the Hermit of Syria
+    note: "Fellow Syrian solitary: A Syrian ascetic of the same generation chronicled by Theodoret of Cyrrhus."
+    href: saint/OS-0730
+  - name: Saints Asclepius and James of Syria
+    note: "Fellow Syrian solitaries: Hermits of the region described by Theodoret of Cyrus in his Historia Religiosa."
+    href: saint/OS-0731
+  - name: Venerable Marina and Kyra of Syria
+    note: "Fellow Syrian solitaries: Enclosed ascetics of Syria recorded by Theodoret of Cyrrhus."
+    href: saint/OS-0739
+  - name: Venerable Domnica of Syria
+    note: "Fellow Syrian solitary: A Syrian ascetic of the same circle chronicled by Theodoret."
+    href: saint/OS-0740
+  - name: Domnina the Younger of Syria
+    note: "Fellow Syrian solitary: A virgin ascetic of Cyrrhus whose life was recorded by Theodoret."
+    href: saint/OS-0751
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Thalassius_and_Limneus

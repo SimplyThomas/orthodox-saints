@@ -34,10 +34,18 @@ family:
   figures:
     - name: Mochaemhoc
       note: Ita's nephew, raised by her in infancy and later venerated as a saint.
+      href: saint/OS-2812
 companions:
   - name: Brendan of Clonfert
     note: The seafaring abbot whom Ita fostered and taught as a child; he retained a lifelong devotion to her.
     href: saint/OS-1191
+  - name: Declan of Ardmore
+    note: "Fellow Irish saint: the bishop from whom, by tradition, Ita received the monastic veil."
+    href: saint/OS-2806
+related:
+  - name: Brigid of Kildare
+    note: "Fellow early Irish abbess: a foundational woman of Irish monasticism of the same generation."
+    href: saint/OS-0080
 patronage:
   - Killeedy
   - The Diocese of Limerick (co-patron)

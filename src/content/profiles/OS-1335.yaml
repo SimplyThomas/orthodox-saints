@@ -46,6 +46,16 @@ timeline:
   - when: c. 1200
     title: Relics attested at Constantinople
     body: Archbishop Antony of Novgorod records the saint's head conserved in the church of Saint Acindinus in Constantinople.
+companions:
+  - name: Paphnutius the Ascetic
+    note: "Witness and biographer: the desert ascetic who found Onuphrius shortly before his repose and wrote the only account of his life. (Identity uncertain among several saints named Paphnutius.)"
+related:
+  - name: Venerable Paul of Thebes
+    note: "Fellow hermit: the first hermit of the Egyptian desert, a like solitary of the Thebaid made known to the Church only near the end of his life."
+    href: saint/OS-0457
+  - name: Venerable Mark the Anchorite of Athens
+    note: "Fellow desert solitary: another hidden ascetic of the deep wilderness, discovered late in life as Onuphrius was."
+    href: saint/OS-0947
 patronage:
   - Weavers
   - Jurists

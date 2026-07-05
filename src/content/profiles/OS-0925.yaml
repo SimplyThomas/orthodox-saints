@@ -45,6 +45,20 @@ timeline:
   - when: "824"
     title: Repose
     body: Niketas reposed at Constantinople; his relics were transported back to the Medikion monastery for burial.
+companions:
+  - name: Athanasius of Medikion
+    href: saint/OS-2081
+    note: His fellow monk of the Medikion monastery and companion in the ascetic struggle for the icons.
+related:
+  - name: Nikephoros the Confessor of Constantinople
+    href: saint/OS-1273
+    note: Fellow confessor of the icons; the patriarch deposed by the iconoclast council of 815 whose cause Niketas upheld against the emperor Leo V.
+  - name: Theodore the Studite
+    href: saint/OS-2180
+    note: Fellow abbot and leading monastic defender of the holy icons, imprisoned and exiled in the same persecution under Leo V the Armenian.
+  - name: Joseph the Hymnographer
+    href: saint/OS-0930
+    note: Honored Niketas by composing the liturgical Canon sung at his commemoration.
 patronage:
   - Healing and deliverance
 sources:

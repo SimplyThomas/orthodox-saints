@@ -63,9 +63,81 @@ sources:
   - https://en.wikipedia.org/wiki/Saint_Peter
   - https://orthodoxwiki.org/Apostle_Peter
   - https://www.newadvent.org/cathen/11744a.htm
+family:
+  figures:
+    - name: Andrew the Apostle
+      note: Brother; the First-Called, who brought him to Christ
+      href: saint/OS-0003
+    - name: Jonah (John)
+      note: Father
+      commemorated: false
+    - name: His wife
+      note: Unnamed; Christ healed her mother
+      commemorated: false
+    - name: His mother-in-law
+      note: Healed of a fever by Christ at Capernaum
+      commemorated: false
 companions:
   - name: Apostle Paul
     note: Jointly commemorated June 29 as the Chief Apostles
     href: saint/OS-2749
-status: reviewed
+  - name: Jesus Christ
+    note: Lord and Teacher
+    href: saint/OS-0000
+  - name: John the Theologian
+    note: Of the inner circle of the Twelve
+    href: saint/OS-0005
+  - name: Apostle James, son of Zebedee
+    note: Of the inner circle of the Twelve
+    href: saint/OS-1081
+  - name: Apostle Philip
+    note: Fellow apostle of the Twelve
+    href: saint/OS-2578
+  - name: Apostle Bartholomew
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1330
+  - name: Apostle Thomas
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1969
+  - name: Apostle and Evangelist Matthew
+    note: Fellow apostle of the Twelve
+    href: saint/OS-2201
+  - name: Apostle James, son of Alphaeus
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1982
+  - name: Apostle Jude the Brother of the Lord
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1384
+  - name: Apostle Simon the Zealot
+    note: Fellow apostle of the Twelve
+    href: saint/OS-1137
+  - name: Apostle Matthias
+    note: Fellow apostle, chosen to replace Judas
+    href: saint/OS-1676
+  - name: Mark the Evangelist
+    note: His spiritual son and interpreter
+    href: saint/OS-1061
+  - name: Apostle Silvanus
+    note: Companion named in his first epistle
+    href: saint/OS-1608
+  - name: Apostle Barnabas
+    note: Fellow apostle of the early Church
+    href: saint/OS-1331
+  - name: Cornelius the Centurion
+    note: First Gentile he baptized
+    href: saint/OS-1830
+  - name: Clement of Rome
+    note: His disciple and successor at Rome
+    href: saint/OS-2251
+  - name: Simon Magus
+    note: Whom he rebuked at Samaria
+    commemorated: false
+related:
+  - name: Linus of Rome
+    note: Of the apostolic succession at Rome
+    href: saint/OS-2151
+  - name: Ignatius of Antioch
+    note: God-bearer of the Church Peter founded at Antioch
+    href: saint/OS-2393
+status: draft
 generated: "2026-06-18"

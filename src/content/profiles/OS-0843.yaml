@@ -72,5 +72,12 @@ reading:
       - title: Saint Cyril, Archbishop of Jerusalem
         author: Orthodox Church in America
         type: synaxarion
+related:
+  - name: Macarius of Jerusalem
+    note: Bishop of Jerusalem who ordained Cyril to the diaconate around 335.
+    href: saint/OS-2866
+  - name: Maximus of Jerusalem
+    note: His predecessor on the throne of Jerusalem, by some accounts the bishop who ordained him presbyter.
+    href: saint/OS-2867
 status: draft
 generated: "2026-06-19"

@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Our Mission — a long-form About sub-page in the illuminated reading-column
+// treatment. Ported from the Claude Design "About Pages" mock; the header area
+// reuses the Browse & Search hero primitives (.sr-hero / .sr-title / .sr-lede).
+const audience = [
+  "learning about Orthodoxy for the first time,",
+  "preparing for baptism or chrismation,",
+  "choosing a patron saint,",
+  "researching Church history,",
+  "teaching in a parish or classroom,",
+  "looking for saints connected to your profession, struggles, or interests,",
+  "or simply exploring the great cloud of witnesses,",
+];
+const building = [
+  "Detailed saint biographies",
+  "Feast days and liturgical commemorations",
+  "Alternative names and regional traditions",
+  "Family, companion, and historical relationship networks",
+  "Patronages and areas of intercession",
+  "Geographic and historical context",
+  "Bibliographies and recommended reading",
+  "Public-domain and licensed iconography",
+  "Interactive maps, timelines, and educational resources",
+  "Specialized collections, including the history of Orthodoxy in North America and the Heavenly Hosts",
+];
+---
+
+<BaseLayout
+  active="mission"
+  title="Our Mission"
+  description="Cloud of Witnesses exists to make the lives of the Orthodox saints more accessible to everyone — a comprehensive, historically grounded, easy-to-use reference."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Our Mission</h1>
+        <p class="sr-lede">
+          Cloud of Witnesses exists to make the lives of the saints more
+          accessible to everyone.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          The Orthodox Church has preserved the memory of thousands of saints
+          across two millennia and every inhabited continent. Their lives are
+          found in Scripture, liturgical texts, synaxaria, historical
+          chronicles, local traditions, scholarly publications, and countless
+          parish communities. While many excellent resources exist, this
+          information is often scattered across books, websites, and languages,
+          making it difficult for English-speaking readers to explore the
+          Church&rsquo;s rich history in one place.
+        </p>
+        <p class="as-p">
+          Our mission is to build a comprehensive, historically grounded, and
+          easy-to-use reference database that helps people discover the men and
+          women who have shaped the life of the Orthodox Church.
+        </p>
+
+        <p class="as-p" style="margin-bottom:4px">Whether you are:</p>
+        <ul class="as-list">
+          {audience.map((it) => <li>{it}</li>)}
+        </ul>
+        <p class="as-p">
+          we hope Cloud of Witnesses becomes a helpful companion on that
+          journey.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>What We Are Building</h2>
+        </div>
+        <p class="as-p">
+          Cloud of Witnesses is more than a collection of saint biographies. Our
+          long-term vision is to create an interconnected reference library that
+          allows visitors to explore the history of the Church through its
+          people, places, events, and traditions.
+        </p>
+        <p class="as-p">Our growing collection includes:</p>
+        <ul class="as-list">
+          {building.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          As the project continues to grow, new educational features and
+          research tools will be added to help readers better understand the
+          history and life of the Orthodox Church.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Our Approach</h2></div>
+        <p class="as-p">
+          We strive to present information that is historically responsible,
+          clearly sourced, and faithful to the Orthodox tradition. When
+          historical details are uncertain or multiple traditions exist, we aim
+          to present those differences honestly rather than oversimplifying
+          them.
+        </p>
+        <p class="as-p">
+          Cloud of Witnesses is a living reference project. New research,
+          corrections, translations, images, and historical sources are
+          continually incorporated as our editorial review progresses.
+        </p>
+        <p class="as-p last">
+          We believe that transparency, careful scholarship, and humility are
+          essential to building a resource that will serve the Church for years
+          to come.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>A Community Project</h2>
+        </div>
+        <p class="as-p">
+          Orthodox Christianity is wonderfully diverse, encompassing countless
+          local traditions, languages, and histories. No single team can uncover
+          every manuscript, local history, photograph, or historical source.
+        </p>
+        <p class="as-p">
+          We welcome thoughtful contributions from clergy, scholars,
+          translators, historians, iconographers, photographers, parish
+          communities, and anyone with reliable information that can help
+          improve the database.
+        </p>
+        <p class="as-p last">
+          If you notice an error, know of an additional source, or would like to
+          see a particular saint expanded, we would be delighted to hear from
+          you. Contributors whose work becomes part of the project may be
+          acknowledged on the relevant pages, with their permission.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Our Hope</h2></div>
+        <p class="as-p">
+          Above all, we hope Cloud of Witnesses helps people discover the
+          remarkable men and women who have faithfully followed Christ
+          throughout the centuries.
+        </p>
+        <p class="as-pull">
+          Every saint has a story. Every generation has its witnesses. If this
+          project helps even one person discover a new heavenly friend, deepen
+          their understanding of Church history, or appreciate the richness of
+          the Orthodox tradition, then it is accomplishing exactly what we set
+          out to do.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>

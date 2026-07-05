@@ -24,6 +24,16 @@ timeline:
   - when: 11th century
     title: Relocation of the monastery
     body: The monastery was moved to its present site near the Monastery of Karakalou and rebuilt in the style of the original foundation.
+related:
+  - name: Venerable Athanasius of Athos
+    note: Teacher; by tradition Philotheus was a disciple of Saint Athanasius the Athonite on the Holy Mountain.
+    href: saint/OS-1477
+  - name: Venerable Dionysius of Olympus
+    note: Later saint of Philotheou Monastery, the house Philotheus founded; both are commemorated among its saints.
+    href: saint/OS-0528
+  - name: Venerable Theodosius, Metropolitan of Trebizond
+    note: Later abbot of Philotheou Monastery, the house Philotheus founded; numbered among its saints.
+    href: saint/OS-0433
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 24

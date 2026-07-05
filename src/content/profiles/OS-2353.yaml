@@ -19,6 +19,10 @@ timeline:
     body: Under his direction the broken walls and gates were repaired and completed in fifty-two days, despite hostility from neighbouring officials.
 patronage:
   - Rebuilding, restoration, and renewal of community life
+companions:
+  - name: Righteous Ezra
+    note: The scribe with whom Nehemiah carried out the religious and social reforms of the restored community.
+    href: saint/OS-2569
 status: draft
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

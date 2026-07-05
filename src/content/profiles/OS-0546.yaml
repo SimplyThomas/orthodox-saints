@@ -28,6 +28,10 @@ timeline:
   - when: c. 390
     title: Repose
     body: After extensive ascetic labors, Simeon departs to God around the year 390.
+companions:
+  - name: Venerable Palladius the Hermit of Antioch
+    note: Companion and friend in the ascetic life, according to the Prologue of Ohrid; a fellow desert hermit commemorated two days later, on January 28.
+    href: saint/OS-0556
 patronage:
   - Monastics and those guided in the ascetic life
 sources:

@@ -1,0 +1,45 @@
+id: OS-2856
+lifespan: died c. 1460 (mid-15th century)
+liturgicalTitle: Our Venerable Father Abraham, Abbot of Paleostrov
+overview:
+  - "Abraham of Paleostrov (Russian: Авраамий Палеостровский; also known as Avraamy Olonetsky) was a fifteenth-century Russian monastic who served as hegumen (abbot) of the Monastery of the Nativity of the Blessed Virgin Mary at Paleostrov, on Paley Island in Lake Onega. He was a disciple of Saint Cornelius of Paleostrov, the monastery's founder, and one of his successors in the guidance of the community."
+  - Abraham arrived at the settlement after Cornelius had established himself in a cave on the island, took part in building up the monastery, and was appointed by Cornelius as his successor during the founder's lifetime. He died in the middle of the fifteenth century, about 1460, and is venerated as a saint of the Russian Orthodox Church, commemorated on August 21 (September 3 New Style).
+timeline:
+  - when: c. 1415–1421
+    title: Founding of Paleostrov Monastery
+    body: Saint Cornelius of Paleostrov founds the Monastery of the Nativity of the Blessed Virgin on Paley Island in Lake Onega, presumably no later than 1415–1421, after settling as a hermit in a cave on the island.
+  - when: Early 15th century
+    title: Abraham joins the community
+    body: Abraham arrives at the monastery as a disciple of Cornelius and takes part, alongside other monks, in constructing churches dedicated to the Nativity of the Blessed Virgin, Elijah the Prophet, and Nicholas the Wonderworker, as well as the monastic caves.
+  - when: c. 1420
+    title: Succession and burial of Cornelius
+    body: Cornelius, who had appointed Abraham as his successor during his lifetime, dies about 1420. Abraham buries him in the island's cave; Cornelius's relics are later transferred to the Church of the Nativity of the Blessed Virgin.
+  - when: c. 1460
+    title: Repose of Abraham
+    body: Abraham dies in the middle of the fifteenth century and is interred in the Church of the Nativity of the Blessed Virgin, near his spiritual father Cornelius.
+  - when: Early 19th century
+    title: Documented local veneration
+    body: Local veneration of both Abraham and Cornelius is documented by the early nineteenth century. Archbishop Sergius (Spassky) assigns their shared feast day as August 21.
+  - when: 1974 and 1981
+    title: Inclusion in regional synaxes
+    body: Abraham is included in the Synaxis of the Karelian Saints in 1974 and subsequently in the Synaxis of the Novgorod Saints in 1981.
+sections:
+  - heading: Historical Context and Monastic Work
+    body:
+      - Paleostrov Monastery was founded by Saint Cornelius, who, according to tradition, was born at Pskov, was tonsured a monk, and pursued his ascetic formation at Valaam before traveling through the northern territories toward the White Sea, evangelizing among the pagan peoples, and finally settling on Paley Island in Lake Onega. There he founded the monastery and served as its first abbot.
+      - Abraham came to the island after Cornelius had established himself in a cave, and joined the labor of building up the community. He participated with the other disciples in raising churches dedicated to the Nativity of the Blessed Virgin, the Prophet Elijah, and Saint Nicholas the Wonderworker, and in constructing the monastic caves. Cornelius appointed Abraham his successor during his own lifetime, and after burying Cornelius, Abraham continued to lead the monastery as hegumen until his own repose in the mid-fifteenth century.
+  - heading: Veneration and Legacy
+    body:
+      - Abraham was buried beneath the Church of the Nativity of the Theotokos, alongside his spiritual father, to whose relics his own resting place lay near. The specific date of his local canonization remains unknown; in the seventeenth century the monastery suffered two devastating attacks that destroyed most of its archival records.
+      - By the early nineteenth century the local veneration of both Abraham and Cornelius was documented, and Archbishop Sergius (Spassky) assigned their feast day to August 21. Abraham was later included in the Synaxis of the Karelian Saints (1974) and in the Synaxis of the Novgorod Saints (1981). In the Orthodox Church in America's August 21 commemoration, Cornelius appears as the principal Paleostrov saint of the day, with Abraham commemorated jointly with him rather than in a separate entry.
+sources:
+  - OrthodoxWiki
+  - Wikipedia (Paleostrovsky Monastery)
+  - https://en.wikipedia.org/wiki/Abraham_of_Paleostrov
+  - https://ru.wikipedia.org/wiki/%D0%90%D0%B2%D1%80%D0%B0%D0%B0%D0%BC%D0%B8%D0%B9_%D0%9F%D0%B0%D0%BB%D0%B5%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9
+  - https://www.oca.org/saints/lives/2026/08/21
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Profile portrays Cornelius as 'the monastery's founder' and frames Abraham solely as a disciple, implicitly denying Abraham's co-founder status
+    detail: The anchor explicitly says Abraham was 'Disciple and co-founder, with St. Cornelius, of the Paleostrov monastery.' The profile consistently attributes founding solely to Cornelius ('the monastery's founder' in the overview; 'Saint Cornelius of Paleostrov founds the Monastery' in the timeline; 'he founded the monastery and served as its first abbot' in the sections), while positioning Abraham as merely a disciple who arrived later. This contradicts the anchor's 'co-founder' description. Per verify.md, the anchor row wins.

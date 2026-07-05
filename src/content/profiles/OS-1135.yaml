@@ -48,6 +48,14 @@ timeline:
   - when: "1484"
     title: Relic transferred to Šibenik
     body: What is described as the incorrupt leg of the saint was reportedly transferred from Constantinople to the Cathedral of St. James in Šibenik.
+companions:
+  - name: Martyrs Callinica and Aquilina of Lycia
+    note: Co-martyrs — sent to seduce Christopher, they were converted by his witness and martyred with him.
+    href: saint/OS-2753
+related:
+  - name: Hieromartyr Babylas of Antioch
+    note: By tradition the bishop who baptized Christopher at Antioch, giving him the name Christophoros, Christ-bearer.
+    href: saint/OS-0196
 patronage:
   - Travelers
   - Drivers
@@ -58,5 +66,5 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Saint_Christopher
   - https://orthodoxwiki.org/Christopher_of_Lycia
-status: reviewed
+status: draft
 generated: "2026-06-18"

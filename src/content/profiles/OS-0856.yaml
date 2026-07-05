@@ -37,6 +37,16 @@ timeline:
   - when: 8th century
     title: Death in exile
     body: After enduring imprisonment, starvation, and beating for confessing the icons, James died in exile.
+related:
+  - name: Cyril, Bishop of Catania
+    note: Earlier holder of the same see of Catania, a first-century disciple of the Apostle Peter.
+    href: saint/OS-0857
+  - name: Venerable Theodore the Studite
+    note: Abbot of the same Stoudios monastery where James was tonsured, in the later phase of the iconoclast struggle.
+    href: saint/OS-2180
+  - name: Venerable John of Damascus
+    note: The earlier theological witness against iconoclasm whose defense of the holy icons James shared.
+    href: saint/OS-2300
 patronage:
   - Defense of holy icons
 sources:

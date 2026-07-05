@@ -51,7 +51,10 @@ sections:
 family:
   heading: Family and Kinship
   intro: Of Danish parentage; nephew of Oda, Archbishop of Canterbury, and a kinsman of Oskytel, Archbishop of York.
-  figures: []
+  figures:
+    - name: Saint Odo of Canterbury
+      note: His uncle, Archbishop of Canterbury, who raised Oswald and sponsored him for monastic training at the abbey of Fleury.
+      href: saint/OS-2717
 patronage:
   - Worcester
   - Ramsey Abbey
@@ -63,5 +66,12 @@ reading:
     items:
       - title: Oswald of Worcester — English Wikipedia
       - title: Oswald of Worcester — OrthodoxWiki
+companions:
+  - name: Saint Dunstan of Canterbury
+    note: Archbishop of Canterbury and foremost leader of the English Benedictine reform, in which Oswald was a principal promoter.
+    href: saint/OS-2714
+  - name: Saint Aethelwold of Winchester
+    note: Bishop of Winchester and fellow leader of the tenth-century English monastic reform.
+    href: saint/OS-2715
 status: draft
 generated: "2026-06-21"

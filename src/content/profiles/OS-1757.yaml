@@ -32,5 +32,16 @@ sections:
     body:
       - Her relics rest in the Church of the Nativity of the Theotokos at the Holy Trinity–Saint Seraphim–Diveyevo Monastery in the Nizhny Novgorod region, where she is venerated together with the other saints connected to the community.
 patronage: []
+companions:
+  - name: Saint Seraphim of Sarov
+    note: Spiritual father who received her into the Diveyevo community and tonsured her into the great schema.
+    href: saint/OS-0043
+related:
+  - name: Blessed Pelagia, Paraskeva, and Maria of Diveyevo
+    note: Fellow saints of the Diveyevo community gathered around Saint Seraphim.
+    href: saint/OS-1786
+  - name: Mother Alexandra of Diveyevo
+    note: Founder and first superior of the Diveyevo community, under whom Martha was received.
+    href: saint/OS-2895
 status: draft
 generated: "2026-06-20"

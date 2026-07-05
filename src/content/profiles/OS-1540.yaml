@@ -27,5 +27,16 @@ sections:
     body:
       - Irenarchus is remembered as very humble and meek, constantly immersed in the thought and contemplation of God, and zealous to sustain a true monastic spirit among the brethren. Many worthy ascetics matured spiritually under his guidance.
       - With his blessing, and through his assistant Saint Eleazar, a friend and fellow ascetic, a skete monastery was founded on Anzersk Island; this became the Holy Trinity community associated with Eleazar of Anzersk.
+companions:
+  - name: Eleazar of Anzersk
+    note: "Disciple: his assistant and fellow ascetic, tonsured by Irenarchus, who with Irenarchus's blessing founded the skete on Anzersk Island."
+    href: saint/OS-0442
+related:
+  - name: Zosimas of Solovki
+    note: "Monastic forebear: co-founder of the Solovki Monastery, whose example Irenarchus set himself to imitate."
+    href: saint/OS-1011
+  - name: Sabbatius of Solovki
+    note: "Monastic forebear: co-founder of the Solovki Monastery, whose example Irenarchus set himself to imitate."
+    href: saint/OS-1910
 status: draft
 generated: "2026-06-19"

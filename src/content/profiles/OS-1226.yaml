@@ -28,6 +28,23 @@ sections:
     body:
       - When Leo V the Armenian restored iconoclasm in 815, Michael was among the hierarchs who refused to comply. Pressed to abandon the veneration of images, he held firm, declaring that he venerated the holy icons of Christ, the All-Pure Virgin, and the saints. For this he was arrested and exiled to Eudokias, where he ended his days, earning the title of Confessor.
       - By tradition his head is preserved in the Great Lavra of Saint Athanasius on Mount Athos, with a portion of his relics at the Iveron monastery. In the Western tradition he is invoked for the protection of crops from pests.
+companions:
+  - name: Saint Tarasius, Patriarch of Constantinople
+    note: Teacher — tonsured Michael a monk and consecrated him bishop of Synnada; presided at the Seventh Council where Michael sat
+    href: saint/OS-0722
+  - name: Theophylactus of Nicomedia
+    note: Fellow monk — entered Tarasius's monastery by the Bosporus together with Michael, and likewise a confessor under iconoclasm
+    href: saint/OS-0793
+related:
+  - name: Venerable Theodore the Studite
+    note: Fellow confessor — leader of the resistance to the renewed iconoclasm of Leo V that Michael also refused to accept
+    href: saint/OS-2180
+  - name: Saint Nikephoros the Confessor, Patriarch of Constantinople
+    note: Fellow confessor — patriarch deposed by Leo V for defending the holy icons, of the same persecution
+    href: saint/OS-1273
+  - name: St. Emilian the Confessor, Bishop of Cyzicus
+    note: Fellow hierarch-confessor exiled under Leo V for refusing to surrender the icons
+    href: saint/OS-0406
 patronage:
   - Defenders of holy icons and Orthodox confession
   - Those serving the Church in public and diplomatic life

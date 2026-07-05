@@ -43,6 +43,13 @@ timeline:
   - when: "2000"
     title: Canonization
     body: Glorified among the New Martyrs and Confessors of Russia at the Jubilee Bishops' Council.
+companions:
+  - name: New Hieromartyr Pachomius of Skanov
+    note: Hieromonk (Pachomius Ionov) condemned and shot together with him on September 20, 1937.
+    href: saint/OS-0303
+  - name: New Hieromartyr Stephen of Robchik
+    note: Priest (Stephen Kreidich) condemned and shot together with him on September 20, 1937.
+    href: saint/OS-0304
 patronage:
   - New Martyrs and Confessors of Russia under Soviet rule
 status: draft

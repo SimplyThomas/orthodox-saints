@@ -41,6 +41,20 @@ sections:
   - heading: Veneration
     body:
       - Her principal feast is kept on 23 June, the day of her repose, while the translation of 695 is commemorated on 17 October. In later Western tradition she came to be invoked particularly against ailments of the throat and neck.
+family:
+  heading: A Holy Family of East Anglia
+  intro: Etheldreda belonged to the royal house of East Anglia, several of whose women entered the monastic life and became abbesses.
+  figures:
+    - name: King Anna of East Anglia
+      note: Father; King of the East Angles, into whose notably holy family she was born.
+      href: saint/OS-2835
+    - name: Seaxburh of Ely
+      note: Sister; her successor as Abbess of Ely, who translated her reportedly incorrupt relics in 695.
+      href: saint/OS-2836
+companions:
+  - name: Saint Wilfrid of York
+    note: Bishop and supporter; by Bede's account he upheld Etheldreda's vow of perpetual virginity and her withdrawal from marriage to the monastic life.
+    href: saint/OS-2703
 patronage:
   - Those suffering ailments of the throat and neck
 status: draft

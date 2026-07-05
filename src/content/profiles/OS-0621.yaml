@@ -44,6 +44,26 @@ timeline:
   - when: 1923–1992
     title: Closure and revival
     body: The monastery is closed under Soviet rule in 1923; its revival begins in 1991, with the first Divine Liturgy celebrated on August 1, 1992.
+companions:
+  - name: Gennadius of Vazheozersk
+    note: Co-founder with Nikephoros of the Vazheozersk hermitage at Vazhe Lake; commemorated together with him on February 9.
+    href: saint/OS-0622
+  - name: Alexander of Svir
+    note: Spiritual father under whom Nikephoros entered the monastic life in 1510 and with whose blessing he settled at Vazhe Lake.
+    href: saint/OS-1803
+  - name: Cyril of New Lake
+    note: Fellow northern ascetic whom Nikephoros visited in 1518, spending eight days together in spiritual discourse.
+    href: saint/OS-0593
+related:
+  - name: Athanasius of Syandemsk
+    note: Fellow disciple of Alexander of Svir who likewise founded a monastery in the Olonets wilderness.
+    href: saint/OS-0477
+  - name: Adrian of Ondrusov
+    note: Fellow disciple of Alexander of Svir among the Svir cohort of monastic founders.
+    href: saint/OS-1783
+  - name: Macarius of Oredezhsk
+    note: Fellow disciple of Alexander of Svir who founded a hermitage in the same northern Russian region.
+    href: saint/OS-1680
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.oca.org/saints/lives/2025/02/09/100469-venerable-nikphros-of-vazheozersk

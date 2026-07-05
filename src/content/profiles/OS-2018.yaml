@@ -32,5 +32,9 @@ sections:
     body:
       - The Eastern Orthodox Church commemorates the four martyrs together on October 14. In the Western calendar the translation of the relics of Gervasius and Protasius is kept on June 19, while Nazarius and Celsus are observed on July 28.
 patronage: []
+related:
+  - name: Saint Ambrose, Bishop of Milan
+    note: Ambrose discovered and translated the relics of all four martyrs at Milan in the late fourth century, giving their cult its prominence.
+    href: saint/OS-2312
 status: draft
 generated: "2026-06-19"

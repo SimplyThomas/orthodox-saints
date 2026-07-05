@@ -1,0 +1,63 @@
+id: OS-2823
+lifespan: c. 500 – c. 560
+patronage:
+  - City of Cardiff
+  - Wales
+  - Llandeilo Fawr
+overview:
+  - Saint Teilo (c. 500 – c. 560) was a sixth-century Welsh bishop and one of the principal saints of Wales. A companion of Saint David, he founded the monastery of Llandeilo Fawr and became bishop over the territories of Glywysing and Gwent, succeeding Dubricius (Dyfrig) at Llandaff.
+  - Born at Penally (Penalun) in Pembrokeshire, Teilo was educated under Dubricius and later at the school of Paulinus of Wales, where he met David and formed a lifelong association with him. During the plague of 549 he withdrew with a small band of monks to Brittany, returning to Wales after some seven years. He is remembered as the founder of an important monastic center at Llandeilo Fawr and is honored as the patron saint of Cardiff.
+sections:
+  - heading: Early Life and Education
+    body:
+      - Teilo was born around 500 at Penally (Penalun) in Pembrokeshire, Wales. His father is usually identified as Ensich ap Hydwn, and he is described as the brother of Anowed and the uncle of Saints Ismael and Euddogwy.
+      - He received his early education under Dubricius (Dyfrig) and later attended the school directed by Paulinus of Wales at a place recorded as 'Wincdi-Lantquendi,' thought to be Whitland. There he met Saint David and became his close companion. Together with the companions Aeddan and Ysfael, Teilo traveled to Mynyw (St Davids), where David founded his abbey; tradition relates that in doing so they drove out an Irish chieftain named Bwya, killing his cattle and burning his fortress.
+  - heading: Bishop of Llandaff
+    body:
+      - Teilo succeeded Dubricius as Bishop of Llandaff after Dubricius retired to a hermitage on Bardsey Island. He founded the first church at Llandaff, headed a monastic school there, and exercised episcopal authority over the territories of Glywysing and Gwent.
+      - He is also remembered as the founder of a clas, a small monastic settlement, on the site of the present parish church at Llandeilo Fawr, where he died and was buried.
+  - heading: Withdrawal to Brittany
+    body:
+      - During the plague outbreak of 549, Teilo and a small group of monks left Wales and moved to Dol in Brittany. Accounts place his stay there at approximately seven years and seven months, after which he returned to Wales around 556–557.
+      - His association with Brittany is reflected in the several Breton churches and dedications that bear his name, and in the Breton feast days observed in his honor.
+  - heading: Legacy at Llandeilo Fawr
+    body:
+      - The monastic settlement Teilo founded at Llandeilo Fawr grew into a place of considerable importance by the early ninth century, with the Church of St Teilo serving as a 'mother church' to surrounding districts. The monastery accumulated extensive estates and housed the Gospel Book of Saint Teilo, one of the finest illuminated manuscripts of early medieval Wales.
+      - Fragments of two large Celtic crosses survive from this period, attesting to Llandeilo's standing as an important ecclesiastical center. The monastery's prominence began to diminish toward the end of the ninth century. Until 1880 the churchyard preserved the saint's baptistery, maintaining his physical connection to the site.
+      - "Teilo's cult was widespread: at least twenty-five churches across Wales, Brittany, Cornwall, and Devon bear his name, and he is honored as the patron saint of the city of Cardiff."
+  - heading: Relics & Shrines
+    body:
+      - "A miraculous tradition holds that after Teilo's death his body became three identical bodies, resolving a dispute in which his relics were claimed by three churches: Llandaff Cathedral, Llandeilo Fawr, and Penally Abbey. His skull is preserved in a reliquary in the south chapel of Llandaff Cathedral."
+timeline:
+  - when: c. 500
+    title: Birth at Penally
+    body: Teilo is born at Penally (Penalun) in Pembrokeshire, Wales, his father usually identified as Ensich ap Hydwn.
+  - when: Early 6th c.
+    title: Education and companionship with David
+    body: Educated under Dubricius and at the school of Paulinus of Wales, where he meets Saint David and becomes his close companion.
+  - when: 6th c.
+    title: Bishop of Llandaff
+    body: Succeeds Dubricius as Bishop of Llandaff, founds the first church there, and governs Glywysing and Gwent.
+  - when: "549"
+    title: Withdrawal to Brittany
+    body: During the plague of 549, Teilo moves with a small group of monks to Dol in Brittany, staying about seven years and seven months.
+  - when: c. 556–557
+    title: Return to Wales
+    body: Teilo returns to Wales after his years in Brittany.
+  - when: 9 February, c. 560
+    title: Death at Llandeilo Fawr
+    body: Teilo dies at Llandeilo Fawr; his relics are later claimed by three churches, giving rise to the tradition of the three bodies.
+sources:
+  - Wikipedia (Saint Teilo)
+  - OrthodoxWiki
+  - https://en.wikipedia.org/wiki/Saint_Teilo
+  - https://en.wikipedia.org/wiki/Llandeilo_Fawr
+status: flagged
+generated: "2026-07-04"
+flagReasons:
+  - claim: Teilo drove out an 'Irish chieftain' named Bwya
+    detail: The external source (Wikipedia/Saint Teilo) explicitly calls Bwya 'an Irish pirate,' not a chieftain. The profile substitutes 'chieftain' without grounding.
+  - claim: Teilo is patron of 'Wales' (in the patronage array)
+    detail: The only explicit patronage named in the sources is 'Patron Saint of the city of Cardiff.' No source identifies him as patron of Wales as a whole.
+  - claim: Teilo is patron of 'Llandeilo Fawr' (in the patronage array)
+    detail: No source in the dossier identifies Teilo as the patron saint of Llandeilo Fawr. He founded a monastery there and died there, but formal patronage of the settlement is not stated.

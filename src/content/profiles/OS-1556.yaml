@@ -48,6 +48,15 @@ timeline:
   - when: November 11, 1405
     title: Repose
     body: Dies and is buried at the Ljubostinja monastery.
+family:
+  heading: Family
+  figures:
+    - name: Right-believing Prince Lazar, Great Martyr of Serbia
+      note: Her husband, who fell at the Battle of Kosovo in 1389.
+      href: saint/OS-1363
+    - name: Holy Despot Stephen of Serbia (Stefan Lazarević)
+      note: Her son, for whom she served as regent and who is commemorated with her.
+      href: saint/OS-1555
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

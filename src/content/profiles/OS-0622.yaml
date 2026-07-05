@@ -37,6 +37,23 @@ timeline:
     title: Transfiguration Monastery
     body: The community is reorganized as the Transfiguration Monastery.
 patronage: []
+companions:
+  - name: Nikephoros of Vazheozersk
+    note: Co-founder with Gennadius of the Vazheozersk hermitage; commemorated together with him on February 9.
+    href: saint/OS-0621
+  - name: Alexander of Svir
+    note: Spiritual father under whom Gennadius renounced his inheritance and entered the monastic life before withdrawing to Vazhe Lake.
+    href: saint/OS-1803
+related:
+  - name: Athanasius of Syandemsk
+    note: Fellow disciple of Alexander of Svir who likewise founded a monastery in the Olonets wilderness.
+    href: saint/OS-0477
+  - name: Adrian of Ondrusov
+    note: Fellow disciple of Alexander of Svir among the Svir cohort of monastic founders.
+    href: saint/OS-1783
+  - name: Macarius of Oredezhsk
+    note: Fellow disciple of Alexander of Svir who founded a hermitage in the same northern Russian region.
+    href: saint/OS-1680
 sources:
   - OCA Synaxarion (oca.org)
   - https://www.johnsanidopoulos.com/2018/02/saints-gennadius-and-nicephorus-of.html

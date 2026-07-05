@@ -48,6 +48,10 @@ timeline:
   - when: "1991"
     title: Return of relics
     body: On June 14 the relics, held since 1936 in the Ustyuzhna Museum, were returned to the Russian Church and enshrined in the Kazanskaya Church in Ustyuzhna.
+companions:
+  - name: Venerable Gury Shalochsky
+    note: Co-founder, by tradition, of the Sinozero hermitage alongside Euphrosynus.
+    href: saint/OS-2855
 patronage:
   - Monastics and hermits
   - Those who endure persecution or invasion

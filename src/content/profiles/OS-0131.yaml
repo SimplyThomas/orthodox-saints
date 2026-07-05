@@ -15,6 +15,10 @@ timeline:
   - when: "422"
     title: Dies; succeeded by Sicarius of Lyon
     body: He died and was succeeded in the see of Lyon by Sicarius.
+related:
+  - name: Justus of Lyon
+    note: Predecessor in the see of Lyon, who held the see a generation earlier before Antiochus, whom Elpidius succeeded; fellow pre-schism bishop and confessor of Lyon.
+    href: saint/OS-0128
 status: draft
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome

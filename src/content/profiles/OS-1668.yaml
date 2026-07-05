@@ -29,5 +29,16 @@ sources:
   - https://en.wikipedia.org/wiki/Near_Caves
   - https://www.johnsanidopoulos.com/search?q=gregory+iconographer+kiev+caves
   - https://en.wikipedia.org/wiki/Alipy_of_the_Caves
+companions:
+  - name: Venerable Alypios the Iconographer of the Kiev Near Caves
+    note: "Fellow iconographer — with whom tradition records Gregory laboring at the Caves, though the sources give no firm basis for the association."
+    href: saint/OS-1719
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: "Founder — of the Near Caves of Saint Anthony where Gregory's relics rest."
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: "Founder — co-founder with Anthony of the Kiev Caves monastery to which Gregory belonged."
+    href: saint/OS-2745
 status: draft
 generated: "2026-06-22"

@@ -29,6 +29,13 @@ timeline:
   - when: April 11, 1509
     title: Repose of Chariton
     body: Saint Chariton, Euthymius's successor, dies and is interred at the Ascension church alongside Euthymius.
+companions:
+  - name: Venerable Chariton of Syanzhemsk
+    note: "Disciple: his disciple whom he appointed successor as igumen of the Ascension monastery."
+    href: saint/OS-1916
+  - name: Venerable Dionysius, Abbot of Glushitsa
+    note: "Fellow Vologda ascetic: a contemporary of the Vologda wilderness; by tradition Euthymius ceded his cell on the Kuben to him."
+    href: saint/OS-1270
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 20

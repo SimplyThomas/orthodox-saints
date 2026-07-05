@@ -44,5 +44,52 @@ sections:
 patronage:
   - Ascetics and monastics
   - Stylites
-status: reviewed
+family:
+  figures:
+    - name: Martha
+      note: Mother
+      href: saint/OS-0094
+    - name: Sisan
+      note: Father, a shepherd
+      commemorated: false
+companions:
+  - name: John of Telanissos
+    note: Abbot of his early monastery
+  - name: Daniel the Stylite
+    note: Disciple who took up the stylite life in imitation of him
+    href: saint/OS-2333
+  - name: Domnina of Syria
+    note: Syrian ascetic contemporary
+    href: saint/OS-0740
+  - name: Genevieve of Paris
+    note: Distant correspondent whom he encouraged
+    href: saint/OS-0081
+  - name: Theodosius II
+    note: Eastern Roman emperor who held him in regard
+    commemorated: false
+  - name: Leo I
+    note: Emperor to whom he wrote in support of Chalcedon
+    commemorated: false
+  - name: Empress Eudocia
+    note: Empress who esteemed him
+    commemorated: false
+related:
+  - name: Symeon the Younger Stylite
+    note: Later stylite who imitated his discipline
+  - name: Anthony the Great
+    note: Father of the ascetic tradition
+    href: saint/OS-0026
+  - name: Macarius the Great
+    note: Father of the Egyptian desert
+    href: saint/OS-0029
+  - name: Ephraim the Syrian
+    note: Fellow Syrian ascetic father
+    href: saint/OS-0031
+  - name: John Climacus
+    note: Master of the ascetic ascent
+    href: saint/OS-0033
+  - name: Mary of Egypt
+    note: Fellow ascetic of radical renunciation
+    href: saint/OS-0027
+status: draft
 generated: "2026-06-19"

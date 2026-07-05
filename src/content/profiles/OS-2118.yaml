@@ -51,5 +51,21 @@ sources:
   - https://en.wikipedia.org/wiki/Helen_of_Anjou,_Queen_of_Serbia
   - https://en.wikipedia.org/wiki/Gradac_Monastery
   - https://www.oca.org/saints/lives/2025/10/30
+family:
+  heading: Queen and Mother of Saints
+  intro: Helen was wife to one Serbian king and mother to two more, all of the Nemanjić line and venerated as saints.
+  figures:
+    - name: Saint Stephen Uroš I of Serbia
+      note: Her husband, King of Serbia.
+      href: saint/OS-2634
+    - name: Venerable Dragutin of Serbia
+      note: Her elder son, King of Serbia who ended his life as the monk Theoctistus.
+      href: saint/OS-2117
+    - name: Saint Stephen Milutin of Serbia
+      note: Her younger son, the church-building King of Serbia.
+      href: saint/OS-2116
+    - name: Saint Stephen of Dečani
+      note: Her grandson, son of King Milutin.
+      href: saint/OS-2182
 status: draft
 generated: "2026-06-22"

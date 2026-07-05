@@ -36,14 +36,36 @@ timeline:
     body: Adomnan, ninth abbot of Iona, composes the Life of Columba.
 companions:
   - name: St. Finnian of Movilla
-    note: Abbot of Moville, whose psalter figures in the tradition of Columba's exile.
+    note: "Fellow abbot: of Moville, whose psalter figures in the tradition of Columba's penitential exile."
     href: saint/OS-0353
+  - name: Venerable Comgall of Bangor
+    note: "Fellow Irish abbot: by tradition accompanied Columba on his visit to the Pictish king Bridei near Inverness."
+    href: saint/OS-1143
+  - name: Saint Cainnech (Kenneth) of Aghaboe
+    note: "Fellow Irish monk: by tradition accompanied Columba to the court of King Bridei of the Picts."
+    href: saint/OS-2809
+  - name: Saint Finnian of Clonard
+    note: "Teacher: master of the Twelve Apostles of Ireland, among whom Columba was numbered."
+    href: saint/OS-2810
+related:
+  - name: Saint Brendan the Navigator
+    note: "Fellow Apostle of Ireland: a monastic founder and disciple of Finnian of Clonard of the same generation."
+    href: saint/OS-1191
+  - name: Saint Kevin of Glendalough
+    note: "Fellow Irish founder: a monastic founder of the same era in Ireland."
+    href: saint/OS-1278
   - name: St. Aidan of Lindisfarne
-    note: A monk of Iona who became missionary bishop of Lindisfarne and re-evangelized Northumbria.
+    note: "Same monastery: a monk of Iona who later carried the Celtic monastic tradition to Northumbria as bishop of Lindisfarne."
     href: saint/OS-1812
   - name: St. Finan of Lindisfarne
-    note: An Irish monk of Iona who succeeded Aidan as bishop of Lindisfarne.
+    note: "Same monastery: a monk of Iona who succeeded Aidan as bishop of Lindisfarne."
     href: saint/OS-0679
+  - name: Saint Oswald, King and Martyr of Northumbria
+    note: "Later vision: by Adomnan's account Columba appeared to King Oswald before the Battle of Heavenfield."
+    href: saint/OS-1650
+  - name: Saint Adomnan of Iona
+    note: "Hagiographer: ninth abbot of Iona and author of the Life of Columba."
+    href: saint/OS-2811
 patronage:
   - Enlightener of the Picts and Scots; patron of missions
   - Honoured among the patron saints of Ireland.

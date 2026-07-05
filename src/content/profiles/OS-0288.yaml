@@ -28,6 +28,11 @@ sections:
 works:
   - title: Foundation of the abbey of Saint-Vincent, Metz
     desc: Benedictine monastery founded at Metz, endowed with relics the bishop assembled, including relics brought back from Italy.
+family:
+  figures:
+    - name: St. Bruno I of Cologne
+      note: His cousin and friend, Archbishop of Cologne and brother of Emperor Otto I.
+      commemorated: false
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome
   - https://en.wikipedia.org/wiki/Dietrich_I_of_Metz

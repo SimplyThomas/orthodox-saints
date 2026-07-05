@@ -42,6 +42,22 @@ companions:
   - name: Venerable Sabbas the Sanctified
     note: Younger disciple who became a leading organizer of Palestinian monasticism
     href: saint/OS-2304
+  - name: Venerable Theodosius the Cenobiarch
+    note: "Fellow Palestinian monastic: came as a young man to Euthymius, who directed him onward into the cenobitic life."
+    href: saint/OS-0430
+  - name: Gerasimus of the Jordan
+    note: "Fellow desert father: a contemporary ascetic of the Judean wilderness, present at Euthymius's repose by tradition."
+    href: saint/OS-0766
+  - name: Venerable Kyriakos the Anchorite
+    note: "Disciple: came as a youth to Euthymius, who tonsured him and sent him on to Gerasimus."
+    href: saint/OS-1920
+  - name: Saint Juvenal, Patriarch of Jerusalem
+    note: "Contemporary hierarch: Patriarch of Jerusalem who consecrated the church of Euthymius's lavra in 429."
+    href: saint/OS-1454
+related:
+  - name: St. Chariton the Confessor
+    note: "Predecessor: founder of the lavra of Pharan, near which Euthymius first settled in the desert."
+    href: saint/OS-0088
 patronage:
   - Monastics and the eremitic and lavra traditions
   - Defender of Orthodoxy during Christological controversies

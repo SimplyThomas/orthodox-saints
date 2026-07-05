@@ -67,7 +67,7 @@ const awaiting = WITNESSES.map((s) => ({
 <section class="am-hero">
   <div class="dome-bg"><DomeMark w={460} color="var(--byz)" /></div>
   <div class="inner">
-    <EyebrowRule label="The Saints of America" />
+    <EyebrowRule label="The Saints" />
     <h1>A Pilgrimage of Hope</h1>
     <p class="am-hero-tagline">The Holy People of America</p>
     <blockquote class="am-verse">
@@ -139,9 +139,14 @@ const awaiting = WITNESSES.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
-                type: s.cat,
-              })}
+              set:html={saintAvatar(
+                { name, image: hit?.image, imageThumb: hit?.imageThumb },
+                84,
+                104,
+                {
+                  type: s.cat,
+                },
+              )}
             />
             <div class="body">
               <h3>{name}</h3>
@@ -179,9 +184,14 @@ const awaiting = WITNESSES.map((s) => ({
           >
             <div
               class="portrait"
-              set:html={saintAvatar({ name, image: hit?.image }, 84, 104, {
-                type: s.cat,
-              })}
+              set:html={saintAvatar(
+                { name, image: hit?.image, imageThumb: hit?.imageThumb },
+                84,
+                104,
+                {
+                  type: s.cat,
+                },
+              )}
             />
             <div class="body">
               <h3>{name}</h3>

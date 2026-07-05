@@ -16,6 +16,10 @@ timeline:
   - when: 249–251
     title: Martyrdom under Decius
     body: Jadorus suffers martyrdom together with Saint Isidore during the empire-wide persecution of Christians ordered by the emperor Decius.
+companions:
+  - name: Martyr Isidore
+    note: Fellow martyr put to death with Jadorus under Decius — distinct from the later monastic writer Isidore of Pelusium commemorated the same day.
+    href: saint/OS-2879
 sources:
   - OCA Synaxarion (oca.org), Feb 4
   - https://www.oca.org/saints/lives/2024/02/04/100427-martyr-jadorus

@@ -24,6 +24,16 @@ sections:
   - heading: Veneration
     body:
       - Saint Leucius is commemorated on August 17, which coincides with the feast of the Holy Martyr Leucius, and also on December 14. By iconographic tradition he is depicted as a grey-bearded elder with uncovered hair, wearing monastic garb and holding a staff.
+companions:
+  - name: Venerable Paphnutius, Abbot of Borov
+    note: Teacher — the elder of Borovsk in whose monastic lineage Leucius stood.
+    href: saint/OS-1087
+  - name: Venerable Daniel, Abbot of Pereslavl-Zalessky
+    note: Disciple — entrusted to Leucius's direction at Borovsk, he passed roughly a decade under the elder before founding his own monastery at Pereslavl.
+    href: saint/OS-0958
+  - name: Venerable Joseph of Volokolamsk
+    note: Associate — fellow heir of the Borovsk-Paphnutius tradition who founded his own celebrated monastery in the same Volokolamsk region.
+    href: saint/OS-0330
 patronage:
   - Monastics
   - Monastic founders

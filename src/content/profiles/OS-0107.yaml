@@ -34,5 +34,11 @@ sections:
 patronage:
   - Lucca
   - Piombino
+companions:
+  - name: Saint Cerbonius of Populonia
+    note: Fellow refugee from North Africa with whom Regulus settled in Tuscany; by tradition Regulus ordained him to the priesthood.
+  - name: Totila, King of the Ostrogoths
+    note: The Arian Ostrogothic king under whom, by tradition, Regulus was martyred during the Gothic War.
+    commemorated: false
 status: draft
 generated: "2026-06-19"

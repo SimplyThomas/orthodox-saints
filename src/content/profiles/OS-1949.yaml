@@ -52,5 +52,16 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Vladimir_of_Novgorod
   - https://www.oca.org/saints/lives/2024/10/04/102853-right-believing-prince-vladimir-yaroslavich-of-novgorod
+family:
+  figures:
+    - name: Yaroslav the Wise
+      note: His father, Great Prince of Kiev, whom he predeceased by two years.
+      href: saint/OS-2887
+    - name: Anna of Novgorod
+      note: His mother, Ingegerd of Sweden, who took the name Anna; venerated as a saint.
+      href: saint/OS-0629
+    - name: Vladimir, Enlightener of Rus'
+      note: His grandfather, the Equal-to-the-Apostles who baptized the Rus'.
+      href: saint/OS-0040
 status: draft
 generated: "2026-06-22"

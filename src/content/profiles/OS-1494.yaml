@@ -38,6 +38,23 @@ sections:
 patronage:
   - Soldiers and those in military service
   - Converts to the Christian faith
+family:
+  heading: Family
+  intro: Procopius's witness under torture drew his own household to Christ.
+  figures:
+    - name: Martyr Theodosia
+      note: His mother, a pagan who at first denounced him but was converted by witnessing his endurance and was herself martyred (commemorated July 8).
+      href: saint/OS-2870
+related:
+  - name: Great Martyr George the Trophy-bearer
+    note: Fellow soldier and Great Martyr of the Diocletianic persecution, venerated among the great military martyrs.
+    href: saint/OS-0012
+  - name: Great Martyr Demetrius the Myrrh-streamer
+    note: Fellow soldier-saint numbered among the great military martyrs.
+    href: saint/OS-0013
+  - name: Great Martyr Theodore the Recruit
+    note: Fellow soldier and Great Martyr of the early persecutions.
+    href: saint/OS-0018
 companions:
   - name: Martyr Procopius the Reader of Caesarea
     note: A distinct Procopius of Caesarea — the historical reader and Syriac interpreter recorded by Eusebius, commemorated November 22.

@@ -33,6 +33,10 @@ companions:
     href: saint/OS-0822
   - name: Martyr Frugentius
     note: One of the four monks of Lerins martyred together with Aigulphus.
+related:
+  - name: St. Honoratus of Arles
+    note: Founder of the island monastery of Lerins, of which Aigulphus later became abbot
+    href: saint/OS-0468
 patronage:
   - Healing of sore or ailing eyes
 status: draft

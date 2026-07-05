@@ -45,8 +45,15 @@ companions:
   - name: Apostle Paul
     note: Fellow-laborer who Barnabas introduced to the apostles and accompanied on missionary travels.
     href: saint/OS-2749
-  - name: Apostle Mark of the Seventy
-    note: John Mark, who traveled with Barnabas to Cyprus and, by tradition, buried him.
-    href: saint/OS-1911
+  - name: Apostle and Evangelist Mark
+    note: "Cousin and fellow missionary: John Mark, who traveled with Barnabas to Cyprus and, by tradition, buried him."
+    href: saint/OS-1061
+  - name: Apostle Bartholomew of the Twelve
+    note: "Fellow apostle jointly commemorated with Barnabas on June 11."
+    href: saint/OS-1330
+related:
+  - name: Apostle Aristobulus of the Seventy
+    note: "Fellow Apostle of the Seventy; by tradition a brother of Barnabas, who preached in Britain."
+    href: saint/OS-0831
 status: draft
 generated: "2026-06-19"

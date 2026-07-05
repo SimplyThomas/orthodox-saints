@@ -76,10 +76,33 @@ sections:
     body:
       - Ambrose was canonized in 1988 by the Local Council of the Russian Orthodox Church during the celebrations of the Millennium of the Baptism of Rus'; the Russian Orthodox Church Abroad added its recognition in 1990.
       - As the most famous of the Optina Elders, his pastoral counsel and the literary portrait drawn from him in The Brothers Karamazov gave him an enduring place in Russian religious and cultural memory.
+companions:
+  - name: Leonid of Optina
+    note: The first Optina elder, under whom he was formed
+    href: saint/OS-2003
+  - name: Macarius of Optina
+    note: His elder and cell-companion, whom he succeeded as principal starets
+    href: saint/OS-0294
+related:
+  - name: Moses of Optina
+    note: Fellow Optina Elder
+    href: saint/OS-1374
+  - name: Anatole I of Optina
+    note: Fellow Optina Elder and his disciple
+    href: saint/OS-0539
+  - name: Joseph of Optina
+    note: Fellow Optina Elder and his disciple
+    href: saint/OS-1136
+  - name: Nectarius of Optina
+    note: Fellow Optina Elder, last of the great startsy
+    href: saint/OS-1078
+  - name: Barsanuphius of Optina
+    note: Fellow Optina Elder
+    href: saint/OS-0921
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Ambrose_of_Optina
   - https://orthodoxwiki.org/Ambrose_of_Optina
   - https://oca.org/saints/lives/2024/10/10/102934-venerable-ambrose-of-optina
-status: reviewed
+status: draft
 generated: "2026-06-18"

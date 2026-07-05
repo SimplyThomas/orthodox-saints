@@ -37,6 +37,17 @@ timeline:
 patronage:
   - Sens, France
   - Invoked against epilepsy
+family:
+  heading: Family
+  figures:
+    - name: Saint Austremius, Bishop of Orleans
+      note: By his vita, one of two bishop-uncles who oversaw Lupus's education.
+    - name: Saint Aunarius (Aunacharius), Bishop of Auxerre
+      note: By his vita, the other bishop-uncle who oversaw Lupus's upbringing.
+companions:
+  - name: King Chlotar II
+    note: Merovingian king with whom Lupus came into conflict over Burgundy and who sent him into exile before recalling him to his see.
+    commemorated: false
 sources:
   - Roman Martyrology
   - https://en.wikipedia.org/wiki/Lupus_of_Sens

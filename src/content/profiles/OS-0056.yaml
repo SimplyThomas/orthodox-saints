@@ -52,5 +52,46 @@ sources:
   - https://en.wikipedia.org/wiki/Elijah#Eastern_Christianity
   - https://www.oca.org/saints/lives/2024/07/20/102036-holy-glorious-prophet-elias-elijah
   - https://orthodoxwiki.org/Elijah
-status: reviewed
+companions:
+  - name: Elisha
+    note: His disciple and successor, who received his mantle
+    href: saint/OS-1353
+  - name: Obadiah
+    note: God-fearing steward of Ahab who hid the prophets
+    href: saint/OS-2214
+  - name: Ahab
+    note: King of Israel whose apostasy he confronted
+    commemorated: false
+  - name: Jezebel
+    note: Queen who promoted Baal-worship and sought his life
+    commemorated: false
+  - name: Ahaziah
+    note: King on whom he called down fire from heaven
+    commemorated: false
+  - name: Jehoram
+    note: King of Israel of his prophetic age
+    commemorated: false
+  - name: Widow of Zarephath
+    note: Sidonian widow who sheltered him during the famine
+    commemorated: false
+  - name: Widow's son
+    note: The boy he raised from the dead at Zarephath
+    commemorated: false
+  - name: Sons of the Prophets
+    note: The prophetic company who witnessed his ascent
+    commemorated: false
+related:
+  - name: John the Forerunner
+    note: Came in the spirit and power of Elijah
+    href: saint/OS-0002
+  - name: Moses
+    note: Appeared with him at the Transfiguration
+    href: saint/OS-0057
+  - name: Jesus Christ
+    note: Whose Second Coming the prophet heralds
+    href: saint/OS-0000
+  - name: Aaron
+    note: Priest and figure of the Old Covenant
+    href: saint/OS-1563
+status: draft
 generated: "2026-06-18"

@@ -34,5 +34,19 @@ sections:
     body:
       - His relics are reported to be preserved at the Monastery of Dionysiou and at Kavsokalyvia. He later moved to a lower cave near Kavsokalyvia that came to bear his name, and a spring in the area is known as the Holy Water of Saint Acacius.
 patronage: []
+companions:
+  - name: New Martyr Romanus of Karpenisi
+    note: Spiritual child and disciple whom Acacius guided in the ascetic life and prepared for martyrdom (†1694).
+    href: saint/OS-0399
+  - name: Monastic Martyr Pachomius of Mount Athos
+    note: Spiritual child and disciple of Acacius at Kavsokalyvia who later confessed Christ as a new martyr (†1730).
+    href: saint/OS-1129
+  - name: New Monastic Martyr Nikodemos of Albania
+    note: Spiritual child and disciple of Acacius, restored to the faith under his guidance and martyred at Elbasan (†1722).
+    href: saint/OS-1511
+related:
+  - name: Venerable Maximus Kavsokalyvites
+    note: Earlier ascetic of Kavsokalyvia in whose cave (the Cave of Saint Maximus the Hut-Burner) Acacius settled and whom he beheld in visions.
+    href: saint/OS-0446
 status: draft
 generated: "2026-06-20"

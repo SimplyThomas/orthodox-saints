@@ -51,6 +51,10 @@ timeline:
   - when: August 7, 2000
     title: Glorified for universal veneration
     body: He is glorified as a saint for universal veneration.
+companions:
+  - name: St. Ambrose of Optina
+    note: "Spiritual father: the Optina elder to whom Anatole served for many years as cell-attendant in the Skete, and whose work of eldership he took up after Ambrose's death."
+    href: saint/OS-0074
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

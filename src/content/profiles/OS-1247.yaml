@@ -23,6 +23,13 @@ sections:
     body:
       - The earliest narrative of the two martyrs survives in a set of acts dated to the fourth century, and the episode was recounted by Saint Ambrose of Milan in his writing on virginity, which helped spread their story in the Western Church.
       - The account later attracted literary and musical treatments, including a tragedy by Pierre Corneille (1645) that transferred the setting to Antioch, a prose romance by Robert Boyle published in 1687, and George Frideric Handel's oratorio Theodora (1749). A closely parallel story of a soldier rescuing a condemned virgin by exchanging clothes is told of the martyrs Antonina and Alexander.
+related:
+  - name: Martyr Alexander and Virgin Martyr Antonina at Constantinople
+    note: "Parallel account: martyrs of whom the same story is told — a soldier rescuing a condemned virgin by exchanging clothes with her."
+    href: saint/OS-1325
+  - name: St. Ambrose, Bishop of Milan
+    note: "Recounted by: retold the martyrs' story in his work on virginity, helping to spread their memory in the Western Church."
+    href: saint/OS-2312
 patronage: []
 status: draft
 generated: "2026-06-19"

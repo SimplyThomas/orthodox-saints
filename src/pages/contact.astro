@@ -1,0 +1,244 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+// Contact — the final About sub-page, in the illuminated reading-column
+// treatment. Ported from the Claude Design "About Pages" mock; the header area
+// reuses the Browse & Search hero primitives. The "Before You Contact Us"
+// block cross-links the sibling About pages.
+const researchInfo = [
+  "The saint's name",
+  "Feast day (if known)",
+  "Why you're researching them",
+  "Any sources you've already found",
+];
+const collab = [
+  "Collaborate on a research project",
+  "Recommend educational resources",
+  "Partner with Cloud of Witnesses",
+  "Share a collection or archive",
+  "Discuss another opportunity",
+];
+const links = [
+  {
+    title: "Editorial Standards",
+    desc: "Learn how profiles are researched, reviewed, and verified.",
+    href: withBase("editorial-standards"),
+  },
+  {
+    title: "Sources & Methodology",
+    desc: "Discover the historical and ecclesiastical sources that inform our work.",
+    href: withBase("sources"),
+  },
+  {
+    title: "Contributors",
+    desc: "Meet the people and organizations helping build the project.",
+    href: withBase("contributors"),
+  },
+];
+const helpLinks = [
+  {
+    title: "Contribute",
+    desc: "Share research, sources, photographs, translations, or icon permissions.",
+    href: withBase("contribute"),
+  },
+  {
+    title: "Corrections",
+    desc: "Report an incorrect date, name, feast day, source, or historical detail.",
+    href: withBase("corrections"),
+  },
+];
+---
+
+<BaseLayout
+  active="contact"
+  title="Contact"
+  description="Reach the Cloud of Witnesses team — research requests, corrections, contributions, permissions, and collaboration. We'd love to hear from you."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Contact</h1>
+        <p class="sr-lede">We&rsquo;d love to hear from you.</p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          Whether you have a question, discovered an error, would like to
+          contribute research, or simply want to share your favorite saint,
+          thank you for taking the time to reach out. Every message helps us
+          continue improving Cloud of Witnesses and serving the Orthodox
+          community.
+        </p>
+        <p class="as-p last">
+          Because this project is maintained by a small team, responses may
+          occasionally take a little time. We appreciate your patience and will
+          do our best to reply as soon as possible.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Research Requests</h2>
+        </div>
+        <p class="as-p">
+          Looking for more information about a particular saint?
+        </p>
+        <p class="as-p">
+          If there&rsquo;s a saint whose page you&rsquo;d like to see expanded,
+          let us know. We regularly prioritize research requests from our
+          community and are always looking for ways to improve the database.
+        </p>
+        <p class="as-p">
+          Please include as much information as you can, such as:
+        </p>
+        <ul class="as-list">
+          {researchInfo.map((it) => <li>{it}</li>)}
+        </ul>
+
+        <div class="as-head"><span class="ln"></span><h2>Corrections</h2></div>
+        <p class="as-p">Despite our best efforts, mistakes can happen.</p>
+        <p class="as-p">
+          If you notice an incorrect date, spelling, relationship, feast day,
+          source, or any other historical detail, we would sincerely appreciate
+          hearing from you.
+        </p>
+        <p class="as-p last">
+          When possible, please include supporting sources or references so we
+          can verify the information before making changes.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Permissions &amp; Licensing</h2>
+        </div>
+        <p class="as-p">
+          If you are an iconographer, photographer, publisher, monastery,
+          parish, museum, library, or other organization interested in allowing
+          your work to be featured on Cloud of Witnesses, we would be delighted
+          to discuss collaboration.
+        </p>
+        <p class="as-p last">
+          We are committed to properly crediting creators, honoring licensing
+          agreements, and respecting copyright.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Media &amp; Collaboration</h2>
+        </div>
+        <p class="as-p">If you would like to:</p>
+        <ul class="as-list">
+          {collab.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          &hellip; please don&rsquo;t hesitate to get in touch.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Contributor Recognition</h2>
+        </div>
+        <p class="as-p">
+          We are grateful to everyone who helps improve Cloud of Witnesses.
+        </p>
+        <p class="as-p last">
+          With your permission, significant contributions may be acknowledged on
+          the relevant pages or on our Contributors page. If you prefer to
+          remain anonymous, we are happy to respect that request.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Before You Contact Us</h2>
+        </div>
+        <p class="as-p">
+          You may find the answer you&rsquo;re looking for on one of these
+          pages:
+        </p>
+        <div class="as-linkcards">
+          {
+            links.map((l) => (
+              <a class="as-linkcard" href={l.href}>
+                <span class="dmnd" aria-hidden="true" />
+                <span class="lc-body">
+                  <h3>{l.title}</h3>
+                  <p>{l.desc}</p>
+                </span>
+                <svg
+                  class="arw"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="as-head"><span class="ln"></span><h2>Get in Touch</h2></div>
+        <p class="as-p">
+          Whether you&rsquo;re reporting a typo, sharing decades of historical
+          research, requesting additional information about a beloved saint, or
+          simply saying hello, we&rsquo;re grateful you&rsquo;re here.
+        </p>
+        <p class="as-p">
+          You can reach us by email at{" "}
+          <a class="as-mail" href="mailto:contact@orthodoxsaintfinder.com"
+            >contact@orthodoxsaintfinder.com</a
+          >.
+        </p>
+        <p class="as-pull">
+          Cloud of Witnesses exists because of a shared love for the history of
+          the Orthodox Church, and we look forward to hearing from you.
+        </p>
+
+        <div class="as-linkcards">
+          {
+            helpLinks.map((l) => (
+              <a class="as-linkcard" href={l.href}>
+                <span class="dmnd" aria-hidden="true" />
+                <span class="lc-body">
+                  <h3>{l.title}</h3>
+                  <p>{l.desc}</p>
+                </span>
+                <svg
+                  class="arw"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>

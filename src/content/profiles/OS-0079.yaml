@@ -55,10 +55,41 @@ timeline:
 patronage:
   - Ireland
   - Missionaries and the conversion of peoples
+family:
+  figures:
+    - name: Calpurnius
+      note: Father, a deacon and decurion of Roman Britain
+      commemorated: false
+    - name: Conchessa
+      note: Mother, said to be a near relative of Martin of Tours
+      commemorated: false
+companions:
+  - name: Germanus of Auxerre
+    note: Bishop under whom he trained and was ordained for the Irish mission
+    commemorated: false
+  - name: Martin the Merciful of Tours
+    note: By tradition a kinsman of his mother; model of Gallic monasticism
+    href: saint/OS-2008
+related:
+  - name: Brigid of Kildare
+    note: Fellow patron of Ireland; by tradition baptized her mother, and she wove his burial shroud
+    href: saint/OS-0080
+  - name: Columba of Iona
+    note: Fellow patron of Ireland, with whom he rests at Downpatrick
+    href: saint/OS-1320
+  - name: Nina of Georgia
+    note: Fellow Equal-to-the-Apostles, enlightener of a nation
+    href: saint/OS-0039
+  - name: Vladimir the Great
+    note: Fellow Equal-to-the-Apostles enlightener of a people
+    href: saint/OS-0040
+  - name: Constantine the Great
+    note: Fellow Equal-to-the-Apostles
+    href: saint/OS-0037
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Saint_Patrick
   - https://orthodoxwiki.org/Patrick_of_Ireland
   - https://www.newadvent.org/cathen/11554a.htm
-status: reviewed
+status: draft
 generated: "2026-06-18"

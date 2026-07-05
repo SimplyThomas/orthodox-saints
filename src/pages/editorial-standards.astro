@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+// Editorial Standards — a long-form About sub-page in the illuminated
+// reading-column treatment. Ported from the Claude Design "About Pages" mock;
+// the header area reuses the Browse & Search hero primitives.
+const traditions = [
+  "Canonical Scripture",
+  "Holy Tradition",
+  "Liturgical tradition",
+  "Ancient historical sources",
+  "Later local traditions",
+  "Modern historical scholarship",
+];
+const verifyItems = [
+  "Identity and historical distinctions",
+  "Names and alternative spellings",
+  "Feast day(s)",
+  "Dates and chronology",
+  "Geographic information",
+  "Biography",
+  "Family relationships",
+  "Companions and contemporaries",
+  "Related saints",
+  "Patronages and areas of association",
+  "Bibliography and recommended reading",
+  "Sources and citations",
+  "Images and licensing information",
+  "Internal cross-references throughout the database",
+];
+const sources = [
+  "Orthodox synaxaria and liturgical texts",
+  "Official Orthodox Church jurisdictions and publications",
+  "Patristic writings",
+  "Ancient historical sources",
+  "Modern academic scholarship",
+  "Published biographies",
+  "Primary historical documents",
+  "Museum, library, and archival collections",
+];
+---
+
+<BaseLayout
+  active="editorial-standards"
+  title="Editorial Standards"
+  description="How entries on Cloud of Witnesses are researched, verified, and refined — our editorial principles, the verified mark, and our sourcing."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Editorial Standards</h1>
+        <p class="sr-lede">
+          How entries are researched, verified, and refined &mdash; and what our
+          marks mean.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          Cloud of Witnesses is a living historical reference project dedicated
+          to documenting the saints, righteous figures, and history of the
+          Orthodox Church. Because this collection spans more than two thousand
+          years and thousands of individuals across many cultures and languages,
+          our work is an ongoing process of research, verification, and
+          refinement.
+        </p>
+        <p class="as-p last">
+          We are committed to presenting information that is accurate,
+          transparent, and responsibly sourced while recognizing that historical
+          research is never truly finished.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Our Editorial Principles</h2>
+        </div>
+        <p class="as-p">
+          Every page on Cloud of Witnesses is guided by the following
+          principles:
+        </p>
+
+        <h3 class="as-sub">Historical Accuracy</h3>
+        <p class="as-p last">
+          We strive to present information that reflects the best available
+          historical and ecclesiastical evidence. When historical facts are
+          uncertain, disputed, or preserved through multiple traditions, we seek
+          to explain those differences rather than presenting speculation as
+          certainty.
+        </p>
+
+        <h3 class="as-sub">Faithful Representation</h3>
+        <p class="as-p">
+          Cloud of Witnesses is an educational reference resource rooted in the
+          life and history of the Orthodox Church. We aim to represent Orthodox
+          tradition fairly and accurately while clearly distinguishing between:
+        </p>
+        <ul class="as-list">
+          {traditions.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          Where appropriate, we identify the origin of particular accounts so
+          readers can better understand their historical context.
+        </p>
+
+        <h3 class="as-sub">Transparency</h3>
+        <p class="as-p">
+          No historical reference work is ever completely finished. As new
+          sources become available, historical questions are revisited, or
+          corrections are submitted, pages may be updated to reflect improved
+          scholarship.
+        </p>
+        <p class="as-p last">
+          We believe transparency strengthens trust. Rather than hiding our
+          editorial process, we want readers to understand how information is
+          researched, reviewed, and improved over time.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>The Verified Symbol</h2>
+        </div>
+        <div class="as-verified">
+          <img
+            class="mark"
+            src={withBase("dove-emblem.svg")}
+            width="64"
+            height="64"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
+          <div>
+            <div class="eyebrow">The Verified Mark</div>
+            <p>
+              Profiles marked with a dove have completed our current editorial
+              review process &mdash; our highest current editorial standard.
+            </p>
+          </div>
+        </div>
+        <p class="as-p">
+          Verification typically includes reviewing and confirming, where
+          applicable:
+        </p>
+        <ul class="as-list">
+          {verifyItems.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p">
+          A verified profile represents our highest current editorial standard.
+        </p>
+        <p class="as-p last">
+          Profiles without the dove are still valuable references and are
+          generally reliable, but they may continue to receive expanded
+          research, additional sources, corrected relationships, improved
+          biographies, or other editorial enhancements as our review progresses.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Sources</h2></div>
+        <p class="as-p">
+          Whenever possible, our research draws from a combination of:
+        </p>
+        <ul class="as-list">
+          {sources.map((it) => <li>{it}</li>)}
+        </ul>
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          When using sources outside the Orthodox tradition, we evaluate them
+          critically and use them primarily to provide historical context rather
+          than theological interpretation.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Images and Media</h2>
+        </div>
+        <p class="as-p">
+          Cloud of Witnesses seeks to use public-domain images, freely licensed
+          works, or images used with the permission of the copyright holder.
+        </p>
+        <p class="as-p last">
+          We are grateful to the iconographers, photographers, publishers,
+          monasteries, parishes, and organizations that generously allow their
+          work to be featured. All images are credited whenever possible, and we
+          are committed to honoring licensing agreements and correcting
+          attribution if needed.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Corrections and Contributions</h2>
+        </div>
+        <p class="as-p">
+          Orthodox history is remarkably rich, and no single editorial team can
+          uncover every manuscript, local tradition, parish history, or
+          historical publication.
+        </p>
+        <p class="as-p">
+          If you notice an error, have additional historical information, know
+          of a reliable source, possess photographs or icons that may be shared,
+          or would like to recommend corrections or improvements, we warmly
+          invite you to contact us.
+        </p>
+        <p class="as-p">
+          Likewise, if there is a saint, event, or topic you would like us to
+          prioritize for future research and expansion, we are happy to receive
+          suggestions.
+        </p>
+        <p class="as-p last">
+          Thoughtful contributions help strengthen the project for everyone.
+          When significant contributions are incorporated into the database,
+          contributors may be acknowledged on the relevant page with their
+          permission.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Our Commitment</h2>
+        </div>
+        <p class="as-p">
+          Cloud of Witnesses is built with the understanding that careful
+          scholarship and humility belong together.
+        </p>
+        <p class="as-pull" style="margin-bottom:16px">
+          Our goal is not simply to collect information, but to preserve it
+          responsibly, present it clearly, and continually improve it. Every
+          correction, newly discovered source, expanded biography, translated
+          text, and historical connection brings us one step closer to creating
+          a resource that faithfully reflects the richness of the Orthodox
+          Christian tradition.
+        </p>
+        <p class="as-p last">
+          We are grateful to every reader, researcher, parish, monastery,
+          scholar, and contributor who helps make that work possible.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>

@@ -42,6 +42,13 @@ sections:
   - heading: Sources and Dating
     body:
       - The sources disagree on several biographical details. The birth date is given as c. 1157 or c. 1206, and his origin as the Novgorod region or the Nizhny Novgorod / Gorodets area. The OCA Synaxarion dates his repose to 1224, while Russian Wikipedia gives 1273; the anchor record's dating of the 13th century is consistent with either. The date of the uncovering of his relics is likewise given as 1330 or 1370.
+companions:
+  - name: St. Barlaam of Khutyn
+    note: "Teacher: tonsured Anthony at the Khutyn Monastery near Novgorod and, on his deathbed, appointed him igumen, an office Anthony declined before withdrawing to Lake Dymsk."
+    href: saint/OS-1420
+  - name: St. Alexander Nevsky
+    note: "Princely patron (by tradition): some accounts credit Prince Alexander Nevsky with granting permission to found the Dymsk monastery (c. 1243), though the dating sits uneasily with the earlier repose date some sources give for Anthony."
+    href: saint/OS-2241
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 17

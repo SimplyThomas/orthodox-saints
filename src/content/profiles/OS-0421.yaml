@@ -16,6 +16,13 @@ sections:
     body:
       - Eustratius is commemorated on January 9, on which day he is listed among the saints of the feast alongside the Martyr Polyeuctus of Melitene, Saint Philip of Moscow, the Prophet Shemaiah, and Saint Peter of Sebaste.
       - Beyond these commemorative facts, little biographical detail survives. He is a genuinely obscure ninth-century Byzantine monastic, and the surviving record of his life is correspondingly brief.
+family:
+  heading: Family
+  figures:
+    - name: Venerable Basil the Wonderworker
+      note: "Uncle: a ninth-century wonderworker remembered together with his brother Gregory."
+    - name: Venerable Gregory the Wonderworker
+      note: "Uncle: a ninth-century monk of the Monastery of Avgaron (Auguron) on Mount Olympus."
 timeline:
   - when: 9th century
     title: Birth at Tarsus

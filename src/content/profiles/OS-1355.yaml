@@ -63,5 +63,18 @@ sources:
   - https://en.wikipedia.org/wiki/Mstislav_Rostislavich_the_Brave
   - https://www.oca.org/saints/lives/2025/06/14
   - https://en.wikipedia.org/wiki/Rostislav_Mstislavich
+family:
+  heading: The Rostislavichi of Smolensk
+  intro: Mstislav belonged to the Rurikid house, the line of Vladimir Monomakh through his grandfather Mstislav the Great.
+  figures:
+    - name: Rostislav-Michael of Kiev
+      note: Father, Grand Prince of Kiev and founder of the Rostislavichi line
+      href: saint/OS-0824
+    - name: Mstislav the Great
+      note: Grandfather, Mstislav I of Kiev
+      href: saint/OS-2886
+    - name: Vladimir Monomakh
+      note: Great-grandfather, Grand Prince of Kiev
+      commemorated: false
 status: draft
 generated: "2026-06-22"

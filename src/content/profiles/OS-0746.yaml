@@ -31,6 +31,13 @@ sections:
     body:
       - The hostility of the civil authorities, provoked by her Christian witness and the conversions attributed to her, led to her arrest and execution by beheading. The tradition names a governor, given as Vincentius, as her persecutor, and dates her death to the year 107.
       - Eudokia is venerated as a venerable-martyr, a title combining her monastic asceticism with her death for the faith. As a saint of the early, ante-Nicene Church, she is commemorated on March 1.
+companions:
+  - name: The monk Germanus
+    note: The ascetic who instructed Eudokia in the Christian faith and brought about her conversion (an early figure distinct from the later Germanus of Dacia Pontica).
+    commemorated: false
+  - name: Theodotus, Bishop of Heliopolis
+    note: The bishop who baptized Eudokia after her period of fasting and prayer, receiving her into the Church.
+    commemorated: false
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Eudokia_of_Heliopolis

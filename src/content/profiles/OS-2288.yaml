@@ -8,6 +8,13 @@ companions:
   - name: Venerable Athanasius the Resurrected One of the Kiev Caves
     note: A distinct namesake recluse of the Near Caves, also commemorated December 2, who by tradition revived after being believed dead.
     href: saint/OS-2287
+related:
+  - name: St. Anthony of the Kyiv Caves
+    note: Co-founder of the Kiev Caves monastery, in whose caves Athanasius pursued his ascetic life
+    href: saint/OS-0136
+  - name: St. Theodosius of the Kyiv Caves
+    note: Co-founder of the Kiev Caves Lavra; the Far Caves and their canon of monastic fathers bear his name
+    href: saint/OS-2745
 patronage:
   - Healing of illness
 status: draft

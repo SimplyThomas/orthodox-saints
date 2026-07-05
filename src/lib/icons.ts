@@ -36,6 +36,15 @@ export function domeMark(w = 200, color = "#D4AF37"): string {
     style="width:100%;height:auto" aria-hidden="true">${domes}</svg>`;
 }
 
+/* The "reviewed dove" — a quiet seal that an entry has been fully reviewed by
+   a human (profile status === "reviewed"). The emblem (a descending dove on a
+   deep-indigo disc) is self-hosted vector at static/dove-emblem.svg; it appears
+   beside a saint's name wherever a reviewed saint is shown. Returned as an HTML
+   string so it composes into both .astro (set:html) and the client islands. */
+export function reviewedDove(size = 22): string {
+  return `<img class="reviewed-dove" src="${esc(withBase("dove-emblem.svg"))}" width="${size}" height="${size}" alt="Reviewed entry" title="This entry has been fully reviewed" loading="lazy" decoding="async" />`;
+}
+
 /* ---- Production tiered saint avatar (the design's SaintAvatar) ----
    Real icon when `image` is set; otherwise an auto monogram — the saint's
    given-name initial under a small cross, on a ground colour-coded by rank/type.
@@ -98,6 +107,9 @@ export interface AvatarSaint {
   type?: string;
   /** optional real-icon URL; absent → monogram */
   image?: string;
+  /** optional ~200px thumb of `image` (build.py emits it only when the file
+      exists); small renderings prefer it over the full-size portrait */
+  imageThumb?: string;
 }
 
 export function saintAvatar(
@@ -116,10 +128,13 @@ export function saintAvatar(
   // is inert even if the data channel were ever attacker-controlled (and so
   // CodeQL can prove the innerHTML flows in the islands are sanitized).
   if (s.image) {
-    const raw = String(s.image).replace(/['"\\)\s<>]/g, "");
+    // Small renderings (every avatar ≤ 92px wide except the 286px detail-page
+    // hero) use the ~200px ingest thumb when one exists — crisp at 2x DPR,
+    // ~10 KB instead of a ~100 KB original.
+    const chosen = w <= 200 && s.imageThumb ? s.imageThumb : s.image;
+    const raw = String(chosen).replace(/['"\\)\s<>]/g, "");
     const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
-    const clip = `path('${AVATAR_ARCH}')`;
-    return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;clip-path:${clip};-webkit-clip-path:${clip};background:#efe3cb center top/cover no-repeat url('${url}')"></div></div>`;
+    return `<div style="width:${w}px;height:${h}px;flex-shrink:0;border-radius:6px;padding:2px;background:${AVATAR_FRAME};box-sizing:border-box" aria-hidden="true"><div style="width:100%;height:100%;background:#efe3cb center top/cover no-repeat url('${url}')"></div></div>`;
   }
 
   // Monogram tier. monogramLetter already returns a single [A-Za-z?] char;

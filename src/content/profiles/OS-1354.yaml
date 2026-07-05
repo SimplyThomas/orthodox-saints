@@ -41,5 +41,19 @@ sections:
       - On 11 March 843, accompanied by Theodora, the young emperor Michael III, and Theoktistos, Methodius led a solemn procession from the church of Blachernae to Hagia Sophia and restored the icons to the churches. The event was thereafter kept annually as the Triumph of Orthodoxy on the first Sunday of Great Lent. He is credited with the composition of the Synodikon of Orthodoxy read at that observance. As patriarch he favored a moderate reconciliation with formerly iconoclast clergy and remained active in manuscript copying, theological writing, hagiography, and liturgical composition until his repose in 847.
 patronage:
   - Defenders of the veneration of icons
+companions:
+  - name: Theodora the Empress
+    note: Empress-regent who raised him to the patriarchate and joined him in the Triumph of Orthodoxy
+    href: saint/OS-0637
+  - name: Nikephoros the Confessor
+    note: Deposed patriarch and fellow iconodule whose cause he served as envoy to Rome
+    href: saint/OS-1273
+  - name: Ignatius of Constantinople
+    note: His successor on the patriarchal throne
+    href: saint/OS-2067
+related:
+  - name: Theodore the Studite
+    note: Fellow defender of the holy icons in the iconoclast struggle
+    href: saint/OS-2180
 status: draft
 generated: "2026-06-19"

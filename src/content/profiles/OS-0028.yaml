@@ -28,7 +28,14 @@ timeline:
   - when: c. 348
     title: Repose
     body: Died during an epidemic in the mid-fourth century.
+family:
+  figures:
+    - name: His parents
+      note: Unnamed; pagans of the Thebaid in whose home he was raised
+      commemorated: false
 companions:
+  - name: Palamon
+    note: His spiritual father, the hermit who formed him in the ascetic life
   - name: St. Anthony the Great
     note: The father of Egyptian monasticism, his elder contemporary; Pachomius reposed before him.
     href: saint/OS-0026
@@ -41,9 +48,23 @@ companions:
   - name: Venerable Horsiesios of Tabennisi
     note: A later successor who organized the Pachomian federation.
     href: saint/OS-2742
+  - name: Saint Petronius of Egypt
+    note: His disciple, briefly his successor as abbot
+    href: saint/OS-0201
+related:
+  - name: Basil the Great
+    note: Whose monastic rules drew on the Pachomian model
+    href: saint/OS-0021
+  - name: Macarius the Great
+    note: Father of the Egyptian desert
+    href: saint/OS-0029
+  - name: Shenoute the Great
+    note: Later abbot who developed Egyptian cenobitic life
+  - name: Amoun of Nitria
+    note: Father of the Nitrian monastic settlements
 patronage:
   - Founder and patron of cenobitic monastic life
-status: reviewed
+status: draft
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/2015/05/15/101384-venerable-pachomius-the-great-founder-of-coenobitic-monasticism

@@ -1,4 +1,20 @@
 id: OS-1378
+family:
+  heading: Botolph and his brother
+  figures:
+    - name: Saint Adulph
+      note: Brother, educated with him on the Continent and likewise venerated as a saint.
+      commemorated: true
+companions:
+  - name: Saint Fursey of East Anglia
+    note: Irish monk by whom, in tradition, he and his brother were educated.
+    href: saint/OS-2807
+    commemorated: true
+related:
+  - name: Saint Ceolfrith of Wearmouth
+    note: Abbot who, by the Life of Ceolfrith, visited him as a man of remarkable life and learning.
+    href: saint/OS-2833
+    commemorated: true
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Botolph

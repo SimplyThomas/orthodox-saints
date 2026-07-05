@@ -36,5 +36,12 @@ sources:
   - https://orthodoxwiki.org/Abraham_of_Smolensk
   - https://en.wikipedia.org/wiki/Abraham_of_Smolensk
   - https://www.oca.org/saints/lives/2024/08/21
+companions:
+  - name: Venerable Abramius of Smolensk
+    note: Teacher whose Life Ephraim wrote, continuing the Smolensk monastic tradition after his repose.
+    href: saint/OS-1751
+  - name: Saint Ignatius, Bishop of Smolensk
+    note: Bishop who founded the Mother of God monastery and ordained Ephraim's teacher Abramius.
+    href: saint/OS-0559
 status: draft
 generated: "2026-06-22"
