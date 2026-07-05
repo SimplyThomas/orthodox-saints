@@ -1,5 +1,5 @@
 id: OS-2105
-lifespan: Died c. 285 (Diocletianic persecution)
+lifespan: Martyred under Diocletian (c. 285, or 304 by another tradition)
 overview:
   - Claudius, Asterius, Neon, and Theonilla were a family of Christian martyrs who suffered at Aegae in Cilicia, in Asia Minor (present-day southern Turkey), during the persecution under the Roman emperor Diocletian. The three brothers — Claudius, Asterius, and Neon — and their sister Theonilla were betrayed to the persecuting authorities by their stepmother after the death of their father, who sought to withhold their inheritance from them.
   - Brought before the governor and pressed to renounce Christ and worship the idols, the siblings refused to apostatize and were subjected to torture. The three brothers were crucified, while Theonilla endured being hung by her hair, flogged, and burned before her death; her body was afterward cast into the sea. They are commemorated together on October 29.
@@ -17,7 +17,7 @@ sections:
     body:
       - The martyrs are noted among Diocletianic martyrs whose accounts derive from semi-historical Acts or later credible sources, rather than from a contemporary primary historian such as Eusebius. One such listing groups Claudius, Asterius, Neon, and Theonilla together with a companion named Dominina and dates their martyrdom to April 7, 304, in Lycia, alongside Calliopus of Pompeiopolis — a tradition that differs from the Orthodox commemoration of October 29 and the location at Aegae in Cilicia. These divergences in date and place reflect the variant transmission of the martyrs' memory.
 timeline:
-  - when: c. 285
+  - when: c. 285–304
     title: Martyrdom at Aegae
     body: Following their father's death and their stepmother's betrayal over the inheritance, the brothers Claudius, Asterius, and Neon were crucified, and their sister Theonilla was tortured and put to death, at Aegae in Cilicia under Diocletian.
   - when: October 29
@@ -43,6 +43,3 @@ family:
       note: Their sister, hung by her hair, flogged, and burned, her body afterward cast into the sea.
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The martyrdom is dated c. 285, which falls in the 3rd century, conflicting with the anchor row's Century field of '4th'.
-    detail: The anchor row sets Century = '4th', which corresponds to 301–400 AD. The profile's lifespan of 'c. 285' places the death in the 3rd century (201–300 AD). The external source (OCA) also says '285 AD', but the anchor wins per the verification rules. The alternative tradition in external source 2 dates the martyrdom to April 7, 304, which is 4th century and consistent with the anchor. The profile mentions both dates but leads with 285 in the lifespan field, creating a direct contradiction with the anchor's Century.

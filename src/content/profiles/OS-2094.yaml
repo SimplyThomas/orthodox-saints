@@ -32,8 +32,8 @@ sections:
       - When Hungarian invasions threatened Serbia, Sava dispatched Arsenius southward to establish a safer episcopal see. Arsenius chose Peć, where he built a monastery and a church initially dedicated to the Holy Apostles. Consecrated bishop in 1233, he succeeded Sava as Serbian archbishop and served until 1263.
   - heading: Service to Church and Crown
     body:
-      - As archbishop, Arsenius crowned King Stefan Uroš I and supported the king's construction of royal monasteries, including Sopoćani and Gradac. Sopoćani, dedicated to the Holy Trinity, was founded by Stefan Uroš I and built between 1259 and 1270 in the Raška-school style.
-      - Arsenius also took part in the relocation of Saint Sava's relics to the monastery of Mileševa. Sava's relics had been moved from Trnovo in Bulgaria, where he died, to Mileševa in 1236 by King Stefan Vladislav I.
+      - As archbishop, Arsenius crowned King Stefan Uroš I, during whose reign the royal monasteries of Sopoćani and Gradac were built. Sopoćani, dedicated to the Holy Trinity, was founded by Stefan Uroš I and built between 1259 and 1270 in the Raška-school style.
+      - By tradition Arsenius also took part in the relocation of Saint Sava's relics to the monastery of Mileševa. Sava's relics had been moved from Trnovo in Bulgaria, where he died, to Mileševa in 1236 by King Stefan Vladislav I.
   - heading: The Patriarchate of Peć
     body:
       - The monastery complex at Peć was established in the thirteenth century, with Arsenius playing a crucial role in its development. In the first third of the century he had the Church of the Holy Apostles built on the north side of the complex; it was later decorated at his commission, with records placing the work around 1250 or 1260.
@@ -53,8 +53,3 @@ related:
     href: saint/OS-0449
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: Arsenius supported construction of Sopoćani and Gradac.
-    detail: "Wikipedia on Arsenije I says Arsenius 'aided royal monastery construction at Sopoćani and Gradac,' but the dossier's external source on Sopoćani specifically notes: 'The article does not mention Archbishop Arsenius I by name in connection with Sopoćani's construction.' The profile presents Arsenius as actively supporting Sopoćani construction, which is not confirmed by the Sopoćani article and is only asserted by the Arsenije I Wikipedia article. The profile does accurately quote the Sopoćani Wikipedia source in the body ('founded by Stefan Uroš I and built between 1259 and 1270'), but the claim that Arsenius supported it is not independently corroborated. This is partially supported by the anchor (the Arsenije I article mentions it) but the dossier flags the contradiction."
-  - claim: Arsenius took part in the relocation of Saint Sava's relics to Mileševa.
-    detail: "The dossier's Mileševa external source explicitly states: 'No mention of Arsenius I's direct role in this translation appears in the Mileševa Wikipedia article.' The dossier notes only the Arsenije I Wikipedia article asserts this. The profile states it as fact without qualification, but this is not independently corroborated by the Mileševa source."
