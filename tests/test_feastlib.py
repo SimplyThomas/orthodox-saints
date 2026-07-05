@@ -2,7 +2,10 @@
 
 import os
 import sys
+import tempfile
 import unittest
+from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -99,7 +102,11 @@ class TestCycle(unittest.TestCase):
 
 class TestValidate(unittest.TestCase):
     def _validate(self, rows, saint_ids=frozenset({"OS-0001"})):
-        return feastlib.validate(rows, FEAST_VOCAB, set(saint_ids))
+        # Point the profile cross-check at an empty dir: these synthetic rows
+        # must not fail because real src/content/feasts/*.yaml profiles exist.
+        with mock.patch.object(feastlib, "FEAST_PROFILES_DIR",
+                               Path(tempfile.mkdtemp())):
+            return feastlib.validate(rows, FEAST_VOCAB, set(saint_ids))
 
     def test_valid_row_clean(self):
         errors, _ = self._validate([valid_feast()])

@@ -9,6 +9,11 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+try:  # pyyaml is an authoring-only dep (kept out of requirements.txt); skip if absent
+    import yaml as _yaml
+except ModuleNotFoundError:
+    _yaml = None
+
 from tools.feastgen import dossier, emit_one  # noqa: E402
 import feastlib  # noqa: E402
 
@@ -122,6 +127,7 @@ class TestEmitOne(unittest.TestCase):
         self.assertIn("John 1:1", text)
 
 
+@unittest.skipUnless(_yaml is not None, "pyyaml not installed (authoring-only dep)")
 class TestEmitGate(unittest.TestCase):
     def test_write_profile_rejects_bad_id(self):
         from tools.feastgen import emit
