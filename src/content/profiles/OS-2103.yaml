@@ -1,12 +1,12 @@
 id: OS-2103
-lifespan: Abramius c. 296–c. 360; Mary c. 332–c. 397 (4th century, Mesopotamia)
+lifespan: Abramius d. c. 360; Mary d. c. 397 (4th century, Mesopotamia)
 overview:
   - Abramius the Recluse was a fourth-century hermit of Mesopotamia who lived for some fifty years as an enclosed solitary near the city of Edessa, in the village of Chidan. His niece Mary, orphaned at the age of seven, was raised in the outer chamber of his cell and pursued the ascetic life until, around the tenth year of her residence, she was seduced and defiled by a visiting monk. Overwhelmed by shame, she fled and lived for a time in a brothel in another city.
   - Learning where Mary had gone, Abramius disguised himself as a soldier, came to the brothel, revealed his identity, and assured her that repentance was still possible, bringing her back to his monastery. There she devoted the remainder of her life to penitence. The pair are commemorated together on October 29 as an uncle-and-niece commemoration, their story remembered as one of repentance, rescue, and ascetic mercy.
   - Both Abramius and Mary were contemporaries of Saint Ephraim the Syrian, who is recorded as having documented their lives. By later reckoning Abramius is said to have died around 360 and Mary around 397.
 liturgicalTitle: Our Venerable Father Abramius the Recluse and his Niece, the Blessed Mary of Mesopotamia
 timeline:
-  - when: c. 296
+  - when: 4th century
     title: Birth of Abramius
     body: Abramius was born to pious parents in the region of Mesopotamia. His death is later reckoned around the year 360.
   - when: Early adulthood
@@ -18,10 +18,10 @@ timeline:
   - when: During his recluse years
     title: Mission to a pagan village
     body: At a bishop's request, Abramius undertook to evangelize a village that had resisted many earlier priests and monks. He built a church and removed the pagan idols, enduring three years of persecution before, by tradition, roughly a thousand people were converted.
-  - when: c. 332
+  - when: 4th century
     title: Mary comes to his cell
     body: Mary, orphaned at the age of seven when her father died, came under the care of her uncle Abramius and was raised in the outer chamber of his cell, devoting herself to monastic practice.
-  - when: c. 27 (around year 20 of her residence)
+  - when: Around the tenth year of her residence
     title: Mary's fall and flight
     body: Around the tenth year of her residence, Mary was seduced and defiled by a visiting monk. Overcome with shame, she fled to another city and lived for about two years in a brothel.
   - when: After two years
@@ -73,8 +73,3 @@ related:
     href: saint/OS-0031
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The timeline entry labels Mary's fall as occurring 'around year 20 of her residence', but every other part of the profile (and all dossier sources) consistently say it happened around the tenth year of her residence.
-    detail: The dossier external source states 'a visiting monk seduced and defiled her around year ten of her residence.' The profile's own body text (timeline 'Mary's fall and flight' body, and sections 'Mary's Fall and Restoration') also says 'around the tenth year of her residence.' The timeline heading '(around year 20 of her residence)' contradicts both the dossier and the rest of the profile; it is unsupported.
-  - claim: Birth year of Abramius stated as c. 296 and birth year of Mary as c. 332.
-    detail: The OCA dossier source explicitly notes 'No specific birth dates are given in the source.' The external sources give only death years (c. 360, c. 397). The birth dates c. 296 and c. 332 are not grounded in any dossier item; they are inferred estimates presented without qualification in the lifespan field, which is a factual assertion field.

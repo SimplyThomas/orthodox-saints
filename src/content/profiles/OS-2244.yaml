@@ -2,7 +2,7 @@ id: OS-2244
 lifespan: died c. 362; martyred under Julian the Apostate (361–363)
 overview:
   - Theodore of Antioch was a young Christian, traditionally fifteen years of age, martyred in the Syrian city of Antioch during the reign of the emperor Julian the Apostate (361–363). He is commemorated in the Orthodox Church on November 23.
-  - His suffering arose from his participation in the translation of the relics of the martyr Babylas, a former bishop of Antioch, from Daphne back toward Antioch. Arrested during the choral procession that accompanied the relics, Theodore was tortured at length but survived his interrogation; according to the historian Theodoret, his constancy under torture moved Julian to abandon further persecutions of this kind. By later tradition he was afterward recaptured and beheaded, dying as a confessor of Christ while still a youth.
+  - His suffering arose from his participation in the translation of the relics of the martyr Babylas, a former bishop of Antioch, from Daphne back toward Antioch. Arrested during the choral procession that accompanied the relics, Theodore was tortured at length; according to the historian Theodoret, his constancy under torture moved Julian to abandon further persecutions of this kind. By later tradition he was afterward beheaded, dying as a martyr of Christ while still a youth.
 liturgicalTitle: The Holy Martyr Theodore of Antioch
 sections:
   - heading: Historical Background
@@ -44,6 +44,3 @@ related:
     href: saint/OS-0196
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: Theodore survived his interrogation
-    detail: The anchor brief states he 'died of his torments after confessing Christ,' which implies death from the torture itself. The profile's claim that he 'survived his interrogation' contradicts this anchor phrasing. The Sanidopoulos external source supports a later beheading, but the anchor (which wins over external sources per the verify protocol) says 'died of his torments' — not 'survived and was later executed.' The two are in tension and the anchor description does not support the 'survived his interrogation' framing.

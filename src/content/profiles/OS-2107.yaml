@@ -24,7 +24,7 @@ sections:
       - His body was thrown into a river by the Turkish authorities. The Hieromonk Germanos later purchased Timothy's bloodstained clothing and delivered it to his daughters, recounting their father's martyric end; additional clothing was sent to Esphigmenou Monastery.
   - heading: Esphigmenou Monastery
     body:
-      - Esphigmenou Monastery stands on the northeastern coast of Mount Athos. Athonite tradition attributes its founding to the Byzantine emperor Theodosius II and his sister Saint Pulcheria in the 5th century, though this cannot be confirmed by historical or archaeological evidence; the earliest documented references appear in manuscripts from the late 10th or early 11th century, including a letter of 1016.
+      - Esphigmenou Monastery stands on Mount Athos. Athonite tradition attributes its founding to the Byzantine emperor Theodosius II and his sister Saint Pulcheria in the 5th century, though this cannot be confirmed by historical or archaeological evidence; the earliest documented references appear in manuscripts from the late 10th or early 11th century, including a letter of 1016.
       - Over the centuries the monastery received support from rulers including John V Palaiologos, Stefan Dušan, Đurađ Branković, and Tsar Alexis I of Russia, and its southern structures were rebuilt by Patriarch Gregory V of Constantinople in 1797.
   - heading: Veneration
     body:
@@ -58,6 +58,3 @@ related:
     href: saint/OS-1023
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: Esphigmenou Monastery stands on the northeastern coast of Mount Athos
-    detail: The dossier's Wikipedia excerpt on Esphigmenou (external source 4) describes the monastery's history but does not mention 'northeastern coast' or any specific coastal location. This geographic detail is not found anywhere in the dossier and is therefore unsupported.

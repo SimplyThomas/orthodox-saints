@@ -1,12 +1,12 @@
 id: OS-0472
 liturgicalTitle: Our Venerable Father Anthony of Chernoezero
 overview:
-  - Anthony of Chernoezero, also called Anthony of Black Lake, was a monastic founder of the Russian Church commemorated on January 17. He is remembered as the founder of the Mother of God monastery at Black Lake (Chernoezero), located in the Novgorod region not far from Cherepovets.
+  - Anthony of Chernoezero, also called Anthony of Black Lake, was a monastic founder of the Russian Church commemorated on January 17. He is remembered as the founder of the Mother of God monastery at Black Lake (Chernoezero), located in the Novgorod region not far from Chernopovets.
   - "Surviving accounts of his life are sparse: no birth date, death date, or date of glorification is recorded in the available sources, and his biography is limited almost entirely to his role as the monastery's founder. He is traditionally placed in the post-Byzantine period of Russian monasticism."
 sections:
   - heading: The Monastery at Black Lake
     body:
-      - Anthony founded a monastery dedicated to the Mother of God at Black Lake (Chernoezero), in the Novgorod region near the city of Cherepovets. The monastery stood on an island within the Schirsk countryside.
+      - Anthony founded a monastery dedicated to the Mother of God at Black Lake (Chernoezero), in the Novgorod region near the city of Chernopovets. The monastery stood on an island within the Schirsk countryside.
       - "The institution suffered complete destruction twice over the course of its history: first in 1581 at the hands of the Lithuanians, and again in 1682 at the hands of the Swedes. It was ultimately closed in 1764."
   - heading: Sources and Coverage
     body:
@@ -20,6 +20,3 @@ sources:
   - https://en.wikipedia.org/wiki/Anthony_of_Chernoezero
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The monastery was located near the city of Cherepovets
-    detail: The OCA external source states the monastery was 'not far from the city of Chernopovets', not 'Cherepovets'. These are different names. The profile substitutes 'Cherepovets' (a real Russian city in Vologda Oblast) for 'Chernopovets' as given in the dossier's external source. This is an unsupported alteration of a place name.

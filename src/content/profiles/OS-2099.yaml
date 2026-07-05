@@ -20,7 +20,7 @@ sections:
       - His head was reported to have been housed at Provins in France, where Henry I of Champagne established a collegiate church to contain it.
   - heading: Identity and Disambiguation
     body:
-      - The saint commemorated on October 28 is the fourth-century figure associated with the finding of the True Cross and martyred under Julian. He is often misidentified with a separate Cyriacus of Jerusalem, a bishop who, according to a stub tradition, died around 133 AD during a riot. The two are distinct persons.
+      - The saint commemorated on October 28 is the fourth-century figure associated with the finding of the True Cross and martyred under Julian. He is often misidentified with a separate Cyriacus of Jerusalem, a bishop who, according to a stub tradition, died around 133 AD. The two are distinct persons.
       - Cyriacus is also known under several names and epithets, including Judas Cyriacus, Cyriacus of Ancona, Quiriacus, and Kyriakos.
 timeline:
   - when: 4th century
@@ -48,6 +48,3 @@ related:
     href: saint/OS-2751
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: The second Cyriacus of Jerusalem died around 133 AD during a riot.
-    detail: The dossier's external source on Cyriacus of Jerusalem (external[2]) states only 'his death around 133 AD' and 'bishop of Jerusalem.' No source in the dossier mentions a riot. The 'during a riot' detail is not found anywhere in the dossier and appears to be an invention.

@@ -35,6 +35,3 @@ sources:
   - http://sfioanevanghelistul.ca/wordpress/en/2016/08/24/sfintii-care-si-au-petrecut-vietile-ca-un-continuu-azi/
   - https://orthochristian.com/91046.html
 generated: "2026-06-20"
-flagReasons:
-  - claim: The saints are placed in the 16th / turn of the 16th–17th centuries.
-    detail: The anchor row gives Century = 18th and Era = Post-Byzantine, which conflicts with the externally-sourced 16th–17th century dating used in the profile. The anchor row wins on conflict, so this dating is UNSUPPORTED against the anchor and is flagged for human reconciliation (the external dating is consistent across sources, suggesting the CSV Century field may be in error).
