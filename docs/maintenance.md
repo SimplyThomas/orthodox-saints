@@ -17,7 +17,7 @@ each remaining job by hand.
 | Corrections form backend | `workers/report/` (Cloudflare Worker) | Fully documented in `workers/report/README.md`. |
 | Icon tooling | `scripts/` (downloader, thumbs, contact sheet, OG card) | See `scripts/README.md`. |
 
-Frontend style note: new component styles go in scoped `<style>` blocks; `global.css` is tokens + shared primitives only.
+New component styles go in scoped `<style>` blocks; `global.css` is tokens + shared primitives only.
 
 ## What used Claude, and where it stands
 
