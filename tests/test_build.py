@@ -107,15 +107,25 @@ class IdAssignmentTests(unittest.TestCase):
         rows = [valid_row(**{"Saint ID": "OS-0005"}),
                 valid_row(**{"Saint ID": "", "Name": "New A"}),
                 valid_row(**{"Saint ID": "", "Name": "New B"})]
-        changed = build.assign_ids(rows)
+        changed, high = build.assign_ids(rows)
         self.assertTrue(changed)
+        self.assertEqual(high, 7)
         self.assertEqual(rows[1]["Saint ID"], "OS-0006")
         self.assertEqual(rows[2]["Saint ID"], "OS-0007")
 
     def test_assign_noop_when_no_blanks(self):
         rows = [valid_row(**{"Saint ID": "OS-0005"})]
-        self.assertFalse(build.assign_ids(rows))
+        self.assertFalse(build.assign_ids(rows)[0])
         self.assertEqual(rows[0]["Saint ID"], "OS-0005")
+
+    def test_assign_shares_a_seed_across_files(self):
+        # Groups draw from the SAME counter as saints (§6): seeding above the
+        # saint max keeps the two id spaces from ever colliding.
+        grows = [{"saint_id": ""}, {"saint_id": ""}]
+        changed, high = build.assign_ids(grows, "saint_id", seed=42)
+        self.assertTrue(changed)
+        self.assertEqual([r["saint_id"] for r in grows], ["OS-0043", "OS-0044"])
+        self.assertEqual(high, 44)
 
 
 class ValidationTests(unittest.TestCase):
@@ -988,14 +998,15 @@ class GroupTaxonomyTests(unittest.TestCase):
 
     def test_to_record_joins_groups_and_haystack(self):
         sg = {"OS-0001": ["the-twelve"]}
-        gbs = {"the-twelve": {"slug": "the-twelve", "name": "The Twelve Apostles",
+        gbs = {"the-twelve": {"slug": "the-twelve", "saint_id": "OS-2900",
+                              "name": "The Twelve Apostles",
                               "type": "synaxis", "sort": 1}}
         rec = build.to_record(valid_row(), vendors=[], name_variants={},
                               images={}, quotes={}, saint_groups=sg,
                               groups_by_slug=gbs)
         self.assertEqual(rec["groups"],
-                         [{"slug": "the-twelve", "name": "The Twelve Apostles",
-                           "type": "synaxis"}])
+                         [{"slug": "the-twelve", "id": "OS-2900",
+                           "name": "The Twelve Apostles", "type": "synaxis"}])
         self.assertIn("The Twelve Apostles", rec["search"])
 
     def test_to_record_no_groups_key_when_absent(self):
@@ -1208,6 +1219,12 @@ class EmitJsonTests(unittest.TestCase):
         build.PUBLIC = self._old_public
         shutil.rmtree(self._tmp, ignore_errors=True)
 
+    @staticmethod
+    def _saints(records):
+        """The saint records only — emit_data_json also appends one record per
+        committed group (profile_type=="group")."""
+        return [r for r in records if r.get("profile_type") != "group"]
+
     def _rows(self):
         return [
             valid_row(**{"Saint ID": self.SID_B, "Name": "December Saint",
@@ -1221,7 +1238,7 @@ class EmitJsonTests(unittest.TestCase):
         with open(self._tmp / "data.json", encoding="utf-8") as f:
             on_disk = json.load(f)
         self.assertEqual(on_disk, records)
-        self.assertEqual(len(on_disk), 2)
+        self.assertEqual(len(self._saints(on_disk)), 2)
 
     def test_emit_data_json_records_carry_expected_keys(self):
         rec = build.emit_data_json(self._rows())[0]
@@ -1234,7 +1251,7 @@ class EmitJsonTests(unittest.TestCase):
 
     def test_emit_data_json_sorted_by_feast_sort(self):
         records = build.emit_data_json(self._rows())
-        self.assertEqual([r["name"] for r in records],
+        self.assertEqual([r["name"] for r in self._saints(records)],
                          ["January Saint", "December Saint"])
         self.assertEqual([r["feastSort"] for r in records],
                          sorted(r["feastSort"] for r in records))

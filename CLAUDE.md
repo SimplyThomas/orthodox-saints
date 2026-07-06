@@ -270,20 +270,29 @@ rendered in file order:
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a
 **first-class, filterable dimension** of the finder:
-- `data/groups.csv` (`slug,name,type,description,feast,sort`) — one row per group. `slug` is a
-  permanent kebab-case key (the `/group/<slug>` URL + join key). `type` is an enumerated set —
-  **`synaxis`** (a collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs),
-  **`feast-companions`** (distinct individually-venerated saints sharing a principal feast:
-  Peter & Paul, the Three Hierarchs — the §7 split boundary), or **`household`** (a family /
-  kinship unit). `feast` (optional) is a shared feast day; `sort` orders groups.
+- `data/groups.csv` (`slug,saint_id,name,type,description,feast,sort`) — one row per group.
+  `slug` is a permanent kebab-case join key. **`saint_id` is the group's own OS-#### — a group
+  IS a saint-profile** (`profile_type:"group"`), served at `/saint/<saint_id>` with the
+  dedicated **`GroupSaintProfile`** layout. Leave it blank on a new row; the build assigns the
+  next id from the **same OS-#### counter as saints** (§6 — never colliding, never reused), and
+  writes it back (groups.csv is LF, not CRLF). `type` is an enumerated set — **`synaxis`** (a
+  collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs), **`feast-companions`**
+  (distinct individually-venerated saints sharing a principal feast: Peter & Paul, the Three
+  Hierarchs — the §7 split boundary), or **`household`** (a family / kinship unit). `feast`
+  (optional) is a shared feast day; `sort` orders groups.
 - `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
   may reference an **individual OR a still-collective** row, so the taxonomy ships independently
-  of the split backlog. `role`/`order` are optional.
+  of the split backlog; it may also be **blank for a name-only member** (put the name in `role`)
+  — that member is listed without a link. `role`/`order` are optional.
 - The build **fails loud** on a bad `type`, a dangling `group_slug`/`saint_id`, a duplicate slug,
-  or a duplicate membership. Each saint gains `groups` (+ `groupNames` for the facet) in the
-  record; the whole catalog is emitted to `public/groups.json` for the pre-rendered
-  `/group/<slug>` pages. Saint pages show a "Commemorated With" link per group; the finder gains
-  a **Group** facet.
+  a duplicate membership, or a group `saint_id` that collides with a saint/retired id. Each saint
+  gains `groups` (+ `groupNames` for the facet) in the record and a small **"Member of"** section
+  linking to each group's `/saint/<id>` profile; the group's own record carries
+  `profile_type:"group"` + its `members[]` and renders the **"Members of this Group"** list.
+  Group records flow into `public/data.json`, so they appear in the finder, calendar, search, and
+  sitemap — **but are excluded from the patron quiz** (not intercessors). `public/groups.json`
+  drives the redirect of the retired **`/group/<slug>` URLs → `/saint/<saint_id>`** (astro.config).
+  The finder gains a **Group** facet.
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and

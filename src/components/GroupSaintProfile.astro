@@ -1,0 +1,263 @@
+---
+/* Group saint-profile — the layout for a collective commemoration (a synaxis, a
+   household, or a feast-companions set), served at /saint/[groupId] for records
+   with profile_type === "group" (see pages/saint/[id].astro).
+
+   Deliberately NOT the SaintView relationship apparatus: no Family, Companions,
+   Related Saints, or "Commemorated With". A group's whole substance is its
+   members, so the page leads with an expandable "Members of this Group" list.
+   Each member links to their individual /saint/[id] page when a saint_id is
+   present; otherwise it is listed by name with a note that no individual profile
+   exists yet. Members without a resolvable record still render a monogram. */
+import type { Saint } from "../lib/types";
+import EyebrowRule from "./EyebrowRule.astro";
+import { GROUP_TYPE_LABEL } from "../lib/groups";
+import { byId } from "../lib/data";
+import { saintAvatar } from "../lib/icons";
+import { primaryRank } from "../lib/saints";
+import { esc, withBase } from "../lib/format";
+
+interface Props {
+  saint: Saint;
+}
+const { saint } = Astro.props;
+
+const typeLabel = saint.groupType
+  ? (GROUP_TYPE_LABEL[saint.groupType] ?? saint.groupType)
+  : "";
+const members = saint.members ?? [];
+
+// One member card as an HTML string (rendered via <Fragment set:html>): a linked
+// card when the member has an individual saint page, a plain card + note when
+// they do not. A present saint_id is resolved to its record for the real
+// portrait/monogram + rank; otherwise a monogram is drawn from the name.
+const memberCard = (m: { saint_id?: string; name: string; role?: string }) => {
+  const rec = m.saint_id ? byId.get(m.saint_id) : undefined;
+  const avatar = rec
+    ? saintAvatar(rec, 72, 88, { type: primaryRank(rec) })
+    : saintAvatar(
+        { name: m.name.replace(/^(Saint|St\.?|Holy)\s+/i, "") },
+        72,
+        88,
+      );
+  const sub = rec
+    ? primaryRank(rec)
+    : m.saint_id
+      ? ""
+      : "Listed in this group; individual profile not yet created.";
+  const inner =
+    `<span class="gsp-ava">${avatar}</span>` +
+    `<span class="gsp-nm">` +
+    `<span class="gsp-nm-main">${esc(m.name)}</span>` +
+    (sub ? `<span class="gsp-nm-sub">${esc(sub)}</span>` : "") +
+    `</span>`;
+  return m.saint_id
+    ? `<a class="gsp-card" href="${esc(withBase("saint/" + m.saint_id))}">${inner}</a>`
+    : `<div class="gsp-card gsp-card--none">${inner}</div>`;
+};
+---
+
+<main id="saint-detail" class="gsp" data-id={saint.id} data-name={saint.name}>
+  <header class="gsp-head">
+    <p class="gsp-kicker">
+      {typeLabel && <span class="gsp-badge">{typeLabel}</span>}
+      {saint.feast && <span class="gsp-feast">Feast: {saint.feast}</span>}
+    </p>
+    <h1>{saint.name}</h1>
+    <EyebrowRule />
+    {saint.brief && <p class="gsp-desc">{saint.brief}</p>}
+  </header>
+
+  <details class="gsp-members" open>
+    <summary class="gsp-sum">
+      <span class="eyebrow gsp-eb">Members of this Group</span>
+      <span class="gsp-ct">
+        {members.length}
+        {members.length === 1 ? "member" : "members"}
+      </span>
+      <span class="gsp-rule"></span>
+      <span class="gsp-state">
+        <span class="gsp-show">Show</span>
+        <span class="gsp-hide">Hide</span>
+      </span>
+      <svg
+        class="gsp-chev"
+        width="15"
+        height="15"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M4 6l4 4 4-4"></path>
+      </svg>
+    </summary>
+
+    {
+      members.length ? (
+        <ul class="gsp-grid" role="list">
+          {members.map((m) => (
+            <li set:html={memberCard(m)} />
+          ))}
+        </ul>
+      ) : (
+        <p class="gsp-empty">No members are recorded for this group yet.</p>
+      )
+    }
+  </details>
+</main>
+
+<style>
+  .gsp {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  .gsp-head {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .gsp-kicker {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+  }
+  .gsp-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #6b4d2e;
+    background: #f1e4cd;
+    border: 1px solid #d9c39a;
+    border-radius: 999px;
+    padding: 0.18rem 0.7rem;
+  }
+  .gsp-feast {
+    font-size: 0.85rem;
+    color: #6c5836;
+  }
+  .gsp-head h1 {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: 0 0 0.4rem;
+    color: #2a2118;
+  }
+  .gsp-desc {
+    max-width: 42rem;
+    margin: 1rem auto 0;
+    color: #4a3f30;
+    line-height: 1.6;
+  }
+
+  /* Members — the prominent expandable section. */
+  .gsp-members {
+    border: 1px solid #e6d8bd;
+    border-radius: 0.8rem;
+    background: #fbf6ec;
+    padding: 0.4rem 1rem 1rem;
+  }
+  .gsp-sum {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    list-style: none;
+    padding: 0.7rem 0.2rem;
+    color: #6b4d2e;
+  }
+  .gsp-sum::-webkit-details-marker {
+    display: none;
+  }
+  .gsp-eb {
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .gsp-ct {
+    font-size: 0.78rem;
+    color: #8a7350;
+  }
+  .gsp-rule {
+    flex: 1 1 auto;
+    height: 1px;
+    background: linear-gradient(to right, #e0cfa8, transparent);
+  }
+  .gsp-state {
+    font-size: 0.76rem;
+    color: #8a7350;
+  }
+  .gsp-members[open] .gsp-show,
+  .gsp-members:not([open]) .gsp-hide {
+    display: none;
+  }
+  .gsp-chev {
+    transition: transform 0.18s ease;
+    color: var(--gold-deep, #a9832f);
+  }
+  .gsp-members[open] .gsp-chev {
+    transform: rotate(180deg);
+  }
+
+  .gsp-grid {
+    list-style: none;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.6rem;
+  }
+  .gsp-grid :global(.gsp-card) {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #e6d8bd;
+    border-radius: 0.6rem;
+    background: #fffdf8;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+  }
+  .gsp-grid :global(a.gsp-card:hover) {
+    border-color: #c9a456;
+    background: #f6edda;
+  }
+  .gsp-grid :global(.gsp-card--none) {
+    background: #f7f2e6;
+    border-style: dashed;
+  }
+  .gsp-grid :global(.gsp-ava) {
+    flex: 0 0 auto;
+    line-height: 0;
+  }
+  .gsp-grid :global(.gsp-nm) {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .gsp-grid :global(.gsp-nm-main) {
+    font-weight: 600;
+    color: #2a2118;
+    line-height: 1.25;
+  }
+  .gsp-grid :global(.gsp-nm-sub) {
+    font-size: 0.78rem;
+    color: #8a7350;
+    line-height: 1.3;
+  }
+  .gsp-empty {
+    color: #8a7350;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.2rem;
+  }
+</style>
