@@ -562,6 +562,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
 - **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing; `.astro` components render at build time; shared logic in `src/lib/` (TS); client JS is **only** the vanilla TS islands in `src/islands/` (**no React/Vue**). Adding a page = add a file under `src/pages/`. **Witnesses of Our Time** (`/witness/[slug]`, surfaced on `/america`) is a **non-canonical memorial section** for not-yet-glorified figures — kept strictly out of the finder/quiz per §9; memorial pages use no liturgical address.
+- **New styles are component-scoped.** Styles specific to one component go in that
+  component's `<style>` block (Astro scopes them automatically); `src/styles/global.css`
+  is reserved for design tokens (`:root` variables), resets, and genuinely shared
+  primitives (buttons, chips, cards). Do not grow the global sheet with per-component
+  rules — it is already the least navigable file in the repo.
 - **Rich saint profiles** are one YAML file per saint in `src/content/profiles/OS-####.yaml`,
   an Astro **data Content Collection** defined in `src/content.config.ts`; the **Zod schema
   validates every profile at build time** (a bad/incomplete profile fails the build). Each
