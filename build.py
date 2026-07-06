@@ -8,11 +8,29 @@ used only for validation/query, then discarded. Generated output (public/, dist/
 is never committed. See CLAUDE.md and docs/historical/bootstrap.md.
 
 Usage:
-    python build.py                 validate + emit data.json, site, xlsx
+    python build.py                 validate + emit data.json, xlsx
     python build.py --check-only    validate only, exit non-zero on any violation
     python build.py --xlsx-only     emit only the Excel export
     python build.py --sqlite        also emit public/saints.sqlite (read-only artifact)
     python build.py --report        rank icon-less saints by priority (authoring aid)
+
+Map of this file (sections in execution order, each under a dashed banner):
+    load_*()            read the CSVs (saints, vocab, images, quotes, groups, ...)
+    assign_ids()        fill blank Saint IDs with the next OS-#### and
+                        write_saints() the CSV back — the one place source is mutated
+    parse_* / feast_*   feast-string helpers (months, sort key, day-range checks)
+    build_db()          throwaway in-memory SQLite used for validation queries
+    validate()          collect EVERY violation (never stop at the first), plus
+                        warnings; main() exits non-zero if any error
+    report_coverage() / authoring reports printed to stdout (finder coverage,
+    report_priority()   icon-priority ranking) — no files written
+    derive_links()      Google/YouTube search-URL columns (18/19/25)
+    to_record()         one CSV row -> one JSON record (joins images, quotes,
+                        groups, themes, name variants, search haystack)
+    emit_*()            write public/data.json, groups.json, themes.json,
+                        feasts.json (via feastlib), saints.sqlite, dist/*.xlsx
+Feasts & Fasts (data/feasts.csv) is loaded/validated/emitted by feastlib.py,
+orchestrated from main().
 """
 
 from __future__ import annotations
@@ -22,7 +40,6 @@ import csv
 import json
 import os
 import re
-import shutil
 import sqlite3
 import sys
 import unicodedata
@@ -36,7 +53,6 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 SRC = ROOT / "src"
 PROFILES_DIR = SRC / "content" / "profiles"   # per-saint rich profiles (YAML)
-WEB = ROOT / "web"
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
 STATIC = ROOT / "static"  # Astro publicDir; self-hosted icons live in static/icons/
@@ -68,6 +84,8 @@ SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 # (CLAUDE.md §9). Attribution licenses (CC-BY*) additionally require a credit.
 SAINT_IMAGES_HEADER = ["saint_id", "image_path", "license", "credit", "source"]
 OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}  # public-domain / no-rights
+# The accepted-license list as shown in error messages (tests assert on it).
+OPEN_LICENSE_LIST = "PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA"
 
 # Vendor-permission image registry (data/image_permissions.csv). A "used with
 # permission" image is NOT an open license — it is a revocable, per-vendor grant
@@ -108,6 +126,48 @@ def license_ok(lic: str) -> bool:
 
 def license_requires_credit(lic: str) -> bool:
     return lic.strip().upper().startswith("CC-BY")
+
+
+def validate_image_license(where: str, sid: str, lic: str, credit: str,
+                           source: str, permissions: dict[str, dict[str, str]],
+                           *, subject: str, noun: str
+                           ) -> tuple[list[str], list[str]]:
+    """The licensing gate shared by saint_images and saint_depictions rows
+    (CLAUDE.md §9): an accepted open license (with a credit when required) OR
+    a Permission:<vendor> token validated against the permission registry —
+    a revoked vendor warns (the row is excluded from output, not an error).
+    `subject` ("Self-hosted images" / "Depictions") and `noun` ("image" /
+    "depiction") only vary the message wording."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    slug = permission_slug(lic)
+    if not lic:
+        errors.append(f"{where} ({sid}): empty license. {subject} must "
+                      "declare an open license or a Permission:<vendor> "
+                      "token (§9).")
+    elif slug is not None:
+        vendor = permissions.get(slug)
+        if vendor is None:
+            errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
+                          "not in data/image_permissions.csv.")
+        elif vendor.get("status") == "revoked":
+            warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
+                            f"REVOKED — {noun} excluded from output; delete "
+                            f"the file under static/icons/permission/{slug}/.")
+        elif not source:
+            errors.append(f"{where} ({sid}): permission {noun} requires a "
+                          "'source' linking the specific vendor icon page (§9).")
+    elif not license_ok(lic):
+        errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
+                      f"open license ({OPEN_LICENSE_LIST}) or a "
+                      "Permission:<vendor> token.")
+    elif license_requires_credit(lic) and not credit:
+        errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
+                      "(attribution).")
+
+    if not source and slug is None:
+        warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
 
 
 # Saint quotes (data/saint_quotes.csv) join to saints by Saint ID. Each quote
@@ -253,6 +313,11 @@ def assign_ids(rows: list[dict[str, str]]) -> bool:
 
 
 def write_saints(header: list[str], rows: list[dict[str, str]]) -> None:
+    """Rewrite data/saints.csv in place (after assign_ids fills blank IDs).
+
+    The ONLY function that mutates a source-of-truth file. newline="" hands
+    line-ending control to csv.writer, which emits \\r\\n — preserving the
+    file's CRLF convention (CLAUDE.md §7)."""
     with open(SAINTS_CSV, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=header)
         w.writeheader()
@@ -304,6 +369,12 @@ def feast_day_range_errors(feast: str) -> list[str]:
 # --------------------------------------------------------------------------- #
 def build_db(header: list[str], rows: list[dict[str, str]],
              vocab: dict[str, set[str]]) -> sqlite3.Connection:
+    """Load saints + vocabulary into a fresh in-memory SQLite database.
+
+    All columns TEXT, plus two derived: `months` (distinct feast months) and
+    `feast_sort` (earliest fixed date as MM*100+DD; movable-only sorts last).
+    Used for validation/ad-hoc queries and discarded — persisted only when
+    --sqlite emits it as a read-only artifact. Never a source of truth."""
     conn = sqlite3.connect(":memory:")
     cur = conn.cursor()
     cols = [f'"{c}"' for c in header] + ["months", "feast_sort"]
@@ -327,6 +398,13 @@ def build_db(header: list[str], rows: list[dict[str, str]],
 # --------------------------------------------------------------------------- #
 def validate(header: list[str], rows: list[dict[str, str]],
              vocab: dict[str, set[str]]) -> tuple[list[str], list[str]]:
+    """Check every invariant and return (errors, warnings) — all of them.
+
+    Never stops at the first violation, so one run surfaces the full fix list.
+    Errors fail the build (ID format/uniqueness, required fields, vocab terms,
+    feast parsing, image licenses, group/quote/profile referential integrity);
+    warnings are advisory (possible duplicate names, missing thumbs/coverage).
+    Delegates per-file checks to the validate_* helpers below."""
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -722,33 +800,11 @@ def validate_saint_images(valid_ids: set[str],
                                 "cards/finder will load the full-size portrait. "
                                 "Run: python scripts/make_icon_thumbs.py")
 
-            slug = permission_slug(lic)
-            if not lic:
-                errors.append(f"{where} ({sid}): empty license. Self-hosted images "
-                              "must declare an open license or a Permission:<vendor> "
-                              "token (§9).")
-            elif slug is not None:
-                vendor = permissions.get(slug)
-                if vendor is None:
-                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
-                                  "not in data/image_permissions.csv.")
-                elif vendor.get("status") == "revoked":
-                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
-                                    "REVOKED — image excluded from output; delete "
-                                    f"the file under static/icons/permission/{slug}/.")
-                elif not source:
-                    errors.append(f"{where} ({sid}): permission image requires a "
-                                  "'source' linking the specific vendor icon page (§9).")
-            elif not license_ok(lic):
-                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
-                              "CC-BY-SA) or a Permission:<vendor> token.")
-            elif license_requires_credit(lic) and not credit:
-                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
-                              "(attribution).")
-
-            if not source and permission_slug(lic) is None:
-                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+            lic_errors, lic_warnings = validate_image_license(
+                where, sid, lic, credit, source, permissions,
+                subject="Self-hosted images", noun="image")
+            errors.extend(lic_errors)
+            warnings.extend(lic_warnings)
     return errors, warnings
 
 
@@ -837,33 +893,11 @@ def validate_saint_depictions(valid_ids: set[str],
                 errors.append(f"{where} ({sid}): kind {kind!r} is not one of "
                               f"{sorted(DEPICTION_KINDS)}.")
 
-            slug = permission_slug(lic)
-            if not lic:
-                errors.append(f"{where} ({sid}): empty license. Depictions must "
-                              "declare an open license or a Permission:<vendor> "
-                              "token (§9).")
-            elif slug is not None:
-                vendor = permissions.get(slug)
-                if vendor is None:
-                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
-                                  "not in data/image_permissions.csv.")
-                elif vendor.get("status") == "revoked":
-                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
-                                    "REVOKED — depiction excluded from output; delete "
-                                    f"the file under static/icons/permission/{slug}/.")
-                elif not source:
-                    errors.append(f"{where} ({sid}): permission depiction requires a "
-                                  "'source' linking the specific vendor icon page (§9).")
-            elif not license_ok(lic):
-                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
-                              "CC-BY-SA) or a Permission:<vendor> token.")
-            elif license_requires_credit(lic) and not credit:
-                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
-                              "(attribution).")
-
-            if not source and permission_slug(lic) is None:
-                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+            lic_errors, lic_warnings = validate_image_license(
+                where, sid, lic, credit, source, permissions,
+                subject="Depictions", noun="depiction")
+            errors.extend(lic_errors)
+            warnings.extend(lic_warnings)
     return errors, warnings
 
 
@@ -1331,6 +1365,17 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               groups_by_slug: dict[str, dict] | None = None,
               permissions: dict[str, dict[str, str]] | None = None,
               depictions: dict[str, list[dict[str, str]]] | None = None) -> dict:
+    """Transform one saints.csv row into one public/data.json record.
+
+    Joins in everything keyed by the saint's ID — portrait (+thumb), quote,
+    groups, depiction cards, curated/derived links, computed themes — splits
+    multi-value cells into arrays, and builds the `search` haystack (name +
+    facets + name variants) the finder matches against. The optional params
+    are the pre-loaded join tables; emit_data_json() passes them once so the
+    CSVs aren't re-read per row (None = load on demand, used by unit tests).
+    Images from a revoked permission vendor are dropped here (monogram
+    fallback); permission images carry imagePermission/imageVendor fields,
+    open-license images carry imageLicense/imageCredit."""
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
@@ -1493,6 +1538,11 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
 
 
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
+    """Write public/data.json: every saint as a record, sorted by feastSort.
+
+    The Astro build's primary input (src/lib/data.ts reads it from disk at
+    build time). Minified separators; returns the records for reuse by
+    emit_themes_json()."""
     vendors = load_vendors()
     name_variants = load_name_variants()
     images = load_saint_images()
@@ -1532,18 +1582,6 @@ def emit_themes_json(records: list[dict]) -> None:
     shown = sum(1 for c in catalog if c["count"] > 0)
     print(f"  wrote {PUBLIC.relative_to(ROOT)}/themes.json "
           f"({shown}/{len(catalog)} themes populated)")
-
-
-def copy_web():
-    """Colocate the static SPA with data.json so `make serve` works from public/."""
-    if not WEB.exists():
-        return
-    for src in WEB.iterdir():
-        if src.is_file():
-            shutil.copy2(src, PUBLIC / src.name)
-        elif src.is_dir():
-            # e.g. web/assets/ (logo images) — copy the whole subtree.
-            shutil.copytree(src, PUBLIC / src.name, dirs_exist_ok=True)
 
 
 # --------------------------------------------------------------------------- #
@@ -1693,7 +1731,6 @@ def main() -> int:
     emit_themes_json(records)
     emit_groups_json()
     feastlib.emit_feasts_json(f_rows)
-    copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
         emit_xlsx(header, rows, vocab, f_header, f_rows)

@@ -174,6 +174,10 @@ Icon-download scripts load these via `python-dotenv` (`pip install python-dotenv
 
 ## 5. Data model — the 26 columns
 
+> A condensed human-facing version of §5–§7 lives in `docs/data-model.md` (and the
+> no-AI maintenance runbook in `docs/maintenance.md`). **When you change this section
+> or §5a, update docs/data-model.md in the same PR.**
+
 `data/saints.csv` header (exact, in order). Multi-value cells use `"; "` (semicolon-space).
 
 | # | Column | Kind | Notes |

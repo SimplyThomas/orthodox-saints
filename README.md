@@ -79,6 +79,8 @@ mapping in `docker-compose.yml`.
 1. Edit **`data/saints.csv`** (one row per saint, 26 columns), **`data/feasts.csv`**
    (one row per liturgical feast/fast, 19 columns), or **`data/vocabulary.csv`**.
    To use a new controlled-vocabulary term, **add it to `data/vocabulary.csv` first**.
+   Column meanings and editing gotchas (CRLF line endings, the `"; "` separator):
+   [`docs/data-model.md`](docs/data-model.md).
 2. Leave the **Saint ID / Feast ID** blank on a new row — the build assigns the next
    stable `OS-####` / `FF-####` and writes it back. IDs are permanent and never
    reused or renumbered.
@@ -87,9 +89,11 @@ mapping in `docker-compose.yml`.
 4. Open a pull request. `main` is branch-protected: CI (unit tests + `build.py --check-only`)
    must pass before merge, and the site deploys automatically when changes land on `main`.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow and
-[`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing strategy,
-guardrails, and authoring conventions).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow,
+[`docs/data-model.md`](docs/data-model.md) for the hand-editing data reference,
+[`docs/maintenance.md`](docs/maintenance.md) for maintaining the project (including
+entirely without AI tooling), and [`CLAUDE.md`](CLAUDE.md) for the full operating
+contract (data model, sourcing strategy, guardrails, and authoring conventions).
 
 ## Licenses
 
