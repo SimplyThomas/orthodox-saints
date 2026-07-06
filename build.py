@@ -5,7 +5,7 @@ Pipeline:  data/*.csv  ->  in-memory SQLite  ->  validate  ->  emit artifacts.
 
 The CSVs in data/ are the SOURCE OF TRUTH. SQLite is created fresh every run,
 used only for validation/query, then discarded. Generated output (public/, dist/)
-is never committed. See CLAUDE.md and bootstrap.md.
+is never committed. See CLAUDE.md and docs/historical/bootstrap.md.
 
 Usage:
     python build.py                 validate + emit data.json, site, xlsx

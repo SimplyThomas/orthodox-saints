@@ -42,7 +42,6 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ```
 .
 ├── CLAUDE.md                  ← this file
-├── bootstrap.md               ← one-time scaffolding plan (already executed once)
 ├── README.md
 ├── requirements.txt
 ├── Makefile                   ← convenience targets (build, validate, serve, xlsx)
