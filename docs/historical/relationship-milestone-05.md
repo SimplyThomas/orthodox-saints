@@ -93,6 +93,6 @@ Achillius of Larissa; OS-0476 is Cyril of Alexandria) and **re-bucketed three an
 
 - `docs/relationship-standards.md` · `docs/relationship-templates.md` · `docs/relationship-backlog.md`
 - `docs/data-issues.md` (Data Corrections stream) · `docs/changelog/` (entry 005 = OS-0401–0500)
-- `docs/relationship-milestone-01.md` · `-02.md` · `-03.md` · `-04.md`
+- `docs/historical/relationship-milestone-01.md` · `-02.md` · `-03.md` · `-04.md`
 
 **Next phase:** continue in Saint-ID order from OS-0501.

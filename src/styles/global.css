@@ -4,6 +4,59 @@
    (recreated from the Claude Design handoff, applied to the
     live faceted-search SPA)
    ============================================================ */
+
+/* ============================================================
+   TABLE OF CONTENTS — major sections, in file order.
+   Each entry matches a `====` banner below; search the banner
+   text (e.g. "FINDER — faceted") to jump to a section.
+
+    1. Design tokens (:root) + base elements + reusable
+       primitives (buttons, eyebrow rules, gilt corner ticks,
+       type tags, chips, search field)
+    2. Site header (persistent top bar; dropdown navigation)
+    3. HOME — hero
+    4. HOME — "from the cloud" band (saint of day + featured)
+    5. FINDER — faceted search + results
+    6. QUIZ — the one-question-per-screen pilgrimage
+    7. SAINTS OF AMERICA — "A Pilgrimage of Hope"
+    8. HOME — "Saints in the News" band + shuffle button
+    9. ABOUT — "The Story Behind the Project"
+   10. Footer — reverent dark colophon
+   11. SAINTS IN THE NEWS — shared primitives (index + article)
+   12. SEARCH page — reverent hero + gilt refine rail
+   13. SAINT VIEW — legacy full page (icon rail + story column)
+   14. Saint VIEW page — REDESIGN (scoped to .sv2: hero, review
+       band, quick actions, depictions carousel, body grid,
+       record rail, story column, reference apparatus)
+   15. Responsive
+   16. Calendar (/calendar)
+   17. About sub-pages — illuminated reading-column long form
+   18. Feasts & Fasts index (/feasts, /fasts)
+   ============================================================ */
+
+/* Design tokens. The main ones, by role (derived from usage):
+   - --byz / --byz-deep / --byz-ink: the brand blues. --byz is the
+     workhorse (links, primary buttons, chip text/borders);
+     --byz-deep darkens it for headings and dark panels;
+     --byz-ink is the near-black navy for the deepest surfaces.
+   - --byz-green: deep green for eyebrow/section labels that need
+     to read against ivory (used sparingly, e.g. saint-page rails).
+   - --dome / --celest / --celest-soft: secondary blues for muted
+     metadata text and quiet accents (--celest is the common one).
+   - --gold / --gold-deep / --gold-soft: Orthodox gold — focus
+     outlines, ornaments, gilt rules/borders. --gold-deep is the
+     readable-on-light variant; --gold-soft the on-dark variant
+     (header/footer text accents).
+   - --ivory / --ivory-2 / --ivory-3 / --paper: warm page surfaces,
+     light to lighter: --ivory is the page background (and ivory
+     text on dark panels); --paper the lightest card/panel fill.
+   - --ink / --ink-soft: body text on ivory; softened secondary text.
+   - --line / --line-gold: hairline borders (blue-tinted / gilt).
+   - --shadow-*: card/soft/large elevation shadows.
+   - --serif (Cormorant Garamond) = display headings;
+     --text (Spectral) = body copy.
+   - --radius, --maxw, --page-title-size, --page-lede-size: shared
+     geometry — corner radius, page max width, uniform hero type. */
 :root {
   /* palette */
   --byz: #234c7a; /* Deep Byzantine Blue */

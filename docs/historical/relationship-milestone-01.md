@@ -117,7 +117,7 @@ natural hubs.
 - `docs/relationship-standards.md` — rules, guardrails, the historical-accuracy principle.
 - `docs/relationship-templates.md` — official/Core templates (v1.2).
 - `docs/relationship-backlog.md` — Emerging/Candidate templates, groups-to-create, Retroactive Review.
-- `docs/relationship-milestone-01.md` — this report.
+- `docs/historical/relationship-milestone-01.md` — this report.
 
 **Next phase:** continue in Saint-ID order from OS-0101, applying the frozen process; let the
 Emerging and Candidate templates mature toward promotion; work the Retroactive Review list at
