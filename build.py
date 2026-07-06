@@ -68,6 +68,8 @@ SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 # (CLAUDE.md §9). Attribution licenses (CC-BY*) additionally require a credit.
 SAINT_IMAGES_HEADER = ["saint_id", "image_path", "license", "credit", "source"]
 OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}  # public-domain / no-rights
+# The accepted-license list as shown in error messages (tests assert on it).
+OPEN_LICENSE_LIST = "PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA"
 
 # Vendor-permission image registry (data/image_permissions.csv). A "used with
 # permission" image is NOT an open license — it is a revocable, per-vendor grant
@@ -108,6 +110,48 @@ def license_ok(lic: str) -> bool:
 
 def license_requires_credit(lic: str) -> bool:
     return lic.strip().upper().startswith("CC-BY")
+
+
+def validate_image_license(where: str, sid: str, lic: str, credit: str,
+                           source: str, permissions: dict[str, dict[str, str]],
+                           *, subject: str, noun: str
+                           ) -> tuple[list[str], list[str]]:
+    """The licensing gate shared by saint_images and saint_depictions rows
+    (CLAUDE.md §9): an accepted open license (with a credit when required) OR
+    a Permission:<vendor> token validated against the permission registry —
+    a revoked vendor warns (the row is excluded from output, not an error).
+    `subject` ("Self-hosted images" / "Depictions") and `noun` ("image" /
+    "depiction") only vary the message wording."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    slug = permission_slug(lic)
+    if not lic:
+        errors.append(f"{where} ({sid}): empty license. {subject} must "
+                      "declare an open license or a Permission:<vendor> "
+                      "token (§9).")
+    elif slug is not None:
+        vendor = permissions.get(slug)
+        if vendor is None:
+            errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
+                          "not in data/image_permissions.csv.")
+        elif vendor.get("status") == "revoked":
+            warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
+                            f"REVOKED — {noun} excluded from output; delete "
+                            f"the file under static/icons/permission/{slug}/.")
+        elif not source:
+            errors.append(f"{where} ({sid}): permission {noun} requires a "
+                          "'source' linking the specific vendor icon page (§9).")
+    elif not license_ok(lic):
+        errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
+                      f"open license ({OPEN_LICENSE_LIST}) or a "
+                      "Permission:<vendor> token.")
+    elif license_requires_credit(lic) and not credit:
+        errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
+                      "(attribution).")
+
+    if not source and slug is None:
+        warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+    return errors, warnings
 
 
 # Saint quotes (data/saint_quotes.csv) join to saints by Saint ID. Each quote
@@ -722,33 +766,11 @@ def validate_saint_images(valid_ids: set[str],
                                 "cards/finder will load the full-size portrait. "
                                 "Run: python scripts/make_icon_thumbs.py")
 
-            slug = permission_slug(lic)
-            if not lic:
-                errors.append(f"{where} ({sid}): empty license. Self-hosted images "
-                              "must declare an open license or a Permission:<vendor> "
-                              "token (§9).")
-            elif slug is not None:
-                vendor = permissions.get(slug)
-                if vendor is None:
-                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
-                                  "not in data/image_permissions.csv.")
-                elif vendor.get("status") == "revoked":
-                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
-                                    "REVOKED — image excluded from output; delete "
-                                    f"the file under static/icons/permission/{slug}/.")
-                elif not source:
-                    errors.append(f"{where} ({sid}): permission image requires a "
-                                  "'source' linking the specific vendor icon page (§9).")
-            elif not license_ok(lic):
-                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
-                              "CC-BY-SA) or a Permission:<vendor> token.")
-            elif license_requires_credit(lic) and not credit:
-                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
-                              "(attribution).")
-
-            if not source and permission_slug(lic) is None:
-                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+            lic_errors, lic_warnings = validate_image_license(
+                where, sid, lic, credit, source, permissions,
+                subject="Self-hosted images", noun="image")
+            errors.extend(lic_errors)
+            warnings.extend(lic_warnings)
     return errors, warnings
 
 
@@ -837,33 +859,11 @@ def validate_saint_depictions(valid_ids: set[str],
                 errors.append(f"{where} ({sid}): kind {kind!r} is not one of "
                               f"{sorted(DEPICTION_KINDS)}.")
 
-            slug = permission_slug(lic)
-            if not lic:
-                errors.append(f"{where} ({sid}): empty license. Depictions must "
-                              "declare an open license or a Permission:<vendor> "
-                              "token (§9).")
-            elif slug is not None:
-                vendor = permissions.get(slug)
-                if vendor is None:
-                    errors.append(f"{where} ({sid}): permission vendor {slug!r} is "
-                                  "not in data/image_permissions.csv.")
-                elif vendor.get("status") == "revoked":
-                    warnings.append(f"{where} ({sid}): vendor {slug!r} permission is "
-                                    "REVOKED — depiction excluded from output; delete "
-                                    f"the file under static/icons/permission/{slug}/.")
-                elif not source:
-                    errors.append(f"{where} ({sid}): permission depiction requires a "
-                                  "'source' linking the specific vendor icon page (§9).")
-            elif not license_ok(lic):
-                errors.append(f"{where} ({sid}): license {lic!r} is not an accepted "
-                              "open license (PD / PD-art / PD-old / CC0 / CC-BY / "
-                              "CC-BY-SA) or a Permission:<vendor> token.")
-            elif license_requires_credit(lic) and not credit:
-                errors.append(f"{where} ({sid}): license {lic} requires a 'credit' "
-                              "(attribution).")
-
-            if not source and permission_slug(lic) is None:
-                warnings.append(f"{where} ({sid}): no 'source' (provenance) given.")
+            lic_errors, lic_warnings = validate_image_license(
+                where, sid, lic, credit, source, permissions,
+                subject="Depictions", noun="depiction")
+            errors.extend(lic_errors)
+            warnings.extend(lic_warnings)
     return errors, warnings
 
 
