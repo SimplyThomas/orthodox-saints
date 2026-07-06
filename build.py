@@ -13,6 +13,24 @@ Usage:
     python build.py --xlsx-only     emit only the Excel export
     python build.py --sqlite        also emit public/saints.sqlite (read-only artifact)
     python build.py --report        rank icon-less saints by priority (authoring aid)
+
+Map of this file (sections in execution order, each under a dashed banner):
+    load_*()            read the CSVs (saints, vocab, images, quotes, groups, ...)
+    assign_ids()        fill blank Saint IDs with the next OS-#### and
+                        write_saints() the CSV back — the one place source is mutated
+    parse_* / feast_*   feast-string helpers (months, sort key, day-range checks)
+    build_db()          throwaway in-memory SQLite used for validation queries
+    validate()          collect EVERY violation (never stop at the first), plus
+                        warnings; main() exits non-zero if any error
+    report_coverage() / authoring reports printed to stdout (finder coverage,
+    report_priority()   icon-priority ranking) — no files written
+    derive_links()      Google/YouTube search-URL columns (18/19/25)
+    to_record()         one CSV row -> one JSON record (joins images, quotes,
+                        groups, themes, name variants, search haystack)
+    emit_*()            write public/data.json, groups.json, themes.json,
+                        feasts.json (via feastlib), saints.sqlite, dist/*.xlsx
+Feasts & Fasts (data/feasts.csv) is loaded/validated/emitted by feastlib.py,
+orchestrated from main().
 """
 
 from __future__ import annotations
@@ -253,6 +271,11 @@ def assign_ids(rows: list[dict[str, str]]) -> bool:
 
 
 def write_saints(header: list[str], rows: list[dict[str, str]]) -> None:
+    """Rewrite data/saints.csv in place (after assign_ids fills blank IDs).
+
+    The ONLY function that mutates a source-of-truth file. newline="" hands
+    line-ending control to csv.writer, which emits \\r\\n — preserving the
+    file's CRLF convention (CLAUDE.md §7)."""
     with open(SAINTS_CSV, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=header)
         w.writeheader()
@@ -304,6 +327,12 @@ def feast_day_range_errors(feast: str) -> list[str]:
 # --------------------------------------------------------------------------- #
 def build_db(header: list[str], rows: list[dict[str, str]],
              vocab: dict[str, set[str]]) -> sqlite3.Connection:
+    """Load saints + vocabulary into a fresh in-memory SQLite database.
+
+    All columns TEXT, plus two derived: `months` (distinct feast months) and
+    `feast_sort` (earliest fixed date as MM*100+DD; movable-only sorts last).
+    Used for validation/ad-hoc queries and discarded — persisted only when
+    --sqlite emits it as a read-only artifact. Never a source of truth."""
     conn = sqlite3.connect(":memory:")
     cur = conn.cursor()
     cols = [f'"{c}"' for c in header] + ["months", "feast_sort"]
@@ -327,6 +356,13 @@ def build_db(header: list[str], rows: list[dict[str, str]],
 # --------------------------------------------------------------------------- #
 def validate(header: list[str], rows: list[dict[str, str]],
              vocab: dict[str, set[str]]) -> tuple[list[str], list[str]]:
+    """Check every invariant and return (errors, warnings) — all of them.
+
+    Never stops at the first violation, so one run surfaces the full fix list.
+    Errors fail the build (ID format/uniqueness, required fields, vocab terms,
+    feast parsing, image licenses, group/quote/profile referential integrity);
+    warnings are advisory (possible duplicate names, missing thumbs/coverage).
+    Delegates per-file checks to the validate_* helpers below."""
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -1331,6 +1367,17 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               groups_by_slug: dict[str, dict] | None = None,
               permissions: dict[str, dict[str, str]] | None = None,
               depictions: dict[str, list[dict[str, str]]] | None = None) -> dict:
+    """Transform one saints.csv row into one public/data.json record.
+
+    Joins in everything keyed by the saint's ID — portrait (+thumb), quote,
+    groups, depiction cards, curated/derived links, computed themes — splits
+    multi-value cells into arrays, and builds the `search` haystack (name +
+    facets + name variants) the finder matches against. The optional params
+    are the pre-loaded join tables; emit_data_json() passes them once so the
+    CSVs aren't re-read per row (None = load on demand, used by unit tests).
+    Images from a revoked permission vendor are dropped here (monogram
+    fallback); permission images carry imagePermission/imageVendor fields,
+    open-license images carry imageLicense/imageCredit."""
     if vendors is None:
         vendors = load_vendors()
     if name_variants is None:
@@ -1493,6 +1540,11 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
 
 
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
+    """Write public/data.json: every saint as a record, sorted by feastSort.
+
+    The Astro build's primary input (src/lib/data.ts reads it from disk at
+    build time). Minified separators; returns the records for reuse by
+    emit_themes_json()."""
     vendors = load_vendors()
     name_variants = load_name_variants()
     images = load_saint_images()
