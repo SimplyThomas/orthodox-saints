@@ -1,6 +1,6 @@
 id: FF-0029
 overview:
-  - Meatfare Sunday, also known as the Sunday of the Last Judgment, is a pre-Lenten observance of the Orthodox Church whose appointed Gospel reading, Matthew 25:31–46, proclaims Christ's Last Judgment, in which the Son of Man, seated in glory and surrounded by the angels, parts the sheep from the goats according to their works of mercy. On the New (Revised Julian) calendar the day falls on P‒56, two weeks before Great Lent begins on Clean Monday.
+  - Meatfare Sunday, also known as the Sunday of the Last Judgment, is a pre-Lenten observance of the Orthodox Church whose appointed Gospel reading, Matthew 25:31–46, proclaims Christ's Last Judgment, in which the Son of Man, seated in glory and surrounded by the angels, parts the sheep from the goats according to their works of mercy. On the New (Revised Julian) calendar the day falls on P‒56, the second Sunday before Great Lent begins on Clean Monday — eight days before that day.
   - 'It is the third of the preparatory Sundays leading into Great Lent and is served from the Lenten Triodion, the liturgical book that governs the Lenten services. The name "Meatfare" marks its practical significance: it is the last day on which meat is eaten before Pascha, after which the faithful enter the transitional week that immediately precedes the fast.'
   - The observance joins a doctrinal theme—the General Judgment of all humanity—to a disciplinary one—the final relaxation before the intensifying pre-Lenten diet—so that the Church's remembrance of the age to come coincides with the beginning of the body's preparation for the fast.
 history:
@@ -37,8 +37,5 @@ sources:
   - https://www.newadvent.org/cathen/08552a.htm
   - https://www.oca.org/orthodoxy/the-orthodox-faith/doctrine-theology/the-last-things/judgment
   - https://en.wikipedia.org/wiki/Last_Judgment
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: Meatfare Sunday falls on P-56, two weeks before Great Lent begins on Clean Monday.
-    detail: The anchor confirms Begins = P-56. Clean Monday (start of Great Lent) is P-48. P-56 to P-48 is 8 days — one week and one day — not two weeks (14 days). The 'two weeks before' description is arithmetically inconsistent with the anchor's own date token.

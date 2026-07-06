@@ -1,8 +1,8 @@
 id: FF-0056
 overview:
-  - Mid-Pentecost, also called Midfeast or Meso-Pentecost, is an observance of the Paschal season kept on the Wednesday that falls exactly midway between Pascha and Pentecost — the twenty-fifth day after Pascha, the fourth Wednesday after the feast of the Resurrection. Standing at the center of the fifty days, it joins the theme of the empty tomb to the coming descent of the Holy Spirit.
+  - Mid-Pentecost, also called Midfeast or Meso-Pentecost, is an observance of the Paschal season kept on the Wednesday that falls exactly midway between Pascha and Pentecost — the fourth Wednesday after the feast of the Resurrection. Standing at the center of the fifty days, it joins the theme of the empty tomb to the coming descent of the Holy Spirit.
   - The feast draws its name and its principal Gospel from Christ's teaching in the Temple. The reading recounts how, about the middle of the Jewish feast of Tabernacles, Jesus went up and taught, and how He called the thirsty to come to Him for living water. The observance thus celebrates Christ as Teacher, the Messiah who reveals Himself in the midst of the feast.
-  - Though it carries an afterfeast of seven days and is reckoned a Feast of the Lord, Mid-Pentecost does not rank among the Great Feasts of the church year. Its texts are drawn from the Pentecostarion, the book of propers for the period between Pascha and Pentecost, and its hymns blend with the other Paschal-season services through the eight days of its celebration.
+  - Though it carries an afterfeast of seven days and is celebrated with festal solemnity, Mid-Pentecost does not rank among the Great Feasts of the church year. Its texts are drawn from the Pentecostarion, the book of propers for the period between Pascha and Pentecost, and its hymns blend with the other Paschal-season services through the eight days of its celebration.
 history:
   - No documented testimony survives regarding the feast's precise origins, but it was widely known by the fifth century. Peter Chrysologus, Bishop of Ravenna (c. 380-450), described it as a divine festival received from the tradition of the apostolic fathers. It also appears in a homily attributed to John Chrysostom, in sixth-century Antioch under Severus of Antioch, in seventh-century Jerusalem, and in sixth-century Constantinople through a homily by Leontios.
   - "A succession of Church fathers contributed the liturgical texts still associated with the feast: Patriarch Elias of Jerusalem (494-513), Patriarch Anatolios of Constantinople (449-458), Andrew of Crete in the seventh century, John of Damascus in the eighth, and Theophan the Confessor in the ninth."
@@ -41,10 +41,5 @@ sources:
   - https://www.johnsanidopoulos.com/2018/05/history-of-feast-of-mid-pentecost.html
   - https://www.johnsanidopoulos.com/2011/05/feast-of-mid-pentecost.html
   - https://www.johnsanidopoulos.com/2011/05/mid-pentecost-and-hagia-sophia.html
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The feast falls on 'the twenty-fifth day after Pascha,' implying P+25.
-    detail: The anchor's Begins token is P+24, meaning 24 days after Pascha. 'The twenty-fifth day after Pascha' literally reads as P+25. Wikipedia describes it as 'the 25th day after Easter' counting Pascha itself as day 1 (= P+24). The profile's phrasing conflicts with the anchor's validated date token of P+24.
-  - claim: Mid-Pentecost 'is reckoned a Feast of the Lord.'
-    detail: The anchor's Category field is 'Observance,' not 'Feast of the Lord.' The profile's claim that it is 'reckoned a Feast of the Lord' directly contradicts the anchor, which is the ground truth for the controlled-vocabulary Category. Wikipedia's phrasing ('ranking as a Feast of the Lord') comes from the external source, but the anchor wins per the verification rules.

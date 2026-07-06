@@ -22,7 +22,7 @@ scripture:
 hymnography:
   - A full liturgical cycle accompanies the day, with troparia and kontakia proper to the veneration of the Cross. In the Divine Liturgy the Trisagion hymn is replaced by a special refrain sung at the veneration of the Cross, marking the character of the celebration.
 fastingPractice:
-  - The Sunday falls at the midpoint of the forty-day Lenten fast; the veneration is intended to refresh and encourage the faithful as they continue the fast toward Holy Week and Pascha. The observance carries no relaxation of the fast of its own, functioning rather as spiritual encouragement at the fast's center.
+  - The Sunday falls at the midpoint of the forty-day Lenten fast; the veneration is intended to refresh and encourage the faithful as they continue the fast toward Holy Week and Pascha, functioning as spiritual encouragement at the fast's center.
 customs:
   - The Cross is solemnly brought out and venerated, often adorned with flowers, at the end of Matins.
   - The Cross remains in the center of the church through the following Friday, with further venerations on the Monday, Wednesday, and Friday of the Fourth Week of Lent.
@@ -33,8 +33,5 @@ sources:
   - https://en.wikipedia.org/wiki/Exaltation_of_the_Holy_Cross
   - https://www.oca.org/saints/lives/2023/03/19
   - https://www.oca.org/saints/lives/2024/04/07
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The observance carries no relaxation of the fast of its own.
-    detail: No dossier item (anchor or external) explicitly states that this Sunday carries no fasting relaxation. The anchor's Fasting Discipline is blank and Fasting Notes is blank, but the profile turns that absence into a positive assertion ('no relaxation') not grounded in any cited source.

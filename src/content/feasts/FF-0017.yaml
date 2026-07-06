@@ -37,8 +37,8 @@ hymnography:
 iconography:
   - Byzantine iconography of the Dormition depicts the Mother of God lying on a bier surrounded by the Twelve Apostles, with Christ appearing in a mandorla and cradling her soul, shown as an infant or a seraph. The composition expresses the Church's teaching on her repose and her bodily assumption, the theme toward which the fast is directed.
 fastingPractice:
-  - The Dormition Fast is a short but strict fast kept on the pattern of Great Lent, and is stricter than either the Nativity Fast or the Apostles' Fast. The Church's practice is to abstain from red meat, poultry and meat products, dairy, fish, oil, and wine. Fish is permitted only on the feast of the Transfiguration (August 6), and wine and oil are traditionally allowed on weekends.
-  - One traditional pattern of observance keeps strict xerophagy (uncooked food without oil) on Mondays, Wednesdays, and Fridays; cooked food without oil on Tuesdays and Thursdays; and wine and oil on Saturdays and Sundays. Until the Transfiguration, when grapes and apples are blessed in churches, the faithful traditionally abstain from these fruits. Observance varies with pastoral counsel.
+  - The Dormition Fast is a short but strict fast kept on the pattern of Great Lent, and is generally reckoned stricter than either the Nativity Fast or the Apostles' Fast. In its fullest form the season abstains from red meat, poultry and meat products, dairy, fish, oil, and wine, with wine and oil customary on weekends and fish permitted on the feast of the Transfiguration (August 6). Until the Transfiguration, when grapes and other first fruits are blessed in churches, some traditions also keep the faithful from eating those fruits.
+  - The specifics of how strictly the fast is kept — and which relaxations apply on which days — vary between traditions and parishes, and the faithful are directed to their own parish and spiritual father rather than to any fixed table of rules.
 customs:
   - The Paraklesis (supplicatory canon) to the Theotokos is chanted on the evenings of the fast.
   - The blessing of grapes and first fruits accompanies the feast of the Transfiguration on August 6.
@@ -58,8 +58,5 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=dormition+fast
   - https://www.oca.org/saints/lives/2025/08/01
   - https://orthodoxwiki.org/Dormition_of_the_Theotokos
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: "The fastingPractice section describes a day-by-day prescriptive rule: xerophagy on Mon/Wed/Fri, cooked without oil Tue/Thu, wine and oil Sat/Sun."
-    detail: Per verify.md instructions, day-by-day prescriptive rule tables must be flagged — the schema wants descriptive summary only, not a day-by-day prescription. This passage prescribes specific fasting rules for each day of the week, which is the pattern the schema explicitly prohibits.

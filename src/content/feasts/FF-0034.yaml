@@ -35,8 +35,8 @@ scripture:
     note: The prohibition of graven images invoked by the iconoclasts and answered by the defenders of the icons.
   - note: The appointed Epistle discusses faith in unfulfilled promises.
     ref: Hebrews 11
-  - ref: John 1:43–51
-    note: The Gospel emphasizes the fulfillment of the divine promises through Christ's incarnation and the Church.
+  - ref: The appointed Gospel
+    note: The Gospel lesson emphasizes the fulfillment of the divine promises through Christ's incarnation and the Church.
 hymnography:
   - A Canon attributed to St. Theodore the Studite is sung during the procession with the icons. The proper hymns of the day celebrate the restoration of the images and the confession of the true faith, sounding the themes of the Incarnation that underlie the veneration of icons.
 customs:
@@ -66,8 +66,5 @@ sources:
   - https://en.wikipedia.org/wiki/Byzantine_Iconoclasm
   - https://www.newadvent.org/cathen/07620a.htm
   - https://www.oca.org/saints/lives/2023/03/05/100842-1st-sunday-of-great-lent-triumph-of-orthodoxy
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The profile identifies John 1:43–51 as the Gospel reading, citing the fulfillment of divine promises through Christ's incarnation and the Church.
-    detail: No dossier external item names John 1:43–51 as the appointed Gospel. OrthodoxWiki says only that 'the Gospel lesson emphasizes the fulfillment of divine promises through Christ's incarnation and the Church' without identifying the passage. Attributing a specific chapter-and-verse not grounded in the dossier is unsupported.

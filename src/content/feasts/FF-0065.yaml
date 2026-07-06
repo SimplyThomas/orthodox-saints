@@ -21,7 +21,7 @@ scripture:
 iconography:
   - Early Byzantine images of the subject treated it with restraint. In representations such as those of the Menologion of Basil II (979–984), Mary and Joseph are shown with the infant Jesus outside a building as a priest approaches with a knife, the composition deliberately avoiding any graphic depiction of the rite itself. In the later Western tradition the scene became a common subject of altarpieces, and by the Renaissance was frequently painted.
 hymnography:
-  - The hymns of the feast celebrate Christ's voluntary submission to human custom despite His divine nature. The Troparion in the first tone addresses the Lord who willed to be born on earth of the unwedded handmaid, His Mother, and glorifies His condescension as the only Lover of mankind. The Kontakion in the third tone proclaims that the Lord of all accepts to be circumcised, and as the Good One excises the sins of mortal men; it also commemorates St. Basil the Great, whose feast coincides with the day.
+  - The hymns of the feast celebrate Christ's voluntary submission to human custom despite His divine nature. The Troparion in the first tone addresses the Lord who willed to be born on earth of the unwedded handmaid, His Mother, and glorifies His condescension as the only Lover of mankind. The Kontakion in the third tone presents the Lord of all submitting to circumcision and, in His goodness, taking away the sins of mankind; it also commemorates St. Basil the Great, whose feast coincides with the day.
 fastingPractice:
   - January 1 is a fast-free day, falling within the twelve days of the Nativity.
 customs:
@@ -42,8 +42,5 @@ sources:
   - Greek Orthodox Archdiocese (goarch.org)
   - https://en.wikipedia.org/wiki/Circumcision_of_Christ
   - https://orthodoxwiki.org/Circumcision_of_our_Lord
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The Kontakion passage closely reproduces a specific liturgical translation nearly verbatim rather than describing the hymn theme.
-    detail: Possible copyrighted liturgical translation (§9). The phrase 'the Lord of all accepts to be circumcised, and as the Good One excises the sins of mortal men' reproduces nearly verbatim the Kontakion text quoted in the external Orthodox Wiki source ('The Lord of all accepts to be circumcised, Thus, as He is good, excises the sins of mortal men'). This reads as a quoted liturgical translation rather than a described theme or short incipit, and its provenance/copyright status is unverified. The profile should describe the Kontakion's theme without reproducing its translated text.

@@ -21,9 +21,6 @@ timeline:
   - when: 4th century
     title: St. Gregory the Theologian distinguishes the day
     body: St. Gregory the Theologian teaches that the paschal day differentiates the burial and resurrection, while this eighth day "is purely of the new birth," framing Antipascha as a feast of spiritual renewal.
-  - when: "692"
-    title: Council in Trullo, Canon 66
-    body: Canon 66 of the Council in Trullo prescribes that during Bright Week, which Thomas Sunday closes, the faithful should continually repeat psalms, hymns, and spiritual songs, with services sung and daily processions.
 scripture:
   - ref: John 20:19-31
     note: 'The Gospel of the feast: the risen Christ appears to the disciples and, eight days later, to Thomas, who confesses "My Lord and my God."'
@@ -58,8 +55,5 @@ sources:
   - https://www.johnsanidopoulos.com/2011/04/renewal-sunday-eighth-day-after-pascha.html
   - https://www.johnsanidopoulos.com/2017/04/thomas-sunday-resource-page.html
   - https://en.wikipedia.org/wiki/Pentecostarion
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The Council in Trullo took place in 692.
-    detail: The year 692 for the Council in Trullo appears in the timeline entry but is not present in any dossier external item. The Bright Week Wikipedia source mentions Canon 66 without providing a date. This is unsupported parametric history knowledge.

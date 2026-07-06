@@ -36,7 +36,7 @@ timeline:
     title: Displayed in Belgrade
     body: The cincture is displayed at the Cathedral of Saint Sava in Belgrade, drawing tens of thousands of pilgrims daily who receive blessed strips of cloth touched to the relic.
 hymnography:
-  - The hymns of the feast celebrate the enshrinement of the Virgin's precious sash. The Troparion (Tone 8) honors the relic as pertaining to her most honored body, which remained incorrupt through her seedless childbearing, and describes the Theotokos as the one through whom time and nature are renewed, asking peace for her people and great mercy for souls. The Kontakion (Tone 4) frames the event as the enshrinement of the precious sash and acclaims the Virgin as the boast of all Christians. These texts are described here in their sense; the Church's liturgical service provides the full hymnody for the day.
+  - The hymns of the feast celebrate the placing of the Virgin's honored sash in its shrine. The Troparion (Tone 8) venerates the sash as a tangible relic of the Virgin's body, glorified and preserved through her childbearing and Dormition, and hails the Theotokos as the one through whose motherhood the created order is renewed, seeking through her prayers peace and mercy for the faithful. The Kontakion (Tone 4) marks the enshrinement of the honored sash and praises the Virgin as the protection and pride of all Christians. These themes are summarized here; the Church's liturgical service provides the full hymnody for the day.
 iconography:
   - The festal image depicts the deposition of the cincture — its ceremonial placing in its shrine — with the relic itself, kept at Vatopedi in a silver reliquary, as the focus of veneration. Icons of the feast center on the Theotokos and the honored sash that tradition holds she wove of camel hair and gave to the Apostle Thomas.
 customs:
@@ -45,7 +45,7 @@ customs:
 sections:
   - heading: The relic today
     body:
-      - The cincture — also called the zone, belt, sash, or girdle — is housed at Vatopedi Monastery on Mount Athos, where it is held to be the actual belt the Theotokos wore on earth and gave to the Apostle Thomas after her Dormition. It is described as made of camel hair and embroidered in gold by the Byzantine Empress Zoe (978–1050 in one tradition), and it was long kept in the Church of St. Mary of Blachernae in Constantinople before its translation to Athos.
+      - The cincture — also called the zone, belt, sash, or girdle — is housed at Vatopedi Monastery on Mount Athos, where it is held to be the actual belt the Theotokos wore on earth and gave to the Apostle Thomas after her Dormition. It is described as made of camel hair and embroidered in gold by the Byzantine Empress Zoe, wife of Emperor Leo VI, and it was long kept in the Church of St. Mary of Blachernae in Constantinople before its translation to Athos.
       - "The relic exists in three portions: the principal part at Vatopedi, a part gifted by the Serbian ruler Lazar Hrebeljanović and stored in the altar of the monastery's main church, and a third held since 1522 by a monastery on Mount Othrys in Magnesia."
 sources:
   - OCA Synaxarion (oca.org)
@@ -54,12 +54,5 @@ sources:
   - https://www.oca.org/saints/troparia/2013/08/31/103029-deposition-of-the-precious-cincture-of-the-most-holy-theotokos
   - https://en.wikipedia.org/wiki/Girdle_of_Thomas
   - https://en.wikipedia.org/wiki/Vatopedi
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The Troparion (Tone 8) honors the relic as pertaining to her 'most honored body, which remained incorrupt through her seedless childbearing' and describes the Theotokos as the one 'through whom time and nature are renewed', asking peace for her people and great mercy for souls.
-    detail: Possible copyrighted liturgical translation (§9). The OCA external source quotes the Troparion as 'physical relics of your most honored body which remained incorrupt throughout your seedless childbearing' and 'through you time and nature are renewed' — these are close renderings of the troparion text, and the profile's phrasing, while described as hymn theme, closely follows the quoted liturgical translation verbatim enough to risk reproducing copyrighted text. The profile presents these as descriptions of what the Troparion says using language nearly identical to the source translation.
-  - claim: The Kontakion (Tone 4) frames the event as 'the enshrinement of the precious sash' and acclaims the Virgin as 'the boast of all Christians'.
-    detail: Possible copyrighted liturgical translation (§9). The OCA external source quotes the Kontakion as 'the enshrinement of your precious sash' and describes the Virgin as 'boast of all Christians.' The profile's phrasing closely mirrors the specific wording of the OCA's liturgical translation rather than merely describing the hymn's theme.
-  - claim: The profile describes the Empress Zoe associated with embroidering the relic as having dates '978–1050 in one tradition' in the sections body.
-    detail: "The dossier anchor and the Wikipedia external source both identify the Empress Zoe who embroidered the cincture as the wife of Emperor Leo VI who died in 899 — not a different Empress Zoe with dates 978–1050 (who would be the wife of Constantine VIII and mother-in-law of emperors, a much later figure). The profile inconsistently gives two different identifications of Empress Zoe: in the history section it correctly states 'Empress Zoe (died 899), wife of Emperor Leo VI,' but in the 'relic today' section it states 'embroidered in gold by the Byzantine Empress Zoe (978–1050 in one tradition),' which would be a different Empress Zoe. The Girdle of Thomas Wikipedia article also mentions 'Byzantine Empress Zoe (978–1050),' creating an apparent conflict between sources, but the anchor's source (the Wikipedia Cincture article) clearly attributes this to the Zoe who died 899. Presenting the later dates as a valid alternative 'tradition' while the anchor is clear is unsupported."

@@ -16,7 +16,7 @@ meaning:
 scripture:
   - ref: Matthew 17:1–8
     note: The Transfiguration account, read at the Divine Liturgy.
-  - ref: Mark 9:2–013
+  - ref: Mark 9:2–13
     note: The Synoptic account of the event.
   - ref: Luke 9:28–36
     note: The Synoptic account; read at Matins.
@@ -49,8 +49,5 @@ sources:
   - https://orthodoxwiki.org/Transfiguration
   - https://en.wikipedia.org/wiki/Feast_of_the_Transfiguration
   - https://en.wikipedia.org/wiki/Transfiguration_of_Jesus_in_Christian_art
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The scripture reference for Mark is given as 9:2–013, which is a malformed citation.
-    detail: The correct citation is Mark 9:2–13. The profile contains a typographic error ('013' instead of '13') that produces an invalid scripture reference. All dossier external sources cite this passage as Mark 9:2–13 (or 9:2–9).

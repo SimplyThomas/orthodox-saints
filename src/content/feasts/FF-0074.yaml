@@ -19,7 +19,7 @@ scripture:
     note: The renewal of the promise to Abraham after the binding of Isaac.
   - ref: Hebrews 11:9–40
     note: The Epistle reading, on the Old Testament saints who lived by faith.
-  - ref: Matthew 1:1–25
+  - ref: Matthew (the genealogy of Christ)
     note: The Gospel reading on the genealogy of Christ, tracing his ancestry according to the flesh.
 hymnography:
   - The proper hymns of the day set out the meaning of the commemoration. The Apolytikion is appointed in the Second Tone (the Phrygian mode) and speaks of how God justified the forefathers through faith and, through their descendants, established the Church of the Gentiles. The Kontakion, in the Plagal of the Second Tone, turns to the Three Holy Youths, recalling those who did not worship the graven image and who were glorified in a trial by fire — an image of faith proved and preserved amid persecution. Proper troparia and kontakia for the observance are provided in the service books alongside the lives of the commemorated righteous.
@@ -38,8 +38,5 @@ sources:
   - https://orthodoxwiki.org/Sunday_of_the_Forefathers
   - https://www.johnsanidopoulos.com/search?q=sunday+of+holy+forefathers
   - https://www.oca.org/saints/lives/2023/12/17
-status: flagged
+status: draft
 generated: "2026-07-05"
-flagReasons:
-  - claim: The Gospel reading is Matthew 1:1–25 on the genealogy of Christ.
-    detail: No dossier item specifies verse numbers. johnsanidopoulos says only 'The Gospel reading focuses on Christ's genealogy from Matthew's account' without citing a verse range. The exact boundary '1–25' (which extends beyond the genealogy proper at 1:1–17 into the Nativity narrative at 1:18–25) is not confirmed by any external source in the dossier and may reflect parametric knowledge.
