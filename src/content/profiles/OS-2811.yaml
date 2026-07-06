@@ -40,7 +40,7 @@ sections:
   - heading: Abbot of Iona
     body:
       - Adomnán probably joined a Columban monastery around 640 and entered the community at Iona during or after the abbacy of Ségéne (d. 652). In 679 he became the ninth abbot of Iona, the monastery founded by his kinsman Columba, succeeding Failbe and preceding Conamail. As abbot he led the mother house of a monastic network that shaped the religious life of the Gaelic and Pictish worlds.
-      - Through his Northumbrian contacts Adomnán was persuaded by Abbot Ceolfrith to adopt the Roman method of calculating the date of Easter. As Bede implies, his own long absences from Iona weakened his authority to bring his monks with him, and the change provoked a schism within the community that outlasted his abbacy. Beyond Iona he intervened in the political affairs of his day, scolding King Fínsnechta Fledach over a Leinster tribute dispute around 692.
+      - Through his Northumbrian contacts Adomnán was persuaded by Abbot Ceolfrith to adopt the Roman method of calculating the date of Easter. As Bede implies, his own long absences from Iona weakened his authority to bring his monks with him, and the change provoked a schism within the community. Beyond Iona he intervened in the political affairs of his day, scolding King Fínsnechta Fledach over a Leinster tribute dispute around 692.
   - heading: The Law of the Innocents
     body:
       - Adomnán's most enduring legacy is the Cáin Adomnáin, the "Law of the Innocents," proclaimed in 697 at the Synod of Birr before a gathering of Gaelic and Pictish notables. His kinship with Loingsech mac Óengusso, the King of Tara, helped him win support across Ireland's divided regions, and the timing may have commemorated the centenary of Columba's death.
@@ -64,6 +64,3 @@ sources:
   - https://en.wikipedia.org/wiki/C%C3%A1in_Adomn%C3%A1in
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The Easter-dating schism at Iona outlasted his abbacy
-    detail: The external source (Wikipedia) states only that Adomnán's adoption of Roman Easter dating 'led to a schism at Iona' and that his long absences 'undermined his authority to persuade his own monks to change.' No source in the dossier states the schism outlasted his abbacy; this is an inference added by the profile not grounded in any dossier item.

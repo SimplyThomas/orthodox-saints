@@ -5,8 +5,7 @@ overview:
   - Raised from childhood at Maubeuge under the care of her aunt Saint Aldegonde, the abbey's foundress, Aldetrude succeeded her as abbess after Aldegonde's death in 684. She was in turn followed in that office by her sister Saint Madelberta. She is commemorated on February 25 (February 27 in some sources).
   - Her surviving biography is regarded as unreliable, and the sources preserve a wide discrepancy in her dating of roughly 170 years, some placing her death about 526 and others about 696.
 liturgicalTitle: Our Venerable Mother Aldetrude, Abbess of Maubeuge
-patronage:
-  - Maubeuge Abbey
+patronage: []
 timeline:
   - when: "661"
     title: Foundation of Maubeuge
@@ -36,6 +35,3 @@ sources:
   - https://en.wikipedia.org/wiki/Aldegonde
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Aldetrude is the patron of Maubeuge Abbey
-    detail: The patronage field asserts Aldetrude is patron of Maubeuge Abbey, but no source in the dossier supports this. The external sources consistently describe her as the second abbess of that monastery, not its patron saint. The patron-saint role for Maubeuge is not attributed to Aldetrude in any source; the foundress Aldegonde would be the more natural candidate. Being an abbess does not constitute patronage.

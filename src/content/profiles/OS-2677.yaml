@@ -7,7 +7,6 @@ overview:
 liturgicalTitle: The Holy Hieromartyr Telesphorus, Pope of Rome
 patronage:
   - Bishop of Rome
-  - Pre-Nicene martyrs
 timeline:
   - when: c. 126
     title: Becomes Bishop of Rome
@@ -43,6 +42,3 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=Telesphorus
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Patronage assigned to 'Pre-Nicene martyrs'
-    detail: No source in the dossier attributes to Telesphorus a specific patronage over or invocation by 'Pre-Nicene martyrs'. This category is not mentioned anywhere in the anchor, Wikipedia, Catholic Encyclopedia, or johnsanidopoulos entries. It appears to be an invented editorial designation without source grounding.

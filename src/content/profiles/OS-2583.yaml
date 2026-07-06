@@ -23,7 +23,7 @@ timeline:
   - when: 1st century
     title: House in Jerusalem
     body: Mary maintains a house in Jerusalem that serves as a gathering place for the apostles and the earliest Christian community.
-  - when: c. AD 44
+  - when: 1st century
     title: Peter's visit after deliverance
     body: Following his escape from Herod's prison, Peter goes to Mary's house, where many believers are gathered in prayer (Acts 12:12).
   - when: 5th–6th century
@@ -40,6 +40,3 @@ sources:
   - https://en.wikipedia.org/wiki/Barnabas
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Peter's visit to Mary's house is dated 'c. AD 44' in the timeline
-    detail: Neither the anchor row nor any dossier external item provides or implies this specific year. The dossier references Acts 12:12 but gives no date for the event. 'c. AD 44' is a concrete historical date claim that lacks grounding in the supplied dossier.

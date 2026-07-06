@@ -27,7 +27,7 @@ timeline:
   - when: "1145"
     title: See of Kiev left vacant
     body: Metropolitan Michael of Kiev dies, leaving the metropolitan see vacant and setting the stage for a disputed succession.
-  - when: c. 1147
+  - when: After 1145
     title: Irregular appointment of Clement
     body: Grand Prince Isiaslav appoints the schemamonk Clement (Clement Smolyatich) as metropolitan without patriarchal approval, an act criticized by Archbishop Nifont of Novgorod as contrary to Russian Church tradition.
   - when: "1155"
@@ -52,6 +52,3 @@ sources:
   - https://www.oca.org/saints/lives/2026/06/05
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: Timeline entry dates Clement's irregular appointment to 'c. 1147'.
-    detail: The dossier does not provide a date for Clement's appointment. External source 3 notes the see was vacant after 1145 and that Isiaslav appointed Clement, but gives no year. 'c. 1147' is not attested in any dossier source and appears to be an inference not grounded in the provided material.

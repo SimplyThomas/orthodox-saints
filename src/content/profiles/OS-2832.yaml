@@ -28,7 +28,7 @@ timeline:
     body: Pope Gregory I dispatched Mellitus to England in June as reinforcement for Augustine's mission, traveling through Gaul with books, supplies, and papal letters of introduction.
   - when: "604"
     title: First Bishop of London
-    body: Augustine consecrated Mellitus as the first Bishop of London; he baptized Sæberht's nephew, enabling the bishopric's establishment.
+    body: Augustine consecrated Mellitus as the first Bishop of London; he baptized Sæberht, nephew of the East Saxon king, enabling the bishopric's establishment.
   - when: "610"
     title: Papal council in Italy
     body: Mellitus attended a papal council in Italy and returned bearing papal letters for the leaders of the English church.
@@ -53,6 +53,3 @@ sources:
   - https://orthodoxwiki.org/Mellitus
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: In the 604 timeline entry, Mellitus baptized Sæberht's nephew (implying the baptized person was Sæberht's nephew, not Sæberht himself)
-    detail: The dossier (Wikipedia) states Mellitus baptized Sæberht, who was the East Saxon king's nephew — not Sæberht's nephew. The profile's own section body correctly reads 'He baptized Sæberht, nephew of the East Saxon king'; the timeline inverts the relationship, making 'Sæberht's nephew' a different (unattested) person.

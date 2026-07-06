@@ -1,6 +1,6 @@
 id: OS-1305
 overview:
-  - Gelasius is venerated as a martyr of the early Church, commemorated on June 6. According to the surviving account, he lived during a period of fierce persecution, gave away all his property and possessions to the poor, and devoted himself to comforting fellow Christians who were imprisoned and facing martyrdom.
+  - Gelasius is venerated as a martyr, commemorated on June 6. According to the surviving account, he lived during a period of fierce persecution, gave away all his property and possessions to the poor, and devoted himself to comforting fellow Christians who were imprisoned and facing martyrdom.
   - Few details of his life are preserved. No geographical location, historical dates, or century are recorded in the sources, and he is described even in the synaxarion as a saint of whom little further is known. He was tried before a governor, confessed Christ, and was put to death by beheading.
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
@@ -21,6 +21,3 @@ sections:
       - No Wikipedia biographical article exists for this June 6 martyr; the various other figures named Gelasius listed in reference works do not correspond to him. The Greek Great Synaxaristes lists him for June 6 as 'The Holy Martyr Gelasius,' and the liturgical calendar notes his martyrdom 'by beheading.'
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The profile describes Gelasius as 'a martyr of the early Church,' implying a specific early historical era, but the anchor row sets Era to 'Unknown' and Century to blank; no source pins him to any particular period.
-    detail: The anchor row explicitly records Era as 'Unknown' and leaves Century blank. The OCA source says only that he lived 'during a time of fierce persecution' without specifying a period. 'Early Church' implies a particular historical era (typically pre-Nicene or pre-4th century) that is not grounded in any dossier source and contradicts the anchor's 'Unknown' era designation.

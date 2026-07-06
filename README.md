@@ -17,8 +17,9 @@ job, grief, a place, a life experience — to saints through controlled-vocabula
 
 ```
 data/saints.csv ──┐
-                  ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
+data/feasts.csv ──┼─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
 data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
+                                                           ├─ public/feasts.json (feasts/fasts + Pascha table)
                                                            ├─ public/saints.sqlite (optional)
                                                            └─ dist/Orthodox_Saints_Database.xlsx
 src/ (Astro SSG)   ── imports public/data.json at build ──► _site/ (static HTML per page + per saint)
@@ -75,10 +76,12 @@ mapping in `docker-compose.yml`.
 
 ## Contribute
 
-1. Edit **`data/saints.csv`** (one row per saint, 26 columns) or **`data/vocabulary.csv`**.
+1. Edit **`data/saints.csv`** (one row per saint, 26 columns), **`data/feasts.csv`**
+   (one row per liturgical feast/fast, 19 columns), or **`data/vocabulary.csv`**.
    To use a new controlled-vocabulary term, **add it to `data/vocabulary.csv` first**.
-2. Leave the **Saint ID** blank on a new row — the build assigns the next stable
-   `OS-####` and writes it back. IDs are permanent and never reused or renumbered.
+2. Leave the **Saint ID / Feast ID** blank on a new row — the build assigns the next
+   stable `OS-####` / `FF-####` and writes it back. IDs are permanent and never
+   reused or renumbered.
 3. Run `make validate` — it must report **CLEAN** (zero violations) before you open a PR
    (and `make test` if you changed `build.py`).
 4. Open a pull request. `main` is branch-protected: CI (unit tests + `build.py --check-only`)

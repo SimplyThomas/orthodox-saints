@@ -2,14 +2,14 @@ id: OS-2865
 lifespan: Died c. 540–544
 overview:
   - Seridos (Seridus) was a sixth-century monastic founder and abbot in the region of Thabatha, a village about five miles south of Gaza in Palestine. The coenobitic monastery he established, surrounded by hermits' cells, became one of the most influential centers of monastic spirituality in the late-antique Holy Land.
-  - His enduring significance lies in his role as intermediary for the two great recluses who lived beside his monastery, Saints Barsanuphius the Great and John the Prophet. Because Barsanuphius did not know Greek, Seridos transcribed his counsels; these transcribed replies to the questions of monks and laypeople became the classic collection known as the Questions and Answers, of which over 850 letters survive.
+  - His enduring significance lies in his role as intermediary for the two great recluses who lived beside his monastery, Saints Barsanuphius the Great and John the Prophet. Because Seridos did not know Coptic, he recorded Barsanuphius's counsels in Greek; these transcribed replies to the questions of monks and laypeople became the classic collection known as the Questions and Answers, of which over 850 letters survive.
   - Seridos is commemorated on August 13, together with the wider circle of the Gaza monastery, which also formed Saints Dorotheus of Gaza and his disciple Dositheus.
 liturgicalTitle: Our Venerable Father Seridos, Abbot of the Monastery near Gaza
 sections:
   - heading: Historical Context
     body:
       - In the early sixth century the hermit Barsanuphius settled in the hilly region of Thabatha near Gaza. The monastery of Seridos stood nearby and became instrumental in supporting the recluse and the monastic community that gathered around him. Seridos served as its abbot and as the mediator between Barsanuphius, who remained in strict seclusion, and those who sought his counsel.
-      - Because Barsanuphius did not know Greek, Seridos recorded his answers in that language, making the abbot the indispensable link between the Great Old Man and the outside world. The founding of the monastery is associated with the reign of the Emperor Justin I (518–527).
+      - Because Seridos did not know Coptic, he recorded Barsanuphius's answers in Greek, making the abbot the indispensable link between the Great Old Man and the outside world. The founding of the monastery is associated with the reign of the Emperor Justin I (518–527).
   - heading: The Monastery and Its Circle
     body:
       - Between 525 and 527, John the Prophet arrived at the monastery as Barsanuphius's disciple. John took up a teaching role parallel to Seridos's function of mediation and became the spiritual teacher of Dorotheus of Gaza. Together the two hermits produced the more than 850 surviving letters that offered spiritual direction on matters ranging from the practical to the theological.
@@ -40,8 +40,3 @@ sources:
   - https://www.johnsanidopoulos.com/search/label/Seridos
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile states the transcription was necessary because Barsanuphius did not know Greek.
-    detail: "The dossier external source (Wikipedia, Barsanuphius of Gaza) states the opposite: 'Since Seridus did not know Coptic, he recorded the answers in Greek.' The direction of the language barrier is reversed — the dossier says it was Seridus who lacked Coptic, not Barsanuphius who lacked Greek. These are contradictory claims about different people lacking different languages."
-  - claim: Same language-barrier claim repeated in the Historical Context section.
-    detail: Repeated unsupported claim. The dossier (Wikipedia) says 'Since Seridus did not know Coptic, he recorded the answers in Greek' — the reason stated in the profile contradicts the dossier on both who lacked which language.

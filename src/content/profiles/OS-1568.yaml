@@ -1,11 +1,11 @@
 id: OS-1568
-lifespan: 14th century (traditional; some later accounts place her birth around 1500)
+lifespan: Uncertain — 14th century by tradition, or around 1500 by later accounts
 liturgicalTitle: The Holy Virgin-Martyr Markella of Chios
 overview:
-  - Markella of Chios (also spelled Marcella) is venerated in the Orthodox Church as a virgin-martyr of the island of Chios, Greece. By the most widely received tradition she lived in the 14th century in the village of Volissos, during a period when Chios was under Genoese rule.
+  - Markella of Chios (also spelled Marcella) is venerated in the Orthodox Church as a virgin-martyr of the island of Chios, Greece. By tradition she lived at the village of Volissos, in a period given variously as the 14th century or, by later accounts, around 1500, when Chios was under Genoese rule.
   - Raised in the Christian faith by her devout mother, Markella was, according to her vita, slain by her own father when she fled to preserve her chastity. She is honored as a virgin-martyr who chose death over sin, and she is regarded as the patron saint of Chios. Her feast is kept on July 22.
 timeline:
-  - when: 14th century
+  - when: 14th century or c. 1500
     title: Birth at Volissos
     body: By the received tradition, Markella is born in the village of Volissos on Chios, then under Genoese rule. Her father served as the village mayor.
   - when: Youth
@@ -39,6 +39,3 @@ sources:
   - https://orthodoxwiki.org/Markella_of_Chios
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The profile asserts Markella's traditional date as '14th century', which conflicts with the anchor row's Era field of 'Post-Byzantine' (post-1453). The 14th century is the Byzantine period, not Post-Byzantine.
-    detail: The anchor row sets Era='Post-Byzantine' and leaves Century blank. The profile elevates '14th century' as the primary/traditional date in the lifespan field and throughout the profile. The 14th century (1300s) is the Byzantine period, not Post-Byzantine (post-1453). The anchor's Era designation must win on conflict (per verify.md rule (a)). The dossier external sources themselves note that the chronology is uncertain and contradictory ('The chronology is uncertain — her birth date was estimated around 1500 AD in the 1860s, though this contradicts earlier accounts placing her in the 14th century'), but the anchor's Era field — 'Post-Byzantine' — points to after 1453, which would align with the c. 1500 estimate, not the 14th-century tradition. The profile treats 14th century as primary and c. 1500 as a minority variant, which inverts the implication of the anchor row.

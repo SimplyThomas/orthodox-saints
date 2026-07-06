@@ -2,7 +2,7 @@ id: OS-2856
 lifespan: died c. 1460 (mid-15th century)
 liturgicalTitle: Our Venerable Father Abraham, Abbot of Paleostrov
 overview:
-  - "Abraham of Paleostrov (Russian: Авраамий Палеостровский; also known as Avraamy Olonetsky) was a fifteenth-century Russian monastic who served as hegumen (abbot) of the Monastery of the Nativity of the Blessed Virgin Mary at Paleostrov, on Paley Island in Lake Onega. He was a disciple of Saint Cornelius of Paleostrov, the monastery's founder, and one of his successors in the guidance of the community."
+  - "Abraham of Paleostrov (Russian: Авраамий Палеостровский; also known as Avraamy Olonetsky) was a fifteenth-century Russian monastic who served as hegumen (abbot) of the Monastery of the Nativity of the Blessed Virgin Mary at Paleostrov, on Paley Island in Lake Onega. He was a disciple and co-founder, with Saint Cornelius of Paleostrov, of the monastery, and one of his successors in the guidance of the community."
   - Abraham arrived at the settlement after Cornelius had established himself in a cave on the island, took part in building up the monastery, and was appointed by Cornelius as his successor during the founder's lifetime. He died in the middle of the fifteenth century, about 1460, and is venerated as a saint of the Russian Orthodox Church, commemorated on August 21 (September 3 New Style).
 timeline:
   - when: c. 1415–1421
@@ -40,6 +40,3 @@ sources:
   - https://www.oca.org/saints/lives/2026/08/21
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Profile portrays Cornelius as 'the monastery's founder' and frames Abraham solely as a disciple, implicitly denying Abraham's co-founder status
-    detail: The anchor explicitly says Abraham was 'Disciple and co-founder, with St. Cornelius, of the Paleostrov monastery.' The profile consistently attributes founding solely to Cornelius ('the monastery's founder' in the overview; 'Saint Cornelius of Paleostrov founds the Monastery' in the timeline; 'he founded the monastery and served as its first abbot' in the sections), while positioning Abraham as merely a disciple who arrived later. This contradicts the anchor's 'co-founder' description. Per verify.md, the anchor row wins.

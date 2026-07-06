@@ -35,7 +35,7 @@ sections:
   - heading: From Court to Cloister
     body:
       - Benedict was raised at the Frankish court, educated under Pippin the Younger and taken into the service of Charlemagne, whom he accompanied on the Italian campaign of 773. His decision to enter the monastic life followed a brush with death in the Ticino River, after which he entered the Abbey of Saint-Seine.
-      - There he embraced a rigorous asceticism and immersed himself in the Rule of Saint Benedict. When the community resisted his severity — and reportedly declined to elect him after his time as abbot — he withdrew to his family's lands in Languedoc, first as a hermit and then as the founder of a new community at Aniane around 779.
+      - There he embraced a rigorous asceticism and immersed himself in the Rule of Saint Benedict. When the community resisted his severity, he withdrew to his family's lands in Languedoc, first as a hermit and then as the founder of a new community at Aniane around 779.
   - heading: The Reformer of Frankish Monasticism
     body:
       - Aniane flourished and became the model and centre of the monastic reform introduced under Louis the Pious. When Louis was King of Aquitaine he entrusted Benedict with reforming the monasteries of his realm, and as emperor Louis made him his chief adviser on monastic affairs, charging him to coordinate a common observance throughout the imperial domains.
@@ -51,6 +51,3 @@ sources:
   - https://orthodoxwiki.org/Benedict_of_Aniane
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: The monks at Saint-Seine 'reportedly declined to elect him after his time as abbot'
-    detail: "No dossier source mentions a refused election. Wikipedia says only: 'Finding the monks resistant to his strict practices, he departed.' He had already become abbot per Wikipedia, so there is no basis for a subsequent refusal to elect him. The 'reportedly' hedge smuggles in a specific claim — a failed re-election — that is absent from all external sources. This is an unsupported invention."

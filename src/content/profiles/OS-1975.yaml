@@ -1,6 +1,6 @@
 id: OS-1975
 overview:
-  - The 99 Holy Fathers of Crete were a community of ninety-nine ascetics who, according to tradition, gathered under the leadership of a wonderworking monk named John and settled near Azogires in western Crete. Church records place their activity most probably in the 14th century.
+  - The 99 Holy Fathers of Crete were a community of ninety-nine ascetics who, according to tradition, gathered under the leadership of a wonderworking monk named John and settled near Azogires in Crete. Church records place their activity most probably in the 14th century.
   - "By tradition the community assembled in stages during a journey toward Crete: John began in Egypt with a group of companions, further ascetics joined in Cyprus, and still more in Attaleia (modern Antalya), until the number reached ninety-nine. Settling in the caves near Azogires, they eventually built a monastery there."
   - Their leader John was renowned for extraordinary devotion in prayer and is remembered as a wonderworker. The fathers are commemorated together on October 7 (October 20 on the Julian calendar), their feast having been formally established in 1632 by Patriarch Cyril Loukaris.
 lifespan: 14th century (traditional)
@@ -17,7 +17,7 @@ timeline:
     body: During a violent storm the fathers stopped at the island of Gavdos, where tradition holds they remained for twenty-four days before continuing toward Crete.
   - when: Settlement
     title: Azogires
-    body: The fathers settled in the caves near Azogires in western Crete and in time built a monastery. John later withdrew to live as a solitary hermit.
+    body: The fathers settled in the caves near Azogires in Crete and in time built a monastery. John later withdrew to live as a solitary hermit.
   - when: "1632"
     title: Feast established
     body: Patriarch Cyril Loukaris officially established the feast of the fathers on October 7.
@@ -44,6 +44,3 @@ sources:
   - https://en.wikipedia.org/wiki/October_7_(Eastern_Orthodox_liturgics)
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The fathers settled near Azogires in western Crete.
-    detail: No dossier source uses the qualifier 'western.' External 2 says 'to Azogires in Crete' and 'settled near Azogires in caves' without any directional qualifier. The anchor's Region of Origin is simply 'Greece.' 'Western Crete' is an addition not found in any supplied source.

@@ -5,7 +5,7 @@ patronage:
   - County Kerry
   - St Erth (Cornwall)
 overview:
-  - Saint Erc of Slane (Erc mac Dega; Latin Ercus; Cornish Erth) was a sixth-century Irish bishop, remembered as the first Bishop of Slane and as a disciple of Saint Patrick. According to tradition he began as a pagan druid, the son of Dago, and was a member of the retinue of the High King Lóegaire mac Néill before his conversion.
+  - Saint Erc of Slane (Erc mac Dega; Latin Ercus; Cornish Erth) was a sixth-century Irish bishop, remembered as the first Bishop of Slane and as a disciple of Saint Patrick. According to tradition he began as a pagan druid, the son of Dago, and was a member of the retinue of King Lóegaire mac Néill before his conversion.
   - He is best known as the churchman who baptized and fostered Saint Brendan the Navigator, later ordaining him to the priesthood. Erc's ministry ranged from the Hill of Slane on the River Boyne, where he founded a long-lived monastery and school, to the far southwest of Ireland, where Patrick sent him to complete the conversion of Kerry.
   - He is venerated in both the Roman Catholic and Eastern Orthodox Churches, with a feast on 2 November; in Cornwall, where he is associated with the church and village of St Erth, he is kept on 31 October. He reposed around 512 (recorded as 514) at his hermitage beside the Boyne.
 sections:
@@ -53,6 +53,3 @@ sources:
   - https://www.johnsanidopoulos.com/2017/05/saint-brendan-anchorite-also-known-as.html
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile identifies Lóegaire mac Néill as 'High King', a designation not present in the dossier
-    detail: The Wikipedia external text in the dossier says only 'a member of King Lóegaire mac Néill's retinue' — no 'High King' designation. The profile's body section ('Conversion and Ministry') correctly uses just 'King Lóegaire mac Néill', making this an inconsistency in the overview paragraph that introduces an unsupported epithet.

@@ -1,5 +1,5 @@
 id: OS-2802
-lifespan: c. 336 – 357
+lifespan: c. 331 – 357
 overview:
   - Naucratius was a fourth-century ascetic of Cappadocia and Pontus, a member of the celebrated Christian household that produced Saint Basil the Great, Saint Gregory of Nyssa, Saint Macrina the Younger, and Saint Peter of Sebaste. He was a son of Basil the Elder and Emmelia of Caesarea.
   - Having trained as a rhetorician and won early public success, he renounced a promising secular career around the year 352 to live as a hermit on the banks of the Iris river in Pontus, where he supported himself by hunting and fishing and devoted himself to the care of poor and elderly people living nearby.
@@ -25,7 +25,7 @@ sections:
       - Naucratius has no widely fixed individual feast day. A liturgical list drawn from Sergei Bulgakov's handbook of the saints, reproduced in a modern resource on the Saturday of Cheesefare, notes a commemoration for him on June 8, indicating that this date is observed in at least some Orthodox tradition. He is also commemorated collectively among the ascetic fathers and mothers remembered on the Saturday of Cheesefare.
       - His memory as one who fed the hungry from what he caught by hunting and fishing has inspired later initiatives bearing his name. The Order of Naucratius, established within the Episcopal Diocese of Western Michigan, honors him by connecting hunters and anglers who share their harvests with communities in need.
 timeline:
-  - when: c. 336
+  - when: c. 331
     title: Birth in Cappadocia
     body: Naucratius is born to Basil the Elder and Emmelia of Caesarea, the second of four brothers in the family that also produced Macrina the Younger, Basil the Great, Gregory of Nyssa, and Peter of Sebaste.
   - when: c. 352
@@ -51,8 +51,3 @@ sources:
   - https://www.johnsanidopoulos.com/2011/03/saturday-of-cheesefare-commemoration-of.html
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Birth year stated as c. 336 in both the lifespan and the timeline
-    detail: "The Gregory of Nyssa source (tertullian.org/fathers) states Naucratius was in his 'twenty-first year' when he withdrew, and the Wikipedia (Naucratius) source places that withdrawal 'around 352.' 352 − 21 = c. 331, not c. 336. A birth of c. 336 would make him only ~16 at withdrawal, contradicting the source's 'twenty-first year.' The profile also internally contradicts itself: the timeline simultaneously claims birth 'c. 336' and withdrawal 'at about twenty-one' in 'c. 352,' which is impossible — and if birth were 336 and death 357 the total lifespan is only ~21 years, leaving no room for five years of hermit life preceded by a rhetorical career."
-  - claim: Timeline birth entry repeats the unsupported birth year c. 336
-    detail: "Same as above: the external source (Life of Macrina via tertullian.org) says he was 21 when he withdrew c. 352, placing birth c. 331. The timeline entry 'c. 336' repeats the unsupported date."

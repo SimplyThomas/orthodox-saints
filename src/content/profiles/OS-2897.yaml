@@ -7,8 +7,6 @@ overview:
 liturgicalTitle: Our Venerable Mother Florentina of Cartagena
 patronage:
   - Diocese of Plasencia
-  - Consecrated virgins
-  - Nuns
 timeline:
   - when: c. 560
     title: Birth in Cartagena
@@ -53,8 +51,3 @@ sources:
   - https://www.oca.org/saints/lives/2025/06/20
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Patronage of 'Consecrated virgins' is asserted.
-    detail: No dossier source — anchor or external — explicitly identifies Florentina as a patroness of consecrated virgins. The dossier records only 'Diocese of Plasencia' as her formal patronage. Her vocation as a consecrated virgin does not constitute source-grounded patronage. This is an unsupported inference added by the profile.
-  - claim: Patronage of 'Nuns' is asserted.
-    detail: No dossier source identifies Florentina as a formal patroness of nuns. Only 'Diocese of Plasencia' is explicitly attested as her patronage. Directing a community of nuns does not constitute documented patronage of nuns as a class.

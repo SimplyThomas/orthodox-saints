@@ -1,7 +1,7 @@
 id: OS-2863
 lifespan: c. 610 - 11 April 678
 overview:
-  - Donus was Bishop of Rome from 2 November 676 until his death on 11 April 678, in the decades before the Sixth Ecumenical Council. Born in Rome around 610 to a Roman named Mauricius, he was already elderly at his election, succeeding Adeodatus II and preceding Agatho (commemorated in this database as St. Agathon of Rome, OS-0700).
+  - Donus was Bishop of Rome from 2 November 676 until his death on 11 April 678, in the years before the Sixth Ecumenical Council. Born in Rome around 610 to a Roman named Mauricius, he was already elderly at his election, succeeding Adeodatus II and preceding Agatho (commemorated in this database as St. Agathon of Rome, OS-0700).
   - His short pontificate of roughly one year, five months, and ten days was marked by the physical restoration of the city's churches, the enlargement of the Roman clergy, and the return of the see of Ravenna to the obedience of Rome after a period of attempted independence.
   - Emperor Constantine IV addressed him as 'the most holy and blessed archbishop of our ancient Rome and the universal pope,' a mark of the cordial relations between Rome and Constantinople on the eve of the council that would condemn Monothelitism.
 liturgicalTitle: Our Father among the Saints Donus, Bishop of Rome
@@ -40,6 +40,3 @@ sources:
   - https://www.newadvent.org/cathen/05133a.htm
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile says Donus served 'in the decades before the Sixth Ecumenical Council.' The Sixth Ecumenical Council was held 680–681 AD; Donus died 11 April 678, only 2–3 years before it. 'Decades' is factually wrong and directly contradicts the anchor brief, which says 'in the years before the Sixth Ecumenical Council.'
-    detail: The anchor brief uses 'years,' not 'decades.' The Council convened in 680–681, just two to three years after Donus's death in 678. 'Decades' implies 20+ years and is unsupported by both the anchor and the external sources.
