@@ -123,8 +123,9 @@ const kinCard = (card: Figure): string => {
   return `<div class="sv-relcard">${inner}</div>`;
 };
 
-// Group-taxonomy memberships (data/saint_groups.csv) → "Commemorated with"
-// links to each group's landing page. Joined into the record by build.py.
+// Group-taxonomy memberships (data/saint_groups.csv) → a small "Member of"
+// section linking to each group's saint-profile (/saint/[groupId]). Joined into
+// the record by build.py, each membership carrying the group's own OS-#### id.
 const memberGroups = saint.groups ?? [];
 
 // Works (by the saint) and Further Reading (about the saint). A profile's rich
@@ -944,10 +945,10 @@ const wordsLabel = `In ${possessive} own words`;
               {hasCommemorated && (
                 <details class="sv-deep sv-comm">
                   <summary class="sv-deep-sum">
-                    <span class="eyebrow sv-deep-eb">Commemorated with</span>
+                    <span class="eyebrow sv-deep-eb">Member of</span>
                     {memberGroups.length > 1 && (
                       <span class="sv-deep-ct">
-                        {memberGroups.length} commemorations
+                        {memberGroups.length} groups
                       </span>
                     )}
                     <span class="sv-deep-rule" />
@@ -977,10 +978,7 @@ const wordsLabel = `In ${possessive} own words`;
                         ? `Commemorated together · ${full.feast}`
                         : GROUP_TYPE_LABEL[g.type] || g.type;
                       return (
-                        <a
-                          class="sv-comm-row"
-                          href={withBase("group/" + g.slug)}
-                        >
+                        <a class="sv-comm-row" href={withBase("saint/" + g.id)}>
                           <div class="sv-comm-main">
                             <div class="sv-comm-name">{g.name}</div>
                             <div class="sv-comm-meta">{meta}</div>

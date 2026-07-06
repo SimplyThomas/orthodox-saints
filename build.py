@@ -74,7 +74,7 @@ RETIRED_IDS_HEADER = ["retired_id", "retired_name", "canonical_id", "canonical_n
 # household). Two join files following the saint_images/saint_quotes pattern;
 # referential integrity is enforced at build time (fail loud). `type` is a small
 # enumerated set — adding one is a deliberate code change.
-GROUPS_HEADER = ["slug", "name", "type", "description", "feast", "sort"]
+GROUPS_HEADER = ["slug", "saint_id", "name", "type", "description", "feast", "sort"]
 SAINT_GROUPS_HEADER = ["group_slug", "saint_id", "role", "order"]
 GROUP_TYPES = {"synaxis", "feast-companions", "household"}
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -288,28 +288,47 @@ def load_saints() -> tuple[list[str], list[dict[str, str]]]:
 # --------------------------------------------------------------------------- #
 # ID assignment (CLAUDE.md §6): blank IDs get the next sequential OS-####.
 # --------------------------------------------------------------------------- #
-def next_id_seed(rows: list[dict[str, str]]) -> int:
+def next_id_seed(rows: list[dict[str, str]], id_field: str = "Saint ID") -> int:
     """Highest existing OS-#### number across rows (0 if none)."""
     max_num = 0
     for r in rows:
-        m = re.match(r"^OS-(\d+)$", r["Saint ID"].strip())
+        m = re.match(r"^OS-(\d+)$", (r.get(id_field) or "").strip())
         if m:
             max_num = max(max_num, int(m.group(1)))
     return max_num
 
 
-def assign_ids(rows: list[dict[str, str]]) -> bool:
-    """Assign the next sequential OS-#### to any blank Saint ID. Mutates rows
-    in place; returns True if any ID was assigned. Pure (no file I/O)."""
-    max_num = next_id_seed(rows)
+def retired_id_seed() -> int:
+    """Highest OS-#### number in retired_ids.csv (0 if none/absent). Retired IDs
+    are permanently spent (§6) — the counter must clear them so a new row never
+    reuses one, even when the retired ID exceeds every active ID."""
+    if not RETIRED_IDS_CSV.exists():
+        return 0
+    max_num = 0
+    with RETIRED_IDS_CSV.open(encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            m = re.match(r"^OS-(\d+)$", (row.get("retired_id") or "").strip())
+            if m:
+                max_num = max(max_num, int(m.group(1)))
+    return max_num
+
+
+def assign_ids(rows: list[dict[str, str]], id_field: str = "Saint ID",
+               seed: int | None = None) -> tuple[bool, int]:
+    """Assign the next sequential OS-#### to any blank `id_field`. Mutates rows
+    in place; returns (any_assigned, highest_number_now_used). Pure (no file
+    I/O). `seed` lets callers share ONE counter across files (saints + groups)
+    so the two id spaces never collide (§6: opaque, permanent, never reused)."""
+    max_num = next_id_seed(rows, id_field) if seed is None else seed
     assigned = False
     for r in rows:
-        if not r["Saint ID"].strip():
+        if not (r.get(id_field) or "").strip():
             max_num += 1
-            r["Saint ID"] = f"OS-{max_num:04d}"
+            r[id_field] = f"OS-{max_num:04d}"
             assigned = True
-            print(f"  assigned {r['Saint ID']}  {r['Name']}")
-    return assigned
+            label = r.get("Name") or r.get("name") or r.get("slug") or ""
+            print(f"  assigned {r[id_field]}  {label}")
+    return assigned, max_num
 
 
 def write_saints(header: list[str], rows: list[dict[str, str]]) -> None:
@@ -323,6 +342,35 @@ def write_saints(header: list[str], rows: list[dict[str, str]]) -> None:
         w.writeheader()
         w.writerows(rows)
     print(f"  wrote stable IDs back to {SAINTS_CSV.relative_to(ROOT)}")
+
+
+def load_group_rows() -> tuple[list[str] | None, list[dict[str, str]]]:
+    """Raw groups.csv rows keyed by column name, normalized to GROUPS_HEADER
+    (so a pre-saint_id file is migrated on the next write-back). Returns
+    (None, []) when the file is absent."""
+    if not GROUPS_CSV.exists():
+        return None, []
+    with open(GROUPS_CSV, encoding="utf-8", newline="") as f:
+        reader = csv.reader(f)
+        header = next(reader, None) or []
+        rows = []
+        for r in reader:
+            if not any(c.strip() for c in r):
+                continue
+            row = dict(zip(header, r))
+            rows.append({k: row.get(k, "") for k in GROUPS_HEADER})
+    return GROUPS_HEADER, rows
+
+
+def write_groups(header: list[str], rows: list[dict[str, str]]) -> None:
+    """Rewrite data/groups.csv in place after assign_ids fills blank saint_ids.
+    groups.csv is LF (unlike CRLF saints.csv), so pin lineterminator to keep the
+    diff to the id column only."""
+    with open(GROUPS_CSV, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=header, lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+    print(f"  wrote stable group IDs back to {GROUPS_CSV.relative_to(ROOT)}")
 
 
 # --------------------------------------------------------------------------- #
@@ -1109,6 +1157,7 @@ def load_groups() -> list[dict[str, str]]:
             sort_raw = (row.get("sort") or "").strip()
             out.append({
                 "slug": slug,
+                "saint_id": (row.get("saint_id") or "").strip(),
                 "name": (row.get("name") or "").strip(),
                 "type": (row.get("type") or "").strip(),
                 "description": (row.get("description") or "").strip(),
@@ -1117,6 +1166,37 @@ def load_groups() -> list[dict[str, str]]:
             })
     out.sort(key=lambda g: (g["sort"], g["name"]))
     return out
+
+
+def group_members_detail(
+    saints_by_name: dict[str, dict[str, str]] | None = None,
+) -> dict[str, list[dict[str, str]]]:
+    """group_slug -> ordered [{saint_id, name}], INCLUDING name-only members
+    (blank saint_id, name carried in the `role` column). This is what the group
+    saint-profile's "Members of this Group" section renders. `saints_by_name`
+    maps Saint ID -> row so a member's display name is the saint's own Name;
+    absent that, the `role` label is used."""
+    saints_by_name = saints_by_name or {}
+    rows: dict[str, list[tuple[int, int, dict[str, str]]]] = {}
+    if not SAINT_GROUPS_CSV.exists():
+        return {}
+    with SAINT_GROUPS_CSV.open(encoding="utf-8", newline="") as f:
+        for i, row in enumerate(csv.DictReader(f)):
+            slug = (row.get("group_slug") or "").strip()
+            if not slug:
+                continue
+            sid = (row.get("saint_id") or "").strip()
+            role = (row.get("role") or "").strip()
+            order_raw = (row.get("order") or "").strip()
+            order = int(order_raw) if order_raw.lstrip("-").isdigit() else 10**9
+            saint = saints_by_name.get(sid)
+            name = (saint["Name"].strip() if saint else "") or role
+            member = {"saint_id": sid, "name": name}
+            if role and role != name:
+                member["role"] = role
+            rows.setdefault(slug, []).append((order, i, member))
+    return {slug: [m for _o, _i, m in sorted(items, key=lambda t: (t[0], t[1]))]
+            for slug, items in rows.items()}
 
 
 def load_saint_groups() -> dict[str, list[str]]:
@@ -1160,7 +1240,15 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
     if not GROUPS_CSV.exists() and not SAINT_GROUPS_CSV.exists():
         return errors, warnings
 
+    # A group's own saint_id (the OS-#### its /saint/<id> page is served at) must
+    # be unique and must NOT collide with an active saint or a retired tombstone.
+    retired: set[str] = set()
+    if RETIRED_IDS_CSV.exists():
+        with RETIRED_IDS_CSV.open(encoding="utf-8", newline="") as f:
+            retired = {(r.get("retired_id") or "").strip()
+                       for r in csv.DictReader(f)}
     slugs: set[str] = set()
+    group_saint_ids: set[str] = set()
     if GROUPS_CSV.exists():
         with GROUPS_CSV.open(encoding="utf-8", newline="") as f:
             reader = csv.DictReader(f)
@@ -1171,6 +1259,7 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 if not any((v or "").strip() for v in row.values()):
                     continue
                 slug = (row.get("slug") or "").strip()
+                gid = (row.get("saint_id") or "").strip()
                 gtype = (row.get("type") or "").strip()
                 sort_raw = (row.get("sort") or "").strip()
                 where = f"groups.csv line {i}"
@@ -1182,6 +1271,22 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 elif slug in slugs:
                     errors.append(f"{where}: duplicate group slug {slug!r}.")
                 slugs.add(slug)
+                # A blank saint_id is fine before a build assigns it (§6); a
+                # present one must be well-formed, unique, and un-collided.
+                if gid:
+                    if not ID_RE.match(gid):
+                        errors.append(f"{where} ({slug}): saint_id {gid!r} is not "
+                                      "an OS-#### id.")
+                    elif gid in group_saint_ids:
+                        errors.append(f"{where} ({slug}): duplicate group saint_id "
+                                      f"{gid!r}.")
+                    elif gid in valid_ids:
+                        errors.append(f"{where} ({slug}): saint_id {gid!r} collides "
+                                      "with a saint in saints.csv.")
+                    elif gid in retired:
+                        errors.append(f"{where} ({slug}): saint_id {gid!r} is a "
+                                      "retired id and must not be reused.")
+                    group_saint_ids.add(gid)
                 if gtype not in GROUP_TYPES:
                     errors.append(f"{where} ({slug}): type {gtype!r} is not one of "
                                   f"{sorted(GROUP_TYPES)}.")
@@ -1202,6 +1307,7 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                     continue
                 slug = (row.get("group_slug") or "").strip()
                 sid = (row.get("saint_id") or "").strip()
+                role = (row.get("role") or "").strip()
                 order_raw = (row.get("order") or "").strip()
                 where = f"saint_groups.csv line {i}"
                 if not slug:
@@ -1209,8 +1315,13 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                 elif slug not in slugs:
                     errors.append(f"{where}: group_slug {slug!r} matches no group "
                                   "in groups.csv.")
+                # A member may be name-only (blank saint_id + a `role` name) for a
+                # saint who has no individual row yet; a present saint_id must
+                # resolve to a real saint.
                 if not sid:
-                    errors.append(f"{where}: empty saint_id.")
+                    if not role:
+                        errors.append(f"{where}: a member needs a saint_id or, for "
+                                      "a name-only member, a `role` name.")
                 elif not ID_RE.match(sid):
                     errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
                 elif sid not in valid_ids:
@@ -1519,7 +1630,8 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     for slug in saint_groups.get(r["Saint ID"].strip(), []):
         g = groups_by_slug.get(slug)
         if g:
-            memberships.append({"slug": slug, "name": g["name"], "type": g["type"]})
+            memberships.append({"slug": slug, "id": g.get("saint_id", ""),
+                                "name": g["name"], "type": g["type"]})
     memberships.sort(key=lambda m: (groups_by_slug[m["slug"]]["sort"], m["name"]))
     if memberships:
         rec["groups"] = memberships
@@ -1537,6 +1649,35 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     return rec
 
 
+def group_record(g: dict, members: list[dict[str, str]]) -> dict:
+    """A group rendered as a saint-shaped record for public/data.json, so it
+    flows into /saint/<id>, the finder, the calendar and the sitemap unchanged
+    (only the quiz filters it out). `profile_type: "group"` steers the frontend
+    to the GroupSaintProfile layout instead of SaintView. Facet arrays stay
+    empty — a group is not an intercessor, so it never pollutes a facet filter."""
+    rec: dict = {}
+    for key in JSON_KEYS.values():
+        rec[key] = [] if key in ARRAY_KEYS else ""
+    rec["id"] = g["saint_id"]
+    rec["name"] = g["name"]
+    rec["feast"] = g["feast"]
+    rec["brief"] = g["description"]
+    rec["months"] = parse_months(g["feast"])
+    rec["feastSort"] = feast_sort(g["feast"])
+    rec["themes"] = []
+    rec["vendors"] = []
+    rec["profile_type"] = "group"
+    rec["groupSlug"] = g["slug"]
+    rec["groupType"] = g["type"]
+    rec["members"] = members
+    # Text-searchable by name, description and member names (finder search yes,
+    # quiz no — the quiz island drops profile_type:"group").
+    member_names = " ".join(m["name"] for m in members if m.get("name"))
+    rec["search"] = " ".join(p for p in (g["name"], g["description"],
+                                         member_names) if p).strip()
+    return rec
+
+
 def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     """Write public/data.json: every saint as a record, sorted by feastSort.
 
@@ -1548,12 +1689,18 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     images = load_saint_images()
     quotes = load_saint_quotes()
     saint_groups = load_saint_groups()
-    groups_by_slug = {g["slug"]: g for g in load_groups()}
+    groups = load_groups()
+    groups_by_slug = {g["slug"]: g for g in groups}
     permissions = load_image_permissions()
     depictions = load_saint_depictions()
     records = [to_record(r, vendors, name_variants, images, quotes,
                          saint_groups, groups_by_slug, permissions, depictions)
                for r in rows]
+    # Group saint-profiles: one record per group carrying its own OS-#### id.
+    members_by_group = group_members_detail({r["Saint ID"].strip(): r
+                                             for r in rows})
+    records.extend(group_record(g, members_by_group.get(g["slug"], []))
+                   for g in groups if g.get("saint_id"))
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "data.json", "w", encoding="utf-8") as f:
@@ -1688,9 +1835,20 @@ def main() -> int:
         report_priority(rows, top=None if args.top == 0 else args.top)
         return 0
 
+    g_header, g_rows = load_group_rows()
     if not args.check_only:
-        if assign_ids(rows):
+        # Saints and groups draw from ONE OS-#### counter (§6): seed it above the
+        # highest number anywhere — active saints, existing group ids, and
+        # retired tombstones — so neither space can ever collide or reuse.
+        seed = max(next_id_seed(rows), next_id_seed(g_rows, "saint_id"),
+                   retired_id_seed())
+        saints_assigned, seed = assign_ids(rows, seed=seed)
+        if saints_assigned:
             write_saints(header, rows)
+        if g_header:
+            groups_assigned, seed = assign_ids(g_rows, "saint_id", seed=seed)
+            if groups_assigned:
+                write_groups(g_header, g_rows)
         if feastlib.assign_ids(f_rows):
             feastlib.write_feasts(f_header, f_rows)
 

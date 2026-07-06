@@ -6,6 +6,11 @@ Claude was used as an *authoring accelerator* for bulk content generation, and t
 work is essentially finished. This page records what depends on what, and how to do
 each remaining job by hand.
 
+For the external services the live site leans on — hosting, DNS, PR previews, the
+corrections Worker, analytics, and where each credential lives — see
+[`docs/infrastructure.md`](infrastructure.md) ("what runs where, what breaks when it
+vanishes").
+
 ## What needs no AI (the whole operational surface)
 
 | Area | Entry point | Notes |
@@ -16,6 +21,8 @@ each remaining job by hand.
 | PR previews | Cloudflare Pages (`scripts/cf-pages-build.sh`) | See `docs/cloudflare-pages-previews.md`. |
 | Corrections form backend | `workers/report/` (Cloudflare Worker) | Fully documented in `workers/report/README.md`. |
 | Icon tooling | `scripts/` (downloader, thumbs, contact sheet, OG card) | See `scripts/README.md`. |
+
+New component styles go in scoped `<style>` blocks; `global.css` is tokens + shared primitives only.
 
 ## What used Claude, and where it stands
 
