@@ -3,11 +3,14 @@
 
    NOTE: this is *sample editorial content* ported from the Claude Design mock,
    not a live feed and not part of the saints dataset (data/saints.csv). The tone
-   is documentary, never sensational. When a real source/feed is wired up, this
-   module is the single place the index and article pages read from — replace the
-   arrays below (or back them with a CMS / RSS aggregation) and the pages follow.
-   Each account is illustrative until verified against the Church's own
-   discernment, in keeping with the project's sourcing guardrails. */
+   is documentary, never sensational. The articles themselves live as one
+   validated YAML file per article in src/content/news/*.yaml (the `news` content
+   collection), read back via loadNews(); only the page-furniture constants
+   (NEWS_CATS, NEWS_THISDAY, NEWS_MOSTREAD, NEWS_CENTURIES) remain in this module.
+   When a real source/feed is wired up, replace those YAML files (or back the
+   collection with a CMS / RSS aggregation) and the pages follow. Each account is
+   illustrative until verified against the Church's own discernment, in keeping
+   with the project's sourcing guardrails. */
 
 import { getCollection } from "astro:content";
 
@@ -178,7 +181,13 @@ export async function loadNews(): Promise<{
     (e) => e.data as NewsItem & { featured?: boolean; order: number },
   );
   entries.sort((a, b) => a.order - b.order);
-  const featured = entries.find((e) => e.featured)!;
+  const featuredEntries = entries.filter((e) => e.featured);
+  if (featuredEntries.length !== 1) {
+    throw new Error(
+      `news collection: expected exactly one featured article, found ${featuredEntries.length}`,
+    );
+  }
+  const featured = featuredEntries[0];
   const items = entries.filter((e) => !e.featured);
   const all = [featured, ...items];
   return {
