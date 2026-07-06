@@ -20,7 +20,7 @@ import {
 } from "../lib/feasts";
 import type { Feast } from "../lib/feasts";
 import { groupMonth, tokenDateline, tokenLabel } from "../lib/feast-dates";
-import { MONTHS_FULL, withBase } from "../lib/format";
+import { MONTHS, MONTHS_FULL, withBase } from "../lib/format";
 import { cardDataPath } from "../lib/card-payload";
 
 type Tab = "all" | "calendar" | "feasts" | "fasts" | "observances";
@@ -43,6 +43,18 @@ const TABS: { key: Tab; label: string }[] = [
 
 /* ---- section datasets ---- */
 const pascha = FEASTS.find((f) => f.category === "Feast of Feasts");
+
+/* Resolved Pascha dates (from the table shipped in feasts.json) for the
+   featured card. SSR renders the whole authoritative list — no-JS/SEO get
+   every date; the island then hides past years and marks the next one against
+   the visitor's clock (a build-time new Date() would freeze to deploy day). */
+const paschaEntries = Object.entries(PASCHA).sort((a, b) =>
+  a[0].localeCompare(b[0]),
+);
+function fmtPascha(iso: string): string {
+  const [, m, d] = iso.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}`;
+}
 const greatFeasts = FEASTS.filter((f) => f.category === "Great Feast");
 const seasons = FEASTS.filter((f) => f.category === "Fast Season");
 const fastDays = FEASTS.filter((f) => f.category === "Fast Day");
@@ -208,6 +220,38 @@ const description =
       >
       </section>
 
+      <!-- SUMMARY: every feast & fast together, month by month, collapsible -->
+      <section
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "all" }]}
+        data-cat="all"
+      >
+        <div class="ff-sec-head">
+          <h2>The Year at a Glance</h2>
+          <span class="count"
+            >Every feast, fast &amp; observance together — open a month to see
+            its days</span
+          >
+          <span class="rule"></span>
+        </div>
+        <div class="ff-cal-legend">
+          <span class="lg"><span class="dot dot--great"></span>Great Feast</span
+          >
+          <span class="lg"><span class="dot dot--feast"></span>Feast</span>
+          <span class="lg"><span class="dot dot--fast"></span>Fast</span>
+          <span class="lg"
+            ><span class="dot dot--observance"></span>Observance</span
+          >
+          <span class="sep"></span>
+          <span class="lg note">The Church year opens on September 1.</span>
+        </div>
+        <FeastCalRows groups={yearGroups} collapsible />
+        <p class="ff-fast-disclaimer">
+          Fasting is described here at the season-summary level and differs by
+          jurisdiction and person — please consult your parish priest about how
+          to keep the fasts.
+        </p>
+      </section>
+
       <!-- FULL CALENDAR -->
       <section
         class:list={["ff-idx-sec", { "is-hidden": initialTab !== "calendar" }]}
@@ -232,15 +276,12 @@ const description =
           <span class="sep"></span>
           <span class="lg note">The Church year opens on September 1.</span>
         </div>
-        <FeastCalRows groups={yearGroups} />
+        <FeastCalRows groups={yearGroups} collapsible />
       </section>
 
       <!-- FEASTS -->
       <section
-        class:list={[
-          "ff-idx-sec",
-          { "is-hidden": !["all", "feasts"].includes(initialTab) },
-        ]}
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "feasts" }]}
         data-cat="feasts"
       >
         <div class="ff-sec-head">
@@ -272,6 +313,17 @@ const description =
                     />
                   )}
                 </div>
+              </div>
+              <div class="ff-pascha-dates" id="ff-pascha-dates">
+                <div class="ff-pd-label">Upcoming Pascha dates</div>
+                <ul class="ff-pd-list">
+                  {paschaEntries.map(([year, iso]) => (
+                    <li class="ff-pd" data-year={year}>
+                      <b>{year}</b>
+                      <span>{fmtPascha(iso)}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           )
@@ -308,10 +360,7 @@ const description =
 
       <!-- FASTS -->
       <section
-        class:list={[
-          "ff-idx-sec",
-          { "is-hidden": !["all", "fasts"].includes(initialTab) },
-        ]}
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "fasts" }]}
         data-cat="fasts"
       >
         <div class="ff-sec-head">
@@ -359,7 +408,7 @@ const description =
       <section
         class:list={[
           "ff-idx-sec",
-          { "is-hidden": !["all", "observances"].includes(initialTab) },
+          { "is-hidden": initialTab !== "observances" },
         ]}
         data-cat="observances"
       >
