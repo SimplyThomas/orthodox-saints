@@ -6362,3 +6362,900 @@ a.sv-rail-chip:hover {
     gap: 16px;
   }
 }
+
+/* ============================================================
+   Feasts & Fasts index (/feasts, /fasts) — ported from the
+   design handoff (Feasts & Fasts.html + feasts.css). Section-
+   namespaced .ff-*; masthead/footer use the site chrome.
+   ============================================================ */
+
+/* ---- hero (dark) ---- */
+.ff-idx-hero {
+  background: var(--byz-ink);
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+.ff-idx-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    90% 120% at 50% -30%,
+    rgba(212, 175, 55, 0.14),
+    transparent 60%
+  );
+}
+.ff-idx-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 56px 56px;
+  text-align: center;
+}
+.ff-idx-hero .eyebrow {
+  color: var(--gold-soft);
+}
+.ff-idx-hero h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(54px, 8vw, 84px);
+  line-height: 1;
+  margin: 16px 0 0;
+  color: var(--ivory);
+}
+/* own class — the global .tag chip style would force uppercase */
+.ff-hero-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--celest-soft);
+  max-width: 640px;
+  margin: 18px auto 0;
+  line-height: 1.5;
+}
+
+.ff-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+.ff-tab {
+  font-family: var(--text);
+  font-size: 15px;
+  color: #b9c8d8;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ff-tab:hover {
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+.ff-tab[aria-selected="true"] {
+  background: var(--gold);
+  color: var(--byz-ink);
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+.ff-idx-body {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 56px 20px;
+}
+@media (max-width: 720px) {
+  .ff-idx-body {
+    padding: 40px 20px 20px;
+  }
+  .ff-idx-hero-inner {
+    padding: 48px 20px 44px;
+  }
+}
+
+/* ---- fasting discipline badge (tone-coded) ---- */
+.ff-fast {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  padding: 9px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.ff-fast .glyph {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+/* on dark (hero, season cards) */
+.ff-fast--free {
+  background: rgba(212, 175, 55, 0.18);
+  color: var(--gold-soft);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+.ff-fast--strict {
+  background: rgba(120, 104, 150, 0.2);
+  color: #c7b8e0;
+  border: 1px solid rgba(150, 130, 185, 0.5);
+}
+.ff-fast--fish {
+  background: rgba(196, 120, 40, 0.2);
+  color: #e6b072;
+  border: 1px solid rgba(196, 120, 40, 0.5);
+}
+.ff-fast--dairy {
+  background: rgba(74, 128, 110, 0.2);
+  color: #8fceb4;
+  border: 1px solid rgba(74, 128, 110, 0.5);
+}
+.ff-fast--wine {
+  background: rgba(140, 60, 72, 0.2);
+  color: #d99aa4;
+  border: 1px solid rgba(140, 60, 72, 0.5);
+}
+.ff-fast--varies {
+  background: rgba(120, 104, 150, 0.16);
+  color: #c0b3d6;
+  border: 1px solid rgba(150, 130, 185, 0.42);
+}
+/* on ivory — muted fills */
+.on-ivory .ff-fast--free,
+.ff-fast--free.on-ivory {
+  background: rgba(212, 175, 55, 0.16);
+  color: #7a5a14;
+  border-color: var(--line-gold);
+}
+.on-ivory .ff-fast--strict,
+.ff-fast--strict.on-ivory {
+  background: rgba(120, 104, 150, 0.12);
+  color: #5a4a72;
+  border-color: rgba(120, 104, 150, 0.4);
+}
+.on-ivory .ff-fast--fish,
+.ff-fast--fish.on-ivory {
+  background: rgba(196, 120, 40, 0.12);
+  color: #9a5a18;
+  border-color: rgba(196, 120, 40, 0.4);
+}
+.on-ivory .ff-fast--dairy,
+.ff-fast--dairy.on-ivory {
+  background: rgba(61, 97, 87, 0.12);
+  color: #3d6157;
+  border-color: rgba(61, 97, 87, 0.38);
+}
+.on-ivory .ff-fast--wine,
+.ff-fast--wine.on-ivory {
+  background: rgba(140, 60, 72, 0.1);
+  color: #8d3a3f;
+  border-color: rgba(140, 60, 72, 0.34);
+}
+.on-ivory .ff-fast--varies,
+.ff-fast--varies.on-ivory {
+  background: rgba(120, 104, 150, 0.1);
+  color: #5a4a72;
+  border-color: rgba(120, 104, 150, 0.34);
+}
+
+/* ---- today's commemorations ---- */
+.ff-today {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  margin-bottom: 22px;
+  border-top: 3px solid var(--gold);
+}
+.ff-today-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 30px 16px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.05), transparent);
+}
+.ff-today-head .eyebrow {
+  color: var(--gold-deep);
+}
+.ff-today-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--byz-deep);
+  margin: 4px 0 0;
+}
+.ff-today-cal {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--byz);
+  font-weight: 500;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 18px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.ff-today-cal:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: var(--paper);
+}
+.ff-today-cal svg {
+  transition: transform 0.15s;
+}
+.ff-today-cal:hover svg {
+  transform: translateX(3px);
+}
+.ff-today-saints {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px 40px;
+  padding: 12px 30px 22px;
+}
+@media (max-width: 760px) {
+  .ff-today-saints {
+    grid-template-columns: 1fr;
+  }
+}
+.ff-today-empty {
+  font-size: 15px;
+  color: var(--ink-soft);
+  padding: 10px 0;
+  margin: 0;
+}
+.ff-today-saint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 6px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.ff-today-av {
+  width: 44px;
+  height: 52px;
+  border-radius: 4px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--ivory);
+  box-shadow: var(--shadow-soft);
+}
+.ff-today-av.t-monastic {
+  background: linear-gradient(160deg, #4a7c6e, #2b4740);
+}
+.ff-today-av.t-martyr {
+  background: linear-gradient(160deg, #b0574a, #7a2c22);
+}
+.ff-today-av.t-hierarch {
+  background: linear-gradient(160deg, #4a6f96, #22406a);
+}
+.ff-today-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--byz-deep);
+  line-height: 1.12;
+  transition: color 0.15s;
+}
+.ff-today-saint:hover .ff-today-name {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ff-today-name .arr {
+  color: var(--celest);
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.15s;
+}
+.ff-today-saint:hover .ff-today-name .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+.ff-today-role {
+  font-size: 13px;
+  color: var(--celest);
+  margin-top: 3px;
+}
+.ff-today-role .tag {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+/* ---- coming up next ---- */
+.ff-upcoming {
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+.ff-up-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+  padding: 30px 34px 26px;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent);
+}
+@media (max-width: 760px) {
+  .ff-up-top {
+    grid-template-columns: 1fr;
+  }
+}
+.ff-up-eb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.ff-up-eb .eyebrow {
+  color: var(--gold-deep);
+}
+.ff-up-eb .pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--byz-green);
+  box-shadow: 0 0 0 0 rgba(31, 94, 84, 0.5);
+  animation: ff-pulse 2.4s infinite;
+}
+@keyframes ff-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(31, 94, 84, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(31, 94, 84, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 94, 84, 0);
+  }
+}
+.ff-up-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(34px, 5vw, 46px);
+  color: var(--byz-deep);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.ff-up-leads {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--byz);
+  margin: 10px 0 0;
+}
+.ff-up-lead {
+  font-size: 16.5px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 14px 0 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+.ff-up-when {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  text-align: right;
+}
+@media (max-width: 760px) {
+  .ff-up-when {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+.ff-up-count {
+  font-family: var(--serif);
+  line-height: 1;
+  color: var(--byz);
+}
+.ff-up-count b {
+  font-size: 52px;
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+.ff-up-count span {
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 4px;
+  font-family: var(--text);
+}
+.ff-up-dates {
+  font-size: 14px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+@media (max-width: 760px) {
+  .ff-up-dates {
+    justify-content: flex-start;
+  }
+}
+.ff-up-dates b {
+  color: var(--byz-deep);
+  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 16px;
+}
+
+/* ---- sections ---- */
+.ff-idx-sec {
+  margin-bottom: 56px;
+}
+.ff-idx-sec.is-hidden {
+  display: none;
+}
+.ff-sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.ff-sec-head h2 {
+  font-family: var(--serif);
+  font-size: 34px;
+  color: var(--byz-deep);
+  margin: 0;
+}
+.ff-sec-head .count {
+  font-size: 14px;
+  color: var(--celest);
+  font-family: var(--text);
+}
+.ff-sec-head .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+
+/* ---- full-year calendar ---- */
+.ff-cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 14px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 8px;
+}
+.ff-cal-legend .lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.ff-cal-legend .lg.note {
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 14px;
+}
+.ff-cal-legend .dot,
+.ff-cal-main .dot {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  flex: 0 0 auto;
+}
+.dot--great {
+  background: var(--gold);
+}
+.dot--feast {
+  background: var(--byz);
+}
+.dot--fast {
+  background: #8a72b4;
+}
+.dot--observance {
+  background: var(--byz-green);
+}
+.ff-cal-legend .sep {
+  width: 1px;
+  height: 16px;
+  background: var(--line);
+}
+
+.ff-cal-month {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 34px 0 10px;
+}
+.ff-cal-month:first-of-type {
+  margin-top: 0;
+}
+.ff-cal-month h3 {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--byz-deep);
+  margin: 0;
+}
+.ff-cal-month .note {
+  font-size: 13px;
+  color: var(--celest);
+  font-style: italic;
+  font-family: var(--serif);
+}
+.ff-cal-month .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+.ff-cal-month.movable h3 {
+  color: var(--gold-deep);
+}
+
+.ff-cal-list {
+  display: flex;
+  flex-direction: column;
+}
+.ff-cal-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 150px 104px;
+  gap: 22px;
+  align-items: center;
+  padding: 13px 16px;
+  border-radius: 7px;
+  border-bottom: 1px solid var(--line);
+  transition:
+    background 0.14s,
+    box-shadow 0.14s;
+}
+.ff-cal-row:last-child {
+  border-bottom: none;
+}
+.ff-cal-row:hover {
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  border-color: transparent;
+}
+.ff-cal-date {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--gold-deep);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.ff-cal-date small {
+  display: block;
+  font-family: var(--text);
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--celest);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.ff-cal-main {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+.ff-cal-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--byz-deep);
+  line-height: 1.15;
+}
+.ff-cal-note {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-left: 2px;
+}
+.ff-cal-fast {
+  display: flex;
+  justify-content: flex-start;
+}
+.ff-cal-fast .ff-fast {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+.ff-cal-kind {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--celest);
+  white-space: nowrap;
+  text-align: left;
+}
+@media (max-width: 760px) {
+  .ff-cal-row {
+    grid-template-columns: 90px 1fr;
+    gap: 6px 14px;
+  }
+  .ff-cal-fast {
+    grid-column: 2;
+    margin-top: 2px;
+  }
+  .ff-cal-kind {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    padding-top: 8px;
+  }
+  .ff-cal-note {
+    display: none;
+  }
+}
+
+/* ---- feast card grid ---- */
+.ff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+@media (max-width: 1000px) {
+  .ff-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .ff-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ff-fcard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 22px 22px 20px;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s,
+    border-color 0.18s;
+  position: relative;
+}
+.ff-fcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(15, 34, 56, 0.14);
+  border-color: var(--gold);
+}
+.ff-fcard .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 22px;
+}
+.ff-ded {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.ff-ded.lord {
+  color: var(--byz);
+  background: rgba(35, 76, 122, 0.1);
+}
+.ff-ded.theotokos {
+  color: #8d3a5f;
+  background: rgba(141, 58, 95, 0.1);
+}
+.ff-ded.cross {
+  color: #7a5a14;
+  background: rgba(212, 175, 55, 0.16);
+}
+.ff-ded.other {
+  color: var(--ink-soft);
+  background: rgba(15, 34, 56, 0.07);
+}
+.ff-ded.on-dark {
+  background: rgba(212, 175, 55, 0.18);
+  color: var(--gold-soft);
+}
+.ff-fcard h3 {
+  font-family: var(--serif);
+  font-size: 25px;
+  color: var(--byz-deep);
+  line-height: 1.06;
+  margin: 0;
+}
+.ff-fcard .date {
+  font-size: 13px;
+  color: var(--gold-deep);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.ff-fcard .brief {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 2px 0 0;
+  text-wrap: pretty;
+}
+
+/* ---- season cards ---- */
+.ff-season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+.ff-scard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--byz-deep);
+  color: var(--ivory);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 26px 26px 24px;
+  transition:
+    transform 0.18s,
+    border-color 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.ff-scard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 100% at 100% 0,
+    rgba(212, 175, 55, 0.12),
+    transparent 55%
+  );
+}
+.ff-scard:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+.ff-scard > * {
+  position: relative;
+  z-index: 1;
+}
+.ff-scard .eyebrow {
+  color: var(--gold-soft);
+}
+.ff-scard h3 {
+  font-family: var(--serif);
+  font-size: 30px;
+  color: var(--ivory);
+  line-height: 1.04;
+  margin: 4px 0 0;
+}
+.ff-scard .span {
+  font-size: 14px;
+  color: var(--celest-soft);
+}
+.ff-scard .brief {
+  font-size: 15px;
+  color: #c6d3e0;
+  line-height: 1.55;
+  margin: 0;
+  text-wrap: pretty;
+}
+.ff-scard-foot {
+  margin-top: auto;
+  padding-top: 6px;
+}
+/* Pascha featured card */
+.ff-scard--pascha {
+  margin-bottom: 18px;
+  background: var(--byz-ink);
+}
+.ff-scard-pascha-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ff-scard--pascha h3 {
+  font-size: 40px;
+  margin-top: 6px;
+}
+.ff-scard--pascha .brief {
+  max-width: 520px;
+  margin-top: 8px;
+}
+.ff-scard-pascha-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+@media (max-width: 560px) {
+  .ff-scard-pascha-side {
+    align-items: flex-start;
+  }
+}
+
+/* ---- compact list (observances) ---- */
+.ff-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.ff-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 15px 4px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.ff-list .li-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--byz-deep);
+  flex: 0 0 auto;
+  min-width: 230px;
+}
+.ff-list .li-when {
+  font-size: 13.5px;
+  color: var(--gold-deep);
+  font-weight: 600;
+  flex: 0 0 auto;
+  min-width: 150px;
+}
+.ff-list .li-note {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  flex: 1 1 300px;
+}
+
+/* pastoral fasting disclaimer (CLAUDE.md §5a) */
+.ff-fast-disclaimer {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 26px 0 0;
+  padding: 14px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 8px;
+}

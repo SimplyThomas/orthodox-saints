@@ -532,3 +532,55 @@ test("corrections page renders, validates, and is linked from the Contact page",
     1,
   );
 });
+
+test("feasts index renders the Church-year page with live tabs", async ({
+  page,
+}) => {
+  const resp = await page.goto("./feasts/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".ff-idx-hero h1")).toHaveText("Feasts & Fasts");
+
+  // Summary tab: today + feasts/fasts/observances visible, full calendar hidden.
+  await expect(page.locator('.ff-tab[data-filter="all"]')).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator('[data-cat="calendar"]')).toBeHidden();
+  await expect(page.locator(".ff-scard--pascha")).toBeVisible();
+  await expect(page.locator(".ff-fcard")).toHaveCount(12);
+
+  // The island computed the visitor-clock features.
+  await expect(page.locator("#ff-today-date")).toContainText("Today ·");
+  await expect(page.locator("#ff-upcoming")).toBeVisible();
+  await expect(page.locator(".ff-up-count b")).not.toHaveText("");
+
+  // Today's commemorations load from the shared card payload (2,900+ saints —
+  // every calendar day carries several).
+  await expect(page.locator(".ff-today-saint").first()).toBeVisible();
+
+  // Switching to the Full Calendar tab reveals the year listing.
+  await page.locator('.ff-tab[data-filter="calendar"]').click();
+  await expect(page.locator('[data-cat="calendar"]')).toBeVisible();
+  await expect(page.locator("#ff-today")).toBeHidden();
+  await expect(
+    page.locator('[data-cat="calendar"] .ff-cal-month.movable h3', {
+      hasText: "The Paschal Cycle",
+    }),
+  ).toBeVisible();
+});
+
+test("fasts route opens the same page on the Fasts tab", async ({ page }) => {
+  const resp = await page.goto("./fasts/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator('.ff-tab[data-filter="fasts"]')).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator('[data-cat="fasts"]')).toBeVisible();
+  await expect(page.locator('[data-cat="feasts"]')).toBeHidden();
+  // Season cards + the pastoral fasting disclaimer render.
+  await expect(page.locator(".ff-season-grid .ff-scard").first()).toBeVisible();
+  await expect(page.locator(".ff-fast-disclaimer")).toContainText(
+    "consult your parish priest",
+  );
+});
