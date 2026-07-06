@@ -2,7 +2,7 @@ id: OS-2879
 lifespan: Died c. 250 (3rd century)
 overview:
   - Isidore is a martyr of the third-century Decian persecution, remembered as the companion of the Martyr Jadorus. The Orthodox calendar preserves the two together, and almost nothing beyond their names and shared witness survives.
-  - He is commemorated on February 4. The sources are careful to distinguish this Isidore from the Venerable Isidore of Pelusium, the monastic writer who is honored on the same date, and from the Martyr Isidore of Chios, a Roman naval officer commemorated on May 14.
+  - He is commemorated on February 4. The sources are careful to distinguish this Isidore from the Venerable Isidore of Pelusium, the monastic writer who is honored on the same date.
 sections:
   - heading: Historical Context
     body:
@@ -33,6 +33,3 @@ sources:
   - https://www.oca.org/saints/lives/2016/02/04/100427-martyr-jadorus
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The sources distinguish this Isidore from the Martyr Isidore of Chios, a Roman naval officer commemorated on May 14.
-    detail: No primary liturgical or hagiographic source in the dossier (OCA, OrthodoxWiki, Pravoslavie.ru, Moscow Patriarchate) makes this distinction. Only the distinction from Isidore of Pelusium appears in the OCA synaxarion entry. The Wikipedia article on Isidore of Chios is an article about that entirely separate saint and does not claim to distinguish him from the Feb 4 Isidore; it was included by the researcher for context, not as a primary witness to this saint's commemoration. Attributing this distinction to 'the sources' overstates what the liturgical witnesses do.

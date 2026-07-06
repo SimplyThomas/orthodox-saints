@@ -12,7 +12,7 @@ sections:
     heading_note: ""
   - heading: The Yearly Meeting and Her Repose
     body:
-      - "Because monastic rules prevented the siblings from entering one another's monasteries, Scholastica and Benedict met once each year at a house convenient to both communities to discuss sacred matters. Gregory the Dialogist's Dialogues preserve the celebrated account of their last such meeting: when Benedict prepared to leave, Scholastica asked him to stay longer, and when he refused, she bowed in prayer. A violent storm arose at once, making departure impossible and compelling the two to pass the night in spiritual conversation."
+      - "Because monastic rules prevented the siblings from entering one another's monasteries, Scholastica and Benedict met once each year at a house convenient to both communities to discuss sacred matters. Gregory the Dialogist's Dialogues preserve the celebrated account of their last such meeting: when Benedict prepared to leave, Scholastica asked him to stay longer, and when he refused, she turned to prayer. A violent storm arose at once, making departure impossible and compelling the two to pass the night in spiritual conversation."
       - Three days later, from his cell, Benedict saw his sister's soul leaving her body and ascending to heaven in the form of a shining white dove. Scholastica died on February 10, 543, near Monte Cassino, at about sixty-two or sixty-three years of age. Benedict laid her body in the tomb he had prepared for himself, arranging that he too would one day be buried there.
   - heading: Veneration
     body:
@@ -30,7 +30,7 @@ timeline:
     body: At their yearly conference she prayed that a storm prevent Benedict's departure, and the two spent the night in spiritual conversation, as recorded in Gregory the Great's Dialogues.
   - when: February 10, 543
     title: Repose
-    body: Died near Monte Cassino at about sixty-two; three days earlier Benedict had seen her soul rise to heaven as a dove. He buried her in the tomb prepared for himself.
+    body: Died near Monte Cassino at about sixty-two; at her death Benedict saw her soul rise to heaven as a dove. He buried her in the tomb prepared for himself.
 patronage:
   - Benedictine nuns
   - Education
@@ -42,8 +42,3 @@ sources:
   - https://orthodoxwiki.org/Scholastica
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: When Benedict refused to stay, she bowed in prayer and a storm arose
-    detail: Neither external source says she bowed. Wikipedia says 'Scholastica closed her hands in prayer'; OrthodoxWiki says 'Scholastica turned to a brief prayer to God.' The specific gesture of bowing is not attested in any dossier source.
-  - claim: Timeline Repose entry states 'three days earlier Benedict had seen her soul rise to heaven as a dove' — implying the vision preceded her death by three days
-    detail: "This is a factual error. Both sources (Wikipedia and OrthodoxWiki) state Benedict saw her soul ascending at the moment of her death (three days AFTER their final meeting, not three days before her death). The body text of the same profile correctly renders the sequence: 'Three days later...Benedict saw his sister's soul leaving her body and ascending to heaven...Scholastica died on February 10, 543.' The timeline entry inverts this, erroneously placing the vision on c. February 7, before the February 10 death."

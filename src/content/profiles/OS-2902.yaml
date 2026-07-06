@@ -22,7 +22,7 @@ sections:
   - heading: Relics & Shrines
     body:
       - Felix was buried at Cimitile, in the necropolis just outside Nola. Five churches were eventually raised at his original burial site. His relics are kept in Nola Cathedral, with portions distributed to Rome, Benevento, and other places.
-      - Saint Paulinus of Nola, who credited his conversion to Felix, built a road for pilgrims and a hospice for the poor near the shrine while serving as governor of Campania, and later rebuilt the complex at Cimitile, restoring the ancient basilica erected in the martyr's honor and constructing a new basilica dedicated to Felix around 402–403. In 398 Nicetas, bishop of Remesiana, made a pilgrimage to Nola to visit the grave of Felix and there gained the friendship of Paulinus.
+      - Saint Paulinus of Nola, who credited his conversion to Felix, built a road for pilgrims and a hospice for the poor near the shrine while serving as governor of Campania, and later rebuilt the complex at Cimitile, restoring the ancient basilica erected in his honor and constructing a new basilica dedicated to Felix around 402–403. In 398 Nicetas, bishop of Remesiana, made a pilgrimage to Nola to visit the grave of Felix and there gained the friendship of Paulinus.
   - heading: Miracles & Traditions
     body:
       - "Historically Documented: Felix's imprisonment and beating during the Decian persecution, his refusal of the episcopate in favor of the priest Quintus, and his life of voluntary poverty are the biographical elements transmitted through the writings of Paulinus of Nola."
@@ -55,6 +55,3 @@ sources:
   - https://www.oca.org/saints/lives/2025/01/14
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Profile uses the phrase 'the martyr's honor' to describe the ancient basilica built for Felix, contradicting the anchor's Confessor designation and the profile's own statement that Felix was spared martyrdom
-    detail: The anchor row gives Rank = Confessor, not Martyr; the profile itself states Felix was 'spared martyrdom' and is 'venerated as a Confessor of the Faith.' The phrase 'the martyr's honor' — though borrowed from the Wikipedia Paulinus article, which uses 'the ancient basilica erected in the martyr's honour' — applies the descriptor 'martyr' to Felix in context, directly contradicting the anchor. The anchor row wins (verify.md §a).

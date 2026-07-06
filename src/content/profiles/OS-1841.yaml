@@ -23,8 +23,6 @@ timeline:
   - when: "361"
     title: Conversion and martyrdom
     body: While performing in a play meant to mock Holy Baptism, Porphyrius immerses himself, pronounces the Trinitarian formula, and confesses Christ before the audience. He is tortured and beheaded; one tradition places the execution at Ephesus.
-patronage:
-  - Actors
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/09/15/102620-martyr-porphyrius-the-actor
@@ -33,6 +31,3 @@ sources:
   - https://en.wikipedia.org/wiki/Julian_the_Apostate
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: Porphyrius is patron of actors
-    detail: No source in the dossier attributes patronage of actors to Porphyrius. The external source on Genesius of Rome identifies Genesius as 'patron saint of actors, comedians, lawyers, dancers, and musicians,' but no dossier source makes this claim about Porphyrius. The patronage appears to have been transferred from Genesius to Porphyrius without grounding.

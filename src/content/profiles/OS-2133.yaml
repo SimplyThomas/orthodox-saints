@@ -2,7 +2,7 @@ id: OS-2133
 lifespan: 4th century (traditionally dated to c. 355, under Shapur II, r. 309/310–379)
 overview:
   - Acindynus, Pegasius, Aphthonius, Elpidephorus, Anempodistus, and the seven thousand commemorated with them were Christians of the Sasanian Persian empire who suffered martyrdom during the persecution of King Shapur II (reigned 309/310–379). The named leaders held positions as courtiers in Shapur's service while secretly professing the Christian faith.
-  - According to their synaxarion account, the group was denounced to the king by envious pagans. Brought to trial, they openly confessed their faith in the Holy Trinity and endured torture, imprisonment, and execution. In the course of their martyrdom the sources report that some seven thousand accompanying Christians were killed, together with the torturer Aphthonius (who converted on witnessing their steadfastness) and the king's own mother, who is said to have embraced the faith.
+  - According to their synaxarion account, the group was denounced to the king by envious pagans. Brought to trial, they openly confessed their faith in the Holy Trinity and endured torture, imprisonment, and execution. In the course of their martyrdom the sources report that some seven thousand accompanying Christians were killed, together with the torturer Aphthonius (who converted when boiling lead failed to harm the martyrs) and the king's own mother, who is said to have embraced the faith.
   - The Orthodox Church commemorates the martyrs together on November 2.
 sections:
   - heading: Historical Setting
@@ -44,6 +44,3 @@ sources:
   - https://en.wikipedia.org/wiki/Shapur_II
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Aphthonius converted on witnessing the martyrs' steadfastness.
-    detail: "Both external sources are specific that the conversion came from witnessing a supernatural miracle — boiling lead failing to harm the martyrs — not from their steadfastness as a human quality. Orthodox.cn states: 'When boiling lead failed to harm them, the torturer Aphthonius witnessed the miracle, converted to Christianity.' The profile's own Trial and Martyrdom section correctly states the miracle, making this overview phrasing internally inconsistent and divergent from the source."

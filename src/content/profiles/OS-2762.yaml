@@ -3,7 +3,7 @@ lifespan: c. 689 – c. 759
 liturgicalTitle: Our Venerable Father Othmar, First Abbot of Saint Gall
 overview:
   - Othmar (c. 689 – c. 759) was the first abbot of the Abbey of Saint Gall and the figure who transformed the hermitage of Saint Gall into an organized monastic community. Said to have been of Alemannic descent and born near what is now Saint Gallen in present-day Switzerland, he was serving as a local priest when he was recruited to take charge of the site and the relics of Saint Gall.
-  - Around 720 Waltram (also given as Waltraf) of Thurgau appointed Othmar superior over the cell of Saint Gall and custodian of Gall's relics. Othmar gathered the monks into a properly constituted monastery, at first following the Rule of Saint Columban and later, in 747, introducing the Rule of Saint Benedict, which governed the abbey until its secularization in 1805.
+  - Around 719 Waltram (also given as Waltraf) of Thurgau appointed Othmar superior over the cell of Saint Gall and custodian of Gall's relics. Othmar gathered the monks into a properly constituted monastery, at first following the Rule of Saint Columban and later, in 747, introducing the Rule of Saint Benedict, which governed the abbey until its secularization in 1805.
   - Under his abbacy the community grew markedly — the register of monastic professions recorded fifty-three monks by the end of his tenure — and he founded a school, a hospital, an almshouse, and what is described as the first leprosarium in Switzerland, while caring for the poor and the sick. He died in unjust confinement on Werd Island in Lake Constance after resisting nobles who sought to seize monastery property.
 sections:
   - heading: Founding and Organization of Saint Gall
@@ -31,7 +31,7 @@ timeline:
   - when: c. 689
     title: Birth
     body: Othmar is born, by tradition of Alemannic descent, near present-day Saint Gallen in Switzerland.
-  - when: c. 720
+  - when: c. 719
     title: Appointed superior of Saint Gall
     body: Waltram (Waltraf) of Thurgau appoints Othmar superior over the cell of Saint Gall and custodian of Gall's relics; he gathers the monks into an organized monastery under the Rule of Saint Columban.
   - when: "747"
@@ -56,6 +56,3 @@ sources:
   - https://en.wikipedia.org/wiki/Abbey_of_Saint_Gall
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Profile gives the year of Othmar's appointment as superior of Saint Gall as 'Around 720,' but the anchor notes record the founding as '(719).'
-    detail: The anchor row's notes field reads 'founder-abbot of Saint Gall (719),' giving 719 as the founding year. The profile follows the external Wikipedia source which says 720. Per the verify rule, the anchor wins over external, making the '720' claim unsupported against the anchor.

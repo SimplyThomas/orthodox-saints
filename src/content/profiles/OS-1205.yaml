@@ -1,7 +1,7 @@
 id: OS-1205
 lifespan: c. 1455 – May 19, 1537
 overview:
-  - Cornelius of Komel was a sixteenth-century Russian monastic founder who established a monastery in the forest of Komel, near Vologda, and shaped the spiritual lives of a generation of northern Russian ascetics. Born into the Kriukov boyar family, he abandoned a position connected to the court of the Great Prince of Moscow to follow his brother Lukian into monastic life.
+  - Cornelius of Komel was a sixteenth-century Russian monastic founder who established a monastery in the forest of Komel, near Vologda, and shaped the spiritual lives of a generation of northern Russian ascetics. Born into the Kriukov boyar family, he had longed for the solitary life from his youth and followed his brother Lukian, who served at the court of the Great Prince of Moscow, into the monastic life.
   - He entered the monastery of Saint Cyril of White Lake, where he undertook demanding labors—wearing heavy chains in the bakery while copying church books in his free time. Drawn to greater solitude, he traveled through Rostov, Novgorod, and the Tver region before settling in 1497 in the Komel forest, where monks gathered around his cell and a monastery took form.
   - He compiled a monastic Rule for his brethren drawing on the Rules of Saints Joseph of Volokolamsk and Nilus of Sora—reckoned the third monastic Rule composed by a Russian saint. He died at the age of eighty-two in 1537, and his memory was formally established in 1600 by Patriarch Job. Among his disciples are numbered Saints Cassian and Laurence of Komel and several other founders of northern monasteries.
 liturgicalTitle: Our Venerable Father Cornelius, Abbot of Komel
@@ -72,8 +72,3 @@ sources:
   - https://www.oca.org/saints/lives/2025/05/16/101396-venerable-laurence-abbot-of-komel
 status: flagged
 generated: "2026-06-21"
-flagReasons:
-  - claim: His brother Lukian served at the court of the Great Prince of Moscow
-    detail: The dossier says it was Lukian who served at court, not Cornelius. The profile implies Cornelius held 'a position connected to the court', which is an unsupported inference. The OCA source states only Lukian served at court; Cornelius 'had longed for the solitary life from a young age' and followed Lukian to the monastery.
-  - claim: The profile states Cornelius abandoned a position connected to the court of the Great Prince of Moscow
-    detail: The dossier says only Lukian served at court; Cornelius 'had longed for the solitary life from a young age' and followed his brother. The profile's claim that Cornelius himself abandoned 'a position connected to the court' is unsupported and goes beyond the sources, which attribute the court position to Lukian alone.

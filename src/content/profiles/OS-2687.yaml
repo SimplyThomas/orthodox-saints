@@ -47,7 +47,6 @@ sections:
 patronage:
   - Scribes
   - Calligraphers
-  - Monastics
 sources:
   - OrthodoxWiki
   - OCA Synaxarion (oca.org)
@@ -56,6 +55,3 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=nilus+younger+rossano
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Nilus is listed as patron of Monastics in the patronage field.
-    detail: No dossier source (anchor, Wikipedia, OrthodoxWiki, or Mystagogy) identifies Nilus as a patron of Monastics. Only 'scribes and calligraphers' is stated as his patronage in the external sources. 'Monastics' is an undocumented addition with no grounding in the dossier.

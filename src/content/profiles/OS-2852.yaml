@@ -61,7 +61,6 @@ timeline:
 patronage:
   - Freed slaves
   - Children
-  - Widows
   - Rulers
 sources:
   - OrthodoxWiki
@@ -72,6 +71,3 @@ sources:
   - https://catholicsaints.info/saint-bathild/
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Widows is listed as one of her patronages.
-    detail: No source in the dossier explicitly names widows as a patronage or devotional focus for Bathild. While she was herself widowed after Clovis II's death, none of the anchor, Wikipedia, johnsanidopoulos, catholicsaints.info, or Abbey of Chelles articles identify her as a patron of widows. This appears to be an interpolated inference with no dossier grounding.

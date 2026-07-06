@@ -8,7 +8,7 @@ liturgicalTitle: The Holy and Righteous Ethelbert, King of Kent
 sections:
   - heading: Marriage to Bertha and the Frankish Christian Presence
     body:
-      - Around 580, before he became king, Ethelbert married Bertha of Kent, the Christian daughter of Charibert I, king of the Franks. The marriage was concluded on the condition that Bertha be allowed to practise her faith, and she brought with her a chaplain, Bishop Liudhard.
+      - Around 580, before he became king, Ethelbert married Bertha of Kent, the Christian daughter of Charibert I, king of the Franks. The marriage was concluded on the condition that Bertha be allowed to practise her faith, and she brought with her a chaplain, Liudhard.
       - Bertha secured the use of a restored Roman church outside Canterbury, dedicated to Saint Martin of Tours, as her private chapel; it survives as the Church of St Martin's, Canterbury. Her established Christian presence prepared the ground for Augustine's mission, and Pope Gregory I engaged her directly in his strategy, writing to urge her to incline her husband's heart toward the faith and later, in 601, complimenting her on her faith and learning.
   - heading: The Augustine Mission and Conversion
     body:
@@ -53,6 +53,3 @@ sources:
   - https://en.wikipedia.org/wiki/Bertha_of_Kent
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Liudhard is called 'Bishop Liudhard' in the profile, but the dossier only calls him Bertha's 'chaplain'.
-    detail: The dossier external (Bertha of Kent source) says only 'She brought her chaplain Liudhard to England' — the title 'Bishop' is not present anywhere in the provided dossier text. The profile adds an ecclesiastical rank not attested in the dossier.

@@ -8,7 +8,7 @@ liturgicalTitle: Our Venerable Father Joseph of Bisericani
 sections:
   - heading: Formation and Pilgrimage
     body:
-      - According to the OCA Synaxarion, Joseph was born in a village in Neamț county and was inclined toward the monastic life from a young age. He entered Bistrița Monastery, one of the significant monastic centers of Moldavia, where he was trained in monasticism and learned about the spiritual life from the older fathers.
+      - According to the OCA Synaxarion, Joseph was born in a village in Neamț county and was inclined toward the monastic life from a young age. He entered Bistrița Monastery, where he was trained in monasticism and learned about the spiritual life from the older fathers.
       - With his igumen's blessing, he left Moldavia to worship at the Lord's tomb in Jerusalem. He then retired to the wilderness of the Jordan Valley, and within a few years of his arrival he was, in the words of the Synaxarion, 'a famous hermit.' There he gathered seventeen monks around him and founded what the source describes as the first Romanian spiritual community in the Holy Land.
   - heading: Foundation of Bisericani
     body:
@@ -48,6 +48,3 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/01
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Bistrița Monastery is characterized as 'one of the significant monastic centers of Moldavia'
-    detail: No source in the dossier describes Bistrița Monastery as significant or as a monastic center of Moldavia; the OCA Synaxarion and Romanian Wikipedia simply name the monastery without any such characterization. This is an editorial embellishment with no grounding in the dossier.

@@ -1,10 +1,8 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+/* Same designed Church-year page as /feasts, opened on the Fasts tab. The nav
+   carries one "Feasts & Fasts" entry (pointing at /feasts); this route stays
+   so /fasts links keep working, highlighting that same nav entry. */
+import FeastsIndex from "../components/FeastsIndex.astro";
 ---
 
-<ComingSoon
-  active="fasts"
-  title="Fasts"
-  eyebrow="The Church Year"
-  blurb="The fasting seasons and days that shape the rhythm of the year."
-/>
+<FeastsIndex active="feasts" title="Fasts" initialTab="fasts" />

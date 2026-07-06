@@ -2,7 +2,7 @@ id: OS-2002
 lifespan: 7th century (died 11 October, after c. 685)
 overview:
   - Ethelburga of Barking (Æthelburh) was a seventh-century Anglo-Saxon abbess, remembered as the first head of the monastery of Barking in Essex. She was the sister of Saint Earconwald (Erkenwald), who became Bishop of London in 675 and who founded the double monastery at Barking for her while establishing a separate house at Chertsey for himself. Her name derives from Old English meaning "noble fortress."
-  - The principal historical source for her life is Bede's Ecclesiastical History of the English People (Book IV, chapters 6-10), which itself drew on a lost Life written at Barking Abbey. Bede describes her as upright in life and constantly attentive to the needs of her community, and records a series of miracles associated with her and her monastery, especially during the plague of 664. She is venerated on 11 October in the Eastern Orthodox Church, the Roman Catholic Church, and the Church of England.
+  - The principal historical source for her life is Bede's Ecclesiastical History of the English People (Book IV, chapters 6-10), which itself drew on a lost Life written at Barking Abbey. Bede describes her as upright in life and constantly planning for the needs of her community, and records a series of miracles associated with her and her monastery, especially during the plague of 664. She is venerated on 11 October in the Eastern Orthodox Church, the Roman Catholic Church, and the Church of England.
 liturgicalTitle: Our Venerable Mother Ethelburga, First Abbess of Barking
 sections:
   - heading: Historical Context
@@ -44,6 +44,3 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/11
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Profile states Bede describes her as 'constantly attentive to the needs of her community'; the dossier gives the description as 'constantly planning for the needs of her community'.
-    detail: The external dossier (Wikipedia, drawing on Bede) gives the characterisation as 'upright in life and constantly planning for the needs of her community.' The profile substitutes 'constantly attentive to' for 'constantly planning for,' which shifts the meaning from active foresight and administration to passive responsiveness. The profile attributes this language to Bede, so the paraphrase misrepresents the source.

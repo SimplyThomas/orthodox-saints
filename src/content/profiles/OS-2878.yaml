@@ -1,5 +1,5 @@
 id: OS-2878
-lifespan: early 4th century (d. c. 302–311)
+lifespan: early 4th century
 liturgicalTitle: The Holy Martyr Cyriacus the Executioner, of Sebaste
 overview:
   - Cyriacus (Kyriakos) was, according to Orthodox tradition, an executioner at Sebaste (Sebastea) in Cappadocia, Asia Minor, whose sudden confession of Christ at the scaffold turned him from executioner into martyr. His account survives not as an independent hagiography but embedded within the passion of Saint Antiochus the Physician of Sebaste, the martyr whose death he was appointed to carry out.
@@ -42,6 +42,3 @@ sources:
   - /home/tom/saints-db/src/content/profiles/OS-1537.yaml
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The lifespan field asserts a specific death date range of c. 302–311, implying the Diocletianic persecution.
-    detail: "No dossier source — anchor, OCA, Sanidopoulos, Holy Trinity, Serbian calendar, or OS-1537 — gives a specific date or date range for the martyrdom of Cyriacus or Antiochus. The anchor records only Era: Pre-Nicene and Century: 4th. The range 302–311 is invented precision not grounded in any source consulted."

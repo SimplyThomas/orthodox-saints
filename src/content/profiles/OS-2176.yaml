@@ -1,5 +1,5 @@
 id: OS-2176
-lifespan: c. 767/768 – November 10, 852
+lifespan: d. November 10, 852 (aged about 85; 9th century, Georgia)
 patronage:
   - Georgia
   - Defenders of the Christian faith under persecution
@@ -11,7 +11,7 @@ sections:
   - heading: Historical Context
     body:
       - Constantine's life unfolded against the backdrop of the Abbasid campaigns to suppress revolts in the Caucasus. Beginning in 852, Caliph al-Mutawakkil entrusted the general Bugha al-Kabir (Buga-Turk) with subduing the region. Bugha's campaign opened in Armenia and included the sacking and burning of Tiflis; by 853 he had subdued much of the country and taken many Caucasian magnates and princes captive, sending them to the Abbasid capital at Samarra.
-      - In 853–854, during this invasion, the eighty-five-year-old prince commanded the forces of Kartli alongside his son Tarkhuj against the invading Arab Muslims. The Georgians mounted fierce resistance but were defeated near Gori, and both Constantine and his son were captured.
+      - During this invasion, the eighty-five-year-old prince commanded the forces of Kartli alongside his son Tarkhuj against the invading Arab Muslims. The Georgians mounted fierce resistance but were defeated near Gori, and both Constantine and his son were captured.
   - heading: Martyrdom
     body:
       - Constantine was transported to Samarra in Iraq, where Caliph Ja'far al-Mutawakkil demanded that he convert to Islam, threatening him with death if he refused. The aged prince declined, declaring that the caliph's sword did not frighten him and that he feared only Him who can destroy both soul and body.
@@ -20,7 +20,7 @@ sections:
     body:
       - After his execution, Constantine's body was initially displayed from a pillar in order to intimidate the Christian population. Georgian faithful eventually recovered his relics and reburied them in Georgia with honor.
 timeline:
-  - when: 853–854
+  - when: During the Abbasid invasion
     title: Defense of Kartli
     body: During the Arab invasion led by Bugha al-Kabir, the eighty-five-year-old prince commanded Kartli's forces alongside his son Tarkhuj. The Georgians resisted fiercely but were defeated near Gori, and Constantine and his son were captured.
   - when: November 10, 852
@@ -33,8 +33,3 @@ sources:
   - https://en.wikipedia.org/wiki/Bugha_the_Elder
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: Martyrdom date is November 10, 852, but the capture/defense is dated 853–854 — the profile asserts both simultaneously, which is chronologically impossible.
-    detail: The profile's martyrdom date is November 10, 852 (timeline entry and overview), but the Historical Context section and the 'Defense of Kartli' timeline entry both date the capture to '853–854.' A martyrdom in 852 cannot follow a capture in 853–854. The external sources themselves contain this ambiguity (HolyTrinityOrthodox gives 852; Wikipedia/Bugha article says Bugha's campaign began 852 and subdued the region 'by 853'), but the profile reproduces both dates without resolving the contradiction, making one of the two claims unsupported.
-  - claim: Lifespan is given as c. 767/768 – November 10, 852.
-    detail: No dossier source provides a birth date or birth year for Constantine. The birth year is a back-calculation (852 minus 85 years = 767) not stated in any external source. Additionally, given the internal date inconsistency (capture 853–854 vs. martyrdom 852), the birth year calculation is also unreliable. This is an inference not grounded in any dossier source.

@@ -1,4 +1,5 @@
-.PHONY: build validate test serve xlsx find report profile-batch profile-coverage profile-run profile-stop profile-status download-icons icon-sheet clean \
+.PHONY: build validate test serve xlsx find report profile-batch profile-coverage profile-run profile-stop profile-status \
+        feast-batch feast-run feast-stop feast-status download-icons icon-sheet clean \
         web-install web-dev web-build web-lint web-test web-unit \
         docker-image docker-build docker-validate docker-test docker-xlsx docker-serve docker-shell docker-find docker-report docker-download-icons
 
@@ -14,6 +15,10 @@ profile-coverage: ; python -m tools.profilegen.coverage $(LOG)   # summarize cov
 profile-run:      ; python -m tools.profilegen.run   # hands-off overnight runner (headless claude -p loop; resumable)
 profile-stop:     ; @if [ -f dist/profilegen/run.pid ]; then kill -TERM "$$(cat dist/profilegen/run.pid)" && echo "Sent SIGTERM to PID $$(cat dist/profilegen/run.pid) — run will stop after the current batch"; else echo "profilegen is not running (no dist/profilegen/run.pid)"; fi
 profile-status:   ; @if [ -f dist/profilegen/state.json ]; then cat dist/profilegen/state.json; else echo "No state file found (run has not started or dist/ was cleaned)"; fi
+feast-batch:  ; python -m tools.feastgen.prioritize $(or $(N),10)   # print N high-value profile-less feast IDs for a generation batch (N=10 default)
+feast-run:    ; python -m tools.feastgen.run   # hands-off runner for feast profiles (headless claude -p loop; resumable)
+feast-stop:   ; @if [ -f dist/feastgen/run.pid ]; then kill -TERM "$$(cat dist/feastgen/run.pid)" && echo "Sent SIGTERM to PID $$(cat dist/feastgen/run.pid) — run will stop after the current batch"; else echo "feastgen is not running (no dist/feastgen/run.pid)"; fi
+feast-status: ; @if [ -f dist/feastgen/state.json ]; then cat dist/feastgen/state.json; else echo "No state file found (run has not started or dist/ was cleaned)"; fi
 download-icons: ; python scripts/download_saint_icons.py  # Wikimedia Commons icon search/download/resize (authoring-only deps: pip install requests Pillow python-dotenv)
 icon-sheet: ; python scripts/make_icon_contact_sheet.py  # build dist/icon_contact_sheet.html to review downloaded icons
 clean:    ; rm -rf public/* dist/* _site .astro && touch public/.gitkeep dist/.gitkeep

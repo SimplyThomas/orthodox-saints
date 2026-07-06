@@ -1,0 +1,36 @@
+---
+/* Fasting-discipline badge — tone-coded pill with a small glyph, from the
+   Feasts & Fasts design. Tones map 1:1 to the Fasting Discipline vocabulary
+   (lib/feasts fastTone). Place inside `.on-ivory` for the muted light-ground
+   fills; default fills are for the dark hero/cards. */
+import type { FastTone } from "../lib/feasts";
+
+interface Props {
+  tone: FastTone;
+  label: string;
+}
+
+const { tone, label } = Astro.props;
+
+const GLYPHS: Record<FastTone, string> = {
+  free: '<path d="M12 3v2M12 19v2M3 12h2M19 12h2M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M7.5 16.5 6 18"/><circle cx="12" cy="12" r="4"/>',
+  strict: '<path d="M12 3a7 7 0 0 0 0 14 7 7 0 0 1 0-14z"/>',
+  fish: '<path d="M3 12c4-5 12-5 16 0-4 5-12 5-16 0zM19 12l2-3v6zM8 12h.01"/>',
+  dairy: '<path d="M8 3h8l-1 4v13a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V7z"/>',
+  wine: '<path d="M8 3h8l-.6 6a3.4 3.4 0 0 1-6.8 0zM12 12v6M9 21h6"/>',
+  varies: '<path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4"/>',
+};
+---
+
+<span class={`ff-fast ff-fast--${tone}`}>
+  <svg
+    class="glyph"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    set:html={GLYPHS[tone]}
+  />{label}
+</span>
