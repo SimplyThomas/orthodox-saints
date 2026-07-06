@@ -10,6 +10,16 @@ Quick mental model: **production is just static files on GitHub Pages.** Cloudfl
 powers *previews* and the *corrections form*; if all of Cloudflare vanished, the site keeps
 serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
 
+**Contents:**
+
+1. [Production hosting](#1-production-hosting)
+2. [DNS / registrar](#2-dns--registrar)
+3. [PR previews (Cloudflare Pages)](#3-pr-previews-cloudflare-pages)
+4. [Corrections form backend (Cloudflare Worker)](#4-corrections-form-backend-cloudflare-worker)
+5. [Analytics (Umami)](#5-analytics-umami)
+6. [Credentials & expiry table](#6-credentials--expiry-table)
+7. ["If X dies" — quick answers](#7-if-x-dies--quick-answers)
+
 ---
 
 ## 1. Production hosting
@@ -59,7 +69,8 @@ serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
   unreachable even though Pages is fine) and/or the Cloudflare proxy drops, which also
   takes the corrections form's `/api/report` route offline.
 - **How to verify it's alive today:**
-  - `dig +short orthodoxsaintfinder.com` returns records; `curl -sI` (above) returns 200.
+  - `dig +short orthodoxsaintfinder.com` returns records;
+    `curl -sI https://orthodoxsaintfinder.com/ | head -1` returns `HTTP/2 200`.
   - `curl -sI https://orthodoxsaintregistry.com/` and `.../patronsaintfinder.com/` →
     `301` to the apex.
   - Domain registration and any Cloudflare-zone expiry: **`FILL-IN (owner)`** (renewal
@@ -109,6 +120,10 @@ serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
   - Turnstile **site key** (public) lives in `src/pages/corrections.astro`
     (`SITE_KEY` constant).
   - Deploy: from `workers/report/`, `npx wrangler deploy`.
+  - **Auth note:** every `wrangler` command here (`deploy`, `secret put`, `tail`) needs
+    prior Cloudflare auth — run `npx wrangler login` interactively, or set a
+    `CLOUDFLARE_API_TOKEN` env var (see the Cloudflare access row in the
+    [credentials table](#6-credentials--expiry-table)).
 - **What breaks if it vanishes / misconfigures:**
   - Worker down or route unmapped → the form 500s / can't submit; **the rest of the site
     is unaffected** (GitHub Pages serves every path except `/api/report`).
@@ -128,7 +143,7 @@ serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
 
 - **What it is:** **Umami** web analytics. The tracking script is emitted into every page
   only when the `PUBLIC_UMAMI_WEBSITE_ID` build variable is set; empty/unset omits it
-  entirely (per the comment in [`deploy.yml`](../.github/workflows/deploy.yml) line ~42).
+  entirely (per the comment in [`deploy.yml`](../.github/workflows/deploy.yml) line 45).
   The id is **not secret** — it ships in page source.
 - **Where it's configured:**
   - Production build reads it from `${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}` in
@@ -140,9 +155,11 @@ serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
 - **What breaks if it vanishes:** no visitor stats collected; **the site itself is
   unaffected** (the script is a no-op / omitted). If the Umami host is down, pages still
   render (the script tag just fails to load).
-- **How to verify it's alive today:** `view-source` on a production page → the Umami
-  `script` tag is present with the website id; the Umami dashboard shows live traffic
-  (**`FILL-IN (owner)`** dashboard URL).
+- **How to verify it's alive today:**
+  - `curl -s https://orthodoxsaintfinder.com/ | grep -o 'data-website-id="[^"]*"'` — a
+    match means the tracking script shipped with a website id (zero-dependency check).
+  - Or `view-source` on a production page → the Umami `script` tag is present with the
+    website id; the Umami dashboard shows live traffic (**`FILL-IN (owner)`** dashboard URL).
 
 ## 6. Credentials & expiry table
 
@@ -152,7 +169,7 @@ location; the repo never contains secret *values*. Expiry and account-owner fact
 
 | Credential | Stored where | Used by | Expiry / rotation |
 |---|---|---|---|
-| **GitHub fine-grained PAT** (`GITHUB_TOKEN`) — Issues R/W on `orthodox-saints` only | Cloudflare Worker secret (`wrangler secret put GITHUB_TOKEN`) | `cow-report` Worker → files `data-quality` issues | Set at token creation; fine-grained PATs expire. **`FILL-IN (owner)`** expiry date. Rotate: `cd workers/report && npx wrangler secret put GITHUB_TOKEN` |
+| **GitHub fine-grained PAT** (`GITHUB_TOKEN`) — Issues R/W on `orthodox-saints` only | Cloudflare Worker secret (`wrangler secret put GITHUB_TOKEN`) | `cow-report` Worker → files `data-quality` issues | Set at token creation; fine-grained PATs expire. **`FILL-IN (owner)`** expiry date. Rotate: see [§7](#7-if-x-dies--quick-answers) |
 | **Turnstile secret key** (`TURNSTILE_SECRET_KEY`) | Cloudflare Worker secret (`wrangler secret put`) | `cow-report` Worker → Turnstile siteverify | No expiry unless rotated in the Turnstile dashboard. **`FILL-IN (owner)`** |
 | **Turnstile site key** (public) | `src/pages/corrections.astro` (`SITE_KEY`, committed) | Browser widget on `/corrections` | Public; rotates only if the widget is recreated |
 | **Wikimedia bot password** (`WIKIMEDIA_BOT_PASSWORD`) | `.env` at repo root (git-ignored; template in [`.env.example`](../.env.example)); user `SimplyThomas@Cloud_of_Witnesses` | Authoring-only icon-download scripts in `scripts/` (higher API rate limits) | Managed at `Special:BotPasswords`. **Not used in production** — authoring convenience only. **`FILL-IN (owner)`** |
