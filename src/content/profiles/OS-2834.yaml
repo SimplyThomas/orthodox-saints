@@ -1,5 +1,5 @@
 id: OS-2834
-lifespan: died c. 637 (reign began c. 629; martyred possibly in the early 640s)
+lifespan: died c. 637 (reign began c. 627; martyred possibly in the early 640s)
 liturgicalTitle: The Holy Right-believing King and Passion-Bearer Sigeberht of East Anglia
 overview:
   - "Sigeberht (Old English: Sigebryht) was a seventh-century king of the East Angles who converted to Christianity while in exile in Gaul, returned to rule his kingdom, and did much to establish the faith and learning among the East Angles before abdicating to become a monk. Dragged from his monastery to face a Mercian army, he went into battle carrying only a staff and was slain, and is venerated as a martyr-king."
@@ -43,6 +43,3 @@ sources:
   - https://orthodoxwiki.org/Sigeberht_of_East_Anglia
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The lifespan field asserts the reign began c. 629.
-    detail: The external source places Eorpwald's assassination 'around 627' and states Sigeberht then 'returned to East Anglia and became king' — giving no basis for 629 specifically. The profile's own timeline entry for 'Return from exile and accession' uses 'c. 627,' directly contradicting the lifespan field. No element of the dossier supports c. 629 as the accession date.

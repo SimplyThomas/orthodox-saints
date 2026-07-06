@@ -23,7 +23,7 @@ timeline:
     body: Pontian died in Sardinia from the mistreatment and hardship of the mines.
   - when: 236 (13 August)
     title: Return and burial in Rome
-    body: Under his successor Fabian, Pontian's body was retrieved from Sardinia and buried in the papal crypt of the Catacomb of Callistus on the Appian Way; the date of his deposition, 13 August, became his feast.
+    body: Under Pope Fabian, Pontian's body was retrieved from Sardinia and buried in the papal crypt of the Catacomb of Callistus on the Appian Way; the date of his deposition, 13 August, became his feast.
 sections:
   - heading: Historical Context
     body:
@@ -35,7 +35,7 @@ sections:
       - The two men died in the Sardinian mines, and their common suffering in exile is remembered as the occasion that healed the division. In the West both are honored together on 13 August.
   - heading: Relics & Shrines
     body:
-      - Pope Fabian, who succeeded Pontian, had his remains and those of Hippolytus brought back from Sardinia to Rome, probably in 236. Pontian was interred in the papal crypt of the Catacomb of Callistus on the Appian Way.
+      - Pope Fabian had his remains and those of Hippolytus brought back from Sardinia to Rome, probably in 236. Pontian was interred in the papal crypt of the Catacomb of Callistus on the Appian Way.
       - His original tomb slab was discovered in 1909, bearing a Greek inscription reading 'PONTIANOS EPISK MARTUR' — 'Pontian, Bishop, Martyr.' He is listed under 13 August in the 'Depositiones martyrum' of the Chronography of 354. Churches dedicated in his honor include San Ponziano in Rome, with others at Spoleto, Lucca, and Carbonia in Sardinia.
   - heading: Commemoration
     body:
@@ -49,8 +49,3 @@ sources:
   - https://www.newadvent.org/cathen/12229b.htm
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Pontian's body was retrieved by 'his successor Fabian' (timeline entry for burial).
-    detail: Fabian was not Pontian's direct successor. The dossier (New Advent) explicitly states 'Anterus succeeded him' after Pontian's resignation; Fabian succeeded Anterus. Calling Fabian Pontian's 'successor' is contradicted by the dossier.
-  - claim: Pope Fabian, who succeeded Pontian, had his remains and those of Hippolytus brought back.
-    detail: The dossier (New Advent) states Anterus, not Fabian, was the direct successor of Pontian. Both Wikipedia and New Advent confirm Fabian retrieved the bodies, but he succeeded Anterus, not Pontian. The parenthetical 'who succeeded Pontian' is factually incorrect per the dossier.

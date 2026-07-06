@@ -2,8 +2,6 @@ id: OS-2823
 lifespan: c. 500 – c. 560
 patronage:
   - City of Cardiff
-  - Wales
-  - Llandeilo Fawr
 overview:
   - Saint Teilo (c. 500 – c. 560) was a sixth-century Welsh bishop and one of the principal saints of Wales. A companion of Saint David, he founded the monastery of Llandeilo Fawr and became bishop over the territories of Glywysing and Gwent, succeeding Dubricius (Dyfrig) at Llandaff.
   - Born at Penally (Penalun) in Pembrokeshire, Teilo was educated under Dubricius and later at the school of Paulinus of Wales, where he met David and formed a lifelong association with him. During the plague of 549 he withdrew with a small band of monks to Brittany, returning to Wales after some seven years. He is remembered as the founder of an important monastic center at Llandeilo Fawr and is honored as the patron saint of Cardiff.
@@ -11,7 +9,7 @@ sections:
   - heading: Early Life and Education
     body:
       - Teilo was born around 500 at Penally (Penalun) in Pembrokeshire, Wales. His father is usually identified as Ensich ap Hydwn, and he is described as the brother of Anowed and the uncle of Saints Ismael and Euddogwy.
-      - He received his early education under Dubricius (Dyfrig) and later attended the school directed by Paulinus of Wales at a place recorded as 'Wincdi-Lantquendi,' thought to be Whitland. There he met Saint David and became his close companion. Together with the companions Aeddan and Ysfael, Teilo traveled to Mynyw (St Davids), where David founded his abbey; tradition relates that in doing so they drove out an Irish chieftain named Bwya, killing his cattle and burning his fortress.
+      - He received his early education under Dubricius (Dyfrig) and later attended the school directed by Paulinus of Wales at a place recorded as 'Wincdi-Lantquendi,' thought to be Whitland. There he met Saint David and became his close companion. Together with the companions Aeddan and Ysfael, Teilo traveled to Mynyw (St Davids), where David founded his abbey; tradition relates that in doing so they drove out an Irish pirate named Bwya, killing his cattle and burning his fortress.
   - heading: Bishop of Llandaff
     body:
       - Teilo succeeded Dubricius as Bishop of Llandaff after Dubricius retired to a hermitage on Bardsey Island. He founded the first church at Llandaff, headed a monastic school there, and exercised episcopal authority over the territories of Glywysing and Gwent.
@@ -54,10 +52,3 @@ sources:
   - https://en.wikipedia.org/wiki/Llandeilo_Fawr
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Teilo drove out an 'Irish chieftain' named Bwya
-    detail: The external source (Wikipedia/Saint Teilo) explicitly calls Bwya 'an Irish pirate,' not a chieftain. The profile substitutes 'chieftain' without grounding.
-  - claim: Teilo is patron of 'Wales' (in the patronage array)
-    detail: The only explicit patronage named in the sources is 'Patron Saint of the city of Cardiff.' No source identifies him as patron of Wales as a whole.
-  - claim: Teilo is patron of 'Llandeilo Fawr' (in the patronage array)
-    detail: No source in the dossier identifies Teilo as the patron saint of Llandeilo Fawr. He founded a monastery there and died there, but formal patronage of the settlement is not stated.

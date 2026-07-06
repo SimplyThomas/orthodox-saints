@@ -1,7 +1,7 @@
 id: OS-2701
 lifespan: d. c. 660
 overview:
-  - "Saint Winifred (Welsh: Gwenffrewi; Latin: Wenefreda) was a seventh-century Welsh virgin and, by tradition, abbess, venerated across medieval Wales and England. She was born in Tegeingl, in what is now Flintshire, to the nobleman Tyfid ap Eiludd; her mother, Wenlo, was a niece of Saint Beuno and connected to the royal families of south Wales."
+  - "Saint Winifred was a seventh-century Welsh virgin and, by tradition, abbess, venerated across medieval Wales and England. She was born in Tegeingl, in what is now Flintshire, to the nobleman Tyfid ap Eiludd; her mother, Wenlo, was a niece of Saint Beuno and connected to the royal families of south Wales."
   - According to the surviving hagiographic accounts, a suitor named Caradog beheaded Winifred when she refused his advances and chose the monastic life. A healing spring is said to have risen where her head fell, at Holywell in Flintshire, and Saint Beuno restored her to life, leaving only a thin white line around her neck as a trace of the injury. After some years at Holywell she moved inland to Gwytherin in Denbighshire, where she lived as a nun and abbess until her death around 660.
   - The earliest written lives date only to the twelfth century, several centuries after her lifetime, and historians since the nineteenth century have questioned how much can be recovered of her history. Fragments of an eighth-century oak reliquary discovered in 1991, however, offer good evidence that she was recognized as a saint shortly after her death, supporting her existence as a historical person. She is commemorated on 3 November in England and Wales and is venerated in the Orthodox, Roman Catholic, and Anglican traditions.
 liturgicalTitle: Our Venerable Mother Winifred of Wales
@@ -58,6 +58,3 @@ sources:
   - https://orthodoxwiki.org/Winifred_of_Wales
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: "The profile asserts Welsh and Latin name forms: Welsh 'Gwenffrewi' and Latin 'Wenefreda'."
-    detail: Neither name form appears in any of the dossier external texts. The dossier sources use 'Winifred,' 'Winefride,' and 'Winefrid' but do not confirm the Welsh form 'Gwenffrewi' or the Latin form 'Wenefreda'.

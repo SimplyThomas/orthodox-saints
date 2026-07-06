@@ -14,7 +14,7 @@ sections:
   - heading: Life and Conversion
     body:
       - According to the 12th-century Life, Illtud was born in the 5th century at Ewyas, on the Wales–England border in the region of Monmouthshire and Herefordshire. The same source names his father as Bicanus, described as a minor Breton prince, and his mother as Rieingulid, daughter of Anblaud, a king of Lesser Britain (Brittany); it further alleges that Illtud was a cousin of the legendary King Arthur.
-      - Though intended for the religious life, Illtud is said to have first pursued a military career. He married a woman named Trynihid and served under King Arthur and later under a King Poulentus in western Britain, earning the epithet 'Illtud the Knight.' By tradition, his conversion followed an incident in which his hunting party trespassed on the lands of Abbot Cadoc and the ground opened and swallowed the entire party except for Illtud. Moved to repentance, he separated from his wife and withdrew as a hermit in the Vale of Glamorgan.
+      - Though intended for the religious life, Illtud is said to have first pursued a military career. He married a woman named Trynihid and served under King Arthur and later under a King Poulentus in western Britain, earning the epithet 'Illtud the Knight.' By tradition, his conversion followed an incident in which his hunting party trespassed on the lands of Abbot Cadoc and the ground opened and swallowed the entire party except for Illtud. Moved to repentance, he drove out his wife and withdrew as a hermit in the Vale of Glamorgan.
   - heading: The Monastery and School of Llanilltud Fawr
     body:
       - Illtud founded a monastery and school at what is now Llantwit Major (Llanilltud Fawr) in Glamorgan, remembered as the first major Welsh monastic school and a hub of Celtic Christianity in sub-Roman Britain. One tradition dates the foundation of the monastery and college, sometimes called Bangor Illtyd, to around 508 in the Hodnant valley.
@@ -41,7 +41,7 @@ timeline:
     body: He marries Trynihid and serves as a soldier under King Arthur and later King Poulentus in western Britain, earning the title 'Illtud the Knight.'
   - when: Conversion
     title: Withdrawal to Glamorgan
-    body: After an incident on the lands of Abbot Cadoc, he repents, separates from his wife, and becomes a hermit in the Vale of Glamorgan.
+    body: After an incident on the lands of Abbot Cadoc, he repents, drives out his wife, and becomes a hermit in the Vale of Glamorgan.
   - when: c. 508
     title: Foundation of Llanilltud Fawr
     body: He establishes the monastery and school at Llantwit Major, which becomes a leading centre of Celtic Christian learning; his pupils are said to include David, Samson of Dol, and Gildas.
@@ -63,6 +63,3 @@ sources:
   - https://www.oca.org/saints/lives/2024/11/06
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Profile describes Illtud's break with his wife as a mutual separation, but the dossier source says he drove her out.
-    detail: The dossier external source (Wikipedia/Illtud) states 'he drove out his wife and became a hermit in the Vale of Glamorgan.' The profile's 'separated from his wife' softens this to a neutral separation when the source indicates he expelled her.

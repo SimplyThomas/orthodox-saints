@@ -2,7 +2,7 @@ id: OS-2691
 lifespan: c. 474 – 3 June 545
 liturgicalTitle: The Holy and Righteous Queen Clotilde of the Franks
 overview:
-  - Clotilde (c. 474–545) was a Burgundian princess who became queen of the Franks through her marriage to Clovis I, the first king to unite the Frankish tribes. Contemporary and near-contemporary sources associate her closely with the Christianization of the Frankish court, and she is venerated as righteous in the Eastern Orthodox Church as well as in the Catholic Church and in Lutheranism.
+  - Clotilde (c. 474–545) was a Burgundian princess who became queen of the Franks through her marriage to Clovis I, the first king of the Franks. Contemporary and near-contemporary sources associate her closely with the Christianization of the Frankish court, and she is venerated as righteous in the Eastern Orthodox Church as well as in the Catholic Church and in Lutheranism.
   - Born around 474 at Lyon in Burgundy, she survived the murder of her father, mother, and siblings by her uncle Gundobad, who — though himself an Arian — had her raised in the Catholic faith. After marrying Clovis around 492–493, she persistently urged him toward Catholic Christianity, and his eventual conversion and baptism by Saint Remigius at Reims is remembered as a decisive moment in the religious history of Gaul.
   - Widowed in 511, Clotilde withdrew from political life to Tours, where she lived near the shrine of Saint Martin for her remaining decades, giving generously to the poor and founding churches and monastic houses. She died at Tours on 3 June 545 and is commemorated on June 3 (June 4 in France).
 timeline:
@@ -30,7 +30,7 @@ timeline:
 sections:
   - heading: The Conversion of Clovis
     body:
-      - The conversion of Clovis I is the achievement with which Clotilde is most closely associated. Sources record that she urged him toward Catholic Christianity from early in their marriage. She had their first son baptized without his consent; when the child died soon after, Clovis's resistance hardened. She likewise had their second son baptized, and he became gravely ill, yet recovered.
+      - The conversion of Clovis I is the achievement with which Clotilde is most closely associated. Sources record that she urged him toward Catholic Christianity from early in their marriage. She had their first son baptized without his consent; when the child died soon after, Clovis's resistance hardened. She likewise had their second son baptized, and he became gravely ill.
       - "According to tradition the turning point came at the Battle of Tolbiac against the Alemanni around 496: with his army losing, Clovis appealed to his wife's God, vowing to accept the Christian faith if he won. He was afterward baptized by Saint Remigius at Reims, along with roughly three thousand Franks. Scholars debate the year of the Christmas-Day baptism, placing it somewhere between 498 and 506. The account of Gregory of Tours, set down in the sixth century, is the main historical source for Clotilde's influence on the conversion."
   - heading: Widowhood, Foundations, and Charity
     body:
@@ -38,7 +38,7 @@ sections:
       - She founded several monastic institutions, including a Monastery of Saint Mary at Les Audelys in Touraine, Chelles Abbey for nuns in honor of Saint George (later restored by Saint Bathilde), and a convent at Les Andelys in 511 for noble girls. She built churches at Rouen, Lyon, and Les Andelys. Together with Clovis she began the Basilica of the Holy Apostles — later the Church of Sainte-Geneviève — as a mausoleum honoring Saint Genevieve, patroness of Paris; Clotilde completed it after his death.
   - heading: Reputation and Sources
     body:
-      - "Gregory of Tours is described by the historian David Hugh Farmer as the principal source for Clotilde's life. Later scholarship has defended her memory: Godefroid Kurth disputed claims that she incited her sons against her cousin Sigismund out of a desire for revenge, calling such accounts a defamation contrary to her character, and Butler's scholarship is said to have vindicated her from charges of ferocity and vindictiveness."
+      - "Gregory of Tours is described by the historian David Hugh Farmer as the principal source for Clotilde's life. Later scholarship has defended her memory: Godefroid Kurth disputed claims that she incited her son against her cousin Sigismund out of a desire for revenge, calling such accounts a defamation contrary to her character, and Butler's scholarship is said to have vindicated her from charges of ferocity and vindictiveness."
       - She is venerated in the Catholic Church, the Eastern Orthodox Church, and Lutheranism. Her feast is kept on June 3 (June 4 in France).
   - heading: Relics & Shrines
     body:
@@ -61,10 +61,3 @@ sources:
   - https://en.wikipedia.org/wiki/Clovis_I
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Clovis I described as 'the first king to unite the Frankish tribes'
-    detail: The dossier (Wikipedia/Clotilde) calls him 'Clovis I, first king of the Franks' — not 'first king to unite the Frankish tribes.' The unification characterization is not stated in any dossier source.
-  - claim: Second son baptized, became gravely ill, 'yet recovered'
-    detail: The dossier external says only 'She similarly baptized their second son without consent, and he became severely ill.' There is no mention of recovery anywhere in the dossier. 'Yet recovered' is an addition not supported by any dossier source.
-  - claim: Godefroid Kurth disputed claims that Clotilde incited 'her sons' (plural) against her cousin Sigismund
-    detail: The dossier external says 'Godefroid Kurth's historical analysis disputed claims that Clotilde incited her son against her cousin Sigismund' — singular 'son,' not plural 'sons.' The profile's use of 'sons' is a factual discrepancy with the dossier.

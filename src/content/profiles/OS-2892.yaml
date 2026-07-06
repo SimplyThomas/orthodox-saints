@@ -32,7 +32,7 @@ timeline:
     body: On the advice of former novice Stepan Antonov, the two monks build a forest cell about 40 kilometers from Korovkinskaya village, near the Lodma River in the Volkozero area, sustaining themselves on fish, mushrooms, and berries.
   - when: April 17, 1928 (O.S. April 4)
     title: Martyrdom
-    body: On the eve of Pascha, during Bright Week, local residents seeking rumored hidden monastery treasure fire into the cell, plunder it, then douse the hut with kerosene and set it ablaze with the wounded monks inside. Both Nicephorus and Benjamin perish.
+    body: On Tuesday of Bright Week, local residents seeking rumored hidden monastery treasure fire into the cell, plunder it, then douse the hut with kerosene and set it ablaze with the wounded monks inside. Both Nicephorus and Benjamin perish.
   - when: June 9, 1928
     title: Discovery of the remains
     body: Stepan Antonov finds the burned hut with two skeletons; investigation confirms that murder and arson had taken place.
@@ -51,7 +51,7 @@ sections:
   - heading: The forest hermitage and martyrdom
     body:
       - In the summer of 1926, on the advice of the former novice Stepan Antonov, the two monks built a forest cell about 40 kilometers from Korovkinskaya village, near the Lodma River in the Volkozero ("Lake of Wolves") area. They lived on fish, mushrooms, and berries, with Antonov visiting twice yearly to bring provisions.
-      - On the evening of April 17, 1928 (Old Style April 4) — the eve of Pascha during Bright Week — local residents came to the hermitage seeking rumored hidden monastery treasure. Shots were fired through the window, and after hearing the monks' groans the intruders entered and took items, then doused the hut with kerosene, blocked the door, and set it ablaze. Both Nicephorus and Benjamin perished in the fire. On June 9, 1928, Stepan Antonov discovered the burned hut with two skeletons, and the ensuing investigation confirmed that murder and arson had occurred.
+      - On the evening of April 17, 1928 (Old Style April 4) — Tuesday of Bright Week — local residents came to the hermitage seeking rumored hidden monastery treasure. Shots were fired through the window, and after hearing the monks' groans the intruders entered and took items, then doused the hut with kerosene, blocked the door, and set it ablaze. Both Nicephorus and Benjamin perished in the fire. On June 9, 1928, Stepan Antonov discovered the burned hut with two skeletons, and the ensuing investigation confirmed that murder and arson had occurred.
   - heading: Glorification
     body:
       - Hieromonk Nicephorus and Archimandrite Benjamin were canonized as venerable martyrs (prepodobnomucheniki) at the Jubilee Bishops' Council of the Russian Orthodox Church, held August 13–16, 2000. Their shared feast is kept on April 4 Old Style / April 17 New Style. Both are also numbered among the Synaxis of New Martyrs and Confessors of Solovki, commemorated on August 10/23, established by edict of Patriarch Alexy II on March 25, 2000.
@@ -67,6 +67,3 @@ sources:
   - https://drevo-info.ru/articles/13674558.html
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The martyrdom occurred on 'the eve of Pascha during Bright Week' — these are mutually exclusive liturgical terms. The eve of Pascha (Holy Saturday) precedes Pascha; Bright Week follows it.
-    detail: Julian Pascha 1928 fell on April 2 O.S. (= April 15 Gregorian). April 4 O.S. is therefore two days after Pascha — Bright Tuesday — which the external source correctly identifies as 'Tuesday of Bright Week.' The description 'eve of Pascha' is calendrically wrong for this date and contradicts 'during Bright Week' in the same phrase. The phrase appears verbatim in both the timeline entry and the Martyrdom section. 'Tuesday of Bright Week' is accurate; 'eve of Pascha' is not.

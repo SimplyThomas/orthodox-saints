@@ -7,7 +7,7 @@ overview:
 sections:
   - heading: Abbot of Cleenish
     body:
-      - Sinell was abbot of the monastery of Cluaninis, an island foundation on the River Erne (Lough Erne) in modern County Fermanagh, Ireland. The Irish tradition preserved in the anchor record places him within the monastic lineage of Saint Finnian of Clonard, one of the principal formators of Irish monasticism; the surviving continental sources for Columbanus do not themselves name Sinell's own teacher.
+      - Sinell was abbot of the monastery of Cluaninis, an island foundation on the River Erne (Lough Erne) in modern County Fermanagh, Ireland. The Irish tradition preserved in the anchor record places him within the monastic lineage of Saint Finnian of Clonard; the surviving continental sources for Columbanus do not themselves name Sinell's own teacher.
   - heading: Teacher of Columbanus
     body:
       - Sinell's enduring significance rests on his role as the first teacher of Saint Columbanus (born 543 in the Kingdom of Leinster). Under Sinell's instruction at Cleenish, the young Columbanus composed a commentary on the Psalms.
@@ -20,7 +20,7 @@ timeline:
   - when: 6th century
     title: Abbot of Cleenish
     body: Sinell governs the island monastery of Cluaninis (Cleenish) on the River Erne in modern County Fermanagh, within the monastic tradition of Saint Finnian of Clonard.
-  - when: c. 560s
+  - when: 6th century
     title: Teacher of Columbanus
     body: The young Columbanus (born 543) receives his early formation under Sinell at Cleenish, composing a commentary on the Psalms during his studies.
   - when: after his formation
@@ -34,8 +34,3 @@ sources:
   - https://en.wikipedia.org/wiki/Jonas_of_Bobbio
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Finnian of Clonard is described as 'one of the principal formators of Irish monasticism.'
-    detail: The dossier mentions Finnian of Clonard only as Sinell's teacher in the anchor brief. Neither the anchor nor any external source characterises Finnian's broader historical role. This is additional context not grounded in the dossier.
-  - claim: The timeline dates Columbanus's study under Sinell to 'c. 560s.'
-    detail: No source in the dossier assigns any specific decade to Columbanus's time at Cleenish. The dossier gives only the birth year 543 and Bangor departure ~590; 'c. 560s' is an inference not stated in the anchor or any external item.

@@ -17,10 +17,6 @@ sections:
   - heading: Disciple and Successor of Cronius
     body:
       - Isaac is remembered chiefly as the disciple of Cronius of Nitria and as the elder who succeeded him in the leadership of the Cells around 395. Later sources naming the elders of Nitria list Isaac of the Cells explicitly among the disciples of Cronius, and he in turn served as priest of the community.
-  - heading: The Origenist Controversy
-    body:
-      - A later account associates Isaac with the Origenist controversy that convulsed Egyptian monasticism at the turn of the fifth century, reporting that Archbishop Theophilus of Alexandria condemned him as an Origenist together with the monks known as the Four Tall Brothers. Theophilus, who had at first favored Origen's allegorical theology, reversed his position around 399 and at an Alexandrian synod condemned Origen's writings and expelled Origenist monks from the desert.
-      - This claim is drawn from a brief secondary notice and is not recorded in the source material behind the present entry; it should be treated as uncertain and reviewed against primary sources before being relied upon.
 timeline:
   - when: c. 338
     title: Founding of the Cells
@@ -31,9 +27,6 @@ timeline:
   - when: c. 395
     title: Isaac succeeds as elder
     body: Isaac succeeds Cronius as priest and elder of the Cells.
-  - when: c. 399
-    title: Origenist controversy
-    body: Theophilus of Alexandria reverses his stance on Origen and expels Origenist monks from the Egyptian desert; a later notice numbers Isaac among those condemned.
 sources:
   - OCA Synaxarion (oca.org)
   - The Lausiac History of Palladius
@@ -45,6 +38,3 @@ sources:
   - https://en.wikipedia.org/wiki/Theophilus_I_of_Alexandria
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Archbishop Theophilus of Alexandria condemned Isaac as an Origenist together with the Four Tall Brothers.
-    detail: "This claim is absent from the anchor row (OCA Synaxarion and Lausiac History of Palladius are the sources; neither is cited for this). The dossier annotation on this external item explicitly flags it: 'the excommunication claim is sourced only to a stub article and is absent from the anchor row — Verify should flag this for clergy review before it appears in any profile.' Moreover, the dossier external on Theophilus I of Alexandria names the Four Tall Brothers as Ammonius, Dioscorus, Eusebius, and Euthymius and does not name Isaac of the Cells among those expelled. The only source for Isaac's inclusion is the Wikipedia stub on Isaac himself. The profile's hedging ('drawn from a brief secondary notice…should be treated as uncertain') acknowledges the weakness but still asserts the claim; because the anchor does not support it and the dossier itself calls for a flag, this is unsupported."
