@@ -18,7 +18,17 @@ guide is the short version; the full operating contract is in [`CLAUDE.md`](CLAU
 - **Saint IDs are permanent.** Add new rows with a **blank** Saint ID; the build assigns
   the next `OS-####` and writes it back. Never hand-pick, reuse, or renumber IDs.
 
-See `CLAUDE.md` §§5–10 for the data model, sourcing strategy, and guardrails in full.
+> ⚠️ **The CSVs use Windows (CRLF) line endings** — and no `.gitattributes` enforces
+> it. Before editing `data/*.csv`, run `git config core.autocrlf false` and use an
+> editor that preserves CRLF; verify with `cat -A data/saints.csv | head -2` (lines
+> must end in `^M$`). An editor that normalizes to LF silently corrupts the file or
+> produces a huge noisy diff. Also: multi-value cells are separated by `"; "`
+> (semicolon + space), never commas.
+
+**Column meanings, required fields, join-file schemas, and the feast date grammar are
+in [`docs/data-model.md`](docs/data-model.md)** — the human quick reference. The full
+operating contract (sourcing strategy, guardrails, edge cases) is
+[`CLAUDE.md`](CLAUDE.md) §§5–10.
 
 ## Workflow
 
