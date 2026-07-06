@@ -1,0 +1,39 @@
+---
+/* One calendar row — date · name · brief · fasting badge · kind — shared by
+   FeastCalRows (the flat month lists) and its collapsible-accordion mode so the
+   row markup lives in exactly one place. */
+import type { Feast } from "../lib/feasts";
+import { KIND_LABEL, fastTone, feastKind } from "../lib/feasts";
+import { tokenLabel } from "../lib/feast-dates";
+import FastPill from "./FastPill.astro";
+
+interface Props {
+  feast: Feast;
+}
+
+const { feast: f } = Astro.props;
+
+/** Dateline sub-label: span end for seasons ("→ Jun 28"), else the cycle. */
+function sub(f: Feast): string {
+  if (f.ends) return `→ ${tokenLabel(f.ends)}`;
+  if (f.begins.type === "paschal") return "Movable";
+  if (f.begins.type === "anchored") return "Anchored";
+  return "Fixed";
+}
+---
+
+<div class="ff-cal-row">
+  <span class="ff-cal-date">
+    {tokenLabel(f.begins)}
+    <small>{sub(f)}</small>
+  </span>
+  <span class="ff-cal-main">
+    <span class={`dot dot--${feastKind(f)}`}></span>
+    <span class="ff-cal-name">{f.name}</span>
+  </span>
+  <span class="ff-cal-note">{f.brief}</span>
+  <span class="ff-cal-fast on-ivory">
+    {f.fasting && <FastPill tone={fastTone(f.fasting)} label={f.fasting} />}
+  </span>
+  <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
+</div>

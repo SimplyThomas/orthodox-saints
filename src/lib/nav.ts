@@ -74,6 +74,11 @@ export const NAV: NavItem[] = [
     children: [
       { key: "calendar", label: "The Calendar", href: withBase("calendar") },
       { key: "feasts", label: "Feasts & Fasts", href: withBase("feasts") },
+      {
+        key: "moveable-calendar",
+        label: "The Moveable Calendar",
+        href: withBase("moveable-calendar"),
+      },
     ],
   },
   {

@@ -64,6 +64,33 @@ if (root && dataEl && todaySec && upcomingSec) {
   };
   const now = new Date();
 
+  /* ── Pascha dates card: hide past years, mark the next Pascha ── */
+  const pdList = document.getElementById("ff-pascha-dates");
+  if (pdList) {
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+    ).getTime();
+    let shown = 0;
+    let markedNext = false;
+    for (const li of pdList.querySelectorAll<HTMLLIElement>(".ff-pd")) {
+      const iso = pascha[li.dataset.year || ""];
+      const [y, m, d] = (iso || "").split("-").map(Number);
+      const date = iso ? new Date(y, m - 1, d).getTime() : NaN;
+      if (!iso || date < today || shown >= 8) {
+        li.hidden = true;
+        continue;
+      }
+      shown++;
+      if (!markedNext) {
+        li.classList.add("is-next");
+        li.append(el("span", "ff-pd-next", "Next"));
+        markedNext = true;
+      }
+    }
+  }
+
   /* ── coming up next ── */
   interface Next {
     feast: IslandFeast;
@@ -172,16 +199,34 @@ if (root && dataEl && todaySec && upcomingSec) {
     if (todaySec) todaySec.hidden = filter !== "all";
     updateUpcoming(filter);
     secs.forEach((s) => {
-      const show =
-        filter === "all"
-          ? s.dataset.cat !== "calendar"
-          : s.dataset.cat === filter;
-      s.classList.toggle("is-hidden", !show);
+      s.classList.toggle("is-hidden", s.dataset.cat !== filter);
     });
   }
   tabs.forEach((t) =>
     t.addEventListener("click", () => applyFilter(t.dataset.filter || "all")),
   );
+
+  /* ── month accordions (Summary + Full Calendar): open one month at a time,
+     current month first. The <details> toggle without JS; this just adds
+     exclusivity + a sensible default. ── */
+  function wireAccordion(sec: HTMLElement | null): void {
+    if (!sec) return;
+    const months = Array.from(
+      sec.querySelectorAll<HTMLDetailsElement>(".ff-cal-mo"),
+    );
+    months.forEach((d) =>
+      d.addEventListener("toggle", () => {
+        if (d.open) months.forEach((o) => o !== d && (o.open = false));
+      }),
+    );
+    const curName = MONTHS_FULL[now.getMonth()];
+    const current = months.find(
+      (d) => d.querySelector(".ff-cal-mo-name")?.textContent === curName,
+    );
+    (current ?? months[0])?.setAttribute("open", "");
+  }
+  wireAccordion(root.querySelector<HTMLElement>('[data-cat="all"]'));
+  wireAccordion(root.querySelector<HTMLElement>('[data-cat="calendar"]'));
 
   /* ── today's commemorations ── */
   if (todayDateEl) {
