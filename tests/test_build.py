@@ -59,6 +59,25 @@ def errors_for(rows, vocab=None, header=None):
     return errs
 
 
+class CrlfTests(unittest.TestCase):
+    def test_crlf_file_is_clean(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\r\nOS-0001,Test\r\n")
+        self.assertEqual(build.crlf_errors(Path(f.name)), [])
+        os.unlink(f.name)
+
+    def test_lf_file_is_an_error(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\nOS-0001,Test\n")
+        errs = build.crlf_errors(Path(f.name))
+        self.assertTrue(any("CRLF" in e for e in errs), errs)
+        os.unlink(f.name)
+
+    def test_committed_csvs_are_crlf(self):
+        for p in sorted(build.DATA.glob("*.csv")):
+            self.assertEqual(build.crlf_errors(p), [], p.name)
+
+
 class FeastParsingTests(unittest.TestCase):
     def test_parse_months_single(self):
         self.assertEqual(build.parse_months("Sep 4"), ["Sep"])
