@@ -6779,7 +6779,7 @@ a.sv-rail-chip:hover {
   text-transform: uppercase;
   color: var(--ink-soft);
   display: block;
-  margin-top: 4px;
+  margin-top: 12px;
   font-family: var(--text);
 }
 .ff-up-dates {
