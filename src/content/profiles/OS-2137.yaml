@@ -2,7 +2,7 @@ id: OS-2137
 lifespan: 4th century
 overview:
   - Saint Snandulia was a devout Christian woman of the city of Arbela (modern Erbil, in the region of Adiabene within the Persian Empire) who lived during the persecution of Christians under the Sassanid shah Shapur II in the fourth century. She is remembered chiefly for ministering to imprisoned confessors, seeking them out and tending their wounds at grave personal risk.
-  - Her name is preserved in the account of the martyrdom of the priest Joseph and the deacon Aethalas, whose sufferings the fifth-century Church historian Sozomen also records. Snandulia is commemorated on November 3.
+  - Her name is preserved in the account of the martyrdom of the priest Joseph and the deacon Aethalas, whose sufferings the Church historian Sozomen also records. Snandulia is commemorated on November 3.
 sections:
   - heading: Historical Context
     body:
@@ -14,7 +14,7 @@ sections:
       - When Joseph regained consciousness and saw her weeping, he counselled her that the tortures endured for the sake of Christ are followed by eternal joy. Snandulia is said to have replied that when one is moved by compassion, it is natural to weep. At dawn the saints were returned to prison.
   - heading: Refusal at the Execution
     body:
-      - The judge Zerothus eventually ordered that Joseph and Aethalas be executed by stoning, and compelled local Christians to take part in the stoning as a means of forcing them to deny their faith. Snandulia was among those forced to participate.
+      - The judge Zerothus eventually ordered that Joseph and Aethalas be executed by stoning, and compelled local Christians to take part in the stoning. Snandulia was among those forced to participate.
       - By tradition she refused to cast stones at the aged priest Joseph. When offered a lance instead, she declared that she would sooner drive the lance into her own heart than wound the saint. For her steadfast confession and her mercy toward the imprisoned she is venerated as a righteous confessor.
 timeline:
   - when: 309-379
@@ -37,8 +37,3 @@ sources:
   - https://www.oca.org/saints/lives/2025/11/03
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Profile describes Sozomen as a 'fifth-century' historian, specifying his era
-    detail: No dossier item specifies Sozomen's century. All three references that mention him — OCA source ('The historian Sozomen also describes their sufferings in his Church History') and Shapur II Wikipedia ('The historian Sozomen, cited in later sources') — identify him only as 'historian' without a century. The 'fifth-century' label is not grounded in the dossier.
-  - claim: Judge Zerothus ordered execution by stoning and compelled local Christians to take part as a means of forcing them to deny their faith
-    detail: OCA source states 'Judge Zerothus eventually ordered their execution by stoning. Soldiers forced Christians to participate in the stoning, including Snandulia.' The dossier gives no stated motivation. The profile adds 'as a means of forcing them to deny their faith' — a specific purpose not present in any dossier item.

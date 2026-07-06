@@ -13,7 +13,7 @@ sections:
     body:
       - Under Theocteristus, the Symbola Monastery was a centre of icon-venerating monasticism in Bithynia. Two of his renowned disciples were Saint Timothy (d. 795), an Italian-born monk who led an ascetic life at Symbola, and Saint Plato (feast April 4), the uncle of Saint Theodore the Studite. Plato entered monastic life at Symbola in 759, eventually succeeded Theocteristus as abbot, and in 781 founded the Sakkoudion Monastery, where Theodore the Studite began his own monastic career.
       - Plato was noted for his iconodule stance during the iconoclast controversy and took part in the Second Council of Nicaea (787), which restored the veneration of icons. The continuity from Symbola through Sakkoudion to the Stoudios tradition links Theocteristus's community to one of the most influential currents of later Byzantine monasticism.
-      - Some sources connect Theocteristus instead with the Peletiki (Pelekete) community at Triglia, which may reflect a discrepancy among the sources or the possibility that he was associated with more than one community at different points. The Pelekete Monastery, however, is more securely linked to the other Theosteriktos, whose hegoumenate there ended in the iconoclast attack of 763.
+      - Some sources connect Theocteristus instead with the Peletiki (Pelekete) community at Triglia, which may reflect a discrepancy among the sources or the possibility that he was associated with more than one community at different points. The Pelekete Monastery, however, is more securely linked to the other Theosteriktos, who was tortured in the iconoclast attack of 763.
   - heading: Ascetic Character and Sayings
     body:
       - The troparion sung in his honour (Tone 8) praises him as one whose "flood of tears made the desert fertile" and whose "longing for God brought forth fruits in abundance," language consistent with the ascetic and confessorial character attributed to him.
@@ -41,6 +41,3 @@ sources:
   - https://en.wikipedia.org/wiki/Byzantine_Iconoclasm
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: The Pelekete Monastery's hegoumenate ended in the iconoclast attack of 763.
-    detail: External source 4 says the Pelekete abbot Theosteriktos 'was tortured by Governor Michael Lachanodrakon during the iconoclast attack on Holy Thursday 763, with approximately 38 monks buried alive at Ephesus.' The dossier confirms he was tortured in 763 but does NOT state that his hegoumenate ended at that point. Indeed, he is titled 'Confessor' (not Martyr), implying he survived the persecution. The claim that his hegoumenate specifically ended in 763 goes beyond what the dossier supports.

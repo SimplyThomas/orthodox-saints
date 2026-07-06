@@ -1,7 +1,7 @@
 id: OS-2232
 lifespan: d. 303
 overview:
-  - Procopius the Reader was an early-fourth-century martyr of Palestine, remembered as a reader (lector) of the Church who was put to death at Caesarea during the persecution under the emperor Diocletian. According to the account preserved by Eusebius of Caesarea, he was among the first to suffer in the Great Persecution in Palestine.
+  - Procopius the Reader was an early-fourth-century martyr of Palestine, remembered as a reader (lector) of the Church who was put to death at Caesarea during the persecution under the emperor Diocletian. His martyrdom is recorded in the account of Eusebius of Caesarea.
   - Born at Jerusalem, he is described as a man of strict ascetic life and learning who served the Church in several capacities and preached the word of God. When he refused to offer sacrifice to the pagan gods, he was condemned and beheaded. The Eastern Church keeps his memory on November 22 (July 8 in the Western calendar).
   - "His veneration spread widely in the Christian East: his relics were carried to Antioch, churches were dedicated to him at Caesarea and Constantinople, and he came to be honored across the Orthodox, Roman Catholic, Anglican, and Lutheran traditions."
 patronage:
@@ -11,7 +11,7 @@ sections:
   - heading: Life and Ministry
     body:
       - The Orthodox synaxarion records that Procopius was a reader in the Church of Jerusalem who led a strict ascetic life. For this discipline he was granted the gift of casting out unclean spirits, and he became a zealous preacher of the Gospel.
-      - The account of Eusebius of Caesarea, an eyewitness historian of the persecution, associates his service with the church at Scythopolis (modern Bet She'an), where he is said to have held the offices of reader, exorcist, and interpreter of the Syriac tongue. He was esteemed as an ascetic and as a learned theologian.
+      - The account of Eusebius of Caesarea, a historian of the persecution, associates his service with the church at Scythopolis (modern Bet She'an), where he is said to have held the offices of reader, exorcist, and interpreter of the Syriac tongue. He was esteemed as an ascetic and as a learned theologian.
       - During the persecution of Diocletian he was brought with others from Scythopolis to Caesarea Maritima, the Roman capital of Palestine, and there examined. When he refused to sacrifice to the pagan gods, he was sentenced and beheaded.
   - heading: Relics & Shrines
     body:
@@ -45,8 +45,3 @@ sources:
   - https://orthodoxwiki.org/November_22
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Procopius was among the first to suffer in the Great Persecution in Palestine.
-    detail: No dossier external source states he was among the first martyrs of the persecution in Palestine. Wikipedia says he died on July 7, 303, and mentions Eusebius recorded his death, but does not rank him chronologically as 'among the first.' The OCA source likewise makes no such claim. This assertion is absent from the dossier and must be flagged.
-  - claim: Eusebius of Caesarea is characterized as an eyewitness historian of the persecution.
-    detail: The dossier external sources cite Eusebius but do not describe him as an eyewitness. Wikipedia says only 'According to Eusebius of Caesarea, Procopius and his companions were sent from Scythopolis to Caesarea Maritima.' The characterization 'eyewitness historian' does not appear in any dossier source and is not grounded in the dossier.

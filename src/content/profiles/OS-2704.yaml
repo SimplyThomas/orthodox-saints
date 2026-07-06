@@ -23,7 +23,7 @@ timeline:
     body: On St Bartholomew's Day, 699, Guthlac came to the fenland island of Croyland. He built an oratory and cells within a plundered burial mound and adopted a severe regimen, wearing animal skins and taking only barley bread and a small cup of water after sunset.
   - when: c. 716 (foretold)
     title: Sheltering Æthelbald
-    body: Guthlac gave refuge to Æthelbald, a kinsman fleeing his cousin Ceolred, and, according to Felix, prophesied that Æthelbald would become king. Æthelbald reigned over Mercia from 716 to 757.
+    body: Guthlac gave refuge to Æthelbald, who was fleeing his cousin Ceolred, and, according to Felix, prophesied that Æthelbald would become king. Æthelbald reigned over Mercia from 716 to 757.
   - when: 11 April 714
     title: Repose
     body: Guthlac died on 11 April 714, aged about 40. Felix records that a sweet, nectar-like odour emanated from his mouth at death and that his soul departed in a beam of light; his sister Pega, arriving to perform the funeral rites, found the island filled with a fragrance like ambrosia.
@@ -58,6 +58,3 @@ sources:
   - https://en.wikipedia.org/wiki/Crowland_Abbey
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Æthelbald is described as Guthlac's kinsman fleeing his cousin Ceolred
-    detail: Wikipedia identifies Æthelbald only as 'future King of Mercia (r. 716–757), who was fleeing his cousin Ceolred.' The dossier nowhere says Æthelbald was Guthlac's kinsman. The profile's 'a kinsman' grammatically describes Æthelbald as kin to Guthlac, but no source in the dossier establishes this relationship. The sections text ('a future King of Mercia, who was then a fugitive from his cousin Ceolred') correctly omits the kinship claim; the timeline's 'a kinsman' is an unsupported addition.

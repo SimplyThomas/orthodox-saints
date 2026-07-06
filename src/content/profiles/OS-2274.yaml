@@ -3,7 +3,7 @@ lifespan: d. 274
 liturgicalTitle: The Holy Martyr Phaedrus
 overview:
   - Phaedrus is an early martyr of the Church commemorated on November 29, of whom no detailed biography survives. He is remembered chiefly through the manner of his death and his continued liturgical commemoration.
-  - According to the surviving tradition he was put to death in 274 by having hot resin (molten pitch) poured over him. His martyrdom is placed at Ancyra, the capital of the Roman province of Galatia (modern Ankara, Turkey), during the persecution of Christians under the emperor Aurelian (270–275), with the governor Felix presiding.
+  - According to the surviving tradition he was put to death in 274 by having hot resin poured over him. His martyrdom is placed at Ancyra, the capital of the Roman province of Galatia (modern Ankara, Turkey), during the persecution of Christians under the emperor Aurelian (270–275), with the governor Felix presiding.
   - Phaedrus is grouped in the November 29 commemoration alongside two fellow martyrs of Ancyra in the same year, Philoumenos of Ancyra and Valerian. Where a fuller vita survives for Philoumenos, the sources record for Phaedrus little beyond his name, the year of his death, and the method of his execution.
 timeline:
   - when: "274"
@@ -13,7 +13,7 @@ sections:
   - heading: Historical Context
     body:
       - The martyrdom is set during the reign of the emperor Aurelian (270–275), remembered in the Church's calendars for a renewed persecution of Christians. The three martyrs of Ancyra commemorated on November 29 — Phaedrus, Philoumenos, and Valerian — are all assigned to the year 274 and to the same governor, Felix, who is named as presiding over the trials.
-      - "Ancyra (modern Ankara), the capital of the Roman province of Galatia, recurs in the martyrologies as a place of Christian suffering in this period. For Phaedrus specifically the sources preserve only the essentials: his name, the year, and that he was killed by having hot resin poured over him."
+      - "Ancyra (modern Ankara) was the capital of the Roman province of Galatia. For Phaedrus specifically the sources preserve only the essentials: his name, the year, and that he was killed by having hot resin poured over him."
   - heading: Commemorated With
     body:
       - Phaedrus is listed within a single November 29 commemoration together with Martyr Philoumenos of Ancyra and Martyr Valerian, all three martyred in 274. The calendars record their deaths by different means — Phaedrus by hot resin, Valerian by the sword, and Philoumenos after prolonged torture and loss of blood.
@@ -31,8 +31,3 @@ sources:
   - https://www.oca.org/saints/troparia/2021/11/29/103446-martyr-phaedrus
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: The method of execution was 'hot resin (molten pitch)'
-    detail: Every dossier source — anchor Notes, OrthodoxWiki, Wikipedia, and the OCA pages — consistently says 'hot resin.' The parenthetical '(molten pitch)' appears nowhere in the dossier. Pitch and resin are related but distinct substances; the gloss is an addition without any sourcing in the dossier.
-  - claim: Ancyra 'recurs in the martyrologies as a place of Christian suffering in this period'
-    detail: The dossier documents only this single 274 CE group at Ancyra. No external item in the dossier cites additional martyrdom events at Ancyra to support the claim that it 'recurs' as a site of persecution. The assertion goes beyond what the dossier provides.

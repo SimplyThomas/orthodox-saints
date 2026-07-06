@@ -2,7 +2,7 @@ id: OS-2081
 lifespan: reposed ca. 814
 overview:
   - Athanasius of Medikion was a Byzantine monk of the Medikion Monastery in Bithynia (Asia Minor), remembered as a companion of Saint Nicetas of Medikion and commemorated on October 26.
-  - According to the synaxarion, Athanasius loved the monastic life from his youth and secretly left his parental home to pursue it, but was forcibly brought back by his father; only later did he enter the Medikion Monastery with his father's consent, where he lived out his ascetic struggle.
+  - According to the synaxarion, Athanasius loved the monastic life and secretly left his parental home to pursue it, but was forcibly brought back by his father; only later did he enter the Medikion Monastery with his father's consent, where he lived out his ascetic struggle.
   - He reposed around the year 814. A cypress tree is said to have grown upon his grave, and many healings were attributed to it. He is a minor figure with limited dedicated secondary coverage, the Orthodox Church in America synaxarion being the principal textual source for his life.
 liturgicalTitle: Our Venerable Father Athanasius of Medikion
 sections:
@@ -37,6 +37,3 @@ sources:
   - https://www.oca.org/saints/lives/2024/10/26
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile says Athanasius 'loved the monastic life from his youth,' adding a detail not present in any source.
-    detail: The OCA synaxarion (the sole primary source) says only that he 'loved the monastic life and secretly left his parental home.' The phrase 'from his youth' is not in the anchor, the OCA text, or any external item. It is an unsupported embellishment.

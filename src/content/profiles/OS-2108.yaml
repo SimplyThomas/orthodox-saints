@@ -1,7 +1,7 @@
 id: OS-2108
 lifespan: 9th century
 overview:
-  - Saint Serapion of Zarzma was a ninth-century Georgian monastic who founded the Zarzma monastery in the region of Samtskhe, in the historic province of Klarjeti in southwest Georgia. Born into a wealthy Klarjeti aristocratic family known for its charitable works, he was drawn from his youth to the hermit's life and, together with his younger brother John, pursued monasticism under Michael of Parekhi.
+  - Saint Serapion of Zarzma was a ninth-century Georgian monastic who founded the Zarzma monastery in the region of Samtskhe in southwest Georgia. Born into a wealthy Klarjeti aristocratic family known for its charitable works, he was drawn from his youth to the hermit's life and, together with his younger brother John, pursued monasticism under Michael of Parekhi.
   - At the direction of his spiritual father, Serapion led a company of monks to establish a new community at a site revealed to Michael in a vision. Carrying a wonderworking icon of the Transfiguration of Christ, the monks settled the land that became known as Zarzma, where after three years of labor they completed a monastery that became a lasting center of Georgian monastic life.
   - His life is preserved in a hagiographic account written by his pupil Basil of Zarzma. He is commemorated on October 29.
 liturgicalTitle: Our Venerable Father Serapion of Zarzma
@@ -60,6 +60,3 @@ sources:
   - https://en.wikipedia.org/wiki/Zarzma_Monastery
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile places the Zarzma monastery 'in the region of Samtskhe, in the historic province of Klarjeti,' treating these as the same or nested geographic entity.
-    detail: "Samtskhe and Klarjeti are distinct historic Georgian provinces, not nested regions. Both external sources place the monastery in Samtskhe (OCA: Michael's vision sends the monks 'to Samtskhe'; Wikipedia: 'located in the Samtskhe-Javakheti region of southwest Georgia'). Klarjeti is where Serapion's family originated, not where the monastery stands. The profile conflates the two without any source support for treating Klarjeti as an umbrella region containing Samtskhe."

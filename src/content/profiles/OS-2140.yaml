@@ -28,8 +28,7 @@ sections:
     body:
       - The historian Platon Ioseliani documented that church services attributed to Saint Nicholas are preserved among the manuscripts of the Monastery of Iviron on Mount Athos.
       - Iviron was founded between 980 and 983 by the Georgian monks John the Iberian and John Tornike and served as a center of scholarship for Georgian clergy, including the renowned George the Hagiorite, who translated Byzantine theological texts into Georgian. As the Kingdom of Georgia weakened during the Mongol period, Greek monks gradually took control, and by 1357 Georgians had become a minority there, yet the monastery's Georgian manuscript collections endured.
-patronage:
-  - Hymnographers
+patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/11/03/205495-venerable-nicholas-radiant-star-of-the-georgians
@@ -37,6 +36,3 @@ sources:
   - https://en.wikipedia.org/wiki/Iviron
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Nicholas is a patron of Hymnographers.
-    detail: No source in the dossier — neither the anchor row nor any external item — explicitly assigns Nicholas a patronage over hymnographers. The sources describe him as a hymnographer himself, but do not establish him as an intercessor invoked by or patron saint of hymnographers. This is an unsupported inference from his vocation.

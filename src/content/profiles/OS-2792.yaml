@@ -9,7 +9,7 @@ sections:
   - heading: Historical Context
     body:
       - Basilides lived and died in Alexandria during the persecution of Christians under Septimius Severus, which struck the city around 205. The account of his martyrdom is bound to that of Potamiaena, a young woman famous among the people of the region for the sufferings she endured in defense of her chastity and virginity, who was executed by having burning pitch poured over her body alongside her mother Marcella.
-      - The events were recorded by Eusebius of Caesarea in his Ecclesiastical History (Book VI), and the theologian Origen, an eyewitness to the Alexandrian persecutions, referred to them in his Contra Celsum. Because two near-contemporary witnesses attest the account, it stands among the better-documented martyrdoms of the pre-Nicene Church.
+      - The events were recorded by Eusebius of Caesarea in his Ecclesiastical History (Book VI), and the theologian Origen, an eyewitness to the Alexandrian persecutions, referred to them in his Contra Celsum. Because these two sources attest the account, it stands among the better-documented martyrdoms of the pre-Nicene Church.
   - heading: Martyrdom
     body:
       - Basilides served as a military officer charged with leading Potamiaena to her execution. As the crowd pressed in with insults, he drove back her tormentors and treated her with pity and kindness. Recognizing his compassion, Potamiaena encouraged him and promised to supplicate her Lord on his behalf after her death.
@@ -45,6 +45,3 @@ sources:
   - https://orthodoxwiki.org/index.php?search=Basilides&title=Special%3ASearch
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Both Eusebius and Origen are characterized as 'near-contemporary witnesses' to the events of c. 205.
-    detail: "The dossier distinguishes the two sources precisely: Origen is explicitly called 'an eyewitness' (truly near-contemporary, active in Alexandria c. 205), while Eusebius is described as having 'documented' the events in a history written roughly a century later (Eusebius c. 260–339). Calling Eusebius a 'near-contemporary witness' alongside an actual eyewitness overstates his temporal and epistemic proximity; the dossier does not support this characterization."

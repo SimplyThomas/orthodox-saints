@@ -40,8 +40,3 @@ sources:
   - https://en.wikipedia.org/wiki/Theosebios_of_Arsinoe
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Profile places the saint's lifespan as 'Late 4th–early 5th century,' which is post-Nicene (after 325 AD), directly contradicting the anchor's Era field of 'Pre-Nicene.'
-    detail: "The anchor row sets Era: Pre-Nicene, meaning before the Council of Nicaea (325 AD). 'Late 4th century' corresponds to roughly 370–400 AD — well after Nicaea. The row wins over the external source (Sanidopoulos), which says 'born at the end of the fourth century.' The Era designation in the anchor and this lifespan claim are irreconcilable without a data correction."
-  - claim: Profile states the saint was 'born at the end of the fourth century in the village of Melandra, in the Arsinoe subdistrict (present-day Polis Chrysochous) of Paphos province.'
-    detail: "The birth location details are fully supported by the Sanidopoulos external source, but the timing 'at the end of the fourth century' conflicts with the anchor's Era: Pre-Nicene. Pre-Nicene ends at 325 AD; the end of the fourth century is ~380–400 AD. The anchor's Era field contradicts this dating."
