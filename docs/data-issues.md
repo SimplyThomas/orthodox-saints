@@ -23,6 +23,7 @@ so this register is a permanent historical record of corrections, not just an ac
 ---
 
 ## DI-001 — Duplicate saint: Pope Gregory the Great
+
 - **Status:** ✅ RESOLVED (2026-06-29) — §6 retirement executed; see Resolution below.
 - **Saint IDs:** OS-0084, OS-0164
 - **Description:** OS-0084 ("St. Gregory the Dialogist", AKA "Gregory the Great; Pope of Rome")
@@ -56,6 +57,7 @@ so this register is a permanent historical record of corrections, not just an ac
   - Verified no stray OS-0164 references remain; validation **CLEAN — 2782 saints, 0 errors**.
 
 ## DI-002 — Possible partial duplicate: Edessa martyrs (Thathuil / Sarbellus)
+
 - **Status:** open
 - **Saint IDs:** OS-0190, OS-0191
 - **Description:** OS-0190 "Martyrs Thathuil & Bebaia of Edessa" overlaps OS-0191 "Martyr
@@ -83,6 +85,7 @@ so this register is a permanent historical record of corrections, not just an ac
   two only cross-link each other (no other refs, no group memberships) — safe to defer.
 
 ## DI-003 — Possible duplicate: virgin-martyr Rhais / Irais of Antinoe
+
 - **Status:** open
 - **Saint IDs:** OS-0226, OS-0779
 - **Description:** OS-0226 "Virgin-Martyr Rhais of Alexandria" (AKA Iraida; Raissa) and OS-0779
@@ -97,6 +100,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — obscure, low-traffic; needs source verification (per triage policy, stays Open).
 
 ## DI-004 — Possible duplicate: Martyr Eupsychios of Caesarea (Hadrianic)
+
 - **Status:** open
 - **Saint IDs:** OS-0264, OS-1817
 - **Description:** OS-0264 "Martyr Eupsychios of Caesarea" and OS-1817 "Martyr Eupsychius of
@@ -111,6 +115,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — obscure; needs source verification (stays Open per triage policy).
 
 ## DI-005 — Doubtful kinship claim: Salvius of Albi & Desiderius of Cahors
+
 - **Status:** open
 - **Saint IDs:** OS-0354
 - **Description:** OS-0354's existing `family` section calls **Desiderius (Didier) of Cahors** a
@@ -127,6 +132,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — single obscure profile; needs source verification (stays Open per triage policy).
 
 ## DI-006 — Conflated profile: two distinct Laurences of the Kiev Caves
+
 - **Status:** open
 - **Saint IDs:** OS-0496
 - **Description:** OS-0496 "Laurence the Recluse of the Kiev Caves" appears to merge two distinct
@@ -139,8 +145,10 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Surfaced during the OS-0491–0500 relationship batch; relationship links were
   authored to fit both strands without asserting the merge.
 - **Priority:** Medium — a likely two-person conflation in a single row; needs source verification.
+- **Audit note (2026-07-06):** Audited 2026-07-06 and **left OPEN** — this is a two-person **conflation requiring a SPLIT** (new ID for the Near-Caves/Turov Laurence), not a simple merge; deferred to a dedicated split pass with source verification.
 
 ## DI-007 — Possibly confusable: John of Zedazeni rows
+
 - **Status:** open
 - **Saint IDs:** OS-1128, OS-2340
 - **Description:** OS-1128 "John of Zedazeni and his Twelve Disciples" (leader of the Thirteen
@@ -154,7 +162,8 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — obscure; needs source verification (stays Open per triage policy).
 
 ## DI-008 — Typo in Also Known As: "Neollina"
-- **Status:** open
+
+- **Status:** ✅ RESOLVED (2026-07-06)
 - **Saint IDs:** OS-0439
 - **Description:** OS-0439's "Also Known As" reads "Neollina" — an apparent typo for **Neonilla**
   (the virgin-martyr's name as it appears in the primary Name field).
@@ -162,8 +171,10 @@ so this register is a permanent historical record of corrections, not just an ac
   pass; correct "Neollina" → "Neonilla".
 - **Reasoning:** Spotted during the OS-0431–0440 batch.
 - **Priority:** Low — trivial spelling fix; batched with the next Data Correction pass.
+- **Resolution (2026-07-06):** Fixed typo 'Neollina' → 'Neonilla' in OS-0439 Also Known As.
 
 ## DI-009 — Possible duplicate: Righteous Nonna, mother of Gregory the Theologian
+
 - **Status:** open
 - **Saint IDs:** OS-1647, OS-2507
 - **Description:** Two rows for "Righteous Nonna, mother of Gregory the Theologian," same feast (Aug 5)
@@ -174,7 +185,8 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification (stays Open per triage policy).
 
 ## DI-010 — Duplicate: the Betania confessor (Giorgi-Ioane Mkheidze)
-- **Status:** open
+
+- **Status:** ✅ RESOLVED (2026-07-06)
 - **Saint IDs:** OS-0511, OS-2746
 - **Description:** OS-0511 "St. George (John) of Georgia" and OS-2746 "St. Giorgi-Ioane (Mkheidze)
   of Betania" are the same 20th-c. Georgian confessor (Mkheidze, Jan 21, co-glorified 2003 with
@@ -184,8 +196,10 @@ so this register is a permanent historical record of corrections, not just an ac
   OS-0511 has the profile/relationships), re-point links, retire the other.
 - **Reasoning:** Flagged during the OS-0511–0520 batch; relationship links point at OS-0511.
 - **Priority:** Medium — a confirmed duplicate with a profile attached; resolve before more links accrue.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2746 into OS-0511 (Betania confessor Giorgi-Ioane Mkheidze); Sep 8 feast + confessor facets merged; 2 inbound profile links + 1 CSV note re-pointed to OS-0511.
 
 ## DI-011 — Possible duplicate: Plato of the Studion / Sakkoudion
+
 - **Status:** open
 - **Saint IDs:** OS-0940, OS-0948
 - **Description:** Both "Plato of the Studion/Sakkoudion," confessor, uncle and spiritual father of
@@ -197,6 +211,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-012 — Possible duplicate: Simeon the Ancient
+
 - **Status:** open
 - **Saint IDs:** OS-0546, OS-2443
 - **Description:** OS-0546 "Simeon the Ancient of Mount Sinai" (Jan 26, 5th c.) and OS-2443
@@ -207,7 +222,8 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-013 — Possible duplicate: Julius of Aegina / Julius of Novara
-- **Status:** open
+
+- **Status:** ✅ RESOLVED (2026-07-06)
 - **Saint IDs:** OS-0573, OS-1402
 - **Description:** OS-0573 "Julius of Aegina" (its own overview says "also known as Julius of
   Novara") overlaps OS-1402 "Saints Julius the Presbyter and Julian the Deacon of Novara" (Jun 21,
@@ -217,8 +233,10 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Flagged during the OS-0571–0580 batch; Julian left as a plain card on OS-0573 to
   avoid a circular link pending reconciliation.
 - **Priority:** Low-Medium — needs verification.
+- **Resolution (2026-07-06):** §6 merge — retired the standalone 'Julius of Aegina' OS-0573 into the Julius+Julian pair OS-1402 (Jan 31 feast + Aegina origin merged; OS-2859 cross-ref updated). Web-verified same saint (OCA/Wikipedia). Brother **Julian the Deacon** is preserved in the pair row — a future §7 split of Julian into his own row remains possible.
 
 ## DI-014 — Duplicate: Pancratius of Taormina (one-row violation)
+
 - **Status:** open
 - **Saint IDs:** OS-0623, OS-1499
 - **Description:** Pancratius, Bishop of Taormina, appears both inside the grouped row OS-0623
@@ -230,8 +248,10 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Flagged during the OS-0621–0630 batch (a related cross-link OS-0623 → OS-1499 was
   added in the interim).
 - **Priority:** Low-Medium — needs reconciliation.
+- **Audit note (2026-07-06):** Audited 2026-07-06 and **left OPEN** — reconciling Pancratius across the group row OS-0623 and the standalone OS-1499 is a one-row-per-saint **split/reconcile**, not a merge; deferred to a dedicated pass.
 
 ## DI-015 — Possible duplicate: David of Gareji
+
 - **Status:** open
 - **Saint IDs:** OS-1321, OS-2652
 - **Description:** OS-1321 "Saints David of Gareji and Lucian" and OS-2652 "Venerable David of
@@ -243,6 +263,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-016 — Possible duplicate: Anthony of Martqopi / Martkofeli
+
 - **Status:** open
 - **Saint IDs:** OS-0493, OS-1706
 - **Description:** OS-0493 "Anthony of Martqopi" and OS-1706 "Anthony of Martkofeli" — same place
@@ -255,6 +276,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-017 — Possible duplicate: Euphrosyne of Alexandria
+
 - **Status:** open
 - **Saint IDs:** OS-0664, OS-1905
 - **Description:** OS-0664 "Paphnutius and his daughter Euphrosyne of Alexandria" (Feb 15;
@@ -267,6 +289,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-018 — Possible duplicate: Domnina/Domnica of Syria
+
 - **Status:** open
 - **Saint IDs:** OS-0740, OS-0751
 - **Description:** OS-0740 "Venerable Domnica of Syria" (AKA "Domnina of Syria", Feb 28) and OS-0751
@@ -279,6 +302,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-019 — Possible duplicate / era error: Cosmas of Zographou
+
 - **Status:** open
 - **Saint IDs:** OS-1883, OS-1891
 - **Description:** OS-1883 "Cosmas the Bulgarian of Zographou" (13th c., Sep 21) and OS-1891 "Cosmas
@@ -292,7 +316,8 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-020 — Duplicate: Sabinus / Sabinas of Egypt
-- **Status:** open
+
+- **Status:** ✅ RESOLVED (2026-07-06)
 - **Saint IDs:** OS-0817, OS-2454
 - **Description:** OS-0817 "Martyr Sabinus of Egypt" and OS-2454 "Martyr Sabinas of Egypt" (AKA
   "Sabinus of Hermopolis") both describe the administrator of Hermopolis who hid during Diocletian's
@@ -302,8 +327,10 @@ so this register is a permanent historical record of corrections, not just an ac
   "of Hermopolis" AKA; OS-0817 is lower-numbered).
 - **Reasoning:** Flagged during the OS-0811–0820 batch.
 - **Priority:** Low-Medium — strong overlap; needs verification.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2454 into OS-0817 (Sabinus of Hermopolis); 'Sabinus of Hermopolis'/'Sabbas' AKA + Courage merged.
 
 ## DI-021 — Possible duplicate: Alexander of Pydna / Thessalonica
+
 - **Status:** open
 - **Saint IDs:** OS-0820, OS-2166
 - **Description:** OS-0820 "Martyr Alexander of Pydna" (Mar 13) and OS-2166 "Alexander of
@@ -316,6 +343,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — sources disputed; never merge without confirmation.
 
 ## DI-022 — Possible duplicate: the Virgin-Martyrs of Ancyra
+
 - **Status:** open
 - **Saint IDs:** OS-0853, OS-1199
 - **Description:** OS-0853 "Virgin-Martyrs Alexandra & companions" (Mar 20) and OS-1199 "Theodotus
@@ -328,6 +356,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-023 — Possible duplicate: Avdas / Abdas of Persia
+
 - **Status:** open
 - **Saint IDs:** OS-0911, OS-0229
 - **Description:** OS-0911 "Hieromartyr Avdas of Persia" and OS-0229 "Abdas of Persia" (Sep 5) —
@@ -339,6 +368,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-024 — Possible duplicate: Aeithalas the Deacon of Persia
+
 - **Status:** open
 - **Saint IDs:** OS-0093, OS-2134
 - **Description:** Aeithalas the Deacon appears both as the standalone row OS-0093 (Sep 1) and as a
@@ -351,6 +381,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-025 — Possible overlap: Azades the Eunuch within Symeon of Persia's company
+
 - **Status:** open
 - **Saint IDs:** OS-0996, OS-1006
 - **Description:** OS-0996 "Martyr Azades the Eunuch" may be the same "Azad the Eunuch" listed in the
@@ -362,6 +393,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Priority:** Low — needs verification.
 
 ## DI-026 — Possible duplicate: Pimen the Faster of the Kiev Caves
+
 - **Status:** open · **Saint IDs:** OS-1133, OS-1788
 - **Description:** OS-1133 "Pimen the Faster of the Far Caves" and OS-1788 (Kuksha & Pimen of the Near
   Caves, AKA "Pimen the Faster") may conflate two distinct Pimens, or be the same. OS-1133's own
@@ -370,13 +402,16 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Flagged OS-1121–1140 batch. **Priority:** Low.
 
 ## DI-027 — Possible triple-duplicate: Hilarion the Georgian
-- **Status:** open · **Saint IDs:** OS-0661, OS-2220, OS-2663
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-0661, OS-2220, OS-2663
 - **Description:** Three rows carry "Hilarion the Georgian"; OS-2220 and OS-2663 also share the epithet
   "Hilarion the Wonderworker of Thessalonica." Strong conflation/duplication risk among the three.
 - **Recommended action:** Source-check; reconcile/merge per §6 (likely 2-3 rows → 1-2).
 - **Reasoning:** Flagged OS-1101–1120 batch (drove a no-link decision on OS-1106). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2663 into OS-2220 (Hilarion the Georgian / Wonderworker of Thessalonica, †875, Nov 19). Web-verified (OCA / Sanidopoulos): OS-2220 = OS-2663 are one saint; the third row **OS-0661** (Hilarion *the New*, †1864, Feb 14) is a genuinely distinct 19th-c. namesake and was left untouched. Feast kept at Nov 19 (the 'Dec 2' seen in some sources is the Old-Calendar equivalent, not a second feast).
 
 ## DI-028 — Possible duplicate: George of Mytilene
+
 - **Status:** open · **Saint IDs:** OS-0957, OS-1186
 - **Description:** OS-0957 "George the Confessor of Mytilene" (Apr 7) and OS-1186 "George of Mytilene"
   (May 16) may be the same iconodule hierarch on two feasts; OS-1186 flags the identity as unresolved.
@@ -384,6 +419,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Flagged OS-1181–1200 batch. **Priority:** Low.
 
 ## DI-029 — Possible duplicate: Alexander of Rome / Marcianopolis
+
 - **Status:** open · **Saint IDs:** OS-1162, OS-2449
 - **Description:** OS-1162 "Alexander of Rome" (May 13) and OS-2449 "Alexander of Marcianopolis"
   (Feb 25) both describe a young soldier-martyr under Maximian buried in Thrace by his mother Pimenia.
@@ -392,7 +428,8 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Reasoning:** Flagged OS-1161–1180 batch. **Priority:** Low.
 
 ## DI-030 — Duplicate: Joanikije Lipovac, Metropolitan of Montenegro
-- **Status:** open · **Saint IDs:** OS-1287, OS-1291
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1287, OS-1291
 - **Description:** OS-1287 "Hieromartyr Joannicius of Serbia" and OS-1291 "Hieromartyr Joanikije,
   Metropolitan of Montenegro" are the **same person** — Joanikije (Jovan) Lipovac, Metropolitan of
   Montenegro and the Littoral, b. Stoliv 1890, killed at Aranđelovac 18 Jun 1945, canonized 1999,
@@ -400,8 +437,10 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Recommended action:** Merge/retire per §6 (keep one canonical row).
 - **Reasoning:** Flagged OS-1281–1300 batch; both left unlinked (self-reference would be wrong).
 - **Priority:** Medium — confirmed same person.
+- **Resolution (2026-07-06):** §6 merge — retired the OS-1287 stub into the correctly-identified OS-1291 (Joanikije Lipovac, Metropolitan of Montenegro; killed 1945, canonized 1999). Kept the richer/correctly-named row per §6's richness clause.
 
 ## DI-031 — Possible conflation: James the Penitent
+
 - **Status:** open · **Saint IDs:** OS-1349, OS-0772
 - **Description:** OS-1349 "James the Penitent" and OS-0772 "James the Faster of Phoenicia" share the
   same vita shape (renounced all, fell through pride, did long penance, restored with discernment).
@@ -409,12 +448,14 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Recommended action:** Synaxarion check; merge per §6 or document distinctness. **Priority:** Low.
 
 ## DI-032 — Possible duplicate: Mark "John Mark"
+
 - **Status:** open · **Saint IDs:** OS-1061, OS-1911
 - **Description:** OS-1061 "Apostle & Evangelist Mark" and OS-1911 "Apostle Mark of the Seventy, Bishop
   of Byblos" both alias "John Mark." Likely a conflation/overlap of the Evangelist with the Seventy-Mark.
 - **Recommended action:** Source-check; document distinctness or merge per §6. **Priority:** Low.
 
 ## DI-033 — Possible duplicate: Hippolytus of Rome
+
 - **Status:** open · **Saint IDs:** OS-0562, OS-1697
 - **Description:** OS-0562 "Hieromartyr Hippolytus of Rome and Companions" and OS-1697 "Hippolytus of
   Rome and those with him" (the Laurence-cycle martyr-jailer, Aug 13) may overlap/duplicate. Note the
@@ -422,6 +463,7 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Recommended action:** Source-check; document distinctness or merge per §6. **Priority:** Low.
 
 ## DI-034 — Possible duplicate: Eudokia / Ia of Persia
+
 - **Status:** open · **Saint IDs:** OS-1640, OS-1823
 - **Description:** OS-1640 "Martyr Eudokia of Persia" and OS-1823 "Ia of Persia" (both Aug 4, Persian
   captivity under Shapur II); OS-1640's own prose notes hagiographers suspect the two Passions are the
@@ -429,63 +471,80 @@ so this register is a permanent historical record of corrections, not just an ac
 - **Recommended action:** Source-check; merge per §6 or document distinctness. **Priority:** Low.
 
 ## DI-035 — Possible duplicate: Gerasimus of Cephalonia
-- **Status:** open · **Saint IDs:** OS-0063, OS-1716
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-0063, OS-1716
 - **Description:** OS-0063 "St. Gerasimos of Kefalonia" and OS-1716 "Gerasimus the New Ascetic of
   Cephalonia" — same epithet, island, and feasts (Oct 20 + Aug 16 translation). Almost certainly the
   same saint.
 - **Recommended action:** Merge/retire per §6 (keep OS-0063, the lower-numbered/richer). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-1716 into OS-0063 (Gerasimos of Kefalonia); fuller Brief Life + Sources merged.
 
 ## DI-036 — Possible duplicate: Macarius of Pelekete
-- **Status:** open · **Saint IDs:** OS-0917, OS-1734
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-0917, OS-1734
 - **Description:** OS-0917 "Macarius the Confessor of Pelekete" (Apr 1) and OS-1734 "Macarius of
   Pelekete" (Aug 18) — both Makarios, igumen of Pelekete, b. c.785, orphaned, iconoclast confessor.
   OS-1734's own sources cite both OCA feast pages.
 - **Recommended action:** Source-check; merge per §6 (keep OS-0917). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-1734 into OS-0917 (Macarius the Confessor of Pelekete); Aug 18 feast + Exile merged (feast now Apr 1; Aug 18).
 
 ## DI-037 — Probable duplicate: the Bakhtrioni martyrs (Bidzina, Shalva, Elizbar)
-- **Status:** open · **Saint IDs:** OS-1863, OS-2658
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1863, OS-2658
 - **Description:** OS-1863 "Bidzini, Elizabar, and Shalvi of Georgia" (Sep 18, 17th c.) and OS-2658
   "Bidzina, Elizbar, and Shalva" (Sep 18, 17th c., Bakhtrioni) are the same three Georgian princely
   martyrs of the Bakhtrioni uprising — same feast, century, region, and the same three names.
 - **Recommended action:** Merge/retire per §6 (keep the lower/richer of the two). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2658 into OS-1863 (Bakhtrioni martyrs Bidzina/Elizbar/Shalva); Georgian-script + Cholokashvili/Ksani names, Faith virtue, and 1661 dating merged.
 
 ## DI-038 — Wrong cross-reference ID in OS-1814 Notes
-- **Status:** open · **Saint IDs:** OS-1814 (ref to Mamas)
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1814 (ref to Mamas)
 - **Description:** OS-1814's CSV Notes cite "Martyr Mamas of Caesarea (OS-0120)", but Mamas is
   **OS-0065** and **OS-0120 does not exist** in saints.csv. (The OS-1814 *profile* correctly links
   OS-0065; only the CSV Notes ID is wrong.)
 - **Recommended action:** Edit OS-1814 Notes: OS-0120 → OS-0065. **Priority:** Low (trivial fix).
+- **Resolution (2026-07-06):** Corrected OS-1814 Notes cross-reference OS-0120 → OS-0065 (Mamas of Caesarea).
 
 ## DI-039 — Probable duplicate: Martyrs David and Constantine of Georgia
-- **Status:** open · **Saint IDs:** OS-1940, OS-2660
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1940, OS-2660
 - **Description:** OS-1940 "Martyrs David and Constantine, Princes of Georgia" and OS-2660 "Martyrs David
   and Constantine of Argveti" — same two 8th-c. Georgian princely brothers (Oct 2) who resisted the
   Arab invasion under Marwan. Same feast, century, region, names.
 - **Recommended action:** Merge/retire per §6 (keep the richer row). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2660 into OS-1940 (David & Constantine of Argveti); Georgian names + Motsameta note merged.
 
 ## DI-040 — Probable duplicate: Damaris of Athens
-- **Status:** open · **Saint IDs:** OS-1947, OS-2582
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1947, OS-2582
 - **Description:** Both "Damaris of Athens," Convert, Greece, Apostolic Age (1st c.), feast Oct 3 — the
   woman converted by Apostle Paul at the Areopagus (Acts 17:34). Near-certain duplicate. (Note OS-1947
   has no profile YAML; OS-1942 hrefs OS-1947.)
 - **Recommended action:** Merge/retire per §6 (keep OS-1947, the lower/referenced). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2582 into OS-1947 (Damaris of Athens, Acts 17:34); Pan-Orthodox + the OS-1942 commemoration note merged.
 
 ## DI-041 — Same person split: Simon the Monk / Stephen the First-Crowned of Serbia
-- **Status:** open · **Saint IDs:** OS-1902, OS-1904
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1902, OS-1904
 - **Description:** OS-1902 "Venerable Simon the Monk of Serbia" is the monastic name (deathbed tonsure)
   of OS-1904 "Stephen the First-Crowned." OS-1902 already cross-references OS-1904 as "the same person
   honoured in his royal office." This may be an intentional documented-distinct pair OR a duplicate.
 - **Recommended action:** Decide between §6 merge or documented-distinct (Notes cross-ref both ways).
   **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired the OS-1902 'Simon the Monk' stub into OS-1904 (Stephen the First-Crowned; monastic name Simon). Web-verified as one saint (feast Sep 24); kept distinct from his father St Simeon the Myrrh-gusher (Stefan Nemanja).
 
 ## DI-042 — Probable duplicate: Thais of Egypt
-- **Status:** open · **Saint IDs:** OS-1142, OS-2747
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-1142, OS-2747
 - **Description:** OS-1142 "Blessed Thais of Egypt" and OS-2747 "Venerable Thais of Egypt (the Penitent)"
   — both Female, Egypt, feasts Oct 8 + May 10, the reformed courtesan converted by Abba (Paphnutius/
   Serapion). Likely the same saint.
 - **Recommended action:** Source-check; merge per §6 (keep the richer/lower). **Priority:** Medium.
+- **Resolution (2026-07-06):** Verified **NOT a duplicate** — kept as **documented-distinct**. Web-checked (OCA May 10 vs Oct 8): the **May 10** 'Blessed Taisia' follows the *Apophthegmata* Paësia story (converted by St John the Dwarf/Colobos), while the **Oct 8** 'Thais the Penitent' is the *Lausiac History* courtesan converted by St Paphnutius and enclosed three years — different converters, centuries, and life-arcs. The register's 'likely same' was mistaken. Mutual Notes cross-refs strengthened with the conflation note. (Content flag: OS-1142's Brief Life understates the fall/repentance in the OCA May 10 account — for a later content pass.)
 
 ## DI-043 — Benjamin the Deacon of Persia split across two rows
+
 - **Status:** open · **Saint IDs:** OS-0911, OS-2014
 - **Description:** OS-0911 "Hieromartyr Avdas… and Martyr Benjamin the Deacon" (Mar 31) already bundles
   Benjamin the Deacon into Avdas's commemoration, while OS-2014 is a standalone "Benjamin the Deacon of
@@ -495,26 +554,33 @@ so this register is a permanent historical record of corrections, not just an ac
   Benjamin from OS-0911's name, OR document-distinct. **Priority:** Low.
 
 ## DI-044 — Possible duplicate: New Martyr Paisius (Belgrade 1814)
-- **Status:** open · **Saint IDs:** OS-2380, OS-2637
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-2380, OS-2637
 - **Description:** OS-2380 "New Martyr Paisius of Trnava" and OS-2637 "New Martyr Paisius the Hegumen of
   Serbia" — both 19th-c. Serbian neomartyrs commemorated Dec 17 alongside Deacon Avakum (martyred at
   Belgrade, 1814). OS-2379 (Avakum) links its companion Paisius to OS-2637; OS-2380 links back to OS-2379.
   May be the same hegumen-martyr (Paisije of Moštanica) under two place-epithets.
 - **Recommended action:** Source-check; if same, merge per §6. **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2637 into OS-2380 (New Martyr Paisius / Pajsije Ristović of Trnava, †Belgrade 1814 with Deacon Avakum OS-2379). Web-verified same saint; OS-2637's 'Hegumen of Moštanica' label was an error (Moštanica was Avakum's house — Paisius was hegumen of Trnava) and is corrected. Inbound link on OS-2379 re-pointed.
 
 ## DI-045 — Probable duplicate: Martyr Alexander of Thrace (the Pimenia legend)
-- **Status:** open · **Saint IDs:** OS-2449, OS-2480
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-2449, OS-2480
 - **Description:** OS-2449 "Martyr Alexander of Marcianopolis" (Feb 25) and OS-2480 "Martyr Alexander the
   Soldier of Rome" (May 13) — both Alexander of Thrace, a Roman soldier under Maximian whose mother
   **Pimenia** recovers and buries his body. The distinctive mother-Pimenia legend and near-identical
   profiles indicate the same saint under two feast days.
 - **Recommended action:** Source-check; merge per §6 (record both feasts on the keeper). **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2480 into OS-2449 (Alexander the Roman; the mother-Pimenia / River-Ergina martyrdom). Web-verified one saint under two dates; recorded both feasts **Feb 25** (Greek synaxaria) + **May 13** (Slavic). NB: a possible further overlap with 'Alexander of Rome' OS-1162 (DI-029) remains OPEN.
 
 ## DI-046 — Probable duplicate: Peter I (the Martyr), Archbishop of Alexandria
-- **Status:** open · **Saint IDs:** OS-2252, OS-2726
+
+- **Status:** ✅ RESOLVED (2026-07-06) · **Saint IDs:** OS-2252, OS-2726
 - **Description:** OS-2252 "Hieromartyr Peter, Archbishop of Alexandria" and OS-2726 "Hieromartyr Peter,
   Patriarch of Alexandria" — both Peter I "the Martyr" of Alexandria (martyred 311, feast Nov 25), the
   predecessor of Achillas (OS-2727). Achillas's companion card points to OS-2252; the OS-2726→OS-2727 link
   points the other way — an asymmetry caused by the duplicate.
 - **Recommended action:** Merge/retire per §6 (keep the richer/lower OS-2252); reconcile Achillas's link to
   the survivor. **Priority:** Medium.
+- **Resolution (2026-07-06):** §6 merge — retired OS-2726 into OS-2252 (Peter I 'the Martyr', Archbishop of Alexandria, †311, Nov 25). Achillas (OS-2727) already links to OS-2252, so the companion-link asymmetry is resolved.
+
