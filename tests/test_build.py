@@ -4,7 +4,9 @@ Run from the repo root:  python -m unittest discover -s tests
 (or `make test` / `make docker-test`).
 """
 
+import json
 import os
+import shutil
 import sys
 import tempfile
 import unittest
@@ -14,6 +16,14 @@ from unittest import mock
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import build  # noqa: E402
+
+# openpyxl is optional locally (only the xlsx export needs it); guard any test
+# that touches emit_xlsx so the suite runs on plain host Python.
+try:
+    import openpyxl  # noqa: F401
+    HAS_OPENPYXL = True
+except ImportError:
+    HAS_OPENPYXL = False
 
 
 # Minimal vocabulary covering the terms used by the synthetic rows below.
@@ -1127,6 +1137,154 @@ class RetiredIdsTests(unittest.TestCase):
         errs, _ = build.validate_retired_ids(valid_ids)
         self.assertEqual(errs, [], "committed retired_ids.csv has errors:\n" +
                          "\n".join(errs))
+
+
+class BuildDbTests(unittest.TestCase):
+    """build_db(): schema (26 CSV columns + the two derived) and the derived
+    months / feast_sort values."""
+
+    def test_schema_is_header_plus_derived_columns(self):
+        conn = build.build_db(build.HEADER, [valid_row()], TEST_VOCAB)
+        try:
+            cols = [r[1] for r in conn.execute("PRAGMA table_info(saints)")]
+            self.assertEqual(cols, build.HEADER + ["months", "feast_sort"])
+        finally:
+            conn.close()
+
+    def test_derived_months_and_feast_sort(self):
+        rows = [valid_row(**{"Feast Day(s)": "Sep 4; Dec 10"})]
+        conn = build.build_db(build.HEADER, rows, TEST_VOCAB)
+        try:
+            months, fs = conn.execute(
+                "SELECT months, feast_sort FROM saints").fetchone()
+            self.assertEqual(months, "Sep; Dec")
+            # feast_sort is the MIN across dates (Sep 4 -> 904), stored as text.
+            self.assertEqual(fs, str(build.feast_sort("Sep 4; Dec 10")))
+            self.assertEqual(fs, "904")
+        finally:
+            conn.close()
+
+    def test_movable_feast_sorts_last(self):
+        rows = [valid_row(**{"Feast Day(s)": "3rd Sunday of Pascha"})]
+        conn = build.build_db(build.HEADER, rows, TEST_VOCAB)
+        try:
+            months, fs = conn.execute(
+                "SELECT months, feast_sort FROM saints").fetchone()
+            self.assertEqual(months, "")
+            self.assertEqual(fs, str(build.MOVABLE_SORT))
+        finally:
+            conn.close()
+
+    def test_vocabulary_table_holds_all_terms(self):
+        conn = build.build_db(build.HEADER, [valid_row()], TEST_VOCAB)
+        try:
+            cats = {c for (c,) in
+                    conn.execute("SELECT DISTINCT category FROM vocabulary")}
+            self.assertEqual(cats, set(TEST_VOCAB))
+            terms = [t for (t,) in conn.execute(
+                "SELECT term FROM vocabulary WHERE category='Gender' "
+                "ORDER BY term")]
+            self.assertEqual(terms, ["Female", "Male"])
+        finally:
+            conn.close()
+
+
+class EmitJsonTests(unittest.TestCase):
+    """Direct tests for the JSON emitters (previously covered only via the
+    integration path). PUBLIC is redirected to a temp dir created UNDER the
+    repo root, because emit_themes_json prints a ROOT-relative path."""
+
+    # High synthetic IDs so no committed join file (images/quotes/groups)
+    # accidentally attaches data to these rows.
+    SID_A = "OS-9901"
+    SID_B = "OS-9902"
+
+    def setUp(self):
+        self._old_public = build.PUBLIC
+        self._tmp = Path(tempfile.mkdtemp(dir=build.ROOT, prefix="test-public-"))
+        build.PUBLIC = self._tmp
+
+    def tearDown(self):
+        build.PUBLIC = self._old_public
+        shutil.rmtree(self._tmp, ignore_errors=True)
+
+    def _rows(self):
+        return [
+            valid_row(**{"Saint ID": self.SID_B, "Name": "December Saint",
+                         "Feast Day(s)": "Dec 10"}),
+            valid_row(**{"Saint ID": self.SID_A, "Name": "January Saint",
+                         "Feast Day(s)": "Jan 1"}),
+        ]
+
+    def test_emit_data_json_writes_well_formed_json(self):
+        records = build.emit_data_json(self._rows())
+        with open(self._tmp / "data.json", encoding="utf-8") as f:
+            on_disk = json.load(f)
+        self.assertEqual(on_disk, records)
+        self.assertEqual(len(on_disk), 2)
+
+    def test_emit_data_json_records_carry_expected_keys(self):
+        rec = build.emit_data_json(self._rows())[0]
+        for key in ("id", "name", "gender", "rank", "era", "century", "feast",
+                    "prayer", "sources", "months", "feastSort", "hymn", "icon",
+                    "video", "works", "about", "vendors", "search", "themes"):
+            self.assertIn(key, rec)
+        self.assertIsInstance(rec["rank"], list)   # multi-value -> array
+        self.assertIsInstance(rec["era"], str)     # single-value -> string
+
+    def test_emit_data_json_sorted_by_feast_sort(self):
+        records = build.emit_data_json(self._rows())
+        self.assertEqual([r["name"] for r in records],
+                         ["January Saint", "December Saint"])
+        self.assertEqual([r["feastSort"] for r in records],
+                         sorted(r["feastSort"] for r in records))
+
+    def test_emit_groups_json_matches_committed_catalog(self):
+        catalog = build.emit_groups_json()
+        with open(self._tmp / "groups.json", encoding="utf-8") as f:
+            on_disk = json.load(f)
+        self.assertEqual(on_disk, catalog)
+        # One entry per committed group, each with its definition + members.
+        self.assertEqual(len(catalog), len(build.load_groups()))
+        for g in catalog:
+            for key in ("slug", "name", "type", "description", "feast",
+                        "sort", "members"):
+                self.assertIn(key, g)
+            self.assertIsInstance(g["members"], list)
+
+    def test_emit_themes_json_counts_records(self):
+        slug = build.themes_mod.THEMES[0]["slug"]
+        build.emit_themes_json([{"themes": [slug]}, {"themes": []}])
+        with open(self._tmp / "themes.json", encoding="utf-8") as f:
+            catalog = json.load(f)
+        self.assertEqual(len(catalog), len(build.themes_mod.THEMES))
+        by_slug = {c["slug"]: c for c in catalog}
+        self.assertEqual(by_slug[slug]["count"], 1)
+        for c in catalog:
+            for key in ("slug", "group", "label", "desc", "count"):
+                self.assertIn(key, c)
+
+
+class EmitXlsxTests(unittest.TestCase):
+    @unittest.skipUnless(HAS_OPENPYXL, "openpyxl not installed")
+    def test_emit_xlsx_writes_expected_sheets(self):
+        old_dist = build.DIST
+        tmp = Path(tempfile.mkdtemp(dir=build.ROOT, prefix="test-dist-"))
+        try:
+            build.DIST = tmp
+            build.emit_xlsx(build.HEADER, [valid_row()], TEST_VOCAB)
+            out = tmp / "Orthodox_Saints_Database.xlsx"
+            self.assertTrue(out.is_file())
+            wb = openpyxl.load_workbook(out)
+            self.assertIn("Saints Database", wb.sheetnames)
+            self.assertIn("Controlled Vocabulary", wb.sheetnames)
+            self.assertIn("Read Me", wb.sheetnames)
+            ws = wb["Saints Database"]
+            self.assertEqual([c.value for c in ws[1]], build.HEADER)
+            self.assertEqual(ws.max_row, 2)  # header + the one saint
+        finally:
+            build.DIST = old_dist
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":
