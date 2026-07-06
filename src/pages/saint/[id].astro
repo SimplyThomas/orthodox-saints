@@ -5,12 +5,16 @@ import { firstFeast } from "../../lib/saints";
 import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SaintView from "../../components/SaintView.astro";
+import GroupSaintProfile from "../../components/GroupSaintProfile.astro";
 
 export const getStaticPaths = (() => {
   return SAINTS.map((s) => ({ params: { id: s.id }, props: { saint: s } }));
 }) satisfies GetStaticPaths;
 
 const { saint } = Astro.props;
+// A group profile (a synaxis / household / feast-companions set) is a collective
+// commemoration, not a person: it uses its own layout and no Person JSON-LD.
+const isGroup = saint.profile_type === "group";
 const desc =
   saint.brief ||
   saint.prayer ||
@@ -19,28 +23,30 @@ const desc =
 // Schema.org Person markup for search engines. Only asserts fields we hold
 // directly; the portrait is included only when a self-hosted icon exists.
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const personLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: saint.name,
-  ...(saint.aka.length ? { alternateName: saint.aka } : {}),
-  description: desc,
-  url: canonical,
-  ...(saint.image
-    ? { image: new URL(withBase(saint.image), Astro.site).href }
-    : {}),
-}).replace(/</g, "\\u003c");
+const personLd = isGroup
+  ? null
+  : JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: saint.name,
+      ...(saint.aka.length ? { alternateName: saint.aka } : {}),
+      description: desc,
+      url: canonical,
+      ...(saint.image
+        ? { image: new URL(withBase(saint.image), Astro.site).href }
+        : {}),
+    }).replace(/</g, "\\u003c");
 ---
 
 <BaseLayout
   title={saint.name}
   description={desc}
-  ogType="profile"
+  ogType={isGroup ? "website" : "profile"}
   ogImage={saint.image}
   ogImageAlt={saint.image ? `Icon of ${saint.name}` : undefined}
 >
-  <script type="application/ld+json" set:html={personLd} />
-  <SaintView saint={saint} />
+  {personLd && <script type="application/ld+json" set:html={personLd} />}
+  {isGroup ? <GroupSaintProfile saint={saint} /> : <SaintView saint={saint} />}
 </BaseLayout>
 
 <script>
