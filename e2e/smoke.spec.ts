@@ -473,8 +473,8 @@ test("header quick-search offers a whole-site typeahead", async ({ page }) => {
 
   // Section pages are searchable too (whole-site scope).
   await input.fill("fasts");
-  const pageOpt = panel.locator("a.hs-opt", { hasText: "Fasts" });
-  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}fasts`);
+  const pageOpt = panel.locator("a.hs-opt", { hasText: "Feasts & Fasts" });
+  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}feasts`);
 
   // A "see all" row deep-links into the full finder with the query.
   const seeAll = panel.locator("a.hs-seeall");
