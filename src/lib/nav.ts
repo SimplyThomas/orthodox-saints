@@ -73,8 +73,7 @@ export const NAV: NavItem[] = [
     label: "The Church Year",
     children: [
       { key: "calendar", label: "The Calendar", href: withBase("calendar") },
-      { key: "feasts", label: "Feasts", href: withBase("feasts") },
-      { key: "fasts", label: "Fasts", href: withBase("fasts") },
+      { key: "feasts", label: "Feasts & Fasts", href: withBase("feasts") },
     ],
   },
   {

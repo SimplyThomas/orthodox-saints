@@ -1,7 +1,8 @@
 ---
-/* Same designed Church-year page as /feasts, opened on the Fasts tab — the
-   nav keeps distinct Feasts/Fasts entries but the design is one tabbed page. */
+/* Same designed Church-year page as /feasts, opened on the Fasts tab. The nav
+   carries one "Feasts & Fasts" entry (pointing at /feasts); this route stays
+   so /fasts links keep working, highlighting that same nav entry. */
 import FeastsIndex from "../components/FeastsIndex.astro";
 ---
 
-<FeastsIndex active="fasts" title="Fasts" initialTab="fasts" />
+<FeastsIndex active="feasts" title="Fasts" initialTab="fasts" />
