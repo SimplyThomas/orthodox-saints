@@ -8,7 +8,7 @@ used only for validation/query, then discarded. Generated output (public/, dist/
 is never committed. See CLAUDE.md and bootstrap.md.
 
 Usage:
-    python build.py                 validate + emit data.json, site, xlsx
+    python build.py                 validate + emit data.json, xlsx
     python build.py --check-only    validate only, exit non-zero on any violation
     python build.py --xlsx-only     emit only the Excel export
     python build.py --sqlite        also emit public/saints.sqlite (read-only artifact)
@@ -22,7 +22,6 @@ import csv
 import json
 import os
 import re
-import shutil
 import sqlite3
 import sys
 import unicodedata
@@ -36,7 +35,6 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 SRC = ROOT / "src"
 PROFILES_DIR = SRC / "content" / "profiles"   # per-saint rich profiles (YAML)
-WEB = ROOT / "web"
 PUBLIC = ROOT / "public"
 DIST = ROOT / "dist"
 STATIC = ROOT / "static"  # Astro publicDir; self-hosted icons live in static/icons/
@@ -1534,18 +1532,6 @@ def emit_themes_json(records: list[dict]) -> None:
           f"({shown}/{len(catalog)} themes populated)")
 
 
-def copy_web():
-    """Colocate the static SPA with data.json so `make serve` works from public/."""
-    if not WEB.exists():
-        return
-    for src in WEB.iterdir():
-        if src.is_file():
-            shutil.copy2(src, PUBLIC / src.name)
-        elif src.is_dir():
-            # e.g. web/assets/ (logo images) — copy the whole subtree.
-            shutil.copytree(src, PUBLIC / src.name, dirs_exist_ok=True)
-
-
 # --------------------------------------------------------------------------- #
 # Emit xlsx
 # --------------------------------------------------------------------------- #
@@ -1693,7 +1679,6 @@ def main() -> int:
     emit_themes_json(records)
     emit_groups_json()
     feastlib.emit_feasts_json(f_rows)
-    copy_web()
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
         emit_xlsx(header, rows, vocab, f_header, f_rows)
