@@ -6369,52 +6369,41 @@ a.sv-rail-chip:hover {
    namespaced .ff-*; masthead/footer use the site chrome.
    ============================================================ */
 
-/* ---- hero (dark) ---- */
-.ff-idx-hero {
-  background: var(--byz-ink);
-  color: var(--ivory);
+/* ---- hero — the site page-header convention (dome mark + eyebrow-rule),
+        matching /calendar; the tabs sit below the lede on the ivory ground */
+.ff-hero {
   position: relative;
+  text-align: center;
+  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
   overflow: hidden;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
-.ff-idx-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    90% 120% at 50% -30%,
-    rgba(212, 175, 55, 0.14),
-    transparent 60%
-  );
+.ff-hero .dome-bg {
+  position: static;
+  left: auto;
+  transform: none;
+  margin: 0 auto 4px;
+  width: min(260px, 52vw);
+  opacity: 0.14;
 }
-.ff-idx-hero-inner {
+.ff-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 64px 56px 56px;
-  text-align: center;
 }
-.ff-idx-hero .eyebrow {
-  color: var(--gold-soft);
-}
-.ff-idx-hero h1 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(54px, 8vw, 84px);
+.ff-title {
+  font-size: var(--page-title-size);
+  color: var(--byz-deep);
   line-height: 1;
-  margin: 16px 0 0;
-  color: var(--ivory);
+  margin: 14px 0 16px;
+  font-weight: 600;
+  font-family: var(--serif);
 }
-/* own class — the global .tag chip style would force uppercase */
-.ff-hero-tag {
+.ff-lede {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 22px;
-  color: var(--celest-soft);
-  max-width: 640px;
-  margin: 18px auto 0;
+  font-size: var(--page-lede-size);
+  color: var(--celest);
+  max-width: 620px;
+  margin: 0 auto;
   line-height: 1.5;
 }
 
@@ -6423,14 +6412,14 @@ a.sv-rail-chip:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 34px;
+  margin-top: 28px;
 }
 .ff-tab {
   font-family: var(--text);
   font-size: 15px;
-  color: #b9c8d8;
-  background: transparent;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--byz);
+  background: #fff;
+  border: 1px solid var(--line-gold);
   border-radius: 999px;
   padding: 9px 22px;
   cursor: pointer;
@@ -6438,7 +6427,7 @@ a.sv-rail-chip:hover {
 }
 .ff-tab:hover {
   border-color: var(--gold);
-  color: var(--gold-soft);
+  color: var(--gold-deep);
 }
 .ff-tab[aria-selected="true"] {
   background: var(--gold);
@@ -6450,14 +6439,11 @@ a.sv-rail-chip:hover {
 .ff-idx-body {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 56px 56px 20px;
+  padding: 34px 56px 20px;
 }
 @media (max-width: 720px) {
   .ff-idx-body {
-    padding: 40px 20px 20px;
-  }
-  .ff-idx-hero-inner {
-    padding: 48px 20px 44px;
+    padding: 28px 20px 20px;
   }
 }
 

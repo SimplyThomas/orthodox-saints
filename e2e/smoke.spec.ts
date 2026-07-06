@@ -538,7 +538,7 @@ test("feasts index renders the Church-year page with live tabs", async ({
 }) => {
   const resp = await page.goto("./feasts/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".ff-idx-hero h1")).toHaveText("Feasts & Fasts");
+  await expect(page.locator(".ff-title")).toHaveText("Feasts & Fasts");
 
   // Summary tab: today + feasts/fasts/observances visible, full calendar hidden.
   await expect(page.locator('.ff-tab[data-filter="all"]')).toHaveAttribute(

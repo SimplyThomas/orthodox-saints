@@ -6,6 +6,7 @@
    commemorations, the "coming up next" card) which a build-time new Date()
    would freeze to deploy day — same split as /calendar. */
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "./icons/DomeMark.astro";
 import FeastCalRows from "./FeastCalRows.astro";
 import type { FeastGroup } from "./FeastCalRows.astro";
 import FastPill from "./FastPill.astro";
@@ -119,12 +120,19 @@ const description =
 
 <BaseLayout title={title} description={description} active={active}>
   <div id="feasts-page" data-card-src={cardSrc} data-initial-tab={initialTab}>
-    <!-- ═══ HERO ═══ -->
-    <section class="ff-idx-hero">
-      <div class="ff-idx-hero-inner">
-        <div class="eyebrow on-blue">The Church Year</div>
-        <h1>Feasts &amp; Fasts</h1>
-        <p class="ff-hero-tag">{description}</p>
+    <!-- ═══ HERO (site page-header convention, like /calendar) ═══ -->
+    <section class="ff-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="ff-hero-inner">
+        <div class="eyebrow-rule" aria-hidden="true">
+          <span class="ln"></span><span class="dm"></span>
+          <span class="lbl">The Church Year</span>
+          <span class="dm"></span><span class="ln"></span>
+        </div>
+        <h1 class="ff-title">Feasts &amp; Fasts</h1>
+        <p class="ff-lede">{description}</p>
         <div class="ff-tabs" role="tablist" aria-label="Filter the Church year">
           {
             TABS.map((t) => (
