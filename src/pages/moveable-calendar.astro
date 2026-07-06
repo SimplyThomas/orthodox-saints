@@ -1,0 +1,162 @@
+---
+/* The Moveable Calendar — the paschal cycle laid out year by year. The date of
+   Pascha is featured up top (the next several years); picking a year resolves
+   every movable feast & fast to its concrete date for that year. Everything is
+   pre-rendered from public/feasts.json (SEO + no-JS: the list shows each feast's
+   Pascha-relative label); the island then resolves real dates against the
+   visitor's clock and the selected year (a build-time new Date() would freeze to
+   deploy day — the same split /feasts and /calendar use). */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import FastPill from "../components/FastPill.astro";
+import { FEASTS, PASCHA, KIND_LABEL, fastTone, feastKind } from "../lib/feasts";
+import type { Feast } from "../lib/feasts";
+import { tokenLabel } from "../lib/feast-dates";
+import { MONTHS } from "../lib/format";
+
+/* Movable cycle = anything not on a fixed date (paschal + the hybrid Apostles'
+   Fast). FEASTS is already in liturgical order, which for paschal tokens sorts
+   by offset — i.e. Pascha-cycle order, pre-Pascha → post-Pascha. */
+const moveable: Feast[] = FEASTS.filter((f) => f.cycle !== "fixed");
+
+const paschaEntries = Object.entries(PASCHA).sort((a, b) =>
+  a[0].localeCompare(b[0]),
+);
+function fmtPascha(iso: string): string {
+  const [, m, d] = iso.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}`;
+}
+
+/** SSR date-cell sub-label (island replaces it with the resolved date). */
+function sub(f: Feast): string {
+  if (f.ends) return `→ ${tokenLabel(f.ends)}`;
+  return "Movable";
+}
+
+/* Island payload: only what date resolution needs (rows carry their own name /
+   pills / kind in the SSR markup, so the island just reorders them and rewrites
+   the date cell). `<` escaped so the JSON can't close its script tag. */
+const islandJson = JSON.stringify({
+  feasts: moveable.map((f) => ({
+    id: f.id,
+    begins: f.begins,
+    ...(f.ends ? { ends: f.ends } : {}),
+  })),
+  pascha: PASCHA,
+}).replace(/</g, "\\u003c");
+
+const description =
+  "The paschal cycle, year by year — the date of Pascha for the years ahead, and every movable feast and fast reckoned from it.";
+---
+
+<BaseLayout
+  title="The Moveable Calendar"
+  description={description}
+  active="moveable-calendar"
+>
+  <div id="mc-page" data-count={moveable.length}>
+    <!-- ═══ HERO ═══ -->
+    <section class="ff-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="ff-hero-inner">
+        <div class="eyebrow-rule" aria-hidden="true">
+          <span class="ln"></span><span class="dm"></span>
+          <span class="lbl">The Church Year</span>
+          <span class="dm"></span><span class="ln"></span>
+        </div>
+        <h1 class="ff-title">The Moveable Calendar</h1>
+        <p class="ff-lede">{description}</p>
+      </div>
+    </section>
+
+    <div class="ff-idx-body">
+      <!-- ═══ FEATURED: THE DATE OF PASCHA ═══ -->
+      <section class="mc-feature">
+        <div class="mc-feature-head">
+          <div class="eyebrow on-blue">The Feast of Feasts</div>
+          <h2>The Date of Pascha</h2>
+          <p class="mc-feature-lede">
+            The whole movable cycle turns on Pascha — every feast and fast below
+            is reckoned from it. Choose a year to see its dates.
+          </p>
+        </div>
+        <div
+          class="mc-years"
+          id="mc-years"
+          role="tablist"
+          aria-label="Choose a year"
+        >
+          {
+            paschaEntries.map(([year, iso]) => (
+              <button
+                class="mc-year"
+                type="button"
+                role="tab"
+                data-year={year}
+                aria-selected="false"
+              >
+                <b>{year}</b>
+                <span>{fmtPascha(iso)}</span>
+              </button>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- ═══ RESOLVED LIST FOR THE SELECTED YEAR ═══ -->
+      <section class="ff-idx-sec">
+        <div class="ff-sec-head">
+          <h2 id="mc-year-title">Movable Feasts &amp; Fasts</h2>
+          <span class="count" id="mc-year-sub"
+            >Each entry reckoned from Pascha — pick a year above for its dates</span
+          >
+          <span class="rule"></span>
+        </div>
+        <div class="ff-cal-legend">
+          <span class="lg"><span class="dot dot--great"></span>Great Feast</span
+          >
+          <span class="lg"><span class="dot dot--feast"></span>Feast</span>
+          <span class="lg"><span class="dot dot--fast"></span>Fast</span>
+          <span class="lg"
+            ><span class="dot dot--observance"></span>Observance</span
+          >
+        </div>
+        <div class="ff-cal-list" id="mc-list">
+          {
+            moveable.map((f) => (
+              <div class="ff-cal-row" data-id={f.id}>
+                <span class="ff-cal-date">
+                  {tokenLabel(f.begins)}
+                  <small>{sub(f)}</small>
+                </span>
+                <span class="ff-cal-main">
+                  <span class={`dot dot--${feastKind(f)}`} />
+                  <span class="ff-cal-name">{f.name}</span>
+                </span>
+                <span class="ff-cal-note">{f.brief}</span>
+                <span class="ff-cal-fast on-ivory">
+                  {f.fasting && (
+                    <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
+                  )}
+                </span>
+                <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
+              </div>
+            ))
+          }
+        </div>
+        <p class="ff-fast-disclaimer">
+          Dates follow the New (Revised Julian) calendar. Fasting is described
+          at the season-summary level and differs by jurisdiction — please
+          consult your parish priest about how to keep the fasts.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script type="application/json" id="mc-data" set:html={islandJson} />
+  <script>
+    import "../islands/moveable-calendar.client.ts";
+  </script>
+</BaseLayout>

@@ -6912,6 +6912,78 @@ a.sv-rail-chip:hover {
   color: var(--gold-deep);
 }
 
+/* Collapsible month accordion (Summary tab) — native <details>, works no-JS */
+.ff-cal-mo {
+  border-bottom: 1px solid var(--line-gold);
+}
+.ff-cal-mo:first-of-type {
+  border-top: 1px solid var(--line-gold);
+}
+.ff-cal-mo-sum {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 8px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  border-radius: 7px;
+  transition: background 0.14s;
+}
+.ff-cal-mo-sum::-webkit-details-marker {
+  display: none;
+}
+.ff-cal-mo-sum:hover {
+  background: #fff;
+}
+.ff-cal-mo-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--byz-deep);
+  transition: color 0.14s;
+}
+.ff-cal-mo-sum:hover .ff-cal-mo-name {
+  color: var(--gold-deep);
+}
+.ff-cal-mo.movable .ff-cal-mo-name {
+  color: var(--gold-deep);
+}
+.ff-cal-mo-sum .note {
+  font-size: 13px;
+  color: var(--celest);
+  font-style: italic;
+  font-family: var(--serif);
+}
+.ff-cal-mo-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+  align-self: center;
+}
+.ff-cal-mo-count {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gold-deep);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  padding: 3px 11px;
+  white-space: nowrap;
+  align-self: center;
+}
+.ff-cal-mo-chev {
+  color: var(--celest);
+  flex: 0 0 auto;
+  align-self: center;
+  transition: transform 0.2s;
+}
+.ff-cal-mo[open] .ff-cal-mo-chev {
+  transform: rotate(180deg);
+}
+.ff-cal-mo > .ff-cal-list {
+  padding: 2px 8px 16px;
+}
+
 .ff-cal-list {
   display: flex;
   flex-direction: column;
@@ -7216,6 +7288,163 @@ a.sv-rail-chip:hover {
   .ff-scard-pascha-side {
     align-items: flex-start;
   }
+}
+/* Upcoming-Pascha-dates strip on the featured card */
+.ff-pascha-dates {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+}
+.ff-pd-label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 12px;
+}
+.ff-pd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ff-pd {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.ff-pd b {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.ff-pd span {
+  font-size: 14px;
+  color: var(--celest-soft);
+}
+.ff-pd.is-next {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+.ff-pd .ff-pd-next {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--byz-ink);
+  background: var(--gold);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 2px;
+}
+
+/* ═══ The Moveable Calendar page ═══ */
+/* Featured "date of Pascha" card + year picker (dark, matches the Pascha card) */
+.mc-feature {
+  background: var(--byz-ink);
+  color: var(--ivory);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 28px 28px 26px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.mc-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 100% at 100% 0,
+    rgba(212, 175, 55, 0.12),
+    transparent 55%
+  );
+}
+.mc-feature > * {
+  position: relative;
+  z-index: 1;
+}
+.mc-feature-head h2 {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--ivory);
+  line-height: 1.05;
+  margin: 4px 0 0;
+}
+.mc-feature-lede {
+  font-size: 15px;
+  color: #c6d3e0;
+  line-height: 1.55;
+  max-width: 560px;
+  margin: 10px 0 0;
+  text-wrap: pretty;
+}
+.mc-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.mc-year {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 15px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ivory);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    border-color 0.16s,
+    background 0.16s,
+    transform 0.16s;
+}
+.mc-year:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.mc-year b {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.mc-year span {
+  font-size: 14px;
+  color: var(--celest-soft);
+}
+.mc-year[aria-selected="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.mc-year[aria-selected="true"] b,
+.mc-year[aria-selected="true"] span {
+  color: var(--byz-ink);
+}
+.mc-year .yr-next {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--byz-ink);
+  background: var(--gold);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 2px;
+}
+.mc-year[aria-selected="true"] .yr-next {
+  color: var(--gold);
+  background: var(--byz-ink);
 }
 
 /* ---- compact list (observances) ---- */

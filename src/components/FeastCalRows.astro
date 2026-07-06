@@ -1,13 +1,14 @@
 ---
-/* Grouped feast rows — the design's reusable calendar-list renderer, shared
-   by the Full Calendar, "Every Feast in Order", and "Every Fast in Order"
-   sections of /feasts. Rows are not links yet (per-feast pages are a
-   follow-up); each row still carries the legend dot, dateline, fasting badge,
-   and kind label from the mockup. */
+/* Grouped feast rows — the design's reusable calendar-list renderer, shared by
+   the Full Calendar, "Every Feast in Order", and "Every Fast in Order" sections
+   of /feasts. Each row carries the legend dot, dateline, fasting badge, and kind
+   label (see FeastCalRow).
+
+   `collapsible` renders each group as a native <details> accordion (used by the
+   Summary tab so a reader opens one month at a time); it needs no JS to toggle —
+   the /feasts island only adds "open the current month" + one-open-at-a-time. */
 import type { Feast } from "../lib/feasts";
-import { KIND_LABEL, fastTone, feastKind } from "../lib/feasts";
-import { tokenLabel } from "../lib/feast-dates";
-import FastPill from "./FastPill.astro";
+import FeastCalRow from "./FeastCalRow.astro";
 
 export interface FeastGroup {
   title: string;
@@ -18,48 +19,56 @@ export interface FeastGroup {
 
 interface Props {
   groups: FeastGroup[];
+  /** Render each group as a collapsible <details> instead of a flat header. */
+  collapsible?: boolean;
 }
 
-const { groups } = Astro.props;
-
-/** Dateline sub-label: span end for seasons ("→ Jun 28"), else the cycle. */
-function sub(f: Feast): string {
-  if (f.ends) return `→ ${tokenLabel(f.ends)}`;
-  if (f.begins.type === "paschal") return "Movable";
-  if (f.begins.type === "anchored") return "Anchored";
-  return "Fixed";
-}
+const { groups, collapsible = false } = Astro.props;
 ---
 
 {
-  groups.map((g) => (
-    <>
-      <div class={`ff-cal-month${g.movable ? " movable" : ""}`}>
-        <h3>{g.title}</h3>
-        {g.note && <span class="note">{g.note}</span>}
-        <span class="rule" />
-      </div>
-      <div class="ff-cal-list">
-        {g.rows.map((f) => (
-          <div class="ff-cal-row">
-            <span class="ff-cal-date">
-              {tokenLabel(f.begins)}
-              <small>{sub(f)}</small>
-            </span>
-            <span class="ff-cal-main">
-              <span class={`dot dot--${feastKind(f)}`} />
-              <span class="ff-cal-name">{f.name}</span>
-            </span>
-            <span class="ff-cal-note">{f.brief}</span>
-            <span class="ff-cal-fast on-ivory">
-              {f.fasting && (
-                <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
-              )}
-            </span>
-            <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
-          </div>
-        ))}
-      </div>
-    </>
-  ))
+  groups.map((g) =>
+    collapsible ? (
+      <details class:list={["ff-cal-mo", { movable: g.movable }]}>
+        <summary class="ff-cal-mo-sum">
+          <span class="ff-cal-mo-name">{g.title}</span>
+          {g.note && <span class="note">{g.note}</span>}
+          <span class="ff-cal-mo-rule" />
+          <span class="ff-cal-mo-count">{g.rows.length}</span>
+          <svg
+            class="ff-cal-mo-chev"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="ff-cal-list">
+          {g.rows.map((f) => (
+            <FeastCalRow feast={f} />
+          ))}
+        </div>
+      </details>
+    ) : (
+      <>
+        <div class={`ff-cal-month${g.movable ? " movable" : ""}`}>
+          <h3>{g.title}</h3>
+          {g.note && <span class="note">{g.note}</span>}
+          <span class="rule" />
+        </div>
+        <div class="ff-cal-list">
+          {g.rows.map((f) => (
+            <FeastCalRow feast={f} />
+          ))}
+        </div>
+      </>
+    ),
+  )
 }
