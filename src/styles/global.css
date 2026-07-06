@@ -6930,12 +6930,14 @@ a.sv-rail-chip:hover {
   display: flex;
   flex-direction: column;
 }
+/* strict columns — date | name | note | fast | kind — so every row lines up
+   down the page; long names/briefs wrap inside their own column */
 .ff-cal-row {
   display: grid;
-  grid-template-columns: 110px 1fr 150px 104px;
-  gap: 22px;
-  align-items: center;
-  padding: 13px 16px;
+  grid-template-columns: 118px minmax(0, 280px) 1fr 148px 96px;
+  gap: 20px;
+  align-items: start;
+  padding: 14px 16px;
   border-radius: 7px;
   border-bottom: 1px solid var(--line);
   transition:
@@ -6956,7 +6958,8 @@ a.sv-rail-chip:hover {
   color: var(--gold-deep);
   font-weight: 600;
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  line-height: 1.25;
+  padding-top: 2px;
 }
 .ff-cal-date small {
   display: block;
@@ -6969,20 +6972,24 @@ a.sv-rail-chip:hover {
 }
 .ff-cal-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 11px;
   min-width: 0;
+}
+.ff-cal-main .dot {
+  margin-top: 8px;
 }
 .ff-cal-name {
   font-family: var(--serif);
   font-size: 20px;
   color: var(--byz-deep);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 .ff-cal-note {
   font-size: 13.5px;
   color: var(--ink-soft);
-  margin-left: 2px;
+  line-height: 1.5;
+  padding-top: 4px;
 }
 .ff-cal-fast {
   display: flex;
@@ -7001,21 +7008,35 @@ a.sv-rail-chip:hover {
   color: var(--celest);
   white-space: nowrap;
   text-align: left;
+  padding-top: 8px;
 }
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .ff-cal-row {
-    grid-template-columns: 90px 1fr;
-    gap: 6px 14px;
+    grid-template-columns: 100px 1fr 148px;
+    gap: 6px 16px;
+  }
+  .ff-cal-note {
+    grid-column: 2;
+    padding-top: 0;
+  }
+  .ff-cal-kind {
+    grid-column: 3;
+    grid-row: 2;
+    padding-top: 4px;
+  }
+}
+@media (max-width: 640px) {
+  .ff-cal-row {
+    grid-template-columns: 92px 1fr;
   }
   .ff-cal-fast {
     grid-column: 2;
-    margin-top: 2px;
+    grid-row: 3;
+    margin-top: 4px;
   }
   .ff-cal-kind {
     grid-column: 1;
     grid-row: 2;
-    align-self: start;
-    padding-top: 8px;
   }
   .ff-cal-note {
     display: none;
@@ -7218,33 +7239,40 @@ a.sv-rail-chip:hover {
   padding: 0;
   border-top: 1px solid var(--line);
 }
+/* fixed grid so name / when / note align down the whole list; long names
+   wrap inside their own column instead of pushing the others around */
 .ff-list li {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 330px) 160px 1fr;
   align-items: baseline;
-  gap: 16px;
+  gap: 8px 22px;
   padding: 15px 4px;
   border-bottom: 1px solid var(--line);
-  flex-wrap: wrap;
 }
 .ff-list .li-name {
   font-family: var(--serif);
   font-size: 19px;
   color: var(--byz-deep);
-  flex: 0 0 auto;
-  min-width: 230px;
+  line-height: 1.25;
 }
 .ff-list .li-when {
   font-size: 13.5px;
   color: var(--gold-deep);
   font-weight: 600;
-  flex: 0 0 auto;
-  min-width: 150px;
+  white-space: nowrap;
 }
 .ff-list .li-note {
   font-size: 14.5px;
   color: var(--ink-soft);
   line-height: 1.45;
-  flex: 1 1 300px;
+}
+@media (max-width: 860px) {
+  .ff-list li {
+    grid-template-columns: 1fr;
+  }
+  .ff-list .li-when {
+    white-space: normal;
+  }
 }
 
 /* pastoral fasting disclaimer (CLAUDE.md §5a) */

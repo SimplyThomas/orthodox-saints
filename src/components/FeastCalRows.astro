@@ -49,8 +49,8 @@ function sub(f: Feast): string {
             <span class="ff-cal-main">
               <span class={`dot dot--${feastKind(f)}`} />
               <span class="ff-cal-name">{f.name}</span>
-              <span class="ff-cal-note">{f.brief}</span>
             </span>
+            <span class="ff-cal-note">{f.brief}</span>
             <span class="ff-cal-fast on-ivory">
               {f.fasting && (
                 <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
