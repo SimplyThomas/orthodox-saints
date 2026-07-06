@@ -17,6 +17,11 @@ Exit:    0 done/stopped · 2 stopped (likely weekly cap) · 3 terminal error.
 
 Env: BATCH_SIZE(8) FEASTGEN_MODEL(claude-opus-4-8) BATCH_TIMEOUT(3600)
 RESUME_AFTER(18600≈5h10m) WEEKLY_AFTER_WAITS(2) MAX_ERR(3) NOTIFY_CMD('') DRY_RUN('')
+FEASTGEN_USE_WORKFLOW(on by default) — generate via scripts/feastgen.workflow.js
+(per-stage Sonnet/Opus/Sonnet/Haiku, ~2.3x cheaper on the weekly limit than the
+all-Opus legacy path); set =0/false/off to fall back to the single-agent path.
+FEASTGEN_ORCH_MODEL(claude-haiku-4-5-20251001) — model for the thin
+Workflow-invoking orchestrator (the per-stage models live in the script).
 
 Auth (same as profilegen): `unset ANTHROPIC_API_KEY && claude setup-token &&
 export CLAUDE_CODE_OAUTH_TOKEN=…` so the run bills the subscription, not the API.
@@ -57,6 +62,15 @@ WEEKLY_AFTER_WAITS = int(os.environ.get("WEEKLY_AFTER_WAITS", "2"))
 MAX_ERR = int(os.environ.get("MAX_ERR", "3"))
 NOTIFY_CMD = os.environ.get("NOTIFY_CMD", "")
 DRY_RUN = bool(os.environ.get("DRY_RUN"))
+# Default ON: drive generation through the per-stage Workflow (Gather=Sonnet,
+# Write=Opus, Verify=Sonnet, Emit=Haiku) instead of one all-Opus claude -p agent.
+USE_WORKFLOW = os.environ.get("FEASTGEN_USE_WORKFLOW", "1").lower() \
+    not in ("0", "false", "off", "no")
+WORKFLOW_SCRIPT = "scripts/feastgen.workflow.js"
+# The orchestrator only fires one Workflow tool call; the per-stage models live
+# in the script, so the orchestrator itself can be cheap.
+ORCH_MODEL = os.environ.get("FEASTGEN_ORCH_MODEL", "claude-haiku-4-5-20251001")
+WORKFLOW_TOOLS = "Workflow,Agent,Bash,Read,Write,Edit,WebFetch,WebSearch"
 
 
 def log(msg: str) -> None:
@@ -113,6 +127,25 @@ def run_claude(ids: list[str]) -> tuple[str, int]:
          "--permission-mode", "dontAsk",
          "--allowedTools", "Read,Write,Edit,Bash,WebFetch,WebSearch",
          "--model", MODEL,
+         "--output-format", "json"])
+
+
+def run_workflow(ids, date: str) -> tuple[str, int]:
+    """Drive the per-stage Workflow headlessly for `ids`. The orchestrator's only
+    job is to invoke the one Workflow with {ids, date} args — NOT to improvise its
+    own subagents (which would inherit a single model and defeat the split)."""
+    payload = json.dumps({"ids": list(ids), "date": date})
+    prompt = (
+        f"Use the Workflow tool to run the workflow script at {WORKFLOW_SCRIPT}, "
+        f"passing this exact JSON object as its args: {payload}. "
+        f"Do NOT generate any profiles yourself and do NOT spawn your own subagents — "
+        f"invoke that single Workflow and report only its final summary line."
+    )
+    return _exec_claude(
+        ["claude", "-p", prompt,
+         "--permission-mode", "dontAsk",
+         "--allowedTools", WORKFLOW_TOOLS,
+         "--model", ORCH_MODEL,
          "--output-format", "json"])
 
 
@@ -212,7 +245,8 @@ def _run() -> int:
                         action="generating", remaining=len(remaining))
             log(f"batch {n}/{len(batches)} ({len(remaining)} ids)")
             t0 = time.monotonic()
-            out, rc = run_claude(remaining)
+            out, rc = (run_workflow(remaining, date) if USE_WORKFLOW
+                       else run_claude(remaining))
             elapsed = time.monotonic() - t0
             etype = limits.parse_error_type(out)
             if etype is None and rc != 0:

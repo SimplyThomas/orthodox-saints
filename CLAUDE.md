@@ -349,7 +349,11 @@ other CSVs.
 - **feastgen (`tools/feastgen/`)** mirrors profilegen: gather → write → verify →
   emit, anchored on the feast's CSV row; phantom flags demoted, not dropped; drafts
   never auto-publish. `make feast-run` is the resumable bulk runner (state under
-  `dist/feastgen/`), `make feast-batch` previews the next batch.
+  `dist/feastgen/`), `make feast-batch` previews the next batch. Like profilegen,
+  the runner defaults to the per-stage Workflow (`scripts/feastgen.workflow.js`:
+  Gather=Sonnet, Write=Opus, Verify=Sonnet, Emit=Haiku — ~2.3× cheaper on the
+  weekly limit); `FEASTGEN_USE_WORKFLOW=0` falls back to the all-Opus single-agent
+  path.
 
 ## 6. Saint identity & deduplication (critical)
 
