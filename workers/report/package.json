@@ -12,6 +12,6 @@
     "test": "node smoke.test.mjs"
   },
   "devDependencies": {
-    "wrangler": "^3.95.0"
+    "wrangler": "^4.107.0"
   }
 }
