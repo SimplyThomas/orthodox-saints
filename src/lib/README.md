@@ -53,7 +53,7 @@ cards is derived from the same reviewed set in `finder-payload.ts`.
 | Quiz scoring | `quiz.ts` (option groups + facet-overlap scoring; intercessions weigh most) |
 | Theme pages / "related saints" | `themes.ts`, `theme-aliases.ts` (catalog comes from `public/themes.json`, built by `themes.py`) |
 | Calendar | `calendar-grid.ts`, `feast-dates.ts`, `feasts.ts` (feast tokens arrive structured from `public/feasts.json` — never re-parse strings) |
-| Groups (`/group/<slug>`) | `groups.ts` (reads `public/groups.json`) |
+| Groups (saint-profiles at `/saint/<groupId>`, `profile_type:"group"`) | `groups.ts` (reads `public/groups.json`; `GroupSaintProfile.astro` renders the members. Old `/group/<slug>` URLs 301 to `/saint/<groupId>` via astro.config) |
 | URL building | `format.ts` — **always route internal URLs through `withBase()`** |
 | Curated/editorial content | `witnesses.ts`, `america.ts`, `ephraim.ts`, `seraphim.ts`, `news.ts`, `icons-home.ts` — data-as-TypeScript, each self-documenting |
 | Site chrome | `nav.ts` (header/footer links), `analytics.ts` |
