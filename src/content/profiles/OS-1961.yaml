@@ -17,7 +17,7 @@ sections:
       - Their relics were left beneath a crypt in the chapel that Jonah had raised over the grave of Saint Gurias. This uncovering is treated as the basis of their veneration as saints, alongside the Kazan hierarchs.
   - heading: Historical context
     body:
-      - The Kazan diocese was established in the mid-sixteenth century following the incorporation of the Khanate of Kazan. Saint Gurias (born Grigory Grigoryevich Rugotin, c. 1500, near Radonezh; died December 5, 1563) was appointed the first Archbishop of Kazan and Svyazhsk on February 3, 1555; his successor was Herman of Kazan.
+      - The Kazan diocese was established in the mid-sixteenth century following the incorporation of the Khanate of Kazan. Saint Gurias (born Grigory Grigoryevich Rugotin, c. 1500, Radonezh; died December 5, 1563) was appointed the first Archbishop of Kazan and Svyazhsk on February 3, 1555; his successor was Herman of Kazan.
       - As companions and spiritual children of Saint Gurias in the Kazan mission, Jonah and Nectarius are numbered among the early monastic saints of the region, and their commemoration is tied to that of the founding hierarchs of Kazan.
 timeline:
   - when: "1555"
@@ -36,6 +36,3 @@ sources:
   - https://orthochristian.com/134592.html
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Saint Gurias was born 'near Radonezh'.
-    detail: The external dossier source states 'born Grigory Grigoryevich Rugotin, c. 1500, Radonezh' — no 'near'. The addition of 'near' is not attested in the dossier sources and introduces an unsupported geographic qualifier.

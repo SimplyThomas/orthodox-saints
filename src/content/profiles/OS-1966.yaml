@@ -15,7 +15,7 @@ timeline:
     body: Gregory is born on October 5, 759, in Kartli, into a noble Georgian family; he was a nephew of the wife of Nerse, Eristavi (feudal lord) of Kartli.
   - when: c. 780–782
     title: To the Klarjeti wilderness
-    body: After training at Opiza Monastery under the hermit Evodius, Gregory relocates to the Khandzta region in Tao-Klarjeti and, with the support of the feudal lord Gabriel Dapanchuli, establishes a church, refectory, and monastic cells around 782.
+    body: After training at Opiza Monastery, Gregory relocates to the Khandzta region in Tao-Klarjeti to live with the hermit Evodius and, with the support of the feudal lord Gabriel Dapanchuli, establishes a church, refectory, and monastic cells around 782.
   - when: 9th century
     title: Foundation of Shatberdi
     body: Ashot I the Great grants Gregory land at Shatberdi, where he founds a major center of manuscript copying and illustration.
@@ -53,6 +53,3 @@ sources:
   - https://en.wikipedia.org/wiki/Khandzta
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The timeline entry says Gregory trained at Opiza Monastery under the hermit Evodius, implying Evodius was at Opiza. The dossier says Gregory went to Opiza first, then moved to the Khandzta region to live with the hermit Evodius — Evodius was in Khandzta, not Opiza.
-    detail: "Wikipedia/Gregory of Khandzta states: 'He fled to Opiza Monastery with his cousin Savva… After two years at Opiza, he relocated to the Khandzta region in Tao-Klarjeti to live with the hermit Evodius.' Evodius was in the Khandzta region, not at Opiza. The timeline conflates the two distinct phases. (The sections correctly separate them.)"

@@ -1,7 +1,7 @@
 id: OS-2825
 lifespan: Traditionally late 5th century
 overview:
-  - 'Brychan of Brycheiniog was a semi-legendary chieftain of Brycheiniog, a kingdom in south-central Wales, traditionally placed in the late fifth century. He is remembered less for his own deeds than as the patriarch of a great "holy family": a large number of his children and grandchildren are counted among the saints of Wales, Cornwall, and Devon.'
+  - 'Brychan of Brycheiniog was a semi-legendary chieftain of Brycheiniog, a kingdom in south Wales, traditionally placed in the late fifth century. He is remembered less for his own deeds than as the patriarch of a great "holy family": a large number of his children and grandchildren are counted among the saints of Wales, Cornwall, and Devon.'
   - According to tradition he was the son of Anlach, an Irish nobleman, and Marchell (Marchel), the Welsh heiress of the kingdom of Garth Madrun. Born in Ireland, he inherited Garth Madrun and renamed it Brycheiniog after himself. The realm gave its name to the later county of Brecknockshire (Breconshire) and survives in the Welsh Bannau Brycheiniog, the name of the Brecon Beacons.
   - The traditional literature does not, strictly, call Brychan a saint but styles him a patriarch, and no churches are dedicated to him. His importance to the church of the region rests on his descendants, many of whom are said to have travelled from Brecon into Cornwall and North Devon to evangelise, leaving their names on numerous parishes. His feast is kept on April 6.
 liturgicalTitle: The Righteous Brychan, King of Brycheiniog
@@ -19,12 +19,12 @@ sections:
   - heading: Traditional Accounts
     body:
       - "The Life of St Cadoc, written by Lifris of Llancarfan around 1100, brings Brychan into the Arthurian legend: it depicts him in conflict with Arthur, Cai, and Bedwyr over the abduction of his daughter Gwladys by Gwynllyw, king of Gwynllwg."
-      - Brychan's iconography reflects his role as patriarch of a holy family. A fifteenth-century stained-glass window at St Neot in Cornwall depicts him holding eleven children in his lap.
+      - Brychan's iconography reflects his role as patriarch of a holy family. A fifteenth-century stained-glass window at St Neot in Cornwall depicts him holding eleven children.
       - These accounts belong to a semi-legendary body of tradition; Brychan's historicity and the details of his family are not securely documented, and the sources themselves preserve considerable variation.
   - heading: Veneration
     body:
       - Brychan was canonized pre-Congregation, in the era before the formal processes of the later Roman church. His feast day is kept on April 6.
-      - He is invoked as a patron of Wales, of kings, and of fathers, reflecting both his royal status and his fatherhood of so large a family of saints. He is associated in the tradition with other early British saints, including Clydog (Cledwyn) and Dubricius (Dyfrig) of Llandaff.
+      - He is invoked as a patron of Wales, of kings, and of fathers, reflecting both his royal status and his fatherhood of so large a family of saints. He is associated in the tradition with other early British saints, including Clydog and Dubricius (Dyfrig) of Llandaff.
 timeline:
   - when: 5th century
     title: Birth in Ireland
@@ -52,10 +52,3 @@ sources:
   - https://catholicsaints.info/saint-brychan/
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile locates Brycheiniog in 'south-central Wales'; the anchor says 'south Wales' and Wikipedia says 'Mid Wales'.
-    detail: The anchor brief says 'south Wales.' The Wikipedia (Brychan) article says Brycheiniog is 'in Mid Wales.' The Wikipedia (Brycheiniog) article says 'South Wales.' No dossier source uses the term 'south-central Wales.' The profile's geographic descriptor is not directly supported by any source.
-  - claim: The stained-glass window at St Neot depicts Brychan holding eleven children 'in his lap.'
-    detail: Wikipedia says 'A 15th-century stained glass window at St Neot in Cornwall depicts him holding eleven children.' The phrase 'in his lap' is an addition not present in any dossier source — it is an embellishment beyond what is sourced.
-  - claim: The profile treats Clydog and Cledwyn as the same person by writing 'Clydog (Cledwyn).'
-    detail: The catholicsaints.info source lists 'Saint Cledwyn of Wales' as one of Brychan's saintly children and separately says Brychan 'is related to Saint Clydog and Saint Dubritius of Llandaff' — treating Clydog and Cledwyn as distinct individuals. No dossier source equates Clydog with Cledwyn. The parenthetical conflation is unsupported.

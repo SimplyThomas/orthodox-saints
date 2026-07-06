@@ -21,7 +21,7 @@ timeline:
     body: Following Eorcenberht's death on 14 July 664 during an outbreak of plague, Seaxburh served as regent, ruling Kent until her young son came of age.
   - when: c. 670
     title: Foundation of Minster-in-Sheppey
-    body: Her son King Ecgberht granted her land at Minster on the Isle of Sheppey, where she established a nunnery, said to be the first such foundation in Kent; she also founded a house at Milton Regis. Archbishop Theodore of Tarsus gave her the veil of holiness at Minster-in-Sheppey.
+    body: Her son King Ecgberht granted her land at Minster on the Isle of Sheppey, where she established a nunnery; she also founded a house at Milton Regis. Archbishop Theodore of Tarsus gave her the veil of holiness at Minster-in-Sheppey.
   - when: c. 679
     title: Abbess of Ely
     body: Seaxburh moved to the double monastery at Ely, where her sister Æthelthryth was abbess, and upon Æthelthryth's death she succeeded her in leadership of the community.
@@ -61,6 +61,3 @@ sources:
   - https://en.wikipedia.org/wiki/Minster-in-Sheppey
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Minster-in-Sheppey was the first monastic foundation for women in Kent
-    detail: The primary Seaxburh Wikipedia source in the dossier states she founded 'abbeys at Milton Regis and Minster-in-Sheppey, establishing "Kent\'s first abbey for women at Milton"' — attributing the distinction to Milton Regis, not Minster-in-Sheppey. The timeline claim also internally contradicts the sections of the same profile, which correctly follow the Seaxburh article in calling Milton 'Kent\'s first abbey for women.' The Minster-in-Sheppey Wikipedia article does call it the first, but the primary dossier source (Seaxburh article) contradicts this, and the anchor dossier should be preferred.

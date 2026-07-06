@@ -27,8 +27,7 @@ timeline:
   - when: "303"
     title: Martyrdom
     body: Refusing to renounce his faith, Barulas was tortured and beheaded; his mother, who had encouraged him, buried his body.
-patronage:
-  - Children
+patronage: []
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2024/11/18/206390-martyr-barulas-the-youth-of-caesarea
@@ -36,6 +35,3 @@ sources:
   - https://en.wikipedia.org/wiki/Romanus_of_Caesarea
 status: flagged
 generated: "2026-07-03"
-flagReasons:
-  - claim: Patronage over Children
-    detail: No source in the dossier — anchor or any external item — explicitly attributes patronage of children to Barulas. The anchor labels him 'Child-Saint' (a Rank/Type descriptor, not a patronage statement) but this does not establish a recognized intercessory patronage. This claim is not grounded in the dossier.

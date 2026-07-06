@@ -1,7 +1,7 @@
 id: OS-2703
 lifespan: c. 633 – 709
 overview:
-  - Wilfrid of York (also Wilfrith or Wilfred, c. 633–709) was a Northumbrian bishop of the seventh century, one of the most influential and contentious churchmen of the Anglo-Saxon Church. Born to a noble family in Northumbria, he became a leading advocate for Roman ecclesiastical practice over the older Celtic and Saxon customs, and was the first Saxon to hold the see of York.
+  - Wilfrid of York (also Wilfrith or Wilfred, c. 633–709) was a Northumbrian bishop, one of the most influential and contentious churchmen of the Anglo-Saxon Church. Born to a noble family in Northumbria, he became a leading advocate for Roman ecclesiastical practice over the older Celtic and Saxon customs, and was the first Saxon to hold the see of York.
   - He is best remembered for his role at the Synod of Whitby (664), where he was chosen to present the Roman position on the calculation of Easter; his advocacy secured the adoption of Roman practice. Over a long and turbulent career he served as Bishop of York and later of Hexham, endured three expulsions from his see amid disputes with kings and fellow churchmen, and became the first Englishman to appeal a decision to the papacy in Rome.
   - Beyond his ecclesiastical controversies, Wilfrid was a builder of churches, a founder and reformer of monasteries who introduced the Rule of Saint Benedict to England, and a missionary who preached to the pagan South Saxons and to the Frisians. He died in 709 at Oundle and was buried at his monastery of Ripon. He is venerated in the Orthodox, Roman Catholic, and Anglican traditions, with a feast on October 12 (and also April 24).
 liturgicalTitle: Our Father among the Saints Wilfrid, Bishop of York
@@ -74,6 +74,3 @@ sources:
   - https://orthodoxwiki.org/Wilfrid
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: "The profile characterises Wilfrid as 'a Northumbrian bishop of the seventh century', but the anchor row records Century: 8th. Per the verification rule the anchor wins on contradictions."
-    detail: "The anchor row has Century: 8th. Although the OrthodoxWiki external source uses 'a Saxon bishop of the seventh century', the anchor classification takes precedence and directly contradicts the profile's 'seventh century' characterisation."

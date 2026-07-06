@@ -10,7 +10,7 @@ sections:
     body:
       - Tryphon was born around 1546 in the village of Malaya Nemnyuzhka (also recorded as Malaya Nemyushka or Malaya Nemnyuga) in the Pinega district, part of the remote northern Mezen province — a location later identified with Sovpolye in the Mezensky District of Arkhangelsk Oblast. His secular name was Trofim (Trophimos) Dmitrievich Podvizaev, and he was the youngest son of the well-off peasants Dimitry and Pelagia.
       - His father died while he was young, and he was raised under the guidance of his mother and older brothers. According to the accounts of his life, he was drawn to monasticism after hearing his parish priest teach about preserving purity of body and spirit, and he resisted his family's intention to arrange a marriage for him.
-      - Following his monastic inclination, he left home and lived for a time in the Russian north — by various accounts at Veliky Ustyug with a strict parish priest devoted to fasting and prayer, and at Orlov (Orletsa) along the Kama River, where the synaxarion relates that he endured hunger and cold while living on a church porch.
+      - Following his monastic inclination, he left home and lived for a time in the Russian north — by various accounts at Veliky Ustyug with a strict parish priest devoted to fasting and prayer, and at Orlov (a merchant-founded city) and then Orletsa along the Kama River, where the synaxarion relates that he endured hunger and cold while living on a church porch.
   - heading: Monastic Profession and Ascetic Life
     body:
       - At about the age of twenty-two he received monastic tonsure at the Holy Transfiguration Monastery at Pyshkor in Perm (the Pyskorskoye Monastery on the Kama River), taking the name Tryphon under the abbot Varlaam (Barlaam).
@@ -62,6 +62,3 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=Tryphon+Vyatka
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile presents Orlov and Orletsa as the same place (or alternate names for one another) via the parenthetical 'Orlov (Orletsa)'.
-    detail: "The OCA dossier source (the synaxarion the profile itself cites) explicitly lists them as two sequential, distinct stops: 'moving to Orlov (a merchant-founded city), then Orletsa.' Presenting Orletsa as a parenthetical alternate name for Orlov contradicts that text; there is no source in the dossier that treats them as the same place."

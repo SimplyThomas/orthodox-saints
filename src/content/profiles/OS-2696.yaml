@@ -37,7 +37,7 @@ sections:
       - In 629 he left the court to enter the monastery of Montfaucon-d'Argonne under Saint Balderic, receiving the tonsure without formal courtly authorization. Summoned to explain himself, he obtained Dagobert's approval of his choice. He then sought a stricter, more eremitical life, living as a hermit at Saint-Ursanne in the Jura Mountains in the tradition of Columbanus and Saint Ursicinus.
   - heading: Formation in the Columbanian Tradition
     body:
-      - Wandrille's monastic formation was shaped by the Irish-influenced Columbanian movement then spreading through Gaul and northern Italy. Around 635 he spent time at Bobbio Abbey in Italy, Columbanus's own foundation, and by 642 he had reached Romainmôtier in the Tarentaise valley — reportedly while attempting to travel to Ireland — where he is said to have remained for roughly a decade.
+      - Wandrille's monastic formation was shaped by the Irish-influenced Columbanian movement then spreading through Gaul and northern Italy. Around 635 he spent time at Bobbio Abbey in Italy, Columbanus's own foundation, and by 642 he had reached Romainmôtier in the Tarentaise valley, reportedly while attempting to travel to Ireland.
       - This grounding in Columbanian monasticism shaped the rule he would later give his own community.
   - heading: The Foundation of Fontenelle
     body:
@@ -58,6 +58,3 @@ sources:
   - https://en.wikipedia.org/wiki/Fontenelle_Abbey
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: By 642 he reached Romainmôtier, reportedly while attempting to travel to Ireland, where he is said to have remained for roughly a decade
-    detail: The dossier (Fontenelle Abbey Wikipedia) says Wandrille 'later studied at Bobbio Abbey and Romainmôtier Abbey (approximately ten years)' — the ~ten years covers BOTH Bobbio and Romainmôtier combined, not Romainmôtier alone. Bobbio is dated c. 635 and he returned to Normandy in 648, so Romainmôtier alone was roughly 6 years (642–648). Applying 'roughly a decade' specifically to Romainmôtier is not supported by the dossier.

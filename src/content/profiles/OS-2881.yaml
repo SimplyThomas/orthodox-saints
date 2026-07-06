@@ -2,7 +2,7 @@ id: OS-2881
 lifespan: late 15th century – 17 May 1544
 liturgicalTitle: Our Venerable Father Theophanes of Meteora, Co-Founder of the Barlaam Monastery
 overview:
-  - Theophanes was a hieromonk of the eminent Apsarades family of Ioannina who, with his elder brother Nektarios, rebuilt and refounded the Barlaam Monastery on its rock at Meteora in the first half of the sixteenth century.
+  - Theophanes was a hieromonk of the eminent Apsarades family of Ioannina who, with his brother Nektarios, rebuilt and refounded the Barlaam Monastery on its rock at Meteora in the first half of the sixteenth century.
   - Born in the late fifteenth century, he received his education and monastic formation at the Monastery of Philanthropinon on the island of Ioannina and took monastic vows under the elder Savvas in 1495.
   - After a decade with their spiritual father and a period of foundation work at Ioannina, he and Nektarios relocated to Meteora around 1510/11, eventually settling on the Barlaam rock in 1517/18, where they raised a community and its churches.
   - He reposed on 17 May 1544, the very day the monastery's principal church of All Saints was completed, and is commemorated together with his brother on that date.
@@ -49,7 +49,6 @@ timeline:
     title: Completion of the church and repose
     body: The Church of All Saints was completed at the ninth hour; Theophanes, long bedridden, reposed that same day.
 patronage:
-  - Meteora
   - Monastics
 sources:
   - OrthodoxWiki
@@ -58,8 +57,3 @@ sources:
   - https://en.wikipedia.org/wiki/Meteora
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Nektarios is identified as Theophanes's 'elder' brother
-    detail: No source in the dossier explicitly identifies which brother was the elder. The anchor and external texts consistently say 'his brother' or 'brothers' without specifying relative age. The johnsanidopoulos source names 'Nektarios and Theophanes' (Nektarios first), but naming order is not a statement of birth order.
-  - claim: Patronage includes 'Meteora'
-    detail: No source in the dossier names Theophanes as a patron of Meteora. The association is inferred from his geographical role as monastery founder there, but no source states a patronage over the place.

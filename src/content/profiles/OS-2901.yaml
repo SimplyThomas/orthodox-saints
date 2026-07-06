@@ -9,7 +9,7 @@ sections:
   - heading: Episcopate and ministry
     body:
       - Valerius was born at Caesaraugusta, the Roman city now known as Zaragoza, in the course of the fourth-century Church of Hispania. He served as its bishop for approximately twenty-five years, from about 290 until his death around 315.
-      - He is recorded as a participant in the Council of Elvira (the synod held at Elvira, near Granada), which met around 306 and issued some of the earliest surviving Western canonical legislation.
+      - He is recorded as a participant in the Council of Elvira (the synod held at Elvira, near Granada), which met around 306.
       - His most enduring association is with his deacon, Vincent of Saragossa. Valerius ordained Vincent and entrusted him with the preaching of the diocese; on account of the bishop's speech impediment, Vincent spoke on his behalf in the exercise of their common ministry.
   - heading: Arrest, trial, and exile
     body:
@@ -62,6 +62,3 @@ sources:
   - https://orthodoxwiki.org/Valerius_of_Saragossa
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The Council of Elvira issued some of the earliest surviving Western canonical legislation
-    detail: The dossier (Wikipedia external source) says only that Valerius participated in the Council of Elvira around 306 AD. No external source in the dossier characterizes the council's canons as 'earliest surviving Western canonical legislation.' This is an elaboration with no dossier grounding.

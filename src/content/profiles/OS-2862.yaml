@@ -13,7 +13,7 @@ timeline:
     body: Leo was born in Sicily around 611, the son of a man named Paul.
   - when: Jan 681
     title: Elected to the papacy
-    body: He was elected Bishop of Rome a few days after the death of Pope Agatho on January 10, 681, though the Sixth Ecumenical Council had only just concluded in Constantinople.
+    body: He was elected Bishop of Rome a few days after the death of Pope Agatho on January 10, 681.
   - when: Aug 17, 682
     title: Consecration
     body: His consecration was delayed roughly nineteen months—until August 17, 682—a gap attributed to negotiations with Emperor Constantine IV over imperial confirmation of papal elections.
@@ -31,7 +31,7 @@ sections:
   - heading: The Sixth Ecumenical Council
     body:
       - Leo's chief accomplishment was his confirmation of the acts of the Sixth Ecumenical Council, held at Constantinople in 680–681 under papal legates, which condemned the Monothelite heresy—the teaching that Christ possessed only a single, divine will. He circulated the council's decrees throughout the Western Church, and in Spain they were formally accepted at the Synod of Toledo in 684.
-      - In confirming the council, Leo addressed the condemnation of his predecessor Pope Honorius I. He clarified that Honorius was condemned not for actively teaching the heresy but for his negligence in failing to oppose it—charging that Honorius, rather than sanctifying the Roman Church with apostolic tradition, had by his inaction permitted its purity to be polluted. This distinction later became central to debates over papal authority.
+      - In confirming the council, Leo addressed the condemnation of his predecessor Pope Honorius I. He clarified that Honorius was condemned not for actively teaching the heresy but for his negligence in failing to oppose it—charging that Honorius, rather than sanctifying the Roman Church with apostolic tradition, had by his inaction permitted its purity to be polluted. This distinction later became central to debates over papal infallibility.
   - heading: Relations with Ravenna
     body:
       - Leo secured from Emperor Constantine IV the revocation of an edict that had granted the Archbishops of Ravenna autocephalous, self-governing status, curtailing their bids for ecclesiastical independence. He abolished the tax that Ravenna had paid to Rome in exchange for receiving the pallium, while requiring that archbishops-elect travel to Rome for their consecration.
@@ -51,8 +51,3 @@ sources:
   - https://en.wikipedia.org/wiki/Pope_Honorius_I
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: The profile states the Sixth Ecumenical Council had 'only just concluded' at the time of Leo's election in January 681.
-    detail: The dossier external sources describe the council as running '680–681' and Leo being elected shortly after January 10, 681, but do not state the council had concluded by then. Historically the Third Council of Constantinople concluded in September 681, eight months after Leo's January 681 election — meaning the council was still in session at the time of his election. The dossier provides no support for the claim that it 'had only just concluded' when Leo was elected; the timeline entry's concessive framing ('though') presupposes a conclusion that is not grounded in the dossier.
-  - claim: The profile characterises the Honorius distinction as central to 'debates over papal authority', whereas the source specifies 'debates on papal infallibility'.
-    detail: "The external source (Wikipedia, Pope Honorius I entry) explicitly states this distinction was 'later central to debates on papal infallibility.' The profile substitutes the broader concept 'papal authority' for the more specific 'papal infallibility.' These are distinct theological topics: papal infallibility concerns whether a pope can err in matters of faith, not the general scope of papal authority. No dossier source supports the broader 'papal authority' framing."

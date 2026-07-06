@@ -2,7 +2,7 @@ id: OS-2797
 overview:
   - The Synaxis of the Venerable Fathers of the Kiev Near Caves is the collective commemoration of the saints — monks, ascetics, iconographers, chroniclers, physicians, and wonderworkers — whose relics rest in the Near Caves (also called the Anthony Caves) of the Kiev Caves Lavra. The assembly is kept together on September 28.
   - The Near Caves take their name from Saint Anthony of the Caves, the founder of organized monasticism in Kievan Rus'. Around 1057, after appointing Saint Varlaam as the monastery's first hegumen, Anthony withdrew and dug a new underground cell in the hill near the upper Lavra; the network of tunnels that grew from it became the Near Caves. The commemoration honors the many fathers whose incorrupt remains are venerated there.
-  - The saints gathered under this feast span the 11th through 13th centuries, the formative era of the Kiev Caves Lavra as a center of ascetic monastic practice. Among the more than seventy burials preserved in the Near Caves are Saint Anthony the founder, Saint Nestor the Chronicler, the iconographers Alypius and Gregory, the physician-monk Agapit, the prince-monk Nikolai Sviatosha, Hieromartyr Kuksha, and the ascetic Ilya of the Caves.
+  - The saints gathered under this feast span the 11th through 13th centuries, the formative era of the Kiev Caves Lavra as a center of ascetic monastic practice. Among the more than seventy burials preserved in the Near Caves are Saint Nestor the Chronicler, the iconographers Alypius and Gregory, the physician-monk Agapit, the prince-monk Nikolai Sviatosha, Hieromartyr Kuksha, and the ascetic Ilya of the Caves.
 liturgicalTitle: The Synaxis of Our Venerable and God-bearing Fathers of the Near Caves of Kiev
 sections:
   - heading: The Near Caves
@@ -12,7 +12,7 @@ sections:
   - heading: The Founders
     body:
       - Saint Anthony of the Caves (c. 983–1073), baptized Antipas and born at Liubech in the Chernigov principality, took up the monastic life on Mount Athos before returning to Kiev around 1011 at his abbot's instruction. He settled in a cave earlier dug by the presbyter Hilarion and became renowned for strict asceticism, eating rye bread every other day and drinking only a little water. His reputation drew followers, and together they established what became the Kiev Caves Lavra. He is venerated as the founder of monasticism in Kievan Rus'.
-      - Saint Theodosius of the Caves (1009–1074), born at Vasylkiv, co-founded the Lavra with Anthony and brought cenobitic (communal) monasticism to Kievan Rus'. He introduced the monastic rule of Theodore the Studite, obtained from a Greek monk of the Studion Monastery named Michael, and from Kiev it spread through the Ukrainian and Russian churches. His relics were found incorrupt and transferred to the monastery's main cathedral in 1091; his principal feast is May 3, though he is chiefly commemorated among the fathers of the Far Caves.
+      - Saint Theodosius of the Caves (1009–1074), born at Vasylkiv, co-founded the Lavra with Anthony and brought cenobitic (communal) monasticism to Kievan Rus'. He introduced the monastic rule of Theodore the Studite, obtained from a Greek monk of the Studion Monastery named Michael, and from Kiev it spread through the Ukrainian and Russian churches. His relics were found incorrupt and transferred to the monastery's main cathedral in 1091; his principal feast is May 3.
   - heading: The Fathers of the Near Caves
     body:
       - Saint Nestor the Chronicler (c. 1056–c. 1114) entered the monastery as a novice around 1073 and was trained under Stephen, the successor of Theodosius. He is credited with the Life of Saint Theodosius of the Kiev Caves and an account of the passion-bearers Boris and Gleb, and tradition long attributed the Primary Chronicle to him. He was buried in the Near Caves, and his individual feast is October 27.
@@ -63,8 +63,3 @@ sources:
   - https://en.wikipedia.org/wiki/Ilya_Muromets
 status: flagged
 generated: "2026-07-04"
-flagReasons:
-  - claim: Saint Anthony the founder is listed among the 'more than seventy burials preserved in the Near Caves.'
-    detail: The Near Caves external source lists 79 surviving burials including Nestor, Alipy, Grigory, Agapit, Nikolai Sviatosha, Kuksha, and Ilya Muromets — but Anthony is not among them. The Anthony of the Caves external source explicitly states 'He requested that his remains be hidden and was reportedly buried in his cave, though no relics have ever been discovered.' The profile's own Relics section repeats this directly, creating an internal contradiction with the overview's inclusion of Anthony among 'preserved' burials.
-  - claim: Theodosius 'is chiefly commemorated among the fathers of the Far Caves.'
-    detail: No external source in the dossier mentions the Far Caves or associates Theodosius with them. The Theodosius of the Caves Wikipedia article used as a source discusses his role at the Lavra but does not reference the Far Caves. This claim is not grounded in the dossier.
