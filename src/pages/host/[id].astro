@@ -5,6 +5,8 @@ import { byId as saintById } from "../../lib/data";
 import { FEASTS } from "../../lib/feasts";
 import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import DomeMark from "../../components/icons/DomeMark.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
@@ -26,6 +28,11 @@ const members =
       ).sort((a, b) => a.id.localeCompare(b.id))
     : [];
 const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
+
+// A rank that owns named-angel members (e.g. Archangels) is a "hub": it gets the
+// section-landing header (dome arch + eyebrow + serif title + lede), like the
+// /nine-orders page, rather than the blue portrait hero used for individuals.
+const isHub = host.entityType === "Angelic Rank" && members.length > 0;
 
 // Breadcrumb target: a named angel goes back to its owning RANK page (e.g. an
 // archangel → the Archangels page); everything else goes to the hosts index.
@@ -92,89 +99,111 @@ const refBlocks = [
 
 <BaseLayout title={host.name} description={desc} ogType="article">
   <article class="host2">
-    <section class="host-hero">
-      <div class="host-hero-inner">
-        <nav class="host-crumb" aria-label="Breadcrumb">
-          <a class="host-back" href={withBase(backHref)}>← {backLabel}</a>
-        </nav>
+    {
+      isHub && (
+        <section class="host-hub-hero">
+          <div class="dome-bg" aria-hidden="true">
+            <DomeMark w={460} color="var(--byz)" />
+          </div>
+          <div class="host-hub-inner">
+            <EyebrowRule label="Heavenly Hosts" />
+            <h1 class="host-hub-title">The Holy {host.name}</h1>
+            <p class="host-hub-lede">{host.brief}</p>
+            {host.feasts?.length && (
+              <p class="host-hub-feast">
+                Commemorated <strong>{host.feasts.join("; ")}</strong>
+              </p>
+            )}
+          </div>
+        </section>
+      )
+    }
+    {
+      !isHub && (
+        <section class="host-hero">
+          <div class="host-hero-inner">
+            <nav class="host-crumb" aria-label="Breadcrumb">
+              <a class="host-back" href={withBase(backHref)}>
+                ← {backLabel}
+              </a>
+            </nav>
 
-        <div class="host-hero-grid">
-          <div class="host-hero-icon">
-            <div class="host-icon-frame">
-              {
-                heroImage ? (
-                  <img src={withBase(heroImage)} alt={`Icon of ${host.name}`} />
-                ) : (
-                  <div class="host-icon-ph" aria-hidden="true">
-                    {initial}
-                  </div>
-                )
-              }
-            </div>
-            {
-              heroImage ? (
-                host.imagePermission ? (
-                  <div class="host-icon-cap">
-                    {host.imageAttribution}
-                    {host.imageSource && (
-                      <>
-                        {" "}
-                        Original icon:{" "}
-                        <a
-                          href={host.imageSource}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View on {host.imageVendor}
-                        </a>
-                      </>
-                    )}
-                  </div>
-                ) : (
-                  host.imageCredit && (
+            <div class="host-hero-grid">
+              <div class="host-hero-icon">
+                <div class="host-icon-frame">
+                  {heroImage ? (
+                    <img
+                      src={withBase(heroImage)}
+                      alt={`Icon of ${host.name}`}
+                    />
+                  ) : (
+                    <div class="host-icon-ph" aria-hidden="true">
+                      {initial}
+                    </div>
+                  )}
+                </div>
+                {heroImage ? (
+                  host.imagePermission ? (
                     <div class="host-icon-cap">
-                      {host.imageCredit}
-                      {host.imageLicense ? ` · ${host.imageLicense}` : ""}
+                      {host.imageAttribution}
                       {host.imageSource && (
                         <>
                           {" "}
-                          ·{" "}
-                          <a href={host.imageSource} rel="nofollow">
-                            source
+                          Original icon:{" "}
+                          <a
+                            href={host.imageSource}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View on {host.imageVendor}
                           </a>
                         </>
                       )}
                     </div>
+                  ) : (
+                    host.imageCredit && (
+                      <div class="host-icon-cap">
+                        {host.imageCredit}
+                        {host.imageLicense ? ` · ${host.imageLicense}` : ""}
+                        {host.imageSource && (
+                          <>
+                            {" "}
+                            ·{" "}
+                            <a href={host.imageSource} rel="nofollow">
+                              source
+                            </a>
+                          </>
+                        )}
+                      </div>
+                    )
                   )
-                )
-              ) : (
-                <div class="host-icon-cap">Image forthcoming</div>
-              )
-            }
-          </div>
+                ) : (
+                  <div class="host-icon-cap">Image forthcoming</div>
+                )}
+              </div>
 
-          <div class="host-hero-id">
-            <h1>{host.name}</h1>
-            {
-              host.aka?.length && (
-                <p class="aka">Also known as: {host.aka.join(", ")}</p>
-              )
-            }
-            <div class="badges">
-              {badges.map((b) => <span class="badge">{b}</span>)}
+              <div class="host-hero-id">
+                <h1>{host.name}</h1>
+                {host.aka?.length && (
+                  <p class="aka">Also known as: {host.aka.join(", ")}</p>
+                )}
+                <div class="badges">
+                  {badges.map((b) => (
+                    <span class="badge">{b}</span>
+                  ))}
+                </div>
+                <p class="brief">{host.brief}</p>
+                {host.feasts?.length && (
+                  <p class="feast">
+                    Commemorated: <strong>{host.feasts.join("; ")}</strong>
+                  </p>
+                )}
+              </div>
             </div>
-            <p class="brief">{host.brief}</p>
-            {
-              host.feasts?.length && (
-                <p class="feast">
-                  Commemorated: <strong>{host.feasts.join("; ")}</strong>
-                </p>
-              )
-            }
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      )
+    }
 
     {
       p && p.status !== "reviewed" && (
@@ -199,7 +228,7 @@ const refBlocks = [
       {
         members.length > 0 && (
           <section class="host-members">
-            <h2>The Holy {host.name}</h2>
+            {!isHub && <h2>The Holy {host.name}</h2>}
             <div class="member-grid">
               {members.map((m) => (
                 <a class="member-card" href={withBase(`host/${m.id}`)}>
@@ -500,6 +529,43 @@ const refBlocks = [
 </BaseLayout>
 
 <style>
+  /* Hub hero — section-landing header (dome arch + eyebrow + serif title + lede)
+     for a rank that owns members, matching the /nine-orders page. */
+  .host-hub-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(56px, 11vw, 104px) 20px clamp(28px, 5vw, 44px);
+    overflow: hidden;
+  }
+  .host-hub-inner {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .host-hub-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 14px 0 0;
+  }
+  .host-hub-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 14px auto 0;
+    max-width: 46ch;
+    line-height: 1.5;
+  }
+  .host-hub-feast {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0.8rem 0 0;
+  }
+  .host-hub-feast strong {
+    color: var(--byz-deep);
+  }
+
   /* Blue hero band — matches the saint-profile hero (radial navy → ink,
      ivory text, gold-tinted lower edge). */
   .host-hero {
