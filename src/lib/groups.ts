@@ -6,6 +6,8 @@ import catalogRaw from "../../public/groups.json";
 
 export interface Group {
   slug: string;
+  /** the group's own OS-#### — its /saint/[id] group profile */
+  saint_id: string;
   name: string;
   type: string;
   description: string;

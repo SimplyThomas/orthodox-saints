@@ -57,5 +57,13 @@ class ComputeThemesTests(unittest.TestCase):
         self.assertIn(cat["bishops"]["group"], themes.THEME_GROUPS)
 
 
+class ThemeAliasTests(unittest.TestCase):
+    def test_every_alias_slug_is_a_real_theme(self):
+        import themes as themes_mod
+        for a in themes_mod.ALIASES:
+            self.assertIn(a["slug"], themes_mod.THEME_SLUGS,
+                          f"alias {a['phrase']!r} → unknown theme {a['slug']!r}")
+
+
 if __name__ == "__main__":
     unittest.main()

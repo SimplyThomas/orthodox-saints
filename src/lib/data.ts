@@ -45,6 +45,7 @@ export function toFinderSaint(s: Saint): FinderSaint {
     notes: s.notes,
     search: s.search,
     themes: s.themes || [],
+    ...(s.profile_type ? { profile_type: s.profile_type } : {}),
     ...(s.groupNames && s.groupNames.length
       ? { groupNames: s.groupNames }
       : {}),
