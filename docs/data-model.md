@@ -102,8 +102,8 @@ saints.csv, not here (scope rules: CLAUDE.md §5a).
 | `saint_images.csv` | `saint_id,image_path,license,credit,source` | saint (hero portrait) | `image_path` self-hosted under `static/icons/`; see licensing below. Generate the ~200 px thumb with `python scripts/make_icon_thumbs.py`. |
 | `saint_quotes.csv` | `saint_id,quote,work,locus,translation,source_url` | saint (one quote max) | Quote verbatim from a **public-domain translation** (`ANF`/`NPNF`/`NPNF1`/`NPNF2`, `(PD)`, `PD-old`, `CC0`); anything modern/in-copyright fails the build. `source_url` required. |
 | `saint_depictions.csv` | `saint_id,image_path,license,credit,source,kind,tag,title,era,by` | carousel card (many per saint) | Same licensing gate as images. `kind` ∈ `museum`/`iconographer`/`shop`; `title` required. |
-| `groups.csv` | `slug,name,type,description,feast,sort` | group | `slug` is permanent (the `/group/<slug>` URL). `type` ∈ `synaxis`/`feast-companions`/`household`. |
-| `saint_groups.csv` | `group_slug,saint_id,role,order` | membership | Dangling refs and duplicates fail the build. |
+| `groups.csv` | `slug,saint_id,name,type,description,feast,sort` | group | `slug` is permanent. `saint_id` is the group's own **build-assigned OS-#### (blank → assigned; §6 shared counter with saints)** — the group is a saint-profile served at `/saint/<saint_id>` with `profile_type:"group"`. `type` ∈ `synaxis`/`feast-companions`/`household`. |
+| `saint_groups.csv` | `group_slug,saint_id,role,order` | membership | Dangling refs and duplicates fail the build. A member may be **name-only** (blank `saint_id` + a `role` name) when the individual has no row yet — rendered without a link. |
 | `image_permissions.csv` | `vendor_slug,vendor_name,attribution,homepage,granted,status,terms` | vendor grant | Registry for `Permission:<slug>` licenses; grants recorded under `docs/permissions/`. |
 | `vendors.csv` | `vendor,url_template` | icon vendor | Link templates only (`{q}` = name); no vendor imagery is reproduced. |
 | `name_variants.csv` | `group,names` | name-equivalence group | Powers search ("Lucy" finds Lucia). |

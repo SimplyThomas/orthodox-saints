@@ -29,7 +29,10 @@ if (root && root.dataset.finderSrc) {
   let SAINTS: FinderSaint[] = [];
   const dataReady: Promise<boolean> = loadFinderData().then(
     (data) => {
-      SAINTS = data;
+      // Group profiles (synaxes / households / feast-companions) ride in the
+      // shared finder payload but are not intercessors — keep them out of the
+      // patron quiz's candidate pool. They remain in /search and the calendar.
+      SAINTS = data.filter((s) => s.profile_type !== "group");
       return true;
     },
     () => false,
