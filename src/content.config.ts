@@ -245,7 +245,6 @@ const hosts = defineCollection({
   schema: hostProfileSchema,
 });
 
-export const collections = { profiles, feasts, hosts };
 // "Saints in the News" editorial articles (src/content/news/<slug>.yaml). Mirrors
 // the NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/news.ts
 // field-for-field, plus ordering/featured metadata. The page furniture
@@ -286,4 +285,4 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { profiles, feasts, news };
+export const collections = { profiles, feasts, hosts, news };
