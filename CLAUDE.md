@@ -367,6 +367,57 @@ other CSVs.
   weekly limit); `FEASTGEN_USE_WORKFLOW=0` falls back to the all-Opus single-agent
   path.
 
+## 5b. The Heavenly Hosts database (`data/heavenly_hosts.csv`, `HH-####`)
+
+A **third** structured database, sibling to Saints (`OS-####`) and Feasts & Fasts
+(`FF-####`), cataloguing the **bodiless powers** — the nine angelic ranks, the
+named archangels, and (later) the individual angels of Scripture/Tradition and a
+marked set of the fallen. Angels are deliberately excluded from `data/saints.csv`
+(§7); this is where the beings themselves are first-class records. Owned by
+**`hostlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
+covers it), which mirrors `feastlib.py`. Design spec:
+`docs/superpowers/specs/2026-07-07-heavenly-hosts-database-design.md`.
+
+- **`data/heavenly_hosts.csv` (19 cols):** Host ID · Name · Also Known As ·
+  Entity Type · Celestial Order · Canonical Status · Primary Source · Scripture
+  References · Deuterocanonical Sources · Extra-Biblical Sources · Feast Day(s) ·
+  Related Feasts · Related Saints · Related Beings · Brief · Tags · Icon · Notes ·
+  Sources. `HH-####` ids follow the **exact `OS-####` rules** (§6: opaque,
+  permanent, never reused; add a **blank** id and the build assigns + writes back).
+  CRLF, `"; "` multi-sep.
+- **Controlled vocab** (in `data/vocabulary.csv`): **Entity Type** (`Angelic Rank`
+  · `Named Angel` · `Scriptural Angel` · `Angelic Class` · `Collective` · `Fallen`),
+  **Celestial Order** (the nine ranks; **Triad is derived, never authored**),
+  **Canonical Status** (`Scriptural` · `Deuterocanonical` · `Traditional` ·
+  `Apocryphal` · `Symbolic`), **Host Source Type** (the 8-register source
+  taxonomy — the source-fidelity commitment: Holy Scripture / Deuterocanonical /
+  Holy Tradition / Liturgical Tradition / Patristic / Second Temple / Early
+  Christian / Later Tradition, never blurred).
+- **Cross-refs validated:** Related Saints → `saints.csv`, Related Feasts →
+  `feasts.csv`, Related Beings → `heavenly_hosts.csv` (no self-ref). Feast Day(s)
+  parse as fixed `Mon D` tokens.
+- **Rich prose** lives in `src/content/hosts/HH-####.yaml` (the `hosts` collection
+  in `content.config.ts`): `overview` + `historicalContext` /
+  `orthodoxInterpretation` / `liturgicalTradition` / `iconography` /
+  `historicalInfluence` / `salvationHistory` (sections) / `scripture` / `sections`
+  / `related` / `reading`. Same `status: draft|reviewed|flagged` production gate as
+  saint/feast profiles; §9 guardrails carry over (source registers preserved, no
+  fabrication, hymnography described not reproduced).
+- **Images:** `data/host_images.csv` (one hero portrait per host) and
+  `data/host_depictions.csv` (MANY carousel cards per host) reuse the **saints'
+  licensing gate verbatim** (§9): an open license (`PD`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
+  CC-BY* needs a credit) **or** a `Permission:<vendor>` token against
+  `data/image_permissions.csv`. Files self-hosted under `static/icons/hosts/` (open)
+  or `static/icons/permission/<vendor>/` (permission). No pip/Pillow in some
+  environments — resize with **node + sharp**.
+- Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and frontend routes
+  **`/nine-orders`** (the Nine Orders overview: ranks by triad, with per-triad
+  epithets) and **`/host/HH-####`** (per-being pages: blue hero + face-cropped
+  portrait, "Depictions & Icons" carousel, collapsible sections, left rail). A
+  rank page auto-lists its **Named Angel** members as cards (the eight archangels
+  on the Archangels page). Excluded from the patron quiz (angels are venerated,
+  not intercessor-saints).
+
 ## 6. Saint identity & deduplication (critical)
 
 - **Saint ID is the primary key.** Format `OS-####`, zero-padded to 4+ digits.

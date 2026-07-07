@@ -47,6 +47,7 @@ import urllib.parse
 from pathlib import Path
 
 import feastlib
+import hostlib
 import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
@@ -1737,7 +1738,9 @@ def emit_themes_json(records: list[dict]) -> None:
 def emit_xlsx(header: list[str], rows: list[dict[str, str]],
               vocab: dict[str, set[str]],
               feasts_header: list[str] | None = None,
-              feasts_rows: list[dict[str, str]] | None = None):
+              feasts_rows: list[dict[str, str]] | None = None,
+              hosts_header: list[str] | None = None,
+              hosts_rows: list[dict[str, str]] | None = None):
     from openpyxl import Workbook
     from openpyxl.styles import Font
 
@@ -1761,6 +1764,15 @@ def emit_xlsx(header: list[str], rows: list[dict[str, str]],
         for r in feasts_rows:
             fs.append([r[c] for c in feasts_header])
         fs.freeze_panes = "A2"
+
+    if hosts_rows:
+        hs = wb.create_sheet("Heavenly Hosts")
+        hs.append(hosts_header)
+        for cell in hs[1]:
+            cell.font = Font(bold=True)
+        for r in hosts_rows:
+            hs.append([r[c] for c in hosts_header])
+        hs.freeze_panes = "A2"
 
     vs = wb.create_sheet("Controlled Vocabulary")
     vs.append(["category", "term"])
@@ -1823,6 +1835,7 @@ def main() -> int:
     vocab = load_vocab()
     header, rows = load_saints()
     f_header, f_rows = feastlib.load_feasts()
+    h_header, h_rows = hostlib.load_hosts()
 
     # The priority report is a read-only authoring aid: validate quietly so the
     # ranking reflects the committed data, but never write files or assign IDs.
@@ -1850,6 +1863,9 @@ def main() -> int:
                 write_groups(g_header, g_rows)
         if feastlib.assign_ids(f_rows):
             feastlib.write_feasts(f_header, f_rows)
+        # Heavenly Hosts (HH-####) run an INDEPENDENT id counter, like FF-####.
+        if hostlib.assign_ids(h_rows):
+            hostlib.write_hosts(h_header, h_rows)
 
     conn = build_db(header, rows, vocab)
     errors, warnings = validate(header, rows, vocab)
@@ -1857,6 +1873,10 @@ def main() -> int:
     f_errors, f_warnings = feastlib.validate(f_rows, vocab, saint_ids)
     errors.extend(f_errors)
     warnings.extend(f_warnings)
+    feast_ids = {r["Feast ID"].strip() for r in f_rows}
+    h_errors, h_warnings = hostlib.validate(h_rows, vocab, saint_ids, feast_ids)
+    errors.extend(h_errors)
+    warnings.extend(h_warnings)
 
     # Finder-coverage nudges are bulk and low-signal; summarize them. Other
     # warnings (e.g. possible duplicate saints) are surfaced individually.
@@ -1874,7 +1894,7 @@ def main() -> int:
         return 1
 
     print(f"VALIDATION CLEAN — {len(rows)} saints, {len(f_rows)} feasts, "
-          f"{len(warnings)} warning(s), 0 errors.")
+          f"{len(h_rows)} hosts, {len(warnings)} warning(s), 0 errors.")
 
     report_coverage(rows)
 
@@ -1882,16 +1902,17 @@ def main() -> int:
         return 0
 
     if args.xlsx_only:
-        emit_xlsx(header, rows, vocab, f_header, f_rows)
+        emit_xlsx(header, rows, vocab, f_header, f_rows, h_header, h_rows)
         return 0
 
     records = emit_data_json(rows)
     emit_themes_json(records)
     emit_groups_json()
     feastlib.emit_feasts_json(f_rows)
+    hostlib.emit_hosts_json(h_rows)
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
-        emit_xlsx(header, rows, vocab, f_header, f_rows)
+        emit_xlsx(header, rows, vocab, f_header, f_rows, h_header, h_rows)
     if args.sqlite:
         emit_sqlite(conn)
 
