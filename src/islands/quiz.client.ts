@@ -17,7 +17,7 @@ import {
 } from "../lib/quiz";
 import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
 import { splitName } from "../lib/names";
-import { esc, withBase } from "../lib/format";
+import { esc, withBase, recordHref, isHostRecord } from "../lib/format";
 import { saintAvatar, reviewedDove } from "../lib/icons";
 import { track } from "../lib/analytics";
 import { loadFinderData } from "../lib/finder-data.client";
@@ -71,7 +71,7 @@ if (root && root.dataset.finderSrc) {
     const epithet = sn.epithet || (s.aka && s.aka[0]) || "";
     const shared = sharedValues(m.reasons).join(" · ");
     return `
-      <a class="qz-card" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
+      <a class="qz-card" ${isHostRecord(s.id) ? "" : `data-saint="${esc(s.id)}" `}href="${esc(recordHref(s.id))}">
         <div class="qz-card-portrait">${saintAvatar(s, 76, 94, { type: primaryRank(s) })}</div>
         <div class="qz-card-body">
           <div class="qz-card-nameline"><h3 class="qz-card-name">${esc(sn.title)}</h3>${s.humanReviewed ? reviewedDove(25) : ""}</div>
@@ -94,7 +94,7 @@ if (root && root.dataset.finderSrc) {
     const epithet = rsn.epithet || (s.aka && s.aka[0]) || "";
     const shared = sharedValues(m.reasons).slice(0, 3).join(" · ");
     return `
-      <a class="qz-comp" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
+      <a class="qz-comp" ${isHostRecord(s.id) ? "" : `data-saint="${esc(s.id)}" `}href="${esc(recordHref(s.id))}">
         ${saintAvatar(s, 42, 52, { type: primaryRank(s) })}
         <div>
           <div class="nm">${esc(rsn.title)}${s.humanReviewed ? reviewedDove(18) : ""}</div>
