@@ -1,4 +1,4 @@
-import catalogRaw from "../../public/themes.json";
+import rawJson from "../../public/themes.json";
 import type { Saint } from "./types";
 
 export interface ThemeMeta {
@@ -9,7 +9,22 @@ export interface ThemeMeta {
   count: number;
 }
 
-export const THEME_CATALOG = catalogRaw as unknown as ThemeMeta[];
+export interface ThemeAlias {
+  phrase: string;
+  slug: string;
+}
+
+const raw = rawJson as unknown as {
+  themes: ThemeMeta[];
+  aliases: ThemeAlias[];
+};
+
+export const THEME_CATALOG = raw.themes;
+
+// Query→theme aliases, authored in themes.py and emitted alongside the catalog
+// so theme knowledge has one source. Order matters: first matching fragment
+// wins (see matchThemeAlias in theme-aliases.ts).
+export const THEME_ALIASES = raw.aliases;
 
 export const themeBySlug: Map<string, ThemeMeta> = new Map(
   THEME_CATALOG.map((t) => [t.slug, t]),

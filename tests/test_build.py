@@ -1273,13 +1273,16 @@ class EmitJsonTests(unittest.TestCase):
         slug = build.themes_mod.THEMES[0]["slug"]
         build.emit_themes_json([{"themes": [slug]}, {"themes": []}])
         with open(self._tmp / "themes.json", encoding="utf-8") as f:
-            catalog = json.load(f)
+            payload = json.load(f)
+        catalog = payload["themes"]
         self.assertEqual(len(catalog), len(build.themes_mod.THEMES))
         by_slug = {c["slug"]: c for c in catalog}
         self.assertEqual(by_slug[slug]["count"], 1)
         for c in catalog:
             for key in ("slug", "group", "label", "desc", "count"):
                 self.assertIn(key, c)
+        # Aliases ride along in the same payload (one source of theme knowledge).
+        self.assertEqual(payload["aliases"], build.themes_mod.ALIASES)
 
 
 class EmitXlsxTests(unittest.TestCase):

@@ -246,3 +246,44 @@ const hosts = defineCollection({
 });
 
 export const collections = { profiles, feasts, hosts };
+// "Saints in the News" editorial articles (src/content/news/<slug>.yaml). Mirrors
+// the NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/news.ts
+// field-for-field, plus ordering/featured metadata. The page furniture
+// (NEWS_CATS, NEWS_THISDAY, …) stays in lib/news.ts — it is page config, not
+// editorial content. Content is sample copy from the design mock (see the header
+// of lib/news.ts); the migration keeps it byte-identical.
+const newsSaintRef = z.object({
+  name: z.string(),
+  type: z.string(),
+  epithet: z.string().optional(),
+  note: z.string().optional(),
+});
+
+const news = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/news" }),
+  schema: z.object({
+    id: z.string(), // slug, used for /news/[slug]
+    cat: z.string(),
+    saint: newsSaintRef,
+    headline: z.string(),
+    date: z.string(),
+    location: z.string(),
+    summary: z.string(),
+    featured: z.boolean().optional().default(false),
+    order: z.number(), // preserves the current NEWS array order
+    kicker: z.string().optional(),
+    dek: z.string().optional(),
+    plate: z.string().optional(),
+    body: z.array(z.string()).optional(),
+    pullQuote: z
+      .object({ text: z.string(), attribution: z.string() })
+      .optional(),
+    caption: z.string().optional(),
+    sources: z
+      .array(z.object({ h: z.string(), items: z.array(z.string()) }))
+      .optional(),
+    relatedSaints: z.array(newsSaintRef).optional(),
+  }),
+});
+
+export const collections = { profiles, feasts, news };
