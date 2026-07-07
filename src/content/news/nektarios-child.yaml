@@ -1,0 +1,55 @@
+id: "nektarios-child"
+featured: true
+order: 0
+cat: "healings"
+kicker: "Documented Healing"
+headline: "Paralyzed Child Walks Following Prayers to Saint Nektarios"
+saint:
+  name: "Nektarios"
+  type: "Hierarch"
+  epithet: "of Aegina"
+date: "June 5, 2026"
+location: "Aegina, Greece"
+dek: "After a year of paralysis in his lower limbs, a seven-year-old boy from Piraeus rose and walked during an all-night vigil at the monastery of the saint — a recovery his attending physicians describe as without medical explanation."
+summary: "The family kept vigil through the night of the saint’s feast, anointing the child with oil from the lamp at the reliquary. By the Divine Liturgy the following morning, witnesses say, the boy stood unaided for the first time in eleven months. The Metropolis of Hydra has opened a quiet inquiry, gathering the testimony of the attending physicians and the parish priest."
+plate: "PHOTOGRAPH · MONASTERY OF ST NEKTARIOS, AEGINA"
+caption: "The katholikon of the Holy Trinity Monastery on Aegina, where the saint’s relics rest. — Photograph to be supplied"
+body:
+  - "For eleven months, the boy had not stood. A sudden inflammation of the spine the previous summer had left the seven-year-old from Piraeus without the use of his legs, and a season of treatment had brought his parents no certain hope. On the eve of the saint’s feast, they carried him to Aegina."
+  - "They came, his mother said afterward, “not to demand a miracle, but to keep the feast” — to stand the all-night vigil with the other pilgrims, to venerate the relics, and to anoint the child with oil from the lamp that burns before the reliquary of Saint Nektarios. Through the long psalmody of the night they remained, the boy asleep in his father’s arms."
+  - "By the Divine Liturgy the following morning, witnesses say, the boy rose and stood unaided at the chanter’s stand. The priest who served, Fr. Athanasios, has declined to characterize the event, saying only that the family’s account agrees in every detail with what he himself observed at the dismissal."
+  - "The attending physicians in Piraeus, consulted afterward, confirmed the original diagnosis and the absence of any treatment that would account for so sudden a recovery. “I can tell you what we saw on the imaging,” one said, “and I can tell you that the child is walking. I am not able to join the two.” The Metropolis of Hydra has opened a quiet inquiry and is gathering the medical records, the testimony of the physicians, and the witness of the parish — the careful, unhurried discernment the Church has always brought to such reports."
+  - "Saint Nektarios, a bishop unjustly slandered in his lifetime and vindicated by God after his repose, has long been among the most beloved healers of the modern Church. His shrine on Aegina receives pilgrims through every season of the year. The faithful who keep his feast are slow to use the word “miracle,” preferring the older language: that the saint interceded, and that the Lord, “wondrous in His saints,” was merciful."
+pullQuote:
+  text: "“We did not see him take the first step. We only saw that he was standing, and that he was not afraid.”"
+  attribution: "— The child’s mother, to the parish priest"
+sources:
+  - h: "Primary Source"
+    items:
+      - "Inquiry of the Holy Metropolis of Hydra, Spetses & Aegina (2026, ongoing)"
+      - "Attending physicians, Tzaneio General Hospital, Piraeus"
+  - h: "Church Source"
+    items:
+      - "Parish testimony of Fr. Athanasios, Holy Trinity Monastery, Aegina"
+      - "Synodal commission on the discernment of wonders"
+  - h: "Book References"
+    items:
+      - "Sophrony, “Saint Nektarios: The Saint of Our Century” (Athens, 1979)"
+      - "Service & Akathist to St Nektarios the Wonderworker"
+  - h: "Witness Accounts"
+    items:
+      - "The child’s mother and father (recorded with consent)"
+      - "Three pilgrims present at the vigil, names withheld"
+relatedSaints:
+  - name: "Nektarios"
+    type: "Hierarch"
+    epithet: "of Aegina"
+    note: "The wonderworker at whose shrine the vigil was kept."
+  - name: "Cosmas & Damian"
+    type: "Unmercenary"
+    epithet: "the Unmercenaries"
+    note: "Physicians who healed “taking no payment.”"
+  - name: "Panteleimon"
+    type: "Great-Martyr"
+    epithet: "the Healer"
+    note: "Invoked across the Church for bodily healing."
