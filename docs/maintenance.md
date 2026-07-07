@@ -93,3 +93,21 @@ Adding a feast/fast works the same way against `data/feasts.csv` and
 - **Where the backlogs live:** `docs/database-expansion.md` (saints to add),
   `docs/data-issues.md` (corrections register), `docs/relationship-backlog.md`
   (relationship network).
+
+## Dependency upgrades
+
+Weekly Dependabot PRs cover patch/minor (auto-merged once CI is green). **Major
+versions are ignored by Dependabot on purpose** — the Node toolchain (Astro
+especially) ships breaking majors, and chasing them weekly is the biggest
+recurring maintenance tax. Instead, once or twice a year:
+
+1. Branch, run `npm outdated`, bump majors one at a time starting with Astro
+   (read its migration guide first — the content-collections API has changed
+   across majors before).
+2. Gates: `make web-lint && make web-unit && make web-build && make web-test`.
+   The Playwright e2e suite is the safety net for behavior.
+3. One PR per major (or one PR for the batch if all green), reviewed via the
+   Cloudflare preview.
+
+A pinned, year-old Astro that builds is stability, not debt. The Python side is
+stdlib-only and has no equivalent problem.
