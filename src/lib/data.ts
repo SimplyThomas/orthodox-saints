@@ -12,6 +12,7 @@
 
 import { readFileSync } from "node:fs";
 import type { Saint, FinderSaint, CardSaint } from "./types";
+import { archangelFinderSaints } from "./host-finder";
 
 const raw = JSON.parse(readFileSync("public/data.json", "utf8")) as unknown;
 
@@ -55,7 +56,14 @@ export function toFinderSaint(s: Saint): FinderSaint {
   };
 }
 
-export const FINDER_SAINTS: FinderSaint[] = SAINTS.map(toFinderSaint);
+// The finder (browse / search / quiz) also lists the archangels, cross-listed
+// from the Heavenly Hosts DB with their traditional patronages. They route to
+// /host/HH-#### (recordHref). The saint route, home, and calendar use SAINTS
+// directly, so they are unaffected.
+export const FINDER_SAINTS: FinderSaint[] = [
+  ...SAINTS.map(toFinderSaint),
+  ...archangelFinderSaints(),
+];
 
 /* Lighter still: the card projection for the home landing page (saint of the
    day + "From the Cloud" shuffle). Searching happens on /search, so the

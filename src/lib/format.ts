@@ -62,3 +62,15 @@ export function withBase(path: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   return base + "/" + String(path).replace(/^\//, "");
 }
+
+/** Detail-page URL for a finder record, routing by id namespace: heavenly-host
+ *  records (HH-####) live at /host/HH-####, saints (OS-####) at /saint/OS-####. */
+export function recordHref(id: string): string {
+  return withBase(id.startsWith("HH-") ? `host/${id}` : `saint/${id}`);
+}
+
+/** A finder record that routes to its own /host/ page rather than a saint modal
+ *  (the finder opens a modal for OS-#### rows via data-saint; hosts navigate). */
+export function isHostRecord(id: string): boolean {
+  return id.startsWith("HH-");
+}
