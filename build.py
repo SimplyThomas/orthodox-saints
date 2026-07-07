@@ -1724,8 +1724,9 @@ def emit_groups_json() -> list[dict]:
 
 def emit_themes_json(records: list[dict]) -> None:
     catalog = themes_mod.theme_catalog(records)
+    payload = {"themes": catalog, "aliases": themes_mod.ALIASES}
     with open(PUBLIC / "themes.json", "w", encoding="utf-8") as f:
-        json.dump(catalog, f, ensure_ascii=False, separators=(",", ":"))
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
     shown = sum(1 for c in catalog if c["count"] > 0)
     print(f"  wrote {PUBLIC.relative_to(ROOT)}/themes.json "
           f"({shown}/{len(catalog)} themes populated)")
