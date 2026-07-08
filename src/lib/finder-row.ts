@@ -13,14 +13,19 @@ import {
   centuryLabel,
 } from "./saints";
 import { splitName } from "./names";
-import { esc, withBase } from "./format";
+import { esc, recordHref, isHostRecord } from "./format";
 import { saintAvatar, reviewedDove } from "./icons";
 
 export function finderRowHTML(s: FinderSaint, via = ""): string {
   const sn = splitName(s.name);
+  // Archangels (HH-####) navigate to their /host/ page; saints open the modal
+  // via data-saint. Omit data-saint for hosts so the link navigates.
+  const linkAttrs = isHostRecord(s.id)
+    ? `href="${esc(recordHref(s.id))}"`
+    : `data-saint="${esc(s.id)}" href="${esc(recordHref(s.id))}"`;
   const place = valuesOf(s, "origin").join(" · ");
   return `
-      <a class="saint-row" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
+      <a class="saint-row" ${linkAttrs}>
         <div class="portrait">${saintAvatar(s, 58, 72, { type: primaryRank(s) })}</div>
         <div class="main">
           <div class="title-line"><h3>${esc(sn.title)}</h3>${

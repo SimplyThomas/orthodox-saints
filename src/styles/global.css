@@ -5367,6 +5367,8 @@ a.sv-rail-chip:hover {
 .cal-soon .dome-bg,
 .cal-hero .dome-bg,
 .soon-hero .dome-bg,
+.hosts-hero .dome-bg,
+.host-hub-hero .dome-bg,
 .qz-title-block .dome-bg {
   position: static;
   left: auto;

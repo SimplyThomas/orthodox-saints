@@ -1,10 +1,304 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+import { HOSTS } from "../lib/hosts";
+import { withBase } from "../lib/format";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Group for browsing: the nine ranks by triad, then the individual/other hosts.
+// HOSTS already arrives sorted by hostlib._sort_key.
+//
+// Named angels (e.g. the archangels) are reached from their RANK's page, which
+// lists them as member cards — so they are NOT indexed here. Only a named angel
+// with no owning rank (a blank/unknown order) would surface, via the group below.
+const rankNames = new Set(
+  HOSTS.filter((h) => h.entityType === "Angelic Rank").map((h) => h.name),
+);
+const groups: {
+  title: string;
+  epithet?: string;
+  blurb?: string;
+  hosts: typeof HOSTS;
+}[] = [
+  {
+    title: "First Triad",
+    epithet: "Nearest the throne",
+    blurb:
+      "The highest hierarchy, given wholly to the contemplation and praise of God, and receiving the divine light most immediately.",
+    hosts: HOSTS.filter(
+      (h) => h.triad === "First" && h.entityType === "Angelic Rank",
+    ),
+  },
+  {
+    title: "Second Triad",
+    epithet: "The heavenly governance",
+    blurb:
+      "The middle hierarchy, through which the order of the cosmos is upheld and the divine will is administered to the ranks below.",
+    hosts: HOSTS.filter(
+      (h) => h.triad === "Second" && h.entityType === "Angelic Rank",
+    ),
+  },
+  {
+    title: "Third Triad",
+    epithet: "Ministers to creation",
+    blurb:
+      "The lowest hierarchy, nearest the created world, who bear God’s messages, watch over nations, and guard His people.",
+    hosts: HOSTS.filter(
+      (h) => h.triad === "Third" && h.entityType === "Angelic Rank",
+    ),
+  },
+  {
+    title: "Named Angels",
+    hosts: HOSTS.filter(
+      (h) =>
+        h.entityType === "Named Angel" && !(h.order && rankNames.has(h.order)),
+    ),
+  },
+  {
+    title: "Angels of Scripture & Tradition",
+    hosts: HOSTS.filter((h) =>
+      ["Scriptural Angel", "Angelic Class", "Collective"].includes(
+        h.entityType,
+      ),
+    ),
+  },
+  {
+    title: "The Fallen",
+    hosts: HOSTS.filter((h) => h.entityType === "Fallen"),
+  },
+].filter((g) => g.hosts.length);
 ---
 
-<ComingSoon
+<BaseLayout
   active="nine-orders"
   title="The Nine Orders"
-  eyebrow="Heavenly Hosts"
-  blurb="The nine ranks of the angelic hierarchy — Seraphim to Angels."
-/>
+  description="The nine ranks of the angelic hierarchy — Seraphim to Angels."
+>
+  <div class="wrap">
+    <header class="hosts-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="hosts-hero-inner">
+        <EyebrowRule label="Heavenly Hosts" />
+        <h1 class="hosts-title">The Nine Orders</h1>
+        <p class="hosts-lede">
+          The nine ranks of the angelic hierarchy — Seraphim to Angels.
+        </p>
+      </div>
+    </header>
+
+    <section class="hosts-intro">
+      <p class="intro-lede">
+        The celestial hierarchy in three triads — Seraphim to Angels.
+      </p>
+      <p class="intro-body">
+        The Church received the threefold ordering of the celestial ranks above
+        all through St Dionysius the Areopagite’s <em
+          >On the Celestial Hierarchy</em
+        >. Nine orders are arranged in three triads, each receiving the divine
+        light and passing it to the rank below — from the Seraphim who stand
+        nearest the throne to the Angels who minister among men.
+      </p>
+    </section>
+
+    {
+      HOSTS.length === 0 && (
+        <p class="empty">
+          No hosts catalogued yet. Records will appear here as they are added.
+        </p>
+      )
+    }
+
+    {
+      groups.map((g) => (
+        <section>
+          <EyebrowRule label={g.title} />
+          {g.epithet && <p class="group-epithet">{g.epithet}</p>}
+          {g.blurb && <p class="group-blurb">{g.blurb}</p>}
+          <div class="grid">
+            {g.hosts.map((h) => (
+              <a class="card" href={withBase(`host/${h.id}`)}>
+                <span class="cthumb">
+                  {h.imageThumb || h.image ? (
+                    <img
+                      src={withBase(h.imageThumb || h.image!)}
+                      alt={h.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span class="cmono" aria-hidden="true">
+                      {h.name.charAt(0)}
+                    </span>
+                  )}
+                </span>
+                <span class="cname">{h.name}</span>
+                <span class="cmeta">
+                  {h.order && h.order !== h.entityType ? h.order : h.entityType}
+                </span>
+                <span class="cbrief">{h.brief}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+  /* Page hero — matches the /nine-orders/ (ComingSoon) pattern: dome mark,
+     diamond-flanked eyebrow, serif title, serif lede, centered. */
+  .hosts-hero {
+    position: relative;
+    text-align: center;
+    /* top padding clears the dome/arch mark so the title sits beneath it,
+       matching the ComingSoon (/nine-orders/) hero. */
+    padding: clamp(64px, 12vw, 120px) 20px clamp(30px, 5vw, 52px);
+    overflow: hidden;
+  }
+  .hosts-hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hosts-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    margin: 18px 0 0;
+    line-height: 1.05;
+  }
+  .hosts-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 16px auto 0;
+    max-width: 46ch;
+  }
+  .empty {
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 2rem;
+  }
+
+  /* Intro: the Dionysian threefold ordering, above the triads. */
+  .hosts-intro {
+    max-width: 44rem;
+    margin: 0 auto 0.5rem;
+    text-align: center;
+  }
+  .intro-lede {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    color: var(--byz-deep);
+    margin: 0 0 0.7rem;
+    line-height: 1.3;
+  }
+  .intro-body {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  section {
+    margin-top: 2.8rem;
+  }
+  .group-epithet {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--byz-deep);
+    margin: 0.7rem 0 0;
+    text-align: center;
+  }
+  .group-blurb {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0.45rem auto 0;
+    max-width: 54ch;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+    padding-bottom: 0.8rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.15rem;
+    align-items: start;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .card:hover {
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+  .cthumb {
+    grid-row: 1 / 4;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    background: radial-gradient(120% 120% at 30% 15%, #1d3e62, var(--byz-ink));
+  }
+  .cthumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cmono {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--gold-soft);
+  }
+  .cname {
+    grid-column: 2;
+    align-self: end;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .cmeta {
+    grid-column: 2;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.65;
+  }
+  .cbrief {
+    grid-column: 2;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    opacity: 0.85;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

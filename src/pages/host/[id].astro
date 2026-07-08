@@ -1,0 +1,1029 @@
+---
+import type { GetStaticPaths } from "astro";
+import { HOSTS, hostById, loadHostProfileMap } from "../../lib/hosts";
+import { byId as saintById } from "../../lib/data";
+import { FEASTS } from "../../lib/feasts";
+import { withBase } from "../../lib/format";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DomeMark from "../../components/icons/DomeMark.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
+
+const feastById = new Map(FEASTS.map((f) => [f.id, f]));
+
+export const getStaticPaths = (() => {
+  return HOSTS.map((h) => ({ params: { id: h.id }, props: { host: h } }));
+}) satisfies GetStaticPaths;
+
+const { host } = Astro.props;
+const profiles = await loadHostProfileMap();
+const p = profiles[host.id];
+
+// For a rank page: the named angels belonging to this order (e.g. the eight
+// archangels on the Archangels page), rendered as linked cards. Ordered by id
+// so they follow entry order (Michael, Gabriel, Raphael, …), not alphabetical.
+const members =
+  host.entityType === "Angelic Rank"
+    ? HOSTS.filter(
+        (h) => h.entityType === "Named Angel" && h.order === host.name,
+      ).sort((a, b) => a.id.localeCompare(b.id))
+    : [];
+const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
+
+// A rank that owns named-angel members (e.g. Archangels) is a "hub": it gets the
+// section-landing header (dome arch + eyebrow + serif title + lede), like the
+// /nine-orders page, rather than the blue portrait hero used for individuals.
+const isHub = host.entityType === "Angelic Rank" && members.length > 0;
+
+// Breadcrumb target: a named angel goes back to its owning RANK page (e.g. an
+// archangel → the Archangels page); everything else goes to the hosts index.
+const parentRank =
+  host.entityType === "Named Angel" && host.order
+    ? HOSTS.find(
+        (h) => h.entityType === "Angelic Rank" && h.name === host.order,
+      )
+    : undefined;
+const backHref = parentRank ? `host/${parentRank.id}` : "nine-orders";
+const backLabel = parentRank ? `The ${parentRank.name}` : "The Nine Orders";
+
+const desc = host.brief || `${host.name} — of the heavenly hosts.`;
+
+// Hero portrait: a self-hosted, validated open-license icon (data/host_images.csv)
+// when present, else a placeholder monogram in the same frame.
+const heroImage: string | null = host.image ?? null;
+const initial = host.name.trim().charAt(0).toUpperCase();
+
+// Ordered prose blocks from the profile (the dossier's Main Content axes).
+const proseBlocks: { heading: string; body: string[] }[] = [];
+if (p) {
+  if (p.historicalContext?.length)
+    proseBlocks.push({
+      heading: "Historical Context",
+      body: p.historicalContext,
+    });
+  if (p.orthodoxInterpretation?.length)
+    proseBlocks.push({
+      heading: "Orthodox Interpretation",
+      body: p.orthodoxInterpretation,
+    });
+  if (p.liturgicalTradition?.length)
+    proseBlocks.push({
+      heading: "Liturgical Tradition",
+      body: p.liturgicalTradition,
+    });
+  if (p.iconography?.length)
+    proseBlocks.push({ heading: "Iconography", body: p.iconography });
+  if (p.historicalInfluence?.length)
+    proseBlocks.push({
+      heading: "Historical Influence",
+      body: p.historicalInfluence,
+    });
+}
+
+// Entity-type badges that are redundant with the Order/Triad badges are hidden
+// (a rank's order already says "Angelic Rank"; an archangel's order already says
+// "Archangels"). Other types (Scriptural Angel, Collective, …) still show.
+const HIDDEN_TYPE_BADGES = new Set(["Angelic Rank", "Named Angel"]);
+const badges = [
+  HIDDEN_TYPE_BADGES.has(host.entityType) ? null : host.entityType,
+  host.order && host.order !== host.entityType ? host.order : null,
+  host.triad ? `${host.triad} Triad` : null,
+  host.canonicalStatus,
+].filter(Boolean) as string[];
+
+const refBlocks = [
+  { label: "Holy Scripture", items: host.scripture },
+  { label: "Deuterocanonical", items: host.deuterocanonical },
+  { label: "Extra-Biblical", items: host.extraBiblical },
+].filter((b) => b.items && b.items.length);
+---
+
+<BaseLayout title={host.name} description={desc} ogType="article">
+  <article class="host2">
+    {
+      isHub && (
+        <section class="host-hub-hero">
+          <div class="dome-bg" aria-hidden="true">
+            <DomeMark w={460} color="var(--byz)" />
+          </div>
+          <div class="host-hub-inner">
+            <EyebrowRule label="Heavenly Hosts" />
+            <h1 class="host-hub-title">The Holy {host.name}</h1>
+            <p class="host-hub-lede">{host.brief}</p>
+            {host.feasts?.length && (
+              <p class="host-hub-feast">
+                Commemorated <strong>{host.feasts.join("; ")}</strong>
+              </p>
+            )}
+          </div>
+        </section>
+      )
+    }
+    {
+      !isHub && (
+        <section class="host-hero">
+          <div class="host-hero-inner">
+            <nav class="host-crumb" aria-label="Breadcrumb">
+              <a class="host-back" href={withBase(backHref)}>
+                ← {backLabel}
+              </a>
+            </nav>
+
+            <div class="host-hero-grid">
+              <div class="host-hero-icon">
+                <div class="host-icon-frame">
+                  {heroImage ? (
+                    <img
+                      src={withBase(heroImage)}
+                      alt={`Icon of ${host.name}`}
+                    />
+                  ) : (
+                    <div class="host-icon-ph" aria-hidden="true">
+                      {initial}
+                    </div>
+                  )}
+                </div>
+                {heroImage ? (
+                  host.imagePermission ? (
+                    <div class="host-icon-cap">
+                      {host.imageAttribution}
+                      {host.imageSource && (
+                        <>
+                          {" "}
+                          Original icon:{" "}
+                          <a
+                            href={host.imageSource}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View on {host.imageVendor}
+                          </a>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    host.imageCredit && (
+                      <div class="host-icon-cap">
+                        {host.imageCredit}
+                        {host.imageLicense ? ` · ${host.imageLicense}` : ""}
+                        {host.imageSource && (
+                          <>
+                            {" "}
+                            ·{" "}
+                            <a href={host.imageSource} rel="nofollow">
+                              source
+                            </a>
+                          </>
+                        )}
+                      </div>
+                    )
+                  )
+                ) : (
+                  <div class="host-icon-cap">Image forthcoming</div>
+                )}
+              </div>
+
+              <div class="host-hero-id">
+                <h1>{host.name}</h1>
+                {host.aka?.length && (
+                  <p class="aka">Also known as: {host.aka.join(", ")}</p>
+                )}
+                <div class="badges">
+                  {badges.map((b) => (
+                    <span class="badge">{b}</span>
+                  ))}
+                </div>
+                <p class="brief">{host.brief}</p>
+                {host.feasts?.length && (
+                  <p class="feast">
+                    Commemorated: <strong>{host.feasts.join("; ")}</strong>
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      p && p.status !== "reviewed" && (
+        <div class={`draft-banner ${p.status}`}>
+          <strong>{p.status === "flagged" ? "Flagged draft" : "Draft"}</strong>{" "}
+          — this profile is unreviewed and not yet published. Shown here for
+          review.
+          {p.status === "flagged" && p.flagReasons?.length && (
+            <ul>
+              {p.flagReasons.map((f) => (
+                <li>
+                  <strong>{f.claim}</strong> — {f.detail}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )
+    }
+
+    <div class="host-wrap">
+      {
+        members.length > 0 && (
+          <section class="host-members">
+            {!isHub && <h2>The Holy {host.name}</h2>}
+            <div class="member-grid">
+              {members.map((m) => (
+                <a class="member-card" href={withBase(`host/${m.id}`)}>
+                  <span class="member-thumb">
+                    {m.imageThumb || m.image ? (
+                      <img
+                        src={withBase(m.imageThumb || m.image!)}
+                        alt={m.name}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span class="member-mono" aria-hidden="true">
+                        {shortName(m.name).charAt(0)}
+                      </span>
+                    )}
+                  </span>
+                  <span class="member-name">{shortName(m.name)}</span>
+                  <span class="member-brief">{m.brief}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        host.depictions && host.depictions.length > 0 && (
+          <section class="host-deps" aria-label="Depictions and icons">
+            <div class="host-deps-head">
+              <h2>Depictions &amp; Icons</h2>
+              <p class="host-deps-sub">
+                How the Church has written this image — museum masters,
+                hand-painted commissions, and icons you can order today.
+              </p>
+            </div>
+            <div class="host-deps-track">
+              {host.depictions.map((d) => (
+                <figure class={`dep-card dep-${d.kind}`}>
+                  <div class="dep-frame">
+                    <img src={withBase(d.image)} alt={d.title} loading="lazy" />
+                  </div>
+                  <figcaption class="dep-meta">
+                    {d.tag && <span class="dep-tag">{d.tag}</span>}
+                    <span class="dep-title">
+                      {d.title}
+                      {d.era && <span class="dep-era"> · {d.era}</span>}
+                    </span>
+                    {d.permission ? (
+                      <span class="dep-attr">
+                        {d.attribution}
+                        {d.source && (
+                          <>
+                            {" "}
+                            <a
+                              href={d.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View on {d.vendor}
+                            </a>
+                          </>
+                        )}
+                      </span>
+                    ) : (
+                      (d.credit || d.source) && (
+                        <span class="dep-attr">
+                          {d.source ? (
+                            <a
+                              href={d.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {d.credit || "source"}
+                            </a>
+                          ) : (
+                            d.credit
+                          )}
+                          {d.license ? ` · ${d.license}` : ""}
+                        </span>
+                      )
+                    )}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <div class="layout">
+        <main class="body">
+          {
+            !p && (
+              <p class="stub">
+                No rich profile yet — this entry carries its catalogue record
+                only.
+              </p>
+            )
+          }
+
+          {
+            p?.overview?.length && (
+              <section class="sec sec-static">
+                <h2>Overview</h2>
+                <div class="sec-body">
+                  {p.overview.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+
+          {
+            p?.salvationHistory?.length && (
+              <details class="sec">
+                <summary>Role in Salvation History</summary>
+                <div class="sec-body">
+                  {p.salvationHistory.map((s) => (
+                    <div class="phase">
+                      <h3>{s.heading}</h3>
+                      {s.body.map((para) => (
+                        <p>{para}</p>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )
+          }
+
+          {
+            proseBlocks.map((blk) => (
+              <details class="sec">
+                <summary>{blk.heading}</summary>
+                <div class="sec-body">
+                  {blk.body.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </details>
+            ))
+          }
+
+          {
+            p?.scripture?.length && (
+              <details class="sec">
+                <summary>Scripture</summary>
+                <div class="sec-body">
+                  <ul class="refs">
+                    {p.scripture.map((s) => (
+                      <li>
+                        <strong>{s.ref}</strong>
+                        {s.note ? ` — ${s.note}` : ""}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            )
+          }
+
+          {
+            p?.sections?.map((s) => (
+              <details class="sec">
+                <summary>{s.heading}</summary>
+                <div class="sec-body">
+                  {s.body.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </details>
+            ))
+          }
+
+          {
+            p?.reading?.length && (
+              <details class="sec">
+                <summary>Reading & Sources</summary>
+                <div class="sec-body">
+                  {p.reading.map((r) => (
+                    <div class="reading">
+                      <h3>{r.heading}</h3>
+                      <ul>
+                        {r.items.map((it) => (
+                          <li>
+                            {it.title}
+                            {it.author ? ` — ${it.author}` : ""}
+                            {it.type ? ` (${it.type})` : ""}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )
+          }
+        </main>
+
+        <aside class="rail">
+          {
+            refBlocks.map((b) => (
+              <div class="rail-block">
+                <h4>{b.label}</h4>
+                <ul>
+                  {b.items!.map((r) => (
+                    <li>{r}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+
+          {
+            host.relatedBeings?.length && (
+              <div class="rail-block">
+                <h4>Related Beings</h4>
+                <ul>
+                  {host.relatedBeings.map((id) => {
+                    const h = hostById.get(id);
+                    return (
+                      <li>
+                        <a href={withBase(`host/${id}`)}>{h ? h.name : id}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            host.relatedSaints?.length && (
+              <div class="rail-block">
+                <h4>Related Saints</h4>
+                <ul>
+                  {host.relatedSaints.map((id) => {
+                    const s = saintById.get(id);
+                    return (
+                      <li>
+                        <a href={withBase(`saint/${id}`)}>{s ? s.name : id}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            host.relatedFeasts?.length && (
+              <div class="rail-block">
+                <h4>Related Feasts</h4>
+                <ul>
+                  {host.relatedFeasts.map((id) => {
+                    const f = feastById.get(id);
+                    return (
+                      <li>
+                        <a href={withBase("feasts")}>{f ? f.name : id}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            host.tags?.length && (
+              <div class="rail-block">
+                <h4>Tags</h4>
+                <ul class="tags">
+                  {host.tags.map((t) => (
+                    <li>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            host.sources?.length && (
+              <div class="rail-block">
+                <h4>Sources</h4>
+                <ul class="sources">
+                  {host.sources.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Hub hero — section-landing header (dome arch + eyebrow + serif title + lede)
+     for a rank that owns members, matching the /nine-orders page. */
+  .host-hub-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(56px, 11vw, 104px) 20px clamp(28px, 5vw, 44px);
+    overflow: hidden;
+  }
+  .host-hub-inner {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .host-hub-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 14px 0 0;
+  }
+  .host-hub-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 14px auto 0;
+    max-width: 46ch;
+    line-height: 1.5;
+  }
+  .host-hub-feast {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0.8rem 0 0;
+  }
+  .host-hub-feast strong {
+    color: var(--byz-deep);
+  }
+
+  /* Blue hero band — matches the saint-profile hero (radial navy → ink,
+     ivory text, gold-tinted lower edge). */
+  .host-hero {
+    background: radial-gradient(
+      120% 140% at 18% 0%,
+      #1d3e62 0%,
+      var(--byz-ink) 62%
+    );
+    color: var(--ivory);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+  }
+  .host-hero-inner {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1rem clamp(16px, 4vw, 40px) 1.9rem;
+  }
+  .host-crumb {
+    padding: 0.9rem 0 0.3rem;
+  }
+  .host-back {
+    color: var(--gold-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .host-back:hover {
+    text-decoration: underline;
+  }
+  .host-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.08;
+    margin: 0.4rem 0 0.3rem;
+    color: var(--ivory);
+  }
+  .host-hero .aka {
+    font-style: italic;
+    opacity: 0.82;
+    margin: 0 0 0.7rem;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0 0.9rem;
+  }
+  .badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    color: var(--ivory);
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .host-hero .brief {
+    font-size: 1.12rem;
+    line-height: 1.55;
+    margin: 0.4rem 0;
+    max-width: 46rem;
+  }
+  .host-hero .feast {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0.5rem 0 0;
+  }
+  .host-hero .feast strong {
+    color: var(--gold-soft);
+  }
+
+  /* Hero portrait slot + text, matching the saint hero (framed icon | id). */
+  .host-hero-grid {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    padding-top: 0.4rem;
+  }
+  .host-hero-icon {
+    min-width: 0;
+  }
+  .host-icon-frame {
+    width: 100%;
+    aspect-ratio: 286 / 358;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: #16304c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+  }
+  .host-icon-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .host-icon-ph {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 9vw, 5.5rem);
+    font-weight: 600;
+    color: var(--gold-soft);
+    opacity: 0.9;
+  }
+  .host-icon-cap {
+    margin-top: 10px;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--celest-soft);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .host-icon-cap a {
+    color: var(--gold-soft);
+  }
+  .host-hero-id {
+    min-width: 0;
+  }
+  @media (max-width: 760px) {
+    .host-hero-grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+    .host-hero-icon {
+      max-width: 220px;
+    }
+    .badges {
+      justify-content: center;
+    }
+    .host-hero .brief {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .host-wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1.5rem clamp(16px, 4vw, 40px) 4rem;
+  }
+
+  /* "Depictions & Icons" carousel — native horizontal scroll-snap track. */
+  .host-deps {
+    margin-bottom: 2.2rem;
+  }
+  .host-deps-head {
+    margin-bottom: 0.9rem;
+  }
+  .host-deps-head > h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    margin: 0 0 0.2rem;
+  }
+  .host-deps-sub {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin: 0;
+    max-width: 40rem;
+  }
+  .host-deps-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.4rem 0.2rem 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dep-card {
+    flex: 0 0 auto;
+    width: 13.5rem;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+  .dep-frame {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #16304c;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: var(--shadow-soft, 0 4px 14px rgba(0, 0, 0, 0.18));
+  }
+  .dep-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .dep-meta {
+    padding: 0.55rem 0.1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .dep-tag {
+    align-self: flex-start;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(35, 76, 122, 0.1);
+    color: var(--byz);
+  }
+  .dep-card.dep-shop .dep-tag {
+    background: rgba(169, 133, 42, 0.14);
+    color: var(--gold-deep);
+  }
+  .dep-card.dep-iconographer .dep-tag {
+    background: rgba(31, 94, 84, 0.12);
+    color: var(--byz-green);
+  }
+  .dep-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--byz-deep);
+  }
+  .dep-era {
+    font-weight: 400;
+    opacity: 0.7;
+  }
+  .dep-attr {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    opacity: 0.82;
+  }
+  .dep-attr a {
+    color: var(--byz);
+  }
+
+  /* Named-angel member cards (e.g. the eight archangels on the Archangels page). */
+  .host-members {
+    margin-bottom: 2rem;
+  }
+  .host-members > h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    margin: 0 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--gold-deep);
+  }
+  .member-grid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  }
+  .member-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 0.7rem;
+    align-items: center;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .member-card:hover {
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+  .member-thumb {
+    grid-row: 1 / 3;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(120% 120% at 30% 15%, #1d3e62, var(--byz-ink));
+    flex: none;
+  }
+  .member-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .member-mono {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--gold-soft);
+  }
+  .member-name {
+    align-self: end;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .member-brief {
+    grid-column: 2;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    opacity: 0.82;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    /* Rail on the LEFT, matching the saint profiles (rail | content). */
+    .layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 2.2rem;
+    }
+    .rail {
+      order: -1; /* DOM has content first (mobile reads content-first); pull rail left on desktop */
+      background: var(--ivory-2);
+      border: 1px solid var(--line-gold);
+      border-radius: 8px;
+      padding: 1.4rem 1.3rem 1.6rem;
+    }
+  }
+
+  /* Collapsible sections. */
+  .sec {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.22);
+  }
+  .sec > summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .sec > summary::-webkit-details-marker {
+    display: none;
+  }
+  .sec > summary::before {
+    content: "\25B8";
+    color: var(--gold-deep);
+    font-size: 0.8em;
+    transition: transform 0.15s ease;
+    flex: none;
+  }
+  .sec[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .sec > summary:hover {
+    color: var(--byz);
+  }
+  /* Overview is always shown — same heading treatment, no toggle/chevron. */
+  .sec-static > h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    margin: 0;
+  }
+  .sec-body {
+    padding: 0 0 1.1rem 1.3rem;
+  }
+  .sec-body p {
+    line-height: 1.65;
+    margin: 0 0 0.7rem;
+  }
+  .sec-body h3 {
+    font-size: 1.05rem;
+    margin: 1rem 0 0.3rem;
+    color: var(--byz-deep);
+  }
+  .phase {
+    margin-bottom: 0.8rem;
+  }
+  .refs {
+    padding-left: 1.1rem;
+  }
+  .refs li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+  .reading ul {
+    padding-left: 1.1rem;
+  }
+  .stub {
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .rail-block {
+    margin-bottom: 1.3rem;
+    font-size: 0.9rem;
+  }
+  .rail-block h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--byz-green);
+    margin: 0 0 0.4rem;
+  }
+  .rail-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rail-block li {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .tags li {
+    padding: 0.1rem 0.45rem;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
+  }
+  .sources li {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    word-break: break-word;
+  }
+
+  .draft-banner {
+    max-width: 62rem;
+    margin: 1rem auto 0;
+    border: 1px solid var(--gold-deep);
+    background: rgba(212, 175, 55, 0.08);
+    padding: 0.7rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .draft-banner.flagged {
+    border-color: #c0392b;
+    background: rgba(192, 57, 43, 0.08);
+  }
+  .draft-banner ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+  }
+</style>
