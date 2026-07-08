@@ -442,6 +442,18 @@ def build_db(header: list[str], rows: list[dict[str, str]],
     return conn
 
 
+def crlf_errors(path: Path) -> list[str]:
+    """The data CSVs are CRLF (CLAUDE.md §7). An editor that normalizes to LF
+    silently corrupts them; catch it at validate time instead of in review.
+    Invariant: every \\n is part of a \\r\\n pair."""
+    data = path.read_bytes()
+    if data.count(b"\n") != data.count(b"\r\n"):
+        return [f"{path.name}: contains bare LF line endings — the data CSVs "
+                f"are CRLF. Fix your editor/git config (git config "
+                f"core.autocrlf false) and restore CRLF before committing."]
+    return []
+
+
 # --------------------------------------------------------------------------- #
 # Validate (collect ALL violations, then report)
 # --------------------------------------------------------------------------- #
@@ -458,6 +470,9 @@ def validate(header: list[str], rows: list[dict[str, str]],
     warnings: list[str] = []
 
     errors.extend(validate_name_variants())
+
+    for _csv in sorted(DATA.glob("*.csv")):
+        errors.extend(crlf_errors(_csv))
 
     # Always validate saint_images.csv against the committed saints.csv, not just
     # the rows under test — ensures IDs in image rows resolve to real saints even

@@ -1,0 +1,2 @@
+# data CSVs are CRLF by convention (CLAUDE.md §7); build.py validates this.
+data/*.csv -text
