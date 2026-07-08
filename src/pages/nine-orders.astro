@@ -48,23 +48,14 @@ const groups: {
     ),
   },
   {
+    // Named angels with no owning rank page fall back here; the archangels are
+    // reached from the Archangels rank page, and the guardian angels / titled
+    // scriptural figures live on their own /guardian-angels hub.
     title: "Named Angels",
     hosts: HOSTS.filter(
       (h) =>
         h.entityType === "Named Angel" && !(h.order && rankNames.has(h.order)),
     ),
-  },
-  {
-    title: "Angels of Scripture & Tradition",
-    hosts: HOSTS.filter((h) =>
-      ["Scriptural Angel", "Angelic Class", "Collective"].includes(
-        h.entityType,
-      ),
-    ),
-  },
-  {
-    title: "The Fallen",
-    hosts: HOSTS.filter((h) => h.entityType === "Fallen"),
   },
 ].filter((g) => g.hosts.length);
 ---

@@ -35,15 +35,29 @@ const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
 const isHub = host.entityType === "Angelic Rank" && members.length > 0;
 
 // Breadcrumb target: a named angel goes back to its owning RANK page (e.g. an
-// archangel → the Archangels page); everything else goes to the hosts index.
+// archangel → the Archangels page); the guardian angels and titled scriptural
+// figures go back to their /guardian-angels hub; everything else (the ranks
+// themselves) goes to the Nine Orders index.
 const parentRank =
   host.entityType === "Named Angel" && host.order
     ? HOSTS.find(
         (h) => h.entityType === "Angelic Rank" && h.name === host.order,
       )
     : undefined;
-const backHref = parentRank ? `host/${parentRank.id}` : "nine-orders";
-const backLabel = parentRank ? `The ${parentRank.name}` : "The Nine Orders";
+const TITLED_TYPES = new Set([
+  "Angelic Class",
+  "Scriptural Angel",
+  "Collective",
+]);
+let backHref = "nine-orders";
+let backLabel = "The Nine Orders";
+if (parentRank) {
+  backHref = `host/${parentRank.id}`;
+  backLabel = `The ${parentRank.name}`;
+} else if (TITLED_TYPES.has(host.entityType)) {
+  backHref = "guardian-angels";
+  backLabel = "Guardian Angels & Titled Figures";
+}
 
 const desc = host.brief || `${host.name} — of the heavenly hosts.`;
 
