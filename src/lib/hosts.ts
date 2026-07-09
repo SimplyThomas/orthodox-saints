@@ -69,6 +69,24 @@ const raw = JSON.parse(readFileSync("public/hosts.json", "utf8")) as {
 export const HOSTS: Host[] = raw.hosts;
 export const hostById: Map<string, Host> = new Map(HOSTS.map((h) => [h.id, h]));
 
+/**
+ * Reserved tag that routes a host to the **Biblical Encounters** hub instead of
+ * the Guardian Angels & Titled Figures hub. Both sets carry the same
+ * `entityType` ("Scriptural Angel" / "Collective"), so the discriminator is this
+ * tag rather than the entity type: titled/office figures (the Angel of the Lord,
+ * the Commander of the Lord's Army, the angels of the seven churches) stay on
+ * /guardian-angels; angels tied to one specific scriptural *event* (freeing
+ * Peter, the empty tomb, troubling the pool of Bethesda, wrestling Jacob) carry
+ * this tag and live on /biblical-encounters. The tag also flips the /host/HH-####
+ * breadcrumb target. Kept out of the finder/quiz like every host record.
+ */
+export const BIBLICAL_ENCOUNTER_TAG = "Biblical Encounter";
+
+/** True when a host is an event-anchored Biblical Encounter (see the tag doc). */
+export function isBiblicalEncounter(h: Host): boolean {
+  return (h.tags ?? []).includes(BIBLICAL_ENCOUNTER_TAG);
+}
+
 export type HostProfile = CollectionEntry<"hosts">["data"];
 
 const SHOW_DRAFTS =

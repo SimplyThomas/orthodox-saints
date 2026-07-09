@@ -1,6 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { HOSTS, hostById, loadHostProfileMap } from "../../lib/hosts";
+import {
+  HOSTS,
+  hostById,
+  loadHostProfileMap,
+  isBiblicalEncounter,
+} from "../../lib/hosts";
 import { byId as saintById } from "../../lib/data";
 import { FEASTS } from "../../lib/feasts";
 import { withBase } from "../../lib/format";
@@ -54,6 +59,9 @@ let backLabel = "The Nine Orders";
 if (parentRank) {
   backHref = `host/${parentRank.id}`;
   backLabel = `The ${parentRank.name}`;
+} else if (isBiblicalEncounter(host)) {
+  backHref = "biblical-encounters";
+  backLabel = "Biblical Encounters";
 } else if (TITLED_TYPES.has(host.entityType)) {
   backHref = "guardian-angels";
   backLabel = "Guardian Angels & Titled Figures";
