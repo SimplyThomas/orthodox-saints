@@ -15,25 +15,40 @@ import EyebrowRule from "../components/EyebrowRule.astro";
 // by hostlib._sort_key.
 const encounters = HOSTS.filter(isBiblicalEncounter);
 
-// Group the encounters by testament under a section heading. Every encounter so
-// far is an Old-Testament event; an encounter carrying the "New Testament" tag
-// (and none carrying "Old Testament") files under the New Testament instead. New
-// testament groups slot in by adding an entry here — the section only renders
-// when it has members.
+// Group the encounters by section heading. Membership is driven by a section
+// tag: an encounter carrying "Old Testament" files under the Old Testament, one
+// carrying "New Testament" under the New Testament, and one carrying "Book of
+// Revelation" under the Book of Revelation. The apocalyptic angels of Revelation
+// get their own section (rather than swelling the New Testament) — so those
+// entries are tagged "Book of Revelation" and NOT "New Testament" (a record is
+// filtered into every group whose tag it carries, so both tags would render it
+// twice). The section tag is the full "Book of Revelation" and NOT the bare
+// "Revelation", which several encounters already carry as a *thematic* tag
+// (divine revelation / apocalyptic) — that would wrongly pull them in here.
+// Sections slot in by adding an entry here and only render when they have
+// members; order here is the render order (Old → New → Revelation → the Fallen
+// reads as salvation history, ending with the enemy). "The Fallen" gathers the
+// fallen/demonic beings named in Scripture (Abaddon and their kind), tagged
+// "Fallen" and set apart with a muted, marked styling — catalogued, not
+// venerated; a fallen entry carries "Fallen" and NOT a testament/Revelation tag
+// so it files here only.
 const TESTAMENTS = [
   { title: "The Old Testament", tag: "Old Testament" },
   { title: "The New Testament", tag: "New Testament" },
+  { title: "The Book of Revelation", tag: "Book of Revelation" },
+  { title: "The Fallen", tag: "Fallen" },
 ] as const;
 const groups = TESTAMENTS.map((t) => ({
   title: t.title,
   items: encounters.filter((h) => (h.tags ?? []).includes(t.tag)),
+  fallen: t.tag === "Fallen",
 })).filter((g) => g.items.length > 0);
-// Any encounter that matched no testament tag still deserves a home.
+// Any encounter that matched no section tag still deserves a home.
 const ungrouped = encounters.filter(
   (h) => !groups.some((g) => g.items.includes(h)),
 );
 if (ungrouped.length > 0) {
-  groups.push({ title: "Other Encounters", items: ungrouped });
+  groups.push({ title: "Other Encounters", items: ungrouped, fallen: false });
 }
 ---
 
@@ -80,8 +95,16 @@ if (ungrouped.length > 0) {
 
     {
       groups.map((group) => (
-        <section class="be-group">
+        <section
+          class={group.fallen ? "be-group be-group--fallen" : "be-group"}
+        >
           <h2 class="be-group-title">{group.title}</h2>
+          {group.fallen && (
+            <p class="be-group-note">
+              Fallen and demonic beings named in Scripture — catalogued for
+              completeness and study, never venerated.
+            </p>
+          )}
           <div class="grid">
             {group.items.map((h) => (
               <a class="card" href={withBase(`host/${h.id}`)}>
@@ -182,6 +205,23 @@ if (ungrouped.length > 0) {
     margin: 0.6rem auto 0;
     background: var(--gold-deep);
     opacity: 0.7;
+  }
+  /* "The Fallen" — set apart with a muted, ashen treatment (no royal blue,
+     no gold), marking these beings as catalogued rather than venerated. */
+  .be-group--fallen .be-group-title {
+    color: var(--ink-soft);
+  }
+  .be-group--fallen .be-group-title::after {
+    background: var(--ink-soft);
+    opacity: 0.45;
+  }
+  .be-group-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0.5rem auto 0;
+    max-width: 34rem;
   }
   .grid {
     display: grid;
