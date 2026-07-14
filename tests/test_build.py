@@ -1187,6 +1187,10 @@ class RetiredIdsTests(unittest.TestCase):
     def test_committed_retired_ids_validates(self):
         valid_ids = {r["Saint ID"].strip() for r in build.load_saints()[1]
                      if r["Saint ID"].strip()}
+        # A row may be merged into a group (a synaxis modeled as a group), so a
+        # group's OS-#### is a valid canonical target too (mirrors validate()).
+        valid_ids |= {g["saint_id"].strip() for g in build.load_groups()
+                      if g.get("saint_id", "").strip()}
         errs, _ = build.validate_retired_ids(valid_ids)
         self.assertEqual(errs, [], "committed retired_ids.csv has errors:\n" +
                          "\n".join(errs))
