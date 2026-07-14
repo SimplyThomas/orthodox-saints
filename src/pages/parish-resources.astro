@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+// Parish Resources — a single page (no dropdown) in the illuminated
+// reading-column treatment (.sr-hero / .as-body, as on the About sub-pages).
+// The three resource areas live here as sections while their materials are
+// prepared.
+const areas = [
+  {
+    title: "Visitors & Catechumens",
+    body: "A welcome for those stepping into an Orthodox church for the first time — what to expect at a service, how to begin learning about the saints, and how the Patron Saint Quiz can help a catechumen find a heavenly friend.",
+  },
+  {
+    title: "Churches & Bookstores",
+    body: "Printable materials for parishes and parish bookstores — QR-code cards and flyers that link straight to the quiz and the database, ready to post on a bulletin board, a library shelf, or beside the candle stand.",
+  },
+  {
+    title: "Teachers & Ministries",
+    body: "Materials for catechists, church-school teachers, and ministry leaders — saint biographies, feast-day references, and classroom-friendly handouts drawn from the database.",
+  },
+];
+---
+
+<BaseLayout
+  active="parish-resources"
+  title="Parish Resources"
+  description="Free resources for parishes — QR cards, welcome materials for visitors and catechumens, and teaching aids for church schools and ministries. Use anything on Cloud of Witnesses for your ministry."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="For Your Parish" />
+        <h1 class="sr-title">Parish Resources</h1>
+        <p class="sr-lede">
+          Free materials to help your parish share the saints — with visitors,
+          catechumens, bookstores, and ministries.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          As told in <a href={withBase("about")}>Our Story</a>, the initial
+          point of this website was to create a patron saint quiz to help
+          catechumens connect to the saints. One of the first plans for it was a
+          QR code posted outside our parish library, so that our catechumens
+          could scan it and take the quiz.
+        </p>
+        <p class="as-p">
+          We decided that other people might want this for their own parish, so
+          we are adding resources to this page for your convenience.{" "}
+          <strong>
+            Feel free to use anything on our website for your ministries.
+          </strong>
+        </p>
+
+        {
+          areas.map((a) => (
+            <>
+              <div class="as-head">
+                <span class="ln" />
+                <div class="pr-headrow">
+                  <h2>{a.title}</h2>
+                  <span class="pr-soon">Coming soon</span>
+                </div>
+              </div>
+              <p class="as-p">{a.body}</p>
+            </>
+          ))
+        }
+
+        <div class="as-gap"></div>
+        <p class="as-p last">
+          These materials are being prepared now and will appear on this page as
+          they are ready. In the meantime, everything the resources point to is
+          already live:
+        </p>
+        <div class="pr-actions">
+          <a class="btn btn--gold" href={withBase("quiz")}
+            >Take the Patron Saint Quiz</a
+          >
+          <a class="btn btn--ghost" href={withBase("search")}
+            >Browse the saints</a
+          >
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .pr-headrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .pr-soon {
+    flex-shrink: 0;
+    font-family: var(--text);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 999px;
+    padding: 4px 11px;
+    white-space: nowrap;
+  }
+  .pr-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+</style>
