@@ -366,10 +366,10 @@ def load_group_rows() -> tuple[list[str] | None, list[dict[str, str]]]:
 
 def write_groups(header: list[str], rows: list[dict[str, str]]) -> None:
     """Rewrite data/groups.csv in place after assign_ids fills blank saint_ids.
-    groups.csv is LF (unlike CRLF saints.csv), so pin lineterminator to keep the
-    diff to the id column only."""
+    Like the other data CSVs, groups.csv is CRLF (CLAUDE.md §7; crlf_errors
+    enforces it), so pin the lineterminator to keep the diff to the id column."""
     with open(GROUPS_CSV, "w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=header, lineterminator="\n")
+        w = csv.DictWriter(f, fieldnames=header, lineterminator="\r\n")
         w.writeheader()
         w.writerows(rows)
     print(f"  wrote stable group IDs back to {GROUPS_CSV.relative_to(ROOT)}")

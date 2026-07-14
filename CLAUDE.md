@@ -275,7 +275,7 @@ quote joins) re-link the members of a collective commemoration and make group me
   IS a saint-profile** (`profile_type:"group"`), served at `/saint/<saint_id>` with the
   dedicated **`GroupSaintProfile`** layout. Leave it blank on a new row; the build assigns the
   next id from the **same OS-#### counter as saints** (§6 — never colliding, never reused), and
-  writes it back (groups.csv is LF, not CRLF). `type` is an enumerated set — **`synaxis`** (a
+  writes it back (groups.csv is CRLF, like the other data CSVs). `type` is an enumerated set — **`synaxis`** (a
   collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs), **`feast-companions`**
   (distinct individually-venerated saints sharing a principal feast: Peter & Paul, the Three
   Hierarchs — the §7 split boundary), or **`household`** (a family / kinship unit). `feast`
