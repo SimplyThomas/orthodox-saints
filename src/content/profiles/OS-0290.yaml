@@ -38,3 +38,9 @@ sources:
   - https://en.wikipedia.org/wiki/Rodion_Oslyabya
   - https://en.topwar.ru/14356-za-drugi-svoya-legendy-russkogo-voinstva-pravoslavnye-bogatyri-aleksandr-peresvet-i-andrey-oslyabya.html
 generated: "2026-06-19"
+members:
+  - name: Alexander Peresvet
+    role: Warrior-monk
+  - name: Andrew Oslyabya
+    role: Warrior-monk
+    note: The monks of Radonezh who fell at the Kulikovo battle.
