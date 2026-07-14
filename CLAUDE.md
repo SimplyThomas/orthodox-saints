@@ -270,7 +270,7 @@ rendered in file order:
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a
 **first-class, filterable dimension** of the finder:
-- `data/groups.csv` (`slug,saint_id,name,type,description,feast,sort`) — one row per group.
+- `data/groups.csv` (`slug,saint_id,name,type,description,feast,sort,rule`) — one row per group.
   `slug` is a permanent kebab-case join key. **`saint_id` is the group's own OS-#### — a group
   IS a saint-profile** (`profile_type:"group"`), served at `/saint/<saint_id>` with the
   dedicated **`GroupSaintProfile`** layout. Leave it blank on a new row; the build assigns the
@@ -279,7 +279,13 @@ quote joins) re-link the members of a collective commemoration and make group me
   collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs), **`feast-companions`**
   (distinct individually-venerated saints sharing a principal feast: Peter & Paul, the Three
   Hierarchs — the §7 split boundary), or **`household`** (a family / kinship unit). `feast`
-  (optional) is a shared feast day; `sort` orders groups.
+  (optional) is a shared feast day; `sort` orders groups. **`rule`** (optional) makes an
+  **open/dynamic** group (e.g. the New Martyrs of Russia, All Saints of a region): the build
+  computes its membership by matching saints instead of using explicit `saint_groups.csv`
+  rows, so a newly-glorified saint joins automatically. Grammar: ` && `-joined `field:v1|v2`
+  conditions (AND across, OR within, case-insensitive substring; fields: rank, era, century,
+  region, tradition, vocation, life, notes, name) — e.g.
+  `rank:New Martyr|Confessor|Passion-bearer && era:Modern && tradition:Russian`.
 - `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
   may reference an **individual OR a still-collective** row, so the taxonomy ships independently
   of the split backlog; it may also be **blank for a name-only member** (put the name in `role`)
