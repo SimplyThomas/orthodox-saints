@@ -1,0 +1,444 @@
+---
+/* The Feasts & Fasts index — the designed Church-year page, shared by
+   /feasts and /fasts (initialTab picks the pre-selected filter). Everything
+   listable is pre-rendered here from public/feasts.json (SEO + no-JS); the
+   island adds tab switching and the two clock-dependent features (today's
+   commemorations, the "coming up next" card) which a build-time new Date()
+   would freeze to deploy day — same split as /calendar. */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "./icons/DomeMark.astro";
+import FeastCalRows from "./FeastCalRows.astro";
+import type { FeastGroup } from "./FeastCalRows.astro";
+import FastPill from "./FastPill.astro";
+import {
+  FEASTS,
+  PASCHA,
+  dedicationClass,
+  fastTone,
+  feastKind,
+  islandFeasts,
+} from "../lib/feasts";
+import type { Feast } from "../lib/feasts";
+import { groupMonth, tokenDateline, tokenLabel } from "../lib/feast-dates";
+import { MONTHS, MONTHS_FULL, withBase } from "../lib/format";
+import { cardDataPath } from "../lib/card-payload";
+
+type Tab = "all" | "calendar" | "feasts" | "fasts" | "observances";
+
+interface Props {
+  initialTab?: Tab;
+  active: string; // nav key ("feasts" | "fasts")
+  title: string;
+}
+
+const { initialTab = "all", active, title } = Astro.props;
+
+const TABS: { key: Tab; label: string }[] = [
+  { key: "all", label: "Summary" },
+  { key: "calendar", label: "Full Calendar" },
+  { key: "feasts", label: "Feasts" },
+  { key: "fasts", label: "Fasts" },
+  { key: "observances", label: "Observances" },
+];
+
+/* ---- section datasets ---- */
+const pascha = FEASTS.find((f) => f.category === "Feast of Feasts");
+
+/* Resolved Pascha dates (from the table shipped in feasts.json) for the
+   featured card. SSR renders the whole authoritative list — no-JS/SEO get
+   every date; the island then hides past years and marks the next one against
+   the visitor's clock (a build-time new Date() would freeze to deploy day). */
+const paschaEntries = Object.entries(PASCHA).sort((a, b) =>
+  a[0].localeCompare(b[0]),
+);
+function fmtPascha(iso: string): string {
+  const [, m, d] = iso.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}`;
+}
+const greatFeasts = FEASTS.filter((f) => f.category === "Great Feast");
+const seasons = FEASTS.filter((f) => f.category === "Fast Season");
+const fastDays = FEASTS.filter((f) => f.category === "Fast Day");
+const observances = FEASTS.filter(
+  (f) => f.category === "Observance" || f.category === "Fast-Free Week",
+);
+
+/* Full-year groups: fixed/anchored months Sep→Feb, the Paschal Cycle, then
+   Mar→Aug (FEASTS is already in liturgical order, so per-month filters keep
+   day order). */
+const LITURGICAL_MONTHS = [9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8];
+const paschalRows = FEASTS.filter((f) => groupMonth(f.begins) === null);
+function monthGroups(months: number[], rows: Feast[]): FeastGroup[] {
+  return months
+    .map((m) => ({
+      title: MONTHS_FULL[m - 1],
+      rows: rows.filter((f) => groupMonth(f.begins) === m),
+      ...(m === 9 ? { note: "The Church New Year" } : {}),
+    }))
+    .filter((g) => g.rows.length > 0);
+}
+const yearGroups: FeastGroup[] = [
+  ...monthGroups(LITURGICAL_MONTHS.slice(0, 6), FEASTS),
+  {
+    title: "The Paschal Cycle",
+    note: "Movable — dates shift each year with Pascha",
+    movable: true,
+    rows: paschalRows,
+  },
+  ...monthGroups(LITURGICAL_MONTHS.slice(6), FEASTS),
+];
+
+/* Feasts tab: every great feast + feast, same grouping. */
+const feastRows = FEASTS.filter((f) =>
+  ["great", "feast"].includes(feastKind(f)),
+);
+const feastGroups: FeastGroup[] = [
+  ...monthGroups(LITURGICAL_MONTHS.slice(0, 6), feastRows),
+  {
+    title: "The Paschal Cycle",
+    note: "Movable — dates shift each year with Pascha",
+    movable: true,
+    rows: feastRows.filter((f) => groupMonth(f.begins) === null),
+  },
+  ...monthGroups(LITURGICAL_MONTHS.slice(6), feastRows),
+];
+
+/* Fasts tab: seasons then days, in liturgical order. */
+const fastGroups: FeastGroup[] = [
+  {
+    title: "Fast Seasons",
+    note: "The great fasts, in the order they fall",
+    rows: seasons,
+  },
+  {
+    title: "Fast Days",
+    note: "Kept through the year — alongside the weekly Wednesday & Friday fast, outside fast-free weeks",
+    rows: fastDays,
+  },
+];
+
+/* Island payload: trimmed feasts + the resolved Pascha table. `<` escaped so
+   the JSON can never close its own script tag. */
+const islandJson = JSON.stringify({
+  feasts: islandFeasts(),
+  pascha: PASCHA,
+}).replace(/</g, "\\u003c");
+
+const cardSrc = withBase(cardDataPath());
+const calendarHref = withBase("calendar");
+
+const description =
+  "The Great Feasts, fast seasons, and observances that shape the Orthodox year — each one a turning of the whole Church toward Christ.";
+---
+
+<BaseLayout title={title} description={description} active={active}>
+  <div id="feasts-page" data-card-src={cardSrc} data-initial-tab={initialTab}>
+    <!-- ═══ HERO (site page-header convention, like /calendar) ═══ -->
+    <section class="ff-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="ff-hero-inner">
+        <div class="eyebrow-rule" aria-hidden="true">
+          <span class="ln"></span><span class="dm"></span>
+          <span class="lbl">The Church Year</span>
+          <span class="dm"></span><span class="ln"></span>
+        </div>
+        <h1 class="ff-title">Feasts &amp; Fasts</h1>
+        <p class="ff-lede">{description}</p>
+        <div class="ff-tabs" role="tablist" aria-label="Filter the Church year">
+          {
+            TABS.map((t) => (
+              <button
+                class="ff-tab"
+                role="tab"
+                aria-selected={t.key === initialTab ? "true" : "false"}
+                data-filter={t.key}
+              >
+                {t.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BODY ═══ -->
+    <div class="ff-idx-body">
+      <!-- TODAY'S COMMEMORATIONS (island-filled; needs the visitor's clock) -->
+      <section
+        class="ff-today"
+        id="ff-today"
+        data-cat="today"
+        hidden={initialTab !== "all"}
+      >
+        <div class="ff-today-head">
+          <div>
+            <div class="eyebrow" id="ff-today-date">Today</div>
+            <h2>Saints commemorated today</h2>
+          </div>
+          <a class="ff-today-cal" href={calendarHref}>
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect x="3" y="5" width="18" height="16" rx="2"></rect><path
+                d="M3 9h18M8 3v4M16 3v4"></path></svg
+            >
+            Open the liturgical calendar
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M5 12h14M13 6l6 6-6 6"></path></svg
+            >
+          </a>
+        </div>
+        <div class="ff-today-saints" id="ff-today-saints">
+          <p class="ff-today-empty">
+            Open <a href={calendarHref}>the liturgical calendar</a> to see today's
+            commemorations.
+          </p>
+        </div>
+      </section>
+
+      <!-- COMING UP NEXT (island-computed from the visitor's clock) -->
+      <section
+        class="ff-upcoming"
+        id="ff-upcoming"
+        aria-label="Coming up in the Church year"
+        hidden
+      >
+      </section>
+
+      <!-- SUMMARY: every feast & fast together, month by month, collapsible -->
+      <section
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "all" }]}
+        data-cat="all"
+      >
+        <div class="ff-sec-head">
+          <h2>The Year at a Glance</h2>
+          <span class="count"
+            >Every feast, fast &amp; observance together — open a month to see
+            its days</span
+          >
+          <span class="rule"></span>
+        </div>
+        <div class="ff-cal-legend">
+          <span class="lg"><span class="dot dot--great"></span>Great Feast</span
+          >
+          <span class="lg"><span class="dot dot--feast"></span>Feast</span>
+          <span class="lg"><span class="dot dot--fast"></span>Fast</span>
+          <span class="lg"
+            ><span class="dot dot--observance"></span>Observance</span
+          >
+          <span class="sep"></span>
+          <span class="lg note">The Church year opens on September 1.</span>
+        </div>
+        <FeastCalRows groups={yearGroups} collapsible />
+        <p class="ff-fast-disclaimer">
+          Fasting is described here at the season-summary level and differs by
+          jurisdiction and person — please consult your parish priest about how
+          to keep the fasts.
+        </p>
+      </section>
+
+      <!-- FULL CALENDAR -->
+      <section
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "calendar" }]}
+        data-cat="calendar"
+      >
+        <div class="ff-sec-head">
+          <h2>The Whole Year</h2>
+          <span class="count"
+            >Every feast &amp; fast in order — the liturgical year, September
+            through August</span
+          >
+          <span class="rule"></span>
+        </div>
+        <div class="ff-cal-legend">
+          <span class="lg"><span class="dot dot--great"></span>Great Feast</span
+          >
+          <span class="lg"><span class="dot dot--feast"></span>Feast</span>
+          <span class="lg"><span class="dot dot--fast"></span>Fast</span>
+          <span class="lg"
+            ><span class="dot dot--observance"></span>Observance</span
+          >
+          <span class="sep"></span>
+          <span class="lg note">The Church year opens on September 1.</span>
+        </div>
+        <FeastCalRows groups={yearGroups} collapsible />
+      </section>
+
+      <!-- FEASTS -->
+      <section
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "feasts" }]}
+        data-cat="feasts"
+      >
+        <div class="ff-sec-head">
+          <h2>The Great Feasts</h2>
+          <span class="count"
+            >Twelve Great Feasts &amp; the Feast of Feasts</span
+          >
+          <span class="rule"></span>
+        </div>
+
+        {
+          pascha && (
+            <div class="ff-scard ff-scard--pascha">
+              <div class="ff-scard-pascha-grid">
+                <div>
+                  <div class="eyebrow on-blue">Feast of Feasts</div>
+                  <h3>{pascha.name}</h3>
+                  <p class="brief">{pascha.brief}</p>
+                </div>
+                <div class="ff-scard-pascha-side">
+                  {pascha.dedication && (
+                    <span class="ff-ded lord on-dark">{pascha.dedication}</span>
+                  )}
+                  <span class="span">Movable · Paschal cycle</span>
+                  {pascha.fasting && (
+                    <FastPill
+                      tone={fastTone(pascha.fasting)}
+                      label={pascha.fasting}
+                    />
+                  )}
+                </div>
+              </div>
+              <div class="ff-pascha-dates" id="ff-pascha-dates">
+                <div class="ff-pd-label">Upcoming Pascha dates</div>
+                <ul class="ff-pd-list">
+                  {paschaEntries.map(([year, iso]) => (
+                    <li class="ff-pd" data-year={year}>
+                      <b>{year}</b>
+                      <span>{fmtPascha(iso)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )
+        }
+
+        <div class="ff-grid">
+          {
+            greatFeasts.map((f) => (
+              <div class="ff-fcard">
+                <div class="top">
+                  {f.dedication && (
+                    <span class={`ff-ded ${dedicationClass(f.dedication)}`}>
+                      {f.dedication}
+                    </span>
+                  )}
+                </div>
+                <h3>{f.name}</h3>
+                <span class="date">{tokenDateline(f.begins)}</span>
+                <p class="brief">{f.brief}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="ff-sec-head" style="margin-top:48px">
+          <h2>Every Feast in Order</h2>
+          <span class="count"
+            >The full list — the liturgical year, September through August</span
+          >
+          <span class="rule"></span>
+        </div>
+        <FeastCalRows groups={feastGroups} />
+      </section>
+
+      <!-- FASTS -->
+      <section
+        class:list={["ff-idx-sec", { "is-hidden": initialTab !== "fasts" }]}
+        data-cat="fasts"
+      >
+        <div class="ff-sec-head">
+          <h2>Fast Seasons</h2>
+          <span class="count">The great fasts of the year</span>
+          <span class="rule"></span>
+        </div>
+        <div class="ff-season-grid">
+          {
+            seasons.map((s) => (
+              <div class="ff-scard">
+                <div class="eyebrow on-blue">Fast Season</div>
+                <h3 set:html={s.name.replace(/'/g, "&rsquo;")} />
+                <span class="span">
+                  {tokenLabel(s.begins)}
+                  {s.ends ? ` → ${tokenLabel(s.ends)}` : ""}
+                </span>
+                <p class="brief">{s.brief}</p>
+                <div class="ff-scard-foot">
+                  {s.fasting && (
+                    <FastPill tone={fastTone(s.fasting)} label={s.fasting} />
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="ff-sec-head" style="margin-top:48px">
+          <h2>Every Fast in Order</h2>
+          <span class="count"
+            >The full list — seasons and days kept through the year</span
+          >
+          <span class="rule"></span>
+        </div>
+        <FeastCalRows groups={fastGroups} />
+        <p class="ff-fast-disclaimer">
+          Fasting is described here at the season-summary level and differs by
+          jurisdiction and person — please consult your parish priest about how
+          to keep the fasts.
+        </p>
+      </section>
+
+      <!-- OBSERVANCES -->
+      <section
+        class:list={[
+          "ff-idx-sec",
+          { "is-hidden": initialTab !== "observances" },
+        ]}
+        data-cat="observances"
+      >
+        <div class="ff-sec-head">
+          <h2>Observances</h2>
+          <span class="count"
+            >Named Sundays, commemorations &amp; fast-free weeks</span
+          >
+          <span class="rule"></span>
+        </div>
+        <ul class="ff-list">
+          {
+            observances.map((o) => (
+              <li>
+                <span class="li-name">{o.name}</span>
+                <span class="li-when">
+                  {tokenLabel(o.begins)}
+                  {o.ends ? ` → ${tokenLabel(o.ends)}` : ""}
+                </span>
+                <span class="li-note">{o.brief}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script type="application/json" id="ff-data" set:html={islandJson} />
+  <script>
+    import "../islands/feasts.client.ts";
+  </script>
+</BaseLayout>

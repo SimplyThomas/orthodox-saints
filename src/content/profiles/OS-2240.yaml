@@ -1,0 +1,62 @@
+id: OS-2240
+lifespan: c. 559 – c. 630
+overview:
+  - Gregory of Agrigentum was a Sicilian bishop of the sixth and early seventh centuries, remembered for his learning, ascetic formation, and pastoral care of his see at Agrigento (ancient Agrigentum) in Sicily. His traditional life recounts an early monastic and pilgrim career in the Christian East before his appointment to the episcopate.
+  - He is best known for the episode of a false accusation that led to his imprisonment and subsequent vindication, a defining narrative of his hagiography. Later tradition also attributes to him a Greek commentary on Ecclesiastes, regarded as one of the more esteemed ancient treatments of that book, though its authorship is debated by scholars.
+  - He is commemorated in the Eastern Orthodox Church on November 23 (with November 24 given by some traditions) and on November 23 in the Roman Martyrology. As a Sicilian bishop of the pre-schism era, he is venerated as an Orthodox saint of the Christian West.
+liturgicalTitle: Our Father among the Saints Gregory, Bishop of Agrigentum
+timeline:
+  - when: c. 559
+    title: Birth in Sicily
+    body: Born near Agrigentum in Sicily. The OCA life names the village of Pretorium and his parents as Chariton and Theodota, and records that he was baptized by Bishop Pataimonus of Agrigentum; another tradition names his mother Theodote.
+  - when: Childhood
+    title: Early education and entry into the clergy
+    body: By tradition he mastered writing and could read and sing church hymns by about age ten, and at twelve entered the clergy of the Agrigentum church, serving for roughly a decade under the archdeacon Donatus.
+  - when: Youth
+    title: Pilgrimage to the East
+    body: Prompted by an angelic vision, he undertook a pilgrimage toward the Holy Land, traveling by way of North Africa; one account has him studying four years under a monk named Mark in Carthage, and another relates he was nearly enslaved by a ship-owner during his travels.
+  - when: Jerusalem
+    title: Ordained deacon
+    body: In Jerusalem he was ordained deacon by the Patriarch Macarius (Makarios II). He pursued monastic life, by tradition on the Mount of Olives, before continuing to Constantinople.
+  - when: Constantinople
+    title: Monastic life and the Fifth Council
+    body: He joined a monastery in Constantinople (named as Saints Sergius and Bacchus), where Patriarch Eutychius encouraged his participation in the Fifth Ecumenical Council; this element sits uneasily with the traditional birth date of c. 559 and is one of several internal chronological tensions in the vita.
+  - when: "590"
+    title: Appointed Bishop of Agrigentum
+    body: According to one account Pope Gregory I selected him as Bishop of Agrigento, finding him hiding in a monastic garden out of reluctance for high office.
+  - when: 591–603
+    title: Accusation and papal correspondence
+    body: By 591 he faced accusations from rivals; surviving papal letters (August 591, November 592) concern his case, and a January 603 letter still names him as bishop, complicating claims of an early deposition.
+  - when: Imprisonment and vindication
+    title: Cleared by synod
+    body: Traditional accounts relate that enemies bribed a woman to slander him, leading to about two to two-and-a-half years' imprisonment at Rome; a synod, urged by the elder Mark, cleared his name when the truth emerged, and his accusers were punished.
+  - when: c. 630
+    title: Repose
+    body: He returned to peaceful episcopal leadership and died, with the date traditionally given as 630.
+sections:
+  - heading: Historical Context
+    body:
+      - "Gregory belonged to Byzantine Sicily, where Agrigentum (modern Agrigento) was a bishopric within the sphere of both Rome and the wider Greek-speaking Christian world. His career, as his sources describe it, bridged the Latin West and the Greek East: a Sicilian by birth who was ordained in Jerusalem, formed as a monk in the East, and connected to Constantinople before returning to govern his home see."
+      - His episcopate is placed in the period of Pope Gregory I (the Great). Wikipedia records that this pope selected him as bishop around 590 and that a series of papal letters between 591 and 603 bear on his tenure and the accusations against him, one of the few points where the traditional life can be checked against documentary evidence.
+  - heading: The False Accusation and Vindication
+    body:
+      - The central episode of Gregory's hagiography is his trial on a false charge. The traditional lives relate that rivals — named in one account as two priests, and identified elsewhere with the figures Sabinus and Crescentius — bribed a woman to accuse him of immoral conduct, resulting in his imprisonment at Rome for roughly two to two-and-a-half years.
+      - According to the OCA account, a synod was convened at the urging of the elder Mark, and Gregory's prayers freed the woman from demonic possession, at which the whole truth was revealed and he was fully vindicated. His accusers were punished, exiled in some tellings, and Gregory returned to lead his see in peace. Renowned as a defender of the down-trodden, a preacher, and a healer, he is remembered above all for this trial and vindication.
+  - heading: Works
+    body:
+      - A Greek commentary on Ecclesiastes is traditionally attributed to Gregory of Agrigentum and has been considered one of the best treatments of that book surviving from antiquity.
+      - "Scholars debate the attribution: some hold that the commentary's author was a distinct, later Gregory active around the reign of Emperor Justinian II (685–711), rather than the sixth-century bishop. The attribution therefore remains uncertain."
+  - heading: Relics & Shrines
+    body:
+      - Portions of Gregory's relics are reported to be preserved at monasteries in Greece and Russia.
+  - heading: Sources and Hagiography
+    body:
+      - "Gregory's life was recorded in a hagiography attributed to Leontios of the San Saba monastery in Rome, preserved in some twenty manuscripts. Scholars disagree sharply on its date of composition: Albrecht Berger has argued for a range of 750–828, while John Martyn has proposed a date around 640."
+      - The traditional narrative contains internal chronological inconsistencies — most notably a reported role at the Fifth Ecumenical Council (553) that is difficult to reconcile with a birth date of about 559 — and the differing lives disagree on details such as the names of his parents. These tensions are noted in the scholarly and reference literature.
+sources:
+  - OCA Synaxarion (oca.org), Lives of the Saints
+  - https://en.wikipedia.org/wiki/Gregory_of_Agrigentum
+  - https://oca.org/saints/lives/2023/11/23/103376-saint-gregory-bishop-of-agrigentum
+  - https://www.johnsanidopoulos.com/search?q=Gregory+Agrigentum
+status: draft
+generated: "2026-07-03"

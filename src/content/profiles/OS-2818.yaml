@@ -1,0 +1,36 @@
+id: OS-2818
+lifespan: 6th century
+liturgicalTitle: Our Venerable Father Sinell, Abbot of Cleenish
+overview:
+  - Sinell of Cleenish was a sixth-century Irish abbot who governed the monastery of Cluaninis (Cleenish), situated on an island of the River Erne in what is now County Fermanagh. Irish hagiographical tradition counts him among the disciples of Saint Finnian of Clonard.
+  - He is remembered chiefly as the first teacher of Saint Columbanus, who received his early monastic and scholarly formation under Sinell before proceeding to Bangor Abbey and, ultimately, to his celebrated missionary and monastic work on the European continent. He is commemorated on November 12.
+sections:
+  - heading: Abbot of Cleenish
+    body:
+      - Sinell was abbot of the monastery of Cluaninis, an island foundation on the River Erne (Lough Erne) in modern County Fermanagh, Ireland. The Irish tradition preserved in the anchor record places him within the monastic lineage of Saint Finnian of Clonard; the surviving continental sources for Columbanus do not themselves name Sinell's own teacher.
+  - heading: Teacher of Columbanus
+    body:
+      - Sinell's enduring significance rests on his role as the first teacher of Saint Columbanus (born 543 in the Kingdom of Leinster). Under Sinell's instruction at Cleenish, the young Columbanus composed a commentary on the Psalms.
+      - After his formation under Sinell, Columbanus moved to Bangor Abbey, where Abbot Comgall taught him grammar, rhetoric, geometry, the Holy Scriptures, Greek, and Latin. Columbanus remained at Bangor until about 590, when Comgall reluctantly permitted him to depart for the continent. He sailed with twelve companions, landed at Saint-Malo in Brittany, and founded monasteries in Frankish Gaul—most notably Luxeuil—before establishing Bobbio Abbey in 614; he died at Bobbio on 21 November 615.
+  - heading: Sources and Historical Record
+    body:
+      - Sinell is a genuinely obscure figure with no surviving hagiographical text of his own. Nearly all that is known of him derives from the accounts of Columbanus, principally the Life of Columbanus written by Jonas of Bobbio (c. 640–643), which Jonas based on the testimony of persons who had known Columbanus personally.
+      - No standalone Orthodox or encyclopedic biography of Sinell was available among the consulted sources; details of his birth, death, relics, or formal glorification are not recorded. What is preserved presents him solely as abbot of Cleenish and as Columbanus's first master.
+timeline:
+  - when: 6th century
+    title: Abbot of Cleenish
+    body: Sinell governs the island monastery of Cluaninis (Cleenish) on the River Erne in modern County Fermanagh, within the monastic tradition of Saint Finnian of Clonard.
+  - when: 6th century
+    title: Teacher of Columbanus
+    body: The young Columbanus (born 543) receives his early formation under Sinell at Cleenish, composing a commentary on the Psalms during his studies.
+  - when: after his formation
+    title: Columbanus moves to Bangor
+    body: Columbanus leaves Sinell for Bangor Abbey under Abbot Comgall, and later departs for the continent around 590 to found monasteries at Luxeuil and Bobbio.
+patronage: []
+sources:
+  - Wikipedia (Sinell of Cleenish)
+  - https://en.wikipedia.org/wiki/Columbanus
+  - https://www.newadvent.org/cathen/04137a.htm
+  - https://en.wikipedia.org/wiki/Jonas_of_Bobbio
+status: flagged
+generated: "2026-07-04"

@@ -13,8 +13,10 @@ sections:
 companions:
   - name: Hieromartyr Michael Bleive
     note: "Co-martyr: an Estonian priest executed together with Platon in the Tartu (Yuriev) massacre on January 14, 1919."
+    href: saint/OS-2918
   - name: Hieromartyr Nikolai Bezhanitsky
     note: "Co-martyr: a priest of Tartu executed together with Platon by the Bolsheviks on January 14, 1919."
+    href: saint/OS-2919
 patronage:
   - New Martyrs and Confessors of Russia
   - Patron of the Orthodox Church in Estonia

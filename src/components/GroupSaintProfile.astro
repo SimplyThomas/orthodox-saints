@@ -1,0 +1,719 @@
+---
+/* Group saint-profile — the layout for a collective commemoration (a synaxis, a
+   household, or a feast-companions set), served at /saint/[groupId] for records
+   with profile_type === "group" (see pages/saint/[id].astro).
+
+   A group-flavored variant of SaintView's redesign: it reuses the same
+   `.saintview.sv2` design system (dark hero, "At a glance" rail, "Come to them
+   for", collapsible timeline/legacy/reading) so it inherits global.css and
+   reads as native to the saint pages — but its centerpiece is the MEMBER
+   ROSTER, the one thing a group has that a person does not. Each roster card
+   links to the member's own /saint/[id] page when a saint_id is present;
+   name-only members render as a dignified card noting they are commemorated
+   within the collective (no separate page).
+
+   Rich prose (the collective essay, timeline, "come to them for", per-member
+   notes) comes from an OPTIONAL group profile at src/content/profiles/
+   OS-####.yaml — the SAME `profiles` collection + draft→reviewed gate as saint
+   profiles. With no profile the page still renders the hero, feast, and roster
+   from the record + join. */
+import type { Saint } from "../lib/types";
+import { GROUP_TYPE_LABEL } from "../lib/groups";
+import { saintAvatar } from "../lib/icons";
+import { loadProfileMap } from "../lib/saint-profiles";
+import { esc, withBase, MONTHS, MONTHS_FULL } from "../lib/format";
+import SaintRoster from "./SaintRoster.astro";
+
+interface Props {
+  saint: Saint;
+}
+const { saint } = Astro.props;
+const profile = (await loadProfileMap())[saint.id];
+
+// Editorial review state — the same full-width band SaintView shows beneath the
+// hero, so a draft/flagged group profile is clearly marked in dev / previews.
+const isFlagged = profile?.status === "flagged";
+const isDraft =
+  !!profile?.status && profile.status !== "reviewed" && !isFlagged;
+const flagReasons = profile?.flagReasons ?? [];
+
+const typeLabel = saint.groupType
+  ? (GROUP_TYPE_LABEL[saint.groupType] ?? saint.groupType)
+  : "";
+const eyebrow = profile?.eyebrow || typeLabel;
+
+// The display roster passed to the shared <SaintRoster>. A group profile's
+// `members:` list, when present, IS the curated roster (ordered; it may link any
+// saint page, repeat a page for members sharing one combined commemoration, or
+// be name-only). Absent a profile, fall back to the structural saint_groups.csv
+// membership joined into the record.
+const rosterMembers = profile?.members?.length
+  ? profile.members
+  : (saint.members ?? []);
+const rosterCount = rosterMembers.filter((m) => m.name || m.saint_id).length;
+
+// "January 4" from the record's "Jan 4" — expand the leading month for the hero
+// feast highlight (matches SaintView's primaryFeast).
+function feastDisplay(f: string): string {
+  const m = f.match(/^([A-Z][a-z]{2})\s+(\d{1,2})/);
+  if (m) {
+    const mi = MONTHS.indexOf(m[1]);
+    if (mi >= 0) return `${MONTHS_FULL[mi]} ${m[2]}`;
+  }
+  return f;
+}
+const feast = saint.feast ? feastDisplay(saint.feast) : "";
+
+// "At a glance" rail rows: authored profile facts win; otherwise a minimal set
+// derived from the record so the rail is never empty.
+const facts: [string, string][] = profile?.facts?.length
+  ? profile.facts.map((f) => [f.label, f.value] as [string, string])
+  : ([
+      typeLabel ? ["Type", typeLabel] : null,
+      feast ? ["Feast", feast] : null,
+      [
+        "Commemorated",
+        `${rosterCount} ${rosterCount === 1 ? "entry" : "entries"}`,
+      ],
+    ].filter(Boolean) as [string, string][]);
+
+// Explore links — derived Google/YouTube searches from the group name (a group
+// record carries no curated hymn/icon/video links).
+const q = (s: string) => encodeURIComponent(s);
+const links = [
+  {
+    label: "Hymn / Apolytikion",
+    href: `https://www.google.com/search?q=${q(saint.name + " apolytikion troparion")}`,
+  },
+  {
+    label: "Icon gallery",
+    href: `https://www.google.com/search?tbm=isch&q=${q(saint.name + " orthodox icon")}`,
+  },
+  {
+    label: "Video / Media",
+    href: `https://www.youtube.com/results?search_query=${q(saint.name + " orthodox")}`,
+  },
+];
+
+// Hero portrait: a self-hosted icon fills the frame; otherwise a monogram drawn
+// from the group name (leading "The "/"Synaxis of the " trimmed for a cleaner
+// initial).
+let portrait: string;
+if (saint.image) {
+  const raw = String(saint.image).replace(/['"\\)\s<>]/g, "");
+  const url = esc(/^(https?:)?\/\//.test(raw) ? raw : withBase(raw));
+  portrait = `<div class="sv-icon-img" style="background:#16304c center top/cover no-repeat url('${url}')"></div>`;
+} else {
+  const monoName = saint.name.replace(/^(The|Synaxis of the|Holy)\s+/i, "");
+  portrait = saintAvatar({ name: monoName }, 286, 358);
+}
+
+const overview = profile?.overview ?? [];
+const invokedFor = profile?.invokedFor ?? [];
+const patronage = profile?.patronage ?? [];
+const virtues = profile?.virtues ?? [];
+const vocation = profile?.vocation ?? [];
+const knownFor = virtues.length > 0 || vocation.length > 0;
+const hasTimeline = !!profile?.timeline?.length;
+const hasLegacy = !!profile?.sections?.length;
+const hasReading = !!profile?.reading?.length;
+const notes = saint.notes || "";
+const sources = (profile?.sources ?? []).join("; ");
+const storyLabel =
+  saint.groupType === "synaxis"
+    ? "About the synaxis"
+    : saint.groupType === "household"
+      ? "About the household"
+      : "About the group";
+const citation = `${saint.name}. Cloud of Witnesses.`;
+const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
+---
+
+<div
+  class="saintview sv2 gsp"
+  id="saint-detail"
+  data-id={saint.id}
+  data-name={saint.name}
+>
+  {/* ══════════════ HERO ══════════════ */}
+  <section class="sv-hero">
+    <div class="sv-hero-inner">
+      <nav class="sv-hero-crumb" aria-label="Breadcrumb">
+        <a href={withBase("search")} class="sv-back-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+          >
+          <span class="sv-back-label">Back to the saints</span>
+        </a>
+        <span class="sv-sep">/</span>
+        <span class="sv-here">{saint.name}</span>
+      </nav>
+
+      <div class="sv-hero-grid">
+        <div class="sv-hero-icon">
+          <div class="sv-icon-frame">
+            <div class="sv-icon-inner" set:html={portrait} />
+          </div>
+        </div>
+
+        <div class="sv-hero-id">
+          <div class="sv-hero-tagrow">
+            {
+              typeLabel && (
+                <span class="tag sv-tag-gold">
+                  <i />
+                  {typeLabel}
+                </span>
+              )
+            }
+            {eyebrow && <span class="eyebrow on-blue">{eyebrow}</span>}
+          </div>
+
+          <h1 class="sv-name">{saint.name}</h1>
+          {
+            saint.aka.length > 0 && (
+              <div class="sv-also">Also known as {saint.aka.join(" · ")}</div>
+            )
+          }
+
+          <div class="sv-hero-rule"></div>
+
+          {saint.brief && <p class="sv-lead">{saint.brief}</p>}
+
+          <div class="gsp-meta">
+            {
+              feast && (
+                <div class="sv-feast gsp-metacard">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--gold-soft)"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M3 9h18M8 3v4M16 3v4" />
+                  </svg>
+                  <div class="sv-feast-main">
+                    <div class="sv-feast-label">Feast Day</div>
+                    <div class="sv-feast-date">{feast}</div>
+                  </div>
+                  {profile?.feastNote && (
+                    <div class="sv-feast-note">{profile.feastNote}</div>
+                  )}
+                </div>
+              )
+            }
+            {
+              rosterCount > 0 && (
+                <a href="#roster" class="gsp-rostercard">
+                  <span class="gsp-rostercount">{rosterCount}</span>
+                  <span class="gsp-rosterlabel">
+                    <span class="gsp-rosterlabel-eb">Commemorated</span>
+                    <span class="gsp-rosterlabel-sub">
+                      See the full roster ↓
+                    </span>
+                  </span>
+                </a>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ══════════════ REVIEW STATE BAND ══════════════ */}
+  {
+    (isFlagged || isDraft) && (
+      <div
+        class={`sv-state ${isFlagged ? "sv-state--flag" : "sv-state--draft"}`}
+        role={isFlagged ? "alert" : "status"}
+      >
+        <div class="sv-state-inner">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            class="sv-state-ico"
+            aria-hidden="true"
+          >
+            <path
+              d="M10 1.5 19 18 1 18 Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+            <rect
+              x="9.1"
+              y="7"
+              width="1.8"
+              height="5.4"
+              rx=".9"
+              fill="currentColor"
+            />
+            <circle cx="10" cy="15" r="1.05" fill="currentColor" />
+          </svg>
+          <span class="sv-state-label">{isFlagged ? "Flagged" : "Draft"}</span>
+          <span class="sv-state-div" />
+          <div class="sv-state-body">
+            {isFlagged ? (
+              flagReasons.length > 0 ? (
+                <ul class="sv-state-list">
+                  {flagReasons.map((r) => (
+                    <li>
+                      {r.claim && <span class="sv-state-claim">{r.claim}</span>}
+                      {r.claim && r.detail ? " — " : ""}
+                      {r.detail}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                "Flagged for review — this entry may contain errors or unverified claims."
+              )
+            ) : (
+              "Draft — pending review. Not yet verified for publication."
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  {/* ══════════════ QUICK ACTIONS ══════════════ */}
+  <div class="sv-actions">
+    <div class="sv-actions-inner">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--ghost sv-explore-link"
+          >
+            {l.label}
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 14 14"
+              fill="none"
+              stroke="var(--celest)"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 10 10 4M5 4h5v5" />
+            </svg>
+          </a>
+        ))
+      }
+      <div class="sv-actions-spacer"></div>
+      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--byz-ink)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
+        </svg>
+        <span class="sv-share-label">Share / cite</span>
+      </button>
+    </div>
+  </div>
+
+  {/* ══════════════ BODY ══════════════ */}
+  <div class="sv-body">
+    {/* ── RECORD RAIL ── */}
+    <aside class="sv-rail">
+      {
+        facts.length > 0 && (
+          <div class="sv-glance">
+            <div class="eyebrow">At a glance</div>
+            <dl>
+              {facts.map(([k, v]) => (
+                <div class="sv-fact">
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )
+      }
+
+      {
+        knownFor && (
+          <div class="sv-knownfor">
+            <div class="eyebrow">Known for</div>
+            {virtues.length > 0 && (
+              <div class="sv-virtues">{virtues.join(" · ")}</div>
+            )}
+            {vocation.length > 0 && (
+              <div class="sv-vocation">{vocation.join(" · ")}</div>
+            )}
+          </div>
+        )
+      }
+
+      {
+        patronage.length > 0 && (
+          <div class="sv-rail-block sv-patron">
+            <div class="eyebrow">Patron of</div>
+            <div class="sv-rail-chips">
+              {patronage.map((p) => (
+                <span class="sv-rail-chip">{p}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </aside>
+
+    {/* ── STORY COLUMN ── */}
+    <main class="sv-main">
+      {/* come to them for */}
+      {
+        invokedFor.length > 0 && (
+          <section class="sv-section">
+            <div class="sv-secthead">
+              <span class="eyebrow">Come to them for</span>
+            </div>
+            <div class="gsp-come-grid">
+              {invokedFor.map((it) => (
+                <div class="gsp-come-card">
+                  <div class="gsp-come-label">{it.label}</div>
+                  {it.note && <div class="gsp-come-note">{it.note}</div>}
+                </div>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {/* the collective essay */}
+      {
+        overview.length > 0 ? (
+          <section class="sv-section">
+            <div class="sv-secthead">
+              <span class="eyebrow">{storyLabel}</span>
+            </div>
+            {overview.map((p) => (
+              <p class="sv-bodytext">{p}</p>
+            ))}
+          </section>
+        ) : (
+          saint.brief && (
+            <section class="sv-section">
+              <div class="sv-secthead">
+                <span class="eyebrow">{storyLabel}</span>
+              </div>
+              <p class="sv-bodytext">{saint.brief}</p>
+            </section>
+          )
+        )
+      }
+
+      {/* ── reference apparatus (deep-dives) ── */}
+      {
+        hasAfter && (
+          <div class="sv-after">
+            <div class="sv-after-inner">
+              {hasTimeline && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb sv-tl-title">Timeline</span>
+                    <span class="sv-deep-ct">
+                      {profile!.timeline!.length} moments
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <ol class="sv-timeline">
+                    {profile!.timeline!.map((t) => (
+                      <li>
+                        <span class="sv-when">{t.when}</span>
+                        <strong class="sv-tl-event">{t.title}</strong>
+                        {t.body && <span class="sv-tbody">{t.body}</span>}
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
+
+              {hasLegacy && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <h2 class="sv-deep-eb sv-legacy-title">
+                      Contributions &amp; Legacy
+                    </h2>
+                    <span class="sv-deep-ct">
+                      {profile!.sections!.length} contributions
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <div class="sv-legacy-grid">
+                    {profile!.sections!.map((s) => (
+                      <article class="sv-legacy-card">
+                        <h3>{s.heading}</h3>
+                        {s.body.map((p) => (
+                          <p>{p}</p>
+                        ))}
+                      </article>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {hasReading && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">
+                      Sources &amp; Further Reading
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  <div class="sv-reading-groups">
+                    {profile!.reading!.map((g) => (
+                      <div class="sv-read-group">
+                        <div class="sv-read-head">{g.heading}</div>
+                        <ul class="sv-read-list">
+                          {g.items.map((it) => (
+                            <li>
+                              <em>{it.title}</em>
+                              {it.author && (
+                                <span class="sv-read-by"> — {it.author}</span>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {notes && (
+                <section class="sv-section sv-notes-sec">
+                  <div class="sv-secthead">
+                    <span class="eyebrow">Notes</span>
+                  </div>
+                  <p class="sv-notes-text">{notes}</p>
+                </section>
+              )}
+
+              {sources && (
+                <div class="sv-after-sources">Sources: {sources}</div>
+              )}
+            </div>
+          </div>
+        )
+      }
+    </main>
+  </div>
+
+  {/* ══════════════ THE ROSTER ══════════════ */}
+  <SaintRoster
+    members={rosterMembers}
+    eyebrow={profile?.eyebrow ? "Members" : "Members of this group"}
+    collective={saint.groupType === "household"
+      ? "household"
+      : saint.groupType === "synaxis"
+        ? "synaxis"
+        : "group"}
+  />
+</div>
+
+<style>
+  /* Hero meta row (feast + roster jump) — the group's counterpart to
+     SaintView's single feast card. */
+  .gsp .gsp-meta {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 1.6rem;
+    flex-wrap: wrap;
+  }
+  .gsp .gsp-metacard {
+    margin-top: 0;
+  }
+  .gsp .gsp-rostercard {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+  }
+  .gsp .gsp-rostercard:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.1);
+  }
+  .gsp .gsp-rostercount {
+    font-family: var(--serif);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--gold-soft);
+  }
+  .gsp .gsp-rosterlabel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .gsp .gsp-rosterlabel-eb {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+  .gsp .gsp-rosterlabel-sub {
+    font-size: 0.8rem;
+    color: var(--celest-soft);
+  }
+
+  /* "Come to them for" — label + note cards (richer than SaintView's single
+     intercession chips). */
+  .gsp .gsp-come-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0.85rem;
+  }
+  .gsp .gsp-come-card {
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 6px;
+    padding: 1.05rem 1.1rem 0.95rem;
+  }
+  .gsp .gsp-come-label {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.1;
+    color: var(--byz);
+  }
+  .gsp .gsp-come-note {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 0.45rem;
+    line-height: 1.45;
+  }
+</style>
+
+<script>
+  /* Share / cite — copy a citation + canonical URL, Web-Share where available.
+     Mirrors SaintView's share handler. */
+  const share = document.querySelector<HTMLButtonElement>(".sv-share");
+  const shareLabel = share?.querySelector<HTMLElement>(".sv-share-label");
+  if (share && shareLabel) {
+    const cite = share.dataset.cite || document.title;
+    share.addEventListener("click", async () => {
+      const url = location.href;
+      const text = `${cite} ${url}`;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: cite, url });
+          return;
+        }
+        await navigator.clipboard.writeText(text);
+        const prev = shareLabel.textContent;
+        shareLabel.textContent = "Citation copied";
+        window.setTimeout(() => {
+          shareLabel.textContent = prev;
+        }, 1600);
+      } catch {
+        /* dismissed / denied — no-op */
+      }
+    });
+  }
+
+  /* Accordion: at most one deep-dive open at a time. */
+  const deeps = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>("details.sv-deep"),
+  );
+  for (const d of deeps) {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      for (const other of deeps) {
+        if (other !== d && other.open) other.open = false;
+      }
+    });
+  }
+</script>

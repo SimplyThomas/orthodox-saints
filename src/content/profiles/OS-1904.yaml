@@ -85,8 +85,3 @@ sources:
   - https://orthodoxwiki.org/Stefan_the_First-Crowned
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: Stephen died on 24 September 1228
-    detail: The anchor row states death in 1224, not 1228. Wikipedia gives 1228, but the anchor (CSV row) is the trusted source per the verify protocol — when the profile contradicts the anchor, the anchor wins. The profile uses 1228 in both the lifespan field and the timeline without noting the discrepancy with the anchor.
-  - claim: Lifespan given as c. 1165 – 24 September 1228
-    detail: The anchor brief gives the death year as 1224, not 1228. The lifespan endpoint contradicts the anchor. Wikipedia's 1228 date does not override the anchor per the verify rules.

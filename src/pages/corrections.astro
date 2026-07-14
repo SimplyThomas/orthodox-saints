@@ -3,25 +3,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ByzCross from "../components/icons/ByzCross.astro";
 import SearchGlyph from "../components/icons/SearchGlyph.astro";
 
-// Corrections — report a correction. On submit it builds a pre-filled GitHub
-// "new issue" URL for SimplyThomas/orthodox-saints and opens it; the visitor
-// reviews and presses "Submit new issue". No backend/secrets. Ported from the
-// Claude Design "Corrections" mock into the project's Byzantine system.
+// Corrections — report a data-quality problem. On submit the form POSTs to a
+// Cloudflare Worker (workers/report/), which verifies a Turnstile token and
+// files a GitHub issue labelled `data-quality` on our behalf. The visitor never
+// needs a GitHub account. No secrets live here; the Worker holds the token.
 const FIX_TYPES = [
   { id: "feast", label: "Feast date" },
   { id: "name", label: "Name / spelling" },
   { id: "bio", label: "Biography" },
   { id: "image", label: "Image / icon" },
   { id: "link", label: "Broken link" },
+  { id: "missing", label: "Missing saint" },
   { id: "other", label: "Other" },
 ];
-const CONTACT = "shelby.e.krug@gmail.com";
+
+// Optional email alternative for visitors who'd rather not use the form.
+const CONTACT = "contact@orthodoxsaintfinder.com";
+
+// --- Backend wiring ----------------------------------------------------------
+// Same-origin route (preferred — no CORS). Map orthodoxsaintfinder.com/api/report
+// to the Worker in Cloudflare (see workers/report/README.md). To use the
+// workers.dev URL instead, set ENDPOINT to it and add the origin to the Worker's
+// ALLOWED_ORIGIN.
+const ENDPOINT = "/api/report";
+// Public Cloudflare Turnstile SITE key (safe to commit). Paired secret lives as
+// the Worker secret TURNSTILE_SECRET_KEY (see workers/report/README.md).
+const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
 ---
 
 <BaseLayout
   active=""
   title="Suggest a Correction"
-  description="Spotted a wrong feast day, a misspelled name, or a broken link? Report a correction to Cloud of Witnesses — it opens a pre-filled GitHub issue."
+  description="Spotted a wrong feast day, a misspelled name, or a broken link? Report a correction to Cloud of Witnesses — no account needed."
 >
   <div class="cr">
     {/* ---------- hero ---------- */}
@@ -52,15 +65,27 @@ const CONTACT = "shelby.e.krug@gmail.com";
             ></path>
           </svg>
           <p>
-            Submissions are tracked publicly on GitHub. When you submit, we’ll
-            open a new issue with everything filled in &mdash; you just review
-            it and press <strong>Submit new issue</strong>. A free GitHub
-            account is required to post.
+            No account needed — just fill this out and submit. Each report is
+            recorded as a <strong>public issue on GitHub</strong> and reviewed by
+            hand, so please <strong>don’t include private information</strong>.
           </p>
         </div>
 
         {/* form */}
-        <form class="cr-card" id="cr-form" novalidate>
+        <form class="cr-card" id="cr-form" novalidate data-endpoint={ENDPOINT}>
+          {/* honeypot — hidden from people, tempting to bots. Leave empty. */}
+          <div class="cr-hp" aria-hidden="true">
+            <label
+              >Leave this field empty
+              <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+
           <div class="fld">
             <div class="fld-lab">
               <span class="eyebrow">Which saint or page?</span>
@@ -79,7 +104,8 @@ const CONTACT = "shelby.e.krug@gmail.com";
             </div>
             <div class="hint">
               Type the saint’s name, or paste the URL of the page with the
-              error.
+              error. (We’ll fill this in for you if you came from a saint’s
+              page.)
             </div>
             <div class="err" data-for="cr-subject" hidden>
               Please tell us which saint or page this is about.
@@ -172,30 +198,59 @@ const CONTACT = "shelby.e.krug@gmail.com";
             </div>
           </div>
 
-          <div class="cr-actions">
-            <button type="submit" class="btn btn--blue cr-send">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 16 16"
-                fill="var(--ivory)"
-                aria-hidden="true"
+          <div class="fld">
+            <div class="fld-lab">
+              <span class="eyebrow">Your email</span><span class="opt"
+                >OPTIONAL</span
               >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                ></path>
-              </svg>
-              Open pre-filled issue on GitHub
+            </div>
+            <input
+              id="cr-email"
+              class="cr-input"
+              type="email"
+              inputmode="email"
+              placeholder="So we can follow up if we have a question"
+              autocomplete="email"
+            />
+            <div class="hint">
+              Only used to follow up on this report. It becomes part of the
+              public issue, so leave it blank if you’d rather stay anonymous.
+            </div>
+            <div class="err" data-for="cr-email" hidden>
+              That email address doesn’t look right.
+            </div>
+          </div>
+
+          {/* Turnstile — proves you’re human; no puzzles for most visitors. */}
+          <div class="fld cr-turnstile-fld">
+            <div
+              class="cf-turnstile"
+              data-sitekey={SITE_KEY}
+              data-theme="light"
+            >
+            </div>
+            <div class="err" data-for="cr-turnstile" hidden>
+              Please complete the verification challenge.
+            </div>
+          </div>
+
+          <div class="cr-actions">
+            <button type="submit" class="btn btn--blue cr-send" id="cr-submit">
+              <ByzCross size={17} color="var(--ivory)" />
+              <span class="cr-send-label">Send report</span>
             </button>
             <span class="cr-note"
-              >Opens in a new tab. Nothing is posted until you confirm on
-              GitHub.</span
+              >Your report is filed for us automatically — no GitHub account
+              needed.</span
             >
           </div>
+
+          {/* submission-level error (network / server) */}
+          <div class="cr-formerr" id="cr-formerr" role="alert" hidden></div>
         </form>
 
         <p class="cr-alt" id="cr-alt">
-          No GitHub account? You can also email corrections to{" "}
+          Prefer email? You can also send corrections to{" "}
           <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
         </p>
 
@@ -207,18 +262,18 @@ const CONTACT = "shelby.e.krug@gmail.com";
           <div class="eyebrow">Thank You</div>
           <h2>Your correction is on its way</h2>
           <p>
-            We’ve opened a pre-filled issue on GitHub in a new tab. Give it a
-            glance and press <strong>Submit new issue</strong> to send it. Every report
-            is reviewed by hand &mdash; thank you for helping keep the record true.
+            We’ve filed your report and it’s now in our queue. Every report is
+            reviewed by hand &mdash; thank you for helping keep the record true.
           </p>
           <div class="rule"><span class="dot"></span></div>
           <div class="cr-thanks-actions">
             <a
-              class="btn btn--gold cr-reopen"
-              id="cr-reopen"
+              class="btn btn--gold cr-issue-link"
+              id="cr-issue-link"
               href="#"
+              hidden
               target="_blank"
-              rel="noopener noreferrer">Reopen the issue</a
+              rel="noopener noreferrer">View the issue</a
             >
             <button type="button" class="btn btn--ghost" id="cr-again"
               >Submit another</button
@@ -228,6 +283,15 @@ const CONTACT = "shelby.e.krug@gmail.com";
       </div>
     </section>
   </div>
+
+  {
+    /* Cloudflare Turnstile loader (third-party; kept inline so Astro won't bundle it) */
+  }
+  <script
+    is:inline
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer></script>
 
   <script>
     import "../islands/corrections.client.ts";
@@ -364,6 +428,21 @@ const CONTACT = "shelby.e.krug@gmail.com";
     resize: vertical;
     line-height: 1.5;
   }
+
+  /* honeypot: visually + assistively hidden, but not display:none (some bots
+     skip display:none fields). Real users never see or tab to it. */
+  .cr-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .cr-turnstile-fld {
+    min-height: 65px;
+  }
+
   .cr-actions {
     display: flex;
     align-items: center;
@@ -379,9 +458,22 @@ const CONTACT = "shelby.e.krug@gmail.com";
     font-size: 16px;
     padding: 14px 26px;
   }
+  .cr-send[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
   .cr-note {
     font-size: 13.5px;
     color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .cr-formerr {
+    font-size: 14px;
+    color: #8d3a2f;
+    background: rgba(141, 58, 47, 0.07);
+    border: 1px solid rgba(141, 58, 47, 0.25);
+    border-radius: 6px;
+    padding: 12px 14px;
     line-height: 1.45;
   }
   .cr-alt {
@@ -439,7 +531,7 @@ const CONTACT = "shelby.e.krug@gmail.com";
     justify-content: center;
     flex-wrap: wrap;
   }
-  .cr-reopen {
+  .cr-issue-link {
     display: inline-flex;
     align-items: center;
     gap: 9px;

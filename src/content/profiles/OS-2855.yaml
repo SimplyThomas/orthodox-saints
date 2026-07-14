@@ -1,0 +1,33 @@
+id: OS-2855
+lifespan: Late 16th–early 17th century
+overview:
+  - Venerable Gury Shalochsky was a monastic of the Novgorod North who, by tradition, co-founded the Sinozero (Blue Jay Lake) hermitage together with Venerable Euphrosynus of Sinozero.
+  - He is named only in passing in the biography of Euphrosynus, and his individual life, feast day, and any act of glorification are not documented in accessible sources. He is remembered essentially as the co-labourer of Euphrosynus in establishing the hermitage.
+liturgicalTitle: Our Venerable Father Gury Shalochsky
+patronage:
+  - Monastics
+  - Sinozero hermitage
+sections:
+  - heading: The Sinozero Hermitage
+    body:
+      - According to tradition, Gury Shalochsky joined Venerable Euphrosynus of Sinozero in founding a hermitage in the wild forest of the Novgorod North. The hermitage stood on the eastern shore of Sinychi (Sinozero, "Blue Jay") Lake, near the Chagodoshcha River, more than fifteen versts from the village of Dolosskaya in the Ustyuzhna district of the Novgorod region.
+      - The foundation is attested by the royal charter of Tsar Mikhail Feodorovich, dated February 22 / March 3, 1636, which records that the monks "settled in that hermitage at Sinychi Lake, on our empty land, in wild forest, on the Chagodoshcha River." The charter places the founding in the year 7100 by the old reckoning, corresponding to 1591/1592 in modern dating; the anchor tradition remembers Gury as an early-17th-century figure, and the hermitage later grew as disciples gathered around Euphrosynus.
+  - heading: Sources & Attestation
+    body:
+      - Gury Shalochsky has no dedicated biography. He is mentioned only within the account of Euphrosynus of Sinozero, where tradition names him as co-founder (alongside a further tradition mentioning Philaret of Unzha). No individual feast day, glorification act, or further biographical detail is recorded in accessible English- or Russian-language Orthodox sources.
+      - "This is an honest thin-source entry: a genuinely obscure co-founder whose personal history is not preserved. The details here require clergy and source review before any authoritative use."
+timeline:
+  - when: 1591/1592 (year 7100, old reckoning)
+    title: Founding of the Sinozero hermitage
+    body: By tradition, Gury Shalochsky and Euphrosynus of Sinozero establish a hermitage on the eastern shore of Sinychi Lake near the Chagodoshcha River, as later attested by a 1636 royal charter.
+  - when: February 22 / March 3, 1636
+    title: Royal charter of Tsar Mikhail Feodorovich
+    body: The charter of Tsar Mikhail Feodorovich records the settlement at Sinychi Lake and dates its founding, providing the principal documentary attestation of the hermitage's origin.
+sources:
+  - OrthodoxWiki
+  - encountered on the St. Euphrosynus of Sinozero profile (OS-0852)
+  - https://ru.wikipedia.org/wiki/%D0%95%D0%B2%D1%84%D1%80%D0%BE%D1%81%D0%B8%D0%BD_%D0%A1%D0%B8%D0%BD%D0%BE%D0%B7%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9
+  - file:src/content/profiles/OS-0852.yaml
+  - https://orthodoxwiki.org/index.php?title=Special:Search&search=Gury+Shalochsky
+status: flagged
+generated: "2026-07-04"

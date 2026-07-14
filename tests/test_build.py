@@ -4,7 +4,9 @@ Run from the repo root:  python -m unittest discover -s tests
 (or `make test` / `make docker-test`).
 """
 
+import json
 import os
+import shutil
 import sys
 import tempfile
 import unittest
@@ -14,6 +16,14 @@ from unittest import mock
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import build  # noqa: E402
+
+# openpyxl is optional locally (only the xlsx export needs it); guard any test
+# that touches emit_xlsx so the suite runs on plain host Python.
+try:
+    import openpyxl  # noqa: F401
+    HAS_OPENPYXL = True
+except ImportError:
+    HAS_OPENPYXL = False
 
 
 # Minimal vocabulary covering the terms used by the synthetic rows below.
@@ -47,6 +57,25 @@ def valid_row(**overrides):
 def errors_for(rows, vocab=None, header=None):
     errs, _warns = build.validate(header or build.HEADER, rows, vocab or TEST_VOCAB)
     return errs
+
+
+class CrlfTests(unittest.TestCase):
+    def test_crlf_file_is_clean(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\r\nOS-0001,Test\r\n")
+        self.assertEqual(build.crlf_errors(Path(f.name)), [])
+        os.unlink(f.name)
+
+    def test_lf_file_is_an_error(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\nOS-0001,Test\n")
+        errs = build.crlf_errors(Path(f.name))
+        self.assertTrue(any("CRLF" in e for e in errs), errs)
+        os.unlink(f.name)
+
+    def test_committed_csvs_are_crlf(self):
+        for p in sorted(build.DATA.glob("*.csv")):
+            self.assertEqual(build.crlf_errors(p), [], p.name)
 
 
 class FeastParsingTests(unittest.TestCase):
@@ -97,15 +126,25 @@ class IdAssignmentTests(unittest.TestCase):
         rows = [valid_row(**{"Saint ID": "OS-0005"}),
                 valid_row(**{"Saint ID": "", "Name": "New A"}),
                 valid_row(**{"Saint ID": "", "Name": "New B"})]
-        changed = build.assign_ids(rows)
+        changed, high = build.assign_ids(rows)
         self.assertTrue(changed)
+        self.assertEqual(high, 7)
         self.assertEqual(rows[1]["Saint ID"], "OS-0006")
         self.assertEqual(rows[2]["Saint ID"], "OS-0007")
 
     def test_assign_noop_when_no_blanks(self):
         rows = [valid_row(**{"Saint ID": "OS-0005"})]
-        self.assertFalse(build.assign_ids(rows))
+        self.assertFalse(build.assign_ids(rows)[0])
         self.assertEqual(rows[0]["Saint ID"], "OS-0005")
+
+    def test_assign_shares_a_seed_across_files(self):
+        # Groups draw from the SAME counter as saints (§6): seeding above the
+        # saint max keeps the two id spaces from ever colliding.
+        grows = [{"saint_id": ""}, {"saint_id": ""}]
+        changed, high = build.assign_ids(grows, "saint_id", seed=42)
+        self.assertTrue(changed)
+        self.assertEqual([r["saint_id"] for r in grows], ["OS-0043", "OS-0044"])
+        self.assertEqual(high, 44)
 
 
 class ValidationTests(unittest.TestCase):
@@ -407,6 +446,56 @@ class SaintImageTests(unittest.TestCase):
     def test_to_record_no_image_key_when_absent(self):
         rec = build.to_record(valid_row(), vendors=[], name_variants={}, images={})
         self.assertNotIn("image", rec)
+
+    def test_image_thumb_paths(self):
+        """image_thumb: icons/<rel> -> icons/thumbs/<rel>.jpg when the thumb
+        file exists; None for missing thumbs, absolute URLs, non-icons paths."""
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons" / "thumbs" / "permission" / "v").mkdir(parents=True)
+        (tmp / "icons" / "thumbs" / "a.jpg").write_bytes(b"\xff\xd8")
+        (tmp / "icons" / "thumbs" / "anim.jpg").write_bytes(b"\xff\xd8")
+        (tmp / "icons" / "thumbs" / "permission" / "v" / "x.jpg").write_bytes(
+            b"\xff\xd8")
+        old_static = build.STATIC
+        try:
+            build.STATIC = tmp
+            self.assertEqual(build.image_thumb("icons/a.jpg"),
+                             "icons/thumbs/a.jpg")
+            # extension is normalized to .jpg (e.g. a .gif original)
+            self.assertEqual(build.image_thumb("icons/anim.gif"),
+                             "icons/thumbs/anim.jpg")
+            self.assertEqual(build.image_thumb("icons/permission/v/x.jpg"),
+                             "icons/thumbs/permission/v/x.jpg")
+            self.assertIsNone(build.image_thumb("icons/missing.jpg"))
+            self.assertIsNone(build.image_thumb("https://example.com/a.jpg"))
+            self.assertIsNone(build.image_thumb("other/a.jpg"))
+        finally:
+            build.STATIC = old_static
+
+    def test_to_record_joins_image_thumb_when_present(self):
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "icons" / "thumbs").mkdir(parents=True)
+        (tmp / "icons" / "thumbs" / "test.jpg").write_bytes(b"\xff\xd8")
+        images = {"OS-0001": {"path": "icons/test.jpg", "license": "PD",
+                              "credit": "", "source": "https://ex"}}
+        old_static = build.STATIC
+        try:
+            build.STATIC = tmp
+            rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                                  images=images)
+            self.assertEqual(rec["imageThumb"], "icons/thumbs/test.jpg")
+            (tmp / "icons" / "thumbs" / "test.jpg").unlink()
+            rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                                  images=images)
+            self.assertNotIn("imageThumb", rec)
+        finally:
+            build.STATIC = old_static
 
     def _run_image_validation(self, rows_csv, files, permissions=None):
         """Validate a synthetic saint_images.csv against a temp static/ dir.
@@ -928,14 +1017,15 @@ class GroupTaxonomyTests(unittest.TestCase):
 
     def test_to_record_joins_groups_and_haystack(self):
         sg = {"OS-0001": ["the-twelve"]}
-        gbs = {"the-twelve": {"slug": "the-twelve", "name": "The Twelve Apostles",
+        gbs = {"the-twelve": {"slug": "the-twelve", "saint_id": "OS-2900",
+                              "name": "The Twelve Apostles",
                               "type": "synaxis", "sort": 1}}
         rec = build.to_record(valid_row(), vendors=[], name_variants={},
                               images={}, quotes={}, saint_groups=sg,
                               groups_by_slug=gbs)
         self.assertEqual(rec["groups"],
-                         [{"slug": "the-twelve", "name": "The Twelve Apostles",
-                           "type": "synaxis"}])
+                         [{"slug": "the-twelve", "id": "OS-2900",
+                           "name": "The Twelve Apostles", "type": "synaxis"}])
         self.assertIn("The Twelve Apostles", rec["search"])
 
     def test_to_record_no_groups_key_when_absent(self):
@@ -1077,6 +1167,163 @@ class RetiredIdsTests(unittest.TestCase):
         errs, _ = build.validate_retired_ids(valid_ids)
         self.assertEqual(errs, [], "committed retired_ids.csv has errors:\n" +
                          "\n".join(errs))
+
+
+class BuildDbTests(unittest.TestCase):
+    """build_db(): schema (26 CSV columns + the two derived) and the derived
+    months / feast_sort values."""
+
+    def test_schema_is_header_plus_derived_columns(self):
+        conn = build.build_db(build.HEADER, [valid_row()], TEST_VOCAB)
+        try:
+            cols = [r[1] for r in conn.execute("PRAGMA table_info(saints)")]
+            self.assertEqual(cols, build.HEADER + ["months", "feast_sort"])
+        finally:
+            conn.close()
+
+    def test_derived_months_and_feast_sort(self):
+        rows = [valid_row(**{"Feast Day(s)": "Sep 4; Dec 10"})]
+        conn = build.build_db(build.HEADER, rows, TEST_VOCAB)
+        try:
+            months, fs = conn.execute(
+                "SELECT months, feast_sort FROM saints").fetchone()
+            self.assertEqual(months, "Sep; Dec")
+            # feast_sort is the MIN across dates (Sep 4 -> 904), stored as text.
+            self.assertEqual(fs, str(build.feast_sort("Sep 4; Dec 10")))
+            self.assertEqual(fs, "904")
+        finally:
+            conn.close()
+
+    def test_movable_feast_sorts_last(self):
+        rows = [valid_row(**{"Feast Day(s)": "3rd Sunday of Pascha"})]
+        conn = build.build_db(build.HEADER, rows, TEST_VOCAB)
+        try:
+            months, fs = conn.execute(
+                "SELECT months, feast_sort FROM saints").fetchone()
+            self.assertEqual(months, "")
+            self.assertEqual(fs, str(build.MOVABLE_SORT))
+        finally:
+            conn.close()
+
+    def test_vocabulary_table_holds_all_terms(self):
+        conn = build.build_db(build.HEADER, [valid_row()], TEST_VOCAB)
+        try:
+            cats = {c for (c,) in
+                    conn.execute("SELECT DISTINCT category FROM vocabulary")}
+            self.assertEqual(cats, set(TEST_VOCAB))
+            terms = [t for (t,) in conn.execute(
+                "SELECT term FROM vocabulary WHERE category='Gender' "
+                "ORDER BY term")]
+            self.assertEqual(terms, ["Female", "Male"])
+        finally:
+            conn.close()
+
+
+class EmitJsonTests(unittest.TestCase):
+    """Direct tests for the JSON emitters (previously covered only via the
+    integration path). PUBLIC is redirected to a temp dir created UNDER the
+    repo root, because emit_themes_json prints a ROOT-relative path."""
+
+    # High synthetic IDs so no committed join file (images/quotes/groups)
+    # accidentally attaches data to these rows.
+    SID_A = "OS-9901"
+    SID_B = "OS-9902"
+
+    def setUp(self):
+        self._old_public = build.PUBLIC
+        self._tmp = Path(tempfile.mkdtemp(dir=build.ROOT, prefix="test-public-"))
+        build.PUBLIC = self._tmp
+
+    def tearDown(self):
+        build.PUBLIC = self._old_public
+        shutil.rmtree(self._tmp, ignore_errors=True)
+
+    @staticmethod
+    def _saints(records):
+        """The saint records only — emit_data_json also appends one record per
+        committed group (profile_type=="group")."""
+        return [r for r in records if r.get("profile_type") != "group"]
+
+    def _rows(self):
+        return [
+            valid_row(**{"Saint ID": self.SID_B, "Name": "December Saint",
+                         "Feast Day(s)": "Dec 10"}),
+            valid_row(**{"Saint ID": self.SID_A, "Name": "January Saint",
+                         "Feast Day(s)": "Jan 1"}),
+        ]
+
+    def test_emit_data_json_writes_well_formed_json(self):
+        records = build.emit_data_json(self._rows())
+        with open(self._tmp / "data.json", encoding="utf-8") as f:
+            on_disk = json.load(f)
+        self.assertEqual(on_disk, records)
+        self.assertEqual(len(self._saints(on_disk)), 2)
+
+    def test_emit_data_json_records_carry_expected_keys(self):
+        rec = build.emit_data_json(self._rows())[0]
+        for key in ("id", "name", "gender", "rank", "era", "century", "feast",
+                    "prayer", "sources", "months", "feastSort", "hymn", "icon",
+                    "video", "works", "about", "vendors", "search", "themes"):
+            self.assertIn(key, rec)
+        self.assertIsInstance(rec["rank"], list)   # multi-value -> array
+        self.assertIsInstance(rec["era"], str)     # single-value -> string
+
+    def test_emit_data_json_sorted_by_feast_sort(self):
+        records = build.emit_data_json(self._rows())
+        self.assertEqual([r["name"] for r in self._saints(records)],
+                         ["January Saint", "December Saint"])
+        self.assertEqual([r["feastSort"] for r in records],
+                         sorted(r["feastSort"] for r in records))
+
+    def test_emit_groups_json_matches_committed_catalog(self):
+        catalog = build.emit_groups_json()
+        with open(self._tmp / "groups.json", encoding="utf-8") as f:
+            on_disk = json.load(f)
+        self.assertEqual(on_disk, catalog)
+        # One entry per committed group, each with its definition + members.
+        self.assertEqual(len(catalog), len(build.load_groups()))
+        for g in catalog:
+            for key in ("slug", "name", "type", "description", "feast",
+                        "sort", "members"):
+                self.assertIn(key, g)
+            self.assertIsInstance(g["members"], list)
+
+    def test_emit_themes_json_counts_records(self):
+        slug = build.themes_mod.THEMES[0]["slug"]
+        build.emit_themes_json([{"themes": [slug]}, {"themes": []}])
+        with open(self._tmp / "themes.json", encoding="utf-8") as f:
+            payload = json.load(f)
+        catalog = payload["themes"]
+        self.assertEqual(len(catalog), len(build.themes_mod.THEMES))
+        by_slug = {c["slug"]: c for c in catalog}
+        self.assertEqual(by_slug[slug]["count"], 1)
+        for c in catalog:
+            for key in ("slug", "group", "label", "desc", "count"):
+                self.assertIn(key, c)
+        # Aliases ride along in the same payload (one source of theme knowledge).
+        self.assertEqual(payload["aliases"], build.themes_mod.ALIASES)
+
+
+class EmitXlsxTests(unittest.TestCase):
+    @unittest.skipUnless(HAS_OPENPYXL, "openpyxl not installed")
+    def test_emit_xlsx_writes_expected_sheets(self):
+        old_dist = build.DIST
+        tmp = Path(tempfile.mkdtemp(dir=build.ROOT, prefix="test-dist-"))
+        try:
+            build.DIST = tmp
+            build.emit_xlsx(build.HEADER, [valid_row()], TEST_VOCAB)
+            out = tmp / "Orthodox_Saints_Database.xlsx"
+            self.assertTrue(out.is_file())
+            wb = openpyxl.load_workbook(out)
+            self.assertIn("Saints Database", wb.sheetnames)
+            self.assertIn("Controlled Vocabulary", wb.sheetnames)
+            self.assertIn("Read Me", wb.sheetnames)
+            ws = wb["Saints Database"]
+            self.assertEqual([c.value for c in ws[1]], build.HEADER)
+            self.assertEqual(ws.max_row, 2)  # header + the one saint
+        finally:
+            build.DIST = old_dist
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":

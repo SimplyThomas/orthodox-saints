@@ -1,0 +1,40 @@
+id: OS-2805
+lifespan: Fourth–fifth century
+liturgicalTitle: Our Venerable Father Isaac, Priest of the Cells
+overview:
+  - Isaac of the Cells was an Egyptian monk of the fourth and fifth centuries, numbered among the Desert Fathers of the Nitrian desert in Lower Egypt.
+  - He was the foremost disciple of the elder Cronius of Nitria, whom he succeeded around 395 as priest and elder of the semi-anchoritic monastic settlement known as the Cells (Kellia).
+  - Sayings attributed to him were preserved in the alphabetical collection of the Apophthegmata Patrum (the Sayings of the Desert Fathers), which lists him among its named elders.
+sections:
+  - heading: Historical Context
+    body:
+      - Isaac belonged to the monastic world of the Nitrian desert, one of the earliest centers of Christian monasticism in Egypt, situated roughly fifty kilometers south of Alexandria. The settlement at Nitria was founded around 325–330 by Amoun of Nitria, and by the late fourth century it had grown into a large monastic population; the visitor Jerome reported thousands of monks there in 386.
+      - Cronius of Nitria, Isaac's elder, had earlier served as a Greek interpreter for Anthony the Great before becoming an anchorite and priest at Nitria. Through this lineage Isaac stood within the broader tradition of Egyptian desert monasticism traced back to Anthony.
+  - heading: The Cells
+    body:
+      - The Cells (Greek Kellia, Arabic al-Muna) was a semi-anchoritic settlement established around 338 by Saint Amun for monks who sought greater isolation than communal Nitria afforded. Tradition holds that Anthony the Great and Amun chose the site together, marking it far enough from Nitria to be reached in an after-dinner walk.
+      - The community's cells were spaced so that, in the words preserved of the settlement, no monk could see another or hear a voice; the monks lived apart during the week and gathered on Saturdays and Sundays for communal worship and a shared meal, some traveling several kilometers to reach the church. In the 390s—the period when Isaac succeeded Cronius—the settlement housed roughly six hundred monks, later growing to thousands. The site was rediscovered and excavated by the archaeologist Antoine Guillaumont from 1964, revealing over 1,500 mud-brick structures spread across a wide area.
+  - heading: Disciple and Successor of Cronius
+    body:
+      - Isaac is remembered chiefly as the disciple of Cronius of Nitria and as the elder who succeeded him in the leadership of the Cells around 395. Later sources naming the elders of Nitria list Isaac of the Cells explicitly among the disciples of Cronius, and he in turn served as priest of the community.
+timeline:
+  - when: c. 338
+    title: Founding of the Cells
+    body: The semi-anchoritic settlement of Kellia is established near Nitria for monks seeking greater solitude.
+  - when: c. 386
+    title: Repose of Cronius
+    body: Cronius of Nitria, Isaac's elder and a former interpreter of Anthony the Great, dies.
+  - when: c. 395
+    title: Isaac succeeds as elder
+    body: Isaac succeeds Cronius as priest and elder of the Cells.
+sources:
+  - OCA Synaxarion (oca.org)
+  - The Lausiac History of Palladius
+  - https://en.wikipedia.org/wiki/Isaac_of_the_Cells
+  - https://en.wikipedia.org/wiki/Nitria_(monastic_site)
+  - https://en.wikipedia.org/wiki/Kellia
+  - https://en.wikipedia.org/wiki/Apophthegmata_Patrum
+  - https://en.wikipedia.org/wiki/Cronius_of_Nitria
+  - https://en.wikipedia.org/wiki/Theophilus_I_of_Alexandria
+status: flagged
+generated: "2026-07-03"

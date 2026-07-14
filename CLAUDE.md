@@ -42,7 +42,6 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ```
 .
 ├── CLAUDE.md                  ← this file
-├── bootstrap.md               ← one-time scaffolding plan (already executed once)
 ├── README.md
 ├── requirements.txt
 ├── Makefile                   ← convenience targets (build, validate, serve, xlsx)
@@ -56,8 +55,11 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
-│   └── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
+│   ├── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
+│   └── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
+├── feastlib.py                ← the Feasts & Fasts pipeline (load/assign FF ids/validate/emit), orchestrated by build.py
+├── pascha.py                  ← Orthodox Pascha computus (Meeus Julian algorithm, 1900–2099)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
@@ -69,7 +71,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
 │   ├── content/profiles/      ← per-saint YAML rich profiles (OS-####.yaml) — a data Content Collection
-│   ├── content.config.ts      ← the `profiles` collection + its Zod schema (validated at build)
+│   ├── content/feasts/        ← per-feast YAML rich profiles (FF-####.yaml) — the `feasts` collection (§5a)
+│   ├── content.config.ts      ← the `profiles` + `feasts` collections + their Zod schemas (validated at build)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
@@ -97,10 +100,11 @@ Everything in `public/` and `dist/` is generated and **must not be committed**.
 
 ```
 data/saints.csv ──┐
-                  ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
+data/feasts.csv ──┼─► build.py (+feastlib) ─► (in-memory SQLite) ─► validate ─► EMIT:
 data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
+                                                           ├─ public/feasts.json (feasts + Pascha table 2020–2040)
                                                            ├─ public/saints.sqlite (optional artifact)
-                                                           └─ dist/Orthodox_Saints_Database.xlsx
+                                                           └─ dist/Orthodox_Saints_Database.xlsx (+ Feasts & Fasts sheet)
 src/ (Astro SSG)   ── imports public/data.json at BUILD TIME ──► _site/ (static HTML per page + per saint)
 GitHub Actions     ── python build.py → astro build → deploy _site/ ──► GitHub Pages
 ```
@@ -132,6 +136,9 @@ Use the Makefile targets (or the underlying python directly):
   **lack a real icon** by a data-derived priority score, so each icon batch (§5 "Saint
   portraits") is self-directing — run it and paste the top N into the batch prompt instead
   of hand-picking. Local authoring aid only; writes no files and is not a CI gate.
+- `make feast-batch N=10` / `make feast-run` / `make feast-status` / `make feast-stop`
+  → the feastgen pipeline (§5a): rank profile-less feasts / run the resumable bulk
+  generator / inspect / stop. Same auth + limit handling as profilegen.
 
 **Frontend (Astro; needs Node 24+).** Run `make web-install` (`npm ci`) once, then:
 - `make serve` / `make web-dev` → `python build.py --no-xlsx && npm run dev` : the live Astro dev server.
@@ -166,6 +173,10 @@ Icon-download scripts load these via `python-dotenv` (`pip install python-dotenv
 ---
 
 ## 5. Data model — the 26 columns
+
+> A condensed human-facing version of §5–§7 lives in `docs/data-model.md` (and the
+> no-AI maintenance runbook in `docs/maintenance.md`). **When you change this section
+> or §5a, update docs/data-model.md in the same PR.**
 
 `data/saints.csv` header (exact, in order). Multi-value cells use `"; "` (semicolon-space).
 
@@ -222,6 +233,7 @@ instead, add one row to `data/saint_images.csv`
 - The `image` then surfaces in cards, the finder, the quiz, and the saint detail page;
   no other field changes. Source images need clergy/licence review before launch (§9).
 - **After downloading any new icon(s), resize at JPEG quality 80** — scale width to ≤ 800 px, then top-crop height to ≤ 800 px (preserves the face). The `make download-icons` pipeline does this automatically; for manually-sourced files use `save_resized()` in `scripts/download_saint_icons.py`. (`.gif` files must be converted to `.jpg` manually before resizing.)
+- **Every portrait also gets a ~200 px avatar thumb** at `static/icons/thumbs/<same rel path>.jpg` — the finder/quiz/card avatars load it (~10 KB) instead of the ~100 KB original; the detail-page hero keeps the original. The download pipeline emits thumbs on ingest; after adding icons manually run `python scripts/make_icon_thumbs.py` (needs Pillow). `build.py` emits `imageThumb` only when the thumb file exists and `make validate` warns on portraits missing one, so a forgotten thumb degrades gracefully, never 404s.
 
 **Saint quotes (the detail-page quote block).** To show a saint's own words on their
 detail page, add one row to `data/saint_quotes.csv`
@@ -258,20 +270,29 @@ rendered in file order:
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a
 **first-class, filterable dimension** of the finder:
-- `data/groups.csv` (`slug,name,type,description,feast,sort`) — one row per group. `slug` is a
-  permanent kebab-case key (the `/group/<slug>` URL + join key). `type` is an enumerated set —
-  **`synaxis`** (a collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs),
-  **`feast-companions`** (distinct individually-venerated saints sharing a principal feast:
-  Peter & Paul, the Three Hierarchs — the §7 split boundary), or **`household`** (a family /
-  kinship unit). `feast` (optional) is a shared feast day; `sort` orders groups.
+- `data/groups.csv` (`slug,saint_id,name,type,description,feast,sort`) — one row per group.
+  `slug` is a permanent kebab-case join key. **`saint_id` is the group's own OS-#### — a group
+  IS a saint-profile** (`profile_type:"group"`), served at `/saint/<saint_id>` with the
+  dedicated **`GroupSaintProfile`** layout. Leave it blank on a new row; the build assigns the
+  next id from the **same OS-#### counter as saints** (§6 — never colliding, never reused), and
+  writes it back (groups.csv is LF, not CRLF). `type` is an enumerated set — **`synaxis`** (a
+  collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs), **`feast-companions`**
+  (distinct individually-venerated saints sharing a principal feast: Peter & Paul, the Three
+  Hierarchs — the §7 split boundary), or **`household`** (a family / kinship unit). `feast`
+  (optional) is a shared feast day; `sort` orders groups.
 - `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
   may reference an **individual OR a still-collective** row, so the taxonomy ships independently
-  of the split backlog. `role`/`order` are optional.
+  of the split backlog; it may also be **blank for a name-only member** (put the name in `role`)
+  — that member is listed without a link. `role`/`order` are optional.
 - The build **fails loud** on a bad `type`, a dangling `group_slug`/`saint_id`, a duplicate slug,
-  or a duplicate membership. Each saint gains `groups` (+ `groupNames` for the facet) in the
-  record; the whole catalog is emitted to `public/groups.json` for the pre-rendered
-  `/group/<slug>` pages. Saint pages show a "Commemorated With" link per group; the finder gains
-  a **Group** facet.
+  a duplicate membership, or a group `saint_id` that collides with a saint/retired id. Each saint
+  gains `groups` (+ `groupNames` for the facet) in the record and a small **"Member of"** section
+  linking to each group's `/saint/<id>` profile; the group's own record carries
+  `profile_type:"group"` + its `members[]` and renders the **"Members of this Group"** list.
+  Group records flow into `public/data.json`, so they appear in the finder, calendar, search, and
+  sitemap — **but are excluded from the patron quiz** (not intercessors). `public/groups.json`
+  drives the redirect of the retired **`/group/<slug>` URLs → `/saint/<saint_id>`** (astro.config).
+  The finder gains a **Group** facet.
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
@@ -283,6 +304,119 @@ quote joins) re-link the members of a collective commemoration and make group me
 - To add a genuinely missing term, add it to `data/vocabulary.csv` **first** (§12.2).
 
 ---
+
+## 5a. The Feasts & Fasts database (`data/feasts.csv`, `FF-####`)
+
+A second structured database, sibling to the saints table, covering the liturgical
+**feasts, fasts, and observances** of the year — so the calendar can overlay them and
+each entry can carry the **history and meaning** of the celebration. Design spec:
+`docs/superpowers/specs/2026-07-05-feasts-fasts-database-design.md`. Owned by
+**`feastlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
+covers it). Emits `public/feasts.json` (records + a resolved Pascha table
+2020–2040 from `pascha.py`) and a "Feasts & Fasts" xlsx sheet.
+
+**19 columns:** Feast ID · Name · Also Known As · Category · Dedication · Begins ·
+Ends · Forefeast · Apodosis · Fasting Discipline · Fasting Notes · Brief ·
+Customs & Traditions · Tradition of Observance · Related Saints · Related Feasts ·
+Icon · Notes · Sources. Multi-value cells use `"; "`; the file is CRLF like the
+other CSVs.
+
+- **`FF-####` ids follow the exact OS-#### rules (§6):** opaque, permanent, never
+  reused/renumbered; add rows with a **blank** id and the build assigns + writes back.
+- **The date-token grammar** — every date cell (`Begins`/`Ends`/`Forefeast`/`Apodosis`)
+  holds exactly ONE token in one of three forms, complete for the Orthodox calendar:
+  - **`Mon D`** — fixed date: `Dec 25`
+  - **`P+n` / `P-n`** — Pascha-relative offset in days (Pascha = `P+0`, Palm Sunday
+    `P-7`, Clean Monday `P-48`, Pentecost `P+49`); valid range **−78…+63**
+  - **`Dow before|after Mon D`** — weekday-anchored: `Sun before Dec 25` (the nearest
+    such weekday strictly within the 7 days before/after the anchor)
+  A span sets Begins + Ends; the two token kinds may mix in one row (the Apostles'
+  Fast begins `P+57` and ends `Jun 28`). The **cycle (fixed/paschal/hybrid) is
+  derived, never authored.** `feasts.json` emits tokens structurally
+  (`{type:"paschal",offset:49}`; `dow` uses the JS getDay convention, 0=Sun) — the
+  frontend never re-parses strings. Dates follow the **New (Revised Julian) calendar**
+  convention, like the saints data.
+- **Controlled vocab** (in `data/vocabulary.csv`): `Feast Category` (Feast of Feasts ·
+  Great Feast · Feast · Fast Season · Fast Day · Fast-Free Week · Observance),
+  `Dedication` (Lord · Theotokos · Cross · Forerunner · Apostles · Angels · Saints ·
+  Departed), `Fasting Discipline` (Strict Fast · Wine & Oil · Fish Allowed · Dairy
+  Allowed · Fast-Free · Varies). **Tradition of Observance reuses the Tradition of
+  Veneration terms** (blank = pan-Orthodox).
+- **Cross-refs are validated:** Related Saints ids must exist in `data/saints.csv`
+  (verify the row's Name before citing an id!); Related Feasts ids must exist in
+  feasts.csv and not self-reference.
+- **Scope rules:** a saint's own feast day belongs in the saints table, NOT here —
+  this table carries event-feasts of the Lord/Theotokos/Cross, **angelic feasts**
+  (which §7 excludes from saints.csv), fasts, fast-free weeks, and calendar
+  observances (named Sundays/Saturdays, synaxes tied to Great Feasts). The weekly
+  Wed/Fri fast is a rule, not an event — no row. **Fasting stays season-summary,
+  descriptive not prescriptive** (the frontend adds a "consult your priest"
+  disclaimer); forefeast/afterfeast periods are columns on the feast's row, not rows.
+- **Rich prose** lives in `src/content/feasts/FF-####.yaml` (the `feasts` collection
+  in `content.config.ts`): `overview` + first-class **`history`** and **`meaning`**
+  paragraph arrays, plus optional timeline/scripture/iconography/hymnography/
+  fastingPractice/customs/sections/related. Same `status: draft|reviewed|flagged`
+  production gate as saint profiles; §9 guardrails carry over (hymnography is
+  DESCRIBED, never quoted from copyrighted translations).
+- **feastgen (`tools/feastgen/`)** mirrors profilegen: gather → write → verify →
+  emit, anchored on the feast's CSV row; phantom flags demoted, not dropped; drafts
+  never auto-publish. `make feast-run` is the resumable bulk runner (state under
+  `dist/feastgen/`), `make feast-batch` previews the next batch. Like profilegen,
+  the runner defaults to the per-stage Workflow (`scripts/feastgen.workflow.js`:
+  Gather=Sonnet, Write=Opus, Verify=Sonnet, Emit=Haiku — ~2.3× cheaper on the
+  weekly limit); `FEASTGEN_USE_WORKFLOW=0` falls back to the all-Opus single-agent
+  path.
+
+## 5b. The Heavenly Hosts database (`data/heavenly_hosts.csv`, `HH-####`)
+
+A **third** structured database, sibling to Saints (`OS-####`) and Feasts & Fasts
+(`FF-####`), cataloguing the **bodiless powers** — the nine angelic ranks, the
+named archangels, and (later) the individual angels of Scripture/Tradition and a
+marked set of the fallen. Angels are deliberately excluded from `data/saints.csv`
+(§7); this is where the beings themselves are first-class records. Owned by
+**`hostlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
+covers it), which mirrors `feastlib.py`. Design spec:
+`docs/superpowers/specs/2026-07-07-heavenly-hosts-database-design.md`.
+
+- **`data/heavenly_hosts.csv` (19 cols):** Host ID · Name · Also Known As ·
+  Entity Type · Celestial Order · Canonical Status · Primary Source · Scripture
+  References · Deuterocanonical Sources · Extra-Biblical Sources · Feast Day(s) ·
+  Related Feasts · Related Saints · Related Beings · Brief · Tags · Icon · Notes ·
+  Sources. `HH-####` ids follow the **exact `OS-####` rules** (§6: opaque,
+  permanent, never reused; add a **blank** id and the build assigns + writes back).
+  CRLF, `"; "` multi-sep.
+- **Controlled vocab** (in `data/vocabulary.csv`): **Entity Type** (`Angelic Rank`
+  · `Named Angel` · `Scriptural Angel` · `Angelic Class` · `Collective` · `Fallen`),
+  **Celestial Order** (the nine ranks; **Triad is derived, never authored**),
+  **Canonical Status** (`Scriptural` · `Deuterocanonical` · `Traditional` ·
+  `Apocryphal` · `Symbolic`), **Host Source Type** (the 8-register source
+  taxonomy — the source-fidelity commitment: Holy Scripture / Deuterocanonical /
+  Holy Tradition / Liturgical Tradition / Patristic / Second Temple / Early
+  Christian / Later Tradition, never blurred).
+- **Cross-refs validated:** Related Saints → `saints.csv`, Related Feasts →
+  `feasts.csv`, Related Beings → `heavenly_hosts.csv` (no self-ref). Feast Day(s)
+  parse as fixed `Mon D` tokens.
+- **Rich prose** lives in `src/content/hosts/HH-####.yaml` (the `hosts` collection
+  in `content.config.ts`): `overview` + `historicalContext` /
+  `orthodoxInterpretation` / `liturgicalTradition` / `iconography` /
+  `historicalInfluence` / `salvationHistory` (sections) / `scripture` / `sections`
+  / `related` / `reading`. Same `status: draft|reviewed|flagged` production gate as
+  saint/feast profiles; §9 guardrails carry over (source registers preserved, no
+  fabrication, hymnography described not reproduced).
+- **Images:** `data/host_images.csv` (one hero portrait per host) and
+  `data/host_depictions.csv` (MANY carousel cards per host) reuse the **saints'
+  licensing gate verbatim** (§9): an open license (`PD`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
+  CC-BY* needs a credit) **or** a `Permission:<vendor>` token against
+  `data/image_permissions.csv`. Files self-hosted under `static/icons/hosts/` (open)
+  or `static/icons/permission/<vendor>/` (permission). No pip/Pillow in some
+  environments — resize with **node + sharp**.
+- Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and frontend routes
+  **`/nine-orders`** (the Nine Orders overview: ranks by triad, with per-triad
+  epithets) and **`/host/HH-####`** (per-being pages: blue hero + face-cropped
+  portrait, "Depictions & Icons" carousel, collapsible sections, left rail). A
+  rank page auto-lists its **Named Angel** members as cards (the eight archangels
+  on the Archangels page). Excluded from the patron quiz (angels are venerated,
+  not intercessor-saints).
 
 ## 6. Saint identity & deduplication (critical)
 
@@ -479,6 +613,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
 - **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing; `.astro` components render at build time; shared logic in `src/lib/` (TS); client JS is **only** the vanilla TS islands in `src/islands/` (**no React/Vue**). Adding a page = add a file under `src/pages/`. **Witnesses of Our Time** (`/witness/[slug]`, surfaced on `/america`) is a **non-canonical memorial section** for not-yet-glorified figures — kept strictly out of the finder/quiz per §9; memorial pages use no liturgical address.
+- **New styles are component-scoped.** Styles specific to one component go in that
+  component's `<style>` block (Astro scopes them automatically); `src/styles/global.css`
+  is reserved for design tokens (`:root` variables), resets, and genuinely shared
+  primitives (buttons, chips, cards). Do not grow the global sheet with per-component
+  rules — it is already the least navigable file in the repo.
 - **Rich saint profiles** are one YAML file per saint in `src/content/profiles/OS-####.yaml`,
   an Astro **data Content Collection** defined in `src/content.config.ts`; the **Zod schema
   validates every profile at build time** (a bad/incomplete profile fails the build). Each
@@ -486,13 +625,17 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
   via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
   `build.py` cross-checks every profile filename/id against the saints.
-- **Search is unchanged in spirit:** a **client-side substring filter** over the precomputed
-  `search` haystack per saint, plus controlled-vocab facet filters — no search library, no
-  browser storage, no backend. (MiniSearch/FlexSearch remain a future option; don't add one
-  without a measured need.) The build still expands each haystack with **name variants** from
-  `data/name_variants.csv` (so "Lucy" finds Lucia, "Ivan" finds John; a result names the
-  matched variant). The **patron-saint quiz** is now its own route (`/quiz`); it scores saints
-  by facet overlap (intercessions weigh most) — match quality scales with facet coverage (§10).
+- **Search is client-side and stays that way** — no browser storage, no backend. The finder's
+  text path is **MiniSearch** (`src/lib/search.ts`, the one search library — added for the
+  fuzzy/ranked requirement): token-AND with prefix + typo tolerance, ranked by field boosts
+  (name > Also Known As > name variants > haystack), **unioned with the legacy substring
+  filter** over the precomputed `search` haystack as a recall floor, so no query matches less
+  than it used to. Facet filters remain hand-rolled set intersection (`src/lib/filter.ts`);
+  the header typeahead keeps its own substring index (`/search-index.json`). The build still
+  expands each haystack with **name variants** from `data/name_variants.csv` (so "Lucy" finds
+  Lucia, "Ivan" finds John; a result names the matched variant). The **patron-saint quiz** is
+  its own route (`/quiz`); it scores saints by facet overlap (intercessions weigh most) —
+  match quality scales with facet coverage (§10).
 - **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
   indexable, shareable; each ships only its own record). The /search and /quiz islands **fetch**
   the trimmed finder dataset from a content-hashed static `/finder-data/<hash>.json`

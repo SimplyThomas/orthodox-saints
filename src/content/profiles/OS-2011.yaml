@@ -2,7 +2,7 @@ id: OS-2011
 lifespan: 3rd century (traditionally under Decius; some scholars place the events in the 2nd century)
 overview:
   - Carpus, Papylus, Agathodorus, and Agathonica are commemorated together as martyrs of Pergamum who refused to take part in the pagan festivals of the Roman state and confessed Christ unto death. By the tradition followed in the synaxarion, they suffered during the persecution of the emperor Decius in the third century.
-  - The governor of the district learned that Carpus and Papylus did not observe the pagan festivals and ordered their arrest, pressing them to adopt Roman religious practices. They refused, declaring that they would not worship false gods. Agathodorus and Agathonica voluntarily joined their confession and shared in their martyrdom.
+  - The governor of the district learned that Carpus and Papylus did not observe the pagan festivals and ordered their arrest, pressing them to adopt Roman religious practices. They refused, declaring that they would not worship false gods. Agathodorus and Agathonica shared in their confession and martyrdom.
   - The group is preserved as a single commemoration. Surviving manuscript witnesses (Greek and Latin) differ on details of the saints' offices and the manner of their deaths, and scholars disagree on the reign in which the events belong.
 sections:
   - heading: Confession and Arrest
@@ -11,7 +11,7 @@ sections:
       - According to the Latin and Greek acts, the immediate charge was their refusal to eat meat offered to idols and to sacrifice to the gods in the name of the emperor. The accounts name a Roman governor (given as Pergamos) and a member of his council (Optimus).
   - heading: Martyrdom
     body:
-      - The judge ordered the prisoners shackled in iron chains and paraded through the city, then bound to horses and dragged toward the neighboring city of Sardis. Agathodorus and Agathonica followed after Carpus and Papylus of their own will, showing their own commitment to the Christian faith.
+      - The judge ordered the prisoners shackled in iron chains and paraded through the city, then bound to horses and dragged toward the neighboring city of Sardis. Agathodorus and Agathonica shared in the martyrdom of Carpus and Papylus.
       - "The accounts describe distinct fates. By one account Agathonica was put to death with ox sinews, while Carpus, Papylus, and Agathodorus were beheaded at Sardis. The surviving acts vary: in them Agathodorus is scourged to death with bull's sinews; Carpus is hanged and clawed alive; and the death of Agathonica is told differently in the two recensions — the Greek version relates that she threw herself into a blazing pyre after witnessing Carpus's death, while the Latin version states she was hanged and burned."
       - Saint Papylus was known during his lifetime for the gift of curing the sick; after his martyrdom the faithful attributed continued healing through his intercession in prayer.
   - heading: Sources and Historical Debate
@@ -40,6 +40,3 @@ sources:
   - https://en.wikipedia.org/wiki/Acts_of_Carpus,_Papylus,_and_Agathonice
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The profile claims Agathodorus voluntarily followed Carpus and Papylus. The Wikipedia source identifies Agathodorus as the consul's servant, not a voluntary confessor who followed independently.
-    detail: The Wikipedia source states 'the consul had his servant Agathodorus scourged to death with bull's sinews to pressure the martyrs' — Agathodorus is described as the governor's servant who was killed to coerce the martyrs, not as an independent voluntary confessor. The OCA source portrays Agathodorus as voluntarily following. The profile presents the voluntary-follower framing as the narrative (in the overview and timeline) without flagging this fundamental divergence about Agathodorus's identity and the nature of his death. This is a claim the profile makes as established fact in the overview section, not as a contested variant.

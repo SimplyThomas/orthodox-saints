@@ -50,7 +50,11 @@ export const NAV: NavItem[] = [
         label: "The Nine Orders",
         href: withBase("nine-orders"),
       },
-      { key: "archangels", label: "Archangels", href: withBase("archangels") },
+      {
+        key: "archangels",
+        label: "Archangels",
+        href: withBase("host/HH-0008"),
+      },
       {
         key: "guardian-angels",
         label: "Guardian Angels & Titled Figures",
@@ -73,8 +77,12 @@ export const NAV: NavItem[] = [
     label: "The Church Year",
     children: [
       { key: "calendar", label: "The Calendar", href: withBase("calendar") },
-      { key: "feasts", label: "Feasts", href: withBase("feasts") },
-      { key: "fasts", label: "Fasts", href: withBase("fasts") },
+      { key: "feasts", label: "Feasts & Fasts", href: withBase("feasts") },
+      {
+        key: "moveable-calendar",
+        label: "The Moveable Calendar",
+        href: withBase("moveable-calendar"),
+      },
     ],
   },
   {

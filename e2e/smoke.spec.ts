@@ -50,7 +50,7 @@ test("hero search submits to the /search page with the query", async ({
 
 test("search page filters the results", async ({ page }) => {
   await page.goto("./search/");
-  // Results render client-side from the inlined finder data.
+  // Results render client-side from the fetched finder data.
   await expect(page.locator("#results .saint-row").first()).toBeVisible();
 
   const totalText = (await page.locator("#count").innerText()).match(
@@ -67,6 +67,19 @@ test("search page filters the results", async ({ page }) => {
       Number((await page.locator("#count").innerText()).match(/\d+/)?.[0]),
     )
     .toBeLessThan(total);
+  await expect(
+    page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
+  ).toBeVisible();
+});
+
+test("search tolerates a misspelled name and ranks the saint first", async ({
+  page,
+}) => {
+  await page.goto("./search/");
+  await expect(page.locator("#results .saint-row").first()).toBeVisible();
+
+  // Fuzzy matching (lib/search): a one-letter slip still finds the saints.
+  await page.fill("#q", "Nicholaus");
   await expect(
     page.locator("#results .saint-row h3", { hasText: "Nicholas" }).first(),
   ).toBeVisible();
@@ -460,8 +473,8 @@ test("header quick-search offers a whole-site typeahead", async ({ page }) => {
 
   // Section pages are searchable too (whole-site scope).
   await input.fill("fasts");
-  const pageOpt = panel.locator("a.hs-opt", { hasText: "Fasts" });
-  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}fasts`);
+  const pageOpt = panel.locator("a.hs-opt", { hasText: "Feasts & Fasts" });
+  await expect(pageOpt.first()).toHaveAttribute("href", `${BASE}feasts`);
 
   // A "see all" row deep-links into the full finder with the query.
   const seeAll = panel.locator("a.hs-seeall");
@@ -502,8 +515,15 @@ test("corrections page renders, validates, and is linked from the Contact page",
   const resp = await page.goto("./corrections/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".cr-title")).toHaveText("Suggest a Correction");
-  await expect(page.locator("#cr-types .chip")).toHaveCount(6);
-  // Empty submit reveals validation (no GitHub tab opened on invalid input).
+  await expect(page.locator("#cr-types .chip")).toHaveCount(7);
+  // Backend wiring is present: same-origin endpoint, Turnstile widget, honeypot.
+  await expect(page.locator("#cr-form")).toHaveAttribute(
+    "data-endpoint",
+    "/api/report",
+  );
+  await expect(page.locator(".cf-turnstile")).toHaveCount(1);
+  await expect(page.locator('input[name="website"]')).toHaveCount(1);
+  // Empty submit reveals validation and never POSTs to the worker.
   await page.locator(".cr-send").click();
   await expect(page.locator('.err[data-for="cr-subject"]')).toBeVisible();
   // Reached from the Contact page's help cards.
@@ -511,4 +531,68 @@ test("corrections page renders, validates, and is linked from the Contact page",
   await expect(page.locator('.as-linkcard[href$="/corrections"]')).toHaveCount(
     1,
   );
+});
+
+test("feasts index renders the Church-year page with live tabs", async ({
+  page,
+}) => {
+  const resp = await page.goto("./feasts/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".ff-title")).toHaveText("Feasts & Fasts");
+
+  // Summary tab: today + feasts/fasts/observances visible, full calendar hidden.
+  await expect(page.locator('.ff-tab[data-filter="all"]')).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator('[data-cat="calendar"]')).toBeHidden();
+  await expect(page.locator('[data-cat="feasts"]')).toBeHidden();
+  // Feasts & fasts sit together in collapsible months; the island opens one.
+  await expect(page.locator('[data-cat="all"]')).toBeVisible();
+  await expect(
+    page.locator('[data-cat="all"] .ff-cal-mo').first(),
+  ).toBeVisible();
+  await expect(page.locator('[data-cat="all"] .ff-cal-mo[open]')).toHaveCount(
+    1,
+  );
+
+  // The island computed the visitor-clock features.
+  await expect(page.locator("#ff-today-date")).toContainText("Today ·");
+  await expect(page.locator("#ff-upcoming")).toBeVisible();
+  await expect(page.locator(".ff-up-count b")).not.toHaveText("");
+
+  // Today's commemorations load from the shared card payload (2,900+ saints —
+  // every calendar day carries several).
+  await expect(page.locator(".ff-today-saint").first()).toBeVisible();
+
+  // The Feasts tab shows the Pascha card and the twelve Great-Feast cards.
+  await page.locator('.ff-tab[data-filter="feasts"]').click();
+  await expect(page.locator(".ff-scard--pascha")).toBeVisible();
+  await expect(page.locator(".ff-fcard")).toHaveCount(12);
+
+  // The Full Calendar tab reveals the year listing as collapsible months.
+  await page.locator('.ff-tab[data-filter="calendar"]').click();
+  await expect(page.locator('[data-cat="calendar"]')).toBeVisible();
+  await expect(page.locator("#ff-today")).toBeHidden();
+  await expect(
+    page.locator('[data-cat="calendar"] .ff-cal-mo.movable .ff-cal-mo-name', {
+      hasText: "The Paschal Cycle",
+    }),
+  ).toBeVisible();
+});
+
+test("fasts route opens the same page on the Fasts tab", async ({ page }) => {
+  const resp = await page.goto("./fasts/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator('.ff-tab[data-filter="fasts"]')).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator('[data-cat="fasts"]')).toBeVisible();
+  await expect(page.locator('[data-cat="feasts"]')).toBeHidden();
+  // Season cards + the pastoral fasting disclaimer render.
+  await expect(page.locator(".ff-season-grid .ff-scard").first()).toBeVisible();
+  await expect(
+    page.locator('[data-cat="fasts"] .ff-fast-disclaimer'),
+  ).toContainText("consult your parish priest");
 });

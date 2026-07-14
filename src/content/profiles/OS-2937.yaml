@@ -1,0 +1,89 @@
+id: OS-2937
+status: draft
+eyebrow: Synaxis · Witnesses of the Resurrection
+feastNote: Commemorated on the third Sunday of Pascha, the Sunday of the Myrrh-bearers
+overview:
+  - The Synaxis of the Holy Myrrh-bearing Women commemorates the women who followed Christ, stood by His Cross when the apostles had fled, and came to the tomb at dawn on the first day of the week bearing sweet spices to anoint His body — and so became the first witnesses and heralds of the Resurrection. With them the Church honors the two secret disciples, Joseph of Arimathea and Nicodemus, who took the Lord's body from the Cross and laid it in the tomb.
+  - Coming to the sepulchre while it was still dark, the women found the stone rolled away and were told by an angel, "He is not here, for He is risen." They were the first to hear the good news and the first to proclaim it to the apostles; for this Mary Magdalene is called "equal to the apostles" and "apostle to the apostles." The Most Holy Theotokos is numbered first among them.
+  - The Church keeps their memory on the third Sunday of Pascha, holding them up as the image of faithful love that does not abandon Christ in His suffering and is rewarded with the first joy of the Resurrection. They are especially honored as patrons of steadfast women, of those who mourn, and of all who tend the bodies of the departed.
+facts:
+  - label: Type
+    value: Synaxis
+  - label: Commemorated
+    value: Third Sunday of Pascha
+  - label: Region
+    value: Jerusalem
+  - label: Era
+    value: Apostolic Age · 1st c.
+  - label: Veneration
+    value: Pan-Orthodox
+virtues:
+  - Faithful love
+  - Courage
+  - Devotion
+vocation:
+  - Disciples
+  - Witnesses of the Resurrection
+patronage:
+  - Faithful women
+  - Those who mourn
+  - Those who tend the departed
+invokedFor:
+  - label: Faithfulness in Grief
+    note: Those who keep faith through sorrow and loss
+  - label: Care for the Departed
+    note: Those who tend and bury the bodies of the dead
+  - label: Courage to Witness
+    note: Boldness to proclaim Christ when others are afraid
+timeline:
+  - when: Friday
+    title: The Cross and the burial
+    body: The women stand by the Cross; Joseph of Arimathea and Nicodemus take the Lord's body and lay it in a new tomb.
+  - when: The Sabbath
+    title: They prepare the spices
+    body: The women rest according to the commandment, having prepared myrrh and spices to anoint the body.
+  - when: The first day of the week
+    title: The empty tomb
+    body: Coming at dawn, they find the stone rolled away and hear the angel proclaim, "He is risen"; they are the first to bring word to the apostles.
+members:
+  - name: Mary Magdalene
+    saint_id: OS-0007
+    role: Equal-to-the-Apostles
+    note: First to see the risen Lord; called the apostle to the apostles.
+  - name: Mary the wife of Clopas
+    saint_id: OS-1230
+    role: Kinswoman of the Lord
+    note: Who stood by the Cross of Jesus (John 19).
+  - name: Salome
+    saint_id: OS-1638
+    role: Mother of Zebedee's sons
+    note: Mother of the apostles James and John.
+  - name: Joanna
+    saint_id: OS-1435
+    role: Wife of Chuza
+    note: Wife of Herod's steward, who provided for Christ (Luke 8, 24).
+  - name: Susanna
+    saint_id: OS-2579
+    role: Who ministered to Christ
+    note: Among the women who provided for Christ out of their means (Luke 8).
+  - name: Martha of Bethany
+    saint_id: OS-1280
+    role: Sister of Lazarus
+    note: Sister of Lazarus and of Mary, who served the Lord at Bethany (Luke 10).
+  - name: Mary of Bethany
+    saint_id: OS-1280
+    role: Sister of Lazarus
+    note: Sister of Lazarus, who anointed the Lord and sat at His feet (John 12).
+  - name: Joseph of Arimathea
+    saint_id: OS-1619
+    role: The noble councillor
+    note: The secret disciple who asked for the Lord's body and buried it.
+  - name: Nicodemus
+    saint_id: OS-1624
+    role: Teacher of Israel
+    note: Who came to Jesus by night and helped bury Him (John 3, 19).
+sources:
+  - OCA Synaxarion (oca.org), Sunday of the Myrrh-bearers
+  - https://en.wikipedia.org/wiki/Myrrhbearers
+  - https://orthodoxwiki.org/Myrrhbearers
+generated: "2026-07-14"

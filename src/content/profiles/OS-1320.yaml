@@ -43,8 +43,10 @@ companions:
     href: saint/OS-1143
   - name: Saint Cainnech (Kenneth) of Aghaboe
     note: "Fellow Irish monk: by tradition accompanied Columba to the court of King Bridei of the Picts."
+    href: saint/OS-2809
   - name: Saint Finnian of Clonard
     note: "Teacher: master of the Twelve Apostles of Ireland, among whom Columba was numbered."
+    href: saint/OS-2810
 related:
   - name: Saint Brendan the Navigator
     note: "Fellow Apostle of Ireland: a monastic founder and disciple of Finnian of Clonard of the same generation."
@@ -63,6 +65,7 @@ related:
     href: saint/OS-1650
   - name: Saint Adomnan of Iona
     note: "Hagiographer: ninth abbot of Iona and author of the Life of Columba."
+    href: saint/OS-2811
 patronage:
   - Enlightener of the Picts and Scots; patron of missions
   - Honoured among the patron saints of Ireland.

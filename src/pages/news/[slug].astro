@@ -6,16 +6,20 @@ import NewsPlate from "../../components/news/NewsPlate.astro";
 import NewsCard from "../../components/news/NewsCard.astro";
 import { saintAvatar } from "../../lib/icons";
 import { withBase } from "../../lib/format";
-import { NEWS, NEWS_ALL, NEWS_CAT } from "../../lib/news";
+import { loadNews, NEWS_CAT } from "../../lib/news";
 
-export const getStaticPaths = (() => {
+export const getStaticPaths = (async () => {
   // News is parked behind a "coming soon" page (news/index.astro), so emit no
-  // article routes — the sample/unverified accounts in lib/news.ts must not
-  // ship. Drop the `.filter` to restore them once a real, verified feed exists.
-  return NEWS_ALL.filter(() => false).map((n) => ({
-    params: { slug: n.id },
-    props: { n },
-  }));
+  // article routes — the sample/unverified accounts in the news collection must
+  // not ship. Drop the `.filter` to restore them once a real, verified feed
+  // exists.
+  const { all } = await loadNews();
+  return all
+    .filter(() => false)
+    .map((n) => ({
+      params: { slug: n.id },
+      props: { n },
+    }));
 }) satisfies GetStaticPaths;
 
 const { n } = Astro.props;
@@ -25,10 +29,10 @@ const drop = body[0].charAt(0);
 const rest = body[0].slice(1);
 // where to slot the pull-quote: after the second paragraph
 const pqAfter = 1;
-const related = NEWS.filter((x) => x.id !== n.id && x.cat === n.cat).slice(
-  0,
-  3,
-);
+const { items } = await loadNews();
+const related = items
+  .filter((x) => x.id !== n.id && x.cat === n.cat)
+  .slice(0, 3);
 ---
 
 <BaseLayout active="news" title={n.headline} description={n.dek || n.summary}>

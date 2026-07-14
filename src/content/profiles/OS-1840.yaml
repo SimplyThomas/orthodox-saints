@@ -35,6 +35,3 @@ sources:
   - https://en.wikipedia.org/wiki/September_17_(Eastern_Orthodox_liturgics)
 status: flagged
 generated: "2026-06-23"
-flagReasons:
-  - claim: City of origin is Marcianopolis in Thrace (modern Devnya, Bulgaria)
-    detail: The anchor row sets Region of Origin = Greece, not Thrace/Bulgaria. The profile contradicts the anchor by asserting Marcianopolis in Thrace (modern Devnya, Bulgaria) as the city of origin. The anchor wins on this conflict. (The external OCA source does say Marcianopolis, which may mean the CSV Region field needs correction, but the verifier's job is to flag the contradiction with the anchor, not to adjudicate it.)

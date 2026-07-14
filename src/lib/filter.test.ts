@@ -1,108 +1,134 @@
 import { describe, it, expect } from "vitest";
-import { scoreMatch, sortByRelevance } from "./filter";
+import {
+  FACETS,
+  emptySelected,
+  activeCount,
+  matches,
+  facetCounts,
+} from "./filter";
 
-/* Minimal saint shapes for ranking. Only the fields scoreMatch reads. */
-const mk = (
-  name: string,
-  extra: Partial<{
-    aka: string[];
-    variants: string[];
-    search: string;
-    feastSort: number;
-  }> = {},
-) => ({
-  name,
-  aka: extra.aka ?? [],
-  variants: extra.variants,
-  // Default haystack contains the name (as build.py does).
-  search: extra.search ?? name.toLowerCase(),
-  feastSort: extra.feastSort ?? 9999,
-});
+/* Minimal facet-bearing saint stub: matches() reads `search`/`name` for the
+   text path and the facet arrays/singles keyed by FACETS keys. */
+const nicholas = {
+  name: "Nicholas of Myra",
+  search: "nicholas of myra wonderworker bishop travelers",
+  intercession: ["Travel", "Children"],
+  rank: ["Hierarch"],
+  era: "Byzantine",
+};
 
-describe("scoreMatch", () => {
-  it("scores an exact name match highest", () => {
-    const exact = scoreMatch(mk("Nicholas"), "nicholas");
-    const prefix = scoreMatch(mk("Nicholas the Wonderworker"), "nicholas");
-    expect(exact).toBeGreaterThan(prefix);
+/* Helper: an empty selection with one facet's values chosen. */
+function select(picks: Record<string, string[]>) {
+  const sel = emptySelected();
+  for (const [k, vals] of Object.entries(picks)) sel[k] = new Set(vals);
+  return sel;
+}
+
+describe("emptySelected / activeCount", () => {
+  it("starts with an empty set per facet and zero active", () => {
+    const sel = emptySelected();
+    expect(Object.keys(sel).sort()).toEqual(FACETS.map((f) => f.key).sort());
+    for (const f of FACETS) expect(sel[f.key].size).toBe(0);
+    expect(activeCount(sel)).toBe(0);
   });
 
-  it("ranks a name hit above an Also-Known-As hit", () => {
-    const inName = scoreMatch(mk("John the Theologian"), "john");
-    const inAka = scoreMatch(mk("Some Other Saint", { aka: ["John"] }), "john");
-    expect(inName).toBeGreaterThan(inAka);
-  });
-
-  it("ranks an Also-Known-As hit above a variant-only hit", () => {
-    const inAka = scoreMatch(mk("Foo", { aka: ["Lucy"] }), "lucy");
-    const inVariant = scoreMatch(
-      mk("Foo", { variants: ["Lucy"], search: "foo lucy" }),
-      "lucy",
-    );
-    expect(inAka).toBeGreaterThan(inVariant);
-  });
-
-  it("ranks any name/aka hit above a haystack-only hit", () => {
-    // Saint whose name does NOT contain the query, but a facet/notes does.
-    const haystackOnly = scoreMatch(
-      mk("Joachim", { search: "joachim father of the theotokos" }),
-      "theotokos",
-    );
-    const inName = scoreMatch(
-      mk("Most Holy Theotokos (Virgin Mary)"),
-      "theotokos",
-    );
-    expect(inName).toBeGreaterThan(haystackOnly);
-    expect(haystackOnly).toBeGreaterThan(0);
-  });
-
-  it("scores a whole-word name hit above a mere substring", () => {
-    // "mary" as a standalone word, vs buried inside "rosemary" (a substring only).
-    const wholeWord = scoreMatch(mk("Joseph and Mary"), "mary");
-    const substring = scoreMatch(mk("Rosemary Gardens"), "mary");
-    expect(wholeWord).toBeGreaterThan(substring);
-  });
-
-  it("matches a multi-word query as a phrase in the name", () => {
-    const phraseInName = scoreMatch(
-      mk("Most Holy Theotokos (Virgin Mary)"),
-      "virgin mary",
-    );
-    // Another saint where the tokens are scattered across the haystack only.
-    const scattered = scoreMatch(
-      mk("Mary the Virgin-Martyr", {
-        search: "agatha virgin martyr named mary somewhere",
-        // name does not contain the phrase "virgin mary"
-      }),
-      "virgin mary",
-    );
-    expect(phraseInName).toBeGreaterThan(scattered);
+  it("counts selections across facets", () => {
+    const sel = select({
+      era: ["Byzantine"],
+      intercession: ["Travel", "Children"],
+    });
+    expect(activeCount(sel)).toBe(3);
   });
 });
 
-describe("sortByRelevance", () => {
-  it("puts the named saint first even when its feast is later", () => {
-    const list = [
-      mk("John the Theologian", {
-        search: "john ... the theotokos",
-        feastSort: 100,
-      }),
-      mk("Most Holy Theotokos (Virgin Mary)", { feastSort: 900 }),
-      mk("Pulcheria", {
-        search: "pulcheria churches to the theotokos",
-        feastSort: 200,
-      }),
-    ];
-    const out = sortByRelevance(list, "theotokos", "feast");
-    expect(out[0].name).toBe("Most Holy Theotokos (Virgin Mary)");
+describe("matches", () => {
+  it("passes every saint when no query and no facets are selected", () => {
+    expect(matches(nicholas, "", emptySelected())).toBe(true);
   });
 
-  it("breaks ties with the chosen sort mode (feast)", () => {
-    // Two equally-relevant haystack-only matches; earlier feast wins the tie.
-    const list = [
-      mk("Bravo", { search: "bravo healing", feastSort: 300 }),
-      mk("Alpha", { search: "alpha healing", feastSort: 100 }),
-    ];
-    const out = sortByRelevance(list, "healing", "feast");
-    expect(out.map((s) => s.name)).toEqual(["Alpha", "Bravo"]);
+  it("passes when a selected facet value matches (array facet)", () => {
+    expect(matches(nicholas, "", select({ intercession: ["Travel"] }))).toBe(
+      true,
+    );
+  });
+
+  it("passes when a selected facet value matches (single-value facet)", () => {
+    expect(matches(nicholas, "", select({ era: ["Byzantine"] }))).toBe(true);
+  });
+
+  it("fails when the selected facet value is absent", () => {
+    expect(matches(nicholas, "", select({ intercession: ["Healing"] }))).toBe(
+      false,
+    );
+  });
+
+  it("ORs values within a facet, ANDs across facets", () => {
+    // Within one facet: any chosen value matching is enough.
+    expect(
+      matches(nicholas, "", select({ intercession: ["Healing", "Travel"] })),
+    ).toBe(true);
+    // Across facets: every selected facet must match.
+    expect(
+      matches(
+        nicholas,
+        "",
+        select({ intercession: ["Travel"], era: ["Modern"] }),
+      ),
+    ).toBe(false);
+  });
+
+  it("requires every query token in the search haystack (case-insensitive)", () => {
+    expect(matches(nicholas, "MYRA bishop", emptySelected())).toBe(true);
+    expect(matches(nicholas, "myra dragon", emptySelected())).toBe(false);
+  });
+
+  it("combines query and facets", () => {
+    expect(matches(nicholas, "myra", select({ era: ["Byzantine"] }))).toBe(
+      true,
+    );
+    expect(matches(nicholas, "myra", select({ era: ["Modern"] }))).toBe(false);
+  });
+
+  it("falls back to name when there is no search haystack", () => {
+    expect(matches({ name: "Paisios" }, "pais", emptySelected())).toBe(true);
+    expect(matches({ name: "Paisios" }, "nich", emptySelected())).toBe(false);
+  });
+});
+
+describe("facetCounts", () => {
+  const saints = [
+    { intercession: ["Healing", "Travel"] },
+    { intercession: ["Healing"] },
+    { intercession: ["Children"] },
+    { intercession: [] },
+  ];
+
+  it("counts each value across the list", () => {
+    expect(new Map(facetCounts(saints, "intercession"))).toEqual(
+      new Map([
+        ["Healing", 2],
+        ["Travel", 1],
+        ["Children", 1],
+      ]),
+    );
+  });
+
+  it("sorts by count descending, then label ascending", () => {
+    expect(facetCounts(saints, "intercession")).toEqual([
+      ["Healing", 2],
+      ["Children", 1],
+      ["Travel", 1],
+    ]);
+  });
+
+  it("counts single-value fields as one-element arrays", () => {
+    const byEra = facetCounts(
+      [{ era: "Byzantine" }, { era: "Byzantine" }, { era: "Modern" }, {}],
+      "era",
+    );
+    expect(byEra).toEqual([
+      ["Byzantine", 2],
+      ["Modern", 1],
+    ]);
   });
 });

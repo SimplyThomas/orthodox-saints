@@ -1,0 +1,74 @@
+---
+/* Grouped feast rows — the design's reusable calendar-list renderer, shared by
+   the Full Calendar, "Every Feast in Order", and "Every Fast in Order" sections
+   of /feasts. Each row carries the legend dot, dateline, fasting badge, and kind
+   label (see FeastCalRow).
+
+   `collapsible` renders each group as a native <details> accordion (used by the
+   Summary tab so a reader opens one month at a time); it needs no JS to toggle —
+   the /feasts island only adds "open the current month" + one-open-at-a-time. */
+import type { Feast } from "../lib/feasts";
+import FeastCalRow from "./FeastCalRow.astro";
+
+export interface FeastGroup {
+  title: string;
+  note?: string;
+  movable?: boolean;
+  rows: Feast[];
+}
+
+interface Props {
+  groups: FeastGroup[];
+  /** Render each group as a collapsible <details> instead of a flat header. */
+  collapsible?: boolean;
+}
+
+const { groups, collapsible = false } = Astro.props;
+---
+
+{
+  groups.map((g) =>
+    collapsible ? (
+      <details class:list={["ff-cal-mo", { movable: g.movable }]}>
+        <summary class="ff-cal-mo-sum">
+          <span class="ff-cal-mo-name">{g.title}</span>
+          {g.note && <span class="note">{g.note}</span>}
+          <span class="ff-cal-mo-rule" />
+          <span class="ff-cal-mo-count">{g.rows.length}</span>
+          <svg
+            class="ff-cal-mo-chev"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="ff-cal-list">
+          {g.rows.map((f) => (
+            <FeastCalRow feast={f} />
+          ))}
+        </div>
+      </details>
+    ) : (
+      <>
+        <div class={`ff-cal-month${g.movable ? " movable" : ""}`}>
+          <h3>{g.title}</h3>
+          {g.note && <span class="note">{g.note}</span>}
+          <span class="rule" />
+        </div>
+        <div class="ff-cal-list">
+          {g.rows.map((f) => (
+            <FeastCalRow feast={f} />
+          ))}
+        </div>
+      </>
+    ),
+  )
+}

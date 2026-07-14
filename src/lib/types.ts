@@ -69,6 +69,8 @@ export interface Saint {
   vendors: VendorLink[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;
+  /** ~200px avatar thumb (icons/thumbs/…); present only when the file exists */
+  imageThumb?: string;
   /** image attribution, present only when `image` is */
   imageLicense?: string;
   imageCredit?: string;
@@ -91,13 +93,33 @@ export interface Saint {
   groups?: GroupMembership[];
   /** group names (mirror of groups[].name) — keys the finder's Group facet */
   groupNames?: string[];
+  /** "group" marks a collective-commemoration profile (a synaxis / household /
+      feast-companions set) rather than an individual saint; steers /saint/[id]
+      to the GroupSaintProfile layout. Absent on individual saints. */
+  profile_type?: "group";
+  /** the group's slug (present only on profile_type==="group" records) */
+  groupSlug?: string;
+  /** the group's taxonomy type (present only on profile_type==="group") */
+  groupType?: string;
+  /** the group's members in display order (profile_type==="group" only) */
+  members?: GroupMember[];
 }
 
-/** A saint's membership in a group, joined into the record by build.py. */
+/** A saint's membership in a group, joined into the record by build.py.
+    `id` is the group profile's own OS-#### (its /saint/[id] page). */
 export interface GroupMembership {
   slug: string;
+  id: string;
   name: string;
   type: string;
+}
+
+/** One member of a group profile. `saint_id` links to the individual's page;
+    when absent the member is listed by name only (no individual profile yet). */
+export interface GroupMember {
+  saint_id?: string;
+  name: string;
+  role?: string;
 }
 
 /** The light projection shipped to the home landing page (saint-of-the-day +
@@ -115,6 +137,7 @@ export interface CardSaint {
   brief: string;
   notes: string;
   image?: string;
+  imageThumb?: string;
 }
 
 /** The trimmed projection shipped to the finder island (no heavy detail fields). */
@@ -143,9 +166,13 @@ export interface FinderSaint {
   themes: string[];
   /** group names the saint belongs to; drives the finder's "Group" facet */
   groupNames?: string[];
+  /** "group" for collective-commemoration records; the quiz drops these */
+  profile_type?: "group";
   variants?: string[];
   /** self-hosted real portrait (static/-relative path); absent → monogram */
   image?: string;
+  /** ~200px avatar thumb (icons/thumbs/…); present only when the file exists */
+  imageThumb?: string;
   /** true when a human has personally reviewed this profile */
   humanReviewed?: boolean;
 }

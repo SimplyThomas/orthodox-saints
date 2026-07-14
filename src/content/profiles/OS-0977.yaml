@@ -13,7 +13,7 @@ timeline:
   - when: "1495"
     title: Birth at Serpukhov
     body: Born in Serpukhov and given the baptismal name John; in his youth he learned to read and write.
-  - when: c. 1505–1508
+  - when: In his youth
     title: Captivity and ransom
     body: Captured at a young age by Crimean Tatars, he meekly accepted his servitude as the Lord's will and faithfully performed the work assigned to him. After three years of captivity his father ransomed him.
   - when: after his release
@@ -74,6 +74,3 @@ sources:
   - https://en.wikipedia.org/wiki/Diocese_of_Tver
 status: flagged
 generated: "2026-06-22"
-flagReasons:
-  - claim: The profile assigns specific approximate years 'c. 1505–1508' to the captivity, derived by inference from the birth year rather than from any dossier source.
-    detail: No dossier source gives the specific years of the captivity. The OCA source says only 'at a young age'; the anchor says 'in his youth.' The date range is an arithmetical inference (born 1495, captive 'at a young age,' three years duration) not attested in any cited source.

@@ -17,8 +17,9 @@ job, grief, a place, a life experience — to saints through controlled-vocabula
 
 ```
 data/saints.csv ──┐
-                  ├─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
+data/feasts.csv ──┼─► build.py ──► (in-memory SQLite) ──► validate ──► EMIT:
 data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
+                                                           ├─ public/feasts.json (feasts/fasts + Pascha table)
                                                            ├─ public/saints.sqlite (optional)
                                                            └─ dist/Orthodox_Saints_Database.xlsx
 src/ (Astro SSG)   ── imports public/data.json at build ──► _site/ (static HTML per page + per saint)
@@ -75,18 +76,26 @@ mapping in `docker-compose.yml`.
 
 ## Contribute
 
-1. Edit **`data/saints.csv`** (one row per saint, 26 columns) or **`data/vocabulary.csv`**.
+1. Edit **`data/saints.csv`** (one row per saint, 26 columns), **`data/feasts.csv`**
+   (one row per liturgical feast/fast, 19 columns), or **`data/vocabulary.csv`**.
    To use a new controlled-vocabulary term, **add it to `data/vocabulary.csv` first**.
-2. Leave the **Saint ID** blank on a new row — the build assigns the next stable
-   `OS-####` and writes it back. IDs are permanent and never reused or renumbered.
+   Column meanings and editing gotchas (CRLF line endings, the `"; "` separator):
+   [`docs/data-model.md`](docs/data-model.md).
+2. Leave the **Saint ID / Feast ID** blank on a new row — the build assigns the next
+   stable `OS-####` / `FF-####` and writes it back. IDs are permanent and never
+   reused or renumbered.
 3. Run `make validate` — it must report **CLEAN** (zero violations) before you open a PR
    (and `make test` if you changed `build.py`).
 4. Open a pull request. `main` is branch-protected: CI (unit tests + `build.py --check-only`)
    must pass before merge, and the site deploys automatically when changes land on `main`.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow and
-[`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing strategy,
-guardrails, and authoring conventions).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow,
+[`docs/data-model.md`](docs/data-model.md) for the hand-editing data reference,
+[`docs/maintenance.md`](docs/maintenance.md) for maintaining the project (including
+entirely without AI tooling), [`docs/infrastructure.md`](docs/infrastructure.md) for what
+runs where (hosting, DNS, previews, the corrections Worker, analytics, and credentials),
+and [`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing
+strategy, guardrails, and authoring conventions).
 
 ## Licenses
 

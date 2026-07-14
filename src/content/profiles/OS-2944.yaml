@@ -1,0 +1,85 @@
+id: OS-2944
+status: draft
+eyebrow: Synaxis · The First Deacons
+overview:
+  - The Seven Deacons are the seven men of good repute, full of the Holy Spirit and of wisdom, whom the apostles appointed to serve the tables of the early Church at Jerusalem, as recorded in the Acts of the Apostles (6:1–6). When the Greek-speaking widows were being overlooked in the daily distribution, the Twelve called the faithful together and set apart seven — Stephen, Philip, Prochorus, Nicanor, Timon, Parmenas, and Nicolas of Antioch — laying hands on them so that the apostles might give themselves to prayer and the ministry of the word.
+  - In them the Church honors the origin of the diaconate — the ordering of ministry to the poor as a sacred office of the Church, not a merely practical arrangement. Chosen to serve, the Seven quickly became preachers and evangelists in their own right — Stephen the archdeacon disputed with the synagogue and, filled with the Spirit, became the first martyr of the Church; Philip carried the Gospel to Samaria and baptized the Ethiopian eunuch on the desert road.
+  - Tradition numbers several of the Seven among the Seventy Apostles and follows them into mission and martyrdom across the apostolic world. Their commemoration keeps before the Church the truth that care for the hungry and the overlooked stands at the very heart of the Gospel, and that the table of service and the pulpit of preaching are not far apart.
+facts:
+  - label: Rank
+    value: Deacon · Apostle
+  - label: Appointed by
+    value: The Twelve Apostles (Acts 6)
+  - label: Number
+    value: Seven
+  - label: Region
+    value: Jerusalem
+  - label: Era
+    value: Apostolic Age · 1st c.
+  - label: Veneration
+    value: Pan-Orthodox
+virtues:
+  - Service
+  - Faith
+  - Courage
+vocation:
+  - Deacons
+  - Evangelists
+  - Martyrs
+patronage:
+  - Deacons and those who serve at the altar
+  - Ministry to the poor and the widowed
+  - The persecuted and the martyrs
+invokedFor:
+  - label: Diaconal Service
+    note: Deacons and those who serve at the altar
+  - label: Care for the Poor
+    note: Ministry to widows, the hungry, and the overlooked
+  - label: Witness unto Death
+    note: Steadfastness under persecution, after Stephen the Protomartyr
+timeline:
+  - when: c. AD 34
+    title: The Seven are chosen
+    body: The Greek-speaking widows being overlooked, the apostles call the faithful to set apart seven men "full of the Spirit and of wisdom" to serve the tables (Acts 6:1–3).
+  - when: c. AD 34
+    title: Ordained by the apostles
+    body: The Twelve pray and lay their hands upon the Seven — the first deacons of the Church.
+  - when: c. AD 34
+    title: The martyrdom of Stephen
+    body: Stephen the archdeacon, full of grace and power, is stoned outside Jerusalem and becomes the first martyr of the Church (Acts 7).
+  - when: Apostolic age
+    title: Preaching and mission
+    body: Philip evangelizes Samaria and the Ethiopian eunuch, and several of the Seven, numbered among the Seventy, carry the Gospel abroad.
+members:
+  - name: Stephen the Protomartyr
+    saint_id: OS-0009
+    role: Archdeacon & Protomartyr
+    note: First martyr of the Church; he preached before the Sanhedrin and was stoned (Acts 6–7).
+  - name: Philip the Deacon
+    saint_id: OS-1998
+    role: Deacon & Evangelist
+    note: Evangelized Samaria and baptized the Ethiopian eunuch; also called Philip the Evangelist (Acts 8).
+  - name: Prochorus
+    saint_id: OS-1589
+    role: Bishop of Nicomedia
+    note: Traditionally became bishop of Nicomedia and a companion of the Apostle John.
+  - name: Nicanor
+    saint_id: OS-1589
+    role: Martyr
+    note: Tradition holds that he suffered martyrdom.
+  - name: Timon
+    saint_id: OS-1589
+    role: Bishop of Bostra
+    note: Traditionally became bishop of Bostra in Arabia and was martyred.
+  - name: Parmenas
+    saint_id: OS-1589
+    role: Martyr
+    note: Traditionally preached the Gospel and was martyred during the reign of Trajan.
+  - name: Nicolas of Antioch
+    role: Deacon
+    note: A proselyte from Antioch. Later tradition is divided — some Fathers identify him with the Nicolaitans of Revelation, while others reject that identification.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Seven_Deacons
+  - https://orthodoxwiki.org/Seven_Deacons
+generated: "2026-07-13"

@@ -245,6 +245,29 @@ class ErrorTypeTests(unittest.TestCase):
         out = '{"type":"result","result":"wrote a profile about the 429 Martyrs"}'
         self.assertIsNone(limits.parse_error_type(out))
 
+    def test_text_fallback_detects_usage_limit(self):
+        # The subscription cap wording ("usage limit reached") — plain text, no JSON.
+        self.assertEqual(
+            limits.parse_error_type("Claude usage limit reached"), "rate_limit_error")
+
+
+class HardStartupFailureTests(unittest.TestCase):
+    def test_instant_nonzero_exit_is_a_startup_failure(self):
+        # The 2026-07-04 fingerprint: rc!=0, ~1s, no parseable error → usage-cap refusal.
+        self.assertTrue(limits.hard_startup_failure("", rc=5, elapsed=1.2))
+
+    def test_zero_rc_is_never_a_startup_failure(self):
+        self.assertFalse(limits.hard_startup_failure("", rc=0, elapsed=0.5))
+
+    def test_slow_nonzero_exit_is_a_real_error(self):
+        # Ran for minutes then failed → genuine mid-run error, not a startup refusal.
+        self.assertFalse(limits.hard_startup_failure("", rc=5, elapsed=900))
+
+    def test_timeout_marker_is_excluded(self):
+        # rc 124 / TIMEOUT ran the full BATCH_TIMEOUT — never an instant refusal.
+        self.assertFalse(
+            limits.hard_startup_failure("TIMEOUT after 3600s", rc=124, elapsed=0.1))
+
 
 class TerminalTests(unittest.TestCase):
     def test_billing_and_auth_are_terminal(self):
@@ -696,6 +719,7 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
             RESUME_AFTER=0, MAX_ERR=3,
             log=lambda *a, **k: None, notify=lambda *a, **k: None,
             write_state=lambda *a, **k: None, format_profiles=lambda *a, **k: None,
+            save_error_output=lambda *a, **k: None,
             run_workflow=fake_run_workflow, profiles_present=fake_present,
         ), mock.patch.object(runner.prioritize, "ranked", fake_ranked), \
                 mock.patch.object(runner.time, "sleep", lambda *_: None):
@@ -752,6 +776,35 @@ class RunnerLoopIntegrationTests(unittest.TestCase):
         rc = self._run(["A", "B"], ["none", "none", "none"], produced, calls, weekly=2)
         self.assertEqual(rc, 0)
         self.assertEqual(len(calls), 3)
+
+    def test_instant_hard_failure_waits_then_retries(self):
+        # The 2026-07-04 regression: claude -p exits non-zero in ~1s with no parseable
+        # error (a usage-window cap). This MUST wait a window and retry the same ids —
+        # not fast-backoff and skip the batch, which lost 20 batches that night.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", "", 5), "all"], produced, calls, weekly=3)
+        self.assertEqual(rc, 0)
+        self.assertEqual(produced, {"A", "B"})     # nothing skipped
+        self.assertEqual(len(calls), 2)            # waited, then retried
+        self.assertEqual(calls[0], calls[1])       # same remaining ids re-driven
+
+    def test_persistent_instant_failure_stops_weekly(self):
+        # Repeated instant hard exits look like a hard cap → stop cleanly (exit 2) after
+        # WEEKLY_AFTER_WAITS windows rather than spinning or silently skipping.
+        produced, calls = set(), []
+        rc = self._run(["A", "B"], [("none", "", 5)] * 3, produced, calls, weekly=2)
+        self.assertEqual(rc, 2)
+        self.assertEqual(len(calls), 3)            # 2 waits, then stop on the 3rd
+
+    def test_slow_nonzero_exit_still_backs_off_and_skips(self):
+        # A non-zero exit that is NOT an instant startup refusal is a genuine mid-run
+        # error — keep the fast backoff+skip (don't wait a 5h window for it).
+        produced, calls = set(), []
+        with mock.patch.object(runner.limits, "hard_startup_failure",
+                               lambda *a, **k: False):
+            rc = self._run(["A", "B"], [("none", "", 5)] * 3, produced, calls, weekly=2)
+        self.assertEqual(rc, 0)                    # finished, not weekly-cap
+        self.assertEqual(produced, set())          # batch skipped after MAX_ERR
 
     def test_completed_but_timed_out_batch_advances(self):
         # the real overnight freeze: workflow wrote all profiles, then the orchestrator

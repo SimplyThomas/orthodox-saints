@@ -1,17 +1,45 @@
 retired_id,retired_name,canonical_id,canonical_name,reason,date,pr
+OS-0093,Hieromartyr Aeithalas the Deacon of Persia,OS-2134,"Hieromartyrs Akepsimas, Joseph, and Aeithalas of Persia",Duplicate — standalone Aeithalas merged into the group OS-2134 (Sep 1 feast) (DI-024),2026-07-06,226
 OS-0120,Martyr Mamas of Caesarea,OS-0065,Martyr Mamas of Caesarea,Duplicate row; gender field incorrectly set to Male & Female,2026-06-12,153
 OS-0164,"St. Gregory the Great, Pope of Rome",OS-0084,St. Gregory the Dialogist,Duplicate row; OS-0084 is the canonical entry; Sep 3 feast / Mercy virtue / Roman Martyrology source merged into OS-0084,2026-06-29,
 OS-0189,Holy Prophet Moses the God-seer,OS-0057,Holy Prophet Moses,Duplicate row added during spine walk; OS-0057 is the seed entry,2026-06-12,153
+OS-0191,Martyr Sarbellus of Edessa,OS-0190,Martyrs Sarbelus (Thathuil) & Bebaia of Edessa,Duplicate — Sarbelus (baptismal name Thathuil) merged into OS-0190; Oct 15 & Jan 29 feasts merged (DI-002),2026-07-06,226
+OS-0573,St. Julius of Aegina,OS-1402,Saints Julius the Presbyter and Julian the Deacon of Novara,Julius of Aegina = Julius the Presbyter of Novara; merged into the Julius+Julian pair OS-1402 (DI-013),2026-07-06,226
+OS-0779,Virgin-Martyr Irais of Antinoe,OS-0226,Virgin-Martyr Rhais of Alexandria,Duplicate of Rhais/Irais/Iraida; Mar 5 'of Antinoe' feast merged into OS-0226 (DI-003),2026-07-06,226
+OS-0911,"Hieromartyr Avdas, Bishop of Persia, and Martyr Benjamin the Deacon",OS-0229,Hieromartyr Abdas of Persia & Companions,"Duplicate bundle — Abdas merged into OS-0229 (Mar 31 feast); companion Benjamin the Deacon consolidated into OS-2014 (DI-023, DI-043)",2026-07-06,226
+OS-0948,Saint Plato the Confessor of Studion,OS-0940,Plato of the Studion,"Duplicate of Plato of Sakkoudion/Studion; merged into OS-0940, feast corrected to Apr 5 (DI-011)",2026-07-06,226
+OS-1287,Hieromartyr Joannicius of Serbia,OS-1291,"Hieromartyr Joanikije, Metropolitan of Montenegro","Duplicate of Joanikije Lipovac, Metropolitan of Montenegro; OS-1291 is the correctly-identified/richer row (DI-030)",2026-07-06,226
 OS-1334,Saint Luke the Confessor Archbishop of Simferopol,OS-0049,St. Luke Archbishop of Crimea,Duplicate row; OS-0049 is the canonical entry,2026-06-22,194
 OS-1399,"Martyrs Inna, Pinna, and Rimma",OS-0498,"Martyrs Inna, Pinna and Rimma",Duplicate row added during spine walk (Jun 20 feast); feast merged into OS-0498,2026-06-12,153
 OS-1440,"Hieromartyr Kirion II, Catholicos-Patriarch of All Georgia",OS-0816,Kirion II Catholicos-Patriarch of All Georgia,Duplicate row; OS-0816 is the canonical entry,2026-06-09,144
 OS-1582,Martyr Paraskevi of Rome,OS-0060,St. Paraskevi of Rome,Duplicate row; OS-0060 is the canonical entry,2026-06-22,194
 OS-1703,Saint Makarios the Roman of Novgorod,OS-0490,Venerable Macarius the Roman of Novgorod,Duplicate row added during spine walk (Aug 15 feast); feast merged into OS-0490,2026-06-12,153
+OS-1706,Saint Anthony of Martkofeli,OS-0493,St. Anthony of Martqopi,Duplicate of Anthony of Martqopi (Thirteen Fathers); Aug 16 feast merged into OS-0493 (DI-016),2026-07-06,226
 OS-1712,Saint Eustathius of Serbia,OS-0386,St. Eustathius I Archbishop of Serbia,Duplicate stub (Aug 16); date merged into OS-0386 as secondary feast,2026-06-08,141
+OS-1716,Venerable Gerasimus the New Ascetic of Cephalonia,OS-0063,St. Gerasimos of Kefalonia,Duplicate of St Gerasimos of Kefalonia; OS-0063 canonical (DI-035),2026-07-06,226
+OS-1734,Venerable Macarius of Pelekete,OS-0917,Macarius the Confessor of Pelekete,Duplicate of Macarius the Confessor of Pelekete; Aug 18 feast merged into OS-0917 (DI-036),2026-07-06,226
 OS-1795,Saint Phanourius the Newly-Revealed,OS-0058,St. Phanourios,Duplicate row; OS-0058 is the canonical entry,2026-06-22,194
 OS-1815,"Saint Joannicius, first Patriarch of Serbia",OS-0172,"St. Ioannicius II, Patriarch of Serbia",Duplicate row; OS-0172 is the canonical entry,2026-06-08,141
+OS-1817,Martyr Eupsychius of Caesarea,OS-0264,Martyr Eupsychios of Caesarea,Duplicate of the 2nd-c. Sep 7 Eupsychios of Caesarea; merged into OS-0264 (DI-004),2026-07-06,226
+OS-1891,Venerable Cosmas of Zographou,OS-1883,Venerable Cosmas the Bulgarian of Zographou,Duplicate of Cosmas of Zographou (+1323); Sep 22 feast merged into OS-1883; erroneous 18th-c./Modern tag dropped (DI-019),2026-07-06,226
+OS-1902,Venerable Simon of Serbia,OS-1904,Saint Stephen the First-Crowned of Serbia,Simon the Monk = monastic name of Stephen the First-Crowned; OS-1904 canonical (DI-041),2026-07-06,226
+OS-1905,Venerable Euphrosyne of Alexandria,OS-0664,Venerable Paphnutius and his daughter Euphrosyne of Alexandria,"Duplicate — Euphrosyne (the monk Smaragdus, Sep 25) merged into OS-0664 (DI-017)",2026-07-06,226
 OS-1926,Saint Michael first Metropolitan of Kiev,OS-1366,Saint Michael First Metropolitan of Kiev,Duplicate row added during spine walk (Sep 30 repose); OS-1366 holds Jun 15 (relic translation),2026-06-04,65
 OS-2101,Saint Arsenius of Cappadocia,OS-0070,St. Arsenios of Cappadocia,Duplicate row; OS-0070 is the canonical entry,2026-06-22,194
+OS-2166,Martyr Alexander of Thessalonica,OS-0820,Martyr Alexander of Pydna,Duplicate — Alexander of Thessalonica (Nov 9; May 26) merged into OS-0820 (DI-021),2026-07-06,226
 OS-2170,Saint Nectarius of Pentapolis,OS-0046,St. Nektarios of Aegina,Duplicate row; OS-0046 is the canonical entry,2026-06-22,194
 OS-2291,Saint Porphyrios of Kavsokalivia,OS-0052,St. Porphyrios of Kafsokalivia,Duplicate row; OS-0052 is the canonical entry,2026-06-08,139
 OS-2369,Martyr Eleutherius the Cubicularius,OS-1641,Martyr Eleutherius the Cubicularius,Duplicate row added during spine walk (Dec 15 feast); feast merged into OS-1641,2026-06-12,153
+OS-2443,Venerable Simeon the Ancient,OS-0546,St. Simeon the Ancient of Mount Sinai,Duplicate of Simeon the Ancient (Jan 26); merged into OS-0546 (DI-012),2026-07-06,226
+OS-2449,Martyr Alexander of Marcianopolis,OS-1162,Martyr Alexander of Rome,Duplicate — Alexander of Thrace/Marcianopolis (Pimenia legend) merged into OS-1162 (Feb 25 feast); prior keeper of OS-2480 (DI-029),2026-07-06,226
+OS-2454,Martyr Sabinas of Egypt,OS-0817,Martyr Sabinus of Egypt,Duplicate of Sabinus of Hermopolis; OS-0817 canonical (DI-020),2026-07-06,226
+OS-2480,Martyr Alexander the Soldier of Rome,OS-1162,Martyr Alexander of Rome,Duplicate of Alexander the Roman (Pimenia legend); May 13 feast merged into OS-2449 (DI-045); re-pointed to OS-1162 after OS-2449 was itself retired (DI-029),2026-07-06,226
+OS-2507,Righteous Nonna of Nazianzus,OS-1647,"Righteous Nonna, Mother of Saint Gregory the Theologian","Duplicate of Nonna, mother of Gregory the Theologian; merged into OS-1647 (DI-009)",2026-07-06,226
+OS-2582,Righteous Damaris of Athens,OS-1947,Saint Damaris of Athens,Duplicate of Damaris of Athens (Acts 17:34); OS-1947 canonical (DI-040),2026-07-06,226
+OS-2637,New Martyr Paisius the Hegumen of Serbia,OS-2380,New Martyr Paisius of Trnava,"Duplicate of New Martyr Paisius (Pajsije Ristovic) of Trnava, +Belgrade 1814; OS-2380 canonical (DI-044)",2026-07-06,226
+OS-2652,Venerable David of Gareja,OS-1321,Saints David of Gareji and Lucian,Duplicate of David of Gareji (Thirteen Fathers); May 7 feast merged into OS-1321 (DI-015),2026-07-06,226
+OS-2658,"Martyrs Bidzina, Elizbar, and Shalva of Georgia",OS-1863,Greatmartyr Bidzini and Martyrs Elizabar and Shalvi of Georgia,Duplicate of the Bakhtrioni martyrs; facets merged into OS-1863 (DI-037),2026-07-06,226
+OS-2660,Martyrs David and Constantine of Argveti,OS-1940,"Martyrs David and Constantine, Princes of Georgia",Duplicate of David & Constantine of Argveti; facets merged into OS-1940 (DI-039),2026-07-06,226
+OS-2663,Saint Hilarion the Iberian,OS-2220,Venerable Hilarion the Georgian,Duplicate of Hilarion the Georgian / Wonderworker of Thessalonica; OS-2220 canonical (DI-027),2026-07-06,226
+OS-2726,"Hieromartyr Peter, Patriarch of Alexandria",OS-2252,"Hieromartyr Peter, Archbishop of Alexandria",Duplicate of Peter I the Martyr of Alexandria; OS-2252 canonical (DI-046),2026-07-06,226
+OS-2746,St. Giorgi-Ioane (Mkheidze) of Betania,OS-0511,St. George (John) of Georgia,"Duplicate of the Betania confessor Giorgi-Ioane Mkheidze; OS-0511 canonical, Sep 8 feast merged (DI-010)",2026-07-06,226
