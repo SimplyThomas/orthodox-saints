@@ -1,0 +1,338 @@
+id: OS-2935
+status: draft
+eyebrow: Synaxis · The Apostolic Mission
+feastNote: Commemorated together as a synaxis · each with individual feasts through the year
+overview:
+  - The Synaxis of the Holy Seventy Apostles is the common commemoration of the wider circle of disciples whom Christ appointed and sent out ahead of Him, two by two, as recorded in the Gospel of Luke (10:1–24). Where the Twelve hold a unique place at the heart of the apostolic college, the Seventy — seventy-two in some manuscript traditions — formed a broader body of missionary disciples who carried the Gospel through the apostolic age.
+  - Scripture does not give their names, and the surviving lists come from later ecclesiastical tradition — above all those associated with Hippolytus of Rome and Dorotheus of Tyre, together with the Byzantine synaxaria — so that the membership varies somewhat from one tradition to another. The Church commemorates them together on January 4, and many of them individually through the year.
+  - Following the Resurrection and Pentecost, many of the Seventy became bishops, evangelists, founders of local churches, and martyrs; tradition links them to mission across Palestine, Syria, Asia Minor, Greece, Cyprus, Egypt, Mesopotamia, Rome, and North Africa. Their collective feast expresses the breadth of the apostolic mission — that the spread of the Gospel was the work not of a few leaders only, but of many disciples laboring together — and many later bishoprics trace their origins to members of the Seventy.
+facts:
+  - label: Rank
+    value: Apostle
+  - label: Sent by
+    value: Christ (Luke 10:1)
+  - label: Number
+    value: Seventy · seventy-two in some lists
+  - label: Region
+    value: Palestine → the Mediterranean world
+  - label: Era
+    value: Apostolic Age · 1st c.
+  - label: Veneration
+    value: Pan-Orthodox
+  - label: Commemorated
+    value: January 4 (synaxis)
+virtues:
+  - Faith
+  - Zeal
+  - Mission
+vocation:
+  - Missionaries
+  - Bishops
+  - Evangelists
+  - Martyrs
+patronage:
+  - Missionaries and evangelists
+  - Church planters and bishops
+  - Preachers and catechists
+invokedFor:
+  - label: Missionary Work
+    note: Those who carry the Gospel to new places
+  - label: Church Planting
+    note: Founders and shepherds of local churches
+  - label: Preaching
+    note: Preachers, catechists, and evangelists
+timeline:
+  - when: c. AD 30
+    title: Appointed by Christ
+    body: The Lord appoints the Seventy and sends them out two by two ahead of Him into every town He was about to visit (Luke 10:1).
+  - when: c. AD 30–33
+    title: Mission in Judea and Galilee
+    body: They go before the Lord preaching, healing, and preparing the way; returning with joy, they are told to rejoice rather that their names are written in heaven (Luke 10:17–20).
+  - when: After Pentecost
+    title: Missionary expansion
+    body: Filled with the Spirit, the Seventy carry the Gospel throughout the Roman world — Syria, Asia Minor, Greece, Cyprus, Egypt, and Rome.
+  - when: 1st century
+    title: Bishops and martyrs
+    body: Many are ordained bishops of the early churches; a number end their labors in martyrdom.
+  - when: January 4
+    title: Synaxis of the Seventy
+    body: Their common commemoration is fixed in the Church calendar, gathering the whole company in one feast.
+members:
+  - name: James the Just
+    saint_id: OS-2066
+    role: Brother of the Lord
+    note: First bishop of Jerusalem and author of the Epistle of James.
+  - name: Mark the Evangelist
+    saint_id: OS-1061
+    role: Evangelist
+    note: Author of the second Gospel and founder of the Church of Alexandria.
+  - name: Luke the Evangelist
+    saint_id: OS-0006
+    role: Evangelist
+    note: Physician; author of the Gospel of Luke and the Acts of the Apostles.
+  - name: Cleopas
+    saint_id: OS-2513
+    role: Of the road to Emmaus
+    note: One of the two who met the risen Christ on the road to Emmaus (Luke 24).
+  - name: Symeon son of Clopas
+    saint_id: OS-1069
+    role: Bishop of Jerusalem
+    note: Kinsman of the Lord and second bishop of Jerusalem after James.
+  - name: Barnabas
+    saint_id: OS-1331
+    role: Apostle to Cyprus
+    note: Son of encouragement, companion of Paul and apostle to Cyprus.
+  - name: Justus
+    saint_id: OS-2111
+    role: Kinsman of the Lord
+    note: Joseph called Barsabbas, surnamed Justus; bishop of Eleutheropolis.
+  - name: Thaddeus of the Seventy
+    saint_id: OS-1749
+    role: Apostle to Edessa
+    note: Sent to Edessa; baptized King Abgar and preached in Syria.
+  - name: Ananias of Damascus
+    saint_id: OS-1928
+    role: Bishop of Damascus
+    note: Baptized Saul of Tarsus and became bishop of Damascus (Acts 9).
+  - name: Stephen the Protomartyr
+    saint_id: OS-0009
+    role: Archdeacon
+    note: First of the Seven deacons and the first martyr of the Church (Acts 7).
+  - name: Philip the Deacon
+    saint_id: OS-1998
+    role: Deacon
+    note: One of the Seven; the evangelist who baptized the Ethiopian eunuch.
+  - name: Prochorus
+    saint_id: OS-1589
+    role: Deacon
+    note: One of the Seven; by tradition a companion of John the Theologian.
+  - name: Nicanor
+    saint_id: OS-1589
+    role: Deacon
+    note: One of the Seven deacons ordained by the apostles (Acts 6).
+  - name: Timon
+    saint_id: OS-1589
+    role: Deacon
+    note: One of the Seven; later a bishop and martyr at Bostra.
+  - name: Parmenas
+    saint_id: OS-1589
+    role: Deacon
+    note: One of the Seven deacons who served the Church at Jerusalem.
+  - name: Nicolas of Antioch
+    role: Deacon
+    note: A proselyte of Antioch and the last of the Seven deacons (Acts 6).
+  - name: Timothy
+    saint_id: OS-0512
+    role: Bishop of Ephesus
+    note: Disciple of Paul and first bishop of Ephesus; recipient of two epistles.
+  - name: Titus
+    saint_id: OS-1775
+    role: Bishop of Crete
+    note: Companion of Paul and first bishop of Crete; recipient of an epistle.
+  - name: Philemon
+    saint_id: OS-0688
+    role: Of Colossae
+    note: To whom Paul wrote on behalf of the slave Onesimus.
+  - name: Onesimus
+    saint_id: OS-0662
+    role: Bishop
+    note: The slave of Philemon, converted by Paul and later a bishop.
+  - name: Epaphras
+    role: Of Colossae
+    note: A faithful minister of Christ named by Paul (Col. 1).
+  - name: Archippus
+    saint_id: OS-0688
+    role: Of Colossae
+    note: Charged by Paul to fulfill his ministry (Col. 4:17).
+  - name: Silas
+    saint_id: OS-1608
+    role: Companion of Paul
+    note: Companion of Paul on the second journey; bishop of Corinth.
+  - name: Silvanus
+    saint_id: OS-1608
+    role: Bishop of Thessalonica
+    note: Often identified with Silas; bishop of Thessalonica.
+  - name: Crescens
+    saint_id: OS-1608
+    role: Preacher in Gaul
+    note: Sent by Paul to Galatia (2 Tim. 4); preached in Gaul.
+  - name: Crispus
+    saint_id: OS-2581
+    role: Ruler of the synagogue
+    note: Ruler of the synagogue at Corinth, converted and baptized by Paul.
+  - name: Epenetus
+    saint_id: OS-1608
+    role: Bishop of Carthage
+    note: Called the firstfruits of Achaia (Rom. 16).
+  - name: Andronicus
+    saint_id: OS-1192
+    role: Kinsman of Paul
+    note: Of note among the apostles, a kinsman of Paul (Rom. 16).
+  - name: Amplias
+    saint_id: OS-2121
+    role: Bishop of Odyssos
+    note: Beloved of Paul (Rom. 16).
+  - name: Urban
+    saint_id: OS-2121
+    role: Bishop in Macedonia
+    note: A fellow-worker greeted by Paul (Rom. 16).
+  - name: Stachys
+    saint_id: OS-2121
+    role: First bishop of Byzantium
+    note: Beloved of Paul (Rom. 16); ordained by the Apostle Andrew.
+  - name: Apelles
+    saint_id: OS-0344
+    role: Bishop of Heraklion
+    note: Commended as approved in Christ (Rom. 16).
+  - name: Aristobulus
+    saint_id: OS-0831
+    role: Apostle of Britain
+    note: Brother of Barnabas; honored as the apostle of Britain.
+  - name: Herodion
+    saint_id: OS-0961
+    role: Bishop of Neopatras
+    note: Kinsman of Paul (Rom. 16); martyred at Rome.
+  - name: Agabus
+    role: Prophet
+    note: The prophet who foretold famine and Paul's binding (Acts 11, 21).
+  - name: Rufus
+    role: Bishop of Thebes
+    note: Son of Simon of Cyrene; greeted by Paul (Rom. 16).
+  - name: Asyncritus
+    role: Bishop of Hyrcania
+    note: Greeted by Paul (Rom. 16).
+  - name: Phlegon
+    role: Bishop of Marathon
+    note: Greeted by Paul (Rom. 16).
+  - name: Hermes
+    saint_id: OS-0796
+    role: Bishop of Dalmatia
+    note: Greeted by Paul (Rom. 16).
+  - name: Patrobas
+    saint_id: OS-2151
+    role: Bishop of Puteoli
+    note: Greeted by Paul (Rom. 16).
+  - name: Hermas
+    saint_id: OS-1263
+    role: Bishop of Philippopolis
+    note: Greeted by Paul (Rom. 16).
+  - name: Linus
+    saint_id: OS-2151
+    role: Bishop of Rome
+    note: Named by Paul (2 Tim. 4); a successor of Peter at Rome.
+  - name: Gaius
+    saint_id: OS-2151
+    role: Bishop of Ephesus
+    note: Paul's host at Corinth (Rom. 16).
+  - name: Philologus
+    saint_id: OS-2151
+    role: Bishop of Sinope
+    note: Greeted by Paul (Rom. 16); ordained by the Apostle Andrew.
+  - name: Lucius of Cyrene
+    saint_id: OS-2743
+    role: Bishop of Laodicea
+    note: A prophet and teacher at Antioch (Acts 13).
+  - name: Jason of Tarsus
+    saint_id: OS-1072
+    role: Bishop of Tarsus
+    note: Paul's host and kinsman (Acts 17, Rom. 16).
+  - name: Sosipater
+    saint_id: OS-1072
+    role: Bishop of Iconium
+    note: Kinsman of Paul (Rom. 16); with Jason evangelized Corfu.
+  - name: Olympas
+    saint_id: OS-2172
+    role: Martyred at Rome
+    note: Greeted by Paul (Rom. 16); martyred at Rome.
+  - name: Tertius
+    saint_id: OS-2110
+    role: Bishop of Iconium
+    note: Who wrote down the Epistle to the Romans (Rom. 16).
+  - name: Erastus
+    saint_id: OS-2172
+    role: Treasurer of Corinth
+    note: Treasurer of Corinth (Rom. 16); later a deacon and bishop.
+  - name: Quartus
+    saint_id: OS-2172
+    role: Bishop of Berytus
+    note: Who greeted the Romans (Rom. 16).
+  - name: Euodius of Antioch
+    saint_id: OS-0263
+    role: Bishop of Antioch
+    note: First bishop of Antioch after Peter; said to have coined the name Christian.
+  - name: Onesiphorus
+    saint_id: OS-0263
+    role: Bishop of Colophon
+    note: Who often refreshed Paul (2 Tim. 1).
+  - name: Clement of Rome
+    saint_id: OS-2251
+    role: Bishop of Rome
+    note: Fellow-worker of Paul (Phil. 4); bishop of Rome and martyr.
+  - name: Sosthenes
+    saint_id: OS-0903
+    role: Bishop of Colophon
+    note: Ruler of the Corinthian synagogue (Acts 18).
+  - name: Apollos
+    saint_id: OS-2321
+    role: Bishop of Caesarea
+    note: The eloquent Alexandrian who watered what Paul planted (Acts 18).
+  - name: Tychicus
+    saint_id: OS-2321
+    role: Bishop of Colophon
+    note: Paul's beloved messenger (Eph. 6).
+  - name: Epaphroditus
+    saint_id: OS-2321
+    role: Bishop of Adriaca
+    note: Paul's brother and fellow-soldier (Phil. 2).
+  - name: Carpus
+    saint_id: OS-1239
+    role: Bishop of Berroea
+    note: With whom Paul left his cloak at Troas (2 Tim. 4).
+  - name: Codratus
+    saint_id: OS-1874
+    role: Bishop of Athens
+    note: A defender of the faith before the Emperor Hadrian.
+  - name: Mark called John
+    saint_id: OS-1911
+    role: Bishop of Byblos
+    note: John Mark, kinsman of Barnabas (Acts 12).
+  - name: Zenas
+    saint_id: OS-1912
+    role: Bishop of Diospolis
+    note: The lawyer commended by Paul to Titus (Titus 3).
+  - name: Aristarchus
+    saint_id: OS-0997
+    role: Bishop of Apamea
+    note: Paul's companion and fellow-prisoner (Col. 4).
+  - name: Pudens
+    saint_id: OS-0997
+    role: Of Rome
+    note: A Roman who received the apostles; named by Paul (2 Tim. 4).
+  - name: Trophimus
+    saint_id: OS-0997
+    role: Of Ephesus
+    note: Companion of Paul (Acts 20); martyred at Rome.
+  - name: Mark of Apollonia
+    role: Bishop of Apollonias
+    note: Also called Mark, nephew of Barnabas.
+  - name: Artemas
+    saint_id: OS-2112
+    role: Bishop of Lystra
+    note: Sent by Paul to Titus (Titus 3).
+  - name: Aquila
+    saint_id: OS-1527
+    role: Tentmaker
+    note: Tentmaker and husband of Priscilla; teacher of Apollos (Acts 18).
+  - name: Fortunatus
+    saint_id: OS-1368
+    role: Ministered to Paul
+    note: Who refreshed Paul at Corinth (1 Cor. 16).
+  - name: Achaicus
+    saint_id: OS-1368
+    role: Ministered to Paul
+    note: Who with Fortunatus ministered to Paul (1 Cor. 16).
+sources:
+  - OCA Synaxarion (oca.org), January 4
+  - https://en.wikipedia.org/wiki/Seventy_disciples
+  - https://orthodoxwiki.org/Apostle
+generated: "2026-07-13"

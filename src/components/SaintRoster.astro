@@ -1,0 +1,361 @@
+---
+/* Shared member-ROSTER section for collective commemorations. Used by
+   GroupSaintProfile (a synaxis / household group record) AND by SaintView, for
+   the saint-row synaxes that are not group-taxonomy entries (Glinsk Elders,
+   Novgorod Hierarchs, Kiev Near Caves — they render as saints but carry a
+   `members:` list in their profile). Given a list of members, it resolves each
+   to a real saint page where a saint_id is present, and renders a uniform card
+   grid: linked cards for members with a page, and dashed cards for name-only
+   members noting they are commemorated within the collective (no separate
+   page — because they are commemorated only as part of it, or little is
+   recorded of them). Every member is listed either way. */
+import { SAINTS } from "../lib/data";
+import { saintAvatar } from "../lib/icons";
+import { primaryRank } from "../lib/saints";
+import { esc, withBase } from "../lib/format";
+
+interface Member {
+  saint_id?: string;
+  name?: string;
+  role?: string;
+  note?: string;
+}
+interface Props {
+  members: Member[];
+  /** small label above the heading */
+  eyebrow?: string;
+  /** the large serif heading */
+  heading?: string;
+  /** the collective noun used in the "commemorated within this …" marker for a
+      member who has no separate page (e.g. "synaxis", "household", "group") */
+  collective?: string;
+}
+const {
+  members,
+  eyebrow = "Members of this group",
+  heading = "Every name we commemorate",
+  collective = "group",
+} = Astro.props;
+
+const byId = new Map(SAINTS.map((s) => [s.id, s]));
+const stripHon = (n: string) => n.replace(/^(Saint|St\.?|Holy)\s+/i, "");
+
+type Entry = { saint_id?: string; name: string; role?: string; note?: string };
+const roster: Entry[] = members
+  .map((o) => ({
+    saint_id: o.saint_id,
+    name: o.name || (o.saint_id ? (byId.get(o.saint_id)?.name ?? "") : ""),
+    role: o.role,
+    note: o.note,
+  }))
+  .filter((r) => r.name);
+// Count each saint_id across the roster to spot COMBINED pages: a saint_id used
+// by two or more members is a shared entry (several saints on one page), so none
+// of those members has a page of their OWN. Such a member reads as "commemorated
+// within" (like a name-only member) but keeps its link to the shared entry.
+const idCounts = new Map<string, number>();
+for (const r of roster)
+  if (r.saint_id) idCounts.set(r.saint_id, (idCounts.get(r.saint_id) ?? 0) + 1);
+const resolves = (r: Entry) => !!(r.saint_id && byId.has(r.saint_id));
+// "Has its own entry" = a resolvable page that is this member's alone.
+const hasOwnEntry = (r: Entry) =>
+  resolves(r) && (idCounts.get(r.saint_id!) ?? 0) === 1;
+const withEntryCount = roster.filter(hasOwnEntry).length;
+const forthcomingCount = roster.length - withEntryCount;
+
+// One roster card as an HTML string (rendered via <Fragment set:html>). Three
+// shapes: (a) own entry — a white, linked card; (b) commemorated within, linked
+// — a dashed card that still links to a shared/combined page; (c) commemorated
+// within, name-only — a dashed card with no link. A resolvable saint_id gives
+// the real portrait/monogram; name + role + note come from the roster entry.
+const memberCard = (m: Entry) => {
+  const linked = resolves(m); // clickable: own page OR shared combined page
+  const own = hasOwnEntry(m);
+  const rec = m.saint_id ? byId.get(m.saint_id) : undefined;
+  const displayName = m.name || (rec ? rec.name : "");
+  const role = m.role || "";
+  const note = m.note || "";
+  const avatar = rec
+    ? saintAvatar(rec, 48, 60, { type: primaryRank(rec) })
+    : saintAvatar({ name: stripHon(displayName) }, 48, 60);
+  const goGlyph = linked
+    ? `<span class="sr-go" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="var(--celest)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 10 4M5 4h5v5"/></svg></span>`
+    : "";
+  const roleHtml = role ? `<span class="sr-role">${esc(role)}</span>` : "";
+  const noteHtml = note ? `<span class="sr-note">${esc(note)}</span>` : "";
+  const within = own
+    ? ""
+    : `<span class="sr-forth"><span class="sr-diamond"></span>Commemorated within this ${esc(collective)}</span>`;
+  const inner =
+    `<span class="sr-ava">${avatar}</span>` +
+    `<span class="sr-body">` +
+    `<span class="sr-nm">${esc(displayName)}${goGlyph}</span>` +
+    roleHtml +
+    noteHtml +
+    within +
+    `</span>`;
+  const cls = own ? "sr-mem sr-mem--link" : "sr-mem sr-mem--stub";
+  return linked
+    ? `<a class="${cls}" href="${esc(withBase("saint/" + m.saint_id))}">${inner}</a>`
+    : `<div class="${cls}">${inner}</div>`;
+};
+---
+
+<section id="roster" class="saint-roster">
+  <div class="sr-inner">
+    <div class="sr-head">
+      <div>
+        <div class="eyebrow">{eyebrow}</div>
+        <h2 class="sr-title">{heading}</h2>
+      </div>
+      <div class="sr-stats">
+        <div class="sr-stat">
+          <div class="sr-stat-n">{withEntryCount}</div>
+          <div class="sr-stat-l">With entries</div>
+        </div>
+        {
+          forthcomingCount > 0 && (
+            <>
+              <div class="sr-stat-div" />
+              <div class="sr-stat">
+                <div class="sr-stat-n sr-stat-n--soft">{forthcomingCount}</div>
+                <div class="sr-stat-l">Listed only</div>
+              </div>
+            </>
+          )
+        }
+      </div>
+    </div>
+
+    {
+      forthcomingCount > 0 && (
+        <div class="sr-legend">
+          <span class="sr-legend-item">
+            <span class="sr-legend-swatch sr-legend-swatch--link" />
+            Has its own entry — click to open
+          </span>
+          <span class="sr-legend-item">
+            <span class="sr-legend-swatch sr-legend-swatch--stub" />
+            Commemorated within the {collective} — no separate page
+          </span>
+        </div>
+      )
+    }
+
+    {
+      roster.length ? (
+        <div class="sr-grid" role="list">
+          {roster.map((m) => (
+            <div role="listitem" set:html={memberCard(m)} />
+          ))}
+        </div>
+      ) : (
+        <p class="sr-empty">No members are recorded yet.</p>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .saint-roster {
+    background: var(--ivory-2);
+    border-top: 1px solid var(--line-gold);
+    border-bottom: 1px solid var(--line-gold);
+    padding: 3rem 1.5rem 3.5rem;
+  }
+  .sr-inner {
+    max-width: 74rem;
+    margin: 0 auto;
+  }
+  .sr-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .sr-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    color: var(--byz-deep);
+    margin: 0.6rem 0 0;
+    line-height: 1.05;
+  }
+  .sr-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+  }
+  .sr-stat {
+    text-align: right;
+  }
+  .sr-stat-n {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--byz);
+  }
+  .sr-stat-n--soft {
+    color: var(--gold-deep);
+  }
+  .sr-stat-l {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.25rem;
+  }
+  .sr-stat-div {
+    width: 1px;
+    height: 2.4rem;
+    background: var(--line-gold);
+  }
+
+  .sr-legend {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1.15rem 0 1.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .sr-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .sr-legend-swatch {
+    width: 1.6rem;
+    height: 1.1rem;
+    border-radius: 4px;
+    flex: 0 0 auto;
+  }
+  .sr-legend-swatch--link {
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+  .sr-legend-swatch--stub {
+    background: transparent;
+    border: 1px dashed var(--line-gold);
+  }
+
+  .sr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+    gap: 0.85rem;
+    margin-top: 0.4rem;
+  }
+  /* Each grid cell stretches to the tallest card in its row; the card fills its
+     cell (flex: 1) so every card in a row shares one height and their borders
+     line up. align-content: start keeps the content top-aligned. */
+  .sr-grid > * {
+    display: flex;
+  }
+  .sr-grid :global(.sr-mem) {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0.85rem;
+    align-items: start;
+    align-content: start;
+    padding: 0.95rem 1rem 0.9rem;
+    border-radius: 7px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .sr-grid :global(.sr-mem--link) {
+    background: #fff;
+    border: 1px solid var(--line);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.15s;
+  }
+  .sr-grid :global(.sr-mem--link:hover) {
+    border-color: var(--gold);
+    box-shadow: 0 4px 18px rgba(15, 34, 56, 0.12);
+    transform: translateY(-2px);
+  }
+  .sr-grid :global(.sr-mem--stub) {
+    background: transparent;
+    border: 1px dashed var(--line-gold);
+  }
+  /* A dashed card that is still an <a> links to a shared/combined entry — give
+     it a quiet hover so it reads as clickable. */
+  .sr-grid :global(a.sr-mem--stub) {
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+  }
+  .sr-grid :global(a.sr-mem--stub:hover) {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+  }
+  .sr-grid :global(a.sr-mem--stub:hover .sr-go) {
+    opacity: 1;
+  }
+  .sr-grid :global(.sr-ava) {
+    line-height: 0;
+  }
+  .sr-grid :global(.sr-mem--stub .sr-ava) {
+    opacity: 0.72;
+  }
+  .sr-grid :global(.sr-body) {
+    min-width: 0;
+  }
+  .sr-grid :global(.sr-nm) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    line-height: 1.15;
+  }
+  .sr-grid :global(.sr-go) {
+    display: inline-flex;
+    opacity: 0.55;
+    transition: opacity 0.15s;
+  }
+  .sr-grid :global(.sr-mem--link:hover .sr-go) {
+    opacity: 1;
+  }
+  .sr-grid :global(.sr-role) {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-top: 0.3rem;
+  }
+  .sr-grid :global(.sr-note) {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 0.35rem;
+    line-height: 1.45;
+  }
+  .sr-grid :global(.sr-forth) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .sr-grid :global(.sr-diamond) {
+    width: 5px;
+    height: 5px;
+    background: var(--line-gold);
+    transform: rotate(45deg);
+  }
+  .sr-empty {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+</style>

@@ -89,6 +89,40 @@ const profileSchema = z
           ),
       )
       .optional(),
+    // ── Group-profile fields (profile_type:"group" records only) ──────────
+    // A group profile (a synaxis / household / feast-companions set) reuses this
+    // same collection and review gate. These optional fields feed the
+    // GroupSaintProfile layout; SaintView ignores them, so they stay harmless
+    // on individual-saint profiles.
+    eyebrow: z.string().optional(), // hero eyebrow, e.g. "Synaxis · Apostolic Mission"
+    feastNote: z.string().optional(), // small line beneath the feast date
+    // "At a glance" rail rows (a group has no CSV facets to derive them from).
+    facts: z
+      .array(z.object({ label: z.string(), value: z.string() }))
+      .optional(),
+    virtues: z.array(z.string()).optional(), // rail "Known for" (top line)
+    vocation: z.array(z.string()).optional(), // rail "Known for" (sub line)
+    // "Come to them for" cards — the group's intercessory heads (label + note).
+    invokedFor: z
+      .array(z.object({ label: z.string(), note: z.string().optional() }))
+      .optional(),
+    // Per-member roster overlay, keyed by saint_id (or `name` for a name-only
+    // member): supplies each card's short role label and one-line note. The
+    // ordered membership itself comes from data/saint_groups.csv, NOT here — a
+    // member listed only here (no matching join row) is ignored.
+    members: z
+      .array(
+        z.object({
+          saint_id: z
+            .string()
+            .regex(/^OS-\d{4,}$/)
+            .optional(),
+          name: z.string().optional(),
+          role: z.string().optional(),
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
     works: z
       .array(
         z.object({

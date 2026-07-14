@@ -6,14 +6,14 @@ import { test, expect } from "@playwright/test";
 test("a group saint-profile renders its members and type", async ({ page }) => {
   const resp = await page.goto("./saint/OS-2933/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".gsp-head h1")).toContainText(
-    "Three Holy Hierarchs",
+  await expect(page.locator(".sv-name")).toContainText("Three Holy Hierarchs");
+  await expect(page.locator(".sv-tag-gold")).toContainText("Feast Companions");
+  await expect(page.locator(".saint-roster")).toContainText(
+    "Members of this group",
   );
-  await expect(page.locator(".gsp-badge")).toContainText("Feast Companions");
-  await expect(page.locator(".gsp-sum")).toContainText("Members of this Group");
   // The three hierarchs each link to their individual saint page.
   for (const id of ["OS-0021", "OS-0022", "OS-0023"]) {
-    await expect(page.locator(`.gsp-grid a[href*="/saint/${id}"]`)).toHaveCount(
+    await expect(page.locator(`.sr-grid a[href*="/saint/${id}"]`)).toHaveCount(
       1,
     );
   }
@@ -29,9 +29,7 @@ test("a member saint page links back to its group profile", async ({
   await expect(link.first()).toBeVisible();
   await link.first().click();
   await page.waitForURL(/\/saint\/OS-2933\/?$/);
-  await expect(page.locator(".gsp-head h1")).toContainText(
-    "Three Holy Hierarchs",
-  );
+  await expect(page.locator(".sv-name")).toContainText("Three Holy Hierarchs");
 });
 
 test("the old /group/<slug> URL redirects to the group saint-profile", async ({
@@ -39,9 +37,7 @@ test("the old /group/<slug> URL redirects to the group saint-profile", async ({
 }) => {
   await page.goto("./group/three-hierarchs/");
   await page.waitForURL(/\/saint\/OS-2933\/?$/);
-  await expect(page.locator(".gsp-head h1")).toContainText(
-    "Three Holy Hierarchs",
-  );
+  await expect(page.locator(".sv-name")).toContainText("Three Holy Hierarchs");
 });
 
 test("the finder Group facet filters the results", async ({ page }) => {
