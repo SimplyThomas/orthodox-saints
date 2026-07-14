@@ -24,6 +24,28 @@ function groupRedirects() {
   return map;
 }
 
+// Retired saint IDs (deduplicated rows, data/retired_ids.csv) 301 to their
+// canonical page, so an old /saint/OS-#### link/bookmark keeps resolving instead
+// of 404-ing. Parsed straight from the source CSV (retired_id = col 0,
+// canonical_id = col 2 — both OS-#### tokens with no commas before them).
+function retiredRedirects() {
+  /** @type {Record<string,string>} */
+  const map = {};
+  try {
+    const csv = readFileSync("data/retired_ids.csv", "utf8");
+    for (const line of csv.split(/\r?\n/).slice(1)) {
+      const cols = line.split(",");
+      const retired = (cols[0] || "").trim();
+      const canonical = (cols[2] || "").trim();
+      if (/^OS-\d{4,}$/.test(retired) && /^OS-\d{4,}$/.test(canonical))
+        map[`/saint/${retired}`] = `/saint/${canonical}`;
+    }
+  } catch {
+    // retired_ids.csv absent — no redirects this run.
+  }
+  return map;
+}
+
 // GitHub Pages with the custom domain orthodoxsaintfinder.com: served at the
 // root, so `base` is the default "/". `site` makes Astro emit correct absolute
 // canonical URLs. (orthodoxsaintregistry.com / patronsaintfinder.com 301 here;
@@ -39,8 +61,9 @@ export default defineConfig({
   publicDir: "./static",
   trailingSlash: "ignore",
   build: { format: "directory" },
-  // 301 the retired /group/<slug> URLs to the group's saint-profile page.
-  redirects: groupRedirects(),
+  // 301 the retired /group/<slug> URLs to the group's saint-profile page, and
+  // retired (deduplicated) saint IDs to their canonical page.
+  redirects: { ...groupRedirects(), ...retiredRedirects() },
   // Emits sitemap-index.xml + sitemap-0.xml into _site/ (every static route,
   // including all /saint/OS-#### pages). Referenced from static/robots.txt.
   integrations: [sitemap()],

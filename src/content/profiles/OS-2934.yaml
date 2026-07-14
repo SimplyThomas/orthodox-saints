@@ -1,8 +1,40 @@
-id: OS-2486
-liturgicalTitle: The Synaxis of the Holy, Glorious and All-Praised Twelve Apostles
+id: OS-2934
+status: draft
+eyebrow: Synaxis · The Apostolic College
+feastNote: June 30 — the day after the feast of the chief apostles Peter and Paul
 overview:
   - The Synaxis of the Holy, Glorious and All-Praised Twelve Apostles is the collective commemoration of the body of apostles whom Jesus Christ chose and sent out to preach the Gospel. It is kept on June 30, the day immediately following the feast of the chief apostles Peter and Paul on June 29. A synaxis, from the Greek for an assembly or gathering, is a commemoration that the Orthodox Church customarily observes on the day after a major feast, drawing into one collective celebration the saint or group of saints associated with the preceding feast.
   - Although each of the apostles is honored individually on his own day across the liturgical year, the Church set apart June 30 as a general feast of all the holy apostles together, with the Apostle Paul numbered among them. The word apostle derives from the Greek apostolos, meaning one who is sent out; in the Church it denotes one sent by Christ to proclaim the Gospel to the nations.
+facts:
+  - label: Type
+    value: Synaxis
+  - label: Feast
+    value: June 30
+  - label: Number
+    value: Twelve · with the Apostle Paul
+  - label: Era
+    value: Apostolic Age · 1st c.
+  - label: Veneration
+    value: Pan-Orthodox
+virtues:
+  - Faith
+  - Zeal
+  - Mission
+vocation:
+  - Apostles
+  - Evangelists
+  - Martyrs
+patronage:
+  - Missionaries and preachers
+  - The apostolic ministry
+  - The whole Church
+invokedFor:
+  - label: Missionary Work
+    note: Those who carry the Gospel to the nations
+  - label: Preaching
+    note: Preachers, evangelists, and teachers of the faith
+  - label: The Church's Unity
+    note: The one apostolic Church built on their foundation
 sections:
   - heading: The Feast
     body:
@@ -10,33 +42,15 @@ sections:
       - "The commemoration is ancient: instructions for celebrating it survive from the fourth century. The Emperor Constantine the Great built a church in Constantinople in honor of the Twelve Apostles, a monument to the early veneration of the apostolic body."
   - heading: The Twelve
     body:
-      - The scriptural lists of the apostles are found in Matthew 10:2, Mark 3:14, Luke 6:12, and Acts 1:13, 26. The Twelve commemorated in the synaxis are Andrew, James the son of Zebedee, John the Theologian, Philip, Bartholomew, Thomas, Matthew, James the son of Alphaeus, Jude (also called Thaddeus), Simon the Zealot, and Matthias. Andrew was the brother of the Apostle Peter, while James and John, the sons of Zebedee, were called the sons of Thunder.
+      - The scriptural lists of the apostles are found in Matthew 10:2, Mark 3:14, Luke 6:12, and Acts 1:13, 26. The Twelve commemorated in the synaxis are Peter, Andrew, James the son of Zebedee, John the Theologian, Philip, Bartholomew, Thomas, Matthew, James the son of Alphaeus, Jude (also called Thaddeus), Simon the Zealot, and Matthias. Andrew was the brother of the Apostle Peter, while James and John, the sons of Zebedee, were called the sons of Thunder.
       - After Judas Iscariot's betrayal and death, the apostle Matthias was chosen to complete the number of the Twelve, as related in the Acts of the Apostles. In Orthodox iconography and hymnography the Apostle Paul is also included among the apostles honored on this day, and he shares the collective feast of June 30 with the Twelve.
       - "The tradition records that the apostles sealed their preaching with martyrdom: by these accounts Peter was crucified upside-down; Andrew, James the son of Zebedee, Philip, James the son of Alphaeus, and Thaddeus were crucified; Bartholomew was flayed and beheaded; Thomas was pierced with spears; Matthew was put to death by fire; and Matthias was stoned and then beheaded."
   - heading: The Twelve and the Seventy
     body:
       - The Twelve Apostles are distinguished from the Seventy Apostles, the wider company of disciples whom the Lord also chose and sent out to assist in the work of preaching, as recorded in Luke 10:1-16. The Seventy have their own collective commemoration, the Synaxis of the Seventy Apostles, kept on January 4.
-companions:
-  - name: Apostles Peter and Paul
-    note: The chief apostles, whose feast on June 29 immediately precedes the synaxis.
-  - name: Synaxis of the Seventy Apostles
-    note: The collective commemoration of the wider apostolic company, kept January 4.
-    href: saint/OS-0384
-related:
-  - name: Apostle Andrew the First-Called
-    note: One of the Twelve gathered in this synaxis; brother of the Apostle Peter and first-called of the disciples.
-    href: saint/OS-0003
-  - name: Apostle John the Theologian
-    note: One of the Twelve gathered in this synaxis; the beloved disciple and son of Zebedee.
-    href: saint/OS-0005
-  - name: Apostle Matthias
-    note: Chosen after the betrayal of Judas to complete the number of the Twelve commemorated here.
-    href: saint/OS-1676
 sources:
   - GOARCH calendar
   - OCA / J. Sanidopoulos cross-check
   - https://www.oca.org/saints/lives/2017/06/30/101711-synaxis-of-the-holy-glorious-and-all-praised-twelve-apostles
   - https://orthodoxwiki.org/Apostle
-  - https://orthodoxchristianethos.com/2021/06/30/june-30th-the-synaxis-assembly-of-the-holy-glorious-and-all-praised-twelve-apostles/
-status: draft
-generated: "2026-06-20"
+generated: "2026-07-14"

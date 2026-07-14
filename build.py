@@ -519,7 +519,9 @@ def validate(header: list[str], rows: list[dict[str, str]],
     errors.extend(group_errors)
     warnings.extend(group_warnings)
 
-    ret_errors, ret_warnings = validate_retired_ids(_img_valid_ids)
+    # A deduplicated row may be merged into a group (a synaxis modeled as a
+    # group), so a group's OS-#### is a valid canonical target too.
+    ret_errors, ret_warnings = validate_retired_ids(_img_valid_ids | _group_ids)
     errors.extend(ret_errors)
     warnings.extend(ret_warnings)
 
