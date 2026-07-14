@@ -15,6 +15,7 @@ import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { loadProfileMap } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
+import SaintRoster from "./SaintRoster.astro";
 import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
@@ -1180,6 +1181,22 @@ const wordsLabel = `In ${possessive} own words`;
       }
     </main>
   </div>
+
+  {
+    /* Member ROSTER — for the saint-row synaxes (Glinsk Elders, Novgorod
+      Hierarchs, Kiev Near Caves): a collective commemoration that renders as a
+      saint but whose profile carries a `members:` list. Full-width, below the
+      body, mirroring the group pages. */
+  }
+  {
+    profile?.members?.length && (
+      <SaintRoster
+        members={profile.members}
+        eyebrow="Members of this synaxis"
+        collective="synaxis"
+      />
+    )
+  }
 </div>
 
 <script>

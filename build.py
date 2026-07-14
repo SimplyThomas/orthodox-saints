@@ -501,7 +501,16 @@ def validate(header: list[str], rows: list[dict[str, str]],
     errors.extend(quote_errors)
     warnings.extend(quote_warnings)
 
-    prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids)
+    # Group profiles (a synaxis / household / …) are also served at /saint/[id]
+    # and carry a rich OS-####.yaml, but their IDs live in groups.csv, not
+    # saints.csv — so admit them to the set the profile cross-check validates
+    # against.
+    try:
+        _group_ids = {g["saint_id"].strip() for g in load_groups()
+                      if g.get("saint_id", "").strip()}
+    except Exception:
+        _group_ids = set()
+    prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids | _group_ids)
     errors.extend(prof_errors)
     warnings.extend(prof_warnings)
 
