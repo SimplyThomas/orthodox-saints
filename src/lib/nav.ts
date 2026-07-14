@@ -94,6 +94,27 @@ export const NAV: NavItem[] = [
     ],
   },
   {
+    key: "parish-resources",
+    label: "Parish Resources",
+    children: [
+      {
+        key: "visitors-catechumens",
+        label: "Visitors & Catechumens",
+        href: withBase("visitors-catechumens"),
+      },
+      {
+        key: "churches-bookstores",
+        label: "Churches & Bookstores",
+        href: withBase("churches-bookstores"),
+      },
+      {
+        key: "teachers-ministries",
+        label: "Teachers & Ministries",
+        href: withBase("teachers-ministries"),
+      },
+    ],
+  },
+  {
     key: "about",
     label: "About",
     children: [
