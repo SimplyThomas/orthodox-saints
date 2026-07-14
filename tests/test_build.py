@@ -1015,6 +1015,29 @@ class GroupTaxonomyTests(unittest.TestCase):
         errs, _ = self._run([self._g()], [self._m(), self._m()])
         self.assertTrue(any("duplicate membership" in e for e in errs))
 
+    def test_dynamic_rule_membership(self):
+        # A rule-based (open) group computes members by matching saints; AND
+        # across conditions, OR within a field, sorted by Name.
+        saints = [
+            {"Saint ID": "OS-0003", "Name": "Cyril", "Rank / Type": "Confessor",
+             "Era": "Modern", "Tradition of Veneration": "Russian"},
+            {"Saint ID": "OS-0001", "Name": "Anna", "Rank / Type": "New Martyr",
+             "Era": "Modern", "Tradition of Veneration": "Russian; Pan-Orthodox"},
+            {"Saint ID": "OS-0002", "Name": "Boris", "Rank / Type": "New Martyr",
+             "Era": "Post-Byzantine", "Tradition of Veneration": "Greek"},  # era fails
+            {"Saint ID": "OS-0004", "Name": "Dmitri", "Rank / Type": "Hierarch",
+             "Era": "Modern", "Tradition of Veneration": "Russian"},  # rank fails
+        ]
+        groups = [{"slug": "nm",
+                   "rule": "rank:New Martyr|Confessor && era:Modern "
+                           "&& tradition:Russian"}]
+        dyn = build.dynamic_group_members(groups, saints)
+        self.assertEqual(dyn["nm"], ["OS-0001", "OS-0003"])  # Boris/Dmitri excluded
+
+    def test_malformed_rule_errors(self):
+        errs, _ = self._run([self._g(rule="nosuchfield:x")], [])
+        self.assertTrue(any("malformed" in e for e in errs))
+
     def test_to_record_joins_groups_and_haystack(self):
         sg = {"OS-0001": ["the-twelve"]}
         gbs = {"the-twelve": {"slug": "the-twelve", "saint_id": "OS-2900",

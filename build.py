@@ -75,7 +75,8 @@ RETIRED_IDS_HEADER = ["retired_id", "retired_name", "canonical_id", "canonical_n
 # household). Two join files following the saint_images/saint_quotes pattern;
 # referential integrity is enforced at build time (fail loud). `type` is a small
 # enumerated set — adding one is a deliberate code change.
-GROUPS_HEADER = ["slug", "saint_id", "name", "type", "description", "feast", "sort"]
+GROUPS_HEADER = ["slug", "saint_id", "name", "type", "description", "feast",
+                 "sort", "rule"]
 SAINT_GROUPS_HEADER = ["group_slug", "saint_id", "role", "order"]
 GROUP_TYPES = {"synaxis", "feast-companions", "household"}
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -365,10 +366,10 @@ def load_group_rows() -> tuple[list[str] | None, list[dict[str, str]]]:
 
 def write_groups(header: list[str], rows: list[dict[str, str]]) -> None:
     """Rewrite data/groups.csv in place after assign_ids fills blank saint_ids.
-    groups.csv is LF (unlike CRLF saints.csv), so pin lineterminator to keep the
-    diff to the id column only."""
+    Like the other data CSVs, groups.csv is CRLF (CLAUDE.md §7; crlf_errors
+    enforces it), so pin the lineterminator to keep the diff to the id column."""
     with open(GROUPS_CSV, "w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=header, lineterminator="\n")
+        w = csv.DictWriter(f, fieldnames=header, lineterminator="\r\n")
         w.writeheader()
         w.writerows(rows)
     print(f"  wrote stable group IDs back to {GROUPS_CSV.relative_to(ROOT)}")
@@ -1188,8 +1189,78 @@ def load_groups() -> list[dict[str, str]]:
                 "description": (row.get("description") or "").strip(),
                 "feast": (row.get("feast") or "").strip(),
                 "sort": int(sort_raw) if sort_raw.lstrip("-").isdigit() else 0,
+                "rule": (row.get("rule") or "").strip(),
             })
     out.sort(key=lambda g: (g["sort"], g["name"]))
+    return out
+
+
+# Open/DYNAMIC synaxes (e.g. the New Martyrs & Confessors of Russia, All Saints
+# of a region) have no fixed roster — membership grows as saints are glorified.
+# Such a group carries a `rule` in groups.csv instead of explicit saint_groups
+# rows; build.py computes its members by matching every saint against the rule,
+# so a newly-added qualifying saint joins automatically.
+#
+# Rule grammar: ` && `-joined conditions; each condition is `field:v1|v2|…` and
+# matches when ANY value is a case-insensitive substring of the saint's mapped
+# field. Conditions are ANDed. An unknown field never matches (fails validation).
+_RULE_FIELDS = {
+    "rank": "Rank / Type",
+    "era": "Era",
+    "century": "Century",
+    "region": "Region of Origin",
+    "tradition": "Tradition of Veneration",
+    "vocation": "Vocation",
+    "life": "Life Experience",
+    "notes": "Notes",
+    "name": "Name",
+}
+
+
+def _parse_rule(rule: str) -> list[tuple[str, list[str]]] | None:
+    """Parse a membership rule into [(saints.csv column, [values]), …], or None
+    if malformed (unknown field, missing `:`, or empty)."""
+    conds: list[tuple[str, list[str]]] = []
+    for raw in rule.split("&&"):
+        cond = raw.strip()
+        if not cond or ":" not in cond:
+            return None
+        key, vals = cond.split(":", 1)
+        col = _RULE_FIELDS.get(key.strip().lower())
+        values = [v.strip().lower() for v in vals.split("|") if v.strip()]
+        if not col or not values:
+            return None
+        conds.append((col, values))
+    return conds or None
+
+
+def _saint_matches(saint: dict[str, str], conds: list[tuple[str, list[str]]]) -> bool:
+    """True when the saint satisfies every parsed condition."""
+    for col, values in conds:
+        cell = (saint.get(col, "") or "").lower()
+        if not any(v in cell for v in values):
+            return False
+    return True
+
+
+def dynamic_group_members(
+    groups: list[dict], rows: list[dict[str, str]]
+) -> dict[str, list[str]]:
+    """slug -> ordered [Saint ID] for each group carrying a `rule`, computed by
+    matching every saint against the rule (sorted by Name). Malformed rules
+    yield no members (validation reports them separately)."""
+    out: dict[str, list[str]] = {}
+    for g in groups:
+        rule = g.get("rule", "")
+        if not rule:
+            continue
+        conds = _parse_rule(rule)
+        if not conds:
+            continue
+        matched = [r for r in rows if _saint_matches(r, conds)]
+        matched.sort(key=lambda r: r["Name"].strip().lower())
+        out[g["slug"]] = [r["Saint ID"].strip() for r in matched
+                          if r["Saint ID"].strip()]
     return out
 
 
@@ -1319,6 +1390,13 @@ def validate_groups(valid_ids: set[str]) -> tuple[list[str], list[str]]:
                     errors.append(f"{where} ({slug}): empty name.")
                 if sort_raw and not sort_raw.lstrip("-").isdigit():
                     errors.append(f"{where} ({slug}): sort {sort_raw!r} is not an integer.")
+                # A dynamic/open group carries a membership `rule` (see
+                # dynamic_group_members). It must parse and name known fields.
+                rule = (row.get("rule") or "").strip()
+                if rule and _parse_rule(rule) is None:
+                    errors.append(
+                        f"{where} ({slug}): membership rule {rule!r} is malformed "
+                        f"(use `field:v1|v2 && …`, fields: {sorted(_RULE_FIELDS)}).")
 
     if SAINT_GROUPS_CSV.exists():
         with SAINT_GROUPS_CSV.open(encoding="utf-8", newline="") as f:
@@ -1718,12 +1796,26 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     groups_by_slug = {g["slug"]: g for g in groups}
     permissions = load_image_permissions()
     depictions = load_saint_depictions()
+    # Dynamic (rule-based) group membership — merge into the reverse index BEFORE
+    # building records so a member saint shows "Member of <open synaxis>".
+    by_id = {r["Saint ID"].strip(): r for r in rows}
+    dyn = dynamic_group_members(groups, rows)
+    for slug, ids in dyn.items():
+        for sid in ids:
+            lst = saint_groups.setdefault(sid, [])
+            if slug not in lst:
+                lst.append(slug)
     records = [to_record(r, vendors, name_variants, images, quotes,
                          saint_groups, groups_by_slug, permissions, depictions)
                for r in rows]
     # Group saint-profiles: one record per group carrying its own OS-#### id.
-    members_by_group = group_members_detail({r["Saint ID"].strip(): r
-                                             for r in rows})
+    members_by_group = group_members_detail(by_id)
+    # A rule-based group's roster IS the dynamic set (sorted by name).
+    for slug, ids in dyn.items():
+        members_by_group[slug] = [
+            {"saint_id": sid, "name": by_id[sid]["Name"].strip()}
+            for sid in ids if sid in by_id
+        ]
     records.extend(group_record(g, members_by_group.get(g["slug"], []))
                    for g in groups if g.get("saint_id"))
     records.sort(key=lambda x: x["feastSort"])
@@ -1733,11 +1825,15 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     return records
 
 
-def emit_groups_json() -> list[dict]:
+def emit_groups_json(rows: list[dict[str, str]] | None = None) -> list[dict]:
     """Write public/groups.json: each group with its full member id list, for the
-    pre-rendered /group/<slug> pages (mirrors emit_themes_json)."""
+    pre-rendered /group/<slug> pages (mirrors emit_themes_json). `rows` (the
+    saints) lets rule-based open groups contribute their dynamic membership."""
     groups = load_groups()
     members = group_members()
+    if rows is not None:
+        for slug, ids in dynamic_group_members(groups, rows).items():
+            members[slug] = ids
     catalog = [{**g, "members": members.get(g["slug"], [])} for g in groups]
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "groups.json", "w", encoding="utf-8") as f:
@@ -1932,7 +2028,7 @@ def main() -> int:
 
     records = emit_data_json(rows)
     emit_themes_json(records)
-    emit_groups_json()
+    emit_groups_json(rows)
     feastlib.emit_feasts_json(f_rows)
     hostlib.emit_hosts_json(h_rows)
     print(f"  wrote public/data.json ({len(records)} records)")
