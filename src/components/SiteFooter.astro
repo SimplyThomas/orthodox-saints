@@ -3,11 +3,15 @@ import { NAV } from "../lib/nav";
 
 // Reverent dark colophon: brand block + navigation + connect, over a thin
 // legal bar. The link columns mirror the primary nav (src/lib/nav.ts) — every
-// dropdown group becomes a footer column — so the footer and header never
-// drift. (Home is a direct link, reached via the brand wordmark above.)
-const cols = NAV.filter((item) => item.children).map((item) => ({
+// dropdown group becomes a footer column, and a top-level direct link (e.g.
+// Parish Resources) becomes a column with its single link — so the footer and
+// header never drift. (Home is the exception: it is reached via the brand
+// wordmark above.)
+const cols = NAV.filter((item) => item.key !== "home").map((item) => ({
   head: item.label,
-  links: item.children!,
+  links: item.children ?? [
+    { key: item.key, label: item.label, href: item.href! },
+  ],
 }));
 const year = new Date().getFullYear();
 ---
