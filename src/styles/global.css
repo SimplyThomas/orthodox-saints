@@ -730,7 +730,7 @@ a.qz-comp {
   transform: translateX(-50%) translateY(0);
 }
 /* Hover / keyboard-focus open — desktop only (mobile uses click accordion). */
-@media (min-width: 1001px) {
+@media (min-width: 1180px) {
   .nav-item:hover > .nav-menu,
   .nav-item:focus-within > .nav-menu {
     opacity: 1;
@@ -5534,9 +5534,28 @@ a.sv-rail-chip:hover {
     justify-content: center;
   }
 }
+/* Mid-size desktops (small laptops, half-screen windows): tighten the masthead
+   spacing so all seven top-level items + the search pill keep to one row right
+   down to the hamburger breakpoint. Measured fit: the tightened bar holds one
+   row down to ~1160px (untightened it needs ~1400px). Keep these breakpoints
+   in sync with the hover-open media query above (min-width: 1180px). */
+@media (max-width: 1460px) and (min-width: 1180px) {
+  .site-header {
+    gap: 14px;
+    padding: 0 20px;
+  }
+  .site-nav {
+    gap: 12px;
+    font-size: 13.5px;
+  }
+  .header-search {
+    min-width: 150px;
+    padding: 7px 12px;
+  }
+}
 /* Mobile masthead: collapse the nav + search into a hamburger dropdown so the
-   seven links don't stack/wrap across the bar. */
-@media (max-width: 1000px) {
+   seven top-level items don't stack/wrap across the bar. */
+@media (max-width: 1179px) {
   .nav-toggle {
     display: inline-flex;
   }
