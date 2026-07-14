@@ -34,6 +34,7 @@ patronage:
   - Missionaries and evangelists
   - Church planters and bishops
   - Preachers and catechists
+  - Apostolic ministry
 invokedFor:
   - label: Missionary Work
     note: Those who carry the Gospel to new places
@@ -331,6 +332,24 @@ members:
     saint_id: OS-1368
     role: Ministered to Paul
     note: Who with Fortunatus ministered to Paul (1 Cor. 16).
+sections:
+  - heading: A Note on the Lists
+    body:
+      - The exact membership of the Seventy is nowhere given in Scripture; the names come from later lists, especially those attributed to Hippolytus of Rome and Dorotheus of Tyre, and from the Byzantine synaxaria. As a result, the rolls differ between traditions, and some figures appear on one list but not another.
+  - heading: The Breadth of the Apostolic Mission
+    body:
+      - The Seventy were among the earliest missionaries of the Church, and many became its first bishops in the great cities of the Mediterranean world. Their commemoration emphasizes the collaborative character of the apostolic age — the Gospel carried outward by a wide company of disciples — and the apostolic succession that flowed from their founding of local churches.
+reading:
+  - heading: Scripture
+    items:
+      - title: Luke 10:1–24
+      - title: Acts of the Apostles
+  - heading: Reference
+    items:
+      - title: On the Seventy Apostles
+        author: attributed to Dorotheus of Tyre
+      - title: Church History
+        author: Eusebius of Caesarea
 sources:
   - OCA Synaxarion (oca.org), January 4
   - https://en.wikipedia.org/wiki/Seventy_disciples
