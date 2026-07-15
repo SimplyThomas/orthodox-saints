@@ -61,9 +61,16 @@ export default defineConfig({
   publicDir: "./static",
   trailingSlash: "ignore",
   build: { format: "directory" },
-  // 301 the retired /group/<slug> URLs to the group's saint-profile page, and
-  // retired (deduplicated) saint IDs to their canonical page.
-  redirects: { ...groupRedirects(), ...retiredRedirects() },
+  // 301 the retired /group/<slug> URLs to the group's saint-profile page,
+  // retired (deduplicated) saint IDs to their canonical page, and the three
+  // short-lived Parish Resources sub-pages to the single page replacing them.
+  redirects: {
+    ...groupRedirects(),
+    ...retiredRedirects(),
+    "/visitors-catechumens": "/parish-resources",
+    "/churches-bookstores": "/parish-resources",
+    "/teachers-ministries": "/parish-resources",
+  },
   // Emits sitemap-index.xml + sitemap-0.xml into _site/ (every static route,
   // including all /saint/OS-#### pages). Referenced from static/robots.txt.
   integrations: [sitemap()],
