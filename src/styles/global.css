@@ -6191,6 +6191,11 @@ a.sv-rail-chip:hover {
   position: relative;
   top: 1px;
 }
+#calendar-page .cal-lit-fastnote {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+}
 #calendar-page .cal-lit-disclaimer {
   font-family: var(--serif);
   font-style: italic;

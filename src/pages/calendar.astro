@@ -303,7 +303,10 @@ const swatch = (key: string) =>
                   <span class="fast-glyph" aria-hidden="true">
                     {f.glyph}
                   </span>
-                  {f.label}
+                  <span>
+                    {f.label}
+                    {f.note && <i class="cal-lit-fastnote"> — {f.note}</i>}
+                  </span>
                 </li>
               ))
             }

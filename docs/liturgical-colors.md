@@ -56,6 +56,10 @@ universal Orthodox color code, and the site must never present one.**
    dots in the day lists are an organizational site feature, not vestment
    claims. Nothing is communicated by color alone — every layer also appears
    in the cell's `aria-label`/tooltip, the day panel, and the legend.
+   Where the data records `Varies` (the Great Lent season), the badge shows
+   the **strictest traditional rule** ("Strict Fast (traditional rule)",
+   glyph `S*`) rather than an unhelpful shrug, and every such day carries a
+   consult-your-parish-priest note in the panel and legend.
 3. **Precedence** (mirrors the spec's `COLOR_PRIORITY`): Pascha → Bright Week
    → Great Feasts of the Lord → of the Theotokos → named Holy Week days →
    Cross feasts → named observances with explicit rules → afterfeast/

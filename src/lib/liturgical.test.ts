@@ -308,6 +308,12 @@ describe("the paschal cycle (identical in both styles)", () => {
     expect(d.color).toBe("purple");
     expect(day(2026, 2, 23, "old").color).toBe("purple");
   });
+  it("'Varies' fasting shows the strictest traditional rule with a priest note", () => {
+    const d = day(2026, 2, 23); // inside Great Lent (fasting: Varies)
+    expect(d.fasting?.key).toBe("varies");
+    expect(d.fasting?.label).toBe("Strict Fast (traditional rule)");
+    expect(d.fasting?.note).toMatch(/parish priest/);
+  });
   it("a Lenten Sunday stays purple but carries the brighter-practice note", () => {
     const d = day(2026, 3, 8); // a Sunday inside Great Lent
     expect(d.color).toBe("purple");

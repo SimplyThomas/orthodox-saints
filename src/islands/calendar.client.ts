@@ -176,6 +176,9 @@ if (root && app && source && grid && panel && monthLabel) {
     }
     if (lit.fasting) {
       box.append(el("p", "cal-lit-fast", `Fasting: ${lit.fasting.label}`));
+      if (lit.fasting.note) {
+        box.append(el("p", "cal-lit-note", lit.fasting.note));
+      }
     }
     if (lit.badges.length) {
       const chips = el("div", "cal-lit-badges");

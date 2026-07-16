@@ -97,6 +97,8 @@ export interface FastingLevel {
   label: string;
   /** compact letterform for the day-tile badge (full label in tooltip/legend) */
   glyph: string;
+  /** per-day guidance shown under the fasting row in the panel/legend */
+  note?: string;
 }
 
 export const FASTING_LEVELS: Record<string, FastingLevel> = {
@@ -113,7 +115,15 @@ export const FASTING_LEVELS: Record<string, FastingLevel> = {
     glyph: "D",
   },
   "Fast-Free": { key: "free", label: "Fast-Free", glyph: "FF" },
-  Varies: { key: "varies", label: "Fasting Practice Varies", glyph: "V" },
+  // Where the data records "Varies" (the Great Lent season), show the
+  // strictest traditional rule as the baseline rather than shrugging —
+  // with the consult-your-priest note carried on every such day.
+  Varies: {
+    key: "varies",
+    label: "Strict Fast (traditional rule)",
+    glyph: "S*",
+    note: "Fasting practice during this season varies by jurisdiction and person — speak with your parish priest about what is right for you.",
+  },
 };
 
 /* ================= per-feast color rules ================= */
