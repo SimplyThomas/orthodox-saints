@@ -108,6 +108,14 @@ if (saint.image) {
   portrait = saintAvatar({ name: monoName }, 286, 358);
 }
 
+// A group may carry its own portrait (data/saint_images.csv keyed by its
+// OS-####). Attribution is NOT optional for a permission image: the vendor
+// grant's condition is that each image links to its own icon page (§9), so the
+// caption mirrors SaintView's exactly.
+const showCredit =
+  !!saint.image &&
+  !!(saint.imageCredit || saint.imageLicense || saint.imagePermission);
+
 const overview = profile?.overview ?? [];
 const invokedFor = profile?.invokedFor ?? [];
 const patronage = profile?.patronage ?? [];
@@ -162,6 +170,48 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
           <div class="sv-icon-frame">
             <div class="sv-icon-inner" set:html={portrait} />
           </div>
+          {
+            /* Permission images link "Original icon" to the specific vendor
+               page (imageSource) — a condition of the grant, so it ships with
+               the image or not at all. */
+            showCredit &&
+              (saint.imagePermission ? (
+                <div class="sv-icon-cap">
+                  {saint.imageAttribution}
+                  {saint.imageSource && (
+                    <>
+                      {" "}
+                      Original icon:{" "}
+                      <a
+                        href={saint.imageSource}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View on {saint.imageVendor}
+                      </a>
+                    </>
+                  )}
+                </div>
+              ) : (
+                <div class="sv-icon-cap">
+                  <span class="sv-icon-cap-eb">Icon</span> ·{" "}
+                  {saint.imageSource ? (
+                    <a
+                      href={saint.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {saint.imageCredit || "source"}
+                    </a>
+                  ) : (
+                    saint.imageCredit
+                  )}
+                  {saint.imageLicense && (
+                    <span class="sv-icon-lic">{saint.imageLicense}</span>
+                  )}
+                </div>
+              ))
+          }
         </div>
 
         <div class="sv-hero-id">
