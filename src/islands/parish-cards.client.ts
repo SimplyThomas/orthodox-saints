@@ -1,7 +1,9 @@
 /* Parish Resources — QR-card gallery controls.
    Progressive enhancement over the SSR'd gallery (color, 3 per row):
-   segmented color / per-row controls, per-card download links that follow
-   the color mode, a staggered download-all, and a print-sheet button. */
+   segmented color / per-row controls (the color mode swaps only the
+   PREVIEW images — each card carries both static Color and B&W download
+   links), a staggered download-all following the mode, and a print-sheet
+   button. */
 
 type Mode = "color" | "bw";
 
@@ -36,16 +38,7 @@ if (root) {
     for (const card of cards) {
       const base = card.dataset.base ?? "";
       const img = card.querySelector<HTMLImageElement>("img");
-      const dl = card.querySelector<HTMLAnchorElement>("a.dl");
       if (img) img.src = cardThumb(base, mode);
-      if (dl) {
-        dl.href = cardFile(base, mode);
-        dl.setAttribute("download", downloadName(base, mode));
-        const label = dl.querySelector<HTMLElement>(".dl-label");
-        if (label)
-          label.textContent =
-            mode === "color" ? "Download color" : "Download B&W";
-      }
     }
   };
 

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
 import { withBase } from "../lib/format";
 
 // Parish Resources — implemented from the Claude Design mock
@@ -21,9 +23,11 @@ const CARDS = [
 ];
 // Full-res originals (1200×1800, print-quality) are the download targets;
 // the gallery displays ~600px thumbs (static/parish-cards/thumbs/) at ~1/5
-// the weight. The island swaps both when the color mode changes.
+// the weight. The color toggle swaps only the previews — every card keeps
+// both its Color and B&W download links visible.
 const cardDir = withBase("parish-cards/");
 const cardSrc = (base: string) => `${cardDir}QR-${base}-Color.png`;
+const cardBW = (base: string) => `${cardDir}QR-${base}-black-and-white.png`;
 const cardThumb = (base: string) => `${cardDir}thumbs/QR-${base}-Color.png`;
 
 const PITCH = [
@@ -70,38 +74,22 @@ const STEPS = [
   description="Free, print-ready QR cards for parishes and bookstores — post them in the narthex or by the register and point your community to the saints, the calendar, and the feasts of the Church."
 >
   <div class="pc">
-    {/* ---------- hero ---------- */}
-    <section class="pc-hero">
-      <div class="pc-hero-inner">
-        <div>
-          <div class="pc-crumb">
-            <a href={withBase("")}>Home</a><span class="sep">/</span><span
-              class="here">Parish Resources</span
-            >
-          </div>
-          <div class="eyebrow on-blue">For Parishes &amp; Bookstores</div>
-          <h1>Bring the saints<br />to your parish wall.</h1>
-          <p class="sub">
-            Free, print-ready cards that point your community to the whole Cloud
-            of Witnesses — one scan away.
-          </p>
-          <p class="lede">
-            Post them in the narthex, tuck them into a bulletin, or set them by
-            the bookstore register. Each card carries a QR code to a living
-            reference of the saints, the calendar, and the feasts of the Church
-            — freely given, and yours to share.
-          </p>
-          <div class="cta">
-            <a class="btn btn--gold" href="#cards">Browse the cards</a>
-            <a class="btn btn--ghost pc-ghost-dark" href="#how"
-              >How to use them</a
-            >
-          </div>
-        </div>
-        <div class="pc-arches" aria-hidden="true">
-          <div class="pc-arch"></div>
-          <div class="pc-arch"></div>
-          <div class="pc-arch"></div>
+    {/* ---------- hero (matches the site's standard page header) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="For Parishes & Bookstores" />
+        <h1 class="sr-title">Parish Resources</h1>
+        <p class="sr-lede">
+          Free, print-ready cards that point your community to the whole Cloud
+          of Witnesses — one scan away. Post them in the narthex, tuck them into
+          a bulletin, or set them by the bookstore register.
+        </p>
+        <div class="pc-hero-cta">
+          <a class="btn btn--gold" href="#cards">Browse the cards</a>
+          <a class="btn btn--ghost" href="#how">How to use them</a>
         </div>
       </div>
     </section>
@@ -202,24 +190,44 @@ const STEPS = [
                     decoding="async"
                   />
                 </div>
-                <a
-                  class="dl"
-                  href={cardSrc(c.base)}
-                  download={`CloudOfWitnesses-${c.base}-color.png`}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
+                <div class="dl-row">
+                  <a
+                    class="dl"
+                    href={cardSrc(c.base)}
+                    download={`CloudOfWitnesses-${c.base}-color.png`}
                   >
-                    <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
-                  </svg>
-                  <span class="dl-label">Download color</span>
-                </a>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
+                    </svg>
+                    Color
+                  </a>
+                  <a
+                    class="dl"
+                    href={cardBW(c.base)}
+                    download={`CloudOfWitnesses-${c.base}-bw.png`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
+                    </svg>
+                    B&amp;W
+                  </a>
+                </div>
               </figure>
             ))
           }
@@ -286,121 +294,13 @@ const STEPS = [
 </BaseLayout>
 
 <style>
-  /* ---- hero ---- */
-  .pc-hero {
-    background: var(--byz-ink);
-    color: var(--ivory);
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.22);
-  }
-  .pc-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-      120% 92% at 82% -12%,
-      rgba(212, 175, 55, 0.18),
-      transparent 56%
-    );
-  }
-  .pc-hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 22px 56px 62px;
-    display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .pc-crumb {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--celest-soft);
-    margin-bottom: 34px;
-  }
-  .pc-crumb a {
-    color: var(--celest-soft);
-    text-decoration: none;
-  }
-  .pc-crumb a:hover {
-    color: var(--gold-soft);
-  }
-  .pc-crumb .sep {
-    color: rgba(212, 175, 55, 0.4);
-  }
-  .pc-crumb .here {
-    color: #cdd9e6;
-  }
-  .pc-hero h1 {
-    font-family: var(--serif);
-    font-weight: 600;
-    line-height: 0.98;
-    letter-spacing: -0.01em;
-    font-size: clamp(42px, 5.5vw, 66px);
-    margin: 14px 0 0;
-    color: var(--ivory);
-  }
-  .pc-hero .sub {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 23px;
-    color: var(--celest-soft);
-    margin: 18px 0 0;
-    max-width: 560px;
-  }
-  .pc-hero .lede {
-    font-size: 17px;
-    line-height: 1.65;
-    color: #c6d3e0;
-    margin: 20px 0 0;
-    max-width: 560px;
-  }
-  .pc-hero .cta {
+  /* ---- hero CTA row (beneath the standard sr-hero lede) ---- */
+  .pc-hero-cta {
     display: flex;
     gap: 14px;
-    margin-top: 30px;
+    margin-top: 28px;
     flex-wrap: wrap;
-  }
-  .pc-ghost-dark {
-    color: var(--gold-soft);
-    border-color: rgba(212, 175, 55, 0.4);
-  }
-
-  /* decorative arched window motif */
-  .pc-arches {
-    display: flex;
     justify-content: center;
-    gap: 14px;
-  }
-  .pc-arch {
-    width: 78px;
-    height: 150px;
-    border-radius: 39px 39px 6px 6px;
-    position: relative;
-    background: linear-gradient(
-      180deg,
-      rgba(212, 175, 55, 0.14),
-      rgba(212, 175, 55, 0.03)
-    );
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    box-shadow: inset 0 0 0 6px rgba(35, 76, 122, 0.35);
-  }
-  .pc-arch::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border-radius: 26px 26px 4px 4px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-  }
-  .pc-arch:nth-child(2) {
-    height: 180px;
-    margin-top: -15px;
   }
 
   /* ---- generic section frame ---- */
@@ -557,11 +457,17 @@ const STEPS = [
     display: block;
     filter: drop-shadow(0 12px 26px rgba(15, 34, 56, 0.16));
   }
-  .pc-card .dl {
+  .pc-card .dl-row {
     margin-top: 14px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pc-card .dl {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
+    gap: 8px;
     font-family: var(--text);
     font-size: 14px;
     font-weight: 500;
@@ -569,7 +475,7 @@ const STEPS = [
     background: #fff;
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 9px 20px;
+    padding: 9px 18px;
     cursor: pointer;
     transition: all 0.15s;
     text-decoration: none;
@@ -674,12 +580,6 @@ const STEPS = [
 
   /* ---- responsive ---- */
   @media (max-width: 960px) {
-    .pc-hero-inner {
-      grid-template-columns: 1fr;
-    }
-    .pc-arches {
-      display: none;
-    }
     .pc-pitch-grid {
       grid-template-columns: 1fr;
     }
@@ -695,9 +595,6 @@ const STEPS = [
     .pc-wrap {
       padding: 0 24px;
     }
-    .pc-hero-inner {
-      padding: 22px 24px 52px;
-    }
     .pc-grid[data-cols="2"],
     .pc-grid[data-cols="3"],
     .pc-grid[data-cols="4"] {
@@ -712,13 +609,13 @@ const STEPS = [
     }
     :global(.site-header),
     :global(.cw-footer),
-    .pc-hero,
+    .sr-hero,
     .pc-pitch,
     .pc-guide,
     .pc-help,
     .pc-controls,
     .pc-sec-head,
-    .pc-card .dl {
+    .pc-card .dl-row {
       display: none !important;
     }
     .pc-gallery {
