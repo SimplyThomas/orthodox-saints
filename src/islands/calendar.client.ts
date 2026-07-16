@@ -183,6 +183,7 @@ if (root && app && source && grid && panel && monthLabel) {
         aria = `${MONTHS_FULL[viewM - 1]} ${d} (${churchAbbr(c)} on the Church Calendar), ${plural(n)}`;
       }
       cell.setAttribute("aria-label", aria);
+      cell.title = aria; // hover answers "what do the numbers mean"
       if (n) cell.append(el("span", "cc", String(n)));
       if (n > 0) cell.addEventListener("click", () => renderPanel(key));
       cells.push(cell);

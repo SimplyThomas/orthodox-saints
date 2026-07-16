@@ -6134,6 +6134,19 @@ a.sv-rail-chip:hover {
   display: inline-block;
   margin-right: 4px;
 }
+/* sample of the count badge each day cell carries in its corner */
+#calendar-page .cal-legend .lg-n {
+  font-family: var(--text);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 10px;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-gold);
+  background: var(--paper);
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin-right: 5px;
+}
 
 /* ---------- no-JS source / fallback ---------- */
 #calendar-page.is-enhanced .cal-source {
