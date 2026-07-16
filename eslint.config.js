@@ -19,6 +19,9 @@ export default [
       ".venv/",
       // Cloudflare Worker — its own package/toolchain, not the Astro frontend.
       "workers/",
+      // Local Claude Code git worktrees. Git-ignored, so CI never sees them, but
+      // their checked-out tsconfigs make typescript-eslint fail root detection.
+      ".claude/",
     ],
   },
   js.configs.recommended,
