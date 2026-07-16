@@ -37,7 +37,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Set
 
 import requests
-from PIL import Image
+from PIL import Image, ImageOps
 
 try:
     from dotenv import load_dotenv
@@ -320,6 +320,12 @@ def pick_best(candidates: List[Dict], tokens: Set[str]) -> Optional[Dict]:
 def save_resized(raw: bytes, dest: Path) -> bool:
     try:
         img = Image.open(BytesIO(raw))
+        # Bake in the EXIF orientation before anything else: we fetch Commons
+        # ORIGINALS (iiprop=url, not a pre-rotated thumburl), and phone-shot
+        # sources routinely carry Orientation 6/8. Saving without this writes
+        # sideways pixels AND drops the tag that would have corrected them, so
+        # the top-crop below would also cut the wrong edge.
+        img = ImageOps.exif_transpose(img)
         if img.mode in ("RGBA", "P", "LA"):
             img = img.convert("RGB")
         elif img.mode != "RGB":
