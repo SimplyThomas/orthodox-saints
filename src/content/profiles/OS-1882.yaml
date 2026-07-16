@@ -12,7 +12,8 @@ sections:
       - The persecution that followed the union fell heavily on the Holy Mountain. The Zographou martyrs are remembered alongside other Athonite confessors of the same period, and their commemoration stands as a sign of monastic resistance to an imposed ecclesiastical union. The union itself was repudiated after Michael VIII's death in 1282.
   - heading: The Martyrs
     body:
-      - The synaxarion records the abbot (igumen) Thomas at the head of the company, followed by the monks Barsanuphius, Cyril, Micah, Simon, Hilarion, James, Job, Cyprian, Savva, James, Martinian, Cosmas, Sergius, Menas, Joasaph, Joannicius, Paul, Anthony, Euthymius, Dometian, and Parthenius. Four laymen who had taken refuge with the brotherhood died with them, bringing the number to twenty-six. Because they were burned together as a single company, the Church commemorates them as one body of martyrs rather than individually.
+      - The earliest surviving accounts preserve the names of twenty-two monastics but do not record the names of the four laymen who shared their martyrdom. The Orthodox Church nevertheless commemorates all twenty-six together as the Martyrs of Zographou.
+      - Because they were burned together as a single company, the Church commemorates them as one body of martyrs rather than individually.
 timeline:
   - when: July 1274
     title: Union of Lyons
@@ -23,15 +24,77 @@ timeline:
   - when: 1274 (some sources 1275)
     title: Martyrdom at Zographou
     body: Imperial agents burn the monastery; the abbot Thomas, his monks, and four laymen perish in the flames.
+members:
+  - name: Thomas
+    role: Igumen (Abbot)
+    note: Abbot of Zographou, who led the brotherhood in refusing the union.
+  - name: Barsanuphius
+    role: Monk
+  - name: Cyril
+    role: Monk
+  - name: Micah
+    role: Monk
+    note: Given in the Greek accounts as Michaios.
+  - name: Simon
+    role: Monk
+  - name: Hilarion
+    role: Monk
+  - name: James
+    role: Monk
+  - name: James (second)
+    role: Monk
+    note: A second monk of the same name; the accounts record two.
+  - name: Job
+    role: Monk
+  - name: Cyprian
+    role: Monk
+  - name: Sabbas
+    role: Monk
+    note: Also given in the Slavonic form Savva.
+  - name: Martinian
+    role: Monk
+  - name: Cosmas
+    role: Monk
+  - name: Sergius
+    role: Monk
+  - name: Menas
+    role: Monk
+  - name: Joasaph
+    role: Monk
+  - name: Joannicius
+    role: Monk
+  - name: Paul
+    role: Monk
+  - name: Anthony
+    role: Monk
+  - name: Euthymius
+    role: Monk
+  - name: Dometian
+    role: Monk
+  - name: Parthenius
+    role: Monk
+  - name: Unnamed Layman
+    role: Layman
+    note: One of four laymen who died with the brotherhood; their names were not preserved in the historical record.
+  - name: Unnamed Layman
+    role: Layman
+    note: One of four laymen who died with the brotherhood; their names were not preserved in the historical record.
+  - name: Unnamed Layman
+    role: Layman
+    note: One of four laymen who died with the brotherhood; their names were not preserved in the historical record.
+  - name: Unnamed Layman
+    role: Layman
+    note: One of four laymen who died with the brotherhood; their names were not preserved in the historical record.
 related:
   - name: Venerable Cosmas the Bulgarian of Zographou
     note: A monk of the same Zographou Monastery whose life recalls their martyrdom shortly before his own time.
     href: saint/OS-1883
 patronage:
   - Confessors of Orthodoxy and steadfastness under persecution
-status: draft
+status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
+  - The Great Synaxaristes (Greek Synaxarion), October 10
   - https://www.oca.org/saints/lives/2025/09/21/102693-26-monastic-martyrs-of-zographou-mount-athos
   - https://en.wikipedia.org/wiki/Zograf_Monastery
   - https://orthochristian.com/107332.html
