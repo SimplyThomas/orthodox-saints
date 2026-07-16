@@ -7,6 +7,7 @@
 import type { Saint, SaintDepiction } from "./types";
 import { splitName, cleanName } from "./names";
 import { primaryRank, firstFeast, feastDates, centuryLabel } from "./saints";
+import { oldCalendarDay } from "./calendar-grid";
 import { MONTHS, MONTHS_FULL } from "./format";
 
 export interface SaintViewLink {
@@ -32,7 +33,10 @@ export interface SaintViewModel {
   brief: string;
   /** primary feast, e.g. "January 1" */
   feast: string;
-  /** any further feast dates, e.g. "Also Jan 30" */
+  /** civil day the primary feast is kept by Old Calendar (Julian) churches,
+      e.g. "January 14"; empty when no fixed date parses */
+  feastOld: string;
+  /** any further feast dates, e.g. "Also Jan 30 (Old Calendar Feb 12)" */
   feastNote: string;
   intercessions: string[];
   virtues: string[];
@@ -76,12 +80,25 @@ function primaryFeast(s: Saint): string {
   return first;
 }
 
+/* "January 14" — the civil day the primary fixed feast is kept by Old
+   Calendar (Julian) churches; empty when the saint has no parseable fixed
+   date (movable-only or featless stubs). */
+function primaryFeastOld(s: Saint): string {
+  const dates = feastDates(s);
+  if (!dates.length) return "";
+  const oc = oldCalendarDay(dates[0].m, dates[0].d);
+  return `${MONTHS_FULL[oc.month - 1]} ${oc.day}`;
+}
+
 function furtherFeasts(s: Saint): string {
   const dates = feastDates(s);
   if (dates.length <= 1) return "";
   const rest = dates
     .slice(1)
-    .map((d) => `${MONTHS[d.m - 1]} ${d.d}`)
+    .map((d) => {
+      const oc = oldCalendarDay(d.m, d.d);
+      return `${MONTHS[d.m - 1]} ${d.d} (Old Calendar ${MONTHS[oc.month - 1]} ${oc.day})`;
+    })
     .join(", ");
   return rest ? `Also ${rest}` : "";
 }
@@ -139,6 +156,7 @@ export function toSaintView(s: Saint): SaintViewModel {
     address: s.prayer,
     brief: s.brief,
     feast: primaryFeast(s),
+    feastOld: primaryFeastOld(s),
     feastNote: furtherFeasts(s),
     intercessions: s.intercession,
     virtues: s.virtue,

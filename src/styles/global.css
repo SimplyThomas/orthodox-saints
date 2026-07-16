@@ -3730,6 +3730,12 @@ a.news-card:hover .news-h {
   color: var(--celest-soft);
   margin-top: 2px;
 }
+/* the civil day Old Calendar (Julian) churches keep the fixed feast */
+.sv-feast-oc {
+  font-size: 12.5px;
+  color: var(--celest-soft);
+  margin-top: 3px;
+}
 .sv-glance {
   width: 100%;
 }
@@ -5828,6 +5834,46 @@ a.sv-rail-chip:hover {
   background: var(--gold-soft);
 }
 
+/* New / Old Calendar segmented toggle */
+#calendar-page .cal-style-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+#calendar-page .cal-style-toggle button {
+  font-family: var(--text);
+  font-size: 13px;
+  height: 36px;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+#calendar-page .cal-style-toggle button:hover {
+  color: var(--byz);
+}
+#calendar-page .cal-style-toggle button.is-active {
+  background: var(--byz);
+  color: var(--ivory);
+  font-weight: 600;
+}
+#calendar-page .cal-style-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+#calendar-page .cal-style-note[hidden] {
+  display: none;
+}
+
 #calendar-page .cal-main {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
@@ -5886,6 +5932,20 @@ a.sv-rail-chip:hover {
   font-family: var(--text);
   font-size: 10px;
   color: var(--ink-soft);
+}
+/* Old Calendar mode: the church (Julian) date carried by this civil day */
+#calendar-page .cal-cell .os {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  font-family: var(--text);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+#calendar-page .cal-cell.is-selected .os {
+  color: var(--gold-soft);
 }
 #calendar-page .cal-cell.is-blank {
   background: transparent;
@@ -6085,6 +6145,19 @@ a.sv-rail-chip:hover {
   display: inline-block;
   margin-right: 4px;
 }
+/* sample of the count badge each day cell carries in its corner */
+#calendar-page .cal-legend .lg-n {
+  font-family: var(--text);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 10px;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-gold);
+  background: var(--paper);
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin-right: 5px;
+}
 
 /* ---------- no-JS source / fallback ---------- */
 #calendar-page.is-enhanced .cal-source {
@@ -6123,6 +6196,11 @@ a.sv-rail-chip:hover {
   }
   #calendar-page .cal-panel {
     position: static;
+  }
+  /* Cells are too small to carry the per-day church date; the day panel and
+     each cell's aria-label still state it. */
+  #calendar-page .cal-cell .os {
+    display: none;
   }
 }
 

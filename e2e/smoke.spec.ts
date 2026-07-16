@@ -418,6 +418,35 @@ test("calendar movable-cycle button loads commemorations into the panel", async 
   await expect(page.locator(".cal-panel .cal-list li").first()).toBeVisible();
 });
 
+test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // New Calendar reading: church Dec 6 (St. Nicholas) falls on civil Dec 6.
+  await page.selectOption("#cal-month-picker", "12");
+  await page.click('#cal-grid [data-key="12-6"]');
+  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+
+  // Old Calendar: the same church date now falls on civil Dec 19, and the
+  // panel + cells carry the church-date label.
+  await page.click("#cal-style-old");
+  await expect(page.locator("#cal-style-old")).toHaveClass(/is-active/);
+  await expect(page).toHaveURL(/style=old/);
+  await expect(page.locator("#cal-style-note")).toBeVisible();
+  await page.click('#cal-grid [data-key="12-19"]');
+  await expect(page.locator(".cal-panel .cal-panel-head .lbl")).toContainText(
+    "Dec 6 on the Church Calendar",
+  );
+  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+
+  // The mode deep-links: ?style=old restores Old Calendar without a click.
+  await page.goto("./calendar/?style=old");
+  await expect(page.locator("#cal-style-old")).toHaveClass(/is-active/);
+  await expect(
+    page.locator("#cal-grid .cal-cell:not(.is-blank) .os").first(),
+  ).toBeVisible();
+});
+
 test("on mobile the nav collapses into a hamburger dropdown", async ({
   page,
 }) => {
