@@ -128,6 +128,26 @@ const totalEntries =
     <div class="cal-app" hidden>
       <div class="cal-bar">
         <div class="cal-month-label" id="cal-month-label"></div>
+        <div
+          class="cal-style-toggle"
+          role="group"
+          aria-label="Calendar reckoning"
+        >
+          <button
+            type="button"
+            id="cal-style-new"
+            aria-pressed="true"
+            title="Revised Julian — fixed feasts fall on the civil date"
+            >New Calendar</button
+          >
+          <button
+            type="button"
+            id="cal-style-old"
+            aria-pressed="false"
+            title="Julian — fixed feasts fall 13 days later on the civil calendar"
+            >Old Calendar</button
+          >
+        </div>
         <div class="cal-ctrls">
           <button type="button" id="cal-today-btn">Today</button>
           <button
@@ -151,6 +171,12 @@ const totalEntries =
           >
         </div>
       </div>
+
+      <p class="cal-style-note" id="cal-style-note" hidden>
+        Old Calendar (Julian): the grid shows civil dates; each day carries the
+        church date kept 13 days earlier. The Paschal cycle is the same on both
+        calendars.
+      </p>
 
       <div class="cal-main">
         <div class="cal-grid-wrap">
