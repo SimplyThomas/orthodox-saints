@@ -59,3 +59,18 @@ export function civilToChurch(
     day: dt.getDate(),
   };
 }
+
+/** Civil {month, day} on which a fixed church date is kept by Old Calendar
+    (Julian) churches — the standard "+13 days" O.S./N.S. table. Fixed feasts
+    carry no year, so this uses the common-year mapping printed tables quote;
+    in leap years church dates Feb 16–29 land one civil day earlier, a nuance
+    not worth surfacing on year-less pages. */
+export function oldCalendarDay(
+  month: number,
+  day: number,
+): { month: number; day: number } {
+  // 2001 is a common year; church Feb 29 needs a leap reference (→ Mar 13).
+  const refYear = month === 2 && day === 29 ? 2004 : 2001;
+  const dt = new Date(refYear, month - 1, day + JULIAN_OFFSET_DAYS);
+  return { month: dt.getMonth() + 1, day: dt.getDate() };
+}

@@ -319,6 +319,11 @@ const wordsLabel = `In ${possessive} own words`;
             <div class="sv-feast-main">
               <div class="sv-feast-label">Feast Day</div>
               <div class="sv-feast-date">{m.feast}</div>
+              {
+                m.feastOld && (
+                  <div class="sv-feast-oc">Old Calendar · {m.feastOld}</div>
+                )
+              }
             </div>
             {m.feastNote && <div class="sv-feast-note">{m.feastNote}</div>}
           </div>

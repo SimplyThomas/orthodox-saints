@@ -4,6 +4,7 @@ import {
   firstWeekday,
   monthMatrix,
   civilToChurch,
+  oldCalendarDay,
 } from "./calendar-grid";
 
 describe("daysInMonth", () => {
@@ -88,5 +89,24 @@ describe("civilToChurch", () => {
       month: 3,
       day: 1,
     });
+  });
+});
+
+describe("oldCalendarDay", () => {
+  it("shifts a fixed feast 13 days within a month", () => {
+    // St. Nicholas: church Dec 6 is kept on civil Dec 19.
+    expect(oldCalendarDay(12, 6)).toEqual({ month: 12, day: 19 });
+  });
+  it("crosses the year boundary", () => {
+    // Old Calendar Nativity: church Dec 25 falls on civil Jan 7.
+    expect(oldCalendarDay(12, 25)).toEqual({ month: 1, day: 7 });
+  });
+  it("uses the common-year mapping for late February", () => {
+    expect(oldCalendarDay(2, 16)).toEqual({ month: 3, day: 1 });
+    expect(oldCalendarDay(2, 28)).toEqual({ month: 3, day: 13 });
+  });
+  it("maps church Feb 29 with a leap reference", () => {
+    // St. John Cassian's leap-day feast.
+    expect(oldCalendarDay(2, 29)).toEqual({ month: 3, day: 13 });
   });
 });
