@@ -332,6 +332,22 @@ members:
     saint_id: OS-1368
     role: Ministered to Paul
     note: Who with Fortunatus ministered to Paul (1 Cor. 16).
+  - name: Nathanael
+    saint_id: OS-1040
+    role: Of Cana
+    note: Commemorated Apr 22 among the Seventy; traditionally identified with the Apostle Bartholomew.
+  - name: Alphaeus
+    saint_id: OS-1240
+    role: Of Capernaum
+    note: Honored in tradition as the father of the Apostles James son of Alphaeus and Matthew.
+  - name: Zacchaeus
+    saint_id: OS-2461
+    role: Bishop of Caesarea
+    note: The tax-collector of Jericho who repented and received Christ (Luke 19); by tradition bishop of Caesarea.
+  - name: Nymphas
+    saint_id: OS-2451
+    role: Of Laodicea
+    note: Host of a house-church at Laodicea, greeted by Paul (Col. 4:15).
 sections:
   - heading: A Note on the Lists
     body:
