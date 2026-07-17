@@ -36,17 +36,15 @@ test("icon-gifts loads with the hero icon corner and the picker", async ({
   await expect(page.locator("[data-who-tab]")).toHaveCount(PANEL_COUNT);
 });
 
-// The vendor-permission grant (§9) is conditional on each image linking back to
-// its own icon page. If a portrait is ever added to the hero without a source,
-// this fails rather than quietly breaking the grant.
-test("every permission portrait in the hero links to its vendor icon page", async ({
+// The vendor grant (§9) is conditional on each image linking back to its own
+// icon page. This guards that link condition: if a hero portrait is ever added
+// without a source link, the count drops and this fails.
+test("every hero portrait links back to its vendor icon page", async ({
   page,
 }) => {
   await page.goto("./icon-gifts/");
-  const credit = page.locator(".ig-credit");
-  await expect(credit).toContainText("permission");
   await expect(
-    credit.locator('a[href^="https://theophanyworks.com/"]'),
+    page.locator('.ig-credit a[href^="https://theophanyworks.com/"]'),
   ).toHaveCount(4);
 });
 

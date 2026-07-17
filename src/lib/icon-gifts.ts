@@ -174,14 +174,6 @@ export const IG_HERO: HeroIcon[] = [
 ];
 
 /* =====================================================================
-   INTRODUCTION
-   ===================================================================== */
-
-export const IG_INTRO: string[] = [
-  "An icon is not decoration and not a souvenir of someone else's faith. The Church calls it a window — the honor offered before it passes to the person depicted — so an icon given as a gift is a companion to be prayed with, not an object to be admired. It outlasts the occasion: long after the cards and flowers are gone it is still on the wall, still gathering the household to itself. Customs vary from one tradition to the next, and this page says so where they do; but a few run right through Orthodoxy, and this is where to start.",
-];
-
-/* =====================================================================
    OCCASIONS
    ===================================================================== */
 

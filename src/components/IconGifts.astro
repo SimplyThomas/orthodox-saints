@@ -71,7 +71,6 @@ const heroCredits = heroIcons.filter(
   (h) => h.r?.imagePermission && h.r?.imageSource,
 );
 const heroVendor = heroCredits[0]?.r?.imageVendor ?? "";
-const heroAttribution = heroCredits[0]?.r?.imageAttribution ?? "";
 
 const TIER_LABEL: Record<GiftTier, string> = {
   traditional: "Most traditional",
@@ -92,7 +91,10 @@ function iconHref(i: GiftIcon): string | null {
    recipient intros apart from the longer occasion prose. */
 interface PickItem {
   id: string;
+  /** short label on the chip (kept parallel + uniform so the grid reads tidy) */
   chip: string;
+  /** full heading shown at the top of the open panel */
+  title: string;
   glyph: string;
   intro: string;
   lede?: boolean;
@@ -102,12 +104,45 @@ interface PickItem {
   vocations?: boolean;
   key?: boolean;
 }
+/* Concise, parallel chip labels — the data's full titles ("Baptism &
+   Chrismation", "Professional & Vocational Gifts") vary wildly in length and
+   make the chip grid look ragged. The full title still heads each panel. */
+const CHIP_LABEL: Record<string, string> = {
+  // occasions
+  birth: "Birth",
+  baptism: "Baptism",
+  "name-day": "Name Day",
+  marriage: "Marriage",
+  housewarming: "Housewarming",
+  graduation: "Graduation",
+  vocation: "Vocation",
+  christmas: "Christmas",
+  pascha: "Pascha",
+  illness: "Illness",
+  grief: "Grief",
+  ordination: "Ordination",
+  // people
+  child: "Child",
+  catechumen: "Catechumen",
+  "newly-baptized": "Newly Baptized",
+  "bride-groom": "Bride & Groom",
+  priest: "Priest",
+  deacon: "Deacon",
+  monastic: "Monastic",
+  godchild: "Godchild",
+  parents: "Parents",
+  grandparents: "Grandparents",
+  friend: "Friend",
+  sick: "The Sick",
+  grieving: "The Grieving",
+};
 const PICKER_GROUPS: { label: string; items: PickItem[] }[] = [
   {
     label: "By occasion",
     items: IG_OCCASIONS.map((o) => ({
       id: o.id,
-      chip: o.title,
+      chip: CHIP_LABEL[o.id] ?? o.title,
+      title: o.title,
       glyph: o.glyph,
       kicker: o.kicker,
       intro: o.intro,
@@ -121,7 +156,8 @@ const PICKER_GROUPS: { label: string; items: PickItem[] }[] = [
     label: "For a person",
     items: IG_RECIPIENTS.map((r) => ({
       id: r.id,
-      chip: r.label,
+      chip: CHIP_LABEL[r.id] ?? r.label,
+      title: r.label,
       glyph: r.glyph,
       intro: r.intro,
       lede: true,
@@ -171,8 +207,7 @@ const DEFAULT_PICK = "baptism";
                individually — the vendor is credited once, not four times. */
             heroCredits.length > 0 && (
               <p class="ig-credit">
-                {heroAttribution.replace(/^Icon /, "Icons ")} Original icons on{" "}
-                {heroVendor}:{" "}
+                <span class="ig-credit-lead">Icons: {heroVendor}</span>
                 {heroCredits.map((h, n) => (
                   <>
                     {n > 0 && <span aria-hidden="true"> · </span>}
@@ -261,7 +296,7 @@ const DEFAULT_PICK = "baptism";
                 {it.kicker && (
                   <div class="eyebrow ig-who-panel-eb">{it.kicker}</div>
                 )}
-                <h3 class="ig-who-title">{it.chip}</h3>
+                <h3 class="ig-who-title">{it.title}</h3>
                 {it.lede ? (
                   <p class="ig-who-intro">{it.intro}</p>
                 ) : (
@@ -521,6 +556,9 @@ const DEFAULT_PICK = "baptism";
     color: var(--ink-soft);
     text-align: center;
   }
+  .ig-credit-lead {
+    display: block;
+  }
   .ig-credit a {
     color: var(--celest);
   }
@@ -763,17 +801,19 @@ const DEFAULT_PICK = "baptism";
     color: var(--gold-deep);
     margin-bottom: 12px;
   }
+  /* An aligned grid of equal-width chips — orderly rows and columns, rather
+     than centered pills of varying width wrapping into ragged lines. */
   .ig-who-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     gap: 8px;
   }
   .ig-who-tab {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 7px;
-    padding: 8px 15px;
+    padding: 9px 14px;
     font-family: var(--text);
     font-size: 14.5px;
     color: var(--byz);
