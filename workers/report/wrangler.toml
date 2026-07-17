@@ -25,8 +25,8 @@ workers_dev = true
 # APP_ID / INSTALLATION_ID are identifiers, not secrets — safe to commit. Replace
 # the placeholders with your GitHub App's values (README explains where to find them).
 [vars]
-APP_ID = "REPLACE_WITH_APP_ID"
-INSTALLATION_ID = "REPLACE_WITH_INSTALLATION_ID"
+APP_ID = "4327441"
+INSTALLATION_ID = "147289637"
 REPO_OWNER = "SimplyThomas"
 REPO_NAME  = "orthodox-saints"
 # Comma-separated allow-list for cross-origin (workers.dev) use. Same-origin
