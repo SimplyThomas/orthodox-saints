@@ -118,7 +118,7 @@ test("a saint reached from the America page links back to America", async ({
   page,
 }) => {
   await page.goto("./america/");
-  await page.locator(".pga-card.clickable").first().click();
+  await page.locator(".am-card.clickable").first().click();
   await page.waitForURL(/\/saint\/OS-/);
   // The back link is rewritten to point at the America page, by name and href.
   const back = page.locator(".sv-back-link");
@@ -217,25 +217,25 @@ test("about page tells the story; the footer carries the project contact", async
   );
 });
 
-test("america page shows three gilded carousels with arrows", async ({
+test("america page shows three card carousels with arrows", async ({
   page,
 }) => {
   const resp = await page.goto("./america/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".pga-movement")).toHaveCount(3);
-  await expect(page.locator(".pga-card").first()).toBeVisible();
-  // The witnesses panel keeps not-yet-glorified figures clearly set apart.
+  await expect(page.locator(".am-move")).toHaveCount(3);
+  await expect(page.locator(".am-card").first()).toBeVisible();
+  // The witnesses section keeps not-yet-glorified figures clearly set apart.
   await expect(
     page
-      .locator(".pga-movement.plum .pga-card .tag", {
-        hasText: "Not yet glorified",
-      })
+      .locator(".am-move")
+      .last()
+      .locator(".am-card .tag", { hasText: "Not yet glorified" })
       .first(),
   ).toBeVisible();
-  // Three full cards show per view at desktop width (none clipped).
-  const firstTrack = page.locator(".pga-movement.garnet .pga-track");
+  // Four full cards show per view at desktop width (none clipped).
+  const firstTrack = page.locator(".am-move .am-track").first();
   const m = await firstTrack.evaluate((t) => {
-    const cards = [...t.querySelectorAll(".pga-card")];
+    const cards = [...t.querySelectorAll(".am-card")];
     const tr = t.getBoundingClientRect();
     const fully = cards.filter((c) => {
       const r = c.getBoundingClientRect();
@@ -244,12 +244,11 @@ test("america page shows three gilded carousels with arrows", async ({
     const gap = parseFloat(getComputedStyle(t).columnGap);
     return { fully, stride: cards[0].getBoundingClientRect().width + gap };
   });
-  expect(m.fully).toBe(3);
-  // The "next" arrow advances a full page — three cards over.
-  await expect(
-    page.locator(".pga-movement.garnet .pga-arrow.next"),
-  ).toHaveClass(/show/);
-  await page.locator(".pga-movement.garnet .pga-arrow.next").click();
+  expect(m.fully).toBe(4);
+  // The "next" arrow advances a full page — four cards over.
+  const next = page.locator(".am-move .am-arrow.next").first();
+  await expect(next).toHaveClass(/show/);
+  await next.click();
   await expect
     .poll(async () => firstTrack.evaluate((el) => el.scrollLeft))
     .toBeGreaterThan(m.stride * 2.5);
@@ -262,7 +261,7 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
   // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
   // (Roman Braga renders the generic comprehensive WitnessProfile; Ephraim &
   // Seraphim have their own bespoke profiles, tested separately.)
-  const card = page.locator('.pga-card[href*="/witness/roman-braga"]');
+  const card = page.locator('.am-card[href*="/witness/roman-braga"]');
   await expect(card).toBeVisible();
   await card.click();
   await page.waitForURL(/\/witness\/roman-braga/);
