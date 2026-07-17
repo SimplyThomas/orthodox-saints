@@ -67,6 +67,12 @@ sources:
   - https://en.wikipedia.org/wiki/Tikhon_of_Moscow
   - https://www.oca.org/saints/lives/2025/04/07/101026-saint-tikhon-patriarch-of-moscow-and-all-russia-and-enlightener-of-north
   - https://orthodoxwiki.org/Tikhon_of_Moscow
+  - https://sttikhonsmonastery.org/history_detailed
+  - https://en.wikipedia.org/wiki/Saint_Tikhon%27s_Orthodox_Theological_Seminary
+  - https://en.wikipedia.org/wiki/St._Nicholas_Russian_Orthodox_Cathedral
+  - https://en.wikipedia.org/wiki/Holy_Trinity_Orthodox_Cathedral_(Chicago)
+  - https://www.oca.org/history-archives/aacs/the-1st-all-american-sobor
+  - https://www.orthodoxrva.org/saint-tikhon
 family:
   figures:
     - name: Ivan Bellavin
@@ -86,14 +92,22 @@ companions:
     note: The last Russian emperor, whose murder Tikhon condemned
   - name: Elizabeth Feodorovna
     note: New-martyr grand duchess of the same period
+    href: saint/OS-1548
   - name: Benjamin of Petrograd
     note: New-martyr metropolitan of the persecution years
+    href: saint/OS-1617
   - name: Luke of Crimea
     note: Surgeon-confessor who endured the Soviet persecution
     href: saint/OS-0049
   - name: Alexis Toth
     note: Confessor of the American mission Tikhon shepherded
     href: saint/OS-1125
+  - name: John Kochurov
+    note: Missionary priest of his American diocese, first clergy martyr of the revolution
+    href: saint/OS-2120
+  - name: Alexander Hotovitzky
+    note: His New York cathedral priest and missionary co-laborer, later new-martyr
+    href: saint/OS-2299
   - name: Vladimir (Bogoyavlensky)
     note: New-martyr metropolitan of Kiev, first hierarch martyred under the Soviets
     href: saint/OS-0537
@@ -112,6 +126,7 @@ related:
     href: saint/OS-0050
   - name: Benjamin of Petrograd
     note: New-martyr metropolitan
+    href: saint/OS-1617
   - name: Nicholas II
     note: The martyred last emperor
 works:
@@ -141,5 +156,33 @@ reading:
   - heading: Liturgical Texts
     items:
       - title: Service, Akathist, and Canon
+influence:
+  heading: Influence in America
+  intro: "Nine years as missionary archbishop of North America (1898–1907) left St. Tikhon's mark on monasteries, cathedrals, and the very conciliar shape of American Orthodoxy."
+  places:
+    - name: "St. Tikhon's Monastery"
+      kind: Monastery
+      place: "South Canaan, Pennsylvania"
+      note: "The oldest Orthodox monastery in America, co-founded in 1905 by Archbishop Tikhon and Hieromonk Arseny (Chagovtsev); Tikhon blessed the project, helped purchase the land, and supported it financially. It was named at its founding for his own heavenly patron, St. Tikhon of Zadonsk, and only later became associated with his memory as well."
+    - name: "St. Tikhon's Orthodox Theological Seminary"
+      kind: Seminary
+      place: "South Canaan, Pennsylvania"
+      note: "Founded in 1938 on the grounds of the monastery he co-founded, realizing the idea of a pastoral school attached to the monastery first proposed during his tenure; today one of the three seminaries of the Orthodox Church in America."
+    - name: "St. Nicholas Russian Orthodox Cathedral"
+      kind: Cathedral
+      place: "New York, New York"
+      note: "Completed in 1902 on East 97th Street under his omophorion; Tikhon transferred the see of the North American diocese from San Francisco to New York, making this church the cathedral and administrative heart of the mission he led."
+    - name: "Holy Trinity Orthodox Cathedral"
+      kind: Cathedral
+      place: "Chicago, Illinois"
+      note: "The Louis Sullivan-designed church built by his missionary priest Fr. John Kochurov; Tikhon consecrated it in 1903. It is listed on the National Register of Historic Places and is a designated Chicago Landmark."
+    - name: "St. John's Russian Orthodox Cathedral"
+      kind: Cathedral
+      place: "Mayfield, Pennsylvania"
+      note: "Host of the First All-American Sobor (February 1907), the church council Tikhon conceived, which brought clergy and lay delegates together and set the conciliar pattern of American Orthodox church life."
+    - name: "Saint Tikhon Orthodox Church"
+      kind: Church
+      place: "Ruther Glen, Virginia"
+      note: "One of the parishes across America dedicated to St. Tikhon of Moscow, keeping the memory of the missionary archbishop as a living patronage."
 status: reviewed
 generated: "2026-06-18"

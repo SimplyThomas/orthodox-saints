@@ -81,6 +81,11 @@ sources:
   - https://en.wikipedia.org/wiki/Innocent_of_Alaska
   - https://www.oca.org/saints/lives/2024/10/06/102858-innocent-metropolitan-of-moscow-and-apostle-to-america-and-siberia
   - https://orthodoxwiki.org/Innocent_of_Alaska
+  - https://en.wikipedia.org/wiki/St._Michael's_Cathedral_(Sitka,_Alaska)
+  - https://www.oca.org/parishes/oca-ak-unahak
+  - https://www.nps.gov/places/saint-michaels-cathedral.htm
+  - https://www.stinnocentcathedral.org/
+  - https://www.stinnocenttarzana.org/
 family:
   figures:
     - name: Catherine (Ekaterina) Veniaminova
@@ -150,5 +155,29 @@ reading:
   - heading: Liturgical Texts
     items:
       - title: Service, Akathist, and Canon
+influence:
+  heading: Influence in America
+  intro: "The Apostle to America left a footprint that is still standing — churches he himself designed and built in Alaska, and cathedrals and parishes across the continent that bear his name."
+  places:
+    - name: St. Michael the Archangel Cathedral
+      kind: Cathedral
+      place: Sitka, Alaska
+      note: "Designed and founded by the saint himself (1844–1848), the first Orthodox cathedral built in America; after the 1966 fire it was faithfully rebuilt, and it remains an active OCA cathedral and National Historic Landmark."
+    - name: Holy Ascension of Our Lord Cathedral
+      kind: Cathedral
+      place: Unalaska, Alaska
+      note: "The parish of his first Alaskan assignment (from 1824), where he built the original church, opened a school, and translated Scripture and prayers into Aleut; a side chapel was rededicated in 1996 in his honor."
+    - name: Russian Bishop's House
+      kind: Institution
+      place: Sitka, Alaska
+      note: "His residence as the first resident Orthodox bishop in America, now a restored National Historic Landmark within Sitka National Historical Park."
+    - name: St. Innocent Cathedral
+      kind: Cathedral
+      place: Anchorage, Alaska
+      note: "Consecrated in 1994 as the Orthodox Church in America's Bicentennial Cathedral, marking 200 years of Orthodoxy in Alaska under the patronage of its greatest missionary bishop."
+    - name: St. Innocent Orthodox Church
+      kind: Church
+      place: Tarzana, California
+      note: "An OCA Diocese of the West parish under his patronage since 1955, one of a number of American parishes dedicated to him."
 status: reviewed
 generated: "2026-06-18"

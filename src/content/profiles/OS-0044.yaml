@@ -59,6 +59,7 @@ companions:
     note: Leader of the Alaska mission, later its first bishop
   - name: Juvenaly of Alaska
     note: Fellow Valaam missionary and protomartyr of America
+    href: saint/OS-1895
   - name: Macarius
     note: Fellow monk of the Valaam mission to Alaska
   - name: Gerasim
@@ -95,5 +96,38 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Herman_of_Alaska
   - https://orthodoxwiki.org/Herman_of_Alaska
+  - https://www.oca.org/directories/seminaries/st-herman-seminary
+  - https://www.oca.org/news/archived/faithful-to-make-pilgrimage-honoring-saint-herman-of-alaska-in-august
+  - https://en.wikipedia.org/wiki/Saint_Herman_of_Alaska_Monastery
+  - https://sainthermans.org/
+  - https://www.sthermansoca.org/
+influence:
+  heading: Influence in America
+  intro: "As the first canonized saint of North America, Herman anchors Orthodox life across the continent — from the cathedral that holds his relics to seminaries, monasteries, parishes, and ministries that bear his name."
+  places:
+    - name: Holy Resurrection Cathedral
+      kind: Cathedral
+      place: Kodiak, Alaska
+      note: "The saint's relics have rested here since his 1970 glorification, making the cathedral the principal shrine of his veneration in America."
+    - name: St. Herman Theological Seminary
+      kind: Seminary
+      place: Kodiak, Alaska
+      note: "The Orthodox Church in America's Alaskan seminary, opened in 1973 and named for the saint; it trains Native Alaskan readers, teachers, and clergy just blocks from the cathedral holding his relics."
+    - name: Spruce Island Pilgrimage
+      kind: Pilgrimage
+      place: Spruce Island, Alaska
+      note: "Each August, around the anniversary of his glorification, pilgrims travel from Kodiak to Monk's Lagoon for services at the Sts. Sergius and Herman of Valaam chapel over the saint's hermitage and original grave."
+    - name: St. Herman of Alaska Monastery
+      kind: Monastery
+      place: Platina, California
+      note: "Founded under the saint's patronage in 1968 by Fr. Seraphim Rose and Fr. Herman Podmoshensky; its brotherhood publishes The Orthodox Word and a steady stream of Orthodox books in English."
+    - name: St. Herman House — FOCUS Cleveland
+      kind: Institution
+      place: Cleveland, Ohio
+      note: "An Orthodox house of hospitality serving the homeless and poor since 1977, placed under the patronage of the monk who fed and sheltered Kodiak's orphans."
+    - name: St. Herman of Alaska Orthodox Church
+      kind: Church
+      place: Glen Mills, Pennsylvania
+      note: "One of many American parishes dedicated to the saint, serving Orthodox faithful across southeastern Pennsylvania, New Jersey, and Delaware."
 status: reviewed
 generated: "2026-06-18"
