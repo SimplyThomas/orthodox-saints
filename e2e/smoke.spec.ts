@@ -447,6 +447,77 @@ test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
   ).toBeVisible();
 });
 
+test("liturgical colors follow the feast through both calendar styles", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // Dormition (Aug 15, a Great Feast of the Theotokos) tints its day blue…
+  await page.selectOption("#cal-month-picker", "8");
+  const aug15 = page.locator('#cal-grid [data-key="8-15"]');
+  await expect(aug15).toHaveClass(/lc-blue/);
+  await aug15.click();
+  await expect(page.locator(".cal-panel .cal-lit-name")).toHaveText(
+    "Liturgical Color: Blue",
+  );
+  await expect(page.locator(".cal-panel .cal-lit-reason")).toContainText(
+    "Dormition of the Theotokos",
+  );
+  // …with fasting shown separately from the color, and category badges.
+  await expect(page.locator(".cal-panel .cal-lit-fast")).toContainText(
+    "Fish, Wine & Oil",
+  );
+  // New Calendar fasting is attributed to Greek Archdiocese practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Greek Orthodox Archdiocese",
+  );
+  await expect(
+    page.locator(".cal-panel .cal-lit-badge", { hasText: "Great Feast" }),
+  ).toBeVisible();
+
+  // In Old Calendar style the feast — and its color — moves to civil Aug 28.
+  await page.click("#cal-style-old");
+  const aug28 = page.locator('#cal-grid [data-key="8-28"]');
+  await expect(aug28).toHaveClass(/lc-blue/);
+  await aug28.click();
+  await expect(page.locator(".cal-panel .cal-lit-reason")).toContainText(
+    "Dormition of the Theotokos",
+  );
+  // …and the fasting attribution switches to Russian Orthodox practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Russian Orthodox practice",
+  );
+});
+
+test("liturgical legend explains colors and fasting; plain days stay neutral", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // Nativity is white in any year (fixed feast), with the Fast-Free badge.
+  await page.selectOption("#cal-month-picker", "12");
+  await expect(page.locator('#cal-grid [data-key="12-25"]')).toHaveClass(
+    /lc-white/,
+  );
+  await expect(
+    page.locator('#cal-grid [data-key="12-25"] .fast-glyph'),
+  ).toHaveText("FF");
+  // Unassigned weekdays fall back to neutral (no tint class at all).
+  await page.selectOption("#cal-month-picker", "7");
+  expect(
+    await page
+      .locator("#cal-grid .cal-cell:not(.is-blank):not(.has-lc)")
+      .count(),
+  ).toBeGreaterThan(0);
+  // The collapsible guide carries the variation disclaimer, and the page
+  // never invents the Western "Ordinary Time" category.
+  const legend = page.locator("#cal-lit-legend");
+  await legend.locator("summary").click();
+  await expect(legend).toContainText(
+    "Liturgical color customs vary among Orthodox jurisdictions and parishes.",
+  );
+  await expect(legend).toContainText("does not replace the directions");
+  await expect(page.locator("body")).not.toContainText("Ordinary Time");
+});
+
 test("on mobile the nav collapses into a hamburger dropdown", async ({
   page,
 }) => {

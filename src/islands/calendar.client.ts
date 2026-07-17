@@ -11,7 +11,13 @@
    civilToChurch in lib/calendar-grid). The grid always shows the visitor's
    civil month; the mode rides the URL (?style=old) so views are shareable and
    nothing touches browser storage. The movable (Paschal) cycle is the same on
-   both calendars, so it never shifts. */
+   both calendars, so it never shifts.
+
+   Liturgical layer: each day is tinted with a commonly-used liturgical color
+   and badged with the recorded fasting rule (lib/liturgical — rules attach to
+   feast records, so they follow the toggle). Color, fasting, and feast rank
+   are separate visual layers, each with a text equivalent (aria-label,
+   tooltip, day panel, legend) — never color alone. */
 
 import { MONTHS, MONTHS_FULL, WEEKDAYS } from "../lib/format";
 import {
@@ -19,6 +25,13 @@ import {
   civilToChurch,
   type ChurchDate,
 } from "../lib/calendar-grid";
+import type { DayLiturgics, LitFeast, CalendarStyle } from "../lib/liturgical";
+import {
+  activeObservances,
+  dayLiturgics,
+  LITURGICAL_COLORS,
+} from "../lib/liturgical";
+import type { PaschaTable } from "../lib/feast-dates";
 
 const root = document.getElementById("calendar-page");
 const app = document.querySelector<HTMLElement>(".cal-app");
@@ -32,6 +45,7 @@ const picker = document.getElementById(
 const todayLabel = document.getElementById("cal-today-label");
 const movableBtn = document.getElementById("cal-movable-btn");
 const styleNote = document.getElementById("cal-style-note");
+const litDataEl = document.getElementById("cal-lit-data");
 const styleBtns: Record<"new" | "old", HTMLElement | null> = {
   new: document.getElementById("cal-style-new"),
   old: document.getElementById("cal-style-old"),
@@ -69,10 +83,24 @@ if (root && app && source && grid && panel && monthLabel) {
     ".cal-src-movable ul",
   );
 
+  // Liturgical payload (feasts + Pascha table) inlined by calendar.astro.
+  let litFeasts: LitFeast[] = [];
+  let litPascha: PaschaTable = {};
+  try {
+    const parsed = JSON.parse(litDataEl?.textContent || "{}") as {
+      feasts?: LitFeast[];
+      pascha?: PaschaTable;
+    };
+    litFeasts = parsed.feasts ?? [];
+    litPascha = parsed.pascha ?? {};
+  } catch {
+    /* no liturgical layer — the calendar still works */
+  }
+
   let viewY = TODAY_Y;
   let viewM = TODAY_M;
   let selectedKey: string | null = null;
-  let style: "new" | "old" =
+  let style: CalendarStyle =
     new URLSearchParams(location.search).get("style") === "old" ? "old" : "new";
 
   /** Church date shown on the given civil day of the viewed month. */
@@ -89,8 +117,83 @@ if (root && app && source && grid && panel && monthLabel) {
     return dayLists.get(`${c.month}-${c.day}`)?.childElementCount ?? 0;
   };
 
+  /* ---- liturgical resolution, cached per viewed month + style ---- */
+  const litCache = new Map<string, DayLiturgics>();
+  function litFor(m: number, d: number): DayLiturgics | null {
+    if (!litFeasts.length) return null;
+    const key = `${viewY}-${m}-${d}-${style}`;
+    let lit = litCache.get(key);
+    if (!lit) {
+      const date = new Date(viewY, m - 1, d);
+      lit = dayLiturgics(
+        activeObservances(litFeasts, litPascha, date, style),
+        date,
+        style,
+      );
+      litCache.set(key, lit);
+    }
+    return lit;
+  }
+
   const plural = (n: number): string =>
     `${n} commemoration${n === 1 ? "" : "s"}`;
+
+  /* ---- the expanded day view's liturgical block ---- */
+  function litBlock(lit: DayLiturgics): HTMLElement {
+    const box = el("div", "cal-lit");
+    const row = el("div", "cal-lit-row");
+    const sw = el("span", `cal-lit-swatch`);
+    sw.style.setProperty("--sw-bg", LITURGICAL_COLORS[lit.color].background);
+    sw.style.setProperty("--sw-ac", LITURGICAL_COLORS[lit.color].accent);
+    sw.setAttribute("aria-hidden", "true");
+    row.append(
+      sw,
+      el(
+        "span",
+        "cal-lit-name",
+        lit.color === "neutral"
+          ? "No special liturgical color assigned"
+          : `Liturgical Color: ${lit.colorLabel}`,
+      ),
+    );
+    box.append(row);
+    if (lit.color !== "neutral" || lit.badges.length) {
+      box.append(el("p", "cal-lit-reason", lit.reason));
+    }
+    for (const n of lit.notes) box.append(el("p", "cal-lit-note", n));
+    if (lit.serviceColors.length) {
+      const svc = el("div", "cal-lit-svc");
+      svc.append(el("b", "", "Color changes by service:"));
+      for (const s of lit.serviceColors) {
+        svc.append(
+          el(
+            "p",
+            "cal-lit-note",
+            `${s.service} — ${LITURGICAL_COLORS[s.color].label}. ${s.note}`,
+          ),
+        );
+      }
+      box.append(svc);
+    }
+    if (lit.fasting) {
+      box.append(el("p", "cal-lit-fast", `Fasting: ${lit.fasting.label}`));
+      if (lit.fasting.note) {
+        box.append(el("p", "cal-lit-note", lit.fasting.note));
+      }
+      // season-specific pastoral notes (e.g. the Thanksgiving allowance at
+      // the start of the Nativity Fast), then the tradition attribution
+      for (const n of lit.fastingNotes) {
+        box.append(el("p", "cal-lit-note", n));
+      }
+      box.append(el("p", "cal-lit-note", lit.fastingTradition.note));
+    }
+    if (lit.badges.length) {
+      const chips = el("div", "cal-lit-badges");
+      for (const b of lit.badges) chips.append(el("span", "cal-lit-badge", b));
+      box.append(chips);
+    }
+    return box;
+  }
 
   function renderPanel(key: string): void {
     selectedKey = key;
@@ -125,6 +228,8 @@ if (root && app && source && grid && panel && monthLabel) {
         ? `${wd} · ${churchAbbr(c)} on the Church Calendar · ${plural(n)}`
         : `${wd} · ${plural(n)}`;
     panel!.replaceChildren(panelHead(`${MONTHS_FULL[m - 1]} ${d}`, lbl));
+    const lit = litFor(m, d);
+    if (lit) panel!.append(litBlock(lit));
     if (ul && n) {
       panel!.append(ul.cloneNode(true));
     } else {
@@ -181,6 +286,37 @@ if (root && app && source && grid && panel && monthLabel) {
         const c = churchOf(viewM, d);
         cell.append(el("span", "os", churchAbbr(c)));
         aria = `${MONTHS_FULL[viewM - 1]} ${d} (${churchAbbr(c)} on the Church Calendar), ${plural(n)}`;
+      }
+      // liturgical layers: color tint + strip, fasting badge, service marker
+      const lit = litFor(viewM, d);
+      if (lit) {
+        if (lit.color !== "neutral") {
+          const pal = LITURGICAL_COLORS[lit.color];
+          cell.classList.add("has-lc", `lc-${lit.color}`);
+          cell.style.setProperty("--lc-bg", pal.background);
+          cell.style.setProperty("--lc-ac", pal.accent);
+          cell.style.setProperty("--lc-tx", pal.text);
+          cell.append(el("span", "lc-strip"));
+          aria += `, liturgical color ${lit.colorLabel}`;
+        }
+        if (lit.fasting) {
+          const fg = el(
+            "span",
+            `fast-glyph fg-${lit.fasting.key}`,
+            lit.fasting.glyph,
+          );
+          fg.setAttribute("aria-hidden", "true");
+          fg.title = lit.fasting.label;
+          cell.append(fg);
+          aria += `, ${lit.fasting.label}`;
+        }
+        if (lit.serviceColors.length) {
+          const svc = el("span", "lc-svc-glyph");
+          svc.setAttribute("aria-hidden", "true");
+          svc.title = "Color changes by service";
+          cell.append(svc);
+          aria += ", color changes by service";
+        }
       }
       cell.setAttribute("aria-label", aria);
       cell.title = aria; // hover answers "what do the numbers mean"

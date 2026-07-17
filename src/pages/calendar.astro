@@ -5,6 +5,8 @@ import { withBase, MONTHS, MONTHS_FULL } from "../lib/format";
 import { SAINTS } from "../lib/data";
 import { feastDates, primaryRank, rankSlug } from "../lib/saints";
 import { splitName } from "../lib/names";
+import { FEASTS, PASCHA } from "../lib/feasts";
+import { LITURGICAL_COLORS, FASTING_LEVELS } from "../lib/liturgical";
 
 // Every saint grouped onto each fixed feast date they hold. Movable-cycle
 // commemorations (no fixed Mon-D) collect separately. The grid + "today" are
@@ -96,6 +98,64 @@ const monthData = MONTHS.map((abbr, i) => {
 
 const totalEntries =
   monthData.reduce((n, mo) => n + mo.count, 0) + movable.length;
+
+// Trimmed Feasts & Fasts payload for the island's liturgical-color layer
+// (lib/liturgical) — colors attach to feast records, so the New/Old toggle
+// shifts fixed feasts and their colors together. Same inline-JSON pattern
+// as the /feasts island (~12 KB).
+const litJson = JSON.stringify({
+  feasts: FEASTS.map((f) => ({
+    id: f.id,
+    name: f.name,
+    category: f.category,
+    ...(f.dedication ? { dedication: f.dedication } : {}),
+    ...(f.fasting ? { fasting: f.fasting } : {}),
+    begins: f.begins,
+    ...(f.ends ? { ends: f.ends } : {}),
+    ...(f.forefeast ? { forefeast: f.forefeast } : {}),
+    ...(f.apodosis ? { apodosis: f.apodosis } : {}),
+  })),
+  pascha: PASCHA,
+});
+
+// Legend rows (server-rendered so the guide reads without JS).
+const legendColors: { key: string; label: string; use: string }[] = [
+  {
+    key: "gold",
+    label: "Gold",
+    use: "bright or festal use — ordinary Sundays and general festal days",
+  },
+  {
+    key: "white",
+    label: "White",
+    use: "Pascha, the paschal season, and major feasts of the Lord",
+  },
+  { key: "blue", label: "Blue", use: "feasts of the Theotokos" },
+  {
+    key: "red",
+    label: "Red",
+    use: "martyrs, Cross observances, and other assigned days",
+  },
+  {
+    key: "green",
+    label: "Green",
+    use: "Pentecost and assigned observances of the Holy Spirit",
+  },
+  {
+    key: "purple",
+    label: "Purple",
+    use: "Great Lent, repentance, and Holy Week",
+  },
+  { key: "dark", label: "Dark", use: "the most solemn Passion services" },
+  {
+    key: "neutral",
+    label: "Neutral",
+    use: "no special color assigned, or local custom varies",
+  },
+];
+const legendFasting = Object.values(FASTING_LEVELS);
+const swatch = (key: string) =>
+  LITURGICAL_COLORS[key as keyof typeof LITURGICAL_COLORS];
 ---
 
 <BaseLayout
@@ -204,6 +264,82 @@ const totalEntries =
           <span><i style="background:#3d6157"></i>Monastics</span>
         </div>
       </div>
+
+      {/* ——— Liturgical Colors & Fasting Guide (collapsible legend) ——— */}
+      <details class="cal-lit-legend" id="cal-lit-legend">
+        <summary>Liturgical Colors &amp; Fasting Guide</summary>
+        <div class="cal-lit-legend-body">
+          <p class="cal-lit-legend-lede">
+            Day tints show <strong
+              >liturgical colors commonly used in Orthodox practice</strong
+            >. The Church broadly distinguishes bright, festal colors from dark,
+            penitential ones; more detailed assignments vary widely.
+          </p>
+          <ul class="cal-lit-colors" role="list">
+            {
+              legendColors.map((c) => (
+                <li>
+                  <span
+                    class={`cal-lit-swatch lcs-${c.key}`}
+                    style={`--sw-bg:${swatch(c.key).background};--sw-ac:${swatch(c.key).accent}`}
+                    aria-hidden="true"
+                  />
+                  <b>{c.label}</b> — {c.use}
+                </li>
+              ))
+            }
+          </ul>
+          <h3>Fasting badges</h3>
+          <p class="cal-lit-legend-note">
+            Fasting is shown separately from the liturgical color, as a small
+            corner badge; days without a recorded rule carry no badge. In the
+            <strong>New Calendar</strong> view, fasting follows the practice of the
+            <strong>Greek Orthodox Archdiocese</strong>; in the
+            <strong>Old Calendar</strong> view, <strong
+              >Russian Orthodox practice</strong
+            >. These summaries are descriptive, not prescriptive — if your
+            parish follows a different practice, speak with your parish priest.
+          </p>
+          <ul class="cal-lit-fasts" role="list">
+            {
+              legendFasting.map((f) => (
+                <li>
+                  <span class="fast-glyph" aria-hidden="true">
+                    {f.glyph}
+                  </span>
+                  <span>
+                    {f.label}
+                    {f.note && <i class="cal-lit-fastnote"> — {f.note}</i>}
+                  </span>
+                </li>
+              ))
+            }
+            <li>
+              <span class="lc-svc-glyph" aria-hidden="true"></span>
+              Color changes by service — open the day for details
+            </li>
+          </ul>
+          <blockquote class="cal-lit-disclaimer">
+            Liturgical color customs vary among Orthodox jurisdictions and
+            parishes. The colors shown here are a general visual guide based
+            primarily on commonly observed Greek Orthodox practice and other
+            established Orthodox customs. Individual parishes may use different
+            colors.
+          </blockquote>
+          <blockquote class="cal-lit-disclaimer">
+            Orthodox liturgical color customs are not completely uniform. Colors
+            may differ by jurisdiction, diocese, parish, feast, or individual
+            service. This calendar provides a general educational guide and does
+            not replace the directions of a parish priest or bishop.
+          </blockquote>
+          <p class="cal-lit-legend-note">
+            The small colored dots beside saints' names are organizational
+            accents keyed to saint rank (martyr, hierarch, monastic, …) used by
+            this website; they do not necessarily indicate the vestment color
+            worn for that saint.
+          </p>
+        </div>
+      </details>
     </div>
 
     {
@@ -268,6 +404,7 @@ const totalEntries =
     </div>
   </div>
 
+  <script type="application/json" id="cal-lit-data" set:html={litJson} />
   <script>
     import "../islands/calendar.client.ts";
   </script>
