@@ -466,6 +466,10 @@ test("liturgical colors follow the feast through both calendar styles", async ({
   await expect(page.locator(".cal-panel .cal-lit-fast")).toContainText(
     "Fish, Wine & Oil",
   );
+  // New Calendar fasting is attributed to Greek Archdiocese practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Greek Orthodox Archdiocese",
+  );
   await expect(
     page.locator(".cal-panel .cal-lit-badge", { hasText: "Great Feast" }),
   ).toBeVisible();
@@ -477,6 +481,10 @@ test("liturgical colors follow the feast through both calendar styles", async ({
   await aug28.click();
   await expect(page.locator(".cal-panel .cal-lit-reason")).toContainText(
     "Dormition of the Theotokos",
+  );
+  // …and the fasting attribution switches to Russian Orthodox practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Russian Orthodox practice",
   );
 });
 

@@ -59,7 +59,16 @@ universal Orthodox color code, and the site must never present one.**
    Where the data records `Varies` (the Great Lent season), the badge shows
    the **strictest traditional rule** ("Strict Fast (traditional rule)",
    glyph `S*`) rather than an unhelpful shrug, and every such day carries a
-   consult-your-parish-priest note in the panel and legend.
+   consult-your-parish-priest note in the panel and legend. Fast-free days
+   are labeled **"Feast (No Fasting)"** (glyph stays `FF`).
+   **Fasting tradition pairs with the calendar style** (`FASTING_TRADITIONS`):
+   the New Calendar view attributes fasting to the commonly published
+   practice of the Greek Orthodox Archdiocese, the Old Calendar view to
+   Russian Orthodox practice, and every fasting row carries the attribution
+   + priest note. At the season-summary granularity of `data/feasts.csv` the
+   two traditions' recorded rules currently coincide; documented divergences
+   go in `FASTING_OVERRIDES` (per-tradition, keyed by FF id, clergy-reviewed
+   first) — never guessed into existence, and never keyed to a civil date.
 3. **Precedence** (mirrors the spec's `COLOR_PRIORITY`): Pascha → Bright Week
    → Great Feasts of the Lord → of the Theotokos → named Holy Week days →
    Cross feasts → named observances with explicit rules → afterfeast/

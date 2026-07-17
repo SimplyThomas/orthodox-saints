@@ -128,6 +128,7 @@ if (root && app && source && grid && panel && monthLabel) {
       lit = dayLiturgics(
         activeObservances(litFeasts, litPascha, date, style),
         date,
+        style,
       );
       litCache.set(key, lit);
     }
@@ -179,6 +180,8 @@ if (root && app && source && grid && panel && monthLabel) {
       if (lit.fasting.note) {
         box.append(el("p", "cal-lit-note", lit.fasting.note));
       }
+      // which tradition the rule is attributed to (paired with the toggle)
+      box.append(el("p", "cal-lit-note", lit.fastingTradition.note));
     }
     if (lit.badges.length) {
       const chips = el("div", "cal-lit-badges");

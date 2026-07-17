@@ -223,7 +223,7 @@ const F: LitFeast[] = [
 
 const day = (y: number, m: number, d: number, style: "new" | "old" = "new") => {
   const date = new Date(y, m - 1, d);
-  return dayLiturgics(activeObservances(F, PASCHA, date, style), date);
+  return dayLiturgics(activeObservances(F, PASCHA, date, style), date, style);
 };
 
 describe("resolveTokenCivil", () => {
@@ -313,6 +313,19 @@ describe("the paschal cycle (identical in both styles)", () => {
     expect(d.fasting?.key).toBe("varies");
     expect(d.fasting?.label).toBe("Strict Fast (traditional rule)");
     expect(d.fasting?.note).toMatch(/parish priest/);
+  });
+  it("fasting is attributed to the tradition paired with the calendar style", () => {
+    const greek = day(2026, 2, 23, "new");
+    expect(greek.fastingTradition.name).toBe("Greek Orthodox Archdiocese");
+    expect(greek.fastingTradition.note).toMatch(/parish priest/);
+    const russian = day(2026, 2, 23, "old");
+    expect(russian.fastingTradition.name).toBe("Russian Orthodox tradition");
+    expect(russian.fastingTradition.note).toMatch(/parish priest/);
+  });
+  it("fast-free days read as 'Feast (No Fasting)' with the FF glyph", () => {
+    const d = day(2026, 12, 25);
+    expect(d.fasting?.label).toBe("Feast (No Fasting)");
+    expect(d.fasting?.glyph).toBe("FF");
   });
   it("a Lenten Sunday stays purple but carries the brighter-practice note", () => {
     const d = day(2026, 3, 8); // a Sunday inside Great Lent

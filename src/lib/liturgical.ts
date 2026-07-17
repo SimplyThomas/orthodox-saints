@@ -114,7 +114,8 @@ export const FASTING_LEVELS: Record<string, FastingLevel> = {
     label: "Dairy, Eggs & Fish Allowed (no meat)",
     glyph: "D",
   },
-  "Fast-Free": { key: "free", label: "Fast-Free", glyph: "FF" },
+  // reader-facing phrasing: a fast-free day is a festal day (glyph stays FF)
+  "Fast-Free": { key: "free", label: "Feast (No Fasting)", glyph: "FF" },
   // Where the data records "Varies" (the Great Lent season), show the
   // strictest traditional rule as the baseline rather than shrugging —
   // with the consult-your-priest note carried on every such day.
@@ -124,6 +125,44 @@ export const FASTING_LEVELS: Record<string, FastingLevel> = {
     glyph: "S*",
     note: "Fasting practice during this season varies by jurisdiction and person — speak with your parish priest about what is right for you.",
   },
+};
+
+/* ---- fasting tradition, paired with the calendar style ----
+   The New Calendar view attributes fasting to the commonly published
+   practice of the Greek Orthodox Archdiocese; the Old Calendar view to
+   Russian Orthodox practice — the traditions most readers of each reckoning
+   follow. The recorded season/feast summaries in data/feasts.csv agree with
+   both at this granularity; documented divergences belong in
+   FASTING_OVERRIDES (per-tradition, keyed by FF id) so they follow the
+   feast, never a civil date. Every fasting row carries the attribution +
+   consult-your-priest note. */
+
+export interface FastingTradition {
+  key: string;
+  name: string;
+  note: string;
+}
+
+export const FASTING_TRADITIONS: Record<"new" | "old", FastingTradition> = {
+  new: {
+    key: "goarch",
+    name: "Greek Orthodox Archdiocese",
+    note: "Fasting shown follows the practice of the Greek Orthodox Archdiocese. If your parish follows a different practice, speak with your parish priest.",
+  },
+  old: {
+    key: "russian",
+    name: "Russian Orthodox tradition",
+    note: "Fasting shown follows Russian Orthodox practice. If your parish follows a different practice, speak with your parish priest.",
+  },
+};
+
+/** Per-tradition overrides of a feast's recorded `Fasting Discipline`,
+    keyed by tradition key then FF id, valued with a discipline term from
+    FASTING_LEVELS. Empty until a divergence is documented and reviewed —
+    never guess a difference into existence. */
+export const FASTING_OVERRIDES: Record<string, Record<string, string>> = {
+  goarch: {},
+  russian: {},
 };
 
 /* ================= per-feast color rules ================= */
@@ -598,13 +637,16 @@ export function buildBadges(observances: ActiveObservance[]): string[] {
 
 export function resolveFasting(
   observances: ActiveObservance[],
+  style: CalendarStyle = "new",
 ): FastingLevel | null {
+  const overrides = FASTING_OVERRIDES[FASTING_TRADITIONS[style].key] ?? {};
   let best: { level: FastingLevel; rank: number } | null = null;
   for (const { feast: f, role } of observances) {
     // a feast's fasting field describes the feast DAY (and a season/week its
     // span) — forefeast/afterfeast days do not inherit it
-    if (!f.fasting || (role !== "day" && role !== "span")) continue;
-    const level = FASTING_LEVELS[f.fasting];
+    const discipline = overrides[f.id] ?? f.fasting;
+    if (!discipline || (role !== "day" && role !== "span")) continue;
+    const level = FASTING_LEVELS[discipline];
     if (!level) continue;
     // a day-specific rule beats a week's, a week's beats a season's
     const rank = role === "day" ? 3 : f.category === "Fast-Free Week" ? 2 : 1;
@@ -624,6 +666,8 @@ export interface DayLiturgics {
   notes: string[];
   serviceColors: ServiceColor[];
   fasting: FastingLevel | null;
+  /** which tradition the fasting rule is attributed to (per calendar style) */
+  fastingTradition: FastingTradition;
   badges: string[];
 }
 
@@ -633,6 +677,7 @@ const VARIATION_NOTE =
 export function dayLiturgics(
   observances: ActiveObservance[],
   date: Date,
+  style: CalendarStyle = "new",
 ): DayLiturgics {
   const isSunday = date.getDay() === 0;
 
@@ -705,7 +750,8 @@ export function dayLiturgics(
     confidence,
     notes,
     serviceColors,
-    fasting: resolveFasting(observances),
+    fasting: resolveFasting(observances, style),
+    fastingTradition: FASTING_TRADITIONS[style],
     badges: buildBadges(observances),
   };
 }
