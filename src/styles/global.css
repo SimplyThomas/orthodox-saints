@@ -3753,6 +3753,22 @@ a.sv-rail-chip:hover {
 .sv-legacy-card p:last-child {
   margin-bottom: 0;
 }
+/* Influence ("Living Legacy" / "Influence in America") collapsible — reuses
+   the legacy card grid; these two classes are its only additions. */
+.sv-inf-intro {
+  margin: 26px auto 0;
+  max-width: 70ch;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.sv-inf-meta {
+  margin: -2px 0 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
 
 /* "After" matter — coloured panels (echoing the America carousels) stacked
    beneath the legacy: Works (garnet) · Further Reading (forest) · Family/

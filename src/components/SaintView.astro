@@ -139,6 +139,7 @@ const hasReading = !!readingGroups || m.about.length > 0;
 
 const hasTimeline = !!profile?.timeline?.length;
 const hasLegacy = !!profile?.sections?.length;
+const hasInfluence = !!profile?.influence?.places?.length;
 const hasFamily = familyCards.length > 0;
 const hasCompanions = companionCards.length > 0;
 const hasRelated = relatedCards.length > 0;
@@ -147,6 +148,7 @@ const hasCommemorated = memberGroups.length > 0;
 const hasAfter =
   hasTimeline ||
   hasLegacy ||
+  hasInfluence ||
   hasWorks ||
   hasReading ||
   hasCommemorated ||
@@ -840,6 +842,54 @@ const wordsLabel = `In ${possessive} own words`;
                         {s.body.map((p) => (
                           <p>{p}</p>
                         ))}
+                      </article>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {hasInfluence && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <h2 class="sv-deep-eb sv-legacy-title">
+                      {profile!.influence!.heading ?? "Living Legacy"}
+                    </h2>
+                    <span class="sv-deep-ct">
+                      {profile!.influence!.places.length} places
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  {profile!.influence!.intro && (
+                    <p class="sv-inf-intro">{profile!.influence!.intro}</p>
+                  )}
+                  <div class="sv-legacy-grid">
+                    {profile!.influence!.places.map((pl) => (
+                      <article class="sv-legacy-card">
+                        <h3>{pl.name}</h3>
+                        {(pl.kind || pl.place) && (
+                          <p class="sv-inf-meta">
+                            {[pl.kind, pl.place].filter(Boolean).join(" · ")}
+                          </p>
+                        )}
+                        {pl.note && <p>{pl.note}</p>}
                       </article>
                     ))}
                   </div>
