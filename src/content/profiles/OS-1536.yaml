@@ -20,6 +20,16 @@ timeline:
   - when: "308"
     title: Martyrdom at Caesarea
     body: Having confessed Christ without fear, the sisters Alevtina and Chionia are burned to death, and Paul is beheaded.
+members:
+  - name: Paul
+    role: Martyr — beheaded
+    note: One of the Egyptian Christians arrested in the persecution under Maximian. He confessed Christ openly before the governor at Caesarea and, refusing to sacrifice to the pagan gods, was condemned to death by the sword and beheaded in 308. The sources do not state his kinship to the two sisters.
+  - name: Chionia (Thea)
+    role: Martyr — burned alive
+    note: One of two Christian sisters from Egypt, recorded in Greek sources under the name Thea. She stood fearless before the governor and refused every demand to renounce Christ, and was burned alive together with her sister Alevtina at Caesarea in 308.
+  - name: Alevtina (Valentina)
+    role: Martyr — burned alive
+    note: Sister and fellow martyr of Chionia, called Valentina in some calendars and synaxaria. Refusing to offer sacrifice to idols despite severe threats, she was condemned to the fire and burned alive at Caesarea in 308.
 family:
   heading: Family
   intro: Paul, Chionia, and Alevtina are commemorated together as one group of martyrs, remembered by the Church on the same day.
@@ -36,5 +46,5 @@ sources:
   - https://www.oca.org/saints/lives/2023/07/16/102035-martyrs-paul-and-two-sisters-chionia-thea-and-alevtina-valentina
   - https://www.oca.org/saints/lives/2024/07/16
   - https://en.wikipedia.org/wiki/Diocletianic_Persecution
-status: draft
+status: reviewed
 generated: "2026-06-22"

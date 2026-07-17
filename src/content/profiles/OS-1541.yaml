@@ -51,6 +51,28 @@ sections:
   - heading: Relics & Shrines
     body:
       - The Church on the Blood was raised on the site of the Ipatiev House in Yekaterinburg, with its altar standing over the place of the execution. The site is a center of pilgrimage to the Royal Passion-bearers.
+members:
+  - name: Tsar Nicholas II
+    role: Passion-bearer · Emperor
+    note: The last emperor of Russia (b. 1868), who succeeded to the throne in 1894 and abdicated after the February Revolution of 1917. Held under guard with his family and shot in the cellar of the Ipatiev House at Yekaterinburg on 17 July 1918.
+  - name: Tsaritsa Alexandra
+    role: Passion-bearer · Empress
+    note: Nicholas's wife, born Princess Alix (Alice) of Hesse, whom he married in November 1894. She shared the family's captivity and death, and is remembered with them for her patience and meekness.
+  - name: Tsarevich Alexei
+    role: Passion-bearer · Heir
+    note: The heir to the throne (b. 1904), who suffered from hemophilia, a constant private concern of his parents. He was killed with his family at Yekaterinburg at the age of thirteen.
+  - name: Grand Duchess Olga
+    role: Passion-bearer
+    note: The eldest daughter (b. 1895), who bore captivity and death together with her parents and siblings.
+  - name: Grand Duchess Tatiana
+    role: Passion-bearer
+    note: The second daughter (b. 1897), martyred with her family at the Ipatiev House.
+  - name: Grand Duchess Maria
+    role: Passion-bearer
+    note: The third daughter (b. 1899), martyred with her family at the Ipatiev House.
+  - name: Grand Duchess Anastasia
+    role: Passion-bearer
+    note: The youngest daughter (b. 1901), martyred with her family at the Ipatiev House.
 family:
   heading: The Royal Passion-bearers
   intro: All seven members of the family are commemorated together as a single household on July 17.
@@ -85,5 +107,5 @@ reading:
         type: synaxarion
       - title: Canonization of the Romanovs
         type: reference
-status: draft
+status: reviewed
 generated: "2026-06-19"
