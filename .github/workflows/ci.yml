@@ -23,7 +23,7 @@ jobs:
       data: ${{ github.event_name != 'pull_request' || steps.filter.outputs.data }}
       frontend: ${{ github.event_name != 'pull_request' || steps.filter.outputs.frontend }}
     steps:
-      - uses: dorny/paths-filter@d1c1ffe0248fe513906c8e24db8ea791d46f8590 # v3.0.3
+      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706 # v4.0.2
         if: github.event_name == 'pull_request'
         id: filter
         with:
@@ -87,7 +87,7 @@ jobs:
       - run: npm run test:unit                   # vitest unit tests (pure lib logic)
       # Astro's content-layer store (.astro/): restoring it lets the profiles
       # collection re-parse only changed YAML files instead of all ~2.6k.
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .astro
           key: astro-datastore-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/content/profiles/**') }}
@@ -99,7 +99,7 @@ jobs:
       - name: Get Playwright version
         id: playwright-version
         run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright

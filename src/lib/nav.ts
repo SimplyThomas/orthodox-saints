@@ -50,7 +50,11 @@ export const NAV: NavItem[] = [
         label: "The Nine Orders",
         href: withBase("nine-orders"),
       },
-      { key: "archangels", label: "Archangels", href: withBase("archangels") },
+      {
+        key: "archangels",
+        label: "Archangels",
+        href: withBase("host/HH-0008"),
+      },
       {
         key: "guardian-angels",
         label: "Guardian Angels & Titled Figures",
@@ -96,6 +100,11 @@ export const NAV: NavItem[] = [
         href: withBase("liturgical-living"),
       },
     ],
+  },
+  {
+    key: "parish-resources",
+    label: "Parish Resources",
+    href: withBase("parish-resources"),
   },
   {
     key: "about",

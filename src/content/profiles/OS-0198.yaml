@@ -12,10 +12,16 @@ related:
   - name: The 20,000 Martyrs of Nicomedia
     note: The great body of Nicomedian martyrs of the Diocletianic persecution to which these five witnesses belong, as related in the synaxarion.
     href: saint/OS-2422
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - Roman Martyrology
   - https://www.oca.org/saints/lives/1949/09/04/102495-martyrs-theodore-mianus-julian-kion-and-centurionus-of-nicomedia
   - https://en.wikipedia.org/wiki/Anthimus_of_Nicomedia
 generated: "2026-06-19"
+members:
+  - name: Theodore
+  - name: Ammianus
+  - name: Julian
+  - name: Oceanus
+  - name: Centurionus

@@ -26,9 +26,19 @@ companions:
     note: Bishop of Antioch and hieromartyr who raised the three boys in the faith and was martyred with the family; commemorated with them on September 4.
     href: saint/OS-0196
 patronage: []
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/1949/09/04/102485-hieromartyr-babylas-bishop-of-antioch-and-those-with-him
   - https://www.johnsanidopoulos.com/2016/09/holy-hieromartyr-babylas-bishop-of.html
 generated: "2026-06-19"
+members:
+  - name: Christodoula
+    role: Mother
+  - name: Urban
+    role: Son
+  - name: Prilidian
+    role: Son
+  - name: Epolonios
+    role: Son
+    note: The three sons martyred with their mother.

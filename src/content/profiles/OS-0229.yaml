@@ -14,9 +14,9 @@ sections:
     body:
       - Abdas is commemorated in the Orthodox calendar on September 5, and the same Persian bishop appears in other recensions on March 31 and May 16, where he is variously styled Audas or Avdas and grouped with other Persian martyrs, including the deacon Benjamin. The sources differ on details of his see — it is given variously as Susa, Bethchasar, or Hormizd-Ardashir — and on the precise year of his death, which is placed around 418 to 420. These variations reflect the several calendars and chronicles through which his memory passed rather than separate persons.
 companions:
-  - name: Hieromartyr Avdas, Bishop of Persia, and Martyr Benjamin the Deacon
-    note: Commemorated March 31; understood as the same Persian bishop honored under a variant name with the deacon Benjamin.
-    href: saint/OS-0911
+  - name: Martyr Benjamin the Deacon of Persia
+    note: The deacon martyred with Bishop Abdas in the persecution his witness sparked; jointly commemorated March 31 (Benjamin's own feast is October 13).
+    href: saint/OS-2014
 patronage:
   - Those suffering persecution for the faith
   - Confessors refusing compromise with idolatry
@@ -27,3 +27,10 @@ sources:
   - https://www.oca.org/saints/lives/2012/03/31/100959-hieromartyr-avdas-bishop-of-persia-and-martyr-benjamin-the-deaco
   - https://en.wikipedia.org/wiki/Abdas_of_Susa
 generated: "2026-06-20"
+members:
+  - name: Abdas
+    role: Bishop
+    note: Bishop in Persia, martyred under Yazdegerd I.
+  - name: Hormizd
+  - name: Sunin
+    note: Martyred with Bishop Abdas.

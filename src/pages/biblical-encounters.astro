@@ -1,10 +1,299 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+import { HOSTS, isBiblicalEncounter } from "../lib/hosts";
+import { withBase } from "../lib/format";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Biblical Encounters — the individual angels tied to one specific scriptural
+// event rather than known by a persistent name, rank, or office: the angel who
+// freed Peter from prison (Acts 12), the angel at the empty tomb (Matt 28), the
+// angel who troubled the pool of Bethesda (John 5), the angel who wrestled Jacob
+// (Gen 32), and their kind. They share their `entityType` ("Scriptural Angel" /
+// "Collective") with the titled figures on /guardian-angels, so membership here
+// is driven by the Biblical Encounter tag (see lib/hosts). HOSTS arrives sorted
+// by hostlib._sort_key.
+const encounters = HOSTS.filter(isBiblicalEncounter);
+
+// Group the encounters by section heading. Membership is driven by a section
+// tag: an encounter carrying "Old Testament" files under the Old Testament, one
+// carrying "New Testament" under the New Testament, and one carrying "Book of
+// Revelation" under the Book of Revelation. The apocalyptic angels of Revelation
+// get their own section (rather than swelling the New Testament) — so those
+// entries are tagged "Book of Revelation" and NOT "New Testament" (a record is
+// filtered into every group whose tag it carries, so both tags would render it
+// twice). The section tag is the full "Book of Revelation" and NOT the bare
+// "Revelation", which several encounters already carry as a *thematic* tag
+// (divine revelation / apocalyptic) — that would wrongly pull them in here.
+// Sections slot in by adding an entry here and only render when they have
+// members; order here is the render order (Old → New → Revelation → the Fallen
+// reads as salvation history, ending with the enemy). "The Fallen" gathers the
+// fallen/demonic beings named in Scripture (Abaddon and their kind), tagged
+// "Fallen" and set apart with a muted, marked styling — catalogued, not
+// venerated; a fallen entry carries "Fallen" and NOT a testament/Revelation tag
+// so it files here only.
+const TESTAMENTS = [
+  { title: "The Old Testament", tag: "Old Testament" },
+  { title: "The New Testament", tag: "New Testament" },
+  { title: "The Book of Revelation", tag: "Book of Revelation" },
+  { title: "The Fallen", tag: "Fallen" },
+] as const;
+const groups = TESTAMENTS.map((t) => ({
+  title: t.title,
+  items: encounters.filter((h) => (h.tags ?? []).includes(t.tag)),
+  fallen: t.tag === "Fallen",
+})).filter((g) => g.items.length > 0);
+// Any encounter that matched no section tag still deserves a home.
+const ungrouped = encounters.filter(
+  (h) => !groups.some((g) => g.items.includes(h)),
+);
+if (ungrouped.length > 0) {
+  groups.push({ title: "Other Encounters", items: ungrouped, fallen: false });
+}
 ---
 
-<ComingSoon
+<BaseLayout
   active="biblical-encounters"
   title="Biblical Encounters"
-  eyebrow="Heavenly Hosts"
-  blurb="Where angels meet the faithful in the pages of Scripture."
-/>
+  description="The angels of specific scriptural events — the angel who freed Peter from prison, the angel at the empty tomb, the angel who wrestled Jacob, and their kind."
+>
+  <div class="wrap">
+    <header class="hosts-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="hosts-hero-inner">
+        <EyebrowRule label="Heavenly Hosts" />
+        <h1 class="hosts-title">Biblical Encounters</h1>
+        <p class="hosts-lede">
+          Where angels meet the faithful in the pages of Scripture.
+        </p>
+      </div>
+    </header>
+
+    <section class="hosts-intro">
+      <p class="intro-body">
+        Again and again in the Scriptures a single angel steps into one moment
+        of the story — unnamed, yet unmistakably sent. An angel wrestles with
+        Jacob at the ford of the Jabbok; an angel stirs the waters of the pool
+        of Bethesda; an angel breaks Peter’s chains in the night and leads him
+        past the guards; an angel sits in the empty tomb and proclaims the
+        Resurrection. Each of these is remembered here by the <em>encounter</em>
+        rather than by a personal name, with the event, its Scripture, and the way
+        the Church has read it.
+      </p>
+    </section>
+
+    {
+      encounters.length === 0 && (
+        <p class="empty">
+          No encounters catalogued yet. Records will appear here as they are
+          added.
+        </p>
+      )
+    }
+
+    {
+      groups.map((group) => (
+        <section
+          class={group.fallen ? "be-group be-group--fallen" : "be-group"}
+        >
+          <h2 class="be-group-title">{group.title}</h2>
+          {group.fallen && (
+            <p class="be-group-note">
+              Fallen and demonic beings named in Scripture — catalogued for
+              completeness and study, never venerated.
+            </p>
+          )}
+          <div class="grid">
+            {group.items.map((h) => (
+              <a class="card" href={withBase(`host/${h.id}`)}>
+                <span class="cthumb">
+                  {h.imageThumb || h.image ? (
+                    <img
+                      src={withBase(h.imageThumb || h.image!)}
+                      alt={h.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span class="cmono" aria-hidden="true">
+                      {h.name.charAt(0)}
+                    </span>
+                  )}
+                </span>
+                <span class="cname">{h.name}</span>
+                <span class="cmeta">
+                  {h.order && h.order !== h.entityType ? h.order : h.entityType}
+                </span>
+                <span class="cbrief">{h.brief}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+  /* Page hero — matches /nine-orders, /guardian-angels, and the host hub hero:
+     dome mark, diamond-flanked eyebrow, serif title, serif lede, centered. */
+  .hosts-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(64px, 12vw, 120px) 20px clamp(30px, 5vw, 52px);
+    overflow: hidden;
+  }
+  .hosts-hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hosts-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    margin: 18px 0 0;
+    line-height: 1.05;
+  }
+  .hosts-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 16px auto 0;
+    max-width: 46ch;
+  }
+  .empty {
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 2rem;
+  }
+
+  .hosts-intro {
+    max-width: 44rem;
+    margin: 0 auto 0.5rem;
+    text-align: center;
+  }
+  .intro-body {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .be-group {
+    margin-top: 2.5rem;
+  }
+  .be-group-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--byz-deep);
+    text-align: center;
+    margin: 0 0 0.35rem;
+  }
+  /* gold hairline under the section heading, matching the hub dividers */
+  .be-group-title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin: 0.6rem auto 0;
+    background: var(--gold-deep);
+    opacity: 0.7;
+  }
+  /* "The Fallen" — set apart with a muted, ashen treatment (no royal blue,
+     no gold), marking these beings as catalogued rather than venerated. */
+  .be-group--fallen .be-group-title {
+    color: var(--ink-soft);
+  }
+  .be-group--fallen .be-group-title::after {
+    background: var(--ink-soft);
+    opacity: 0.45;
+  }
+  .be-group-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0.5rem auto 0;
+    max-width: 34rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.15rem;
+    align-items: start;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .card:hover {
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+  .cthumb {
+    grid-row: 1 / 4;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    background: radial-gradient(120% 120% at 30% 15%, #1d3e62, var(--byz-ink));
+  }
+  .cthumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cmono {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--gold-soft);
+  }
+  .cname {
+    grid-column: 2;
+    align-self: end;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .cmeta {
+    grid-column: 2;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.65;
+  }
+  .cbrief {
+    grid-column: 2;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    opacity: 0.85;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

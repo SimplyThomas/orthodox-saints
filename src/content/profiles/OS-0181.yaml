@@ -45,7 +45,7 @@ related:
   - name: New Hieromartyrs Andrew and Theophan
     note: Fellow New Martyrs of the Semirechye region, commemorated September 3
     href: saint/OS-0180
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/September_3_(Eastern_Orthodox_liturgics)
@@ -53,3 +53,9 @@ sources:
   - https://azbyka.ru/days/sv-mihail-sushkov
   - https://drevo-info.ru/articles/2769.html
 generated: "2026-06-20"
+members:
+  - name: Vladimir Sadovsky
+    role: Priest
+  - name: Michael Sushkov
+    role: Priest
+    note: New Hieromartyrs of 1921.

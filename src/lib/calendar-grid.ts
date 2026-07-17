@@ -32,3 +32,45 @@ export function monthMatrix(year: number, month: number): MonthMatrix {
     days: Array.from({ length: n }, (_, i) => i + 1),
   };
 }
+
+/* Old Calendar (Julian) support. A fixed feast keeps the same CHURCH date on
+   both calendars (St. Nicholas is Dec 6 for everyone); what differs is the
+   civil day it falls on — 13 days later for Julian-reckoning churches. The
+   offset is constant for civil dates Mar 1900 – Feb 2100 (it becomes 14 after
+   Feb 2100, when the Julian calendar takes a leap day the Gregorian skips). */
+export const JULIAN_OFFSET_DAYS = 13;
+
+export interface ChurchDate {
+  year: number;
+  month: number;
+  day: number;
+}
+
+/** The Julian ("Old Style") church date that falls on the given civil day. */
+export function civilToChurch(
+  year: number,
+  month: number,
+  day: number,
+): ChurchDate {
+  const dt = new Date(year, month - 1, day - JULIAN_OFFSET_DAYS);
+  return {
+    year: dt.getFullYear(),
+    month: dt.getMonth() + 1,
+    day: dt.getDate(),
+  };
+}
+
+/** Civil {month, day} on which a fixed church date is kept by Old Calendar
+    (Julian) churches — the standard "+13 days" O.S./N.S. table. Fixed feasts
+    carry no year, so this uses the common-year mapping printed tables quote;
+    in leap years church dates Feb 16–29 land one civil day earlier, a nuance
+    not worth surfacing on year-less pages. */
+export function oldCalendarDay(
+  month: number,
+  day: number,
+): { month: number; day: number } {
+  // 2001 is a common year; church Feb 29 needs a leap reference (→ Mar 13).
+  const refYear = month === 2 && day === 29 ? 2004 : 2001;
+  const dt = new Date(refYear, month - 1, day + JULIAN_OFFSET_DAYS);
+  return { month: dt.getMonth() + 1, day: dt.getDate() };
+}

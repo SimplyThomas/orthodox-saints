@@ -11,12 +11,14 @@ sections:
 companions:
   - name: Bishop Barsimaeus of Edessa
     note: The bishop of Edessa who converted Thathuil to Christianity
-related:
-  - name: Martyr Sarbellus of Edessa
-    note: Fellow martyr of Edessa converted by Bishop Barsimaeus; by tradition Sarbellus received the baptismal name Thathuel, and Bebaia is named as his sister, so the two commemorations belong to the same Edessa martyrdom.
-    href: saint/OS-0191
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Barsimaeus
 generated: "2026-06-19"
+members:
+  - name: Sarbelus
+    role: High Priest
+    note: The converted high priest of Edessa; also called Thathuil.
+  - name: Bebaia
+    note: His sister, martyred with him.

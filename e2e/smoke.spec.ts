@@ -118,7 +118,7 @@ test("a saint reached from the America page links back to America", async ({
   page,
 }) => {
   await page.goto("./america/");
-  await page.locator(".pga-card.clickable").first().click();
+  await page.locator(".am-card.clickable").first().click();
   await page.waitForURL(/\/saint\/OS-/);
   // The back link is rewritten to point at the America page, by name and href.
   const back = page.locator(".sv-back-link");
@@ -217,25 +217,25 @@ test("about page tells the story; the footer carries the project contact", async
   );
 });
 
-test("america page shows three gilded carousels with arrows", async ({
+test("america page shows three card carousels with arrows", async ({
   page,
 }) => {
   const resp = await page.goto("./america/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".pga-movement")).toHaveCount(3);
-  await expect(page.locator(".pga-card").first()).toBeVisible();
-  // The witnesses panel keeps not-yet-glorified figures clearly set apart.
+  await expect(page.locator(".am-move")).toHaveCount(3);
+  await expect(page.locator(".am-card").first()).toBeVisible();
+  // The witnesses section keeps not-yet-glorified figures clearly set apart.
   await expect(
     page
-      .locator(".pga-movement.plum .pga-card .tag", {
-        hasText: "Not yet glorified",
-      })
+      .locator(".am-move")
+      .last()
+      .locator(".am-card .tag", { hasText: "Not yet glorified" })
       .first(),
   ).toBeVisible();
-  // Three full cards show per view at desktop width (none clipped).
-  const firstTrack = page.locator(".pga-movement.garnet .pga-track");
+  // Four full cards show per view at desktop width (none clipped).
+  const firstTrack = page.locator(".am-move .am-track").first();
   const m = await firstTrack.evaluate((t) => {
-    const cards = [...t.querySelectorAll(".pga-card")];
+    const cards = [...t.querySelectorAll(".am-card")];
     const tr = t.getBoundingClientRect();
     const fully = cards.filter((c) => {
       const r = c.getBoundingClientRect();
@@ -244,12 +244,11 @@ test("america page shows three gilded carousels with arrows", async ({
     const gap = parseFloat(getComputedStyle(t).columnGap);
     return { fully, stride: cards[0].getBoundingClientRect().width + gap };
   });
-  expect(m.fully).toBe(3);
-  // The "next" arrow advances a full page — three cards over.
-  await expect(
-    page.locator(".pga-movement.garnet .pga-arrow.next"),
-  ).toHaveClass(/show/);
-  await page.locator(".pga-movement.garnet .pga-arrow.next").click();
+  expect(m.fully).toBe(4);
+  // The "next" arrow advances a full page — four cards over.
+  const next = page.locator(".am-move .am-arrow.next").first();
+  await expect(next).toHaveClass(/show/);
+  await next.click();
   await expect
     .poll(async () => firstTrack.evaluate((el) => el.scrollLeft))
     .toBeGreaterThan(m.stride * 2.5);
@@ -262,7 +261,7 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
   // The not-yet-glorified cards link to their own /witness/<slug> memorial page.
   // (Roman Braga renders the generic comprehensive WitnessProfile; Ephraim &
   // Seraphim have their own bespoke profiles, tested separately.)
-  const card = page.locator('.pga-card[href*="/witness/roman-braga"]');
+  const card = page.locator('.am-card[href*="/witness/roman-braga"]');
   await expect(card).toBeVisible();
   await card.click();
   await page.waitForURL(/\/witness\/roman-braga/);
@@ -416,6 +415,106 @@ test("calendar movable-cycle button loads commemorations into the panel", async 
     "Movable",
   );
   await expect(page.locator(".cal-panel .cal-list li").first()).toBeVisible();
+});
+
+test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // New Calendar reading: church Dec 6 (St. Nicholas) falls on civil Dec 6.
+  await page.selectOption("#cal-month-picker", "12");
+  await page.click('#cal-grid [data-key="12-6"]');
+  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+
+  // Old Calendar: the same church date now falls on civil Dec 19, and the
+  // panel + cells carry the church-date label.
+  await page.click("#cal-style-old");
+  await expect(page.locator("#cal-style-old")).toHaveClass(/is-active/);
+  await expect(page).toHaveURL(/style=old/);
+  await expect(page.locator("#cal-style-note")).toBeVisible();
+  await page.click('#cal-grid [data-key="12-19"]');
+  await expect(page.locator(".cal-panel .cal-panel-head .lbl")).toContainText(
+    "Dec 6 on the Church Calendar",
+  );
+  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+
+  // The mode deep-links: ?style=old restores Old Calendar without a click.
+  await page.goto("./calendar/?style=old");
+  await expect(page.locator("#cal-style-old")).toHaveClass(/is-active/);
+  await expect(
+    page.locator("#cal-grid .cal-cell:not(.is-blank) .os").first(),
+  ).toBeVisible();
+});
+
+test("liturgical colors follow the feast through both calendar styles", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // Dormition (Aug 15, a Great Feast of the Theotokos) tints its day blue…
+  await page.selectOption("#cal-month-picker", "8");
+  const aug15 = page.locator('#cal-grid [data-key="8-15"]');
+  await expect(aug15).toHaveClass(/lc-blue/);
+  await aug15.click();
+  await expect(page.locator(".cal-panel .cal-lit-name")).toHaveText(
+    "Liturgical Color: Blue",
+  );
+  await expect(page.locator(".cal-panel .cal-lit-reason")).toContainText(
+    "Dormition of the Theotokos",
+  );
+  // …with fasting shown separately from the color, and category badges.
+  await expect(page.locator(".cal-panel .cal-lit-fast")).toContainText(
+    "Fish, Wine & Oil",
+  );
+  // New Calendar fasting is attributed to Greek Archdiocese practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Greek Orthodox Archdiocese",
+  );
+  await expect(
+    page.locator(".cal-panel .cal-lit-badge", { hasText: "Great Feast" }),
+  ).toBeVisible();
+
+  // In Old Calendar style the feast — and its color — moves to civil Aug 28.
+  await page.click("#cal-style-old");
+  const aug28 = page.locator('#cal-grid [data-key="8-28"]');
+  await expect(aug28).toHaveClass(/lc-blue/);
+  await aug28.click();
+  await expect(page.locator(".cal-panel .cal-lit-reason")).toContainText(
+    "Dormition of the Theotokos",
+  );
+  // …and the fasting attribution switches to Russian Orthodox practice.
+  await expect(page.locator(".cal-panel .cal-lit")).toContainText(
+    "Russian Orthodox practice",
+  );
+});
+
+test("liturgical legend explains colors and fasting; plain days stay neutral", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // Nativity is white in any year (fixed feast), with the Fast-Free badge.
+  await page.selectOption("#cal-month-picker", "12");
+  await expect(page.locator('#cal-grid [data-key="12-25"]')).toHaveClass(
+    /lc-white/,
+  );
+  await expect(
+    page.locator('#cal-grid [data-key="12-25"] .fast-glyph'),
+  ).toHaveText("FF");
+  // Unassigned weekdays fall back to neutral (no tint class at all).
+  await page.selectOption("#cal-month-picker", "7");
+  expect(
+    await page
+      .locator("#cal-grid .cal-cell:not(.is-blank):not(.has-lc)")
+      .count(),
+  ).toBeGreaterThan(0);
+  // The collapsible guide carries the variation disclaimer, and the page
+  // never invents the Western "Ordinary Time" category.
+  const legend = page.locator("#cal-lit-legend");
+  await legend.locator("summary").click();
+  await expect(legend).toContainText(
+    "Liturgical color customs vary among Orthodox jurisdictions and parishes.",
+  );
+  await expect(legend).toContainText("does not replace the directions");
+  await expect(page.locator("body")).not.toContainText("Ordinary Time");
 });
 
 test("on mobile the nav collapses into a hamburger dropdown", async ({

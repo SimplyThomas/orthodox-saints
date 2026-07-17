@@ -255,6 +255,9 @@ THEMES = [
      "desc": "Saints through whom God healed body and soul.",
      "match": [{"rank": ["Unmercenary"]}, {"vocation": ["Physician"]},
                {"intercession": ["Healing"]}]},
+    {"slug": "holy-unmercenaries", "group": "Miracles & Wonders", "label": "Holy Unmercenaries",
+     "desc": "The Anargyroi — saints who healed and served without accepting payment.",
+     "match": [{"rank": ["Unmercenary"]}]},
     {"slug": "prophecy", "group": "Miracles & Wonders", "label": "Prophecy",
      "desc": "Prophets and saints of foresight.", "match": [{"rank": ["Prophet", "Forerunner"]}]},
     {"slug": "miracle-working-relics", "group": "Miracles & Wonders", "label": "Miracle-Working Relics",
@@ -303,6 +306,33 @@ THEMES = [
 
 THEME_SLUGS = {t["slug"] for t in THEMES}
 THEME_LABELS = {t["slug"]: t["label"] for t in THEMES}
+
+# Query fragments (lowercased) -> theme slug, for the finder's "Browse the
+# <label> theme" banner. Emitted into public/themes.json so the frontend never
+# duplicates theme knowledge. ORDER MATTERS: first matching fragment wins.
+ALIASES = [
+    {"phrase": "defended icons", "slug": "icon-defenders"},
+    {"phrase": "icon defender", "slug": "icon-defenders"},
+    {"phrase": "in america", "slug": "saints-of-america"},
+    {"phrase": "in alaska", "slug": "saints-of-alaska"},
+    {"phrase": "soldier", "slug": "soldiers"},
+    {"phrase": "mother", "slug": "mothers"},
+    {"phrase": "father", "slug": "fathers"},
+    {"phrase": "convert", "slug": "converts"},
+    {"phrase": "martyr", "slug": "martyrdom"},
+    {"phrase": "exile", "slug": "exile"},
+    {"phrase": "persecut", "slug": "persecution"},
+    {"phrase": "physician", "slug": "physicians"},
+    {"phrase": "doctor", "slug": "physicians"},
+    {"phrase": "monk", "slug": "monastics"},
+    {"phrase": "nun", "slug": "monastics"},
+    {"phrase": "monastic", "slug": "monastics"},
+    {"phrase": "bishop", "slug": "bishops"},
+    {"phrase": "missionary", "slug": "missionaries"},
+    {"phrase": "missionaries", "slug": "missionaries"},
+    {"phrase": "wonderworker", "slug": "wonderworkers"},
+    {"phrase": "healer", "slug": "healers"},
+]
 
 _SEP = "; "
 

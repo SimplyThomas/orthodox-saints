@@ -41,7 +41,7 @@ timeline:
     title: Phineas becomes High Priest
     body: Phineas succeeded his father Eleazar as the third High Priest of Israel, and the office continued through his descendants.
 patronage: []
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - Old Testament
@@ -49,3 +49,10 @@ sources:
   - https://en.wikipedia.org/wiki/Phinehas
   - https://www.oca.org/saints/lives/1989/03/12/100788-righteous-phineas-the-grandson-of-aaron
 generated: "2026-06-20"
+members:
+  - name: Eleazar
+    role: High Priest
+    note: Son of Aaron, whom he succeeded in the priesthood.
+  - name: Phineas
+    role: High Priest
+    note: His son, zealous for the Lord (Numbers 25).

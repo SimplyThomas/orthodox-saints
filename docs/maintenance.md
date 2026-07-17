@@ -6,6 +6,11 @@ Claude was used as an *authoring accelerator* for bulk content generation, and t
 work is essentially finished. This page records what depends on what, and how to do
 each remaining job by hand.
 
+For the external services the live site leans on — hosting, DNS, PR previews, the
+corrections Worker, analytics, and where each credential lives — see
+[`docs/infrastructure.md`](infrastructure.md) ("what runs where, what breaks when it
+vanishes").
+
 ## What needs no AI (the whole operational surface)
 
 | Area | Entry point | Notes |
@@ -16,6 +21,8 @@ each remaining job by hand.
 | PR previews | Cloudflare Pages (`scripts/cf-pages-build.sh`) | See `docs/cloudflare-pages-previews.md`. |
 | Corrections form backend | `workers/report/` (Cloudflare Worker) | Fully documented in `workers/report/README.md`. |
 | Icon tooling | `scripts/` (downloader, thumbs, contact sheet, OG card) | See `scripts/README.md`. |
+
+New component styles go in scoped `<style>` blocks; `global.css` is tokens + shared primitives only.
 
 ## What used Claude, and where it stands
 
@@ -86,3 +93,21 @@ Adding a feast/fast works the same way against `data/feasts.csv` and
 - **Where the backlogs live:** `docs/database-expansion.md` (saints to add),
   `docs/data-issues.md` (corrections register), `docs/relationship-backlog.md`
   (relationship network).
+
+## Dependency upgrades
+
+Weekly Dependabot PRs cover patch/minor (auto-merged once CI is green). **Major
+versions are ignored by Dependabot on purpose** — the Node toolchain (Astro
+especially) ships breaking majors, and chasing them weekly is the biggest
+recurring maintenance tax. Instead, once or twice a year:
+
+1. Branch, run `npm outdated`, bump majors one at a time starting with Astro
+   (read its migration guide first — the content-collections API has changed
+   across majors before).
+2. Gates: `make web-lint && make web-unit && make web-build && make web-test`.
+   The Playwright e2e suite is the safety net for behavior.
+3. One PR per major (or one PR for the batch if all green), reviewed via the
+   Cloudflare preview.
+
+A pinned, year-old Astro that builds is stability, not debt. The Python side is
+stdlib-only and has no equivalent problem.

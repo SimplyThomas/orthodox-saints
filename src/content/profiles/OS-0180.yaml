@@ -42,7 +42,7 @@ related:
   - name: New Hieromartyrs Vladimir and Michael
     note: Fellow New Martyrs of the Semirechye region, commemorated September 3
     href: saint/OS-0181
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/September_3_(Eastern_Orthodox_liturgics)
@@ -50,3 +50,9 @@ sources:
   - https://azbyka.ru/days/sv-andrej-dalnikov
   - https://azbyka.ru/days/saint/3950/5484/group
 generated: "2026-06-20"
+members:
+  - name: Andrew Dalnikov
+    role: Priest
+  - name: Theophan Sokolov
+    role: Priest
+    note: New Hieromartyrs of 1920.

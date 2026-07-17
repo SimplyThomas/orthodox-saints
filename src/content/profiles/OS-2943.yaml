@@ -1,0 +1,50 @@
+id: OS-2943
+status: reviewed
+eyebrow: Feast Companions · The Soldier-Martyrs
+overview:
+  - The Two Theodores are the soldier-martyrs Theodore the Recruit (Tyro) and Theodore Stratelates ("the General"), among the most beloved warrior-saints of the Orthodox Church. Though martyred separately in the early fourth century, they are paired throughout Byzantine hymnography and iconography — often shown together on horseback as defenders of the faith — so that tradition speaks of them together as the Two Theodores.
+  - Theodore the Recruit, a young soldier, confessed Christ and set fire to a temple of the Mother of the gods; after torture he was cast into the fire. His memory is bound to the first Saturday of Great Lent and the miracle of the kolyva (boiled wheat), by which he warned the faithful against food defiled by the emperor Julian. Theodore Stratelates, a commander at Heraclea renowned for his courage and eloquence, likewise confessed Christ, destroyed the idols entrusted to him, and was beheaded under Licinius.
+  - The Church honors them as patrons of soldiers and of all who face danger, and as models of the courage that confesses Christ before the powers of the age. Their shared soldierly witness and their close pairing in the services of the Church make them a natural companion-commemoration.
+facts:
+  - label: Type
+    value: Feast companions
+  - label: Rank
+    value: Great Martyr · Soldier
+  - label: Region
+    value: Asia Minor
+  - label: Era
+    value: Early Church · 4th c.
+  - label: Veneration
+    value: Pan-Orthodox
+virtues:
+  - Courage
+  - Faith
+  - Steadfastness
+vocation:
+  - Soldiers
+  - Martyrs
+patronage:
+  - Soldiers and the military
+  - Those in danger
+  - Confessors under trial
+invokedFor:
+  - label: Protection in Danger
+    note: Soldiers and all who face peril
+  - label: Courage under Trial
+    note: Boldness to confess Christ before the powers of the age
+  - label: Deliverance
+    note: Rescue from enemies, seen and unseen
+members:
+  - name: Theodore the Recruit
+    saint_id: OS-0018
+    role: Great Martyr (Tyro)
+    note: The young soldier who confessed Christ and was cast into the fire; remembered with the miracle of the kolyva.
+  - name: Theodore Stratelates
+    saint_id: OS-0615
+    role: Great Martyr & General
+    note: The military commander of Heraclea, martyred under Licinius for destroying the idols.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Theodore_of_Amasea
+  - https://en.wikipedia.org/wiki/Theodore_Stratelates
+generated: "2026-07-14"

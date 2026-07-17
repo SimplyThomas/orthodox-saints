@@ -92,8 +92,10 @@ mapping in `docker-compose.yml`.
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contributor workflow,
 [`docs/data-model.md`](docs/data-model.md) for the hand-editing data reference,
 [`docs/maintenance.md`](docs/maintenance.md) for maintaining the project (including
-entirely without AI tooling), and [`CLAUDE.md`](CLAUDE.md) for the full operating
-contract (data model, sourcing strategy, guardrails, and authoring conventions).
+entirely without AI tooling), [`docs/infrastructure.md`](docs/infrastructure.md) for what
+runs where (hosting, DNS, previews, the corrections Worker, analytics, and credentials),
+and [`CLAUDE.md`](CLAUDE.md) for the full operating contract (data model, sourcing
+strategy, guardrails, and authoring conventions).
 
 ## Licenses
 

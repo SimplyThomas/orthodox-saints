@@ -17,7 +17,7 @@ sections:
 companions:
   - name: The Seventy Apostles
     note: Apelles, Lucius, and Clement are numbered among the Seventy disciples sent out by Christ, whose synaxis is kept on January 4.
-    href: saint/OS-0384
+    href: saint/OS-2935
   - name: Apostle Paul
     note: Fellow worker of the Apostle Paul, who greets Apelles in Romans 16:10 and names Clement among his fellow laborers in Philippians 4:3.
     href: saint/OS-2749
@@ -27,3 +27,10 @@ sources:
   - https://www.oca.org/saints/lives/2035/04/22/101182-holy-apostles-of-the-70-apelles-luke-loukios-and-clement
   - https://www.johnsanidopoulos.com/2016/09/holy-apostles-apelles-luke-and-clement.html
 generated: "2026-06-20"
+members:
+  - name: Apelles
+    note: By tradition bishop of Heraklion.
+  - name: Lucius
+    note: By tradition bishop of Laodicea.
+  - name: Clement
+    note: Numbered among the Seventy Apostles.

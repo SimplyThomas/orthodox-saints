@@ -15,6 +15,7 @@ import { splitName } from "../lib/names";
 import { esc, withBase } from "../lib/format";
 import { loadProfileMap } from "../lib/saint-profiles";
 import SaintProfile from "./SaintProfile.astro";
+import SaintRoster from "./SaintRoster.astro";
 import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
@@ -123,8 +124,9 @@ const kinCard = (card: Figure): string => {
   return `<div class="sv-relcard">${inner}</div>`;
 };
 
-// Group-taxonomy memberships (data/saint_groups.csv) → "Commemorated with"
-// links to each group's landing page. Joined into the record by build.py.
+// Group-taxonomy memberships (data/saint_groups.csv) → a small "Member of"
+// section linking to each group's saint-profile (/saint/[groupId]). Joined into
+// the record by build.py, each membership carrying the group's own OS-#### id.
 const memberGroups = saint.groups ?? [];
 
 // Works (by the saint) and Further Reading (about the saint). A profile's rich
@@ -137,6 +139,7 @@ const hasReading = !!readingGroups || m.about.length > 0;
 
 const hasTimeline = !!profile?.timeline?.length;
 const hasLegacy = !!profile?.sections?.length;
+const hasInfluence = !!profile?.influence?.places?.length;
 const hasFamily = familyCards.length > 0;
 const hasCompanions = companionCards.length > 0;
 const hasRelated = relatedCards.length > 0;
@@ -145,6 +148,7 @@ const hasCommemorated = memberGroups.length > 0;
 const hasAfter =
   hasTimeline ||
   hasLegacy ||
+  hasInfluence ||
   hasWorks ||
   hasReading ||
   hasCommemorated ||
@@ -317,6 +321,11 @@ const wordsLabel = `In ${possessive} own words`;
             <div class="sv-feast-main">
               <div class="sv-feast-label">Feast Day</div>
               <div class="sv-feast-date">{m.feast}</div>
+              {
+                m.feastOld && (
+                  <div class="sv-feast-oc">Old Calendar · {m.feastOld}</div>
+                )
+              }
             </div>
             {m.feastNote && <div class="sv-feast-note">{m.feastNote}</div>}
           </div>
@@ -839,6 +848,54 @@ const wordsLabel = `In ${possessive} own words`;
                 </details>
               )}
 
+              {hasInfluence && (
+                <details class="sv-deep">
+                  <summary class="sv-deep-sum">
+                    <h2 class="sv-deep-eb sv-legacy-title">
+                      {profile!.influence!.heading ?? "Living Legacy"}
+                    </h2>
+                    <span class="sv-deep-ct">
+                      {profile!.influence!.places.length} places
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Read</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
+                  {profile!.influence!.intro && (
+                    <p class="sv-inf-intro">{profile!.influence!.intro}</p>
+                  )}
+                  <div class="sv-legacy-grid">
+                    {profile!.influence!.places.map((pl) => (
+                      <article class="sv-legacy-card">
+                        <h3>{pl.name}</h3>
+                        {(pl.kind || pl.place) && (
+                          <p class="sv-inf-meta">
+                            {[pl.kind, pl.place].filter(Boolean).join(" · ")}
+                          </p>
+                        )}
+                        {pl.note && <p>{pl.note}</p>}
+                      </article>
+                    ))}
+                  </div>
+                </details>
+              )}
+
               {(hasWorks || hasReading) && (
                 <details class="sv-deep">
                   <summary class="sv-deep-sum">
@@ -873,7 +930,17 @@ const wordsLabel = `In ${possessive} own words`;
                           {worksList
                             ? worksList.map((w) => (
                                 <li>
-                                  <em>{w.title}</em>
+                                  {w.url ? (
+                                    <a
+                                      href={w.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {w.title}
+                                    </a>
+                                  ) : (
+                                    <em>{w.title}</em>
+                                  )}
                                   {w.desc && (
                                     <span class="sv-work-desc">
                                       {" "}
@@ -907,7 +974,17 @@ const wordsLabel = `In ${possessive} own words`;
                                 <ul class="sv-read-list">
                                   {g.items.map((it) => (
                                     <li>
-                                      <em>{it.title}</em>
+                                      {it.url ? (
+                                        <a
+                                          href={it.url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                        >
+                                          {it.title}
+                                        </a>
+                                      ) : (
+                                        <em>{it.title}</em>
+                                      )}
                                       {it.author && (
                                         <span class="sv-read-by">
                                           {" "}
@@ -944,10 +1021,10 @@ const wordsLabel = `In ${possessive} own words`;
               {hasCommemorated && (
                 <details class="sv-deep sv-comm">
                   <summary class="sv-deep-sum">
-                    <span class="eyebrow sv-deep-eb">Commemorated with</span>
+                    <span class="eyebrow sv-deep-eb">Member of</span>
                     {memberGroups.length > 1 && (
                       <span class="sv-deep-ct">
-                        {memberGroups.length} commemorations
+                        {memberGroups.length} groups
                       </span>
                     )}
                     <span class="sv-deep-rule" />
@@ -977,10 +1054,7 @@ const wordsLabel = `In ${possessive} own words`;
                         ? `Commemorated together · ${full.feast}`
                         : GROUP_TYPE_LABEL[g.type] || g.type;
                       return (
-                        <a
-                          class="sv-comm-row"
-                          href={withBase("group/" + g.slug)}
-                        >
+                        <a class="sv-comm-row" href={withBase("saint/" + g.id)}>
                           <div class="sv-comm-main">
                             <div class="sv-comm-name">{g.name}</div>
                             <div class="sv-comm-meta">{meta}</div>
@@ -1182,6 +1256,22 @@ const wordsLabel = `In ${possessive} own words`;
       }
     </main>
   </div>
+
+  {
+    /* Member ROSTER — for the saint-row synaxes (Glinsk Elders, Novgorod
+      Hierarchs, Kiev Near Caves): a collective commemoration that renders as a
+      saint but whose profile carries a `members:` list. Full-width, below the
+      body, mirroring the group pages. */
+  }
+  {
+    profile?.members?.length && (
+      <SaintRoster
+        members={profile.members}
+        eyebrow="Commemorated together"
+        collective="group"
+      />
+    )
+  }
 </div>
 
 <script>

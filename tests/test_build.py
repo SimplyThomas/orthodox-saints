@@ -59,6 +59,25 @@ def errors_for(rows, vocab=None, header=None):
     return errs
 
 
+class CrlfTests(unittest.TestCase):
+    def test_crlf_file_is_clean(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\r\nOS-0001,Test\r\n")
+        self.assertEqual(build.crlf_errors(Path(f.name)), [])
+        os.unlink(f.name)
+
+    def test_lf_file_is_an_error(self):
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
+            f.write(b"Saint ID,Name\nOS-0001,Test\n")
+        errs = build.crlf_errors(Path(f.name))
+        self.assertTrue(any("CRLF" in e for e in errs), errs)
+        os.unlink(f.name)
+
+    def test_committed_csvs_are_crlf(self):
+        for p in sorted(build.DATA.glob("*.csv")):
+            self.assertEqual(build.crlf_errors(p), [], p.name)
+
+
 class FeastParsingTests(unittest.TestCase):
     def test_parse_months_single(self):
         self.assertEqual(build.parse_months("Sep 4"), ["Sep"])
@@ -107,15 +126,25 @@ class IdAssignmentTests(unittest.TestCase):
         rows = [valid_row(**{"Saint ID": "OS-0005"}),
                 valid_row(**{"Saint ID": "", "Name": "New A"}),
                 valid_row(**{"Saint ID": "", "Name": "New B"})]
-        changed = build.assign_ids(rows)
+        changed, high = build.assign_ids(rows)
         self.assertTrue(changed)
+        self.assertEqual(high, 7)
         self.assertEqual(rows[1]["Saint ID"], "OS-0006")
         self.assertEqual(rows[2]["Saint ID"], "OS-0007")
 
     def test_assign_noop_when_no_blanks(self):
         rows = [valid_row(**{"Saint ID": "OS-0005"})]
-        self.assertFalse(build.assign_ids(rows))
+        self.assertFalse(build.assign_ids(rows)[0])
         self.assertEqual(rows[0]["Saint ID"], "OS-0005")
+
+    def test_assign_shares_a_seed_across_files(self):
+        # Groups draw from the SAME counter as saints (§6): seeding above the
+        # saint max keeps the two id spaces from ever colliding.
+        grows = [{"saint_id": ""}, {"saint_id": ""}]
+        changed, high = build.assign_ids(grows, "saint_id", seed=42)
+        self.assertTrue(changed)
+        self.assertEqual([r["saint_id"] for r in grows], ["OS-0043", "OS-0044"])
+        self.assertEqual(high, 44)
 
 
 class ValidationTests(unittest.TestCase):
@@ -580,8 +609,12 @@ class SaintImageTests(unittest.TestCase):
 
     def test_committed_image_file_validates(self):
         # The committed data/saint_images.csv (header-only or real rows) must pass.
-        errs, _ = build.validate_saint_images(
-            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        # Groups are saint-profiles too and may carry their own portrait, so the
+        # valid set is saints + group ids — the same union validate() passes in.
+        valid = {r["Saint ID"].strip() for r in build.load_saints()[1]}
+        valid |= {g["saint_id"].strip() for g in build.load_groups()
+                  if g.get("saint_id", "").strip()}
+        errs, _ = build.validate_saint_images(valid)
         self.assertEqual(errs, [], "committed saint_images.csv has errors:\n" +
                          "\n".join(errs))
 
@@ -986,16 +1019,40 @@ class GroupTaxonomyTests(unittest.TestCase):
         errs, _ = self._run([self._g()], [self._m(), self._m()])
         self.assertTrue(any("duplicate membership" in e for e in errs))
 
+    def test_dynamic_rule_membership(self):
+        # A rule-based (open) group computes members by matching saints; AND
+        # across conditions, OR within a field, sorted by Name.
+        saints = [
+            {"Saint ID": "OS-0003", "Name": "Cyril", "Rank / Type": "Confessor",
+             "Era": "Modern", "Tradition of Veneration": "Russian"},
+            {"Saint ID": "OS-0001", "Name": "Anna", "Rank / Type": "New Martyr",
+             "Era": "Modern", "Tradition of Veneration": "Russian; Pan-Orthodox"},
+            {"Saint ID": "OS-0002", "Name": "Boris", "Rank / Type": "New Martyr",
+             "Era": "Post-Byzantine", "Tradition of Veneration": "Greek"},  # era fails
+            {"Saint ID": "OS-0004", "Name": "Dmitri", "Rank / Type": "Hierarch",
+             "Era": "Modern", "Tradition of Veneration": "Russian"},  # rank fails
+        ]
+        groups = [{"slug": "nm",
+                   "rule": "rank:New Martyr|Confessor && era:Modern "
+                           "&& tradition:Russian"}]
+        dyn = build.dynamic_group_members(groups, saints)
+        self.assertEqual(dyn["nm"], ["OS-0001", "OS-0003"])  # Boris/Dmitri excluded
+
+    def test_malformed_rule_errors(self):
+        errs, _ = self._run([self._g(rule="nosuchfield:x")], [])
+        self.assertTrue(any("malformed" in e for e in errs))
+
     def test_to_record_joins_groups_and_haystack(self):
         sg = {"OS-0001": ["the-twelve"]}
-        gbs = {"the-twelve": {"slug": "the-twelve", "name": "The Twelve Apostles",
+        gbs = {"the-twelve": {"slug": "the-twelve", "saint_id": "OS-2900",
+                              "name": "The Twelve Apostles",
                               "type": "synaxis", "sort": 1}}
         rec = build.to_record(valid_row(), vendors=[], name_variants={},
                               images={}, quotes={}, saint_groups=sg,
                               groups_by_slug=gbs)
         self.assertEqual(rec["groups"],
-                         [{"slug": "the-twelve", "name": "The Twelve Apostles",
-                           "type": "synaxis"}])
+                         [{"slug": "the-twelve", "id": "OS-2900",
+                           "name": "The Twelve Apostles", "type": "synaxis"}])
         self.assertIn("The Twelve Apostles", rec["search"])
 
     def test_to_record_no_groups_key_when_absent(self):
@@ -1009,6 +1066,46 @@ class GroupTaxonomyTests(unittest.TestCase):
             {r["Saint ID"].strip() for r in build.load_saints()[1]})
         self.assertEqual(errs, [], "committed group files have errors:\n" +
                          "\n".join(errs))
+
+    def test_group_record_joins_its_own_portrait(self):
+        # A group is a saint-profile, so it may carry a portrait keyed by its
+        # own OS-#### in saint_images.csv (e.g. an icon of Joachim and Anna on
+        # the household's page).
+        images = {"OS-2939": {"path": "icons/permission/theophany-works/OS-2939.jpg",
+                              "license": "Permission:theophany-works",
+                              "credit": "", "source": "https://example.test/icon"}}
+        perms = {"theophany-works": {"name": "Theophany Works", "status": "active",
+                                     "attribution": "Used with permission.",
+                                     "homepage": "https://example.test/"}}
+        rec = build.group_record(
+            {"slug": "joachim-and-anna", "saint_id": "OS-2939", "name": "Joachim and Anna",
+             "type": "household", "description": "d", "feast": "Sep 9", "sort": "1"},
+            [], images=images, permissions=perms)
+        self.assertEqual(rec["image"], "icons/permission/theophany-works/OS-2939.jpg")
+        self.assertTrue(rec["imagePermission"])
+        self.assertEqual(rec["imageVendor"], "Theophany Works")
+
+    def test_group_record_drops_revoked_vendor_portrait(self):
+        images = {"OS-2939": {"path": "icons/permission/gone/OS-2939.jpg",
+                              "license": "Permission:gone", "credit": "", "source": "s"}}
+        perms = {"gone": {"name": "Gone", "status": "revoked"}}
+        rec = build.group_record(
+            {"slug": "g", "saint_id": "OS-2939", "name": "G", "type": "household",
+             "description": "d", "feast": "", "sort": "1"},
+            [], images=images, permissions=perms)
+        self.assertNotIn("image", rec)  # no image key at all -> monogram fallback
+
+    def test_image_valid_ids_union_does_not_poison_group_collision_check(self):
+        # Regression: admitting group ids to the image/depiction id set must not
+        # mutate the saints-only set validate_groups() uses to detect an id that
+        # collides with a real saint. A `|=` here silently disables that check.
+        saints_only = {"OS-0001", "OS-0002"}
+        group_ids = {"OS-2939"}
+        _ = saints_only | group_ids          # the union validate() passes to images
+        self.assertNotIn("OS-2939", saints_only,
+                         "the saints-only id set was mutated by the group union")
+        errs, _ = build.validate_groups(saints_only)
+        self.assertFalse(any("collides with a saint" in e for e in errs))
 
 
 class ThemeIntegrationTests(unittest.TestCase):
@@ -1134,6 +1231,10 @@ class RetiredIdsTests(unittest.TestCase):
     def test_committed_retired_ids_validates(self):
         valid_ids = {r["Saint ID"].strip() for r in build.load_saints()[1]
                      if r["Saint ID"].strip()}
+        # A row may be merged into a group (a synaxis modeled as a group), so a
+        # group's OS-#### is a valid canonical target too (mirrors validate()).
+        valid_ids |= {g["saint_id"].strip() for g in build.load_groups()
+                      if g.get("saint_id", "").strip()}
         errs, _ = build.validate_retired_ids(valid_ids)
         self.assertEqual(errs, [], "committed retired_ids.csv has errors:\n" +
                          "\n".join(errs))
@@ -1208,6 +1309,12 @@ class EmitJsonTests(unittest.TestCase):
         build.PUBLIC = self._old_public
         shutil.rmtree(self._tmp, ignore_errors=True)
 
+    @staticmethod
+    def _saints(records):
+        """The saint records only — emit_data_json also appends one record per
+        committed group (profile_type=="group")."""
+        return [r for r in records if r.get("profile_type") != "group"]
+
     def _rows(self):
         return [
             valid_row(**{"Saint ID": self.SID_B, "Name": "December Saint",
@@ -1221,7 +1328,7 @@ class EmitJsonTests(unittest.TestCase):
         with open(self._tmp / "data.json", encoding="utf-8") as f:
             on_disk = json.load(f)
         self.assertEqual(on_disk, records)
-        self.assertEqual(len(on_disk), 2)
+        self.assertEqual(len(self._saints(on_disk)), 2)
 
     def test_emit_data_json_records_carry_expected_keys(self):
         rec = build.emit_data_json(self._rows())[0]
@@ -1234,7 +1341,7 @@ class EmitJsonTests(unittest.TestCase):
 
     def test_emit_data_json_sorted_by_feast_sort(self):
         records = build.emit_data_json(self._rows())
-        self.assertEqual([r["name"] for r in records],
+        self.assertEqual([r["name"] for r in self._saints(records)],
                          ["January Saint", "December Saint"])
         self.assertEqual([r["feastSort"] for r in records],
                          sorted(r["feastSort"] for r in records))
@@ -1256,13 +1363,16 @@ class EmitJsonTests(unittest.TestCase):
         slug = build.themes_mod.THEMES[0]["slug"]
         build.emit_themes_json([{"themes": [slug]}, {"themes": []}])
         with open(self._tmp / "themes.json", encoding="utf-8") as f:
-            catalog = json.load(f)
+            payload = json.load(f)
+        catalog = payload["themes"]
         self.assertEqual(len(catalog), len(build.themes_mod.THEMES))
         by_slug = {c["slug"]: c for c in catalog}
         self.assertEqual(by_slug[slug]["count"], 1)
         for c in catalog:
             for key in ("slug", "group", "label", "desc", "count"):
                 self.assertIn(key, c)
+        # Aliases ride along in the same payload (one source of theme knowledge).
+        self.assertEqual(payload["aliases"], build.themes_mod.ALIASES)
 
 
 class EmitXlsxTests(unittest.TestCase):

@@ -1,0 +1,104 @@
+id: OS-2941
+status: draft
+eyebrow: Synaxis · The Optina Elders
+feastNote: Commemorated together on October 11 · each with his own feast
+overview:
+  - The Synaxis of the Optina Elders gathers the startsy — the spirit-bearing elders — of the Optina Hermitage (Optina Pustyn) near Kozelsk in the Kaluga region of Russia, who through the nineteenth and early twentieth centuries made the monastery the spiritual heart of the Russian Church. From Leonid and Macarius through Ambrose to Nectarius, an unbroken line of elders received all who came — peasants and nobles, bishops and doubters — offering the counsel, discernment, and consoling love for which Optina became famous.
+  - The eldership at Optina renewed in Russia the ancient tradition of spiritual fatherhood carried west from Mount Athos and the Philokalic revival of St Paisius Velichkovsky. Under the elders the monastery undertook the translation and printing of patristic texts, drawing to itself the leading minds of the age; Gogol, Dostoevsky, the Kireyevskys, and Tolstoy all made their way to Optina, and the elder Ambrose is widely recognized behind Dostoevsky's Elder Zosima.
+  - The line was broken only by the Revolution. The monastery was suppressed by the Soviet authorities, and its last elders confessed the faith amid persecution, some ending their lives in prison or exile. The Optina Elders were numbered together among the saints in 2000, and Optina, reopened, again receives pilgrims at their relics.
+facts:
+  - label: Type
+    value: Synaxis of elders
+  - label: Monastery
+    value: Optina Pustyn (Kaluga, Russia)
+  - label: Flourished
+    value: 19th – early 20th century
+  - label: Region
+    value: Russia
+  - label: Era
+    value: Modern · 19th–20th c.
+  - label: Commemorated
+    value: October 11 (synaxis)
+virtues:
+  - Humility
+  - Discernment
+  - Love
+vocation:
+  - Elders (Startsy)
+  - Monastics
+  - Confessors
+patronage:
+  - Spiritual fathers and directors
+  - Monastics and those in obedience
+  - Those seeking counsel
+invokedFor:
+  - label: Spiritual Direction
+    note: Those seeking a guide (starets) for the soul
+  - label: Discernment
+    note: Counsel in confusion, temptation, and hard decisions
+  - label: Repentance
+    note: The return to God through confession and humility
+timeline:
+  - when: "1821"
+    title: The skete is founded
+    body: A hermitage of St John the Forerunner is built beside Optina under Abbot Moses, a home for the elders.
+  - when: "1829"
+    title: Eldership begins
+    body: St Leonid settles at Optina, inaugurating the unbroken line of startsy.
+  - when: 1846–1891
+    title: The age of St Ambrose
+    body: Under Elder Ambrose, Optina becomes the spiritual heart of Russia; pilgrims come by the thousand for a word of counsel.
+  - when: 1917–1923
+    title: Persecution and closure
+    body: The monastery is suppressed by the Soviet state; the last elders confess the faith in prison and exile.
+  - when: "2000"
+    title: Glorification
+    body: The Synaxis of the Optina Elders is numbered among the saints of the Russian Church.
+members:
+  - saint_id: OS-2003
+    role: 1st Elder
+    note: Leonid, the first of the Optina elders, who brought the living tradition of eldership to the monastery.
+  - saint_id: OS-0294
+    role: 2nd Elder
+    note: Macarius, who with Leonid guided souls and oversaw Optina's publication of the patristic writings.
+  - saint_id: OS-1374
+    role: Abbot & Builder
+    note: Moses, abbot and builder of the Optina skete, who gathered and sheltered the elders.
+  - saint_id: OS-1662
+    role: Skete-superior
+    note: Anthony, brother of Moses, skete-superior and elder, long-suffering in bodily illness.
+  - saint_id: OS-1865
+    role: Elder
+    note: Hilarion, disciple and successor of Macarius in the ministry of eldership.
+  - saint_id: OS-0074
+    role: The Great Elder
+    note: Ambrose, the most beloved of the Optina elders, counselor to thousands and model for Dostoevsky's Elder Zosima.
+  - saint_id: OS-0539
+    role: Elder
+    note: Anatole I (Zertsalov), disciple of Ambrose and spiritual guide of the Shamordino convent.
+  - saint_id: OS-1762
+    role: Abbot
+    note: Isaac I, abbot of Optina, who upheld its monastic order and the elders' work.
+  - saint_id: OS-1136
+    role: Elder
+    note: Joseph, cell-attendant and successor of Ambrose in the eldership.
+  - saint_id: OS-0921
+    role: Elder
+    note: Barsanuphius, a former military officer who as elder received soldiers and pilgrims.
+  - saint_id: OS-1612
+    role: Elder
+    note: Anatole II (Potapov), "the younger," consoler of the faithful as the Revolution drew near.
+  - saint_id: OS-1078
+    role: Last Great Elder
+    note: Nectarius, the last of the great Optina elders, a fool-for-Christ endowed with clairvoyance.
+  - saint_id: OS-1427
+    role: Confessor
+    note: Nikon (Belyaev), disciple of Barsanuphius and Nectarius; the last Optina elder to receive the faithful, who died in Soviet exile.
+  - saint_id: OS-2418
+    role: Last Abbot & Confessor
+    note: Isaac II, the last abbot of Optina, martyred under the Soviet persecution.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://en.wikipedia.org/wiki/Optina_Monastery
+  - https://orthodoxwiki.org/Optina_Elders
+generated: "2026-07-13"

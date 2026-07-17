@@ -20,10 +20,23 @@ companions:
   - name: Hieromartyr Anthimus, Bishop of Nicomedia
     note: Bishop of the city, commemorated with this company; martyred by beheading
     href: saint/OS-0150
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/1999/09/03/102467-hieromartyr-anthimus-bishop-of-nicomedia-and-those-with-him
   - https://www.oca.org/saints/lives/1999/12/28/103664-20000-martyrs-of-nicomedia
   - https://en.wikipedia.org/wiki/Anthimus_of_Nicomedia
 generated: "2026-06-19"
+members:
+  - name: Theophilus the Deacon
+    role: Deacon
+  - name: Dorotheus
+  - name: Mardonius
+  - name: Migdonius
+  - name: Peter
+  - name: Indes
+  - name: Gorgonius
+  - name: Zeno
+  - name: Domna
+  - name: Euthymius
+    note: Martyrs of Nicomedia.

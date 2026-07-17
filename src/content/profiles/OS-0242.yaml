@@ -34,3 +34,11 @@ sources:
   - https://en.wikipedia.org/wiki/Faustus,_Abibus_and_Dionysius_of_Alexandria
   - https://www.oca.org/saints/troparia/2022/09/06/102524-martyrs-cyriacus-faustus-the-presbyter-abibas-the-deacon-and-11
 generated: "2026-06-20"
+members:
+  - name: Cyriacus
+  - name: Faustus
+    role: Priest
+  - name: Abibus
+    role: Deacon
+  - name: and their companions
+    note: The martyrs of Alexandria.

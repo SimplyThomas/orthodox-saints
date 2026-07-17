@@ -270,20 +270,35 @@ rendered in file order:
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a
 **first-class, filterable dimension** of the finder:
-- `data/groups.csv` (`slug,name,type,description,feast,sort`) — one row per group. `slug` is a
-  permanent kebab-case key (the `/group/<slug>` URL + join key). `type` is an enumerated set —
-  **`synaxis`** (a collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs),
-  **`feast-companions`** (distinct individually-venerated saints sharing a principal feast:
-  Peter & Paul, the Three Hierarchs — the §7 split boundary), or **`household`** (a family /
-  kinship unit). `feast` (optional) is a shared feast day; `sort` orders groups.
+- `data/groups.csv` (`slug,saint_id,name,type,description,feast,sort,rule`) — one row per group.
+  `slug` is a permanent kebab-case join key. **`saint_id` is the group's own OS-#### — a group
+  IS a saint-profile** (`profile_type:"group"`), served at `/saint/<saint_id>` with the
+  dedicated **`GroupSaintProfile`** layout. Leave it blank on a new row; the build assigns the
+  next id from the **same OS-#### counter as saints** (§6 — never colliding, never reused), and
+  writes it back (groups.csv is CRLF, like the other data CSVs). `type` is an enumerated set — **`synaxis`** (a
+  collective assembly: the Twelve, the Seventy, a Synaxis of New Martyrs), **`feast-companions`**
+  (distinct individually-venerated saints sharing a principal feast: Peter & Paul, the Three
+  Hierarchs — the §7 split boundary), or **`household`** (a family / kinship unit). `feast`
+  (optional) is a shared feast day; `sort` orders groups. **`rule`** (optional) makes an
+  **open/dynamic** group (e.g. the New Martyrs of Russia, All Saints of a region): the build
+  computes its membership by matching saints instead of using explicit `saint_groups.csv`
+  rows, so a newly-glorified saint joins automatically. Grammar: ` && `-joined `field:v1|v2`
+  conditions (AND across, OR within, case-insensitive substring; fields: rank, era, century,
+  region, tradition, vocation, life, notes, name) — e.g.
+  `rank:New Martyr|Confessor|Passion-bearer && era:Modern && tradition:Russian`.
 - `data/saint_groups.csv` (`group_slug,saint_id,role,order`) — the membership join. `saint_id`
   may reference an **individual OR a still-collective** row, so the taxonomy ships independently
-  of the split backlog. `role`/`order` are optional.
+  of the split backlog; it may also be **blank for a name-only member** (put the name in `role`)
+  — that member is listed without a link. `role`/`order` are optional.
 - The build **fails loud** on a bad `type`, a dangling `group_slug`/`saint_id`, a duplicate slug,
-  or a duplicate membership. Each saint gains `groups` (+ `groupNames` for the facet) in the
-  record; the whole catalog is emitted to `public/groups.json` for the pre-rendered
-  `/group/<slug>` pages. Saint pages show a "Commemorated With" link per group; the finder gains
-  a **Group** facet.
+  a duplicate membership, or a group `saint_id` that collides with a saint/retired id. Each saint
+  gains `groups` (+ `groupNames` for the facet) in the record and a small **"Member of"** section
+  linking to each group's `/saint/<id>` profile; the group's own record carries
+  `profile_type:"group"` + its `members[]` and renders the **"Members of this Group"** list.
+  Group records flow into `public/data.json`, so they appear in the finder, calendar, search, and
+  sitemap — **but are excluded from the patron quiz** (not intercessors). `public/groups.json`
+  drives the redirect of the retired **`/group/<slug>` URLs → `/saint/<saint_id>`** (astro.config).
+  The finder gains a **Group** facet.
 
 **Vocabulary pitfalls (validation will catch these, but to save a round-trip):**
 - A term valid in one column is **not** valid in another. Common slips: *Parenting* and
@@ -357,6 +372,57 @@ other CSVs.
   Gather=Sonnet, Write=Opus, Verify=Sonnet, Emit=Haiku — ~2.3× cheaper on the
   weekly limit); `FEASTGEN_USE_WORKFLOW=0` falls back to the all-Opus single-agent
   path.
+
+## 5b. The Heavenly Hosts database (`data/heavenly_hosts.csv`, `HH-####`)
+
+A **third** structured database, sibling to Saints (`OS-####`) and Feasts & Fasts
+(`FF-####`), cataloguing the **bodiless powers** — the nine angelic ranks, the
+named archangels, and (later) the individual angels of Scripture/Tradition and a
+marked set of the fallen. Angels are deliberately excluded from `data/saints.csv`
+(§7); this is where the beings themselves are first-class records. Owned by
+**`hostlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
+covers it), which mirrors `feastlib.py`. Design spec:
+`docs/superpowers/specs/2026-07-07-heavenly-hosts-database-design.md`.
+
+- **`data/heavenly_hosts.csv` (19 cols):** Host ID · Name · Also Known As ·
+  Entity Type · Celestial Order · Canonical Status · Primary Source · Scripture
+  References · Deuterocanonical Sources · Extra-Biblical Sources · Feast Day(s) ·
+  Related Feasts · Related Saints · Related Beings · Brief · Tags · Icon · Notes ·
+  Sources. `HH-####` ids follow the **exact `OS-####` rules** (§6: opaque,
+  permanent, never reused; add a **blank** id and the build assigns + writes back).
+  CRLF, `"; "` multi-sep.
+- **Controlled vocab** (in `data/vocabulary.csv`): **Entity Type** (`Angelic Rank`
+  · `Named Angel` · `Scriptural Angel` · `Angelic Class` · `Collective` · `Fallen`),
+  **Celestial Order** (the nine ranks; **Triad is derived, never authored**),
+  **Canonical Status** (`Scriptural` · `Deuterocanonical` · `Traditional` ·
+  `Apocryphal` · `Symbolic`), **Host Source Type** (the 8-register source
+  taxonomy — the source-fidelity commitment: Holy Scripture / Deuterocanonical /
+  Holy Tradition / Liturgical Tradition / Patristic / Second Temple / Early
+  Christian / Later Tradition, never blurred).
+- **Cross-refs validated:** Related Saints → `saints.csv`, Related Feasts →
+  `feasts.csv`, Related Beings → `heavenly_hosts.csv` (no self-ref). Feast Day(s)
+  parse as fixed `Mon D` tokens.
+- **Rich prose** lives in `src/content/hosts/HH-####.yaml` (the `hosts` collection
+  in `content.config.ts`): `overview` + `historicalContext` /
+  `orthodoxInterpretation` / `liturgicalTradition` / `iconography` /
+  `historicalInfluence` / `salvationHistory` (sections) / `scripture` / `sections`
+  / `related` / `reading`. Same `status: draft|reviewed|flagged` production gate as
+  saint/feast profiles; §9 guardrails carry over (source registers preserved, no
+  fabrication, hymnography described not reproduced).
+- **Images:** `data/host_images.csv` (one hero portrait per host) and
+  `data/host_depictions.csv` (MANY carousel cards per host) reuse the **saints'
+  licensing gate verbatim** (§9): an open license (`PD`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
+  CC-BY* needs a credit) **or** a `Permission:<vendor>` token against
+  `data/image_permissions.csv`. Files self-hosted under `static/icons/hosts/` (open)
+  or `static/icons/permission/<vendor>/` (permission). No pip/Pillow in some
+  environments — resize with **node + sharp**.
+- Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and frontend routes
+  **`/nine-orders`** (the Nine Orders overview: ranks by triad, with per-triad
+  epithets) and **`/host/HH-####`** (per-being pages: blue hero + face-cropped
+  portrait, "Depictions & Icons" carousel, collapsible sections, left rail). A
+  rank page auto-lists its **Named Angel** members as cards (the eight archangels
+  on the Archangels page). Excluded from the patron quiz (angels are venerated,
+  not intercessor-saints).
 
 ## 6. Saint identity & deduplication (critical)
 
@@ -553,6 +619,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 - **Python 3.11+**, standard-library `sqlite3`, `csv`. `openpyxl` for the Excel export.
 - **Frontend: Astro (static-site generator), Node 24+, in `src/`.** File-based routing; `.astro` components render at build time; shared logic in `src/lib/` (TS); client JS is **only** the vanilla TS islands in `src/islands/` (**no React/Vue**). Adding a page = add a file under `src/pages/`. **Witnesses of Our Time** (`/witness/[slug]`, surfaced on `/america`) is a **non-canonical memorial section** for not-yet-glorified figures — kept strictly out of the finder/quiz per §9; memorial pages use no liturgical address.
+- **New styles are component-scoped.** Styles specific to one component go in that
+  component's `<style>` block (Astro scopes them automatically); `src/styles/global.css`
+  is reserved for design tokens (`:root` variables), resets, and genuinely shared
+  primitives (buttons, chips, cards). Do not grow the global sheet with per-component
+  rules — it is already the least navigable file in the repo.
 - **Rich saint profiles** are one YAML file per saint in `src/content/profiles/OS-####.yaml`,
   an Astro **data Content Collection** defined in `src/content.config.ts`; the **Zod schema
   validates every profile at build time** (a bad/incomplete profile fails the build). Each

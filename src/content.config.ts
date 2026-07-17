@@ -89,12 +89,68 @@ const profileSchema = z
           ),
       )
       .optional(),
+    // The saint's living institutional footprint — churches, cathedrals,
+    // monasteries, seminaries, and other legacies dedicated to them or carrying
+    // their work forward. Rendered as its own collapsible deep-dive; `heading`
+    // names the scope (e.g. "Influence in America"), defaulting to
+    // "Living Legacy".
+    influence: z
+      .object({
+        heading: z.string().optional(),
+        intro: z.string().optional(),
+        places: z
+          .array(
+            z.object({
+              name: z.string(),
+              kind: z.string().optional(), // Church · Cathedral · Monastery · Seminary · Camp · Society · …
+              place: z.string().optional(), // City, State
+              note: z.string().optional(),
+            }),
+          )
+          .min(1),
+      })
+      .optional(),
+    // ── Group-profile fields (profile_type:"group" records only) ──────────
+    // A group profile (a synaxis / household / feast-companions set) reuses this
+    // same collection and review gate. These optional fields feed the
+    // GroupSaintProfile layout; SaintView ignores them, so they stay harmless
+    // on individual-saint profiles.
+    eyebrow: z.string().optional(), // hero eyebrow, e.g. "Synaxis · Apostolic Mission"
+    feastNote: z.string().optional(), // small line beneath the feast date
+    // "At a glance" rail rows (a group has no CSV facets to derive them from).
+    facts: z
+      .array(z.object({ label: z.string(), value: z.string() }))
+      .optional(),
+    virtues: z.array(z.string()).optional(), // rail "Known for" (top line)
+    vocation: z.array(z.string()).optional(), // rail "Known for" (sub line)
+    // "Come to them for" cards — the group's intercessory heads (label + note).
+    invokedFor: z
+      .array(z.object({ label: z.string(), note: z.string().optional() }))
+      .optional(),
+    // Per-member roster overlay, keyed by saint_id (or `name` for a name-only
+    // member): supplies each card's short role label and one-line note. The
+    // ordered membership itself comes from data/saint_groups.csv, NOT here — a
+    // member listed only here (no matching join row) is ignored.
+    members: z
+      .array(
+        z.object({
+          saint_id: z
+            .string()
+            .regex(/^OS-\d{4,}$/)
+            .optional(),
+          name: z.string().optional(),
+          role: z.string().optional(),
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
     works: z
       .array(
         z.object({
           title: z.string(),
           desc: z.string(),
           date: z.string().optional(),
+          url: z.string().optional(), // external link; title renders as an <a> when set
         }),
       )
       .optional(),
@@ -107,6 +163,7 @@ const profileSchema = z
               title: z.string(),
               author: z.string().optional(),
               type: z.string().optional(),
+              url: z.string().optional(), // external link; title renders as an <a> when set
             }),
           ),
         }),
@@ -176,4 +233,113 @@ const feasts = defineCollection({
   schema: feastProfileSchema,
 });
 
-export const collections = { profiles, feasts };
+// Rich heavenly-host profiles (src/content/hosts/HH-####.yaml) — the theology,
+// history, and iconography of each angelic rank, named archangel, and
+// individual scriptural angel in data/heavenly_hosts.csv. Same status gate as
+// saint/feast profiles: production ships only `reviewed`. §9 guardrails carry
+// over: hymnography is DESCRIBED, never reproduced from copyrighted
+// translations; images public-domain/openly-licensed only; the source registers
+// (Scripture / Deuterocanon / Tradition / Patristic / Second Temple / …) are
+// preserved, never blurred; speculative apocryphal material is tagged as such.
+const hostProfileSchema = z
+  .object({
+    id: z.string().regex(/^HH-\d{4,}$/),
+    status: z.enum(["draft", "reviewed", "flagged"]).default("draft"),
+    flagReasons: z
+      .array(z.object({ claim: z.string(), detail: z.string() }))
+      .optional(),
+    sources: z.array(z.string()).optional(),
+    generated: z.string().optional(), // ISO date
+    humanReviewed: z.boolean().optional().default(false),
+    overview: z.array(z.string()).min(1),
+    // The dossier's Main Content axes — each a first-class paragraph array.
+    historicalContext: z.array(z.string()).optional(),
+    orthodoxInterpretation: z.array(z.string()).optional(),
+    liturgicalTradition: z.array(z.string()).optional(),
+    iconography: z.array(z.string()).optional(),
+    historicalInfluence: z.array(z.string()).optional(),
+    // Role in salvation history as chronological sections (Creation / Fall /
+    // Old Testament / Incarnation / Resurrection / Last Judgment).
+    salvationHistory: z
+      .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
+      .optional(),
+    // Scripture (and deutero/extra-biblical) references, each tagged by note so
+    // the source register stays explicit.
+    scripture: z
+      .array(z.object({ ref: z.string(), note: z.string().optional() }))
+      .optional(),
+    timeline: z.array(timelineEntry).optional(),
+    sections: z
+      .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
+      .optional(),
+    related: z.array(relatedFigure).optional(),
+    reading: z
+      .array(
+        z.object({
+          heading: z.string(),
+          items: z.array(
+            z.object({
+              title: z.string(),
+              author: z.string().optional(),
+              type: z.string().optional(),
+            }),
+          ),
+        }),
+      )
+      .optional(),
+  })
+  .superRefine((p, ctx) => {
+    if (p.status !== "reviewed" && !(p.sources && p.sources.length)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `${p.id}: ${p.status} profiles must list at least one source`,
+      });
+    }
+  });
+
+const hosts = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/hosts" }),
+  schema: hostProfileSchema,
+});
+
+// "Saints in the News" editorial articles (src/content/news/<slug>.yaml). Mirrors
+// the NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/news.ts
+// field-for-field, plus ordering/featured metadata. The page furniture
+// (NEWS_CATS, NEWS_THISDAY, …) stays in lib/news.ts — it is page config, not
+// editorial content. Content is sample copy from the design mock (see the header
+// of lib/news.ts); the migration keeps it byte-identical.
+const newsSaintRef = z.object({
+  name: z.string(),
+  type: z.string(),
+  epithet: z.string().optional(),
+  note: z.string().optional(),
+});
+
+const news = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/news" }),
+  schema: z.object({
+    id: z.string(), // slug, used for /news/[slug]
+    cat: z.string(),
+    saint: newsSaintRef,
+    headline: z.string(),
+    date: z.string(),
+    location: z.string(),
+    summary: z.string(),
+    featured: z.boolean().optional().default(false),
+    order: z.number(), // preserves the current NEWS array order
+    kicker: z.string().optional(),
+    dek: z.string().optional(),
+    plate: z.string().optional(),
+    body: z.array(z.string()).optional(),
+    pullQuote: z
+      .object({ text: z.string(), attribution: z.string() })
+      .optional(),
+    caption: z.string().optional(),
+    sources: z
+      .array(z.object({ h: z.string(), items: z.array(z.string()) }))
+      .optional(),
+    relatedSaints: z.array(newsSaintRef).optional(),
+  }),
+});
+
+export const collections = { profiles, feasts, hosts, news };

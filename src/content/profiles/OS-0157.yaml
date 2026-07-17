@@ -12,10 +12,20 @@ sections:
       - In the legendary account, the women had vowed themselves to a heavenly spouse rather than accept marriage. When this was discovered they fled, were betrayed by a servant to the governor named Sebastus, and were tortured and condemned to beheading. After their death the relics were said to have been recovered from the river and a church established in their honor. These narrative elements are late and devotional in character; the historically secure core is only that four virgins of Aquileia were martyred and commemorated together on September 3.
 patronage:
   - Virgin-martyrs of the early Italian church
-status: draft
+status: reviewed
 sources:
   - Roman Martyrology
   - https://catholicsaints.info/book-of-saints-euphemia-dorothea-thecla-and-erasma/
   - https://www.christianiconography.info/erasma.html
   - https://catholicsaints.info/martyrs-of-aquileia-3-september/
 generated: "2026-06-19"
+members:
+  - name: Euphemia
+    role: Virgin-Martyr
+  - name: Dorothy
+    role: Virgin-Martyr
+  - name: Thecla
+    role: Virgin-Martyr
+  - name: Erasma
+    role: Virgin-Martyr
+    note: The virgin-martyrs of Aquileia.

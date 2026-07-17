@@ -32,7 +32,7 @@ timeline:
     body: Natalia Kozlova is canonized by the Holy Synod on August 17, 2004, and added to the Synaxis of the New Martyrs and Confessors of Russia.
 patronage:
   - Those who endure persecution for the faith
-status: draft
+status: reviewed
 sources:
   - Synaxarion
   - https://orthodoxwiki.org/September_1
@@ -40,3 +40,8 @@ sources:
   - https://obitel-minsk.org/en/in-the-footsteps-of-saint-tatiana-a-journey-of-faith-and-sacrifice
   - https://orthochristian.com/150720.html
 generated: "2026-06-19"
+members:
+  - name: Tatiana Gribkova
+    role: New Martyr
+  - name: Natalia Kozlova
+    role: New Martyr

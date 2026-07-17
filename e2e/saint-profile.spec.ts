@@ -5,6 +5,10 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   expect(resp?.status()).toBe(200);
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
+  // The fixed feast (Jan 1) shows its Old Calendar civil day alongside.
+  await expect(page.locator(".sv-feast-oc")).toHaveText(
+    "Old Calendar · January 14",
+  );
   // Lifespan subtitle renders under the name.
   await expect(
     page.locator(".sv-lifespan", { hasText: "Archbishop of Caesarea" }),
@@ -20,10 +24,10 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
 test("a saint without a profile renders no profile sections", async ({
   page,
 }) => {
-  // OS-2166 (Martyr Alexander of Thessalonica) is a stub with no profile YAML,
+  // OS-2924 (St. Marcian the Emperor) is a stub with no profile YAML,
   // so its page renders no rich-profile sections in any build mode.
-  await page.goto("./saint/OS-2166/");
-  await expect(page.locator(".saintview .sv-name")).toContainText("Alexander");
+  await page.goto("./saint/OS-2924/");
+  await expect(page.locator(".saintview .sv-name")).toContainText("Marcian");
   await expect(page.locator(".sp-sec")).toHaveCount(0);
 });
 

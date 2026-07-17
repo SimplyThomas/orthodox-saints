@@ -39,5 +39,12 @@ updates:
     commit-message:
       prefix: deps
     groups:
-      npm:
+      npm-minor-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+    ignore:
+      # Majors (Astro, ESLint, Playwright, Vitest…) are handled manually, in a
+      # dedicated branch, at most twice a year — see docs/maintenance.md
+      # ("Dependency upgrades"). This keeps weekly PRs auto-mergeable.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
