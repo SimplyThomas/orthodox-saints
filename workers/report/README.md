@@ -4,20 +4,27 @@ A small Cloudflare Worker that backs the **Suggest a Correction** form on
 [orthodoxsaintfinder.com](https://orthodoxsaintfinder.com)
 (`/corrections`). It receives the form POST, verifies a Cloudflare **Turnstile**
 token, validates and sanitizes the input, and files a **GitHub issue** labelled
-`data-quality` using a fine-grained token held as a Worker secret.
+`data-quality`.
+
+GitHub auth is a **GitHub App**, not a personal access token: the Worker signs a
+short-lived JWT with the App's private key, exchanges it for a **1-hour
+installation token**, and uses that to create the issue. The private key never
+expires, so **there is nothing to rotate on a schedule** (unlike a PAT, which
+caps at 366 days).
 
 **The visitor never touches GitHub and needs no account.**
 
 ```
-Browser form  ──POST──▶  Worker  ──verify──▶  Turnstile siteverify
-(/corrections)              │
-                            └──create issue──▶  GitHub REST API  ──▶  data-quality issue
+Browser form ─POST─▶ Worker ─verify─▶ Turnstile siteverify
+(/corrections)         │
+                       ├─sign JWT─▶ POST /app/installations/{id}/access_tokens ─▶ 1h token
+                       └─create issue (Bearer token)─▶ GitHub REST API ─▶ data-quality issue
 ```
 
-- Plain JavaScript, no build step (`src/index.js`).
+- Plain JavaScript, no build step (`src/index.js`). JWT is signed with WebCrypto.
 - Accepts JSON **or** form-encoded POST bodies.
 - Honeypot field (`website`) → silently dropped.
-- Friendly JSON responses; the token and raw GitHub errors are never leaked.
+- Friendly JSON responses; the private key and raw GitHub errors are never leaked.
 
 ---
 
@@ -26,23 +33,42 @@ Browser form  ──POST──▶  Worker  ──verify──▶  Turnstile site
 You'll do these once. Items marked **[dashboard]** happen in the Cloudflare or
 GitHub web UI; the rest are terminal commands run from this folder.
 
-### 1. Create the GitHub token **[github.com]**
+### 1. Create the GitHub App **[github.com]**
 
-A **fine-grained personal access token** scoped to this ONE repo:
+A **GitHub App** owned by your account, installed on this ONE repo. Unlike a PAT,
+its private key doesn't expire — set it once, never rotate on a schedule.
 
-1. GitHub → **Settings → Developer settings → Personal access tokens →
-   Fine-grained tokens → Generate new token**.
-2. **Resource owner:** `SimplyThomas`. **Repository access:** *Only select
-   repositories* → `orthodox-saints`.
-3. **Permissions → Repository permissions → Issues: Read and write.** (Leave
-   everything else at *No access*. Issues R/W is the only scope needed to create
-   issues and apply the label.)
-4. Set a sensible expiry and **Generate token**. Copy it (starts `github_pat_…`).
+1. GitHub → **Settings → Developer settings → GitHub Apps → New GitHub App**.
+2. Fill in:
+   - **GitHub App name:** e.g. `cow-report` (must be globally unique)
+   - **Homepage URL:** `https://orthodoxsaintfinder.com`
+   - **Webhook:** **uncheck "Active"** (this App needs no webhooks).
+   - **Repository permissions → Issues: Read and write.** (Leave everything else
+     at *No access* — Issues R/W is all that's needed to create + label issues.)
+   - **Where can this app be installed?** *Only on this account.*
+3. **Create GitHub App.** On the App's page, note the **App ID** (a number) →
+   this is `APP_ID` in `wrangler.toml`.
+4. Scroll to **Private keys → Generate a private key.** A `.pem` downloads
+   (PKCS#1: it begins `-----BEGIN RSA PRIVATE KEY-----`). Keep it safe.
+5. **Install App** (left sidebar) → install it on `SimplyThomas`, **Only select
+   repositories → `orthodox-saints`**. After installing, the URL is
+   `.../installations/<NUMBER>` — that `<NUMBER>` is `INSTALLATION_ID` in
+   `wrangler.toml`. (Or find it later via **Settings → Applications → (App) →
+   Configure**.)
 
-> The `data-quality` label is applied by the Worker. Create that label once in
-> the repo (**Issues → Labels → New label**, name it exactly `data-quality`) so
-> issues land pre-labelled. If the label doesn't exist, GitHub will create it on
-> first use as a plain grey label.
+**Convert the key to PKCS#8** (WebCrypto can't import the PKCS#1 GitHub gives you):
+
+```bash
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
+  -in cow-report.<...>.private-key.pem -out cow-report.pk8.pem
+```
+
+`cow-report.pk8.pem` now begins `-----BEGIN PRIVATE KEY-----` — that's what you
+store as the `APP_PRIVATE_KEY` secret in step 3.
+
+> The `data-quality` label already exists in the repo. If it's ever deleted,
+> recreate it (**Issues → Labels → New label**, named exactly `data-quality`);
+> GitHub also auto-creates a missing label as plain grey on first use.
 
 ### 2. Create the Turnstile widget **[dash.cloudflare.com]**
 
@@ -54,19 +80,29 @@ A **fine-grained personal access token** scoped to this ONE repo:
 4. Copy the **Site key** (public — goes in the HTML) and the **Secret key**
    (private — a Worker secret).
 
-### 3. Install deps & set secrets
+### 3. Set the App IDs, install deps & set secrets
+
+First put the two **identifiers** (not secret) into `wrangler.toml` `[vars]`:
+`APP_ID` and `INSTALLATION_ID` from step 1.
 
 ```bash
 cd workers/report
 npm install
 
-# Secrets (you'll be prompted to paste each value):
-npx wrangler secret put GITHUB_TOKEN
+# TURNSTILE_SECRET_KEY: paste the Turnstile secret when prompted.
 npx wrangler secret put TURNSTILE_SECRET_KEY
+
+# APP_PRIVATE_KEY: pipe in the PKCS#8 key file (avoids paste/multiline issues).
+npx wrangler secret put APP_PRIVATE_KEY < cow-report.pk8.pem
 ```
 
-The non-secret vars (`REPO_OWNER`, `REPO_NAME`, `ALLOWED_ORIGIN`) live in
-`wrangler.toml` — edit them there if anything changes.
+The other non-secret vars (`REPO_OWNER`, `REPO_NAME`, `ALLOWED_ORIGIN`) also live
+in `wrangler.toml` — edit them there if anything changes.
+
+**Rotation:** there's nothing to do on a schedule. If you ever need to roll the
+key (e.g. it leaked), GitHub App → **Generate a private key**, convert to PKCS#8,
+re-run the `wrangler secret put APP_PRIVATE_KEY < …` line, then delete the old key
+in the App settings. `APP_ID`/`INSTALLATION_ID` never change.
 
 ### 4. Put the **Site key** in the form
 
@@ -117,7 +153,7 @@ truncation, the no-leak error path, and the CORS allow-list. No secrets required
 For an end-to-end run against the real Cloudflare runtime:
 
 ```bash
-cp .dev.vars.example .dev.vars   # then paste your real token + Turnstile secret
+cp .dev.vars.example .dev.vars   # then fill in the PKCS#8 key + Turnstile secret
 npx wrangler dev                 # serves on http://localhost:8787
 ```
 
@@ -143,7 +179,7 @@ curl -s localhost:8787 -H 'Content-Type: application/json' \
 curl -s localhost:8787 -H 'Content-Type: application/json' \
   -d '{"cf-turnstile-response":"dummy"}'
 
-# Full submit (creates a REAL issue if GITHUB_TOKEN is live — use a test repo):
+# Full submit (creates a REAL issue if the App creds are live — use a test repo):
 curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
   "type":"feast",
   "subject":"St. Nicholas",
@@ -153,8 +189,8 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
 ```
 
 > With the always-passes testing secret, `dummy` passes siteverify, so the last
-> call will create an issue. Point `GITHUB_TOKEN`/`REPO_NAME` at a throwaway repo
-> while iterating.
+> call will create an issue. Point `INSTALLATION_ID`/`REPO_NAME` at a throwaway
+> repo (install the App there) while iterating.
 
 ### Manual test checklist
 
@@ -177,8 +213,10 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
 
 | Name | Where | Purpose |
 |---|---|---|
-| `GITHUB_TOKEN` | secret (`wrangler secret put`) | Fine-grained PAT, Issues R/W on this repo only. |
+| `APP_PRIVATE_KEY` | secret (`wrangler secret put`) | GitHub App private key, **PKCS#8 PEM**. Signs the App JWT. |
 | `TURNSTILE_SECRET_KEY` | secret (`wrangler secret put`) | Turnstile server secret for siteverify. |
+| `APP_ID` | `wrangler.toml` `[vars]` | GitHub App ID (identifier, not secret). |
+| `INSTALLATION_ID` | `wrangler.toml` `[vars]` | The App's installation id on the repo (identifier). |
 | `REPO_OWNER` | `wrangler.toml` `[vars]` | GitHub org/user (`SimplyThomas`). |
 | `REPO_NAME` | `wrangler.toml` `[vars]` | Repo (`orthodox-saints`). |
 | `ALLOWED_ORIGIN` | `wrangler.toml` `[vars]` | Comma-separated CORS allow-list (cross-origin only). |
@@ -186,8 +224,10 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
 
 ## Security notes
 
-- The PAT is least-privilege (Issues R/W, one repo) and lives only as a Worker
-  secret — never in the form, the client JS, or git.
+- Auth is a least-privilege **GitHub App** (Issues R/W, one repo). Only the
+  App **private key** is secret; it lives solely as a Worker secret — never in
+  the form, the client JS, or git. Requests use ephemeral 1-hour installation
+  tokens minted per invocation, so no long-lived token is ever transmitted.
 - All user text is length-capped, has backticks/control chars stripped, and is
   rendered inside fenced code blocks; `@`/`#` are defanged in the title. So a
   submission can't ping users, fabricate issue refs, or break out of the body.
