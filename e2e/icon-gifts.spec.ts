@@ -1,11 +1,16 @@
 import { test, expect } from "@playwright/test";
 
-// "Giving Icons as Gifts" — the occasion guide. Each occasion tile is itself a
-// native <details> (compact closed, full-width open) and needs no JS; the
-// island's only job is collapsing the recipient picker down to one panel (every
-// panel renders visible so the section stays a readable list with JS off).
+// "Giving Icons as Gifts" — one combined "Finding the right icon" picker: a
+// chip-and-panel widget whose chips span two groups (by occasion / for a
+// person). Every panel renders up-front, so with JS off the section stays a
+// complete readable list; the island collapses it to the pre-selected chip
+// (baptism, the page's centre of gravity). 12 occasions + 13 people = 25.
 
-test("icon-gifts loads with the hero icon corner", async ({ page }) => {
+const PANEL_COUNT = 25;
+
+test("icon-gifts loads with the hero icon corner and the picker", async ({
+  page,
+}) => {
   const resp = await page.goto("./icon-gifts/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".igp h1")).toHaveText("Giving Icons as Gifts");
@@ -23,7 +28,12 @@ test("icon-gifts loads with the hero icon corner", async ({ page }) => {
     ).toBe(true);
   }
 
-  await expect(page.locator(".ig-tile")).toHaveCount(12);
+  // The single picker carries both framings: two labeled chip groups.
+  await expect(page.locator(".ig-who-grouplabel")).toHaveText([
+    "By occasion",
+    "For a person",
+  ]);
+  await expect(page.locator("[data-who-tab]")).toHaveCount(PANEL_COUNT);
 });
 
 // The vendor-permission grant (§9) is conditional on each image linking back to
@@ -40,53 +50,47 @@ test("every permission portrait in the hero links to its vendor icon page", asyn
   ).toHaveCount(4);
 });
 
-test("an occasion tile expands and closes", async ({ page }) => {
-  await page.goto("./icon-gifts/");
-  const tile = page.locator("#occasion-baptism");
-  const body = tile.locator(".ig-tile-body");
-
-  await expect(body).toBeHidden();
-  await tile.locator("summary").click();
-  await expect(body).toBeVisible();
-  // Baptism carries the godparent note — the page's central point of custom.
-  await expect(body).toContainText("The godparent gives the patron icon");
-  // Suggestions that are real records link out; icon subjects stay plain text.
-  await expect(body.locator('a[href$="/saint/OS-0009"]')).toHaveCount(0);
-  await expect(
-    tile.locator('a.ig-icon-name[href$="/guardian-angels"]').first(),
-  ).toBeVisible();
-
-  await tile.locator("summary").click();
-  await expect(body).toBeHidden();
-});
-
-// The tiles share name="occasion", so opening one closes any other — the
-// compact page never balloons to several open occasions at once.
-test("occasion tiles open one at a time", async ({ page }) => {
-  await page.goto("./icon-gifts/");
-  await page.locator("#occasion-birth summary").click();
-  await expect(page.locator("#occasion-birth .ig-tile-body")).toBeVisible();
-  await page.locator("#occasion-marriage summary").click();
-  await expect(page.locator("#occasion-marriage .ig-tile-body")).toBeVisible();
-  await expect(page.locator("#occasion-birth .ig-tile-body")).toBeHidden();
-});
-
-test("the recipient picker shows one panel at a time", async ({ page }) => {
+test("the picker opens on baptism and shows one panel at a time", async ({
+  page,
+}) => {
   await page.goto("./icon-gifts/");
   const panels = page.locator(".ig-who-panel");
-  await expect(panels).toHaveCount(13);
-  // The island collapsed the list to the first recipient.
-  await expect(panels.filter({ visible: true })).toHaveCount(1);
-  await expect(page.locator("#who-child")).toBeVisible();
+  await expect(panels).toHaveCount(PANEL_COUNT);
 
-  await page.locator('[data-who-tab="monastic"]').click();
-  await expect(page.locator("#who-monastic")).toBeVisible();
-  await expect(page.locator("#who-child")).toBeHidden();
+  // The island collapses to the pre-selected key occasion, baptism.
   await expect(panels.filter({ visible: true })).toHaveCount(1);
-  await expect(page.locator('[data-who-tab="monastic"]')).toHaveAttribute(
+  await expect(page.locator("#who-baptism")).toBeVisible();
+  await expect(page.locator('[data-who-tab="baptism"]')).toHaveAttribute(
     "aria-expanded",
     "true",
   );
+  // Baptism carries the godparent note — the page's central point of custom.
+  await expect(page.locator("#who-baptism")).toContainText(
+    "The godparent gives the patron icon",
+  );
+  // Real records link out; icon subjects (Christ) stay plain text.
+  await expect(
+    page.locator('#who-baptism a.ig-icon-name[href$="/guardian-angels"]'),
+  ).toHaveCount(1);
+});
+
+test("selecting chips from either group swaps the single panel", async ({
+  page,
+}) => {
+  await page.goto("./icon-gifts/");
+  const visible = page.locator(".ig-who-panel").filter({ visible: true });
+
+  // An occasion chip.
+  await page.locator('[data-who-tab="marriage"]').click();
+  await expect(page.locator("#who-marriage")).toBeVisible();
+  await expect(page.locator("#who-baptism")).toBeHidden();
+  await expect(visible).toHaveCount(1);
+
+  // A person chip — still only one panel, across both groups.
+  await page.locator('[data-who-tab="monastic"]').click();
+  await expect(page.locator("#who-monastic")).toBeVisible();
+  await expect(page.locator("#who-marriage")).toBeHidden();
+  await expect(visible).toHaveCount(1);
 });
 
 // The vocation buttons carry a facet rather than a frozen saint list, so the
@@ -94,8 +98,8 @@ test("the recipient picker shows one panel at a time", async ({ page }) => {
 // finder rather than landing on an unfiltered page.
 test("a vocation button deep-links into the finder", async ({ page }) => {
   await page.goto("./icon-gifts/");
-  await page.locator("#occasion-vocation summary").click();
-  await page.locator('.ig-voc[href*="theme=physicians"]').click();
+  await page.locator('[data-who-tab="vocation"]').click();
+  await page.locator('#who-vocation .ig-voc[href*="theme=physicians"]').click();
   await expect(page).toHaveURL(/theme=physicians/);
   await expect(
     page.locator('#facets input[data-key="themes"][value="physicians"]'),
@@ -106,7 +110,9 @@ test("a vocation button deep-links into the finder", async ({ page }) => {
 test("group and host suggestions resolve to real records", async ({ page }) => {
   await page.goto("./icon-gifts/");
   // A group profile (the Three Hierarchs) and a heavenly host (Raphael) are
-  // both linkable subjects, served from different id namespaces.
+  // both linkable subjects, served from different id namespaces. Both live in
+  // panels that render up-front (hidden), so the anchors exist regardless of
+  // which chip is selected.
   await expect(page.locator('a[href$="/saint/OS-2933"]').first()).toHaveCount(
     1,
   );
@@ -118,9 +124,9 @@ test("stays a readable list with JavaScript disabled", async ({ browser }) => {
   const page = await ctx.newPage();
   await page.goto("./icon-gifts/");
   await expect(page.locator(".igp h1")).toHaveText("Giving Icons as Gifts");
-  // No island to collapse them: every recipient stays readable.
+  // No island to collapse them: every occasion and person panel stays readable.
   await expect(
     page.locator(".ig-who-panel").filter({ visible: true }),
-  ).toHaveCount(13);
+  ).toHaveCount(PANEL_COUNT);
   await ctx.close();
 });

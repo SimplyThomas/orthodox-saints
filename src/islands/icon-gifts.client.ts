@@ -1,9 +1,10 @@
 /* "Giving Icons as Gifts" interactivity (progressive enhancement).
 
-   The only thing that needs JS is the "Who are you buying for?" picker. The
-   page renders EVERY recipient panel visible, so with JS off the section stays
-   a complete, readable list — this island's first act is to collapse it down to
-   one. The occasion cards use native <details> and need no JS at all. */
+   The only thing that needs JS is the "Finding the right icon" picker — one
+   chip-and-panel widget whose chips span two groups (by occasion, for a
+   person). The page renders EVERY panel visible, so with JS off the section
+   stays a complete, readable list; this island's first act is to collapse it
+   to the one whose chip was pre-selected in the markup. */
 
 const page = document.querySelector<HTMLElement>(".igp");
 if (page) {
@@ -30,7 +31,10 @@ if (page) {
       tab.addEventListener("click", () => select(tab.dataset.whoTab!));
     }
 
-    // Collapse to the first recipient now that the picker works.
-    if (tabs.length) select(tabs[0].dataset.whoTab!);
+    // Collapse to the markup's pre-selected chip (aria-expanded="true"), or the
+    // first chip if none was marked, now that the picker works.
+    const initial =
+      tabs.find((t) => t.getAttribute("aria-expanded") === "true") ?? tabs[0];
+    if (initial) select(initial.dataset.whoTab!);
   }
 }

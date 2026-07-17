@@ -19,7 +19,6 @@ import { saintAvatar } from "../lib/icons";
 import { withBase } from "../lib/format";
 import {
   IG_HERO,
-  IG_INTRO,
   IG_OCCASIONS,
   IG_VOCATIONS,
   IG_TIERS,
@@ -85,6 +84,55 @@ const TIER_LABEL: Record<GiftTier, string> = {
 function iconHref(i: GiftIcon): string | null {
   return resolveGiftRef(i.ref)?.href ?? null;
 }
+
+/* The combined gift picker. Occasions (events) and recipients (people) are two
+   framings of the same advice, so they share one chip-and-panel widget split
+   into two labeled chip groups. Both are normalized to one item shape here so
+   the markup renders a single panel type. `lede` marks the short italic
+   recipient intros apart from the longer occasion prose. */
+interface PickItem {
+  id: string;
+  chip: string;
+  glyph: string;
+  intro: string;
+  lede?: boolean;
+  icons: GiftIcon[];
+  kicker?: string;
+  note?: { title: string; body: string };
+  vocations?: boolean;
+  key?: boolean;
+}
+const PICKER_GROUPS: { label: string; items: PickItem[] }[] = [
+  {
+    label: "By occasion",
+    items: IG_OCCASIONS.map((o) => ({
+      id: o.id,
+      chip: o.title,
+      glyph: o.glyph,
+      kicker: o.kicker,
+      intro: o.intro,
+      icons: o.icons,
+      note: o.note,
+      vocations: o.id === "vocation",
+      key: o.key,
+    })),
+  },
+  {
+    label: "For a person",
+    items: IG_RECIPIENTS.map((r) => ({
+      id: r.id,
+      chip: r.label,
+      glyph: r.glyph,
+      intro: r.intro,
+      lede: true,
+      icons: r.icons,
+    })),
+  },
+];
+const PICKER_ITEMS = PICKER_GROUPS.flatMap((g) => g.items);
+/* Greet visitors with baptism — the page's centre of gravity (the "key"
+   occasion). The island honors this pre-expanded tab; no-JS shows all panels. */
+const DEFAULT_PICK = "baptism";
 ---
 
 <div class="igp">
@@ -117,6 +165,29 @@ function iconHref(i: GiftIcon): string | null {
             ))}
           </ul>
           <span class="ig-shelf" aria-hidden="true" />
+          {
+            /* The grant's condition is that each image links back to its own
+               icon page, so every icon above is named here and linked
+               individually — the vendor is credited once, not four times. */
+            heroCredits.length > 0 && (
+              <p class="ig-credit">
+                {heroAttribution.replace(/^Icon /, "Icons ")} Original icons on{" "}
+                {heroVendor}:{" "}
+                {heroCredits.map((h, n) => (
+                  <>
+                    {n > 0 && <span aria-hidden="true"> · </span>}
+                    <a
+                      href={h.r!.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {h.label}
+                    </a>
+                  </>
+                ))}
+              </p>
+            )
+          }
         </div>
       ) : (
         <div class="dome-bg" aria-hidden="true">
@@ -135,90 +206,71 @@ function iconHref(i: GiftIcon): string | null {
         His saints accompany us through every stage of life.
       </p>
     </div>
-
-    {
-      /* The grant's condition is that each image links back to its own icon
-         page, so every icon above is named here and linked individually — the
-         vendor is credited once rather than repeated four times. */
-      heroCredits.length > 0 && (
-        <p class="ig-credit">
-          {heroAttribution.replace(/^Icon /, "Icons ")} Original icons on{" "}
-          {heroVendor}:{" "}
-          {heroCredits.map((h, n) => (
-            <>
-              {n > 0 && <span aria-hidden="true"> · </span>}
-              <a
-                href={h.r!.imageSource}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {h.label}
-              </a>
-            </>
-          ))}
-        </p>
-      )
-    }
-  </section>
-
-  {/* ============================ INTRO ============================ */}
-  <section class="ig-sec ig-intro-sec">
-    <div class="ig-wrap ig-wrap--narrow">
-      {IG_INTRO.map((p) => <p class="ig-lede-prose">{p}</p>)}
-    </div>
   </section>
 
   {
-    /* ========================== OCCASIONS ==========================
-      Each occasion is itself the <details>: the closed tile is a compact
-      glyph + title + one line; open, it spans the whole grid row so its
-      detail never leaves empty cells beside it. Native <details> — the
-      grid reflows with :has([open]), no JS. */
+    /* ===================== FINDING THE RIGHT ICON =====================
+      One chip-and-panel picker, two labeled chip groups — by occasion and
+      for a person. Both framings share one panel area; every panel renders
+      up-front and the island hides all but the selected one, so with JS off
+      the section stays a complete, readable list. */
   }
-  <section class="ig-sec ig-sec--ivory" id="occasions">
+  <section class="ig-sec ig-sec--ivory" id="find">
     <div class="ig-wrap">
       <div class="ig-sec-head">
-        <div class="eyebrow">Occasions</div>
-        <h2>Which icon, for which moment</h2>
-        <p>Pick a moment to see what is given, and why.</p>
+        <div class="eyebrow">A place to start</div>
+        <h2>Finding the right icon</h2>
+        <p>
+          Choose the occasion or the person &mdash; and see what is usually
+          given, and what is better left to their godparent.
+        </p>
       </div>
 
-      <div class="ig-grid">
+      <div class="ig-who" data-who>
         {
-          IG_OCCASIONS.map((o) => (
-            <details
-              class={`ig-tile${o.key ? " is-key" : ""}`}
-              id={`occasion-${o.id}`}
-              name="occasion"
-            >
-              <summary class="ig-tile-face">
-                <span class="ig-tile-glyph" set:html={glyph(o.glyph, 24)} />
-                <span class="ig-tile-text">
-                  <span class="ig-tile-title">{o.title}</span>
-                  <span class="ig-tile-blurb">{o.blurb}</span>
-                </span>
-                <svg
-                  class="ig-tile-chev"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </summary>
+          PICKER_GROUPS.map((g) => (
+            <div class="ig-who-group">
+              <div class="ig-who-grouplabel">{g.label}</div>
+              <div class="ig-who-tabs" role="list">
+                {g.items.map((it) => (
+                  <button
+                    type="button"
+                    class={`ig-who-tab${it.key ? " is-key" : ""}`}
+                    role="listitem"
+                    data-who-tab={it.id}
+                    aria-expanded={it.id === DEFAULT_PICK ? "true" : "false"}
+                    aria-controls={`who-${it.id}`}
+                  >
+                    <span class="ig-who-glyph" set:html={glyph(it.glyph, 18)} />
+                    {it.chip}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))
+        }
 
-              <div class="ig-tile-body">
-                <p class="ig-prose">{o.intro}</p>
+        <div class="ig-who-panels">
+          {
+            PICKER_ITEMS.map((it) => (
+              <div
+                class="ig-who-panel"
+                id={`who-${it.id}`}
+                data-who-panel={it.id}
+              >
+                {it.kicker && (
+                  <div class="eyebrow ig-who-panel-eb">{it.kicker}</div>
+                )}
+                <h3 class="ig-who-title">{it.chip}</h3>
+                {it.lede ? (
+                  <p class="ig-who-intro">{it.intro}</p>
+                ) : (
+                  <p class="ig-prose ig-who-prose">{it.intro}</p>
+                )}
 
-                {o.icons.length > 0 && (
-                  <ul class="ig-icons">
-                    {o.icons.map((i) => {
+                {it.icons.length > 0 && (
+                  <ul class="ig-icons ig-icons--tight">
+                    {it.icons.map((i) => {
                       const href = iconHref(i);
                       return (
                         <li class="ig-icon">
@@ -244,7 +296,7 @@ function iconHref(i: GiftIcon): string | null {
                   </ul>
                 )}
 
-                {o.id === "vocation" && (
+                {it.vocations && (
                   <div class="ig-vocs">
                     {IG_VOCATIONS.map((v) => {
                       const r = resolveGiftRef(v.ref);
@@ -258,96 +310,16 @@ function iconHref(i: GiftIcon): string | null {
                   </div>
                 )}
 
-                {o.note && (
+                {it.note && (
                   <aside class="ig-note">
                     <div class="corner tl" aria-hidden="true" />
                     <div class="corner tr" aria-hidden="true" />
                     <div class="corner bl" aria-hidden="true" />
                     <div class="corner br" aria-hidden="true" />
-                    <h4 class="ig-note-title">{o.note.title}</h4>
-                    <p class="ig-note-body">{o.note.body}</p>
+                    <h4 class="ig-note-title">{it.note.title}</h4>
+                    <p class="ig-note-body">{it.note.body}</p>
                   </aside>
                 )}
-              </div>
-            </details>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  {
-    /* ====================== WHO ARE YOU BUYING FOR ======================
-      Moved up to sit beside the occasions: the two ways in (by moment, by
-      person) are the approachable entry points, ahead of the explainer. */
-  }
-  <section class="ig-sec" id="who">
-    <div class="ig-wrap">
-      <div class="ig-sec-head">
-        <div class="eyebrow">A place to start</div>
-        <h2>Who are you buying for?</h2>
-        <p>
-          Choose the person and see what is usually given &mdash; and what is
-          better left to their godparent.
-        </p>
-      </div>
-
-      <div class="ig-who" data-who>
-        <div class="ig-who-tabs" role="list">
-          {
-            IG_RECIPIENTS.map((r, n) => (
-              <button
-                type="button"
-                class="ig-who-tab"
-                role="listitem"
-                data-who-tab={r.id}
-                aria-expanded={n === 0 ? "true" : "false"}
-                aria-controls={`who-${r.id}`}
-              >
-                <span class="ig-who-glyph" set:html={glyph(r.glyph, 18)} />
-                {r.label}
-              </button>
-            ))
-          }
-        </div>
-
-        {
-          /* Every panel renders visible; the island hides all but one. Without
-            JS this stays a complete, readable list rather than an empty box. */
-        }
-        <div class="ig-who-panels">
-          {
-            IG_RECIPIENTS.map((r) => (
-              <div
-                class="ig-who-panel"
-                id={`who-${r.id}`}
-                data-who-panel={r.id}
-              >
-                <h3 class="ig-who-title">{r.label}</h3>
-                <p class="ig-who-intro">{r.intro}</p>
-                <ul class="ig-icons ig-icons--tight">
-                  {r.icons.map((i) => {
-                    const href = iconHref(i);
-                    return (
-                      <li class="ig-icon">
-                        <div class="ig-icon-head">
-                          {href ? (
-                            <a class="ig-icon-name" href={href}>
-                              {i.name}
-                            </a>
-                          ) : (
-                            <span class="ig-icon-name is-plain">{i.name}</span>
-                          )}
-                          <span class={`ig-tier is-${i.tier}`}>
-                            {TIER_LABEL[i.tier]}
-                          </span>
-                        </div>
-                        <p class="ig-icon-why">{i.why}</p>
-                        {i.where && <p class="ig-icon-where">{i.where}</p>}
-                      </li>
-                    );
-                  })}
-                </ul>
               </div>
             ))
           }
@@ -426,10 +398,6 @@ function iconHref(i: GiftIcon): string | null {
   .ig-sec {
     padding: clamp(40px, 5.5vw, 60px) 0;
   }
-  .ig-intro-sec {
-    padding-top: clamp(28px, 4vw, 44px);
-    padding-bottom: clamp(28px, 4vw, 44px);
-  }
   .ig-sec--ivory {
     background: var(--ivory-2);
     border-top: 1px solid var(--line);
@@ -474,16 +442,6 @@ function iconHref(i: GiftIcon): string | null {
   .ig-prose:last-child {
     margin-bottom: 0;
   }
-  /* the single-paragraph intro, set a touch larger and centered as a lede */
-  .ig-lede-prose {
-    font-size: clamp(17px, 2vw, 19px);
-    line-height: 1.7;
-    color: var(--ink);
-    text-align: center;
-    text-wrap: pretty;
-    margin: 0;
-  }
-
   /* ---------------- hero icon corner ---------------- */
   .ig-hero {
     padding-bottom: 34px;
@@ -557,9 +515,9 @@ function iconHref(i: GiftIcon): string | null {
   .ig-credit {
     position: relative;
     max-width: 760px;
-    margin: 26px auto 0;
-    font-size: 11.5px;
-    line-height: 1.6;
+    margin: 12px auto 0;
+    font-size: 10px;
+    line-height: 1.55;
     color: var(--ink-soft);
     text-align: center;
   }
@@ -570,99 +528,6 @@ function iconHref(i: GiftIcon): string | null {
     color: var(--gold-deep);
   }
 
-  /* ---------------- occasion tiles ----------------
-     Each tile is a <details>. Closed, it is a compact glyph + title + line.
-     Open, it spans the full grid row (grid-column: 1/-1) so the detail never
-     leaves empty cells beside it — the grid reflows with no JS. */
-  .ig-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
-    gap: 12px;
-    align-items: start;
-  }
-  .ig-tile {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    box-shadow: var(--shadow-soft);
-    transition:
-      border-color 0.15s,
-      box-shadow 0.15s,
-      transform 0.1s;
-  }
-  .ig-tile:not([open]):hover {
-    border-color: var(--gold-deep);
-    box-shadow: var(--shadow-card);
-    transform: translateY(-1px);
-  }
-  .ig-tile.is-key {
-    border-color: var(--line-gold);
-    background: linear-gradient(180deg, var(--paper), var(--ivory));
-  }
-  /* an open tile takes the whole row and stands out from the grid */
-  .ig-tile[open] {
-    grid-column: 1 / -1;
-    border-color: var(--gold-deep);
-    box-shadow: var(--shadow-card);
-  }
-
-  .ig-tile-face {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    padding: 16px 18px;
-    cursor: pointer;
-    list-style: none;
-  }
-  .ig-tile-face::-webkit-details-marker {
-    display: none;
-  }
-  .ig-tile-glyph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    flex: 0 0 auto;
-    border-radius: 50%;
-    background: var(--ivory-2);
-    border: 1px solid var(--line-gold);
-  }
-  .ig-tile-text {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-  .ig-tile-title {
-    display: block;
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 19px;
-    line-height: 1.15;
-    color: var(--byz-deep);
-  }
-  .ig-tile-blurb {
-    display: block;
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--ink-soft);
-    margin-top: 3px;
-  }
-  .ig-tile-chev {
-    flex: 0 0 auto;
-    color: var(--celest);
-    transition: transform 0.2s ease;
-  }
-  .ig-tile[open] .ig-tile-chev {
-    transform: rotate(180deg);
-  }
-  .ig-tile-face:hover .ig-tile-title {
-    color: var(--byz);
-  }
-
-  .ig-tile-body {
-    padding: 4px clamp(18px, 3vw, 30px) 26px;
-    animation: igOpen 0.34s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-  }
   @keyframes igOpen {
     from {
       opacity: 0;
@@ -882,13 +747,27 @@ function iconHref(i: GiftIcon): string | null {
     transform: rotate(45deg);
   }
 
-  /* ---------------- who are you buying for ---------------- */
+  /* ---------------- finding the right icon (combined picker) ----------------
+     Two labeled chip groups (by occasion / for a person) feed one panel area.
+     Every panel renders up-front; the island hides all but the selected one. */
+  .ig-who-group {
+    margin-bottom: 16px;
+  }
+  .ig-who-grouplabel {
+    text-align: center;
+    font-family: var(--text);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+  }
   .ig-who-tabs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 28px;
   }
   .ig-who-tab {
     display: inline-flex;
@@ -908,6 +787,11 @@ function iconHref(i: GiftIcon): string | null {
     border-color: var(--gold);
     color: var(--gold-deep);
   }
+  /* the "key" occasion (baptism) carries a gold outline when not selected */
+  .ig-who-tab.is-key {
+    border-color: var(--gold-deep);
+    color: var(--gold-deep);
+  }
   .ig-who-tab[aria-expanded="true"] {
     background: var(--byz);
     border-color: var(--byz);
@@ -923,6 +807,7 @@ function iconHref(i: GiftIcon): string | null {
   .ig-who-panels {
     display: grid;
     gap: 18px;
+    margin-top: 26px;
   }
   .ig-who-panel {
     background: var(--paper);
@@ -931,18 +816,26 @@ function iconHref(i: GiftIcon): string | null {
     padding: 26px clamp(20px, 3vw, 30px);
     animation: igOpen 0.3s cubic-bezier(0.2, 0.7, 0.3, 1) both;
   }
+  .ig-who-panel-eb {
+    margin-bottom: 8px;
+  }
   .ig-who-title {
     font-family: var(--serif);
     font-size: 27px;
     color: var(--byz-deep);
-    margin: 0 0 6px;
+    margin: 0 0 8px;
   }
+  /* short italic lede (recipient panels) */
   .ig-who-intro {
     font-family: var(--serif);
     font-style: italic;
     font-size: 17px;
     line-height: 1.5;
     color: var(--celest);
+    margin: 0;
+  }
+  /* longer prose intro (occasion panels) */
+  .ig-who-prose {
     margin: 0;
   }
   .ig-who-panel .ig-icons {
@@ -986,10 +879,6 @@ function iconHref(i: GiftIcon): string | null {
 
   /* ---------------- responsive ---------------- */
   @media (max-width: 560px) {
-    /* single-column tiles read better than cramped two-across on a phone */
-    .ig-grid {
-      grid-template-columns: 1fr;
-    }
     .ig-frame-img {
       width: 48px;
       height: 60px;
@@ -1001,11 +890,9 @@ function iconHref(i: GiftIcon): string | null {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .ig-tile-body,
     .ig-who-panel {
       animation: none;
     }
-    .ig-tile:not([open]):hover,
     .ig-voc:hover,
     .ig-corner-link:hover .ig-frame {
       transform: none;
