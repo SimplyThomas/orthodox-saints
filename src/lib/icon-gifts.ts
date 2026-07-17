@@ -114,18 +114,16 @@ export interface GiftOccasion {
   glyph: string;
   kicker: string;
   title: string;
-  /** The card face: what a visitor reads before expanding. */
+  /** The closed tile's one line. Keep it to one line — the grid depends on it. */
   blurb: string;
-  /** Baptism is the page's centre of gravity; it gets a wider card. */
-  large?: boolean;
+  /** Marks the page's centre of gravity (baptism) with a gold tile, without
+   *  breaking the uniform grid. */
+  key?: boolean;
+  /** The expanded body. Absorbs why the icon is given, when it is presented,
+   *  and where it is kept — these were once three separate blocks per occasion,
+   *  which is what made the expanded page ~25 screens. */
   intro: string;
   icons: GiftIcon[];
-  /** Why these are given. */
-  why: string;
-  /** When they are usually presented. */
-  when: string;
-  /** Where they are commonly kept afterward. */
-  where: string;
   /** A pulled-aside point of custom (e.g. the godparent's role). */
   note?: { title: string; body: string };
 }
@@ -180,9 +178,7 @@ export const IG_HERO: HeroIcon[] = [
    ===================================================================== */
 
 export const IG_INTRO: string[] = [
-  "An icon is not decoration, and it is not a souvenir of someone else's faith. The Church calls an icon a window — painted so that the one who prays looks through it rather than at it, and the honor offered before it does not stop at the wood and pigment but passes to the person depicted. That is why an icon given as a gift is unlike any other gift: it is not an object to be admired but a companion to be prayed with.",
-  "So when Orthodox Christians mark a milestone with an icon, they are doing something more particular than decorating a room. They are saying that Christ and His saints are present at this moment — at this birth, this baptism, this marriage, this grave — and that the person receiving it does not stand alone. The icon outlasts the occasion. Long after the cards are recycled and the flowers are gone, it is still on the wall, still being prayed before, still gathering the household to itself.",
-  "Customs vary. What a Serbian family does at a Slava, a Greek family does on a name day, and a Russian family does when blessing a new home are not identical, and none of them is the single Orthodox way. But a few practices run right through the Orthodox world: that a newly baptized Christian receives the icon of the saint whose name they bear, and that a home begins with Christ and the Theotokos. Where a custom belongs to one tradition rather than all, this page says so.",
+  "An icon is not decoration and not a souvenir of someone else's faith. The Church calls it a window — the honor offered before it passes to the person depicted — so an icon given as a gift is a companion to be prayed with, not an object to be admired. It outlasts the occasion: long after the cards and flowers are gone it is still on the wall, still gathering the household to itself. Customs vary from one tradition to the next, and this page says so where they do; but a few run right through Orthodoxy, and this is where to start.",
 ];
 
 /* =====================================================================
@@ -196,9 +192,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "A child is born",
     title: "Birth & a New Baby",
     blurb:
-      "The first icons a child will ever see, given while they are still too small to know it — and hung low enough that one day they will.",
+      "The first icons a child sees — hung low enough that one day they will.",
     intro:
-      "A child is usually baptized some weeks after birth, so the icons given at a birth are given to the household as much as to the infant. They are the furnishing of the room the child will wake up in, and the beginning of a habit: that the first face you learn is not on a screen but on a wall, and it is looking at you kindly.",
+      "A child is usually baptized some weeks after birth, so these icons are given to the household as much as to the infant — the furnishing of the room the child will wake up in. Most new parents have no icons for a nursery and no time to find any, which makes this a practical gift as well as a prayerful one. Usually given in the weeks after the birth, or at the churching on the fortieth day, and hung low, at the height of a child who will soon be standing.",
     icons: [
       {
         name: "The Theotokos with the Christ Child",
@@ -228,10 +224,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "modern",
       },
     ],
-    why: "Because a household is being rearranged around a new person, and the icons are how an Orthodox family says who that person belongs to. The gifts are practical too: most new parents have no icons for a nursery and no time to find any.",
-    when: "Usually in the weeks after the birth, when visitors first come — and often at the churching of the mother and child on the fortieth day, which is the first time many families bring the baby to the temple.",
-    where:
-      "In the child's room, hung low, at the height of a child who will soon be standing. Many families keep the Theotokos by the crib and the Guardian Angel above it.",
   },
 
   {
@@ -240,10 +232,10 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "Born of water and the Spirit",
     title: "Baptism & Chrismation",
     blurb:
-      "The one occasion with a clear answer. The traditional gift is the icon of the newly baptized person's patron saint — and by long custom the godparent is the one who gives it.",
-    large: true,
+      "The one occasion with a clear answer: the patron saint's icon, given by the godparent.",
+    key: true,
     intro:
-      "If you take one thing from this page, take this: the most traditional Orthodox baptism gift is an icon of the patron saint of the person being baptized — the saint whose name they receive at the font. This is not a regional custom or a nice idea. It runs through the Greek, Russian, Serbian, Romanian, Antiochian, Georgian, and Bulgarian traditions alike, and it is the gift a godparent is expected to bring. Everything else on this list is secondary to it. At a baptism, the patron saint icon is a gift, but it is also nearly a duty, and it is the one an Orthodox family will notice if it is missing.",
+      "If you take one thing from this page, take this: the most traditional Orthodox baptism gift is an icon of the patron saint of the person being baptized — the saint whose name they receive at the font. Not a regional custom or a nice idea; it runs through the Greek, Russian, Serbian, Romanian, Antiochian, Georgian, and Bulgarian traditions alike, and it is the gift a godparent is expected to bring. Everything else here is secondary. It is presented at the baptism or the meal after, and it is the one gift an Orthodox family will notice if it is missing.",
     icons: [
       {
         name: "The patron saint of the newly baptized",
@@ -288,10 +280,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "modern",
       },
     ],
-    why: "Because baptism is the day a person receives a name, a saint, and a place in the Church. The icon of the patron saint is the tangible form of all three. It is also the one gift that will still be doing its work in forty years.",
-    when: "Presented at the baptism itself, often immediately afterward, or at the meal that follows. In many parishes the godparent brings the icon to the church and it is placed on the analogion or blessed during the service.",
-    where:
-      "In the newly baptized person's own room, or in the family icon corner if they are an infant — and, in many households, carried with them when they eventually leave home. An adult convert should be gently told what to do with it: an icon that stays in its box is a gift that did not arrive.",
     note: {
       title: "The godparent gives the patron icon",
       body: "Across most Orthodox traditions the sponsor — the godparent — presents the icon of the patron saint, along with the baptismal cross and often the baptismal garment. If you are not the godparent, it is worth a quiet word with them before buying: the patron icon is theirs to give, and a duplicate is an awkward gift. Choose something else from this list instead, and let the godparent do their job.",
@@ -303,10 +291,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     glyph: "candle",
     kicker: "The feast of your saint",
     title: "Name Day",
-    blurb:
-      "In much of the Orthodox world the name day outranks the birthday — a birthday marks when you were born, a name day marks whose you are.",
+    blurb: "In much of the Orthodox world the name day outranks the birthday.",
     intro:
-      "A name day is the feast of the saint whose name you bear. In Greece, Serbia, Russia, Romania, Bulgaria, and much of the Orthodox world it is celebrated more warmly than a birthday, and for a reason worth explaining to converts: a birthday commemorates an accident of biology, while a name day commemorates a person in heaven who is praying for you. The greeting in Greek is chrónia pollá — many years. The gift, if there is one, deepens the connection to that saint.",
+      "A name day is the feast of the saint whose name you bear. In Greece, Serbia, Russia, Romania, Bulgaria, and much of the Orthodox world it is kept more warmly than a birthday, and for a reason worth explaining to converts: a birthday commemorates an accident of biology, a name day a person in heaven who is praying for you. The greeting in Greek is chrónia pollá — many years. The gift, given on the saint's feast, deepens the connection to that saint, and often becomes the personal icon someone keeps closest.",
     icons: [
       {
         name: "An icon of the patron saint",
@@ -346,10 +333,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "modern",
       },
     ],
-    why: "Because the name day is the one day of the year that belongs to a person and their saint together. The gift says: I know which saint is yours, and I paid attention.",
-    when: "On the saint's feast day. In many households the celebrant keeps open house — visitors come without invitation and are fed, which is itself the custom.",
-    where:
-      "Wherever the recipient prays. A name-day icon often becomes the personal icon someone keeps closest, as distinct from the family icons in the corner.",
     note: {
       title: "Find the feast before you buy",
       body: "Two saints often share a name, and they rarely share a day — and the saint someone actually keeps is a matter of family and parish custom, not of guessing. Ask, or look the name up: getting the wrong John is a small thing, but getting the right one is a real courtesy.",
@@ -362,9 +345,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "A new household",
     title: "Marriage",
     blurb:
-      "A wedding does not just join two people; it starts a household. The icons given at a marriage are the first icons of a home that does not exist yet.",
+      "A wedding starts a household — these are the first icons of a home that doesn't exist yet.",
     intro:
-      "The Orthodox marriage service crowns a bride and groom as the founders of something new — a small church. So the icons given at a wedding are not ornaments for a couple; they are the furnishing of a household's prayer. In many traditions the couple is blessed with a pair of icons, Christ and the Theotokos, and those two icons then become the centre of the icon corner in the home they are about to make. It is the most consequential gift at the wedding and it costs less than the flowers.",
+      "The Orthodox marriage service crowns a bride and groom as the founders of something new — a small church. So the icons given at a wedding are not ornaments for a couple; they are the furnishing of a household's prayer. In many traditions the couple is blessed with a pair, Christ and the Theotokos, which then becomes the centre of the icon corner in the home they are about to make — usually the two icons a family points to when they say where they started. The most consequential gift at the wedding, and it costs less than the flowers.",
     icons: [
       {
         name: "Christ Pantocrator",
@@ -408,10 +391,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         ref: { kind: "saint", id: "OS-1527" },
       },
     ],
-    why: "Because the couple is about to have a home with bare walls. Nearly everything else they are given at a wedding is for the house; the icons are for the household.",
-    when: "At the betrothal, at the wedding itself, or at the reception. In Russian practice the parents traditionally bless the couple with the pair of icons — a moment worth asking about before buying a duplicate.",
-    where:
-      "In the icon corner of the new home, at its centre. These are usually the two icons a family points to when they say where they started.",
     note: {
       title: "The wedding pair: Christ and the Theotokos",
       body: "The two icons the couple is blessed with are the seed of everything else. Every icon the family acquires over the next fifty years — patrons, feasts, saints picked up on pilgrimages — arranges itself around this pair. That is the argument for spending the money here rather than spreading it across several smaller icons: buy one good pair, matched, and let the corner grow around it.",
@@ -423,10 +402,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     glyph: "house",
     kicker: "A house becomes a home",
     title: "Housewarming",
-    blurb:
-      "An Orthodox home is not blessed by its furniture. Icons are how a set of rooms becomes a household — and traditionally a priest comes to bless it.",
+    blurb: "Icons are how a set of rooms becomes an Orthodox household.",
     intro:
-      "When Orthodox Christians move, the first question is not where the sofa goes but where the icon corner goes — traditionally on an eastern wall, since we pray toward the east. A house is normally blessed by the parish priest with holy water, and the icons are what the blessing gathers around. So icons at a housewarming are more than a nice gesture: they are the thing the new home is organized around.",
+      "When Orthodox Christians move, the first question is not where the sofa goes but where the icon corner goes — traditionally on an eastern wall, since we pray toward the east. A house is normally blessed by the parish priest with holy water, and the icons are what the blessing gathers around, so they are best given before the blessing, while the walls are still bare. More than a nice gesture: they are the thing the new home is organized around.",
     icons: [
       {
         name: "Christ Pantocrator",
@@ -463,10 +441,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         where: "Serbian (the Slava icon) and Slavic practice.",
       },
     ],
-    why: "Because a home without icons is just an address. Giving them at a move is giving the household its centre before the boxes are unpacked.",
-    when: "At the housewarming, or better, before the house blessing — so the icons are up when the priest comes.",
-    where:
-      "In the icon corner, traditionally on an eastern wall. If the layout makes east impossible, an honorable place is enough; the east wall is a beautiful custom, not a rule.",
   },
 
   {
@@ -475,9 +449,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "Wisdom & vocation",
     title: "Graduation",
     blurb:
-      "Not an ancient Orthodox occasion — but a real threshold, and one the Church has plenty to say about.",
+      "Not an ancient occasion — but a real threshold the Church has much to say about.",
     intro:
-      "Be clear about this one: graduation is a modern civic milestone, not a feast of the Church, and there is no ancient Orthodox custom of giving icons for it. What is ancient is the Church's concern with wisdom — with the difference between knowing a great deal and knowing what to do — and with the moment a young person becomes responsible for their own prayer. A graduation icon is a modern gift addressing a real transition, and it is best given with that honesty rather than dressed up as a tradition.",
+      "Be clear about this one: graduation is a modern civic milestone, not a feast of the Church, and there is no ancient custom of giving icons for it. What is ancient is the Church's concern with wisdom — the difference between knowing a great deal and knowing what to do — and the moment a young person becomes responsible for their own prayer. A graduation icon is a modern gift for a real transition, best given with that honesty rather than dressed up as a tradition, and best chosen small and durable enough to survive a dorm room.",
     icons: [
       {
         name: "The patron saint",
@@ -512,10 +486,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         ref: { kind: "saint", id: "OS-0022" },
       },
     ],
-    why: "Because a graduate is being handed their own life, and an icon is a way of saying that the point of an education is not a salary. It also marks the moment when someone's prayer stops being their parents' responsibility.",
-    when: "At the graduation, or at the name day nearest to it — which quietly puts a modern milestone back on the Church's calendar.",
-    where:
-      "Wherever they are going: a dorm room, a first apartment, a desk. Choose something small and durable that survives being moved five times in six years.",
   },
 
   {
@@ -524,14 +494,10 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "Work as a calling",
     title: "Professional & Vocational Gifts",
     blurb:
-      "Almost every trade has a saint who practiced it. Rather than list them here, these buttons search the database for saints of each calling.",
+      "Almost every trade has a saint who practiced it. These buttons search the database.",
     intro:
-      "The saints were not professional religious. They were physicians, soldiers, farmers, shepherds, merchants, judges, hymn-writers, and craftsmen, and the Church remembers what they did for a living because the work itself was part of how they were saved. So an icon given to mark a new job, a promotion, an ordination into a trade, or a retirement is a way of saying that the work is not separate from the faith. These buttons run a live search of the database rather than repeating a list that would go stale — every saint they find is one whose recorded life supports the vocation.",
+      "The saints were not professional religious. They were physicians, soldiers, farmers, shepherds, merchants, judges, hymn-writers, and craftsmen, and the Church remembers what they did for a living because the work itself was part of how they were saved. So an icon for a new job, a promotion, or a retirement says the work is not separate from the faith. The buttons below run a live search of the database rather than repeating a list that would go stale — every saint they find is one whose recorded life supports the vocation.",
     icons: [],
-    why: "Because someone who spends most of their waking life at a bench, a bedside, or a patrol car should know that a saint has stood where they stand.",
-    when: "A first job, a qualification, a retirement, or the name day of the saint of that trade.",
-    where:
-      "At the workplace, where custom and the workplace allow — a desk, a locker, a toolbox, a cab. Small icons exist precisely for this.",
   },
 
   {
@@ -540,9 +506,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "God with us",
     title: "Christmas",
     blurb:
-      "The Nativity is the obvious icon and the one most households lack — they have the ornaments but not the icon of the thing itself.",
+      "The Nativity — the icon most households lack. They have the ornaments, not the icon.",
     intro:
-      "The Nativity of Christ is preceded by a forty-day fast and is a feast of the Incarnation rather than a festival of gift-giving; the presents are a custom that has grown around it, not the point of it. Where gifts are exchanged, an icon is a way of keeping the feast about its subject. Note that the timing of gifts varies: in Greek tradition they are as often associated with St Basil on January 1 as with December 25.",
+      "The Nativity of Christ is preceded by a forty-day fast and is a feast of the Incarnation rather than a festival of gift-giving; the presents are a custom that has grown around it, not the point of it. Where gifts are exchanged, an icon keeps the feast about its subject. Timing varies: in Greek tradition gifts attach as often to St Basil on January 1 as to December 25, or run through the twelve days to Theophany.",
     icons: [
       {
         name: "The Nativity of Christ",
@@ -570,10 +536,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "modern",
       },
     ],
-    why: "Because the icon of the Nativity says what the season is about more economically than anything else you could wrap.",
-    when: "At Christmas, or on January 1 where gifts are given on St Basil's day, or through the twelve days to Theophany.",
-    where:
-      "On the icon corner or a feast-day stand for the season, then stored with the other feast icons — or hung permanently, which is just as proper.",
   },
 
   {
@@ -582,9 +544,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "The Feast of Feasts",
     title: "Pascha",
     blurb:
-      "The traditional Paschal gift is a red egg, not an icon. But the icon of the Resurrection is the one every Orthodox home should eventually own.",
+      "The traditional gift is a red egg. But every home should own the icon of the Resurrection.",
     intro:
-      "Pascha is not a gift-giving feast in the way Christmas has become; the traditional exchange is the red egg and the Paschal greeting — Christ is risen! Indeed He is risen! An icon given at Pascha is therefore a modern extension of the custom rather than the custom itself. That said, the icon of the Resurrection is the central icon of the Christian faith, and a household that does not have one is missing the point of the whole calendar.",
+      "Pascha is not a gift-giving feast the way Christmas has become; the traditional exchange is the red egg and the Paschal greeting — Christ is risen! Indeed He is risen! An icon given at Pascha is a modern extension of the custom rather than the custom itself. That said, the icon of the Resurrection is the central icon of the Christian faith and belongs in every icon corner permanently, not seasonally — a household without one is missing the point of the whole calendar.",
     icons: [
       {
         name: "The Resurrection (the Descent into Hades)",
@@ -603,10 +565,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "traditional",
       },
     ],
-    why: "Because everything else in the Church's year is arranged around this feast, and the icon of the Descent into Hades is the one image that explains why.",
-    when: "At Pascha, or through Bright Week. For an adult convert baptized at Pascha, this doubles as the baptism gift.",
-    where:
-      "The Resurrection belongs in the icon corner permanently, not seasonally. It is not a decoration for the season; it is the thing the season is about.",
   },
 
   {
@@ -615,9 +573,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "Healing of soul and body",
     title: "Illness & Recovery",
     blurb:
-      "The unmercenary physicians — saints who were doctors and took no payment. Given to the sick, and to those who care for them.",
+      "The unmercenary physicians — saints who were doctors and took no payment.",
     intro:
-      "The Church has never treated prayer and medicine as rivals. Several of her most loved saints were physicians by trade, and they are called the Anargyroi — the unmercenaries, the silverless — because they refused payment for their care. An icon given to someone who is ill is not an alternative to treatment and not a promise of a cure. It is a way of putting a face to the prayer of a household that has run out of things it can do, and of praying for what the Church actually asks for: healing of soul and body, in that order.",
+      "The Church has never treated prayer and medicine as rivals. Several of her most loved saints were physicians by trade, and they are called the Anargyroi — the unmercenaries, the silverless — because they refused payment for their care. An icon given to someone ill is not an alternative to treatment and not a promise of a cure; it puts a face to the prayer of a household that has run out of things it can do, and asks for what the Church actually asks — healing of soul and body, in that order. Give it, and let the person keep their doctor.",
     icons: [
       {
         name: "St Panteleimon",
@@ -657,10 +615,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         ref: { kind: "saint", id: "OS-0046" },
       },
     ],
-    why: "Because illness makes a household helpless, and an icon is something to do — a place to stand, a lamp to light, a name to say. It also tells the sick person they are being prayed for by name.",
-    when: "At the start of a long illness, before a surgery, or during a recovery. Many families ask their priest for the Sacrament of Holy Unction, and keep the icon by the bed through it.",
-    where:
-      "Where the sick person can see it from where they lie — which usually means low, and closer than feels natural.",
     note: {
       title: "A word on what an icon is not",
       body: "An icon is not a charm and prayer is not a treatment plan. The Church prays for healing of soul and body and leaves the outcome to God, and the same tradition that gave us the unmercenary physicians also gave us saints who were physicians precisely because medicine is good. Give the icon, and let the person keep their doctor.",
@@ -673,9 +627,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "The hope of the Resurrection",
     title: "Comfort & Grief",
     blurb:
-      "For a household after a death. The Orthodox answer to grief is not consolation but the Resurrection — and there is an icon of it.",
+      "The Orthodox answer to grief is not consolation but the Resurrection — and there is an icon of it.",
     intro:
-      "Orthodox Christianity does not meet death with reassurance that it is natural or a part of life. It calls death an enemy and an outrage, and then says it has been defeated. That is a harder and better thing to give a grieving person than sympathy, and the icons given after a death carry it. The Church also keeps praying for the departed — at the funeral, at the memorials on the third, ninth, and fortieth days, and at the Saturdays of Souls — so an icon given to the bereaved is a gift with a practice attached to it.",
+      "Orthodox Christianity does not meet death with reassurance that it is natural or a part of life. It calls death an enemy and an outrage, and then says it has been defeated — a harder and better thing to give a grieving person than sympathy. The Church keeps praying for the departed at the memorials on the third, ninth, and fortieth days, so an icon given to the bereaved is a gift with a practice attached. There is no hurry: the fortieth day is a kinder time to give one than the third, when the household is drowning in casseroles.",
     icons: [
       {
         name: "The Resurrection (the Descent into Hades)",
@@ -706,10 +660,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         tier: "regional",
       },
     ],
-    why: "Because the bereaved are usually given flowers, which die, and food, which is eaten. An icon is still there at the fortieth day, and at the first anniversary, when everyone else has moved on and the grief has not.",
-    when: "After the funeral rather than at it, and often around the memorials on the third, ninth, or fortieth day. There is no hurry; the fortieth day is a kinder time to give a gift than the third.",
-    where:
-      "In the icon corner, or wherever the household has been praying for the departed.",
   },
 
   {
@@ -718,9 +668,9 @@ export const IG_OCCASIONS: GiftOccasion[] = [
     kicker: "Set apart for service",
     title: "Ordination & Monastic Profession",
     blurb:
-      "For a new deacon, priest, or monastic — the day a person's life stops being their own.",
+      "For a new deacon, priest, or monastic — the day a life stops being one's own.",
     intro:
-      "Ordination and monastic tonsure are not promotions. Both are a handing-over of a life, and both are traditionally marked by the community that has been formed by the person and is now sending them. Gifts at an ordination tend toward the practical and the liturgical, and an icon given here is usually one that will be prayed before daily for the next forty years — so it is worth choosing something that will bear that much looking at.",
+      "Ordination and monastic tonsure are not promotions. Both are a handing-over of a life, marked by the community that formed the person and is now sending them. Gifts here tend toward the practical and the liturgical, and an icon given at an ordination or tonsure is usually one that will be prayed before daily for the next forty years — so choose something that will bear that much looking at, for the cell, the office, or the altar where the daily prayers are actually said.",
     icons: [
       {
         name: "Christ the High Priest",
@@ -758,10 +708,6 @@ export const IG_OCCASIONS: GiftOccasion[] = [
         ref: { kind: "page", href: "quiz" },
       },
     ],
-    why: "Because the person is being given away, and the community that raised them marks it. For a monastic especially, the icons they are given are close to the only possessions they will keep.",
-    when: "At the ordination or tonsure, or at the meal afterward. For a priest, the first Liturgy he serves is also a common moment.",
-    where:
-      "In the cell, the office, or the altar — wherever the daily prayers are actually said.",
     note: {
       title: "Ask before buying for a monastic",
       body: "Monastics own little by design, and in many monasteries what a brother or sister may keep is the abbot's or abbess's decision rather than theirs. A word to the monastery first turns a well-meant gift into a welcome one — and they will usually tell you plainly what is needed, which is often not an icon at all.",
@@ -884,7 +830,6 @@ export interface GiftTierPanel {
   tier: GiftTier;
   label: string;
   lede: string;
-  body: string;
   examples: string[];
 }
 
@@ -892,41 +837,34 @@ export const IG_TIERS: GiftTierPanel[] = [
   {
     tier: "traditional",
     label: "Most Traditional",
-    lede: "Practices found across the Orthodox world",
-    body: "These run through the Greek, Slavic, Antiochian, Romanian, and Georgian traditions alike. They are not rules — the Church legislates very little about gifts — but they are what Orthodox Christians everywhere actually do, and an Orthodox family will notice if they are missing.",
+    lede: "What Orthodox Christians everywhere actually do — Greek, Slavic, Antiochian, Romanian, Georgian alike.",
     examples: [
       "The patron saint icon given at baptism, by the godparent",
       "Christ and the Theotokos as the first two icons of a home",
       "The pair of wedding icons the couple is blessed with",
       "The Resurrection kept in the corner all year, not seasonally",
-      "The unmercenary physicians invoked in illness",
     ],
   },
   {
     tier: "regional",
     label: "Common Regional Customs",
-    lede: "Widespread — but in some places, not all",
-    body: 'These are genuinely traditional and genuinely local. They are worth knowing precisely because they are easy to mistake for universal Orthodoxy — and a convert who is told a Serbian custom is simply "what Orthodox do" ends up confused when they visit a Greek parish.',
+    lede: "Genuinely traditional, genuinely local — and easy to mistake for universal Orthodoxy.",
     examples: [
       "The Slava icon, kept where every visitor sees it — Serbian",
-      "The krasny ugol, the beautiful corner, in the most honored corner of the room — Russian",
-      "The name day celebrated above the birthday — Greek and Slavic",
-      "Gifts given on St Basil's day, January 1, rather than at Christmas — Greek",
-      "Icons draped with an embroidered cloth — Romanian",
+      "The krasny ugol, the beautiful corner — Russian",
+      "The name day celebrated above the birthday — Greek & Slavic",
       "January 30, the Three Hierarchs, kept as the feast of education — Greek",
     ],
   },
   {
     tier: "modern",
     label: "Modern Suggestions",
-    lede: "Sensible ideas, but not ancient customs",
-    body: "These are recent, and they are fine — the Church is alive and customs are still forming. But they are offered here as good ideas rather than as tradition, because calling a modern convenience an ancient custom is how genuine tradition gets diluted.",
+    lede: "Good ideas, offered as ideas — calling a modern convenience an ancient custom is how tradition gets diluted.",
     examples: [
-      "Icons given at a graduation, which is a civic milestone and not a feast",
-      "Icons given as Pascha presents — the traditional Paschal gift is a red egg",
-      "Illustrated children's prayer books and Orthodox board books",
+      "Icons given at a graduation, a civic milestone and not a feast",
+      "Icons as Pascha presents — the traditional gift is a red egg",
+      "Illustrated children's prayer books and board books",
       "The icon of a child's future patron, chosen before the name is settled",
-      "A rotating feast-day icon on a small home analogion",
     ],
   },
 ];
@@ -1305,35 +1243,35 @@ export const IG_RECIPIENTS: GiftRecipient[] = [
 export const IG_TIPS: { title: string; body: string }[] = [
   {
     title: "Buy from Orthodox iconographers where you can",
-    body: "An icon is written within a tradition, by someone who knows it. Buying from Orthodox iconographers and monastery workshops keeps the craft alive and keeps the theology right — and it usually costs less than you would guess.",
+    body: "Monastery workshops keep the craft alive and the theology right — and usually cost less than you would guess.",
   },
   {
     title: 'Avoid novelty and decorative "icons"',
-    body: "Sentimental religious art, kitsch, and Renaissance-style devotional pictures are not icons, whatever they are sold as. Iconography has a grammar — the proportions, the light, the inscriptions — and an image that breaks it will quietly teach the wrong thing to whoever prays before it for the next thirty years.",
+    body: "Sentimental or Renaissance-style religious art is not an icon, whatever it is sold as. Iconography has a grammar; an image that breaks it teaches the wrong thing for years.",
   },
   {
     title: "Printed icons are entirely appropriate",
-    body: "A mounted print is a real icon, is blessed like any other, and is what most Orthodox homes are full of. Do not let a budget stop you: it is far better to give a good print of the right saint than nothing at all, or than a bad hand-painted icon.",
+    body: "A mounted print is a real icon, blessed like any other. Far better a good print of the right saint than nothing, or than a bad hand-painted one.",
   },
   {
     title: "Hand-painted icons are beautiful, not required",
-    body: "A written icon from an iconographer is a wonderful gift and often takes months to commission — worth planning for a significant occasion. But it is a gift of degree, not of kind. The print and the panel are both icons.",
+    body: "A written icon is a wonderful gift, often months to commission. But it is a gift of degree, not of kind — the print and the panel are both icons.",
   },
   {
     title: "Have it blessed, where that is the custom",
-    body: "In many traditions an icon is blessed by a priest before use. Customs vary — in some places the icon is blessed, in others the practice is less emphasized — so the honest answer is to ask the recipient's priest. It costs a two-minute conversation after Liturgy.",
+    body: "Many traditions bless an icon before use; customs vary, so ask the recipient's priest. A two-minute conversation after Liturgy.",
   },
   {
     title: "The meaning outweighs the price",
-    body: "The most valuable icon in most Orthodox homes is not the most expensive one. It is the one someone was baptized with, or the one a grandmother prayed in front of. Give the right saint at the right moment and the icon will accrue that value on its own.",
+    body: "The most valuable icon in a home is rarely the most expensive — it is the one someone was baptized with. Give the right saint at the right moment; the value accrues on its own.",
   },
   {
     title: "Ask before you duplicate",
-    body: "The patron icon at a baptism is the godparent's gift; the wedding pair is often the parents'; a monastic may not be free to keep what you bring. One question beforehand turns a well-meant gift into a welcome one.",
+    body: "The patron icon is the godparent's gift; the wedding pair often the parents'; a monastic may not be free to keep what you bring. One question beforehand.",
   },
   {
     title: "Tell them what it is",
-    body: "For an inquirer or a convert's non-Orthodox family, an icon arrives without instructions. Say who it is, why you chose them, and where it might hang. An icon left in its box is a gift that did not arrive.",
+    body: "To an inquirer or a convert's family an icon arrives without instructions. Say who it is and where it might hang — one left in its box is a gift that did not arrive.",
   },
 ];
 

@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
 
-// "Giving Icons as Gifts" — the occasion guide. Occasion cards are native
-// <details> and need no JS; the island's only job is collapsing the recipient
-// picker down to one panel (every panel renders visible so the section stays a
-// readable list with JS off).
+// "Giving Icons as Gifts" — the occasion guide. Each occasion tile is itself a
+// native <details> (compact closed, full-width open) and needs no JS; the
+// island's only job is collapsing the recipient picker down to one panel (every
+// panel renders visible so the section stays a readable list with JS off).
 
 test("icon-gifts loads with the hero icon corner", async ({ page }) => {
   const resp = await page.goto("./icon-gifts/");
@@ -23,7 +23,7 @@ test("icon-gifts loads with the hero icon corner", async ({ page }) => {
     ).toBe(true);
   }
 
-  await expect(page.locator(".ig-card")).toHaveCount(12);
+  await expect(page.locator(".ig-tile")).toHaveCount(12);
 });
 
 // The vendor-permission grant (§9) is conditional on each image linking back to
@@ -40,24 +40,35 @@ test("every permission portrait in the hero links to its vendor icon page", asyn
   ).toHaveCount(4);
 });
 
-test("an occasion card expands and closes", async ({ page }) => {
+test("an occasion tile expands and closes", async ({ page }) => {
   await page.goto("./icon-gifts/");
-  const card = page.locator("#occasion-baptism");
-  const body = card.locator(".ig-more-body");
+  const tile = page.locator("#occasion-baptism");
+  const body = tile.locator(".ig-tile-body");
 
   await expect(body).toBeHidden();
-  await card.locator("summary").click();
+  await tile.locator("summary").click();
   await expect(body).toBeVisible();
   // Baptism carries the godparent note — the page's central point of custom.
   await expect(body).toContainText("The godparent gives the patron icon");
   // Suggestions that are real records link out; icon subjects stay plain text.
   await expect(body.locator('a[href$="/saint/OS-0009"]')).toHaveCount(0);
   await expect(
-    card.locator('a.ig-icon-name[href$="/guardian-angels"]').first(),
+    tile.locator('a.ig-icon-name[href$="/guardian-angels"]').first(),
   ).toBeVisible();
 
-  await card.locator("summary").click();
+  await tile.locator("summary").click();
   await expect(body).toBeHidden();
+});
+
+// The tiles share name="occasion", so opening one closes any other — the
+// compact page never balloons to several open occasions at once.
+test("occasion tiles open one at a time", async ({ page }) => {
+  await page.goto("./icon-gifts/");
+  await page.locator("#occasion-birth summary").click();
+  await expect(page.locator("#occasion-birth .ig-tile-body")).toBeVisible();
+  await page.locator("#occasion-marriage summary").click();
+  await expect(page.locator("#occasion-marriage .ig-tile-body")).toBeVisible();
+  await expect(page.locator("#occasion-birth .ig-tile-body")).toBeHidden();
 });
 
 test("the recipient picker shows one panel at a time", async ({ page }) => {
