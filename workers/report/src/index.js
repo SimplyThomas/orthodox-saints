@@ -3,12 +3,18 @@
  *
  * Receives a POST from the public /corrections form on orthodoxsaintfinder.com,
  * verifies a Cloudflare Turnstile token, validates + sanitizes the input, then
- * opens a GitHub issue (labelled `data-quality`) via the REST API using a
- * fine-grained PAT held as a Worker secret. The visitor never touches GitHub.
+ * opens a GitHub issue (labelled `data-quality`) via the REST API. The visitor
+ * never touches GitHub.
+ *
+ * GitHub auth is a **GitHub App** (not a PAT): the Worker signs a short-lived
+ * JWT with the App's private key, exchanges it for a 1-hour installation token,
+ * and uses that to create the issue. The private key never expires, so there is
+ * nothing to rotate on a schedule.
  *
  * Bindings (see wrangler.toml + README):
- *   secrets : GITHUB_TOKEN, TURNSTILE_SECRET_KEY
- *   vars    : REPO_OWNER, REPO_NAME, ALLOWED_ORIGIN (comma-separated list ok)
+ *   secrets : APP_PRIVATE_KEY (PKCS#8 PEM), TURNSTILE_SECRET_KEY
+ *   vars    : APP_ID, INSTALLATION_ID, REPO_OWNER, REPO_NAME,
+ *             ALLOWED_ORIGIN (comma-separated list ok)
  */
 
 // ---- limits -----------------------------------------------------------------
@@ -161,7 +167,14 @@ async function verifyTurnstile(token, ip, env) {
 }
 
 // ---- GitHub -----------------------------------------------------------------
+const GH_HEADERS = {
+  Accept: "application/vnd.github+json",
+  "X-GitHub-Api-Version": GITHUB_API_VERSION,
+  "User-Agent": USER_AGENT,
+};
+
 async function createIssue(env, title, body) {
+  const token = await getInstallationToken(env);
   const owner = env.REPO_OWNER;
   const repo = env.REPO_NAME;
   const url = `https://api.github.com/repos/${owner}/${repo}/issues`;
@@ -169,10 +182,8 @@ async function createIssue(env, title, body) {
   const res = await fetch(url, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": GITHUB_API_VERSION,
-      "User-Agent": USER_AGENT,
+      ...GH_HEADERS,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ title, body, labels: ["data-quality"] }),
@@ -184,6 +195,63 @@ async function createIssue(env, title, body) {
   }
   return await res.json();
 }
+
+// Exchange an App JWT for a short-lived (1-hour) installation access token.
+async function getInstallationToken(env) {
+  const jwt = await makeAppJwt(env.APP_ID, env.APP_PRIVATE_KEY);
+  const res = await fetch(
+    `https://api.github.com/app/installations/${env.INSTALLATION_ID}/access_tokens`,
+    { method: "POST", headers: { ...GH_HEADERS, Authorization: `Bearer ${jwt}` } },
+  );
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`GitHub App token ${res.status}: ${detail.slice(0, 200)}`);
+  }
+  const data = await res.json();
+  return data.token;
+}
+
+// Build and RS256-sign a GitHub App JWT (valid ~9 min; iat backdated for skew).
+async function makeAppJwt(appId, privateKeyPem) {
+  const now = Math.floor(Date.now() / 1000);
+  const header = b64urlStr(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+  const payload = b64urlStr(
+    JSON.stringify({ iat: now - 60, exp: now + 540, iss: String(appId) }),
+  );
+  const signingInput = `${header}.${payload}`;
+  const key = await importPkcs8(privateKeyPem);
+  const sig = await crypto.subtle.sign(
+    { name: "RSASSA-PKCS1-v1_5" },
+    key,
+    new TextEncoder().encode(signingInput),
+  );
+  return `${signingInput}.${b64url(new Uint8Array(sig))}`;
+}
+
+// Import a PKCS#8 PEM private key for RS256 signing. GitHub Apps download a
+// PKCS#1 key ("BEGIN RSA PRIVATE KEY"); convert it once with openssl (README).
+async function importPkcs8(pem) {
+  const b64 = String(pem)
+    .replace(/-----BEGIN [^-]+-----/, "")
+    .replace(/-----END [^-]+-----/, "")
+    .replace(/\s+/g, "");
+  const der = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  return crypto.subtle.importKey(
+    "pkcs8",
+    der.buffer,
+    { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+}
+
+// base64url of raw bytes / of a UTF-8 string (JWT segment encoding).
+function b64url(bytes) {
+  let bin = "";
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+const b64urlStr = (s) => b64url(new TextEncoder().encode(s));
 
 // ---- issue formatting -------------------------------------------------------
 function buildTitle(typeLabel, subject) {
