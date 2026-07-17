@@ -4,6 +4,8 @@ sources:
   - https://en.wikipedia.org/wiki/Romanov_sainthood
   - https://en.wikipedia.org/wiki/Nicholas_II_of_Russia
   - https://www.oca.org/saints/lives/2019/07/17/103789-royal-passionbearers-tsar-nicholas-nikolai-tsaritsa-alexandra-ts
+  - https://en.wikipedia.org/wiki/Wedding_of_Nicholas_II_and_Alexandra_Feodorovna
+  - https://openlibrary.org/works/OL4773724W
 lifespan: Reposed 17 July 1918
 liturgicalTitle: The Holy Royal Passion-bearers Tsar Nicholas, Tsaritsa Alexandra, Tsarevich Alexei, and the Grand Duchesses Olga, Tatiana, Maria, and Anastasia
 overview:
@@ -39,6 +41,10 @@ sections:
     body:
       - Nicholas II succeeded to the Russian throne in 1894 and married Alexandra Feodorovna, born Princess Alix of Hesse, in November of that year. Their household grew with the birth of four daughters and, in 1904, a son and heir, Alexei, whose hemophilia was a constant private concern of his parents.
       - Nicholas reigned through a period of revolution and war. After the February Revolution he abdicated on 15 March 1917, and the family passed into the custody of the new authorities, ending the Romanov dynasty's long rule over Russia.
+  - heading: A Marriage of Rare Devotion
+    body:
+      - Nicholas had set his heart on Alix of Hesse — a granddaughter of Queen Victoria — years before he was able to marry her, confiding the hope to his diary as early as 1891. When he proposed at Coburg in April 1894 she at first refused, unwilling in conscience to leave the Lutheranism of her upbringing for Orthodoxy; won over in part by her sister Grand Duchess Elizabeth, who had herself already converted, she accepted, and the two were betrothed that same month. She was received into the Orthodox Church as Alexandra Feodorovna the day after the death of Nicholas's father, Alexander III, and they were married a week later, on 26 November 1894.
+      - Theirs proved an unusually close and affectionate marriage — a genuine love match rather than a dynastic arrangement — and it remained so through more than two decades of reign, revolution, and captivity. Whenever they were apart, above all during the First World War when Nicholas was often away at military headquarters, they wrote to one another almost daily, for the most part in English; close to seventeen hundred of their letters and telegrams survive from the war years alone. That correspondence, tender and unguarded, is among the fullest records any royal couple has left of their love for one another.
   - heading: Captivity and Death
     body:
       - From the abdication onward the family was confined under guard, moved from Tsarskoye Selo to Tobolsk and at last to Yekaterinburg. The Orthodox Church holds up their conduct throughout this period — their patience and lack of bitterness — as the heart of their sanctity.
@@ -99,7 +105,31 @@ related:
   - name: New Martyr Elizabeth, Grand Duchess of Russia
     note: Sister of Tsaritsa Alexandra; arrested in the same revolution and martyred at Alapayevsk the day after the imperial family.
     href: saint/OS-1548
+works:
+  - title: The Diary of Nicholas II, 1917
+    desc: The emperor's own diary through the February Revolution, his abdication, and the family's confinement at Tsarskoye Selo and Tobolsk.
+    url: https://www.alexanderpalace.org/palace/ndiaries1917.php
+  - title: Diaries of Nicholas II — extracts, 1897–1912
+    desc: Selected translated entries recording daily and family life at the Alexander Palace.
+    url: https://www.alexanderpalace.org/palace/ndiaries.php
 reading:
+  - heading: Their Letters & Correspondence
+    items:
+      - title: Letters of the Tsar to the Tsaritsa, 1914–1917 (full text online)
+        author: Nicholas II — Alexander Palace Time Machine
+        url: https://www.alexanderpalace.org/letters/toc.html
+      - title: Letters of the Tsaritsa to the Tsar, 1914–1915 (full text online)
+        author: Empress Alexandra — Alexander Palace Time Machine
+        url: https://www.alexanderpalace.org/letterstsaritsa/
+      - title: Letters of the Tsaritsa to the Tsar, 1914–1916 (1923 edition)
+        author: Public-domain scan, introduction by Sir Bernard Pares — Internet Archive
+        url: https://archive.org/details/bwb_KV-623-061
+      - title: Letters of the Tsar to the Tsaritsa, 1914–1917 (1929 edition)
+        author: Public-domain scan — Internet Archive
+        url: https://archive.org/details/dli.ministry.03747
+      - title: The Complete Wartime Correspondence of Tsar Nicholas II and the Empress Alexandra
+        author: Joseph T. Fuhrmann, ed. (1999)
+        url: https://openlibrary.org/works/OL4773724W
   - heading: Sources
     items:
       - title: Royal Passion-bearers Tsar Nicholas and His Family
