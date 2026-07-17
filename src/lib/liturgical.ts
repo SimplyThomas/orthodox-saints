@@ -165,6 +165,28 @@ export const FASTING_OVERRIDES: Record<string, Record<string, string>> = {
   russian: {},
 };
 
+/** Season-specific pastoral notes, shown with the fasting row on matching
+    days. `churchMonths` limits a note to the relevant stretch of the season
+    (church-calendar months, so the window rides the New/Old toggle);
+    `traditions` limits it to the fasting tradition(s) it concerns. */
+export interface FastingSeasonNote {
+  feastId: string;
+  note: string;
+  churchMonths?: number[];
+  traditions?: string[];
+}
+
+export const FASTING_SEASON_NOTES: FastingSeasonNote[] = [
+  {
+    // The most-asked American question about the Nativity Fast. Framed as a
+    // pastoral allowance (economia), never as a rule.
+    feastId: "FF-0018",
+    churchMonths: [11],
+    traditions: ["goarch"],
+    note: "The Nativity Fast begins November 15. In the United States, many parishes — with their priest's blessing — delay the start of the fast until December 1 on account of Thanksgiving. This is a pastoral allowance, not a universal rule; ask your parish priest what is right for your household.",
+  },
+];
+
 /* ================= per-feast color rules ================= */
 
 export type Confidence = "high" | "medium" | "local-custom" | "unknown";
@@ -668,7 +690,33 @@ export interface DayLiturgics {
   fasting: FastingLevel | null;
   /** which tradition the fasting rule is attributed to (per calendar style) */
   fastingTradition: FastingTradition;
+  /** season-specific pastoral notes (FASTING_SEASON_NOTES) active this day */
+  fastingNotes: string[];
   badges: string[];
+}
+
+/** Pastoral season notes active on this civil day under the given style. */
+function seasonNotes(
+  observances: ActiveObservance[],
+  date: Date,
+  style: CalendarStyle,
+): string[] {
+  const tradition = FASTING_TRADITIONS[style].key;
+  // the note windows are church-calendar months, so shift Old-style civil
+  // dates back to their church date before comparing
+  const church = style === "old" ? addDays(date, -JULIAN_OFFSET_DAYS) : date;
+  const churchMonth = church.getMonth() + 1;
+  const out: string[] = [];
+  for (const { feast: f, role } of observances) {
+    if (role !== "day" && role !== "span") continue;
+    for (const n of FASTING_SEASON_NOTES) {
+      if (n.feastId !== f.id) continue;
+      if (n.traditions && !n.traditions.includes(tradition)) continue;
+      if (n.churchMonths && !n.churchMonths.includes(churchMonth)) continue;
+      if (!out.includes(n.note)) out.push(n.note);
+    }
+  }
+  return out;
 }
 
 const VARIATION_NOTE =
@@ -752,6 +800,7 @@ export function dayLiturgics(
     serviceColors,
     fasting: resolveFasting(observances, style),
     fastingTradition: FASTING_TRADITIONS[style],
+    fastingNotes: seasonNotes(observances, date, style),
     badges: buildBadges(observances),
   };
 }

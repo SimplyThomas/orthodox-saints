@@ -180,7 +180,11 @@ if (root && app && source && grid && panel && monthLabel) {
       if (lit.fasting.note) {
         box.append(el("p", "cal-lit-note", lit.fasting.note));
       }
-      // which tradition the rule is attributed to (paired with the toggle)
+      // season-specific pastoral notes (e.g. the Thanksgiving allowance at
+      // the start of the Nativity Fast), then the tradition attribution
+      for (const n of lit.fastingNotes) {
+        box.append(el("p", "cal-lit-note", n));
+      }
       box.append(el("p", "cal-lit-note", lit.fastingTradition.note));
     }
     if (lit.badges.length) {

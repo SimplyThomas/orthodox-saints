@@ -205,6 +205,14 @@ const F: LitFeast[] = [
     begins: { type: "paschal", offset: -48 },
   },
   {
+    id: "FF-0018",
+    name: "Nativity Fast",
+    category: "Fast Season",
+    fasting: "Fish Allowed",
+    begins: { type: "fixed", month: 11, day: 15 },
+    ends: { type: "fixed", month: 12, day: 24 },
+  },
+  {
     id: "FF-0021",
     name: "Nativity-to-Theophany Fast-Free Period",
     category: "Fast-Free Week",
@@ -326,6 +334,18 @@ describe("the paschal cycle (identical in both styles)", () => {
     const d = day(2026, 12, 25);
     expect(d.fasting?.label).toBe("Feast (No Fasting)");
     expect(d.fasting?.glyph).toBe("FF");
+  });
+  it("the Thanksgiving allowance note shows on the November Nativity-Fast days (Greek view)", () => {
+    const nov = day(2026, 11, 20);
+    expect(nov.fasting?.key).toBe("fish");
+    expect(nov.fastingNotes.join(" ")).toMatch(/Thanksgiving/);
+    expect(nov.fastingNotes.join(" ")).toMatch(/pastoral allowance/);
+    // gone once the fast reaches December (church calendar)…
+    expect(day(2026, 12, 10).fastingNotes).toEqual([]);
+    // …and not shown under the Russian (Old Calendar) attribution, where the
+    // fast begins on civil Nov 28, after Thanksgiving.
+    expect(day(2026, 12, 5, "old").fasting?.key).toBe("fish");
+    expect(day(2026, 12, 5, "old").fastingNotes).toEqual([]);
   });
   it("a Lenten Sunday stays purple but carries the brighter-practice note", () => {
     const d = day(2026, 3, 8); // a Sunday inside Great Lent

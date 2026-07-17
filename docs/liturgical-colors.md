@@ -69,6 +69,11 @@ universal Orthodox color code, and the site must never present one.**
    two traditions' recorded rules currently coincide; documented divergences
    go in `FASTING_OVERRIDES` (per-tradition, keyed by FF id, clergy-reviewed
    first) — never guessed into existence, and never keyed to a civil date.
+   `FASTING_SEASON_NOTES` carries season-specific pastoral notes (windowed by
+   church-calendar month and tradition): currently the American Thanksgiving
+   allowance at the start of the Nativity Fast, shown on the November fast
+   days in the Greek (New Calendar) view and always framed as a pastoral
+   allowance with the ask-your-priest direction, never as a rule.
 3. **Precedence** (mirrors the spec's `COLOR_PRIORITY`): Pascha → Bright Week
    → Great Feasts of the Lord → of the Theotokos → named Holy Week days →
    Cross feasts → named observances with explicit rules → afterfeast/
