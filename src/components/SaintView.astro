@@ -930,7 +930,17 @@ const wordsLabel = `In ${possessive} own words`;
                           {worksList
                             ? worksList.map((w) => (
                                 <li>
-                                  <em>{w.title}</em>
+                                  {w.url ? (
+                                    <a
+                                      href={w.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {w.title}
+                                    </a>
+                                  ) : (
+                                    <em>{w.title}</em>
+                                  )}
                                   {w.desc && (
                                     <span class="sv-work-desc">
                                       {" "}
@@ -964,7 +974,17 @@ const wordsLabel = `In ${possessive} own words`;
                                 <ul class="sv-read-list">
                                   {g.items.map((it) => (
                                     <li>
-                                      <em>{it.title}</em>
+                                      {it.url ? (
+                                        <a
+                                          href={it.url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                        >
+                                          {it.title}
+                                        </a>
+                                      ) : (
+                                        <em>{it.title}</em>
+                                      )}
                                       {it.author && (
                                         <span class="sv-read-by">
                                           {" "}

@@ -150,6 +150,7 @@ const profileSchema = z
           title: z.string(),
           desc: z.string(),
           date: z.string().optional(),
+          url: z.string().optional(), // external link; title renders as an <a> when set
         }),
       )
       .optional(),
@@ -162,6 +163,7 @@ const profileSchema = z
               title: z.string(),
               author: z.string().optional(),
               type: z.string().optional(),
+              url: z.string().optional(), // external link; title renders as an <a> when set
             }),
           ),
         }),
