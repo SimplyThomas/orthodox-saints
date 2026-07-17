@@ -89,7 +89,11 @@ Adding a feast/fast works the same way against `data/feasts.csv` and
   data-model.md). Adding one icon = one row in `data/saint_images.csv` + the file
   under `static/icons/` + a thumb.
 - **Corrections issues:** the `/corrections` form files GitHub issues labeled
-  `data-quality`; triage them like any bug report and fix the CSV.
+  `data-quality`; triage them like any bug report and fix the CSV. The form's
+  backend is a Cloudflare Worker (Turnstile → GitHub App → issue); if the form
+  itself stops working (e.g. submissions error), its setup, secrets, and
+  troubleshooting runbook are in `workers/report/README.md`. It needs no
+  scheduled maintenance — the GitHub App key doesn't expire.
 - **Where the backlogs live:** `docs/database-expansion.md` (saints to add),
   `docs/data-issues.md` (corrections register), `docs/relationship-backlog.md`
   (relationship network).
