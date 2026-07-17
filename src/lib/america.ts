@@ -41,17 +41,6 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
       "Came with the 1794 Valaam mission to Kodiak; a humble monk who defended the Alaska Natives from exploitation and lived as a hermit on Spruce Island, the spiritual father of all American Orthodoxy.",
   },
   {
-    id: "OS-1895",
-    name: "Juvenal",
-    epithet: "of Alaska",
-    cat: "Hieromartyr",
-    years: "d. 1796",
-    feast: "Sep 24",
-    glorified: "1980",
-    contribution:
-      "A hieromonk from the 1794 Valaam mission who journeyed into the Alaskan interior to bring the Gospel to native peoples; martyred around 1796 — the first of the Alaska missionaries to lay down his life for the faith.",
-  },
-  {
     id: "OS-0054",
     name: "Innocent",
     epithet: "of Alaska",
@@ -63,17 +52,6 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
       "Apostle to America — created written alphabets for the Aleut and Yupik, translated the Scriptures, and later became Metropolitan of Moscow.",
   },
   {
-    id: "OS-0053",
-    name: "Tikhon",
-    epithet: "of Moscow",
-    cat: "Hierarch",
-    years: "1865 – 1925",
-    feast: "Oct 9",
-    glorified: "1989",
-    contribution:
-      "As Bishop of the Aleutians & North America he organized the young American Church, blessed dozens of parishes, and later became Patriarch of Moscow and a confessor.",
-  },
-  {
     id: "OS-0055",
     name: "Raphael",
     epithet: "of Brooklyn",
@@ -83,6 +61,17 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
     glorified: "2000",
     contribution:
       "The first Orthodox bishop consecrated on American soil — “Good Shepherd of the Lost Sheep,” who gathered the scattered Arab and Syrian Orthodox across the continent.",
+  },
+  {
+    id: "OS-0053",
+    name: "Tikhon",
+    epithet: "of Moscow",
+    cat: "Hierarch",
+    years: "1865 – 1925",
+    feast: "Oct 9",
+    glorified: "1989",
+    contribution:
+      "As Bishop of the Aleutians & North America he organized the young American Church, blessed dozens of parishes, and later became Patriarch of Moscow and a confessor.",
   },
   {
     id: "OS-0050",
@@ -118,6 +107,39 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
       "Serbian bishop, theologian and “New Chrysostom” who taught in America and reposed at St Tikhon's Monastery in South Canaan, Pennsylvania.",
   },
   {
+    id: "OS-1895",
+    name: "Juvenal",
+    epithet: "of Alaska",
+    cat: "Hieromartyr",
+    years: "d. 1796",
+    feast: "Sep 24",
+    glorified: "1980",
+    contribution:
+      "A hieromonk from the 1794 Valaam mission who journeyed into the Alaskan interior to bring the Gospel to native peoples; martyred around 1796 — the first of the Alaska missionaries to lay down his life for the faith.",
+  },
+  {
+    id: "OS-2120",
+    name: "John",
+    epithet: "Kochurov",
+    cat: "Hieromartyr",
+    years: "1871 – 1917",
+    feast: "Oct 31",
+    glorified: "1994",
+    contribution:
+      "A missionary priest in Chicago who raised up Holy Trinity Cathedral; returning to Russia, he became the first clergy martyr of the Revolution at Tsarskoye Selo in 1917.",
+  },
+  {
+    id: "OS-2299",
+    name: "Alexander",
+    epithet: "Hotovitzky",
+    cat: "Hieromartyr",
+    years: "1872 – 1937",
+    feast: "Dec 4",
+    glorified: "1994",
+    contribution:
+      "A missionary priest in New York who helped raise St Nicholas Cathedral and edited the young American Church's journal; he later suffered and died for the faith in Soviet Russia.",
+  },
+  {
     id: "OS-2338",
     name: "Mardarije",
     epithet: "of Libertyville",
@@ -127,6 +149,17 @@ export const AMERICA_MOVEMENT_I: AmericaSaint[] = [
     glorified: "1961",
     contribution:
       "A Serbian missionary bishop who organized the early Serbian Orthodox Diocese of America and built the Monastery of St. Sava in Libertyville, Illinois — laying the foundation for Serbian Orthodoxy in the New World.",
+  },
+  {
+    id: "OS-1109",
+    name: "Vasily",
+    epithet: "Martysz",
+    cat: "New Martyr",
+    years: "1874 – 1945",
+    feast: "May 4",
+    glorified: "2003",
+    contribution:
+      "Born in the Chełm region, he served mission parishes across Alaska and North America before returning home as an army chaplain in Poland; martyred in 1945 and glorified among the Martyrs of Chełm and Podlasie.",
   },
 ];
 

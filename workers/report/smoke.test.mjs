@@ -1,9 +1,20 @@
 // Self-contained smoke test for the Worker handler. Stubs global.fetch so no
-// real Turnstile/GitHub calls happen. Run: node smoke.test.mjs
+// real Turnstile/GitHub calls happen. A real (throwaway) RSA key is generated so
+// the App JWT-signing + installation-token path runs for real. Run: node smoke.test.mjs
+import { generateKeyPairSync } from "node:crypto";
 import worker from "./src/index.js";
 
+// PKCS#8 PEM — the format importPkcs8() expects (as documented for prod setup).
+const { privateKey: APP_PRIVATE_KEY } = generateKeyPairSync("rsa", {
+  modulusLength: 2048,
+  privateKeyEncoding: { type: "pkcs8", format: "pem" },
+  publicKeyEncoding: { type: "spki", format: "pem" },
+});
+
 const env = {
-  GITHUB_TOKEN: "tok",
+  APP_ID: "123456",
+  INSTALLATION_ID: "7891011",
+  APP_PRIVATE_KEY,
   TURNSTILE_SECRET_KEY: "sec",
   REPO_OWNER: "SimplyThomas",
   REPO_NAME: "orthodox-saints",
@@ -11,7 +22,10 @@ const env = {
 };
 
 let lastGithubBody = null;
-function stubFetch({ turnstileOk = true, githubOk = true } = {}) {
+let lastJwt = null;
+function stubFetch({ turnstileOk = true, githubOk = true, tokenOk = true } = {}) {
+  lastGithubBody = null;
+  lastJwt = null;
   globalThis.fetch = async (url, init) => {
     // Route by exact host (+ path), not substring: a substring match on a URL is
     // unsound (e.g. https://evil.example/api.github.com) — and CodeQL flags it.
@@ -25,6 +39,17 @@ function stubFetch({ turnstileOk = true, githubOk = true } = {}) {
       });
     }
     if (hostname === "api.github.com") {
+      // App installation-token exchange (uses the signed JWT as Bearer).
+      if (pathname.endsWith("/access_tokens")) {
+        lastJwt = (init.headers.Authorization || "").replace("Bearer ", "");
+        return tokenOk
+          ? new Response(
+              JSON.stringify({ token: "ghs_installationtoken", expires_at: "" }),
+              { status: 201 },
+            )
+          : new Response("bad app creds", { status: 401 });
+      }
+      // Issue creation (uses the installation token as Bearer).
       lastGithubBody = JSON.parse(init.body);
       return githubOk
         ? new Response(JSON.stringify({ number: 123 }), { status: 201 })
@@ -167,6 +192,33 @@ await check("over-long description is truncated with …", async () => {
   if (lastGithubBody.body.length > 6000) throw new Error("body still too long");
 });
 
+await check("GitHub App: signs a valid RS256 JWT and uses the installation token", async () => {
+  stubFetch();
+  await worker.fetch(
+    post({ description: "x", "cf-turnstile-response": "t" }),
+    env,
+  );
+  // A well-formed JWT (three base64url segments) was sent to /access_tokens…
+  if (!lastJwt || lastJwt.split(".").length !== 3)
+    throw new Error("no/!well-formed JWT sent to the token endpoint: " + lastJwt);
+  const hdr = JSON.parse(Buffer.from(lastJwt.split(".")[0], "base64url"));
+  eq(hdr.alg, "RS256", "jwt alg");
+  const claims = JSON.parse(Buffer.from(lastJwt.split(".")[1], "base64url"));
+  eq(claims.iss, env.APP_ID, "jwt iss = app id");
+  if (claims.exp - claims.iat > 600)
+    throw new Error("JWT lifetime exceeds GitHub's 10-min max");
+});
+
+await check("GitHub App token 401 → 502 friendly (no issue attempted)", async () => {
+  stubFetch({ tokenOk: false });
+  const res = await worker.fetch(
+    post({ description: "x", "cf-turnstile-response": "t" }),
+    env,
+  );
+  eq(res.status, 502, "status");
+  if (lastGithubBody !== null) throw new Error("attempted issue despite token failure");
+});
+
 await check("GitHub 500 → 502 friendly, no leak", async () => {
   stubFetch({ githubOk: false });
   const res = await worker.fetch(
@@ -177,8 +229,8 @@ await check("GitHub 500 → 502 friendly, no leak", async () => {
   eq(res.status, 502, "status");
   if (j.error.includes("boom") || j.error.includes("500"))
     throw new Error("leaked raw GitHub error");
-  if (JSON.stringify(j).includes(env.GITHUB_TOKEN))
-    throw new Error("leaked token");
+  if (JSON.stringify(j).includes(env.APP_PRIVATE_KEY))
+    throw new Error("leaked private key");
 });
 
 await check("cross-origin: allowed origin echoed", async () => {

@@ -2,6 +2,8 @@ group_slug,saint_id,role,order
 three-hierarchs,OS-0021,Basil the Great,1
 three-hierarchs,OS-0022,Gregory the Theologian,2
 three-hierarchs,OS-0023,John Chrysostom,3
+seventy-apostles,OS-0006,,
+seventy-apostles,OS-0009,,
 seventy-apostles,OS-0263,,
 seventy-apostles,OS-0344,,
 seventy-apostles,OS-0512,,
@@ -13,6 +15,9 @@ seventy-apostles,OS-0903,,
 seventy-apostles,OS-0961,,
 seventy-apostles,OS-0997,,
 seventy-apostles,OS-1040,,
+seventy-apostles,OS-1061,,
+seventy-apostles,OS-1069,,
+seventy-apostles,OS-1072,,
 seventy-apostles,OS-1192,,
 seventy-apostles,OS-1239,,
 seventy-apostles,OS-1240,,
@@ -29,17 +34,20 @@ seventy-apostles,OS-1911,,
 seventy-apostles,OS-1912,,
 seventy-apostles,OS-1928,,
 seventy-apostles,OS-1998,,
+seventy-apostles,OS-2066,,
 seventy-apostles,OS-2110,,
 seventy-apostles,OS-2111,,
 seventy-apostles,OS-2112,,
 seventy-apostles,OS-2121,,
 seventy-apostles,OS-2151,,
 seventy-apostles,OS-2172,,
+seventy-apostles,OS-2251,,
 seventy-apostles,OS-2321,,
 seventy-apostles,OS-2451,,
 seventy-apostles,OS-2461,,
 seventy-apostles,OS-2513,,
 seventy-apostles,OS-2581,,
+seventy-apostles,OS-2743,,
 myrrh-bearers,OS-0001,First among the myrrh-bearers,1
 myrrh-bearers,OS-0007,Mary Magdalene,2
 myrrh-bearers,OS-1638,Salome,3
@@ -112,3 +120,5 @@ martyrs-of-nicomedia,OS-0150,Anthimus the Bishop,1
 martyrs-of-nicomedia,OS-0151,Theophilus the Deacon and companions,2
 martyrs-of-nicomedia,OS-0152,Basilissa,3
 martyrs-of-nicomedia,OS-0153,"Zeno, Chariton and Archontius",4
+family-of-bethany,OS-0078,Lazarus the Four-Days-Dead,1
+family-of-bethany,OS-1280,Martha and Mary,2

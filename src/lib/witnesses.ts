@@ -1448,6 +1448,30 @@ export const WITNESSES: Witness[] = [
       "Father John Romanides was one of the most provocative Orthodox theologians of his generation. His work has been both highly influential and sharply contested within Orthodox theological circles — critics have questioned aspects of his historical theses and his polemical tone, while admirers regard him as a major modern interpreter of the patristic and hesychast tradition.",
     ],
   },
+  {
+    slug: "michael-gelsinger",
+    name: "Fr. Michael Gelsinger",
+    epithet: "",
+    role: "Priest & Translator",
+    // Reliable birth/death years are not yet established from our sources —
+    // left blank rather than guessed (CLAUDE.md §9); fill in when verified.
+    years: "",
+    place: "Buffalo, New York",
+    bio: [
+      "A convert from Lutheranism and professor of classics at the University of Buffalo, whose scholarly specialty was Byzantine liturgics and hymnology — remembered as one of the most influential convert clergymen in American Orthodox history.",
+      "With his wife Mary he pioneered English-language Orthodox worship in the Antiochian Archdiocese: his Orthodox Hymns in English (1939) is still sung today, and his translations underlay the first complete English settings of the Divine Liturgy. He ended his days in monastic tonsure as the Hieromonk Theodore.",
+    ],
+    sources: [
+      {
+        label: "Orthodox History: Michael Gelsinger",
+        url: "https://www.orthodoxhistory.org/tag/michael-gelsinger/",
+      },
+      {
+        label: "Antiochian Archdiocese: Michael G. H. Gelsinger",
+        url: "http://ww1.antiochian.org/taxonomy/term/819",
+      },
+    ],
+  },
 ];
 
 export const witnessBySlug: Map<string, Witness> = new Map(

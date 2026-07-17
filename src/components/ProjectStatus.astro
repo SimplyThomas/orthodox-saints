@@ -141,22 +141,27 @@ const STATUS_CARDS: StatusCard[] = [
     status: "progress",
     title: "The Church Year",
     desc: [
-      "The calendar currently supports the Revised Julian (New Calendar).",
+      "The interactive calendar now supports both the New (Revised Julian) and Old (Julian) calendars, with liturgical colors and fasting guidance for each day.",
     ],
-    upcomingLabel: "Upcoming features",
+    upcomingLabel: "Section progress",
     checklist: [
       ["done", "New Calendar"],
+      ["done", "Old Calendar toggle"],
+      ["done", "Liturgical colors"],
+      ["done", "Fasting rules by tradition (Greek & Russian)"],
       ["done", "Feast information"],
       ["done", "Fast information"],
       ["done", "Moveable Paschal calendar"],
-      ["todo", "Old Calendar toggle"],
-      ["todo", "Liturgical colors"],
       ["todo", "Customs and traditions"],
     ],
-    milestone: { label: "This week:", text: "" },
+    milestone: {
+      label: "This week:",
+      text: "The Old Calendar toggle, liturgical colors, and tradition-based fasting guidance are live on the calendar.",
+    },
     note: [
-      "Feast and fast information has been updated and expanded.",
-      "A moveable calendar for the Paschal season has been added — it lets you track all the moveable dates until 2031.",
+      "Every calendar day is now tinted with a liturgical color commonly used in Orthodox practice, with a Liturgical Colors & Fasting Guide explaining each one.",
+      "Fasting follows Greek Orthodox (GOARCH) practice in the New Calendar view and Russian Orthodox practice in the Old Calendar view — with notes to speak with your parish priest, including the American Thanksgiving allowance at the start of the Nativity Fast.",
+      "Saint pages show each feast day in both reckonings.",
     ],
   },
   {
@@ -199,13 +204,18 @@ const STATUS_CARDS: StatusCard[] = [
     ribbon: "New",
     desc: [
       "As told in Our Story, the initial point of this website was to create a patron saint quiz to help catechumens connect to the saints. One of the first plans was to put a QR code up outside our parish library so that our catechumens could scan it and take the quiz.",
-      "We decided that other people might want this for their own parish, so we are adding resources to this page for your convenience. Feel free to use anything on our website for your ministries.",
+      "That idea is now a full page of free, print-ready materials: nine QR cards — one for each major section of the site, from the patron saint quiz to the calendar and Icons in the Home — each in color and black & white, with a printing and display guide. Post them in the narthex, by the register, or on the parish bulletin board; everything is freely given.",
     ],
-    upcomingLabel: "Resource areas",
+    upcomingLabel: "What's on the page",
     checklist: [
-      ["wip", "Visitors & Catechumens"],
-      ["wip", "Churches & Bookstores"],
-      ["wip", "Teachers & Ministries"],
+      ["done", "Nine print-ready QR cards (color & black-and-white)"],
+      ["done", "Download one card or the whole set"],
+      ["done", "Printing & display guide"],
+      ["done", "Custom requests — flyers, banners, social graphics"],
+      ["plan", "More resources for teachers & ministries"],
+    ],
+    note: [
+      "Every card is free to download and print — no account, no cost. If your parish needs a custom size or a feast-day graphic, reach out and we'll prepare it.",
     ],
   },
   {

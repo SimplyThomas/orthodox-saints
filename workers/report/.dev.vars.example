@@ -1,4 +1,9 @@
 # Copy to `.dev.vars` for local `wrangler dev`. NEVER commit the real .dev.vars.
 # These mirror the production secrets (set in prod via `wrangler secret put`).
-GITHUB_TOKEN="github_pat_xxx_your_fine_grained_token"
+#
+# APP_PRIVATE_KEY is the GitHub App private key in PKCS#8 PEM (see README for the
+# openssl conversion). Multi-line values are supported in .dev.vars via \n or by
+# pasting the PEM inside quotes. APP_ID / INSTALLATION_ID live in wrangler.toml
+# [vars] (they're identifiers, not secrets) — override here only for local dev.
+APP_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvQ...your_pkcs8_key...\n-----END PRIVATE KEY-----\n"
 TURNSTILE_SECRET_KEY="0x4AAAAAAA_your_turnstile_secret"

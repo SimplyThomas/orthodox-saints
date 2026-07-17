@@ -4,22 +4,66 @@ import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
 import { withBase } from "../lib/format";
 
-// Parish Resources — a single page (no dropdown) in the illuminated
-// reading-column treatment (.sr-hero / .as-body, as on the About sub-pages).
-// The three resource areas live here as sections while their materials are
-// prepared.
-const areas = [
+// Parish Resources — implemented from the Claude Design mock
+// "Churches & Bookstores.html": a dark hero, a "why display them" pitch,
+// the nine-card QR gallery (color/B&W + per-row controls, download-all,
+// print sheet — wired by src/islands/parish-cards.client.ts), a four-step
+// guidance section, and a contact card. The card PNGs are self-hosted
+// under static/parish-cards/ and print as a clean two-up sheet.
+const CARDS = [
+  { base: "search-the-saints", name: "Search the Saints" },
+  { base: "saint-of-the-day", name: "Saint of the Day" },
+  { base: "orthodox-calendar", name: "Orthodox Calendar" },
+  { base: "Feast-Day", name: "Browse by Feast Day" },
+  { base: "feast-fasts", name: "Feasts & Fasts" },
+  { base: "liturgical-living", name: "Liturgical Living" },
+  { base: "patron-saint-quiz", name: "Patron Saint Quiz" },
+  { base: "heavenly-hosts", name: "Heavenly Hosts" },
+  { base: "icons-in-the-home", name: "Icons in the Home" },
+];
+// Full-res originals (1200×1800, print-quality) are the download targets;
+// the gallery displays ~600px thumbs (static/parish-cards/thumbs/) at ~1/5
+// the weight. The color toggle swaps only the previews — every card keeps
+// both its Color and B&W download links visible.
+const cardDir = withBase("parish-cards/");
+const cardSrc = (base: string) => `${cardDir}QR-${base}-Color.png`;
+const cardBW = (base: string) => `${cardDir}QR-${base}-black-and-white.png`;
+const cardThumb = (base: string) => `${cardDir}thumbs/QR-${base}-Color.png`;
+
+const PITCH = [
   {
-    title: "Visitors & Catechumens",
-    body: "A welcome for those stepping into an Orthodox church for the first time — what to expect at a service, how to begin learning about the saints, and how the Patron Saint Quiz can help a catechumen find a heavenly friend.",
+    icon: "M12 21s-7-4.5-7-10a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 5.5-7 10-7 10z",
+    title: "Meet seekers where they stand",
+    body: "A visitor lingering in the narthex can learn the saint of the day, the meaning of a feast, or find their own patron — right from their phone, without a word.",
   },
   {
-    title: "Churches & Bookstores",
-    body: "Printable materials for parishes and parish bookstores — QR-code cards and flyers that link straight to the quiz and the database, ready to post on a bulletin board, a library shelf, or beside the candle stand.",
+    icon: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z",
+    title: "Deepen the bookstore visit",
+    body: "Set a card beside the icons and books. A shopper can read the full life of a saint before they buy, and carry the reference home with them.",
   },
   {
-    title: "Teachers & Ministries",
-    body: "Materials for catechists, church-school teachers, and ministry leaders — saint biographies, feast-day references, and classroom-friendly handouts drawn from the database.",
+    icon: "M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7 M2 7h20v5H2z M12 22V7 M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z",
+    title: "Freely given, freely shared",
+    body: "Every card is free to download and print, in color or black & white. No account, no cost — only an open reference offered to the whole Church.",
+  },
+];
+
+const STEPS = [
+  {
+    title: "Print at postcard or half-page size",
+    body: "The cards are high-resolution and print beautifully anywhere from a 4×6 card up to a full A4/Letter poster. Color cards suit a printed sheet; the black & white versions photocopy cleanly and save on toner.",
+  },
+  {
+    title: "Place them where people pause",
+    body: "The narthex table, the candle stand, the bulletin board, the bookstore counter, or beside a particular icon. Anywhere a visitor waits is a good place to invite a scan.",
+  },
+  {
+    title: "Laminate or frame for longevity",
+    body: "A small acrylic sign holder or a simple laminate keeps a card fresh on a busy candle desk. The arched design is made to sit upright like a little window.",
+  },
+  {
+    title: "Hand them out freely",
+    body: "Include one in a welcome packet for newcomers, a catechumen folder, or a feast-day bulletin. Each is a small doorway into the life of the Church.",
   },
 ];
 ---
@@ -27,106 +71,570 @@ const areas = [
 <BaseLayout
   active="parish-resources"
   title="Parish Resources"
-  description="Free resources for parishes — QR cards, welcome materials for visitors and catechumens, and teaching aids for church schools and ministries. Use anything on Cloud of Witnesses for your ministry."
+  description="Free, print-ready QR cards for parishes and bookstores — post them in the narthex or by the register and point your community to the saints, the calendar, and the feasts of the Church."
 >
-  <div class="about-sub">
-    {/* ---------- hero (matches Browse & Search) ---------- */}
+  <div class="pc">
+    {/* ---------- hero (matches the site's standard page header) ---------- */}
     <section class="sr-hero">
       <div class="dome-bg" aria-hidden="true">
         <DomeMark w={460} color="var(--byz)" />
       </div>
       <div class="sr-hero-inner">
-        <EyebrowRule label="For Your Parish" />
+        <EyebrowRule label="For Parishes & Bookstores" />
         <h1 class="sr-title">Parish Resources</h1>
         <p class="sr-lede">
-          Free materials to help your parish share the saints — with visitors,
-          catechumens, bookstores, and ministries.
+          Free, print-ready cards that point your community to the whole Cloud
+          of Witnesses — one scan away. Post them in the narthex, tuck them into
+          a bulletin, or set them by the bookstore register.
         </p>
-      </div>
-    </section>
-
-    {/* ---------- reading column ---------- */}
-    <section class="as-body">
-      <div class="as-col">
-        <p class="as-p as-dropcap">
-          As told in <a href={withBase("about")}>Our Story</a>, the initial
-          point of this website was to create a patron saint quiz to help
-          catechumens connect to the saints. One of the first plans for it was a
-          QR code posted outside our parish library, so that our catechumens
-          could scan it and take the quiz.
-        </p>
-        <p class="as-p">
-          We decided that other people might want this for their own parish, so
-          we are adding resources to this page for your convenience.{" "}
-          <strong>
-            Feel free to use anything on our website for your ministries.
-          </strong>
-        </p>
-
-        {
-          areas.map((a) => (
-            <>
-              <div class="as-head">
-                <span class="ln" />
-                <div class="pr-headrow">
-                  <h2>{a.title}</h2>
-                  <span class="pr-soon">Coming soon</span>
-                </div>
-              </div>
-              <p class="as-p">{a.body}</p>
-            </>
-          ))
-        }
-
-        <div class="as-gap"></div>
-        <p class="as-p last">
-          These materials are being prepared now and will appear on this page as
-          they are ready. In the meantime, everything the resources point to is
-          already live:
-        </p>
-        <div class="pr-actions">
-          <a class="btn btn--gold" href={withBase("quiz")}
-            >Take the Patron Saint Quiz</a
-          >
-          <a class="btn btn--ghost" href={withBase("search")}
-            >Browse the saints</a
-          >
+        <div class="pc-hero-cta">
+          <a class="btn btn--gold" href="#cards">Browse the cards</a>
+          <a class="btn btn--ghost" href="#how">How to use them</a>
         </div>
       </div>
     </section>
 
-    {/* ---------- closing flourish ---------- */}
-    <section class="as-flourish">
-      <div class="rule"><span class="dot"></span></div>
+    {/* ---------- pitch — why display ---------- */}
+    <section class="pc-sec pc-pitch">
+      <div class="pc-wrap">
+        <div class="pc-sec-head">
+          <div class="eyebrow">Why display them</div>
+          <h2>A quiet invitation, always open</h2>
+          <p>
+            A single card asks nothing and offers much — a doorway for the
+            visitor, the inquirer, and the faithful alike.
+          </p>
+        </div>
+        <div class="pc-pitch-grid">
+          {
+            PITCH.map((p) => (
+              <div class="pc-point">
+                <div class="ico">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d={p.icon} />
+                  </svg>
+                </div>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- gallery ---------- */}
+    <section class="pc-sec pc-gallery" id="cards" data-card-dir={cardDir}>
+      <div class="pc-wrap">
+        <div class="pc-sec-head">
+          <div class="eyebrow">The Cards</div>
+          <h2>Nine cards, one Cloud</h2>
+          <p>
+            Each points to a different corner of the site. Choose color or black
+            &amp; white, download the ones you want, or print the whole set.
+          </p>
+        </div>
+
+        <div class="pc-controls">
+          <span class="pc-ctl-label">Color</span>
+          <div
+            class="pc-seg"
+            data-seg="color"
+            role="group"
+            aria-label="Color mode"
+          >
+            <button type="button" data-value="color" data-on="true"
+              >In color</button
+            >
+            <button type="button" data-value="bw">Black &amp; white</button>
+          </div>
+          <span class="sp"></span>
+          <span class="pc-ctl-label">Per row</span>
+          <div
+            class="pc-seg"
+            data-seg="cols"
+            role="group"
+            aria-label="Cards per row"
+          >
+            <button type="button" data-value="2">2</button>
+            <button type="button" data-value="3" data-on="true">3</button>
+            <button type="button" data-value="4">4</button>
+          </div>
+          <span class="sp"></span>
+          <button type="button" class="btn btn--gold" id="pc-download-all"
+            >Download all</button
+          >
+          <button type="button" class="btn btn--ghost" id="pc-print"
+            >Print sheet</button
+          >
+        </div>
+
+        <div class="pc-grid" data-cols="3">
+          {
+            CARDS.map((c) => (
+              <figure class="pc-card" data-base={c.base}>
+                <div class="plaque">
+                  <img
+                    src={cardThumb(c.base)}
+                    alt={`${c.name} — scan to open on orthodoxsaintfinder.com`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="dl-row">
+                  <a
+                    class="dl"
+                    href={cardSrc(c.base)}
+                    download={`CloudOfWitnesses-${c.base}-color.png`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
+                    </svg>
+                    Color
+                  </a>
+                  <a
+                    class="dl"
+                    href={cardBW(c.base)}
+                    download={`CloudOfWitnesses-${c.base}-bw.png`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
+                    </svg>
+                    B&amp;W
+                  </a>
+                </div>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- guidance ---------- */}
+    <section class="pc-sec pc-guide" id="how">
+      <div class="pc-wrap">
+        <div class="pc-sec-head">
+          <div class="eyebrow on-blue">A little guidance</div>
+          <h2>From download to wall</h2>
+          <p>
+            A few simple ways to put the cards to work in your parish or shop.
+          </p>
+        </div>
+        <div class="pc-guide-grid">
+          {
+            STEPS.map((s, i) => (
+              <div class="pc-step">
+                <span class="n">{i + 1}</span>
+                <div>
+                  <h4>{s.title}</h4>
+                  <p>{s.body}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <p class="pc-note">
+          Every card links to <b>orthodoxsaintfinder.com</b> — a free, open reference.
+          Reprint and share as widely as you like.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- help ---------- */}
+    <section class="pc-sec pc-help">
+      <div class="pc-wrap">
+        <div class="card">
+          <div class="eyebrow">Need something else?</div>
+          <h3>Custom sizes, banners &amp; social graphics</h3>
+          <p>
+            Planning a feast-day flyer, a pull-up banner for a festival, or a
+            graphic for your parish social media? We're glad to help prepare it.
+            Reach out and tell us what you have in mind.
+          </p>
+          <div class="pc-help-cta">
+            <a
+              class="btn btn--blue"
+              href="mailto:contact@orthodoxsaintfinder.com?subject=Parish%20Resources%20materials"
+              >Get in touch</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
   </div>
+
+  <script>
+    import "../islands/parish-cards.client.ts";
+  </script>
 </BaseLayout>
 
 <style>
-  .pr-headrow {
+  /* ---- hero CTA row (beneath the standard sr-hero lede) ---- */
+  .pc-hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ---- generic section frame ---- */
+  .pc-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+  .pc-sec {
+    padding: 64px 0;
+  }
+  .pc-sec-head {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 40px;
+  }
+  .pc-sec-head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 4.5vw, 42px);
+    color: var(--byz-deep);
+    margin: 10px 0 0;
+  }
+  .pc-sec-head p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+  }
+
+  /* ---- pitch ---- */
+  .pc-pitch {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pc-pitch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .pc-point {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 30px 28px;
+    box-shadow: var(--shadow-soft);
+  }
+  .pc-point .ico {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .pr-soon {
-    flex-shrink: 0;
-    font-family: var(--text);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-deep);
+    justify-content: center;
     background: rgba(212, 175, 55, 0.14);
-    border: 1px solid rgba(212, 175, 55, 0.32);
+    color: var(--gold-deep);
+    border: 1px solid var(--line-gold);
+    margin-bottom: 18px;
+  }
+  .pc-point h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 23px;
+    color: var(--byz-deep);
+    margin: 0;
+  }
+  .pc-point p {
+    font-size: 15.5px;
+    line-height: 1.62;
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+  }
+
+  /* ---- gallery controls ---- */
+  .pc-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto 40px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    max-width: 940px;
+  }
+  .pc-seg {
+    display: inline-flex;
+    background: var(--ivory-2);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 4px 11px;
+    padding: 3px;
+  }
+  .pc-seg button {
+    font-family: var(--text);
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.15s;
     white-space: nowrap;
   }
-  .pr-actions {
+  .pc-seg button[data-on="true"] {
+    background: var(--byz);
+    color: var(--ivory);
+    box-shadow: var(--shadow-soft);
+  }
+  .pc-ctl-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+  }
+  .pc-controls .sp {
+    flex: 1;
+    min-width: 8px;
+  }
+
+  /* ---- gallery grid ---- */
+  .pc-grid {
+    display: grid;
+    gap: 38px 30px;
+  }
+  .pc-grid[data-cols="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pc-grid[data-cols="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pc-grid[data-cols="4"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .pc-card {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+  .pc-card .plaque {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+  }
+  .pc-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 26px rgba(15, 34, 56, 0.16));
+  }
+  .pc-card .dl-row {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 18px;
+  }
+  .pc-card .dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--byz);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 18px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .pc-card .dl:hover {
+    border-color: var(--gold);
+    color: var(--gold-deep);
+    background: var(--paper);
+  }
+  .pc-card .dl svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* ---- guidance ---- */
+  .pc-guide {
+    background: var(--byz-ink);
+    color: var(--ivory);
+  }
+  .pc-guide .pc-sec-head h2 {
+    color: var(--ivory);
+  }
+  .pc-guide .pc-sec-head p {
+    color: var(--celest-soft);
+  }
+  .pc-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 36px;
+    margin-top: 8px;
+  }
+  .pc-step {
+    display: flex;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .pc-step .n {
+    font-family: var(--serif);
+    font-size: 30px;
+    color: var(--gold);
+    line-height: 1;
+    flex: 0 0 auto;
+    width: 36px;
+  }
+  .pc-step h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ivory);
+    margin: 2px 0 0;
+  }
+  .pc-step p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #c6d3e0;
+    margin: 8px 0 0;
+  }
+  .pc-note {
+    margin-top: 34px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--celest-soft);
+  }
+  .pc-note b {
+    color: var(--gold-soft);
+    font-weight: 600;
+  }
+
+  /* ---- help ---- */
+  .pc-help {
+    text-align: center;
+  }
+  .pc-help .card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 44px 40px;
+    box-shadow: var(--shadow-card);
+  }
+  .pc-help h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--byz-deep);
+    margin: 0;
+  }
+  .pc-help p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 14px auto 0;
+    max-width: 520px;
+  }
+  .pc-help-cta {
+    margin-top: 26px;
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width: 960px) {
+    .pc-pitch-grid {
+      grid-template-columns: 1fr;
+    }
+    .pc-guide-grid {
+      grid-template-columns: 1fr;
+    }
+    .pc-grid[data-cols="3"],
+    .pc-grid[data-cols="4"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 620px) {
+    .pc-wrap {
+      padding: 0 24px;
+    }
+    .pc-grid[data-cols="2"],
+    .pc-grid[data-cols="3"],
+    .pc-grid[data-cols="4"] {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- print: a clean sheet of the current cards ---- */
+  @media print {
+    @page {
+      margin: 12mm;
+    }
+    :global(.site-header),
+    :global(.cw-footer),
+    .sr-hero,
+    .pc-pitch,
+    .pc-guide,
+    .pc-help,
+    .pc-controls,
+    .pc-sec-head,
+    .pc-card .dl-row {
+      display: none !important;
+    }
+    .pc-gallery {
+      padding: 0 !important;
+    }
+    .pc-wrap {
+      padding: 0;
+      max-width: none;
+    }
+    .pc-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10mm !important;
+    }
+    .pc-card {
+      break-inside: avoid;
+    }
+    .pc-card img {
+      filter: none;
+    }
   }
 </style>

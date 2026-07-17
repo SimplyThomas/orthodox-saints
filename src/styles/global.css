@@ -18,7 +18,9 @@
     4. HOME — "from the cloud" band (saint of day + featured)
     5. FINDER — faceted search + results
     6. QUIZ — the one-question-per-screen pilgrimage
-    7. SAINTS OF AMERICA — "A Pilgrimage of Hope"
+    7. SAINTS OF AMERICA — moved to component-scoped styles in
+       src/components/AmericaFeature.astro (only the shared
+       `.am-hero .dome-bg` hero rule remains here)
     8. HOME — "Saints in the News" band + shuffle button
     9. ABOUT — "The Story Behind the Project"
    10. Footer — reverent dark colophon
@@ -234,7 +236,6 @@ a:hover {
 a.feat-card,
 a.saint-row,
 a.sotd-card,
-a.pga-card,
 a.news-card,
 a.qz-comp {
   color: inherit;
@@ -1969,365 +1970,6 @@ a.qz-comp {
 }
 
 /* ============================================================
-   SAINTS OF AMERICA — "A Pilgrimage of Hope"
-   (Illuminated Manuscript: ivory hero + cream essay over a deep
-    navy gallery of three jewel-toned gilded carousel panels)
-   ============================================================ */
-.america {
-  background: var(--ivory);
-}
-.am-hero {
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  padding: 78px clamp(16px, 4vw, 56px) 48px;
-}
-.am-hero .inner {
-  position: relative;
-}
-.am-hero .eyebrow-rule {
-  margin-bottom: 16px;
-}
-.am-hero h1 {
-  font-size: var(--page-title-size);
-  color: var(--byz-deep);
-  line-height: 1;
-  margin-bottom: 18px;
-}
-.am-hero p.am-hero-tagline {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--page-lede-size);
-  color: var(--celest);
-  margin: 8px auto 0;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
-}
-.am-hero .am-verse {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(18px, 2.4vw, 22px);
-  color: var(--byz);
-  max-width: 760px;
-  margin: 44px auto 0;
-  line-height: 1.5;
-  text-wrap: balance;
-}
-.am-hero .am-verse cite {
-  display: block;
-  font-style: normal;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-top: 16px;
-}
-
-/* essay */
-.am-essay {
-  background: var(--paper);
-  padding: 44px clamp(16px, 4vw, 56px) 8px;
-}
-.am-essay-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-.am-essay-inner p {
-  font-size: clamp(17px, 2.1vw, 20px);
-  color: var(--ink);
-  line-height: 1.78;
-  text-align: justify;
-  hyphens: auto;
-  margin: 0 0 26px;
-}
-.am-essay-inner p.dropcap::first-letter {
-  float: left;
-  font-family: var(--serif);
-  font-weight: 600;
-  color: var(--gold-deep);
-  font-size: 86px;
-  line-height: 0.74;
-  margin: 8px 14px 0 0;
-}
-.am-scripture {
-  margin: 6px 0 32px;
-  text-align: center;
-}
-.am-scripture blockquote {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(20px, 2.6vw, 25px);
-  color: var(--byz);
-  line-height: 1.5;
-  margin: 0 0 12px;
-  text-wrap: balance;
-}
-.am-scripture figcaption {
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-}
-
-/* the navy gallery ground */
-.am-gallery {
-  background: linear-gradient(180deg, #193655 0%, #132a44 60%, #102236 100%);
-}
-
-/* a gilded movement panel */
-.pga-movement {
-  padding: 56px clamp(16px, 4vw, 56px) 12px;
-}
-.pga-movement.tail {
-  padding-bottom: 78px;
-}
-.pga-movement .panel {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  box-shadow:
-    0 2px 6px rgba(8, 18, 32, 0.35),
-    0 26px 64px rgba(8, 18, 32, 0.5);
-}
-.pga-movement.garnet .panel {
-  background: linear-gradient(168deg, #6f3128 0%, #561f1a 55%, #431712 100%);
-}
-.pga-movement.forest .panel {
-  background: linear-gradient(168deg, #33564a 0%, #244338 55%, #1b3329 100%);
-}
-.pga-movement.plum .panel {
-  background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
-}
-.pga-movement .seed {
-  position: absolute;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.12;
-  pointer-events: none;
-}
-.pga-movement .inset {
-  position: absolute;
-  inset: 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.32);
-  box-shadow: inset 0 0 0 4px rgba(212, 175, 55, 0.06);
-  pointer-events: none;
-}
-.pga-movement .panel-inner {
-  position: relative;
-  padding: 54px clamp(22px, 4vw, 52px) 46px;
-}
-.pga-heading {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 30px;
-}
-.pga-heading h2 {
-  font-size: clamp(28px, 4vw, 38px);
-  color: var(--ivory);
-  line-height: 1.05;
-  margin-bottom: 14px;
-}
-.pga-heading .lede {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(16px, 2vw, 19px);
-  color: var(--gold-soft);
-  line-height: 1.5;
-  margin: 0 0 20px;
-  text-wrap: balance;
-}
-.pga-heading .rule {
-  max-width: 220px;
-  margin: 0 auto;
-}
-
-/* carousel */
-.pga-carousel {
-  position: relative;
-}
-.pga-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 2px 2px 8px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.pga-track::-webkit-scrollbar {
-  display: none;
-}
-.pga-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 1px solid var(--gold-deep);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-  padding: 0;
-  box-shadow: 0 3px 12px rgba(15, 34, 56, 0.28);
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    background 0.15s,
-    opacity 0.2s,
-    box-shadow 0.15s;
-}
-.pga-arrow.prev {
-  left: -21px;
-}
-.pga-arrow.next {
-  right: -21px;
-}
-.pga-arrow.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-.pga-arrow:hover {
-  background: var(--gold);
-  box-shadow: 0 5px 18px rgba(15, 34, 56, 0.32);
-}
-
-/* gilded ivory saint card */
-.pga-card {
-  /* exactly three cards per view (track gap is 20px → two gaps), so the third
-     card is never clipped; the arrow advances a full page (see the island). */
-  flex: 0 0 calc((100% - 40px) / 3);
-  max-width: none;
-  scroll-snap-align: start;
-  background: var(--paper);
-  border: 1px solid var(--line-gold);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-}
-.pga-card.clickable {
-  cursor: pointer;
-  transition:
-    transform 0.14s,
-    box-shadow 0.14s;
-}
-.pga-card.clickable:hover {
-  transform: translateY(-2px);
-}
-.pga-card .portrait {
-  background: linear-gradient(180deg, #fbf6ea, #efe3cb);
-  padding: 22px 0 20px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid var(--line-gold);
-}
-.pga-card .body {
-  padding: 16px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.pga-card h3 {
-  font-size: 22px;
-  color: var(--byz-deep);
-  line-height: 1.08;
-}
-.pga-card .epithet {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15.5px;
-  color: var(--celest);
-  margin-bottom: 3px;
-}
-.pga-card .years {
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin-bottom: 11px;
-  min-height: 1em;
-}
-.pga-card .tag {
-  align-self: flex-start;
-  margin-bottom: 12px;
-}
-.pga-card .badges {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.pga-card .badges .tag {
-  margin-bottom: 0;
-  align-self: auto;
-}
-.pga-card .tag.solid {
-  border-style: solid;
-}
-.pga-card p {
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  flex: 1;
-  margin: 0;
-}
-.pga-card .foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 14px;
-  padding-top: 11px;
-  border-top: 1px solid var(--line-gold);
-}
-.pga-card .foot .feast {
-  font-family: var(--serif);
-  font-size: 17px;
-  color: var(--gold-deep);
-  white-space: nowrap;
-}
-.pga-card .foot .glor {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--celest);
-  white-space: nowrap;
-}
-.pga-card .foot .place {
-  font-size: 12.5px;
-  color: var(--celest);
-  line-height: 1.4;
-}
-
-/* the story continues */
-.am-continues {
-  background: var(--paper);
-  padding: 64px clamp(16px, 4vw, 56px) 72px;
-}
-.am-continues-head {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.am-continues-head h2 {
-  font-size: clamp(28px, 4vw, 38px);
-  color: var(--byz-deep);
-  line-height: 1.05;
-  margin-bottom: 18px;
-}
-.am-continues-head .rule {
-  max-width: 220px;
-  margin: 0 auto;
-}
-
-/* ============================================================
    HOME — "Saints in the News" band + shuffle button
    ============================================================ */
 .news-band {
@@ -3730,6 +3372,12 @@ a.news-card:hover .news-h {
   color: var(--celest-soft);
   margin-top: 2px;
 }
+/* the civil day Old Calendar (Julian) churches keep the fixed feast */
+.sv-feast-oc {
+  font-size: 12.5px;
+  color: var(--celest-soft);
+  margin-top: 3px;
+}
 .sv-glance {
   width: 100%;
 }
@@ -4104,6 +3752,22 @@ a.sv-rail-chip:hover {
 }
 .sv-legacy-card p:last-child {
   margin-bottom: 0;
+}
+/* Influence ("Living Legacy" / "Influence in America") collapsible — reuses
+   the legacy card grid; these two classes are its only additions. */
+.sv-inf-intro {
+  margin: 26px auto 0;
+  max-width: 70ch;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.sv-inf-meta {
+  margin: -2px 0 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
 }
 
 /* "After" matter — coloured panels (echoing the America carousels) stacked
@@ -4798,6 +4462,11 @@ a.sv-rail-chip:hover {
 .sv2 .sv-rail-chips {
   gap: 8px;
 }
+/* Rail chips must be allowed to wrap. "Patron of" entries are full phrases
+   ("Right-believing rulers; defender of Orthodoxy against heresy"), not
+   one-word tags: white-space:nowrap pinned each chip to its max-content width,
+   which flex-shrink cannot reduce below, so long ones ran out of the rail.
+   Wrapping needs real leading, hence line-height 1.3 over the old 1. */
 .sv2 .sv-rail-chip {
   font-family: var(--text);
   font-size: 13px;
@@ -4806,8 +4475,8 @@ a.sv-rail-chip:hover {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 6px 12px;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.3;
+  overflow-wrap: break-word;
 }
 .sv2 a.sv-rail-chip:hover {
   background: #fff;
@@ -5645,9 +5314,6 @@ a.sv-rail-chip:hover {
   }
 }
 @media (max-width: 860px) {
-  .pga-card {
-    flex-basis: calc((100% - 20px) / 2);
-  }
   .ab-move {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -5667,9 +5333,6 @@ a.sv-rail-chip:hover {
   }
   .sv-plum-grid {
     grid-template-columns: 1fr;
-  }
-  .pga-card {
-    flex-basis: 100%;
   }
   .site-header {
     gap: 12px;
@@ -5823,6 +5486,46 @@ a.sv-rail-chip:hover {
   background: var(--gold-soft);
 }
 
+/* New / Old Calendar segmented toggle */
+#calendar-page .cal-style-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+#calendar-page .cal-style-toggle button {
+  font-family: var(--text);
+  font-size: 13px;
+  height: 36px;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+#calendar-page .cal-style-toggle button:hover {
+  color: var(--byz);
+}
+#calendar-page .cal-style-toggle button.is-active {
+  background: var(--byz);
+  color: var(--ivory);
+  font-weight: 600;
+}
+#calendar-page .cal-style-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+#calendar-page .cal-style-note[hidden] {
+  display: none;
+}
+
 #calendar-page .cal-main {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
@@ -5882,6 +5585,20 @@ a.sv-rail-chip:hover {
   font-size: 10px;
   color: var(--ink-soft);
 }
+/* Old Calendar mode: the church (Julian) date carried by this civil day */
+#calendar-page .cal-cell .os {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  font-family: var(--text);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+#calendar-page .cal-cell.is-selected .os {
+  color: var(--gold-soft);
+}
 #calendar-page .cal-cell.is-blank {
   background: transparent;
   border-color: transparent;
@@ -5913,6 +5630,233 @@ a.sv-rail-chip:hover {
 #calendar-page .cal-cell.is-selected:hover:not(.is-empty):not(.is-blank) {
   background: var(--byz);
   border-color: var(--byz);
+}
+
+/* ---------- liturgical color layer (values come from lib/liturgical's
+   LITURGICAL_COLORS via --lc-* custom props set by the island) ---------- */
+#calendar-page .cal-cell.has-lc:not(.is-selected) {
+  background: var(--lc-bg);
+}
+#calendar-page .cal-cell.has-lc:not(.is-selected) .cn {
+  color: var(--lc-tx);
+}
+#calendar-page .cal-cell.has-lc:not(.is-selected):hover:not(.is-empty) {
+  background: var(--lc-bg);
+  filter: brightness(1.03);
+}
+#calendar-page .cal-cell .lc-strip {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--lc-ac);
+  border-radius: 6px 6px 0 0;
+  pointer-events: none;
+}
+/* white/near-paper tiles must not disappear against the page (WCAG note) */
+#calendar-page .cal-cell.lc-white:not(.is-selected) {
+  border-color: #c7bfa8;
+}
+#calendar-page .cal-cell.is-empty.has-lc {
+  opacity: 0.75;
+}
+
+/* fasting badge — a separate layer from the liturgical color */
+#calendar-page .cal-cell .fast-glyph {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+}
+#calendar-page .fast-glyph {
+  font-family: var(--text);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 2px 3px;
+  border-radius: 3px;
+  background: rgba(62, 55, 66, 0.08);
+  color: #4a4437;
+  border: 1px solid rgba(62, 55, 66, 0.24);
+  display: inline-block;
+}
+#calendar-page .cal-cell.is-selected .fast-glyph {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--ivory);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* "color changes by service" marker (Great Saturday, Forgiveness Sunday, …):
+   a half-filled disc drawn in CSS — text glyphs render unevenly this small */
+#calendar-page .lc-svc-glyph {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  color: var(--gold-deep);
+  border: 1px solid currentColor;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  display: inline-block;
+  flex: 0 0 auto;
+  align-self: center;
+}
+#calendar-page .cal-cell .lc-svc-glyph {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#calendar-page .cal-cell.is-selected .lc-svc-glyph {
+  color: var(--gold-soft);
+}
+
+/* ---------- day panel: the liturgical block ---------- */
+#calendar-page .cal-lit {
+  border-bottom: 1px solid var(--line-gold);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#calendar-page .cal-lit-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--sw-bg);
+  border: 2px solid var(--sw-ac);
+  display: inline-block;
+  flex: 0 0 auto;
+}
+#calendar-page .cal-lit-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--text);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--byz-deep);
+}
+/* the neutral swatch (transparent config values) keeps a quiet outline */
+#calendar-page .cal-lit-swatch[style*="transparent"] {
+  border-color: var(--line-gold);
+  background: var(--paper);
+}
+#calendar-page .cal-lit-reason {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--ink);
+  margin: 5px 0 0;
+  line-height: 1.4;
+}
+#calendar-page .cal-lit-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+#calendar-page .cal-lit-svc {
+  margin-top: 6px;
+  font-family: var(--text);
+  font-size: 12px;
+  color: var(--byz-deep);
+}
+#calendar-page .cal-lit-fast {
+  font-family: var(--text);
+  font-size: 12.5px;
+  color: var(--ink);
+  margin: 7px 0 0;
+}
+#calendar-page .cal-lit-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+#calendar-page .cal-lit-badge {
+  font-family: var(--text);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(35, 76, 122, 0.08);
+  color: var(--byz-deep);
+  border: 1px solid rgba(35, 76, 122, 0.18);
+}
+
+/* ---------- collapsible "Liturgical Colors & Fasting Guide" ---------- */
+#calendar-page .cal-lit-legend {
+  margin-top: 18px;
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  background: var(--paper);
+}
+#calendar-page .cal-lit-legend summary {
+  font-family: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--byz-deep);
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style-position: inside;
+}
+#calendar-page .cal-lit-legend summary:hover {
+  color: var(--byz);
+}
+#calendar-page .cal-lit-legend-body {
+  padding: 2px 18px 16px;
+}
+#calendar-page .cal-lit-legend-lede,
+#calendar-page .cal-lit-legend-note {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+#calendar-page .cal-lit-legend h3 {
+  font-family: var(--text);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 14px 0 6px;
+}
+#calendar-page .cal-lit-colors,
+#calendar-page .cal-lit-fasts {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 5px 18px;
+}
+#calendar-page .cal-lit-colors li,
+#calendar-page .cal-lit-fasts li {
+  font-family: var(--text);
+  font-size: 12.5px;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  line-height: 1.45;
+}
+#calendar-page .cal-lit-colors .cal-lit-swatch {
+  position: relative;
+  top: 1px;
+}
+#calendar-page .cal-lit-fastnote {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+#calendar-page .cal-lit-disclaimer {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  border-left: 3px solid var(--line-gold);
+  margin: 10px 0;
+  padding: 2px 0 2px 12px;
 }
 
 /* ---------- day panel ---------- */
@@ -6080,6 +6024,19 @@ a.sv-rail-chip:hover {
   display: inline-block;
   margin-right: 4px;
 }
+/* sample of the count badge each day cell carries in its corner */
+#calendar-page .cal-legend .lg-n {
+  font-family: var(--text);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 10px;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-gold);
+  background: var(--paper);
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin-right: 5px;
+}
 
 /* ---------- no-JS source / fallback ---------- */
 #calendar-page.is-enhanced .cal-source {
@@ -6118,6 +6075,14 @@ a.sv-rail-chip:hover {
   }
   #calendar-page .cal-panel {
     position: static;
+  }
+  /* Cells are too small to carry the per-day church date or the corner
+     fasting/service badges; the day panel and each cell's aria-label still
+     state them. The liturgical tint + strip remain. */
+  #calendar-page .cal-cell .os,
+  #calendar-page .cal-cell .fast-glyph,
+  #calendar-page .cal-cell .lc-svc-glyph {
+    display: none;
   }
 }
 

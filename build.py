@@ -484,15 +484,27 @@ def validate(header: list[str], rows: list[dict[str, str]],
                          if r["Saint ID"].strip()}
     except Exception:
         _img_valid_ids = {r["Saint ID"].strip() for r in rows if r["Saint ID"].strip()}
+    # Group ids live in groups.csv, not saints.csv. Union them in at each call
+    # site that should accept them — never mutate _img_valid_ids, which
+    # validate_groups() relies on being saints-only to detect id collisions.
+    try:
+        _group_ids = {g["saint_id"].strip() for g in load_groups()
+                      if g.get("saint_id", "").strip()}
+    except Exception:
+        _group_ids = set()
     permissions = load_image_permissions()
     perm_errors, perm_warnings = validate_image_permissions()
     errors.extend(perm_errors)
     warnings.extend(perm_warnings)
-    img_errors, img_warnings = validate_saint_images(_img_valid_ids, permissions)
+    # A group is a saint-profile too (profile_type:"group", served at /saint/<id>
+    # since #292), so it may carry its own portrait and depiction cards.
+    img_errors, img_warnings = validate_saint_images(_img_valid_ids | _group_ids,
+                                                     permissions)
     errors.extend(img_errors)
     warnings.extend(img_warnings)
 
-    dep_errors, dep_warnings = validate_saint_depictions(_img_valid_ids, permissions)
+    dep_errors, dep_warnings = validate_saint_depictions(_img_valid_ids | _group_ids,
+                                                         permissions)
     errors.extend(dep_errors)
     warnings.extend(dep_warnings)
 
@@ -506,11 +518,6 @@ def validate(header: list[str], rows: list[dict[str, str]],
     # and carry a rich OS-####.yaml, but their IDs live in groups.csv, not
     # saints.csv — so admit them to the set the profile cross-check validates
     # against.
-    try:
-        _group_ids = {g["saint_id"].strip() for g in load_groups()
-                      if g.get("saint_id", "").strip()}
-    except Exception:
-        _group_ids = set()
     prof_errors, prof_warnings = validate_saint_profiles(_img_valid_ids | _group_ids)
     errors.extend(prof_errors)
     warnings.extend(prof_warnings)
@@ -860,7 +867,7 @@ def validate_saint_images(valid_ids: set[str],
             elif not ID_RE.match(sid):
                 errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
             elif sid not in valid_ids:
-                errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+                errors.append(f"{where}: saint_id {sid!r} matches no saint or group.")
             elif sid in seen:
                 errors.append(f"{where}: duplicate image row for {sid} "
                               "(one portrait per saint).")
@@ -951,7 +958,7 @@ def validate_saint_depictions(valid_ids: set[str],
             elif not ID_RE.match(sid):
                 errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
             elif sid not in valid_ids:
-                errors.append(f"{where}: saint_id {sid!r} matches no saint.")
+                errors.append(f"{where}: saint_id {sid!r} matches no saint or group.")
             elif (sid, path) in seen:
                 errors.append(f"{where}: duplicate depiction row for {sid} "
                               f"and image {path!r}.")
@@ -1573,6 +1580,50 @@ def variant_forms(r: dict[str, str], lookup: dict[str, list[str]]) -> list[str]:
 # --------------------------------------------------------------------------- #
 # Emit data.json
 # --------------------------------------------------------------------------- #
+def attach_image(rec: dict, sid: str, images: dict[str, dict[str, str]],
+                 permissions: dict[str, dict[str, str]]) -> None:
+    """Join the self-hosted portrait (data/saint_images.csv) onto one record.
+
+    Keyed by OS-#### — which is a saint id OR a group's own id, since groups
+    are saint-profiles too (`profile_type:"group"`, served at /saint/<id>), so
+    both to_record() and group_record() use this. `image` is a static/-relative
+    path the frontend base-prefixes; the tiered SaintAvatar shows it instead of
+    the monogram, and attribution (credit/license/source) rides along for the
+    detail-page caption. An image from a revoked permission vendor is dropped
+    (monogram fallback); permission images carry imagePermission/imageVendor,
+    open-license images carry imageLicense/imageCredit."""
+    img = images.get(sid)
+    if not (img and img.get("path")):
+        return
+    slug = permission_slug(img.get("license", ""))
+    if slug is not None:
+        vendor = permissions.get(slug)
+        # Publish a permission image only if the vendor grant is active.
+        if vendor and vendor.get("status") != "revoked":
+            rec["image"] = img["path"]
+            thumb = image_thumb(img["path"])
+            if thumb:
+                rec["imageThumb"] = thumb
+            rec["imagePermission"] = True
+            rec["imageVendor"] = vendor.get("name", "")
+            rec["imageAttribution"] = vendor.get("attribution", "")
+            rec["imageVendorHome"] = vendor.get("homepage", "")
+            if img.get("source"):
+                rec["imageSource"] = img["source"]
+        # revoked / unknown vendor -> no image key (monogram fallback)
+    else:
+        rec["image"] = img["path"]
+        thumb = image_thumb(img["path"])
+        if thumb:
+            rec["imageThumb"] = thumb
+        if img.get("license"):
+            rec["imageLicense"] = img["license"]
+        if img.get("credit"):
+            rec["imageCredit"] = img["credit"]
+        if img.get("source"):
+            rec["imageSource"] = img["source"]
+
+
 def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               name_variants: dict[str, list[str]] | None = None,
               images: dict[str, dict[str, str]] | None = None,
@@ -1624,39 +1675,7 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     rec["works"] = [work_link(t, r["Name"]) for t in rec["works"]]
     rec["about"] = [work_link(t, r["Name"]) for t in rec["about"]]
     rec["vendors"] = vendor_links(r["Name"], vendors)
-    # Self-hosted real portrait (data/saint_images.csv), if one exists for this
-    # saint. `image` is a static/-relative path the frontend base-prefixes; the
-    # tiered SaintAvatar then shows it instead of the monogram. Attribution
-    # (credit/license/source) rides along for the detail-page caption.
-    img = images.get(r["Saint ID"].strip())
-    if img and img.get("path"):
-        slug = permission_slug(img.get("license", ""))
-        if slug is not None:
-            vendor = permissions.get(slug)
-            # Publish a permission image only if the vendor grant is active.
-            if vendor and vendor.get("status") != "revoked":
-                rec["image"] = img["path"]
-                thumb = image_thumb(img["path"])
-                if thumb:
-                    rec["imageThumb"] = thumb
-                rec["imagePermission"] = True
-                rec["imageVendor"] = vendor.get("name", "")
-                rec["imageAttribution"] = vendor.get("attribution", "")
-                rec["imageVendorHome"] = vendor.get("homepage", "")
-                if img.get("source"):
-                    rec["imageSource"] = img["source"]
-            # revoked / unknown vendor -> no image key (monogram fallback)
-        else:
-            rec["image"] = img["path"]
-            thumb = image_thumb(img["path"])
-            if thumb:
-                rec["imageThumb"] = thumb
-            if img.get("license"):
-                rec["imageLicense"] = img["license"]
-            if img.get("credit"):
-                rec["imageCredit"] = img["credit"]
-            if img.get("source"):
-                rec["imageSource"] = img["source"]
+    attach_image(rec, r["Saint ID"].strip(), images, permissions)
     # Additional depictions (data/saint_depictions.csv) — the saint page's
     # "Depictions & Icons" carousel. Many per saint, in file order. Each carries
     # the card presentation (kind/tag/title/era/by) plus its rights: a permission
@@ -1754,12 +1773,18 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     return rec
 
 
-def group_record(g: dict, members: list[dict[str, str]]) -> dict:
+def group_record(g: dict, members: list[dict[str, str]],
+                 images: dict[str, dict[str, str]] | None = None,
+                 permissions: dict[str, dict[str, str]] | None = None) -> dict:
     """A group rendered as a saint-shaped record for public/data.json, so it
     flows into /saint/<id>, the finder, the calendar and the sitemap unchanged
     (only the quiz filters it out). `profile_type: "group"` steers the frontend
     to the GroupSaintProfile layout instead of SaintView. Facet arrays stay
-    empty — a group is not an intercessor, so it never pollutes a facet filter."""
+    empty — a group is not an intercessor, so it never pollutes a facet filter.
+
+    A group may carry its own portrait in data/saint_images.csv keyed by its
+    OS-#### (e.g. an icon of Joachim and Anna on the household's page), joined
+    by the same attach_image() the saints use."""
     rec: dict = {}
     for key in JSON_KEYS.values():
         rec[key] = [] if key in ARRAY_KEYS else ""
@@ -1780,6 +1805,9 @@ def group_record(g: dict, members: list[dict[str, str]]) -> dict:
     member_names = " ".join(m["name"] for m in members if m.get("name"))
     rec["search"] = " ".join(p for p in (g["name"], g["description"],
                                          member_names) if p).strip()
+    attach_image(rec, g["saint_id"].strip(),
+                 load_saint_images() if images is None else images,
+                 load_image_permissions() if permissions is None else permissions)
     return rec
 
 
@@ -1818,7 +1846,8 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
             {"saint_id": sid, "name": by_id[sid]["Name"].strip()}
             for sid in ids if sid in by_id
         ]
-    records.extend(group_record(g, members_by_group.get(g["slug"], []))
+    records.extend(group_record(g, members_by_group.get(g["slug"], []),
+                                images, permissions)
                    for g in groups if g.get("saint_id"))
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)

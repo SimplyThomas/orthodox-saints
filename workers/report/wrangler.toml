@@ -20,9 +20,13 @@ routes = [
 workers_dev = true
 
 # --- Public, non-secret configuration ----------------------------------------
-# Secrets (GITHUB_TOKEN, TURNSTILE_SECRET_KEY) are NOT here — set them with
+# Secrets (APP_PRIVATE_KEY, TURNSTILE_SECRET_KEY) are NOT here — set them with
 # `wrangler secret put NAME` (see README). Never commit secrets.
+# APP_ID / INSTALLATION_ID are identifiers, not secrets — safe to commit. Replace
+# the placeholders with your GitHub App's values (README explains where to find them).
 [vars]
+APP_ID = "4327441"
+INSTALLATION_ID = "147289637"
 REPO_OWNER = "SimplyThomas"
 REPO_NAME  = "orthodox-saints"
 # Comma-separated allow-list for cross-origin (workers.dev) use. Same-origin

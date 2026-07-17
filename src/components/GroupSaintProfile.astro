@@ -22,6 +22,7 @@ import { GROUP_TYPE_LABEL } from "../lib/groups";
 import { saintAvatar } from "../lib/icons";
 import { loadProfileMap } from "../lib/saint-profiles";
 import { esc, withBase, MONTHS, MONTHS_FULL } from "../lib/format";
+import { oldCalendarDay } from "../lib/calendar-grid";
 import SaintRoster from "./SaintRoster.astro";
 
 interface Props {
@@ -63,6 +64,17 @@ function feastDisplay(f: string): string {
   return f;
 }
 const feast = saint.feast ? feastDisplay(saint.feast) : "";
+
+// The civil day Old Calendar (Julian) churches keep the fixed feast — shown
+// alongside the New Calendar date (matches SaintView's primaryFeastOld).
+const feastOld = (() => {
+  const m = (saint.feast || "").match(/([A-Z][a-z]{2})\s+(\d{1,2})/);
+  if (!m) return "";
+  const mi = MONTHS.indexOf(m[1]);
+  if (mi < 0) return "";
+  const oc = oldCalendarDay(mi + 1, +m[2]);
+  return `${MONTHS_FULL[oc.month - 1]} ${oc.day}`;
+})();
 
 // "At a glance" rail rows: authored profile facts win; otherwise a minimal set
 // derived from the record so the rail is never empty.
@@ -107,6 +119,14 @@ if (saint.image) {
   const monoName = saint.name.replace(/^(The|Synaxis of the|Holy)\s+/i, "");
   portrait = saintAvatar({ name: monoName }, 286, 358);
 }
+
+// A group may carry its own portrait (data/saint_images.csv keyed by its
+// OS-####). Attribution is NOT optional for a permission image: the vendor
+// grant's condition is that each image links to its own icon page (§9), so the
+// caption mirrors SaintView's exactly.
+const showCredit =
+  !!saint.image &&
+  !!(saint.imageCredit || saint.imageLicense || saint.imagePermission);
 
 const overview = profile?.overview ?? [];
 const invokedFor = profile?.invokedFor ?? [];
@@ -162,6 +182,48 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
           <div class="sv-icon-frame">
             <div class="sv-icon-inner" set:html={portrait} />
           </div>
+          {
+            /* Permission images link "Original icon" to the specific vendor
+               page (imageSource) — a condition of the grant, so it ships with
+               the image or not at all. */
+            showCredit &&
+              (saint.imagePermission ? (
+                <div class="sv-icon-cap">
+                  {saint.imageAttribution}
+                  {saint.imageSource && (
+                    <>
+                      {" "}
+                      Original icon:{" "}
+                      <a
+                        href={saint.imageSource}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View on {saint.imageVendor}
+                      </a>
+                    </>
+                  )}
+                </div>
+              ) : (
+                <div class="sv-icon-cap">
+                  <span class="sv-icon-cap-eb">Icon</span> ·{" "}
+                  {saint.imageSource ? (
+                    <a
+                      href={saint.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {saint.imageCredit || "source"}
+                    </a>
+                  ) : (
+                    saint.imageCredit
+                  )}
+                  {saint.imageLicense && (
+                    <span class="sv-icon-lic">{saint.imageLicense}</span>
+                  )}
+                </div>
+              ))
+          }
         </div>
 
         <div class="sv-hero-id">
@@ -209,6 +271,9 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
                   <div class="sv-feast-main">
                     <div class="sv-feast-label">Feast Day</div>
                     <div class="sv-feast-date">{feast}</div>
+                    {feastOld && (
+                      <div class="sv-feast-oc">Old Calendar · {feastOld}</div>
+                    )}
                   </div>
                   {profile?.feastNote && (
                     <div class="sv-feast-note">{profile.feastNote}</div>

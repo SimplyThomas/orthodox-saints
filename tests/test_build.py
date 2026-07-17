@@ -609,8 +609,12 @@ class SaintImageTests(unittest.TestCase):
 
     def test_committed_image_file_validates(self):
         # The committed data/saint_images.csv (header-only or real rows) must pass.
-        errs, _ = build.validate_saint_images(
-            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        # Groups are saint-profiles too and may carry their own portrait, so the
+        # valid set is saints + group ids — the same union validate() passes in.
+        valid = {r["Saint ID"].strip() for r in build.load_saints()[1]}
+        valid |= {g["saint_id"].strip() for g in build.load_groups()
+                  if g.get("saint_id", "").strip()}
+        errs, _ = build.validate_saint_images(valid)
         self.assertEqual(errs, [], "committed saint_images.csv has errors:\n" +
                          "\n".join(errs))
 
@@ -1062,6 +1066,46 @@ class GroupTaxonomyTests(unittest.TestCase):
             {r["Saint ID"].strip() for r in build.load_saints()[1]})
         self.assertEqual(errs, [], "committed group files have errors:\n" +
                          "\n".join(errs))
+
+    def test_group_record_joins_its_own_portrait(self):
+        # A group is a saint-profile, so it may carry a portrait keyed by its
+        # own OS-#### in saint_images.csv (e.g. an icon of Joachim and Anna on
+        # the household's page).
+        images = {"OS-2939": {"path": "icons/permission/theophany-works/OS-2939.jpg",
+                              "license": "Permission:theophany-works",
+                              "credit": "", "source": "https://example.test/icon"}}
+        perms = {"theophany-works": {"name": "Theophany Works", "status": "active",
+                                     "attribution": "Used with permission.",
+                                     "homepage": "https://example.test/"}}
+        rec = build.group_record(
+            {"slug": "joachim-and-anna", "saint_id": "OS-2939", "name": "Joachim and Anna",
+             "type": "household", "description": "d", "feast": "Sep 9", "sort": "1"},
+            [], images=images, permissions=perms)
+        self.assertEqual(rec["image"], "icons/permission/theophany-works/OS-2939.jpg")
+        self.assertTrue(rec["imagePermission"])
+        self.assertEqual(rec["imageVendor"], "Theophany Works")
+
+    def test_group_record_drops_revoked_vendor_portrait(self):
+        images = {"OS-2939": {"path": "icons/permission/gone/OS-2939.jpg",
+                              "license": "Permission:gone", "credit": "", "source": "s"}}
+        perms = {"gone": {"name": "Gone", "status": "revoked"}}
+        rec = build.group_record(
+            {"slug": "g", "saint_id": "OS-2939", "name": "G", "type": "household",
+             "description": "d", "feast": "", "sort": "1"},
+            [], images=images, permissions=perms)
+        self.assertNotIn("image", rec)  # no image key at all -> monogram fallback
+
+    def test_image_valid_ids_union_does_not_poison_group_collision_check(self):
+        # Regression: admitting group ids to the image/depiction id set must not
+        # mutate the saints-only set validate_groups() uses to detect an id that
+        # collides with a real saint. A `|=` here silently disables that check.
+        saints_only = {"OS-0001", "OS-0002"}
+        group_ids = {"OS-2939"}
+        _ = saints_only | group_ids          # the union validate() passes to images
+        self.assertNotIn("OS-2939", saints_only,
+                         "the saints-only id set was mutated by the group union")
+        errs, _ = build.validate_groups(saints_only)
+        self.assertFalse(any("collides with a saint" in e for e in errs))
 
 
 class ThemeIntegrationTests(unittest.TestCase):

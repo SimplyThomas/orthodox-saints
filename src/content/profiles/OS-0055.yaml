@@ -110,10 +110,38 @@ reading:
 patronage:
   - Orthodox Christians in North America
   - Missionary work among scattered communities
-status: draft
+influence:
+  heading: Influence in America
+  intro: "The roughly thirty parishes St. Raphael founded across the continent grew into today's Antiochian Archdiocese, and churches from coast to coast now bear his own name."
+  places:
+    - name: St. Nicholas Antiochian Orthodox Cathedral
+      kind: Cathedral
+      place: Brooklyn, New York
+      note: "Founded by St. Raphael — begun as a Manhattan chapel in 1895 and moved to Pacific Street in Brooklyn in 1902 — and designated his cathedral when he was consecrated Bishop of Brooklyn in 1904."
+    - name: Antiochian Village
+      kind: Shrine
+      place: Ligonier, Pennsylvania
+      note: "The Antiochian Archdiocese's camp and heritage center holds St. Raphael's relics, translated from New York in 1988 and moved into St. Ignatius Church on the grounds in 2024; an annual pilgrimage honors him there."
+    - name: St. Raphael of Brooklyn Orthodox Church
+      kind: Church
+      place: Thousand Palms, California
+      note: "An Antiochian parish that in spring 2000 became the first church in the world granted St. Raphael as its patron, two months before his glorification."
+    - name: St. Raphael of Brooklyn Church
+      kind: Church
+      place: Inverness, Florida
+      note: "An Orthodox Church in America parish of the Diocese of the South, founded in 2002 and named for the first Orthodox bishop consecrated in the New World."
+    - name: St. Raphael Clergy Brotherhood
+      kind: Society
+      note: "The clergy brotherhood of the Antiochian Diocese of Wichita and Mid-America, named in honor of the bishop whose missionary labors planted many of that diocese's early parishes."
+status: reviewed
 sources:
   - Synaxarion
   - https://www.oca.org/saints/lives/1949/02/27/100610-repose-of-saint-raphael-bishop-of-brooklyn
   - https://en.wikipedia.org/wiki/Raphael_of_Brooklyn
   - https://www.oca.org/history-archives/commemorating-saint-raphael-bishop-brooklyn
+  - https://stnicholascathedral.org/history
+  - https://issuu.com/antiochian/docs/september-october_2024_final/s/56292437
+  - https://www.srocps.org/
+  - https://www.oca.org/parishes/oca-so-invorm
+  - https://www.dowama.org/
 generated: "2026-06-19"

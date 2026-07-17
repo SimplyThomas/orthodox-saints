@@ -89,6 +89,27 @@ const profileSchema = z
           ),
       )
       .optional(),
+    // The saint's living institutional footprint — churches, cathedrals,
+    // monasteries, seminaries, and other legacies dedicated to them or carrying
+    // their work forward. Rendered as its own collapsible deep-dive; `heading`
+    // names the scope (e.g. "Influence in America"), defaulting to
+    // "Living Legacy".
+    influence: z
+      .object({
+        heading: z.string().optional(),
+        intro: z.string().optional(),
+        places: z
+          .array(
+            z.object({
+              name: z.string(),
+              kind: z.string().optional(), // Church · Cathedral · Monastery · Seminary · Camp · Society · …
+              place: z.string().optional(), // City, State
+              note: z.string().optional(),
+            }),
+          )
+          .min(1),
+      })
+      .optional(),
     // ── Group-profile fields (profile_type:"group" records only) ──────────
     // A group profile (a synaxis / household / feast-companions set) reuses this
     // same collection and review gate. These optional fields feed the
@@ -129,6 +150,7 @@ const profileSchema = z
           title: z.string(),
           desc: z.string(),
           date: z.string().optional(),
+          url: z.string().optional(), // external link; title renders as an <a> when set
         }),
       )
       .optional(),
@@ -141,6 +163,7 @@ const profileSchema = z
               title: z.string(),
               author: z.string().optional(),
               type: z.string().optional(),
+              url: z.string().optional(), // external link; title renders as an <a> when set
             }),
           ),
         }),
