@@ -18,12 +18,27 @@ const { w } = Astro.props as { w: Witness };
 
 const railFacts = w.railFacts ?? [];
 const overview = w.overview ?? [];
+const sections = w.sections ?? [];
 const timeline = w.timeline ?? [];
 const worksBy = w.worksBy ?? [];
 const worksAbout = w.worksAbout ?? [];
+const quotes = w.quotes ?? [];
+const gallery = w.gallery ?? [];
 const related = w.related ?? [];
 const significance = w.significance ?? [];
 const sources = w.sources ?? [];
+
+// Group Selected Teachings by theme, preserving first-seen theme order — mirrors
+// the bespoke Ephraim/Seraphim "Selected Teachings" block.
+const quotesByTheme: { theme: string; items: typeof quotes }[] = [];
+for (const q of quotes) {
+  let g = quotesByTheme.find((x) => x.theme === q.theme);
+  if (!g) {
+    g = { theme: q.theme, items: [] };
+    quotesByTheme.push(g);
+  }
+  g.items.push(q);
+}
 ---
 
 <div class="saintview ep">
@@ -82,6 +97,18 @@ const sources = w.sources ?? [];
             ))}
           </section>
         )
+      }
+
+      {/* THEMATIC NARRATIVE SECTIONS — the deep, titled prose */}
+      {
+        sections.map((s) => (
+          <section class="ep-sec">
+            <h2>{s.heading}</h2>
+            {s.body.map((p) => (
+              <p set:html={p} />
+            ))}
+          </section>
+        ))
       }
 
       {/* LIFE TIMELINE */}
@@ -178,6 +205,30 @@ const sources = w.sources ?? [];
         )
       }
 
+      {/* SELECTED TEACHINGS */}
+      {
+        quotesByTheme.length > 0 && (
+          <section class="ep-sec">
+            <h2>Selected Teachings</h2>
+            <p class="ep-fineprint">
+              Drawn from his published works. Widely-circulated sayings that
+              could not be tied to a specific source have been omitted.
+            </p>
+            {quotesByTheme.map((g) => (
+              <div class="ep-qgroup">
+                <h3>{g.theme}</h3>
+                {g.items.map((q) => (
+                  <blockquote class="ep-quote">
+                    <p>“{q.text}”</p>
+                    <cite>{q.work}</cite>
+                  </blockquote>
+                ))}
+              </div>
+            ))}
+          </section>
+        )
+      }
+
       {/* HISTORICAL SIGNIFICANCE */}
       {
         significance.length > 0 && (
@@ -212,6 +263,27 @@ const sources = w.sources ?? [];
                     <span class="ep-related-name">{r.name}</span>
                   )}
                   <span class="ep-related-note"> &mdash; {r.note}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {/* GALLERY SUGGESTIONS */}
+      {
+        gallery.length > 0 && (
+          <section class="ep-sec">
+            <h2>Gallery Suggestions</h2>
+            <p class="ep-fineprint">
+              Recommended imagery for a future illustrated edition of this
+              profile (none reproduced here pending licensing and review):
+            </p>
+            <ul class="ep-gallery">
+              {gallery.map((g) => (
+                <li>
+                  <span class="ep-gal-subject">{g.subject}</span>
+                  <span class="ep-gal-caption">{g.caption}</span>
                 </li>
               ))}
             </ul>
@@ -393,6 +465,62 @@ const sources = w.sources ?? [];
   }
   .ep-related-note {
     color: #555;
+  }
+
+  /* selected teachings */
+  .ep-qgroup {
+    margin-bottom: 8px;
+  }
+  .ep-qgroup h3 {
+    font-family: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--byz-deep);
+    margin: 18px 0 10px;
+    letter-spacing: 0.01em;
+  }
+  .ep-quote {
+    margin: 0 0 14px;
+    padding: 4px 0 4px 18px;
+    border-left: 3px solid var(--gold-deep);
+  }
+  .ep-quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #2b2b2b;
+    margin: 0 0 4px !important;
+  }
+  .ep-quote cite {
+    font-family: var(--text);
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--celest);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* gallery suggestions */
+  .ep-gallery {
+    padding-left: 0;
+    margin: 0;
+  }
+  .ep-gallery li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  .ep-gal-subject {
+    display: block;
+    font-weight: 600;
+    color: var(--byz-deep);
+    font-family: var(--text);
+    font-size: 14px;
+  }
+  .ep-gal-caption {
+    font-style: italic;
+    color: var(--celest);
+    font-size: 14px;
   }
 
   .ep-sources ol {
