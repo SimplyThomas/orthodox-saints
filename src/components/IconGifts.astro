@@ -25,7 +25,6 @@ import {
   IG_TIERS,
   IG_RECIPIENTS,
   IG_TIPS,
-  IG_RELATED,
   resolveGiftRef,
   type GiftIcon,
   type GiftTier,
@@ -286,43 +285,12 @@ function iconHref(i: GiftIcon): string | null {
     </div>
   </section>
 
-  {/* ============================ TIERS ============================ */}
-  <section class="ig-sec ig-sec--deep" id="tiers">
-    <div class="ig-wrap">
-      <div class="ig-sec-head is-light">
-        <div class="eyebrow on-blue">Knowing the difference</div>
-        <h2>Tradition, custom, and good ideas</h2>
-        <p>
-          Not everything an Orthodox Christian does is a tradition of the
-          Church, and not every tradition is kept everywhere. Telling them apart
-          is a courtesy to inquirers &mdash; and the surest way to keep the real
-          ones intact.
-        </p>
-      </div>
-
-      <div class="ig-tiers">
-        {
-          IG_TIERS.map((t) => (
-            <article class={`ig-tier-card is-${t.tier}`}>
-              <div class="ig-tier-star" aria-hidden="true">
-                <span class="dm" />
-              </div>
-              <div class="ig-tier-label">{t.label}</div>
-              <p class="ig-tier-lede">{t.lede}</p>
-              <ul class="ig-tier-list">
-                {t.examples.map((e) => (
-                  <li>{e}</li>
-                ))}
-              </ul>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  {/* ====================== WHO ARE YOU BUYING FOR ====================== */}
-  <section class="ig-sec ig-sec--ivory" id="who">
+  {
+    /* ====================== WHO ARE YOU BUYING FOR ======================
+      Moved up to sit beside the occasions: the two ways in (by moment, by
+      person) are the approachable entry points, ahead of the explainer. */
+  }
+  <section class="ig-sec" id="who">
     <div class="ig-wrap">
       <div class="ig-sec-head">
         <div class="eyebrow">A place to start</div>
@@ -397,8 +365,43 @@ function iconHref(i: GiftIcon): string | null {
     </div>
   </section>
 
+  {/* ============================ TIERS ============================ */}
+  <section class="ig-sec ig-sec--deep" id="tiers">
+    <div class="ig-wrap">
+      <div class="ig-sec-head is-light">
+        <div class="eyebrow on-blue">Knowing the difference</div>
+        <h2>Tradition, custom, and good ideas</h2>
+        <p>
+          Not everything an Orthodox Christian does is a tradition of the
+          Church, and not every tradition is kept everywhere. Telling them apart
+          is a courtesy to inquirers &mdash; and the surest way to keep the real
+          ones intact.
+        </p>
+      </div>
+
+      <div class="ig-tiers">
+        {
+          IG_TIERS.map((t) => (
+            <article class={`ig-tier-card is-${t.tier}`}>
+              <div class="ig-tier-star" aria-hidden="true">
+                <span class="dm" />
+              </div>
+              <div class="ig-tier-label">{t.label}</div>
+              <p class="ig-tier-lede">{t.lede}</p>
+              <ul class="ig-tier-list">
+                {t.examples.map((e) => (
+                  <li>{e}</li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   {/* ============================= TIPS ============================= */}
-  <section class="ig-sec" id="tips">
+  <section class="ig-sec ig-sec--ivory" id="tips">
     <div class="ig-wrap">
       <div class="ig-sec-head">
         <div class="eyebrow">Before you buy</div>
@@ -412,29 +415,6 @@ function iconHref(i: GiftIcon): string | null {
               <h3 class="ig-tip-title">{t.title}</h3>
               <p class="ig-tip-body">{t.body}</p>
             </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  {/* =========================== RELATED =========================== */}
-  <section class="ig-sec ig-sec--ivory" id="related">
-    <div class="ig-wrap">
-      <div class="ig-sec-head">
-        <div class="eyebrow">Keep exploring</div>
-        <h2>Where to go next</h2>
-      </div>
-      <div class="ig-related">
-        {
-          IG_RELATED.map((r) => (
-            <a class="ig-rel" href={r.href}>
-              <span class="ig-rel-glyph" set:html={glyph(r.glyph, 24)} />
-              <span class="ig-rel-text">
-                <span class="ig-rel-label">{r.label}</span>
-                <span class="ig-rel-blurb">{r.blurb}</span>
-              </span>
-            </a>
           ))
         }
       </div>
@@ -1064,62 +1044,6 @@ function iconHref(i: GiftIcon): string | null {
     margin: 0;
   }
 
-  /* ---------------- related ---------------- */
-  .ig-related {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 16px;
-  }
-  .ig-rel {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 22px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: var(--shadow-soft);
-    transition:
-      border-color 0.15s,
-      box-shadow 0.15s,
-      transform 0.1s;
-  }
-  .ig-rel:hover {
-    border-color: var(--gold-deep);
-    box-shadow: var(--shadow-card);
-    transform: translateY(-1px);
-  }
-  .ig-rel-glyph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--ivory-2);
-    border: 1px solid var(--line-gold);
-  }
-  .ig-rel-label {
-    display: block;
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--byz-deep);
-    line-height: 1.2;
-  }
-  .ig-rel:hover .ig-rel-label {
-    color: var(--gold-deep);
-  }
-  .ig-rel-blurb {
-    display: block;
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin-top: 5px;
-  }
-
   /* ---------------- responsive ---------------- */
   @media (max-width: 560px) {
     /* single-column tiles read better than cramped two-across on a phone */
@@ -1146,7 +1070,6 @@ function iconHref(i: GiftIcon): string | null {
     }
     .ig-tile:not([open]):hover,
     .ig-voc:hover,
-    .ig-rel:hover,
     .ig-corner-link:hover .ig-frame {
       transform: none;
     }
