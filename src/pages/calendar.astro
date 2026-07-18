@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import { withBase, MONTHS, MONTHS_FULL } from "../lib/format";
 import { SAINTS } from "../lib/data";
-import { feastDates, primaryRank, rankSlug } from "../lib/saints";
+import { feastDates, primaryRank, rankSlug, rankWeight } from "../lib/saints";
 import { splitName } from "../lib/names";
-import { FEASTS, PASCHA } from "../lib/feasts";
 import { LITURGICAL_COLORS, FASTING_LEVELS } from "../lib/liturgical";
+import { litPayload } from "../lib/lit-payload";
 
 // Every saint grouped onto each fixed feast date they hold. Movable-cycle
 // commemorations (no fixed Mon-D) collect separately. The grid + "today" are
@@ -25,29 +25,6 @@ interface Entry {
   w: number;
 }
 
-const RANK_W: Record<string, number> = {
-  Theotokos: 10,
-  Apostle: 9,
-  Forerunner: 9,
-  "Equal-to-the-Apostles": 8,
-  Prophet: 7,
-  "Great Martyr": 7,
-  Enlightener: 6,
-  Hierarch: 6,
-  Hieromartyr: 6,
-  Wonderworker: 5,
-  Unmercenary: 5,
-  Confessor: 4,
-  "New Martyr": 4,
-  "Venerable-Martyr": 4,
-  "Passion-Bearer": 4,
-  Martyr: 3,
-  "Venerable (Monastic)": 2,
-  Righteous: 2,
-};
-const weight = (rank: string[]): number =>
-  rank.length ? Math.max(...rank.map((r) => RANK_W[r] ?? 1)) : 1;
-
 const months: Map<number, Entry[]>[] = Array.from(
   { length: 13 },
   () => new Map<number, Entry[]>(),
@@ -62,7 +39,7 @@ for (const s of SAINTS) {
     epithet: sn.epithet,
     rank: primaryRank(s),
     slug: rankSlug(s),
-    w: weight(s.rank),
+    w: rankWeight(s.rank),
   };
   const dates = feastDates(s);
   if (!dates.length) {
@@ -103,20 +80,7 @@ const totalEntries =
 // (lib/liturgical) — colors attach to feast records, so the New/Old toggle
 // shifts fixed feasts and their colors together. Same inline-JSON pattern
 // as the /feasts island (~12 KB).
-const litJson = JSON.stringify({
-  feasts: FEASTS.map((f) => ({
-    id: f.id,
-    name: f.name,
-    category: f.category,
-    ...(f.dedication ? { dedication: f.dedication } : {}),
-    ...(f.fasting ? { fasting: f.fasting } : {}),
-    begins: f.begins,
-    ...(f.ends ? { ends: f.ends } : {}),
-    ...(f.forefeast ? { forefeast: f.forefeast } : {}),
-    ...(f.apodosis ? { apodosis: f.apodosis } : {}),
-  })),
-  pascha: PASCHA,
-});
+const litJson = JSON.stringify(litPayload());
 
 // Legend rows (server-rendered so the guide reads without JS).
 const legendColors: { key: string; label: string; use: string }[] = [
