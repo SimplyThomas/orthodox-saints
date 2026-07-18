@@ -233,7 +233,6 @@ a:hover {
 
 /* Saint cards are real <a> links (progressive enhancement); the modal island
    intercepts clicks. Keep them visually identical to the old <div> cards. */
-a.feat-card,
 a.saint-row,
 a.news-card,
 a.qz-comp {
@@ -827,7 +826,7 @@ a.qz-comp {
 }
 
 /* ============================================================
-   HOME — "from the cloud" band (saint of day + featured)
+   HOME — "Today" band (saints commemorated today)
    ============================================================ */
 .cloud-band {
   background: var(--paper);
@@ -835,19 +834,11 @@ a.qz-comp {
   border-bottom: 1px solid var(--line);
   padding: 52px clamp(16px, 4vw, 56px) 58px;
 }
-.cloud-grid {
+/* The full-width "Today" card wrapper (so every saint commemorated today can
+   be shown across the page width). */
+.cloud-stack {
   max-width: var(--maxw);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1px 1.55fr;
-  gap: 44px;
-  align-items: start;
-}
-.cloud-grid .divider {
-  background: var(--line);
-  width: 1px;
-  height: 100%;
-  justify-self: center;
 }
 
 /* The "Today" card: a compact, blue mirror of the /feasts "Saints commemorated
@@ -903,7 +894,12 @@ a.qz-comp {
   transform: translateX(3px);
 }
 .sotd-list {
-  padding: 6px 22px 10px;
+  padding: 6px 22px 12px;
+  /* Full-width band: flow the day's saints into as many columns as fit so
+     every commemoration shows without a tall single-column scroll. */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  column-gap: 30px;
 }
 .sotd-saint {
   display: flex;
@@ -913,9 +909,6 @@ a.qz-comp {
   text-decoration: none;
   color: inherit;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.sotd-saint:last-child {
-  border-bottom: 0;
 }
 .sotd-saint-av {
   flex: 0 0 auto;
@@ -1015,6 +1008,7 @@ a.qz-comp {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   padding: 4px 11px;
   border: 0;
   background: transparent;
@@ -1085,96 +1079,6 @@ a.qz-comp {
   color: var(--sw-tx, var(--ink-soft));
   opacity: 0.85;
   margin-top: 2px;
-}
-
-.featured-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 14px;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.featured-head .stat {
-  font-size: 13px;
-  color: var(--celest);
-}
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.feat-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  cursor: pointer;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform 0.14s,
-    box-shadow 0.14s;
-}
-.feat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-}
-.feat-card .portrait {
-  background: var(--ivory-2);
-  padding: 18px 0;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid var(--line);
-}
-.feat-card .body {
-  padding: 16px;
-  min-width: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.feat-card h4 {
-  font-size: 19px;
-  color: var(--byz-deep);
-  line-height: 1.16;
-  overflow-wrap: anywhere;
-  max-width: 100%;
-}
-.feat-card .epithet {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  color: var(--celest);
-  margin: 2px 0 9px;
-  overflow-wrap: anywhere;
-  max-width: 100%;
-}
-/* the rank chip keeps its text inside the box: tighter tracking so common
-   ranks fit on one line, and overflow-wrap so a long single word (e.g.
-   HIEROMARTYR) breaks within the chip instead of spilling past its edge. */
-.feat-card .tag {
-  white-space: normal;
-  overflow-wrap: anywhere;
-  max-width: 100%;
-  text-align: left;
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  line-height: 1.35;
-}
-.feat-card .feat-meta {
-  font-size: 12.5px;
-  color: var(--ink-soft);
-  margin-top: auto;
-  padding-top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
 }
 
 /* ============================================================
@@ -2236,21 +2140,6 @@ a.news-card:hover .news-h {
 }
 .news-card .news-src .src {
   color: var(--celest);
-}
-
-.featured-head > div .stat {
-  margin-top: 5px;
-  display: block;
-}
-.shuffle-btn {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 14px;
-  padding: 9px 16px;
-}
-.shuffle-btn svg {
-  transition: transform 0.5s ease;
 }
 
 /* ============================================================
@@ -5282,16 +5171,6 @@ a.sv-rail-chip:hover {
   .cw-foot-cols {
     grid-template-columns: 1fr 1fr;
   }
-  .cloud-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .cloud-grid .divider {
-    display: none;
-  }
-  .featured-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .finder-layout {
     grid-template-columns: 1fr;
   }
@@ -5529,9 +5408,6 @@ a.sv-rail-chip:hover {
   .site-header {
     gap: 12px;
     padding: 0 14px;
-  }
-  .featured-grid {
-    grid-template-columns: 1fr 1fr;
   }
   .news-grid {
     grid-template-columns: 1fr;
