@@ -700,7 +700,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   and the old `simplythomas.github.io/orthodox-saints/` URLs redirect via Pages). **Still build
   every internal URL via `withBase()` in `src/lib/format.ts`** — Astro does NOT auto-prefix
   hand-written `href`/`src`, and routing through `withBase()` keeps any future base change a
-  one-line edit. **CI/CD:** GitHub Actions (free).
+  one-line edit. **CI/CD:** GitHub Actions (free). **Cloudflare fronts production as an
+  edge cache** (the apex is proxied): cache rules are managed as code in
+  [`infra/cloudflare/`](infra/cloudflare/) (`apply.sh` + `cache-rules.json`), and the deploy
+  workflow purges the edge after publishing. Setup runbook + rationale:
+  `infra/cloudflare/README.md`; failure map in `docs/infrastructure.md` §1a.
 - The deploy workflow runs `python build.py` → `astro build` → publishes `_site/`. The PR
   workflow (`ci.yml`) has three gates: **`validate`** (python unit tests + `--check-only`),
   **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`), and **`worker`**
