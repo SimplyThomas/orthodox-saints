@@ -120,9 +120,14 @@ if (root && dataEl && todaySec && upcomingSec) {
     const { feast, date, days } = next;
 
     // The whole card links through to the feast's detail page (the highest-
-    // traffic path into it).
+    // traffic path into it). feast.id is DOM-sourced (#ff-data), so reduce it to
+    // its integer part and rebuild the canonical FF-#### id — the href is then
+    // derived from a number, never raw DOM text (CodeQL js/xss-through-dom).
     const top = el("a", "ff-up-top") as HTMLAnchorElement;
-    top.href = withBase(`feast/${feast.id}`);
+    const idNum = Number(feast.id.replace(/^FF-/, ""));
+    if (feast.id.startsWith("FF-") && Number.isInteger(idNum) && idNum >= 0) {
+      top.href = withBase(`feast/FF-${String(idNum).padStart(4, "0")}`);
+    }
     const left = el("div", "");
     const eb = el("div", "ff-up-eb");
     eb.append(el("span", "pulse"));
