@@ -20,10 +20,8 @@ const browse = [
 ---
 
 <section class="hero">
-  <div class="dome-clip" aria-hidden="true">
-    <div class="dome-bg" id="hero-dome">
-      <DomeMark w={460} color="var(--byz)" />
-    </div>
+  <div class="dome-bg" id="hero-dome" aria-hidden="true">
+    <DomeMark w={460} color="var(--byz)" />
   </div>
   <div class="hero-inner">
     <EyebrowRule label="The Orthodox Saint Finder" />
@@ -79,17 +77,11 @@ const browse = [
 
 <style>
   /* The typeahead panel is absolutely positioned and overhangs the hero's
-     bottom edge, so the hero must NOT clip it. The dome silhouette is the only
-     thing the hero's clip was containing, so give it its own clip layer and
-     let the hero itself overflow freely. */
+     bottom edge, so the hero must NOT clip it. The dome silhouette flows in
+     normal order here (global.css makes .hero .dome-bg position:static), so it
+     never overflowed the hero — dropping the clip is safe. */
   .hero {
     overflow: visible;
-  }
-  .dome-clip {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
   }
   /* The hero box is the panel's positioning context and must not clip it. */
   .hero .search {
