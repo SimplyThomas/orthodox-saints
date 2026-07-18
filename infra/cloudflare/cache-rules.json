@@ -1,0 +1,27 @@
+{
+  "rules": [
+    {
+      "description": "Immutable content-hashed assets: cache at edge and in-browser for a year. The URL changes whenever the bytes change (Astro hashes the filename; finder/card data are hashed on content), so these can never go stale.",
+      "expression": "starts_with(http.request.uri.path, \"/_astro/\") or starts_with(http.request.uri.path, \"/finder-data/\") or starts_with(http.request.uri.path, \"/card-data/\")",
+      "action": "set_cache_settings",
+      "action_parameters": {
+        "cache": true,
+        "edge_ttl": { "mode": "override_origin", "default": 31536000 },
+        "browser_ttl": { "mode": "override_origin", "default": 31536000 }
+      },
+      "enabled": true
+    },
+    {
+      "description": "Everything else (HTML pages + /search-index.json): cache at the edge so requests stop falling through to the slow GitHub Pages origin. Stable URLs that change on deploy, so the edge is purged by the Deploy workflow. Excludes /api/* (the corrections Worker). serve_stale keeps a fast response during revalidation.",
+      "expression": "not (starts_with(http.request.uri.path, \"/_astro/\") or starts_with(http.request.uri.path, \"/finder-data/\") or starts_with(http.request.uri.path, \"/card-data/\") or starts_with(http.request.uri.path, \"/api/\"))",
+      "action": "set_cache_settings",
+      "action_parameters": {
+        "cache": true,
+        "edge_ttl": { "mode": "override_origin", "default": 86400 },
+        "browser_ttl": { "mode": "override_origin", "default": 600 },
+        "serve_stale": { "disable_stale_while_updating": false }
+      },
+      "enabled": true
+    }
+  ]
+}

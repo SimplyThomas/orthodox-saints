@@ -64,7 +64,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
 │   ├── pages/                 ← routes: index, search, saint/[id], feast/[id], quiz, america,
-│   │                            calendar, feasts, news (placeholder, unlinked from nav — #348),
+│   │                            calendar, feasts, calendar/[style].ics (iCal feeds),
+│   │                            news (placeholder, unlinked from nav — #348),
 │   │                            witness/[slug], about, contribute, corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
@@ -332,7 +333,14 @@ the index, calendar, moveable-calendar, and the "Coming up next" island. All 83
 feast profiles are `reviewed`/public. **Festal imagery is not wired yet** (#350):
 the page reads optional `image`/`depictions` on the `Feast` type and shows an
 "Icon forthcoming" placeholder until a `data/feast_images.csv`/`feast_depictions.csv`
-+ feastlib join is built.
++ feastlib join is built. Two subscribable **iCal feeds** — `/calendar/new.ics` and
+`/calendar/old.ics` (New/Old calendar) — carry the feasts + fasts plus one aggregated
+"commemorations of the day" event, reckoned +13 for the Old calendar (movable feasts
+stay shared); built at deploy time by `src/lib/ical.ts` (RFC 5545 serializer) +
+`src/lib/calendar-feed.ts` (feed builder, reusing `resolveToken`/`oldCalendarDay`). The
+**`/calendar` page** hosts a **Subscribe** control (in `calendar.astro` + the island) that
+swaps its add-to-calendar links to the feed matching the active New/Old toggle — there is
+no standalone subscribe page.
 
 **19 columns:** Feast ID · Name · Also Known As · Category · Dedication · Begins ·
 Ends · Forefeast · Apodosis · Fasting Discipline · Fasting Notes · Brief ·
@@ -692,7 +700,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   and the old `simplythomas.github.io/orthodox-saints/` URLs redirect via Pages). **Still build
   every internal URL via `withBase()` in `src/lib/format.ts`** — Astro does NOT auto-prefix
   hand-written `href`/`src`, and routing through `withBase()` keeps any future base change a
-  one-line edit. **CI/CD:** GitHub Actions (free).
+  one-line edit. **CI/CD:** GitHub Actions (free). **Cloudflare fronts production as an
+  edge cache** (the apex is proxied): cache rules are managed as code in
+  [`infra/cloudflare/`](infra/cloudflare/) (`apply.sh` + `cache-rules.json`), and the deploy
+  workflow purges the edge after publishing. Setup runbook + rationale:
+  `infra/cloudflare/README.md`; failure map in `docs/infrastructure.md` §1a.
 - The deploy workflow runs `python build.py` → `astro build` → publishes `_site/`. The PR
   workflow (`ci.yml`) has three gates: **`validate`** (python unit tests + `--check-only`),
   **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`), and **`worker`**

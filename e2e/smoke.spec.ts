@@ -716,6 +716,63 @@ test("feasts index renders the Church-year page with live tabs", async ({
   ).toBeVisible();
 });
 
+// The generated .ics orders lines DTSTART … SUMMARY within each VEVENT, so a
+// "name-then-DTSTART" regex would read the NEXT event's date. Split on the event
+// boundary and read the DTSTART that lives in the same block as the summary.
+function nativityDtstart(ics: string): string | null {
+  const block = ics
+    .split("BEGIN:VEVENT")
+    .find((b) => /SUMMARY:☦ Nativity of Christ(\r?\n|$)/.test(b));
+  if (!block) return null;
+  const m = block.match(/DTSTART;VALUE=DATE:(\d{8})/);
+  return m ? m[1] : null;
+}
+
+test("iCal feeds are served and reckon Old vs New correctly", async ({
+  request,
+}) => {
+  for (const style of ["new", "old"]) {
+    const res = await request.get(`${BASE}calendar/${style}.ics`);
+    expect(res.status()).toBe(200);
+    expect(res.headers()["content-type"]).toContain("text/calendar");
+    const body = await res.text();
+    expect(body).toContain("BEGIN:VCALENDAR");
+    expect(body).toContain("BEGIN:VEVENT");
+    expect(body.trimEnd().endsWith("END:VCALENDAR")).toBe(true);
+  }
+  // Nativity is Dec 25 on New, Jan 7 on Old — verify each feed's OWN date for it.
+  const newBody = await (await request.get(`${BASE}calendar/new.ics`)).text();
+  const oldBody = await (await request.get(`${BASE}calendar/old.ics`)).text();
+  expect(nativityDtstart(newBody)?.endsWith("1225")).toBe(true);
+  expect(nativityDtstart(oldBody)?.endsWith("0107")).toBe(true);
+});
+
+test("the calendar page's Subscribe control tracks the New/Old toggle", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // The interactive app (with the subscribe control) is revealed by the island.
+  const subBtn = page.locator("#cal-sub-btn");
+  await expect(subBtn).toBeVisible();
+  await subBtn.click();
+
+  // Defaults to the New Calendar feed.
+  const input = page.locator("#cal-sub-input");
+  await expect(input).toHaveValue(/calendar\/new\.ics$/);
+  await expect(page.locator("#cal-sub-apple")).toHaveAttribute(
+    "href",
+    /^webcal:.*calendar\/new\.ics$/,
+  );
+
+  // Switching to Old Calendar swaps the subscription to the Old feed.
+  await page.locator("#cal-style-old").click();
+  await expect(input).toHaveValue(/calendar\/old\.ics$/);
+  await expect(page.locator("#cal-sub-apple")).toHaveAttribute(
+    "href",
+    /^webcal:.*calendar\/old\.ics$/,
+  );
+});
+
 test("fasts route opens the same page on the Fasts tab", async ({ page }) => {
   const resp = await page.goto("./fasts/");
   expect(resp?.status()).toBe(200);

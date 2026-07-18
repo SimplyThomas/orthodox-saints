@@ -338,12 +338,69 @@ if (root && app && source && grid && panel && monthLabel) {
     }
   }
 
+  /* ---- Subscribe control: swap the .ics feed to the active reckoning ---- */
+  const subRoot = document.querySelector<HTMLElement>(".cal-subscribe");
+  const subBtn = document.getElementById("cal-sub-btn");
+  const subPop = document.getElementById("cal-sub-pop");
+  const subTitle = document.getElementById("cal-sub-title");
+  const subApple = document.getElementById(
+    "cal-sub-apple",
+  ) as HTMLAnchorElement | null;
+  const subGoogle = document.getElementById(
+    "cal-sub-google",
+  ) as HTMLAnchorElement | null;
+  const subInput = document.getElementById(
+    "cal-sub-input",
+  ) as HTMLInputElement | null;
+  const feedUrls: Record<"new" | "old", string> = {
+    new: subRoot?.dataset.feedNew ?? "",
+    old: subRoot?.dataset.feedOld ?? "",
+  };
+
+  function syncSubscribe(): void {
+    const httpsUrl = feedUrls[style];
+    if (!httpsUrl) return;
+    const webcal = httpsUrl.replace(/^https?:/, "webcal:");
+    if (subApple) subApple.href = webcal;
+    if (subGoogle)
+      subGoogle.href =
+        "https://calendar.google.com/calendar/r?cid=" +
+        encodeURIComponent(webcal);
+    if (subInput) subInput.value = httpsUrl;
+    if (subTitle)
+      subTitle.textContent =
+        style === "old"
+          ? "Subscribe — Old Calendar (Julian)"
+          : "Subscribe — New Calendar (Revised Julian)";
+  }
+
+  function closeSubscribe(): void {
+    if (!subPop || subPop.hidden) return;
+    subPop.hidden = true;
+    subBtn?.setAttribute("aria-expanded", "false");
+  }
+
+  subBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!subPop) return;
+    const opening = subPop.hidden;
+    subPop.hidden = !opening;
+    subBtn.setAttribute("aria-expanded", String(opening));
+  });
+  subPop?.addEventListener("click", (e) => e.stopPropagation());
+  subInput?.addEventListener("click", () => subInput.select());
+  document.addEventListener("click", closeSubscribe);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSubscribe();
+  });
+
   function syncStyleUI(): void {
     for (const k of ["new", "old"] as const) {
       styleBtns[k]?.classList.toggle("is-active", k === style);
       styleBtns[k]?.setAttribute("aria-pressed", String(k === style));
     }
     if (styleNote) styleNote.hidden = style !== "old";
+    syncSubscribe();
   }
 
   function setStyle(next: "new" | "old"): void {
