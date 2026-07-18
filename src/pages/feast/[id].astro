@@ -6,8 +6,6 @@ import { tokenLabel } from "../../lib/feast-dates";
 import { byId as saintById } from "../../lib/data";
 import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import DomeMark from "../../components/icons/DomeMark.astro";
-import EyebrowRule from "../../components/EyebrowRule.astro";
 import FastPill from "../../components/FastPill.astro";
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
@@ -23,18 +21,16 @@ const p = profiles[f.id];
 const desc = f.brief || `${f.name} — a feast of the Orthodox Church year.`;
 const kind = feastKind(f);
 
-// Header badges: the design's kind label, the dedication (Lord / Theotokos /
-// Cross / …), and the fasting discipline. Kept in this order.
+// Header badges: the design's kind label + the dedication (Lord / Theotokos /
+// Cross / …). The fasting discipline renders as its own tone-coded pill.
 const badges = [KIND_LABEL[kind], f.dedication].filter(Boolean) as string[];
 
 // The dateline shown under the title: the primary date, then the span end (for
-// seasons) or the cycle. Uses the same tokenLabel vocabulary as the rest of the
-// site so movable feasts read consistently (Pascha, P+49, …).
-function primaryDate(): string {
-  const start = tokenLabel(f.begins);
-  if (f.ends) return `${start} → ${tokenLabel(f.ends)}`;
-  return start;
-}
+// seasons), plus the cycle. Uses the same tokenLabel vocabulary as the rest of
+// the site so movable feasts read consistently (Pascha, P+49, …).
+const primaryDate = f.ends
+  ? `${tokenLabel(f.begins)} → ${tokenLabel(f.ends)}`
+  : tokenLabel(f.begins);
 const cycleLabel =
   f.begins.type === "paschal"
     ? "Movable · Paschal cycle"
@@ -74,41 +70,69 @@ if (p) {
 
 const relatedSaints = f.relatedSaints ?? [];
 const relatedFeasts = f.relatedFeasts ?? [];
+
+// Hero festal icon + "Depictions & Icons" carousel — self-hosted, validated
+// festal images join here (data/feast_images.csv, data/feast_depictions.csv)
+// once collected; until then the frame shows a placeholder and the carousel is
+// omitted. Same render shape as the saint/host pages so icons drop in later.
+const heroImage: string | null = f.image ?? null;
+const depictions = f.depictions ?? [];
 ---
 
 <BaseLayout title={f.name} description={desc} ogType="article">
   <article class="feast2">
     <section class="feast-hero">
-      <div class="dome-bg" aria-hidden="true">
-        <DomeMark w={460} color="var(--byz)" />
-      </div>
       <div class="feast-hero-inner">
         <nav class="feast-crumb" aria-label="Breadcrumb">
           <a class="feast-back" href={withBase("feasts")}
             >← Feasts &amp; Fasts</a
           >
         </nav>
-        <EyebrowRule label="The Church Year" />
-        <h1 class="feast-title">{f.name}</h1>
-        {
-          f.aka?.length && (
-            <p class="feast-aka">Also known as: {f.aka.join(", ")}</p>
-          )
-        }
-        <p class="feast-dateline">
-          <span class={`dot dot--${kind}`} aria-hidden="true"></span>
-          <strong>{primaryDate()}</strong>
-          <span class="feast-cycle">· {cycleLabel}</span>
-        </p>
-        <div class="feast-badges">
-          {badges.map((b) => <span class="feast-badge">{b}</span>)}
-          {
-            f.fasting && (
-              <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
-            )
-          }
+
+        <div class="feast-hero-grid">
+          <div class="feast-hero-icon">
+            <div class="feast-icon-frame">
+              {
+                heroImage ? (
+                  <img
+                    src={withBase(heroImage)}
+                    alt={`Festal icon of ${f.name}`}
+                  />
+                ) : (
+                  <div class="feast-icon-ph" aria-hidden="true">
+                    <span class="feast-icon-cross">☦</span>
+                  </div>
+                )
+              }
+            </div>
+            <div class="feast-icon-cap">
+              {heroImage ? f.imageCredit : "Icon forthcoming"}
+            </div>
+          </div>
+
+          <div class="feast-hero-id">
+            <h1>{f.name}</h1>
+            {
+              f.aka?.length && (
+                <p class="aka">Also known as: {f.aka.join(", ")}</p>
+              )
+            }
+            <p class="dateline">
+              <span class={`dot dot--${kind}`} aria-hidden="true"></span>
+              <strong>{primaryDate}</strong>
+              <span class="cycle">· {cycleLabel}</span>
+            </p>
+            <div class="badges">
+              {badges.map((b) => <span class="badge">{b}</span>)}
+              {
+                f.fasting && (
+                  <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
+                )
+              }
+            </div>
+            {f.brief && <p class="brief">{f.brief}</p>}
+          </div>
         </div>
-        {f.brief && <p class="feast-brief">{f.brief}</p>}
       </div>
     </section>
 
@@ -132,6 +156,48 @@ const relatedFeasts = f.relatedFeasts ?? [];
     }
 
     <div class="feast-wrap">
+      {
+        depictions.length > 0 && (
+          <section class="feast-deps" aria-label="Depictions and icons">
+            <div class="feast-deps-head">
+              <h2>Depictions &amp; Icons</h2>
+              <p class="feast-deps-sub">
+                How the Church has written this feast — festal icons across the
+                centuries.
+              </p>
+            </div>
+            <div class="feast-deps-track">
+              {depictions.map((d) => (
+                <figure class="dep-card">
+                  <div class="dep-frame">
+                    <img src={withBase(d.image)} alt={d.title} loading="lazy" />
+                  </div>
+                  <figcaption class="dep-meta">
+                    <span class="dep-title">{d.title}</span>
+                    {(d.credit || d.source) && (
+                      <span class="dep-attr">
+                        {d.source ? (
+                          <a
+                            href={d.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {d.credit || "source"}
+                          </a>
+                        ) : (
+                          d.credit
+                        )}
+                        {d.license ? ` · ${d.license}` : ""}
+                      </span>
+                    )}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
       <div class="layout">
         <main class="body">
           {
@@ -324,85 +390,155 @@ const relatedFeasts = f.relatedFeasts ?? [];
 </BaseLayout>
 
 <style>
-  /* Centered dome header — an event-feast has no single portrait, so it uses
-     the section-landing treatment (dome arch + eyebrow + serif title + meta),
-     matching /nine-orders and the host hub pages. */
+  /* Blue hero band — matches the saint- and host-profile heroes (radial navy →
+     ink, ivory text, gold-tinted lower edge). */
   .feast-hero {
-    position: relative;
-    text-align: center;
-    padding: clamp(40px, 8vw, 76px) 20px clamp(24px, 4vw, 40px);
-    overflow: hidden;
+    background: radial-gradient(
+      120% 140% at 18% 0%,
+      #1d3e62 0%,
+      var(--byz-ink) 62%
+    );
+    color: var(--ivory);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.28);
   }
   .feast-hero-inner {
-    position: relative;
-    max-width: 660px;
+    max-width: 62rem;
     margin: 0 auto;
+    padding: 1rem clamp(16px, 4vw, 40px) 1.9rem;
   }
   .feast-crumb {
-    margin-bottom: 0.8rem;
+    padding: 0.9rem 0 0.3rem;
   }
   .feast-back {
-    color: var(--gold-deep);
+    color: var(--gold-soft);
     text-decoration: none;
     font-size: 0.9rem;
   }
   .feast-back:hover {
     text-decoration: underline;
   }
-  .feast-title {
+
+  .feast-hero-grid {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    padding-top: 0.4rem;
+  }
+  .feast-hero-icon {
+    min-width: 0;
+  }
+  .feast-icon-frame {
+    width: 100%;
+    aspect-ratio: 286 / 358;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: #16304c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+  }
+  .feast-icon-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .feast-icon-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .feast-icon-cross {
+    font-size: clamp(3.5rem, 9vw, 5rem);
+    color: var(--gold-soft);
+    opacity: 0.85;
+  }
+  .feast-icon-cap {
+    margin-top: 10px;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--celest-soft);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .feast-hero-id {
+    min-width: 0;
+  }
+  .feast-hero-id h1 {
     font-family: var(--serif);
-    font-size: var(--page-title-size);
-    color: var(--byz-deep);
-    line-height: 1.05;
-    margin: 12px 0 0;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.08;
+    margin: 0.4rem 0 0.3rem;
+    color: var(--ivory);
   }
-  .feast-aka {
+  .feast-hero-id .aka {
     font-style: italic;
-    color: var(--ink-soft);
-    margin: 0.5rem 0 0;
+    opacity: 0.82;
+    margin: 0 0 0.7rem;
   }
-  .feast-dateline {
+  .dateline {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    margin: 0.9rem 0 0;
+    margin: 0.4rem 0 0.2rem;
     font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--gold-deep);
+    font-size: 1.05rem;
+    color: var(--gold-soft);
   }
-  .feast-dateline strong {
-    color: var(--byz-deep);
+  .dateline strong {
+    color: var(--ivory);
   }
-  .feast-cycle {
-    font-family: var(--sans, inherit);
-    font-size: 0.85rem;
-    font-style: normal;
-    color: var(--ink-soft);
+  .cycle {
+    font-family: var(--text);
+    font-size: 0.82rem;
+    color: var(--celest-soft);
   }
-  .feast-badges {
+  .badges {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.4rem;
-    justify-content: center;
-    margin: 0.9rem 0 0;
+    margin: 0.6rem 0 0.9rem;
   }
-  .feast-badge {
+  .badge {
+    display: inline-flex;
+    align-items: center;
     font-size: 0.72rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
+    padding: 0.28rem 0.6rem;
+    line-height: 1;
     border-radius: 999px;
-    color: var(--byz-deep);
-    border: 1px solid var(--line-gold);
-    background: var(--ivory-2);
+    color: var(--ivory);
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    background: rgba(255, 255, 255, 0.06);
   }
-  .feast-brief {
-    font-family: var(--serif);
-    font-size: var(--page-lede-size, 1.15rem);
-    color: var(--ink-soft);
+  .feast-hero-id .brief {
+    font-size: 1.12rem;
     line-height: 1.55;
-    max-width: 48ch;
-    margin: 1rem auto 0;
+    margin: 0.4rem 0;
+    max-width: 46rem;
+  }
+  @media (max-width: 760px) {
+    .feast-hero-grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+    .feast-hero-icon {
+      max-width: 220px;
+    }
+    .badges {
+      justify-content: center;
+    }
+    .feast-hero-id .brief {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   /* Legend dot — reuse the feasts-index colour vocabulary. */
@@ -414,16 +550,17 @@ const relatedFeasts = f.relatedFeasts ?? [];
     flex: none;
   }
   .dot--great {
-    background: var(--gold-deep);
+    background: var(--gold-soft);
   }
   .dot--feast {
-    background: var(--byz);
+    background: var(--celest-soft);
   }
   .dot--fast {
-    background: var(--byz-green, #1f5e54);
+    background: #8fceb4;
   }
   .dot--observance {
-    background: var(--ink-soft);
+    background: var(--ivory);
+    opacity: 0.7;
   }
 
   .feast-wrap {
@@ -431,6 +568,81 @@ const relatedFeasts = f.relatedFeasts ?? [];
     margin: 0 auto;
     padding: 1.5rem clamp(16px, 4vw, 40px) 4rem;
   }
+
+  /* "Depictions & Icons" carousel — native horizontal scroll-snap track,
+     matching the saint/host pages. */
+  .feast-deps {
+    margin-bottom: 2.2rem;
+  }
+  .feast-deps-head {
+    margin-bottom: 0.9rem;
+  }
+  .feast-deps-head > h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    margin: 0 0 0.2rem;
+  }
+  .feast-deps-sub {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin: 0;
+    max-width: 40rem;
+  }
+  .feast-deps-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.4rem 0.2rem 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dep-card {
+    flex: 0 0 auto;
+    width: 13.5rem;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .dep-frame {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #16304c;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: var(--shadow-soft, 0 4px 14px rgba(0, 0, 0, 0.18));
+  }
+  .dep-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .dep-meta {
+    padding: 0.55rem 0.1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .dep-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--byz-deep);
+  }
+  .dep-attr {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    opacity: 0.82;
+  }
+  .dep-attr a {
+    color: var(--byz);
+  }
+
   .layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -438,6 +650,7 @@ const relatedFeasts = f.relatedFeasts ?? [];
     align-items: start;
   }
   @media (min-width: 60rem) {
+    /* Rail on the LEFT, matching the saint/host profiles (rail | content). */
     .layout {
       grid-template-columns: 16rem minmax(0, 1fr);
       gap: 2.2rem;
@@ -451,7 +664,7 @@ const relatedFeasts = f.relatedFeasts ?? [];
     }
   }
 
-  /* Collapsible sections — identical treatment to the host/saint pages. */
+  /* Collapsible sections — identical treatment to the saint/host pages. */
   .sec {
     border-bottom: 1px solid rgba(128, 128, 128, 0.22);
   }

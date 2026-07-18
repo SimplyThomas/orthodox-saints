@@ -295,7 +295,10 @@ const description =
         {
           pascha && (
             <div class="ff-scard ff-scard--pascha">
-              <div class="ff-scard-pascha-grid">
+              <a
+                class="ff-scard-pascha-grid ff-scard-pascha-link"
+                href={withBase(`feast/${pascha.id}`)}
+              >
                 <div>
                   <div class="eyebrow on-blue">Feast of Feasts</div>
                   <h3>{pascha.name}</h3>
@@ -313,7 +316,7 @@ const description =
                     />
                   )}
                 </div>
-              </div>
+              </a>
               <div class="ff-pascha-dates" id="ff-pascha-dates">
                 <div class="ff-pd-label">Upcoming Pascha dates</div>
                 <ul class="ff-pd-list">
@@ -371,7 +374,7 @@ const description =
         <div class="ff-season-grid">
           {
             seasons.map((s) => (
-              <div class="ff-scard">
+              <a class="ff-scard" href={withBase(`feast/${s.id}`)}>
                 <div class="eyebrow on-blue">Fast Season</div>
                 <h3 set:html={s.name.replace(/'/g, "&rsquo;")} />
                 <span class="span">
@@ -384,7 +387,7 @@ const description =
                     <FastPill tone={fastTone(s.fasting)} label={s.fasting} />
                   )}
                 </div>
-              </div>
+              </a>
             ))
           }
         </div>
@@ -423,12 +426,14 @@ const description =
           {
             observances.map((o) => (
               <li>
-                <span class="li-name">{o.name}</span>
-                <span class="li-when">
-                  {tokenLabel(o.begins)}
-                  {o.ends ? ` → ${tokenLabel(o.ends)}` : ""}
-                </span>
-                <span class="li-note">{o.brief}</span>
+                <a class="ff-list-link" href={withBase(`feast/${o.id}`)}>
+                  <span class="li-name">{o.name}</span>
+                  <span class="li-when">
+                    {tokenLabel(o.begins)}
+                    {o.ends ? ` → ${tokenLabel(o.ends)}` : ""}
+                  </span>
+                  <span class="li-note">{o.brief}</span>
+                </a>
               </li>
             ))
           }

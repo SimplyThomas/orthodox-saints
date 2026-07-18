@@ -119,7 +119,10 @@ if (root && dataEl && todaySec && upcomingSec) {
     }
     const { feast, date, days } = next;
 
-    const top = el("div", "ff-up-top");
+    // The whole card links through to the feast's detail page (the highest-
+    // traffic path into it).
+    const top = el("a", "ff-up-top") as HTMLAnchorElement;
+    top.href = withBase(`feast/${feast.id}`);
     const left = el("div", "");
     const eb = el("div", "ff-up-eb");
     eb.append(el("span", "pulse"));

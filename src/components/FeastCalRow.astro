@@ -23,18 +23,18 @@ function sub(f: Feast): string {
 }
 ---
 
-<div class="ff-cal-row">
+<a class="ff-cal-row" href={withBase(`feast/${f.id}`)}>
   <span class="ff-cal-date">
     {tokenLabel(f.begins)}
     <small>{sub(f)}</small>
   </span>
   <span class="ff-cal-main">
     <span class={`dot dot--${feastKind(f)}`}></span>
-    <a class="ff-cal-name" href={withBase(`feast/${f.id}`)}>{f.name}</a>
+    <span class="ff-cal-name">{f.name}</span>
   </span>
   <span class="ff-cal-note">{f.brief}</span>
   <span class="ff-cal-fast on-ivory">
     {f.fasting && <FastPill tone={fastTone(f.fasting)} label={f.fasting} />}
   </span>
   <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
-</div>
+</a>
