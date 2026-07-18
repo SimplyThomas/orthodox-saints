@@ -1,21 +1,12 @@
-/* Home-landing island: saint of the day + the "From the Cloud" shuffle deck.
+/* Home-landing island: the "Saints commemorated today" card.
    Build-time `new Date()` would freeze "today" to the build day, so the saint
-   of the day runs client-side using the visitor's real date. The shuffle deck
-   re-deals a random handful of saints on load and on every Shuffle click —
-   the spot where lesser-known saints get their moment. The light card dataset
-   (id/name/rank/feast/brief/image…, not the finder index) is fetched from the
-   content-hashed static JSON named by data-card-src (see lib/card-payload);
-   until it lands, the SSR'd placeholder card and fallback deck stand in. */
+   of the day runs client-side using the visitor's real date. The light card
+   dataset (id/name/rank/feast/brief/image…, not the finder index) is fetched
+   from the content-hashed static JSON named by data-card-src (see
+   lib/card-payload); until it lands, the SSR'd placeholder card stands in. */
 
 import type { CardSaint } from "../lib/types";
-import {
-  feastDates,
-  primaryRank,
-  rankSlug,
-  firstFeast,
-  centuryLabel,
-  byProminence,
-} from "../lib/saints";
+import { feastDates, primaryRank, byProminence } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase, MONTHS_FULL, WEEKDAYS } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
@@ -145,14 +136,11 @@ function initCloudBand(SAINTS: CardSaint[]) {
         lit = dayLiturgics(obs, civilDate, style);
       }
 
-      const LIMIT = 6;
-      const shown = todays.slice(0, LIMIT);
-      const extra = todays.length - shown.length;
       const calHref = esc(
         withBase(style === "old" ? "calendar?style=old" : "calendar"),
       );
-      // "+N more" goes to the Feasts & Fasts page, whose "commemorated today"
-      // section lists the full day (saints + feasts + fasts), not just saints.
+      // A link to the Feasts & Fasts page, whose "commemorated today" section
+      // lists the full day (saints + feasts + fasts), not just saints.
       const feastsHref = esc(withBase("feasts#ff-today"));
 
       // The "Saints commemorated today" heading below carries the "today", so
@@ -164,8 +152,8 @@ function initCloudBand(SAINTS: CardSaint[]) {
           : esc(dateStr);
 
       const body = todays.length
-        ? `<div class="sotd-list">${shown.map(saintRow).join("")}</div>
-           ${extra > 0 ? `<a class="sotd-more" href="${feastsHref}">+${extra} more commemorated today<span class="arr" aria-hidden="true"> →</span></a>` : ""}`
+        ? `<div class="sotd-list">${todays.map(saintRow).join("")}</div>
+           <a class="sotd-more" href="${feastsHref}">See feasts &amp; fasts commemorated today<span class="arr" aria-hidden="true"> →</span></a>`
         : `<p class="sotd-empty">No saint is recorded for this day. <a href="${calHref}">Open the liturgical calendar →</a></p>`;
 
       host!.innerHTML = `
@@ -211,49 +199,5 @@ function initCloudBand(SAINTS: CardSaint[]) {
     }
 
     renderSotd();
-  }
-
-  /* ---------- "From the Cloud" shuffle deck ---------- */
-  const grid = document.getElementById("featured");
-  const shuffleBtn = document.getElementById("shuffle");
-  if (grid) {
-    const featCard = (s: CardSaint): string => {
-      const sn = splitName(s.name);
-      return `
-        <a class="feat-card" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
-          <div class="portrait">${saintAvatar(s, 84, 104, { type: primaryRank(s) })}</div>
-          <div class="body">
-            <h4>${esc(sn.title)}</h4>
-            <div class="epithet">${esc(sn.epithet || (s.aka && s.aka[0]) || "")}</div>
-            <span class="tag ${esc(rankSlug(s))}"><i></i>${esc(primaryRank(s))}</span>
-            <div class="feat-meta">
-              <span>${esc(firstFeast(s))}</span><span>${esc(centuryLabel(s))}</span>
-            </div>
-          </div>
-        </a>`;
-    };
-
-    function deal() {
-      // A true random draw across the whole cloud — this is the discovery
-      // spot, so the long tail (stubs included) gets surfaced too.
-      const picks: CardSaint[] = [];
-      const seen = new Set<number>();
-      while (picks.length < Math.min(4, SAINTS.length)) {
-        const i = Math.floor(Math.random() * SAINTS.length);
-        if (seen.has(i)) continue;
-        seen.add(i);
-        picks.push(SAINTS[i]);
-      }
-      grid!.innerHTML = picks.map(featCard).join("");
-    }
-
-    let spin = 0;
-    shuffleBtn?.addEventListener("click", () => {
-      spin += 1;
-      const ico = shuffleBtn.querySelector("svg");
-      if (ico) (ico as SVGElement).style.transform = `rotate(${spin * 360}deg)`;
-      deal();
-    });
-    deal();
   }
 }

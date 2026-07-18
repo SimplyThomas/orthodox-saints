@@ -31,7 +31,6 @@ const PS_STATUS = {
     color: "var(--ink-soft)",
     bg: "rgba(35,76,122,.07)",
   },
-  low: { label: "Low Priority", color: "#5a5347", bg: "rgba(33,48,63,.07)" },
 } as const;
 type StatusKey = keyof typeof PS_STATUS;
 
@@ -165,26 +164,6 @@ const STATUS_CARDS: StatusCard[] = [
     ],
   },
   {
-    id: "america",
-    icon: "map",
-    iconImage: "home-icons/saints-of-america-icon.png",
-    status: "progress",
-    title: "Saints of America",
-    desc: [
-      "This section is being expanded with additional saints, biographies, historical information, and icon permissions.",
-    ],
-    checklist: [
-      ["done", "Initial section created"],
-      ["wip", "Expanding biographies"],
-      ["wip", "Adding saints"],
-      ["wip", "Contacting monasteries"],
-    ],
-    milestone: { label: "This week:", text: "" },
-    note: [
-      "We identified more American saints, and recognized that information specific to America needs to be added.",
-    ],
-  },
-  {
     id: "home",
     icon: "home",
     iconImage: "home-icons/little-church-icon.png",
@@ -216,15 +195,6 @@ const STATUS_CARDS: StatusCard[] = [
     ],
     note: [
       "Every card is free to download and print — no account, no cost. If your parish needs a custom size or a feast-day graphic, reach out and we'll prepare it.",
-    ],
-  },
-  {
-    id: "news",
-    icon: "news",
-    status: "low",
-    title: "Orthodox News",
-    desc: [
-      "The News section will continue expanding over time, but is currently a lower development priority while other core sections are completed.",
     ],
   },
 ];
