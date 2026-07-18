@@ -21,10 +21,11 @@ export const getStaticPaths = (() => [
 export const GET: APIRoute = (context) => {
   const style = context.params.style as CalendarStyle;
   const siteBase = context.site!.href; // e.g. https://orthodoxsaintfinder.com/
-  const name =
-    style === "old"
-      ? "Orthodox Saints & Feasts (Old Calendar)"
-      : "Orthodox Saints & Feasts (New Calendar)";
+  const calendarLabel = style === "old" ? "Old Calendar" : "New Calendar";
+  const name = `Orthodox Saints & Feasts (${calendarLabel})`;
+  const description =
+    `Feasts, fasts, and the saints commemorated each day — ${calendarLabel}. ` +
+    `From Cloud of Witnesses (orthodoxsaintfinder.com).`;
   const events = [
     ...feastEvents(FEASTS, style, PASCHA, YEARS),
     ...saintDayEvents(
@@ -33,7 +34,7 @@ export const GET: APIRoute = (context) => {
       siteBase,
     ),
   ];
-  const body = buildCalendar({ name, events });
+  const body = buildCalendar({ name, description, events });
   return new Response(body, {
     headers: {
       "Content-Type": "text/calendar; charset=utf-8",

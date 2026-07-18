@@ -71,8 +71,20 @@ describe("buildCalendar", () => {
     const cal = buildCalendar({ name: "Test Cal", events: [] });
     expect(cal.startsWith("BEGIN:VCALENDAR\r\n")).toBe(true);
     expect(cal).toContain("VERSION:2.0");
-    expect(cal).toContain("X-WR-CALNAME:Test Cal");
+    expect(cal).toContain("NAME:Test Cal"); // RFC 7986
+    expect(cal).toContain("X-WR-CALNAME:Test Cal"); // older extension
     expect(cal.trimEnd().endsWith("END:VCALENDAR")).toBe(true);
     expect(cal.includes("\n") && cal.includes("\r\n")).toBe(true); // CRLF line endings
+  });
+  it("emits DESCRIPTION + X-WR-CALDESC only when a description is given", () => {
+    const withDesc = buildCalendar({
+      name: "T",
+      description: "A feed",
+      events: [],
+    });
+    expect(withDesc).toContain("DESCRIPTION:A feed");
+    expect(withDesc).toContain("X-WR-CALDESC:A feed");
+    const without = buildCalendar({ name: "T", events: [] });
+    expect(without).not.toContain("X-WR-CALDESC:");
   });
 });

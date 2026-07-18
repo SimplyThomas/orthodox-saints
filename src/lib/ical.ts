@@ -88,6 +88,7 @@ export function eventToVevent(e: IcalEvent, dtstamp: string = DTSTAMP): string {
 
 export function buildCalendar(opts: {
   name: string;
+  description?: string;
   events: IcalEvent[];
 }): string {
   const head = [
@@ -96,7 +97,19 @@ export function buildCalendar(opts: {
     "PRODID:-//Cloud of Witnesses//Orthodox Calendar//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
+    // The calendar's display name, emitted three ways for the widest client
+    // support: NAME (RFC 7986, the modern standard) + the older X-WR-CALNAME
+    // (Apple/Google extension). NOTE: Google Calendar ignores both when you
+    // subscribe by URL — it names the calendar after the URL, so the user must
+    // rename it once in Google's settings. Apple/Outlook honor these.
+    `NAME:${escapeText(opts.name)}`,
     `X-WR-CALNAME:${escapeText(opts.name)}`,
+    ...(opts.description
+      ? [
+          `DESCRIPTION:${escapeText(opts.description)}`, // RFC 7986
+          `X-WR-CALDESC:${escapeText(opts.description)}`, // older extension
+        ]
+      : []),
     "X-PUBLISHED-TTL:PT12H", // clients may refresh twice a day
     "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
   ].map(foldLine);
