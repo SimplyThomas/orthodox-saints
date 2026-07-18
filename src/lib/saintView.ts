@@ -38,6 +38,8 @@ export interface SaintViewModel {
   feastOld: string;
   /** any further feast dates, e.g. "Also Jan 30 (Old Calendar Feb 12)" */
   feastNote: string;
+  /** further feast dates, structured as New/Old calendar pairs (primary excluded) */
+  feastMore: { neu: string; old: string }[];
   intercessions: string[];
   virtues: string[];
   vocation: string[];
@@ -103,6 +105,20 @@ function furtherFeasts(s: Saint): string {
   return rest ? `Also ${rest}` : "";
 }
 
+/* Structured form of furtherFeasts — each additional fixed feast as a New/Old
+   calendar pair, for the feast card's "also commemorated" rows. */
+function furtherFeastList(s: Saint): { neu: string; old: string }[] {
+  const dates = feastDates(s);
+  if (dates.length <= 1) return [];
+  return dates.slice(1).map((d) => {
+    const oc = oldCalendarDay(d.m, d.d);
+    return {
+      neu: `${MONTHS_FULL[d.m - 1]} ${d.d}`,
+      old: `${MONTHS_FULL[oc.month - 1]} ${oc.day}`,
+    };
+  });
+}
+
 export function toSaintView(s: Saint): SaintViewModel {
   const sn = splitName(s.name);
   const type = primaryRank(s);
@@ -158,6 +174,7 @@ export function toSaintView(s: Saint): SaintViewModel {
     feast: primaryFeast(s),
     feastOld: primaryFeastOld(s),
     feastNote: furtherFeasts(s),
+    feastMore: furtherFeastList(s),
     intercessions: s.intercession,
     virtues: s.virtue,
     vocation: s.vocation,

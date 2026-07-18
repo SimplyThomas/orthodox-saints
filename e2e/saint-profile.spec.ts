@@ -5,9 +5,12 @@ test("Basil's page renders the rich profile biography", async ({ page }) => {
   expect(resp?.status()).toBe(200);
   // Existing detail framing is intact.
   await expect(page.locator(".saintview .sv-rail")).toBeVisible();
-  // The fixed feast (Jan 1) shows its Old Calendar civil day alongside.
-  await expect(page.locator(".sv-feast-oc")).toHaveText(
-    "Old Calendar · January 14",
+  // The fixed feast (Jan 1) shows its Old Calendar civil day alongside the New.
+  await expect(page.locator(".sv-fday-cal--old .sv-fday-date")).toHaveText(
+    "January 14",
+  );
+  await expect(page.locator(".sv-fday-cal--old .sv-fday-cap")).toHaveText(
+    "Old Calendar",
   );
   // Lifespan subtitle renders under the name.
   await expect(

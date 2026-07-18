@@ -6,13 +6,18 @@ it's alive today. Every fact here traces to a file in this repo (cited inline). 
 the account owner can know — expiry dates, account emails, dashboard tenant — are marked
 **`FILL-IN (owner)`**; fill them in and keep them current.
 
-Quick mental model: **production is just static files on GitHub Pages.** Cloudflare only
-powers *previews* and the *corrections form*; if all of Cloudflare vanished, the site keeps
-serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
+Quick mental model: **production is static files built by Astro and served from GitHub
+Pages, with Cloudflare in front as the edge cache.** The apex is proxied through
+Cloudflare (for the corrections form *and* the production cache); the origin is GitHub
+Pages. If Cloudflare's edge cache vanished the site would keep serving from the origin —
+just slower and spikier (see [Production edge caching](#1a-production-edge-caching-cloudflare)).
+Cloudflare also powers *previews* and the *corrections form*. See
+[If X dies](#7-if-x-dies--quick-answers) for the failure map.
 
 **Contents:**
 
 1. [Production hosting](#1-production-hosting)
+1a. [Production edge caching (Cloudflare)](#1a-production-edge-caching-cloudflare)
 2. [DNS / registrar](#2-dns--registrar)
 3. [PR previews (Cloudflare Pages)](#3-pr-previews-cloudflare-pages)
 4. [Corrections form backend (Cloudflare Worker)](#4-corrections-form-backend-cloudflare-worker)
@@ -49,6 +54,40 @@ serving. See [If X dies](#7-if-x-dies--quick-answers) for the failure map.
   - GitHub → **Actions → Deploy** workflow: latest run on `main` is green.
   - GitHub → **Settings → Pages**: shows the custom domain, "Your site is live", DNS
     check passing.
+
+## 1a. Production edge caching (Cloudflare)
+
+- **What it is:** Cloudflare sits in front of the GitHub Pages origin (the apex is proxied
+  — orange cloud) and **edge-caches production**. Without it, GitHub Pages/Cloudflare only
+  cached hashed static assets by extension; HTML and `.json` data returned
+  `cf-cache-status: DYNAMIC` and were proxied to the origin on every request, whose
+  time-to-first-byte spiked to **8–15s** when cold. The cache rules make Cloudflare cache
+  HTML and data at the edge, so the slow origin is off the critical path. **Live since
+  2026-07-18** (verified: HTML flips `DYNAMIC → HIT`, the burst spikes are gone).
+- **Zone:** `orthodoxsaintfinder.com`, **Zone ID `80a52d0e73ac12ef19b4df71bbfc777c`** (not
+  a secret; distinct from the Account ID beside it in the dashboard).
+- **Where it's configured:**
+  - Cache rules as code: [`infra/cloudflare/`](../infra/cloudflare/) —
+    `cache-rules.json` (the ruleset), `apply.sh` (idempotent push via the Cloudflare API),
+    and a full first-time setup runbook in
+    [`infra/cloudflare/README.md`](../infra/cloudflare/README.md). Two rules: content-hashed
+    paths (`/_astro/*`, `/finder-data/*`, `/card-data/*`) cached 1 year immutable; all other
+    HTML + `/search-index.json` cached at the edge 1 day (browser 10 min), `/api/*` excluded.
+  - Deploy-time purge: [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
+    step **"Purge Cloudflare edge cache"** (`purge_everything` after the Pages deploy) so a
+    new build goes live immediately instead of waiting out the edge TTL. Needs Actions
+    secrets **`CF_API_TOKEN`** + **`CF_ZONE_ID`**; skips cleanly if unset.
+  - Applying/rotating are owner tasks: create a Cloudflare API token (Zone **Cache Rules:
+    Edit** + **Cache Purge: Purge**) and the zone id — full steps in the runbook.
+- **What breaks if it vanishes / misconfigures:**
+  - Cache rules removed / not applied → back to the slow, spiky DYNAMIC behavior, but the
+    site still serves. Not an outage, a performance regression.
+  - Deploy purge fails (missing/expired `CF_API_TOKEN`) → new HTML is delayed at the edge
+    up to the 1-day TTL; hashed assets are unaffected (new URLs each build).
+- **How to verify it's alive today:**
+  - `curl -sSI https://orthodoxsaintfinder.com/saint/OS-0192/ >/dev/null && curl -sSI https://orthodoxsaintfinder.com/saint/OS-0192/ | grep -i cf-cache-status`
+    → second hit `cf-cache-status: HIT` (was `DYNAMIC` before the rules).
+  - The Deploy run's "Purge Cloudflare edge cache" step is green (or reports it skipped).
 
 ## 2. DNS / registrar
 
@@ -174,15 +213,26 @@ location; the repo never contains secret *values*. Expiry and account-owner fact
 | **Turnstile site key** (public) | `src/pages/corrections.astro` (`SITE_KEY`, committed) | Browser widget on `/corrections` | Public; rotates only if the widget is recreated |
 | **Wikimedia bot password** (`WIKIMEDIA_BOT_PASSWORD`) | `.env` at repo root (git-ignored; template in [`.env.example`](../.env.example)); user `SimplyThomas@Cloud_of_Witnesses` | Authoring-only icon-download scripts in `scripts/` (higher API rate limits) | Managed at `Special:BotPasswords`. **Not used in production** — authoring convenience only. **`FILL-IN (owner)`** |
 | **Cloudflare account access** (API token / dashboard login for `wrangler deploy`, Pages, Turnstile, DNS proxy) | Cloudflare account (owner login / `wrangler login`) | Deploying the Worker, managing Pages previews, Turnstile, DNS proxy | **`FILL-IN (owner)`** account email + any API-token expiry |
+| **Cloudflare cache token** (`CF_API_TOKEN`) — Zone **Cache Rules: Edit** + **Cache Purge: Purge** on `orthodoxsaintfinder.com` | Passed to `infra/cloudflare/apply.sh` by hand (never stored in repo) **and** GitHub **Actions secret** `CF_API_TOKEN` (+ `CF_ZONE_ID`) for the deploy purge | Applying the production cache rules; purging the edge on each deploy | API tokens don't expire unless set/rolled. Rotate: dashboard → My Profile → API Tokens → Roll, then update the Actions secret. **`FILL-IN (owner)`** |
 | **GitHub Pages custom domain / Actions permissions** | GitHub repo settings (owner) | Production deploy | No secret value; owner-managed settings. **`FILL-IN (owner)`** |
 | **Namecheap registrar login** | Namecheap account (owner) | DNS + domain renewals for all three domains | **`FILL-IN (owner)`** account email + domain renewal dates |
 
 ## 7. "If X dies" — quick answers
 
-- **All of Cloudflare goes away** → PR previews stop building **and** the corrections form
-  (`/api/report`) stops working. **Production is unaffected** — GitHub Pages serves the
-  site directly. Recovery: re-establish the Cloudflare zone/proxy and redeploy the Worker,
-  or temporarily accept "corrections form down" (it's non-critical).
+- **All of Cloudflare goes away** → PR previews stop building, the corrections form
+  (`/api/report`) stops working, **and** production loses its edge cache. The public site
+  keeps serving from the GitHub Pages origin (the apex would need to be un-proxied /
+  re-pointed off Cloudflare first), just slower and spikier than with the cache. Recovery:
+  re-establish the Cloudflare zone/proxy, re-run `infra/cloudflare/apply.sh`, and redeploy
+  the Worker.
+- **Production feels slow / spiky again (multi-second TTFB)** → the cache rules were
+  dropped or never applied. Confirm with the `cf-cache-status` check in
+  [§1a](#1a-production-edge-caching-cloudflare); re-run `infra/cloudflare/apply.sh`
+  (Cache Rules: Edit token). Check the apex is still proxied (orange cloud) — cache rules
+  only apply to proxied traffic.
+- **A deploy shipped but old pages persist** → the "Purge Cloudflare edge cache" step was
+  skipped or failed. Confirm the `CF_API_TOKEN`/`CF_ZONE_ID` Actions secrets exist and the
+  token has **Cache Purge: Purge**; or purge manually per `infra/cloudflare/README.md`.
 - **The Worker's `GITHUB_TOKEN` expires** → corrections submissions error (the Worker
   can't create the issue). Rotate it:
   `cd workers/report && npx wrangler secret put GITHUB_TOKEN` (paste a fresh fine-grained
