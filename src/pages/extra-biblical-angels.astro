@@ -1,10 +1,202 @@
 ---
-import ComingSoon from "../components/ComingSoon.astro";
+import { loadWorks } from "../lib/apocrypha";
+import { HOSTS, isExtraBiblicalAngel } from "../lib/hosts";
+import { withBase } from "../lib/format";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+
+// Extra-Biblical Angels — the hub. Each apocryphal / Second Temple *work* (1
+// Enoch, the Shepherd of Hermas, …) gets a card linking to its own page, where
+// the book's story and the beings drawn from it live. Works arrive sorted by
+// order/slug. Everything here is catalogued for study, never venerated (§9).
+const works = await loadWorks();
+
+// How many extra-biblical named angels are already catalogued (a small hub stat).
+const namedCount = HOSTS.filter(isExtraBiblicalAngel).length;
 ---
 
-<ComingSoon
+<BaseLayout
   active="extra-biblical-angels"
   title="Extra-Biblical Angels"
-  eyebrow="Heavenly Hosts"
-  blurb="Angelic figures known from Tradition beyond the biblical canon."
-/>
+  description="Angelic figures known from Tradition and the Second Temple writings beyond the biblical canon — the works that name them, catalogued for study."
+>
+  <div class="wrap">
+    <header class="hosts-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="hosts-hero-inner">
+        <EyebrowRule label="Heavenly Hosts" />
+        <h1 class="hosts-title">Extra-Biblical Angels</h1>
+        <p class="hosts-lede">
+          The angels named beyond the biblical canon — and the books that
+          preserve them.
+        </p>
+      </div>
+    </header>
+
+    <section class="ebx-intro">
+      <p class="intro-body">
+        Alongside the Scriptures, the Church inherited a body of older Jewish
+        writings — the Book of Enoch, the Shepherd of Hermas, and their kind —
+        that name and describe angels not found in the received canon. These
+        works were never numbered among the Scriptures, yet they shaped the way
+        the early Church spoke of the heavenly hosts. Each is gathered here by
+        the <em>book</em>, with its own story and the beings drawn from it —
+        <strong>catalogued for study, never for veneration.</strong>
+      </p>
+    </section>
+
+    {
+      works.length === 0 && (
+        <p class="empty">
+          No works catalogued yet. Pages will appear here as they are added.
+        </p>
+      )
+    }
+
+    <div class="grid">
+      {
+        works.map((w) => (
+          <a class="wcard" href={withBase(`extra-biblical-angels/${w.slug}`)}>
+            <span class="wcard-eyebrow">
+              {w.canonicalStatus ?? "Apocryphal"}
+            </span>
+            <span class="wcard-title">{w.title}</span>
+            {w.era && <span class="wcard-era">{w.era}</span>}
+            <span class="wcard-blurb">{w.blurb}</span>
+            <span class="wcard-cta">Explore the book →</span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      namedCount > 0 && (
+        <p class="ebx-note">
+          {namedCount} extra-biblical named{" "}
+          {namedCount === 1 ? "angel is" : "angels are"} catalogued across these
+          works.
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+  /* Page hero — matches /nine-orders, /guardian-angels, /biblical-encounters. */
+  .hosts-hero {
+    position: relative;
+    text-align: center;
+    padding: var(--hero-pad-top) 20px clamp(30px, 5vw, 52px);
+    overflow: hidden;
+  }
+  .hosts-hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hosts-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    margin: 18px 0 0;
+    line-height: 1.05;
+  }
+  .hosts-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 16px auto 0;
+    max-width: 46ch;
+  }
+  .ebx-intro {
+    max-width: 44rem;
+    margin: 0 auto 0.5rem;
+    text-align: center;
+  }
+  .intro-body {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .empty {
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1.1rem;
+    margin-top: 2.25rem;
+  }
+  .wcard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.35rem 1.4rem 1.2rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 14px;
+    background: var(--parchment, #fbf7ee);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 12px 30px rgba(15, 34, 56, 0.06);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .wcard:hover {
+    border-color: var(--gold-deep);
+    box-shadow: 0 18px 40px rgba(15, 34, 56, 0.12);
+    transform: translateY(-2px);
+  }
+  .wcard-eyebrow {
+    font-family: var(--serif);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+    color: var(--gold-deep, #a9852a);
+  }
+  .wcard-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--byz-deep);
+    line-height: 1.1;
+  }
+  .wcard-era {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    opacity: 0.7;
+  }
+  .wcard-blurb {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: 0.35rem;
+  }
+  .wcard-cta {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--byz);
+  }
+  .ebx-note {
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 2rem auto 0;
+    max-width: 40rem;
+  }
+</style>
