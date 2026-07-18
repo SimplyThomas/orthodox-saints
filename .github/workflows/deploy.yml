@@ -54,18 +54,32 @@ jobs:
       # infra/cloudflare/). A GitHub Pages deploy leaves stale HTML at the edge,
       # so purge it to make the new build live immediately. Hashed assets keep
       # their URLs, so purging everything just re-warms them cheaply. Skips
-      # cleanly if the secrets are not configured.
+      # cleanly if the secrets are not configured, but FAILS LOUDLY if a purge
+      # is attempted and Cloudflare rejects it — a silently-swallowed purge
+      # failure (e.g. a bad/expired token) leaves the whole site stale at the
+      # edge with a green deploy, which is exactly the confusion this guards.
       - name: Purge Cloudflare edge cache
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
         run: |
-          if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ZONE_ID" ]; then
+          set -euo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ] || [ -z "${CF_ZONE_ID:-}" ]; then
             echo "CF_API_TOKEN/CF_ZONE_ID not set — skipping edge cache purge."
             exit 0
           fi
-          curl -sS -X POST \
+          body="$(mktemp)"
+          code="$(curl -sS -X POST \
             "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
             -H "Authorization: Bearer ${CF_API_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}' | python3 -m json.tool
+            --data '{"purge_everything":true}' \
+            -o "$body" -w '%{http_code}')"
+          echo "Cloudflare purge_cache HTTP $code"
+          python3 -m json.tool < "$body" || cat "$body"
+          ok="$(python3 -c 'import json,sys; print(json.load(sys.stdin).get("success"))' < "$body" 2>/dev/null || echo False)"
+          if [ "$code" != "200" ] || [ "$ok" != "True" ]; then
+            echo "::error title=Cloudflare purge failed::Edge cache was NOT purged (HTTP $code, success=$ok). The new deploy is live on the origin but will be served STALE at the edge until this is fixed — check the CF_API_TOKEN secret (needs a zone-scoped User token with Cache Purge)."
+            exit 1
+          fi
+          echo "Edge cache purged."
