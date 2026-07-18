@@ -25,18 +25,33 @@ export function escapeText(s: string): string {
     .replace(/\r?\n/g, "\\n");
 }
 
-/** Fold a content line to <=75 octets with CRLF + single leading space. */
+/** UTF-8 octet length of a string (RFC 5545 counts octets, not JS chars). */
+function octetLen(s: string): number {
+  // TextEncoder is available in Node 24 + browsers + Astro's build runtime.
+  return new TextEncoder().encode(s).length;
+}
+
+/** Fold a content line to <=75 octets with CRLF + single leading space.
+    Folds on OCTET boundaries per RFC 5545 §3.1 (a naive char-count fold
+    overflows on multi-byte UTF-8 — em dashes, the ☦ ornament, smart quotes)
+    and never splits mid-codepoint (each fold segment stays valid UTF-8). */
 export function foldLine(line: string): string {
-  if (line.length <= 75) return line;
+  if (octetLen(line) <= 75) return line;
+  const chars = Array.from(line); // iterate by codepoint, not UTF-16 unit
   const parts: string[] = [];
-  // First segment 75, continuations 74 (a leading space costs one octet).
-  parts.push(line.slice(0, 75));
-  let i = 75;
-  while (i < line.length) {
-    parts.push(" " + line.slice(i, i + 74));
-    i += 74;
+  let seg = "";
+  let cap = 75; // first segment 75; continuations 74 (leading space costs one)
+  for (const ch of chars) {
+    const w = octetLen(ch);
+    if (octetLen(seg) + w > cap) {
+      parts.push(seg);
+      seg = "";
+      cap = 74;
+    }
+    seg += ch;
   }
-  return parts.join("\r\n");
+  if (seg) parts.push(seg);
+  return parts.map((p, i) => (i === 0 ? p : " " + p)).join("\r\n");
 }
 
 /** Local date → YYYYMMDD (all-day DATE value). */

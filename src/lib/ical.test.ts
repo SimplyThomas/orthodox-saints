@@ -22,9 +22,18 @@ describe("foldLine", () => {
     const long = "DESCRIPTION:" + "x".repeat(200);
     const folded = foldLine(long);
     expect(folded).toContain("\r\n ");
-    // every physical line is <= 75 chars
+    // every physical line is <= 75 octets
     for (const seg of folded.split("\r\n"))
-      expect(seg.length).toBeLessThanOrEqual(75);
+      expect(new TextEncoder().encode(seg).length).toBeLessThanOrEqual(75);
+  });
+  it("folds on OCTET boundaries for multi-byte text (em dash, ☦)", () => {
+    // 3-byte codepoints: a naive 75-char fold would emit 77-octet lines.
+    const long = "SUMMARY:☦ " + "trial — crucifixion — ".repeat(10);
+    const folded = foldLine(long);
+    for (const seg of folded.split("\r\n"))
+      expect(new TextEncoder().encode(seg).length).toBeLessThanOrEqual(75);
+    // Round-trips to the original once unfolded (CRLF + leading space removed).
+    expect(folded.split("\r\n ").join("")).toBe(long);
   });
 });
 
