@@ -2,9 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EyebrowRule from "../../components/EyebrowRule.astro";
-import EphraimProfile from "../../components/EphraimProfile.astro";
-import SeraphimProfile from "../../components/SeraphimProfile.astro";
-import WitnessProfile from "../../components/WitnessProfile.astro";
+import WitnessSaintView from "../../components/WitnessSaintView.astro";
 import { withBase } from "../../lib/format";
 import { saintAvatar } from "../../lib/icons";
 import { WITNESSES, type Witness } from "../../lib/witnesses";
@@ -17,9 +15,8 @@ const { w } = Astro.props as { w: Witness };
 const lifespan = w.years || (w.reposedYear ? `† Reposed ${w.reposedYear}` : "");
 const portrait = saintAvatar({ name: w.name }, 108, 134, { awaiting: true });
 
-// Some witnesses have a dedicated, comprehensive historical profile; the rest
-// use the simple memorial template below. Title/description are tailored per
-// custom profile for SEO.
+// Tailored title/description for SEO on the fullest profiles; everything else
+// derives title/desc from the witness fields below.
 const CUSTOM_PROFILES: Record<string, { title: string; desc: string }> = {
   "ephraim-of-arizona": {
     title: "Elder Ephraim of Arizona",
@@ -32,10 +29,10 @@ const CUSTOM_PROFILES: Record<string, { title: string; desc: string }> = {
 };
 const custom = CUSTOM_PROFILES[w.slug];
 
-// A witness with rich data (an `overview`) renders the generic, data-driven
-// WitnessProfile — the same comprehensive format as the bespoke Ephraim/Seraphim
-// profiles. Everyone else falls back to the simple memorial template.
-const isRich = !custom && !!(w.overview && w.overview.length);
+// Every witness with rich data (an `overview`) renders through WitnessSaintView —
+// the saint-page-format profile. A witness without one falls back to the simple
+// memorial template below.
+const isRich = !!(w.overview && w.overview.length);
 
 const title = custom
   ? custom.title
@@ -46,11 +43,9 @@ const desc = custom
 ---
 
 <BaseLayout active="america" title={title} description={desc}>
-  {w.slug === "ephraim-of-arizona" && <EphraimProfile w={w} />}
-  {w.slug === "seraphim-rose" && <SeraphimProfile w={w} />}
-  {isRich && <WitnessProfile w={w} />}
+  {isRich && <WitnessSaintView w={w} />}
   {
-    !custom && !isRich && (
+    !isRich && (
       <article class="wt">
         {/* back bar */}
         <div class="wt-back">
