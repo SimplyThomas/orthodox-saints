@@ -82,6 +82,11 @@ export const NAV: NavItem[] = [
         label: "The Moveable Calendar",
         href: withBase("moveable-calendar"),
       },
+      {
+        key: "subscribe",
+        label: "Subscribe (iCal)",
+        href: withBase("subscribe"),
+      },
     ],
   },
   {

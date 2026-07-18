@@ -148,6 +148,11 @@ const swatch = (key: string) =>
       </div>
     </section>
 
+    <p class="cal-subscribe-note">
+      📅 <a href={withBase("subscribe")}>Subscribe to this calendar</a> in Google,
+      Apple, or Outlook.
+    </p>
+
     {/* interactive month grid — revealed by the island on enhancement */}
     <div class="cal-app" hidden>
       <div class="cal-bar">
@@ -373,3 +378,14 @@ const swatch = (key: string) =>
     import "../islands/calendar.client.ts";
   </script>
 </BaseLayout>
+
+<style>
+  .cal-subscribe-note {
+    max-width: 46rem;
+    margin: 0.6rem auto 1rem;
+    padding: 0 clamp(16px, 4vw, 40px);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+</style>
