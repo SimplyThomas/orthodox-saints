@@ -1082,15 +1082,6 @@ a.qz-comp {
   margin-top: 2px;
 }
 
-.featured-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 18px 22px 14px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
-}
 .sotd-card-head h3 {
   font-family: var(--serif);
   font-weight: 600;

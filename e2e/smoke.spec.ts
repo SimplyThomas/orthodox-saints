@@ -18,16 +18,12 @@ test("home loads with title and a resolvable logo", async ({ page }) => {
   expect(logoResp.status()).toBe(200);
 });
 
-test("home is a landing page: saint of the day, shuffle — no finder", async ({
+test("home is a landing page: saints commemorated today — no finder", async ({
   page,
 }) => {
   await page.goto("./");
-  // Saint of the day renders client-side for the visitor's real date.
+  // Saints commemorated today render client-side for the visitor's real date.
   await expect(page.locator("#sotd .sotd-card")).toBeVisible();
-  // The shuffle deck deals four cards and re-deals on click.
-  await expect(page.locator("#featured .feat-card")).toHaveCount(4);
-  await page.click("#shuffle");
-  await expect(page.locator("#featured .feat-card")).toHaveCount(4);
   // The news band has been removed from the home page (feature not built out);
   // the full results list also does not appear here.
   await expect(page.locator(".news-band")).toHaveCount(0);
