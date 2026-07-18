@@ -126,4 +126,8 @@ Per-saint prose lives in `src/content/profiles/OS-####.yaml`, per-feast prose in
 Zod schemas in `src/content.config.ts` (a bad profile fails `astro build`). Each file
 carries `status: draft | reviewed | flagged` — **production ships only `reviewed`**;
 drafts render in dev and on Cloudflare PR previews (`PUBLIC_SHOW_DRAFTS=true`) behind a
-banner. See [`docs/maintenance.md`](maintenance.md) for the review/promotion workflow.
+banner. At the 2026-07-18 parish launch nearly all profiles were promoted to `reviewed`
+(the 141 `flagged` stay hidden), so the gate is mostly satisfied; a separate
+`humanReviewed: true` flag now marks the entries a person has personally vetted (the
+**dove seal** in the finder/quiz). See [`docs/maintenance.md`](maintenance.md) for the
+review workflow.

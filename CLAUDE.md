@@ -63,9 +63,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
-│   ├── pages/                 ← routes: index, search, saint/[id], quiz, america, calendar,
-│   │                            news (placeholder), witness/[slug], about,
-│   │                            contribute, corrections, 404 (file-based)
+│   ├── pages/                 ← routes: index, search, saint/[id], feast/[id], quiz, america,
+│   │                            calendar, feasts, news (placeholder, unlinked from nav — #348),
+│   │                            witness/[slug], about, contribute, corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
 │   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
@@ -325,6 +325,15 @@ each entry can carry the **history and meaning** of the celebration. Design spec
 covers it). Emits `public/feasts.json` (records + a resolved Pascha table
 2020–2040 from `pascha.py`) and a "Feasts & Fasts" xlsx sheet.
 
+**Frontend (shipped):** the `/feasts` + `/fasts` index (#278) and per-feast
+**`/feast/[id]` detail pages** (`src/pages/feast/[id].astro`, PR #352) — themed
+like the saint/host pages (rich prose from the `feasts` collection), linked from
+the index, calendar, moveable-calendar, and the "Coming up next" island. All 83
+feast profiles are `reviewed`/public. **Festal imagery is not wired yet** (#350):
+the page reads optional `image`/`depictions` on the `Feast` type and shows an
+"Icon forthcoming" placeholder until a `data/feast_images.csv`/`feast_depictions.csv`
++ feastlib join is built.
+
 **19 columns:** Feast ID · Name · Also Known As · Category · Dedication · Begins ·
 Ends · Forefeast · Apodosis · Fasting Discipline · Fasting Notes · Brief ·
 Customs & Traditions · Tradition of Observance · Related Saints · Related Feasts ·
@@ -540,12 +549,15 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **Next action: the review→`reviewed` gate.** Draft generation is ~94% done (≈2,586/2,740),
-  but ~88% are still `draft`/`flagged` and thus invisible in production — promoting profiles
-  (with clergy/source review, §9) is the top lever, since it unlocks the prose that serves
-  "learn about a saint" and "relate to a story" (§1). Then: resolve flagged profiles, finish
-  the ~150 remaining, and enrich relatability/background facets (**Vocation**, Life Experience)
-  — *not* Intercessions-first (§10). Phase 2 (GOARCH merge) is still the main breadth gap.
+- **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
+  promoted `→ reviewed`, so nearly all saints **and all 83 feasts are now public**; the 141
+  `flagged` profiles stay hidden (resolve via #349). **Visibility is no longer the lever —
+  the dove is.** Two independent axes now: `status` controls visibility (almost everything is
+  `reviewed`), and the separate `humanReviewed: true` flag earns the **dove seal** (a person
+  vetted the entry against sources, §9). The ongoing human lever is setting `humanReviewed`
+  while walking the daily synaxarion — that grows trust in what is already public. Then enrich
+  relatability/background facets (**Vocation**, Life Experience) — *not* Intercessions-first
+  (§10). Phase 2 (GOARCH merge) is still the main breadth gap.
 - **Phase-2 gaps:** Joseph Samakos the Sanctified (Jan 22) is still missing. (Arsenius of
   Paros has landed.)
 - **Icon pipeline status:** the Wikimedia Commons downloader (`scripts/`, PR #142) fetched
@@ -608,7 +620,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 ## 10. Quality bar
 
-- **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now: Intercessions ~18.6%, Vocation ~21.7%, Life Experience ~56%, Region ~97%, Brief Life ~99.9%. Prioritize the **review→`reviewed` gate** (drafts don't ship) and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
+- **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now: Intercessions ~18.6%, Vocation ~21.7%, Life Experience ~56%, Region ~97%, Brief Life ~99.9%. Since the 2026-07-18 launch (PR #352) drafts DO ship — profiles are public and the **`humanReviewed` dove** (§5, §11) is the trust lever, not the visibility gate. Prioritize marking `humanReviewed` on vetted entries and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
 - Minimum for any row: Name, Rank, Gender, Short Prayer, Sources (the build-enforced
   `REQUIRED` set). A Feast Day and Era/Century are **strongly expected** and present on
   nearly every saint — but a handful of genuinely-commemorated saints have no fixed (or only
@@ -634,7 +646,13 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   profile carries `status: draft|reviewed|flagged`; production ships only `reviewed` (drafts
   render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
   via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
-  `build.py` cross-checks every profile filename/id against the saints.
+  `build.py` cross-checks every profile filename/id against the saints. **Two independent
+  axes (since the 2026-07-18 launch, §8):** `status` controls *visibility* — nearly all
+  profiles are now `reviewed`/public — while a separate `humanReviewed: true` flag controls
+  the **dove seal** shown in the finder/quiz (a person personally vetted the entry, §9). The
+  seal is computed by `humanReviewedIds()` in `src/lib/saint-profiles.ts` (filters
+  `humanReviewed === true`), NOT by `status`. Feast (`feasts`) and host (`hosts`) profiles
+  share the same `status` gate.
 - **Search is client-side and stays that way** — no browser storage, no backend. **One engine
   ranks every search box** (`src/lib/search.ts`, MiniSearch — the one search library): token-AND
   with prefix + typo tolerance, ranked by field boosts (name > Also Known As > name variants >
