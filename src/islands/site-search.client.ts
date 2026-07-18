@@ -1,18 +1,22 @@
-/* Header quick-search: a whole-site typeahead.
+/* Quick-search typeahead, shared by the header pill and the home hero box.
 
-   Lazily fetches the lightweight /search-index.json on first use, then filters
-   saints (AND-of-tokens substring over a name/aka/variant haystack) and section
+   Attaches to every form marked [data-typeahead]. Lazily fetches the
+   lightweight /search-index.json on first use, then filters saints
+   (AND-of-tokens substring over a name/aka/variant haystack) and section
    pages, rendering a dropdown of jump-to results. Enter with no highlighted
-   result submits the form natively to /search?q=… (the full faceted finder), so
-   the box degrades gracefully without JS. */
+   result submits the form natively to /search?q=… (the full faceted finder),
+   so the box degrades gracefully without JS. */
 
 import { withBase } from "../lib/format";
+import { buildNameSearch, type NameSearchIndex } from "../lib/search";
 
 interface IndexSaint {
   id: string;
   name: string;
   meta: string;
-  hay: string;
+  aka?: string[];
+  variants?: string[];
+  prom?: number;
 }
 interface IndexPage {
   title: string;
@@ -24,31 +28,40 @@ interface SearchIndex {
   pages: IndexPage[];
 }
 
-const form = document.querySelector<HTMLFormElement>(".header-search");
-const input = form?.querySelector<HTMLInputElement>(".hs-input");
-const panel = form?.querySelector<HTMLElement>(".hs-panel");
+const MAX_SAINTS = 7;
+const MAX_PAGES = 4;
 
-if (form && input && panel) {
-  const MAX_SAINTS = 7;
-  const MAX_PAGES = 4;
+// One fetch + one built index, shared across every typeahead instance on the
+// page. The name search uses the same MiniSearch engine + prominence tiebreak
+// as the finder (lib/search), so results rank identically across all boxes.
+let index: SearchIndex | null = null;
+let saintSearch: NameSearchIndex<IndexSaint> | null = null;
+let loading: Promise<void> | null = null;
 
-  let index: SearchIndex | null = null;
-  let loading: Promise<void> | null = null;
+const load = (): Promise<void> => {
+  if (index) return Promise.resolve();
+  if (loading) return loading;
+  loading = fetch(withBase("search-index.json"))
+    .then((r) => r.json())
+    .then((data: SearchIndex) => {
+      index = data;
+      saintSearch = buildNameSearch(data.saints);
+    })
+    .catch(() => {
+      index = { saints: [], pages: [] };
+      saintSearch = buildNameSearch([]);
+    });
+  return loading;
+};
+
+// Wire one typeahead instance. `prefix` namespaces the generated option ids so
+// the header and hero boxes never collide when both are on the home page.
+const attach = (form: HTMLFormElement, prefix: string): void => {
+  const input = form.querySelector<HTMLInputElement>(".hs-input");
+  const panel = form.querySelector<HTMLElement>(".hs-panel");
+  if (!input || !panel) return;
+
   let active = -1;
-
-  const load = (): Promise<void> => {
-    if (index) return Promise.resolve();
-    if (loading) return loading;
-    loading = fetch(withBase("search-index.json"))
-      .then((r) => r.json())
-      .then((data: SearchIndex) => {
-        index = data;
-      })
-      .catch(() => {
-        index = { saints: [], pages: [] };
-      });
-    return loading;
-  };
 
   const esc = (s: string): string =>
     s.replace(
@@ -72,28 +85,15 @@ if (form && input && panel) {
     active = -1;
   };
 
-  const scoreSaint = (s: IndexSaint, tokens: string[], q: string): number => {
-    const nl = s.name.toLowerCase();
-    if (nl === q) return 100;
-    if (nl.startsWith(tokens[0])) return 60;
-    if (nl.includes(tokens[0])) return 40;
-    return 10;
-  };
-
   const render = (q: string): void => {
-    if (!index || !q) {
+    if (!index || !saintSearch || !q) {
       close();
       return;
     }
     const ql = q.toLowerCase();
-    const tokens = ql.split(/\s+/).filter(Boolean);
 
-    const saints = index.saints
-      .filter((s) => tokens.every((t) => s.hay.includes(t)))
-      .map((s) => ({ s, score: scoreSaint(s, tokens, ql) }))
-      .sort((a, b) => b.score - a.score || a.s.name.localeCompare(b.s.name))
-      .slice(0, MAX_SAINTS)
-      .map((x) => x.s);
+    // Same engine + prominence ranking as the finder, capped to the panel size.
+    const saints = saintSearch.search(q).slice(0, MAX_SAINTS);
 
     const pages = index.pages
       .filter((p) => p.title.toLowerCase().includes(ql))
@@ -102,7 +102,7 @@ if (form && input && panel) {
     let html = "";
     let i = 0;
     const opt = (href: string, body: string, extra = ""): string =>
-      `<a role="option" id="hs-opt-${i++}" class="hs-opt${extra}" href="${href}" tabindex="-1">${body}</a>`;
+      `<a role="option" id="${prefix}-opt-${i++}" class="hs-opt${extra}" href="${href}" tabindex="-1">${body}</a>`;
 
     if (saints.length) {
       html += `<div class="hs-group" role="presentation">Saints</div>`;
@@ -227,4 +227,8 @@ if (form && input && panel) {
   form.addEventListener("submit", (e) => {
     if (!input.value.trim()) e.preventDefault();
   });
-}
+};
+
+document
+  .querySelectorAll<HTMLFormElement>("form[data-typeahead]")
+  .forEach((form, i) => attach(form, form.id ? "hs-" + form.id : "hs-" + i));

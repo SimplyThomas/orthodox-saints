@@ -635,17 +635,23 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   render in dev / `PUBLIC_SHOW_DRAFTS=true`, behind a banner). `SaintView.astro` reads them
   via `loadProfileMap()` (which wraps `getCollection("profiles")`, applying the review gate).
   `build.py` cross-checks every profile filename/id against the saints.
-- **Search is client-side and stays that way** — no browser storage, no backend. The finder's
-  text path is **MiniSearch** (`src/lib/search.ts`, the one search library — added for the
-  fuzzy/ranked requirement): token-AND with prefix + typo tolerance, ranked by field boosts
-  (name > Also Known As > name variants > haystack), **unioned with the legacy substring
-  filter** over the precomputed `search` haystack as a recall floor, so no query matches less
-  than it used to. Facet filters remain hand-rolled set intersection (`src/lib/filter.ts`);
-  the header typeahead keeps its own substring index (`/search-index.json`). The build still
-  expands each haystack with **name variants** from `data/name_variants.csv` (so "Lucy" finds
-  Lucia, "Ivan" finds John; a result names the matched variant). The **patron-saint quiz** is
-  its own route (`/quiz`); it scores saints by facet overlap (intercessions weigh most) —
-  match quality scales with facet coverage (§10).
+- **Search is client-side and stays that way** — no browser storage, no backend. **One engine
+  ranks every search box** (`src/lib/search.ts`, MiniSearch — the one search library): token-AND
+  with prefix + typo tolerance, ranked by field boosts (name > Also Known As > name variants >
+  haystack) plus a **prominence tiebreak** (`src/lib/prominence.ts`, a `boostDocument`), and
+  **unioned with the legacy substring filter** as a recall floor so no query matches less than it
+  used to. The finder (`buildSearchIndex`, /search + /quiz) indexes the full record incl. the
+  deep `search` haystack; the header + hero quick-search typeahead (`buildNameSearch`) indexes
+  only name/aka/variants (a jump-to box) — so shared saints rank the same order in every box,
+  and a bare first-name query surfaces the marquee patron first (e.g. "nicholas" → St Nicholas
+  the Wonderworker). **Prominence** is data-derived (feast count, tradition breadth + Pan-Orthodox,
+  portrait, curated-intercession count), computed once and shipped on both `/search-index.json`
+  and the finder payload as `prom`, so both derive the identical number. Facet filters remain
+  hand-rolled set intersection (`src/lib/filter.ts`). The build still expands each haystack with
+  **name variants** from `data/name_variants.csv` (so "Lucy" finds Lucia, "Ivan" finds John; a
+  result names the matched variant). The **patron-saint quiz** is its own route (`/quiz`); it
+  scores saints by facet overlap (intercessions weigh most) — match quality scales with facet
+  coverage (§10).
 - **Per-saint pages + the data ceiling.** Astro pre-renders `/saint/OS-####` per saint (real,
   indexable, shareable; each ships only its own record). The /search and /quiz islands **fetch**
   the trimmed finder dataset from a content-hashed static `/finder-data/<hash>.json`

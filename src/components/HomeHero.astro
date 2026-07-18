@@ -5,9 +5,10 @@ import EyebrowRule from "./EyebrowRule.astro";
 import { withBase } from "../lib/format";
 import logo from "../assets/logo.svg";
 
-// The hero search is a plain GET form: submitting lands on /search?q=… with
-// no JavaScript required. The browse-by chips are links that open the matching
-// facet group on the search page.
+// The hero search is a GET form that lands on /search?q=… with no JavaScript
+// required; the site-search island progressively enhances it into the same
+// live typeahead as the header pill (jump straight to a saint or page). The
+// browse-by chips are links that open the matching facet group on the search page.
 const searchUrl = withBase("search");
 const browse = [
   ["rank", "Type"],
@@ -32,7 +33,14 @@ const browse = [
       before&nbsp;us&hellip;&rdquo;
       <cite>Hebrews 12 : 1</cite>
     </blockquote>
-    <form class="search" role="search" action={searchUrl} method="get">
+    <form
+      class="search"
+      id="hero-search"
+      role="search"
+      action={searchUrl}
+      method="get"
+      data-typeahead
+    >
       <span class="ico" id="hero-search-ico" aria-hidden="true">
         <SearchGlyph size={22} color="var(--celest)" />
       </span>
@@ -40,13 +48,19 @@ const browse = [
         type="search"
         name="q"
         id="q"
+        class="hs-input"
         placeholder="Search saints, feasts, and commemorations…"
         autocomplete="off"
         aria-label="Search saints"
+        role="combobox"
+        aria-expanded="false"
+        aria-controls="hero-hs-results"
+        aria-autocomplete="list"
       />
       <button type="submit" class="btn btn--gold" id="hero-search-btn"
         >Search</button
       >
+      <div class="hs-panel" id="hero-hs-results" role="listbox" hidden></div>
     </form>
     <div class="browse-by">
       <span class="label">Browse by</span>
@@ -60,3 +74,18 @@ const browse = [
     </div>
   </div>
 </section>
+
+<style>
+  /* The typeahead panel is absolutely positioned and overhangs the hero's
+     bottom edge, so the hero must NOT clip it. The dome silhouette flows in
+     normal order here (global.css makes .hero .dome-bg position:static), so it
+     never overflowed the hero — dropping the clip is safe. */
+  .hero {
+    overflow: visible;
+  }
+  /* The hero box is the panel's positioning context and must not clip it. */
+  .hero .search {
+    position: relative;
+    overflow: visible;
+  }
+</style>

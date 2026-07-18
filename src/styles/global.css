@@ -96,6 +96,10 @@
      these, so titles/ledes are the same size and scale identically on mobile). */
   --page-title-size: clamp(36px, 7vw, 64px);
   --page-lede-size: clamp(17px, 2.4vw, 22px);
+  /* One top padding for every dome-crowned hero (home, section, host, angel,
+     calendar, feasts, coming-soon…) so the arch mark sits the same distance
+     from the top throughout. Change here to retune every hero at once. */
+  --hero-pad-top: clamp(40px, 6vw, 64px);
 }
 
 * {
@@ -755,7 +759,7 @@ a.qz-comp {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 52px clamp(16px, 4vw, 56px) 56px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 56px;
   background: var(--ivory);
 }
 /* Dome silhouette — identical geometry on every hero so the text never
@@ -1551,10 +1555,14 @@ a.qz-comp {
 }
 
 /* ---- intro ---- */
+/* Top-anchored like every other dome hero: the dome crown sits --hero-pad-top
+   from the top (the .qz-screen default centres the question/result screens). */
 .qz-intro {
   background: var(--ivory);
   text-align: center;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--hero-pad-top);
 }
 .qz-intro-inner {
   position: relative;
@@ -1564,11 +1572,6 @@ a.qz-comp {
 .qz-title-block {
   position: relative;
   margin-bottom: 24px;
-}
-.qz-title-block .dome-bg {
-  top: -50px;
-  width: min(540px, 72vw);
-  opacity: 0.1;
 }
 .qz-title-inner {
   position: relative;
@@ -2263,7 +2266,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 40px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 40px;
   background: var(--ivory);
 }
 .ab-hero .dome-bg {
@@ -2625,7 +2628,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 44px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 44px;
   border-bottom: 1px solid var(--line);
 }
 .np-hero .dome-bg {
@@ -3290,7 +3293,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 50px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 50px;
   background: var(--ivory);
 }
 .sr-hero .dome-bg {
@@ -5582,7 +5585,7 @@ a.sv-rail-chip:hover {
 #calendar-page .cal-hero {
   position: relative;
   text-align: center;
-  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
+  padding: var(--hero-pad-top) 20px clamp(18px, 3vw, 26px);
   overflow: hidden;
 }
 #calendar-page .cal-hero-inner {
@@ -6605,7 +6608,7 @@ a.sv-rail-chip:hover {
 .ff-hero {
   position: relative;
   text-align: center;
-  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
+  padding: var(--hero-pad-top) 20px clamp(18px, 3vw, 26px);
   overflow: hidden;
 }
 .ff-hero .dome-bg {

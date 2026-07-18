@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { buildSearchIndex } from "./search";
+import { buildSearchIndex, buildNameSearch } from "./search";
+import { prominence } from "./prominence";
 import type { FinderSaint } from "./types";
 
 /* Minimal FinderSaint fixtures. The ranking contract here carries over from
@@ -113,6 +114,72 @@ describe("buildSearchIndex matching", () => {
 
   it("returns nothing for an empty query", () => {
     const idx = buildSearchIndex([mk("Anyone")]);
+    expect(idx.search("  ")).toEqual([]);
+  });
+
+  it("is word-aware: an exact term hit outranks a mid-word prefix hit", () => {
+    // The regression that motivated the shared engine: "Chrysostom" is a whole
+    // word in "John Chrysostom" but only a prefix of "Chrysostomos".
+    const idx = buildSearchIndex([
+      mk("Chrysostomos of Smyrna"),
+      mk("John Chrysostom"),
+    ]);
+    expect(names(idx.search("chrysostom"))[0]).toBe("John Chrysostom");
+  });
+
+  it("breaks a tie toward the more prominent saint", () => {
+    // Same name shape, same relevance — prominence decides.
+    const idx = buildSearchIndex([
+      mk("Nicholas Alpha", { prom: 1 }),
+      mk("Nicholas Beta", { prom: 12 }),
+    ]);
+    expect(names(idx.search("nicholas"))[0]).toBe("Nicholas Beta");
+  });
+});
+
+describe("prominence", () => {
+  it("scores a broadly-venerated, portrayed, patron saint above a bare stub", () => {
+    const major = mk("Nicholas the Wonderworker", {
+      feast: "Dec 6; Translation May 9",
+      tradition: ["Pan-Orthodox", "Greek"],
+      image: "icons/nicholas.jpg",
+      intercession: ["Travelers", "Children", "Sailors", "The falsely accused"],
+    });
+    const stub = mk("Obscure Local Saint", { feast: "Jan 1" });
+    expect(prominence(major)).toBeGreaterThan(prominence(stub));
+  });
+
+  it("caps the intercession contribution so one facet cannot dominate", () => {
+    const many = mk("A", { intercession: Array(20).fill("x") });
+    const five = mk("B", { intercession: Array(5).fill("x") });
+    expect(prominence(many)).toBe(prominence(five));
+  });
+});
+
+describe("buildNameSearch (typeahead) shares the finder's ranking", () => {
+  it("puts the marquee saint first for a bare first-name query", () => {
+    const idx = buildNameSearch([
+      mk("Nicholas Cabasilas", { prom: 6 }),
+      mk("Nicholas the Wonderworker", { prom: 12 }),
+    ]);
+    expect(names(idx.search("nicholas"))[0]).toBe("Nicholas the Wonderworker");
+  });
+
+  it("is word-aware like the finder (exact term over prefix)", () => {
+    const idx = buildNameSearch([
+      mk("Chrysostomos of Smyrna"),
+      mk("John Chrysostom"),
+    ]);
+    expect(names(idx.search("chrysostom"))[0]).toBe("John Chrysostom");
+  });
+
+  it("keeps the substring recall floor over name/aka/variants", () => {
+    const idx = buildNameSearch([mk("Nicholas the Wonderworker")]);
+    expect(names(idx.search("cholas"))).toContain("Nicholas the Wonderworker");
+  });
+
+  it("returns nothing for an empty query", () => {
+    const idx = buildNameSearch([mk("Anyone")]);
     expect(idx.search("  ")).toEqual([]);
   });
 });
