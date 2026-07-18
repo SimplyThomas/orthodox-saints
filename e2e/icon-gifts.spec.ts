@@ -1,14 +1,15 @@
 import { test, expect } from "@playwright/test";
 
 // "Giving Icons as Gifts" — one combined "Finding the right icon" picker: a
-// chip-and-panel widget whose chips span two groups (by occasion / for a
-// person). Every panel renders up-front, so with JS off the section stays a
-// complete readable list; the island collapses it to the pre-selected chip
-// (baptism, the page's centre of gravity). 12 occasions + 13 people = 25.
+// refine menu above a single card. The button shows the current subject; the
+// dropdown lists all options in two labeled groups (by occasion / for a
+// person); choosing one swaps the card. Every card renders up-front, so with JS
+// off the section stays a complete readable list; the island collapses it to
+// the pre-selected card (baptism). 12 occasions + 13 people = 25.
 
 const PANEL_COUNT = 25;
 
-test("icon-gifts loads with the hero icon corner and the picker", async ({
+test("icon-gifts loads with the hero icon corner and the refine menu", async ({
   page,
 }) => {
   const resp = await page.goto("./icon-gifts/");
@@ -28,12 +29,16 @@ test("icon-gifts loads with the hero icon corner and the picker", async ({
     ).toBe(true);
   }
 
-  // The single picker carries both framings: two labeled chip groups.
-  await expect(page.locator(".ig-who-grouplabel")).toHaveText([
+  // The refine button opens on baptism; its menu carries every option across
+  // two labeled groups.
+  await expect(page.locator("[data-refine-current]")).toHaveText(
+    "Baptism & Chrismation",
+  );
+  await expect(page.locator(".ig-refine-grouplabel")).toHaveText([
     "By occasion",
     "For a person",
   ]);
-  await expect(page.locator("[data-who-tab]")).toHaveCount(PANEL_COUNT);
+  await expect(page.locator("[data-refine-opt]")).toHaveCount(PANEL_COUNT);
 });
 
 // The vendor grant (§9) is conditional on each image linking back to its own
@@ -48,20 +53,16 @@ test("every hero portrait links back to its vendor icon page", async ({
   ).toHaveCount(4);
 });
 
-test("the picker opens on baptism and shows one panel at a time", async ({
-  page,
-}) => {
+test("the picker opens on baptism and shows one card", async ({ page }) => {
   await page.goto("./icon-gifts/");
-  const panels = page.locator(".ig-who-panel");
-  await expect(panels).toHaveCount(PANEL_COUNT);
+  const cards = page.locator(".ig-who-panel");
+  await expect(cards).toHaveCount(PANEL_COUNT);
 
-  // The island collapses to the pre-selected key occasion, baptism.
-  await expect(panels.filter({ visible: true })).toHaveCount(1);
+  // The island collapses to the pre-selected card, baptism; the menu is closed.
+  await expect(page.locator("[data-refine-menu]")).toBeHidden();
+  await expect(cards.filter({ visible: true })).toHaveCount(1);
   await expect(page.locator("#who-baptism")).toBeVisible();
-  await expect(page.locator('[data-who-tab="baptism"]')).toHaveAttribute(
-    "aria-expanded",
-    "true",
-  );
+
   // Baptism carries the godparent note — the page's central point of custom.
   await expect(page.locator("#who-baptism")).toContainText(
     "The godparent gives the patron icon",
@@ -72,23 +73,39 @@ test("the picker opens on baptism and shows one panel at a time", async ({
   ).toHaveCount(1);
 });
 
-test("selecting chips from either group swaps the single panel", async ({
+test("opening the menu and choosing an option swaps the card", async ({
   page,
 }) => {
   await page.goto("./icon-gifts/");
+  const menu = page.locator("[data-refine-menu]");
   const visible = page.locator(".ig-who-panel").filter({ visible: true });
 
-  // An occasion chip.
-  await page.locator('[data-who-tab="marriage"]').click();
+  // Open the menu, choose an occasion.
+  await page.locator("[data-refine-btn]").click();
+  await expect(menu).toBeVisible();
+  await page.locator('[data-refine-opt="marriage"]').click();
+  await expect(menu).toBeHidden();
+  await expect(page.locator("[data-refine-current]")).toHaveText("Marriage");
   await expect(page.locator("#who-marriage")).toBeVisible();
   await expect(page.locator("#who-baptism")).toBeHidden();
   await expect(visible).toHaveCount(1);
 
-  // A person chip — still only one panel, across both groups.
-  await page.locator('[data-who-tab="monastic"]').click();
+  // Choose a person from the other group — still one card, label tracks it.
+  await page.locator("[data-refine-btn]").click();
+  await page.locator('[data-refine-opt="monastic"]').click();
+  await expect(page.locator("[data-refine-current]")).toHaveText("A Monastic");
   await expect(page.locator("#who-monastic")).toBeVisible();
   await expect(page.locator("#who-marriage")).toBeHidden();
   await expect(visible).toHaveCount(1);
+});
+
+test("the menu closes on an outside click", async ({ page }) => {
+  await page.goto("./icon-gifts/");
+  const menu = page.locator("[data-refine-menu]");
+  await page.locator("[data-refine-btn]").click();
+  await expect(menu).toBeVisible();
+  await page.locator(".ig-sec-head h2").first().click();
+  await expect(menu).toBeHidden();
 });
 
 // The vocation buttons carry a facet rather than a frozen saint list, so the
@@ -96,7 +113,8 @@ test("selecting chips from either group swaps the single panel", async ({
 // finder rather than landing on an unfiltered page.
 test("a vocation button deep-links into the finder", async ({ page }) => {
   await page.goto("./icon-gifts/");
-  await page.locator('[data-who-tab="vocation"]').click();
+  await page.locator("[data-refine-btn]").click();
+  await page.locator('[data-refine-opt="vocation"]').click();
   await page.locator('#who-vocation .ig-voc[href*="theme=physicians"]').click();
   await expect(page).toHaveURL(/theme=physicians/);
   await expect(
@@ -108,13 +126,37 @@ test("a vocation button deep-links into the finder", async ({ page }) => {
 test("group and host suggestions resolve to real records", async ({ page }) => {
   await page.goto("./icon-gifts/");
   // A group profile (the Three Hierarchs) and a heavenly host (Raphael) are
-  // both linkable subjects, served from different id namespaces. Both live in
-  // panels that render up-front (hidden), so the anchors exist regardless of
-  // which chip is selected.
+  // both linkable subjects, served from different id namespaces. Both anchors
+  // exist in the DOM regardless of which card is currently shown.
   await expect(page.locator('a[href$="/saint/OS-2933"]').first()).toHaveCount(
     1,
   );
   await expect(page.locator('a[href$="/host/HH-0012"]').first()).toHaveCount(1);
+});
+
+// "Knowing the difference" (tiers) and "Before you buy" (tips) are native
+// <details> accordions — each an exclusive group (one open at a time), the
+// first item open by default.
+test("the tiers and tips sections are FAQ-style accordions", async ({
+  page,
+}) => {
+  await page.goto("./icon-gifts/");
+
+  // Tiers: three colour-coded panels, first open, exactly one open at a time.
+  const tiers = page.locator("#tiers .ig-faq-item");
+  await expect(tiers).toHaveCount(3);
+  await expect(tiers.nth(0)).toHaveAttribute("open", "");
+  await expect(page.locator("#tiers .ig-faq-item[open]")).toHaveCount(1);
+
+  // Opening another closes the first (native name= exclusive accordion).
+  await tiers.nth(2).locator("summary").click();
+  await expect(tiers.nth(2)).toHaveAttribute("open", "");
+  await expect(tiers.nth(0)).not.toHaveAttribute("open", "");
+  await expect(page.locator("#tiers .ig-faq-item[open]")).toHaveCount(1);
+
+  // Tips: eight collapsibles, the first open by default.
+  await expect(page.locator("#tips .ig-faq-item")).toHaveCount(8);
+  await expect(page.locator("#tips .ig-faq-item[open]")).toHaveCount(1);
 });
 
 test("stays a readable list with JavaScript disabled", async ({ browser }) => {
@@ -122,9 +164,11 @@ test("stays a readable list with JavaScript disabled", async ({ browser }) => {
   const page = await ctx.newPage();
   await page.goto("./icon-gifts/");
   await expect(page.locator(".igp h1")).toHaveText("Giving Icons as Gifts");
-  // No island to collapse them: every occasion and person panel stays readable.
+  // No island to collapse them: every card stays readable, and the menu (which
+  // needs JS) stays closed rather than dangling open.
   await expect(
     page.locator(".ig-who-panel").filter({ visible: true }),
   ).toHaveCount(PANEL_COUNT);
+  await expect(page.locator("[data-refine-menu]")).toBeHidden();
   await ctx.close();
 });

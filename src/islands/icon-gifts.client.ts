@@ -1,40 +1,75 @@
 /* "Giving Icons as Gifts" interactivity (progressive enhancement).
 
-   The only thing that needs JS is the "Finding the right icon" picker — one
-   chip-and-panel widget whose chips span two groups (by occasion, for a
-   person). The page renders EVERY panel visible, so with JS off the section
-   stays a complete, readable list; this island's first act is to collapse it
-   to the one whose chip was pre-selected in the markup. */
+   The only thing that needs JS is the "Finding the right icon" refine menu — a
+   dropdown control above one card. The page renders EVERY card visible, so with
+   JS off the section stays a complete, readable list; this island's first act is
+   to collapse it to the pre-selected card (baptism) and wire the menu:
+     • the button toggles the grouped options open/closed;
+     • choosing an option swaps the visible card and updates the button label;
+     • an outside click or Escape closes the menu. */
 
 const page = document.querySelector<HTMLElement>(".igp");
-if (page) {
-  const who = page.querySelector<HTMLElement>("[data-who]");
-  if (who) {
-    const tabs = Array.from(
-      who.querySelectorAll<HTMLButtonElement>("[data-who-tab]"),
-    );
-    const panels = Array.from(
-      who.querySelectorAll<HTMLElement>("[data-who-panel]"),
-    );
+const who = page?.querySelector<HTMLElement>("[data-who]");
+const refine = who?.querySelector<HTMLElement>("[data-refine]");
+const btn = refine?.querySelector<HTMLButtonElement>("[data-refine-btn]");
+const menu = refine?.querySelector<HTMLElement>("[data-refine-menu]");
+const current = refine?.querySelector<HTMLElement>("[data-refine-current]");
 
-    const select = (id: string) => {
-      for (const t of tabs) {
-        t.setAttribute(
-          "aria-expanded",
-          t.dataset.whoTab === id ? "true" : "false",
-        );
-      }
-      for (const p of panels) p.hidden = p.dataset.whoPanel !== id;
-    };
+if (who && refine && btn && menu && current) {
+  const opts = Array.from(
+    menu.querySelectorAll<HTMLButtonElement>("[data-refine-opt]"),
+  );
+  const panels = Array.from(
+    who.querySelectorAll<HTMLElement>("[data-who-panel]"),
+  );
 
-    for (const tab of tabs) {
-      tab.addEventListener("click", () => select(tab.dataset.whoTab!));
+  const openMenu = () => {
+    menu.hidden = false;
+    btn.setAttribute("aria-expanded", "true");
+  };
+  const closeMenu = () => {
+    menu.hidden = true;
+    btn.setAttribute("aria-expanded", "false");
+  };
+
+  const select = (id: string) => {
+    const opt = opts.find((o) => o.dataset.refineOpt === id) ?? opts[0];
+    const chosen = opt.dataset.refineOpt;
+    for (const o of opts) {
+      o.setAttribute("aria-checked", o === opt ? "true" : "false");
     }
+    for (const p of panels) p.hidden = p.dataset.whoPanel !== chosen;
+    current.textContent = (opt.textContent ?? "").trim();
+  };
 
-    // Collapse to the markup's pre-selected chip (aria-expanded="true"), or the
-    // first chip if none was marked, now that the picker works.
-    const initial =
-      tabs.find((t) => t.getAttribute("aria-expanded") === "true") ?? tabs[0];
-    if (initial) select(initial.dataset.whoTab!);
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (menu.hidden) openMenu();
+    else closeMenu();
+  });
+
+  for (const opt of opts) {
+    opt.addEventListener("click", () => {
+      select(opt.dataset.refineOpt!);
+      closeMenu();
+      btn.focus();
+    });
   }
+
+  document.addEventListener("click", (e) => {
+    if (!menu.hidden && !refine.contains(e.target as Node)) closeMenu();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu.hidden) {
+      closeMenu();
+      btn.focus();
+    }
+  });
+
+  // Collapse to the markup's pre-checked option (baptism), or the first, now
+  // that the menu works.
+  const initial =
+    opts.find((o) => o.getAttribute("aria-checked") === "true") ?? opts[0];
+  select(initial.dataset.refineOpt!);
+  closeMenu();
 }
