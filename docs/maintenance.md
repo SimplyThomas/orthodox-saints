@@ -17,7 +17,8 @@ vanishes").
 |------|-------------|-------|
 | Data build + validation | `make build` / `make validate` (`build.py`, `feastlib.py`) | Pure Python stdlib (+ `openpyxl` for the xlsx only). |
 | Frontend | `make serve` / `make web-build` (Astro, `src/`) | Node 24+, vanilla-TS islands, no framework. |
-| CI/CD | `.github/workflows/ci.yml`, `deploy.yml` | Actions SHA-pinned; deploy = python build → astro build → Pages. |
+| CI/CD | `.github/workflows/ci.yml`, `deploy.yml` | Actions SHA-pinned; deploy = python build → astro build → Pages, then a Cloudflare edge-cache purge. |
+| Production edge cache | `infra/cloudflare/` (`apply.sh`, `cache-rules.json`) | Cloudflare fronts the site; cache rules as code. First-time setup runbook in `infra/cloudflare/README.md`; failure map in `docs/infrastructure.md` §1a. |
 | PR previews | Cloudflare Pages (`scripts/cf-pages-build.sh`) | See `docs/cloudflare-pages-previews.md`. |
 | Corrections form backend | `workers/report/` (Cloudflare Worker) | Fully documented in `workers/report/README.md`. |
 | Icon tooling | `scripts/` (downloader, thumbs, contact sheet, OG card) | See `scripts/README.md`. |
