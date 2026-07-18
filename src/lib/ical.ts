@@ -66,8 +66,15 @@ function addOneDay(d: Date): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
 }
 
-export function eventToVevent(e: IcalEvent): string {
+/** DTSTAMP is REQUIRED in a VEVENT (RFC 5545 §3.6.1). This is a static,
+    republished feed, so we use a FIXED build-agnostic timestamp: deterministic
+    output across rebuilds (no diff churn) and — with the stable UIDs — no
+    needless "changed" signal to subscribers. */
+export const DTSTAMP = "20200101T000000Z";
+
+export function eventToVevent(e: IcalEvent, dtstamp: string = DTSTAMP): string {
   const lines: string[] = ["BEGIN:VEVENT", `UID:${e.uid}`];
+  lines.push(`DTSTAMP:${dtstamp}`);
   lines.push(`DTSTART;VALUE=DATE:${formatDate(e.start)}`);
   lines.push(`DTEND;VALUE=DATE:${formatDate(addOneDay(e.start))}`);
   if (e.recurYearly) lines.push("RRULE:FREQ=YEARLY");
@@ -93,6 +100,6 @@ export function buildCalendar(opts: {
     "X-PUBLISHED-TTL:PT12H", // clients may refresh twice a day
     "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
   ].map(foldLine);
-  const body = opts.events.map(eventToVevent);
+  const body = opts.events.map((e) => eventToVevent(e));
   return [...head, ...body, "END:VCALENDAR"].join("\r\n") + "\r\n";
 }

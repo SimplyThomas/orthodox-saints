@@ -56,6 +56,7 @@ describe("eventToVevent", () => {
     });
     expect(v).toContain("BEGIN:VEVENT");
     expect(v).toContain("UID:saintday-12-06-new@orthodoxsaintfinder.com");
+    expect(v).toContain("DTSTAMP:20200101T000000Z"); // required by RFC 5545 §3.6.1
     expect(v).toContain("DTSTART;VALUE=DATE:20201206");
     expect(v).toContain("DTEND;VALUE=DATE:20201207"); // exclusive end = start + 1 day
     expect(v).toContain("RRULE:FREQ=YEARLY");
