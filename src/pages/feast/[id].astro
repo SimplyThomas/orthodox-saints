@@ -77,6 +77,19 @@ const relatedFeasts = f.relatedFeasts ?? [];
 // omitted. Same render shape as the saint/host pages so icons drop in later.
 const heroImage: string | null = f.image ?? null;
 const depictions = f.depictions ?? [];
+
+// Sources are a mix of URLs and plain citations (e.g. "OCA", "GOARCH"). Render
+// a URL as a link labelled by its host; leave a citation as plain text.
+function sourceLink(s: string): { href: string | null; label: string } {
+  if (/^https?:\/\//i.test(s)) {
+    try {
+      return { href: s, label: new URL(s).hostname.replace(/^www\./, "") };
+    } catch {
+      return { href: s, label: s };
+    }
+  }
+  return { href: null, label: s };
+}
 ---
 
 <BaseLayout title={f.name} description={desc} ogType="article">
@@ -376,9 +389,24 @@ const depictions = f.depictions ?? [];
               <div class="rail-block">
                 <h4>Sources</h4>
                 <ul class="sources">
-                  {p.sources.map((s) => (
-                    <li>{s}</li>
-                  ))}
+                  {p.sources.map((s) => {
+                    const { href, label } = sourceLink(s);
+                    return (
+                      <li>
+                        {href ? (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {label}
+                          </a>
+                        ) : (
+                          label
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )
@@ -516,6 +544,17 @@ const depictions = f.depictions ?? [];
     color: var(--ivory);
     border: 1px solid rgba(212, 175, 55, 0.55);
     background: rgba(255, 255, 255, 0.06);
+  }
+  /* Match the fasting pill to the other hero badges — its glyph otherwise makes
+     it taller/larger than the kind/dedication pills beside it. */
+  .badges :global(.ff-fast) {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.6rem;
+    gap: 5px;
+  }
+  .badges :global(.ff-fast .glyph) {
+    width: 12px;
+    height: 12px;
   }
   .feast-hero-id .brief {
     font-size: 1.12rem;
@@ -781,6 +820,9 @@ const depictions = f.depictions ?? [];
     font-size: 0.82rem;
     opacity: 0.8;
     word-break: break-word;
+  }
+  .sources a {
+    color: var(--byz);
   }
 
   .draft-banner {
