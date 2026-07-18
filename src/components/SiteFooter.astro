@@ -3,14 +3,28 @@ import { NAV } from "../lib/nav";
 
 // Reverent dark colophon: brand block + navigation + connect, over a thin
 // legal bar. The link columns mirror the primary nav (src/lib/nav.ts) — every
-// dropdown group becomes a footer column, and a top-level direct link (e.g.
-// Parish Resources) becomes a column with its single link — so the footer and
-// header never drift. (Home is the exception: it is reached via the brand
-// wordmark above.)
-const cols = NAV.filter((item) => item.key !== "home").map((item) => ({
+// dropdown group becomes a footer column. (Home is the exception: it is reached
+// via the brand wordmark above.) A top-level direct link with no dropdown would
+// otherwise become a lonely single-link column, so instead we fold it into a
+// sibling column's link list rather than give it its own heading — currently
+// Parish Resources joins "The Orthodox Home".
+const FOOTER_FOLD: Record<string, string> = {
+  "parish-resources": "little-church",
+};
+const cols = NAV.filter(
+  (item) => item.key !== "home" && !(item.key in FOOTER_FOLD),
+).map((item) => ({
   head: item.label,
-  links: item.children ?? [
-    { key: item.key, label: item.label, href: item.href! },
+  links: [
+    ...(item.children ?? [
+      { key: item.key, label: item.label, href: item.href! },
+    ]),
+    // Append any direct-link items folded into this column.
+    ...NAV.filter((n) => FOOTER_FOLD[n.key] === item.key).map((n) => ({
+      key: n.key,
+      label: n.label,
+      href: n.href!,
+    })),
   ],
 }));
 const year = new Date().getFullYear();
