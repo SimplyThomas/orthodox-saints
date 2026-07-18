@@ -1,0 +1,1067 @@
+---
+/* Saint-page-format profile for a "Witness of Our Time" — renders a Witness
+   through the SAME visual system as the canonical saint pages (the global .sv-*
+   design: full-width hero, demoted "At a glance" rail, collapsible deep-dives),
+   so the not-yet-glorified memorials look like the rest of the site.
+
+   §9: NO veneration chrome — no "Commemorated as" liturgical title, no
+   "Come to them for" intercession cards, no feast, no reviewed dove, no
+   liturgical address. What follows is a sourced historical profile. */
+import { withBase } from "../lib/format";
+import { saintAvatar } from "../lib/icons";
+import type { Witness } from "../lib/witnesses";
+
+const { w } = Astro.props as { w: Witness };
+
+const lifespan = w.years || (w.reposedYear ? `† Reposed ${w.reposedYear}` : "");
+const portrait = saintAvatar({ name: w.name }, 286, 358, { awaiting: true });
+
+const railFacts = w.railFacts ?? [];
+const overview = w.overview ?? [];
+const sections = w.sections ?? [];
+const significance = w.significance ?? [];
+const timeline = w.timeline ?? [];
+const worksBy = w.worksBy ?? [];
+const worksAbout = w.worksAbout ?? [];
+const quotes = w.quotes ?? [];
+const gallery = w.gallery ?? [];
+const related = w.related ?? [];
+const sources = w.sources ?? [];
+const sidebar = w.sidebar ?? [];
+const deepLists = w.deepLists ?? [];
+const secondary = w.secondaryTimeline;
+
+const hasWorks = worksBy.length > 0 || worksAbout.length > 0;
+
+// Explore links. An images/icons search (the same Google-Images pattern the
+// canonical saints use — many of these figures have photographs, and some have
+// icons written by the faithful), a plain web search, and a talks/video search.
+// §9-safe: these are SEARCH links, not embedded imagery, and carry no
+// hymn/apolytikion or veneration claim for a non-glorified figure.
+const nameQuery = `${w.name}${w.epithet ? " " + w.epithet : ""}`;
+const exploreLinks = [
+  {
+    label: "Images & icons",
+    href: `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(nameQuery + " orthodox")}`,
+  },
+  {
+    label: "Search the web",
+    href: `https://www.google.com/search?q=${encodeURIComponent(nameQuery + " Orthodox")}`,
+  },
+  {
+    label: "Talks & media",
+    href: `https://www.youtube.com/results?search_query=${encodeURIComponent(nameQuery)}`,
+  },
+];
+// Plain citation copied by the Share / cite button.
+const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness of Our Time, Cloud of Witnesses.`;
+---
+
+<div class="saintview sv2" id="witness-detail">
+  {/* ══════════════ HERO ══════════════ */}
+  <section class="sv-hero">
+    <div class="sv-hero-inner">
+      <nav class="sv-hero-crumb" aria-label="Breadcrumb">
+        <a href={withBase("america")} class="sv-back-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+          >
+          <span class="sv-back-label">Back to Saints of America</span>
+        </a>
+        <span class="sv-sep">/</span>
+        <span class="sv-here">{w.name}{w.epithet ? ` ${w.epithet}` : ""}</span>
+      </nav>
+
+      <div class="sv-hero-grid">
+        {
+          /* framed portrait (awaiting monogram — set apart from a canonical icon) */
+        }
+        <div class="sv-hero-icon">
+          <div class="sv-icon-frame">
+            <div class="sv-icon-inner" set:html={portrait} />
+          </div>
+        </div>
+
+        {/* identity */}
+        <div class="sv-hero-id">
+          <div class="sv-hero-tagrow">
+            <span class="tag sv-tag-gold wsv-roletag"><i></i>{w.role}</span>
+            <span class="eyebrow on-blue">A Witness of Our Time</span>
+          </div>
+
+          <h1 class="sv-name">
+            {w.name}{w.epithet && <span class="sv-epithet"> {w.epithet}</span>}
+          </h1>
+          {lifespan && <p class="sv-lifespan">{lifespan}</p>}
+          {w.secularName && <div class="sv-also">{w.secularName}</div>}
+
+          <div class="sv-hero-rule"></div>
+
+          {w.bio?.[0] && <p class="sv-lead">{w.bio[0]}</p>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ══════════════ ACTIONS ══════════════ */}
+  <div class="sv-actions">
+    <div class="sv-actions-inner">
+      {
+        exploreLinks.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--ghost sv-explore-link"
+          >
+            {l.label}
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 14 14"
+              fill="none"
+              stroke="var(--celest)"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 10 10 4M5 4h5v5" />
+            </svg>
+          </a>
+        ))
+      }
+      <div class="sv-actions-spacer"></div>
+      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--byz-ink)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
+        </svg>
+        <span class="sv-share-label">Share / cite</span>
+      </button>
+    </div>
+  </div>
+
+  {/* ══════════════ BODY ══════════════ */}
+  <div class="sv-body">
+    {/* ── rail ── */}
+    <aside class="sv-rail">
+      {
+        railFacts.length > 0 && (
+          <div class="sv-glance">
+            <div class="eyebrow">At a glance</div>
+            <dl>
+              {railFacts.map(([k, v]) => (
+                <div class="sv-fact">
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )
+      }
+      {
+        w.knownFor && (
+          <div class="sv-knownfor">
+            <div class="eyebrow">Known for</div>
+            <div class="sv-virtues">{w.knownFor}</div>
+            {w.jurisdiction && <div class="sv-vocation">{w.jurisdiction}</div>}
+          </div>
+        )
+      }
+
+      {/* ── supplementary side-column blocks ── */}
+      {
+        sidebar.map((block) => (
+          <div class="wsv-aside">
+            <div class="eyebrow">{block.heading}</div>
+            {block.intro && <p class="wsv-aside-intro">{block.intro}</p>}
+
+            {block.kind === "lineage" && block.nodes && (
+              <div class="wsv-lineage" aria-label={block.heading}>
+                {block.nodes.map((n, i) => (
+                  <>
+                    <div
+                      class={`wsv-lin-node${n.current ? " wsv-lin-current" : ""}`}
+                    >
+                      {n.href ? (
+                        <a
+                          class="wsv-lin-link"
+                          href={
+                            n.href.startsWith("http")
+                              ? n.href
+                              : withBase(n.href)
+                          }
+                        >
+                          {n.label}
+                        </a>
+                      ) : (
+                        n.label
+                      )}
+                      {n.sub && <span class="wsv-lin-sub">{n.sub}</span>}
+                    </div>
+                    {i < block.nodes!.length - 1 && (
+                      <div class="wsv-lin-arrow" aria-hidden="true">
+                        ↓
+                      </div>
+                    )}
+                  </>
+                ))}
+              </div>
+            )}
+
+            {block.kind === "note" &&
+              block.body &&
+              block.body.map((p) => <p class="wsv-aside-body">{p}</p>)}
+
+            {block.footnote && <p class="wsv-aside-foot">{block.footnote}</p>}
+          </div>
+        ))
+      }
+    </aside>
+
+    {/* ── story column ── */}
+    <main class="sv-main">
+      {/* the standing §9 caveat — this figure is NOT glorified */}
+      <div class="wsv-notice">
+        <strong>Not yet glorified</strong> &mdash; held in the living memory of the
+        faithful. This servant of God is remembered with love and gratitude, but is
+        not (or not yet) formally glorified by the Church. No feast, liturgical veneration,
+        or intercession is implied here; what follows is an historical profile, subject
+        to clergy and source review.
+      </div>
+
+      {/* their story — overview + narrative sections, kept visible */}
+      {
+        overview.length > 0 && (
+          <section class="sv-section">
+            <div class="sv-secthead">
+              <span class="eyebrow">Their story</span>
+            </div>
+            {overview.map((p) => (
+              <p class="sv-bodytext">{p}</p>
+            ))}
+          </section>
+        )
+      }
+
+      {
+        /* ── the rest of the life + apparatus (all collapsible deep-dives) ── */
+      }
+      <div class="sv-after">
+        <div class="sv-after-inner">
+          {
+            /* narrative sections — each a dropdown; only "Their story" above stays open */
+          }
+          {
+            sections.map((s) => (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">{s.heading}</span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <div class="wsv-deep-prose">
+                  {s.body.map((p) => (
+                    <p set:html={p} />
+                  ))}
+                </div>
+              </details>
+            ))
+          }
+
+          {/* historical significance — collapsible */}
+          {
+            significance.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">
+                    Historical Significance
+                  </span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <div class="wsv-deep-prose">
+                  {significance.map((p) => (
+                    <p>{p}</p>
+                  ))}
+                </div>
+              </details>
+            )
+          }
+
+          {/* selected teachings / in their own words */}
+          {
+            quotes.length > 0 && (
+              <details class="sv-deep sv-words">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">Selected Teachings</span>
+                  {quotes.length > 1 && (
+                    <span class="sv-deep-ct">{quotes.length} quotes</span>
+                  )}
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <div class="sv-words-list">
+                  {quotes.map((q) => (
+                    <figure class="sv-words-quote">
+                      <span class="sv-words-mark" aria-hidden="true">
+                        &ldquo;
+                      </span>
+                      <div>
+                        <blockquote>{q.text}</blockquote>
+                        <figcaption>
+                          <span class="sv-words-rule" aria-hidden="true" />
+                          {q.work}
+                          {q.theme && (
+                            <span class="sv-quote-trans"> · {q.theme}</span>
+                          )}
+                        </figcaption>
+                      </div>
+                    </figure>
+                  ))}
+                </div>
+              </details>
+            )
+          }
+
+          {/* timeline */}
+          {
+            timeline.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb sv-tl-title">
+                    Life in Brief
+                  </span>
+                  <span class="sv-deep-ct">{timeline.length} moments</span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <ol class="sv-timeline">
+                  {timeline.map((t) => (
+                    <li>
+                      <span class="sv-when">{t.when}</span>
+                      <strong class="sv-tl-event">{t.title}</strong>
+                      {t.body && (
+                        <span class="sv-tbody">
+                          {t.body}
+                          {t.source && (
+                            <a
+                              class="wsv-src"
+                              href={t.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {" "}
+                              source ↗
+                            </a>
+                          )}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )
+          }
+
+          {/* secondary timeline (e.g. "Orthodoxy in America") */}
+          {
+            secondary && secondary.entries.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb sv-tl-title">
+                    {secondary.heading}
+                  </span>
+                  <span class="sv-deep-ct">
+                    {secondary.entries.length} moments
+                  </span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <ol class="sv-timeline">
+                  {secondary.entries.map((t) => (
+                    <li>
+                      <span class="sv-when">{t.when}</span>
+                      <strong class="sv-tl-event">{t.title}</strong>
+                      {t.body && (
+                        <span class="sv-tbody">
+                          {t.body}
+                          {t.source && (
+                            <a
+                              class="wsv-src"
+                              href={t.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {" "}
+                              source ↗
+                            </a>
+                          )}
+                        </span>
+                      )}
+                      {t.figures && t.figures.length > 0 && (
+                        <span class="wsv-tl-figs">
+                          {t.figures.map((f) =>
+                            f.href ? (
+                              <a class="wsv-chip" href={withBase(f.href)}>
+                                {f.name}
+                              </a>
+                            ) : (
+                              <span class="wsv-chip">{f.name}</span>
+                            ),
+                          )}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )
+          }
+
+          {/* main-column deep-dive lists (e.g. monasteries founded) */}
+          {
+            deepLists.map((dl) => (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">{dl.heading}</span>
+                  <span class="sv-deep-ct">
+                    {dl.items.length} {dl.countLabel ?? "items"}
+                  </span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Show</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                {dl.intro && <p class="wsv-deeplist-intro">{dl.intro}</p>}
+                <ul class="wsv-deeplist">
+                  {dl.items.map((it) => (
+                    <li>
+                      <span class="wsv-deeplist-title">
+                        {it.source ? (
+                          <a
+                            href={it.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {it.title}
+                          </a>
+                        ) : (
+                          it.title
+                        )}
+                      </span>
+                      {it.meta && (
+                        <span class="wsv-deeplist-meta">{it.meta}</span>
+                      )}
+                      {it.note && (
+                        <span class="wsv-deeplist-note">{it.note}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))
+          }
+
+          {/* works & further reading */}
+          {
+            hasWorks && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">
+                    Works &amp; Further Reading
+                  </span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Read</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <div class="sv-wr-grid">
+                  {worksBy.length > 0 && (
+                    <section class="sv-works-after">
+                      <h2>Works by {w.name}</h2>
+                      <ul class="sv-worklist-after">
+                        {worksBy.map((k) => (
+                          <li>
+                            {k.source ? (
+                              <a
+                                href={k.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <em>{k.title}</em>
+                              </a>
+                            ) : (
+                              <em>{k.title}</em>
+                            )}
+                            {k.detail && (
+                              <span class="sv-work-desc"> — {k.detail}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+                  {worksAbout.length > 0 && (
+                    <section class="sv-reading">
+                      <h2>Further Reading</h2>
+                      <ul class="sv-read-list">
+                        {worksAbout.map((k) => (
+                          <li>
+                            {k.source ? (
+                              <a
+                                href={k.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {k.title}
+                              </a>
+                            ) : (
+                              k.title
+                            )}
+                            {k.detail && (
+                              <span class="sv-work-desc"> — {k.detail}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+                </div>
+              </details>
+            )
+          }
+
+          {/* gallery suggestions */}
+          {
+            gallery.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">Gallery Suggestions</span>
+                  <span class="sv-deep-ct">{gallery.length} images</span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Show</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <p class="wsv-fineprint">
+                  Recommended imagery for a future illustrated edition (none
+                  reproduced here pending licensing and review):
+                </p>
+                <ul class="wsv-gallery">
+                  {gallery.map((g) => (
+                    <li>
+                      <span class="wsv-gal-subject">{g.subject}</span>
+                      <span class="wsv-gal-caption">{g.caption}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
+          }
+
+          {/* related figures */}
+          {
+            related.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">Related Figures</span>
+                  <span class="sv-deep-ct">{related.length}</span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Show</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                <ul class="wsv-related">
+                  {related.map((r) => (
+                    <li>
+                      {r.href ? (
+                        <a href={withBase(r.href)} class="wsv-rel-name">
+                          {r.name}
+                        </a>
+                      ) : r.external ? (
+                        <a
+                          href={r.external}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="wsv-rel-name"
+                        >
+                          {r.name} ↗
+                        </a>
+                      ) : (
+                        <span class="wsv-rel-name">{r.name}</span>
+                      )}
+                      <span class="wsv-rel-note"> — {r.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
+          }
+
+          {/* sources */}
+          {
+            sources.length > 0 && (
+              <div class="wsv-sources">
+                <div class="eyebrow">Sources</div>
+                <ol>
+                  {sources.map((s) => (
+                    <li>
+                      <a href={s.url} target="_blank" rel="noopener noreferrer">
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )
+          }
+
+          <p class="wsv-fineprint">
+            This profile is a historical account compiled from the sources
+            listed and remains subject to clergy and source review.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<style>
+  /* The chrome (hero, rail, deep-dives, timeline, works) reuses the global
+     .sv-* saint-page system; only the few witness-specific bits are scoped
+     here. */
+  .wsv-roletag i {
+    background: var(--gold-soft);
+  }
+
+  .wsv-notice {
+    background: #f4ecdd;
+    border: 1px solid var(--gold-deep);
+    border-left-width: 4px;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #5a4a2a;
+    margin: 0 0 30px;
+  }
+  .wsv-notice strong {
+    color: var(--gold-deep);
+  }
+
+  /* prose body inside a collapsible section/significance deep-dive */
+  .wsv-deep-prose {
+    margin: 22px auto 0;
+    max-width: 72ch;
+  }
+  .wsv-deep-prose p {
+    font-size: 17px;
+    line-height: 1.72;
+    color: var(--ink);
+    margin: 0 0 15px;
+    text-wrap: pretty;
+  }
+  .wsv-deep-prose p:last-child {
+    margin-bottom: 0;
+  }
+  .wsv-deep-prose :global(strong) {
+    color: var(--byz-deep);
+  }
+
+  .wsv-src {
+    font-family: var(--text);
+    font-size: 12px;
+    color: var(--celest);
+    white-space: nowrap;
+  }
+
+  /* related figures — a simple list (witnesses have no portrait cards) */
+  .wsv-related {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .wsv-related li {
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+  .wsv-rel-name {
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .wsv-rel-note {
+    color: #555;
+  }
+
+  /* gallery suggestions */
+  .wsv-gallery {
+    padding-left: 0;
+    margin: 0;
+  }
+  .wsv-gallery li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  .wsv-gal-subject {
+    display: block;
+    font-weight: 600;
+    color: var(--byz-deep);
+    font-family: var(--text);
+    font-size: 14px;
+  }
+  .wsv-gal-caption {
+    font-style: italic;
+    color: var(--celest);
+    font-size: 14px;
+  }
+
+  .wsv-sources ol {
+    padding-left: 20px;
+    margin: 6px 0 0;
+  }
+  .wsv-sources li {
+    margin-bottom: 7px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .wsv-sources a {
+    color: var(--byz-deep);
+  }
+
+  .wsv-fineprint {
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--celest);
+    line-height: 1.55;
+    margin: 12px 0 0;
+  }
+
+  /* ── side-column supplementary blocks ── */
+  .wsv-aside {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--gold-soft);
+  }
+  .wsv-aside-intro {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #5a5348;
+    margin: 6px 0 12px;
+  }
+  .wsv-aside-foot {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--celest);
+    line-height: 1.5;
+    margin: 10px 0 0;
+  }
+
+  /* lineage hand-down diagram (vertical) */
+  .wsv-lineage {
+    margin: 10px 0 2px;
+    text-align: center;
+  }
+  .wsv-lin-node {
+    background: linear-gradient(168deg, #27537f 0%, #1e426a 100%);
+    border: 1px solid var(--gold-deep);
+    border-radius: 9px;
+    color: var(--ivory);
+    padding: 9px 12px;
+    font-weight: 600;
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+  .wsv-lin-current {
+    background: linear-gradient(168deg, #2f6a4a 0%, #234f38 100%);
+  }
+  .wsv-lin-link {
+    color: var(--gold-soft);
+    text-decoration: none;
+  }
+  .wsv-lin-link:hover {
+    text-decoration: underline;
+  }
+  .wsv-lin-sub {
+    display: block;
+    font-weight: 400;
+    font-size: 11.5px;
+    color: #cdd9e6;
+    margin-top: 2px;
+  }
+  .wsv-lin-current .wsv-lin-sub {
+    color: #cfe6da;
+  }
+  .wsv-lin-arrow {
+    color: var(--gold-deep);
+    font-size: 18px;
+    line-height: 1;
+    margin: 3px 0;
+  }
+
+  /* main-column deep-dive list (monasteries, foundations …) */
+  .wsv-deeplist-intro {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0 0 14px;
+  }
+  .wsv-deeplist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px 20px;
+  }
+  .wsv-deeplist li {
+    padding: 10px 0;
+    border-top: 1px solid #eadfca;
+  }
+  .wsv-deeplist-title {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--byz-deep);
+    line-height: 1.3;
+  }
+  .wsv-deeplist-title a {
+    color: var(--byz-deep);
+  }
+  .wsv-deeplist-meta {
+    display: block;
+    font-size: 12.5px;
+    color: var(--celest);
+    margin-top: 2px;
+  }
+  .wsv-deeplist-note {
+    display: block;
+    font-size: 13px;
+    color: #5a5348;
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+  .wsv-aside-body {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #3a3a3a;
+    margin: 0 0 8px;
+  }
+
+  /* secondary-timeline figure chips */
+  .wsv-tl-figs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .wsv-chip {
+    font-family: var(--text);
+    font-size: 11.5px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: #f0e7d4;
+    border: 1px solid var(--gold-soft);
+    color: var(--byz-deep);
+    text-decoration: none;
+  }
+  a.wsv-chip:hover {
+    background: var(--gold-soft);
+  }
+</style>
+
+<script>
+  /* Share / cite: copy a plain citation + canonical URL to the clipboard, with
+     a Web-Share fallback on devices that support it. (Mirrors the saint page.) */
+  const share = document.querySelector<HTMLButtonElement>(".sv-share");
+  const shareLabel = share?.querySelector<HTMLElement>(".sv-share-label");
+  if (share && shareLabel) {
+    const cite = share.dataset.cite || document.title;
+    const url = location.href;
+    share.addEventListener("click", async () => {
+      const text = `${cite} ${url}`;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: cite, url });
+          return;
+        }
+        await navigator.clipboard.writeText(text);
+        const prev = shareLabel.textContent;
+        shareLabel.textContent = "Citation copied";
+        window.setTimeout(() => {
+          shareLabel.textContent = prev;
+        }, 1600);
+      } catch {
+        /* user dismissed the share sheet, or clipboard denied — no-op */
+      }
+    });
+  }
+</script>

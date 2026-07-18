@@ -15,11 +15,27 @@
    OrthodoxWiki/Wikipedia). A record without a `sources` entry still shows a
    "sources being gathered" caveat and should not be treated as authoritative. */
 
-import type { TimelineEntry, RelatedFigure } from "./ephraim";
+/** One moment in a witness's life timeline (or a secondary "in America"
+ *  timeline). `figures` renders as small linked chips beneath the entry. */
+export interface TimelineEntry {
+  when: string;
+  title: string;
+  body: string;
+  figures?: { name: string; href?: string }[];
+  source?: string;
+}
 
-/** A work by, or book about, a witness. Lighter than the Ephraim/Seraphim
- *  `Work`/`BookAbout` tables — a title with an optional one-line detail and an
- *  optional citation link. */
+/** A related figure — an internal `/saint/OS-####` or `/witness/<slug>` link
+ *  where a page exists, or an `external` reference, or a plain name. */
+export interface RelatedFigure {
+  name: string;
+  note: string;
+  href?: string; // internal /saint/OS-#### or witness/<slug>
+  external?: string; // external reference when no internal page exists
+}
+
+/** A work by, or book about, a witness. A title with an optional one-line
+ *  detail and an optional citation link. */
 export interface WitnessWork {
   title: string;
   detail?: string;
@@ -52,6 +68,54 @@ export interface WitnessGalleryItem {
   caption: string;
 }
 
+/** One node of a `lineage` side-column block — a link in a vertical hand-down
+ *  diagram (e.g. Optina Elders → St John Maximovitch → Fr Seraphim). */
+export interface WitnessAsideNode {
+  label: string;
+  /** small secondary line under the label */
+  sub?: string;
+  /** internal (withBase) path or absolute URL, when the node has a page */
+  href?: string;
+  /** true for the witness himself — the highlighted "current" node */
+  current?: boolean;
+}
+
+/** A supplementary LEFT-RAIL block — a distinctive extra shown COMPACTLY in the
+ *  side column below "At a glance": a `lineage` hand-down diagram, or a short
+ *  prose `note`. Big structured lists (monasteries, foundations) do NOT go here
+ *  — they belong in a main-column deep-dive (see `WitnessDeepList`). */
+export interface WitnessAside {
+  kind: "lineage" | "note";
+  heading: string;
+  /** optional lead line under the heading */
+  intro?: string;
+  nodes?: WitnessAsideNode[]; // kind: "lineage"
+  body?: string[]; // kind: "note"
+  /** small italic caveat under the block */
+  footnote?: string;
+}
+
+/** One row of a main-column deep-dive list (e.g. a monastery Elder Ephraim
+ *  founded: name + a one-line meta + optional note/citation). */
+export interface WitnessDeepItem {
+  title: string;
+  /** one compact meta line, e.g. "Men's · Florence, Arizona · 1995" */
+  meta?: string;
+  note?: string;
+  source?: string;
+}
+
+/** A MAIN-COLUMN collapsible deep-dive holding a structured list — for content
+ *  too long for the side rail (Elder Ephraim's monasteries, a bibliography of
+ *  foundations …). Rendered as a dropdown like Timeline / Works. */
+export interface WitnessDeepList {
+  heading: string;
+  intro?: string;
+  /** plural noun for the count chip, e.g. "monasteries" */
+  countLabel?: string;
+  items: WitnessDeepItem[];
+}
+
 export interface Witness {
   /** permanent URL slug — /witness/<slug> */
   slug: string;
@@ -70,11 +134,11 @@ export interface Witness {
   sources?: { label: string; url: string }[];
 
   /* ── Rich profile (optional) ──────────────────────────────────────────────
-     When `overview` is present, witness/[slug].astro renders the comprehensive
-     WitnessProfile (matching the Elder Ephraim / Fr Seraphim format) instead of
-     the simple memorial template. All fields below are sourced-only and remain
-     subject to clergy/source review (CLAUDE.md §9); these figures are NOT
-     glorified, so no feast/veneration/intercession is ever implied. */
+     When `overview` is present, witness/[slug].astro renders the saint-page-format
+     profile (WitnessSaintView) instead of the simple memorial template. All
+     fields below are sourced-only and remain subject to clergy/source review
+     (CLAUDE.md §9); these figures are NOT glorified, so no feast/veneration/
+     intercession is ever implied. */
   /** secular / birth name shown under the heading (e.g. "Born Princess Ileana") */
   secularName?: string;
   /** jurisdiction(s) within which they served — historical, not a veneration claim */
@@ -102,6 +166,15 @@ export interface Witness {
   quotes?: WitnessQuote[];
   /** "Gallery Suggestions" — captions for recommended imagery (nothing reproduced) */
   gallery?: WitnessGalleryItem[];
+  /** compact supplementary LEFT-RAIL blocks — a spiritual-lineage diagram or a
+   *  short note shown in the side column below "At a glance". */
+  sidebar?: WitnessAside[];
+  /** main-column collapsible deep-dive lists (e.g. Elder Ephraim's monasteries)
+   *  — content too long for the side rail, shown as dropdowns like Timeline. */
+  deepLists?: WitnessDeepList[];
+  /** an optional SECOND timeline (e.g. "Orthodoxy in America"), rendered as its
+   *  own collapsible deep-dive after the main "Life in Brief" timeline. */
+  secondaryTimeline?: { heading: string; entries: TimelineEntry[] };
 }
 
 export const WITNESSES: Witness[] = [
@@ -115,14 +188,408 @@ export const WITNESSES: Witness[] = [
     bio: [
       "A disciple of St Joseph the Hesychast who, coming from Mount Athos, founded seventeen Orthodox monasteries across the United States and Canada — reviving traditional monastic life on the continent.",
     ],
+    secularName: "Ioannis Moraitis",
+    jurisdiction:
+      "Greek Orthodox — Athonite monastic tradition (Mount Athos / Philotheou)",
+    railFacts: [
+      ["Lived", "1927/28 – 2019"],
+      ["Born", "Volos, Greece"],
+      ["Tonsured", "Mount Athos, 1948"],
+      ["Came to America", "1979"],
+      ["Founded", "17 monasteries"],
+      ["Reposed", "Florence, Arizona (2019)"],
+      ["Tradition", "Greek · Athonite"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor: "Athonite monasticism in North America",
+    overview: [
+      "Elder Ephraim of Arizona (secular name Ioannis Moraitis) was a Greek Athonite hieromonk who, after thirty years of monastic life on Mount Athos — including eighteen years as abbot of the Monastery of Philotheou — established a network of Orthodox monasteries in the United States and Canada in the closing decades of the twentieth century. He was born on June 24 in Volos, Greece; sources differ as to the year, giving either 1927 or 1928.",
+      "Raised in a poor and devout family — his mother was later tonsured a nun — he arrived on Mount Athos on September 26, 1947, and placed himself under the guidance of St Joseph the Hesychast, a renewer of contemplative prayer on the Holy Mountain. He was tonsured a monk in 1948, receiving the name Ephraim, and lived under St Joseph's direction for some twelve years until the elder's repose on August 15, 1959.",
+      "On October 1, 1973, Elder Ephraim became abbot of the Monastery of Philotheou, which he repopulated; brotherhoods sent out from it also revived the Athonite monasteries of Konstamonitou, Xeropotamou, and Karakallou. He first travelled to North America in 1979 and, over the following years, relocated there permanently, settling in 1995 at St Anthony's Monastery in the Arizona desert, where he reposed on December 7, 2019.",
+    ],
+    sections: [
+      {
+        heading: "Elder Ephraim and North America",
+        body: [
+          "Elder Ephraim's first journey to North America, in 1979, was occasioned by a need for medical care in Canada. Visiting Orthodox communities in Toronto, Montreal, and Vancouver, he was sought out by clergy and laity for confession and spiritual counsel. By that time Orthodox Christianity had been present on the continent for nearly two centuries and was rich in parishes and institutions, yet traditional Athonite-style monastic communities — ordered around the Jesus Prayer, lengthy services, and eldership — were few.",
+          "In response to repeated requests from the faithful, Elder Ephraim returned with growing frequency and eventually relocated to the United States. His stated aim was to transplant the monastic life of the Holy Mountain to American soil: communities of monks and nuns living the cenobitic and hesychast tradition he had received from St Joseph. The monasteries he founded became centres of confession, spiritual direction, and pilgrimage, and contributed to a wider renewal of interest in Orthodox monasticism among clergy, converts, and laypeople across the continent.",
+        ],
+      },
+      {
+        heading: "Founder of Monastic Communities",
+        body: [
+          "Before Elder Ephraim's arrival, organized Orthodox monasticism in North America was limited; most communities were small or short-lived, and there was no broad network of houses living the fully traditional Athonite typikon. Beginning with the women's Monastery of the Nativity of the Theotokos in Pennsylvania (1989), and continuing through St Anthony's in Arizona (1995) and many houses thereafter, he and his disciples established monasteries the length and breadth of the continent. By St Anthony's Monastery's own count, seventeen communities were founded through his work — ten for women and seven for men, fifteen in the United States and two in Canada; some later sources give eighteen or nineteen. These communities have continued their monastic life since his repose.",
+        ],
+      },
+      {
+        heading: "Pilgrimage and Legacy",
+        body: [
+          "St Anthony's Monastery, set in the Sonoran Desert near Florence, Arizona, became a destination of pilgrimage drawing visitors from across North America and beyond. During Elder Ephraim's lifetime, the faithful travelled to seek his confession and counsel; since his repose, pilgrims continue to visit his monasteries and his grave. The communities he founded function as centres of prayer, the sacrament of confession, spiritual direction, and the daily round of monastic services, and they remain points of contact between parish life and the monastic tradition.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1979",
+        title: "First visits to North America",
+        body: "Travelling to Canada for medical care, Elder Ephraim visited Orthodox communities in Toronto, Montreal, and Vancouver, where the faithful sought his counsel and confession.",
+        source: "https://stanthonysmonastery.org/pages/elder-ephraim",
+      },
+      {
+        when: "1989",
+        title: "Nativity of the Theotokos Monastery established (Pennsylvania)",
+        body: "His first monastic foundation in the Americas — a women's monastery at Saxonburg, Pennsylvania.",
+        source: "https://www.nativityofthetheotokosmonastery.org/history",
+      },
+      {
+        when: "1995",
+        title: "St Anthony's Monastery established (Arizona)",
+        body: "He settled with a small brotherhood in the Sonoran Desert at Florence, Arizona, which became his residence and the best-known of the monasteries.",
+        source: "https://en.wikipedia.org/wiki/Ephraim_of_Arizona",
+      },
+      {
+        when: "1990s–2000s",
+        title: "A network of monasteries founded across North America",
+        body: "By the count of St Anthony's Monastery, seventeen monastic communities were established through his work — ten for women and seven for men, fifteen in the United States and two in Canada.",
+        source: "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+      },
+      {
+        when: "2019",
+        title: "Repose in the Lord",
+        body: "Elder Ephraim reposed on December 7, 2019, at St Anthony's Monastery, Florence, Arizona.",
+        source: "https://orthodoxwiki.org/Ephraim_(Moraitis)_of_Philotheou",
+      },
+    ],
+    secondaryTimeline: {
+      heading:
+        "Orthodoxy in America: The Story Into Which Elder Ephraim Entered",
+      entries: [
+        {
+          when: "1794",
+          title: "The Valaam mission arrives in Alaska",
+          body: "Ten monks from Valaam and neighbouring monasteries, having departed Russia in 1793, arrived at Kodiak on September 24, 1794 — the beginning of organized Orthodox mission in North America.",
+          figures: [
+            { name: "St Herman of Alaska", href: "saint/OS-0044" },
+            { name: "St Juvenaly of Alaska", href: "saint/OS-1895" },
+          ],
+          source:
+            "https://www.oca.org/orthodoxy/the-orthodox-faith/church-history/eighteenth-century/mission-to-alaska",
+        },
+        {
+          when: "to 1837",
+          title: "St Herman among the native Alaskans",
+          body: "St Herman settled on Spruce Island, which he named “New Valaam,” living as a hermit and protector of the Alutiiq people until his repose on December 13, 1837.",
+          figures: [{ name: "St Herman of Alaska", href: "saint/OS-0044" }],
+          source:
+            "https://www.oca.org/saints/lives/2018/12/13/103568-saint-herman-of-alaska-wonderworker-of-all-america",
+        },
+        {
+          when: "1824–1867",
+          title: "St Innocent's missionary expansion",
+          body: "Arriving at Unalaska in 1824, St Innocent (Veniaminov) devised a Cyrillic Aleut alphabet, translated the Gospel of Matthew and other texts, and built schools across Alaska before being elevated Metropolitan of Moscow.",
+          figures: [{ name: "St Innocent of Alaska", href: "saint/OS-0054" }],
+          source: "https://orthodoxwiki.org/Innocent_of_Alaska",
+        },
+        {
+          when: "1898–1907",
+          title: "St Tikhon's North American episcopacy",
+          body: "As bishop (from 1898) and then archbishop, the future Patriarch St Tikhon organized the diocese, renamed it “Aleutians and North America,” built up parishes and St Tikhon's Monastery, and envisioned a self-governing American Orthodox Church before returning to Russia in 1907.",
+          figures: [{ name: "St Tikhon of Moscow", href: "saint/OS-0053" }],
+          source:
+            "https://www.oca.org/holy-synod/past-primates/tikhon-bellavin",
+        },
+        {
+          when: "1904",
+          title: "St Raphael of Brooklyn — first bishop consecrated in America",
+          body: "Consecrated in New York City in 1904 — the first Orthodox episcopal consecration on American soil — St Raphael gathered the scattered Arabic-speaking faithful and founded some thirty parishes before his repose in 1915.",
+          figures: [{ name: "St Raphael of Brooklyn", href: "saint/OS-0055" }],
+          source: "https://orthodoxwiki.org/Raphael_of_Brooklyn",
+        },
+        {
+          when: "1900s–1930s",
+          title: "Growth through immigration; the seminaries",
+          body: "Orthodoxy spread through Greek, Russian, Serbian, Romanian, and Syrian/Lebanese immigration, with parishes multiplying in the great cities and the founding of Holy Cross (1937) and St Vladimir's (1938) seminaries.",
+          source: "https://www.svots.edu/about/our-history",
+        },
+        {
+          when: "1979",
+          title: "Elder Ephraim begins visiting North America",
+          body: "Into this maturing but still young Church — rich in parishes yet with few traditional Athonite-style monastic communities — Elder Ephraim came in 1979, and over the next decades planted a monastic network across the continent.",
+          figures: [{ name: "Elder Ephraim of Arizona" }],
+          source: "https://stanthonysmonastery.org/pages/elder-ephraim",
+        },
+      ],
+    },
+    deepLists: [
+      {
+        heading: "Monasteries He Founded",
+        countLabel: "monasteries",
+        intro:
+          "By St Anthony's Monastery's own count, seventeen communities were founded through his work — ten for women and seven for men, fifteen in the United States and two in Canada. Founding years are given variously by different sources, and several are drawn from a single source — treat them as approximate.",
+        items: [
+          {
+            title: "Nativity of the Theotokos Monastery",
+            meta: "Women's · Saxonburg, Pennsylvania · founded 1989",
+            note: "His first foundation in the Americas.",
+            source: "https://www.nativityofthetheotokosmonastery.org/history",
+          },
+          {
+            title: "Life-Giving Spring Monastery (Zoodochos Peghe)",
+            meta: "Women's · Dunlap, California · founded 1993",
+            source: "https://www.holytrinitysf.org/monasteries",
+          },
+          {
+            title: "St John the Forerunner Monastery",
+            meta: "Women's · Goldendale, Washington · founded 1995",
+            source: "https://stjohnmonastery.org/",
+          },
+          {
+            title: "St Anthony's Greek Orthodox Monastery",
+            meta: "Men's · Florence, Arizona · founded 1995",
+            note: "Elder Ephraim's own residence from 1995 until his repose.",
+            source: "https://stanthonysmonastery.org/",
+          },
+          {
+            title: "Holy Archangels Monastery",
+            meta: "Men's · Kendalia, Texas · founded 1996",
+            source: "https://holyarchangels.com/home/our-monastery/",
+          },
+          {
+            title: "Panagia Vlahernon Monastery",
+            meta: "Men's · Williston, Florida · founded 1998",
+            source:
+              "https://orthodoxwiki.org/Panagia_Vlahernon_Greek_Orthodox_Monastery_(Williston,_Florida)",
+          },
+          {
+            title: "Holy Trinity Monastery",
+            meta: "Men's · Smiths Creek, Michigan · founded 1998–99",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "St Nektarios Monastery",
+            meta: "Men's · Roscoe, New York · founded 1999",
+            source: "https://www.stnektariosmonastery.org/en/aboutus.html",
+          },
+          {
+            title: "St Kosmas Aitolos Monastery",
+            meta: "Women's · Bolton, Ontario, Canada · founded 1993",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Panagia Parigoritissa Monastery",
+            meta: "Women's · Brownsburg-Chatham, Quebec, Canada · founded 1993",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "St John Chrysostomos Monastery",
+            meta: "Women's · Pleasant Prairie, Wisconsin · founded 1993",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Holy Protection of the Theotokos Monastery",
+            meta: "Women's · White Haven, Pennsylvania · founded 1993",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Annunciation of the Theotokos Monastery",
+            meta: "Women's · Reddick, Florida · founded 1998",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Panagia Prousiotissa Monastery",
+            meta: "Women's · Troy, North Carolina · founded 1998",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Panagia Pammakaristos Monastery",
+            meta: "Men's · Lawsonville, North Carolina · founded 1998",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "Holy Transfiguration Monastery",
+            meta: "Harvard, Illinois · founded 1998",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+          {
+            title: "St Paraskevi Monastery",
+            meta: "Women's · Washington, Texas · founded 2004",
+            source:
+              "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+          },
+        ],
+      },
+    ],
+    worksBy: [
+      {
+        title: "Counsels from the Holy Mountain (1999)",
+        detail:
+          "A large compilation of his letters and homilies on the path to sanctification, addressed to clergy, monastics, and laypeople (SAGOM Press, St Anthony's Monastery).",
+        source:
+          "https://stanthonysmonastery.org/products/counsels-from-the-holy-mountain",
+      },
+      {
+        title: "The Art of Salvation",
+        detail:
+          "Thirty-three homilies — twenty-three to laypeople and ten to the monks of Philotheou — outlining the means that lead to salvation (St Nektarios Monastery, Roscoe, NY).",
+        source: "https://saintnektariosmonastery.com/The-Art-of-Salvation",
+      },
+      {
+        title: "A Call from the Holy Mountain (1991)",
+        detail:
+          "An early, short collection on Orthodox monasticism and the spiritual life (New Sarov Press); long out of print.",
+        source: "https://gotruthreform.org/a-call-from-the-holy-mountain",
+      },
+      {
+        title: "My Elder Joseph the Hesychast (Greek 2008; Eng. c. 2013)",
+        detail:
+          "His firsthand memoir of the life, struggles, and counsels of his own elder, St Joseph the Hesychast.",
+        source:
+          "https://www.holycross.org/products/my-elder-joseph-the-hesychast",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Sent By God: The Life of Geronda Ephraim",
+        detail:
+          "Multi-volume biography compiled by St Anthony's Monastery, drawing largely on his own words and the testimony of his spiritual children — the principal book-length work about him.",
+        source:
+          "https://www.saintsophiadc.org/sent-by-god-the-life-of-geronda-ephraim/",
+      },
+    ],
+    quotes: [
+      {
+        theme: "Prayer",
+        text: "If you truly desire to expel every anti-Christian thought and to purify your nous, you will achieve this only through prayer, for nothing is able to regulate our thoughts as well as prayer.",
+        work: "Counsels from the Holy Mountain",
+      },
+      {
+        theme: "The Jesus Prayer",
+        text: "The more humility you mix with your unceasing prayer, the more intensely you will feel Jesus, and your heart will feel like another burning bush.",
+        work: "Counsels from the Holy Mountain",
+      },
+      {
+        theme: "Repentance",
+        text: "Even one tear of repentance is equivalent to a spiritual bath.",
+        work: "The Art of Salvation",
+      },
+      {
+        theme: "Repentance",
+        text: "The tears of a repentant soul purify the heart, purify the mind, purify the body, purify life, purify speech, and purify a person's every action.",
+        work: "The Art of Salvation",
+      },
+    ],
+    gallery: [
+      {
+        subject: "Elder Ephraim portrait",
+        caption: "Elder Ephraim of Arizona (1927/28 – 2019).",
+      },
+      {
+        subject: "St Joseph the Hesychast portrait",
+        caption:
+          "St Joseph the Hesychast, Elder Ephraim's spiritual father on Mount Athos.",
+      },
+      {
+        subject: "St Anthony's Monastery",
+        caption:
+          "St Anthony's Greek Orthodox Monastery, Florence, Arizona (founded 1995).",
+      },
+      {
+        subject: "Mount Athos / Philotheou",
+        caption:
+          "Philotheou Monastery, Mount Athos, where Elder Ephraim was abbot (1973–1991).",
+      },
+    ],
+    related: [
+      {
+        name: "St Joseph the Hesychast",
+        note: "His own elder and spiritual father on Mount Athos, from whom he received the hesychast tradition.",
+        href: "saint/OS-2584",
+      },
+      {
+        name: "St Paisios the Athonite",
+        note: "A fellow twentieth-century Athonite elder who renewed contemplative monasticism in his generation.",
+        href: "saint/OS-0051",
+      },
+      {
+        name: "St Porphyrios of Kavsokalivia",
+        note: "A contemporary Athonite elder widely sought across the Orthodox world for spiritual counsel.",
+        href: "saint/OS-0052",
+      },
+      {
+        name: "Fr Seraphim Rose",
+        note: "An American convert of the same era whose writings, like Elder Ephraim's monasteries, drew many toward Orthodox spiritual life.",
+        href: "witness/seraphim-rose",
+      },
+    ],
+    significance: [
+      "Elder Ephraim's work is most often discussed in connection with the revival of Orthodox monasticism in late-twentieth-century North America. By establishing a network of houses living the Athonite tradition, he made the hesychast spirituality of the Holy Mountain — its emphasis on the Jesus Prayer, confession, and eldership — directly accessible to an English-speaking Orthodox population that had previously encountered it mainly through books. His monasteries drew clergy, monastics, converts, and laypeople, and influenced parish spiritual life well beyond their walls.",
+      "His ministry was not without controversy, and assessments of his influence vary; what is not disputed is that the communities he founded have endured, and that the practices and texts associated with them have shaped a generation of Orthodox Christians on the continent.",
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The hesychast tradition of the Holy Mountain, handed down through Elder Ephraim to North America.",
+        nodes: [
+          {
+            label: "St Joseph the Hesychast",
+            sub: "Renewer of Athonite hesychasm (†1959)",
+            href: "saint/OS-2584",
+          },
+          {
+            label: "Elder Ephraim of Arizona",
+            sub: "Abbot of Philotheou; founder in North America",
+            current: true,
+          },
+          {
+            label: "North American Monastic Revival",
+            sub: "A network of monasteries across the continent",
+          },
+        ],
+      },
+      {
+        kind: "note",
+        heading: "A Note on Attribution",
+        body: [
+          "The title <em>The Path to Salvation</em>, sometimes attributed to Elder Ephraim, is in fact the work of St Theophan the Recluse and is not among his writings.",
+        ],
+      },
+    ],
     sources: [
       {
-        label: "Wikipedia: Ephraim of Arizona",
+        label:
+          "St Anthony's Greek Orthodox Monastery — Elder Ephraim (official biography)",
+        url: "https://stanthonysmonastery.org/pages/elder-ephraim",
+      },
+      {
+        label: "St Anthony's Greek Orthodox Monastery — Affiliated Monasteries",
+        url: "https://stanthonysmonastery.org/pages/affiliated-monasteries",
+      },
+      {
+        label: "OrthodoxWiki — Ephraim (Moraitis) of Philotheou",
+        url: "https://orthodoxwiki.org/Ephraim_(Moraitis)_of_Philotheou",
+      },
+      {
+        label: "Wikipedia — Ephraim of Arizona",
         url: "https://en.wikipedia.org/wiki/Ephraim_of_Arizona",
       },
       {
-        label: "OrthodoxWiki: Ephraim of Philotheou",
-        url: "https://orthodoxwiki.org/Ephraim_of_Philotheou",
+        label: "Mystagogy (John Sanidopoulos) — repose of Elder Ephraim",
+        url: "https://www.johnsanidopoulos.com/2019/12/elder-ephraim-of-philotheou-and-arizona.html",
+      },
+      {
+        label: "Nativity of the Theotokos Monastery — History",
+        url: "https://www.nativityofthetheotokosmonastery.org/history",
       },
     ],
   },
@@ -136,14 +603,322 @@ export const WITNESSES: Witness[] = [
     bio: [
       "An American convert and co-founder of the St Herman of Alaska Monastery in California whose writings opened the door of Orthodoxy to a whole generation of English-speaking seekers.",
     ],
+    secularName: "Born Eugene Dennis Rose",
+    jurisdiction: "Russian Orthodox Church Outside Russia (ROCOR)",
+    railFacts: [
+      ["Lived", "1934 – 1982"],
+      ["Born", "San Diego, California"],
+      ["Received into Orthodoxy", "1962 (ROCOR, San Francisco)"],
+      ["Tonsured monk", "1970 · name Seraphim"],
+      ["Founded", "St Herman Brotherhood (1963); Platina (1969)"],
+      ["Reposed", "Platina, California · Sep 2, 1982"],
+      ["Tradition", "Convert · ROCOR"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor:
+      "English-language Orthodox publishing that reached a generation of converts",
+    overview: [
+      "Father Seraphim Rose (born Eugene Dennis Rose) was an American convert, monk, and writer of the Russian Orthodox Church Outside Russia (ROCOR) who, with Gleb Podmoshensky (later Fr Herman), built one of the most widely-read bodies of English-language Orthodox literature of the twentieth century. He was born on August 13, 1934, in San Diego, California, into a Protestant family.",
+      "A gifted student, he graduated from Pomona College in 1956 and pursued the study of philosophy, Chinese language, and Eastern religions, taking an M.A. in Oriental Languages at UC Berkeley (1961) and studying Chinese under the scholar Gi-ming Shien. After a period of atheism and disillusionment with modern secular culture, he encountered Russian Orthodoxy in San Francisco and was received into the Church by chrismation in 1962, coming under the guidance of St John Maximovitch.",
+      "With Gleb Podmoshensky he founded the St Herman of Alaska Brotherhood (1963) and its publishing work — the magazine The Orthodox Word and St Herman Press (1965). In 1969 the brotherhood withdrew to the wilderness near Platina, California; Eugene was tonsured a monk with the name Seraphim (after St Seraphim of Sarov), and was ordained a priest in 1977. He reposed on September 2, 1982, and is buried at the St Herman of Alaska Monastery in Platina.",
+    ],
+    sections: [
+      {
+        heading: "From Spiritual Seeker to Orthodox Monk",
+        body: [
+          "Father Seraphim's path to Orthodoxy ran through the intellectual currents of mid-century America. As a young man he set aside the Protestantism of his upbringing and searched for truth in philosophy and the religions of the East — Buddhism and Taoism above all — studying Chinese thought seriously enough to translate from the Tao Te Ching. He was marked by a deep dissatisfaction with the secularism and relativism of modern culture, which he later analyzed at length in his writing.",
+          "That search led him, by way of the writings of René Guénon and finally a living encounter with the Russian émigré community in San Francisco, to the Orthodox Church. Decisive in this was <strong>St John Maximovitch</strong>, the ROCOR Archbishop of San Francisco, whom Father Seraphim came to revere as his spiritual father and who blessed the work he and Gleb Podmoshensky would undertake. He was received into the Church in 1962.",
+        ],
+      },
+      {
+        heading: "The St Herman of Alaska Brotherhood",
+        body: [
+          "The St Herman of Alaska Brotherhood was founded in 1963 by Eugene Rose and Gleb Podmoshensky, with the blessing of St John Maximovitch, as a community of Orthodox booksellers and publishers. Named for the first canonized saint of North America, it took as its mission the evangelization of the English-speaking world through the printed word: making the lives of the saints, the writings of the Fathers, and the Orthodox spiritual tradition available in English, including through translation of major Orthodox works.",
+          "From a San Francisco bookstore (opened 1964) the brotherhood grew into the monastic community at Platina. Its publishing work continued after Father Seraphim's repose in 1982, and the brotherhood remains active in printing, translation, and missionary outreach — the reason it became a significant institution in the development of English-speaking Orthodoxy.",
+        ],
+      },
+      {
+        heading: "The Orthodox Word and St Herman Press",
+        body: [
+          "The Orthodox Word, a bimonthly magazine, was begun in January 1965 by the brotherhood, alongside St Herman Press. Its purpose was to present Orthodox Christianity — the lives of saints, patristic texts in translation, and accounts of Orthodox history and spirituality — to an English-speaking readership that had little such material available at the time. The magazine became one of the brotherhood's most enduring works and continues in publication today.",
+        ],
+      },
+      {
+        heading: "St Herman of Alaska Monastery, Platina",
+        body: [
+          "In 1969 the brotherhood left the city for the wilderness near Platina, in the mountains of northern California; the first monks were tonsured in 1970, marking the beginning of the St Herman of Alaska Monastery. (Some reference works date the monastery's founding to 1968; the monastery's own account gives the move in 1969 and the first tonsures in 1970.) The remote setting was deliberate — a place of prayer and ascetic labour apart from modern distraction.",
+          "Father Seraphim is buried at the monastery, on the spot of his last public talk, and his grave is a place of pilgrimage. The monastery continues the brotherhood's life of prayer together with its publishing and missionary outreach.",
+        ],
+      },
+      {
+        heading: "Major Themes in His Writings",
+        body: [
+          "Father Seraphim's writings return to a consistent set of concerns, which may be set out historically rather than polemically: <strong>modern secularism</strong>, <strong>nihilism</strong>, <strong>spiritual warfare</strong>, <strong>Orthodox spirituality</strong>, <strong>the afterlife</strong>, <strong>the modern religious landscape</strong>, and <strong>patristic Christianity</strong>.",
+          "Across these themes runs a single argument: that the spiritual crisis of the modern West — which he traced from nihilism through secularism to a coming “religion of the future” — is answered not by novelty but by the patristic Christianity preserved in the Orthodox Church. His book on the soul after death and his commentary on Genesis applied the same patristic lens to the questions of the afterlife and of creation.",
+        ],
+      },
+      {
+        heading: "Why Americans Continue to Read Father Seraphim",
+        body: [
+          "Several features of Father Seraphim's life help explain his enduring readership among English-speaking Christians. He was American-born and formed by modern Western culture; he confronted directly the questions of secularism, relativism, and meaning that occupy that culture; and his own search ran through philosophy and the religions of the East before arriving at Orthodoxy. Because he wrote in English and from within that experience, many later converts have found in his biography a path that resembles their own.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The line of Russian Orthodox tradition he received and handed on.",
+        nodes: [
+          { label: "Optina Elders", sub: "19th-century Russian eldership" },
+          { label: "Russian Orthodox Tradition" },
+          {
+            label: "St John Maximovitch",
+            sub: "Archbishop of San Francisco (†1966)",
+            href: "saint/OS-0050",
+          },
+          {
+            label: "Father Seraphim Rose",
+            sub: "Monk and writer of Platina",
+            current: true,
+          },
+          { label: "American Orthodox Converts" },
+        ],
+      },
+      {
+        kind: "note",
+        heading: "A Note on Attribution",
+        body: [
+          "Two titles often attributed to Father Seraphim are not his own works. <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with his chapter on UFOs within <em>Orthodoxy and the Religion of the Future</em>; neither is listed among his works.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1934",
+        title: "Born in California",
+        body: "Eugene Dennis Rose is born on August 13, 1934, in San Diego, California, into a Protestant family.",
+        source: "https://orthodoxwiki.org/Seraphim_(Rose)",
+      },
+      {
+        when: "1950s",
+        title: "Philosophy and Chinese studies",
+        body: "He graduates from Pomona College (1956) and pursues Asian languages and philosophy — studying Chinese under Gi-ming Shien and at the American Academy of Asian Studies — taking an M.A. in Oriental Languages at UC Berkeley (1961).",
+        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+      {
+        when: "1961–62",
+        title: "Meets Gleb Podmoshensky; received into the Church",
+        body: "Drawn to Russian Orthodoxy in San Francisco, he meets Gleb Podmoshensky (the future Fr Herman) and is received into the Russian Church Abroad (ROCOR) by chrismation in 1962.",
+        source: "https://seraphimofplatina.com/biography_en",
+      },
+      {
+        when: "1963",
+        title: "St Herman of Alaska Brotherhood founded",
+        body: "With the blessing of his spiritual father, St John Maximovitch, Eugene and Gleb found the St Herman of Alaska Brotherhood as a community of Orthodox booksellers and publishers.",
+        source: "https://sainthermanmonastery.org/about-us/",
+      },
+      {
+        when: "1964–65",
+        title: "Bookstore and publishing begin",
+        body: "They open an Orthodox bookstore beside the Holy Virgin Cathedral in San Francisco (March 1964) and, in 1965, launch the magazine The Orthodox Word and St Herman Press.",
+        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+      {
+        when: "1969–70",
+        title: "Platina monastic community established",
+        body: "The brotherhood moves to the wilderness near Platina, in northern California (1969); the first monks are tonsured in 1970, beginning the St Herman of Alaska Monastery. Eugene is tonsured a monk and given the name Seraphim, after St Seraphim of Sarov.",
+        source: "https://sainthermanmonastery.org/about-us/",
+      },
+      {
+        when: "1977",
+        title: "Ordained priest",
+        body: "Fr Seraphim is ordained a hieromonk by Bishop Nektary of Seattle, a spiritual son of St Nektary of Optina.",
+        source: "https://seraphimofplatina.com/biography_en",
+      },
+      {
+        when: "1982",
+        title: "Repose in the Lord",
+        body: "After a sudden illness, Fr Seraphim reposes on September 2, 1982, aged 48, and is buried at the monastery in Platina.",
+        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+    ],
+    secondaryTimeline: {
+      heading: "Orthodoxy in America: Father Seraphim's Place in the Story",
+      entries: [
+        {
+          when: "1794",
+          title: "The Valaam mission arrives in Alaska",
+          body: "Monks from Valaam arrive at Kodiak — the beginning of organized Orthodox mission in North America.",
+          figures: [
+            { name: "St Herman of Alaska", href: "saint/OS-0044" },
+            { name: "St Innocent of Alaska", href: "saint/OS-0054" },
+          ],
+          source:
+            "https://www.oca.org/orthodoxy/the-orthodox-faith/church-history/eighteenth-century/mission-to-alaska",
+        },
+        {
+          when: "1898–1907",
+          title: "St Tikhon and St Raphael build up the American Church",
+          body: "The future Patriarch St Tikhon organizes the North American diocese, and St Raphael of Brooklyn becomes the first Orthodox bishop consecrated on American soil (1904).",
+          figures: [
+            { name: "St Tikhon of Moscow", href: "saint/OS-0053" },
+            { name: "St Raphael of Brooklyn", href: "saint/OS-0055" },
+          ],
+          source: "https://orthodoxwiki.org/Raphael_of_Brooklyn",
+        },
+        {
+          when: "1962",
+          title: "Eugene Rose enters the Orthodox Church",
+          body: "An American-born seeker, having passed through philosophy and Eastern religion, is received into ROCOR in San Francisco under St John Maximovitch.",
+          figures: [{ name: "St John Maximovitch", href: "saint/OS-0050" }],
+          source: "https://orthodoxwiki.org/Seraphim_(Rose)",
+        },
+        {
+          when: "1963–65",
+          title: "The St Herman Brotherhood and The Orthodox Word",
+          body: "Rose and Podmoshensky found the St Herman of Alaska Brotherhood (1963) and begin English-language Orthodox publishing — The Orthodox Word and St Herman Press (1965).",
+          source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+        },
+        {
+          when: "1982",
+          title: "Repose of Fr Seraphim",
+          body: "Fr Seraphim reposes at the monastery he helped found; his books and The Orthodox Word continue in print.",
+          source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+        },
+      ],
+    },
+    worksBy: [
+      {
+        title: "Nihilism: The Root of the Revolution of the Modern Age",
+        detail:
+          "An analysis of nihilism as the spiritual root of the modern revolutionary age; written c. 1962 as a chapter of an unfinished larger work and later issued on its own.",
+        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+      {
+        title: "Orthodoxy and the Religion of the Future (1975)",
+        detail:
+          "A critique of Eastern religions, the New Age and charismatic movements, and other phenomena as a coalescing modern “religion of the future”; includes his chapter on UFOs.",
+        source:
+          "https://en.wikipedia.org/wiki/Orthodoxy_and_the_Religion_of_the_Future",
+      },
+      {
+        title: "The Soul After Death (1980)",
+        detail:
+          "The Orthodox patristic teaching on the soul's experience after death, set against contemporary “after-death” and occult accounts.",
+        source: "https://archive.org/details/soulafterdeathco0000rose",
+      },
+      {
+        title: "God's Revelation to the Human Heart",
+        detail:
+          "A short talk, given at UC Santa Cruz in 1981, on the conversion of the heart, drawing on Scripture, the Fathers, and the lives of the saints.",
+        source:
+          "https://www.sainthermanmonastery.com/God-s-Revelation-to-the-Human-Heart-p/grhh.htm",
+      },
+      {
+        title: "Genesis, Creation, and Early Man (2000)",
+        detail:
+          "A posthumous compendium of his patristic commentary on Genesis 1–11, drawn largely from his Orthodox Survival Course.",
+        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Father Seraphim Rose: His Life and Works",
+        detail:
+          "Hieromonk Damascene (Christensen)'s definitive ~1,160-page biography (St Herman of Alaska Brotherhood, 2003), a greatly expanded successor to his earlier Not of This World (1993).",
+        source:
+          "https://www.goodreads.com/book/show/314159.Father_Seraphim_Rose",
+      },
+    ],
+    quotes: [
+      {
+        theme: "Prayer",
+        text: "The heart of Orthodoxy is prayer; and I may truthfully say that before I found Orthodoxy I never had the slightest idea of what prayer was or what power it had.",
+        work: "Letter to Alison Engler, July 15, 1963",
+      },
+      {
+        theme: "Truth",
+        text: "Orthodoxy is life. If we don't live Orthodoxy, we simply are not Orthodox, no matter what formal beliefs we might hold.",
+        work: "The Orthodox World-View (1982)",
+      },
+      {
+        theme: "Spiritual struggle",
+        text: "The true Christian today cannot be at home in the world; he cannot help but feel himself, and be regarded by others, as a little “crazy.”",
+        work: "The Orthodox World-View (1982)",
+      },
+      {
+        theme: "Love of Christ",
+        text: "God's revelation is given to something called a loving heart.",
+        work: "God's Revelation to the Human Heart (1981 lecture)",
+      },
+    ],
+    gallery: [
+      {
+        subject: "Father Seraphim Rose portrait",
+        caption: "Hieromonk Seraphim (Rose) of Platina (1934–1982).",
+      },
+      {
+        subject: "St John Maximovitch",
+        caption:
+          "St John of Shanghai & San Francisco, Fr Seraphim's spiritual father.",
+      },
+      {
+        subject: "St Herman of Alaska Monastery, Platina",
+        caption:
+          "The monastery in the northern California wilderness, founded 1969–70.",
+      },
+      {
+        subject: "Father Seraphim's grave",
+        caption: "His grave at the Platina monastery, a place of pilgrimage.",
+      },
+    ],
+    related: [
+      {
+        name: "St John Maximovitch (of Shanghai & San Francisco)",
+        note: "His spiritual father and mentor in San Francisco, who blessed the founding of the St Herman Brotherhood.",
+        href: "saint/OS-0050",
+      },
+      {
+        name: "St Herman of Alaska",
+        note: "The 18th-century Alaska missionary for whom the brotherhood and monastery are named.",
+        href: "saint/OS-0044",
+      },
+      {
+        name: "Father Herman Podmoshensky",
+        note: "Co-founder, with Eugene Rose, of the St Herman Brotherhood, The Orthodox Word, and the Platina monastery.",
+      },
+      {
+        name: "Elder Ephraim of Arizona",
+        note: "A contemporary who, in the same era, planted Athonite monasticism across North America.",
+        href: "witness/ephraim-of-arizona",
+      },
+    ],
+    significance: [
+      "Father Seraphim's significance lies chiefly in the field of English-language Orthodox publishing. Through The Orthodox Word, St Herman Press, and his own books, he helped make the Orthodox spiritual and patristic tradition available to readers who had no access to it in their own language, at a time when little existed. His apologetic works addressed converts and inquirers shaped by modern Western thought, and his books have remained continuously in print and widely read in the decades since his repose.",
+      "His influence on Orthodox monasticism in America came through the Platina brotherhood and the communities connected to it. Assessments of his thought vary, and some of his positions have been debated within Orthodox circles; what is not disputed is the scale of his readership and his place in the twentieth-century history of Orthodoxy in North America.",
+    ],
     sources: [
       {
-        label: "OrthodoxWiki: Seraphim (Rose)",
+        label: "OrthodoxWiki — Seraphim (Rose)",
         url: "https://orthodoxwiki.org/Seraphim_(Rose)",
       },
       {
-        label: "Wikipedia: Seraphim Rose",
+        label: "Wikipedia — Seraphim Rose",
         url: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+      },
+      {
+        label: "St Herman of Alaska Monastery — About",
+        url: "https://sainthermanmonastery.org/about-us/",
+      },
+      {
+        label: "Seraphim of Platina — Biography",
+        url: "https://seraphimofplatina.com/biography_en",
+      },
+      {
+        label: "The Orthodox Word, Issue #1 (Jan–Feb 1965), Internet Archive",
+        url: "https://archive.org/details/001V01N011965JanFeb",
       },
     ],
   },
