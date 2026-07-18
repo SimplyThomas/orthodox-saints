@@ -751,12 +751,30 @@ test("iCal feeds are served and reckon Old vs New correctly", async ({
   expect(nativityDtstart(oldBody)?.endsWith("0107")).toBe(true);
 });
 
-test("the subscribe page lists both feeds", async ({ page }) => {
-  const res = await page.goto("./subscribe/");
-  expect(res?.status()).toBe(200);
-  await expect(page.locator(".feed")).toHaveCount(2);
-  await expect(page.locator('input[value$="calendar/new.ics"]')).toHaveCount(1);
-  await expect(page.locator('input[value$="calendar/old.ics"]')).toHaveCount(1);
+test("the calendar page's Subscribe control tracks the New/Old toggle", async ({
+  page,
+}) => {
+  await page.goto("./calendar/");
+  // The interactive app (with the subscribe control) is revealed by the island.
+  const subBtn = page.locator("#cal-sub-btn");
+  await expect(subBtn).toBeVisible();
+  await subBtn.click();
+
+  // Defaults to the New Calendar feed.
+  const input = page.locator("#cal-sub-input");
+  await expect(input).toHaveValue(/calendar\/new\.ics$/);
+  await expect(page.locator("#cal-sub-apple")).toHaveAttribute(
+    "href",
+    /^webcal:.*calendar\/new\.ics$/,
+  );
+
+  // Switching to Old Calendar swaps the subscription to the Old feed.
+  await page.locator("#cal-style-old").click();
+  await expect(input).toHaveValue(/calendar\/old\.ics$/);
+  await expect(page.locator("#cal-sub-apple")).toHaveAttribute(
+    "href",
+    /^webcal:.*calendar\/old\.ics$/,
+  );
 });
 
 test("fasts route opens the same page on the Fasts tab", async ({ page }) => {
