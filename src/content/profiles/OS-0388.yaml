@@ -57,6 +57,7 @@ reading:
         author: Orthodox Church in America
       - title: Byzantine Synaxaria and Menologia
 status: reviewed
+humanReviewed: true
 members:
   - name: Zosimus
     role: Hermit

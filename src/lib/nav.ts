@@ -38,7 +38,6 @@ export const NAV: NavItem[] = [
       { key: "search", label: "Browse & Search", href: withBase("search") },
       { key: "quiz", label: "Patron Saint Quiz", href: withBase("quiz") },
       { key: "america", label: "Saints in America", href: withBase("america") },
-      { key: "news", label: "Saints in the News", href: withBase("news") },
     ],
   },
   {

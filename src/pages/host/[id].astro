@@ -510,7 +510,7 @@ const refBlocks = [
                     const f = feastById.get(id);
                     return (
                       <li>
-                        <a href={withBase("feasts")}>{f ? f.name : id}</a>
+                        <a href={withBase(`feast/${id}`)}>{f ? f.name : id}</a>
                       </li>
                     );
                   })}

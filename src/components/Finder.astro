@@ -1,7 +1,7 @@
 ---
 import FacetSidebar from "./FacetSidebar.astro";
 import { FINDER_SAINTS } from "../lib/data";
-import { reviewedIds } from "../lib/saint-profiles";
+import { humanReviewedIds } from "../lib/saint-profiles";
 import { sortSaints, PER_PAGE } from "../lib/filter";
 import { finderRowHTML } from "../lib/finder-row";
 
@@ -9,7 +9,7 @@ import { finderRowHTML } from "../lib/finder-row";
    the reader sees saints at first paint, crawlers index a real list, and the
    page shows something meaningful without JS. The island re-renders the list
    once the fetched dataset arrives (see lib/finder-data.client). */
-const reviewed = await reviewedIds();
+const reviewed = await humanReviewedIds();
 const total = FINDER_SAINTS.length;
 const firstPage = sortSaints(FINDER_SAINTS, "feast")
   .slice(0, PER_PAGE)

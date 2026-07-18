@@ -12,7 +12,7 @@ import FastPill from "../components/FastPill.astro";
 import { FEASTS, PASCHA, KIND_LABEL, fastTone, feastKind } from "../lib/feasts";
 import type { Feast } from "../lib/feasts";
 import { tokenLabel } from "../lib/feast-dates";
-import { MONTHS } from "../lib/format";
+import { MONTHS, withBase } from "../lib/format";
 
 /* Movable cycle = anything not on a fixed date (paschal + the hybrid Apostles'
    Fast). FEASTS is already in liturgical order, which for paschal tokens sorts
@@ -126,7 +126,11 @@ const description =
         <div class="ff-cal-list" id="mc-list">
           {
             moveable.map((f) => (
-              <div class="ff-cal-row" data-id={f.id}>
+              <a
+                class="ff-cal-row"
+                data-id={f.id}
+                href={withBase(`feast/${f.id}`)}
+              >
                 <span class="ff-cal-date">
                   {tokenLabel(f.begins)}
                   <small>{sub(f)}</small>
@@ -142,7 +146,7 @@ const description =
                   )}
                 </span>
                 <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
-              </div>
+              </a>
             ))
           }
         </div>

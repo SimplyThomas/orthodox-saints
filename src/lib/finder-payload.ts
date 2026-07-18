@@ -7,7 +7,7 @@
 
 import { createHash } from "node:crypto";
 import { FINDER_SAINTS } from "./data";
-import { reviewedIds } from "./saint-profiles";
+import { humanReviewedIds } from "./saint-profiles";
 import { prominence } from "./prominence";
 
 export interface FinderPayload {
@@ -20,7 +20,7 @@ export interface FinderPayload {
 let cached: Promise<FinderPayload> | undefined;
 
 async function build(): Promise<FinderPayload> {
-  const reviewed = await reviewedIds();
+  const reviewed = await humanReviewedIds();
   const data = FINDER_SAINTS.map((s) => {
     const withProm = { ...s, prom: prominence(s) };
     return reviewed.has(s.id) ? { ...withProm, humanReviewed: true } : withProm;

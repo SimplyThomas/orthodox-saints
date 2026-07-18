@@ -15,14 +15,15 @@ export async function loadProfileMap(): Promise<Record<string, SaintProfile>> {
   return selectProfiles(all, SHOW_DRAFTS);
 }
 
-/* The set of saint IDs whose profile has been fully reviewed (status ===
-   "reviewed"). Independent of the draft-visibility gate — a reviewed entry
-   earns the dove in every context, in dev and in production alike. Pages that
-   inline the finder index (search, quiz) use this to flag reviewed records so
-   the islands can render the seal beside the name. */
-export async function reviewedIds(): Promise<Set<string>> {
+/* The set of saint IDs a person has personally reviewed against the sources
+   (`humanReviewed: true`). Independent of the `status` visibility gate — most
+   profiles now ship (status: reviewed) so they are readable, but only the
+   human-vetted ones earn the dove seal, in dev and production alike. Pages that
+   inline the finder index (search, quiz) use this to flag those records so the
+   islands can render the seal beside the name. */
+export async function humanReviewedIds(): Promise<Set<string>> {
   const all = await getCollection("profiles");
   return new Set(
-    all.filter((e) => e.data.status === "reviewed").map((e) => e.data.id),
+    all.filter((e) => e.data.humanReviewed === true).map((e) => e.data.id),
   );
 }
