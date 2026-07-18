@@ -117,6 +117,7 @@ reading:
       - title: Akathist
       - title: Canon
 status: reviewed
+humanReviewed: true
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_of_Kronstadt

@@ -45,7 +45,7 @@ works:
     desc: A rendering into Georgian of works of the Areopagitic corpus.
   - title: Translation of the Ascetic Rules of Basil the Great
     desc: A Georgian rendering of Basil's ascetic legislation.
-status: draft
+status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Jan 18
   - https://en.wikipedia.org/wiki/Ephrem_Mtsire

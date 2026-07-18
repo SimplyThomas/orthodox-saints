@@ -1,0 +1,590 @@
+---
+import type { GetStaticPaths } from "astro";
+import { FEASTS, KIND_LABEL, feastKind, fastTone } from "../../lib/feasts";
+import { loadFeastProfileMap } from "../../lib/feast-profiles";
+import { tokenLabel } from "../../lib/feast-dates";
+import { byId as saintById } from "../../lib/data";
+import { withBase } from "../../lib/format";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DomeMark from "../../components/icons/DomeMark.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
+import FastPill from "../../components/FastPill.astro";
+
+const feastById = new Map(FEASTS.map((f) => [f.id, f]));
+
+export const getStaticPaths = (() => {
+  return FEASTS.map((f) => ({ params: { id: f.id }, props: { feast: f } }));
+}) satisfies GetStaticPaths;
+
+const { feast: f } = Astro.props;
+const profiles = await loadFeastProfileMap();
+const p = profiles[f.id];
+
+const desc = f.brief || `${f.name} — a feast of the Orthodox Church year.`;
+const kind = feastKind(f);
+
+// Header badges: the design's kind label, the dedication (Lord / Theotokos /
+// Cross / …), and the fasting discipline. Kept in this order.
+const badges = [KIND_LABEL[kind], f.dedication].filter(Boolean) as string[];
+
+// The dateline shown under the title: the primary date, then the span end (for
+// seasons) or the cycle. Uses the same tokenLabel vocabulary as the rest of the
+// site so movable feasts read consistently (Pascha, P+49, …).
+function primaryDate(): string {
+  const start = tokenLabel(f.begins);
+  if (f.ends) return `${start} → ${tokenLabel(f.ends)}`;
+  return start;
+}
+const cycleLabel =
+  f.begins.type === "paschal"
+    ? "Movable · Paschal cycle"
+    : f.begins.type === "anchored"
+      ? "Anchored to a weekday"
+      : "Fixed date";
+
+// The dates block in the rail — forefeast, feast/span, apodosis — only the
+// tokens that are present.
+const dateRows = [
+  f.forefeast ? { label: "Forefeast", value: tokenLabel(f.forefeast) } : null,
+  { label: f.ends ? "Begins" : "Feast", value: tokenLabel(f.begins) },
+  f.ends ? { label: "Ends", value: tokenLabel(f.ends) } : null,
+  f.apodosis ? { label: "Apodosis", value: tokenLabel(f.apodosis) } : null,
+].filter(Boolean) as { label: string; value: string }[];
+
+// Ordered collapsible prose blocks from the profile. History + Meaning are the
+// two first-class axes of the feasts database, so they lead.
+const proseBlocks: { heading: string; body: string[] }[] = [];
+if (p) {
+  if (p.history?.length)
+    proseBlocks.push({ heading: "History", body: p.history });
+  if (p.meaning?.length)
+    proseBlocks.push({ heading: "Meaning", body: p.meaning });
+  if (p.iconography?.length)
+    proseBlocks.push({ heading: "Iconography", body: p.iconography });
+  if (p.hymnography?.length)
+    proseBlocks.push({ heading: "Hymnography", body: p.hymnography });
+  if (p.fastingPractice?.length)
+    proseBlocks.push({
+      heading: "Fasting in Practice",
+      body: p.fastingPractice,
+    });
+  if (p.customs?.length)
+    proseBlocks.push({ heading: "Customs & Traditions", body: p.customs });
+}
+
+const relatedSaints = f.relatedSaints ?? [];
+const relatedFeasts = f.relatedFeasts ?? [];
+---
+
+<BaseLayout title={f.name} description={desc} ogType="article">
+  <article class="feast2">
+    <section class="feast-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="feast-hero-inner">
+        <nav class="feast-crumb" aria-label="Breadcrumb">
+          <a class="feast-back" href={withBase("feasts")}
+            >← Feasts &amp; Fasts</a
+          >
+        </nav>
+        <EyebrowRule label="The Church Year" />
+        <h1 class="feast-title">{f.name}</h1>
+        {
+          f.aka?.length && (
+            <p class="feast-aka">Also known as: {f.aka.join(", ")}</p>
+          )
+        }
+        <p class="feast-dateline">
+          <span class={`dot dot--${kind}`} aria-hidden="true"></span>
+          <strong>{primaryDate()}</strong>
+          <span class="feast-cycle">· {cycleLabel}</span>
+        </p>
+        <div class="feast-badges">
+          {badges.map((b) => <span class="feast-badge">{b}</span>)}
+          {
+            f.fasting && (
+              <FastPill tone={fastTone(f.fasting)} label={f.fasting} />
+            )
+          }
+        </div>
+        {f.brief && <p class="feast-brief">{f.brief}</p>}
+      </div>
+    </section>
+
+    {
+      p && p.status !== "reviewed" && (
+        <div class={`draft-banner ${p.status}`}>
+          <strong>{p.status === "flagged" ? "Flagged draft" : "Draft"}</strong>{" "}
+          — this profile is unreviewed and not yet published. Shown here for
+          review.
+          {p.status === "flagged" && p.flagReasons?.length && (
+            <ul>
+              {p.flagReasons.map((fr) => (
+                <li>
+                  <strong>{fr.claim}</strong> — {fr.detail}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )
+    }
+
+    <div class="feast-wrap">
+      <div class="layout">
+        <main class="body">
+          {
+            !p && (
+              <p class="stub">
+                No rich profile yet — this feast carries its catalogue record
+                only.
+              </p>
+            )
+          }
+
+          {
+            p?.overview?.length && (
+              <section class="sec sec-static">
+                <h2>Overview</h2>
+                <div class="sec-body">
+                  {p.overview.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+
+          {
+            p?.timeline?.length && (
+              <details class="sec">
+                <summary>Timeline</summary>
+                <div class="sec-body">
+                  {p.timeline.map((t) => (
+                    <div class="phase">
+                      <h3>
+                        {t.when} — {t.title}
+                      </h3>
+                      <p>{t.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )
+          }
+
+          {
+            proseBlocks.map((blk) => (
+              <details class="sec">
+                <summary>{blk.heading}</summary>
+                <div class="sec-body">
+                  {blk.body.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </details>
+            ))
+          }
+
+          {
+            p?.scripture?.length && (
+              <details class="sec">
+                <summary>Scripture</summary>
+                <div class="sec-body">
+                  <ul class="refs">
+                    {p.scripture.map((s) => (
+                      <li>
+                        <strong>{s.ref}</strong>
+                        {s.note ? ` — ${s.note}` : ""}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            )
+          }
+
+          {
+            p?.sections?.map((s) => (
+              <details class="sec">
+                <summary>{s.heading}</summary>
+                <div class="sec-body">
+                  {s.body.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                </div>
+              </details>
+            ))
+          }
+
+          {
+            (f.fasting || p?.fastingPractice?.length) && (
+              <p class="fast-disclaimer">
+                Fasting is described here at the season-summary level and
+                differs by jurisdiction and person — please consult your parish
+                priest about how to keep the fasts.
+              </p>
+            )
+          }
+        </main>
+
+        <aside class="rail">
+          <div class="rail-block">
+            <h4>The Dates</h4>
+            <ul class="dates">
+              {
+                dateRows.map((d) => (
+                  <li>
+                    <span class="dl">{d.label}</span>
+                    <span class="dv">{d.value}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          {
+            f.fasting && (
+              <div class="rail-block">
+                <h4>Fasting</h4>
+                <p class="rail-note">{f.fasting}</p>
+                {f.fastingNotes && <p class="rail-note">{f.fastingNotes}</p>}
+              </div>
+            )
+          }
+
+          {
+            f.observance?.length && (
+              <div class="rail-block">
+                <h4>Tradition of Observance</h4>
+                <ul>
+                  {f.observance.map((o) => (
+                    <li>{o}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            relatedSaints.length > 0 && (
+              <div class="rail-block">
+                <h4>Related Saints</h4>
+                <ul>
+                  {relatedSaints.map((id) => {
+                    const s = saintById.get(id);
+                    return (
+                      <li>
+                        <a href={withBase(`saint/${id}`)}>{s ? s.name : id}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            relatedFeasts.length > 0 && (
+              <div class="rail-block">
+                <h4>Related Feasts</h4>
+                <ul>
+                  {relatedFeasts.map((id) => {
+                    const rf = feastById.get(id);
+                    return (
+                      <li>
+                        <a href={withBase(`feast/${id}`)}>
+                          {rf ? rf.name : id}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            p?.sources?.length && (
+              <div class="rail-block">
+                <h4>Sources</h4>
+                <ul class="sources">
+                  {p.sources.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Centered dome header — an event-feast has no single portrait, so it uses
+     the section-landing treatment (dome arch + eyebrow + serif title + meta),
+     matching /nine-orders and the host hub pages. */
+  .feast-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(40px, 8vw, 76px) 20px clamp(24px, 4vw, 40px);
+    overflow: hidden;
+  }
+  .feast-hero-inner {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+  .feast-crumb {
+    margin-bottom: 0.8rem;
+  }
+  .feast-back {
+    color: var(--gold-deep);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .feast-back:hover {
+    text-decoration: underline;
+  }
+  .feast-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 12px 0 0;
+  }
+  .feast-aka {
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .feast-dateline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.9rem 0 0;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--gold-deep);
+  }
+  .feast-dateline strong {
+    color: var(--byz-deep);
+  }
+  .feast-cycle {
+    font-family: var(--sans, inherit);
+    font-size: 0.85rem;
+    font-style: normal;
+    color: var(--ink-soft);
+  }
+  .feast-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    margin: 0.9rem 0 0;
+  }
+  .feast-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    color: var(--byz-deep);
+    border: 1px solid var(--line-gold);
+    background: var(--ivory-2);
+  }
+  .feast-brief {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size, 1.15rem);
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 48ch;
+    margin: 1rem auto 0;
+  }
+
+  /* Legend dot — reuse the feasts-index colour vocabulary. */
+  .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    display: inline-block;
+    flex: none;
+  }
+  .dot--great {
+    background: var(--gold-deep);
+  }
+  .dot--feast {
+    background: var(--byz);
+  }
+  .dot--fast {
+    background: var(--byz-green, #1f5e54);
+  }
+  .dot--observance {
+    background: var(--ink-soft);
+  }
+
+  .feast-wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1.5rem clamp(16px, 4vw, 40px) 4rem;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    .layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 2.2rem;
+    }
+    .rail {
+      order: -1;
+      background: var(--ivory-2);
+      border: 1px solid var(--line-gold);
+      border-radius: 8px;
+      padding: 1.4rem 1.3rem 1.6rem;
+    }
+  }
+
+  /* Collapsible sections — identical treatment to the host/saint pages. */
+  .sec {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.22);
+  }
+  .sec > summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .sec > summary::-webkit-details-marker {
+    display: none;
+  }
+  .sec > summary::before {
+    content: "\25B8";
+    color: var(--gold-deep);
+    font-size: 0.8em;
+    transition: transform 0.15s ease;
+    flex: none;
+  }
+  .sec[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .sec > summary:hover {
+    color: var(--byz);
+  }
+  .sec-static > h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    margin: 0;
+  }
+  .sec-body {
+    padding: 0 0 1.1rem 1.3rem;
+  }
+  .sec-body p {
+    line-height: 1.65;
+    margin: 0 0 0.7rem;
+  }
+  .sec-body h3 {
+    font-size: 1.05rem;
+    margin: 1rem 0 0.3rem;
+    color: var(--byz-deep);
+  }
+  .phase {
+    margin-bottom: 0.8rem;
+  }
+  .refs {
+    padding-left: 1.1rem;
+  }
+  .refs li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+  .stub {
+    font-style: italic;
+    opacity: 0.7;
+  }
+  .fast-disclaimer {
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.5;
+    border-left: 2px solid var(--line-gold);
+    padding-left: 0.9rem;
+  }
+
+  /* Left rail. */
+  .rail-block {
+    margin-bottom: 1.3rem;
+    font-size: 0.9rem;
+  }
+  .rail-block h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--byz-green);
+    margin: 0 0 0.4rem;
+  }
+  .rail-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rail-block li {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+  .rail-note {
+    margin: 0 0 0.4rem;
+    line-height: 1.45;
+  }
+  .dates li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+  .dates .dl {
+    color: var(--ink-soft);
+  }
+  .dates .dv {
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .sources li {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    word-break: break-word;
+  }
+
+  .draft-banner {
+    max-width: 62rem;
+    margin: 1rem auto 0;
+    border: 1px solid var(--gold-deep);
+    background: rgba(212, 175, 55, 0.08);
+    padding: 0.7rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .draft-banner.flagged {
+    border-color: #c0392b;
+    background: rgba(192, 57, 43, 0.08);
+  }
+  .draft-banner ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+  }
+</style>

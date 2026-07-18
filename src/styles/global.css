@@ -7273,6 +7273,12 @@ a.sv-rail-chip:hover {
   font-size: 20px;
   color: var(--byz-deep);
   line-height: 1.2;
+  text-decoration: none;
+}
+a.ff-cal-name:hover {
+  color: var(--byz);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .ff-cal-note {
   font-size: 13.5px;
@@ -7362,6 +7368,8 @@ a.sv-rail-chip:hover {
     box-shadow 0.18s,
     border-color 0.18s;
   position: relative;
+  text-decoration: none;
+  color: inherit;
 }
 .ff-fcard:hover {
   transform: translateY(-3px);

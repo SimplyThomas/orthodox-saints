@@ -332,7 +332,7 @@ const description =
         <div class="ff-grid">
           {
             greatFeasts.map((f) => (
-              <div class="ff-fcard">
+              <a class="ff-fcard" href={withBase(`feast/${f.id}`)}>
                 <div class="top">
                   {f.dedication && (
                     <span class={`ff-ded ${dedicationClass(f.dedication)}`}>
@@ -343,7 +343,7 @@ const description =
                 <h3>{f.name}</h3>
                 <span class="date">{tokenDateline(f.begins)}</span>
                 <p class="brief">{f.brief}</p>
-              </div>
+              </a>
             ))
           }
         </div>

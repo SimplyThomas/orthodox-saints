@@ -13,6 +13,7 @@ sections:
 patronage:
   - Martyrs of Cordoba
 status: reviewed
+humanReviewed: true
 sources:
   - Roman Martyrology
   - https://www.catholic.org/saints/saint.php?saint_id=2445
