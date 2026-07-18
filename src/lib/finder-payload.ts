@@ -7,7 +7,7 @@
 
 import { createHash } from "node:crypto";
 import { FINDER_SAINTS } from "./data";
-import { reviewedIds } from "./saint-profiles";
+import { humanReviewedIds } from "./saint-profiles";
 
 export interface FinderPayload {
   /** The serialized finder dataset (FinderSaint[] + humanReviewed flags). */
@@ -19,7 +19,7 @@ export interface FinderPayload {
 let cached: Promise<FinderPayload> | undefined;
 
 async function build(): Promise<FinderPayload> {
-  const reviewed = await reviewedIds();
+  const reviewed = await humanReviewedIds();
   const data = FINDER_SAINTS.map((s) =>
     reviewed.has(s.id) ? { ...s, humanReviewed: true } : s,
   );

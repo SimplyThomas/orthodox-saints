@@ -56,6 +56,7 @@ reading:
         author: St. Gregory the Great
         type: Primary source
 status: reviewed
+humanReviewed: true
 sources:
   - Roman Martyrology
   - https://en.wikipedia.org/wiki/Nonnosus

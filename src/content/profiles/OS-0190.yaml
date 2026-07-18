@@ -12,6 +12,7 @@ companions:
   - name: Bishop Barsimaeus of Edessa
     note: The bishop of Edessa who converted Thathuil to Christianity
 status: reviewed
+humanReviewed: true
 sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/Barsimaeus

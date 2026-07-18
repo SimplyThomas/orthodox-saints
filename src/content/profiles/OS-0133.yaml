@@ -22,6 +22,7 @@ companions:
 patronage:
   - Those entering monastic life
 status: reviewed
+humanReviewed: true
 sources:
   - Latin Saints of the Orthodox Patriarchate of Rome
   - https://en.wikipedia.org/wiki/Hieu_(abbess)

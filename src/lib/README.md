@@ -40,8 +40,10 @@ Rich prose lives in YAML content collections (`src/content/profiles/`,
 `src/content/feasts/`), validated by the Zod schemas in `src/content.config.ts`.
 `profile-select.ts` implements the gate — production ships only `status: reviewed`;
 dev and Cloudflare previews (`PUBLIC_SHOW_DRAFTS=true`) show all, behind banners —
-and `saint-profiles.ts` applies it. The dove badge (`humanReviewed`) on finder/quiz
-cards is derived from the same reviewed set in `finder-payload.ts`.
+and `saint-profiles.ts` applies it. Two independent axes: `status` controls
+visibility, while `humanReviewed: true` marks entries a person has personally
+vetted. The dove badge on finder/quiz cards derives from the `humanReviewed` set
+(`humanReviewedIds()` in `saint-profiles.ts`, applied in `finder-payload.ts`).
 
 ## Where to look, by task
 

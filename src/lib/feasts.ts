@@ -29,6 +29,20 @@ export interface Feast {
   forefeast?: DateToken;
   apodosis?: DateToken;
   cycle: "fixed" | "paschal" | "hybrid";
+  // Self-hosted festal imagery — joined later from data/feast_images.csv (hero)
+  // and data/feast_depictions.csv (carousel), same §9 licence gate as saints.
+  // Absent until the images are collected; the feast page degrades gracefully.
+  image?: string;
+  imageCredit?: string;
+  depictions?: FeastDepiction[];
+}
+
+export interface FeastDepiction {
+  image: string;
+  title: string;
+  credit?: string;
+  source?: string;
+  license?: string;
 }
 
 const raw = JSON.parse(readFileSync("public/feasts.json", "utf8")) as {
