@@ -8,6 +8,7 @@
 import { createHash } from "node:crypto";
 import { FINDER_SAINTS } from "./data";
 import { reviewedIds } from "./saint-profiles";
+import { prominence } from "./prominence";
 
 export interface FinderPayload {
   /** The serialized finder dataset (FinderSaint[] + humanReviewed flags). */
@@ -20,9 +21,10 @@ let cached: Promise<FinderPayload> | undefined;
 
 async function build(): Promise<FinderPayload> {
   const reviewed = await reviewedIds();
-  const data = FINDER_SAINTS.map((s) =>
-    reviewed.has(s.id) ? { ...s, humanReviewed: true } : s,
-  );
+  const data = FINDER_SAINTS.map((s) => {
+    const withProm = { ...s, prom: prominence(s) };
+    return reviewed.has(s.id) ? { ...withProm, humanReviewed: true } : withProm;
+  });
   const json = JSON.stringify(data);
   const hash = createHash("sha256").update(json).digest("hex").slice(0, 10);
   return { json, hash };
