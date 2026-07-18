@@ -334,6 +334,77 @@ const wordsLabel = `In ${possessive} own words`;
     </div>
   </section>
 
+  {/* ══════════════ QUICK ACTIONS ══════════════ */}
+  <div class="sv-actions">
+    <div class="sv-actions-inner">
+      {
+        m.links.map((l) => (
+          <a
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--ghost sv-explore-link"
+          >
+            {l.label}
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 14 14"
+              fill="none"
+              stroke="var(--celest)"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 10 10 4M5 4h5v5" />
+            </svg>
+          </a>
+        ))
+      }
+      <div class="sv-actions-spacer"></div>
+      <a
+        href={withBase("corrections?subject=" + encodeURIComponent(m.name))}
+        class="btn btn--ghost sv-correct-link"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--celest)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 20h9"></path>
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+        </svg>
+        <span class="sv-correct-label">Suggest a correction</span>
+      </a>
+      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--byz-ink)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
+        </svg>
+        <span class="sv-share-label">Share / cite</span>
+      </button>
+    </div>
+  </div>
+
   {/* ══════════════ REVIEW STATE BAND ══════════════ */}
   {
     (isFlagged || isDraft) && (
@@ -511,57 +582,6 @@ const wordsLabel = `In ${possessive} own words`;
       </section>
     )
   }
-
-  {/* ══════════════ QUICK ACTIONS ══════════════ */}
-  <div class="sv-actions">
-    <div class="sv-actions-inner">
-      {
-        m.links.map((l) => (
-          <a
-            href={l.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--ghost sv-explore-link"
-          >
-            {l.label}
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 14 14"
-              fill="none"
-              stroke="var(--celest)"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M4 10 10 4M5 4h5v5" />
-            </svg>
-          </a>
-        ))
-      }
-      <div class="sv-actions-spacer"></div>
-      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--byz-ink)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
-        </svg>
-        <span class="sv-share-label">Share / cite</span>
-      </button>
-    </div>
-  </div>
 
   {/* ══════════════ BODY ══════════════ */}
   <div class="sv-body">

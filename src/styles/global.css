@@ -4231,6 +4231,13 @@ a.sv-rail-chip:hover {
   font-size: 14px;
   padding: 10px 18px;
 }
+.sv2 .sv-correct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 10px 16px;
+}
 
 /* ---- DEPICTIONS & ICONS CAROUSEL ---- */
 .sv2 .sv-deps {
@@ -5014,7 +5021,8 @@ a.sv-rail-chip:hover {
   .sv2 .sv-actions-spacer {
     display: none;
   }
-  .sv2 .sv-share {
+  .sv2 .sv-share,
+  .sv2 .sv-correct-link {
     width: 100%;
     justify-content: center;
   }

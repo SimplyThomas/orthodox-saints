@@ -140,6 +140,26 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
         ))
       }
       <div class="sv-actions-spacer"></div>
+      <a
+        href={withBase("corrections?subject=" + encodeURIComponent(w.name))}
+        class="btn btn--ghost sv-correct-link"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--celest)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 20h9"></path>
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+        </svg>
+        <span class="sv-correct-label">Suggest a correction</span>
+      </a>
       <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
         <svg
           width="16"
