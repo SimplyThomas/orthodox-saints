@@ -44,3 +44,45 @@ describe("saintDayEvents", () => {
     expect(evs[0].uid).toBe("saintday-12-19-old@orthodoxsaintfinder.com");
   });
 });
+// append to src/lib/calendar-feed.test.ts
+import { feastEvents } from "./calendar-feed";
+import type { PaschaTable } from "./feast-dates";
+import type { Feast } from "./feasts";
+
+const PASCHA: PaschaTable = { "2027": "2027-05-02" }; // Orthodox Pascha 2027
+
+// Minimal Feast-shaped fixtures (only the fields feastEvents reads).
+const NATIVITY = {
+  id: "FF-0013",
+  name: "Nativity of Christ",
+  brief: "",
+  begins: { type: "fixed", month: 12, day: 25 },
+} as unknown as Feast;
+const PASCHA_FEAST = {
+  id: "FF-0001",
+  name: "Pascha",
+  brief: "",
+  begins: { type: "paschal", offset: 0 },
+} as unknown as Feast;
+
+describe("feastEvents", () => {
+  it("fixed feast → one yearly-recurring event; Old shifts +13", () => {
+    const [nvNew] = feastEvents([NATIVITY], "new", PASCHA, [2027]);
+    expect(nvNew.recurYearly).toBe(true);
+    expect(nvNew.start.getMonth()).toBe(11); // Dec
+    expect(nvNew.start.getDate()).toBe(25);
+
+    const [nvOld] = feastEvents([NATIVITY], "old", PASCHA, [2027]);
+    expect(nvOld.start.getMonth()).toBe(0); // Jan
+    expect(nvOld.start.getDate()).toBe(7); // Old Nativity civil day
+  });
+  it("movable feast → one dated (non-recurring) event per year, same civil date both styles", () => {
+    const evNew = feastEvents([PASCHA_FEAST], "new", PASCHA, [2027]);
+    const evOld = feastEvents([PASCHA_FEAST], "old", PASCHA, [2027]);
+    expect(evNew).toHaveLength(1);
+    expect(evNew[0].recurYearly).toBe(false);
+    expect(evNew[0].start).toEqual(new Date(2027, 4, 2)); // May 2 2027
+    expect(evOld[0].start).toEqual(evNew[0].start); // Pascha shared
+    expect(evNew[0].uid).toBe("feast-FF-0001-2027-new@orthodoxsaintfinder.com");
+  });
+});

@@ -5,6 +5,8 @@
 import { MONTHS } from "./format";
 import { oldCalendarDay } from "./calendar-grid";
 import type { IcalEvent } from "./ical";
+import { resolveToken, type PaschaTable, type DateToken } from "./feast-dates";
+import type { Feast } from "./feasts";
 
 export type CalendarStyle = "new" | "old";
 
@@ -73,6 +75,55 @@ export function saintDayEvents(
       summary,
       description,
     });
+  }
+  return events;
+}
+
+/** Shift an anchored/fixed token's ANCHOR by +13 civil days for the Old feed. */
+function oldShiftToken(token: DateToken): DateToken {
+  if (token.type === "paschal") return token; // shared Pascha, no shift
+  const oc = oldCalendarDay(token.month, token.day);
+  return { ...token, month: oc.month, day: oc.day };
+}
+
+export function feastEvents(
+  feasts: Feast[],
+  style: CalendarStyle,
+  pascha: PaschaTable,
+  years: number[],
+): IcalEvent[] {
+  const events: IcalEvent[] = [];
+  for (const f of feasts) {
+    const token = style === "old" ? oldShiftToken(f.begins) : f.begins;
+    const summary = `☦ ${f.name}`;
+    const description = f.brief || undefined;
+    if (token.type === "fixed") {
+      // One recurring event; base year is the first in range.
+      const d = resolveToken(token, years[0], pascha);
+      if (!d) continue;
+      events.push({
+        uid: `feast-${f.id}-${style}@orthodoxsaintfinder.com`,
+        start: d,
+        allDay: true,
+        recurYearly: true,
+        summary,
+        description,
+      });
+    } else {
+      // Movable: one dated event per year in the Pascha window.
+      for (const y of years) {
+        const d = resolveToken(token, y, pascha);
+        if (!d) continue;
+        events.push({
+          uid: `feast-${f.id}-${y}-${style}@orthodoxsaintfinder.com`,
+          start: d,
+          allDay: true,
+          recurYearly: false,
+          summary,
+          description,
+        });
+      }
+    }
   }
   return events;
 }
