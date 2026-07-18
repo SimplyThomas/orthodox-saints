@@ -1371,10 +1371,14 @@ a.qz-comp {
 }
 
 /* ---- intro ---- */
+/* Top-anchored like every other dome hero: the dome crown sits --hero-pad-top
+   from the top (the .qz-screen default centres the question/result screens). */
 .qz-intro {
   background: var(--ivory);
   text-align: center;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--hero-pad-top);
 }
 .qz-intro-inner {
   position: relative;
@@ -1384,11 +1388,6 @@ a.qz-comp {
 .qz-title-block {
   position: relative;
   margin-bottom: 24px;
-}
-.qz-title-block .dome-bg {
-  top: -50px;
-  width: min(540px, 72vw);
-  opacity: 0.1;
 }
 .qz-title-inner {
   position: relative;

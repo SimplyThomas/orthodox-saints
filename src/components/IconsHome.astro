@@ -8,6 +8,8 @@
    "in our database" cards resolve to real OS-#### records via lib/icons-home. */
 import { withBase, esc } from "../lib/format";
 import { saintAvatar, domeMark } from "../lib/icons";
+import DomeMark from "./icons/DomeMark.astro";
+import EyebrowRule from "./EyebrowRule.astro";
 import {
   IH_RICH,
   IH_ENTRY,
@@ -332,33 +334,15 @@ const johnQuoteLede =
 ---
 
 <div class="cw ihp">
-  {/* ---------- hero ---------- */}
-  <section
-    style="position:relative;text-align:center;padding:70px 56px 48px;overflow:hidden;background:var(--ivory)"
-  >
-    <div
-      style="position:static;margin:0 auto 4px;width:min(260px,52vw);opacity:.14"
-      set:html={domeMark(500, "var(--byz)")}
-    />
-    <div style="position:relative">
-      <div class="eyebrow-rule" style="margin-bottom:18px">
-        <span class="ln"></span><span class="dm"></span>
-        <span class="lbl">The Orthodox Home</span>
-        <span class="dm"></span><span class="ln"></span>
-      </div>
-      <h1
-        style="font-size:78px;color:var(--byz-deep);line-height:0.98;margin-bottom:16px;font-weight:600"
-      >
-        Icons in the Home
-      </h1>
-      <p
-        style="font-family:var(--serif);font-style:italic;font-size:27px;color:var(--celest);margin:0 0 28px"
-      >
-        Building a House of Prayer
-      </p>
-      <p
-        style="font-size:19px;color:var(--ink);max-width:760px;margin:0 auto;line-height:1.7;text-align:center"
-      >
+  {/* ---------- hero (reuses the shared .sr-hero primitives) ---------- */}
+  <section class="sr-hero">
+    <div class="dome-bg" aria-hidden="true">
+      <DomeMark w={460} color="var(--byz)" />
+    </div>
+    <div class="sr-hero-inner">
+      <EyebrowRule label="The Orthodox Home" />
+      <h1 class="sr-title">Icons in the Home</h1>
+      <p class="sr-lede">
         Orthodox Christians have long filled their homes with reminders of
         Christ, His Mother, the saints, and the Kingdom of God. While there are
         no universal rules governing which icons belong in each room, many
