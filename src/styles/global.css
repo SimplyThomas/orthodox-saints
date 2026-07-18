@@ -564,6 +564,7 @@ a.qz-comp {
   border: 1px solid rgba(212, 175, 55, 0.22);
   border-radius: 12px;
   box-shadow: 0 18px 40px rgba(15, 34, 56, 0.45);
+  text-align: left;
   z-index: 60;
 }
 .hs-panel[hidden] {
@@ -628,6 +629,35 @@ a.qz-comp {
   border-radius: 0 0 8px 8px;
   color: var(--gold-soft);
   font-size: 13px;
+}
+
+/* Hero variant: the home-hero typeahead panel is white to sit with the hero's
+   own search bar (.search), so its text flips to the on-light palette. Scoped
+   to the id — the header pill's dropdown keeps the dark treatment. */
+#hero-hs-results {
+  background: #fff;
+  border-color: var(--line-gold);
+  box-shadow: var(--shadow-soft);
+}
+#hero-hs-results .hs-group,
+#hero-hs-results .hs-empty {
+  color: var(--ink-soft);
+}
+#hero-hs-results .hs-opt,
+#hero-hs-results .hs-name {
+  color: var(--ink);
+}
+#hero-hs-results .hs-opt:hover,
+#hero-hs-results .hs-opt.active {
+  background: rgba(212, 175, 55, 0.14);
+}
+#hero-hs-results .hs-meta,
+#hero-hs-results .hs-ic--page {
+  color: var(--celest);
+}
+#hero-hs-results .hs-seeall {
+  color: var(--gold-deep);
+  border-top-color: var(--line);
 }
 
 /* Mobile menu: desktop keeps the inline layout (the wrapper is transparent to
