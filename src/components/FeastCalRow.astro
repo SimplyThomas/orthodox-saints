@@ -5,6 +5,7 @@
 import type { Feast } from "../lib/feasts";
 import { KIND_LABEL, fastTone, feastKind } from "../lib/feasts";
 import { tokenLabel } from "../lib/feast-dates";
+import { withBase } from "../lib/format";
 import FastPill from "./FastPill.astro";
 
 interface Props {
@@ -22,7 +23,7 @@ function sub(f: Feast): string {
 }
 ---
 
-<div class="ff-cal-row">
+<a class="ff-cal-row" href={withBase(`feast/${f.id}`)}>
   <span class="ff-cal-date">
     {tokenLabel(f.begins)}
     <small>{sub(f)}</small>
@@ -36,4 +37,4 @@ function sub(f: Feast): string {
     {f.fasting && <FastPill tone={fastTone(f.fasting)} label={f.fasting} />}
   </span>
   <span class="ff-cal-kind">{KIND_LABEL[feastKind(f)]}</span>
-</div>
+</a>

@@ -1,21 +1,26 @@
 import type { APIRoute } from "astro";
 import { FINDER_SAINTS } from "../lib/data";
 import { primaryRank, centuryLabel } from "../lib/saints";
+import { prominence } from "../lib/prominence";
 import { NAV } from "../lib/nav";
 
 export const prerender = true;
 
-/* Lightweight, whole-site index for the header quick-search typeahead.
+/* Lightweight, whole-site index for the header/hero quick-search typeahead.
    Emitted as a static /search-index.json and fetched lazily on first use, so
    it never weighs on page loads the way the full ~3.5 MB finder index would.
-   Each saint keeps only what a compact result row needs plus a lowercased
-   name/aka/variant haystack for substring matching. */
+   Each saint keeps only what a compact result row needs (name + meta), the
+   name/aka/variants the shared search engine ranks on, and a precomputed
+   prominence tiebreak — so the typeahead ranks identically to the finder
+   (see lib/search.ts, buildNameSearch). */
 
 interface IndexSaint {
   id: string;
   name: string;
   meta: string;
-  hay: string;
+  aka?: string[];
+  variants?: string[];
+  prom: number;
 }
 interface IndexPage {
   title: string;
@@ -25,12 +30,16 @@ interface IndexPage {
 
 export const GET: APIRoute = () => {
   const saints: IndexSaint[] = FINDER_SAINTS.map((s) => {
-    const hay = [s.name, ...(s.aka ?? []), ...(s.variants ?? [])]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
     const meta = [primaryRank(s), centuryLabel(s)].filter(Boolean).join(" · ");
-    return { id: s.id, name: s.name, meta, hay };
+    const row: IndexSaint = {
+      id: s.id,
+      name: s.name,
+      meta,
+      prom: prominence(s),
+    };
+    if (s.aka?.length) row.aka = s.aka;
+    if (s.variants?.length) row.variants = s.variants;
+    return row;
   });
 
   // Section pages come straight from the single nav config (top-level direct

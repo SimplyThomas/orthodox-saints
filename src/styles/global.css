@@ -96,6 +96,10 @@
      these, so titles/ledes are the same size and scale identically on mobile). */
   --page-title-size: clamp(36px, 7vw, 64px);
   --page-lede-size: clamp(17px, 2.4vw, 22px);
+  /* One top padding for every dome-crowned hero (home, section, host, angel,
+     calendar, feasts, coming-soon…) so the arch mark sits the same distance
+     from the top throughout. Change here to retune every hero at once. */
+  --hero-pad-top: clamp(40px, 6vw, 64px);
 }
 
 * {
@@ -754,7 +758,7 @@ a.qz-comp {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 52px clamp(16px, 4vw, 56px) 56px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 56px;
   background: var(--ivory);
 }
 /* Dome silhouette — identical geometry on every hero so the text never
@@ -854,6 +858,233 @@ a.qz-comp {
 .sotd-card-head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+.sotd-card-head h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--ivory);
+}
+.sotd-callink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--gold-soft);
+  text-decoration: none;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  transition:
+    background 0.14s,
+    border-color 0.14s;
+}
+.sotd-callink:hover {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: var(--gold-soft);
+}
+.sotd-callink .arr {
+  transition: transform 0.14s;
+}
+.sotd-callink:hover .arr {
+  transform: translateX(3px);
+}
+.sotd-list {
+  padding: 6px 22px 10px;
+}
+.sotd-saint {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 2px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.sotd-saint:last-child {
+  border-bottom: 0;
+}
+.sotd-saint-av {
+  flex: 0 0 auto;
+  display: flex;
+}
+.sotd-saint-text {
+  min-width: 0;
+}
+.sotd-saint-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.12;
+  color: var(--ivory);
+  transition: color 0.14s;
+}
+.sotd-saint:hover .sotd-saint-name {
+  color: var(--gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sotd-saint-name .arr {
+  color: var(--gold-soft);
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.14s;
+}
+.sotd-saint:hover .sotd-saint-name .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+.sotd-saint-role {
+  display: block;
+  font-size: 12.5px;
+  color: #b9c8da;
+  margin-top: 3px;
+}
+.sotd-saint-role .tag {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.sotd-more,
+.sotd-empty {
+  display: block;
+  padding: 12px 22px 16px;
+  font-size: 13px;
+  color: #b9c8da;
+  text-decoration: none;
+}
+.sotd-more {
+  color: var(--gold-soft);
+  border-top: 1px solid rgba(212, 175, 55, 0.28);
+}
+.sotd-more .arr {
+  transition: transform 0.14s;
+  display: inline-block;
+}
+.sotd-more:hover .arr {
+  transform: translateX(3px);
+}
+.sotd-empty a {
+  color: var(--gold-soft);
+}
+
+/* "Today" card header: eyebrow + Old/New reckoning toggle */
+.sotd-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sotd-head .eyebrow {
+  margin: 0;
+}
+.sotd-church {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.sotd-cal {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  flex: none;
+}
+.sotd-cal button {
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    background 0.14s,
+    color 0.14s;
+}
+.sotd-cal button + button {
+  border-left: 1px solid var(--line);
+}
+.sotd-cal button:hover {
+  color: var(--byz);
+}
+.sotd-cal button[aria-pressed="true"] {
+  background: var(--byz);
+  color: var(--ivory);
+}
+
+/* Liturgical context ribbon above the saint headline (Great Feast / fast
+   season). Tinted with the day's resolved liturgical color via --sw-* vars. */
+.sotd-lit {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--sw-bg, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform 0.14s,
+    box-shadow 0.14s;
+}
+.sotd-lit:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+.sotd-lit-bar {
+  flex: none;
+  width: 5px;
+  background: var(--sw-ac, var(--gold-deep));
+}
+.sotd-lit-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 9px 14px;
+  min-width: 0;
+}
+.sotd-lit-kick {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sw-ac, var(--gold-deep));
+}
+.sotd-lit-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.15;
+  color: var(--sw-tx, var(--ink));
+}
+.sotd-lit-season {
+  font-size: 12px;
+  color: var(--sw-tx, var(--ink-soft));
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.featured-head {
+  display: flex;
+  align-items: baseline;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
@@ -1455,10 +1686,14 @@ a.qz-comp {
 }
 
 /* ---- intro ---- */
+/* Top-anchored like every other dome hero: the dome crown sits --hero-pad-top
+   from the top (the .qz-screen default centres the question/result screens). */
 .qz-intro {
   background: var(--ivory);
   text-align: center;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--hero-pad-top);
 }
 .qz-intro-inner {
   position: relative;
@@ -1468,11 +1703,6 @@ a.qz-comp {
 .qz-title-block {
   position: relative;
   margin-bottom: 24px;
-}
-.qz-title-block .dome-bg {
-  top: -50px;
-  width: min(540px, 72vw);
-  opacity: 0.1;
 }
 .qz-title-inner {
   position: relative;
@@ -2152,7 +2382,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 40px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 40px;
   background: var(--ivory);
 }
 .ab-hero .dome-bg {
@@ -2514,7 +2744,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 44px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 44px;
   border-bottom: 1px solid var(--line);
 }
 .np-hero .dome-bg {
@@ -3179,7 +3409,7 @@ a.news-card:hover .news-h {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 60px clamp(16px, 4vw, 56px) 50px;
+  padding: var(--hero-pad-top) clamp(16px, 4vw, 56px) 50px;
   background: var(--ivory);
 }
 .sr-hero .dome-bg {
@@ -5797,7 +6027,7 @@ a.sv-rail-chip:hover {
 #calendar-page .cal-hero {
   position: relative;
   text-align: center;
-  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
+  padding: var(--hero-pad-top) 20px clamp(18px, 3vw, 26px);
   overflow: hidden;
 }
 #calendar-page .cal-hero-inner {
@@ -6820,7 +7050,7 @@ a.sv-rail-chip:hover {
 .ff-hero {
   position: relative;
   text-align: center;
-  padding: clamp(34px, 6vw, 64px) 20px clamp(18px, 3vw, 26px);
+  padding: var(--hero-pad-top) 20px clamp(18px, 3vw, 26px);
   overflow: hidden;
 }
 .ff-hero .dome-bg {
@@ -7137,6 +7367,19 @@ a.sv-rail-chip:hover {
   align-items: start;
   padding: 30px 34px 26px;
   background: linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.16s,
+    box-shadow 0.16s;
+}
+a.ff-up-top:hover {
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.12), transparent);
+  box-shadow: inset 0 0 0 1px var(--line-gold);
+}
+a.ff-up-top:hover .ff-up-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 @media (max-width: 760px) {
   .ff-up-top {
@@ -7444,6 +7687,8 @@ a.sv-rail-chip:hover {
   padding: 14px 16px;
   border-radius: 7px;
   border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
   transition:
     background 0.14s,
     box-shadow 0.14s;
@@ -7451,10 +7696,15 @@ a.sv-rail-chip:hover {
 .ff-cal-row:last-child {
   border-bottom: none;
 }
-.ff-cal-row:hover {
+a.ff-cal-row:hover {
   background: #fff;
   box-shadow: var(--shadow-soft);
   border-color: transparent;
+}
+a.ff-cal-row:hover .ff-cal-name {
+  color: var(--byz);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .ff-cal-date {
   font-family: var(--serif);
@@ -7577,6 +7827,8 @@ a.sv-rail-chip:hover {
     box-shadow 0.18s,
     border-color 0.18s;
   position: relative;
+  text-decoration: none;
+  color: inherit;
 }
 .ff-fcard:hover {
   transform: translateY(-3px);
@@ -7654,11 +7906,24 @@ a.sv-rail-chip:hover {
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 8px;
   padding: 26px 26px 24px;
+  text-decoration: none;
   transition:
     transform 0.18s,
     border-color 0.18s;
   position: relative;
   overflow: hidden;
+}
+a.ff-scard:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ff-scard-pascha-link {
+  text-decoration: none;
+  color: inherit;
+}
+.ff-scard--pascha:hover .ff-scard-pascha-link h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .ff-scard::after {
   content: "";
@@ -7900,15 +8165,29 @@ a.sv-rail-chip:hover {
   padding: 0;
   border-top: 1px solid var(--line);
 }
-/* fixed grid so name / when / note align down the whole list; long names
-   wrap inside their own column instead of pushing the others around */
 .ff-list li {
+  border-bottom: 1px solid var(--line);
+}
+/* fixed grid so name / when / note align down the whole list; long names
+   wrap inside their own column instead of pushing the others around. The grid
+   lives on the link so the whole row is one click target into the feast page. */
+.ff-list-link {
   display: grid;
   grid-template-columns: minmax(0, 330px) 160px 1fr;
   align-items: baseline;
   gap: 8px 22px;
   padding: 15px 4px;
-  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  border-radius: 6px;
+  transition: background 0.14s;
+}
+.ff-list-link:hover {
+  background: var(--ivory-2);
+}
+.ff-list-link:hover .li-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .ff-list .li-name {
   font-family: var(--serif);
@@ -7928,7 +8207,7 @@ a.sv-rail-chip:hover {
   line-height: 1.45;
 }
 @media (max-width: 860px) {
-  .ff-list li {
+  .ff-list-link {
     grid-template-columns: 1fr;
   }
   .ff-list .li-when {

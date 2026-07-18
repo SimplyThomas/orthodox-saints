@@ -175,4 +175,6 @@ export interface FinderSaint {
   imageThumb?: string;
   /** true when a human has personally reviewed this profile */
   humanReviewed?: boolean;
+  /** data-derived prominence tiebreak for search ranking (see prominence.ts) */
+  prom?: number;
 }

@@ -510,7 +510,7 @@ const refBlocks = [
                     const f = feastById.get(id);
                     return (
                       <li>
-                        <a href={withBase("feasts")}>{f ? f.name : id}</a>
+                        <a href={withBase(`feast/${id}`)}>{f ? f.name : id}</a>
                       </li>
                     );
                   })}
@@ -556,7 +556,7 @@ const refBlocks = [
   .host-hub-hero {
     position: relative;
     text-align: center;
-    padding: clamp(56px, 11vw, 104px) 20px clamp(28px, 5vw, 44px);
+    padding: var(--hero-pad-top) 20px clamp(28px, 5vw, 44px);
     overflow: hidden;
   }
   .host-hub-inner {
