@@ -1,11 +1,23 @@
 ---
-// The home "Today" band: a full-width "Saints commemorated today" card. It
-// needs the visitor's real "today", so the island (cloud-band.client.ts)
-// replaces the placeholder below once the card dataset fetch resolves.
+import { SAINTS } from "../lib/data";
+import { rankSlug, primaryRank, firstFeast, centuryLabel } from "../lib/saints";
+import { splitName } from "../lib/names";
+import { withBase } from "../lib/format";
+import { saintAvatar } from "../lib/icons";
+
+// Server-rendered fallback picks (no-JS): notable saints with a brief life and
+// intercessions. The island re-deals a random handful on load and on Shuffle.
+const enriched = SAINTS.filter((s) => s.brief && s.intercession.length);
+const pool = enriched.length >= 4 ? enriched : SAINTS.filter((s) => s.brief);
+const featured = pool.slice(0, 4);
 ---
 
 <section class="cloud-band" id="cloud-band">
-  <div class="cloud-stack">
+  <div class="cloud-grid">
+    {
+      /* Saint of the day — needs the visitor's real "today"; the island
+         replaces this placeholder once the card dataset fetch resolves. */
+    }
     <div id="sotd">
       <div class="eyebrow" style="margin-bottom:14px">Today</div>
       <div
@@ -15,6 +27,69 @@
         <span class="stat sotd-loading"
           >Finding today&rsquo;s commemoration&hellip;</span
         >
+      </div>
+    </div>
+    <div class="divider" aria-hidden="true"></div>
+    <div>
+      <div class="featured-head">
+        <div>
+          <div class="eyebrow">From the Cloud</div>
+          <div class="stat" id="cloud-sub">
+            A random handful from {SAINTS.length} saints &mdash; meet someone new
+          </div>
+        </div>
+        <button type="button" class="btn btn--ghost shuffle-btn" id="shuffle">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+            <path d="M21 3v5h-5"></path>
+            <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+            <path d="M3 21v-5h5"></path>
+          </svg>
+          Shuffle
+        </button>
+      </div>
+      <div class="featured-grid" id="featured">
+        {
+          featured.map((s) => {
+            const sn = splitName(s.name);
+            return (
+              <a
+                class="feat-card"
+                data-saint={s.id}
+                href={withBase(`saint/${s.id}`)}
+              >
+                <div
+                  class="portrait"
+                  set:html={saintAvatar(s, 84, 104, { type: primaryRank(s) })}
+                />
+                <div class="body">
+                  <h4>{sn.title}</h4>
+                  <div class="epithet">
+                    {sn.epithet || (s.aka && s.aka[0]) || ""}
+                  </div>
+                  <span class={`tag ${rankSlug(s)}`}>
+                    <i />
+                    {primaryRank(s)}
+                  </span>
+                  <div class="feat-meta">
+                    <span>{firstFeast(s)}</span>
+                    <span>{centuryLabel(s)}</span>
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
       </div>
     </div>
   </div>
