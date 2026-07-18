@@ -538,6 +538,23 @@ const DEFAULT_ITEM =
     text-wrap: balance;
   }
 
+  /* Running prose is justified across the page (per request). The picker's own
+     section head — "A place to start / Finding the right icon / Choose the
+     occasion…" — stays centered: it is .ig-two-main .ig-sec-head, untouched
+     here (only the rail head's paragraph is justified). */
+  .igp .sr-lede,
+  .ig-prose,
+  .ig-who-intro,
+  .ig-icon-why,
+  .ig-icon-where,
+  .ig-note-body,
+  .ig-faq-lede,
+  .ig-faq-body,
+  .ig-faq-list li,
+  .ig-sec-head.ig-two-railhead p {
+    text-align: justify;
+  }
+
   .ig-prose {
     font-size: 17px;
     line-height: 1.72;
