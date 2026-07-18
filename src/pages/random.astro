@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SAINTS } from "../lib/data";
+import { withBase } from "../lib/format";
+
+// "Surprise me": a static page that redirects to a random saint's profile. A
+// static build can't randomize per-visit server-side, so we inline the saint
+// ids and let a tiny inline script pick one and replace the URL. Groups and the
+// OS-0000 master profile aren't individual saints, so they're excluded.
+const ids = SAINTS.filter((s) => !s.profile_type && s.id !== "OS-0000").map(
+  (s) => s.id,
+);
+const saintBase = withBase("saint/");
+const searchHref = withBase("search");
+---
+
+<BaseLayout
+  title="A random saint"
+  description="Meet a saint at random from the Cloud of Witnesses."
+  active=""
+>
+  <section
+    class="random-redirect"
+    data-saint-base={saintBase}
+    data-ids={JSON.stringify(ids)}
+  >
+    <div class="rr-inner">
+      <div class="eyebrow">From the Cloud</div>
+      <h1>Finding a saint for you&hellip;</h1>
+      <p class="stat">
+        We&rsquo;re sending you to someone from our cloud of {ids.length} witnesses.
+        If nothing happens, <a href={searchHref}>browse the saints instead</a>.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const el = document.querySelector<HTMLElement>(".random-redirect");
+    if (el) {
+      try {
+        const ids = JSON.parse(el.dataset.ids || "[]") as string[];
+        const base = el.dataset.saintBase || "/saint/";
+        if (ids.length) {
+          const id = ids[Math.floor(Math.random() * ids.length)];
+          location.replace(base + id);
+        }
+      } catch {
+        /* leave the fallback links in place */
+      }
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .random-redirect {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(60px, 12vh, 140px) clamp(16px, 4vw, 56px);
+    text-align: center;
+  }
+  .rr-inner {
+    max-width: 44ch;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .rr-inner h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 38px);
+    color: var(--byz-deep);
+    line-height: 1.15;
+  }
+  .rr-inner .stat {
+    font-size: 15px;
+    color: var(--celest);
+  }
+  .rr-inner .stat a {
+    color: var(--gold-deep);
+  }
+</style>
