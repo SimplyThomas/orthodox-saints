@@ -655,6 +655,98 @@ export function buildBadges(observances: ActiveObservance[]): string[] {
   return badges;
 }
 
+/* ---- day highlight: the leading festal feast + active fast season ----
+   A compact summary for surfaces that headline a saint but want liturgical
+   context above it (the home "Today" card). Distinct from dayLiturgics, which
+   resolves the vestment color for the interactive calendar's day tiles. */
+
+export interface DayFeast {
+  id: string;
+  name: string;
+  /** short banner label, e.g. "Great Feast", "Feast of the Theotokos". */
+  label: string;
+}
+
+export interface DayHighlight {
+  /** the day's leading festal commemoration, if any */
+  feast: DayFeast | null;
+  /** an active fasting season / fast-free week, for context, if any */
+  season: DayFeast | null;
+}
+
+const FESTAL_CATEGORY_RANK: Record<string, number> = {
+  "Feast of Feasts": 5,
+  "Great Feast": 4,
+  Feast: 3,
+  Observance: 1,
+};
+
+function festalLabel(f: LitFeast, role: ObservanceRole): string {
+  if (role === "forefeast") return "Forefeast";
+  if (role === "afterfeast") return "Afterfeast";
+  if (role === "leavetaking") return "Leave-taking";
+  if (f.category === "Feast of Feasts") return "Feast of Feasts";
+  const great = f.category === "Great Feast";
+  if (f.dedication === "Theotokos")
+    return great ? "Great Feast of the Theotokos" : "Feast of the Theotokos";
+  if (f.dedication === "Lord")
+    return great ? "Great Feast of the Lord" : "Feast of the Lord";
+  if (f.dedication === "Cross")
+    return great ? "Great Feast — Holy Cross" : "Holy Cross";
+  if (great) return "Great Feast";
+  return f.category === "Feast" ? "Feast" : "Observance";
+}
+
+/** Pull the day's leading festal feast and any active fasting season out of
+    its observances. The feast is the highest-scoring festal record — a feast
+    kept on the day outranks its own fore-/afterfeast, and a higher category
+    outranks a lower one. Fast Days (single penitential days) are not surfaced
+    as a festal banner; they belong to the fasting layer. */
+export function dayHighlight(observances: ActiveObservance[]): DayHighlight {
+  const roleRank = (r: ObservanceRole): number =>
+    r === "day" || r === "span"
+      ? 3
+      : r === "afterfeast" || r === "leavetaking"
+        ? 2
+        : 1;
+
+  let feast: { o: ActiveObservance; score: number } | null = null;
+  let season: { o: ActiveObservance; score: number } | null = null;
+
+  for (const o of observances) {
+    const cat = o.feast.category;
+    if (cat === "Fast Season" || cat === "Fast-Free Week") {
+      const score = roleRank(o.role);
+      if (!season || score > season.score) season = { o, score };
+      continue;
+    }
+    const catRank = FESTAL_CATEGORY_RANK[cat];
+    if (!catRank) continue; // Fast Day, etc. — not a festal banner
+    const score = roleRank(o.role) * 10 + catRank;
+    if (!feast || score > feast.score) feast = { o, score };
+  }
+
+  return {
+    feast: feast
+      ? {
+          id: feast.o.feast.id,
+          name: feast.o.feast.name,
+          label: festalLabel(feast.o.feast, feast.o.role),
+        }
+      : null,
+    season: season
+      ? {
+          id: season.o.feast.id,
+          name: season.o.feast.name,
+          label:
+            season.o.feast.category === "Fast-Free Week"
+              ? "Fast-Free Week"
+              : "Fast Season",
+        }
+      : null,
+  };
+}
+
 /* ---- fasting: use the data's own rule; never infer from the weekday ---- */
 
 export function resolveFasting(

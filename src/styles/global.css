@@ -235,7 +235,6 @@ a:hover {
    intercepts clicks. Keep them visually identical to the old <div> cards. */
 a.feat-card,
 a.saint-row,
-a.sotd-card,
 a.news-card,
 a.qz-comp {
   color: inherit;
@@ -851,56 +850,241 @@ a.qz-comp {
   justify-self: center;
 }
 
+/* The "Today" card: a compact, blue mirror of the /feasts "Saints commemorated
+   today" card — the day's saints (each a link to its profile) plus a link to
+   the liturgical calendar, under the New/Old reckoning toggle. */
 .sotd-card {
-  display: block;
   background: var(--byz);
-  border-radius: 4px;
-  padding: 28px 28px 26px;
+  border-radius: 6px;
   color: var(--ivory);
   box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.sotd-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+.sotd-card-head h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--ivory);
+}
+.sotd-callink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--gold-soft);
+  text-decoration: none;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  transition:
+    background 0.14s,
+    border-color 0.14s;
+}
+.sotd-callink:hover {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: var(--gold-soft);
+}
+.sotd-callink .arr {
+  transition: transform 0.14s;
+}
+.sotd-callink:hover .arr {
+  transform: translateX(3px);
+}
+.sotd-list {
+  padding: 6px 22px 10px;
+}
+.sotd-saint {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 2px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.sotd-saint:last-child {
+  border-bottom: 0;
+}
+.sotd-saint-av {
+  flex: 0 0 auto;
+  display: flex;
+}
+.sotd-saint-text {
+  min-width: 0;
+}
+.sotd-saint-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.12;
+  color: var(--ivory);
+  transition: color 0.14s;
+}
+.sotd-saint:hover .sotd-saint-name {
+  color: var(--gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sotd-saint-name .arr {
+  color: var(--gold-soft);
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.14s;
+}
+.sotd-saint:hover .sotd-saint-name .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+.sotd-saint-role {
+  display: block;
+  font-size: 12.5px;
+  color: #b9c8da;
+  margin-top: 3px;
+}
+.sotd-saint-role .tag {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.sotd-more,
+.sotd-empty {
+  display: block;
+  padding: 12px 22px 16px;
+  font-size: 13px;
+  color: #b9c8da;
+  text-decoration: none;
+}
+.sotd-more {
+  color: var(--gold-soft);
+  border-top: 1px solid rgba(212, 175, 55, 0.28);
+}
+.sotd-more .arr {
+  transition: transform 0.14s;
+  display: inline-block;
+}
+.sotd-more:hover .arr {
+  transform: translateX(3px);
+}
+.sotd-empty a {
+  color: var(--gold-soft);
+}
+
+/* "Today" card header: eyebrow + Old/New reckoning toggle */
+.sotd-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sotd-head .eyebrow {
+  margin: 0;
+}
+.sotd-church {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.sotd-cal {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  flex: none;
+}
+.sotd-cal button {
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
   cursor: pointer;
+  transition:
+    background 0.14s,
+    color 0.14s;
+}
+.sotd-cal button + button {
+  border-left: 1px solid var(--line);
+}
+.sotd-cal button:hover {
+  color: var(--byz);
+}
+.sotd-cal button[aria-pressed="true"] {
+  background: var(--byz);
+  color: var(--ivory);
+}
+
+/* Liturgical context ribbon above the saint headline (Great Feast / fast
+   season). Tinted with the day's resolved liturgical color via --sw-* vars. */
+.sotd-lit {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--sw-bg, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-decoration: none;
   transition:
     transform 0.14s,
     box-shadow 0.14s;
 }
-.sotd-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+.sotd-lit:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
 }
-.sotd-top {
+.sotd-lit-bar {
+  flex: none;
+  width: 5px;
+  background: var(--sw-ac, var(--gold-deep));
+}
+.sotd-lit-body {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  gap: 1px;
+  padding: 9px 14px;
+  min-width: 0;
 }
-.sotd-card .kicker {
-  font-size: 12px;
-  letter-spacing: 0.16em;
+.sotd-lit-kick {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-soft);
-  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--sw-ac, var(--gold-deep));
 }
-.sotd-card h3 {
-  font-size: 25px;
-  color: var(--ivory);
-  line-height: 1.1;
+.sotd-lit-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.15;
+  color: var(--sw-tx, var(--ink));
 }
-.sotd-card p {
-  font-size: 14.5px;
-  color: #cdd9e6;
-  margin: 10px 0 0;
-  line-height: 1.5;
-}
-.sotd-foot {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 13px;
-  color: #cdd9e6;
-}
-.sotd-foot .also {
-  color: var(--gold-soft);
+.sotd-lit-season {
+  font-size: 12px;
+  color: var(--sw-tx, var(--ink-soft));
+  opacity: 0.85;
+  margin-top: 2px;
 }
 
 .featured-head {

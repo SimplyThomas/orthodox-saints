@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import type { LitFeast } from "./liturgical";
 import {
   activeObservances,
+  dayHighlight,
   dayLiturgics,
   resolveTokenCivil,
 } from "./liturgical";
@@ -439,5 +440,55 @@ describe("precedence, fallbacks, and honesty", () => {
   });
   it("a fixed span wraps the civil New Year (fast-free days after Nativity)", () => {
     expect(day(2027, 1, 2).fasting?.key).toBe("free");
+  });
+});
+
+describe("dayHighlight — leading festal feast + fast season", () => {
+  const hi = (y: number, m: number, d: number, style: "new" | "old" = "new") =>
+    dayHighlight(activeObservances(F, PASCHA, new Date(y, m - 1, d), style));
+
+  it("headlines the Dormition (a Great Feast of the Theotokos) on Aug 15", () => {
+    const h = hi(2026, 8, 15);
+    expect(h.feast?.id).toBe("FF-0013");
+    expect(h.feast?.label).toBe("Great Feast of the Theotokos");
+  });
+
+  it("the feast kept on the day outranks its own afterfeast", () => {
+    // Aug 15 is both the Dormition (day) and, being ≥ Aug 15, its afterfeast
+    // window — the day feast must win.
+    expect(hi(2026, 8, 15).feast?.name).toBe("Dormition of the Theotokos");
+    // Aug 20 is inside the afterfeast only.
+    expect(hi(2026, 8, 20).feast?.label).toBe("Afterfeast");
+  });
+
+  it("reports the active fast season as context (Dormition Fast, Aug 10)", () => {
+    const h = hi(2026, 8, 10);
+    expect(h.season?.id).toBe("FF-0017");
+    expect(h.season?.label).toBe("Fast Season");
+  });
+
+  it("surfaces the season during Great Lent (Clean Monday 2026)", () => {
+    const h = hi(2026, 2, 23); // Clean Monday 2026
+    expect(h.season?.name).toBe("Great Lent");
+    // Clean Monday itself is a named observance, shown above the season.
+    expect(h.feast?.name).toBe("Clean Monday");
+    expect(h.feast?.label).toBe("Observance");
+  });
+
+  it("a plain Lenten weekday shows the season but no feast", () => {
+    const h = hi(2026, 3, 3); // an ordinary weekday inside Great Lent
+    expect(h.season?.name).toBe("Great Lent");
+    expect(h.feast).toBeNull();
+  });
+
+  it("an ordinary day with no feast or season returns nulls", () => {
+    const h = hi(2026, 10, 21);
+    expect(h.feast).toBeNull();
+    expect(h.season).toBeNull();
+  });
+
+  it("Old-style shifts the feast onto its civil day (Dormition on Aug 28)", () => {
+    expect(hi(2026, 8, 28, "old").feast?.id).toBe("FF-0013");
+    expect(hi(2026, 8, 15, "old").feast).toBeNull();
   });
 });
