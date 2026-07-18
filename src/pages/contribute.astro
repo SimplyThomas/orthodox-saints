@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DomeMark from "../components/icons/DomeMark.astro";
 import ByzCross from "../components/icons/ByzCross.astro";
+import { withBase } from "../lib/format";
 
 // Contribute — a warm invitation to help. The form composes a pre-filled
 // mailto: (no backend/secrets); the visitor's mail app opens with everything
@@ -26,11 +26,8 @@ const TYPES = [
   <div class="cb">
     {/* ---------- hero ---------- */}
     <section class="cb-hero">
-      <div class="dome-bg" aria-hidden="true">
-        <DomeMark w={440} color="var(--byz)" />
-      </div>
       <div class="cb-hero-inner">
-        <div class="eyebrow">Add Your Stone to the Mosaic</div>
+        <div class="eyebrow on-blue">Add Your Stone to the Mosaic</div>
         <h1 class="cb-title">Contribute</h1>
         <p class="cb-lede">
           This is a labor of love, and it grows richer with every hand that
@@ -68,9 +65,6 @@ const TYPES = [
 
         {/* form */}
         <form class="cb-card" id="cb-form" novalidate>
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-
           <div class="fld">
             <div class="fld-lab">
               <span class="eyebrow">What would you like to share?</span>
@@ -192,6 +186,11 @@ const TYPES = [
           </div>
         </form>
 
+        <p class="cb-alt">
+          Spotted an error instead?{" "}
+          <a href={withBase("/corrections")}>Suggest a correction →</a>
+        </p>
+
         {/* thanks */}
         <div class="cb-thanks" id="cb-thanks" hidden>
           <div class="cb-thanks-cross">
@@ -224,23 +223,15 @@ const TYPES = [
     text-align: center;
     padding: 58px clamp(20px, 5vw, 56px) 44px;
     overflow: hidden;
-    background: var(--ivory);
+    background: var(--byz-deep);
     border-bottom: 1px solid var(--line-gold);
-  }
-  .cb-hero .dome-bg {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.07;
-    pointer-events: none;
   }
   .cb-hero-inner {
     position: relative;
   }
   .cb-title {
     font-size: var(--page-title-size);
-    color: var(--byz-deep);
+    color: var(--ivory);
     line-height: 1;
     margin: 14px 0 16px;
     font-weight: 600;
@@ -249,7 +240,7 @@ const TYPES = [
     font-family: var(--serif);
     font-style: italic;
     font-size: var(--page-lede-size);
-    color: var(--celest);
+    color: var(--celest-soft);
     max-width: 660px;
     margin: 0 auto;
     line-height: 1.45;
@@ -288,44 +279,14 @@ const TYPES = [
 
   .cb-card {
     position: relative;
-    background: #fff;
-    border: 1px solid var(--line);
+    background: var(--ivory-2);
+    border: 1.5px solid var(--gold);
     border-radius: 10px;
     box-shadow: var(--shadow-card);
     padding: 38px clamp(20px, 4vw, 36px) 36px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-  }
-  .tick {
-    position: absolute;
-    width: 13px;
-    height: 13px;
-    border: 0 solid var(--gold);
-  }
-  .tick.tl {
-    top: 11px;
-    left: 11px;
-    border-top-width: 2px;
-    border-left-width: 2px;
-  }
-  .tick.tr {
-    top: 11px;
-    right: 11px;
-    border-top-width: 2px;
-    border-right-width: 2px;
-  }
-  .tick.bl {
-    bottom: 11px;
-    left: 11px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
-  }
-  .tick.br {
-    bottom: 11px;
-    right: 11px;
-    border-bottom-width: 2px;
-    border-right-width: 2px;
   }
 
   .fld {
@@ -336,6 +297,15 @@ const TYPES = [
     align-items: baseline;
     gap: 8px;
     margin-bottom: 8px;
+  }
+  /* The field questions are the primary prompt on this page — lift them above
+     the shared 12px .eyebrow so they don't read as small next to the inputs. */
+  .fld-lab .eyebrow {
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 600;
+    color: var(--byz-deep);
   }
   .req {
     font-size: 11px;
@@ -407,6 +377,18 @@ const TYPES = [
     font-size: 13.5px;
     color: var(--ink-soft);
     line-height: 1.45;
+  }
+
+  .cb-alt {
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin-top: 22px;
+  }
+  .cb-alt a {
+    color: var(--gold-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-gold);
   }
 
   .cb-thanks {
