@@ -71,11 +71,24 @@ const browse = [
           </a>
         ))
       }
+      <a class="chip chip--random" href={withBase("random")}>Surprise me</a>
     </div>
   </div>
 </section>
 
 <style>
+  /* "Surprise me" is an action, not a facet — a gold accent sets it apart from
+     the neutral browse-by chips and echoes the site's Orthodox gold. */
+  .chip--random {
+    border-color: var(--gold);
+    color: var(--gold-deep);
+    background: color-mix(in srgb, var(--gold) 9%, #fff);
+  }
+  .chip--random:hover {
+    background: var(--gold);
+    color: var(--byz-ink);
+    border-color: var(--gold-deep);
+  }
   /* The typeahead panel is absolutely positioned and overhangs the hero's
      bottom edge, so the hero must NOT clip it. The dome silhouette flows in
      normal order here (global.css makes .hero .dome-bg position:static), so it

@@ -542,7 +542,6 @@ const DEFAULT_ITEM =
      section head — "A place to start / Finding the right icon / Choose the
      occasion…" — stays centered: it is .ig-two-main .ig-sec-head, untouched
      here (only the rail head's paragraph is justified). */
-  .igp .sr-lede,
   .ig-prose,
   .ig-who-intro,
   .ig-icon-why,
@@ -553,6 +552,11 @@ const DEFAULT_ITEM =
   .ig-faq-list li,
   .ig-sec-head.ig-two-railhead p {
     text-align: justify;
+  }
+
+  /* Hero lede is centered under the title (per request), not justified. */
+  .igp .sr-lede {
+    text-align: center;
   }
 
   .ig-prose {

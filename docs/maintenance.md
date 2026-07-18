@@ -44,12 +44,15 @@ editable by hand like any other file.
 
 ## The actual remaining work is human work
 
-Generation is done, but **production ships only `status: reviewed` profiles**, and the
-current distribution is roughly: **23 reviewed · 2,727 draft · 143 flagged**. Promoting
-drafts through review is the top lever for the site (CLAUDE.md §8) — and it was always
-a human job. No AI is needed for any of it.
+Generation is done. **At the 2026-07-18 parish launch (PR #352) every `draft` profile was
+promoted to `reviewed`, so nearly all profiles are now public** (the 141 `flagged` stay
+hidden until resolved — issue #349). Visibility is no longer the lever. The ongoing human
+work is **vetting**: reading a published profile against its sources and, when it holds up,
+setting **`humanReviewed: true`** — that earns the **dove seal** in the finder/quiz, the
+site's signal of a personally-checked entry (CLAUDE.md §8). It was always a human job; no AI
+is needed for any of it.
 
-### Reviewing and promoting a profile
+### Reviewing and sealing a profile (the dove)
 
 1. Pick a profile: `src/content/profiles/OS-####.yaml` (start with high-traffic,
    well-known saints).
@@ -62,7 +65,9 @@ a human job. No AI is needed for any of it.
    text or confirming the claim against a source, then delete the resolved entries.
    A flagged profile without `flagReasons` is reviewed like any draft, just with
    extra suspicion.
-4. Change `status: draft` (or `flagged`) to `status: reviewed`.
+4. Add **`humanReviewed: true`** to mark it personally vetted (this earns the dove).
+   Most profiles are already `status: reviewed` since launch; if you're working a
+   `flagged` one, also change `status: flagged` → `status: reviewed` to publish it.
 5. `npm run build` (schema check) or just push the branch — the PR's Cloudflare
    preview renders drafts behind a banner, so a reviewer can read the page as it will
    ship.

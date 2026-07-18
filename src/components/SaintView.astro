@@ -199,6 +199,24 @@ const quoteList = profile?.quotes?.length
     ? [m.quote]
     : [];
 const wordsLabel = `In ${possessive} own words`;
+
+// The resources bar (below the carousel) renders each external explore link as a
+// tile: an icon + descriptor keyed off the link kind (hymn / icon / video). The
+// icons are inline SVG strings rendered via <Fragment set:html>.
+const RES_META: Record<string, { sub: string; icon: string }> = {
+  hymn: {
+    sub: "Troparia & apolytikia to read and chant",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+  },
+  icon: {
+    sub: "Browse icons and imagery elsewhere",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg>`,
+  },
+  video: {
+    sub: "Homilies, talks, and documentaries",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg>`,
+  },
+};
 ---
 
 <div
@@ -235,6 +253,16 @@ const wordsLabel = `In ${possessive} own words`;
         <div class="sv-hero-icon">
           <div class="sv-icon-frame">
             <div class="sv-icon-inner" set:html={portrait} />
+            {
+              isReviewed && (
+                <span
+                  class="sv-icon-seal"
+                  title="This entry has been fully reviewed"
+                >
+                  <Fragment set:html={reviewedDove(26)} />
+                </span>
+              )
+            }
           </div>
           {
             /* Permission images link "Original icon" to the specific vendor
@@ -290,7 +318,6 @@ const wordsLabel = `In ${possessive} own words`;
 
           <h1 class="sv-name">
             {m.title}{m.epithet && <span class="sv-epithet"> {m.epithet}</span>}
-            {isReviewed && <Fragment set:html={reviewedDove(44)} />}
           </h1>
           {profile?.lifespan && <p class="sv-lifespan">{profile.lifespan}</p>}
           {
@@ -302,124 +329,143 @@ const wordsLabel = `In ${possessive} own words`;
           <div class="sv-hero-rule"></div>
 
           {m.brief && <p class="sv-lead">{m.brief}</p>}
+        </div>
+      </div>
 
-          <div class="sv-feast">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--gold-soft)"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-              <path d="M3 9h18M8 3v4M16 3v4"></path>
-            </svg>
-            <div class="sv-feast-main">
-              <div class="sv-feast-label">Feast Day</div>
-              <div class="sv-feast-date">{m.feast}</div>
-              {
-                m.feastOld && (
-                  <div class="sv-feast-oc">Old Calendar · {m.feastOld}</div>
-                )
-              }
+      {/* feast card — full width, beneath the icon + identity */}
+      <div class="sv-fday">
+        <div class="sv-fday-body">
+          <div class="sv-fday-primary">
+            <div class="sv-fday-cal sv-fday-cal--new">
+              <span class="sv-fday-date">{m.feast}</span>
+              {m.feastOld && <span class="sv-fday-cap">New Calendar</span>}
             </div>
-            {m.feastNote && <div class="sv-feast-note">{m.feastNote}</div>}
+            <div class="sv-fday-top">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--gold-soft)"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                <path d="M3 9h18M8 3v4M16 3v4"></path>
+              </svg>
+              <span class="sv-fday-label">Feast Day</span>
+            </div>
+            {
+              m.feastOld && (
+                <div class="sv-fday-cal sv-fday-cal--old">
+                  <span class="sv-fday-date sv-fday-date--old">
+                    {m.feastOld}
+                  </span>
+                  <span class="sv-fday-cap">Old Calendar</span>
+                </div>
+              )
+            }
           </div>
+          {
+            m.feastMore.length > 0 && (
+              <div class="sv-fday-more">
+                <span class="sv-fday-more-label">Also commemorated</span>
+                <ul class="sv-fday-more-list">
+                  {m.feastMore.map((f) => (
+                    <li>
+                      <span class="sv-fday-more-side">
+                        <span class="sv-fday-more-date">{f.neu}</span>
+                        <span class="sv-fday-more-cap">New</span>
+                      </span>
+                      <span class="sv-fday-more-side">
+                        <span class="sv-fday-more-date sv-fday-more-date--old">
+                          {f.old}
+                        </span>
+                        <span class="sv-fday-more-cap">Old</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
   </section>
 
-  {/* ══════════════ QUICK ACTIONS ══════════════ */}
-  <div class="sv-actions">
+  {/* ══════════════ ACTIONS RIBBON (above the carousel) ══════════════ */}
+  <div class="sv-actions sv-actions--top">
     <div class="sv-actions-inner">
       {
-        m.links.map((l) => (
-          <a
-            href={l.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--ghost sv-explore-link"
-          >
-            {l.label}
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 14 14"
-              fill="none"
-              stroke="var(--celest)"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M4 10 10 4M5 4h5v5" />
-            </svg>
-          </a>
-        ))
+        /* ── action cluster (right): contribute-help then the primary share ── */
       }
-      <div class="sv-actions-spacer"></div>
-      <a
-        href={withBase("corrections?subject=" + encodeURIComponent(m.name))}
-        class="btn btn--ghost sv-correct-link"
-      >
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--celest)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+      <div class="sv-actions-cluster sv-actions-do">
+        <a
+          href={withBase("corrections?subject=" + encodeURIComponent(m.name))}
+          class="btn btn--ghost sv-correct-link"
         >
-          <path d="M12 20h9"></path>
-          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
-        </svg>
-        <span class="sv-correct-label">Suggest a correction</span>
-      </a>
-      <a href={withBase("contribute")} class="btn btn--ghost sv-correct-link">
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--celest)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--celest)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+          </svg>
+          <span class="sv-correct-label">Suggest a correction</span>
+        </a>
+        <a href={withBase("contribute")} class="btn btn--ghost sv-correct-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--celest)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.49 4.04 3 5.5l7 7Z"
+            ></path>
+          </svg>
+          <span class="sv-correct-label">Contribute</span>
+        </a>
+        <span class="sv-actions-div" aria-hidden="true"></span>
+        <button
+          type="button"
+          class="btn btn--gold sv-share"
+          data-cite={citation}
         >
-          <path
-            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.49 4.04 3 5.5l7 7Z"
-          ></path>
-        </svg>
-        <span class="sv-correct-label">Contribute</span>
-      </a>
-      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--byz-ink)"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
-        </svg>
-        <span class="sv-share-label">Share / cite</span>
-      </button>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz-ink)"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
+          </svg>
+          <span class="sv-share-label">Share / cite</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -481,6 +527,13 @@ const wordsLabel = `In ${possessive} own words`;
     )
   }
 
+  {/* ── deep-red line opening the reference zone (carousel + resources) ── */}
+  {
+    (depictions.length > 0 || m.links.length > 0) && (
+      <div class="sv-redrule" aria-hidden="true" />
+    )
+  }
+
   {/* ══════════════ DEPICTIONS & ICONS CAROUSEL ══════════════ */}
   {
     depictions.length > 0 && (
@@ -495,109 +548,158 @@ const wordsLabel = `In ${possessive} own words`;
                 order today.
               </p>
             </div>
-            <div class="sv-deps-nav">
-              <button
-                type="button"
-                class="sv-deps-arrow prev"
-                aria-label="Previous depictions"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--gold-deep)"
-                  stroke-width="1.9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M14 6l-6 6 6 6" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                class="sv-deps-arrow next"
-                aria-label="More depictions"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--gold-deep)"
-                  stroke-width="1.9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M10 6l6 6-6 6" />
-                </svg>
-              </button>
-            </div>
           </div>
 
-          <div class="sv-deps-track">
-            {depictions.map((d) => {
-              const inner = (
-                <>
-                  <div class="sv-dep-frame">
-                    <div class="sv-dep-mat">
-                      <div
-                        class="sv-dep-img"
-                        style={`background-image:url('${depImg(d.image)}')`}
-                      />
-                    </div>
-                  </div>
-                  <div class="sv-dep-meta">
-                    {d.tag && (
-                      <span class={`sv-dep-tag sv-dep-tag--${d.kind}`}>
-                        {d.tag}
-                      </span>
-                    )}
-                    <div class="sv-dep-title">
-                      {d.title}
-                      {d.era && <span class="sv-dep-era"> · {d.era}</span>}
-                    </div>
-                    {d.by && (
-                      <div class="sv-dep-by">
-                        <span>{d.by}</span>
-                        {d.source && (
-                          <svg
-                            width="11"
-                            height="11"
-                            viewBox="0 0 14 14"
-                            fill="none"
-                            stroke="var(--celest)"
-                            stroke-width="1.7"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            aria-hidden="true"
-                          >
-                            <path d="M4 10 10 4M5 4h5v5" />
-                          </svg>
-                        )}
+          <div class="sv-deps-viewport">
+            <button
+              type="button"
+              class="sv-deps-arrow prev"
+              aria-label="Previous depictions"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--gold-deep)"
+                stroke-width="1.9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M14 6l-6 6 6 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="sv-deps-arrow next"
+              aria-label="More depictions"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--gold-deep)"
+                stroke-width="1.9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M10 6l6 6-6 6" />
+              </svg>
+            </button>
+
+            <div class="sv-deps-track">
+              {depictions.map((d) => {
+                const inner = (
+                  <>
+                    <div class="sv-dep-frame">
+                      <div class="sv-dep-mat">
+                        <div
+                          class="sv-dep-img"
+                          style={`background-image:url('${depImg(d.image)}')`}
+                        />
                       </div>
-                    )}
-                  </div>
-                </>
-              );
-              return d.source ? (
-                <a
-                  href={d.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="sv-dep sv-dep--link"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div class="sv-dep">{inner}</div>
-              );
-            })}
+                    </div>
+                    <div class="sv-dep-meta">
+                      {d.tag && (
+                        <span class={`sv-dep-tag sv-dep-tag--${d.kind}`}>
+                          {d.tag}
+                        </span>
+                      )}
+                      <div class="sv-dep-title">
+                        {d.title}
+                        {d.era && <span class="sv-dep-era"> · {d.era}</span>}
+                      </div>
+                      {d.by && (
+                        <div class="sv-dep-by">
+                          <span>{d.by}</span>
+                          {d.source && (
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                              stroke="var(--celest)"
+                              stroke-width="1.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              aria-hidden="true"
+                            >
+                              <path d="M4 10 10 4M5 4h5v5" />
+                            </svg>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
+                return d.source ? (
+                  <a
+                    href={d.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="sv-dep sv-dep--link"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div class="sv-dep">{inner}</div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
+    )
+  }
+
+  {/* ══════════════ RESOURCES BAR (below the carousel) ══════════════ */}
+  {
+    m.links.length > 0 && (
+      <div class="sv-reslinks">
+        <div class="sv-reslinks-inner">
+          {m.links.map((l) => {
+            const meta = RES_META[l.kind];
+            return (
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sv-reslink"
+              >
+                {meta && <span class="sv-reslink-ico" set:html={meta.icon} />}
+                <span class="sv-reslink-text">
+                  <span class="sv-reslink-title">{l.label}</span>
+                  {meta && <span class="sv-reslink-sub">{meta.sub}</span>}
+                </span>
+                <svg
+                  class="sv-reslink-go"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 10 10 4M5 4h5v5" />
+                </svg>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    )
+  }
+
+  {/* ── thin dark-blue divider closing the reference zone ── */}
+  {
+    (depictions.length > 0 || m.links.length > 0) && (
+      <div class="sv-bluerule" aria-hidden="true" />
     )
   }
 
@@ -1310,6 +1412,14 @@ const wordsLabel = `In ${possessive} own words`;
       />
     )
   }
+
+  {
+    /* ══════════════ CLOSING RIBBON (above the footer, decorative) ══════════════ */
+  }
+  <div class="sv-greenrule" aria-hidden="true"></div>
+  <div class="sv-actions sv-actions--foot" aria-hidden="true">
+    <div class="sv-actions-inner"></div>
+  </div>
 </div>
 
 <script>
