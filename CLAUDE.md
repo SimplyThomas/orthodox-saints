@@ -86,8 +86,12 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── public/                    ← build.py OUTPUT, git-ignored (data.json — Astro imports it at build)
 ├── dist/                      ← build.py OUTPUT, git-ignored (Orthodox_Saints_Database.xlsx)
 ├── _site/                     ← Astro OUTPUT, git-ignored (the deployed static site)
+├── workers/report/            ← Cloudflare Worker backend for the /corrections form:
+│                                Turnstile-verified → files a `data-quality` GitHub issue via a
+│                                GitHub App. Own toolchain + README; NOT part of the Astro build.
 └── .github/workflows/
-    ├── ci.yml                 ← PR gate: python (tests+validate) AND frontend (lint+build+e2e)
+    ├── ci.yml                 ← PR gate: python (tests+validate), frontend (lint+build+e2e),
+    │                            AND worker (workers/report smoke tests)
     └── deploy.yml             ← on push to main: python build → astro build → deploy to Pages
 ```
 
@@ -666,9 +670,10 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   hand-written `href`/`src`, and routing through `withBase()` keeps any future base change a
   one-line edit. **CI/CD:** GitHub Actions (free).
 - The deploy workflow runs `python build.py` → `astro build` → publishes `_site/`. The PR
-  workflow (`ci.yml`) has two required gates: **`validate`** (python unit tests + `--check-only`)
-  and **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`). A CodeQL
-  workflow scans the code; Dependabot keeps Actions / pip / Docker / **npm** current
+  workflow (`ci.yml`) has three gates: **`validate`** (python unit tests + `--check-only`),
+  **`frontend`** (`npm run lint` + `astro build` + Playwright e2e in `e2e/`), and **`worker`**
+  (`workers/report` `node --check` + offline smoke tests — runs only when that folder changes).
+  A CodeQL workflow scans the code; Dependabot keeps Actions / pip / Docker / **npm** current
   (patch+minor auto-merge). GitHub Actions are pinned to commit SHAs.
 - **PR preview deploys (Cloudflare Pages).** Every branch/PR is built by Cloudflare Pages
   (`scripts/cf-pages-build.sh`) and published to a `*.orthodox-saints.pages.dev` preview URL —
@@ -677,6 +682,14 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   flagged profiles also list their unresolved verifier concerns) for visual review before
   promotion. Always include the preview link in a PR (§12.7). Setup + behavior:
   `docs/cloudflare-pages-previews.md`.
+- **Corrections backend (`workers/report/`).** The `/corrections` form has no visitor GitHub
+  account requirement: it POSTs to a Cloudflare Worker at `orthodoxsaintfinder.com/api/report`
+  (same-origin route) that verifies a **Turnstile** token, sanitizes input, and files a
+  **`data-quality`** GitHub issue via a **GitHub App** (short-lived installation tokens signed
+  from an App private key — no PAT, nothing to rotate). It's a separate deploy from the site
+  (`npx wrangler deploy` from that folder), with its own package/lint/test toolchain (excluded
+  from the Astro eslint/prettier scope) and its own CI gate. Full setup, secrets, and
+  troubleshooting: `workers/report/README.md`.
 
 ---
 

@@ -26,7 +26,7 @@ import logging
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 THUMB_WIDTH = 200
 THUMB_MAX_HEIGHT = 250
@@ -51,6 +51,9 @@ def make_thumb(src: Path, dest: Path) -> bool:
     """Write the <=200x250 top-cropped JPEG thumb for one portrait."""
     try:
         img = Image.open(src)
+        # Honour the EXIF orientation, so a manually-dropped-in portrait that
+        # still carries one yields an upright thumb rather than a sideways one.
+        img = ImageOps.exif_transpose(img)
         if img.mode != "RGB":
             img = img.convert("RGB")
         w, h = img.size

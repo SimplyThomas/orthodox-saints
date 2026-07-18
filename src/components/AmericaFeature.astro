@@ -10,7 +10,6 @@ import { withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
 import EyebrowRule from "./EyebrowRule.astro";
-import AmericaMovement from "./AmericaMovement.astro";
 
 const saintMap = new Map(SAINTS.map((s) => [s.id, s]));
 
@@ -18,7 +17,7 @@ const saintMap = new Map(SAINTS.map((s) => [s.id, s]));
 // truth), cleaned for the gallery: drop the rank prefix and any trailing
 // descriptor clause from the name, and reduce the feast to its primary date.
 const RANK_PREFIX =
-  /^(St\.?|Saint|Holy|Blessed|Righteous|Venerable|Hiero(?:martyr|confessor)|Confessor|Martyr|Prophet|Apostles?|Equal-to-the-Apostles)\s+/i;
+  /^(St\.?|Saint|Holy|Blessed|Righteous|Venerable|Hiero(?:martyr|confessor)|Confessor|New Martyr|Martyr|Prophet|Apostles?|Archpriest|Equal-to-the-Apostles)\s+/i;
 function cleanName(dbName: string): string {
   let n = dbName.split(",")[0].trim(); // drop ", Confessor and Defender…" tails
   while (RANK_PREFIX.test(n)) n = n.replace(RANK_PREFIX, "").trim();
@@ -54,225 +53,732 @@ const prep = (s: AmericaSaint) => {
     catSlug: "t-" + s.cat.toLowerCase().replace(/[^a-z]+/g, "-"),
   };
 };
-const movement1 = AMERICA_MOVEMENT_I.map(prep);
-const movement2 = AMERICA_MOVEMENT_II.map(prep);
 
-const awaiting = WITNESSES.map((s) => ({
-  s,
-  reposed: s.reposedYear || (s.years.split("–").pop() || "").trim(),
-}));
+const movements = [
+  {
+    title: "They Came Across the Sea",
+    desc: [
+      "The first generation of Orthodox saints in North America arrived from distant lands. Missionaries, bishops, monks, priests, and immigrants carried the Orthodox faith across oceans, establishing parishes, translating Scripture, evangelizing Native peoples, and laying the foundations of the Church in the New World. Though born elsewhere, their lives became inseparable from the history of Orthodoxy in America.",
+    ],
+    items: AMERICA_MOVEMENT_I.map(prep),
+  },
+  {
+    title: "Those Born of This Land",
+    desc: [
+      "The seeds planted by the early missionaries bore lasting fruit. These saints were born in North America and reveal that holiness is not bound to any nation or culture. Their lives testify that the Orthodox faith has become deeply rooted on this continent, producing its own confessors, missionaries, pastors, and righteous men and women.",
+    ],
+    items: AMERICA_MOVEMENT_II.map(prep),
+  },
+];
+
+const witnessDesc = [
+  "The story of Orthodoxy in America is still being written. Throughout the twentieth and twenty-first centuries, many bishops, priests, monastics, theologians, missionaries, and laypeople have left a lasting mark on the life of the Church through their faithfulness, teaching, sacrifice, and service.",
+  "The individuals below are remembered with deep affection by many Orthodox Christians and continue to inspire the faithful. While they have not been formally glorified as saints by the Orthodox Church, they remain important figures in the history of Orthodoxy in North America. Their inclusion here is intended to honor their contributions to the Church and to preserve the memory of those whose lives continue to encourage future generations.",
+];
+
+// The curated roster + order for the Witnesses section. Every slug must exist
+// in WITNESSES (src/lib/witnesses.ts); witnesses not listed here keep their
+// /witness/<slug> memorial page but are not shown on this page.
+const WITNESS_SECTION = [
+  "seraphim-rose",
+  "ephraim-of-arizona",
+  "dmitri-royster",
+  "roman-braga",
+  "mother-alexandra",
+  "thomas-hopko",
+  "michael-oleksa",
+  "alexander-schmemann",
+  "georges-florovsky",
+  "john-meyendorff",
+  "michael-gelsinger",
+];
+const awaiting = WITNESS_SECTION.flatMap((slug) => {
+  const s = WITNESSES.find((w) => w.slug === slug);
+  if (!s) throw new Error(`america: unknown witness slug "${slug}"`);
+  return [
+    { s, reposed: s.reposedYear || (s.years.split("–").pop() || "").trim() },
+  ];
+});
 ---
 
-{/* ---------- hero (ivory) ---------- */}
+{
+  /* ---------- hero — the shared page-hero pattern (dome, eyebrow, title) ---------- */
+}
 <section class="am-hero">
-  <div class="dome-bg"><DomeMark w={460} color="var(--byz)" /></div>
+  <div class="dome-bg" aria-hidden="true">
+    <DomeMark w={460} color="var(--byz)" />
+  </div>
   <div class="inner">
     <EyebrowRule label="The Saints" />
-    <h1>A Pilgrimage of Hope</h1>
-    <p class="am-hero-tagline">The Holy People of America</p>
+    <h1>Saints of America</h1>
+    <p class="lede">
+      A pilgrimage of hope — the holy people who planted the Church in this
+      land.
+    </p>
     <blockquote class="am-verse">
-      &ldquo;The kingdom of heaven is like a grain of mustard seed that a man
-      took and sowed in his field. It is the smallest of all seeds, but when it
-      has grown it is larger than all the garden plants and becomes a tree, so
-      that the birds of the air come and make nests in its branches.&rdquo;
-      <cite>Matthew 13 : 31&ndash;32</cite>
+      &ldquo;The kingdom of heaven is like a grain of mustard seed, which a man
+      took, and sowed in his field. It is indeed smaller than all seeds, but
+      when it is grown, it is the biggest of shrubs and becomes a tree, so that
+      the birds of the air can come and find shelter in its branches.&rdquo;
+      <cite>Matthew 13:31&ndash;32 (EOB)</cite>
     </blockquote>
   </div>
 </section>
 
-{/* ---------- opening essay (paper) ---------- */}
-<section class="am-essay">
-  <div class="am-essay-inner">
-    <p class="dropcap">
-      When first approaching Orthodoxy, it can seem as if it is far away. You
-      might wonder: Where has the Church been this whole time? Why does America
-      feel as though it has been left to wander in the desert?
-    </p>
-    <p>
-      The thing is, the Church has been here all along. Some might say she has
-      existed since before the foundations of the world. America, on the other
-      hand, is young. Though the Church has grown slowly here, she is here.
-    </p>
-    <figure class="am-scripture">
-      <blockquote>
-        &ldquo;The kingdom of heaven is like leaven that a woman took and hid in
-        three measures of flour, till it was all leavened.&rdquo;
-      </blockquote>
-      <figcaption>Matthew 13:33</figcaption>
-    </figure>
-    <p>
-      Slowly, and often hidden from the world, Christ has been planting seeds of
-      holiness in this land.
-    </p>
-    <p>
-      The holy people of America remind us that Orthodoxy is not only something
-      ancient and far away. It is alive here. Saints crossed oceans, endured
-      loneliness, built churches, prayed in wilderness places, served the poor,
-      and healed the wounded.
-    </p>
-    <p>
-      On this page you will find a small gathering of witnesses &mdash;
-      canonized saints, righteous elders, missionaries, monastics, martyrs,
-      mothers, priests, and faithful servants whose lives show that God is still
-      working in this land.
-    </p>
-  </div>
+{
+  /* ---------- opening word — a deep-navy band between hero and saints ---------- */
+}
+<section class="am-intro-band">
+  <p class="dropcap">
+    From the forests of Alaska to the cities of the East Coast, the Orthodox
+    faith has taken root across North America through the witness of holy men
+    and women from many nations. Some crossed oceans to preach the Gospel and
+    establish the Church in a new land. Others were born here, demonstrating
+    that the same holiness that flourished in Jerusalem, Constantinople, Mount
+    Athos, and Russia continues to bear fruit on American soil.
+  </p>
 </section>
 
-{
-  /* ---------- the gallery (deep navy ground, three gilded panels) ---------- */
-}
-<div class="am-gallery">
-  <AmericaMovement
-    title="They Came from Across the Sea"
-    lede="Saints that came to us from other places."
-    tone="garnet"
-  >
-    {
-      movement1.map(({ s, hit, catSlug, name, feast, epithet }) => {
-        const Tag = hit ? "a" : "div";
-        return (
-          <Tag
-            class={`pga-card${hit ? " clickable" : ""}`}
-            data-saint={hit?.id}
-            href={hit ? withBase(`saint/${hit.id}`) : undefined}
-          >
-            <div
-              class="portrait"
-              set:html={saintAvatar(
-                { name, image: hit?.image, imageThumb: hit?.imageThumb },
-                84,
-                104,
-                {
-                  type: s.cat,
-                },
-              )}
-            />
-            <div class="body">
-              <h3>{name}</h3>
-              {epithet && <div class="epithet">{epithet}</div>}
-              <div class="years">{s.years}</div>
-              <span class={`tag ${catSlug}`}>
-                <i />
-                {s.cat}
-              </span>
-              <p>{s.contribution}</p>
-              <div class="foot">
-                <span class="feast">Feast · {feast}</span>
-                <span class="glor">Glorified {s.glorified}</span>
+{/* everything beneath sits on the lighter paper ground */}
+<div class="am-paper">
+  {/* ---------- the saints: ivory head band + paper carousel ---------- */}
+  {
+    movements.map((m) => (
+      <section class="am-move">
+        <div class="move-band">
+          <div class="wrap">
+            <header class="move-head">
+              <h2>{m.title}</h2>
+              <div class="rule" aria-hidden="true">
+                <span class="dot" />
               </div>
-            </div>
-          </Tag>
-        );
-      })
-    }
-  </AmericaMovement>
-
-  <AmericaMovement
-    title="Those Born of This Land"
-    lede="Saints from America"
-    tone="forest"
-  >
-    {
-      movement2.map(({ s, hit, catSlug, name, feast, epithet }) => {
-        const Tag = hit ? "a" : "div";
-        return (
-          <Tag
-            class={`pga-card${hit ? " clickable" : ""}`}
-            data-saint={hit?.id}
-            href={hit ? withBase(`saint/${hit.id}`) : undefined}
-          >
-            <div
-              class="portrait"
-              set:html={saintAvatar(
-                { name, image: hit?.image, imageThumb: hit?.imageThumb },
-                84,
-                104,
-                {
-                  type: s.cat,
-                },
-              )}
-            />
-            <div class="body">
-              <h3>{name}</h3>
-              {epithet && <div class="epithet">{epithet}</div>}
-              <div class="years">{s.years}</div>
-              <span class={`tag ${catSlug}`}>
-                <i />
-                {s.cat}
-              </span>
-              <p>{s.contribution}</p>
-              <div class="foot">
-                <span class="feast">Feast · {feast}</span>
-                <span class="glor">Glorified {s.glorified}</span>
-              </div>
-            </div>
-          </Tag>
-        );
-      })
-    }
-  </AmericaMovement>
-
-  <AmericaMovement
-    title="The Witnesses of Our Time"
-    lede="The work is not finished. These reposed servants are held in living memory by the faithful — remembered with love, though not yet formally glorified by the Church."
-    tone="plum"
-    tail
-  >
-    {
-      awaiting.map(({ s, reposed }) => (
-        <a class="pga-card clickable" href={withBase(`witness/${s.slug}`)}>
-          <div
-            class="portrait"
-            set:html={saintAvatar({ name: s.name }, 84, 104, {
-              awaiting: true,
-            })}
-          />
-          <div class="body">
-            <h3>{s.name}</h3>
-            {s.epithet && <div class="epithet">{s.epithet}</div>}
-            <div class="years">
-              {s.years || (reposed ? `† Reposed ${reposed}` : "")}
-            </div>
-            <div class="badges">
-              <span class="tag t-venerated">
-                <i />
-                {s.role}
-              </span>
-              <span class="tag t-venerated solid">Not yet glorified</span>
-            </div>
-            <p>{s.bio[0]}</p>
-            <div class="foot">
-              <span class="place">{s.place}</span>
+            </header>
+            <div class="move-desc">
+              {m.desc.map((p) => (
+                <p>{p}</p>
+              ))}
             </div>
           </div>
-        </a>
-      ))
-    }
-  </AmericaMovement>
+        </div>
+        <div class="wrap">
+          <div class="am-carousel">
+            <div class="am-track">
+              {m.items.map(({ s, hit, catSlug, name, feast, epithet }) => {
+                const Tag = hit ? "a" : "div";
+                return (
+                  <Tag
+                    class={`am-card${hit ? " clickable" : ""}`}
+                    data-saint={hit?.id}
+                    href={hit ? withBase(`saint/${hit.id}`) : undefined}
+                  >
+                    <div
+                      class="portrait"
+                      set:html={saintAvatar(
+                        {
+                          name,
+                          image: hit?.image,
+                          imageThumb: hit?.imageThumb,
+                        },
+                        84,
+                        104,
+                        { type: s.cat },
+                      )}
+                    />
+                    <div class="body">
+                      <h3>{name}</h3>
+                      {epithet && <div class="epithet">{epithet}</div>}
+                      <div class="years">{s.years}</div>
+                      <span class={`tag ${catSlug}`}>
+                        <i />
+                        {s.cat}
+                      </span>
+                      <p>{s.contribution}</p>
+                      <div class="foot">
+                        <span class="feast">Feast · {feast}</span>
+                        <span class="glor">Glorified {s.glorified}</span>
+                      </div>
+                    </div>
+                  </Tag>
+                );
+              })}
+            </div>
+            <button type="button" class="am-arrow prev" aria-label="Previous">
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--byz)"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+            <button type="button" class="am-arrow next" aria-label="Next">
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--byz)"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="am-move">
+    <div class="move-band">
+      <div class="wrap">
+        <header class="move-head">
+          <h2>The Witnesses of Our Time</h2>
+          <div class="rule" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+        </header>
+        <div class="move-desc">
+          {witnessDesc.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="am-carousel">
+        <div class="am-track">
+          {
+            awaiting.map(({ s, reposed }) => (
+              <a class="am-card clickable" href={withBase(`witness/${s.slug}`)}>
+                <div
+                  class="portrait"
+                  set:html={saintAvatar({ name: s.name }, 84, 104, {
+                    awaiting: true,
+                  })}
+                />
+                <div class="body">
+                  <h3>{s.name}</h3>
+                  {s.epithet && <div class="epithet">{s.epithet}</div>}
+                  <div class="years">
+                    {s.years || (reposed ? `† Reposed ${reposed}` : "")}
+                  </div>
+                  <div class="badges">
+                    <span class="tag t-venerated">
+                      <i />
+                      {s.role}
+                    </span>
+                    <span class="tag t-venerated solid">Not yet glorified</span>
+                  </div>
+                  <p>{s.bio[0]}</p>
+                  <div class="foot">
+                    <span class="place">{s.place}</span>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <button type="button" class="am-arrow prev" aria-label="Previous">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz)"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg
+          >
+        </button>
+        <button type="button" class="am-arrow next" aria-label="Next">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--byz)"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg
+          >
+        </button>
+      </div>
+    </div>
+  </section>
+
+  {
+    /* ---------- closing essay — navy chapter band + reading column ---------- */
+  }
+  <div class="move-band">
+    <div class="wrap">
+      <header class="move-head">
+        <h2>A Pilgrimage of Hope</h2>
+        <div class="rule" aria-hidden="true">
+          <span class="dot"></span>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="wrap">
+    <section class="am-essay">
+      <p class="dropcap">
+        When we first began approaching Orthodoxy, we struggled with how long it
+        had taken us to find the Church. We wondered why God had allowed us to
+        spend so much of our lives searching before finding His Church. In a
+        country that has largely forgotten Eastern Christianity we believed that
+        the only ancient Church was the Roman Catholic Church.
+      </p>
+      <p>
+        Through our own struggle and research, we came to realize that if we had
+        found Orthodoxy sooner in our lives, we wouldn&rsquo;t have what we do
+        today. We likely wouldn&rsquo;t be in our parish, we wouldn&rsquo;t have
+        the godparents we do, and we wouldn&rsquo;t have many of the experiences
+        that now allow us to help others who are asking the same questions we
+        once did.
+      </p>
+      <p>
+        That is why we wanted to create a dedicated page for the saints of
+        America.
+      </p>
+      <p>The truth is, the Church has been here all along.</p>
+      <p class="verse-intro">As Christ says,</p>
+      <figure class="am-scripture">
+        <blockquote>
+          &ldquo;The Kingdom of Heaven is like the yeast that a woman took and
+          mixed in with three measures of flour, until it was all
+          leavened.&rdquo;
+        </blockquote>
+        <figcaption>Matthew 13:33 (EOB)</figcaption>
+      </figure>
+      <p>
+        Slowly, and often hidden from the world, our Lord has been planting
+        seeds of holiness in this land. The holy people of America remind us
+        that Orthodoxy is not far away, it is not merely something of the past,
+        and the Church never needed to be revived.
+      </p>
+      <p class="verse-intro">As Christ also promised,</p>
+      <figure class="am-scripture">
+        <blockquote>
+          &ldquo;I also tell you that you are Peter, and upon this rock I will
+          build my Church, and the gates of Hades will not prevail against
+          it.&rdquo;
+        </blockquote>
+        <figcaption>Matthew 16:18 (EOB)</figcaption>
+      </figure>
+      <p>
+        Though Orthodoxy may be newer to many of us than it is in other
+        countries, His Church is alive and well. Ordinary men and women crossed
+        oceans, endured loneliness, built churches, prayed in the wilderness,
+        served the poor, and cared for the wounded. Through their faithfulness,
+        the Orthodox Church quietly took root in America.
+      </p>
+      <p>
+        On this page you will find a small gathering of
+        witnesses&mdash;canonized saints, righteous elders, missionaries,
+        monastics, martyrs, mothers, priests, and other faithful servants whose
+        lives remind us that God is still working in this land.
+      </p>
+    </section>
+  </div>
 </div>
 
-{/* ---------- the story continues (paper) ---------- */}
-<section class="am-continues">
-  <div class="am-essay-inner">
-    <div class="am-continues-head">
-      <h2>The Story Continues</h2>
-      <div class="rule"><span class="dot"></span></div>
-    </div>
-    <p>
-      The holy people on this page are only a small glimpse of what God has
-      done&mdash;and continues to do&mdash;in America.
-    </p>
-    <p>
-      Throughout North America, monasteries continue to flourish, relics
-      continue to be venerated, pilgrims continue to receive comfort, and lives
-      continue to be transformed through Christ and His Church.
-    </p>
-    <p>
-      The Kingdom often grows quietly, like leaven hidden in dough or a mustard
-      seed planted in the earth. Yet the very existence of Orthodox churches,
-      monasteries, saints, and faithful Christians throughout this land is
-      evidence that God has not forgotten America.
-    </p>
-  </div>
-</section>
+<style>
+  /* Page hero — the shared pattern (dome watermark, diamond eyebrow, serif
+     title at the uniform --page-title-size). The .am-hero class name is load-
+     bearing: global.css positions `.am-hero .dome-bg` with the other heroes. */
+  .am-hero {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    padding: clamp(64px, 12vw, 120px) 20px clamp(30px, 5vw, 52px);
+  }
+  .am-hero .inner {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .am-hero h1 {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 18px 0 0;
+  }
+  .am-hero .lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 16px auto 0;
+    max-width: 52ch;
+  }
+  .am-verse {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16.5px, 2.1vw, 19px);
+    color: var(--byz);
+    max-width: 640px;
+    margin: 34px auto 0;
+    line-height: 1.55;
+    text-wrap: balance;
+  }
+  .am-verse cite {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-top: 12px;
+  }
+
+  /* The full-bleed lighter-paper ground for everything beneath the intro band. */
+  .am-paper {
+    background: var(--paper);
+    padding-bottom: 72px;
+  }
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 32px);
+  }
+
+  /* The closing essay — a reading column beneath its navy chapter band; the
+     max-width is set on the inner paragraphs, matching the intro column. */
+  .am-essay {
+    margin: 2.6rem auto 0;
+  }
+  /* Opening word — a light-paper reading column with the gilded dropcap,
+     bridging the ivory hero and the navy chapter bands below. */
+  .am-intro-band {
+    background: var(--paper);
+    padding: clamp(36px, 5vw, 56px) clamp(16px, 3vw, 32px);
+  }
+  .am-intro-band p {
+    font-size: clamp(17px, 2.1vw, 19px);
+    color: var(--ink);
+    line-height: 1.78;
+    max-width: 46rem;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .am-intro-band p.dropcap::first-letter {
+    float: left;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--gold-deep);
+    font-size: 82px;
+    line-height: 0.74;
+    margin: 8px 14px 0 0;
+  }
+  .am-essay p {
+    font-size: clamp(17px, 2.1vw, 19px);
+    color: var(--ink);
+    line-height: 1.78;
+    max-width: 46rem;
+    margin: 0 auto 24px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .am-essay p.dropcap::first-letter {
+    float: left;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--gold-deep);
+    font-size: 82px;
+    line-height: 0.74;
+    margin: 8px 14px 0 0;
+  }
+  /* Short lead-in line ("As Christ says,") hugging its scripture figure. */
+  .am-essay p.verse-intro {
+    margin-bottom: 10px;
+  }
+  .am-scripture {
+    max-width: 46rem;
+    margin: 6px auto 30px;
+    text-align: center;
+  }
+  .am-scripture blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(19px, 2.5vw, 23px);
+    color: var(--byz);
+    line-height: 1.5;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .am-scripture figcaption {
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+
+  /* Movement sections — eyebrow-ruled heading + card grid on the ivory ground. */
+  /* Each movement opens with a full-bleed deep-navy band holding its heading +
+     description in ivory; the carousel below rests on the darker-ivory ground.
+     Sections butt together so navy bands and ivory card areas alternate with
+     no paper showing between them. */
+  .am-move {
+    background: var(--ivory);
+    padding-bottom: 3.2rem;
+  }
+  .move-band {
+    background: linear-gradient(
+      180deg,
+      var(--byz-deep) 0%,
+      var(--byz-ink) 100%
+    );
+    border-top: 1px solid var(--line-gold);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+    padding: 2.6rem 0 1.6rem;
+  }
+  .move-band .move-head h2 {
+    color: var(--ivory);
+  }
+  /* Section heading — a large serif title over a gold diamond rule, so each
+     movement reads as a distinct chapter of the page. */
+  .move-head {
+    text-align: center;
+  }
+  .move-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.6vw, 36px);
+    color: var(--byz-deep);
+    line-height: 1.1;
+    margin: 0 0 14px;
+  }
+  .move-head .rule {
+    position: relative;
+    height: 1px;
+    max-width: 220px;
+    margin: 0 auto;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--line-gold),
+      transparent
+    );
+  }
+  .move-head .rule .dot {
+    position: absolute;
+    top: -3.5px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--gold);
+  }
+
+  /* Section description — spans the same width as the card carousel below it
+     (fluid with the page); the band's gold edges frame it. */
+  .move-desc {
+    margin: 1rem auto 0;
+  }
+  .move-desc p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--ivory);
+    opacity: 0.92;
+    text-align: center;
+    margin: 0 0 0.8rem;
+  }
+  .move-desc p:last-child {
+    margin-bottom: 0;
+  }
+  /* Carousel — scroll-snap track with gold prev/next arrows (wired by the
+     america-carousel island; scrolls natively without JS). */
+  .am-carousel {
+    position: relative;
+    margin-top: 1.4rem;
+  }
+  .am-track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2px 2px 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .am-track::-webkit-scrollbar {
+    display: none;
+  }
+  .am-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--gold-deep);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    padding: 0;
+    box-shadow: 0 3px 12px rgba(15, 34, 56, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      background 0.15s,
+      opacity 0.2s,
+      box-shadow 0.15s;
+  }
+  .am-arrow.prev {
+    left: -18px;
+  }
+  .am-arrow.next {
+    right: -18px;
+  }
+  .am-arrow.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .am-arrow:hover {
+    background: var(--gold);
+    box-shadow: 0 5px 18px rgba(15, 34, 56, 0.3);
+  }
+
+  /* Saint card — paper ground, gilt hairline, portrait band. Exactly four
+     cards per view (track gap 18px → three gaps), so none is ever clipped;
+     the arrow advances a full page (see the island). */
+  .am-card {
+    flex: 0 0 calc((100% - 54px) / 4);
+    scroll-snap-align: start;
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+  }
+  .am-card.clickable {
+    cursor: pointer;
+    transition:
+      transform 0.14s,
+      box-shadow 0.14s,
+      border-color 0.14s;
+  }
+  .am-card.clickable:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+  }
+  .am-card .portrait {
+    background: linear-gradient(180deg, #fbf6ea, #efe3cb);
+    padding: 20px 0 18px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .am-card .body {
+    padding: 15px 17px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .am-card h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--byz-deep);
+    line-height: 1.08;
+    margin: 0;
+  }
+  .am-card .epithet {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--celest);
+    margin-bottom: 3px;
+  }
+  .am-card .years {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    min-height: 1em;
+  }
+  .am-card .tag {
+    align-self: flex-start;
+    margin-bottom: 11px;
+  }
+  .am-card .badges {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-bottom: 11px;
+  }
+  .am-card .badges .tag {
+    margin-bottom: 0;
+    align-self: auto;
+  }
+  .am-card .tag.solid {
+    border-style: solid;
+  }
+  .am-card .body p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    flex: 1;
+    margin: 0;
+  }
+  .am-card .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 13px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line-gold);
+  }
+  .am-card .foot .feast {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    color: var(--gold-deep);
+    white-space: nowrap;
+  }
+  .am-card .foot .glor {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--celest);
+    white-space: nowrap;
+  }
+  .am-card .foot .place {
+    font-size: 12.5px;
+    color: var(--celest);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 980px) {
+    .am-card {
+      flex-basis: calc((100% - 36px) / 3);
+    }
+  }
+  @media (max-width: 860px) {
+    .am-card {
+      flex-basis: calc((100% - 18px) / 2);
+    }
+  }
+  @media (max-width: 640px) {
+    .am-card {
+      flex-basis: 100%;
+    }
+  }
+</style>

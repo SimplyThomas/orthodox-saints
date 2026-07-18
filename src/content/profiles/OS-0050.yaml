@@ -160,5 +160,29 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_of_Shanghai_and_San_Francisco
   - https://orthodoxwiki.org/John_Maximovitch
+  - https://en.wikipedia.org/wiki/Holy_Virgin_Cathedral
+  - https://en.wikipedia.org/wiki/Cathedral_of_St._John_the_Baptist_(Washington,_D.C.)
+  - https://wadiocese.org/news_241217_1
+  - https://monasteryofstjohn.org/
+influence:
+  heading: Influence in America
+  intro: "St. John's final years as Archbishop of San Francisco, and his lifelong care for the scattered Russian diaspora, left a shrine, schools, and monasteries that keep his presence tangible in America."
+  places:
+    - name: "Holy Virgin Cathedral (Joy of All Who Sorrow)"
+      kind: Cathedral
+      place: "San Francisco, California"
+      note: "The great cathedral of the Richmond District, whose construction he brought to completion as archbishop (built 1961–1965). Since his 1994 glorification his relics have rested in a shrine in the cathedral, making it the chief place of pilgrimage to the saint in America."
+    - name: "St. John of San Francisco Orthodox Academy"
+      kind: School
+      place: "San Francisco, California"
+      note: "The first K-12 Orthodox Christian school in the United States, founded in 1994 and named for the saint; it is housed at the cathedral where his relics rest, continuing his characteristic care for the education of the young."
+    - name: "Cathedral of St. John the Baptist"
+      kind: Cathedral
+      place: "Washington, D.C."
+      note: "Founded by Archbishop John in 1949, during the visit in which he lobbied Washington to admit the Russian refugees he had led out of Shanghai; the parish he planted grew into a cathedral of the Russian Church Abroad."
+    - name: "Monastery of St. John of Shanghai and San Francisco"
+      kind: Monastery
+      place: "Manton, California"
+      note: "A monastery of the OCA Diocese of the West named for the saint, founded in 1996 at Point Reyes Station and relocated to Manton in 2006; it treasures relics and vestments of St. John."
 status: reviewed
 generated: "2026-06-18"
