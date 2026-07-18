@@ -8,6 +8,12 @@ import { splitName } from "../lib/names";
 import { LITURGICAL_COLORS, FASTING_LEVELS } from "../lib/liturgical";
 import { litPayload } from "../lib/lit-payload";
 
+// Absolute .ics feed URLs for the "Subscribe" control (one per reckoning; the
+// island swaps to the one matching the active New/Old toggle).
+const siteOrigin = Astro.site?.href.replace(/\/$/, "") ?? "";
+const feedNew = `${siteOrigin}${withBase("calendar/new.ics")}`;
+const feedOld = `${siteOrigin}${withBase("calendar/old.ics")}`;
+
 // Every saint grouped onto each fixed feast date they hold. Movable-cycle
 // commemorations (no fixed Mon-D) collect separately. The grid + "today" are
 // built client-side (islands/calendar) because a build-time new Date() would
@@ -171,6 +177,56 @@ const swatch = (key: string) =>
             title="Julian — fixed feasts fall 13 days later on the civil calendar"
             >Old Calendar</button
           >
+        </div>
+        <div
+          class="cal-subscribe"
+          data-feed-new={feedNew}
+          data-feed-old={feedOld}
+        >
+          <button
+            type="button"
+            id="cal-sub-btn"
+            class="cal-sub-btn"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="cal-sub-pop"
+            title="Subscribe to this calendar in Google, Apple, or Outlook"
+          >
+            Subscribe
+          </button>
+          <div
+            class="cal-sub-pop"
+            id="cal-sub-pop"
+            role="dialog"
+            aria-label="Subscribe to this calendar"
+            hidden
+          >
+            <p class="cal-sub-title" id="cal-sub-title"></p>
+            <p class="cal-sub-blurb">
+              Add the feasts, fasts, and saints of each day to Google, Apple, or
+              Outlook — matching the calendar selected above.
+            </p>
+            <div class="cal-sub-acts">
+              <a class="btn btn--gold" id="cal-sub-apple" href="#"
+                >Add to Apple / Outlook</a
+              >
+              <a
+                class="btn btn--ghost"
+                id="cal-sub-google"
+                href="#"
+                target="_blank"
+                rel="noopener">Add to Google</a
+              >
+            </div>
+            <label class="cal-sub-url"
+              >Or copy this link into your calendar app:
+              <input type="text" id="cal-sub-input" readonly value="" />
+            </label>
+            <p class="cal-sub-hint">
+              Tip: Google names the calendar after its URL — rename it afterward
+              in the calendar's own settings.
+            </p>
+          </div>
         </div>
         <div class="cal-ctrls">
           <button type="button" id="cal-today-btn">Today</button>
@@ -373,3 +429,77 @@ const swatch = (key: string) =>
     import "../islands/calendar.client.ts";
   </script>
 </BaseLayout>
+
+<style>
+  /* Subscribe control lives in the calendar bar and tracks the New/Old toggle;
+     the island (calendar.client.ts) swaps its links + label to the active feed. */
+  .cal-subscribe {
+    position: relative;
+    display: inline-flex;
+  }
+  .cal-sub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.8rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--byz-deep);
+    background: var(--ivory-2);
+    border: 1px solid var(--line-gold);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .cal-sub-btn:hover {
+    background: var(--ivory-3, var(--ivory-2));
+  }
+  .cal-sub-pop {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 30;
+    width: min(22rem, 86vw);
+    padding: 1rem 1.1rem;
+    background: var(--ivory-1, #fff);
+    border: 1px solid var(--line-gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 18%);
+    text-align: left;
+  }
+  .cal-sub-title {
+    margin: 0 0 0.3rem;
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    color: var(--byz-deep);
+  }
+  .cal-sub-blurb {
+    margin: 0 0 0.8rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .cal-sub-acts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .cal-sub-url {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .cal-sub-url input {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-size: 0.8rem;
+  }
+  .cal-sub-hint {
+    margin: 0.7rem 0 0;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+</style>
