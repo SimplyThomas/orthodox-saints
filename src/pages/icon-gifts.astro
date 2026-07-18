@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import IconGifts from "../components/IconGifts.astro";
+---
+
+<BaseLayout
+  active="icon-gifts"
+  title="Giving Icons as Gifts"
+  description="Which icons are traditionally given for a birth, baptism, name day, marriage, housewarming, illness, or death — why they are given, and where they are kept."
+>
+  <IconGifts />
+
+  <script>
+    import "../islands/icon-gifts.client.ts";
+  </script>
+</BaseLayout>

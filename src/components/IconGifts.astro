@@ -1,0 +1,1072 @@
+---
+/* "Giving Icons as Gifts" — a practical guide to which icons are given for
+   which occasion, why, and where they end up in the home.
+
+   All content lives in lib/icon-gifts.ts; this file is presentation only. Every
+   named icon subject resolves through resolveGiftRef(), so a suggestion links
+   to a live record when one exists and renders as plain text when it doesn't —
+   see the future-proofing note at the top of that file.
+
+   The hero composes a real icon corner out of database portraits. Most of those
+   are vendor-permission images (§9), so the hero carries the grant's required
+   attribution and links each icon back to its own vendor page. If the vendor is
+   ever revoked, build.py drops `image` from the records and the corner falls
+   back to monogram avatars on its own — see heroIcons below. */
+
+import EyebrowRule from "./EyebrowRule.astro";
+import DomeMark from "./icons/DomeMark.astro";
+import { saintAvatar } from "../lib/icons";
+import { withBase } from "../lib/format";
+import {
+  IG_HERO,
+  IG_OCCASIONS,
+  IG_VOCATIONS,
+  IG_TIERS,
+  IG_RECIPIENTS,
+  IG_TIPS,
+  resolveGiftRef,
+  type GiftIcon,
+  type GiftTier,
+} from "../lib/icon-gifts";
+
+/* ---------- the hero icon corner ---------- */
+/* Resolve first: a revoked vendor (§9) strips `image` from every record, so the
+   corner must never assume a portrait is there. Icons with a portrait render it;
+   the rest fall back to the monogram avatar; if the whole corner comes back
+   empty we drop to the site's DomeMark ornament rather than show a bare shelf. */
+const heroIcons = IG_HERO.map((h) => {
+  const r = resolveGiftRef(h.ref);
+  return { ...h, r, portrait: r?.image ? withBase(r.image) : null };
+}).filter((h) => h.r);
+const heroHasPortraits = heroIcons.some((h) => h.portrait);
+
+/* The grant's condition: each image links back to its own icon page. */
+const heroCredits = heroIcons.filter(
+  (h) => h.r?.imagePermission && h.r?.imageSource,
+);
+const heroVendor = heroCredits[0]?.r?.imageVendor ?? "";
+
+const TIER_LABEL: Record<GiftTier, string> = {
+  traditional: "Most traditional",
+  regional: "Regional custom",
+  modern: "Modern suggestion",
+};
+
+/* A suggestion renders as a link when its subject is a record, plain text when
+   it isn't (Christ Pantocrator as an icon *subject* is not a database row). */
+function iconHref(i: GiftIcon): string | null {
+  return resolveGiftRef(i.ref)?.href ?? null;
+}
+
+/* The combined gift picker. Occasions (events) and recipients (people) are two
+   framings of the same advice, so they share one refine-menu widget split into
+   two labeled groups. Both are normalized to one item shape here so the markup
+   renders a single card type. `lede` marks the short italic recipient intros
+   apart from the longer occasion prose. */
+interface PickItem {
+  id: string;
+  /** full heading — the menu option label, and the card's subject */
+  title: string;
+  intro: string;
+  lede?: boolean;
+  icons: GiftIcon[];
+  kicker?: string;
+  note?: { title: string; body: string };
+  vocations?: boolean;
+  key?: boolean;
+}
+const PICKER_GROUPS: { label: string; items: PickItem[] }[] = [
+  {
+    label: "By occasion",
+    items: IG_OCCASIONS.map((o) => ({
+      id: o.id,
+      title: o.title,
+      kicker: o.kicker,
+      intro: o.intro,
+      icons: o.icons,
+      note: o.note,
+      vocations: o.id === "vocation",
+      key: o.key,
+    })),
+  },
+  {
+    label: "For a person",
+    items: IG_RECIPIENTS.map((r) => ({
+      id: r.id,
+      title: r.label,
+      intro: r.intro,
+      lede: true,
+      icons: r.icons,
+    })),
+  },
+];
+const PICKER_ITEMS = PICKER_GROUPS.flatMap((g) => g.items);
+/* Greet visitors with baptism — the page's centre of gravity (the "key"
+   occasion) is the card shown first; the refine menu opens on it. */
+const DEFAULT_PICK = "baptism";
+const DEFAULT_ITEM =
+  PICKER_ITEMS.find((it) => it.id === DEFAULT_PICK) ?? PICKER_ITEMS[0];
+---
+
+<div class="igp">
+  {/* ============================ HERO ============================ */}
+  <section class="sr-hero ig-hero">
+    {
+      heroHasPortraits ? (
+        <div class="ig-corner">
+          <ul class="ig-corner-row">
+            {heroIcons.map((h) => (
+              <li class={`ig-corner-item${h.center ? " is-center" : ""}`}>
+                <a class="ig-corner-link" href={h.r!.href}>
+                  <span class="ig-frame">
+                    {h.portrait ? (
+                      <img
+                        class="ig-frame-img"
+                        src={h.portrait}
+                        alt={`Icon of ${h.label}`}
+                        loading="eager"
+                        decoding="async"
+                      />
+                    ) : (
+                      <Fragment
+                        set:html={saintAvatar({ name: h.label }, 92, 116)}
+                      />
+                    )}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <span class="ig-shelf" aria-hidden="true" />
+          {
+            /* The grant's condition is that each image links back to its own
+               icon page, so every icon above is named here and linked
+               individually — the vendor is credited once, not four times. */
+            heroCredits.length > 0 && (
+              <p class="ig-credit">
+                <span class="ig-credit-lead">Icons: {heroVendor}</span>
+                {heroCredits.map((h, n) => (
+                  <>
+                    {n > 0 && <span aria-hidden="true"> · </span>}
+                    <a
+                      href={h.r!.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {h.label}
+                    </a>
+                  </>
+                ))}
+              </p>
+            )
+          }
+        </div>
+      ) : (
+        <div class="dome-bg" aria-hidden="true">
+          <DomeMark w={460} color="var(--byz)" />
+        </div>
+      )
+    }
+
+    <div class="sr-hero-inner">
+      <EyebrowRule label="The Orthodox Home" />
+      <h1 class="sr-title">Giving Icons as Gifts</h1>
+      <p class="sr-lede">
+        Throughout the Orthodox Christian life, icons are given to mark the
+        milestones. Whether you are celebrating a birth, a baptism, a marriage,
+        or another turning point, an icon is a lasting reminder that Christ and
+        His saints accompany us through every stage of life.
+      </p>
+    </div>
+  </section>
+
+  {
+    /* ===================== FINDING THE RIGHT ICON =====================
+      A refine menu above one card. The menu lists every option in two labeled
+      groups — by occasion and for a person; choosing one swaps the card. Every
+      card renders up-front and the island shows all but the selected one, so
+      with JS off the section stays a complete, readable list. */
+  }
+  <section class="ig-sec ig-sec--ivory" id="find">
+    <div class="ig-wrap ig-wrap--wide">
+      <div class="ig-two">
+        <div class="ig-two-main">
+          <div class="ig-sec-head">
+            <div class="eyebrow">A place to start</div>
+            <h2>Finding the right icon</h2>
+            <p>
+              Choose the occasion or the person &mdash; and see what is usually
+              given, and what is better left to their godparent.
+            </p>
+          </div>
+
+          {
+            /* The refine menu: one control above the card. Click it and the grouped
+           options drop down; choosing one swaps the card below. The island
+           drives it; with no JS the menu button is inert but every card renders
+           in full, so the section stays a complete, readable list. */
+          }
+          <div class="ig-who" data-who>
+            <div class="ig-refine" data-refine>
+              <span class="ig-refine-lead">Choosing for</span>
+              <button
+                type="button"
+                class="ig-refine-btn"
+                data-refine-btn
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="ig-refine-current" data-refine-current>
+                  {DEFAULT_ITEM.title}
+                </span>
+                <svg
+                  class="ig-refine-chev"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="ig-refine-menu" data-refine-menu role="menu" hidden>
+                {
+                  PICKER_GROUPS.map((g) => (
+                    <div
+                      class="ig-refine-group"
+                      role="group"
+                      aria-label={g.label}
+                    >
+                      <div class="ig-refine-grouplabel">{g.label}</div>
+                      <div class="ig-refine-opts">
+                        {g.items.map((it) => (
+                          <button
+                            type="button"
+                            class="ig-refine-opt"
+                            role="menuitemradio"
+                            data-refine-opt={it.id}
+                            aria-checked={
+                              it.id === DEFAULT_PICK ? "true" : "false"
+                            }
+                          >
+                            {it.title}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+
+            <div class="ig-who-panels">
+              {
+                PICKER_ITEMS.map((it) => (
+                  <article
+                    class="ig-who-panel"
+                    id={`who-${it.id}`}
+                    data-who-panel={it.id}
+                  >
+                    {it.kicker && (
+                      <div class="eyebrow ig-who-panel-eb">{it.kicker}</div>
+                    )}
+                    <h3 class="ig-who-title">{it.title}</h3>
+                    {it.lede ? (
+                      <p class="ig-who-intro">{it.intro}</p>
+                    ) : (
+                      <p class="ig-prose">{it.intro}</p>
+                    )}
+
+                    {it.icons.length > 0 && (
+                      <ul class="ig-icons ig-icons--tight">
+                        {it.icons.map((i) => {
+                          const href = iconHref(i);
+                          return (
+                            <li class="ig-icon">
+                              <div class="ig-icon-head">
+                                {href ? (
+                                  <a class="ig-icon-name" href={href}>
+                                    {i.name}
+                                  </a>
+                                ) : (
+                                  <span class="ig-icon-name is-plain">
+                                    {i.name}
+                                  </span>
+                                )}
+                                <span class={`ig-tier is-${i.tier}`}>
+                                  {TIER_LABEL[i.tier]}
+                                </span>
+                              </div>
+                              <p class="ig-icon-why">{i.why}</p>
+                              {i.where && (
+                                <p class="ig-icon-where">{i.where}</p>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+
+                    {it.vocations && (
+                      <div class="ig-vocs">
+                        {IG_VOCATIONS.map((v) => {
+                          const r = resolveGiftRef(v.ref);
+                          return (
+                            <a class="ig-voc" href={r!.href}>
+                              <span class="ig-voc-label">{v.label}</span>
+                              <span class="ig-voc-note">{v.note}</span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {it.note && (
+                      <aside class="ig-note">
+                        <div class="corner tl" aria-hidden="true" />
+                        <div class="corner tr" aria-hidden="true" />
+                        <div class="corner bl" aria-hidden="true" />
+                        <div class="corner br" aria-hidden="true" />
+                        <h4 class="ig-note-title">{it.note.title}</h4>
+                        <p class="ig-note-body">{it.note.body}</p>
+                      </aside>
+                    )}
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        {/* ===== SIDEBAR: knowing the difference + before you buy ===== */}
+        <aside class="ig-two-rail">
+          <div class="ig-two-block" id="tiers">
+            <div class="ig-sec-head ig-two-railhead">
+              <div class="eyebrow">Knowing the difference</div>
+              <h2>Tradition, custom, and good ideas</h2>
+              <p>
+                Not everything an Orthodox Christian does is a tradition of the
+                Church, and not every tradition is kept everywhere. Telling them
+                apart is a courtesy to inquirers &mdash; and the surest way to
+                keep the real ones intact.
+              </p>
+            </div>
+
+            <div class="ig-faq">
+              {
+                IG_TIERS.map((t, i) => (
+                  <details
+                    class={`ig-faq-item is-${t.tier}`}
+                    name="ig-tiers"
+                    open={i === 0}
+                  >
+                    <summary class="ig-faq-q">
+                      <span class="ig-faq-qtext">{t.label}</span>
+                      <svg
+                        class="ig-faq-chev"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </summary>
+                    <div class="ig-faq-a">
+                      <p class="ig-faq-lede">{t.lede}</p>
+                      <ul class="ig-faq-list">
+                        {t.examples.map((e) => (
+                          <li>{e}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </details>
+                ))
+              }
+            </div>
+          </div>
+
+          {/* ===== BEFORE YOU BUY (stacked under the tiers) ===== */}
+          <div class="ig-two-block" id="tips">
+            <div class="ig-sec-head ig-two-railhead">
+              <div class="eyebrow">Before you buy</div>
+              <h2>Choosing well</h2>
+            </div>
+            <div class="ig-faq">
+              {
+                IG_TIPS.map((t, i) => (
+                  <details class="ig-faq-item" name="ig-tips" open={i === 0}>
+                    <summary class="ig-faq-q">
+                      <span class="ig-faq-qtext">{t.title}</span>
+                      <svg
+                        class="ig-faq-chev"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </summary>
+                    <div class="ig-faq-a">
+                      <p class="ig-faq-body">{t.body}</p>
+                    </div>
+                  </details>
+                ))
+              }
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* ---------------- layout ---------------- */
+  .ig-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 40px);
+  }
+  .ig-wrap--narrow {
+    max-width: 720px;
+  }
+  /* the picker section runs a touch wider to hold two columns comfortably */
+  .ig-wrap--wide {
+    max-width: 1200px;
+  }
+  .ig-sec {
+    padding: clamp(40px, 5.5vw, 60px) 0;
+  }
+
+  /* ---------------- two columns: a narrower left rail (the reference blocks —
+     knowing the difference + before you buy) beside the wide picker, sized like
+     the saint-profile rail + main. DOM order is picker-first (better reading
+     order); grid placement puts the rail on the left visually. ---------------- */
+  .ig-two {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: clamp(30px, 4vw, 56px);
+    align-items: start;
+  }
+  .ig-two-rail {
+    min-width: 0;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .ig-two-main {
+    min-width: 0;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  /* the two reference blocks stack in the rail */
+  .ig-two-block + .ig-two-block {
+    margin-top: clamp(30px, 4vw, 44px);
+  }
+  /* the rail head is a smaller, left-aligned sidebar title (the compound
+     selector out-specifies the centered .ig-sec-head base) */
+  .ig-sec-head.ig-two-railhead {
+    text-align: left;
+    max-width: none;
+    margin: 0 0 18px;
+  }
+  .ig-sec-head.ig-two-railhead h2 {
+    font-size: clamp(22px, 2.4vw, 26px);
+  }
+  .ig-sec-head.ig-two-railhead p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  /* stack the picker first, rail below, on narrow viewports */
+  @media (max-width: 900px) {
+    .ig-two {
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 56px);
+    }
+    .ig-two-rail,
+    .ig-two-main {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .ig-sec-head.ig-two-railhead {
+      text-align: center;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .ig-sec--ivory {
+    background: var(--ivory-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ig-sec-head {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto clamp(22px, 3vw, 34px);
+  }
+  .ig-sec-head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(30px, 4.4vw, 42px);
+    color: var(--byz-deep);
+    margin: 10px 0 0;
+  }
+  .ig-sec-head p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+    text-wrap: balance;
+  }
+
+  .ig-prose {
+    font-size: 17px;
+    line-height: 1.72;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .ig-prose:last-child {
+    margin-bottom: 0;
+  }
+  /* ---------------- hero icon corner ---------------- */
+  .ig-hero {
+    padding-bottom: 34px;
+  }
+  .ig-corner {
+    width: min(560px, 92vw);
+    margin: 0 auto 26px;
+  }
+  .ig-corner-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 16px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ig-corner-item {
+    flex: 0 0 auto;
+  }
+  /* The link is only as tall as its frame, so the icons bottom-align and the
+     shelf sits directly beneath them. The icons are deliberately unlabelled —
+     an icon corner has no placards, and the credit line below names and links
+     all four in order (each icon also carries alt text and its own link). */
+  .ig-corner-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .ig-frame {
+    display: block;
+    padding: 3px;
+    background: linear-gradient(160deg, var(--gold-soft), var(--gold-deep));
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
+  }
+  .ig-frame-img {
+    display: block;
+    width: 62px;
+    height: 78px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    background: #16304c;
+  }
+  .is-center .ig-frame-img {
+    width: 84px;
+    height: 106px;
+  }
+  .ig-corner-link:hover .ig-frame {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .ig-shelf {
+    display: block;
+    height: 2px;
+    margin: 5px auto 0;
+    width: min(460px, 84vw);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-deep) 12%,
+      var(--gold-deep) 88%,
+      transparent
+    );
+    border-radius: 2px;
+  }
+  .ig-credit {
+    position: relative;
+    max-width: 760px;
+    margin: 12px auto 0;
+    font-size: 10px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .ig-credit-lead {
+    display: block;
+  }
+  .ig-credit a {
+    color: var(--celest);
+  }
+  .ig-credit a:hover {
+    color: var(--gold-deep);
+  }
+
+  @keyframes igOpen {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  /* ---------------- icon suggestion list ---------------- */
+  .ig-icons {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 16px 26px;
+  }
+  .ig-icons--tight {
+    margin-top: 16px;
+  }
+  .ig-icon {
+    padding-left: 15px;
+    border-left: 2px solid var(--line-gold);
+  }
+  .ig-icon-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-bottom: 5px;
+  }
+  .ig-icon-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--byz-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-gold);
+    transition:
+      color 0.15s,
+      border-color 0.15s;
+  }
+  a.ig-icon-name:hover {
+    color: var(--gold-deep);
+    border-bottom-color: var(--gold);
+  }
+  .ig-icon-name.is-plain {
+    border-bottom: 0;
+  }
+  .ig-icon-why {
+    font-size: 15px;
+    line-height: 1.62;
+    color: var(--ink);
+    margin: 0;
+  }
+  .ig-icon-where {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--celest);
+    margin: 5px 0 0;
+  }
+
+  /* tier pills */
+  .ig-tier {
+    flex: 0 0 auto;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .ig-tier.is-traditional {
+    color: var(--gold-deep);
+    border-color: var(--line-gold);
+    background: rgba(212, 175, 55, 0.09);
+  }
+  .ig-tier.is-regional {
+    color: var(--byz-green);
+    border-color: rgba(31, 94, 84, 0.32);
+    background: rgba(31, 94, 84, 0.07);
+  }
+  .ig-tier.is-modern {
+    color: var(--celest);
+    border-color: var(--line);
+    background: rgba(35, 76, 122, 0.05);
+  }
+
+  /* ---------------- vocation buttons ---------------- */
+  .ig-vocs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .ig-voc {
+    display: block;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    text-decoration: none;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .ig-voc:hover {
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+  .ig-voc-label {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--byz-deep);
+  }
+  .ig-voc-note {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  /* ---------------- pulled-aside note ---------------- */
+  .ig-note {
+    position: relative;
+    margin-top: 24px;
+    padding: 22px 24px;
+    background: var(--ivory-2);
+    border: 1px solid var(--line-gold);
+    border-radius: 6px;
+  }
+  .ig-note-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--byz-deep);
+    margin: 0 0 7px;
+  }
+  .ig-note-body {
+    font-size: 15px;
+    line-height: 1.64;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ---------------- FAQ accordions (tiers + tips) ----------------
+     Native <details> disclosure — no island. `name` makes each group an
+     exclusive accordion (only one open at a time); the chevron rotates on
+     [open]. Base style is for a light surface; the deep-blue tiers band gets
+     dark-surface overrides below. */
+  .ig-faq {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+  }
+  .ig-faq-item {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .ig-faq-q {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 15px 20px;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18.5px;
+    line-height: 1.3;
+    color: var(--byz-deep);
+    transition: color 0.15s;
+  }
+  .ig-faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .ig-faq-q:hover {
+    color: var(--gold-deep);
+  }
+  .ig-faq-chev {
+    flex: 0 0 auto;
+    color: var(--gold-deep);
+    transition: transform 0.25s ease;
+  }
+  .ig-faq-item[open] .ig-faq-chev {
+    transform: rotate(180deg);
+  }
+  .ig-faq-a {
+    padding: 0 20px 18px;
+    animation: igOpen 0.25s ease both;
+  }
+  .ig-faq-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--celest);
+    margin: 0 0 12px;
+  }
+  .ig-faq-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .ig-faq-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .ig-faq-list li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .ig-faq-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+  /* tier accent: a coloured left edge keeps the traditional / regional /
+     modern colour-coding the old cards carried */
+  .ig-faq-item.is-traditional {
+    border-left: 3px solid var(--gold-deep);
+  }
+  .ig-faq-item.is-regional {
+    border-left: 3px solid var(--byz-green);
+  }
+  .ig-faq-item.is-modern {
+    border-left: 3px solid var(--celest);
+  }
+
+  /* ---------------- finding the right icon (refine menu + card) ----------------
+     One dropdown control above a single card. The button shows the current
+     subject; clicking it drops a grouped menu (by occasion / for a person);
+     choosing an option swaps the card. The island manages open/close + which
+     card shows; with no JS every card renders and the section is a full list. */
+  .ig-refine {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .ig-refine-lead {
+    font-family: var(--text);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .ig-refine-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 20rem;
+    padding: 12px 16px 12px 20px;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--byz-deep);
+    background: #fff;
+    border: 1px solid var(--line-gold);
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  .ig-refine-btn:hover,
+  .ig-refine-btn[aria-expanded="true"] {
+    border-color: var(--gold-deep);
+  }
+  .ig-refine-current {
+    flex: 1 1 auto;
+    text-align: left;
+  }
+  .ig-refine-chev {
+    flex: 0 0 auto;
+    color: var(--gold-deep);
+    transition: transform 0.2s ease;
+  }
+  .ig-refine-btn[aria-expanded="true"] .ig-refine-chev {
+    transform: rotate(180deg);
+  }
+  /* the dropdown panel */
+  .ig-refine-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    width: min(30rem, 92vw);
+    max-height: min(60vh, 30rem);
+    overflow-y: auto;
+    padding: 14px;
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    animation: igOpen 0.18s ease both;
+  }
+  .ig-refine-menu[hidden] {
+    display: none;
+  }
+  .ig-refine-group + .ig-refine-group {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .ig-refine-grouplabel {
+    font-family: var(--text);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    padding: 0 8px 8px;
+  }
+  .ig-refine-opts {
+    display: grid;
+    gap: 2px;
+  }
+  .ig-refine-opt {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+    font-family: var(--serif);
+    font-size: 16.5px;
+    color: var(--ink);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:
+      background 0.12s,
+      color 0.12s;
+  }
+  .ig-refine-opt:hover {
+    background: var(--ivory-2);
+    color: var(--byz-deep);
+  }
+  .ig-refine-opt[aria-checked="true"] {
+    background: var(--byz);
+    color: var(--ivory);
+  }
+
+  /* the single card */
+  .ig-who-panels {
+    display: grid;
+  }
+  .ig-who-panel {
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 8px;
+    padding: 26px clamp(20px, 3vw, 30px);
+    animation: igOpen 0.3s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .ig-who-panel[hidden] {
+    display: none;
+  }
+  .ig-who-panel-eb {
+    margin-bottom: 8px;
+  }
+  .ig-who-title {
+    font-family: var(--serif);
+    font-size: 27px;
+    color: var(--byz-deep);
+    margin: 0 0 8px;
+  }
+  /* short italic lede (recipient cards) */
+  .ig-who-intro {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--celest);
+    margin: 0;
+  }
+  .ig-who-panel .ig-icons {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width: 560px) {
+    .ig-frame-img {
+      width: 48px;
+      height: 60px;
+    }
+    .is-center .ig-frame-img {
+      width: 64px;
+      height: 80px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ig-faq-a,
+    .ig-who-panel,
+    .ig-refine-menu {
+      animation: none;
+    }
+    .ig-faq-chev,
+    .ig-refine-chev {
+      transition: none;
+    }
+    .ig-voc:hover,
+    .ig-corner-link:hover .ig-frame {
+      transform: none;
+    }
+  }
+</style>

@@ -95,6 +95,11 @@ export const NAV: NavItem[] = [
         href: withBase("icons-home"),
       },
       {
+        key: "icon-gifts",
+        label: "Giving Icons as Gifts",
+        href: withBase("icon-gifts"),
+      },
+      {
         key: "liturgical-living",
         label: "Liturgical Living",
         href: withBase("liturgical-living"),
