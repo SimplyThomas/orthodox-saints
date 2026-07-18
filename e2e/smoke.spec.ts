@@ -560,7 +560,8 @@ test("primary nav links are base-prefixed and resolve", async ({ page }) => {
 test("header quick-search offers a whole-site typeahead", async ({ page }) => {
   await page.goto("./");
   const input = page.locator("#site-search");
-  const panel = page.locator(".hs-panel");
+  // The home page also carries the hero typeahead, so scope to the header panel.
+  const panel = page.locator("#hs-results");
   await expect(panel).toBeHidden();
 
   // Typing a saint name surfaces jump-to saint results.
@@ -584,6 +585,33 @@ test("header quick-search offers a whole-site typeahead", async ({ page }) => {
   await expect(panel).toBeHidden();
 
   // Enter with no highlighted option submits to the full search page.
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  await input.press("Enter");
+  await expect(page).toHaveURL(/\/search\?q=basil/);
+});
+
+test("home hero search offers the same live typeahead", async ({ page }) => {
+  await page.goto("./");
+  const input = page.locator("#q");
+  const panel = page.locator("#hero-hs-results");
+  await expect(panel).toBeHidden();
+
+  // Typing a saint name surfaces jump-to saint results, like the header pill.
+  await input.click();
+  await input.fill("basil");
+  await expect(panel).toBeVisible();
+  const firstSaint = panel.locator("a.hs-opt").first();
+  await expect(firstSaint).toHaveAttribute("href", /\/saint\/OS-\d+/);
+
+  // ArrowDown highlights the first option; Enter jumps straight to it.
+  await input.press("ArrowDown");
+  const href = await firstSaint.getAttribute("href");
+  await input.press("Enter");
+  await expect(page).toHaveURL(new RegExp(`${href}/?$`));
+
+  // Enter with no highlighted option still submits to the full search page.
+  await page.goto("./");
   await input.fill("basil");
   await expect(panel).toBeVisible();
   await input.press("Enter");
