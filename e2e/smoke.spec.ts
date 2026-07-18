@@ -720,6 +720,45 @@ test("feasts index renders the Church-year page with live tabs", async ({
   ).toBeVisible();
 });
 
+// The generated .ics orders lines DTSTART … SUMMARY within each VEVENT, so a
+// "name-then-DTSTART" regex would read the NEXT event's date. Split on the event
+// boundary and read the DTSTART that lives in the same block as the summary.
+function nativityDtstart(ics: string): string | null {
+  const block = ics
+    .split("BEGIN:VEVENT")
+    .find((b) => /SUMMARY:☦ Nativity of Christ(\r?\n|$)/.test(b));
+  if (!block) return null;
+  const m = block.match(/DTSTART;VALUE=DATE:(\d{8})/);
+  return m ? m[1] : null;
+}
+
+test("iCal feeds are served and reckon Old vs New correctly", async ({
+  request,
+}) => {
+  for (const style of ["new", "old"]) {
+    const res = await request.get(`${BASE}calendar/${style}.ics`);
+    expect(res.status()).toBe(200);
+    expect(res.headers()["content-type"]).toContain("text/calendar");
+    const body = await res.text();
+    expect(body).toContain("BEGIN:VCALENDAR");
+    expect(body).toContain("BEGIN:VEVENT");
+    expect(body.trimEnd().endsWith("END:VCALENDAR")).toBe(true);
+  }
+  // Nativity is Dec 25 on New, Jan 7 on Old — verify each feed's OWN date for it.
+  const newBody = await (await request.get(`${BASE}calendar/new.ics`)).text();
+  const oldBody = await (await request.get(`${BASE}calendar/old.ics`)).text();
+  expect(nativityDtstart(newBody)?.endsWith("1225")).toBe(true);
+  expect(nativityDtstart(oldBody)?.endsWith("0107")).toBe(true);
+});
+
+test("the subscribe page lists both feeds", async ({ page }) => {
+  const res = await page.goto("./subscribe/");
+  expect(res?.status()).toBe(200);
+  await expect(page.locator(".feed")).toHaveCount(2);
+  await expect(page.locator('input[value$="calendar/new.ics"]')).toHaveCount(1);
+  await expect(page.locator('input[value$="calendar/old.ics"]')).toHaveCount(1);
+});
+
 test("fasts route opens the same page on the Fasts tab", async ({ page }) => {
   const resp = await page.goto("./fasts/");
   expect(resp?.status()).toBe(200);
