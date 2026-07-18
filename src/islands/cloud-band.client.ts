@@ -14,10 +14,25 @@ import {
   rankSlug,
   firstFeast,
   centuryLabel,
+  byProminence,
 } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { esc, withBase, MONTHS_FULL, WEEKDAYS } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
+import { civilToChurch } from "../lib/calendar-grid";
+import type { PaschaTable } from "../lib/feast-dates";
+import type {
+  CalendarStyle,
+  DayHighlight,
+  DayLiturgics,
+  LitFeast,
+} from "../lib/liturgical";
+import {
+  activeObservances,
+  dayHighlight,
+  dayLiturgics,
+  LITURGICAL_COLORS,
+} from "../lib/liturgical";
 
 const home = document.getElementById("home");
 if (home && home.dataset.cardSrc) {
@@ -35,64 +50,167 @@ if (home && home.dataset.cardSrc) {
 }
 
 function initCloudBand(SAINTS: CardSaint[]) {
-  function notableFeatured(n: number): CardSaint[] {
-    const enriched = SAINTS.filter(
-      (s) => s.brief && (s.intercession || []).length,
-    );
-    const poolList =
-      enriched.length >= n ? enriched : SAINTS.filter((s) => s.brief);
-    return poolList.slice(0, n);
-  }
-
-  /* ---------- saint of the day ---------- */
+  /* ---------- saint of the day (+ liturgical context, Old/New toggle) ----------
+     The day always headlines a saint (ranked, so the principal saint leads);
+     a Great Feast / fast season resolved from the same Feasts & Fasts payload
+     the /calendar page uses rides above it as a colored banner. The Old/New
+     toggle re-reckons which church date the visitor's civil "today" maps to. */
   const host = document.getElementById("sotd");
   if (host) {
     const now = new Date();
     const tm = now.getMonth() + 1;
     const td = now.getDate();
-    const dateLabel = `${MONTHS_FULL[tm - 1]} ${td}`;
-    const todays = SAINTS.filter((s) =>
-      feastDates(s).some((f) => f.m === tm && f.d === td),
-    );
+    const ty = now.getFullYear();
+    const civilLabel = `${MONTHS_FULL[tm - 1]} ${td}`;
 
-    let primary: CardSaint;
-    let kicker: string;
-    let foot: string;
-    if (todays.length) {
-      primary = todays[0];
-      kicker = `${WEEKDAYS[now.getDay()]} · Commemorated today`;
-      const others = todays.slice(1, 4).map((s) => s.name);
-      foot = others.length
-        ? `<span>Also today:</span><span class="also">${others.map(esc).join(" · ")}</span>`
-        : "";
-    } else {
-      // Fall back gracefully without claiming a feast (e.g. a date not yet loaded).
-      const poolList = notableFeatured(30);
-      primary = poolList[(tm * 31 + td) % poolList.length] || SAINTS[0];
-      kicker = `${WEEKDAYS[now.getDay()]} · From the cloud`;
-      foot = `<span class="also">${esc(
-        "No commemoration is loaded for today yet — meet a saint from the cloud.",
-      )}</span>`;
+    // Liturgical payload inlined by index.astro (feasts + Pascha table).
+    let litFeasts: LitFeast[] = [];
+    let litPascha: PaschaTable = {};
+    try {
+      const parsed = JSON.parse(
+        document.getElementById("home-lit-data")?.textContent || "{}",
+      ) as { feasts?: LitFeast[]; pascha?: PaschaTable };
+      litFeasts = parsed.feasts ?? [];
+      litPascha = parsed.pascha ?? {};
+    } catch {
+      /* no liturgical layer — the card still shows the day's saint */
     }
 
-    const sn = splitName(primary.name);
-    host.innerHTML = `
-      <div class="eyebrow" style="margin-bottom:14px">Today · ${esc(dateLabel)}</div>
-      <a class="sotd-card" data-saint="${esc(primary.id)}" href="${esc(withBase(`saint/${primary.id}`))}">
-        <div class="sotd-top">
-          ${saintAvatar(primary, 92, 116, { type: primaryRank(primary) })}
-          <div>
-            <div class="kicker">${esc(kicker)}</div>
-            <h3>${esc(sn.title)}${
-              sn.epithet
-                ? ` <span style="font-style:italic;font-weight:500">${esc(sn.epithet)}</span>`
-                : ""
-            }</h3>
-            <p>${esc(primary.brief || primary.notes || "")}</p>
+    let style: CalendarStyle =
+      new URLSearchParams(location.search).get("style") === "old"
+        ? "old"
+        : "new";
+
+    // The liturgical context ribbon (Great Feast / fast season), tinted with
+    // the day's resolved color. Returns "" when the day carries neither.
+    function litRibbon(hl: DayHighlight, lit: DayLiturgics | null): string {
+      if (!hl.feast && !hl.season) return "";
+      const ck = lit && lit.color !== "neutral" ? lit.color : "gold";
+      const pal = LITURGICAL_COLORS[ck];
+      const lead = hl.feast ?? hl.season!;
+      const trailer =
+        hl.feast && hl.season
+          ? `<span class="sotd-lit-season">during ${esc(hl.season.name)}</span>`
+          : "";
+      return `
+        <a class="sotd-lit lc-${ck}" href="${esc(withBase(style === "old" ? "calendar?style=old" : "calendar"))}"
+           style="--sw-bg:${pal.background};--sw-ac:${pal.accent};--sw-tx:${pal.text}">
+          <span class="sotd-lit-bar" aria-hidden="true"></span>
+          <span class="sotd-lit-body">
+            <span class="sotd-lit-kick">${esc(lead.label)}</span>
+            <span class="sotd-lit-name">${esc(lead.name)}</span>
+            ${trailer}
+          </span>
+        </a>`;
+    }
+
+    // One saint row: small avatar (real icon when available), name, rank tag,
+    // epithet — the whole row links to the saint's profile.
+    function saintRow(s: CardSaint): string {
+      const sn = splitName(s.name);
+      return `
+        <a class="sotd-saint" data-saint="${esc(s.id)}" href="${esc(withBase(`saint/${s.id}`))}">
+          <span class="sotd-saint-av">${saintAvatar(s, 40, 48, { type: primaryRank(s) })}</span>
+          <span class="sotd-saint-text">
+            <span class="sotd-saint-name">${esc(sn.title)}<span class="arr" aria-hidden="true">→</span></span>
+            <span class="sotd-saint-role">${
+              s.rank[0] ? `<span class="tag">${esc(s.rank[0])}</span>` : ""
+            }${sn.epithet ? `<span class="ep"> · ${esc(sn.epithet)}</span>` : ""}</span>
+          </span>
+        </a>`;
+    }
+
+    function renderSotd(): void {
+      // Church date kept on the visitor's civil "today" under the reckoning
+      // (New = the civil date itself; Old = 13 days earlier).
+      const church =
+        style === "old"
+          ? civilToChurch(ty, tm, td)
+          : { year: ty, month: tm, day: td };
+      const churchLabel = `${MONTHS_FULL[church.month - 1]} ${church.day}`;
+
+      // The day's saints, most-prominent first, so the principal saints of the
+      // day lead the list (matching the calendar's day list).
+      const todays = SAINTS.filter((s) =>
+        feastDates(s).some((f) => f.m === church.month && f.d === church.day),
+      ).sort(byProminence);
+
+      // Liturgical context, resolved against the civil date under this style.
+      const civilDate = new Date(ty, tm - 1, td);
+      let hl: DayHighlight = { feast: null, season: null };
+      let lit: DayLiturgics | null = null;
+      if (litFeasts.length) {
+        const obs = activeObservances(litFeasts, litPascha, civilDate, style);
+        hl = dayHighlight(obs);
+        lit = dayLiturgics(obs, civilDate, style);
+      }
+
+      const LIMIT = 6;
+      const shown = todays.slice(0, LIMIT);
+      const extra = todays.length - shown.length;
+      const calHref = esc(
+        withBase(style === "old" ? "calendar?style=old" : "calendar"),
+      );
+      // "+N more" goes to the Feasts & Fasts page, whose "commemorated today"
+      // section lists the full day (saints + feasts + fasts), not just saints.
+      const feastsHref = esc(withBase("feasts#ff-today"));
+
+      // The "Saints commemorated today" heading below carries the "today", so
+      // the eyebrow is just the date (+ the church date under Old reckoning).
+      const dateStr = `${WEEKDAYS[now.getDay()]}, ${civilLabel}`;
+      const eyebrow =
+        style === "old"
+          ? `${esc(dateStr)} <span class="sotd-church">· ${esc(churchLabel)} on the Church Calendar</span>`
+          : esc(dateStr);
+
+      const body = todays.length
+        ? `<div class="sotd-list">${shown.map(saintRow).join("")}</div>
+           ${extra > 0 ? `<a class="sotd-more" href="${feastsHref}">+${extra} more commemorated today<span class="arr" aria-hidden="true"> →</span></a>` : ""}`
+        : `<p class="sotd-empty">No saint is recorded for this day. <a href="${calHref}">Open the liturgical calendar →</a></p>`;
+
+      host!.innerHTML = `
+        <div class="sotd-head">
+          <div class="eyebrow">${eyebrow}</div>
+          <div class="sotd-cal" role="group" aria-label="Calendar reckoning">
+            <button type="button" data-style="new" aria-pressed="${style === "new"}"
+              title="Revised Julian — fixed feasts on the civil date">New</button>
+            <button type="button" data-style="old" aria-pressed="${style === "old"}"
+              title="Julian — fixed feasts kept 13 days later">Old</button>
           </div>
         </div>
-        <div class="sotd-foot">${foot}</div>
-      </a>`;
+        ${litRibbon(hl, lit)}
+        <div class="sotd-card">
+          <div class="sotd-card-head">
+            <h3>Saints commemorated today</h3>
+            <a class="sotd-callink" href="${calHref}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                ><rect x="3" y="5" width="18" height="16" rx="2"></rect><path
+                  d="M3 9h18M8 3v4M16 3v4"></path></svg>
+              Liturgical calendar<span class="arr" aria-hidden="true"> →</span>
+            </a>
+          </div>
+          ${body}
+        </div>`;
+
+      // Wire the reckoning toggle (re-renders this card; URL rides ?style).
+      host!
+        .querySelectorAll<HTMLButtonElement>(".sotd-cal button")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const next = btn.dataset.style === "old" ? "old" : "new";
+            if (next === style) return;
+            style = next;
+            const url = new URL(location.href);
+            if (style === "old") url.searchParams.set("style", "old");
+            else url.searchParams.delete("style");
+            history.replaceState(null, "", url);
+            renderSotd();
+          }),
+        );
+    }
+
+    renderSotd();
   }
 
   /* ---------- "From the Cloud" shuffle deck ---------- */
