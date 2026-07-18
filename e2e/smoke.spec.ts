@@ -267,7 +267,7 @@ test("a Witness of Our Time opens a memorial page, set apart from the saints", a
   await page.waitForURL(/\/witness\/roman-braga/);
   // Memorial framing — and clearly NOT a saint/veneration page.
   await expect(page.locator(".sv-name")).toBeVisible();
-  await expect(page.locator(".ep-notice")).toContainText("Not yet glorified");
+  await expect(page.locator(".wsv-notice")).toContainText("Not yet glorified");
   await expect(page.locator(".sv-address")).toHaveCount(0); // no liturgical address
   expect(await page.getByText("pray to God for us").count()).toBe(0);
   // The back link returns to the America page.
@@ -282,22 +282,28 @@ test("Elder Ephraim has a comprehensive, sourced profile — still set apart", a
   expect(resp?.status()).toBe(200);
   // The rich profile renders its sections (not the simple memorial template).
   await expect(page.locator(".sv-name")).toContainText("Elder Ephraim");
-  for (const h of [
-    "Spiritual Lineage",
-    "Monasteries Associated with Elder Ephraim",
-    "Selected Teachings",
-    "Sources",
-  ]) {
-    await expect(page.locator(".ep-sec h2", { hasText: h })).toBeVisible();
+  // The rich profile renders in the saint-page format (WitnessSaintView):
+  // a sidebar lineage plus many collapsible deep sections — not the simple
+  // memorial template.
+  await expect(
+    page.locator(".wsv-aside .eyebrow", { hasText: "Spiritual Lineage" }),
+  ).toBeVisible();
+  for (const h of ["Selected Teachings", "Historical Significance"]) {
+    await expect(page.locator(".sv-deep-eb", { hasText: h })).toBeVisible();
   }
+  expect(await page.locator(".sv-deep").count()).toBeGreaterThanOrEqual(6);
   // Still a memorial, not a veneration page.
-  await expect(page.locator(".ep-notice")).toContainText("Not yet glorified");
+  await expect(page.locator(".wsv-notice")).toContainText("Not yet glorified");
   expect(await page.getByText("pray to God for us").count()).toBe(0);
-  // Sourced: the monastery/works tables and Sources list carry real links.
-  expect(await page.locator(".ep-sources a").count()).toBeGreaterThanOrEqual(8);
-  // An internal lineage/related link resolves to a real saint page.
-  const related = page.locator('.ep-related a[href*="/saint/OS-"]').first();
-  await expect(related).toBeVisible();
+  // Sourced: the Sources list carries real links.
+  await expect(page.locator(".wsv-sources .eyebrow")).toHaveText("Sources");
+  expect(await page.locator(".wsv-sources a").count()).toBeGreaterThanOrEqual(
+    5,
+  );
+  // The sidebar lineage links across to a real saint page.
+  await expect(
+    page.locator('.wsv-lin-link[href*="/saint/OS-"]').first(),
+  ).toBeVisible();
   // Back link returns to America.
   await page.locator(".sv-back-link").click();
   await page.waitForURL(/\/america\/?$/);
@@ -309,26 +315,32 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   const resp = await page.goto("./witness/seraphim-rose/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".sv-name")).toContainText("Hieromonk Seraphim");
+  // The rich profile renders its deep sections in the saint-page format.
   for (const h of [
     "From Spiritual Seeker to Orthodox Monk",
     "The Orthodox Word",
-    "Works by Father Seraphim Rose",
-    "Sources",
+    "Selected Teachings",
   ]) {
-    await expect(page.locator(".sr-sec h2", { hasText: h })).toBeVisible();
+    await expect(page.locator(".sv-deep-eb", { hasText: h })).toBeVisible();
   }
+  expect(await page.locator(".sv-deep").count()).toBeGreaterThanOrEqual(6);
   // Still a memorial, not a veneration page.
-  await expect(page.locator(".sr-notice")).toContainText("Not yet glorified");
+  await expect(page.locator(".wsv-notice")).toContainText("Not yet glorified");
   expect(await page.getByText("pray to God for us").count()).toBe(0);
   // Sourced, with a working lineage link to St John Maximovitch's saint page.
-  expect(await page.locator(".sr-sources a").count()).toBeGreaterThanOrEqual(6);
+  await expect(page.locator(".wsv-sources .eyebrow")).toHaveText("Sources");
+  expect(await page.locator(".wsv-sources a").count()).toBeGreaterThanOrEqual(
+    4,
+  );
   await expect(
-    page.locator('.sr-lin-link[href*="/saint/OS-0050"]'),
+    page.locator('.wsv-lin-link[href*="/saint/OS-0050"]'),
   ).toBeVisible();
-  // Related Witnesses links across to Elder Ephraim's witness profile.
-  await expect(
-    page.locator('.sr-related a[href*="/witness/ephraim-of-arizona"]'),
-  ).toBeVisible();
+  // Related Figures links across to Elder Ephraim's witness profile.
+  expect(
+    await page
+      .locator('.wsv-related a[href*="/witness/ephraim-of-arizona"]')
+      .count(),
+  ).toBe(1);
   // Back link returns to America.
   await page.locator(".sv-back-link").click();
   await page.waitForURL(/\/america\/?$/);

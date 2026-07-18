@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ByzCross from "../components/icons/ByzCross.astro";
 import SearchGlyph from "../components/icons/SearchGlyph.astro";
+import { withBase } from "../lib/format";
 
 // Corrections — report a data-quality problem. On submit the form POSTs to a
 // Cloudflare Worker (workers/report/), which verifies a Turnstile token and
@@ -39,7 +40,7 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
   <div class="cr">
     {/* ---------- hero ---------- */}
     <section class="cr-hero">
-      <div class="eyebrow">Help Us Keep the Record True</div>
+      <div class="eyebrow on-blue">Help Us Keep the Record True</div>
       <h1 class="cr-title">Suggest a Correction</h1>
       <p class="cr-lede">
         Spotted a wrong feast day, a misspelled name, or a broken link? Tell us,
@@ -236,7 +237,6 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
 
           <div class="cr-actions">
             <button type="submit" class="btn btn--blue cr-send" id="cr-submit">
-              <ByzCross size={17} color="var(--ivory)" />
               <span class="cr-send-label">Send report</span>
             </button>
             <span class="cr-note"
@@ -252,6 +252,13 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
         <p class="cr-alt" id="cr-alt">
           Prefer email? You can also send corrections to{" "}
           <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
+        </p>
+
+        <p class="cr-alt cr-contribute">
+          Just looking to contribute to the project?{" "}
+          <a href={withBase("/contribute")}
+            >Share research, icons, or a saint we’re missing →</a
+          >
         </p>
 
         {/* thanks */}
@@ -302,12 +309,12 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
   .cr-hero {
     text-align: center;
     padding: 54px clamp(20px, 5vw, 56px) 40px;
-    background: var(--ivory);
+    background: var(--byz-deep);
     border-bottom: 1px solid var(--line-gold);
   }
   .cr-title {
     font-size: var(--page-title-size);
-    color: var(--byz-deep);
+    color: var(--ivory);
     line-height: 1;
     margin: 14px 0 16px;
     font-weight: 600;
@@ -316,7 +323,7 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
     font-family: var(--serif);
     font-style: italic;
     font-size: var(--page-lede-size);
-    color: var(--celest);
+    color: var(--celest-soft);
     max-width: 640px;
     margin: 0 auto;
     line-height: 1.45;
@@ -354,8 +361,8 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
   }
 
   .cr-card {
-    background: #fff;
-    border: 1px solid var(--line);
+    background: var(--ivory-2);
+    border: 1.5px solid var(--gold);
     border-radius: 10px;
     box-shadow: var(--shadow-card);
     padding: 34px clamp(20px, 4vw, 36px) 36px;
@@ -372,6 +379,15 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
     align-items: baseline;
     gap: 8px;
     margin-bottom: 8px;
+  }
+  /* The field questions are the primary prompt on this page — lift them above
+     the shared 12px .eyebrow so they don't read as small next to the inputs. */
+  .fld-lab .eyebrow {
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 600;
+    color: var(--byz-deep);
   }
   .req {
     font-size: 11px;
