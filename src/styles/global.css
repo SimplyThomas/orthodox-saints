@@ -4018,7 +4018,7 @@ a.sv-rail-chip:hover {
 .sv2 .sv-hero-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 56px);
+  padding: 0 clamp(16px, 4vw, 56px) 16px;
 }
 .sv2 .sv-hero-crumb {
   display: flex;
@@ -4240,42 +4240,49 @@ a.sv-rail-chip:hover {
    ties it to the page's ribbon accents. */
 .sv2 .sv-fday {
   width: 100%;
-  margin: 34px 0 0;
+  margin: 2px 0 0;
   padding: 15px 24px 17px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(212, 175, 55, 0.3);
-  border-top: 2px solid var(--gold);
-  border-radius: 4px 4px 7px 7px;
+  border-radius: 7px;
+}
+.sv2 .sv-fday-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* Primary row: New date (left) — Feast Day title (centre) — Old date (right). */
+.sv2 .sv-fday-primary {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
 }
 .sv2 .sv-fday-top {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
-  margin-bottom: 11px;
-}
-/* Primary New/Old pair on the left, any further feasts to the right. */
-.sv2 .sv-fday-body {
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 18px 36px;
+  white-space: nowrap;
 }
 .sv2 .sv-fday-label {
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-soft);
-}
-.sv2 .sv-fday-cals {
-  display: flex;
-  align-items: stretch;
-  gap: 20px;
-  flex: 0 0 auto;
 }
 .sv2 .sv-fday-cal {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.sv2 .sv-fday-cal--new {
+  align-items: flex-start;
+  text-align: left;
+}
+.sv2 .sv-fday-cal--old {
+  align-items: flex-end;
+  text-align: right;
 }
 .sv2 .sv-fday-date {
   font-family: var(--serif);
@@ -4292,17 +4299,9 @@ a.sv-rail-chip:hover {
   text-transform: uppercase;
   color: var(--celest-soft);
 }
-.sv2 .sv-fday-vr {
-  width: 1px;
-  align-self: stretch;
-  background: rgba(212, 175, 55, 0.28);
-}
 .sv2 .sv-fday-more {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 36px;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sv2 .sv-fday-more-label {
   display: block;
@@ -4312,27 +4311,41 @@ a.sv-rail-chip:hover {
   color: var(--gold-soft);
   margin-bottom: 7px;
 }
+/* Each further feast on its own full-width row — New date pushed to the left,
+   Old to the right — mirroring the primary's split. */
 .sv2 .sv-fday-more-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5px 24px;
+  flex-direction: column;
+  gap: 7px;
 }
 .sv2 .sv-fday-more-list li {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
-  gap: 10px;
+  gap: 16px;
 }
-.sv2 .sv-fday-more-new {
+.sv2 .sv-fday-more-side {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+}
+.sv2 .sv-fday-more-date {
   font-family: var(--serif);
   font-size: 15px;
+  line-height: 1;
   color: var(--ivory);
 }
-.sv2 .sv-fday-more-old {
-  font-size: 12px;
+.sv2 .sv-fday-more-date--old {
+  color: var(--gold-soft);
+  margin-left: 5px;
+}
+.sv2 .sv-fday-more-cap {
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--celest-soft);
 }
 
@@ -4635,11 +4648,8 @@ a.sv-rail-chip:hover {
   padding: 26px clamp(16px, 4vw, 56px) 30px;
 }
 .sv2 .sv-deps-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 28px;
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 18px;
 }
 .sv2 .sv-deps-eb {
   color: var(--byz-green);
@@ -4649,16 +4659,19 @@ a.sv-rail-chip:hover {
   font-style: italic;
   font-size: 18px;
   color: var(--celest);
-  margin: 9px 0 0;
+  margin: 9px auto 0;
   max-width: 640px;
   text-wrap: pretty;
 }
-.sv2 .sv-deps-nav {
-  display: flex;
-  gap: 10px;
-  flex: 0 0 auto;
+/* Track flanked by side arrows, each vertically centred on the icon images. */
+.sv2 .sv-deps-viewport {
+  position: relative;
 }
 .sv2 .sv-deps-arrow {
+  position: absolute;
+  top: 125px;
+  transform: translateY(-50%);
+  z-index: 3;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -4674,6 +4687,12 @@ a.sv-rail-chip:hover {
     opacity 0.2s,
     background 0.15s,
     box-shadow 0.15s;
+}
+.sv2 .sv-deps-arrow.prev {
+  left: -6px;
+}
+.sv2 .sv-deps-arrow.next {
+  right: -6px;
 }
 .sv2 .sv-deps-arrow.show {
   opacity: 1;
@@ -4777,7 +4796,8 @@ a.sv-rail-chip:hover {
   transform: translateY(-4px);
 }
 @media (max-width: 720px) {
-  .sv2 .sv-deps-nav {
+  /* Touch scroll on mobile — hide the side arrows. */
+  .sv2 .sv-deps-arrow {
     display: none;
   }
 }
@@ -4786,7 +4806,7 @@ a.sv-rail-chip:hover {
 .sv2 .sv-body {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
-  align-items: start;
+  align-items: stretch;
   max-width: 1280px;
   margin: 0 auto;
 }
