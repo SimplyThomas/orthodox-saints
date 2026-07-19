@@ -668,6 +668,18 @@ test("corrections page renders, validates, and is linked from the Contact page",
   );
 });
 
+test("privacy page renders and is linked from the footer legal bar", async ({
+  page,
+}) => {
+  const resp = await page.goto("./privacy/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".sr-title")).toHaveText("Your Privacy");
+  // The footer legal bar carries a Privacy link pointing at /privacy.
+  const privacyLink = page.locator(`.cw-legal-bar a[href="${BASE}privacy"]`);
+  await expect(privacyLink).toHaveCount(1);
+  await expect(privacyLink).toHaveText("Privacy");
+});
+
 test("feasts index renders the Church-year page with live tabs", async ({
   page,
 }) => {
