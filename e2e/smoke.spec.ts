@@ -668,6 +668,31 @@ test("corrections page renders, validates, and is linked from the Contact page",
   );
 });
 
+test("corrections offers an email fallback when Turnstile is blocked", async ({
+  page,
+}) => {
+  // Block the Turnstile loader before navigating (ad blocker / network hiccup).
+  await page.route(/challenges\.cloudflare\.com/, (route) => route.abort());
+  await page.goto("./corrections/");
+
+  // The watchdog (8s) trips and the inline notice appears; give it comfortable
+  // headroom above that window.
+  const down = page.locator("#cr-turnstile-down");
+  await expect(down).toBeVisible({ timeout: 12000 });
+  await expect(down).toContainText("spam-check didn’t load");
+  await expect(
+    down.locator("a[href='mailto:contact@orthodoxsaintfinder.com']"),
+  ).toBeVisible();
+
+  // Submit is genuinely disabled while the challenge is unavailable.
+  await expect(page.locator("#cr-submit")).toBeDisabled();
+
+  // The email field's privacy hint reflects the new "never published" behavior.
+  await expect(
+    page.locator("#cr-form .fld", { hasText: "Your email" }),
+  ).toContainText("Never published — used only so we can reply.");
+});
+
 test("privacy page renders and is linked from the footer legal bar", async ({
   page,
 }) => {

@@ -9,11 +9,24 @@ interface Turnstile {
   reset: (widget?: string) => void;
   getResponse: (widget?: string) => string | undefined;
 }
+// The inline bridge in corrections.astro records widget ready/failed events here
+// (the widget's data-*-callback attrs point at globals it defines) so the island
+// can react even though its module runs after the async loader.
+interface CrTurnstileBridge {
+  ready: boolean;
+  failed: boolean;
+  on: ((kind: "ready" | "failed") => void) | null;
+}
 declare global {
   interface Window {
     turnstile?: Turnstile;
+    __crTurnstile?: CrTurnstileBridge;
   }
 }
+
+// If the widget hasn't rendered or become ready within this window, treat it as
+// blocked (ad blocker / network) and offer the email fallback.
+const TURNSTILE_WATCHDOG_MS = 8000;
 
 const form = document.getElementById("cr-form") as HTMLFormElement | null;
 if (form) {
@@ -83,9 +96,72 @@ if (form) {
   const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
   const setSending = (on: boolean) => {
-    submitBtn.disabled = on;
+    // Never re-enable submit while the Turnstile-down fallback is showing —
+    // a widget failure can land mid-flight, after this submit began.
+    submitBtn.disabled = on || turnstileFailed;
     sendLabel.textContent = on ? "Sending…" : "Send report";
   };
+
+  // --- Turnstile availability -------------------------------------------------
+  // If the challenge can't load, submit is a dead end ("complete the challenge"
+  // forever). Detect that three ways — watchdog, script onerror, the widget's own
+  // error/timeout callback — and swap in an email fallback, re-enabling if the
+  // widget recovers (late load / retry).
+  const turnstileEl = form.querySelector<HTMLElement>(".cf-turnstile");
+  const turnstileDown = document.getElementById("cr-turnstile-down");
+
+  // The widget has visibly rendered once Turnstile injects its iframe, or once a
+  // token exists — either means it is NOT blocked, so the watchdog must stand down.
+  const turnstileRendered = () =>
+    !!turnstileEl?.querySelector("iframe") ||
+    !!window.turnstile?.getResponse() ||
+    !!form.querySelector<HTMLInputElement>(
+      'input[name="cf-turnstile-response"]',
+    )?.value;
+
+  let turnstileFailed = false;
+  let watchdog: ReturnType<typeof setTimeout> | undefined;
+
+  const clearWatchdog = () => {
+    if (watchdog !== undefined) {
+      clearTimeout(watchdog);
+      watchdog = undefined;
+    }
+  };
+
+  const showTurnstileDown = () => {
+    turnstileFailed = true;
+    clearWatchdog();
+    if (turnstileDown) turnstileDown.hidden = false;
+    showErr("cr-turnstile", false); // suppress the generic "complete the challenge"
+    submitBtn.disabled = true;
+  };
+
+  const clearTurnstileDown = () => {
+    turnstileFailed = false;
+    clearWatchdog();
+    if (turnstileDown) turnstileDown.hidden = true;
+    submitBtn.disabled = false;
+  };
+
+  // React to the inline bridge's ready/failed events, incl. any that fired before
+  // this module ran.
+  const bridge = window.__crTurnstile;
+  if (bridge) {
+    bridge.on = (kind) => {
+      if (kind === "ready") clearTurnstileDown();
+      else showTurnstileDown();
+    };
+    if (bridge.failed && !bridge.ready) showTurnstileDown();
+    else if (bridge.ready) clearWatchdog();
+  }
+
+  // Watchdog: if nothing rendered in time, offer the fallback. Guarded so a
+  // normally-loading widget never trips it.
+  watchdog = setTimeout(() => {
+    watchdog = undefined;
+    if (!turnstileFailed && !turnstileRendered()) showTurnstileDown();
+  }, TURNSTILE_WATCHDOG_MS);
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
