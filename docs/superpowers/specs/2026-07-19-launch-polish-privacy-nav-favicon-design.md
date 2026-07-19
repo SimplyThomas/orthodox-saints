@@ -78,6 +78,12 @@ only — `public/` is git-ignored build output). Install:
   correct for the production root base path; leave as shipped.
 - e2e: assert `favicon.ico` and `site.webmanifest` serve 200 from the built site.
 - After install + verification, delete the drop folder from `public/`.
+- **Addendum (user feedback post-install):** the shipped artwork read too small at tab
+  size (cross ≈41% of canvas width + a thin inner ring). The tab-size assets only —
+  `favicon.svg`, `favicon.ico`, `favicon-16/32/48` — were redrawn bolder (cross scaled
+  ~1.38× with thicker bars, ring dropped; rasters regenerated from the SVG via sharp,
+  ICO is a PNG-in-ICO container). `apple-touch-icon`/`icon-192`/`icon-512` keep the
+  original padded, ringed artwork: iOS and Android maskable icons require that safe zone.
 
 ## 4. Corrections worker: private reporter email (`workers/report/`)
 

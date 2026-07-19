@@ -10,16 +10,15 @@
       <stop offset="45%" stop-color="#d9b24c"/>
       <stop offset="100%" stop-color="#b6882f"/>
     </linearGradient>
-    <linearGradient id="goldRing" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"  stop-color="#e8c869"/>
-      <stop offset="100%" stop-color="#a97e2c"/>
-    </linearGradient>
   </defs>
-<rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/><rect x="18" y="18" width="476" height="476" rx="90" fill="none" stroke="url(#goldRing)" stroke-width="10" opacity="0.85"/>
-  <g fill="url(#gold)">
-    <rect x="240" y="96" width="32" height="332" rx="10"/>
-    <rect x="206" y="150" width="100" height="26" rx="10"/>
-    <rect x="150" y="214" width="212" height="34" rx="12"/>
-    <g transform="rotate(-20 256 344)"><rect x="188" y="330" width="136" height="26" rx="11"/></g>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Tab-size variant: the cross fills ~90% of the tile (thicker bars, no inner
+       ring) so it stays legible at 16-32px. The padded, ringed artwork lives on
+       in apple-touch-icon / icon-192 / icon-512, whose OS safe-zones need it. -->
+  <g fill="url(#gold)" transform="translate(256 262) scale(1.38) translate(-256 -262)">
+    <rect x="236" y="96" width="40" height="332" rx="12"/>
+    <rect x="200" y="147" width="112" height="32" rx="12"/>
+    <rect x="146" y="210" width="220" height="42" rx="14"/>
+    <g transform="rotate(-20 256 344)"><rect x="184" y="328" width="144" height="32" rx="13"/></g>
   </g>
 </svg>
