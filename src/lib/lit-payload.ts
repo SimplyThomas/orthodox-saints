@@ -13,7 +13,10 @@ export interface LitPayload {
   pascha: PaschaTable;
 }
 
-export function litPayload(): LitPayload {
+/** `customs: true` includes each feast's Customs & Traditions text — needed
+    only by the /calendar customs panel, ~10 KB extra, so the lean home-page
+    surfaces (Today card, cloud band) omit it. */
+export function litPayload(opts: { customs?: boolean } = {}): LitPayload {
   return {
     feasts: FEASTS.map((f) => ({
       id: f.id,
@@ -21,6 +24,7 @@ export function litPayload(): LitPayload {
       category: f.category,
       ...(f.dedication ? { dedication: f.dedication } : {}),
       ...(f.fasting ? { fasting: f.fasting } : {}),
+      ...(opts.customs && f.customs ? { customs: f.customs } : {}),
       begins: f.begins,
       ...(f.ends ? { ends: f.ends } : {}),
       ...(f.forefeast ? { forefeast: f.forefeast } : {}),

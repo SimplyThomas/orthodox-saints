@@ -46,6 +46,8 @@ const todayLabel = document.getElementById("cal-today-label");
 const movableBtn = document.getElementById("cal-movable-btn");
 const styleNote = document.getElementById("cal-style-note");
 const litDataEl = document.getElementById("cal-lit-data");
+const customsBody = document.getElementById("cal-customs-body");
+const customsDayLabel = document.getElementById("cal-customs-day");
 const styleBtns: Record<"new" | "old", HTMLElement | null> = {
   new: document.getElementById("cal-style-new"),
   old: document.getElementById("cal-style-old"),
@@ -95,6 +97,16 @@ if (root && app && source && grid && panel && monthLabel) {
     litPascha = parsed.pascha ?? {};
   } catch {
     /* no liturgical layer — the calendar still works */
+  }
+
+  // Saint-level customs, keyed by saint id (inlined by calendar.astro). Merged
+  // into the customs panel alongside the day's feast customs.
+  const saintCustomsEl = document.getElementById("cal-saint-customs");
+  let saintCustoms: Record<string, { name: string; customs: string }> = {};
+  try {
+    saintCustoms = JSON.parse(saintCustomsEl?.textContent || "{}");
+  } catch {
+    /* no saint customs — feast customs still render */
   }
 
   let viewY = TODAY_Y;
@@ -195,6 +207,68 @@ if (root && app && source && grid && panel && monthLabel) {
     return box;
   }
 
+  /* ---- Customs & Traditions panel (beneath the liturgical guide) ----
+     Merges the day's FEAST customs (from the liturgical layer) with the
+     SAINT-level customs of the saints commemorated that day. */
+  const ROLE_SUFFIX: Record<string, string> = {
+    forefeast: " — Forefeast",
+    afterfeast: " — Afterfeast",
+    leavetaking: " — Leavetaking",
+  };
+  interface CustomItem {
+    heading: string;
+    text: string;
+    kind: "feast" | "saint";
+  }
+
+  /** Saint customs for the saints in a given day-list, in the list's order. */
+  function saintCustomsFor(ul: HTMLUListElement | null): CustomItem[] {
+    if (!ul) return [];
+    const items: CustomItem[] = [];
+    ul.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
+      const id = a.getAttribute("href")?.match(/OS-\d+/)?.[0];
+      const rec = id ? saintCustoms[id] : undefined;
+      if (rec)
+        items.push({ heading: rec.name, text: rec.customs, kind: "saint" });
+    });
+    return items;
+  }
+
+  function renderCustoms(items: CustomItem[], dayLabel: string): void {
+    if (!customsBody) return;
+    if (customsDayLabel) {
+      customsDayLabel.textContent = dayLabel ? ` — ${dayLabel}` : "";
+    }
+    if (!items.length) {
+      customsBody.replaceChildren(
+        el(
+          "p",
+          "cal-customs-empty",
+          "No customs or traditions are recorded for this day.",
+        ),
+      );
+      return;
+    }
+    const nodes = items.map((c) => {
+      const item = el("div", `cal-customs-item is-${c.kind}`);
+      item.append(
+        el("h4", "cal-customs-name", c.heading),
+        el("p", "cal-customs-text", c.text),
+      );
+      return item;
+    });
+    customsBody.replaceChildren(...nodes);
+  }
+
+  /** Feast customs (from the day's liturgics) as panel items. */
+  function feastCustomItems(lit: DayLiturgics | null): CustomItem[] {
+    return (lit?.customs ?? []).map((c) => ({
+      heading: `${c.name}${ROLE_SUFFIX[c.role] ?? ""}`,
+      text: c.text,
+      kind: "feast" as const,
+    }));
+  }
+
   function renderPanel(key: string): void {
     selectedKey = key;
     grid!
@@ -214,6 +288,7 @@ if (root && app && source && grid && panel && monthLabel) {
         ),
       );
       if (movableList) panel!.append(movableList.cloneNode(true));
+      renderCustoms(saintCustomsFor(movableList), "Movable commemorations");
       return;
     }
 
@@ -230,6 +305,10 @@ if (root && app && source && grid && panel && monthLabel) {
     panel!.replaceChildren(panelHead(`${MONTHS_FULL[m - 1]} ${d}`, lbl));
     const lit = litFor(m, d);
     if (lit) panel!.append(litBlock(lit));
+    renderCustoms(
+      [...feastCustomItems(lit), ...saintCustomsFor(ul ?? null)],
+      `${MONTHS_FULL[m - 1]} ${d}`,
+    );
     if (ul && n) {
       panel!.append(ul.cloneNode(true));
     } else {
