@@ -336,6 +336,59 @@ await check("email present + binding configured → send invoked with correct me
     throw new Error("missing Content-Type header");
 });
 
+await check("comma-separated REPORT_NOTIFY_TO → one message per recipient", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv({
+    notify_to: "first@example.com, second@example.com,,  third@example.com ",
+  });
+  await worker.fetch(
+    post({
+      description: "x",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(sent.length, 3, "one message per recipient");
+  eq(
+    sent.map((m) => m.to).join("|"),
+    "first@example.com|second@example.com|third@example.com",
+    "recipients in order, trimmed, empties dropped",
+  );
+  for (const msg of sent) {
+    eq(msg.from, "reports@orthodoxsaintfinder.com", "From");
+    // Plain substring check (no regex built from data): the To header always
+    // follows the From header, so it appears as its own CRLF-delimited line.
+    if (!msg.raw.includes(`\r\nTo: ${msg.to}\r\n`))
+      throw new Error("raw To header doesn't match recipient " + msg.to);
+    if (!msg.raw.includes("jane@example.com")) throw new Error("raw missing reporter email");
+  }
+});
+
+await check("one rejected recipient doesn't stop the other copies", async () => {
+  stubFetch();
+  const sentTo = [];
+  const { env: e } = emailEnv({
+    notify_to: "bad@example.com,good@example.com",
+    EMAIL: {
+      async send(message) {
+        if (message.to === "bad@example.com") throw new Error("E_RECIPIENT_NOT_ALLOWED");
+        sentTo.push(message.to);
+      },
+    },
+  });
+  const res = await worker.fetch(
+    post({
+      description: "x",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(res.status, 200, "request still succeeds");
+  eq(sentTo.join("|"), "good@example.com", "surviving recipient still notified");
+});
+
 await check("no email supplied → no send even when binding present", async () => {
   stubFetch();
   const { env: e, sent } = emailEnv();
