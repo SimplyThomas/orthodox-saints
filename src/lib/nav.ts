@@ -64,11 +64,6 @@ export const NAV: NavItem[] = [
         label: "Biblical Encounters",
         href: withBase("biblical-encounters"),
       },
-      {
-        key: "extra-biblical-angels",
-        label: "Extra-Biblical Angels",
-        href: withBase("extra-biblical-angels"),
-      },
     ],
   },
   {
@@ -97,11 +92,6 @@ export const NAV: NavItem[] = [
         key: "icon-gifts",
         label: "Giving Icons as Gifts",
         href: withBase("icon-gifts"),
-      },
-      {
-        key: "liturgical-living",
-        label: "Liturgical Living",
-        href: withBase("liturgical-living"),
       },
     ],
   },
@@ -132,6 +122,13 @@ export const NAV: NavItem[] = [
         href: withBase("sources"),
       },
       { key: "contact", label: "Contact", href: withBase("contact") },
+      {
+        key: "corrections",
+        label: "Report a Correction",
+        href: withBase("corrections"),
+      },
+      { key: "contribute", label: "Contribute", href: withBase("contribute") },
+      { key: "privacy", label: "Privacy", href: withBase("privacy") },
     ],
   },
 ];

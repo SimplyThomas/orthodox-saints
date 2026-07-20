@@ -7,3 +7,9 @@
 # [vars] (they're identifiers, not secrets) — override here only for local dev.
 APP_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvQ...your_pkcs8_key...\n-----END PRIVATE KEY-----\n"
 TURNSTILE_SECRET_KEY="0x4AAAAAAA_your_turnstile_secret"
+
+# REPORT_NOTIFY_TO: the verified Email Routing destination that receives the
+# private reporter-email notification. Optional — leave unset to disable it. The
+# `send_email` EMAIL binding is only wired in the deployed Worker runtime, so
+# local `wrangler dev` skips the notification unless Email Routing is set up.
+REPORT_NOTIFY_TO="you@example.com"

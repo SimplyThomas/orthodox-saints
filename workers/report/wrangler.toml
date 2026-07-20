@@ -34,6 +34,16 @@ REPO_NAME  = "orthodox-saints"
 # want previews to reach the live Worker.
 ALLOWED_ORIGIN = "https://orthodoxsaintfinder.com,https://orthodoxsaintregistry.com,https://patronsaintfinder.com"
 
+# --- Private reporter notification (send_email) ------------------------------
+# After filing the public issue, the Worker emails the maintainer (never the
+# reporter) so they can reply — the reporter's address stays out of the issue.
+# No destination is hardcoded here: the recipient is the REPORT_NOTIFY_TO secret
+# (a verified Email Routing destination the maintainer sets). Sending is
+# best-effort; if this binding or the secret is absent, the Worker skips it.
+send_email = [
+  { name = "EMAIL" }
+]
+
 # Observability: keep Worker logs so failed GitHub calls are debuggable.
 [observability]
 enabled = true

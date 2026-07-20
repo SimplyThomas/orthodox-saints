@@ -1,5 +1,6 @@
 ---
 import { NAV } from "../lib/nav";
+import { withBase } from "../lib/format";
 
 // Reverent dark colophon: brand block + navigation + connect, over a thin
 // legal bar. The link columns mirror the primary nav (src/lib/nav.ts) — every
@@ -111,6 +112,7 @@ const year = new Date().getFullYear();
   <div class="cw-footer-legal">
     <div class="cw-legal-bar">
       <span class="cw-copy">&copy; {year} CLOUD OF WITNESSES</span>
+      <a class="cw-legal-link" href={withBase("privacy")}>Privacy</a>
       <span class="cw-foot-flex"></span>
       <span class="cw-foot-maxim"
         >Maintained with love, coffee, and the prayers of the saints.</span
@@ -118,3 +120,17 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  /* Privacy link in the legal bar — small-caps, quiet, matching the bar tone. */
+  .cw-legal-link {
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    text-decoration: none;
+  }
+  .cw-legal-link:hover {
+    text-decoration: underline;
+  }
+</style>

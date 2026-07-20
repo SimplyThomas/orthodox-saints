@@ -213,25 +213,40 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
               placeholder="So we can follow up if we have a question"
               autocomplete="email"
             />
-            <div class="hint">
-              Only used to follow up on this report. It becomes part of the
-              public issue, so leave it blank if you’d rather stay anonymous.
-            </div>
+            <div class="hint">Never published — used only so we can reply.</div>
             <div class="err" data-for="cr-email" hidden>
               That email address doesn’t look right.
             </div>
           </div>
 
-          {/* Turnstile — proves you’re human; no puzzles for most visitors. */}
+          {
+            /* Turnstile — proves you’re human; no puzzles for most visitors.
+             The data-*-callback hooks let the island detect a failed/blocked
+             widget (ad blocker, network) and offer the email fallback below. */
+          }
           <div class="fld cr-turnstile-fld">
             <div
               class="cf-turnstile"
               data-sitekey={SITE_KEY}
               data-theme="light"
+              data-callback="crTurnstileReady"
+              data-error-callback="crTurnstileFailed"
+              data-timeout-callback="crTurnstileFailed"
             >
             </div>
             <div class="err" data-for="cr-turnstile" hidden>
               Please complete the verification challenge.
+            </div>
+            {/* Shown when Turnstile can't load — offers the email path. */}
+            <div
+              class="cr-turnstile-down"
+              id="cr-turnstile-down"
+              role="status"
+              hidden
+            >
+              The spam-check didn’t load (an ad blocker or network hiccup may be
+              blocking it). You can still reach us by email:{" "}
+              <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
             </div>
           </div>
 
@@ -292,13 +307,35 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
   </div>
 
   {
-    /* Cloudflare Turnstile loader (third-party; kept inline so Astro won't bundle it) */
+    /* Turnstile callback bridge — defined inline so the global names referenced
+       by the widget's data-*-callback attributes exist before the (async) loader
+       renders, regardless of when the island module runs. Each call is recorded
+       on window.__crTurnstile and forwarded to a listener the island installs. */
+  }
+  <script is:inline>
+    (function () {
+      const state = { ready: false, failed: false, on: null };
+      window.__crTurnstile = state;
+      const fire = (kind) => {
+        state[kind] = true;
+        if (kind === "ready") state.failed = false;
+        if (typeof state.on === "function") state.on(kind);
+      };
+      window.crTurnstileReady = () => fire("ready");
+      window.crTurnstileFailed = () => fire("failed");
+    })();
+  </script>
+
+  {
+    /* Cloudflare Turnstile loader (third-party; kept inline so Astro won't bundle it).
+       onerror covers a blocked/failed script load (ad blocker, network). */
   }
   <script
     is:inline
     src="https://challenges.cloudflare.com/turnstile/v0/api.js"
     async
-    defer></script>
+    defer
+    onerror="window.crTurnstileFailed && window.crTurnstileFailed()"></script>
 
   <script>
     import "../islands/corrections.client.ts";
@@ -457,6 +494,22 @@ const SITE_KEY = "0x4AAAAAADtmMTW7VjPxtg_5";
 
   .cr-turnstile-fld {
     min-height: 65px;
+  }
+  /* Fallback notice when Turnstile can't load — mirrors .cr-formerr tone. */
+  .cr-turnstile-down {
+    font-size: 14px;
+    color: #8d3a2f;
+    background: rgba(141, 58, 47, 0.07);
+    border: 1px solid rgba(141, 58, 47, 0.25);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 10px;
+    line-height: 1.45;
+  }
+  .cr-turnstile-down a {
+    color: var(--gold-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-gold);
   }
 
   .cr-actions {
