@@ -357,7 +357,9 @@ await check("comma-separated REPORT_NOTIFY_TO → one message per recipient", as
   );
   for (const msg of sent) {
     eq(msg.from, "reports@orthodoxsaintfinder.com", "From");
-    if (!new RegExp(`^To: ${msg.to.replace(/[.@]/g, "\\$&")}\r\n`, "m").test(msg.raw))
+    // Plain substring check (no regex built from data): the To header always
+    // follows the From header, so it appears as its own CRLF-delimited line.
+    if (!msg.raw.includes(`\r\nTo: ${msg.to}\r\n`))
       throw new Error("raw To header doesn't match recipient " + msg.to);
     if (!msg.raw.includes("jane@example.com")) throw new Error("raw missing reporter email");
   }
