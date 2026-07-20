@@ -11,10 +11,17 @@
  * and uses that to create the issue. The private key never expires, so there is
  * nothing to rotate on a schedule.
  *
+ * The reporter's email is NEVER published in the issue. If one is supplied, the
+ * maintainer gets a private notification (via a Cloudflare `send_email` binding)
+ * so they can reply — best-effort, and skipped silently when unconfigured.
+ *
  * Bindings (see wrangler.toml + README):
- *   secrets : APP_PRIVATE_KEY (PKCS#8 PEM), TURNSTILE_SECRET_KEY
+ *   secrets : APP_PRIVATE_KEY (PKCS#8 PEM), TURNSTILE_SECRET_KEY,
+ *             REPORT_NOTIFY_TO (verified Email Routing destination
+ *             address(es); comma-separated for fan-out)
  *   vars    : APP_ID, INSTALLATION_ID, REPO_OWNER, REPO_NAME,
  *             ALLOWED_ORIGIN (comma-separated list ok)
+ *   email   : EMAIL (send_email binding; from reports@orthodoxsaintfinder.com)
  */
 
 // ---- limits -----------------------------------------------------------------
@@ -115,11 +122,14 @@ export default {
 
     // --- build the issue -----------------------------------------------------
     const title = buildTitle(typeLabel, subject);
-    const body = buildBody({ typeLabel, subject, description, suggestion, source, name, email });
+    const body = buildBody({ typeLabel, subject, description, suggestion, source, name });
 
     // --- create it on GitHub -------------------------------------------------
     try {
       const issue = await createIssue(env, title, body);
+      // Best-effort private notification so the maintainer can reply to the
+      // reporter — the email is deliberately kept out of the public issue.
+      await notifyReporter(env, { issue, email, name, subject: title });
       return json(
         { ok: true, message: "Your report has been filed. Thank you!", number: issue.number },
         200,
@@ -253,6 +263,91 @@ function b64url(bytes) {
 }
 const b64urlStr = (s) => b64url(new TextEncoder().encode(s));
 
+// ---- private reporter notification ------------------------------------------
+// After the public issue is filed, email the maintainer (NOT the reporter) so a
+// reply is possible without the reporter's address ever appearing in the issue.
+// Best-effort: any failure is logged and swallowed — the issue is already filed,
+// so the request must still succeed. Skips silently when the binding/secret is
+// absent (local + test environments) or no email was supplied.
+const NOTIFY_FROM = "reports@orthodoxsaintfinder.com";
+
+async function notifyReporter(env, { issue, email, name, subject }) {
+  if (!email) return; // nothing to reply to
+  if (!env || !env.EMAIL || !env.REPORT_NOTIFY_TO) return; // not configured
+
+  // REPORT_NOTIFY_TO may be a single address or a comma-separated list. Each
+  // recipient must be a VERIFIED Email Routing destination address (a custom
+  // routing address on the zone, e.g. contact@…, is not one and is rejected by
+  // the binding) — so fan-out is done here, one message per recipient.
+  const recipients = str(env.REPORT_NOTIFY_TO)
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (!recipients.length) return;
+
+  let EmailMessage;
+  try {
+    // `cloudflare:email` only exists in the Workers runtime; import it lazily so
+    // this module still loads under plain node (tests inject env.EmailMessage).
+    EmailMessage =
+      env.EmailMessage || (await import("cloudflare:email")).EmailMessage;
+  } catch (err) {
+    console.error("Reporter notification unavailable:", err && err.message);
+    return;
+  }
+
+  const number = issue && issue.number;
+  const issueUrl =
+    (issue && issue.html_url) ||
+    `https://github.com/${env.REPO_OWNER}/${env.REPO_NAME}/issues/${number}`;
+
+  // Per-recipient try/catch: one rejected address (e.g. not yet verified) must
+  // not stop the copies to the others.
+  for (const to of recipients) {
+    try {
+      const raw = buildNotificationMessage({
+        from: NOTIFY_FROM,
+        to,
+        number,
+        email,
+        name,
+        subject,
+        issueUrl,
+      });
+      await env.EMAIL.send(new EmailMessage(NOTIFY_FROM, to, raw));
+    } catch (err) {
+      console.error(
+        "Reporter notification failed for " + to + ":",
+        err && err.message,
+      );
+    }
+  }
+}
+
+// Hand-built minimal RFC 5322 message. Header values are stripped of CR/LF so a
+// crafted email/name/subject can't inject extra headers (defence in depth — the
+// values are already clean()'d). Body is plain UTF-8 text.
+function buildNotificationMessage({ from, to, number, email, name, subject, issueUrl }) {
+  const h = (v) => str(v).replace(/[\r\n]+/g, " ").trim();
+  const subjectLine = h(`Correction report #${number} — reply to ${email}`);
+  const bodyLines = [
+    "A new correction report was filed and the reporter left a reply address.",
+    "",
+    "Reply to: " + h(email),
+  ];
+  if (name) bodyLines.push("Name: " + h(name));
+  bodyLines.push("", "Report: " + h(subject), "Issue: " + h(issueUrl), "");
+  const headers = [
+    "From: " + h(from),
+    "To: " + h(to),
+    "Subject: " + subjectLine,
+    "Date: " + new Date().toUTCString(),
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=utf-8",
+  ];
+  return headers.join("\r\n") + "\r\n\r\n" + bodyLines.join("\r\n");
+}
+
 // ---- issue formatting -------------------------------------------------------
 function buildTitle(typeLabel, subject) {
   // Title can't be a code block, so neutralize mentions/refs and strip newlines.
@@ -260,7 +355,7 @@ function buildTitle(typeLabel, subject) {
   return `[Data quality] ${typeLabel} — ${subj}`.replace(/\s+/g, " ").slice(0, 160);
 }
 
-function buildBody({ typeLabel, subject, description, suggestion, source, name, email }) {
+function buildBody({ typeLabel, subject, description, suggestion, source, name }) {
   // Every user-supplied value is rendered inside a fenced code block — GitHub
   // does not linkify @mentions / #refs inside code fences, and backticks are
   // already stripped in clean(), so the fence can't be broken out of.
@@ -276,10 +371,10 @@ function buildBody({ typeLabel, subject, description, suggestion, source, name, 
   if (suggestion) lines.push("", "**Suggested correction**", fence(suggestion));
   if (source) lines.push("", "**Source / citation**", fence(source));
 
-  const who = [];
-  if (name) who.push("Name: " + name);
-  if (email) who.push("Email: " + email);
-  if (who.length) lines.push("", "**Reporter**", fence(who.join("\n")));
+  // The reporter's email is NEVER published — it goes only to the private
+  // maintainer notification (see notifyReporter). The optional name
+  // may stay public.
+  if (name) lines.push("", "**Reporter**", fence("Name: " + name));
 
   lines.push(
     "",

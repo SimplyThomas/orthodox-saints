@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+// Privacy — an About-family prose page in the illuminated reading-column
+// treatment, reusing the Browse & Search hero primitives and the shared
+// about-sub / as-* classes (src/styles/global.css). Plain-language, warm, no
+// legalese: the site is a reference, not a service, and keeps to near-nothing.
+---
+
+<BaseLayout
+  active="privacy"
+  title="Your Privacy"
+  description="How Cloud of Witnesses handles your privacy: no accounts, no cookies, no tracking. A reference, not a service."
+>
+  <div class="about-sub">
+    {/* ---------- hero (matches Browse & Search) ---------- */}
+    <section class="sr-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="sr-hero-inner">
+        <EyebrowRule label="About" />
+        <h1 class="sr-title">Your Privacy</h1>
+        <p class="sr-lede">A reference, not a service.</p>
+      </div>
+    </section>
+
+    {/* ---------- reading column ---------- */}
+    <section class="as-body">
+      <div class="as-col">
+        <p class="as-p as-dropcap">
+          This site is a reference, not a service. You don&rsquo;t create an
+          account, you don&rsquo;t sign in, and we&rsquo;d like to keep what we
+          know about you as close to nothing as possible.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>What we don&rsquo;t do</h2>
+        </div>
+        <p class="as-p last">
+          We set no cookies. We use no advertising, no tracking pixels, and no
+          social-media embeds. Nothing you do here is stored in your browser,
+          and we never sell or share data with anyone. Searching and the
+          patron-saint quiz run entirely on your own device &mdash; your
+          searches and quiz answers never leave it.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Visit counts</h2>
+        </div>
+        <p class="as-p last">
+          We use <a class="as-mail" href="https://umami.is" rel="noopener"
+            >Umami</a
+          >, a privacy-focused analytics tool, to count page visits &mdash;
+          which pages are read, roughly where in the world visitors are, and
+          what kind of device they use. We also count anonymous clicks on
+          outward links &mdash; for example, when a visitor follows an icon back
+          to the shop or museum that made it &mdash; so we can see which saints
+          send people onward and support the artists and vendors whose work we
+          link to. It sets no cookies, collects no personal information, and
+          cannot identify or follow you. We look at it only to learn which
+          saints and pages people find helpful.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>The corrections form</h2>
+        </div>
+        <p class="as-p last">
+          Submissions to the <a class="as-mail" href={withBase("corrections")}
+            >corrections form</a
+          > are checked by Cloudflare Turnstile (a spam filter that replaces CAPTCHAs).
+          What you write becomes a <strong>public correction report</strong> in our
+          project tracker on GitHub, so please don&rsquo;t include personal details
+          you wouldn&rsquo;t want visible. If you share your email address so we can
+          reply, <strong>it is never published</strong> &mdash; it is forwarded privately
+          to the maintainer and stored nowhere else.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Email</h2></div>
+        <p class="as-p last">
+          If you write to <a
+            class="as-mail"
+            href="mailto:contact@orthodoxsaintfinder.com"
+            >contact@orthodoxsaintfinder.com</a
+          >, your message goes to the site&rsquo;s maintainer and is used only
+          to reply to you.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Calendar feeds</h2>
+        </div>
+        <p class="as-p last">
+          Subscribing to a calendar feed means your calendar app periodically
+          fetches a public file from us; we receive nothing about you.
+        </p>
+
+        <div class="as-head">
+          <span class="ln"></span><h2>Infrastructure</h2>
+        </div>
+        <p class="as-p last">
+          The site is served by <a
+            class="as-mail"
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            rel="noopener">GitHub Pages</a
+          > and <a
+            class="as-mail"
+            href="https://www.cloudflare.com/privacypolicy/"
+            rel="noopener">Cloudflare</a
+          >, which keep standard, short-lived server logs (such as IP addresses)
+          to run and protect the service, under their own privacy policies.
+        </p>
+
+        <div class="as-head"><span class="ln"></span><h2>Questions?</h2></div>
+        <p class="as-p">
+          Write to us &mdash; <a
+            class="as-mail"
+            href="mailto:contact@orthodoxsaintfinder.com"
+            >contact@orthodoxsaintfinder.com</a
+          >.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- closing flourish ---------- */}
+    <section class="as-flourish">
+      <div class="rule"><span class="dot"></span></div>
+    </section>
+  </div>
+</BaseLayout>
