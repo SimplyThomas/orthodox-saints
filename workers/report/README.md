@@ -127,11 +127,17 @@ issues; only the reply-notification is skipped (silently).
    for Email Workers, add `reports@orthodoxsaintfinder.com`. (No
    `destination_address` is hardcoded in `wrangler.toml` on purpose — the
    recipient lives only in the secret below.)
-4. Set the recipient as a Worker secret:
+4. Set the recipient(s) as a Worker secret — a single address, or a
+   comma-separated list to notify several people (each address must be its own
+   *verified destination*; a zone routing address like `contact@…` is NOT a
+   destination and the binding rejects it):
 
    ```bash
-   npx wrangler secret put REPORT_NOTIFY_TO   # paste the verified destination address
+   npx wrangler secret put REPORT_NOTIFY_TO   # e.g. "you@example.com, other@example.com"
    ```
+
+   Each recipient gets its own copy; one rejected/unverified address doesn't
+   block the others (failures are logged, visible via `npm run tail`).
 
 If `EMAIL` or `REPORT_NOTIFY_TO` is absent (e.g. before this step, or in local
 dev), the Worker skips the notification without erroring.
@@ -260,7 +266,7 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
 |---|---|---|
 | `APP_PRIVATE_KEY` | secret (`wrangler secret put`) | GitHub App private key, **PKCS#8 PEM**. Signs the App JWT. |
 | `TURNSTILE_SECRET_KEY` | secret (`wrangler secret put`) | Turnstile server secret for siteverify. |
-| `REPORT_NOTIFY_TO` | secret (`wrangler secret put`) | Verified Email Routing destination that receives the private reporter-email notification. Optional — omit to disable notifications. |
+| `REPORT_NOTIFY_TO` | secret (`wrangler secret put`) | Verified Email Routing destination(s) that receive the private reporter-email notification; comma-separated for more than one. Optional — omit to disable notifications. |
 | `EMAIL` | `send_email` binding (`wrangler.toml`) | Cloudflare Email Workers binding used to send the notification from `reports@orthodoxsaintfinder.com`. |
 | `APP_ID` | `wrangler.toml` `[vars]` | GitHub App ID (identifier, not secret). |
 | `INSTALLATION_ID` | `wrangler.toml` `[vars]` | The App's installation id on the repo (identifier). |

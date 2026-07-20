@@ -17,7 +17,8 @@
  *
  * Bindings (see wrangler.toml + README):
  *   secrets : APP_PRIVATE_KEY (PKCS#8 PEM), TURNSTILE_SECRET_KEY,
- *             REPORT_NOTIFY_TO (verified Email Routing destination address)
+ *             REPORT_NOTIFY_TO (verified Email Routing destination
+ *             address(es); comma-separated for fan-out)
  *   vars    : APP_ID, INSTALLATION_ID, REPO_OWNER, REPO_NAME,
  *             ALLOWED_ORIGIN (comma-separated list ok)
  *   email   : EMAIL (send_email binding; from reports@orthodoxsaintfinder.com)
@@ -273,30 +274,53 @@ const NOTIFY_FROM = "reports@orthodoxsaintfinder.com";
 async function notifyReporter(env, { issue, email, name, subject }) {
   if (!email) return; // nothing to reply to
   if (!env || !env.EMAIL || !env.REPORT_NOTIFY_TO) return; // not configured
-  try {
-    const to = env.REPORT_NOTIFY_TO;
-    const number = issue && issue.number;
-    const issueUrl =
-      (issue && issue.html_url) ||
-      `https://github.com/${env.REPO_OWNER}/${env.REPO_NAME}/issues/${number}`;
-    const raw = buildNotificationMessage({
-      from: NOTIFY_FROM,
-      to,
-      number,
-      email,
-      name,
-      subject,
-      issueUrl,
-    });
 
+  // REPORT_NOTIFY_TO may be a single address or a comma-separated list. Each
+  // recipient must be a VERIFIED Email Routing destination address (a custom
+  // routing address on the zone, e.g. contact@…, is not one and is rejected by
+  // the binding) — so fan-out is done here, one message per recipient.
+  const recipients = str(env.REPORT_NOTIFY_TO)
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (!recipients.length) return;
+
+  let EmailMessage;
+  try {
     // `cloudflare:email` only exists in the Workers runtime; import it lazily so
     // this module still loads under plain node (tests inject env.EmailMessage).
-    const EmailMessage =
-      (env && env.EmailMessage) || (await import("cloudflare:email")).EmailMessage;
-    const message = new EmailMessage(NOTIFY_FROM, to, raw);
-    await env.EMAIL.send(message);
+    EmailMessage =
+      env.EmailMessage || (await import("cloudflare:email")).EmailMessage;
   } catch (err) {
-    console.error("Reporter notification failed:", err && err.message);
+    console.error("Reporter notification unavailable:", err && err.message);
+    return;
+  }
+
+  const number = issue && issue.number;
+  const issueUrl =
+    (issue && issue.html_url) ||
+    `https://github.com/${env.REPO_OWNER}/${env.REPO_NAME}/issues/${number}`;
+
+  // Per-recipient try/catch: one rejected address (e.g. not yet verified) must
+  // not stop the copies to the others.
+  for (const to of recipients) {
+    try {
+      const raw = buildNotificationMessage({
+        from: NOTIFY_FROM,
+        to,
+        number,
+        email,
+        name,
+        subject,
+        issueUrl,
+      });
+      await env.EMAIL.send(new EmailMessage(NOTIFY_FROM, to, raw));
+    } catch (err) {
+      console.error(
+        "Reporter notification failed for " + to + ":",
+        err && err.message,
+      );
+    }
   }
 }
 
