@@ -281,6 +281,10 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                         href={m.imageSource}
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-umami-event="Icon Click"
+                        data-umami-event-vendor={m.imageVendor}
+                        data-umami-event-saint={m.id}
+                        data-umami-event-source="hero"
                       >
                         View on {m.imageVendor}
                       </a>
@@ -295,6 +299,10 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                       href={m.imageSource}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-umami-event="Icon Click"
+                      data-umami-event-vendor={m.imageCredit || "source"}
+                      data-umami-event-saint={m.id}
+                      data-umami-event-source="hero"
                     >
                       {m.imageCredit || "source"}
                     </a>
@@ -641,6 +649,10 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                     target="_blank"
                     rel="noopener noreferrer"
                     class="sv-dep sv-dep--link"
+                    data-umami-event="Icon Click"
+                    data-umami-event-vendor={d.vendor ?? d.by ?? d.kind}
+                    data-umami-event-saint={m.id}
+                    data-umami-event-source="carousel"
                   >
                     {inner}
                   </a>
@@ -668,6 +680,9 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="sv-reslink"
+                data-umami-event="Resource Click"
+                data-umami-event-kind={l.kind}
+                data-umami-event-saint={m.id}
               >
                 {meta && <span class="sv-reslink-ico" set:html={meta.icon} />}
                 <span class="sv-reslink-text">
