@@ -2143,6 +2143,23 @@ a.qz-comp {
   gap: 9px;
   text-decoration: none;
 }
+/* A gentle closing caveat — the quiz points toward saints, it does not decree
+   a patron; the real discernment is prayer and one's priest. */
+.qz-disclaimer {
+  max-width: 640px;
+  margin: 40px auto 0;
+  padding: 20px 24px;
+  border-top: 1px solid var(--line-gold);
+  text-align: center;
+}
+.qz-disclaimer p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
 
 .qz-empty {
   text-align: center;
@@ -4024,6 +4041,66 @@ a.sv-rail-chip:hover {
   color: var(--byz-deep);
   margin: 0;
   text-wrap: pretty;
+}
+/* "Ideas for Celebrating This Day" — a warm, inviting family-ideas card,
+   set apart from the plainer Customs card above it. Mirrors the feast page's
+   celebration section. */
+.sv-celebrate {
+  background: var(--ivory-2);
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-soft);
+}
+.sv-celebrate .eyebrow {
+  margin-bottom: 12px;
+  display: block;
+  color: var(--gold-deep);
+}
+.sv-celebrate-intro {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+.sv-celebrate-ideas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.sv-celebrate-ideas li {
+  position: relative;
+  padding-left: 26px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--byz-deep);
+}
+.sv-celebrate-ideas li::before {
+  content: "☦";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--gold-deep);
+  font-size: 0.85em;
+}
+.sv-celebrate-ideas .ci-detail {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.sv-celebrate-credit {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line-gold);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.sv-celebrate-credit a {
+  color: var(--byz);
 }
 .sv-notes p {
   font-size: 15.5px;

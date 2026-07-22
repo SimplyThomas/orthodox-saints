@@ -23,6 +23,21 @@ const timelineEntry = z.object({
   source: z.string().optional(),
 });
 
+// Practical "how families keep this feast/saint day at home" ideas — crafts,
+// festal foods, activities, readings, almsgiving. Distinct from the documented
+// `customs`: these are inviting, optional family ideas, written in our own words
+// and crediting the family blogs they draw from (never reproducing their text —
+// §9). `sources` here are the credited resources shown as links beneath the ideas.
+const celebrationSchema = z.object({
+  intro: z.string().optional(),
+  ideas: z
+    .array(z.object({ idea: z.string(), detail: z.string().optional() }))
+    .min(1),
+  sources: z
+    .array(z.object({ label: z.string(), url: z.string().url() }))
+    .optional(),
+});
+
 const profileSchema = z
   .object({
     id: z.string().regex(/^OS-\d{4,}$/),
@@ -61,6 +76,9 @@ const profileSchema = z
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
+    // Practical family ideas for celebrating this saint's day at home (§9:
+    // our own words, blogs credited/linked). Rendered by SaintView.
+    celebration: celebrationSchema.optional(),
     family: z
       .object({
         heading: z.string().optional(),
@@ -214,23 +232,7 @@ const feastProfileSchema = z
     hymnography: z.array(z.string()).optional(), // describes, never quotes (§9)
     fastingPractice: z.array(z.string()).optional(),
     customs: z.array(z.string()).optional(),
-    // Practical "how families keep this feast at home" ideas — crafts, festal
-    // foods, activities, readings, almsgiving. Distinct from `customs` (the
-    // Church-blessed traditions): these are inviting, optional family ideas,
-    // written in our own words and crediting the family blogs they draw from
-    // (never reproducing their text — §9). `sources` here are the credited
-    // resources shown as links beneath the ideas.
-    celebration: z
-      .object({
-        intro: z.string().optional(),
-        ideas: z
-          .array(z.object({ idea: z.string(), detail: z.string().optional() }))
-          .min(1),
-        sources: z
-          .array(z.object({ label: z.string(), url: z.string().url() }))
-          .optional(),
-      })
-      .optional(),
+    celebration: celebrationSchema.optional(),
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
