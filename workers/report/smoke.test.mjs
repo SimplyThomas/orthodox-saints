@@ -255,5 +255,226 @@ await check("cross-origin: disallowed origin NOT echoed", async () => {
   eq(res.headers.get("Access-Control-Allow-Origin"), null, "ACAO");
 });
 
+// --- private reporter email (send_email binding) -----------------------------
+// The `cloudflare:email` module only exists in the Workers runtime, so we inject
+// a fake EmailMessage constructor + EMAIL binding via env (the Worker prefers
+// env.EmailMessage / env.EMAIL when present). This keeps the suite plain-node.
+class FakeEmailMessage {
+  constructor(from, to, raw) {
+    this.from = from;
+    this.to = to;
+    this.raw = raw;
+  }
+}
+function emailEnv(overrides = {}) {
+  const sent = [];
+  const emailBinding = {
+    async send(message) {
+      sent.push(message);
+    },
+    ...overrides.EMAIL,
+  };
+  return {
+    env: {
+      ...env,
+      EmailMessage: FakeEmailMessage,
+      EMAIL: overrides.EMAIL === null ? undefined : emailBinding,
+      REPORT_NOTIFY_TO:
+        "notify_to" in overrides ? overrides.notify_to : "maintainer@example.com",
+      ...overrides.extra,
+    },
+    sent,
+  };
+}
+
+await check("email in public issue body: NEVER present even when provided", async () => {
+  stubFetch();
+  await worker.fetch(
+    post({
+      description: "Fix the feast date.",
+      name: "Jane Doe",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    env, // base env has no EMAIL binding — send is skipped, body still checked
+  );
+  const { body } = lastGithubBody;
+  if (body.includes("jane@example.com")) throw new Error("email leaked into issue body");
+  if (/Email:/.test(body)) throw new Error('issue body still has an "Email:" line');
+  if (!body.includes("Jane Doe")) throw new Error("reporter name should still be public");
+});
+
+await check("email present + binding configured → send invoked with correct message", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv();
+  await worker.fetch(
+    post({
+      type: "feast",
+      subject: "St. Nicholas",
+      description: "Dec 6 should note Dec 19.",
+      name: "Jane Doe",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(sent.length, 1, "one message sent");
+  const msg = sent[0];
+  eq(msg.from, "reports@orthodoxsaintfinder.com", "From");
+  eq(msg.to, "maintainer@example.com", "To");
+  if (!msg.raw.includes("jane@example.com")) throw new Error("raw missing reporter email");
+  if (!/github\.com\/.+\/issues\/123/.test(msg.raw)) throw new Error("raw missing issue URL");
+  if (!msg.raw.includes("Jane Doe")) throw new Error("raw missing reporter name");
+  // RFC 5322 headers present, from/to correct, Subject references the issue number.
+  if (!/^From: reports@orthodoxsaintfinder\.com\r\n/m.test(msg.raw))
+    throw new Error("missing/incorrect From header");
+  if (!/^To: maintainer@example\.com\r\n/m.test(msg.raw))
+    throw new Error("missing/incorrect To header");
+  if (!/^Subject: Correction report #123 — reply to jane@example\.com/m.test(msg.raw))
+    throw new Error("Subject line wrong: " + msg.raw.split("\r\n").find((l) => l.startsWith("Subject:")));
+  if (!/^Content-Type: text\/plain; charset=utf-8\r\n/m.test(msg.raw))
+    throw new Error("missing Content-Type header");
+});
+
+await check("comma-separated REPORT_NOTIFY_TO → one message per recipient", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv({
+    notify_to: "first@example.com, second@example.com,,  third@example.com ",
+  });
+  await worker.fetch(
+    post({
+      description: "x",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(sent.length, 3, "one message per recipient");
+  eq(
+    sent.map((m) => m.to).join("|"),
+    "first@example.com|second@example.com|third@example.com",
+    "recipients in order, trimmed, empties dropped",
+  );
+  for (const msg of sent) {
+    eq(msg.from, "reports@orthodoxsaintfinder.com", "From");
+    // Plain substring check (no regex built from data): the To header always
+    // follows the From header, so it appears as its own CRLF-delimited line.
+    if (!msg.raw.includes(`\r\nTo: ${msg.to}\r\n`))
+      throw new Error("raw To header doesn't match recipient " + msg.to);
+    if (!msg.raw.includes("jane@example.com")) throw new Error("raw missing reporter email");
+  }
+});
+
+await check("one rejected recipient doesn't stop the other copies", async () => {
+  stubFetch();
+  const sentTo = [];
+  const { env: e } = emailEnv({
+    notify_to: "bad@example.com,good@example.com",
+    EMAIL: {
+      async send(message) {
+        if (message.to === "bad@example.com") throw new Error("E_RECIPIENT_NOT_ALLOWED");
+        sentTo.push(message.to);
+      },
+    },
+  });
+  const res = await worker.fetch(
+    post({
+      description: "x",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(res.status, 200, "request still succeeds");
+  eq(sentTo.join("|"), "good@example.com", "surviving recipient still notified");
+});
+
+await check("no email supplied → no send even when binding present", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv();
+  await worker.fetch(
+    post({ description: "No reply address given.", "cf-turnstile-response": "t" }),
+    e,
+  );
+  eq(sent.length, 0, "no message sent");
+});
+
+await check("email present but EMAIL binding absent → no throw, request still succeeds", async () => {
+  stubFetch();
+  const { env: e } = emailEnv({ EMAIL: null }); // binding removed, secret present
+  const res = await worker.fetch(
+    post({ description: "x", email: "jane@example.com", "cf-turnstile-response": "t" }),
+    e,
+  );
+  const j = await res.json();
+  eq(res.status, 200, "status");
+  eq(j.ok, true, "ok");
+  eq(j.number, 123, "issue still filed");
+});
+
+await check("email present but REPORT_NOTIFY_TO secret absent → no throw, still succeeds", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv({ notify_to: undefined });
+  const res = await worker.fetch(
+    post({ description: "x", email: "jane@example.com", "cf-turnstile-response": "t" }),
+    e,
+  );
+  const j = await res.json();
+  eq(res.status, 200, "status");
+  eq(j.ok, true, "ok");
+  eq(sent.length, 0, "no message sent without a destination");
+});
+
+await check("send() throwing does NOT fail the request (issue already filed)", async () => {
+  stubFetch();
+  const { env: e } = emailEnv({
+    EMAIL: { async send() { throw new Error("SMTP boom"); } },
+  });
+  const res = await worker.fetch(
+    post({ description: "x", email: "jane@example.com", "cf-turnstile-response": "t" }),
+    e,
+  );
+  const j = await res.json();
+  eq(res.status, 200, "status");
+  eq(j.ok, true, "ok");
+  eq(j.number, 123, "issue still reported filed");
+});
+
+await check("header injection: CRLF in email can't inject notification headers", async () => {
+  stubFetch();
+  const { env: e, sent } = emailEnv();
+  // A crafted email is already rejected by isEmail(), so drive the message
+  // builder's defence directly with a value carrying CR/LF + header-like text.
+  await worker.fetch(
+    post({
+      description: "x",
+      // clean() normalizes CRLF to \n, h() collapses [\r\n]+ in header values,
+      // and isEmail rejects spaces —
+      // so injection can't reach the builder from input. Assert the guarantee at
+      // the builder by feeding a nasty name (allowed chars) that includes fake
+      // header text; header stripping collapses it onto one line.
+      name: "Jane\nBcc: evil@example.com",
+      email: "jane@example.com",
+      "cf-turnstile-response": "t",
+    }),
+    e,
+  );
+  eq(sent.length, 1, "sent");
+  const raw = sent[0].raw;
+  // Split header block from body on the FIRST blank line only (the body itself
+  // contains blank lines). The injected "Bcc:" must not appear as its own header
+  // line, and the name's newline must be collapsed so it stays a single line.
+  const sep = raw.indexOf("\r\n\r\n");
+  const headerBlock = raw.slice(0, sep);
+  const bodyBlock = raw.slice(sep + 4);
+  if (/(^|\r\n)Bcc:/i.test(headerBlock)) throw new Error("injected Bcc header survived into headers");
+  const nameLine = bodyBlock.split("\r\n").find((l) => l.startsWith("Name:"));
+  if (!nameLine) throw new Error("Name line missing from body");
+  if (nameLine.includes("\n") || nameLine.includes("\r"))
+    throw new Error("name newline not collapsed: " + JSON.stringify(nameLine));
+  if (!nameLine.includes("Bcc: evil@example.com"))
+    throw new Error("name text should be flattened onto a single body line");
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

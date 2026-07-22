@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="72%">
+      <stop offset="0%"  stop-color="#1d3260"/>
+      <stop offset="60%" stop-color="#152848"/>
+      <stop offset="100%" stop-color="#0d1a31"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#f0d377"/>
+      <stop offset="45%" stop-color="#d9b24c"/>
+      <stop offset="100%" stop-color="#b6882f"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Tab-size variant: the cross fills ~90% of the tile (thicker bars, no inner
+       ring) so it stays legible at 16-32px. The padded, ringed artwork lives on
+       in apple-touch-icon / icon-192 / icon-512, whose OS safe-zones need it. -->
+  <g fill="url(#gold)" transform="translate(256 262) scale(1.38) translate(-256 -262)">
+    <rect x="236" y="96" width="40" height="332" rx="12"/>
+    <rect x="200" y="147" width="112" height="32" rx="12"/>
+    <rect x="146" y="210" width="220" height="42" rx="14"/>
+    <g transform="rotate(-20 256 344)"><rect x="184" y="328" width="144" height="32" rx="13"/></g>
+  </g>
+</svg>

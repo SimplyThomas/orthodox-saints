@@ -25,6 +25,10 @@ Browser form ─POST─▶ Worker ─verify─▶ Turnstile siteverify
 - Accepts JSON **or** form-encoded POST bodies.
 - Honeypot field (`website`) → silently dropped.
 - Friendly JSON responses; the private key and raw GitHub errors are never leaked.
+- **The reporter's email is never published.** It's left out of the public issue
+  entirely; if supplied, the maintainer gets a private notification email (via a
+  Cloudflare `send_email` binding) so they can reply. The optional **name** may
+  still appear in the issue.
 
 ---
 
@@ -104,6 +108,40 @@ key (e.g. it leaked), GitHub App → **Generate a private key**, convert to PKCS
 re-run the `wrangler secret put APP_PRIVATE_KEY < …` line, then delete the old key
 in the App settings. `APP_ID`/`INSTALLATION_ID` never change.
 
+### 3a. Enable the private reporter-email notification **[dash.cloudflare.com]**
+
+The reporter's email never appears in the public issue. When a reporter supplies
+one, the Worker sends **you** a private notification (from
+`reports@orthodoxsaintfinder.com`) so you can reply. This uses a Cloudflare
+`send_email` binding named `EMAIL` (already declared in `wrangler.toml`) plus a
+`REPORT_NOTIFY_TO` secret — the address you want the notifications delivered to.
+**This step is optional:** if you skip it, correction reports are still filed as
+issues; only the reply-notification is skipped (silently).
+
+1. Cloudflare dashboard → your zone → **Email → Email Routing** → enable it if it
+   isn't already (this also adds the required MX/TXT records for the zone).
+2. **Destination addresses → Add** the address you want notifications sent to
+   (e.g. your personal inbox) and **verify** it via the confirmation email
+   Cloudflare sends. Email Workers can only send to a *verified* destination.
+3. If Cloudflare prompts you to declare an **allowed sender / verified sender**
+   for Email Workers, add `reports@orthodoxsaintfinder.com`. (No
+   `destination_address` is hardcoded in `wrangler.toml` on purpose — the
+   recipient lives only in the secret below.)
+4. Set the recipient(s) as a Worker secret — a single address, or a
+   comma-separated list to notify several people (each address must be its own
+   *verified destination*; a zone routing address like `contact@…` is NOT a
+   destination and the binding rejects it):
+
+   ```bash
+   npx wrangler secret put REPORT_NOTIFY_TO   # e.g. "you@example.com, other@example.com"
+   ```
+
+   Each recipient gets its own copy; one rejected/unverified address doesn't
+   block the others (failures are logged, visible via `npm run tail`).
+
+If `EMAIL` or `REPORT_NOTIFY_TO` is absent (e.g. before this step, or in local
+dev), the Worker skips the notification without erroring.
+
 ### 4. Put the **Site key** in the form
 
 Open `src/components`… actually the site key lives in the Astro page:
@@ -148,7 +186,13 @@ npm test                         # offline smoke tests (no network/secrets neede
 `npm test` runs `smoke.test.mjs`, which stubs the network and exercises the
 handler directly: method guard, honeypot drop, Turnstile pass/fail, validation,
 the `data-quality` label, injection neutralization (backticks / `@` / `#`),
-truncation, the no-leak error path, and the CORS allow-list. No secrets required.
+truncation, the no-leak error path, and the CORS allow-list. It also covers the
+private reporter-email path — email never in the public body, the notification's
+From/To/Subject/URL when a mock `EMAIL` binding is injected, the no-email and
+missing-binding/secret skips, and send-failure isolation. The `cloudflare:email`
+module only exists in the Workers runtime, so the tests inject a fake
+`EmailMessage` + `EMAIL` binding via `env` (the Worker prefers `env.EmailMessage`
+when present and otherwise dynamically imports the real module). No secrets required.
 
 For an end-to-end run against the real Cloudflare runtime:
 
@@ -201,6 +245,13 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
       (inside a code fence; no mention/ref linkified, no broken formatting).
 - [ ] Over-long description → truncated with `…`, issue still created.
 - [ ] Valid submit → 200 `{ok:true, number:N}` and a `data-quality` issue appears.
+- [ ] Reporter email is **never in the public issue** — even when supplied, the
+      body has no `Email:` line (the optional name may still show).
+- [ ] With `EMAIL` + `REPORT_NOTIFY_TO` set and a reporter email supplied, a
+      private notification arrives at `REPORT_NOTIFY_TO` from
+      `reports@orthodoxsaintfinder.com` with the reporter's address + issue link.
+- [ ] Email-send failure (or missing binding/secret) does **not** fail the
+      request — the issue is still filed and the caller gets `{ok:true}`.
 - [ ] `GET` / other method → 405.
 - [ ] Cross-origin call from a non-allow-listed origin → no
       `Access-Control-Allow-Origin` header (browser blocks it).
@@ -215,6 +266,8 @@ curl -s localhost:8787 -H 'Content-Type: application/json' -d '{
 |---|---|---|
 | `APP_PRIVATE_KEY` | secret (`wrangler secret put`) | GitHub App private key, **PKCS#8 PEM**. Signs the App JWT. |
 | `TURNSTILE_SECRET_KEY` | secret (`wrangler secret put`) | Turnstile server secret for siteverify. |
+| `REPORT_NOTIFY_TO` | secret (`wrangler secret put`) | Verified Email Routing destination(s) that receive the private reporter-email notification; comma-separated for more than one. Optional — omit to disable notifications. |
+| `EMAIL` | `send_email` binding (`wrangler.toml`) | Cloudflare Email Workers binding used to send the notification from `reports@orthodoxsaintfinder.com`. |
 | `APP_ID` | `wrangler.toml` `[vars]` | GitHub App ID (identifier, not secret). |
 | `INSTALLATION_ID` | `wrangler.toml` `[vars]` | The App's installation id on the repo (identifier). |
 | `REPO_OWNER` | `wrangler.toml` `[vars]` | GitHub org/user (`SimplyThomas`). |

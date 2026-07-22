@@ -6015,15 +6015,35 @@ a.sv-rail-chip:hover {
   .pga-arrow.next {
     right: -8px;
   }
+  /* Portrait spans the left; the text sits over a quiet gilt-ruled meta
+     line (feast · century · era). Grid keeps the DOM order untouched, so
+     the SSR first page and the client re-renders can't drift. */
   .saint-row {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "portrait main"
+      "portrait aside";
+    column-gap: 16px;
+    align-items: start;
+  }
+  .saint-row .portrait {
+    grid-area: portrait;
+  }
+  .saint-row .main {
+    grid-area: main;
   }
   .saint-row .aside {
+    grid-area: aside;
     width: auto;
     text-align: left;
+    margin-top: 11px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line-gold);
     display: flex;
-    gap: 14px;
+    gap: 6px 14px;
     align-items: baseline;
+    flex-wrap: wrap;
   }
   .saint-row .aside .century,
   .saint-row .aside .rank {

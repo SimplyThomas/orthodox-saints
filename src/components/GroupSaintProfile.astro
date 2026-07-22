@@ -198,6 +198,10 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
                         href={saint.imageSource}
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-umami-event="Icon Click"
+                        data-umami-event-vendor={saint.imageVendor}
+                        data-umami-event-saint={saint.id}
+                        data-umami-event-source="hero"
                       >
                         View on {saint.imageVendor}
                       </a>
@@ -212,6 +216,10 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
                       href={saint.imageSource}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-umami-event="Icon Click"
+                      data-umami-event-vendor={saint.imageCredit || "source"}
+                      data-umami-event-saint={saint.id}
+                      data-umami-event-source="hero"
                     >
                       {saint.imageCredit || "source"}
                     </a>
