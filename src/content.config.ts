@@ -214,6 +214,23 @@ const feastProfileSchema = z
     hymnography: z.array(z.string()).optional(), // describes, never quotes (§9)
     fastingPractice: z.array(z.string()).optional(),
     customs: z.array(z.string()).optional(),
+    // Practical "how families keep this feast at home" ideas — crafts, festal
+    // foods, activities, readings, almsgiving. Distinct from `customs` (the
+    // Church-blessed traditions): these are inviting, optional family ideas,
+    // written in our own words and crediting the family blogs they draw from
+    // (never reproducing their text — §9). `sources` here are the credited
+    // resources shown as links beneath the ideas.
+    celebration: z
+      .object({
+        intro: z.string().optional(),
+        ideas: z
+          .array(z.object({ idea: z.string(), detail: z.string().optional() }))
+          .min(1),
+        sources: z
+          .array(z.object({ label: z.string(), url: z.string().url() }))
+          .optional(),
+      })
+      .optional(),
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
