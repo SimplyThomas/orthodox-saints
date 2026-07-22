@@ -177,7 +177,15 @@ if (root && root.dataset.finderSrc) {
             <path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <button type="button" class="btn btn--gold" id="quiz-retake">Retake the quiz</button>
-      </div>`;
+      </div>
+
+      <aside class="qz-disclaimer" role="note">
+        <p>This is a tool to help you <em>discover</em> saints you might feel drawn to
+          &mdash; it isn&rsquo;t authoritative and no match is a verdict. Take a name that
+          stirs you, read their life, and sit with it. If a pairing doesn&rsquo;t speak
+          to you, explore the others or begin again. Above all, pray about it and speak
+          with your priest &mdash; he can guide you far better than any quiz.</p>
+      </aside>`;
 
     document.getElementById("quiz-retake")?.addEventListener("click", restart);
   }
