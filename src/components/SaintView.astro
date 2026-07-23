@@ -853,6 +853,44 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
         )
       }
 
+      {/* ideas for celebrating this day at home — inviting family ideas */}
+      {
+        profile?.celebration && (
+          <section class="sv-section">
+            <div class="sv-celebrate">
+              <div class="eyebrow">Ideas for Celebrating This Day</div>
+              {profile.celebration.intro && (
+                <p class="sv-celebrate-intro">{profile.celebration.intro}</p>
+              )}
+              <ul class="sv-celebrate-ideas">
+                {profile.celebration.ideas.map((it) => (
+                  <li>
+                    <span>{it.idea}</span>
+                    {it.detail && <span class="ci-detail"> {it.detail}</span>}
+                  </li>
+                ))}
+              </ul>
+              {profile.celebration.sources &&
+                profile.celebration.sources.length > 0 && (
+                  <p class="sv-celebrate-credit">
+                    Ideas gathered and adapted from Orthodox family resources —{" "}
+                    {profile.celebration.sources.map((s, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={s.url} target="_blank" rel="noopener">
+                          {s.label}
+                        </a>
+                      </>
+                    ))}
+                    . These are optional, inviting ideas, not liturgical
+                    requirements.
+                  </p>
+                )}
+            </div>
+          </section>
+        )
+      }
+
       {/* in their own words — a collapsible of verbatim PD quotes */}
       {
         quoteList.length > 0 && (

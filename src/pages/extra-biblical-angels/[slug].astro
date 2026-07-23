@@ -1,0 +1,878 @@
+---
+import type { GetStaticPaths } from "astro";
+import { loadWorks } from "../../lib/apocrypha";
+import { hostById } from "../../lib/hosts";
+import { withBase } from "../../lib/format";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DomeMark from "../../components/icons/DomeMark.astro";
+import EyebrowRule from "../../components/EyebrowRule.astro";
+import EntryCard from "../../components/EntryCard.astro";
+
+export const getStaticPaths = (async () => {
+  const works = await loadWorks();
+  return works.map((w) => ({ params: { slug: w.slug }, props: { work: w } }));
+}) satisfies GetStaticPaths;
+
+const { work: w } = Astro.props;
+
+const overview = w.overview ?? [];
+const sections = w.sections ?? [];
+const collections = w.collections ?? [];
+
+// Stable anchor id for a section heading (Contents jump-links).
+function slugify(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function isExternal(href: string) {
+  return /^https?:\/\//.test(href);
+}
+function resolve(href: string) {
+  return isExternal(href) ? href : withBase(href);
+}
+// An entry links to its host record (HH-####) first, else a related href.
+function entryHref(e: { hostId?: string; relatedHref?: string }) {
+  if (e.hostId) return withBase(`host/${e.hostId}`);
+  if (e.relatedHref) return resolve(e.relatedHref);
+  return null;
+}
+function entryThumb(hostId?: string): string | null {
+  if (!hostId) return null;
+  const h = hostById.get(hostId);
+  const rel = h?.imageThumb || h?.image;
+  return rel ? withBase(rel) : null;
+}
+function entryBlurb(e: {
+  blurb?: string;
+  role?: string[];
+  summary?: string[];
+  body?: string[];
+}): string | undefined {
+  return e.blurb ?? e.body?.[0] ?? e.role?.[0] ?? e.summary?.[0];
+}
+// Description paragraphs for a list-mode entry (body / summary / role).
+function entryBody(e: {
+  body?: string[];
+  summary?: string[];
+  role?: string[];
+}): string[] {
+  return e.body ?? e.summary ?? e.role ?? [];
+}
+// The "role / teaching" cell for a table-mode row: the Taught / Known-for list,
+// else the short blurb.
+function entryTeaching(e: {
+  blurb?: string;
+  lists?: { label: string; items: string[] }[];
+}): string {
+  const l = (e.lists ?? []).find((x) => /taught|known/i.test(x.label));
+  if (l) return l.items.join(", ");
+  return e.blurb ?? "—";
+}
+
+// Tabs: "The Book" (the prose) + one tab per directory. Each opens its own
+// panel (only one visible at a time — the /feasts index pattern), switched by
+// the apocrypha-tabs island. "book" is the default/landing tab.
+const tabs = [
+  { key: "book", label: "The Book" },
+  ...collections.map((c) => ({ key: c.key, label: c.navLabel ?? c.title })),
+];
+
+// The "catalogued, never venerated" note is shown once — on the first fallen
+// directory — rather than repeated on every one.
+const firstFallenKey = collections.find((c) => c.tone === "fallen")?.key;
+---
+
+<BaseLayout
+  active="extra-biblical-angels"
+  title={w.title}
+  description={w.blurb}
+>
+  <article class="work" id="work-tabs-root">
+    <section class="work-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="work-hero-inner">
+        <nav class="work-crumb" aria-label="Breadcrumb">
+          <a class="work-back" href={withBase("extra-biblical-angels")}>
+            ← Extra-Biblical Angels
+          </a>
+        </nav>
+        <EyebrowRule
+          label={w.canonicalStatus ?? "Apocryphal · Second Temple"}
+        />
+        <h1 class="work-title">{w.title}</h1>
+        {
+          w.aka && w.aka.length > 0 && (
+            <p class="work-aka">{w.aka.join(" · ")}</p>
+          )
+        }
+        {w.era && <p class="work-era">{w.era}</p>}
+        <p class="work-lede">{w.blurb}</p>
+      </div>
+    </section>
+
+    {
+      w.status !== "reviewed" && (
+        <div class="draft-banner">
+          <strong>Draft</strong> — this page is unreviewed and not yet
+          published. Shown here for review.
+        </div>
+      )
+    }
+
+    {
+      tabs.length > 1 && (
+        <nav class="work-tabs" aria-label="Sections of this page">
+          <div class="work-tabs-inner" role="tablist">
+            {tabs.map((t, i) => (
+              <button
+                type="button"
+                class="work-tab"
+                role="tab"
+                id={`tab-${t.key}`}
+                data-tab={t.key}
+                aria-controls={`panel-${t.key}`}
+                aria-selected={i === 0 ? "true" : "false"}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </nav>
+      )
+    }
+
+    <div class="work-wrap">
+      <div class="layout">
+        <aside class="rail">
+          <div class="rail-block">
+            <h4>The Book</h4>
+            <ul>
+              {w.era && <li>{w.era}</li>}
+              {w.canonicalStatus && <li>{w.canonicalStatus}</li>}
+            </ul>
+          </div>
+
+          {
+            w.relatedPages && w.relatedPages.length > 0 && (
+              <div class="rail-block">
+                <h4>Related Pages</h4>
+                <ul>
+                  {w.relatedPages.map((r) => (
+                    <li>
+                      {r.href ? (
+                        <a href={resolve(r.href)}>{r.label}</a>
+                      ) : (
+                        r.label
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            w.browseTags && w.browseTags.length > 0 && (
+              <div class="rail-block">
+                <h4>Themes</h4>
+                <ul class="tags">
+                  {w.browseTags.map((t) => (
+                    <li>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            w.sources && w.sources.length > 0 && (
+              <div class="rail-block">
+                <h4>Sources</h4>
+                <ul class="sources">
+                  {w.sources.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </aside>
+
+        <div class="panels">
+          <section
+            class="work-panel book-panel"
+            data-panel="book"
+            id="panel-book"
+            role="tabpanel"
+            aria-labelledby="tab-book"
+          >
+            {
+              overview.length > 0 && (
+                <section class="sec sec-static" id="overview">
+                  <h2>Overview</h2>
+                  <div class="sec-body">
+                    {overview.map((para) => (
+                      <p>{para}</p>
+                    ))}
+                  </div>
+                </section>
+              )
+            }
+
+            {
+              sections.map((s) => (
+                <details class="sec" id={slugify(s.heading)}>
+                  <summary>{s.heading}</summary>
+                  <div class="sec-body">
+                    {(s.body ?? []).map((para) => (
+                      <p>{para}</p>
+                    ))}
+                    {s.table && (
+                      <div class="tbl-wrap">
+                        <table class="tbl">
+                          <thead>
+                            <tr>
+                              {s.table.columns.map((c) => (
+                                <th>{c}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {s.table.rows.map((row) => (
+                              <tr>
+                                {row.map((cell) => (
+                                  <td>{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                </details>
+              ))
+            }
+          </section>
+
+          {/* Each directory is its own tab panel — one shown at a time. */}
+          {
+            collections.map((c) => (
+              <section
+                class:list={[
+                  "work-panel",
+                  "is-hidden",
+                  "members",
+                  `members--${c.tone ?? "neutral"}`,
+                ]}
+                data-panel={c.key}
+                id={`panel-${c.key}`}
+                role="tabpanel"
+                aria-labelledby={`tab-${c.key}`}
+              >
+                <h2 class="members-h" id={`${c.key}-h`}>
+                  {c.title}
+                </h2>
+                {(c.intro ?? []).map((para) => (
+                  <p class="members-intro">{para}</p>
+                ))}
+                {c.tone === "fallen" && c.key === firstFallenKey && (
+                  <p class="members-note">
+                    The fallen and giant directories that follow are catalogued
+                    for study and completeness, never venerated.
+                  </p>
+                )}
+
+                {c.display === "table" ? (
+                  <div class="tbl-wrap tbl-roster">
+                    <table class="tbl">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Role / teaching</th>
+                          <th>References</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {c.entries.map((e) => (
+                          <tr>
+                            <td>
+                              <strong>{e.name}</strong>
+                              {e.meaning && (
+                                <span class="tbl-alt"> · {e.meaning}</span>
+                              )}
+                            </td>
+                            <td>{entryTeaching(e)}</td>
+                            <td class="tbl-refs">
+                              {(e.refs ?? []).join("; ")}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : c.display === "list" ? (
+                  <div class="lentries">
+                    {c.entries.map((e) => {
+                      const href = entryHref(e);
+                      return (
+                        <details class="lentry">
+                          <summary class="lentry-sum">
+                            <span class="lentry-name">{e.name}</span>
+                            {e.meaning && (
+                              <span class="lentry-meaning"> · {e.meaning}</span>
+                            )}
+                          </summary>
+                          <div class="lentry-body">
+                            {e.refs && e.refs.length > 0 && (
+                              <p class="lentry-refs">
+                                References: {e.refs.join("; ")}
+                              </p>
+                            )}
+                            {entryBody(e).map((para) => (
+                              <p class="lentry-p">{para}</p>
+                            ))}
+                            {e.status && e.status.length > 0 && (
+                              <ul class="lentry-status">
+                                {e.status.map((line) => (
+                                  <li>{line}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {e.fate && (
+                              <p class="lentry-p">
+                                <strong>Fate:</strong> {e.fate}
+                              </p>
+                            )}
+                            {(e.lists ?? []).map((l) => (
+                              <div class="lentry-list">
+                                <h4>{l.label}</h4>
+                                <ul>
+                                  {l.items.map((it) => (
+                                    <li>{it}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                            {href && (
+                              <a class="lentry-link" href={href}>
+                                {e.relatedLabel ?? `${e.name} →`}
+                              </a>
+                            )}
+                          </div>
+                        </details>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div class="member-grid">
+                    {c.entries.map((e) => (
+                      <EntryCard
+                        name={e.name}
+                        meaning={e.meaning}
+                        blurb={entryBlurb(e)}
+                        href={entryHref(e)}
+                        thumb={entryThumb(e.hostId)}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {c.table && (
+                  <div class="tbl-wrap tbl-glance">
+                    <table class="tbl">
+                      <thead>
+                        <tr>
+                          {c.table.columns.map((col) => (
+                            <th>{col}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {c.table.rows.map((row) => (
+                          <tr>
+                            {row.map((cell) => (
+                              <td>{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {(c.outro ?? []).map((para) => (
+                  <p class="members-outro">{para}</p>
+                ))}
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <noscript>
+      <style>
+        .work-panel.is-hidden {
+          display: block;
+        }
+        .work-tabs {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <script>
+      import "../../islands/apocrypha-tabs.client.ts";
+    </script>
+  </article>
+</BaseLayout>
+
+<style>
+  .work {
+    color: var(--ink);
+  }
+  /* Hub hero — dome arch + eyebrow + serif title + lede, matching the
+     Archangels rank hub (/host/HH-0008) and /nine-orders. */
+  .work-hero {
+    position: relative;
+    text-align: center;
+    padding: var(--hero-pad-top) 20px clamp(28px, 5vw, 44px);
+    overflow: hidden;
+  }
+  .work-hero-inner {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+  .work-crumb {
+    margin-bottom: 12px;
+  }
+  .work-back {
+    color: var(--byz);
+    text-decoration: none;
+    font-size: 0.88rem;
+    opacity: 0.85;
+  }
+  .work-back:hover {
+    text-decoration: underline;
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1.05;
+    margin: 14px 0 0;
+  }
+  .work-aka {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    opacity: 0.7;
+    margin: 10px 0 0;
+  }
+  .work-era {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--gold-deep, #a9852a);
+    margin: 6px 0 0;
+  }
+  .work-lede {
+    font-family: var(--serif);
+    font-size: var(--page-lede-size);
+    color: var(--ink-soft);
+    margin: 14px auto 0;
+    max-width: 48ch;
+    line-height: 1.5;
+  }
+
+  .work-wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 1.5rem clamp(16px, 4vw, 40px) 4rem;
+  }
+
+  /* Sticky tab bar — one pill per panel; the active tab's panel is the only one
+     shown (the /feasts index pattern). Stays under the top of the viewport. */
+  .work-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--parchment, #fbf7ee) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--line-gold);
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .work-tabs-inner {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 0.55rem clamp(16px, 4vw, 40px);
+    display: flex;
+    gap: 0.45rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .work-tab {
+    flex: none;
+    font-family: inherit;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    padding: 0.34rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: transparent;
+    color: var(--byz-deep);
+    cursor: pointer;
+    transition:
+      background 0.12s,
+      border-color 0.12s,
+      color 0.12s;
+  }
+  .work-tab:hover {
+    background: rgba(212, 175, 55, 0.16);
+    border-color: var(--gold-deep);
+  }
+  .work-tab[aria-selected="true"] {
+    background: var(--byz-deep);
+    border-color: var(--byz-deep);
+    color: var(--ivory, #fbf7ee);
+  }
+
+  /* Only the active panel is shown. */
+  .work-panel.is-hidden {
+    display: none;
+  }
+  .work-panel.members {
+    margin-top: 0;
+  }
+
+  /* Rail | body, matching the host/saint profiles (rail on the left @desktop). */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    .layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 2.2rem;
+    }
+    .rail {
+      order: -1;
+      background: var(--ivory-2);
+      border: 1px solid var(--line-gold);
+      border-radius: 8px;
+      padding: 1.4rem 1.3rem 1.6rem;
+      position: sticky;
+      top: 1.5rem;
+    }
+  }
+  .rail-block {
+    margin-bottom: 1.3rem;
+    font-size: 0.9rem;
+  }
+  .rail-block h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--byz-green);
+    margin: 0 0 0.4rem;
+  }
+  .rail-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rail-block li {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+  .rail-block a {
+    color: var(--byz);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .tags li {
+    padding: 0.1rem 0.45rem;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+  }
+  .sources li {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    word-break: break-word;
+  }
+
+  /* Overview (always open) + collapsible sections, matching the host page. */
+  .sec {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.22);
+  }
+  .sec > summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .sec > summary::-webkit-details-marker {
+    display: none;
+  }
+  .sec > summary::before {
+    content: "\25B8";
+    color: var(--gold-deep);
+    font-size: 0.8em;
+    transition: transform 0.15s ease;
+    flex: none;
+  }
+  .sec[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  .sec > summary:hover {
+    color: var(--byz);
+  }
+  .sec-static > h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.8rem 0;
+    margin: 0;
+  }
+  .sec-body {
+    padding: 0 0 1.1rem 1.3rem;
+  }
+  .sec-body p {
+    line-height: 1.65;
+    margin: 0 0 0.7rem;
+    color: var(--ink-soft);
+  }
+
+  /* Tables (Structure, Major Themes, At-a-Glance). */
+  .tbl-wrap {
+    overflow-x: auto;
+    margin: 0.6rem 0 0.4rem;
+  }
+  .tbl {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .tbl th,
+  .tbl td {
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .tbl th {
+    background: var(--ivory-2);
+    font-family: var(--serif);
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .tbl-glance {
+    margin-top: 1.4rem;
+  }
+  /* Compact roster table (the twenty Watcher leaders). */
+  .tbl-roster {
+    margin-top: 1.4rem;
+  }
+  .tbl-roster .tbl td:first-child {
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .members--fallen .tbl-roster .tbl td:first-child {
+    color: var(--ink);
+  }
+  .tbl-alt {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.82rem;
+    opacity: 0.65;
+  }
+  .tbl-refs {
+    white-space: nowrap;
+    font-size: 0.82rem;
+    color: var(--byz-green);
+  }
+
+  /* Entity directories — section heading, matching the archangels roster. */
+  .members {
+    margin-top: 2.6rem;
+  }
+  .members-h {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--gold-deep);
+  }
+  .members-intro,
+  .members-outro {
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0.6rem 0 0;
+    max-width: 46rem;
+  }
+  .members-outro {
+    margin-top: 1.4rem;
+    font-style: italic;
+  }
+  .members-note {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0.6rem 0 0;
+  }
+  .member-grid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin-top: 1.2rem;
+  }
+  .members--fallen .members-h {
+    color: var(--ink-soft);
+    border-bottom-color: rgba(90, 90, 90, 0.35);
+  }
+
+  /* Detailed (list-mode) entries — Watchers, Giants, Imprisoned Beings. */
+  .lentries {
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  /* Each entry is a collapsed row that expands on click (native <details>). */
+  .lentry {
+    border: 1px solid rgba(128, 128, 128, 0.22);
+    border-left: 3px solid var(--gold-deep);
+    border-radius: 8px;
+    background: var(--ivory-2);
+  }
+  .members--fallen .lentry {
+    border-left-color: rgba(120, 120, 120, 0.5);
+    background: rgba(120, 120, 120, 0.05);
+  }
+  .lentry-sum {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1rem;
+    padding: 0.6rem 1rem;
+  }
+  .lentry-sum::-webkit-details-marker {
+    display: none;
+  }
+  .lentry-sum::before {
+    content: "\25B8";
+    color: var(--gold-deep);
+    font-size: 0.75em;
+    margin-right: 0.5rem;
+    align-self: center;
+    transition: transform 0.15s ease;
+    flex: none;
+  }
+  .lentry[open] > .lentry-sum::before {
+    transform: rotate(90deg);
+  }
+  .lentry-sum:hover {
+    color: var(--byz);
+  }
+  .lentry-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .members--fallen .lentry-name {
+    color: var(--ink);
+  }
+  .lentry-meaning {
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.65;
+  }
+  .lentry-body {
+    padding: 0 1.1rem 1rem 2.1rem;
+  }
+  .lentry-refs {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: var(--byz-green);
+    margin: 0 0 0.5rem;
+  }
+  .lentry-p {
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+    font-size: 0.95rem;
+  }
+  .lentry-status {
+    margin: 0 0 0.5rem;
+    padding-left: 1.1rem;
+  }
+  .lentry-status li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .lentry-list {
+    margin: 0.4rem 0 0;
+  }
+  .lentry-list h4 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold-deep, #a9852a);
+    margin: 0 0 0.2rem;
+  }
+  .lentry-list ul {
+    margin: 0 0 0.4rem;
+    padding-left: 1.1rem;
+  }
+  .lentry-list li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .lentry-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--byz);
+    text-decoration: none;
+  }
+  .lentry-link:hover {
+    text-decoration: underline;
+  }
+
+  .draft-banner {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 0.7rem clamp(16px, 4vw, 40px);
+    background: rgba(212, 175, 55, 0.12);
+    border-top: 1px solid var(--line-gold);
+    border-bottom: 1px solid var(--line-gold);
+    font-size: 0.9rem;
+  }
+</style>
