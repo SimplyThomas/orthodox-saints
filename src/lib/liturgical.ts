@@ -434,6 +434,10 @@ export interface LitFeast {
   category: string;
   dedication?: string;
   fasting?: string;
+  /** the feast's Customs & Traditions text — carried only in payloads that
+      ask for it (the /calendar customs panel); absent on the lean home
+      payload. */
+  customs?: string;
   begins: DateToken;
   ends?: DateToken;
   forefeast?: DateToken;
@@ -769,6 +773,33 @@ export function resolveFasting(
   return best?.level ?? null;
 }
 
+/* ---- customs & traditions active on the day ----
+   The Church-blessed customs of the feasts/seasons kept on a day (feasts.csv
+   "Customs & Traditions"), most-prominent feast first. Feasts without recorded
+   customs are skipped; a forefeast/afterfeast still surfaces its principal
+   feast's customs, labelled by role so the reader knows why. */
+
+export interface DayCustom {
+  feastId: string;
+  name: string;
+  text: string;
+  role: ObservanceRole;
+}
+
+export function dayCustoms(observances: ActiveObservance[]): DayCustom[] {
+  const out: DayCustom[] = [];
+  const seen = new Set<string>();
+  const sorted = [...observances].sort(
+    (a, b) => classRank(b.feast, b.role) - classRank(a.feast, a.role),
+  );
+  for (const { feast: f, role } of sorted) {
+    if (!f.customs || seen.has(f.id)) continue;
+    seen.add(f.id);
+    out.push({ feastId: f.id, name: f.name, text: f.customs, role });
+  }
+  return out;
+}
+
 /* ================= the day resolver ================= */
 
 export interface DayLiturgics {
@@ -785,6 +816,9 @@ export interface DayLiturgics {
   /** season-specific pastoral notes (FASTING_SEASON_NOTES) active this day */
   fastingNotes: string[];
   badges: string[];
+  /** Church-blessed customs of the day's feasts/seasons, most prominent first
+      (empty when no active feast carries recorded customs) */
+  customs: DayCustom[];
 }
 
 /** Pastoral season notes active on this civil day under the given style. */
@@ -894,5 +928,6 @@ export function dayLiturgics(
     fastingTradition: FASTING_TRADITIONS[style],
     fastingNotes: seasonNotes(observances, date, style),
     badges: buildBadges(observances),
+    customs: dayCustoms(observances),
   };
 }

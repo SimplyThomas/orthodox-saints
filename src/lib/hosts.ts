@@ -87,6 +87,23 @@ export function isBiblicalEncounter(h: Host): boolean {
   return (h.tags ?? []).includes(BIBLICAL_ENCOUNTER_TAG);
 }
 
+/**
+ * Reserved tag routing a named angel to the **Extra-Biblical Angels** hub: a
+ * figure known only from Tradition/Second Temple literature beyond the received
+ * canon (Raguel, Sariel, Phanuel of 1 Enoch), NOT among the eight archangels the
+ * Orthodox Church venerates by name. Such a host carries `canonicalStatus:
+ * "Apocryphal"` and a blank `order` (its rank is not received), so it neither
+ * appears on a rank hub nor swells the /nine-orders "Named Angels" catch-all;
+ * this tag gathers them for the /extra-biblical-angels hub and points the
+ * /host/HH-#### breadcrumb there. Catalogued for study, never venerated (§9).
+ */
+export const EXTRA_BIBLICAL_ANGEL_TAG = "Extra-Biblical Angel";
+
+/** True when a host is an extra-biblical named angel (see the tag doc). */
+export function isExtraBiblicalAngel(h: Host): boolean {
+  return (h.tags ?? []).includes(EXTRA_BIBLICAL_ANGEL_TAG);
+}
+
 export type HostProfile = CollectionEntry<"hosts">["data"];
 
 const SHOW_DRAFTS =

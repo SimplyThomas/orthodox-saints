@@ -267,6 +267,45 @@ function sourceLink(s: string): { href: string | null; label: string } {
           }
 
           {
+            p?.celebration && (
+              <details class="sec sec-celebrate" open>
+                <summary>Ideas for Celebrating This Feast</summary>
+                <div class="sec-body">
+                  {p.celebration.intro && (
+                    <p class="celebrate-intro">{p.celebration.intro}</p>
+                  )}
+                  <ul class="celebrate-ideas">
+                    {p.celebration.ideas.map((it) => (
+                      <li>
+                        <span class="ci-idea">{it.idea}</span>
+                        {it.detail && (
+                          <span class="ci-detail"> {it.detail}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  {p.celebration.sources?.length && (
+                    <p class="celebrate-credit">
+                      Ideas gathered and adapted from Orthodox family resources
+                      —{" "}
+                      {p.celebration.sources.map((s, i) => (
+                        <>
+                          {i > 0 && ", "}
+                          <a href={s.url} target="_blank" rel="noopener">
+                            {s.label}
+                          </a>
+                        </>
+                      ))}
+                      . These are optional, inviting ideas, not liturgical
+                      requirements.
+                    </p>
+                  )}
+                </div>
+              </details>
+            )
+          }
+
+          {
             p?.scripture?.length && (
               <details class="sec">
                 <summary>Scripture</summary>
@@ -768,6 +807,57 @@ function sourceLink(s: string): { href: string | null; label: string } {
   .stub {
     font-style: italic;
     opacity: 0.7;
+  }
+  /* "Ideas for Celebrating This Feast" — a warm, inviting family section,
+     visually set apart from the scholarly prose blocks above it. */
+  .sec-celebrate {
+    margin: 0.5rem 0;
+    border: 1px solid var(--line-gold);
+    border-radius: 12px;
+    background: var(--ivory-2);
+    padding: 0.1rem 1.1rem;
+  }
+  .sec-celebrate > summary {
+    color: var(--gold-deep);
+  }
+  .celebrate-intro {
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 0.9rem !important;
+  }
+  .celebrate-ideas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .celebrate-ideas li {
+    position: relative;
+    padding-left: 1.6rem;
+    line-height: 1.6;
+  }
+  .celebrate-ideas li::before {
+    content: "☦";
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    color: var(--gold-deep);
+    font-size: 0.85em;
+  }
+  .ci-detail {
+    color: var(--ink-soft);
+  }
+  .celebrate-credit {
+    margin: 1rem 0 0.2rem;
+    padding-top: 0.7rem;
+    border-top: 1px dashed var(--line-gold);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .celebrate-credit a {
+    color: var(--byz);
   }
   .fast-disclaimer {
     margin-top: 1.4rem;

@@ -86,7 +86,19 @@ const totalEntries =
 // (lib/liturgical) — colors attach to feast records, so the New/Old toggle
 // shifts fixed feasts and their colors together. Same inline-JSON pattern
 // as the /feasts island (~12 KB).
-const litJson = JSON.stringify(litPayload());
+const litJson = JSON.stringify(litPayload({ customs: true }));
+
+// Saint-level customs, keyed by saint id, for the customs panel. Only saints
+// that actually carry a Customs & Traditions cell are included (sparse — a few
+// dozen), so the inline map stays small. The island merges these with the
+// day's feast customs, looking each saint up by the ids in that day's list.
+const saintCustoms: Record<string, { name: string; customs: string }> = {};
+for (const s of SAINTS) {
+  if (s.customs && s.customs.trim()) {
+    saintCustoms[s.id] = { name: s.name, customs: s.customs.trim() };
+  }
+}
+const saintCustomsJson = JSON.stringify(saintCustoms);
 
 // Legend rows (server-rendered so the guide reads without JS).
 const legendColors: { key: string; label: string; use: string }[] = [
@@ -360,6 +372,22 @@ const swatch = (key: string) =>
           </p>
         </div>
       </details>
+
+      {
+        /* ——— Customs & Traditions for the selected day (island-populated) ——— */
+      }
+      <details class="cal-customs" id="cal-customs">
+        <summary>
+          Customs &amp; Traditions<span
+            class="cal-customs-day"
+            id="cal-customs-day"></span>
+        </summary>
+        <div class="cal-customs-body" id="cal-customs-body">
+          <p class="cal-customs-empty">
+            Select a day to see the customs and traditions kept on it.
+          </p>
+        </div>
+      </details>
     </div>
 
     {
@@ -425,6 +453,11 @@ const swatch = (key: string) =>
   </div>
 
   <script type="application/json" id="cal-lit-data" set:html={litJson} />
+  <script
+    type="application/json"
+    id="cal-saint-customs"
+    set:html={saintCustomsJson}
+  />
   <script>
     import "../islands/calendar.client.ts";
   </script>

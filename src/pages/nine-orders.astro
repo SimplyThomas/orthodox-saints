@@ -1,5 +1,5 @@
 ---
-import { HOSTS } from "../lib/hosts";
+import { HOSTS, isExtraBiblicalAngel } from "../lib/hosts";
 import { withBase } from "../lib/format";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
@@ -50,11 +50,15 @@ const groups: {
   {
     // Named angels with no owning rank page fall back here; the archangels are
     // reached from the Archangels rank page, and the guardian angels / titled
-    // scriptural figures live on their own /guardian-angels hub.
+    // scriptural figures live on their own /guardian-angels hub. Extra-biblical
+    // named angels (Raguel, Sariel, Phanuel) are also orderless but belong to
+    // the /extra-biblical-angels hub, not the received hierarchy — exclude them.
     title: "Named Angels",
     hosts: HOSTS.filter(
       (h) =>
-        h.entityType === "Named Angel" && !(h.order && rankNames.has(h.order)),
+        h.entityType === "Named Angel" &&
+        !(h.order && rankNames.has(h.order)) &&
+        !isExtraBiblicalAngel(h),
     ),
   },
 ].filter((g) => g.hosts.length);
