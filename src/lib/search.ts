@@ -20,7 +20,10 @@
    owns only the text path. And search never returns *less* than the old
    substring filter did: ranked hits are unioned with an AND-of-tokens substring
    pass, so mid-word fragments the tokenizer cannot see still surface, appended
-   after the ranked hits. */
+   after the ranked hits.
+
+   Queries are honorific-insensitive (see stripHonorifics): "Saint Panteleimon"
+   searches as "Panteleimon". */
 
 import MiniSearch from "minisearch";
 import type { FinderSaint } from "./types";
@@ -84,6 +87,24 @@ function makeMini<T extends RankableSaint>(
   return mini;
 }
 
+/* Honorifics a visitor types but the data does not reliably carry. Display
+   names are inconsistent by nature — some read "Saint Nicholas", some "St.
+   Nicholas", and many lead with a rank instead ("Great Martyr & Healer
+   Panteleimon") — so an honorific is noise in the query, not a term to match.
+   Because search is token-AND, leaving it in makes the most natural query a
+   newcomer types ("Saint Panteleimon") miss the very saint it names. */
+const HONORIFICS = new Set(["saint", "saints", "st", "sts", "ste", "ss"]);
+
+/* Drop honorific words from a query, keeping the rest. A query of nothing BUT
+   honorifics is left alone, so a bare "saint" still searches for the word. */
+export function stripHonorifics(query: string): string {
+  const q = query.trim();
+  const kept = q
+    .split(/\s+/)
+    .filter((t) => t && !HONORIFICS.has(t.toLowerCase().replace(/\.$/, "")));
+  return kept.length ? kept.join(" ") : q;
+}
+
 /** Lowercased name/aka/variant haystack per id, for the substring recall floor. */
 function nameHaystacks<T extends RankableSaint>(
   saints: T[],
@@ -113,7 +134,7 @@ export function buildSearchIndex(saints: FinderSaint[]): FinderSearchIndex {
 
   return {
     search(query: string): FinderSaint[] {
-      const q = query.trim();
+      const q = stripHonorifics(query);
       if (!q) return [];
       const ranked: FinderSaint[] = [];
       const seen = new Set<string>();
@@ -150,7 +171,7 @@ export function buildNameSearch<T extends RankableSaint>(
 
   return {
     search(query: string): T[] {
-      const q = query.trim();
+      const q = stripHonorifics(query);
       if (!q) return [];
       const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
       const out: T[] = [];
