@@ -1532,8 +1532,24 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
   for (const d of deeps) {
     d.addEventListener("toggle", () => {
       if (!d.open) return;
+      /* Hold the tapped summary under the reader's thumb: closing a section
+         ABOVE the viewport would otherwise yank the page upward. Measure the
+         summary's viewport position before/after collapsing the others and
+         scroll by the delta to pin it in place. (Programmatically setting the
+         scroll position also suppresses the browser's own scroll anchoring for
+         this frame, so the two don't fight.) */
+      const sum = d.querySelector("summary");
+      const before = sum ? sum.getBoundingClientRect().top : 0;
+      let changed = false;
       for (const other of deeps) {
-        if (other !== d && other.open) other.open = false;
+        if (other !== d && other.open) {
+          other.open = false;
+          changed = true;
+        }
+      }
+      if (changed && sum) {
+        const delta = sum.getBoundingClientRect().top - before;
+        if (delta) window.scrollBy(0, delta);
       }
     });
   }

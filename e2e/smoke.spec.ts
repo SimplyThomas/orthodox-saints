@@ -507,12 +507,10 @@ test("liturgical legend explains colors and fasting; plain days stay neutral", a
   await expect(
     page.locator('#cal-grid [data-key="12-25"] .fast-glyph'),
   ).toHaveText("FF");
-  // Unassigned weekdays fall back to neutral (no tint class at all).
+  // Ordinary-time weekdays render green — the color of ordinary time (#379).
   await page.selectOption("#cal-month-picker", "7");
   expect(
-    await page
-      .locator("#cal-grid .cal-cell:not(.is-blank):not(.has-lc)")
-      .count(),
+    await page.locator("#cal-grid .cal-cell.lc-green").count(),
   ).toBeGreaterThan(0);
   // The collapsible guide carries the variation disclaimer, and the page
   // never invents the Western "Ordinary Time" category.
