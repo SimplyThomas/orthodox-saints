@@ -5674,6 +5674,9 @@ a.sv-rail-chip:hover {
     padding-left: 0;
     max-width: none;
   }
+  .sv2 .sv-deep-ct {
+    display: none; /* the italic count adds no value on phones and can overflow the summary row */
+  }
   .sv2 .sv-actions-spacer {
     display: none;
   }
