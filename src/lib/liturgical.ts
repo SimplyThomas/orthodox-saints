@@ -904,17 +904,18 @@ export function dayLiturgics(
       notes.push(VARIATION_NOTE);
     }
   } else {
-    color = "neutral";
-    confidence = "unknown";
-    // if a season/observance is active but carries no responsible color
-    // assignment, say so rather than inventing one
+    // no feast assigns a color: the day belongs to "ordinary time", which we
+    // mark green. We still say *why* no feast color applies rather than imply
+    // a specific festal assignment.
+    color = "green";
+    confidence = "medium";
     const top = [...observances].sort(
       (a, b) => classRank(b.feast, b.role) - classRank(a.feast, a.role),
     )[0];
     reason =
       top && top.role !== "forefeast"
-        ? `${top.feast.name} — no single color is assigned; customs vary`
-        : "No special liturgical color assigned";
+        ? `${top.feast.name} — no special color is assigned; green marks ordinary time`
+        : "Green — the color of ordinary time";
   }
 
   return {
