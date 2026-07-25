@@ -386,10 +386,10 @@ describe("the paschal cycle (identical in both styles)", () => {
 });
 
 describe("precedence, fallbacks, and honesty", () => {
-  it("a plain weekday is neutral — never green, never 'Ordinary Time'", () => {
+  it("a plain weekday is green — the color of ordinary time", () => {
     const d = day(2026, 7, 15); // ordinary Wednesday, no observance
-    expect(d.color).toBe("neutral");
-    expect(d.reason).not.toMatch(/ordinary time/i);
+    expect(d.color).toBe("green");
+    expect(d.reason).toMatch(/ordinary time/i);
     expect(d.fasting).toBeNull(); // weekly Wed/Fri rule is not in the data
   });
   it("an ordinary Sunday outside any season is gold", () => {
@@ -430,7 +430,7 @@ describe("precedence, fallbacks, and honesty", () => {
   });
   it("forefeasts never color the day", () => {
     const d = day(2026, 12, 22); // Nativity forefeast, a Tuesday
-    expect(d.color).toBe("neutral");
+    expect(d.color).toBe("green"); // forefeast badges only; the day is ordinary time
     expect(d.badges).toContain("Forefeast");
   });
   it("badges name the feast category rather than relying on color alone", () => {

@@ -23,6 +23,21 @@ const timelineEntry = z.object({
   source: z.string().optional(),
 });
 
+// Practical "how families keep this feast/saint day at home" ideas — crafts,
+// festal foods, activities, readings, almsgiving. Distinct from the documented
+// `customs`: these are inviting, optional family ideas, written in our own words
+// and crediting the family blogs they draw from (never reproducing their text —
+// §9). `sources` here are the credited resources shown as links beneath the ideas.
+const celebrationSchema = z.object({
+  intro: z.string().optional(),
+  ideas: z
+    .array(z.object({ idea: z.string(), detail: z.string().optional() }))
+    .min(1),
+  sources: z
+    .array(z.object({ label: z.string(), url: z.string().url() }))
+    .optional(),
+});
+
 const profileSchema = z
   .object({
     id: z.string().regex(/^OS-\d{4,}$/),
@@ -61,6 +76,9 @@ const profileSchema = z
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
+    // Practical family ideas for celebrating this saint's day at home (§9:
+    // our own words, blogs credited/linked). Rendered by SaintView.
+    celebration: celebrationSchema.optional(),
     family: z
       .object({
         heading: z.string().optional(),
@@ -214,6 +232,7 @@ const feastProfileSchema = z
     hymnography: z.array(z.string()).optional(), // describes, never quotes (§9)
     fastingPractice: z.array(z.string()).optional(),
     customs: z.array(z.string()).optional(),
+    celebration: celebrationSchema.optional(),
     sections: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
@@ -302,6 +321,119 @@ const hosts = defineCollection({
   schema: hostProfileSchema,
 });
 
+// Apocryphal / Second Temple *works* (src/content/apocrypha/<slug>.yaml) — one
+// page per book (1 Enoch, the Shepherd of Hermas, …), surfaced from the
+// /extra-biblical-angels hub. A work page carries the book's OWN story (prose
+// `sections`) and then branches into `collections` of the beings drawn from it:
+// the faithful angels (each linked to its HH-#### host record), the fallen
+// Watchers, the Giants, and their kind. §9 guardrails: these are catalogued for
+// STUDY, never venerated — the fallen/giant collections carry a `tone: "fallen"`
+// that styles them as marked-not-venerated; source registers stay explicit and
+// nothing is fabricated. Same `status` review gate as the profile collections
+// (production ships only `reviewed`; drafts render in dev / on previews).
+const apocryphaEntry = z.object({
+  name: z.string(),
+  // Link to an existing host record (renders its thumb + a link to /host/HH-####).
+  hostId: z
+    .string()
+    .regex(/^HH-\d{4,}$/)
+    .optional(),
+  // Or an arbitrary related page (label + internal/external href) when the
+  // being has no host record of its own yet.
+  relatedLabel: z.string().optional(),
+  relatedHref: z.string().optional(),
+  meaning: z.string().optional(), // "meaning of the name", when known
+  blurb: z.string().optional(), // short card summary (member-card grid)
+  role: z.array(z.string()).optional(), // Role in the work (paragraphs)
+  status: z.array(z.string()).optional(), // "Orthodox Status" lines (✓/⚠/✗ prefixed)
+  refs: z.array(z.string()).optional(), // Primary references within the work
+  fate: z.string().optional(), // the Watchers' fate, etc.
+  summary: z.array(z.string()).optional(), // free prose for lighter entries (giants)
+  body: z.array(z.string()).optional(), // description paragraphs (list-mode entries)
+  // Labelled bullet lists (Taught / Known for / Key Themes / Location / Sentence …).
+  lists: z
+    .array(z.object({ label: z.string(), items: z.array(z.string()) }))
+    .optional(),
+});
+
+// A prose section: a heading with paragraph body and/or a simple table.
+const apocryphaSection = z.object({
+  heading: z.string(),
+  body: z.array(z.string()).optional(),
+  table: z
+    .object({
+      columns: z.array(z.string()),
+      rows: z.array(z.array(z.string())),
+    })
+    .optional(),
+});
+
+const apocryphaSchema = z
+  .object({
+    slug: z.string(), // /extra-biblical-angels/<slug>; matches the filename
+    title: z.string(),
+    aka: z.array(z.string()).optional(),
+    era: z.string().optional(), // e.g. "3rd c. BC – 1st c. AD"
+    canonicalStatus: z.string().optional(), // e.g. "Apocryphal · Second Temple"
+    blurb: z.string(), // card subtitle + hero lede
+    order: z.number().default(0),
+    status: z.enum(["draft", "reviewed", "flagged"]).default("draft"),
+    humanReviewed: z.boolean().optional().default(false),
+    sources: z.array(z.string()).optional(),
+    // The book's own story — an intro paragraph array plus titled prose sections.
+    overview: z.array(z.string()).min(1),
+    sections: z.array(apocryphaSection).optional(),
+    relatedPages: z
+      .array(z.object({ label: z.string(), href: z.string().optional() }))
+      .optional(),
+    // Search / browse metadata (keywords power future search config; browseTags
+    // render as a thematic tag cloud in the rail).
+    keywords: z.array(z.string()).optional(),
+    browseTags: z.array(z.string()).optional(),
+    // The entity directories the page branches into (faithful angels, watchers,
+    // giants, …). Each is an intro + a list of entries, rendered either as a
+    // compact member-card grid (`display: "cards"`) or as detailed entry blocks
+    // (`display: "list"`), with an optional at-a-glance table + closing outro.
+    collections: z
+      .array(
+        z.object({
+          key: z.string(),
+          title: z.string(),
+          navLabel: z.string().optional(), // short label for the sticky jump-nav
+          intro: z.array(z.string()).optional(),
+          outro: z.array(z.string()).optional(),
+          tone: z.enum(["faithful", "fallen", "neutral"]).optional(),
+          // cards = member grid; list = collapsible entry rows; table = compact
+          // three-column table (Name / role / references).
+          display: z
+            .enum(["cards", "list", "table"])
+            .optional()
+            .default("cards"),
+          table: z
+            .object({
+              columns: z.array(z.string()),
+              rows: z.array(z.array(z.string())),
+            })
+            .optional(),
+          entries: z.array(apocryphaEntry),
+        }),
+      )
+      .optional(),
+  })
+  .superRefine((w, ctx) => {
+    if (w.status !== "reviewed" && !(w.sources && w.sources.length)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `${w.slug}: ${w.status} works must list at least one source`,
+      });
+    }
+  });
+
+const apocrypha = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/apocrypha" }),
+  schema: apocryphaSchema,
+});
+
 // "Saints in the News" editorial articles (src/content/news/<slug>.yaml). Mirrors
 // the NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/news.ts
 // field-for-field, plus ordering/featured metadata. The page furniture
@@ -342,4 +474,4 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { profiles, feasts, hosts, news };
+export const collections = { profiles, feasts, hosts, news, apocrypha };

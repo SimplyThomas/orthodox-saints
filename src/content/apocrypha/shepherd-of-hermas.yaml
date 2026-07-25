@@ -1,0 +1,31 @@
+slug: shepherd-of-hermas
+title: The Shepherd of Hermas
+aka:
+  - Pastor of Hermas
+  - The Shepherd
+era: c. early–mid 2nd century AD (Rome)
+canonicalStatus: Apocryphal · Apostolic Fathers
+blurb: An early Christian book of visions, commandments, and parables, revealed to Hermas by an angel of repentance in the form of a shepherd — once read almost as Scripture, and rich in its angelology.
+order: 2
+status: draft
+humanReviewed: false
+sources:
+  - The Shepherd of Hermas (Ante-Nicene Fathers, vol. 2 — public domain)
+  - Codex Sinaiticus (which includes the Shepherd after the New Testament)
+  - Catalogued for study; requires clergy/source review before any devotional use
+
+overview:
+  - The Shepherd of Hermas is an early Christian work written at Rome, most likely in the first half of the second century, and counted among the Apostolic Fathers. It was so highly esteemed in the early Church that several Fathers cited it as Scripture and it was copied, after the New Testament books, into the great fourth-century Codex Sinaiticus — though it was ultimately not received into the canon.
+  - The book is an apocalypse in three parts — five Visions, twelve Mandates (commandments), and ten Similitudes (parables) — revealed to a freedman named Hermas by two heavenly figures — an aged woman who is the Church, and an angel of repentance who appears in the dress of a shepherd, the Poimen, from whom the whole work takes its name. Its central and insistent theme is repentance — the call to a second conversion of life for those who have sinned after baptism.
+
+sections:
+  - heading: Authorship & Date
+    body:
+      - The book presents itself as the work of Hermas, a former slave living at Rome. An early witness, the Muratorian Fragment, states that it was written by Hermas while his brother Pius was bishop of Rome (c. 140–155), which places its final form near the middle of the second century, though some of its visions may be older.
+  - heading: Canonicity & Orthodox Reception
+    body:
+      - The Shepherd was widely read and loved in the early centuries — Irenaeus, Clement of Alexandria, and Origen valued it highly, and some treated it as Scripture. As the canon settled it was set apart from the inspired books, yet never condemned — it remained a respected work of edification, prized above all for its teaching on repentance.
+
+# The angelic figures of the Shepherd (the Angel of Repentance, the Angel of
+# Punishment, and their kind) will be added here as a `collections:` block once
+# their entries are supplied. See 1-enoch.yaml for the entry shape.
