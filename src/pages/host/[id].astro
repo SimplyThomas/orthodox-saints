@@ -5,6 +5,7 @@ import {
   hostById,
   loadHostProfileMap,
   isBiblicalEncounter,
+  isExtraBiblicalAngel,
 } from "../../lib/hosts";
 import { byId as saintById } from "../../lib/data";
 import { FEASTS } from "../../lib/feasts";
@@ -62,6 +63,9 @@ if (parentRank) {
 } else if (isBiblicalEncounter(host)) {
   backHref = "biblical-encounters";
   backLabel = "Biblical Encounters";
+} else if (isExtraBiblicalAngel(host)) {
+  backHref = "extra-biblical-angels";
+  backLabel = "Extra-Biblical Angels";
 } else if (TITLED_TYPES.has(host.entityType)) {
   backHref = "guardian-angels";
   backLabel = "Guardian Angels & Titled Figures";
