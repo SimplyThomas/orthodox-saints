@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildSearchIndex, buildNameSearch } from "./search";
+import { buildSearchIndex, buildNameSearch, stripHonorifics } from "./search";
 import { prominence } from "./prominence";
 import type { FinderSaint } from "./types";
 
@@ -134,6 +134,84 @@ describe("buildSearchIndex matching", () => {
       mk("Nicholas Beta", { prom: 12 }),
     ]);
     expect(names(idx.search("nicholas"))[0]).toBe("Nicholas Beta");
+  });
+});
+
+describe("honorific-insensitive queries", () => {
+  /* The real OS-0014 shape: the display name leads with a rank, the only
+     honorific anywhere in the record is the abbreviated "St." in an aka. Before
+     the fix, token-AND made "Saint Panteleimon" miss him entirely — and return
+     unrelated saints whose text happened to carry both words. */
+  const panteleimon = () =>
+    mk("Great Martyr & Healer Panteleimon", {
+      aka: ["St. Pantaleon", "the Unmercenary"],
+      search:
+        "great martyr unmercenary wonderworker physician healing " +
+        "st. pantaleon the unmercenary court physician who healed in " +
+        "christ's name without payment great martyr & healer panteleimon",
+    });
+
+  it("finds a saint whose record carries no 'Saint' at all", () => {
+    const idx = buildSearchIndex([panteleimon()]);
+    expect(names(idx.search("Saint Panteleimon"))).toContain(
+      "Great Martyr & Healer Panteleimon",
+    );
+  });
+
+  it("does not let honorific-sharing saints displace the named one", () => {
+    const idx = buildSearchIndex([
+      mk("Silouan the Athonite", {
+        search: "silouan a monk of the saint panteleimon monastery on athos",
+      }),
+      panteleimon(),
+    ]);
+    expect(names(idx.search("Saint Panteleimon"))[0]).toBe(
+      "Great Martyr & Healer Panteleimon",
+    );
+  });
+
+  it("ranks the same for every honorific spelling", () => {
+    const saints = [panteleimon(), mk("Basil the Great")];
+    const idx = buildSearchIndex(saints);
+    const expected = names(idx.search("Panteleimon"));
+    for (const q of ["Saint Panteleimon", "St Panteleimon", "St. Panteleimon"])
+      expect(names(idx.search(q))).toEqual(expected);
+  });
+
+  it("applies to the typeahead too", () => {
+    const idx = buildNameSearch([panteleimon()]);
+    expect(names(idx.search("Saint Panteleimon"))).toContain(
+      "Great Martyr & Healer Panteleimon",
+    );
+  });
+
+  it("still searches for the word when the query is only an honorific", () => {
+    const idx = buildSearchIndex([
+      mk("Foo", { search: "foo synaxis of all saints" }),
+      mk("Bar", { search: "bar" }),
+    ]);
+    const out = names(idx.search("saints"));
+    expect(out).toContain("Foo");
+    expect(out).not.toContain("Bar");
+  });
+});
+
+describe("stripHonorifics", () => {
+  it("drops honorifics, dotted or not, and keeps the rest", () => {
+    expect(stripHonorifics("Saint Panteleimon")).toBe("Panteleimon");
+    expect(stripHonorifics("St. John Chrysostom")).toBe("John Chrysostom");
+    expect(stripHonorifics("SS. Peter and Paul")).toBe("Peter and Paul");
+  });
+
+  it("leaves an all-honorific query intact", () => {
+    expect(stripHonorifics("saint")).toBe("saint");
+    expect(stripHonorifics("  Sts.  ")).toBe("Sts.");
+  });
+
+  it("never strips an honorific hiding inside a real name", () => {
+    // "Stephen" starts with "st"; "Constantine" contains it.
+    expect(stripHonorifics("Stephen")).toBe("Stephen");
+    expect(stripHonorifics("St Constantine")).toBe("Constantine");
   });
 });
 
