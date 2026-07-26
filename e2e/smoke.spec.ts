@@ -495,7 +495,7 @@ test("liturgical colors follow the feast through both calendar styles", async ({
   );
 });
 
-test("liturgical legend explains colors and fasting; plain days stay neutral", async ({
+test("liturgical legend explains colors and fasting; plain days are green", async ({
   page,
 }) => {
   await page.goto("./calendar/");
@@ -507,19 +507,29 @@ test("liturgical legend explains colors and fasting; plain days stay neutral", a
   await expect(
     page.locator('#cal-grid [data-key="12-25"] .fast-glyph'),
   ).toHaveText("FF");
-  // Ordinary-time weekdays render green — the color of ordinary time (#379).
+  // A day that no feast colors belongs to ordinary time, which renders green
+  // (#379), so every non-blank tile now carries a tint — "neutral" is
+  // unreachable.
   await page.selectOption("#cal-month-picker", "7");
+  const day = "#cal-grid .cal-cell:not(.is-blank)";
+  expect(await page.locator(`${day}.lc-green`).count()).toBeGreaterThan(0);
+  expect(await page.locator(`${day}:not(.has-lc)`).count()).toBe(0);
+  // ...and the ordinary-time fallback does not swallow the festal colors that
+  // outrank it in the same month.
   expect(
-    await page.locator("#cal-grid .cal-cell.lc-green").count(),
+    await page.locator(`${day}.has-lc:not(.lc-green)`).count(),
   ).toBeGreaterThan(0);
-  // The collapsible guide carries the variation disclaimer, and the page
-  // never invents the Western "Ordinary Time" category.
+  // The collapsible guide carries the variation disclaimer, names green's
+  // widened use, drops the now-unreachable Neutral row, and still never invents
+  // the Western "Ordinary Time" as a proper-noun season.
   const legend = page.locator("#cal-lit-legend");
   await legend.locator("summary").click();
   await expect(legend).toContainText(
     "Liturgical color customs vary among Orthodox jurisdictions and parishes.",
   );
   await expect(legend).toContainText("does not replace the directions");
+  await expect(legend).toContainText("ordinary time, Pentecost");
+  await expect(legend).not.toContainText("Neutral");
   await expect(page.locator("body")).not.toContainText("Ordinary Time");
 });
 
