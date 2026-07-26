@@ -5797,8 +5797,11 @@ a.sv-rail-chip:hover {
   }
   /* A long deep-section heading (a profile "legacy" title, etc.) must not shove
      the Show/Hide control off-screen. The shrink/wrap is handled by the base
-     .sv-deep-eb rule now; here we only tighten the wide tracking and allow
-     mid-word breaks for the phone's narrower row. */
+     .sv-deep-eb rule; here we only allow mid-word breaks for the phone's
+     narrower row. Note we deliberately keep the design's 0.26em tracking so the
+     collapsible section labels match the always-visible eyebrows ("At a glance",
+     "Their story", "Sources") — tightening only the collapsible ones made them
+     look denser than the rest. */
   .sv2 .sv-deep-sum {
     gap: 10px;
   }
@@ -5806,7 +5809,6 @@ a.sv-rail-chip:hover {
   .sv2 h2.sv-deep-eb,
   .sv2 .sv-deep-eb.sv-legacy-title,
   .sv2 .sv-deep-eb.sv-tl-title {
-    letter-spacing: 0.1em;
     overflow-wrap: anywhere;
   }
   .sv2 .sv-actions-spacer {
