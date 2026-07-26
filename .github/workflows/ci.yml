@@ -103,11 +103,14 @@ jobs:
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+          # The `-cw` marks the browser set (chromium+webkit); bump it whenever
+          # that set changes so a stale cache can't skip a new browser binary
+          # (install-deps on a hit installs OS deps only, not the browser).
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}-cw
       - if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
       - if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: npx playwright install-deps chromium webkit
       - run: npm test                            # playwright smoke tests (build base-path, modal, quiz)
 
   worker:
