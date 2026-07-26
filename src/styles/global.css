@@ -5386,7 +5386,11 @@ a.sv-rail-chip:hover {
   display: none;
 }
 .sv2 .sv-deep-eb {
-  flex: 0 0 auto;
+  /* Shrinkable so a long section heading wraps within the row instead of eating
+     it whole — otherwise the flex:1 connector rule collapses to zero width and
+     vanishes (very visible on the witness pages' long editorial headings). */
+  flex: 0 1 auto;
+  min-width: 0;
   margin: 0;
 }
 .sv2 h2.sv-deep-eb,
@@ -5414,7 +5418,8 @@ a.sv-rail-chip:hover {
   color: var(--celest);
 }
 .sv2 .sv-deep-rule {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 22px; /* always keep a visible connector, even beside a long heading */
   height: 1px;
   background: var(--line-gold);
 }
@@ -5791,8 +5796,9 @@ a.sv-rail-chip:hover {
     text-align: center;
   }
   /* A long deep-section heading (a profile "legacy" title, etc.) must not shove
-     the Show/Hide control off-screen: tighten the wide tracking and let the
-     label shrink/wrap rather than overflow. */
+     the Show/Hide control off-screen. The shrink/wrap is handled by the base
+     .sv-deep-eb rule now; here we only tighten the wide tracking and allow
+     mid-word breaks for the phone's narrower row. */
   .sv2 .sv-deep-sum {
     gap: 10px;
   }
@@ -5800,8 +5806,6 @@ a.sv-rail-chip:hover {
   .sv2 h2.sv-deep-eb,
   .sv2 .sv-deep-eb.sv-legacy-title,
   .sv2 .sv-deep-eb.sv-tl-title {
-    flex: 0 1 auto;
-    min-width: 0;
     letter-spacing: 0.1em;
     overflow-wrap: anywhere;
   }

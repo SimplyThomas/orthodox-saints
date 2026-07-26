@@ -1,27 +1,29 @@
 import { test, expect } from "@playwright/test";
 
-// Phone-overflow regression guard. Saint pages must never scroll sideways at
-// phone widths — the feast block's full-length month names, long collapsible
-// section headings, and the depictions carousel have each caused this. Fixtures
-// are reviewed saints picked to render those layouts (OS-0000 also carries the
-// 10-card carousel and a Companions section). This spec also runs under the
-// WebKit engine iOS uses — see the `mobile-safari` project in
-// playwright.config.ts.
+// Phone-overflow regression guard. Saint and witness pages (both the .saintview
+// design system) must never scroll sideways at phone widths — the feast block's
+// full-length month names, long collapsible section headings, and the depictions
+// carousel have each caused this. Fixtures are reviewed pages picked to render
+// those layouts (OS-0000 also carries the 10-card carousel and a Companions
+// section; the witness pages carry long editorial section headings). This spec
+// also runs under the WebKit engine iOS uses — see the `mobile-safari` project
+// in playwright.config.ts.
 const FIXTURES = [
-  "OS-0000",
-  "OS-0001",
-  "OS-0009",
-  "OS-0024",
-  "OS-0038",
-  "OS-0021",
+  "/saint/OS-0000/",
+  "/saint/OS-0001/",
+  "/saint/OS-0009/",
+  "/saint/OS-0024/",
+  "/saint/OS-0038/",
+  "/saint/OS-0021/",
+  "/witness/mother-alexandra/",
 ];
 const WIDTHS = [393]; // iPhone 16 Pro — the reported device
 
-for (const id of FIXTURES) {
+for (const path of FIXTURES) {
   for (const width of WIDTHS) {
-    test(`no sideways scroll: ${id} @ ${width}px`, async ({ page }) => {
+    test(`no sideways scroll: ${path} @ ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 852 });
-      await page.goto(`./saint/${id}/`);
+      await page.goto(`.${path}`);
       await expect(page.locator(".saintview")).toBeVisible();
 
       const { scrolls, offenders } = await page.evaluate(() => {
