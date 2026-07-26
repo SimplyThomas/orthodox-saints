@@ -7,7 +7,14 @@ import { test, expect } from "@playwright/test";
 // 10-card carousel and a Companions section). This spec also runs under the
 // WebKit engine iOS uses — see the `mobile-safari` project in
 // playwright.config.ts.
-const FIXTURES = ["OS-0000", "OS-0009", "OS-0024", "OS-0038", "OS-0021"];
+const FIXTURES = [
+  "OS-0000",
+  "OS-0001",
+  "OS-0009",
+  "OS-0024",
+  "OS-0038",
+  "OS-0021",
+];
 const WIDTHS = [393]; // iPhone 16 Pro — the reported device
 
 for (const id of FIXTURES) {
