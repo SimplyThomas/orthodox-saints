@@ -5124,9 +5124,26 @@ a.sv-rail-chip:hover {
   transform: translateY(-4px);
 }
 @media (max-width: 720px) {
-  /* Touch scroll on mobile — hide the side arrows. */
+  /* Keep the arrows on mobile — touch scroll alone gave no cue that the strip
+     scrolls, so the extra icons read as "hidden". Smaller and inset over the
+     track edges; shown only when that direction can actually scroll (the island
+     toggles .show from the scroll position). */
   .sv2 .sv-deps-arrow {
-    display: none;
+    width: 34px;
+    height: 34px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(15, 34, 56, 0.28);
+  }
+  .sv2 .sv-deps-arrow.show {
+    opacity: 0.92;
+    pointer-events: auto;
+  }
+  .sv2 .sv-deps-arrow.prev {
+    left: 4px;
+  }
+  .sv2 .sv-deps-arrow.next {
+    right: 4px;
   }
 }
 
@@ -5753,6 +5770,40 @@ a.sv-rail-chip:hover {
   }
   .sv2 .sv-deep-ct {
     display: none; /* the italic count adds no value on phones and can overflow the summary row */
+  }
+  /* Feast-day block: on phones the New/Old dates use full month names, and the
+     centered "Feast Day" label wedged between them pushed the row past the
+     viewport. Lift the label onto its own line above the dates, which then sit
+     side by side (and wrap if a long month still needs the room). */
+  .sv2 .sv-fday-primary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 22px;
+  }
+  .sv2 .sv-fday-top {
+    order: -1;
+    flex-basis: 100%;
+  }
+  .sv2 .sv-fday-cal--new,
+  .sv2 .sv-fday-cal--old {
+    align-items: center;
+    text-align: center;
+  }
+  /* A long deep-section heading (a profile "legacy" title, etc.) must not shove
+     the Show/Hide control off-screen: tighten the wide tracking and let the
+     label shrink/wrap rather than overflow. */
+  .sv2 .sv-deep-sum {
+    gap: 10px;
+  }
+  .sv2 .sv-deep-eb,
+  .sv2 h2.sv-deep-eb,
+  .sv2 .sv-deep-eb.sv-legacy-title,
+  .sv2 .sv-deep-eb.sv-tl-title {
+    flex: 0 1 auto;
+    min-width: 0;
+    letter-spacing: 0.1em;
+    overflow-wrap: anywhere;
   }
   .sv2 .sv-actions-spacer {
     display: none;

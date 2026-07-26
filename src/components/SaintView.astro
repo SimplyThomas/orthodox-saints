@@ -1316,9 +1316,7 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
               {hasCompanions && (
                 <details class="sv-deep">
                   <summary class="sv-deep-sum">
-                    <span class="eyebrow sv-deep-eb">
-                      Companions &amp; Contemporaries
-                    </span>
+                    <span class="eyebrow sv-deep-eb">Companions</span>
                     <span class="sv-deep-ct">
                       {companionCards.length}{" "}
                       {companionCards.length === 1 ? "figure" : "figures"}
@@ -1532,25 +1530,23 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
   for (const d of deeps) {
     d.addEventListener("toggle", () => {
       if (!d.open) return;
-      /* Hold the tapped summary under the reader's thumb: closing a section
-         ABOVE the viewport would otherwise yank the page upward. Measure the
-         summary's viewport position before/after collapsing the others and
-         scroll by the delta to pin it in place. (Programmatically setting the
-         scroll position also suppresses the browser's own scroll anchoring for
-         this frame, so the two don't fight.) */
-      const sum = d.querySelector("summary");
-      const before = sum ? sum.getBoundingClientRect().top : 0;
-      let changed = false;
+      /* Accordion: opening one section closes the others, then brings the one
+         you opened to the top of the reading area — its summary is scrolled to
+         just below the sticky site header. You always start reading from a
+         clean top edge, and the old "collapse-above yanks the page up" jump is
+         gone because the view deliberately re-anchors on what you opened. */
       for (const other of deeps) {
-        if (other !== d && other.open) {
-          other.open = false;
-          changed = true;
-        }
+        if (other !== d && other.open) other.open = false;
       }
-      if (changed && sum) {
-        const delta = sum.getBoundingClientRect().top - before;
-        if (delta) window.scrollBy(0, delta);
-      }
+      const sum = d.querySelector("summary");
+      if (!sum) return;
+      const header = document.querySelector<HTMLElement>(".site-header");
+      const offset = (header?.offsetHeight ?? 0) + 8;
+      const y = sum.getBoundingClientRect().top + window.scrollY - offset;
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
     });
   }
 

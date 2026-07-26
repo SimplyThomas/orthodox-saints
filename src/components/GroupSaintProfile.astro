@@ -822,23 +822,22 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
   for (const d of deeps) {
     d.addEventListener("toggle", () => {
       if (!d.open) return;
-      /* Hold the tapped summary under the reader's thumb: closing a section
-         above the viewport would otherwise yank the page upward. Measure the
-         summary's viewport position before/after collapsing the others and
-         scroll by the delta to pin it in place. */
-      const sum = d.querySelector("summary");
-      const before = sum ? sum.getBoundingClientRect().top : 0;
-      let changed = false;
+      /* Accordion: opening one section closes the others, then brings the one
+         you opened to the top of the reading area (summary scrolled to just
+         below the sticky site header) — so you always start reading from a
+         clean top edge and never get the collapse-above page jump. */
       for (const other of deeps) {
-        if (other !== d && other.open) {
-          other.open = false;
-          changed = true;
-        }
+        if (other !== d && other.open) other.open = false;
       }
-      if (changed && sum) {
-        const delta = sum.getBoundingClientRect().top - before;
-        if (delta) window.scrollBy(0, delta);
-      }
+      const sum = d.querySelector("summary");
+      if (!sum) return;
+      const header = document.querySelector<HTMLElement>(".site-header");
+      const offset = (header?.offsetHeight ?? 0) + 8;
+      const y = sum.getBoundingClientRect().top + window.scrollY - offset;
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
     });
   }
 </script>
