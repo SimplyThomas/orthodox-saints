@@ -595,7 +595,7 @@ export const WITNESSES: Witness[] = [
         kind: "note",
         heading: "A Note on Attribution",
         body: [
-          "The title <em>The Path to Salvation</em>, sometimes attributed to Elder Ephraim, is in fact the work of St Theophan the Recluse and is not among his writings.",
+          "<em>The Path to Salvation</em> is sometimes listed as Elder Ephraim's own, but it is the work of St Theophan the Recluse.",
         ],
       },
     ],
