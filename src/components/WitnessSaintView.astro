@@ -31,7 +31,6 @@ const timeline = w.timeline ?? [];
 const worksBy = w.worksBy ?? [];
 const worksAbout = w.worksAbout ?? [];
 const quotes = w.quotes ?? [];
-const gallery = w.gallery ?? [];
 const related = w.related ?? [];
 const sources = w.sources ?? [];
 const sidebar = w.sidebar ?? [];
@@ -733,49 +732,6 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
             )
           }
 
-          {/* gallery suggestions */}
-          {
-            gallery.length > 0 && (
-              <details class="sv-deep">
-                <summary class="sv-deep-sum">
-                  <span class="eyebrow sv-deep-eb">Gallery Suggestions</span>
-                  <span class="sv-deep-ct">{gallery.length} images</span>
-                  <span class="sv-deep-rule" />
-                  <span class="sv-deep-state">
-                    <span class="sv-deep-show">Show</span>
-                    <span class="sv-deep-hide">Hide</span>
-                  </span>
-                  <svg
-                    class="sv-chev"
-                    width="15"
-                    height="15"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="var(--gold-deep)"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 6l4 4 4-4" />
-                  </svg>
-                </summary>
-                <p class="wsv-fineprint">
-                  Recommended imagery for a future illustrated edition (none
-                  reproduced here pending licensing and review):
-                </p>
-                <ul class="wsv-gallery">
-                  {gallery.map((g) => (
-                    <li>
-                      <span class="wsv-gal-subject">{g.subject}</span>
-                      <span class="wsv-gal-caption">{g.caption}</span>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            )
-          }
-
           {/* related figures */}
           {
             related.length > 0 && (
@@ -934,28 +890,6 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
   }
   .wsv-rel-note {
     color: #555;
-  }
-
-  /* gallery suggestions */
-  .wsv-gallery {
-    padding-left: 0;
-    margin: 0;
-  }
-  .wsv-gallery li {
-    list-style: none;
-    margin-bottom: 10px;
-  }
-  .wsv-gal-subject {
-    display: block;
-    font-weight: 600;
-    color: var(--byz-deep);
-    font-family: var(--text);
-    font-size: 14px;
-  }
-  .wsv-gal-caption {
-    font-style: italic;
-    color: var(--celest);
-    font-size: 14px;
   }
 
   .wsv-sources ol {

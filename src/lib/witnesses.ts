@@ -70,14 +70,6 @@ export interface WitnessQuote {
   work: string;
 }
 
-/** A gallery suggestion — imagery recommended for a future illustrated edition.
- *  Nothing is reproduced on the page; these are captions only, pending licensing
- *  and review. */
-export interface WitnessGalleryItem {
-  subject: string;
-  caption: string;
-}
-
 /** One node of a `lineage` side-column block — a link in a vertical hand-down
  *  diagram (e.g. Optina Elders → St John Maximovitch → Fr Seraphim). */
 export interface WitnessAsideNode {
@@ -198,8 +190,6 @@ export interface Witness {
   sections?: WitnessSection[];
   /** "Selected Teachings" — short, sourced quotations grouped by theme */
   quotes?: WitnessQuote[];
-  /** "Gallery Suggestions" — captions for recommended imagery (nothing reproduced) */
-  gallery?: WitnessGalleryItem[];
   /** compact supplementary LEFT-RAIL blocks — a spiritual-lineage diagram or a
    *  short note shown in the side column below "At a glance". */
   sidebar?: WitnessAside[];
@@ -519,27 +509,6 @@ export const WITNESSES: Witness[] = [
         theme: "Repentance",
         text: "The tears of a repentant soul purify the heart, purify the mind, purify the body, purify life, purify speech, and purify a person's every action.",
         work: "The Art of Salvation",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Elder Ephraim portrait",
-        caption: "Elder Ephraim of Arizona (1927/28 – 2019).",
-      },
-      {
-        subject: "St Joseph the Hesychast portrait",
-        caption:
-          "St Joseph the Hesychast, Elder Ephraim's spiritual father on Mount Athos.",
-      },
-      {
-        subject: "St Anthony's Monastery",
-        caption:
-          "St Anthony's Greek Orthodox Monastery, Florence, Arizona (founded 1995).",
-      },
-      {
-        subject: "Mount Athos / Philotheou",
-        caption:
-          "Philotheou Monastery, Mount Athos, where Elder Ephraim was abbot (1973–1991).",
       },
     ],
     related: [
@@ -891,26 +860,6 @@ export const WITNESSES: Witness[] = [
         work: "God's Revelation to the Human Heart (1981 lecture)",
       },
     ],
-    gallery: [
-      {
-        subject: "Father Seraphim Rose portrait",
-        caption: "Hieromonk Seraphim (Rose) of Platina (1934–1982).",
-      },
-      {
-        subject: "St John Maximovitch",
-        caption:
-          "St John of Shanghai & San Francisco, Fr Seraphim's spiritual father.",
-      },
-      {
-        subject: "St Herman of Alaska Monastery, Platina",
-        caption:
-          "The monastery in the northern California wilderness, founded 1969–70.",
-      },
-      {
-        subject: "Father Seraphim's grave",
-        caption: "His grave at the Platina monastery, a place of pilgrimage.",
-      },
-    ],
     related: [
       {
         name: "St John Maximovitch (of Shanghai & San Francisco)",
@@ -1183,28 +1132,6 @@ export const WITNESSES: Witness[] = [
         theme: "Unceasing Prayer",
         text: "“Pray without ceasing” doesn't mean to always stay in prayer, but to be conscious of the presence of God, to have the feeling that God is present.",
         work: "Interview with Father Roman Braga",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Portrait of Archimandrite Roman Braga",
-        caption:
-          "The elder in his later years at the Holy Dormition Monastery in Michigan.",
-      },
-      {
-        subject: "Holy Dormition Monastery, Rives Junction, Michigan",
-        caption:
-          "The Romanian-tradition women's monastery he helped shape and where he served as spiritual father.",
-      },
-      {
-        subject: "Pitești prison, Romania",
-        caption:
-          "Site of the communist re-education experiments he survived in solitary confinement.",
-      },
-      {
-        subject: "Cover of Exploring the Inner Universe",
-        caption:
-          "The book in which he gathered his prison-forged teaching on interior prayer.",
       },
     ],
     related: [
@@ -1484,28 +1411,6 @@ export const WITNESSES: Witness[] = [
         work: "Recollections, St Seraphim Cathedral biography",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Archbishop Dmitri",
-        caption:
-          "The vested archbishop in his years leading the Diocese of the South.",
-      },
-      {
-        subject: "St Seraphim Orthodox Cathedral, Dallas",
-        caption:
-          "The mission he founded in 1954, later his cathedral and place of burial.",
-      },
-      {
-        subject: "Archbishop Dmitri among his people",
-        caption:
-          "The pastor who was said to have “never met a stranger,” greeting parishioners.",
-      },
-      {
-        subject: "One of his Scripture commentaries",
-        caption:
-          "From the shelf of biblical commentaries he wrote for ordinary readers.",
-      },
-    ],
     related: [
       {
         name: "OCA Diocese of the South",
@@ -1755,28 +1660,6 @@ export const WITNESSES: Witness[] = [
           "Bev Cooke's biography of Princess Ileana's path to monasticism, from Ancient Faith Publishing.",
         source:
           "https://store.ancientfaith.com/royal-monastic-princess-ileana-of-romania/",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Princess Ileana in Red Cross nursing dress",
-        caption:
-          "The princess who gave her wartime years to nursing the wounded of Romania.",
-      },
-      {
-        subject: "Bran Castle and village, Transylvania",
-        caption:
-          "Near where she founded the Spital Inima Reginei, the “Hospital of the Queen's Heart.”",
-      },
-      {
-        subject: "Mother Alexandra in the monastic habit",
-        caption:
-          "The former princess in her later years as foundress of the Ellwood City monastery.",
-      },
-      {
-        subject: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
-        caption:
-          "The English-language women's monastery she founded in 1967 and where she is buried.",
       },
     ],
     related: [
@@ -2055,29 +1938,6 @@ export const WITNESSES: Witness[] = [
         work: "The 55 Maxims",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father Thomas Hopko",
-        caption:
-          "The protopresbyter in his years teaching at St Vladimir's Seminary.",
-      },
-      {
-        subject: "The four-volume “rainbow series,” The Orthodox Faith",
-        caption:
-          "His elementary handbook that catechized a generation of English-speaking faithful.",
-      },
-      {
-        subject: "At the Ancient Faith Radio microphone",
-        caption:
-          "Recording “Speaking the Truth in Love,” which reached listeners worldwide from 2008.",
-      },
-      {
-        subject:
-          "Orthodox Monastery of the Transfiguration, Ellwood City, Pennsylvania",
-        caption:
-          "Near where Father Thomas spent his retirement years and reposed in 2015.",
-      },
-    ],
     related: [
       {
         name: "Fr Alexander Schmemann",
@@ -2335,28 +2195,6 @@ export const WITNESSES: Witness[] = [
         work: "Articulating the Yup'ik understanding of subsistence, recalled in Alaskan remembrances of his teaching",
       },
     ],
-    gallery: [
-      {
-        subject: "A Russian Orthodox church in an Alaska Native village",
-        caption:
-          "The onion-domed village churches of the Kuskokwim and Kodiak, at the heart of the communities Fr Michael served.",
-      },
-      {
-        subject: "Fr Michael Oleksa lecturing on cross-cultural communication",
-        caption:
-          "The storyteller and teacher whose “Communicating Across Cultures” reached Alaskans statewide.",
-      },
-      {
-        subject: "St Herman's Theological Seminary, Kodiak",
-        caption:
-          "The Alaskan seminary for Native clergy, where he served as dean.",
-      },
-      {
-        subject: "The Kuskokwim River and Yup'ik country",
-        caption:
-          "The vast riverine landscape of the villages where he spent his early ministry.",
-      },
-    ],
     related: [
       {
         name: "St Herman of Alaska",
@@ -2611,27 +2449,6 @@ export const WITNESSES: Witness[] = [
         theme: "The World as Sacrament",
         text: "The first, the basic definition of man is that he is the priest. He stands in the center of the world and unifies it in his act of blessing God.",
         work: "For the Life of the World",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Portrait of Father Alexander Schmemann",
-        caption:
-          "The vested protopresbyter in his years as dean of St Vladimir's.",
-      },
-      {
-        subject: "Three Hierarchs Chapel, St Vladimir's Seminary, Crestwood",
-        caption:
-          "The seminary chapel at the heart of his teaching and liturgical life.",
-      },
-      {
-        subject: "First edition of For the Life of the World",
-        caption:
-          "The small book that carried his sacramental vision to a wide readership.",
-      },
-      {
-        subject: "His grave at St Tikhon's Monastery, Pennsylvania",
-        caption: "Where Father Alexander was laid to rest in December 1983.",
       },
     ],
     related: [
@@ -2906,29 +2723,6 @@ export const WITNESSES: Witness[] = [
         work: "St Gregory Palamas and the Tradition of the Fathers",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father Georges Florovsky",
-        caption:
-          "The vested protopresbyter in his American years as scholar and teacher.",
-      },
-      {
-        subject: "St Sergius Orthodox Theological Institute, Paris",
-        caption:
-          "The émigré academy where he taught patristics and was ordained in 1932.",
-      },
-      {
-        subject:
-          "First Assembly of the World Council of Churches, Amsterdam 1948",
-        caption:
-          "Where he led Orthodox theological participation and was elected to the Council's committees.",
-      },
-      {
-        subject: "Title page of Ways of Russian Theology (1937)",
-        caption:
-          "His great and contested critical history of Russian religious thought.",
-      },
-    ],
     related: [
       {
         name: "Vladimir Lossky",
@@ -3194,29 +2988,6 @@ export const WITNESSES: Witness[] = [
           "A memorial volume of essays honoring his contribution to patristic and Byzantine studies (ed. Bradley Nassif, 1996).",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father John Meyendorff",
-        caption:
-          "The vested protopresbyter in his years as dean of St Vladimir's.",
-      },
-      {
-        subject: "St Gregory Palamas, archbishop of Thessalonica",
-        caption:
-          "The fourteenth-century hesychast theologian whose thought Meyendorff did most to recover.",
-      },
-      {
-        subject:
-          "St Vladimir's Orthodox Theological Seminary, Crestwood, New York",
-        caption:
-          "The seminary he served for over thirty years and led as dean from 1984.",
-      },
-      {
-        subject: "First edition of Byzantine Theology",
-        caption:
-          "His synthesis of Byzantine doctrinal history, long a standard seminary textbook.",
-      },
-    ],
     related: [
       {
         name: "Fr Alexander Schmemann",
@@ -3475,28 +3246,6 @@ export const WITNESSES: Witness[] = [
           "https://www.post-gazette.com/news/obituaries/2014/03/22/obituary-metropolitan-philip-saliba-antiochian-orthodox-leader-since-1966-hailed-as-visionary/stories/201403220099",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Metropolitan Philip (Saliba)",
-        caption:
-          "The vested Metropolitan in his years leading the Antiochian Archdiocese.",
-      },
-      {
-        subject: "The Antiochian Village, Bolivar, Pennsylvania",
-        caption:
-          "The camp and conference center he founded in 1978, and the site of his burial.",
-      },
-      {
-        subject: "The 1987 reception of the Evangelical Orthodox",
-        caption:
-          "Some two thousand former evangelicals entering the Orthodox Church through the Archdiocese.",
-      },
-      {
-        subject: "St Nicholas Cathedral, Brooklyn",
-        caption:
-          "The Archdiocesan cathedral where he was enthroned in 1966 and mourned in 2014.",
-      },
-    ],
     related: [
       {
         name: "St Raphael of Brooklyn",
@@ -3732,27 +3481,6 @@ export const WITNESSES: Witness[] = [
         theme: "Suffering",
         text: "The terrible suffering can at times become a source of happiness. It is a paradox, but that is what I learned.",
         work: "Recollection of his years in a communist prison",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Portrait of Bishop Basil (Rodzianko)",
-        caption:
-          "The vested bishop in his American years, known for his warmth and humility.",
-      },
-      {
-        subject: "Bishop Basil at the BBC microphone",
-        caption:
-          "For nearly twenty-five years his voice reached Orthodox listeners across the Soviet Union.",
-      },
-      {
-        subject: "Bishop Basil on a visit to post-Soviet Russia",
-        caption:
-          "In his last years he traveled often to a Church reopening after decades of atheism.",
-      },
-      {
-        subject: "His grave at Rock Creek Cemetery, Washington, D.C.",
-        caption: "Where Bishop Basil was laid to rest in September 1999.",
       },
     ],
     related: [
@@ -3998,28 +3726,6 @@ export const WITNESSES: Witness[] = [
         work: "Patristic Theology (The University Lectures)",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Fr John Romanides",
-        caption:
-          "The priest-theologian in his years teaching dogmatics in Greece.",
-      },
-      {
-        subject: "Hell's Kitchen, Manhattan, mid-20th century",
-        caption:
-          "The New York immigrant neighborhood on West 46th Street where he was raised.",
-      },
-      {
-        subject: "Holy Cross Greek Orthodox School of Theology, Brookline",
-        caption:
-          "Where he studied and later taught dogmatic theology and edited the Greek Orthodox Theological Review.",
-      },
-      {
-        subject: "Cover of Patristic Theology",
-        caption:
-          "His posthumously published university lectures on the “cure of the soul.”",
-      },
-    ],
     related: [
       {
         name: "Holy Cross Greek Orthodox School of Theology",
@@ -4246,28 +3952,6 @@ export const WITNESSES: Witness[] = [
           "The university archives' record of the professor of classics, holding his obituary.",
         source:
           "https://library2.buffalo.edu/archives/ubpeople/detail.html?ID=1431",
-      },
-    ],
-    gallery: [
-      {
-        subject: "Portrait of Fr. Michael Gelsinger",
-        caption:
-          "Often pictured in suit and tie — for most of his priestly life he was also a university professor.",
-      },
-      {
-        subject: "Title page of Orthodox Hymns in English (1939)",
-        caption:
-          "His adaptation of Greek and Slavic melodies to English texts, published by the Antiochian Archdiocese.",
-      },
-      {
-        subject: "The University of Buffalo, where he taught classics",
-        caption:
-          "He held the Andrew V. V. Raymond chair of classics and chaired the department in the 1950s.",
-      },
-      {
-        subject: "An early English-language Orthodox choir",
-        caption:
-          "The kind of parish singing his translations helped make possible in America.",
       },
     ],
     related: [
