@@ -35,7 +35,17 @@ export interface RelatedFigure {
 }
 
 /** A work by, or book about, a witness. A title with an optional one-line
- *  detail and an optional citation link. */
+ *  detail and an optional link (the page renders the title as that link).
+ *
+ *  These witnesses are recent enough that most of their books are still IN
+ *  PRINT, so `source` on a book should point at a shop the reader can buy it
+ *  from — preferring the Orthodox publisher/monastery that actually issues it
+ *  (SVS Press, Ancient Faith, St Herman Press, Uncut Mountain Press, St George
+ *  Press, the Antiochian Village bookstore …). Never link Amazon. When a title
+ *  is out of print, leave `source` off and say so in `detail` rather than
+ *  linking a sold-out page or a mere catalogue record. A `source` on a
+ *  non-book entry (an archive, a podcast series, an article) is still just a
+ *  citation link. */
 export interface WitnessWork {
   title: string;
   detail?: string;
@@ -794,20 +804,19 @@ export const WITNESSES: Witness[] = [
         title: "Nihilism: The Root of the Revolution of the Modern Age",
         detail:
           "An analysis of nihilism as the spiritual root of the modern revolutionary age; written c. 1962 as a chapter of an unfinished larger work and later issued on its own.",
-        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+        source: "https://www.sainthermanmonastery.com/product-p/nihil.htm",
       },
       {
         title: "Orthodoxy and the Religion of the Future (1975)",
         detail:
           "A critique of Eastern religions, the New Age and charismatic movements, and other phenomena as a coalescing modern “religion of the future”; includes his chapter on UFOs.",
-        source:
-          "https://en.wikipedia.org/wiki/Orthodoxy_and_the_Religion_of_the_Future",
+        source: "https://www.sainthermanmonastery.com/product-p/orf.htm",
       },
       {
         title: "The Soul After Death (1980)",
         detail:
           "The Orthodox patristic teaching on the soul's experience after death, set against contemporary “after-death” and occult accounts.",
-        source: "https://archive.org/details/soulafterdeathco0000rose",
+        source: "https://www.sainthermanmonastery.com/product-p/sad.htm",
       },
       {
         title: "God's Revelation to the Human Heart",
@@ -820,16 +829,14 @@ export const WITNESSES: Witness[] = [
         title: "Genesis, Creation, and Early Man (2000)",
         detail:
           "A posthumous compendium of his patristic commentary on Genesis 1–11, drawn largely from his Orthodox Survival Course.",
-        source: "https://en.wikipedia.org/wiki/Seraphim_Rose",
+        source: "https://www.sainthermanmonastery.com/product-p/gen.htm",
       },
     ],
     worksAbout: [
       {
         title: "Father Seraphim Rose: His Life and Works",
         detail:
-          "Hieromonk Damascene (Christensen)'s definitive ~1,160-page biography (St Herman of Alaska Brotherhood, 2003), a greatly expanded successor to his earlier Not of This World (1993).",
-        source:
-          "https://www.goodreads.com/book/show/314159.Father_Seraphim_Rose",
+          "Hieromonk Damascene (Christensen)'s definitive ~1,160-page biography (St Herman of Alaska Brotherhood, 2003), a greatly expanded successor to his earlier Not of This World (1993). Currently out of print — ask St Herman Press when it returns.",
       },
     ],
     quotes: [
@@ -1095,6 +1102,14 @@ export const WITNESSES: Witness[] = [
         title: "On the Way of Faith: Faith, Freedom and Love (1997)",
         detail:
           "A collection of his talks and reflections on the Christian life.",
+        source: "https://stgeorgepress.com/products/on-the-way-of-faith",
+      },
+      {
+        title: "Living as a Christian in a World That Rejects God",
+        detail:
+          "Conversations with his spiritual child Mary Brown at the Dormition Monastery in Michigan, on holding the faith in a secular age.",
+        source:
+          "https://stgeorgepress.com/products/living-as-a-christian-in-a-world-that-rejects-god",
       },
       {
         title: "Spiritual Steps — Interview with Father Roman Braga (1998)",
@@ -1350,34 +1365,49 @@ export const WITNESSES: Witness[] = [
           "Orthodox Christian Teaching: An Introduction to the Orthodox Faith",
         detail:
           "The catechism he developed for inquirers at St Seraphim's, later published by the OCA's Department of Christian Education.",
+        source:
+          "https://svspress.com/orthodox-christian-teaching-an-introduction-to-the-orthodox-faith/",
       },
       {
         title: "The Parables (1996)",
         detail:
           "A commentary on the parables of Christ. St Vladimir's Seminary Press.",
-        source: "https://svspress.com/archbishop-dmitri-royster/",
+        source: "https://svspress.com/parables-the/",
       },
       {
         title: "The Kingdom of God: The Sermon on the Mount (1997)",
         detail:
           "His commentary on the Sermon on the Mount in Matthew's Gospel.",
+        source: "https://svspress.com/kingdom-of-god-the/",
       },
       {
         title: "The Miracles of Christ (1999)",
         detail:
           "A commentary on the Gospel miracles. St Vladimir's Seminary Press.",
+        source: "https://svspress.com/miracles-of-christ-the/",
+      },
+      {
+        title:
+          "The Holy Gospel According to Saint John: A Pastoral Commentary (2000)",
+        detail: "A pastoral, verse-by-verse reading of the Fourth Gospel.",
+        source:
+          "https://svspress.com/the-holy-gospel-according-to-saint-john-a-pastoral-commentary/",
       },
       {
         title: "The Epistle to the Hebrews: A Commentary (2003)",
         detail: "A pastoral commentary on the Epistle to the Hebrews.",
+        source: "https://svspress.com/epistle-to-the-hebrews-a-commentary-the/",
       },
       {
         title: "St Paul's Epistle to the Romans: A Pastoral Commentary (2008)",
         detail: "A verse-by-verse pastoral reading of Romans.",
+        source:
+          "https://svspress.com/st-pauls-epistle-to-the-romans-a-pastoral-commentary/",
       },
       {
         title: "The Epistle of St James: A Commentary (2010)",
         detail: "His last published commentary, on the Epistle of James.",
+        source: "https://svspress.com/the-epistle-of-st-james-a-commentary/",
       },
       {
         title: "Liturgical translations into English and Spanish",
@@ -1623,17 +1653,22 @@ export const WITNESSES: Witness[] = [
       {
         title: "I Live Again",
         detail:
-          "Her memoir of life as a princess of Romania, the war, and exile — reissued in a modern edition.",
+          "Her memoir of life as a princess of Romania, the war, and exile — in print from Ancient Faith Publishing.",
+        source:
+          "https://store.ancientfaith.com/i-live-again-a-memoir-of-ileana/",
       },
       {
         title: "The Holy Angels",
         detail:
-          "Her best-known spiritual book: the Orthodox tradition on the bodiless powers, woven with her own sense of the guardian angel's nearness.",
+          "Her best-known spiritual book: the Orthodox tradition on the bodiless powers, woven with her own sense of the guardian angel's nearness. In print from Ancient Faith Publishing.",
+        source: "https://store.ancientfaith.com/the-holy-angels/",
       },
       {
         title: "Hospital of the Queen's Heart",
         detail:
-          "Her account of the wartime hospital (Spital Inima Reginei) she established near Bran.",
+          "Her account of the wartime hospital (Spital Inima Reginei) she established near Bran — from Ancient Faith Publishing as an audiobook and eBook.",
+        source:
+          "https://store.ancientfaith.com/hospital-of-the-queens-heart-audiobook-and-ebook/",
       },
       {
         title: "The Symbol of Faith: Meditations on the Nicene Creed",
@@ -1670,9 +1705,11 @@ export const WITNESSES: Witness[] = [
         source: "https://cnewa.org/magazine/a-life-transfigured-30530/",
       },
       {
-        title: "Royal Monastic: A Biography of Mother Alexandra",
+        title: "Royal Monastic: Princess Ileana of Romania",
         detail:
-          "A biographical account of Princess Ileana's path to monasticism.",
+          "Bev Cooke's biography of Princess Ileana's path to monasticism, from Ancient Faith Publishing.",
+        source:
+          "https://store.ancientfaith.com/royal-monastic-princess-ileana-of-romania/",
       },
     ],
     gallery: [
@@ -1875,20 +1912,31 @@ export const WITNESSES: Witness[] = [
           "The Orthodox Faith: An Elementary Handbook on the Orthodox Church",
         detail:
           "His classic four-volume catechetical series (Doctrine · Worship · Bible & Church History · Spirituality) — the “rainbow series,” translated into many languages.",
+        source: "https://svspress.com/the-orthodox-faith-four-volume-set/",
       },
       {
         title: "The Lenten Spring",
         detail:
           "Reflections drawn from the hymns and readings of the season of Great Lent.",
+        source: "https://svspress.com/lenten-spring-the/",
       },
       {
         title: "The Winter Pascha",
         detail:
           "Forty meditations for the season of Advent, the Nativity, and Theophany, companion to The Lenten Spring.",
+        source: "https://svspress.com/winter-pascha-the/",
       },
       {
         title: "All the Fullness of God",
         detail: "Essays on Orthodoxy, ecumenism, and modern society.",
+        source: "https://svspress.com/all-the-fulness-of-god/",
+      },
+      {
+        title:
+          "Speaking the Truth in Love: Education, Mission and Witness in Contemporary Orthodoxy",
+        detail:
+          "A collection of his essays and addresses on teaching and witnessing the faith today.",
+        source: "https://svspress.com/speaking-the-truth-in-love/",
       },
       {
         title: "The Spirit of God",
@@ -1897,7 +1945,10 @@ export const WITNESSES: Witness[] = [
       },
       {
         title: "Christian Faith and Same-Sex Attraction",
-        detail: "A pastoral treatment of a contemporary question.",
+        detail:
+          "A pastoral treatment of a contemporary question, from Ancient Faith Publishing.",
+        source:
+          "https://store.ancientfaith.com/christian-faith-and-same-sex-attraction",
       },
       {
         title: "The 55 Maxims",
@@ -2169,7 +2220,8 @@ export const WITNESSES: Witness[] = [
       {
         title: "Alaskan Missionary Spirituality (1987)",
         detail:
-          "An anthology of translated Alaskan missionary letters, journals, and instructions in the Paulist Press “Sources of American Spirituality” series.",
+          "An anthology of translated Alaskan missionary letters, journals, and instructions, first issued in the Paulist Press “Sources of American Spirituality” series and now from St Vladimir's Seminary Press.",
+        source: "https://svspress.com/alaskan-missionary-spirituality/",
       },
       {
         title: "Another Culture / Another World (2005)",
@@ -2421,38 +2473,48 @@ export const WITNESSES: Witness[] = [
         title: "For the Life of the World (1963; expanded 1973)",
         detail:
           "His best-known work — sacrament, secularism, and the world received as Eucharist. Written for a student conference and read far beyond Orthodoxy.",
+        source: "https://svspress.com/for-the-life-of-the-world-new-edition/",
       },
       {
         title: "Introduction to Liturgical Theology (1966)",
         detail:
           "A foundational scholarly study of the development of the Church's worship.",
+        source: "https://svspress.com/introduction-to-liturgical-theology/",
       },
       {
         title: "Great Lent (1969)",
         detail: "A study of the Lenten journey of the Church toward Pascha.",
+        source: "https://svspress.com/great-lent/",
       },
       {
         title: "Of Water and the Spirit (1974)",
         detail: "A liturgical study and explanation of Baptism.",
+        source: "https://svspress.com/of-water-and-the-spirit/",
       },
       {
         title: "Church, World, Mission (1979)",
         detail:
           "Essays on Orthodoxy's encounter with the modern world and its missionary calling.",
+        source: "https://svspress.com/church-world-mission/",
       },
       {
         title: "The Historical Road of Eastern Orthodoxy",
         detail: "A single-volume survey of Orthodox Church history.",
+        source:
+          "https://svspress.com/historical-road-of-eastern-orthodoxy-the/",
       },
       {
         title: "The Eucharist: Sacrament of the Kingdom (1988)",
         detail:
           "His mature synthesis on the Divine Liturgy, completed only weeks before his death and published posthumously.",
+        source: "https://svspress.com/eucharist-the/",
       },
       {
         title: "The Journals of Father Alexander Schmemann, 1973–1983 (2000)",
         detail:
           "His candid posthumously published notebooks, a spiritual classic in their own right.",
+        source:
+          "https://svspress.com/journals-of-father-alexander-schmemann-the/",
       },
     ],
     worksAbout: [
@@ -2743,13 +2805,16 @@ export const WITNESSES: Witness[] = [
       {
         title: "Georges Florovsky: Russian Intellectual and Orthodox Churchman",
         detail:
-          "Edited by Andrew Blane — the standard biographical study, with a long biographical essay and bibliography.",
+          "Edited by Andrew Blane — the standard biographical study, with a long biographical essay and bibliography. In print from St Vladimir's Seminary Press.",
+        source: "https://svspress.com/georges-florovsky/",
       },
       {
         title:
           "Georges Florovsky and the Russian Religious Renaissance — Paul Gavrilyuk",
         detail:
-          "A major modern scholarly reassessment of his life, sources, and neo-patristic program.",
+          "A major modern scholarly reassessment of his life, sources, and neo-patristic program; stocked by the Holy Cross Bookstore.",
+        source:
+          "https://holycrossbookstore.com/products/georges-florovsky-and-the-russian-religious-renaissance-changing-paradigms-in-historical-and-systematic-theology",
       },
       {
         title: "St Vladimir's Seminary Library — Fr Georges Florovsky Papers",
@@ -2978,48 +3043,61 @@ export const WITNESSES: Witness[] = [
         title: "A Study of Gregory Palamas (French 1959; English 1964)",
         detail:
           "His landmark doctoral study, which overturned the Western dismissal of Palamism and recovered hesychast theology for the modern Church.",
+        source: "https://svspress.com/a-study-of-gregory-palamas/",
       },
       {
         title:
           "The Orthodox Church: Its Past and Its Role in the World Today (1963)",
         detail:
           "An accessible history and overview of Orthodoxy that reached a wide readership.",
+        source: "https://svspress.com/the-orthodox-church/",
       },
       {
         title: "Christ in Eastern Christian Thought (1969)",
         detail:
           "A study of the development of Christology in the Christian East through the councils and their aftermath.",
+        source: "https://svspress.com/christ-in-eastern-christian-thought/",
       },
       {
         title:
           "Byzantine Theology: Historical Trends and Doctrinal Themes (1974)",
         detail:
           "His synthesis of Byzantine theological development, long a standard seminary textbook.",
+        source:
+          "https://svspress.com/byzantine-theology-historical-trends-and-doctrinal-themes/",
       },
       {
         title: "St Gregory Palamas and Orthodox Spirituality (1974)",
         detail:
           "An accessible companion tracing Orthodox mysticism from the desert fathers through Byzantine hesychasm to Russian monasticism.",
+        source:
+          "https://svspress.com/st-gregory-palamas-and-orthodox-spirituality/",
       },
       {
         title: "Marriage: An Orthodox Perspective (1970)",
         detail: "A short, widely used pastoral study of Christian marriage.",
+        source: "https://svspress.com/marriage-an-orthodox-perspective/",
       },
       {
         title: "Byzantium and the Rise of Russia (1980)",
         detail:
           "A study of Byzantine–Russian relations and church history in the fourteenth century.",
+        source: "https://svspress.com/byzantium-and-the-rise-of-russia/",
       },
       {
         title: "The Byzantine Legacy in the Orthodox Church (1982)",
         detail:
           "Collected essays on the enduring Byzantine inheritance of Orthodoxy.",
+        source:
+          "https://svspress.com/the-byzantine-legacy-in-the-orthodox-church/",
       },
       {
         title:
           "Imperial Unity and Christian Divisions: The Church 450–680 A.D. (1989)",
         detail:
           "A major historical study of empire, doctrine, and schism in the early Christian East.",
+        source:
+          "https://svspress.com/imperial-unity-and-christian-divisions-pb/",
       },
     ],
     worksAbout: [
@@ -3276,6 +3354,14 @@ export const WITNESSES: Witness[] = [
           "A further gathered collection of his pastoral thought and public addresses.",
       },
       {
+        title:
+          "Broken Promises and White House Meetings (with Najib E. Saliba)",
+        detail:
+          "His own account of the Archdiocese's dealings in Washington and his many meetings with U.S. presidents across a 48-year primacy. From the Antiochian Village Bookstore.",
+        source:
+          "https://store.antiochianvillage.org/Broken-Promises-and-White-House-Meetings.html",
+      },
+      {
         title: "Editorials and addresses in The Word magazine",
         detail:
           "His regular pastoral writing appeared in the Archdiocese's magazine; a churchman and orator more than a systematic author, his written legacy is largely addresses, sermons, and pastoral letters.",
@@ -3292,12 +3378,22 @@ export const WITNESSES: Witness[] = [
         title:
           "Becoming Orthodox: A Journey to the Ancient Christian Faith — Peter E. Gillquist",
         detail:
-          "The convert leader's account of the Evangelical Orthodox Church and its 1987 reception by Metropolitan Philip.",
+          "The convert leader's account of the Evangelical Orthodox Church and its 1987 reception by Metropolitan Philip. In print from Ancient Faith Publishing.",
+        source:
+          "https://store.ancientfaith.com/becoming-orthodox-a-journey-to-the-ancient-christian-faith/",
       },
       {
         title:
           "Metropolitan Philip: His Life and His Dreams — Peter E. Gillquist (1991)",
         detail: "An authorized biography of the Metropolitan.",
+      },
+      {
+        title:
+          "Ordained for Men in the Things of God — ed. Joseph Allen & Joseph Antypas (2006)",
+        detail:
+          "A commemorative collection marking his fortieth anniversary as Metropolitan, from the Antiochian Village Bookstore.",
+        source:
+          "https://store.antiochianvillage.org/Ordained-for-Men-in-the-Things-of-God.html",
       },
       {
         title:
@@ -3544,6 +3640,7 @@ export const WITNESSES: Witness[] = [
           "“His Eminence the Novice” — in Everyday Saints (Archimandrite Tikhon Shevkunov)",
         detail:
           "A widely-read chapter recalling Bishop Basil's humility and warmth in the bestselling memoir Everyday Saints and Other Stories.",
+        source: "https://svspress.com/everyday-saints-and-other-stories/",
       },
       {
         title:
@@ -3789,7 +3886,8 @@ export const WITNESSES: Witness[] = [
       {
         title: "Patristic Theology (The University Lectures, posthumous)",
         detail:
-          "His transcribed university lectures on the Fathers and the “cure of the soul” — theosis, purification, illumination, and glorification.",
+          "His transcribed university lectures on the Fathers and the “cure of the soul” — theosis, purification, illumination, and glorification. In print from Uncut Mountain Press.",
+        source: "https://uncutmountainpress.com/products/patristic-theology",
       },
     ],
     worksAbout: [
