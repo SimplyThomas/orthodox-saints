@@ -102,10 +102,14 @@ class TestCycle(unittest.TestCase):
 
 class TestValidate(unittest.TestCase):
     def _validate(self, rows, saint_ids=frozenset({"OS-0001"})):
-        # Point the profile cross-check at an empty dir: these synthetic rows
-        # must not fail because real src/content/feasts/*.yaml profiles exist.
+        # Point the profile + image cross-checks at nonexistent paths: these
+        # synthetic rows must not fail because the real src/content/feasts/*.yaml
+        # profiles or data/feast_{images,depictions}.csv reference other feast ids.
+        missing = Path(tempfile.mkdtemp()) / "none.csv"
         with mock.patch.object(feastlib, "FEAST_PROFILES_DIR",
-                               Path(tempfile.mkdtemp())):
+                               Path(tempfile.mkdtemp())), \
+             mock.patch.object(feastlib, "FEAST_IMAGES_CSV", missing), \
+             mock.patch.object(feastlib, "FEAST_DEPICTIONS_CSV", missing):
             return feastlib.validate(rows, FEAST_VOCAB, set(saint_ids))
 
     def test_valid_row_clean(self):
