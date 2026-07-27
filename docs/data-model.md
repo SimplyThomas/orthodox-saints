@@ -95,6 +95,15 @@ A span sets Begins + Ends, and the two kinds may mix in one row (the Apostles' F
 follow the New (Revised Julian) calendar. A saint's own feast day belongs in
 saints.csv, not here (scope rules: CLAUDE.md §5a).
 
+**Festal imagery (keyed by `feast_id`).** `data/feast_images.csv`
+(`feast_id,image_path,license,credit,source`) holds **one hero festal icon per feast**;
+`data/feast_depictions.csv`
+(`feast_id,image_path,license,credit,source,kind,tag,title,era,by`) holds the **carousel
+cards** (many per feast). `feastlib` loads/validates/joins them into `public/feasts.json`
+(`image`/`imageThumb`/`imageCredit`/`imageSource`/`depictions[]`), which the `/feast/[id]`
+page renders (a permission hero's caption links to its product page). Same §9 licence gate
+and self-hosting rules as the saint image joins below — validated fail-loud in the build.
+
 ## Join files (all keyed by `saint_id`)
 
 | File | Columns | One row per… | Notes |

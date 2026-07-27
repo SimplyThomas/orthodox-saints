@@ -34,6 +34,12 @@ export interface Feast {
   // Absent until the images are collected; the feast page degrades gracefully.
   image?: string;
   imageCredit?: string;
+  // A vendor-permission hero links its caption back to the product page (the
+  // grant condition); imageVendor/imageAttribution mirror the saint-image emit.
+  imageSource?: string;
+  imagePermission?: boolean;
+  imageVendor?: string;
+  imageAttribution?: string;
   depictions?: FeastDepiction[];
 }
 
