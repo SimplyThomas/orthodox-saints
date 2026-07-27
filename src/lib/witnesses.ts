@@ -1094,6 +1094,37 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The hesychast tradition of Optina, carried into Romania by a refugee monk, tested in the prisons, and planted at last in Michigan.",
+        nodes: [
+          {
+            label: "The Optina Elders",
+            sub: "The Russian eldership of the Jesus Prayer",
+          },
+          {
+            label: "Fr Ioan Kulygin",
+            sub: "A refugee of Optina who reached Antim Monastery in 1945",
+          },
+          {
+            label: "The Burning Bush (Rugul Aprins)",
+            sub: "Bucharest hesychast renewal — later a charge against him",
+          },
+          {
+            label: "Fr Roman Braga",
+            sub: "Interior prayer forged in solitary confinement",
+            current: true,
+          },
+          {
+            label: "Holy Dormition Monastery, Michigan",
+            sub: "The monastics and pilgrims he formed in America",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1922",
@@ -1372,6 +1403,38 @@ export const WITNESSES: Witness[] = [
         body: [
           "After the retirement of Metropolitan Herman in 2008, the Holy Synod named Archbishop Dmitri <em>locum tenens</em> of the OCA until the election of Metropolitan Jonah later that year. Dmitri himself requested retirement, which took effect on <strong>March 31, 2009</strong>. He reposed in Dallas on <strong>August 28, 2011</strong>, at the age of 87; his funeral was celebrated at Saint Seraphim Cathedral, the mission he had founded.",
           "When his body was disinterred in March 2016 for reburial within the cathedral, observers widely reported that it appeared little touched by decay — a state that in Orthodox tradition has sometimes been associated with holiness, though the Church alone discerns such matters. Among many who had known him, this deepened an already-present <strong>grassroots hope that he might one day be considered for glorification</strong>. That sentiment is recorded here as a matter of pastoral fact; no formal act of the Church has been made, and none is implied.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "A Texan received by Greeks, ordained by a Ukrainian bishop, formed by the Russian émigré theologians — and sent to the American South.",
+        nodes: [
+          {
+            label: "Holy Trinity, Dallas",
+            sub: "The Greek parish that received him in 1941",
+          },
+          {
+            label: "Bishop Bogdan",
+            sub: "Who ordained him priest in 1954 for an English-language mission",
+          },
+          {
+            label: "Fr Alexander Schmemann",
+            sub: "His teacher at St Vladimir's in 1966, with Fr John Meyendorff",
+            href: "witness/alexander-schmemann",
+          },
+          {
+            label: "Archbishop Dmitri (Royster)",
+            sub: "First bishop of the Diocese of the South",
+            current: true,
+          },
+          {
+            label: "The mission parishes of the South",
+            sub: "A diocese built where Orthodoxy had almost none",
+          },
         ],
       },
     ],
@@ -1663,6 +1726,37 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "A Romanian princess who sought the monastic life in the Russian emigration's houses in France, and planted its fruit in English in Pennsylvania.",
+        nodes: [
+          {
+            label: "The Romanian Orthodox tradition",
+            sub: "The faith of her land and her house",
+          },
+          {
+            label: "Metropolitan Anthony (Bloom)",
+            sub: "Who blessed her monastic discernment in 1961",
+          },
+          {
+            label: "Bussy-en-Othe, France",
+            sub: "Monastery of the Protecting Veil — six years of formation",
+          },
+          {
+            label: "Mother Alexandra",
+            sub: "Foundress and first abbess",
+            current: true,
+          },
+          {
+            label: "Ellwood City, Pennsylvania",
+            sub: "The first English-language Orthodox women's monastery in America",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1909",
@@ -1938,6 +2032,39 @@ export const WITNESSES: Witness[] = [
         body: [
           "In his retirement years Hopko reached his widest audience of all. Beginning in <strong>2008</strong> he recorded well over <strong>400 podcasts for Ancient Faith Radio</strong>, most within his signature series <strong>“Speaking the Truth in Love,”</strong> in which he answered listeners' questions on faith, prayer, marriage, suffering, and the Christian life in the same warm, direct voice his students had known.",
           "It was for these listeners that he first recorded his <strong>“55 Maxims”</strong> — a short list of practical counsels for everyday life in Christ, composed when someone asked him to sum up the Christian life “in the shortest form.” Beginning “Be always with Christ and trust God in everything” and ending “Get help when you need it, without fear or shame,” the maxims have been copied, printed, and shared by Orthodox Christians around the world, and remain among the most widely circulated words associated with his name.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The Paris émigré theology, received in an American classroom and handed on in plain English to anyone who would listen.",
+        nodes: [
+          {
+            label: "The Paris émigré theology",
+            sub: "St Sergius, carried across the Atlantic",
+          },
+          {
+            label: "Fr Alexander Schmemann",
+            sub: "His teacher, father-in-law, and predecessor as dean",
+            href: "witness/alexander-schmemann",
+          },
+          {
+            label: "Fr John Meyendorff",
+            sub: "His teacher, and the dean he succeeded in 1992",
+            href: "witness/john-meyendorff",
+          },
+          {
+            label: "Fr Thomas Hopko",
+            sub: "Dean of St Vladimir's, 1992–2002",
+            current: true,
+          },
+          {
+            label: "English-speaking inquirers",
+            sub: "The listeners his talks and podcasts reached",
+          },
         ],
       },
     ],
@@ -2248,6 +2375,39 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The Alaskan mission of the Russian monks — received back from the Native communities who had kept it for two centuries.",
+        nodes: [
+          {
+            label: "St Herman of Alaska",
+            sub: "First canonized saint of America (†1836)",
+            href: "saint/OS-0044",
+          },
+          {
+            label: "St Innocent of Alaska",
+            sub: "Apostle to America, who put the services into Native tongues",
+            href: "saint/OS-0054",
+          },
+          {
+            label: "The Native village churches",
+            sub: "Yup'ik, Sugpiag, and Lingít communities who held the faith",
+          },
+          {
+            label: "Fr Michael Oleksa",
+            sub: "Interpreter of Orthodox Alaska",
+            current: true,
+          },
+          {
+            label: "St Herman's Seminary, Kodiak",
+            sub: "Native Alaskan clergy formed for their own villages",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1947",
@@ -2510,6 +2670,38 @@ export const WITNESSES: Witness[] = [
         body: [
           "The private notebooks Schmemann kept in his last decade were published after his death as <strong>The Journals of Father Alexander Schmemann, 1973–1983</strong> — a candid, luminous record of a mind at once critical of religiosity and overflowing with gratitude for the world. They have found a devoted readership of their own.",
           "He celebrated the Divine Liturgy for the last time on <strong>Thanksgiving Day, 1983</strong>. Uncharacteristically, he read a short written sermon in the form of a prayer, beginning “Everyone capable of thanksgiving is capable of salvation.” Two weeks later, on <strong>December 13, 1983</strong>, he reposed after an illness. He is buried at St Tikhon's Monastery in South Canaan, Pennsylvania. That his final word should be thanksgiving — <em>eucharistia</em> — was fitting for a man who had spent his life teaching the Eucharist.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The Russian emigration's theological school in Paris, transplanted to New York and turned toward the liturgy.",
+        nodes: [
+          {
+            label: "St Sergius Institute, Paris",
+            sub: "The émigré theological school, 1940–1945",
+          },
+          {
+            label: "Archimandrite Cyprian (Kern)",
+            sub: "His spiritual father, who gave him liturgical theology",
+          },
+          {
+            label: "Fr Nicholas Afanassiev",
+            sub: "Whose eucharistic ecclesiology runs through his work",
+          },
+          {
+            label: "Fr Alexander Schmemann",
+            sub: "Dean of St Vladimir's, 1962–1983",
+            current: true,
+          },
+          {
+            label: "Fr Thomas Hopko",
+            sub: "His student and son-in-law, who carried it to a wider audience",
+            href: "witness/thomas-hopko",
+          },
         ],
       },
     ],
@@ -2821,6 +3013,37 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The Russian theological academies, broken by the revolution and rebuilt in exile as a summons back to the Fathers.",
+        nodes: [
+          {
+            label: "The Russian theological academies",
+            sub: "Odessa, where his father was rector",
+          },
+          {
+            label: "Exile, 1920",
+            sub: "Sofia, then Prague, then Paris",
+          },
+          {
+            label: "St Sergius Institute, Paris",
+            sub: "Which he helped found, and where he broke with sophiology",
+          },
+          {
+            label: "Fr Georges Florovsky",
+            sub: "The call to a neo-patristic synthesis",
+            current: true,
+          },
+          {
+            label: "The neo-patristic generation",
+            sub: "Frs Schmemann, Meyendorff, and Romanides after him",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1893",
@@ -3102,6 +3325,39 @@ export const WITNESSES: Witness[] = [
         body: [
           "Meyendorff was a central figure in the movement that led, in <strong>1970</strong>, to the granting of autocephaly to the <strong>Orthodox Church in America</strong> — the vision, shared with Schmemann, of a single self-governing local Orthodox Church rooted in America rather than divided by immigrant nationalities. His book <em>The Orthodox Church: Its Past and Its Role in the World Today</em> (1963) made the case for this Orthodox unity to a broad readership.",
           "He was also deeply engaged in the ecumenical movement, chairing the <strong>Faith and Order Commission of the World Council of Churches</strong> from 1967 to 1975. In his youth he had been a founder and the first general secretary of <strong>Syndesmos</strong>, the world fellowship of Orthodox youth, later serving as its president — an early expression of his lifelong concern for the unity and renewal of the Orthodox witness.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "Byzantine hesychasm, recovered by an émigré scholar in Paris and taught to the American Church — then held by his son in the same school.",
+        nodes: [
+          {
+            label: "St Gregory Palamas",
+            sub: "The 14th-century hesychast theologian (†1359)",
+            href: "saint/OS-0025",
+          },
+          {
+            label: "Fr Georges Florovsky",
+            sub: "Whose return to the Fathers shaped his generation",
+            href: "witness/georges-florovsky",
+          },
+          {
+            label: "St Sergius and the Sorbonne",
+            sub: "Where his Palamas studies began",
+          },
+          {
+            label: "Fr John Meyendorff",
+            sub: "Dean of St Vladimir's, 1984–1992",
+            current: true,
+          },
+          {
+            label: "Prof. Paul Meyendorff",
+            sub: "His son, who held the Schmemann chair at the same seminary",
+          },
         ],
       },
     ],
@@ -3397,6 +3653,37 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The apostolic Church of Antioch, carried to America by Arabic-speaking immigrants and then thrown open to converts.",
+        nodes: [
+          {
+            label: "The Patriarchate of Antioch",
+            sub: "Where the disciples were first called Christians",
+          },
+          {
+            label: "Balamand",
+            sub: "The Lebanese seminary where he taught before emigrating",
+          },
+          {
+            label: "Metropolitan Antony (Bashir)",
+            sub: "Who ordained him priest in 1959, and whom he succeeded in 1966",
+          },
+          {
+            label: "Metropolitan Philip (Saliba)",
+            sub: "Primate of the Antiochian Archdiocese, 1966–2014",
+            current: true,
+          },
+          {
+            label: "The converts received in 1987",
+            sub: "Two thousand Evangelical Orthodox, and the parishes that followed",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1931",
@@ -3661,6 +3948,40 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The Serbian Church that sheltered the Russian emigration — and the voice it eventually sent back over the airwaves into Russia.",
+        nodes: [
+          {
+            label: "St Nikolai of Žiča",
+            sub: "Velimirović, who gave him his first pastoral obedience in London",
+            href: "saint/OS-0846",
+          },
+          {
+            label: "St Justin (Popović)",
+            sub: "His professor at Belgrade, named among his spiritual masters",
+            href: "saint/OS-2591",
+          },
+          {
+            label: "St John of Shanghai & San Francisco",
+            sub: "Among his spiritual guides in the West",
+            href: "saint/OS-0050",
+          },
+          {
+            label: "Bishop Basil (Rodzianko)",
+            sub: "The voice on the BBC",
+            current: true,
+          },
+          {
+            label: "Listeners in the Soviet Union",
+            sub: "A generation who first heard the faith by radio",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1915",
@@ -3922,6 +4243,34 @@ export const WITNESSES: Witness[] = [
         ],
       },
     ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The patristic revival of the emigration, pressed toward an empirical theology of the vision of God, and taken up again in Greece.",
+        nodes: [
+          {
+            label: "The Fathers and the neptic tradition",
+            sub: "The hesychast experience of theosis",
+          },
+          {
+            label: "Fr Georges Florovsky",
+            sub: "His mentor, whose return to the Fathers he pressed further",
+            href: "witness/georges-florovsky",
+          },
+          {
+            label: "Fr John Romanides",
+            sub: "Empirical theology and the cure of the soul",
+            current: true,
+          },
+          {
+            label: "Metropolitan Hierotheos (Vlachos)",
+            sub: "His student, who built the therapeutic school on his framework",
+          },
+        ],
+      },
+    ],
     timeline: [
       {
         when: "1927",
@@ -4171,6 +4520,35 @@ export const WITNESSES: Witness[] = [
         body: [
           "In his later years, a widower and retired from teaching, Gelsinger embraced the monastic life, receiving tonsure and the priest-monk's name <strong>Theodore</strong>. He is remembered as ending his days in a monastery, having given his long life first to the classroom and then, more and more, to the Church's worship. He reposed in 1980.",
           "His memory rests less on office than on labor: the patient, scholarly work of making Orthodox hymnody sing in English. That work, begun when English-language Orthodoxy was barely imaginable, helped prepare the ground for a Church that a later generation of American converts would find already partly built.",
+        ],
+      },
+    ],
+    sidebar: [
+      {
+        kind: "lineage",
+        heading: "Spiritual Lineage",
+        intro:
+          "The English-language vision of the earliest American mission — carried through a failed jurisdiction, and vindicated a generation after his death.",
+        nodes: [
+          {
+            label: "St Raphael of Brooklyn",
+            sub: "First Orthodox bishop consecrated in America (†1915)",
+            href: "saint/OS-0055",
+          },
+          {
+            label: "Archbishop Aftimios (Ofiesh)",
+            sub: "The American Orthodox Catholic Church, which he assisted",
+          },
+          {
+            label: "Fr Michael Gelsinger",
+            sub: "Orthodox Hymns in English, 1939",
+            current: true,
+          },
+          {
+            label: "Metropolitan Philip (Saliba)",
+            sub: "Under whom English became the archdiocese's normal tongue",
+            href: "witness/philip-saliba",
+          },
         ],
       },
     ],
