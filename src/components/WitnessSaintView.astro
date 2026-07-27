@@ -7,14 +7,21 @@
    §9: NO veneration chrome — no "Commemorated as" liturgical title, no
    "Come to them for" intercession cards, no feast, no reviewed dove, no
    liturgical address. What follows is a sourced historical profile. */
-import { withBase } from "../lib/format";
+import { esc, withBase } from "../lib/format";
 import { saintAvatar } from "../lib/icons";
 import type { Witness } from "../lib/witnesses";
 
 const { w } = Astro.props as { w: Witness };
 
 const lifespan = w.years || (w.reposedYear ? `† Reposed ${w.reposedYear}` : "");
-const portrait = saintAvatar({ name: w.name }, 286, 358, { awaiting: true });
+
+// The hero portrait. An open-licensed photograph (§9) fills the icon slot the
+// same way a canonical saint's icon does; a witness without one keeps the
+// `awaiting` monogram. Sanitized exactly as SaintView does its hero.
+const photo = w.portrait;
+const portrait = photo
+  ? `<div class="sv-icon-img" style="background:#16304c center top/cover no-repeat url('${esc(withBase(photo.path.replace(/['"\\)\s<>]/g, "")))}')"></div>`
+  : saintAvatar({ name: w.name }, 286, 358, { awaiting: true });
 
 const railFacts = w.railFacts ?? [];
 const overview = w.overview ?? [];
@@ -88,6 +95,27 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
           <div class="sv-icon-frame">
             <div class="sv-icon-inner" set:html={portrait} />
           </div>
+          {
+            /* Attribution caption — the same shape as a saint's icon credit,
+               but labelled "Photograph": these are historical photographs, not
+               icons, and nothing here implies veneration (§9). */
+            photo && (
+              <div class="sv-icon-cap">
+                <span class="sv-icon-cap-eb">Photograph</span> ·{" "}
+                <a
+                  href={photo.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {photo.credit || "source"}
+                </a>
+                <span class="sv-icon-lic">{photo.license}</span>
+                {photo.caption && (
+                  <span class="wsv-icon-note">{photo.caption}</span>
+                )}
+              </div>
+            )
+          }
         </div>
 
         {/* identity */}
@@ -836,6 +864,16 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
      here. */
   .wsv-roletag i {
     background: var(--gold-soft);
+  }
+
+  /* context note under a photograph's credit — e.g. a portrait taken long
+     before the tonsure, so the caption can't be read as the later figure */
+  .wsv-icon-note {
+    display: block;
+    margin-top: 4px;
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--celest-soft);
   }
 
   .wsv-notice {

@@ -45,6 +45,14 @@ export function reviewedDove(size = 22): string {
   return `<img class="reviewed-dove" src="${esc(withBase("dove-emblem.svg"))}" width="${size}" height="${size}" alt="Reviewed entry" title="This entry has been fully reviewed" loading="lazy" decoding="async" />`;
 }
 
+/* static/icons/<rel> → static/icons/thumbs/<rel>: the ~200px avatar thumb the
+   ingest pipeline writes beside every portrait (CLAUDE.md §5). */
+export function iconThumbPath(path: string): string {
+  return path.startsWith("icons/")
+    ? "icons/thumbs/" + path.slice("icons/".length)
+    : path;
+}
+
 /* ---- Production tiered saint avatar (the design's SaintAvatar) ----
    Real icon when `image` is set; otherwise an auto monogram — the saint's
    given-name initial under a small cross, on a ground colour-coded by rank/type.
@@ -153,4 +161,29 @@ export function saintAvatar(
     <g clip-path="url(#${id})"><rect x="6" y="0" width="108" height="150" fill="${c.bg}"/>
     ${cross}
     <text x="60" y="108" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="78" fill="${c.ink}">${letter}</text></g></svg>`;
+}
+
+/* ---- Witness portrait ----
+   A "Witness of Our Time" who has an open-licensed photograph (Witness.portrait,
+   §9) renders it through the same tiers as a saint's icon — the ~200px thumb for
+   small avatars, the full file for the hero. A witness WITHOUT one keeps the
+   `awaiting` monogram (neutral ground, no cross), so a not-yet-glorified figure
+   is never given a canonised saint's cross by default. */
+export function witnessAvatar(
+  w: { name: string; portrait?: { path: string } },
+  width = 88,
+  height = 108,
+): string {
+  if (!w.portrait) {
+    return saintAvatar({ name: w.name }, width, height, { awaiting: true });
+  }
+  return saintAvatar(
+    {
+      name: w.name,
+      image: w.portrait.path,
+      imageThumb: iconThumbPath(w.portrait.path),
+    },
+    width,
+    height,
+  );
 }

@@ -7,7 +7,7 @@ import {
 } from "../lib/america";
 import { WITNESSES } from "../lib/witnesses";
 import { withBase } from "../lib/format";
-import { saintAvatar } from "../lib/icons";
+import { saintAvatar, witnessAvatar } from "../lib/icons";
 import DomeMark from "./icons/DomeMark.astro";
 import EyebrowRule from "./EyebrowRule.astro";
 
@@ -258,12 +258,7 @@ const awaiting = WITNESS_SECTION.flatMap((slug) => {
           {
             awaiting.map(({ s, reposed }) => (
               <a class="am-card clickable" href={withBase(`witness/${s.slug}`)}>
-                <div
-                  class="portrait"
-                  set:html={saintAvatar({ name: s.name }, 84, 104, {
-                    awaiting: true,
-                  })}
-                />
+                <div class="portrait" set:html={witnessAvatar(s, 84, 104)} />
                 <div class="body">
                   <h3>{s.name}</h3>
                   {s.epithet && <div class="epithet">{s.epithet}</div>}
