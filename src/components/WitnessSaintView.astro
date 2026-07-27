@@ -440,9 +440,7 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
             timeline.length > 0 && (
               <details class="sv-deep">
                 <summary class="sv-deep-sum">
-                  <span class="eyebrow sv-deep-eb sv-tl-title">
-                    Life in Brief
-                  </span>
+                  <span class="eyebrow sv-deep-eb sv-tl-title">Timeline</span>
                   <span class="sv-deep-ct">{timeline.length} moments</span>
                   <span class="sv-deep-rule" />
                   <span class="sv-deep-state">
@@ -755,7 +753,7 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
             related.length > 0 && (
               <details class="sv-deep">
                 <summary class="sv-deep-sum">
-                  <span class="eyebrow sv-deep-eb">Related Figures</span>
+                  <span class="eyebrow sv-deep-eb">Related</span>
                   <span class="sv-deep-ct">{related.length}</span>
                   <span class="sv-deep-rule" />
                   <span class="sv-deep-state">
@@ -1077,6 +1075,31 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
 </style>
 
 <script>
+  /* Accordion: opening one section closes the others, then brings the one you
+     opened to the top of the reading area (summary scrolled to just below the
+     sticky site header). Matches the saint pages so collapsibles behave
+     identically across the site. */
+  const deeps = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>("details.sv-deep"),
+  );
+  for (const d of deeps) {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      for (const other of deeps) {
+        if (other !== d && other.open) other.open = false;
+      }
+      const sum = d.querySelector("summary");
+      if (!sum) return;
+      const header = document.querySelector<HTMLElement>(".site-header");
+      const offset = (header?.offsetHeight ?? 0) + 8;
+      const y = sum.getBoundingClientRect().top + window.scrollY - offset;
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
+    });
+  }
+
   /* Share / cite: copy a plain citation + canonical URL to the clipboard, with
      a Web-Share fallback on devices that support it. (Mirrors the saint page.) */
   const share = document.querySelector<HTMLButtonElement>(".sv-share");
