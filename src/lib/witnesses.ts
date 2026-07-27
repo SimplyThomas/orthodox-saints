@@ -126,6 +126,27 @@ export interface WitnessDeepList {
   items: WitnessDeepItem[];
 }
 
+/** An open-licensed photograph of a witness, self-hosted under
+ *  static/icons/witness/. The licensing gate is the SAME as the saints'
+ *  (CLAUDE.md §9): only PD / PD-old / PD-art / CC0 / CC-BY* / CC-BY-SA*, and a
+ *  CC-BY* file MUST carry a `credit`. There is no CSV/build gate here (witnesses
+ *  are TS, not data), so src/lib/witnesses.test.ts enforces it instead: it
+ *  checks the licence, the credit, and that both the file and its avatar thumb
+ *  exist on disk. A vendor-permission portrait does NOT belong here. */
+export interface WitnessPortrait {
+  /** static/-relative path, e.g. "icons/witness/seraphim-rose.jpg" */
+  path: string;
+  /** PD | PD-old | PD-art | CC0 | CC-BY-<v> | CC-BY-SA-<v> */
+  license: string;
+  /** required for every CC-BY* licence; "<author>, via Wikimedia Commons" */
+  credit?: string;
+  /** the file description page, so a reviewer can verify the licence */
+  source: string;
+  /** optional note shown under the credit, when the photograph needs context
+   *  (e.g. a portrait taken long before the tonsure) */
+  caption?: string;
+}
+
 export interface Witness {
   /** permanent URL slug — /witness/<slug> */
   slug: string;
@@ -142,6 +163,9 @@ export interface Witness {
   bio: string[];
   /** verifiable sources (label + URL), shown as links on the memorial page */
   sources?: { label: string; url: string }[];
+  /** an open-licensed photograph; without one the witness keeps the neutral
+   *  "awaiting" monogram (see WitnessPortrait for the licensing rules) */
+  portrait?: WitnessPortrait;
 
   /* ── Rich profile (optional) ──────────────────────────────────────────────
      When `overview` is present, witness/[slug].astro renders the saint-page-format
@@ -605,6 +629,12 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "seraphim-rose",
+    portrait: {
+      path: "icons/witness/seraphim-rose.jpg",
+      license: "CC-BY-SA-3.0",
+      credit: "Bentimby, via Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:Fr._Seraphim_Rose.jpg",
+    },
     name: "Hieromonk Seraphim",
     epithet: "Rose, of Platina",
     role: "Monk & Writer",
@@ -1203,6 +1233,12 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "dmitri-royster",
+    portrait: {
+      path: "icons/witness/dmitri-royster.jpg",
+      license: "PD",
+      credit: "John G. Sames, via Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:Dmitri_Royster.jpg",
+    },
     name: "Archbishop Dmitri",
     epithet: "Royster",
     role: "Missionary Hierarch",
@@ -1496,6 +1532,15 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "mother-alexandra",
+    portrait: {
+      path: "icons/witness/mother-alexandra.jpg",
+      license: "PD",
+      credit: "George Grantham Bain Collection, U.S. Library of Congress",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Printesa_Ileana_de_Romania.jpg",
+      caption:
+        "Photographed as Princess Ileana of Romania, decades before her monastic tonsure.",
+    },
     name: "Mother Alexandra",
     epithet: "Princess Ileana",
     role: "Monastic Foundress",
@@ -1761,6 +1806,14 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "thomas-hopko",
+    portrait: {
+      path: "icons/witness/thomas-hopko.jpg",
+      license: "CC-BY-SA-2.0",
+      credit: "Ted (frted), via Wikimedia Commons",
+      source:
+        "https://commons.wikimedia.org/wiki/File:17th_All-American_Council_%288187182974%29.jpg",
+      caption: "At the 17th All-American Council, 2012.",
+    },
     name: "Fr. Thomas Hopko",
     epithet: "of St Vladimir's",
     role: "Priest & Theologian",
@@ -2052,6 +2105,13 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "michael-oleksa",
+    portrait: {
+      path: "icons/witness/michael-oleksa.jpg",
+      license: "CC-BY-2.0",
+      credit: "Oregon Department of Transportation, via Wikimedia Commons",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Rev._Oleksa_%2815177440568%29.jpg",
+    },
     name: "Fr. Michael Oleksa",
     epithet: "",
     role: "Priest & Educator",
@@ -2320,6 +2380,11 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "alexander-schmemann",
+    portrait: {
+      path: "icons/witness/alexander-schmemann.jpg",
+      license: "PD",
+      source: "https://commons.wikimedia.org/wiki/File:Alexander_Schmemann.jpg",
+    },
     name: "Fr. Alexander Schmemann",
     epithet: "",
     role: "Priest & Theologian",
@@ -2597,6 +2662,12 @@ export const WITNESSES: Witness[] = [
   },
   {
     slug: "georges-florovsky",
+    portrait: {
+      path: "icons/witness/georges-florovsky.jpg",
+      license: "PD",
+      source:
+        "https://commons.wikimedia.org/wiki/File:%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D0%B9_%D0%A4%D0%BB%D0%BE%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9.jpg",
+    },
     name: "Fr. Georges Florovsky",
     epithet: "",
     role: "Priest & Theologian",
