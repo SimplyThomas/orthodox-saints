@@ -212,10 +212,10 @@ test("the Theotokos page shows the Depictions & Icons carousel", async ({
   expect(resp?.status()).toBe(200);
   const deps = page.locator(".sv-deps");
   await expect(deps).toBeVisible();
-  // One card per data/saint_depictions.csv row for OS-0001 (4 vendor + 2 PD).
-  await expect(deps.locator(".sv-dep")).toHaveCount(6);
+  // One card per data/saint_depictions.csv row for OS-0001 (18 vendor + 2 PD).
+  await expect(deps.locator(".sv-dep")).toHaveCount(20);
   // Permission cards carry the "shop" tone; PD masters the museum tone.
-  await expect(deps.locator(".sv-dep-tag--shop")).toHaveCount(4);
+  await expect(deps.locator(".sv-dep-tag--shop")).toHaveCount(18);
   await expect(deps.locator(".sv-dep-tag--museum")).toHaveCount(2);
   // Each permission card links to its specific vendor icon page (grant condition).
   const vendorCard = deps
