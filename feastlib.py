@@ -28,6 +28,23 @@ DATA = ROOT / "data"
 PUBLIC = ROOT / "public"
 FEASTS_CSV = DATA / "feasts.csv"
 FEAST_PROFILES_DIR = ROOT / "src" / "content" / "feasts"
+STATIC = ROOT / "static"  # Astro publicDir; self-hosted icons live in static/icons/
+
+# Self-hosted festal imagery — same shape + §9 licensing gate as data/saint_images
+# and data/host_images. One hero per feast (feast_images) + MANY carousel cards
+# (feast_depictions), keyed by FF-####. (#350)
+FEAST_IMAGES_CSV = DATA / "feast_images.csv"
+FEAST_IMAGES_HEADER = ["feast_id", "image_path", "license", "credit", "source"]
+FEAST_DEPICTIONS_CSV = DATA / "feast_depictions.csv"
+FEAST_DEPICTIONS_HEADER = ["feast_id", "image_path", "license", "credit", "source",
+                           "kind", "tag", "title", "era", "by"]
+IMAGE_PERMISSIONS_CSV = DATA / "image_permissions.csv"
+IMAGE_PERMISSIONS_HEADER = ["vendor_slug", "vendor_name", "attribution",
+                            "homepage", "granted", "status", "terms"]
+DEPICTION_KINDS = {"museum", "iconographer", "shop"}
+OPEN_LICENSES = {"PD", "PD-art", "PD-old", "CC0"}
+OPEN_LICENSE_LIST = "PD / PD-art / PD-old / CC0 / CC-BY / CC-BY-SA"
+PERMISSION_LICENSE_RE = re.compile(r"^Permission:([a-z0-9]+(?:-[a-z0-9]+)*)$")
 
 FEASTS_HEADER = [
     "Feast ID", "Name", "Also Known As", "Category", "Dedication",
@@ -96,6 +113,191 @@ FAST_CATEGORIES = {"Fast Season", "Fast Day"}
 
 def split_multi(value: str) -> list[str]:
     return [v.strip() for v in value.split(MULTI_SEP) if v.strip()]
+
+
+# --------------------------------------------------------------------------- #
+# Festal imagery (data/feast_images.csv + data/feast_depictions.csv) — mirrors
+# the saint_images / host_images pipeline verbatim (§9 licence gate). (#350)
+# --------------------------------------------------------------------------- #
+def license_ok(lic: str) -> bool:
+    lic = lic.strip()
+    return lic in OPEN_LICENSES or bool(re.match(r"^CC-BY(-SA)?(-\d(\.\d)?)?$", lic))
+
+
+def license_requires_credit(lic: str) -> bool:
+    return lic.strip().upper().startswith("CC-BY")
+
+
+def permission_slug(lic: str) -> str | None:
+    m = PERMISSION_LICENSE_RE.match(lic.strip())
+    return m.group(1) if m else None
+
+
+def load_image_permissions() -> dict[str, dict[str, str]]:
+    """vendor_slug -> row. Empty if the registry is absent."""
+    out: dict[str, dict[str, str]] = {}
+    if not IMAGE_PERMISSIONS_CSV.exists():
+        return out
+    with IMAGE_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            slug = (row.get("vendor_slug") or "").strip()
+            if slug:
+                out[slug] = {k: (row.get(k) or "").strip()
+                             for k in IMAGE_PERMISSIONS_HEADER}
+    return out
+
+
+def load_feast_images() -> dict[str, dict[str, str]]:
+    """feast_id -> {path, license, credit, source}. Empty if the file is absent."""
+    out: dict[str, dict[str, str]] = {}
+    if not FEAST_IMAGES_CSV.exists():
+        return out
+    with FEAST_IMAGES_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != FEAST_IMAGES_HEADER:
+            raise SystemExit(f"FATAL: {FEAST_IMAGES_CSV} header must be "
+                             f"{FEAST_IMAGES_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            fid = (row.get("feast_id") or "").strip()
+            if not fid:
+                continue
+            out[fid] = {
+                "path": (row.get("image_path") or "").strip(),
+                "license": (row.get("license") or "").strip(),
+                "credit": (row.get("credit") or "").strip(),
+                "source": (row.get("source") or "").strip(),
+            }
+    return out
+
+
+def image_thumb(path: str) -> str | None:
+    """static/-relative avatar thumb for a festal icon, or None (missing → degrade
+    to the full image, never a 404). Thumbs mirror icons/ under icons/thumbs/."""
+    if re.match(r"^(https?:)?//", path) or not path.startswith("icons/"):
+        return None
+    rel = path[len("icons/"):]
+    stem, _, _ = rel.rpartition(".")
+    thumb = f"icons/thumbs/{stem or rel}.jpg"
+    return thumb if (STATIC / thumb).is_file() else None
+
+
+def load_feast_depictions() -> dict[str, list[dict[str, str]]]:
+    """feast_id -> ordered list of {path, license, credit, source, kind, tag,
+    title, era, by} (the carousel cards). MANY rows per feast, in file order."""
+    out: dict[str, list[dict[str, str]]] = {}
+    if not FEAST_DEPICTIONS_CSV.exists():
+        return out
+    with FEAST_DEPICTIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != FEAST_DEPICTIONS_HEADER:
+            raise SystemExit(f"FATAL: {FEAST_DEPICTIONS_CSV} header must be "
+                             f"{FEAST_DEPICTIONS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            fid = (row.get("feast_id") or "").strip()
+            if not fid:
+                continue
+            out.setdefault(fid, []).append(
+                {k: (row.get(c) or "").strip() for k, c in (
+                    ("path", "image_path"), ("license", "license"),
+                    ("credit", "credit"), ("source", "source"),
+                    ("kind", "kind"), ("tag", "tag"), ("title", "title"),
+                    ("era", "era"), ("by", "by"))})
+    return out
+
+
+def validate_feast_images(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """§9 gate: known feast, an existing local file under static/, and either an
+    accepted open license (with a credit when CC-BY* requires one) OR a
+    Permission:<vendor> token validated against data/image_permissions.csv
+    (revoked vendor warns + is excluded from output, not an error)."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    images = load_feast_images()
+    permissions = load_image_permissions()
+    for fid, img in images.items():
+        where = f"feast_images {fid}"
+        if fid not in valid_ids:
+            errors.append(f"{where}: not a known Feast ID")
+        path, lic, credit, source = (img["path"], img["license"],
+                                     img["credit"], img["source"])
+        if not path:
+            errors.append(f"{where}: empty image_path")
+        elif not re.match(r"^(https?:)?//", path) and not (STATIC / path).is_file():
+            errors.append(f"{where}: image_path {path!r} not found under "
+                          f"static/ (expected {(STATIC / path)})")
+        slug = permission_slug(lic)
+        if not lic:
+            errors.append(f"{where}: empty license — must be an open license "
+                          f"({OPEN_LICENSE_LIST}) or a Permission:<vendor> token")
+        elif slug is not None:
+            vendor = permissions.get(slug)
+            if vendor is None:
+                errors.append(f"{where}: permission vendor {slug!r} is not in "
+                              f"data/image_permissions.csv")
+            elif vendor.get("status") == "revoked":
+                warnings.append(f"{where}: vendor {slug!r} permission is REVOKED "
+                                f"— image excluded; delete the file under "
+                                f"static/icons/permission/{slug}/")
+            elif not source:
+                errors.append(f"{where}: permission image requires a 'source' "
+                              f"linking the specific vendor icon page (§9)")
+        elif not license_ok(lic):
+            errors.append(f"{where}: license {lic!r} is not an accepted open "
+                          f"license ({OPEN_LICENSE_LIST}) or a Permission:<vendor> "
+                          f"token")
+        elif license_requires_credit(lic) and not credit:
+            errors.append(f"{where}: license {lic} requires a credit")
+        if not source and slug is None:
+            warnings.append(f"{where}: no source link for provenance review")
+    return errors, warnings
+
+
+def validate_feast_depictions(valid_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Same §9 licensing gate as feast_images (open license OR Permission:<vendor>),
+    but MANY rows per feast, each with a `title` and a `kind` in
+    {museum, iconographer, shop}."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    permissions = load_image_permissions()
+    for fid, cards in load_feast_depictions().items():
+        if fid not in valid_ids:
+            errors.append(f"feast_depictions {fid}: not a known Feast ID")
+        for d in cards:
+            where = f"feast_depictions {fid} ({d['title'] or d['path']})"
+            path, lic, credit, source, kind, title = (
+                d["path"], d["license"], d["credit"], d["source"],
+                d["kind"], d["title"])
+            if not path:
+                errors.append(f"{where}: empty image_path")
+            elif not re.match(r"^(https?:)?//", path) and not (STATIC / path).is_file():
+                errors.append(f"{where}: image_path {path!r} not found under static/")
+            if not title:
+                errors.append(f"{where}: a depiction requires a title")
+            if kind and kind not in DEPICTION_KINDS:
+                errors.append(f"{where}: kind {kind!r} not in "
+                              f"{sorted(DEPICTION_KINDS)}")
+            slug = permission_slug(lic)
+            if not lic:
+                errors.append(f"{where}: empty license (open license or "
+                              f"Permission:<vendor>)")
+            elif slug is not None:
+                vendor = permissions.get(slug)
+                if vendor is None:
+                    errors.append(f"{where}: permission vendor {slug!r} not in "
+                                  f"data/image_permissions.csv")
+                elif vendor.get("status") == "revoked":
+                    warnings.append(f"{where}: vendor {slug!r} REVOKED — depiction "
+                                    f"excluded")
+                elif not source:
+                    errors.append(f"{where}: permission depiction requires a "
+                                  f"'source' (§9)")
+            elif not license_ok(lic):
+                errors.append(f"{where}: license {lic!r} is not an accepted open "
+                              f"license ({OPEN_LICENSE_LIST}) or Permission:<vendor>")
+            elif license_requires_credit(lic) and not credit:
+                errors.append(f"{where}: license {lic} requires a credit")
+    return errors, warnings
 
 
 # --------------------------------------------------------------------------- #
@@ -270,6 +472,10 @@ def validate(rows: list[dict[str, str]], vocab: dict[str, set[str]],
     p_errors, p_warnings = validate_feast_profiles(id_set)
     errors.extend(p_errors)
     warnings.extend(p_warnings)
+    i_errors, i_warnings = validate_feast_images(id_set)
+    d_errors, d_warnings = validate_feast_depictions(id_set)
+    errors.extend(i_errors + d_errors)
+    warnings.extend(i_warnings + d_warnings)
     return errors, warnings
 
 
@@ -315,7 +521,16 @@ def _sort_key(rec: dict) -> tuple[int, int]:
     return (0, b["month"] * 100 + b["day"])
 
 
-def to_record(r: dict[str, str]) -> dict:
+def to_record(r: dict[str, str],
+              images: dict[str, dict[str, str]] | None = None,
+              depictions: dict[str, list[dict[str, str]]] | None = None,
+              permissions: dict[str, dict[str, str]] | None = None) -> dict:
+    if images is None:
+        images = load_feast_images()
+    if depictions is None:
+        depictions = load_feast_depictions()
+    if permissions is None:
+        permissions = load_image_permissions()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col].strip()
@@ -338,11 +553,75 @@ def to_record(r: dict[str, str]) -> dict:
         else:
             parsed[col] = None
     rec["cycle"] = derive_cycle(parsed)
+
+    fid = r["Feast ID"].strip()
+    # Hero festal icon (data/feast_images.csv). A permission hero emits
+    # image/imageThumb/imageCredit(=vendor)/imageSource + imagePermission/
+    # imageVendor/imageAttribution and is dropped if the grant is revoked; an
+    # open image keeps its own license/credit. (#350)
+    img = images.get(fid)
+    if img and img["path"]:
+        slug = permission_slug(img["license"])
+        if slug is not None:
+            vendor = permissions.get(slug)
+            if vendor and vendor.get("status") != "revoked":
+                rec["image"] = img["path"]
+                thumb = image_thumb(img["path"])
+                if thumb:
+                    rec["imageThumb"] = thumb
+                rec["imagePermission"] = True
+                rec["imageVendor"] = vendor.get("vendor_name", "")
+                rec["imageAttribution"] = vendor.get("attribution", "")
+                rec["imageCredit"] = vendor.get("vendor_name", "")
+                if img["source"]:
+                    rec["imageSource"] = img["source"]
+            # revoked / unknown vendor -> no image key (placeholder hero)
+        else:
+            rec["image"] = img["path"]
+            thumb = image_thumb(img["path"])
+            if thumb:
+                rec["imageThumb"] = thumb
+            if img["credit"]:
+                rec["imageCredit"] = img["credit"]
+            if img["source"]:
+                rec["imageSource"] = img["source"]
+
+    # "Depictions & Icons" carousel (data/feast_depictions.csv). The feast page's
+    # FeastDepiction renders {image, title, credit, source, license}: a permission
+    # card emits credit=vendor name + source (grant backlink) and NO license token;
+    # an open card keeps license/credit.
+    deps = depictions.get(fid)
+    if deps:
+        cards: list[dict] = []
+        for d in deps:
+            if not d.get("path"):
+                continue
+            card: dict = {"image": d["path"], "title": d.get("title", "")}
+            if d.get("source"):
+                card["source"] = d["source"]
+            dslug = permission_slug(d.get("license", ""))
+            if dslug is not None:
+                vendor = permissions.get(dslug)
+                if not vendor or vendor.get("status") == "revoked":
+                    continue  # unknown / revoked vendor -> exclude card
+                card["credit"] = vendor.get("vendor_name", "")
+            else:
+                if d.get("license"):
+                    card["license"] = d["license"]
+                if d.get("credit"):
+                    card["credit"] = d["credit"]
+            cards.append(card)
+        if cards:
+            rec["depictions"] = cards
     return rec
 
 
 def emit_feasts_json(rows: list[dict[str, str]]) -> list[dict]:
-    records = sorted((to_record(r) for r in rows), key=_sort_key)
+    images = load_feast_images()
+    depictions = load_feast_depictions()
+    permissions = load_image_permissions()
+    records = sorted((to_record(r, images, depictions, permissions) for r in rows),
+                     key=_sort_key)
     payload = {"feasts": records, "pascha": pascha_mod.pascha_table(2020, 2040)}
     PUBLIC.mkdir(exist_ok=True)
     with open(PUBLIC / "feasts.json", "w", encoding="utf-8") as f:
