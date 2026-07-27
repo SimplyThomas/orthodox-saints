@@ -119,7 +119,23 @@ function sourceLink(s: string): { href: string | null; label: string } {
               }
             </div>
             <div class="feast-icon-cap">
-              {heroImage ? f.imageCredit : "Icon forthcoming"}
+              {
+                heroImage ? (
+                  f.imageSource ? (
+                    <a
+                      href={f.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {f.imageCredit || "source"}
+                    </a>
+                  ) : (
+                    f.imageCredit
+                  )
+                ) : (
+                  "Icon forthcoming"
+                )
+              }
             </div>
           </div>
 

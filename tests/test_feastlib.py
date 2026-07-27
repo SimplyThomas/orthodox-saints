@@ -102,10 +102,14 @@ class TestCycle(unittest.TestCase):
 
 class TestValidate(unittest.TestCase):
     def _validate(self, rows, saint_ids=frozenset({"OS-0001"})):
-        # Point the profile cross-check at an empty dir: these synthetic rows
-        # must not fail because real src/content/feasts/*.yaml profiles exist.
+        # Point the profile + image cross-checks at nonexistent paths: these
+        # synthetic rows must not fail because the real src/content/feasts/*.yaml
+        # profiles or data/feast_{images,depictions}.csv reference other feast ids.
+        missing = Path(tempfile.mkdtemp()) / "none.csv"
         with mock.patch.object(feastlib, "FEAST_PROFILES_DIR",
-                               Path(tempfile.mkdtemp())):
+                               Path(tempfile.mkdtemp())), \
+             mock.patch.object(feastlib, "FEAST_IMAGES_CSV", missing), \
+             mock.patch.object(feastlib, "FEAST_DEPICTIONS_CSV", missing):
             return feastlib.validate(rows, FEAST_VOCAB, set(saint_ids))
 
     def test_valid_row_clean(self):
@@ -212,6 +216,110 @@ class TestRecord(unittest.TestCase):
             **{"Feast ID": "FF-0002", "Name": "Pascha", "Begins": "P+0",
                "Category": "Feast of Feasts"}))
         self.assertLess(feastlib._sort_key(fixed), feastlib._sort_key(paschal))
+
+
+def _write_csv(path, header, rows):
+    import csv as _csv
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        w = _csv.DictWriter(f, fieldnames=header)
+        w.writeheader()
+        w.writerows(rows)
+
+
+class TestFeastImageHelpers(unittest.TestCase):
+    def test_license_ok(self):
+        self.assertTrue(feastlib.license_ok("PD"))
+        self.assertTrue(feastlib.license_ok("CC-BY-SA-4.0"))
+        self.assertFalse(feastlib.license_ok("All rights reserved"))
+
+    def test_permission_slug(self):
+        self.assertEqual(feastlib.permission_slug("Permission:theophany-works"),
+                         "theophany-works")
+        self.assertIsNone(feastlib.permission_slug("PD"))
+
+    def test_load_feast_images_empty_when_absent(self):
+        with mock.patch.object(feastlib, "FEAST_IMAGES_CSV",
+                               Path("/nonexistent/x.csv")):
+            self.assertEqual(feastlib.load_feast_images(), {})
+
+
+class TestFeastImageValidation(unittest.TestCase):
+    def test_unknown_feast_id_errors(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "feast_images.csv"
+            _write_csv(p, feastlib.FEAST_IMAGES_HEADER, [{"feast_id": "FF-9999",
+                "image_path": "icons/x.jpg", "license": "PD",
+                "credit": "", "source": ""}])
+            with mock.patch.object(feastlib, "FEAST_IMAGES_CSV", p):
+                errors, _ = feastlib.validate_feast_images({"FF-0001"})
+            self.assertTrue(any("not a known Feast ID" in e for e in errors))
+
+    def test_missing_file_errors(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "feast_images.csv"
+            _write_csv(p, feastlib.FEAST_IMAGES_HEADER, [{"feast_id": "FF-0001",
+                "image_path": "icons/does-not-exist.jpg", "license": "PD",
+                "credit": "", "source": ""}])
+            with mock.patch.object(feastlib, "FEAST_IMAGES_CSV", p):
+                errors, _ = feastlib.validate_feast_images({"FF-0001"})
+            self.assertTrue(any("not found under" in e for e in errors))
+
+    def test_bad_license_errors(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "feast_images.csv"
+            _write_csv(p, feastlib.FEAST_IMAGES_HEADER, [{"feast_id": "FF-0001",
+                "image_path": "https://example.com/x.jpg",
+                "license": "All rights reserved", "credit": "", "source": ""}])
+            with mock.patch.object(feastlib, "FEAST_IMAGES_CSV", p):
+                errors, _ = feastlib.validate_feast_images({"FF-0001"})
+            self.assertTrue(any("not an accepted open license" in e for e in errors))
+
+    def test_depiction_requires_title(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "feast_depictions.csv"
+            _write_csv(p, feastlib.FEAST_DEPICTIONS_HEADER, [{"feast_id": "FF-0001",
+                "image_path": "https://example.com/x.jpg", "license": "PD",
+                "credit": "", "source": "", "kind": "shop", "tag": "",
+                "title": "", "era": "", "by": ""}])
+            with mock.patch.object(feastlib, "FEAST_DEPICTIONS_CSV", p):
+                errors, _ = feastlib.validate_feast_depictions({"FF-0001"})
+            self.assertTrue(any("requires a title" in e for e in errors))
+
+
+class TestFeastImageJoin(unittest.TestCase):
+    PERMS = {"theophany-works": {"vendor_slug": "theophany-works",
+             "vendor_name": "Theophany Works",
+             "attribution": "Icon used with permission from Theophany Works.",
+             "homepage": "https://theophanyworks.com/holy-icons/",
+             "granted": "2026-06-17", "status": "active", "terms": ""}}
+
+    def test_permission_hero_and_cards_joined(self):
+        row = valid_feast(**{"Feast ID": "FF-0001"})
+        images = {"FF-0001": {"path": "icons/permission/theophany-works/feasts/x.jpg",
+                              "license": "Permission:theophany-works", "credit": "",
+                              "source": "https://theophanyworks.com/p1/"}}
+        deps = {"FF-0001": [{"path": "icons/permission/theophany-works/feasts/y.jpg",
+                             "license": "Permission:theophany-works", "credit": "",
+                             "source": "https://theophanyworks.com/p2/", "kind": "shop",
+                             "tag": "Available to order", "title": "Resurrection 21st c",
+                             "era": "21st c.", "by": "Theophany Works"}]}
+        rec = feastlib.to_record(row, images=images, depictions=deps,
+                                 permissions=self.PERMS)
+        self.assertEqual(rec["image"],
+                         "icons/permission/theophany-works/feasts/x.jpg")
+        self.assertEqual(rec["imageSource"], "https://theophanyworks.com/p1/")
+        self.assertEqual(rec["imageCredit"], "Theophany Works")
+        self.assertEqual(len(rec["depictions"]), 1)
+        self.assertEqual(rec["depictions"][0]["credit"], "Theophany Works")
+        self.assertEqual(rec["depictions"][0]["source"],
+                         "https://theophanyworks.com/p2/")
+        self.assertNotIn("license", rec["depictions"][0])  # token not surfaced
+
+    def test_no_images_omits_fields(self):
+        rec = feastlib.to_record(valid_feast(), images={}, depictions={},
+                                 permissions={})
+        self.assertNotIn("image", rec)
+        self.assertNotIn("depictions", rec)
 
 
 if __name__ == "__main__":
