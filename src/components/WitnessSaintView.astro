@@ -31,6 +31,7 @@ const timeline = w.timeline ?? [];
 const worksBy = w.worksBy ?? [];
 const worksAbout = w.worksAbout ?? [];
 const quotes = w.quotes ?? [];
+const family = w.family;
 const related = w.related ?? [];
 const sources = w.sources ?? [];
 const sidebar = w.sidebar ?? [];
@@ -732,6 +733,74 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
             )
           }
 
+          {/* family — the household they came from or formed */}
+          {
+            family && family.members.length > 0 && (
+              <details class="sv-deep">
+                <summary class="sv-deep-sum">
+                  <span class="eyebrow sv-deep-eb">Family</span>
+                  <span class="sv-deep-ct">{family.members.length}</span>
+                  <span class="sv-deep-rule" />
+                  <span class="sv-deep-state">
+                    <span class="sv-deep-show">Show</span>
+                    <span class="sv-deep-hide">Hide</span>
+                  </span>
+                  <svg
+                    class="sv-chev"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="var(--gold-deep)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </summary>
+                {family.intro && (
+                  <p class="wsv-fineprint" set:html={family.intro} />
+                )}
+                <ul class="wsv-family">
+                  {family.members.map((m) => (
+                    <li>
+                      <span class="wsv-fam-rel">{m.relation}</span>
+                      <span class="wsv-fam-line">
+                        {m.href ? (
+                          <a href={withBase(m.href)} class="wsv-fam-name">
+                            {m.name}
+                          </a>
+                        ) : m.external ? (
+                          <a
+                            href={m.external}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="wsv-fam-name"
+                          >
+                            {m.name} ↗
+                          </a>
+                        ) : (
+                          <span class="wsv-fam-name">{m.name}</span>
+                        )}
+                        {m.years && (
+                          <span class="wsv-fam-years"> ({m.years})</span>
+                        )}
+                        {m.note && (
+                          <span
+                            class="wsv-fam-note"
+                            set:html={` — ${m.note}`}
+                          />
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
+          }
+
           {/* related figures */}
           {
             related.length > 0 && (
@@ -871,6 +940,49 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
     font-size: 12px;
     color: var(--celest);
     white-space: nowrap;
+  }
+
+  /* family — a relation-labelled list; the relation reads as a rubric down
+     the left so the eye can scan "Mother / Sister / Niece" without reading
+     each line. Collapses to a stacked block on narrow screens. */
+  .wsv-family {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .wsv-family li {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 4px 12px;
+    margin-bottom: 11px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+  .wsv-fam-rel {
+    font-family: var(--text);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--celest);
+    padding-top: 4px;
+  }
+  .wsv-fam-name {
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .wsv-fam-years,
+  .wsv-fam-note {
+    color: #555;
+  }
+  @media (max-width: 560px) {
+    .wsv-family li {
+      grid-template-columns: 1fr;
+      gap: 1px;
+    }
+    .wsv-fam-rel {
+      padding-top: 0;
+    }
   }
 
   /* related figures — a simple list (witnesses have no portrait cards) */
