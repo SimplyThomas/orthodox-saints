@@ -70,12 +70,35 @@ export interface WitnessQuote {
   work: string;
 }
 
-/** A gallery suggestion — imagery recommended for a future illustrated edition.
- *  Nothing is reproduced on the page; these are captions only, pending licensing
- *  and review. */
-export interface WitnessGalleryItem {
-  subject: string;
-  caption: string;
+/** One member of a witness's family — the household they came from or formed.
+ *
+ *  SOURCED-ONLY, and one rule beyond the usual: a relative who is still LIVING
+ *  is included only where they are a public figure in their own right (a
+ *  published author, a broadcast or academic career, public office) and only
+ *  for those public facts. Never a private individual, never an age, address,
+ *  employer, or anything a reader could use to reach them. A relative's own
+ *  notability is not a reason to profile them here — one line on who they are
+ *  and how they relate, and the citation carries the rest. */
+export interface WitnessFamilyMember {
+  /** how they relate TO the witness, e.g. "Mother", "Elder sister", "Niece" */
+  relation: string;
+  name: string;
+  /** "1922 – 2005", or "b. 1947"; omit when undocumented */
+  years?: string;
+  /** one line on who they were / what they did */
+  note?: string;
+  /** internal (withBase) path when the person has a page here — several of
+   *  these families intermarry, so this is often another witness */
+  href?: string;
+  /** external citation when the person is documented elsewhere */
+  external?: string;
+}
+
+/** The "Family" section — rendered as a main-column dropdown like Timeline. */
+export interface WitnessFamily {
+  /** optional framing line shown above the list */
+  intro?: string;
+  members: WitnessFamilyMember[];
 }
 
 /** One node of a `lineage` side-column block — a link in a vertical hand-down
@@ -189,6 +212,9 @@ export interface Witness {
   worksBy?: WitnessWork[];
   /** books / materials about the witness */
   worksAbout?: WitnessWork[];
+  /** the family they came from or formed — see WitnessFamilyMember for the
+   *  living-relatives rule */
+  family?: WitnessFamily;
   /** related figures (internal saint/witness links where a page exists) */
   related?: RelatedFigure[];
   /** historical significance, one entry per paragraph */
@@ -198,8 +224,6 @@ export interface Witness {
   sections?: WitnessSection[];
   /** "Selected Teachings" — short, sourced quotations grouped by theme */
   quotes?: WitnessQuote[];
-  /** "Gallery Suggestions" — captions for recommended imagery (nothing reproduced) */
-  gallery?: WitnessGalleryItem[];
   /** compact supplementary LEFT-RAIL blocks — a spiritual-lineage diagram or a
    *  short note shown in the side column below "At a glance". */
   sidebar?: WitnessAside[];
@@ -521,27 +545,22 @@ export const WITNESSES: Witness[] = [
         work: "The Art of Salvation",
       },
     ],
-    gallery: [
-      {
-        subject: "Elder Ephraim portrait",
-        caption: "Elder Ephraim of Arizona (1927/28 – 2019).",
-      },
-      {
-        subject: "St Joseph the Hesychast portrait",
-        caption:
-          "St Joseph the Hesychast, Elder Ephraim's spiritual father on Mount Athos.",
-      },
-      {
-        subject: "St Anthony's Monastery",
-        caption:
-          "St Anthony's Greek Orthodox Monastery, Florence, Arizona (founded 1995).",
-      },
-      {
-        subject: "Mount Athos / Philotheou",
-        caption:
-          "Philotheou Monastery, Mount Athos, where Elder Ephraim was abbot (1973–1991).",
-      },
-    ],
+    family: {
+      intro:
+        "A poor and devout household in Volos — and the rare case of a son who later received his own mother into the monastic life.",
+      members: [
+        {
+          relation: "Father",
+          name: "Demetrios Moraitis",
+          note: "A working man of Volos whom the boy helped at his labour; a believer himself, he never stood in the way of his wife's ascetic life.",
+        },
+        {
+          relation: "Mother",
+          name: "Victoria Moraitis, later the Nun Theophano",
+          note: "Remembered for prayer, vigil, and works of charity — the piety the boy tried to imitate. Her son tonsured her a nun, giving her the name Theophano.",
+        },
+      ],
+    },
     related: [
       {
         name: "St Joseph the Hesychast",
@@ -595,7 +614,7 @@ export const WITNESSES: Witness[] = [
         kind: "note",
         heading: "A Note on Attribution",
         body: [
-          "The title <em>The Path to Salvation</em>, sometimes attributed to Elder Ephraim, is in fact the work of St Theophan the Recluse and is not among his writings.",
+          "<em>The Path to Salvation</em> is sometimes listed as Elder Ephraim's own, but it is the work of St Theophan the Recluse.",
         ],
       },
     ],
@@ -730,7 +749,7 @@ export const WITNESSES: Witness[] = [
         kind: "note",
         heading: "A Note on Attribution",
         body: [
-          "Two titles often attributed to Father Seraphim are not his own works. <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with his chapter on UFOs within <em>Orthodoxy and the Religion of the Future</em>; neither is listed among his works.",
+          "Two titles are often listed as Father Seraphim's own but are not. <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with the chapter on UFOs in his <em>Orthodoxy and the Religion of the Future</em>.",
         ],
       },
     ],
@@ -891,26 +910,44 @@ export const WITNESSES: Witness[] = [
         work: "God's Revelation to the Human Heart (1981 lecture)",
       },
     ],
-    gallery: [
-      {
-        subject: "Father Seraphim Rose portrait",
-        caption: "Hieromonk Seraphim (Rose) of Platina (1934–1982).",
-      },
-      {
-        subject: "St John Maximovitch",
-        caption:
-          "St John of Shanghai & San Francisco, Fr Seraphim's spiritual father.",
-      },
-      {
-        subject: "St Herman of Alaska Monastery, Platina",
-        caption:
-          "The monastery in the northern California wilderness, founded 1969–70.",
-      },
-      {
-        subject: "Father Seraphim's grave",
-        caption: "His grave at the Platina monastery, a place of pilgrimage.",
-      },
-    ],
+    family: {
+      intro:
+        "A San Diego family of shopkeepers and makers. Two of his sister's children are published writers who have spoken publicly about their uncle — they are named here for that public work only.",
+      members: [
+        {
+          relation: "Father",
+          name: "Frank Rose",
+          note: "A veteran of the First World War who, with his wife, ran San Diego's first Karmel Korn shop.",
+        },
+        {
+          relation: "Mother",
+          name: "Esther Rose",
+          note: "A businesswoman and a California painter, known for impressionist renderings of the Pacific coast.",
+        },
+        {
+          relation: "Elder brother",
+          name: "Frank Rose",
+          note: "A San Diego businessman.",
+        },
+        {
+          relation: "Elder sister",
+          name: "Eileen Rose Busby",
+          years: "1922 – 2005",
+          note: "An author and antiques expert, and a member of Mensa. She wrote on Royal Winton porcelain and cottage ware, and in 1999 appeared as a collector on HGTV's <em>Appraise It!</em>, taped at a Los Angeles auction house.",
+          external: "https://en.wikipedia.org/wiki/Eileen_Rose_Busby",
+        },
+        {
+          relation: "Niece",
+          name: "Cathy Scott",
+          note: "A journalist and true-crime author, and Eileen's daughter. She wrote <em>Seraphim Rose: The True Story and Private Letters</em>, drawing on the family's own recollections of him.",
+        },
+        {
+          relation: "Nephew",
+          name: "J. Michael Scott",
+          note: "A scientist and author, and Eileen's son.",
+        },
+      ],
+    },
     related: [
       {
         name: "St John Maximovitch (of Shanghai & San Francisco)",
@@ -1185,28 +1222,30 @@ export const WITNESSES: Witness[] = [
         work: "Interview with Father Roman Braga",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Archimandrite Roman Braga",
-        caption:
-          "The elder in his later years at the Holy Dormition Monastery in Michigan.",
-      },
-      {
-        subject: "Holy Dormition Monastery, Rives Junction, Michigan",
-        caption:
-          "The Romanian-tradition women's monastery he helped shape and where he served as spiritual father.",
-      },
-      {
-        subject: "Pitești prison, Romania",
-        caption:
-          "Site of the communist re-education experiments he survived in solitary confinement.",
-      },
-      {
-        subject: "Cover of Exploring the Inner Universe",
-        caption:
-          "The book in which he gathered his prison-forged teaching on interior prayer.",
-      },
-    ],
+    family: {
+      intro:
+        "A Bessarabian village family formed by constant contact with the monks of the nearby Monastery of Condrița — a household that gave two of its children to the monastic life.",
+      members: [
+        {
+          relation: "Father",
+          name: "Cosma Braga",
+        },
+        {
+          relation: "Mother",
+          name: "Maria Braga",
+        },
+        {
+          relation: "Siblings",
+          name: "Seven children in all",
+          note: "He was the last of them, born in Condrița in 1922.",
+        },
+        {
+          relation: "Sister",
+          name: "Mother Benedicta (Braga)",
+          note: "A nun of the Monastery of the Transfiguration in Ellwood City, Pennsylvania, where she succeeded Mother Alexandra as abbess — the same community her brother served as priest and spiritual father from 1983 to 1988.",
+        },
+      ],
+    },
     related: [
       {
         name: "Mother Gabriella (Ursache)",
@@ -1484,28 +1523,17 @@ export const WITNESSES: Witness[] = [
         work: "Recollections, St Seraphim Cathedral biography",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Archbishop Dmitri",
-        caption:
-          "The vested archbishop in his years leading the Diocese of the South.",
-      },
-      {
-        subject: "St Seraphim Orthodox Cathedral, Dallas",
-        caption:
-          "The mission he founded in 1954, later his cathedral and place of burial.",
-      },
-      {
-        subject: "Archbishop Dmitri among his people",
-        caption:
-          "The pastor who was said to have “never met a stranger,” greeting parishioners.",
-      },
-      {
-        subject: "One of his Scripture commentaries",
-        caption:
-          "From the shelf of biblical commentaries he wrote for ordinary readers.",
-      },
-    ],
+    family: {
+      intro:
+        "A devout Southern Baptist household in Teague, Texas. Before their conversion he and his sister sought their mother's blessing; she gave it after asking the one question that mattered to her — whether the Orthodox Church believed in Christ as Lord and Savior.",
+      members: [
+        {
+          relation: "Elder sister",
+          name: "Dimitra (Royster)",
+          note: "She inquired into Orthodoxy alongside him from about 1939 and was received with him at Holy Trinity Greek Orthodox Church in Dallas in 1941, taking the feminine form of his new name — a bond of brother and sister in the faith that lasted the rest of their lives.",
+        },
+      ],
+    },
     related: [
       {
         name: "OCA Diocese of the South",
@@ -1757,28 +1785,33 @@ export const WITNESSES: Witness[] = [
           "https://store.ancientfaith.com/royal-monastic-princess-ileana-of-romania/",
       },
     ],
-    gallery: [
-      {
-        subject: "Princess Ileana in Red Cross nursing dress",
-        caption:
-          "The princess who gave her wartime years to nursing the wounded of Romania.",
-      },
-      {
-        subject: "Bran Castle and village, Transylvania",
-        caption:
-          "Near where she founded the Spital Inima Reginei, the “Hospital of the Queen's Heart.”",
-      },
-      {
-        subject: "Mother Alexandra in the monastic habit",
-        caption:
-          "The former princess in her later years as foundress of the Ellwood City monastery.",
-      },
-      {
-        subject: "Monastery of the Transfiguration, Ellwood City, Pennsylvania",
-        caption:
-          "The English-language women's monastery she founded in 1967 and where she is buried.",
-      },
-    ],
+    family: {
+      intro:
+        "The Romanian royal house — a family at the centre of European dynastic politics, which she left behind entirely for the monastic life.",
+      members: [
+        {
+          relation: "Father",
+          name: "King Ferdinand I of Romania",
+          years: "1865 – 1927",
+        },
+        {
+          relation: "Mother",
+          name: "Queen Marie of Romania",
+          years: "1875 – 1938",
+          note: "Herself a granddaughter of Queen Victoria and of Tsar Alexander II. As a girl during the First World War, Ileana accompanied her on visits to the wounded in hospitals and on troop trains.",
+        },
+        {
+          relation: "Husband",
+          name: "Archduke Anton of Austria",
+          note: "Married on July 26, 1931, at Peleș Castle in Sinaia. The marriage was dissolved in 1954, after exile had taken the family from Romania.",
+        },
+        {
+          relation: "Children",
+          name: "Six — Stefan, Maria Ileana, Alexandra, Dominic, Maria Magdalena, and Elisabeth",
+          note: "Born through the 1930s and early 1940s, and raised through war, the loss of the monarchy, and exile.",
+        },
+      ],
+    },
     related: [
       {
         name: "Queen Marie of Romania",
@@ -2055,29 +2088,38 @@ export const WITNESSES: Witness[] = [
         work: "The 55 Maxims",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father Thomas Hopko",
-        caption:
-          "The protopresbyter in his years teaching at St Vladimir's Seminary.",
-      },
-      {
-        subject: "The four-volume “rainbow series,” The Orthodox Faith",
-        caption:
-          "His elementary handbook that catechized a generation of English-speaking faithful.",
-      },
-      {
-        subject: "At the Ancient Faith Radio microphone",
-        caption:
-          "Recording “Speaking the Truth in Love,” which reached listeners worldwide from 2008.",
-      },
-      {
-        subject:
-          "Orthodox Monastery of the Transfiguration, Ellwood City, Pennsylvania",
-        caption:
-          "Near where Father Thomas spent his retirement years and reposed in 2015.",
-      },
-    ],
+    family: {
+      intro:
+        "Two families of this section are joined here: his marriage made him the son-in-law of <em>Fr Alexander Schmemann</em>, under whom he would later serve, and whom he eventually followed as dean of St Vladimir's Seminary.",
+      members: [
+        {
+          relation: "Father",
+          name: "John J. Hopko",
+          note: "A Carpatho-Rusyn immigrant of Endicott, New York.",
+        },
+        {
+          relation: "Mother",
+          name: "Anna (Zapotocky) Hopko",
+          note: "He was her third child and only son.",
+        },
+        {
+          relation: "Wife",
+          name: "Matushka Anne (Schmemann) Hopko",
+          note: "Married June 9, 1963 — the daughter of Fr Alexander Schmemann.",
+        },
+        {
+          relation: "Father-in-law",
+          name: "Protopresbyter Alexander Schmemann",
+          note: "His wife's father, his teacher, and his predecessor as dean of St Vladimir's Seminary.",
+          href: "witness/alexander-schmemann",
+        },
+        {
+          relation: "Children",
+          name: "Five",
+          note: "Among them Archpriest John Hopko, a serving priest of the Orthodox Church in America; sixteen grandchildren followed.",
+        },
+      ],
+    },
     related: [
       {
         name: "Fr Alexander Schmemann",
@@ -2335,28 +2377,26 @@ export const WITNESSES: Witness[] = [
         work: "Articulating the Yup'ik understanding of subsistence, recalled in Alaskan remembrances of his teaching",
       },
     ],
-    gallery: [
-      {
-        subject: "A Russian Orthodox church in an Alaska Native village",
-        caption:
-          "The onion-domed village churches of the Kuskokwim and Kodiak, at the heart of the communities Fr Michael served.",
-      },
-      {
-        subject: "Fr Michael Oleksa lecturing on cross-cultural communication",
-        caption:
-          "The storyteller and teacher whose “Communicating Across Cultures” reached Alaskans statewide.",
-      },
-      {
-        subject: "St Herman's Theological Seminary, Kodiak",
-        caption:
-          "The Alaskan seminary for Native clergy, where he served as dean.",
-      },
-      {
-        subject: "The Kuskokwim River and Yup'ik country",
-        caption:
-          "The vast riverine landscape of the villages where he spent his early ministry.",
-      },
-    ],
+    family: {
+      intro:
+        "His family is inseparable from his life's work: a Pennsylvania seminarian married into a Yup'ik family of the Kuskokwim, and spent fifty years interpreting Native Alaska to the rest of the country.",
+      members: [
+        {
+          relation: "Wife",
+          name: "Xenia (Angellan) Oleksa",
+          note: "A Yup'ik woman of Kwethluk, whom he met at a fish camp while a seminary student; they were married forty-nine years. He learned her first language, Yugtun, and it was through her world that he came to the work he is remembered for.",
+        },
+        {
+          relation: "Children",
+          name: "Four",
+        },
+        {
+          relation: "Adopted by",
+          name: "The Yup'ik, Sugpiag, and Lingít nations",
+          note: "He was formally adopted by members of each — a kinship freely given, and the ground of his standing to speak for and about Native Alaska.",
+        },
+      ],
+    },
     related: [
       {
         name: "St Herman of Alaska",
@@ -2613,27 +2653,39 @@ export const WITNESSES: Witness[] = [
         work: "For the Life of the World",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father Alexander Schmemann",
-        caption:
-          "The vested protopresbyter in his years as dean of St Vladimir's.",
-      },
-      {
-        subject: "Three Hierarchs Chapel, St Vladimir's Seminary, Crestwood",
-        caption:
-          "The seminary chapel at the heart of his teaching and liturgical life.",
-      },
-      {
-        subject: "First edition of For the Life of the World",
-        caption:
-          "The small book that carried his sacramental vision to a wide readership.",
-      },
-      {
-        subject: "His grave at St Tikhon's Monastery, Pennsylvania",
-        caption: "Where Father Alexander was laid to rest in December 1983.",
-      },
-    ],
+    family: {
+      intro:
+        "A Russian émigré household in Paris that became, in America, one of the central families of Orthodox intellectual life — and married into another one in this section.",
+      members: [
+        {
+          relation: "Wife",
+          name: "Matushka Juliana (Ossorguine) Schmemann",
+          years: "1923 – 2017",
+          note: "Born in Baden-Baden to a Russian family displaced by the revolution, and a classics student at the Sorbonne when they married in 1943. In New York she taught French and Russian and became headmistress of the Spence School (1977–1981), and wrote two books of her own.",
+        },
+        {
+          relation: "Daughter",
+          name: "Matushka Anne Hopko",
+          note: "Who married Fr Thomas Hopko in 1963.",
+        },
+        {
+          relation: "Son-in-law",
+          name: "Protopresbyter Thomas Hopko",
+          note: "His student, then his successor as dean of St Vladimir's Seminary.",
+          href: "witness/thomas-hopko",
+        },
+        {
+          relation: "Son",
+          name: "Serge Schmemann",
+          note: "A journalist — Moscow correspondent and later bureau chief for The New York Times, awarded the 1991 Pulitzer Prize for International Reporting for his coverage of German reunification.",
+        },
+        {
+          relation: "Daughter",
+          name: "Matushka Mary Tkachuk",
+          note: "Long active in women's ministry and education in the Orthodox Church in America.",
+        },
+      ],
+    },
     related: [
       {
         name: "Fr Georges Florovsky",
@@ -2906,29 +2958,32 @@ export const WITNESSES: Witness[] = [
         work: "St Gregory Palamas and the Tradition of the Fathers",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father Georges Florovsky",
-        caption:
-          "The vested protopresbyter in his American years as scholar and teacher.",
-      },
-      {
-        subject: "St Sergius Orthodox Theological Institute, Paris",
-        caption:
-          "The émigré academy where he taught patristics and was ordained in 1932.",
-      },
-      {
-        subject:
-          "First Assembly of the World Council of Churches, Amsterdam 1948",
-        caption:
-          "Where he led Orthodox theological participation and was elected to the Council's committees.",
-      },
-      {
-        subject: "Title page of Ways of Russian Theology (1937)",
-        caption:
-          "His great and contested critical history of Russian religious thought.",
-      },
-    ],
+    family: {
+      intro:
+        "A clerical and academic family of Odessa — the world of the Russian theological academies, carried into exile whole.",
+      members: [
+        {
+          relation: "Father",
+          name: "Archpriest Vasily Florovsky",
+          note: "Rector of the theological academy at Odessa and dean of the Cathedral of the Transfiguration there.",
+        },
+        {
+          relation: "Mother",
+          name: "Claudia (Popruzhenko) Florovsky",
+          note: "Daughter of a professor of Hebrew and Greek.",
+        },
+        {
+          relation: "Brother",
+          name: "Antony Florovsky",
+          note: "A historian, later professor at the university in Prague. He left Russia with the family in 1920.",
+        },
+        {
+          relation: "Wife",
+          name: "Xenia (Simonova) Florovsky",
+          note: "An artist and translator; they married in 1922 and shortly after settled in Paris, where he helped found the St Sergius Institute. She is buried beside him.",
+        },
+      ],
+    },
     related: [
       {
         name: "Vladimir Lossky",
@@ -3194,29 +3249,27 @@ export const WITNESSES: Witness[] = [
           "A memorial volume of essays honoring his contribution to patristic and Byzantine studies (ed. Bradley Nassif, 1996).",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Father John Meyendorff",
-        caption:
-          "The vested protopresbyter in his years as dean of St Vladimir's.",
-      },
-      {
-        subject: "St Gregory Palamas, archbishop of Thessalonica",
-        caption:
-          "The fourteenth-century hesychast theologian whose thought Meyendorff did most to recover.",
-      },
-      {
-        subject:
-          "St Vladimir's Orthodox Theological Seminary, Crestwood, New York",
-        caption:
-          "The seminary he served for over thirty years and led as dean from 1984.",
-      },
-      {
-        subject: "First edition of Byzantine Theology",
-        caption:
-          "His synthesis of Byzantine doctrinal history, long a standard seminary textbook.",
-      },
-    ],
+    family: {
+      intro:
+        "A Russian émigré family of Paris that moved to St Vladimir's Seminary in 1959 at Fr Alexander Schmemann's invitation — and stayed for two generations.",
+      members: [
+        {
+          relation: "Wife",
+          name: "Matushka Marie (Mojaïsky) Meyendorff",
+          note: "Born in Paris and raised in the Russian community there between the wars — her father from Kiev, her mother from Yalta. They met by accident on the Paris Métro and married in January 1950 in the chapel of the St Sergius Institute.",
+        },
+        {
+          relation: "Children",
+          name: "Four — Paul, Serge, Elizabeth, and Anna",
+          note: "Born between 1950 and 1959; all four moved with their parents to the seminary in Yonkers in the autumn of 1959.",
+        },
+        {
+          relation: "Son",
+          name: "Paul Meyendorff",
+          note: "A liturgical theologian who held the Alexander Schmemann Chair of Liturgical Theology at St Vladimir's Seminary from 1997 until his retirement in 2016 — his father's colleague's chair, in his father's school.",
+        },
+      ],
+    },
     related: [
       {
         name: "Fr Alexander Schmemann",
@@ -3475,28 +3528,20 @@ export const WITNESSES: Witness[] = [
           "https://www.post-gazette.com/news/obituaries/2014/03/22/obituary-metropolitan-philip-saliba-antiochian-orthodox-leader-since-1966-hailed-as-visionary/stories/201403220099",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Metropolitan Philip (Saliba)",
-        caption:
-          "The vested Metropolitan in his years leading the Antiochian Archdiocese.",
-      },
-      {
-        subject: "The Antiochian Village, Bolivar, Pennsylvania",
-        caption:
-          "The camp and conference center he founded in 1978, and the site of his burial.",
-      },
-      {
-        subject: "The 1987 reception of the Evangelical Orthodox",
-        caption:
-          "Some two thousand former evangelicals entering the Orthodox Church through the Archdiocese.",
-      },
-      {
-        subject: "St Nicholas Cathedral, Brooklyn",
-        caption:
-          "The Archdiocesan cathedral where he was enthroned in 1966 and mourned in 2014.",
-      },
-    ],
+    family: {
+      members: [
+        {
+          relation: "Parents",
+          name: "Elias and Saleema Saliba",
+          note: "Of Abou Mizan, Lebanon, where he was born in 1931 — the fourth of their five children.",
+        },
+        {
+          relation: "Siblings",
+          name: "Nassif, Shahid, Nazira (Kfouri), and Dr Najib Saliba",
+          note: "His brother Shahid and his sister Nazira predeceased him; his eldest brother Nassif remained in Lebanon, and his younger brother Najib, an academic, settled in Massachusetts.",
+        },
+      ],
+    },
     related: [
       {
         name: "St Raphael of Brooklyn",
@@ -3734,27 +3779,28 @@ export const WITNESSES: Witness[] = [
         work: "Recollection of his years in a communist prison",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Bishop Basil (Rodzianko)",
-        caption:
-          "The vested bishop in his American years, known for his warmth and humility.",
-      },
-      {
-        subject: "Bishop Basil at the BBC microphone",
-        caption:
-          "For nearly twenty-five years his voice reached Orthodox listeners across the Soviet Union.",
-      },
-      {
-        subject: "Bishop Basil on a visit to post-Soviet Russia",
-        caption:
-          "In his last years he traveled often to a Church reopening after decades of atheism.",
-      },
-      {
-        subject: "His grave at Rock Creek Cemetery, Washington, D.C.",
-        caption: "Where Bishop Basil was laid to rest in September 1999.",
-      },
-    ],
+    family: {
+      intro:
+        "An old Russian noble family at the very centre of the empire's last days — and one that lost everything twice, first to the revolution and then to the Yugoslav communists.",
+      members: [
+        {
+          relation: "Grandfather",
+          name: "Mikhail Rodzianko",
+          years: "1859 – 1924",
+          note: "Chairman of the State Duma from 1911 until its dissolution in 1917, and a central figure of the February Revolution. The family fled Russia in 1920, when his grandson was five, and lived in greatly reduced circumstances in Belgrade.",
+        },
+        {
+          relation: "Wife",
+          name: "Mary (Kolubayev) Rodzianko",
+          note: "Married in Yugoslavia before the war. She died in 1978; it was after her repose that he was tonsured a monk and, the following year, consecrated bishop.",
+        },
+        {
+          relation: "Sons",
+          name: "Vladimir and Michael",
+          note: "Both were young boys when their father was sentenced to eight years of imprisonment and hard labour for preaching.",
+        },
+      ],
+    },
     related: [
       {
         name: "Fr John Meyendorff",
@@ -3998,28 +4044,19 @@ export const WITNESSES: Witness[] = [
         work: "Patristic Theology (The University Lectures)",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Fr John Romanides",
-        caption:
-          "The priest-theologian in his years teaching dogmatics in Greece.",
-      },
-      {
-        subject: "Hell's Kitchen, Manhattan, mid-20th century",
-        caption:
-          "The New York immigrant neighborhood on West 46th Street where he was raised.",
-      },
-      {
-        subject: "Holy Cross Greek Orthodox School of Theology, Brookline",
-        caption:
-          "Where he studied and later taught dogmatic theology and edited the Greek Orthodox Theological Review.",
-      },
-      {
-        subject: "Cover of Patristic Theology",
-        caption:
-          "His posthumously published university lectures on the “cure of the soul.”",
-      },
-    ],
+    family: {
+      members: [
+        {
+          relation: "Parents",
+          name: "Savvas and Eulampia Romanides",
+          note: "Refugees from Cappadocia who had settled in Greece; they emigrated to the United States when their son was two months old, and he grew up in Manhattan. His mother kept a heavy Cappadocian accent all her life — the living Anatolian Greek world his historical work would return to.",
+        },
+        {
+          relation: "Children",
+          name: "Two daughters",
+        },
+      ],
+    },
     related: [
       {
         name: "Holy Cross Greek Orthodox School of Theology",
@@ -4248,28 +4285,15 @@ export const WITNESSES: Witness[] = [
           "https://library2.buffalo.edu/archives/ubpeople/detail.html?ID=1431",
       },
     ],
-    gallery: [
-      {
-        subject: "Portrait of Fr. Michael Gelsinger",
-        caption:
-          "Often pictured in suit and tie — for most of his priestly life he was also a university professor.",
-      },
-      {
-        subject: "Title page of Orthodox Hymns in English (1939)",
-        caption:
-          "His adaptation of Greek and Slavic melodies to English texts, published by the Antiochian Archdiocese.",
-      },
-      {
-        subject: "The University of Buffalo, where he taught classics",
-        caption:
-          "He held the Andrew V. V. Raymond chair of classics and chaired the department in the 1950s.",
-      },
-      {
-        subject: "An early English-language Orthodox choir",
-        caption:
-          "The kind of parish singing his translations helped make possible in America.",
-      },
-    ],
+    family: {
+      members: [
+        {
+          relation: "Wife",
+          name: "Mary Gelsinger",
+          note: "His partner in the work of putting Orthodox worship into singable English; the two published a <em>Handbook for Orthodox Sunday Schools</em> together in 1938.",
+        },
+      ],
+    },
     related: [
       {
         name: "St Raphael of Brooklyn",
