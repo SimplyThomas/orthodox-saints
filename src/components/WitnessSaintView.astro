@@ -299,7 +299,7 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
 
             {block.kind === "note" &&
               block.body &&
-              block.body.map((p) => <p class="wsv-aside-body">{p}</p>)}
+              block.body.map((p) => <p class="wsv-aside-body" set:html={p} />)}
 
             {block.footnote && <p class="wsv-aside-foot">{block.footnote}</p>}
           </div>
@@ -326,7 +326,7 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
               <span class="eyebrow">Their story</span>
             </div>
             {overview.map((p) => (
-              <p class="sv-bodytext">{p}</p>
+              <p class="sv-bodytext" set:html={p} />
             ))}
           </section>
         )
@@ -404,7 +404,7 @@ const citation = `${nameQuery}${lifespan ? ` (${lifespan})` : ""} — A Witness 
                 </summary>
                 <div class="wsv-deep-prose">
                   {significance.map((p) => (
-                    <p>{p}</p>
+                    <p set:html={p} />
                   ))}
                 </div>
               </details>

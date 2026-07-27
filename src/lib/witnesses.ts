@@ -730,7 +730,7 @@ export const WITNESSES: Witness[] = [
         kind: "note",
         heading: "A Note on Attribution",
         body: [
-          "Two titles often attributed to Father Seraphim are not his own works. <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with his chapter on UFOs within <em>Orthodoxy and the Religion of the Future</em>; neither is listed among his works.",
+          "Two titles are often listed as Father Seraphim's own but are not. <em>Raising Them Right</em> is a work of St Theophan the Recluse that Father Seraphim translated, and <em>Man: The Target of UFOs?</em> is a confusion with the chapter on UFOs in his <em>Orthodoxy and the Religion of the Future</em>.",
         ],
       },
     ],
