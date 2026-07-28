@@ -3,6 +3,7 @@ title: The Shepherd of Hermas
 aka:
   - Pastor of Hermas
   - The Shepherd
+  - Poimen
 era: c. early–mid 2nd century AD (Rome)
 canonicalStatus: Apocryphal · Apostolic Fathers
 blurb: An early Christian book of visions, commandments, and parables, revealed to Hermas by an angel of repentance in the form of a shepherd — once read almost as Scripture, and rich in its angelology.
@@ -10,22 +11,265 @@ order: 2
 status: draft
 humanReviewed: false
 sources:
-  - The Shepherd of Hermas (Ante-Nicene Fathers, vol. 2 — public domain)
+  - The Shepherd of Hermas, trans. F. Crombie, Ante-Nicene Fathers vol. 2 (public domain) — the text cited and quoted throughout this page
   - Codex Sinaiticus (which includes the Shepherd after the New Testament)
+  - The Muratorian Fragment (on its date, and on the limit set to its public reading)
+  - St. Irenaeus, Against Heresies; Clement of Alexandria, Stromata; Origen; St. Athanasius, Festal Letter 39; Eusebius, Ecclesiastical History III.3, III.25
+  - Carolyn Osiek, The Shepherd of Hermas (Hermeneia); Michael Holmes, The Apostolic Fathers; J. B. Lightfoot, The Apostolic Fathers
   - Catalogued for study; requires clergy/source review before any devotional use
+
+keywords:
+  - Shepherd of Hermas
+  - Hermas
+  - Apostolic Fathers
+  - Angel of Repentance
+  - Twelve Virgins
+  - Tower vision
+  - Post-baptismal repentance
+  - Codex Sinaiticus
+  - Muratorian Fragment
+  - Second century Christianity
+browseTags:
+  - Apostolic Fathers
+  - Early Christian Literature
+  - Angelology
+  - Repentance
+  - Ecclesiology
+  - Christian Virtues
+  - Second Century Christianity
+  - Non-Canonical Christian Texts
+  - Patristic Reception
 
 overview:
   - The Shepherd of Hermas is an early Christian work written at Rome, most likely in the first half of the second century, and counted among the Apostolic Fathers. It was so highly esteemed in the early Church that several Fathers cited it as Scripture and it was copied, after the New Testament books, into the great fourth-century Codex Sinaiticus — though it was ultimately not received into the canon.
   - The book is an apocalypse in three parts — five Visions, twelve Mandates (commandments), and ten Similitudes (parables) — revealed to a freedman named Hermas by two heavenly figures — an aged woman who is the Church, and an angel of repentance who appears in the dress of a shepherd, the Poimen, from whom the whole work takes its name. Its central and insistent theme is repentance — the call to a second conversion of life for those who have sinned after baptism.
+  - "It is not part of the biblical canon of the Orthodox Church, and nothing in it carries doctrinal authority. It is catalogued here for study: as a witness to how Christians of the second century spoke about repentance, the Church, and the angels, and because so much of its imagery — the tower built of living stones, the two angels that attend every person, the virtues as garments without which no one enters — passed into the common vocabulary of Christian spirituality."
+  - "One caution runs through the whole page. The Shepherd is a densely symbolic book, and its heavenly figures are of several different kinds: some are angels the text plainly calls angels; some are moral agencies described in angelic terms; and some are figures the book itself interprets as something other than angels. Each entry below says which it is, in the text's own words."
 
 sections:
   - heading: Authorship & Date
     body:
       - The book presents itself as the work of Hermas, a former slave living at Rome. An early witness, the Muratorian Fragment, states that it was written by Hermas while his brother Pius was bishop of Rome (c. 140–155), which places its final form near the middle of the second century, though some of its visions may be older.
-  - heading: Canonicity & Orthodox Reception
+      - Origen proposed that this Hermas was the one greeted by the Apostle Paul in Romans 16:14. That is a patristic conjecture rather than a claim the book makes for itself, and it cannot easily be reconciled with the Muratorian dating — the Hermas of Romans would have written the better part of a century earlier. Modern scholarship generally follows the later date.
+      - Many scholars judge the work to be composite, assembled over time from separate units rather than written at one sitting. That is a literary judgement of modern scholarship, not a teaching of the Church.
+  - heading: Transmission of the Text
     body:
-      - The Shepherd was widely read and loved in the early centuries — Irenaeus, Clement of Alexandria, and Origen valued it highly, and some treated it as Scripture. As the canon settled it was set apart from the inspired books, yet never condemned — it remained a respected work of edification, prized above all for its teaching on repentance.
+      - No complete Greek manuscript survives. The Greek is reconstructed from Codex Sinaiticus, which breaks off partway through, from the fifteenth-century Codex Athous, and from a body of papyrus fragments; the whole work is preserved in two Latin versions and in Ethiopic, with further fragments in Coptic and Middle Persian.
+      - Its presence in Codex Sinaiticus is the single most striking fact about its early standing. The scribes of that fourth-century Bible copied the Shepherd, together with the Epistle of Barnabas, immediately after the books of the New Testament.
+  - heading: Reception in the Early Church
+    body:
+      - The Shepherd was read very widely. St. Irenaeus cites it, Clement of Alexandria quotes it repeatedly, and Origen valued it highly; Tertullian, who came to reject it, is himself evidence of how seriously others took it. Eusebius records that it was read publicly in churches while reckoning it among the disputed books.
+      - "The Muratorian Fragment gives the clearest ancient statement of the limit placed on it: it ought to be read, but not read publicly to the people among the Prophets or the Apostles. That is precisely the distinction the Church went on to keep — a book of genuine profit, and not a book of the canon."
+      - St. Athanasius, in the Festal Letter of 367 that fixes the New Testament canon, places the Shepherd among the books appointed by the Fathers to be read by those newly coming to us and wishing to be instructed in the word of godliness — useful for catechesis, and outside Scripture.
+      - In the Christian East the book gradually fell out of use. It has no place in Orthodox liturgical life, and later Byzantine and Slavic tradition drew on Scripture and the Fathers instead. It survives as a historical witness rather than as a living source.
+  - heading: The Structure of the Book
+    body:
+      - The work falls into three parts of very different character. The table sets out what each contains, the themes it presses, and the heavenly figures that carry it.
+    table:
+      columns: ["Part", "Contents", "Major themes", "Heavenly figures"]
+      rows:
+        - - "Visions (1–5)"
+          - "Five revelations, chiefly of an aged woman and of a tower under construction; the fourth brings a great beast, the fifth introduces the Shepherd."
+          - "Repentance; the Church; coming tribulation"
+          - "The aged woman (the Church); the six young men; Thegri; the Shepherd"
+        - - "Mandates (1–12)"
+          - "Twelve commandments on faith, fear of God, truthfulness, chastity, patience, almsgiving, and the discernment of spirits."
+          - "Moral instruction; discernment; the two angels"
+          - "The angel of righteousness and the angel of iniquity (Mandate 6)"
+        - - "Similitudes (1–10)"
+          - "Ten parables — the elm and the vine, the willow tree, the twelve mountains, and the great tower explained at length in Similitude 9."
+          - "The Church; virtue and vice; judgement; perseverance"
+          - "The glorious man; Michael; the angel of punishment; the angel of luxury and deceit; the twelve virgins; the twelve women in black"
+  - heading: Major Themes
+    body:
+      - "Repentance is the book's reason for existing. Its most distinctive and most debated teaching is that a Christian who sins after baptism is granted one further repentance, and one only. The urgency is pastoral rather than arithmetical: the door is open now, and the tower is still being built."
+      - "The Church is the other great subject, and it is presented twice over — as the aged woman who was created first of all things and for whose sake the world was made, and as the tower rising on the waters out of living stones. The two images say the same thing: the Church is older than the world, and is still unfinished."
+      - Virtue is treated as clothing rather than as achievement. No one enters the tower unless the virgins have clothed him, and a believer who bears the Name without their garments is told he bears it in vain.
+      - The angels run through all three parts, but their function is instructional. They interpret, test, chastise, and encourage. They are not objects of devotion, and the book never directs a prayer to one.
+  - heading: Angelology in the Shepherd
+    body:
+      - "Angels appear in the Shepherd more thickly than in almost any other work of the sub-apostolic age, and in at least three distinct modes. Some are straightforwardly angels — Thegri, who has rule over the beasts; the angel of punishment, who belongs to the just angels; Michael, named once. Some are moral agencies described in angelic terms: the angel of righteousness and the angel of iniquity of Mandate 6. And some are figures the text explicitly interprets as something else — the twelve virgins are called holy spirits and the powers of the Son of God, and the aged woman is the Church."
+      - "Mandate 6 contains the book's nearest approach to a teaching on guardianship, and it is worth stating precisely, because it is often reported loosely. The text does not say that each person has a guardian angel. It says there are two angels with a man — one of righteousness, and the other of iniquity — and it teaches Hermas to tell them apart by their works: the angel of righteousness is gentle and modest, meek and peaceful, while the angel of iniquity is wrathful, and bitter, and foolish. This is a doctrine of discernment, closer to the two-spirits teaching of Second Temple Judaism than to the Orthodox teaching on the guardian angel, which rests on Matthew 18:10 and on the Church's own prayers."
+      - Nothing in the Shepherd's angelology is a source of Orthodox doctrine. The Church's teaching on the angels comes from Scripture, from the services, and from the Fathers. What this book offers is evidence of how the vocabulary was being used at Rome around the middle of the second century.
+  - heading: Relationship to Orthodox Theology
+    body:
+      - Much in the book runs with the grain of Orthodox teaching — the necessity of repentance, the Church as a divine reality older than the world, the reality of angelic ministry, the moral seriousness of the Christian life, and the insistence that faith without the virtues is empty.
+      - "Other things in it do not, and should not be smoothed over. The limit of a single post-baptismal repentance is not Orthodox teaching; the mystery of confession knows no such ration. The book's language about the Son of God and the Holy Spirit is pre-Nicene and imprecise — Similitude 5 has been read since antiquity as sitting uneasily with later Trinitarian and Christological definition, and it must not be quarried for doctrine. And its symbolic figures are not members of the heavenly hierarchy: none has a feast, a rank, an icon, or a place in the services."
+      - The right posture is the one the Muratorian Fragment already recommends. Read it; do not read it as Scripture.
+  - heading: Historical Influence
+    body:
+      - The Shepherd stands near the head of two long traditions. Its treatment of sin after baptism belongs to the prehistory of the Church's penitential discipline, and the third-century controversies over restoring the lapsed were argued in a world where this book was widely known.
+      - Its pairing of twelve virtues against twelve vices is among the earliest sustained Christian allegories of the moral life, and the habit of thinking in such catalogues runs on through the monastic literature on the passions.
+      - The image of the Church as a tower of living stones — quarried from every place, tested one by one, some set aside for reshaping — proved durable well beyond the book's own currency.
 
-# The angelic figures of the Shepherd (the Angel of Repentance, the Angel of
-# Punishment, and their kind) will be added here as a `collections:` block once
-# their entries are supplied. See 1-enoch.yaml for the entry shape.
+collections:
+  - key: angels
+    title: Angels of the Shepherd
+    navLabel: Angels
+    tone: faithful
+    display: list
+    intro:
+      - The figures the Shepherd presents as angels. References follow the Ante-Nicene Fathers translation, the public-domain text used throughout this page.
+    entries:
+      - name: The Shepherd (the angel of repentance)
+        refs:
+          [
+            "Vision 5",
+            "Mandates (throughout)",
+            "Similitude 9.1",
+            "Similitude 10",
+          ]
+        body:
+          - The figure who gives the book its name. He comes to Hermas in the dress of a shepherd — a white goat's skin, a wallet on his shoulders, a staff in his hand — and says that he has been sent by a most venerable angel to dwell with Hermas the remaining days of his life. From that point he is Hermas's instructor, delivering the twelve Mandates and interpreting the parables.
+          - He names himself plainly as the angel of repentance, and the closing line of the book calls him so again. His authority is over the penitent, and he tells Hermas that the devil has fear only, but his fear has no strength.
+        lists:
+          - label: Function in the text
+            items:
+              - Delivers the Mandates
+              - Interprets the visions and parables
+              - Receives the rejected stones for cleaning
+              - Calls to repentance
+          - label: Orthodox status
+            items:
+              - Not named in Scripture
+              - No feast, rank, or liturgical commemoration
+              - Known solely from this book
+      - name: Michael
+        hostId: HH-0010
+        relatedLabel: Archangel Michael →
+        refs: ["Similitude 8.3"]
+        body:
+          - Michael is named exactly once in the whole book, in the parable of the great willow tree. The text calls him the great and glorious angel Michael, says that he has authority over this people, and governs them, and adds that this is he who gave them the law into the hearts of believers, superintending those to whom he gave it to see whether they have kept it.
+          - This single passage should not be enlarged upon. Michael does not appear in the tower vision of Similitude 9, and the book gives him no other scene. Orthodox teaching on Michael rests on Daniel, Jude and Revelation, on the Synaxis of November 8, and on the Fathers — not on this.
+      - name: The angel of punishment
+        refs: ["Similitude 6.3", "Similitude 7"]
+        body:
+          - A shepherd of savage aspect who torments the sheep driven to him. When Hermas asks who he is, the answer is exact — this is the angel of punishment, and he belongs to the just angels, and is appointed to punish. He is not an adversary but a servant of correction, chastising for a certain time, that they also might repent.
+        lists:
+          - label: Note
+            items:
+              - Explicitly one of the just angels
+              - His work ends when repentance comes
+      - name: Thegri
+        refs: ["Vision 4.2"]
+        body:
+          - Named when Hermas meets a great beast on the road and passes it unharmed. He is told that the Lord has sent His angel, who has rule over the beasts, and whose name is Thegri, and has shut up its mouth, so that it cannot tear you.
+          - Thegri is the only angel besides Michael given a personal name in the book, and he appears in this one scene alone. The name is unknown to Scripture and to Orthodox tradition, and the manuscripts do not agree on its spelling — itself a caution against building anything upon it.
+      - name: The six young men
+        refs: ["Vision 3.1–3.4", "Vision 3.10"]
+        body:
+          - The builders of the tower. They accompany the aged woman, take the stones handed up to them by myriads of other men, and set them into the structure; when a stone will not fit, they are the ones who cast it away.
+          - The text neither names them nor assigns them a rank, and it does not call them angels in so many words. They are best described as the visionary builders of the Church — heavenly agents of its construction, left deliberately unspecified.
+      - name: The glorious man, lord of the tower
+        refs: ["Similitude 9.6–9.7", "Similitude 9.12"]
+        body:
+          - A figure of great stature who arrives to inspect the finished tower, tests every stone himself, and orders the defective ones removed. He is called the lord of the whole tower, and it is he who hands the rejected stones to the Shepherd for cleaning.
+          - "Similitude 9 identifies the rock and the gate of the tower as the Son of God, and the glorious man has been read in the same direction since antiquity. The book's language here is pre-Nicene and imprecise; the passage is cited for what it shows of second-century imagery, not as a Christological source."
+  - key: adversaries
+    title: Adversarial Figures
+    navLabel: Adversaries
+    tone: fallen
+    display: list
+    intro:
+      - Catalogued for study, never venerated. Note that the Shepherd identifies none of these with Satan or with any named demon.
+    entries:
+      - name: The angel of iniquity
+        refs: ["Mandate 6.2"]
+        body:
+          - The counterpart of the angel of righteousness in the book's teaching on discernment — there are two angels with a man, one of righteousness, and the other of iniquity. Hermas is taught to recognise him by his works, for first, he is wrathful, and bitter, and foolish, and his works are evil, and ruin the servants of God.
+          - The book gives him no name, no rank, and no identification with the devil. He is a moral agency described in angelic terms, and the instruction attached to him is practical — know him by his works, and having recognised him, do not follow.
+      - name: The angel of luxury and deceit
+        refs: ["Similitude 6.2"]
+        body:
+          - A shepherd of cheerful appearance who pastures his sheep on a pleasant slope, leading them to skip and frolic. Hermas is told that this is the angel of luxury and deceit, who wears out the souls of the servants of God, and perverts them from the truth, deceiving them with wicked desires, through which they will perish.
+          - He is paired in the same parable with the angel of punishment, who receives the sheep afterward. The two together make one lesson about pleasure and its reckoning.
+      - name: The great beast
+        refs: ["Vision 4.1–4.3"]
+        body:
+          - A monstrous creature that meets Hermas on the Campanian road, throwing out fiery locusts, with four colours upon its head — black, fire and blood, gold, and white. He passes it unharmed because he does not doubt, and its mouth is shut by the angel Thegri.
+          - The beast is a visionary image of the coming tribulation, and its four colours are interpreted for Hermas as the ages of the world and the state of the faithful within them. It is not a being of the angelic order.
+  - key: virgins
+    title: The Twelve Virgins
+    navLabel: Twelve Virgins
+    tone: faithful
+    display: table
+    intro:
+      - "Twelve maidens in linen tunics who carry the stones through the gate and clothe those who enter the tower. Their identity is given in the text, and it is stronger than a bare allegory of virtue: And these virgins, who are they? They are holy spirits… For these virgins are the powers of the Son of God (Similitude 9.13). Whoever bears the Name without their clothing, Hermas is told, bears it in vain."
+      - "The four named first stand at the corners as the stronger; the remaining eight stand between them. Names follow the Ante-Nicene Fathers translation — other English versions render several differently (Continence as Self-Control, Cheerfulness as Joy). A separate list of seven women who support the tower in Vision 3.8 — Faith, Self-restraint, Simplicity, Guilelessness, Chastity, Intelligence, Love — is frequently confused with this one, but it is a different list in a different vision."
+    table:
+      columns: ["#", "Name (ANF)", "Standing"]
+      rows:
+        - ["1", "Faith", "Stronger — at the corners"]
+        - ["2", "Continence", "Stronger — at the corners"]
+        - ["3", "Power", "Stronger — at the corners"]
+        - ["4", "Patience", "Stronger — at the corners"]
+        - ["5", "Simplicity", "Standing in the midst"]
+        - ["6", "Innocence", "Standing in the midst"]
+        - ["7", "Purity", "Standing in the midst"]
+        - ["8", "Cheerfulness", "Standing in the midst"]
+        - ["9", "Truth", "Standing in the midst"]
+        - ["10", "Understanding", "Standing in the midst"]
+        - ["11", "Harmony", "Standing in the midst"]
+        - ["12", "Love", "Standing in the midst"]
+    entries: []
+    outro:
+      - They have no feast, no rank among the nine orders, and no Orthodox iconographic tradition. They are recorded here as figures of the text.
+  - key: dark-women
+    title: The Twelve Women in Black
+    navLabel: Women in Black
+    tone: fallen
+    display: table
+    intro:
+      - The direct counterparts of the virgins, in black garments, who strip the clothing from those who fall away and put their own upon them. As with the virgins, four are named as the stronger. Names follow the Ante-Nicene Fathers translation; other versions vary.
+    table:
+      columns: ["#", "Name (ANF)", "Standing"]
+      rows:
+        - ["1", "Unbelief", "Stronger"]
+        - ["2", "Incontinence", "Stronger"]
+        - ["3", "Disobedience", "Stronger"]
+        - ["4", "Deceit", "Stronger"]
+        - ["5", "Sorrow", "Follower"]
+        - ["6", "Wickedness", "Follower"]
+        - ["7", "Wantonness", "Follower"]
+        - ["8", "Anger", "Follower"]
+        - ["9", "Falsehood", "Follower"]
+        - ["10", "Folly", "Follower"]
+        - ["11", "Backbiting", "Follower"]
+        - ["12", "Hatred", "Follower"]
+    entries: []
+    outro:
+      - They are not demons, and the text does not name them as such. They are personifications of vice, recorded here only as the mirror of the twelve virgins.
+  - key: church
+    title: The Aged Woman — the Church
+    navLabel: The Church
+    tone: neutral
+    display: list
+    intro:
+      - The first heavenly figure Hermas meets, and the one the book takes most trouble to explain.
+    entries:
+      - name: The aged woman (the Church)
+        refs: ["Vision 1.2", "Vision 2.4", "Vision 3", "Vision 4.2"]
+        body:
+          - She appears first as an old woman in a shining garment with a book in her hand, and Hermas takes her for the Sibyl. He is corrected — she is the Church, and she was created first of all things, and for her sake the world was made.
+          - "Across the visions she grows visibly younger: aged and seated in a chair, then younger but with the hair of an old woman, then young and beautiful. The change is interpreted for Hermas as the renewal of the faithful themselves — the Church appears old to those whose spirits are worn out, and young to those who have repented."
+          - She is not an angel, and the text never calls her one. To describe her as an Angel of the Church is a modern gloss rather than the book's own language; the Shepherd says simply that she is the Church.
+        lists:
+          - label: Orthodox status
+            items:
+              - Not a being of the angelic order
+              - An early and important image of the Church as a pre-existent, heavenly reality
+              - No feast, rank, or icon
+
+relatedPages:
+  - label: Extra-Biblical Angels
+    href: extra-biblical-angels
+  - label: The Book of Enoch (1 Enoch)
+    href: extra-biblical-angels/1-enoch
+  - label: Archangel Michael
+    href: host/HH-0010
+  - label: Guardian Angels
+    href: host/HH-0018
+  - label: Angels of the Seven Churches
+    href: host/HH-0021
+  - label: The Nine Orders
+    href: nine-orders
