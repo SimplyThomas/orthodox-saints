@@ -1,0 +1,50 @@
+---
+/* A collapsible deep-dive section in the saint-page `sv-*` system: the gold
+   eyebrow, hairline rule, Show/Hide state, and chevron that SaintView and
+   WitnessSaintView each repeat inline. Factored out here because HostSaintView
+   needs a dozen of them; the markup is identical to the hand-rolled ones, so
+   the global `.sv-deep*` rules style it with no additions. */
+interface Props {
+  heading: string;
+  /** small count chip beside the heading (e.g. number of items) */
+  count?: string | number;
+  /** verb pair for the state toggle — "Read"/"Hide" for prose, "Show"/"Hide" for lists */
+  showLabel?: string;
+  hideLabel?: string;
+  open?: boolean;
+}
+const {
+  heading,
+  count,
+  showLabel = "Read",
+  hideLabel = "Hide",
+  open = false,
+} = Astro.props;
+---
+
+<details class="sv-deep" open={open}>
+  <summary class="sv-deep-sum">
+    <span class="eyebrow sv-deep-eb">{heading}</span>
+    {count !== undefined && <span class="sv-deep-ct">{count}</span>}
+    <span class="sv-deep-rule"></span>
+    <span class="sv-deep-state">
+      <span class="sv-deep-show">{showLabel}</span>
+      <span class="sv-deep-hide">{hideLabel}</span>
+    </span>
+    <svg
+      class="sv-chev"
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="var(--gold-deep)"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 6l4 4 4-4"></path>
+    </svg>
+  </summary>
+  <slot />
+</details>

@@ -1,0 +1,1283 @@
+---
+/* Saint-page treatment for the "Guardian Angels & Titled Figures" hosts —
+   the angels known by office or title rather than a personal name.
+   These carry the fullest prose in the Heavenly Hosts section, so they get the
+   full `sv-*` chrome (blue hero, framed portrait, actions ribbon, rail,
+   collapsible deep-dives) rather than the plain catalogue layout the ranks and
+   biblical encounters use. Same move WitnessSaintView made for /witness: the
+   chrome is the shared global `.sv-*` system, and only host-specific bits are
+   scoped below. */
+import type { Host, HostProfile } from "../lib/hosts";
+import { hostById } from "../lib/hosts";
+import { byId as saintById } from "../lib/data";
+import { FEASTS } from "../lib/feasts";
+import { withBase } from "../lib/format";
+import { saintAvatar } from "../lib/icons";
+import { oldCalendarDay } from "../lib/calendar-grid";
+import DeepSection from "./DeepSection.astro";
+
+interface Props {
+  host: Host;
+  profile?: HostProfile;
+  backHref: string;
+  backLabel: string;
+}
+const { host: h, profile: p, backHref, backLabel } = Astro.props;
+
+const feastById = new Map(FEASTS.map((f) => [f.id, f]));
+
+/* Hero portrait — a validated open-license icon when one exists, else the same
+   arched monogram every saint without a portrait gets. */
+const portrait = h.image
+  ? `<div class="sv-icon-img" style="background:#16304c center top/cover no-repeat url('${withBase(h.image)}')"></div>`
+  : saintAvatar({ name: h.name }, 286, 358);
+
+/* Feast card. Hosts hold plain fixed "Mon D" tokens (nearly all Nov 8, the
+   Synaxis of the Bodiless Powers), so the New/Old pair is computed directly
+   rather than through the saint feast parser. */
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+function oldStyle(token: string): string {
+  const m = /^([A-Za-z]{3})[a-z]*\s+(\d{1,2})$/.exec(token.trim());
+  if (!m) return "";
+  const month = MONTHS.indexOf(m[1]) + 1;
+  if (month < 1) return "";
+  const oc = oldCalendarDay(month, Number(m[2]));
+  return `${MONTHS[oc.month - 1]} ${oc.day}`;
+}
+const feastNew = h.feasts?.[0] ?? "";
+const feastOld = feastNew ? oldStyle(feastNew) : "";
+const furtherFeasts = (h.feasts ?? []).slice(1);
+
+/* Rail "At a glance" — the catalogue facts, in the saint page's dl shape. */
+const railFacts: [string, string][] = [
+  ["Entity type", h.entityType],
+  ...(h.order && h.order !== h.entityType
+    ? ([["Celestial order", h.order]] as [string, string][])
+    : []),
+  ...(h.triad ? ([["Triad", `${h.triad} Triad`]] as [string, string][]) : []),
+  ["Canonical status", h.canonicalStatus],
+  ...(h.primarySource
+    ? ([["Primary source", h.primarySource]] as [string, string][])
+    : []),
+];
+
+/* Source registers, kept apart in the rail exactly as §5b requires. */
+const refBlocks = [
+  { label: "Holy Scripture", items: h.scripture },
+  { label: "Deuterocanonical", items: h.deuterocanonical },
+  { label: "Extra-Biblical", items: h.extraBiblical },
+].filter((b) => b.items && b.items.length) as {
+  label: string;
+  items: string[];
+}[];
+
+/* Cross-links from the catalogue row (ids) — the curated `related` list with
+   notes is a main-column section instead. */
+const crossLinks = [
+  {
+    label: "Related Beings",
+    items: (h.relatedBeings ?? []).map((id) => ({
+      href: `host/${id}`,
+      name: hostById.get(id)?.name ?? id,
+    })),
+  },
+  {
+    label: "Related Saints",
+    items: (h.relatedSaints ?? []).map((id) => ({
+      href: `saint/${id}`,
+      name: saintById.get(id)?.name ?? id,
+    })),
+  },
+  {
+    label: "Related Feasts",
+    items: (h.relatedFeasts ?? []).map((id) => ({
+      href: `feast/${id}`,
+      name: feastById.get(id)?.name ?? id,
+    })),
+  },
+].filter((b) => b.items.length);
+
+/* The dossier's Main Content axes, retitled in plain language. The field names
+   are the archive's ("Orthodox Interpretation", "Historical Influence"); a
+   visitor who came to find out what a guardian angel is should not have to
+   decode them to guess what is behind each row. The catalogue view keeps the
+   formal titles. */
+const proseBlocks: { heading: string; body: string[] }[] = [];
+if (p) {
+  if (p.historicalContext?.length)
+    proseBlocks.push({
+      heading: "How it reached us",
+      body: p.historicalContext,
+    });
+  if (p.orthodoxInterpretation?.length)
+    proseBlocks.push({
+      heading: "What the Fathers taught",
+      body: p.orthodoxInterpretation,
+    });
+  if (p.liturgicalTradition?.length)
+    proseBlocks.push({
+      heading: "In the Church’s services",
+      body: p.liturgicalTradition,
+    });
+  if (p.iconography?.length)
+    proseBlocks.push({
+      heading: "How it is shown in icons",
+      body: p.iconography,
+    });
+  if (p.historicalInfluence?.length)
+    proseBlocks.push({
+      heading: "Its mark on Orthodox life",
+      body: p.historicalInfluence,
+    });
+}
+
+/* The page leads with the question chips and the essentials cards. When a
+   profile carries neither, there is nothing above the fold to answer with, so
+   the full teaching opens by default rather than leaving an empty column. */
+const leadWithProse = !p?.faq?.length && !p?.salvationHistory?.length;
+
+const citation = `${h.name} — Cloud of Witnesses.`;
+const depImg = (src: string) =>
+  /^(https?:)?\/\//.test(src) ? src : withBase(src);
+---
+
+<div class="saintview sv2" id="host-detail">
+  {/* ══════════════ HERO ══════════════ */}
+  <section class="sv-hero">
+    <div class="sv-hero-inner">
+      <nav class="sv-hero-crumb" aria-label="Breadcrumb">
+        <a href={withBase(backHref)} class="sv-back-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"><path d="M14 6l-6 6 6 6"></path></svg
+          >
+          <span class="sv-back-label">{backLabel}</span>
+        </a>
+        <span class="sv-sep">/</span>
+        <span class="sv-here">{h.name}</span>
+      </nav>
+
+      <div class="sv-hero-grid">
+        <div class="sv-hero-icon">
+          <div class="sv-icon-frame">
+            <div class="sv-icon-inner" set:html={portrait} />
+          </div>
+          {
+            h.image ? (
+              h.imagePermission ? (
+                <div class="sv-icon-cap">
+                  {h.imageAttribution}
+                  {h.imageSource && (
+                    <>
+                      {" "}
+                      Original icon:{" "}
+                      <a
+                        href={h.imageSource}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View on {h.imageVendor}
+                      </a>
+                    </>
+                  )}
+                </div>
+              ) : (
+                <div class="sv-icon-cap">
+                  <span class="sv-icon-cap-eb">Icon</span> ·{" "}
+                  {h.imageSource ? (
+                    <a
+                      href={h.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {h.imageCredit || "source"}
+                    </a>
+                  ) : (
+                    h.imageCredit
+                  )}
+                  {h.imageLicense && (
+                    <span class="sv-icon-lic">{h.imageLicense}</span>
+                  )}
+                </div>
+              )
+            ) : (
+              <div class="sv-icon-cap">Icon forthcoming</div>
+            )
+          }
+        </div>
+
+        <div class="sv-hero-id">
+          <div class="sv-hero-tagrow">
+            <span class="tag sv-tag-gold hsv-typetag"
+              ><i></i>{h.entityType}</span
+            >
+            <span class="eyebrow on-blue">Heavenly Hosts</span>
+          </div>
+
+          <h1 class="sv-name">{h.name}</h1>
+          {
+            h.aka?.length && (
+              <div class="sv-also">Also known as {h.aka.join(" · ")}</div>
+            )
+          }
+
+          <div class="sv-hero-rule"></div>
+
+          {h.brief && <p class="sv-lead">{h.brief}</p>}
+        </div>
+      </div>
+
+      {
+        feastNew && (
+          <div class="sv-fday">
+            <div class="sv-fday-body">
+              <div class="sv-fday-primary">
+                <div class="sv-fday-cal sv-fday-cal--new">
+                  <span class="sv-fday-date">{feastNew}</span>
+                  {feastOld && <span class="sv-fday-cap">New Calendar</span>}
+                </div>
+                <div class="sv-fday-top">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--gold-soft)"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M3 9h18M8 3v4M16 3v4" />
+                  </svg>
+                  <span class="sv-fday-label">Commemorated</span>
+                </div>
+                {feastOld && (
+                  <div class="sv-fday-cal sv-fday-cal--old">
+                    <span class="sv-fday-date sv-fday-date--old">
+                      {feastOld}
+                    </span>
+                    <span class="sv-fday-cap">Old Calendar</span>
+                  </div>
+                )}
+              </div>
+              {furtherFeasts.length > 0 && (
+                <div class="sv-fday-more">
+                  <span class="sv-fday-more-label">Also</span>
+                  <ul class="sv-fday-more-list">
+                    {furtherFeasts.map((f) => (
+                      <li>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {/* ══════════════ ACTIONS RIBBON ══════════════ */}
+  <div class="sv-actions">
+    <div class="sv-actions-inner">
+      {
+        /* sv-correct-link, not sv-explore-link: only the former has the
+          ribbon override that turns the pill ivory-on-gold. The explore
+          treatment is for the separate resources bar, and reads washed out
+          against this gold ground. */
+      }
+      <a href={withBase("nine-orders")} class="btn btn--ghost sv-correct-link">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--celest)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 3l8 5-8 5-8-5 8-5Z"></path>
+          <path d="M4 13l8 5 8-5"></path>
+        </svg>
+        <span class="sv-correct-label">The Nine Orders</span>
+      </a>
+      <div class="sv-actions-spacer"></div>
+      <a
+        href={withBase("corrections?subject=" + encodeURIComponent(h.name))}
+        class="btn btn--ghost sv-correct-link"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--celest)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 20h9"></path>
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+        </svg>
+        <span class="sv-correct-label">Suggest a correction</span>
+      </a>
+      <button type="button" class="btn btn--gold sv-share" data-cite={citation}>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--byz-ink)"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path>
+        </svg>
+        <span class="sv-share-label">Share / cite</span>
+      </button>
+    </div>
+  </div>
+
+  {/* ══════════════ DEPICTIONS ══════════════ */}
+  {
+    h.depictions && h.depictions.length > 0 && (
+      <section class="sv-deps" aria-label="Depictions and icons">
+        <div class="sv-deps-inner">
+          <div class="sv-deps-head">
+            <div class="sv-deps-headings">
+              <div class="eyebrow sv-deps-eb">Depictions &amp; Icons</div>
+              <p class="sv-deps-sub">
+                How the Church has written this image — museum masters,
+                hand-painted commissions, and icons you can order today.
+              </p>
+            </div>
+          </div>
+          <div class="sv-deps-viewport">
+            <div class="sv-deps-track">
+              {h.depictions.map((d) => {
+                const inner = (
+                  <>
+                    <div class="sv-dep-frame">
+                      <div class="sv-dep-mat">
+                        <div
+                          class="sv-dep-img"
+                          style={`background-image:url('${depImg(d.image)}')`}
+                        />
+                      </div>
+                    </div>
+                    <div class="sv-dep-meta">
+                      {d.tag && (
+                        <span class={`sv-dep-tag sv-dep-tag--${d.kind}`}>
+                          {d.tag}
+                        </span>
+                      )}
+                      <div class="sv-dep-title">
+                        {d.title}
+                        {d.era && <span class="sv-dep-era"> · {d.era}</span>}
+                      </div>
+                      {(d.by || d.attribution) && (
+                        <div class="sv-dep-by">
+                          <span>{d.attribution || d.by}</span>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
+                return d.source ? (
+                  <a
+                    href={d.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="sv-dep sv-dep--link"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div class="sv-dep">{inner}</div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {/* ══════════════ BODY ══════════════ */}
+  <div class="sv-body">
+    <aside class="sv-rail">
+      <div class="sv-glance">
+        <div class="eyebrow">At a glance</div>
+        <dl>
+          {
+            railFacts.map(([k, v]) => (
+              <div class="sv-fact">
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+
+      {
+        /* Reference apparatus, folded away. Left open these ran the full height
+          of the page — three scripture registers plus a sixteen-entry list of
+          related beings — which is a wall of citations for a reader who came to
+          find out what a guardian angel is. Each keeps its count so the depth is
+          still advertised; Holy Scripture stays open as the one a visitor is
+          most likely to actually want. */
+      }
+      {
+        refBlocks.map((b, i) => (
+          <details class="hsv-aside" open={i === 0}>
+            <summary>
+              <span class="eyebrow">{b.label}</span>
+              <span class="hsv-aside-ct">{b.items.length}</span>
+            </summary>
+            <ul class="hsv-aside-list">
+              {b.items.map((r) => (
+                <li>{r}</li>
+              ))}
+            </ul>
+          </details>
+        ))
+      }
+
+      {
+        crossLinks.map((b) => (
+          <details class="hsv-aside">
+            <summary>
+              <span class="eyebrow">{b.label}</span>
+              <span class="hsv-aside-ct">{b.items.length}</span>
+            </summary>
+            <ul class="hsv-aside-list hsv-aside-links">
+              {b.items.map((it) => (
+                <li>
+                  <a href={withBase(it.href)}>{it.name}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))
+      }
+    </aside>
+
+    <main class="sv-main">
+      {
+        p && p.status !== "reviewed" && (
+          <div class={`hsv-notice hsv-notice--${p.status}`}>
+            <strong>
+              {p.status === "flagged" ? "Flagged draft" : "Draft"}
+            </strong>{" "}
+            — this profile is unreviewed and not yet published. Shown here for
+            review.
+            {p.status === "flagged" && p.flagReasons?.length && (
+              <ul>
+                {p.flagReasons.map((f) => (
+                  <li>
+                    <strong>{f.claim}</strong> — {f.detail}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )
+      }
+
+      {
+        !p && (
+          <p class="hsv-stub">
+            No rich profile yet — this entry carries its catalogue record only.
+          </p>
+        )
+      }
+
+      {
+        /* ── Ask-first: the questions a visitor actually arrives with. Each chip
+             opens the matching Q&A below and scrolls to it. ── */
+      }
+      {
+        p?.faq?.length && (
+          <section class="hsv-ask">
+            <div class="sv-secthead">
+              <span class="eyebrow">What do you want to know?</span>
+            </div>
+            <div class="hsv-chips">
+              {p.faq.map((f, i) => (
+                <button type="button" class="hsv-chip" data-q={String(i)}>
+                  {f.question}
+                </button>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        /* ── The essentials, as cards: the shortest honest answer to "what is
+             this actually about", each opening in place for the full text. ── */
+      }
+      {
+        p?.salvationHistory?.length && (
+          <section class="hsv-ess">
+            <div class="sv-secthead">
+              <span class="eyebrow">
+                {p.essentialsHeading || "The essentials"}
+              </span>
+            </div>
+            <div class="hsv-cards">
+              {p.salvationHistory.map((s) => (
+                <details class="hsv-card">
+                  <summary>
+                    <span class="hsv-card-h">{s.heading}</span>
+                    <p class="hsv-card-teaser">{s.body[0]}</p>
+                    <span class="hsv-card-more" aria-hidden="true" />
+                  </summary>
+                  {s.body.slice(1).map((para) => (
+                    <p class="hsv-card-rest">{para}</p>
+                  ))}
+                </details>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <div class="sv-after">
+        <div class="sv-after-inner">
+          {
+            /* Reader-priority order: their own question first, then the words the
+              Church prays, then the full teaching, then the apparatus. */
+          }
+          {
+            p?.faq?.length && (
+              <DeepSection
+                heading={"Questions & Answers"}
+                count={p.faq.length}
+                showLabel="Show"
+              >
+                <div class="hsv-qa-list">
+                  {p.faq.map((f, i) => (
+                    <details class="hsv-qa" id={`qa-${i}`}>
+                      <summary>{f.question}</summary>
+                      <div class="hsv-qa-body">
+                        {f.answer.map((para) => (
+                          <p>{para}</p>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </DeepSection>
+            )
+          }
+
+          {
+            p?.prayers?.length && (
+              <DeepSection
+                heading="In the Church’s Prayer"
+                count={p.prayers.length}
+              >
+                {p.prayers.map((pr) => (
+                  <figure class="hsv-pryr">
+                    <figcaption class="hsv-pryr-head">
+                      <span class="hsv-pryr-title">{pr.title}</span>
+                      {pr.use && <span class="hsv-pryr-use">{pr.use}</span>}
+                    </figcaption>
+                    <blockquote class="hsv-pryr-text">
+                      {pr.text.map((para) => (
+                        <p>{para}</p>
+                      ))}
+                    </blockquote>
+                    <p class="hsv-pryr-attr">
+                      {pr.source ? (
+                        <a
+                          href={pr.source}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {pr.translation}
+                        </a>
+                      ) : (
+                        pr.translation
+                      )}
+                    </p>
+                  </figure>
+                ))}
+              </DeepSection>
+            )
+          }
+
+          {
+            p?.overview?.length && (
+              <DeepSection heading="The teaching in full" open={leadWithProse}>
+                {p.overview.map((para) => (
+                  <p class="sv-bodytext">{para}</p>
+                ))}
+              </DeepSection>
+            )
+          }
+
+          {
+            /* Two grouped bands instead of a dozen sibling rows. Left flat, the
+              collapsed headers read as a filing cabinet; the reader-facing three
+              above (questions, prayers, the teaching) get lost among them. */
+          }
+          {
+            (proseBlocks.length > 0 || p?.sections?.length) && (
+              <DeepSection
+                heading="Go deeper"
+                count={proseBlocks.length + (p?.sections?.length ?? 0)}
+                showLabel="Show"
+              >
+                {proseBlocks.map((blk) => (
+                  <details class="hsv-sub">
+                    <summary>{blk.heading}</summary>
+                    <div class="hsv-sub-body">
+                      {blk.body.map((para) => (
+                        <p>{para}</p>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+                {p?.sections?.map((sec) => (
+                  <details class="hsv-sub">
+                    <summary>{sec.heading}</summary>
+                    <div class="hsv-sub-body">
+                      {sec.body.map((para) => (
+                        <p>{para}</p>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </DeepSection>
+            )
+          }
+
+          {
+            (p?.scripture?.length ||
+              p?.authorities?.length ||
+              p?.reading?.length) && (
+              <DeepSection heading="Where this comes from" showLabel="Show">
+                {p?.scripture?.length && (
+                  <details class="hsv-sub">
+                    <summary>
+                      The Scripture passages
+                      <span class="hsv-sub-ct">{p.scripture.length}</span>
+                    </summary>
+                    <div class="hsv-sub-body">
+                      <ul class="hsv-refs">
+                        {p.scripture.map((sc) => (
+                          <li>
+                            <strong>{sc.ref}</strong>
+                            {sc.note ? ` — ${sc.note}` : ""}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </details>
+                )}
+
+                {p?.authorities?.length && (
+                  <details class="hsv-sub">
+                    <summary>Sources by authority</summary>
+                    <div class="hsv-sub-body">
+                      <p class="hsv-auth-lede">
+                        Orthodox teaching is not one undifferentiated body of
+                        claims. What Scripture states, what the Church prays,
+                        what the Fathers taught, and what later writers explain
+                        are distinct registers — this page keeps them apart so
+                        you can see what each statement rests on.
+                      </p>
+                      <div class="hsv-auth-scroll">
+                        <table class="hsv-auth">
+                          <thead>
+                            <tr>
+                              <th scope="col">Register</th>
+                              <th scope="col">Sources</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {p.authorities.map((a) => (
+                              <tr>
+                                <th scope="row">
+                                  {a.level}
+                                  {a.note && (
+                                    <span class="hsv-auth-note">{a.note}</span>
+                                  )}
+                                </th>
+                                <td>{a.sources.join("; ")}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </details>
+                )}
+
+                {p?.reading?.length && (
+                  <details class="hsv-sub">
+                    <summary>Read more</summary>
+                    <div class="hsv-sub-body">
+                      {p.reading.map((r) => (
+                        <div class="hsv-reading">
+                          <h3>{r.heading}</h3>
+                          <ul>
+                            {r.items.map((it) => (
+                              <li>
+                                {it.url ? (
+                                  <a
+                                    href={it.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {it.title}
+                                  </a>
+                                ) : (
+                                  it.title
+                                )}
+                                {it.author ? ` — ${it.author}` : ""}
+                                {it.type ? ` (${it.type})` : ""}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                )}
+              </DeepSection>
+            )
+          }
+
+          {
+            h.notes && (
+              <div class="hsv-fineprint">
+                <div class="eyebrow">Catalogue note</div>
+                <p>{h.notes}</p>
+              </div>
+            )
+          }
+
+          {
+            h.sources?.length && (
+              <div class="hsv-sources">
+                <div class="eyebrow">Catalogue sources</div>
+                <p>{h.sources.join("; ")}</p>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<style>
+  /* The chrome (hero, feast card, actions ribbon, rail, deep-dives, depictions)
+     reuses the global `.sv-*` saint-page system; only the host-specific bits
+     are scoped here. */
+
+  /* Entity-type chip in the hero tagrow — the sv-tag-gold treatment, tinted to
+     the celestial blue rather than a saint's rank colour. */
+  .hsv-typetag {
+    background: rgba(90, 127, 166, 0.22);
+    border-color: rgba(230, 205, 126, 0.45);
+    color: var(--ivory);
+  }
+
+  /* Rail blocks — the source registers and cross-links, matching .sv-glance.
+     Collapsible, so the apparatus does not out-run the page it annotates. */
+  .hsv-aside {
+    margin-top: 1.1rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.18);
+    padding-top: 0.7rem;
+  }
+  .hsv-aside > summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hsv-aside > summary::-webkit-details-marker {
+    display: none;
+  }
+  .hsv-aside > summary::after {
+    content: "+";
+    margin-left: auto;
+    color: var(--gold-deep);
+    font-weight: 700;
+  }
+  .hsv-aside[open] > summary::after {
+    content: "\2212";
+  }
+  .hsv-aside > summary:hover .eyebrow {
+    color: var(--byz);
+  }
+  .hsv-aside-ct {
+    font-family: var(--serif);
+    font-size: 0.86rem;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .hsv-aside-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .hsv-aside-list li {
+    padding: 0.24rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.14);
+  }
+  .hsv-aside-list li:last-child {
+    border-bottom: 0;
+  }
+  .hsv-aside-links a {
+    color: var(--byz);
+    text-decoration: none;
+  }
+  .hsv-aside-links a:hover {
+    text-decoration: underline;
+  }
+
+  .hsv-notice {
+    border-left: 3px solid var(--gold-deep);
+    background: rgba(212, 175, 55, 0.09);
+    padding: 0.75rem 1rem;
+    margin: 0 0 1.4rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    border-radius: 0 5px 5px 0;
+  }
+  .hsv-notice--flagged {
+    border-left-color: #8d3a2f;
+    background: rgba(141, 58, 47, 0.08);
+  }
+  .hsv-stub {
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  /* ── Ask-first chips ──────────────────────────────────────────────────
+     The questions a visitor arrives with, as tappable pills. Clicking one
+     opens the matching Q&A below. */
+  .hsv-ask {
+    margin-bottom: 1.9rem;
+  }
+  .hsv-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+  }
+  .hsv-chip {
+    font: inherit;
+    font-size: 0.88rem;
+    line-height: 1.3;
+    cursor: pointer;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-gold);
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--byz-deep);
+    text-align: left;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      transform 0.1s;
+  }
+  .hsv-chip:hover,
+  .hsv-chip:focus-visible {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* ── The essentials, as cards ─────────────────────────────────────────
+     Each opens in place: closed, the first paragraph is clamped to a teaser;
+     open, it runs in full. Works with no JS — they are <details>. */
+  .hsv-ess {
+    margin-bottom: 1.4rem;
+  }
+  .hsv-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+    gap: 0.75rem;
+    align-items: start;
+    margin-top: 0.85rem;
+  }
+  .hsv-card {
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-left: 3px solid var(--line-gold);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.4);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  .hsv-card[open],
+  .hsv-card:hover {
+    border-left-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+  }
+  /* An opened card takes the full grid width: these paragraphs are long, and a
+     one-column card turns them into a tall ribbon of text. Auto-placement gives
+     it its own row and keeps the reading order. */
+  .hsv-card[open] {
+    grid-column: 1 / -1;
+  }
+  .hsv-card > summary {
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 1.3rem;
+  }
+  .hsv-card > summary::-webkit-details-marker {
+    display: none;
+  }
+  .hsv-card-h {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.14rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+    line-height: 1.25;
+  }
+  .hsv-card-teaser {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .hsv-card:not([open]) .hsv-card-teaser {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* The +/− affordance, so a card reads as openable at a glance. */
+  .hsv-card-more::after {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 700;
+    color: var(--gold-deep);
+    line-height: 1.2;
+  }
+  .hsv-card[open] .hsv-card-more::after {
+    content: "\2212";
+  }
+  .hsv-card-rest {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* A chip-targeted answer flashes so it is obvious which one opened. */
+  .hsv-qa-list :global(.hsv-qa.is-target) > summary {
+    color: var(--byz);
+  }
+  .hsv-qa.is-target {
+    animation: hsv-flash 1.4s ease-out;
+  }
+  @keyframes hsv-flash {
+    from {
+      background: rgba(212, 175, 55, 0.22);
+    }
+    to {
+      background: transparent;
+    }
+  }
+
+  /* Liturgical texts — the Church's own words, set apart from our prose by a
+     gold rule and the serif face, with the PD translation credited beneath. */
+  .hsv-pryr {
+    margin: 0 0 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--line-gold);
+  }
+  .hsv-pryr:last-child {
+    margin-bottom: 0.4rem;
+  }
+  .hsv-pryr-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
+  }
+  .hsv-pryr-title {
+    font-family: var(--serif);
+    font-size: 1.14rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .hsv-pryr-use {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--byz-green);
+  }
+  .hsv-pryr-text {
+    margin: 0;
+  }
+  .hsv-pryr-text p {
+    font-family: var(--serif);
+    font-size: 1.16rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .hsv-pryr-attr {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin: 0.2rem 0 0;
+  }
+
+  .hsv-refs {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .hsv-refs li {
+    margin-bottom: 0.45rem;
+    line-height: 1.55;
+  }
+
+  /* One nested-row treatment, shared by the Q&A answers and by the sub-sections
+     inside the "Go deeper" / "Where this comes from" bands: a quiet +/- row,
+     visually subordinate to the gold sv-deep headers above it. */
+  .hsv-qa,
+  .hsv-sub {
+    border-top: 1px solid rgba(128, 128, 128, 0.18);
+  }
+  /* `.sv2 .sv-deep > :not(summary)` gives every nested block a 24px top margin,
+     which spreads these into a sparse ladder. Keep that gap under the section
+     header (the first row) and close it between rows — they are one list. Needs
+     the `.sv2` prefix to out-specify the global rule. */
+  .sv2 .hsv-qa + .hsv-qa,
+  .sv2 .hsv-sub + .hsv-sub {
+    margin-top: 0;
+  }
+  .hsv-qa:first-of-type,
+  .hsv-sub:first-of-type {
+    border-top: 0;
+  }
+  .hsv-qa > summary,
+  .hsv-sub > summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.62rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    line-height: 1.45;
+  }
+  .hsv-qa > summary::-webkit-details-marker,
+  .hsv-sub > summary::-webkit-details-marker {
+    display: none;
+  }
+  .hsv-qa > summary::before,
+  .hsv-sub > summary::before {
+    content: "+";
+    color: var(--gold-deep);
+    font-weight: 700;
+    flex: none;
+  }
+  .hsv-qa[open] > summary::before,
+  .hsv-sub[open] > summary::before {
+    content: "\2212";
+  }
+  .hsv-qa > summary:hover,
+  .hsv-sub > summary:hover {
+    color: var(--byz);
+  }
+  .hsv-qa-body,
+  .hsv-sub-body {
+    padding: 0 0 0.7rem 1.05rem;
+  }
+  .hsv-qa-body p,
+  .hsv-sub-body p {
+    line-height: 1.7;
+    margin: 0 0 0.7rem;
+  }
+  .hsv-sub-ct {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+
+  /* Sources-by-authority table — scrolls inside its own box on narrow screens
+     rather than pushing the page sideways. */
+  .hsv-auth-lede {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.9rem;
+    line-height: 1.6;
+  }
+  .hsv-auth-scroll {
+    overflow-x: auto;
+  }
+  .hsv-auth {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 30rem;
+    font-size: 0.92rem;
+  }
+  .hsv-auth th,
+  .hsv-auth td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.55rem 0.8rem 0.55rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    line-height: 1.5;
+  }
+  .hsv-auth thead th {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--byz-green);
+    border-bottom-color: var(--line-gold);
+  }
+  .hsv-auth tbody th {
+    white-space: nowrap;
+    color: var(--byz-deep);
+    padding-right: 1.2rem;
+  }
+  .hsv-auth-note {
+    display: block;
+    font-weight: 400;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    white-space: normal;
+    max-width: 12rem;
+  }
+
+  .hsv-reading h3 {
+    font-size: 1rem;
+    color: var(--byz-deep);
+    margin: 1rem 0 0.3rem;
+  }
+  .hsv-reading ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .hsv-reading li {
+    margin-bottom: 0.3rem;
+    line-height: 1.55;
+  }
+
+  .hsv-fineprint,
+  .hsv-sources {
+    margin-top: 1.6rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .hsv-fineprint p,
+  .hsv-sources p {
+    margin: 0.4rem 0 0;
+  }
+
+  /* `.sv2 .sv-bodytext` is margin:0 — the saint page uses it for a single
+     `brief` paragraph. These profiles run to eight, so consecutive paragraphs
+     need a break. Scoped here rather than changed globally, which would move
+     every saint and witness page too. */
+  .sv-bodytext + .sv-bodytext {
+    margin-top: 0.85em;
+  }
+</style>
+
+<script>
+  /* Ask-first chips: open the Q&A deep-dive, open the one answer asked for,
+     and bring it into view. Progressive enhancement — without JS the chips do
+     nothing and every answer is still reachable in the Q&A section below. */
+  for (const chip of document.querySelectorAll<HTMLButtonElement>(
+    ".hsv-chip",
+  )) {
+    chip.addEventListener("click", () => {
+      const answer = document.getElementById(`qa-${chip.dataset.q}`);
+      if (!answer) return;
+      // Open every collapsed ancestor (the Q&A DeepSection wraps the answer).
+      let node: HTMLElement | null = answer;
+      while (node) {
+        if (node instanceof HTMLDetailsElement) node.open = true;
+        node = node.parentElement;
+      }
+      for (const other of document.querySelectorAll(".hsv-qa.is-target")) {
+        other.classList.remove("is-target");
+      }
+      // Restart the flash: the class must land after a reflow to re-run.
+      void answer.offsetWidth;
+      answer.classList.add("is-target");
+      answer.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  /* Share / cite — copy a plain citation + canonical URL, with a Web-Share
+     fallback. (Mirrors the saint and witness pages.) */
+  const share = document.querySelector<HTMLButtonElement>(".sv-share");
+  const shareLabel = share?.querySelector<HTMLElement>(".sv-share-label");
+  if (share && shareLabel) {
+    const cite = share.dataset.cite || document.title;
+    const url = location.href;
+    share.addEventListener("click", async () => {
+      const text = `${cite} ${url}`;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: cite, url });
+          return;
+        }
+        await navigator.clipboard.writeText(text);
+        const prev = shareLabel.textContent;
+        shareLabel.textContent = "Citation copied";
+        window.setTimeout(() => {
+          shareLabel.textContent = prev;
+        }, 1600);
+      } catch {
+        /* user dismissed the share sheet, or clipboard denied — no-op */
+      }
+    });
+  }
+</script>

@@ -1,5 +1,5 @@
 ---
-import { HOSTS, isBiblicalEncounter } from "../lib/hosts";
+import { HOSTS, isTitledFigure } from "../lib/hosts";
 import { withBase } from "../lib/format";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
@@ -13,13 +13,10 @@ import EyebrowRule from "../components/EyebrowRule.astro";
 // contrast, are reached from the Archangels rank page. HOSTS arrives sorted by
 // hostlib._sort_key.
 // Event-anchored angels (carrying the Biblical Encounter tag) belong to the
-// sibling /biblical-encounters hub, not here — exclude them.
-const figures = HOSTS.filter(
-  (h) =>
-    ["Angelic Class", "Scriptural Angel", "Collective"].includes(
-      h.entityType,
-    ) && !isBiblicalEncounter(h),
-);
+// sibling /biblical-encounters hub, not here — isTitledFigure excludes them,
+// and is the same predicate /host/[id] uses to decide who gets the full
+// saint-page treatment, so hub and page can never disagree on membership.
+const figures = HOSTS.filter(isTitledFigure);
 ---
 
 <BaseLayout

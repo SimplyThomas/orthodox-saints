@@ -6,6 +6,7 @@ import {
   loadHostProfileMap,
   isBiblicalEncounter,
   isExtraBiblicalAngel,
+  isTitledFigure,
 } from "../../lib/hosts";
 import { byId as saintById } from "../../lib/data";
 import { FEASTS } from "../../lib/feasts";
@@ -13,6 +14,7 @@ import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DomeMark from "../../components/icons/DomeMark.astro";
 import EyebrowRule from "../../components/EyebrowRule.astro";
+import HostSaintView from "../../components/HostSaintView.astro";
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
@@ -50,11 +52,6 @@ const parentRank =
         (h) => h.entityType === "Angelic Rank" && h.name === host.order,
       )
     : undefined;
-const TITLED_TYPES = new Set([
-  "Angelic Class",
-  "Scriptural Angel",
-  "Collective",
-]);
 let backHref = "nine-orders";
 let backLabel = "The Nine Orders";
 if (parentRank) {
@@ -66,10 +63,17 @@ if (parentRank) {
 } else if (isExtraBiblicalAngel(host)) {
   backHref = "extra-biblical-angels";
   backLabel = "Extra-Biblical Angels";
-} else if (TITLED_TYPES.has(host.entityType)) {
+} else if (isTitledFigure(host)) {
   backHref = "guardian-angels";
   backLabel = "Guardian Angels & Titled Figures";
 }
+
+// The Guardian Angels & Titled Figures carry the fullest prose in the section
+// (guardian angels, the Angel of the Lord, the Commander of the Lord's Army,
+// the angels of the seven churches), so they get the full saint-page chrome via
+// HostSaintView. The ranks, named archangels, biblical encounters, and
+// extra-biblical angels keep the catalogue layout below.
+const useSaintFormat = isTitledFigure(host);
 
 const desc = host.brief || `${host.name} — of the heavenly hosts.`;
 
@@ -121,437 +125,574 @@ const refBlocks = [
   { label: "Deuterocanonical", items: host.deuterocanonical },
   { label: "Extra-Biblical", items: host.extraBiblical },
 ].filter((b) => b.items && b.items.length);
+
+// schema.org FAQPage for the Q&A block — these are the questions people put to
+// a search engine ("do guardian angels have names?"), so answering them in
+// structured form is the whole point of carrying them.
+const faqLd = p?.faq?.length
+  ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: p.faq.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer.join(" ") },
+      })),
+    }).replace(/</g, "\\u003c")
+  : null;
 ---
 
 <BaseLayout title={host.name} description={desc} ogType="article">
-  <article class="host2">
-    {
-      isHub && (
-        <section class="host-hub-hero">
-          <div class="dome-bg" aria-hidden="true">
-            <DomeMark w={460} color="var(--byz)" />
-          </div>
-          <div class="host-hub-inner">
-            <EyebrowRule label="Heavenly Hosts" />
-            <h1 class="host-hub-title">The Holy {host.name}</h1>
-            <p class="host-hub-lede">{host.brief}</p>
-            {host.feasts?.length && (
-              <p class="host-hub-feast">
-                Commemorated <strong>{host.feasts.join("; ")}</strong>
-              </p>
-            )}
-          </div>
-        </section>
-      )
-    }
-    {
-      !isHub && (
-        <section class="host-hero">
-          <div class="host-hero-inner">
-            <nav class="host-crumb" aria-label="Breadcrumb">
-              <a class="host-back" href={withBase(backHref)}>
-                ← {backLabel}
-              </a>
-            </nav>
+  {faqLd && <script type="application/ld+json" set:html={faqLd} />}
+  {
+    useSaintFormat && (
+      <HostSaintView
+        host={host}
+        profile={p}
+        backHref={backHref}
+        backLabel={backLabel}
+      />
+    )
+  }
+  {
+    !useSaintFormat && (
+      <article class="host2">
+        {isHub && (
+          <section class="host-hub-hero">
+            <div class="dome-bg" aria-hidden="true">
+              <DomeMark w={460} color="var(--byz)" />
+            </div>
+            <div class="host-hub-inner">
+              <EyebrowRule label="Heavenly Hosts" />
+              <h1 class="host-hub-title">The Holy {host.name}</h1>
+              <p class="host-hub-lede">{host.brief}</p>
+              {host.feasts?.length && (
+                <p class="host-hub-feast">
+                  Commemorated <strong>{host.feasts.join("; ")}</strong>
+                </p>
+              )}
+            </div>
+          </section>
+        )}
+        {!isHub && (
+          <section class="host-hero">
+            <div class="host-hero-inner">
+              <nav class="host-crumb" aria-label="Breadcrumb">
+                <a class="host-back" href={withBase(backHref)}>
+                  ← {backLabel}
+                </a>
+              </nav>
 
-            <div class="host-hero-grid">
-              <div class="host-hero-icon">
-                <div class="host-icon-frame">
+              <div class="host-hero-grid">
+                <div class="host-hero-icon">
+                  <div class="host-icon-frame">
+                    {heroImage ? (
+                      <img
+                        src={withBase(heroImage)}
+                        alt={`Icon of ${host.name}`}
+                      />
+                    ) : (
+                      <div class="host-icon-ph" aria-hidden="true">
+                        {initial}
+                      </div>
+                    )}
+                  </div>
                   {heroImage ? (
-                    <img
-                      src={withBase(heroImage)}
-                      alt={`Icon of ${host.name}`}
-                    />
-                  ) : (
-                    <div class="host-icon-ph" aria-hidden="true">
-                      {initial}
-                    </div>
-                  )}
-                </div>
-                {heroImage ? (
-                  host.imagePermission ? (
-                    <div class="host-icon-cap">
-                      {host.imageAttribution}
-                      {host.imageSource && (
-                        <>
-                          {" "}
-                          Original icon:{" "}
-                          <a
-                            href={host.imageSource}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View on {host.imageVendor}
-                          </a>
-                        </>
-                      )}
-                    </div>
-                  ) : (
-                    host.imageCredit && (
+                    host.imagePermission ? (
                       <div class="host-icon-cap">
-                        {host.imageCredit}
-                        {host.imageLicense ? ` · ${host.imageLicense}` : ""}
+                        {host.imageAttribution}
                         {host.imageSource && (
                           <>
                             {" "}
-                            ·{" "}
-                            <a href={host.imageSource} rel="nofollow">
-                              source
+                            Original icon:{" "}
+                            <a
+                              href={host.imageSource}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View on {host.imageVendor}
                             </a>
                           </>
                         )}
                       </div>
+                    ) : (
+                      host.imageCredit && (
+                        <div class="host-icon-cap">
+                          {host.imageCredit}
+                          {host.imageLicense ? ` · ${host.imageLicense}` : ""}
+                          {host.imageSource && (
+                            <>
+                              {" "}
+                              ·{" "}
+                              <a href={host.imageSource} rel="nofollow">
+                                source
+                              </a>
+                            </>
+                          )}
+                        </div>
+                      )
                     )
-                  )
-                ) : (
-                  <div class="host-icon-cap">Image forthcoming</div>
-                )}
-              </div>
-
-              <div class="host-hero-id">
-                <h1>{host.name}</h1>
-                {host.aka?.length && (
-                  <p class="aka">Also known as: {host.aka.join(", ")}</p>
-                )}
-                <div class="badges">
-                  {badges.map((b) => (
-                    <span class="badge">{b}</span>
-                  ))}
+                  ) : (
+                    <div class="host-icon-cap">Image forthcoming</div>
+                  )}
                 </div>
-                <p class="brief">{host.brief}</p>
-                {host.feasts?.length && (
-                  <p class="feast">
-                    Commemorated: <strong>{host.feasts.join("; ")}</strong>
-                  </p>
-                )}
+
+                <div class="host-hero-id">
+                  <h1>{host.name}</h1>
+                  {host.aka?.length && (
+                    <p class="aka">Also known as: {host.aka.join(", ")}</p>
+                  )}
+                  <div class="badges">
+                    {badges.map((b) => (
+                      <span class="badge">{b}</span>
+                    ))}
+                  </div>
+                  <p class="brief">{host.brief}</p>
+                  {host.feasts?.length && (
+                    <p class="feast">
+                      Commemorated: <strong>{host.feasts.join("; ")}</strong>
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
+          </section>
+        )}
+
+        {p && p.status !== "reviewed" && (
+          <div class={`draft-banner ${p.status}`}>
+            <strong>
+              {p.status === "flagged" ? "Flagged draft" : "Draft"}
+            </strong>{" "}
+            — this profile is unreviewed and not yet published. Shown here for
+            review.
+            {p.status === "flagged" && p.flagReasons?.length && (
+              <ul>
+                {p.flagReasons.map((f) => (
+                  <li>
+                    <strong>{f.claim}</strong> — {f.detail}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-        </section>
-      )
-    }
+        )}
 
-    {
-      p && p.status !== "reviewed" && (
-        <div class={`draft-banner ${p.status}`}>
-          <strong>{p.status === "flagged" ? "Flagged draft" : "Draft"}</strong>{" "}
-          — this profile is unreviewed and not yet published. Shown here for
-          review.
-          {p.status === "flagged" && p.flagReasons?.length && (
-            <ul>
-              {p.flagReasons.map((f) => (
-                <li>
-                  <strong>{f.claim}</strong> — {f.detail}
-                </li>
-              ))}
-            </ul>
+        <div class="host-wrap">
+          {members.length > 0 && (
+            <section class="host-members">
+              {!isHub && <h2>The Holy {host.name}</h2>}
+              <div class="member-grid">
+                {members.map((m) => (
+                  <a class="member-card" href={withBase(`host/${m.id}`)}>
+                    <span class="member-thumb">
+                      {m.imageThumb || m.image ? (
+                        <img
+                          src={withBase(m.imageThumb || m.image!)}
+                          alt={m.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="member-mono" aria-hidden="true">
+                          {shortName(m.name).charAt(0)}
+                        </span>
+                      )}
+                    </span>
+                    <span class="member-name">{shortName(m.name)}</span>
+                    <span class="member-brief">{m.brief}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
           )}
-        </div>
-      )
-    }
 
-    <div class="host-wrap">
-      {
-        members.length > 0 && (
-          <section class="host-members">
-            {!isHub && <h2>The Holy {host.name}</h2>}
-            <div class="member-grid">
-              {members.map((m) => (
-                <a class="member-card" href={withBase(`host/${m.id}`)}>
-                  <span class="member-thumb">
-                    {m.imageThumb || m.image ? (
+          {host.depictions && host.depictions.length > 0 && (
+            <section class="host-deps" aria-label="Depictions and icons">
+              <div class="host-deps-head">
+                <h2>Depictions &amp; Icons</h2>
+                <p class="host-deps-sub">
+                  How the Church has written this image — museum masters,
+                  hand-painted commissions, and icons you can order today.
+                </p>
+              </div>
+              <div class="host-deps-track">
+                {host.depictions.map((d) => (
+                  <figure class={`dep-card dep-${d.kind}`}>
+                    <div class="dep-frame">
                       <img
-                        src={withBase(m.imageThumb || m.image!)}
-                        alt={m.name}
+                        src={withBase(d.image)}
+                        alt={d.title}
                         loading="lazy"
                       />
-                    ) : (
-                      <span class="member-mono" aria-hidden="true">
-                        {shortName(m.name).charAt(0)}
+                    </div>
+                    <figcaption class="dep-meta">
+                      {d.tag && <span class="dep-tag">{d.tag}</span>}
+                      <span class="dep-title">
+                        {d.title}
+                        {d.era && <span class="dep-era"> · {d.era}</span>}
                       </span>
-                    )}
-                  </span>
-                  <span class="member-name">{shortName(m.name)}</span>
-                  <span class="member-brief">{m.brief}</span>
-                </a>
-              ))}
-            </div>
-          </section>
-        )
-      }
-
-      {
-        host.depictions && host.depictions.length > 0 && (
-          <section class="host-deps" aria-label="Depictions and icons">
-            <div class="host-deps-head">
-              <h2>Depictions &amp; Icons</h2>
-              <p class="host-deps-sub">
-                How the Church has written this image — museum masters,
-                hand-painted commissions, and icons you can order today.
-              </p>
-            </div>
-            <div class="host-deps-track">
-              {host.depictions.map((d) => (
-                <figure class={`dep-card dep-${d.kind}`}>
-                  <div class="dep-frame">
-                    <img src={withBase(d.image)} alt={d.title} loading="lazy" />
-                  </div>
-                  <figcaption class="dep-meta">
-                    {d.tag && <span class="dep-tag">{d.tag}</span>}
-                    <span class="dep-title">
-                      {d.title}
-                      {d.era && <span class="dep-era"> · {d.era}</span>}
-                    </span>
-                    {d.permission ? (
-                      <span class="dep-attr">
-                        {d.attribution}
-                        {d.source && (
-                          <>
-                            {" "}
-                            <a
-                              href={d.source}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              View on {d.vendor}
-                            </a>
-                          </>
-                        )}
-                      </span>
-                    ) : (
-                      (d.credit || d.source) && (
+                      {d.permission ? (
                         <span class="dep-attr">
-                          {d.source ? (
+                          {d.attribution}
+                          {d.source && (
+                            <>
+                              {" "}
+                              <a
+                                href={d.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                View on {d.vendor}
+                              </a>
+                            </>
+                          )}
+                        </span>
+                      ) : (
+                        (d.credit || d.source) && (
+                          <span class="dep-attr">
+                            {d.source ? (
+                              <a
+                                href={d.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {d.credit || "source"}
+                              </a>
+                            ) : (
+                              d.credit
+                            )}
+                            {d.license ? ` · ${d.license}` : ""}
+                          </span>
+                        )
+                      )}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <div class="layout">
+            <main class="body">
+              {!p && (
+                <p class="stub">
+                  No rich profile yet — this entry carries its catalogue record
+                  only.
+                </p>
+              )}
+
+              {p?.overview?.length && (
+                <section class="sec sec-static">
+                  <h2>Overview</h2>
+                  <div class="sec-body">
+                    {p.overview.map((para) => (
+                      <p>{para}</p>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {p?.salvationHistory?.length && (
+                <details class="sec">
+                  <summary>Role in Salvation History</summary>
+                  <div class="sec-body">
+                    {p.salvationHistory.map((s) => (
+                      <div class="phase">
+                        <h3>{s.heading}</h3>
+                        {s.body.map((para) => (
+                          <p>{para}</p>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {proseBlocks.map((blk) => (
+                <details class="sec">
+                  <summary>{blk.heading}</summary>
+                  <div class="sec-body">
+                    {blk.body.map((para) => (
+                      <p>{para}</p>
+                    ))}
+                  </div>
+                </details>
+              ))}
+
+              {p?.prayers?.length && (
+                <details class="sec">
+                  <summary>In the Church’s Prayer</summary>
+                  <div class="sec-body">
+                    {p.prayers.map((pr) => (
+                      <figure class="pryr">
+                        <figcaption class="pryr-head">
+                          <span class="pryr-title">{pr.title}</span>
+                          {pr.use && <span class="pryr-use">{pr.use}</span>}
+                        </figcaption>
+                        <blockquote class="pryr-text">
+                          {pr.text.map((para) => (
+                            <p>{para}</p>
+                          ))}
+                        </blockquote>
+                        <p class="pryr-attr">
+                          {pr.source ? (
                             <a
-                              href={d.source}
+                              href={pr.source}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              {d.credit || "source"}
+                              {pr.translation}
                             </a>
                           ) : (
-                            d.credit
+                            pr.translation
                           )}
-                          {d.license ? ` · ${d.license}` : ""}
-                        </span>
-                      )
-                    )}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-        )
-      }
+                        </p>
+                      </figure>
+                    ))}
+                  </div>
+                </details>
+              )}
 
-      <div class="layout">
-        <main class="body">
-          {
-            !p && (
-              <p class="stub">
-                No rich profile yet — this entry carries its catalogue record
-                only.
-              </p>
-            )
-          }
-
-          {
-            p?.overview?.length && (
-              <section class="sec sec-static">
-                <h2>Overview</h2>
-                <div class="sec-body">
-                  {p.overview.map((para) => (
-                    <p>{para}</p>
-                  ))}
-                </div>
-              </section>
-            )
-          }
-
-          {
-            p?.salvationHistory?.length && (
-              <details class="sec">
-                <summary>Role in Salvation History</summary>
-                <div class="sec-body">
-                  {p.salvationHistory.map((s) => (
-                    <div class="phase">
-                      <h3>{s.heading}</h3>
-                      {s.body.map((para) => (
-                        <p>{para}</p>
+              {p?.scripture?.length && (
+                <details class="sec">
+                  <summary>Scripture</summary>
+                  <div class="sec-body">
+                    <ul class="refs">
+                      {p.scripture.map((s) => (
+                        <li>
+                          <strong>{s.ref}</strong>
+                          {s.note ? ` — ${s.note}` : ""}
+                        </li>
                       ))}
+                    </ul>
+                  </div>
+                </details>
+              )}
+
+              {p?.sections?.map((s) => (
+                <details class="sec">
+                  <summary>{s.heading}</summary>
+                  <div class="sec-body">
+                    {s.body.map((para) => (
+                      <p>{para}</p>
+                    ))}
+                  </div>
+                </details>
+              ))}
+
+              {p?.faq?.length && (
+                <details class="sec">
+                  <summary>Questions &amp; Answers</summary>
+                  <div class="sec-body">
+                    {p.faq.map((f) => (
+                      <details class="qa">
+                        <summary>{f.question}</summary>
+                        <div class="qa-body">
+                          {f.answer.map((para) => (
+                            <p>{para}</p>
+                          ))}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </details>
+              )}
+
+              {p?.related?.length && (
+                <details class="sec">
+                  <summary>Related Pages</summary>
+                  <div class="sec-body">
+                    <ul class="rel">
+                      {p.related.map((r) => {
+                        const to = r.href ? withBase(r.href) : r.external;
+                        return (
+                          <li>
+                            {to ? (
+                              <a
+                                href={to}
+                                {...(r.external && !r.href
+                                  ? {
+                                      target: "_blank",
+                                      rel: "noopener noreferrer",
+                                    }
+                                  : {})}
+                              >
+                                {r.name}
+                              </a>
+                            ) : (
+                              <strong>{r.name}</strong>
+                            )}
+                            <span class="rel-note">{r.note}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </details>
+              )}
+
+              {p?.authorities?.length && (
+                <details class="sec">
+                  <summary>Sources by Authority</summary>
+                  <div class="sec-body">
+                    <p class="auth-lede">
+                      Orthodox teaching is not one undifferentiated body of
+                      claims. What Scripture states, what the Church prays, what
+                      the Fathers taught, and what later writers explain are
+                      distinct registers — this page keeps them apart so you can
+                      see what each statement rests on.
+                    </p>
+                    <div class="auth-scroll">
+                      <table class="auth">
+                        <thead>
+                          <tr>
+                            <th scope="col">Register</th>
+                            <th scope="col">Sources</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {p.authorities.map((a) => (
+                            <tr>
+                              <th scope="row">
+                                {a.level}
+                                {a.note && (
+                                  <span class="auth-note">{a.note}</span>
+                                )}
+                              </th>
+                              <td>{a.sources.join("; ")}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
-                  ))}
-                </div>
-              </details>
-            )
-          }
+                  </div>
+                </details>
+              )}
 
-          {
-            proseBlocks.map((blk) => (
-              <details class="sec">
-                <summary>{blk.heading}</summary>
-                <div class="sec-body">
-                  {blk.body.map((para) => (
-                    <p>{para}</p>
-                  ))}
-                </div>
-              </details>
-            ))
-          }
+              {p?.reading?.length && (
+                <details class="sec">
+                  <summary>Reading & Sources</summary>
+                  <div class="sec-body">
+                    {p.reading.map((r) => (
+                      <div class="reading">
+                        <h3>{r.heading}</h3>
+                        <ul>
+                          {r.items.map((it) => (
+                            <li>
+                              {it.url ? (
+                                <a
+                                  href={it.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {it.title}
+                                </a>
+                              ) : (
+                                it.title
+                              )}
+                              {it.author ? ` — ${it.author}` : ""}
+                              {it.type ? ` (${it.type})` : ""}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              )}
+            </main>
 
-          {
-            p?.scripture?.length && (
-              <details class="sec">
-                <summary>Scripture</summary>
-                <div class="sec-body">
-                  <ul class="refs">
-                    {p.scripture.map((s) => (
-                      <li>
-                        <strong>{s.ref}</strong>
-                        {s.note ? ` — ${s.note}` : ""}
-                      </li>
+            <aside class="rail">
+              {refBlocks.map((b) => (
+                <div class="rail-block">
+                  <h4>{b.label}</h4>
+                  <ul>
+                    {b.items!.map((r) => (
+                      <li>{r}</li>
                     ))}
                   </ul>
                 </div>
-              </details>
-            )
-          }
+              ))}
 
-          {
-            p?.sections?.map((s) => (
-              <details class="sec">
-                <summary>{s.heading}</summary>
-                <div class="sec-body">
-                  {s.body.map((para) => (
-                    <p>{para}</p>
-                  ))}
+              {host.relatedBeings?.length && (
+                <div class="rail-block">
+                  <h4>Related Beings</h4>
+                  <ul>
+                    {host.relatedBeings.map((id) => {
+                      const h = hostById.get(id);
+                      return (
+                        <li>
+                          <a href={withBase(`host/${id}`)}>{h ? h.name : id}</a>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-              </details>
-            ))
-          }
+              )}
 
-          {
-            p?.reading?.length && (
-              <details class="sec">
-                <summary>Reading & Sources</summary>
-                <div class="sec-body">
-                  {p.reading.map((r) => (
-                    <div class="reading">
-                      <h3>{r.heading}</h3>
-                      <ul>
-                        {r.items.map((it) => (
-                          <li>
-                            {it.title}
-                            {it.author ? ` — ${it.author}` : ""}
-                            {it.type ? ` (${it.type})` : ""}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+              {host.relatedSaints?.length && (
+                <div class="rail-block">
+                  <h4>Related Saints</h4>
+                  <ul>
+                    {host.relatedSaints.map((id) => {
+                      const s = saintById.get(id);
+                      return (
+                        <li>
+                          <a href={withBase(`saint/${id}`)}>
+                            {s ? s.name : id}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-              </details>
-            )
-          }
-        </main>
+              )}
 
-        <aside class="rail">
-          {
-            refBlocks.map((b) => (
-              <div class="rail-block">
-                <h4>{b.label}</h4>
-                <ul>
-                  {b.items!.map((r) => (
-                    <li>{r}</li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          }
+              {host.relatedFeasts?.length && (
+                <div class="rail-block">
+                  <h4>Related Feasts</h4>
+                  <ul>
+                    {host.relatedFeasts.map((id) => {
+                      const f = feastById.get(id);
+                      return (
+                        <li>
+                          <a href={withBase(`feast/${id}`)}>
+                            {f ? f.name : id}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
 
-          {
-            host.relatedBeings?.length && (
-              <div class="rail-block">
-                <h4>Related Beings</h4>
-                <ul>
-                  {host.relatedBeings.map((id) => {
-                    const h = hostById.get(id);
-                    return (
-                      <li>
-                        <a href={withBase(`host/${id}`)}>{h ? h.name : id}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )
-          }
+              {host.tags?.length && (
+                <div class="rail-block">
+                  <h4>Tags</h4>
+                  <ul class="tags">
+                    {host.tags.map((t) => (
+                      <li>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-          {
-            host.relatedSaints?.length && (
-              <div class="rail-block">
-                <h4>Related Saints</h4>
-                <ul>
-                  {host.relatedSaints.map((id) => {
-                    const s = saintById.get(id);
-                    return (
-                      <li>
-                        <a href={withBase(`saint/${id}`)}>{s ? s.name : id}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )
-          }
-
-          {
-            host.relatedFeasts?.length && (
-              <div class="rail-block">
-                <h4>Related Feasts</h4>
-                <ul>
-                  {host.relatedFeasts.map((id) => {
-                    const f = feastById.get(id);
-                    return (
-                      <li>
-                        <a href={withBase(`feast/${id}`)}>{f ? f.name : id}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )
-          }
-
-          {
-            host.tags?.length && (
-              <div class="rail-block">
-                <h4>Tags</h4>
-                <ul class="tags">
-                  {host.tags.map((t) => (
-                    <li>{t}</li>
-                  ))}
-                </ul>
-              </div>
-            )
-          }
-
-          {
-            host.sources?.length && (
-              <div class="rail-block">
-                <h4>Sources</h4>
-                <ul class="sources">
-                  {host.sources.map((s) => (
-                    <li>{s}</li>
-                  ))}
-                </ul>
-              </div>
-            )
-          }
-        </aside>
-      </div>
-    </div>
-  </article>
+              {host.sources?.length && (
+                <div class="rail-block">
+                  <h4>Sources</h4>
+                  <ul class="sources">
+                    {host.sources.map((s) => (
+                      <li>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </aside>
+          </div>
+        </div>
+      </article>
+    )
+  }
 </BaseLayout>
 
 <style>
@@ -994,6 +1135,165 @@ const refBlocks = [
   .reading ul {
     padding-left: 1.1rem;
   }
+
+  /* Liturgical texts — the Church's own words, set apart from our prose by a
+     gold rule and the serif face, with the PD translation credited beneath. */
+  .pryr {
+    margin: 0 0 1.4rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--line-gold);
+  }
+  .pryr:last-child {
+    margin-bottom: 0.4rem;
+  }
+  .pryr-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
+  }
+  .pryr-title {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .pryr-use {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--byz-green);
+  }
+  .pryr-text {
+    margin: 0;
+  }
+  .pryr-text p {
+    font-family: var(--serif);
+    font-size: 1.14rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+  }
+  .pryr-attr {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin: 0.2rem 0 0;
+  }
+
+  /* Nested Q&A. Its own summary rules — .sec > summary is a child selector, so
+     these do not inherit the section chevron/size. */
+  .qa {
+    border-top: 1px solid rgba(128, 128, 128, 0.18);
+  }
+  .qa:first-child {
+    border-top: 0;
+  }
+  .qa > summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 0.62rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+  .qa > summary::-webkit-details-marker {
+    display: none;
+  }
+  .qa > summary::before {
+    content: "+";
+    color: var(--gold-deep);
+    font-weight: 700;
+    flex: none;
+  }
+  .qa[open] > summary::before {
+    content: "\2212";
+  }
+  .qa > summary:hover {
+    color: var(--byz);
+  }
+  .qa-body {
+    padding: 0 0 0.7rem 1.05rem;
+  }
+  .qa-body p {
+    line-height: 1.65;
+    margin: 0 0 0.6rem;
+  }
+
+  /* Curated cross-links from the profile — each with the note that says why it
+     is worth following, unlike the terse id lists in the rail. */
+  .rel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rel li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.16);
+    line-height: 1.5;
+  }
+  .rel li:last-child {
+    border-bottom: 0;
+  }
+  .rel a,
+  .rel strong {
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .rel-note {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  /* Sources-by-authority table. Scrolls inside its own box on narrow screens
+     rather than pushing the page sideways. */
+  .auth-lede {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.9rem !important;
+  }
+  .auth-scroll {
+    overflow-x: auto;
+  }
+  .auth {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 30rem;
+    font-size: 0.92rem;
+  }
+  .auth th,
+  .auth td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.55rem 0.8rem 0.55rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    line-height: 1.5;
+  }
+  .auth thead th {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--byz-green);
+    border-bottom-color: var(--line-gold);
+  }
+  .auth tbody th {
+    white-space: nowrap;
+    color: var(--byz-deep);
+    padding-right: 1.2rem;
+  }
+  .auth-note {
+    display: block;
+    font-weight: 400;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    white-space: normal;
+    max-width: 12rem;
+  }
+
   .stub {
     font-style: italic;
     opacity: 0.7;
