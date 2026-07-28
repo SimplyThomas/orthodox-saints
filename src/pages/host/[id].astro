@@ -68,13 +68,12 @@ if (parentRank) {
   backLabel = "Guardian Angels & Titled Figures";
 }
 
-// Who gets the full saint-page chrome (HostSaintView): the nine ranks, the
-// named archangels, and the Guardian Angels & Titled Figures — every host that
-// carries a real profile and is reached from the section's own navigation. The
-// event-anchored Biblical Encounters and the Extra-Biblical Angels keep the
-// catalogue layout below; the latter have no profile YAML at all yet.
-const useSaintFormat =
-  !isBiblicalEncounter(host) && !isExtraBiblicalAngel(host);
+// Who gets the full saint-page chrome (HostSaintView): every host that carries
+// a real profile — the nine ranks, the named archangels, the Guardian Angels &
+// Titled Figures, and the Biblical Encounters. Only the Extra-Biblical Angels
+// keep the catalogue layout below, because they have no profile YAML at all
+// yet; give them one and they should move over too.
+const useSaintFormat = !isExtraBiblicalAngel(host);
 
 const desc = host.brief || `${host.name} — of the heavenly hosts.`;
 

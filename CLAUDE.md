@@ -503,10 +503,19 @@ covers it), which mirrors `feastlib.py`. Design spec:
        registers + the related-beings/saints/feasts lists) are `<details>` with
        counts, closed except Holy Scripture. Left open they ran the full height
        of the page — a wall of citations beside an introductory article.
-  - **the catalogue layout in `host/[id].astro`** — the event-anchored
-    **Biblical Encounters** and the **Extra-Biblical Angels** (the latter have no
-    profile YAML at all yet). The split is
-    `!isBiblicalEncounter(host) && !isExtraBiblicalAngel(host)`.
+  - **the catalogue layout in `host/[id].astro`** — only the **Extra-Biblical
+    Angels** (Raguel, Sariel, Phanuel), because they have no profile YAML at all
+    yet. Write them one and they should move over too. The split is
+    `!isExtraBiblicalAngel(host)`.
+  **§9 in the hero.** The default monogram carries a small cross. That is right
+  for a rank or an archangel, wrong for a scriptural *episode*, and plainly
+  wrong for a **`Fallen`** being, which this catalogue records for study and
+  never venerates. `venerated` in HostSaintView gates it — Biblical Encounters
+  and `Fallen` entities get `saintAvatar`'s cross-less `awaiting` ground, a
+  `Fallen` entity also gets a red entity-type chip instead of the gold one, and
+  the "Icon forthcoming" caption is suppressed for it (no icon of a demon is
+  written for veneration; scriptural episodes keep the caption, since the
+  Annunciation and Jacob's Ladder are classic icon subjects).
   **`isTitledFigure()` in `src/lib/hosts.ts` is the single source of truth** for
   the Guardian Angels & Titled Figures set: `/guardian-angels` lists exactly
   these and the breadcrumb points at that hub for exactly these. Never re-derive

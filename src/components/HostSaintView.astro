@@ -8,7 +8,7 @@
    chrome is the shared global `.sv-*` system, and only host-specific bits are
    scoped below. */
 import type { Host, HostProfile } from "../lib/hosts";
-import { hostById } from "../lib/hosts";
+import { hostById, isBiblicalEncounter } from "../lib/hosts";
 import { byId as saintById } from "../lib/data";
 import { FEASTS } from "../lib/feasts";
 import { withBase } from "../lib/format";
@@ -33,11 +33,18 @@ const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
-/* Hero portrait — a validated open-license icon when one exists, else the same
-   arched monogram every saint without a portrait gets. */
+/* §9. The default monogram carries a small cross — right for a rank or an
+   archangel, wrong for a scriptural *episode* ("The Burning Bush") and plainly
+   wrong for a fallen angel, which this catalogue records for study and never
+   venerates. Those take `awaiting`, the neutral cross-less ground the
+   not-yet-glorified witnesses already use. */
+const venerated = h.entityType !== "Fallen" && !isBiblicalEncounter(h);
+
+/* Hero portrait — a validated open-license icon when one exists, else the
+   arched monogram, crossed or neutral per the above. */
 const portrait = h.image
   ? `<div class="sv-icon-img" style="background:#16304c center top/cover no-repeat url('${withBase(h.image)}')"></div>`
-  : saintAvatar({ name: h.name }, 286, 358);
+  : saintAvatar({ name: h.name }, 286, 358, { awaiting: !venerated });
 
 /* Feast card. Hosts hold plain fixed "Mon D" tokens (nearly all Nov 8, the
    Synaxis of the Bodiless Powers), so the New/Old pair is computed directly
@@ -228,15 +235,26 @@ const depImg = (src: string) =>
                 </div>
               )
             ) : (
-              <div class="sv-icon-cap">Icon forthcoming</div>
+              /* "Icon forthcoming" is a promise, and for a fallen being it is
+                 one the Church will never keep — no icon of a demon is written
+                 for veneration (§9). Scriptural episodes keep the caption: the
+                 Annunciation and Jacob's Ladder are classic icon subjects. */
+              h.entityType !== "Fallen" && (
+                <div class="sv-icon-cap">Icon forthcoming</div>
+              )
             )
           }
         </div>
 
         <div class="sv-hero-id">
           <div class="sv-hero-tagrow">
-            <span class="tag sv-tag-gold hsv-typetag"
-              ><i></i>{h.entityType}</span
+            <span
+              class:list={[
+                "tag",
+                "sv-tag-gold",
+                "hsv-typetag",
+                { "hsv-typetag--fallen": h.entityType === "Fallen" },
+              ]}><i></i>{h.entityType}</span
             >
             <span class="eyebrow on-blue">Heavenly Hosts</span>
           </div>
@@ -859,6 +877,12 @@ const depImg = (src: string) =>
 
   /* Entity-type chip in the hero tagrow — the sv-tag-gold treatment, tinted to
      the celestial blue rather than a saint's rank colour. */
+  /* A fallen being is catalogued for study, never venerated (§9). It should not
+     wear the same gold chip as the holy powers. */
+  .hsv-typetag--fallen {
+    background: rgba(141, 58, 47, 0.3) !important;
+    border-color: rgba(214, 160, 150, 0.5) !important;
+  }
   .hsv-typetag {
     background: rgba(90, 127, 166, 0.22);
     border-color: rgba(230, 205, 126, 0.45);
