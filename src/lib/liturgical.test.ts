@@ -214,6 +214,14 @@ const F: LitFeast[] = [
     ends: { type: "fixed", month: 12, day: 24 },
   },
   {
+    id: "FF-0016",
+    name: "Apostles' Fast",
+    category: "Fast Season",
+    fasting: "Fish Allowed",
+    begins: { type: "paschal", offset: 57 },
+    ends: { type: "fixed", month: 6, day: 28 },
+  },
+  {
     id: "FF-0021",
     name: "Nativity-to-Theophany Fast-Free Period",
     category: "Fast-Free Week",
@@ -395,6 +403,22 @@ describe("precedence, fallbacks, and honesty", () => {
   it("an ordinary Sunday outside any season is gold", () => {
     expect(day(2026, 7, 19).color).toBe("gold");
   });
+  it("the Nativity Fast is purple, never ordinary-time green", () => {
+    const d = day(2026, 12, 1); // an ordinary Tuesday inside the fast
+    expect(d.color).toBe("purple");
+    expect(d.reason).toMatch(/Nativity Fast/);
+    expect(d.confidence).toBe("local-custom");
+    expect(d.badges).toContain("Fast");
+    // the season ends at the feast it prepares for
+    expect(day(2026, 12, 25).color).toBe("white");
+  });
+  it("a fast with no color rule is unassigned, not ordinary time", () => {
+    const d = day(2026, 6, 17); // a Wednesday inside the Apostles' Fast
+    expect(d.color).toBe("neutral");
+    expect(d.reason).toMatch(/Apostles' Fast/);
+    expect(d.reason).not.toMatch(/ordinary time/i);
+    expect(d.badges).toContain("Fast");
+  });
   it("the Dormition Fast is blue (local custom) but the feast day outranks it", () => {
     const inFast = day(2026, 8, 3);
     expect(inFast.color).toBe("blue");
@@ -430,7 +454,10 @@ describe("precedence, fallbacks, and honesty", () => {
   });
   it("forefeasts never color the day", () => {
     const d = day(2026, 12, 22); // Nativity forefeast, a Tuesday
-    expect(d.color).toBe("green"); // forefeast badges only; the day is ordinary time
+    // badges only — the day's color comes from the Nativity Fast it sits in,
+    // never from the coming feast
+    expect(d.color).toBe("purple");
+    expect(d.reason).toMatch(/Nativity Fast/);
     expect(d.badges).toContain("Forefeast");
   });
   it("badges name the feast category rather than relying on color alone", () => {
