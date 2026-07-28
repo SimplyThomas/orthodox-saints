@@ -282,10 +282,52 @@ const hostProfileSchema = z
     salvationHistory: z
       .array(z.object({ heading: z.string(), body: z.array(z.string()) }))
       .optional(),
+    // Plain-language heading for the salvationHistory card grid, which leads the
+    // page for an everyday reader ("What a guardian angel does"). The entries
+    // mean different things per host — roles for one, moments of an encounter
+    // for another — so the label is authored rather than fixed. Defaults to
+    // "The essentials".
+    essentialsHeading: z.string().optional(),
     // Scripture (and deutero/extra-biblical) references, each tagged by note so
     // the source register stays explicit.
     scripture: z
       .array(z.object({ ref: z.string(), note: z.string().optional() }))
+      .optional(),
+    // Liturgical texts the Church actually prays about this being — quoted
+    // VERBATIM, one paragraph per `text` entry. §9: the words of the services
+    // are ancient, but an English *translation* usually is not, so `translation`
+    // must name a public-domain rendering and is gated below. `use` says where
+    // in the services the text stands; `source` links a reviewer to the PD text.
+    prayers: z
+      .array(
+        z.object({
+          title: z.string(),
+          text: z.array(z.string()).min(1),
+          use: z.string().optional(),
+          translation: z.string(),
+          source: z.string().optional(),
+        }),
+      )
+      .optional(),
+    // The questions people actually ask, answered in the Church's own terms.
+    // Rendered as collapsible Q&A and emitted as schema.org FAQPage.
+    faq: z
+      .array(
+        z.object({ question: z.string(), answer: z.array(z.string()).min(1) }),
+      )
+      .optional(),
+    // "Sources by Authority" — the editorial commitment of §5b made visible:
+    // which register each claim rests on (Scripture / Liturgical / Fathers /
+    // Modern Orthodox / Catechetical), never blurred into one undifferentiated
+    // bibliography.
+    authorities: z
+      .array(
+        z.object({
+          level: z.string(),
+          note: z.string().optional(),
+          sources: z.array(z.string()).min(1),
+        }),
+      )
       .optional(),
     timeline: z.array(timelineEntry).optional(),
     sections: z
@@ -301,6 +343,7 @@ const hostProfileSchema = z
               title: z.string(),
               author: z.string().optional(),
               type: z.string().optional(),
+              url: z.string().optional(), // external link; title renders as an <a> when set
             }),
           ),
         }),
@@ -314,6 +357,25 @@ const hostProfileSchema = z
         message: `${p.id}: ${p.status} profiles must list at least one source`,
       });
     }
+    // §9 copyright gate, mirroring build.py's saint-quote check: a liturgical
+    // text may only be reproduced from a public-domain translation. Hapgood's
+    // 1922 Service Book, the ANF/NPNF series, and anything explicitly marked PD
+    // pass; a modern in-copyright service book does not — describe it and link
+    // out instead. Fails the build loudly rather than shipping an infringement.
+    const PD_TRANSLATION =
+      /\b(hapgood|anf|npnf1?2?|pd(-old|-art)?|cc0)\b|public[- ]domain/i;
+    p.prayers?.forEach((pr, i) => {
+      if (!PD_TRANSLATION.test(pr.translation)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["prayers", i, "translation"],
+          message:
+            `${p.id}: prayer "${pr.title}" cites translation "${pr.translation}", ` +
+            `which is not a recognized public-domain source (Hapgood / ANF / NPNF / PD / CC0). ` +
+            `Per CLAUDE.md §9, link out instead of reproducing a copyrighted translation.`,
+        });
+      }
+    });
   });
 
 const hosts = defineCollection({
