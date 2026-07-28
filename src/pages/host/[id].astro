@@ -68,12 +68,13 @@ if (parentRank) {
   backLabel = "Guardian Angels & Titled Figures";
 }
 
-// The Guardian Angels & Titled Figures carry the fullest prose in the section
-// (guardian angels, the Angel of the Lord, the Commander of the Lord's Army,
-// the angels of the seven churches), so they get the full saint-page chrome via
-// HostSaintView. The ranks, named archangels, biblical encounters, and
-// extra-biblical angels keep the catalogue layout below.
-const useSaintFormat = isTitledFigure(host);
+// Who gets the full saint-page chrome (HostSaintView): the nine ranks, the
+// named archangels, and the Guardian Angels & Titled Figures — every host that
+// carries a real profile and is reached from the section's own navigation. The
+// event-anchored Biblical Encounters and the Extra-Biblical Angels keep the
+// catalogue layout below; the latter have no profile YAML at all yet.
+const useSaintFormat =
+  !isBiblicalEncounter(host) && !isExtraBiblicalAngel(host);
 
 const desc = host.brief || `${host.name} — of the heavenly hosts.`;
 
@@ -151,6 +152,7 @@ const faqLd = p?.faq?.length
         profile={p}
         backHref={backHref}
         backLabel={backLabel}
+        members={members}
       />
     )
   }

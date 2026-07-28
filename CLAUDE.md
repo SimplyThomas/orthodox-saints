@@ -470,8 +470,13 @@ covers it), which mirrors `feastlib.py`. Design spec:
   - **`HostSaintView`** — the full saint-page treatment (blue hero, gold-framed
     portrait or arched monogram, New/Old feast card, gold actions ribbon,
     depictions carousel, "At a glance" rail with the source registers, and
-    `sv-deep` collapsibles) for the **Guardian Angels & Titled Figures** — the
-    angels known by office rather than personal name. Chrome is the shared global
+    `sv-deep` collapsibles) for **the nine ranks, the named archangels, and the
+    Guardian Angels & Titled Figures** — every host that carries a real profile
+    and is reached from the section's own navigation. A rank that owns named
+    angels (the Archangels) renders them as a **member roster** band between the
+    ribbon and the body: whoever lands on "the Archangels" is usually looking for
+    Michael or Gabriel, so the way through comes before the essay about the order.
+    Chrome is the shared global
     `.sv-*` system (see §11); only `hsv-*` bits are component-scoped. The
     collapsible header markup is factored into **`DeepSection.astro`**.
     **These profiles are long, so the page is built for an everyday reader, not
@@ -498,13 +503,14 @@ covers it), which mirrors `feastlib.py`. Design spec:
        registers + the related-beings/saints/feasts lists) are `<details>` with
        counts, closed except Holy Scripture. Left open they ran the full height
        of the page — a wall of citations beside an introductory article.
-  - **the catalogue layout in `host/[id].astro`** — everything else: the nine
-    ranks, the named archangels, the Biblical Encounters, the Extra-Biblical
-    Angels.
+  - **the catalogue layout in `host/[id].astro`** — the event-anchored
+    **Biblical Encounters** and the **Extra-Biblical Angels** (the latter have no
+    profile YAML at all yet). The split is
+    `!isBiblicalEncounter(host) && !isExtraBiblicalAngel(host)`.
   **`isTitledFigure()` in `src/lib/hosts.ts` is the single source of truth** for
-  that split: `/guardian-angels` lists exactly these, `/host/[id]` gives exactly
-  these the saint-page view, and the breadcrumb points at the hub for exactly
-  these. Never re-derive the membership inline — the three would drift.
+  the Guardian Angels & Titled Figures set: `/guardian-angels` lists exactly
+  these and the breadcrumb points at that hub for exactly these. Never re-derive
+  the membership inline — the two would drift.
 
 ## 6. Saint identity & deduplication (critical)
 

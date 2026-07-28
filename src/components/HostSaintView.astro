@@ -21,8 +21,15 @@ interface Props {
   profile?: HostProfile;
   backHref: string;
   backLabel: string;
+  /** Named angels belonging to this rank — the eight archangels on the
+      Archangels page. Empty for every other host. */
+  members?: Host[];
 }
-const { host: h, profile: p, backHref, backLabel } = Astro.props;
+const { host: h, profile: p, backHref, backLabel, members = [] } = Astro.props;
+
+/** "Archangel Michael" → "Michael" on a roster card, where the rank is the
+    heading and repeating it in every name is noise. */
+const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
@@ -367,6 +374,46 @@ const depImg = (src: string) =>
       </button>
     </div>
   </div>
+
+  {
+    /* ══════════════ MEMBERS OF THIS RANK ══════════════
+      A rank that owns named angels (the Archangels) leads with its roster:
+      whoever lands on "the Archangels" is usually looking for Michael or
+      Gabriel, so the way through to them comes before the essay about the
+      order itself. */
+  }
+  {
+    members.length > 0 && (
+      <section class="hsv-members" aria-label={`The holy ${h.name}`}>
+        <div class="hsv-members-inner">
+          <div class="sv-secthead">
+            <span class="eyebrow">The Holy {h.name}</span>
+          </div>
+          <div class="hsv-member-grid">
+            {members.map((m) => (
+              <a class="hsv-member" href={withBase(`host/${m.id}`)}>
+                <span class="hsv-member-thumb">
+                  {m.imageThumb || m.image ? (
+                    <img
+                      src={withBase(m.imageThumb || m.image!)}
+                      alt={m.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span class="hsv-member-mono" aria-hidden="true">
+                      {shortName(m.name).charAt(0)}
+                    </span>
+                  )}
+                </span>
+                <span class="hsv-member-name">{shortName(m.name)}</span>
+                <span class="hsv-member-brief">{m.brief}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   {/* ══════════════ DEPICTIONS ══════════════ */}
   {
@@ -892,6 +939,94 @@ const depImg = (src: string) =>
   .hsv-stub {
     font-style: italic;
     opacity: 0.7;
+  }
+
+  /* The global `.sv2 .sv-secthead .eyebrow` is `flex: 0 0 auto`, so a long
+     label ("The Holy Archangels", "What a guardian angel does") can never
+     shrink and shoves the page sideways on a phone. Let these wrap. */
+  .sv-secthead .eyebrow {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  /* ── Member roster (a rank's named angels) ────────────────────────────
+     Full-bleed band between the actions ribbon and the body, matching the
+     depictions carousel's placement. */
+  .hsv-members {
+    padding: 1.9rem 0 0.4rem;
+  }
+  .hsv-members-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 40px);
+  }
+  .hsv-member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+  }
+  .hsv-member {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.15rem;
+    align-items: start;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-radius: 9px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.4);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.1s;
+  }
+  .hsv-member:hover {
+    border-color: var(--gold-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+  .hsv-member-thumb {
+    grid-row: 1 / 4;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 7px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    background: radial-gradient(120% 120% at 30% 15%, #1d3e62, var(--byz-ink));
+  }
+  .hsv-member-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hsv-member-mono {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--gold-soft);
+  }
+  .hsv-member-name {
+    grid-column: 2;
+    align-self: end;
+    font-family: var(--serif);
+    font-size: 1.16rem;
+    font-weight: 600;
+    color: var(--byz-deep);
+  }
+  .hsv-member-brief {
+    grid-column: 2;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* ── Ask-first chips ──────────────────────────────────────────────────
