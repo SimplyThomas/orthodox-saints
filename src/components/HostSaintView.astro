@@ -8,7 +8,11 @@
    chrome is the shared global `.sv-*` system, and only host-specific bits are
    scoped below. */
 import type { Host, HostProfile } from "../lib/hosts";
-import { hostById, isBiblicalEncounter } from "../lib/hosts";
+import {
+  hostById,
+  isBiblicalEncounter,
+  isExtraBiblicalAngel,
+} from "../lib/hosts";
 import { byId as saintById } from "../lib/data";
 import { FEASTS } from "../lib/feasts";
 import { withBase } from "../lib/format";
@@ -34,11 +38,16 @@ const shortName = (n: string) => n.replace(/^Archangel\s+/, "");
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
 /* §9. The default monogram carries a small cross — right for a rank or an
-   archangel, wrong for a scriptural *episode* ("The Burning Bush") and plainly
-   wrong for a fallen angel, which this catalogue records for study and never
-   venerates. Those take `awaiting`, the neutral cross-less ground the
-   not-yet-glorified witnesses already use. */
-const venerated = h.entityType !== "Fallen" && !isBiblicalEncounter(h);
+   archangel the Church venerates, wrong for a scriptural *episode* ("The
+   Burning Bush"), wrong for a fallen angel, and wrong for the Extra-Biblical
+   Angels, whose own pages say they are catalogued for study and not venerated
+   by name. A cross beside that sentence contradicts it. All three take
+   `awaiting`, the neutral cross-less ground the not-yet-glorified witnesses
+   already use. */
+const venerated =
+  h.entityType !== "Fallen" &&
+  !isBiblicalEncounter(h) &&
+  !isExtraBiblicalAngel(h);
 
 /* Hero portrait — a validated open-license icon when one exists, else the
    arched monogram, crossed or neutral per the above. */
