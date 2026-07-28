@@ -79,9 +79,11 @@ function initCloudBand(SAINTS: CardSaint[]) {
       const ck = lit && lit.color !== "neutral" ? lit.color : "gold";
       const pal = LITURGICAL_COLORS[ck];
       const lead = hl.feast ?? hl.season!;
+      // the season heads its own line as a lead, but rides mid-sentence in the
+      // trailer — "during the Twelve Days of Christmas", not "during The …"
       const trailer =
         hl.feast && hl.season
-          ? `<span class="sotd-lit-season">during ${esc(hl.season.name)}</span>`
+          ? `<span class="sotd-lit-season">during ${esc(hl.season.name.replace(/^The /, "the "))}</span>`
           : "";
       return `
         <a class="sotd-lit lc-${ck}" href="${esc(withBase(style === "old" ? "calendar?style=old" : "calendar"))}"
