@@ -650,6 +650,14 @@ export function buildBadges(observances: ActiveObservance[]): string[] {
     if (f.category === "Fast Season" || f.category === "Fast Day") add("Fast");
     if (f.category === "Fast-Free Week") add("Fast-Free");
     if (holyWeek.includes(f.id)) add("Holy Week");
+    // The Twelve Days of Christmas — the Nativity (day one) through the Eve of
+    // Theophany (day twelve). The fast-free period is the span of the season
+    // but stops a day short, because the paramony is a strict fast; naming the
+    // Eve as well is what makes the count twelve. The name lives in FF-0021's
+    // Also Known As ("Svyatki", "Christmastide"); the calendar shows only a
+    // row's formal Name, so the season goes unnamed without this.
+    if (f.id === "FF-0021" || f.id === "FF-0019")
+      add("Twelve Days of Christmas");
     if (f.dedication === "Lord") add("Feast of the Lord");
     if (f.dedication === "Theotokos") add("Feast of the Theotokos");
     if (f.dedication === "Cross") add("Holy Cross");
@@ -701,6 +709,16 @@ function festalLabel(f: LitFeast, role: ObservanceRole): string {
   return f.category === "Feast" ? "Feast" : "Observance";
 }
 
+/** Reader-facing names for the seasons whose row Name states the fasting rule
+    rather than the name the season is known by. No one says "during the
+    Nativity-to-Theophany Fast-Free Period"; the name people use is already
+    carried in the row's Also Known As, and this picks it for display. The
+    row itself stays as it is — it really is the fast-free rule, and it ends
+    at Jan 4 because the paramony is a fast. */
+const SEASON_DISPLAY_NAMES: Record<string, string> = {
+  "FF-0021": "The Twelve Days of Christmas",
+};
+
 /** Pull the day's leading festal feast and any active fasting season out of
     its observances. The feast is the highest-scoring festal record — a feast
     kept on the day outranks its own fore-/afterfeast, and a higher category
@@ -741,7 +759,7 @@ export function dayHighlight(observances: ActiveObservance[]): DayHighlight {
     season: season
       ? {
           id: season.o.feast.id,
-          name: season.o.feast.name,
+          name: SEASON_DISPLAY_NAMES[season.o.feast.id] ?? season.o.feast.name,
           label:
             season.o.feast.category === "Fast-Free Week"
               ? "Fast-Free Week"

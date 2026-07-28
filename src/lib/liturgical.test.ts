@@ -222,6 +222,13 @@ const F: LitFeast[] = [
     ends: { type: "fixed", month: 1, day: 4 },
   },
   {
+    id: "FF-0019",
+    name: "Eve of Theophany",
+    category: "Fast Day",
+    fasting: "Strict Fast",
+    begins: { type: "fixed", month: 1, day: 5 },
+  },
+  {
     id: "FF-0074",
     name: "Sunday of the Holy Forefathers",
     category: "Observance",
@@ -412,6 +419,24 @@ describe("precedence, fallbacks, and honesty", () => {
     expect(d.badges).toContain("Great Feast");
     expect(d.badges).toContain("Feast of the Lord");
   });
+  it("the Twelve Days of Christmas are badged from the Nativity to the Eve", () => {
+    const twelve = [
+      day(2026, 12, 25), // day one — the Nativity
+      day(2026, 12, 31), // mid-season, inside the afterfeast
+      day(2027, 1, 1), // across the year boundary
+      day(2027, 1, 4), // the last fast-free day
+      day(2027, 1, 5), // day twelve — the Eve, a strict fast
+    ];
+    for (const d of twelve) {
+      expect(d.badges).toContain("Twelve Days of Christmas");
+    }
+    // the twelfth day is still a strict fast — the badge names the season,
+    // it does not relax the rule
+    expect(twelve[4].fasting?.key).toBe("strict");
+    // and the season does not run past the Eve into Theophany itself
+    expect(day(2027, 1, 6).badges).not.toContain("Twelve Days of Christmas");
+    expect(day(2026, 12, 24).badges).not.toContain("Twelve Days of Christmas");
+  });
   it("afterfeasts inherit the principal color; leavetaking is badged", () => {
     const after = day(2026, 8, 18); // Dormition afterfeast
     expect(after.color).toBe("blue");
@@ -473,6 +498,15 @@ describe("dayHighlight — leading festal feast + fast season", () => {
     // Clean Monday itself is a named observance, shown above the season.
     expect(h.feast?.name).toBe("Clean Monday");
     expect(h.feast?.label).toBe("Observance");
+  });
+
+  it("names the Christmas season the way people say it, not by its rule", () => {
+    const h = hi(2026, 12, 29); // inside the Nativity afterfeast
+    expect(h.season?.id).toBe("FF-0021"); // still the fast-free row
+    expect(h.season?.name).toBe("The Twelve Days of Christmas");
+    expect(h.season?.label).toBe("Fast-Free Week");
+    // the feast still leads; the season is the context under it
+    expect(h.feast?.label).toBe("Afterfeast");
   });
 
   it("a plain Lenten weekday shows the season but no feast", () => {
