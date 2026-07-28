@@ -68,12 +68,13 @@ if (parentRank) {
   backLabel = "Guardian Angels & Titled Figures";
 }
 
-// Who gets the full saint-page chrome (HostSaintView): every host that carries
-// a real profile — the nine ranks, the named archangels, the Guardian Angels &
-// Titled Figures, and the Biblical Encounters. Only the Extra-Biblical Angels
-// keep the catalogue layout below, because they have no profile YAML at all
-// yet; give them one and they should move over too.
-const useSaintFormat = !isExtraBiblicalAngel(host);
+// Every host now carries a profile, so every host gets the full saint-page
+// chrome (HostSaintView) — the nine ranks, the named archangels, the Guardian
+// Angels & Titled Figures, the Biblical Encounters, and the Extra-Biblical
+// Angels. The catalogue layout below is kept as the fallback for any future
+// record added without a profile YAML; HostSaintView renders its own stub in
+// that case, so this is belt-and-braces rather than a live branch.
+const useSaintFormat = true;
 
 const desc = host.brief || `${host.name} — of the heavenly hosts.`;
 
