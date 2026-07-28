@@ -304,6 +304,16 @@ export const OBSERVANCE_COLOR_RULES: Record<string, ColorRule> = {
     note: "Blue for the Dormition Fast follows commonly observed Greek and Antiochian custom; practice varies.",
   },
 
+  /* — the Nativity Fast — */
+  "FF-0018": {
+    color: "purple",
+    reason: "The Nativity Fast",
+    confidence: "local-custom",
+    note: "The forty days before the Nativity — the “Winter Lent” — are widely served in purple as a season of preparation; other parishes keep gold or the color of the saint commemorated.",
+    sundayNote:
+      "Sundays of the fast, including the Sundays of the Forefathers and of the Holy Fathers, are often served in brighter colors; local practice varies.",
+  },
+
   /* — the Cross — */
   "FF-0003": {
     color: "red",
@@ -922,18 +932,34 @@ export function dayLiturgics(
       notes.push(VARIATION_NOTE);
     }
   } else {
-    // no feast assigns a color: the day belongs to "ordinary time", which we
-    // mark green. We still say *why* no feast color applies rather than imply
-    // a specific festal assignment.
-    color = "green";
-    confidence = "medium";
     const top = [...observances].sort(
       (a, b) => classRank(b.feast, b.role) - classRank(a.feast, a.role),
     )[0];
-    reason =
-      top && top.role !== "forefeast"
-        ? `${top.feast.name} — no special color is assigned; green marks ordinary time`
-        : "Green — the color of ordinary time";
+    // A day kept within a fast is NOT ordinary time, even where no rule
+    // assigns the season a color (the Apostles' Fast, Cheesefare Week). Say
+    // the fast is kept and leave the color unassigned rather than painting a
+    // penitential season green.
+    const fast = observances.find(
+      (o) =>
+        o.role !== "forefeast" &&
+        (o.feast.category === "Fast Season" || o.feast.category === "Fast Day"),
+    );
+    if (fast) {
+      color = "neutral";
+      confidence = "medium";
+      reason = `${fast.feast.name} — no distinct color is customary; the day takes the color of the saint commemorated`;
+      notes.push(VARIATION_NOTE);
+    } else {
+      // no feast assigns a color: the day belongs to "ordinary time", which we
+      // mark green. We still say *why* no feast color applies rather than imply
+      // a specific festal assignment.
+      color = "green";
+      confidence = "medium";
+      reason =
+        top && top.role !== "forefeast"
+          ? `${top.feast.name} — no special color is assigned; green marks ordinary time`
+          : "Green — the color of ordinary time";
+    }
   }
 
   return {

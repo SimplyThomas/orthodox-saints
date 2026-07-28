@@ -426,10 +426,31 @@ covers it), which mirrors `feastlib.py`. Design spec:
 - **Rich prose** lives in `src/content/hosts/HH-####.yaml` (the `hosts` collection
   in `content.config.ts`): `overview` + `historicalContext` /
   `orthodoxInterpretation` / `liturgicalTradition` / `iconography` /
-  `historicalInfluence` / `salvationHistory` (sections) / `scripture` / `sections`
-  / `related` / `reading`. Same `status: draft|reviewed|flagged` production gate as
-  saint/feast profiles; §9 guardrails carry over (source registers preserved, no
-  fabrication, hymnography described not reproduced).
+  `historicalInfluence` / `salvationHistory` (sections) + `essentialsHeading` /
+  `scripture` / `prayers` / `faq` / `authorities` / `sections` / `related` /
+  `reading`. Same
+  `status: draft|reviewed|flagged` production gate as saint/feast profiles; §9
+  guardrails carry over (source registers preserved, no fabrication, hymnography
+  described not reproduced). Three of those fields carry their own rules:
+  - **`prayers`** quotes the liturgical texts the Church actually prays about this
+    being (`title` / `text[]` / `use` / `translation` / `source`). The words of the
+    services are ancient but an English **translation** usually is not, so
+    `translation` MUST name a public-domain rendering — Hapgood's 1922 Service Book,
+    ANF/NPNF, or anything explicitly `PD`/`CC0`. **A non-PD translation fails the
+    build**, exactly like the saint-quote gate in `build.py` (§9); describe it and
+    link out instead.
+  - **`faq`** (`question` / `answer[]`) is the Q&A block — the questions people put
+    to a search engine. It is emitted as schema.org **FAQPage** JSON-LD, so keep the
+    questions in the form a person would actually type.
+  - **`authorities`** (`level` / `note` / `sources[]`) is the "Sources by Authority"
+    table: which register each claim rests on — Scripture / Deuterocanonical /
+    Liturgical / Fathers / Modern Orthodox / Catechetical / Academic — kept apart
+    rather than flattened into one bibliography. This is §5b's source-fidelity
+    commitment made visible on the page.
+  - **`essentialsHeading`** labels the `salvationHistory` card grid in plain
+    language ("What a guardian angel does"). The entries mean different things
+    per host — roles for one, moments of an encounter for another — so the label
+    is authored, not fixed. Defaults to "The essentials".
 - **Images:** `data/host_images.csv` (one hero portrait per host) and
   `data/host_depictions.csv` (MANY carousel cards per host) reuse the **saints'
   licensing gate verbatim** (§9): an open license (`PD`/`CC0`/`CC-BY*`/`CC-BY-SA*`,
@@ -444,6 +465,61 @@ covers it), which mirrors `feastlib.py`. Design spec:
   rank page auto-lists its **Named Angel** members as cards (the eight archangels
   on the Archangels page). Excluded from the patron quiz (angels are venerated,
   not intercessor-saints).
+- **`/host/HH-####` renders one of two views**, exactly as `/saint/OS-####` picks
+  between `GroupSaintProfile` and `SaintView`:
+  - **`HostSaintView`** — the full saint-page treatment (blue hero, gold-framed
+    portrait or arched monogram, New/Old feast card, gold actions ribbon,
+    depictions carousel, "At a glance" rail with the source registers, and
+    `sv-deep` collapsibles) for **the nine ranks, the named archangels, and the
+    Guardian Angels & Titled Figures** — every host that carries a real profile
+    and is reached from the section's own navigation. A rank that owns named
+    angels (the Archangels) renders them as a **member roster** band between the
+    ribbon and the body: whoever lands on "the Archangels" is usually looking for
+    Michael or Gabriel, so the way through comes before the essay about the order.
+    Chrome is the shared global
+    `.sv-*` system (see §11); only `hsv-*` bits are component-scoped. The
+    collapsible header markup is factored into **`DeepSection.astro`**.
+    **These profiles are long, so the page is built for an everyday reader, not
+    an archivist.** Four rules, all deliberate — don't undo them by adding rows:
+    1. **Ordered by reader need.** The `faq` questions render first as tappable
+       **chips** (a chip opens its answer below and scrolls to it — progressive
+       enhancement; without JS the answers are still reachable in the Q&A
+       section), then `salvationHistory` as a grid of **expanding cards** (teaser
+       clamped shut, full text on open, spanning the grid so long paragraphs read
+       at a sane measure). A profile with neither has nothing to lead with, so
+       its `overview` opens by default rather than leaving an empty column.
+    2. **At most five collapsed rows.** Questions · In the Church's Prayer · The
+       teaching in full · **Go deeper** · **Where this comes from**. The last two
+       are *bands*: the prose axes and `sections` nest inside the first, and
+       scripture/authorities/reading inside the second, as quiet `hsv-sub` rows.
+       Fifteen sibling rows read as a filing cabinet and bury the three that a
+       visitor actually wants.
+    3. **Plain-language headings.** `historicalContext` → "How it reached us",
+       `orthodoxInterpretation` → "What the Fathers taught", `liturgicalTradition`
+       → "In the Church's services", `iconography` → "How it is shown in icons",
+       `historicalInfluence` → "Its mark on Orthodox life". The catalogue view
+       keeps the formal field names.
+    4. **The rail stays folded.** Its reference blocks (the three source
+       registers + the related-beings/saints/feasts lists) are `<details>` with
+       counts, closed except Holy Scripture. Left open they ran the full height
+       of the page — a wall of citations beside an introductory article.
+  - **the catalogue layout in `host/[id].astro`** — only the **Extra-Biblical
+    Angels** (Raguel, Sariel, Phanuel), because they have no profile YAML at all
+    yet. Write them one and they should move over too. The split is
+    `!isExtraBiblicalAngel(host)`.
+  **§9 in the hero.** The default monogram carries a small cross. That is right
+  for a rank or an archangel, wrong for a scriptural *episode*, and plainly
+  wrong for a **`Fallen`** being, which this catalogue records for study and
+  never venerates. `venerated` in HostSaintView gates it — Biblical Encounters
+  and `Fallen` entities get `saintAvatar`'s cross-less `awaiting` ground, a
+  `Fallen` entity also gets a red entity-type chip instead of the gold one, and
+  the "Icon forthcoming" caption is suppressed for it (no icon of a demon is
+  written for veneration; scriptural episodes keep the caption, since the
+  Annunciation and Jacob's Ladder are classic icon subjects).
+  **`isTitledFigure()` in `src/lib/hosts.ts` is the single source of truth** for
+  the Guardian Angels & Titled Figures set: `/guardian-angels` lists exactly
+  these and the breadcrumb points at that hub for exactly these. Never re-derive
+  the membership inline — the two would drift.
 
 ## 6. Saint identity & deduplication (critical)
 

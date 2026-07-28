@@ -104,6 +104,34 @@ export function isExtraBiblicalAngel(h: Host): boolean {
   return (h.tags ?? []).includes(EXTRA_BIBLICAL_ANGEL_TAG);
 }
 
+/** Entity types that have no owning rank page — their order is the ninth rank
+    or is left unassigned — and so belong to the /guardian-angels hub. */
+const TITLED_TYPES = new Set([
+  "Angelic Class",
+  "Scriptural Angel",
+  "Collective",
+]);
+
+/**
+ * True when a host belongs to the **Guardian Angels & Titled Figures** section:
+ * an angel known by office or title rather than a personal name (the guardian
+ * angels, the Angel of the Lord, the Commander of the Lord's Army, the angels
+ * of the seven churches). Shares an `entityType` with the event-anchored
+ * Biblical Encounters and the Extra-Biblical Angels, so both of those are
+ * excluded by their reserved tags.
+ *
+ * Single source of truth for the section: /guardian-angels lists exactly these,
+ * /host/[id] gives exactly these the full saint-page treatment, and the
+ * breadcrumb on a host page points here for exactly these.
+ */
+export function isTitledFigure(h: Host): boolean {
+  return (
+    TITLED_TYPES.has(h.entityType) &&
+    !isBiblicalEncounter(h) &&
+    !isExtraBiblicalAngel(h)
+  );
+}
+
 export type HostProfile = CollectionEntry<"hosts">["data"];
 
 const SHOW_DRAFTS =
