@@ -1,6 +1,8 @@
 id: "xenia-petersburg"
 order: 6
 cat: "modern"
+century: 21
+verify: "D"
 saint:
   name: "Xenia"
   type: "Fool-for-Christ"

@@ -1,6 +1,8 @@
 id: "seraphim-sarov"
 order: 15
 cat: "modern"
+century: 19
+verify: "B"
 saint:
   name: "Seraphim"
   type: "Monastic"

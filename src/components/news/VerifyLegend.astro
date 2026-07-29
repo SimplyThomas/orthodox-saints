@@ -1,0 +1,82 @@
+---
+/* The A–D legend. Every account on the site carries one of these levels, so the
+   standard is stated plainly on the news front page rather than buried in an
+   about page. */
+import { NEWS_VERIFY, NEWS_VERIFY_LIST } from "../../lib/news";
+---
+
+<div class="vlegend">
+  {
+    NEWS_VERIFY_LIST.map((k) => {
+      const v = NEWS_VERIFY[k];
+      return (
+        <div class="vlegend-item">
+          <span
+            class="vlegend-box"
+            style={`border:1.5px ${v.dashed ? "dashed" : "solid"} ${v.line};background:${v.bg};color:${v.ink}`}
+          >
+            {v.letter}
+          </span>
+          <div>
+            <div class="vlegend-name">
+              Level {v.letter} · {v.name}
+            </div>
+            <div class="vlegend-full">{v.full}</div>
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .vlegend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .vlegend-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .vlegend-box {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1;
+  }
+  .vlegend-name {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--byz-deep);
+    line-height: 1.1;
+  }
+  .vlegend-full {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.25;
+    margin-top: 2px;
+  }
+  @media (max-width: 1000px) {
+    .vlegend {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+  @media (max-width: 560px) {
+    .vlegend {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+</style>

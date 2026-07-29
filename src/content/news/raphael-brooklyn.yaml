@@ -1,6 +1,8 @@
 id: "raphael-brooklyn"
 order: 7
 cat: "america"
+century: 20
+verify: "A"
 saint:
   name: "Raphael"
   type: "Hierarch"

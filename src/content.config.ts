@@ -514,6 +514,12 @@ const news = defineCollection({
   schema: z.object({
     id: z.string(), // slug, used for /news/[slug]
     cat: z.string(),
+    // The century the account belongs to — drives the century badge, the
+    // homepage filter, and the archive facet.
+    century: z.number().int().min(1).max(21),
+    // Level of evidence behind the account, strongest (A, a primary historical
+    // source) to weakest (D, living oral tradition). See NEWS_VERIFY.
+    verify: z.enum(["A", "B", "C", "D"]),
     saint: newsSaintRef,
     headline: z.string(),
     date: z.string(),
@@ -521,6 +527,10 @@ const news = defineCollection({
     summary: z.string(),
     featured: z.boolean().optional().default(false),
     order: z.number(), // preserves the current NEWS array order
+    // Overrides the saint's name in the article metadata bar, for accounts
+    // whose subject is a body rather than a person ("The Fathers of the
+    // First Council").
+    saintLabel: z.string().optional(),
     kicker: z.string().optional(),
     dek: z.string().optional(),
     plate: z.string().optional(),

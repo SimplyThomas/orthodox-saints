@@ -1,0 +1,36 @@
+---
+/* "4th Century" in small caps behind a gold lozenge. */
+import { ord } from "../../lib/news";
+
+interface Props {
+  century: number;
+  color?: string;
+  size?: number;
+}
+const { century, color = "var(--ink-soft)", size = 11 } = Astro.props;
+---
+
+<span class="cbadge" style={`color:${color};font-size:${size}px`}>
+  <span class="cbadge-dot" aria-hidden="true"></span>
+  {ord(century)} Century
+</span>
+
+<style>
+  .cbadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--text);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+  .cbadge-dot {
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: var(--gold);
+    flex: 0 0 auto;
+  }
+</style>

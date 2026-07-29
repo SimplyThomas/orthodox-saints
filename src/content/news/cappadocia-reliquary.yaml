@@ -1,6 +1,8 @@
 id: "cappadocia-reliquary"
 order: 10
 cat: "relics"
+century: 4
+verify: "A"
 saint:
   name: "Unknown"
   type: "Martyr"

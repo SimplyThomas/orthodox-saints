@@ -1,6 +1,8 @@
 id: "herman-pilgrimage"
 order: 4
 cat: "america"
+century: 21
+verify: "C"
 saint:
   name: "Herman"
   type: "Monastic"

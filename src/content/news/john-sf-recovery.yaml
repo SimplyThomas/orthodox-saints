@@ -1,6 +1,8 @@
 id: "john-sf-recovery"
 order: 1
 cat: "healings"
+century: 20
+verify: "B"
 saint:
   name: "John"
   type: "Hierarch"

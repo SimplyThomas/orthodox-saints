@@ -1,17 +1,26 @@
 ---
-/* A single feed card in the news river: framed plate, category tag, serif
-   headline, date · location meta, summary, and a "read the account" cue. */
+/* An account as a card: thumbnail on top under a desk-coloured rule, the
+   verification mark overlaid, then the badges, headline, meta and summary.
+   Used by the filtered grid on /news and the related-articles row on an
+   article page. */
 import type { NewsItem } from "../../lib/news";
-import { NEWS_CAT } from "../../lib/news";
+import { NEWS_CAT, regionOf } from "../../lib/news";
 import { withBase } from "../../lib/format";
-import NewsPlate from "./NewsPlate.astro";
+import NewsThumb from "./NewsThumb.astro";
+import NewsMeta from "./NewsMeta.astro";
+import CatPill from "./CatPill.astro";
+import CenturyBadge from "./CenturyBadge.astro";
+import VerifyChip from "./VerifyChip.astro";
 
 interface Props {
   n: NewsItem;
-  tone?: "blue" | "ivory";
 }
-const { n, tone = "blue" } = Astro.props;
+const { n } = Astro.props;
 const cat = NEWS_CAT[n.cat];
+const motif =
+  n.cat === "apparitions" || n.cat === "historical" ? "cross" : "dome";
+const tone = n.century <= 17 ? "blue" : n.cat === "icons" ? "ivory" : "blue";
+// The filter island matches against these without re-reading the DOM text.
 const haystack =
   `${n.headline} ${n.location} ${n.summary} ${n.saint.name} ${cat.name}`.toLowerCase();
 ---
@@ -19,55 +28,27 @@ const haystack =
 <a
   class="news-feed-card"
   href={withBase(`news/${n.id}`)}
+  style={`border-top-color:${cat.ink}`}
   data-cat={n.cat}
-  data-catname={cat.name}
+  data-century={n.century}
+  data-verify={n.verify}
+  data-region={regionOf(n.location)}
+  data-saint={n.saint.name}
   data-search={haystack}
 >
-  <NewsPlate
-    saint={n.saint}
-    tone={tone}
-    height={tone === "ivory" ? 168 : 196}
-    avatar={tone === "ivory" ? 78 : 88}
-    motif={n.cat === "apparitions" ? "cross" : "dome"}
-    slug={n.location.toUpperCase()}
-  />
-  <div class="nfc-body">
-    <span class="news-tag" style={`color:${cat.ink};background:${cat.bg}`}>
-      <i></i>{cat.name}
+  <div class="nfc-media">
+    <NewsThumb saint={n.saint} tone={tone} motif={motif} height={176} />
+    <span class="nfc-verify">
+      <VerifyChip level={n.verify} withLabel={false} />
     </span>
-    <h3 class="nfc-h">{n.headline}</h3>
-    <div class="news-meta">
-      <span class="nm-item">
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          ><rect x="3" y="4.5" width="18" height="17" rx="2"></rect><path
-            d="M3 9h18M8 2.5v4M16 2.5v4"></path></svg
-        >{n.date}
-      </span>
-      <span class="nm-item">
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          ><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"
-          ></path><circle cx="12" cy="10" r="2.4"></circle></svg
-        >{n.location}
-      </span>
+  </div>
+  <div class="nfc-body">
+    <div class="nfc-tags">
+      <CatPill cat={n.cat} />
+      <CenturyBadge century={n.century} />
     </div>
+    <h3 class="nfc-h">{n.headline}</h3>
+    <NewsMeta date={n.date} location={n.location} size={12} />
     <p class="nfc-sum">{n.summary}</p>
     <span class="nfc-read">
       Read the account
@@ -85,3 +66,75 @@ const haystack =
     </span>
   </div>
 </a>
+
+<style>
+  .news-feed-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--byz);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+  }
+  .news-feed-card:hover {
+    background: var(--paper);
+  }
+  .nfc-media {
+    position: relative;
+  }
+  .nfc-verify {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(251, 246, 234, 0.94);
+    border-radius: 4px;
+    padding: 4px 7px;
+    box-shadow: 0 2px 8px rgba(15, 34, 56, 0.18);
+  }
+  .nfc-body {
+    padding: 17px 20px 19px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .nfc-tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+    flex-wrap: wrap;
+  }
+  .nfc-h {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--byz-deep);
+    line-height: 1.16;
+    margin: 0 0 8px;
+    text-wrap: pretty;
+  }
+  .news-feed-card:hover .nfc-h {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .nfc-sum {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.58;
+    margin: 9px 0 0;
+    text-wrap: pretty;
+  }
+  .nfc-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--byz);
+    margin-top: auto;
+    padding-top: 14px;
+  }
+</style>

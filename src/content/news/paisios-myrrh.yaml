@@ -1,6 +1,8 @@
 id: "paisios-myrrh"
 order: 2
 cat: "icons"
+century: 21
+verify: "C"
 saint:
   name: "Paisios"
   type: "Monastic"

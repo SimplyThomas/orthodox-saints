@@ -1,6 +1,8 @@
 id: "george-walls"
 order: 13
 cat: "apparitions"
+century: 13
+verify: "B"
 saint:
   name: "George"
   type: "Great-Martyr"

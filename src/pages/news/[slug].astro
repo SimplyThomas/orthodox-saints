@@ -1,12 +1,26 @@
 ---
+/* An account, read in full. The metadata bar states plainly what desk it comes
+   from, when and where it happened, whose account it is, and what level of
+   evidence stands behind it; the verification notice below the body says the
+   same thing in words. */
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ByzCross from "../../components/icons/ByzCross.astro";
 import NewsPlate from "../../components/news/NewsPlate.astro";
 import NewsCard from "../../components/news/NewsCard.astro";
+import RailModule from "../../components/news/RailModule.astro";
+import CatPill from "../../components/news/CatPill.astro";
+import CenturyBadge from "../../components/news/CenturyBadge.astro";
+import VerifyBadge from "../../components/news/VerifyBadge.astro";
 import { saintAvatar } from "../../lib/icons";
 import { withBase } from "../../lib/format";
-import { loadNews, NEWS_CAT } from "../../lib/news";
+import {
+  loadNews,
+  ord,
+  NEWS_CAT,
+  NEWS_VERIFY,
+  NEWS_THISDAY,
+} from "../../lib/news";
 
 export const getStaticPaths = (async () => {
   const { all } = await loadNews();
@@ -18,172 +32,221 @@ export const getStaticPaths = (async () => {
 
 const { n } = Astro.props;
 const cat = NEWS_CAT[n.cat];
-const body = n.body && n.body.length ? n.body : [n.summary];
-const drop = body[0].charAt(0);
-const rest = body[0].slice(1);
-// where to slot the pull-quote: after the second paragraph
+const v = NEWS_VERIFY[n.verify];
+const body = n.body && n.body.length ? n.body : [];
+// The pull-quote slots after the second paragraph.
 const pqAfter = 1;
-const { items } = await loadNews();
-const related = items
-  .filter((x) => x.id !== n.id && x.cat === n.cat)
-  .slice(0, 3);
+const { all } = await loadNews();
+const related = all.filter((x) => x.id !== n.id && x.cat === n.cat).slice(0, 3);
 ---
 
 <BaseLayout active="news" title={n.headline} description={n.dek || n.summary}>
   <article class="na">
-    {/* breadcrumb */}
+    {/* ---------- BREADCRUMB ---------- */}
     <div class="na-crumb">
-      <a href={withBase("news")} class="na-crumb-link">News</a>
-      <span>›</span>
-      <span class="na-crumb-link">{cat.name}</span>
-      <span>›</span>
-      <span>This account</span>
+      <a href={withBase("news")}>News</a>
+      <span aria-hidden="true">›</span>
+      <a href={withBase("news/archive")}>{cat.name}</a>
+      <span aria-hidden="true">›</span>
+      <span>{ord(n.century)} Century</span>
     </div>
 
-    {/* head */}
+    {/* ---------- HEAD ---------- */}
     <header class="na-head">
-      <span class="news-tag" style={`color:${cat.ink};background:${cat.bg}`}
-        ><i></i>{cat.name}</span
-      >
+      <div class="na-head-tags">
+        <CatPill cat={n.cat} short={false} size={11.5} />
+        <span class="na-head-dot" aria-hidden="true"></span>
+        <CenturyBadge century={n.century} size={11.5} />
+      </div>
       <h1 class="na-h1">{n.headline}</h1>
       {n.dek && <p class="na-dek">{n.dek}</p>}
-      <div class="na-byline">
-        <span class="na-meta">{n.date}</span>
-        <span class="na-dot"></span>
-        <span class="na-meta">{n.location}</span>
-        <span class="na-dot"></span>
-        <span class="na-meta">By the <em>Cloud of Witnesses</em> desk</span>
-      </div>
     </header>
 
-    {/* hero plate */}
+    {/* ---------- METADATA BAR ---------- */}
+    <div class="na-metawrap">
+      <div class="na-meta">
+        <div class="na-cell">
+          <div class="eyebrow">Category</div>
+          <div class="na-cell-v">{cat.name}</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Century</div>
+          <div class="na-cell-v">{ord(n.century)} · {n.date}</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Location</div>
+          <div class="na-cell-v">{n.location}</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell na-cell--grow">
+          <div class="eyebrow">Saint</div>
+          <div class="na-cell-v">{n.saintLabel || n.saint.name}</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Verification</div>
+          <VerifyBadge level={n.verify} />
+        </div>
+      </div>
+    </div>
+
+    {/* ---------- HERO PLATE ---------- */}
     <figure class="na-figure">
       <NewsPlate
         saint={n.saint}
         tone="blue"
-        height={520}
+        height={500}
         avatar={196}
         slug={n.plate || n.location.toUpperCase()}
-        motif={n.cat === "apparitions" ? "cross" : "dome"}
+        motif={n.cat === "apparitions" || n.cat === "historical"
+          ? "cross"
+          : "dome"}
         radius={5}
       />
       {n.caption && <figcaption>{n.caption}</figcaption>}
     </figure>
 
-    {/* body */}
-    <div class="na-body">
-      <p class="na-p">
-        <span class="na-drop" aria-hidden="true">{drop}</span>{rest}
-      </p>
-      {
-        body.slice(1).map((para, i) => (
-          <Fragment>
-            <p class="na-p">{para}</p>
-            {i === pqAfter && n.pullQuote && (
-              <blockquote class="na-pull">
-                <p>{n.pullQuote.text}</p>
-                <footer>{n.pullQuote.attribution}</footer>
-              </blockquote>
-            )}
-          </Fragment>
-        ))
-      }
-      {
-        !n.body && (
-          <p class="na-note">
-            This account is being documented; a fuller report — with the
-            testimony and sources the Church’s discernment requires — will be
-            published as it is verified.
-          </p>
-        )
-      }
-    </div>
+    {/* ---------- BODY + ASIDE ---------- */}
+    <div class="na-main">
+      <div>
+        <div class="na-body">
+          {
+            body.length > 0 ? (
+              body.map((para, i) => (
+                <>
+                  <p class:list={["na-p", i === 0 && "na-p--lead"]}>{para}</p>
+                  {i === pqAfter && n.pullQuote && (
+                    <blockquote class="na-pull">
+                      <p>{n.pullQuote.text}</p>
+                      <footer>{n.pullQuote.attribution}</footer>
+                    </blockquote>
+                  )}
+                </>
+              ))
+            ) : (
+              <>
+                <p class="na-p na-p--lead">{n.summary}</p>
+                <p class="na-note">
+                  This account is being documented; a fuller report — with the
+                  testimony and sources the Church’s discernment requires — will
+                  be published as it is verified.
+                </p>
+              </>
+            )
+          }
+        </div>
 
-    {/* sources */}
-    {
-      n.sources && n.sources.length > 0 && (
-        <div class="na-srcwrap">
-          <div class="na-src">
-            <div class="na-src-head">
-              <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
-              <h3>Sources &amp; Documentation</h3>
-            </div>
-            <p class="na-src-lede">
-              The Cloud of Witnesses reports nothing it cannot source. Each
-              account is held to the standard of the Church’s own discernment.
+        {/* verification notice */}
+        <div
+          class="na-verify"
+          style={`background:${v.bg === "transparent" ? "var(--paper)" : v.bg};border:1px ${v.dashed ? "dashed" : "solid"} ${v.line}`}
+        >
+          <span
+            class="na-verify-sq"
+            style={`border:1.5px ${v.dashed ? "dashed" : "solid"} ${v.line};color:${v.ink}`}
+            >{v.letter}</span
+          >
+          <div>
+            <h3>Verification Notice</h3>
+            <p>
+              This account is based on a <strong>{v.full.toLowerCase()}</strong> and
+              has been assigned <strong
+                >Verification Level {v.letter} — {v.name}</strong
+              >. Each account is held to the standard of the Church’s own
+              careful and unhurried discernment.
             </p>
-            <div class="na-src-grid">
-              {n.sources.map((g) => (
-                <div>
-                  <div class="eyebrow na-src-eyebrow">{g.h}</div>
-                  <ul>
-                    {g.items.map((it) => (
-                      <li>
-                        <span class="na-src-dm" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-      )
-    }
 
-    {/* related saints */}
-    {
-      n.relatedSaints && n.relatedSaints.length > 0 && (
-        <section class="na-related">
-          <div class="na-rel-head">
-            <span class="eyebrow">Related Saints</span>
-            <span class="na-rel-ln" />
-          </div>
-          <div class="na-rel-saints">
-            {n.relatedSaints.map((s) => (
-              <div class="na-rel-saint">
-                <div
-                  class="na-rel-av"
-                  set:html={saintAvatar(
-                    { name: s.name, type: s.type },
-                    74,
-                    92,
-                    {
-                      type: s.type,
-                    },
-                  )}
-                />
-                <div>
-                  <h4>{s.name}</h4>
-                  {s.epithet && <div class="na-rel-ep">{s.epithet}</div>}
-                  <span
-                    class="news-tag"
-                    style={`color:${NEWS_CAT[n.cat].ink};background:${NEWS_CAT[n.cat].bg}`}
-                  >
-                    <i />
-                    {s.type}
-                  </span>
-                  {s.note && <p class="na-rel-note">{s.note}</p>}
-                </div>
+        {/* sources */}
+        {
+          n.sources && n.sources.length > 0 && (
+            <div class="na-src">
+              <div class="na-src-head">
+                <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
+                <h3>Sources &amp; Documentation</h3>
               </div>
-            ))}
-          </div>
-        </section>
-      )
-    }
+              <p class="na-src-lede">
+                The Cloud of Witnesses reports nothing it cannot source. Each
+                account is held to the standard of the Church’s own discernment.
+              </p>
+              <div class="na-src-grid">
+                {n.sources.map((g) => (
+                  <div>
+                    <div class="eyebrow">{g.h}</div>
+                    <ul>
+                      {g.items.map((it) => (
+                        <li>
+                          <span class="na-src-dm" aria-hidden="true" />
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
 
-    {/* related stories */}
+      {/* ---------- ASIDE ---------- */}
+      <aside class="na-aside">
+        {
+          n.relatedSaints && n.relatedSaints.length > 0 && (
+            <RailModule eyebrow="Related Saints">
+              <div class="na-rel-saints">
+                {n.relatedSaints.map((s) => (
+                  <div class="na-rel-saint">
+                    <div
+                      class="na-rel-av"
+                      set:html={saintAvatar(
+                        { name: s.name, type: s.type },
+                        52,
+                        65,
+                        { type: s.type },
+                      )}
+                    />
+                    <div>
+                      <h4>{s.name}</h4>
+                      {s.epithet && <div class="na-rel-ep">{s.epithet}</div>}
+                      {s.note && <p>{s.note}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </RailModule>
+          )
+        }
+
+        <RailModule eyebrow="On This Day">
+          <div class="na-thisday">
+            <div class="na-thisday-top">
+              <span class="na-thisday-date">{NEWS_THISDAY.date}</span>
+              <span class="na-thisday-year">A.D. {NEWS_THISDAY.year}</span>
+            </div>
+            <h3>{NEWS_THISDAY.title}</h3>
+            <p>{NEWS_THISDAY.body}</p>
+          </div>
+        </RailModule>
+      </aside>
+    </div>
+
+    {/* ---------- RELATED ARTICLES ---------- */}
     {
       related.length > 0 && (
-        <section class="na-related na-related-stories">
+        <section class="na-related">
           <div class="na-rel-head">
-            <span class="eyebrow">More from the {cat.name} desk</span>
-            <span class="na-rel-ln" />
+            <span class="eyebrow">
+              Related Articles · From the {cat.name} desk
+            </span>
+            <span class="na-rel-ln" aria-hidden="true" />
           </div>
           <div class="na-rel-grid">
-            {related.map((r, i) => (
-              <NewsCard n={r} tone={i === 1 ? "ivory" : "blue"} />
+            {related.map((r) => (
+              <NewsCard n={r} />
             ))}
           </div>
         </section>
@@ -191,3 +254,403 @@ const related = items
     }
   </article>
 </BaseLayout>
+
+<style>
+  .na-crumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 56px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .na-crumb a {
+    color: var(--celest);
+    text-decoration: none;
+  }
+  .na-crumb a:hover {
+    color: var(--gold-deep);
+    text-decoration: underline;
+  }
+
+  /* ---------- head ---------- */
+  .na-head {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 50px 40px 28px;
+    text-align: center;
+  }
+  .na-head-tags {
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .na-head-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--line-gold);
+  }
+  .na-h1 {
+    font-size: clamp(32px, 4.4vw, 58px);
+    color: var(--byz-deep);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 22px;
+  }
+  .na-dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 23px);
+    color: var(--celest);
+    line-height: 1.45;
+    max-width: 720px;
+    margin: 0 auto;
+    text-wrap: balance;
+  }
+
+  /* ---------- metadata bar ---------- */
+  .na-metawrap {
+    max-width: 1100px;
+    margin: 0 auto 26px;
+    padding: 0 40px;
+  }
+  .na-meta {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 18px 28px;
+    box-shadow: var(--shadow-soft);
+    flex-wrap: wrap;
+  }
+  .na-cell {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  .na-cell--grow {
+    flex: 1 1 auto;
+  }
+  .na-cell .eyebrow {
+    display: block;
+    font-size: 10.5px;
+    margin-bottom: 6px;
+  }
+  .na-cell-v {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--byz-deep);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .na-cell-ln {
+    width: 1px;
+    height: 34px;
+    background: var(--line);
+  }
+
+  /* ---------- hero ---------- */
+  .na-figure {
+    max-width: 1100px;
+    margin: 0 auto 16px;
+    padding: 0 40px;
+  }
+  .na-figure figcaption {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: var(--serif);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* ---------- body ---------- */
+  .na-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+    align-items: start;
+  }
+  .na-p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin: 0 0 22px;
+    text-wrap: pretty;
+  }
+  .na-p--lead {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--celest);
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  .na-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    border-left: 3px solid var(--line-gold);
+    padding-left: 18px;
+    margin: 0;
+  }
+  .na-pull {
+    margin: 4px 0 34px;
+    padding: 6px 0 6px 30px;
+    border-left: 3px solid var(--gold);
+  }
+  .na-pull p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--byz-deep);
+    line-height: 1.4;
+    margin: 0 0 10px;
+    text-wrap: pretty;
+  }
+  .na-pull footer {
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- verification notice ---------- */
+  .na-verify {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 22px 26px;
+    margin: 8px 0 0;
+  }
+  .na-verify-sq {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    background: #fff;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1;
+  }
+  .na-verify h3 {
+    font-size: 19px;
+    color: var(--byz-deep);
+    margin: 0 0 5px;
+  }
+  .na-verify p {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- sources ---------- */
+  .na-src {
+    margin: 26px 0 0;
+    background: var(--paper);
+    border: 1px solid var(--line-gold);
+    border-radius: 5px;
+    padding: 26px 30px 28px;
+  }
+  .na-src-head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 6px;
+  }
+  .na-src-head h3 {
+    font-size: 21px;
+    color: var(--byz-deep);
+    margin: 0;
+  }
+  .na-src-lede {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: var(--serif);
+    margin: 0 0 20px;
+  }
+  .na-src-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 28px;
+  }
+  .na-src-grid .eyebrow {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .na-src-grid ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .na-src-grid li {
+    display: flex;
+    gap: 9px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    font-family: ui-monospace, Menlo, monospace;
+  }
+  .na-src-dm {
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* ---------- aside ---------- */
+  .na-rel-saints {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .na-rel-saint {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px;
+    box-shadow: var(--shadow-soft);
+  }
+  .na-rel-av {
+    flex-shrink: 0;
+    display: flex;
+  }
+  .na-rel-saint h4 {
+    font-size: 17px;
+    color: var(--byz-deep);
+    line-height: 1.08;
+    margin: 0;
+  }
+  .na-rel-ep {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--celest);
+    margin-bottom: 6px;
+  }
+  .na-rel-saint p {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .na-thisday {
+    background: var(--byz);
+    border-radius: 4px;
+    padding: 20px 22px;
+    color: var(--ivory);
+    box-shadow: var(--shadow-card);
+  }
+  .na-thisday-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .na-thisday-date {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--gold-soft);
+    line-height: 1;
+  }
+  .na-thisday-year {
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--celest-soft);
+  }
+  .na-thisday h3 {
+    font-size: 19px;
+    color: var(--ivory);
+    line-height: 1.18;
+    margin: 0 0 9px;
+  }
+  .na-thisday p {
+    font-size: 13px;
+    color: #cdd9e6;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- related ---------- */
+  .na-related {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding: 0 40px 64px;
+  }
+  .na-rel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .na-rel-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .na-rel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  @media (max-width: 980px) {
+    .na-main {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .na-src-grid,
+    .na-rel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 860px) {
+    .na-crumb {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .na-head,
+    .na-metawrap,
+    .na-figure,
+    .na-main,
+    .na-related {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .na-cell-ln {
+      display: none;
+    }
+    .na-meta {
+      gap: 18px;
+    }
+  }
+</style>

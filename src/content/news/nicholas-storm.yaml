@@ -1,6 +1,8 @@
 id: "nicholas-storm"
 order: 11
 cat: "apparitions"
+century: 21
+verify: "D"
 saint:
   name: "Nicholas"
   type: "Hierarch"

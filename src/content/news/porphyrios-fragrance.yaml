@@ -1,6 +1,8 @@
 id: "porphyrios-fragrance"
 order: 3
 cat: "modern"
+century: 21
+verify: "C"
 saint:
   name: "Porphyrios"
   type: "Monastic"

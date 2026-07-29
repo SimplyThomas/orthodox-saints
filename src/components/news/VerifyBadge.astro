@@ -1,0 +1,61 @@
+---
+/* The full verification mark — boxed letter, short name, and the standard
+   spelled out beneath. Used in the article's metadata bar, where there is room
+   to say what the level actually means. */
+import type { VerifyLevel } from "../../lib/news";
+import { NEWS_VERIFY } from "../../lib/news";
+
+interface Props {
+  level: VerifyLevel;
+}
+const { level } = Astro.props;
+const v = NEWS_VERIFY[level];
+---
+
+<span class="vbadge">
+  <span
+    class="vbadge-box"
+    style={`border:1.5px ${v.dashed ? "dashed" : "solid"} ${v.line};background:${v.bg};color:${v.ink}`}
+    >{v.letter}</span
+  >
+  <span>
+    <span class="vbadge-name" style={`color:${v.ink}`}>{v.name}</span>
+    <span class="vbadge-full">{v.full}</span>
+  </span>
+</span>
+
+<style>
+  .vbadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .vbadge-box {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1;
+  }
+  .vbadge-name {
+    display: block;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.1;
+  }
+  .vbadge-full {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    line-height: 1.2;
+    margin-top: 1px;
+  }
+</style>

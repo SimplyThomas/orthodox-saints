@@ -342,30 +342,69 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("news index lists dispatches and opens an article", async ({ page }) => {
+test("news front page leads, verifies, and filters", async ({ page }) => {
   const resp = await page.goto("./news/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".np-h1")).toHaveText("Saints in the News");
-  // The lead story and the feed river render.
-  await expect(page.locator(".np-lead")).toBeVisible();
-  expect(
-    await page.locator(".np-river .news-feed-card").count(),
-  ).toBeGreaterThan(4);
-  // A category chip filters the river.
-  const before = await page
-    .locator(".np-river .news-feed-card:visible")
-    .count();
-  await page.locator(".np-hero .news-chip", { hasText: "Healings" }).click();
-  await expect
-    .poll(async () => page.locator(".np-river .news-feed-card:visible").count())
-    .toBeLessThan(before);
+  await expect(page.locator(".cwn-h1")).toHaveText("Cloud of Witnesses News");
 
-  // The lead article opens at its own route with the full body + source box.
-  const article = await page.goto("./news/nektarios-child/");
-  expect(article?.status()).toBe(200);
+  // The lead story and the chronological feed render.
+  await expect(page.locator(".cwn-lead")).toBeVisible();
+  expect(await page.locator(".cwn-river .drow").count()).toBeGreaterThan(4);
+
+  // The A–D standard is stated on the page, all four levels.
+  await expect(page.locator(".vlegend .vlegend-item")).toHaveCount(4);
+
+  // The rail keeps This Day in Orthodox History and Most Read.
+  await expect(page.locator(".cwn-thisday")).toBeVisible();
+  await expect(page.locator(".cwn-mostread .cwn-mr-row")).toHaveCount(5);
+
+  // A desk chip swaps the feed for the filtered card grid.
+  await page
+    .locator(".cwn-chiprow .news-chip", { hasText: "Healings" })
+    .click();
+  await expect(page.locator("#news-feed")).toBeHidden();
+  await expect(page.locator("#news-results")).toBeVisible();
+  const shown = page.locator("#news-cards .news-feed-card:visible");
+  expect(await shown.count()).toBeGreaterThan(0);
+  for (const card of await shown.all())
+    expect(await card.getAttribute("data-cat")).toBe("healings");
+
+  // Clearing returns to the feed.
+  await page.locator("#news-clear").click();
+  await expect(page.locator("#news-feed")).toBeVisible();
+});
+
+test("news article carries its metadata bar and verification notice", async ({
+  page,
+}) => {
+  const resp = await page.goto("./news/nektarios-child/");
+  expect(resp?.status()).toBe(200);
   await expect(page.locator(".na-h1")).toContainText("Saint Nektarios");
+  // Category · Century · Location · Saint · Verification
+  await expect(page.locator(".na-meta .na-cell")).toHaveCount(5);
+  await expect(page.locator(".na-verify")).toContainText("Verification Notice");
   await expect(page.locator(".na-pull")).toBeVisible();
   await expect(page.locator(".na-src")).toBeVisible();
+});
+
+test("news archive narrows by facet and clears", async ({ page }) => {
+  const resp = await page.goto("./news/archive/");
+  expect(resp?.status()).toBe(200);
+  const rows = page.locator(".arc-row:visible");
+  const before = await rows.count();
+  expect(before).toBeGreaterThan(4);
+
+  // Picking a desk narrows the list and raises a removable chip.
+  await page
+    .locator('.arc-facet[data-facet="cat"]', { hasText: "Healings" })
+    .click();
+  await expect.poll(async () => rows.count()).toBeLessThan(before);
+  await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(1);
+
+  // Clear all restores the full archive.
+  await page.locator("#arc-clear").click();
+  await expect.poll(async () => rows.count()).toBe(before);
+  await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(0);
 });
 
 test("calendar opens on the current month as a grid with today highlighted", async ({

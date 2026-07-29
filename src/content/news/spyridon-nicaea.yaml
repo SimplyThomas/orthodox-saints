@@ -1,6 +1,8 @@
 id: "spyridon-nicaea"
 order: 9
 cat: "historical"
+century: 4
+verify: "B"
 saint:
   name: "Spyridon"
   type: "Hierarch"

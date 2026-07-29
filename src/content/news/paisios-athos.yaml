@@ -1,6 +1,8 @@
 id: "paisios-athos"
 order: 14
 cat: "modern"
+century: 20
+verify: "C"
 saint:
   name: "Paisios"
   type: "Monastic"
