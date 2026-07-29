@@ -33,14 +33,15 @@ pullQuote:
   text: "“The icon proclaims with paint what the Gospel proclaims with words.”"
   attribution: "— One bishop, during the proceedings"
 aroundTheEmpire:
-  - city: "Constantinople"
-    note: "Churches throughout the capital are preparing for the gradual restoration of holy icons following news from the council."
-  - city: "Mount Olympus, Bithynia"
-    note: "Monastic communities that endured years of persecution have received word of the council with cautious optimism."
-  - city: "Asia Minor"
-    note: "Some military leaders known to favour Iconoclasm have reportedly expressed dissatisfaction with the council’s decision."
-  - city: "Rome"
-    note: "Representatives of the Bishop of Rome welcomed the council’s reaffirmation of the Church’s ancient practice regarding sacred images."
+  notes:
+    - city: "Constantinople"
+      note: "Churches throughout the capital are preparing for the gradual restoration of holy icons following news from the council."
+    - city: "Mount Olympus, Bithynia"
+      note: "Monastic communities that endured years of persecution have received word of the council with cautious optimism."
+    - city: "Asia Minor"
+      note: "Some military leaders known to favour Iconoclasm have reportedly expressed dissatisfaction with the council’s decision."
+    - city: "Rome"
+      note: "Representatives of the Bishop of Rome welcomed the council’s reaffirmation of the Church’s ancient practice regarding sacred images."
 departments:
   - kind: "forum"
     voices:

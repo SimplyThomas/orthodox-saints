@@ -33,14 +33,15 @@ pullQuote:
   text: "“The question before us is not merely what we call the Virgin. It is who Jesus Christ truly is.”"
   attribution: "— One bishop, as delegates departed the assembly"
 aroundTheEmpire:
-  - city: "Alexandria"
-    note: "Churches throughout Egypt have welcomed the council’s affirmation, with many clergy praising Patriarch Cyril’s defense of the Incarnation."
-  - city: "Constantinople"
-    note: "Supporters of Nestorius remain uncertain how the emperor will respond to news of the archbishop’s deposition."
-  - city: "Antioch"
-    note: "Delegates traveling from Syria are reportedly nearing Ephesus after delays along the route. Some observers question how their late arrival may affect the council’s reception."
-  - city: "Jerusalem"
-    note: "Pilgrims visiting the Holy Places have begun discussing the council’s decision, recognizing its importance for the Church’s confession of Christ."
+  notes:
+    - city: "Alexandria"
+      note: "Churches throughout Egypt have welcomed the council’s affirmation, with many clergy praising Patriarch Cyril’s defense of the Incarnation."
+    - city: "Constantinople"
+      note: "Supporters of Nestorius remain uncertain how the emperor will respond to news of the archbishop’s deposition."
+    - city: "Antioch"
+      note: "Delegates traveling from Syria are reportedly nearing Ephesus after delays along the route. Some observers question how their late arrival may affect the council’s reception."
+    - city: "Jerusalem"
+      note: "Pilgrims visiting the Holy Places have begun discussing the council’s decision, recognizing its importance for the Church’s confession of Christ."
 departments:
   - kind: "forum"
     voices:

@@ -94,6 +94,15 @@ export interface EmpireNote {
   note: string;
 }
 
+/* The "Around the Empire" column. Its heading changes with the story — Around
+   the Kingdom in Iberia, Around the Holy Land in Jerusalem — and some despatches
+   carry a single paragraph of context rather than a set of city notes. */
+export interface AroundTheEmpire {
+  heading?: string;
+  intro?: string;
+  notes?: EmpireNote[];
+}
+
 /* A major event is covered the way a paper would cover it: several dispatches
    across several days, not one enormous article. `id` groups them, `part`
    orders them. */
@@ -142,8 +151,12 @@ export interface NewsItem {
   byline?: string;
   /** the paper's trailer: what runs in the next edition */
   comingUp?: { kicker?: string; title: string }[];
-  /** short updates from other cities — the "Around the Empire" sidebar */
-  aroundTheEmpire?: EmpireNote[];
+  /** short updates from elsewhere — the "Around the Empire" column */
+  aroundTheEmpire?: AroundTheEmpire;
+  /** the standing "Why This Story Matters" note */
+  whyThisMatters?: string;
+  /** the standing disclosure that the reporting voice is a literary device */
+  literaryFraming?: string;
   /** the series this dispatch belongs to, if it covers an ongoing event */
   series?: SeriesRef;
   /** the standing departments this article runs */
@@ -490,14 +503,20 @@ export function regionOf(location: string): string {
   return "Elsewhere";
 }
 
-/* Sort key for "in the order received": a real calendar date ("June 5, 2026")
-   ranks above a historical dispatch ("A.D. 325", "c. A.D. 1200"), which falls
-   back to the year in its label. */
+/* Sort key for "in the order received". A real calendar date ("June 5, 2026")
+   ranks above a historical dispatch, which uses the year in its dateline
+   ("A.D. 325", "c. A.D. 1200").
+
+   Plenty of datelines carry no numeral at all — "During the Reign of Emperor
+   Hadrian", "Fourth Century" — and those used to fall to year zero and sink to
+   the bottom of the feed in a heap. Fall back to the middle of the article's
+   own century instead, which is the information we actually have. */
 export function postRank(n: NewsItem): number {
   const t = Date.parse(n.date);
   if (!isNaN(t)) return t;
   const m = n.date.match(/(\d{3,4})/);
-  return Date.UTC(m ? +m[1] : 0, 0, 1);
+  if (m) return Date.UTC(+m[1], 0, 1);
+  return Date.UTC((n.century - 1) * 100 + 50, 0, 1);
 }
 
 /** The centuries actually present in a set of accounts, ascending. */

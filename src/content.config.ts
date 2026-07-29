@@ -567,11 +567,24 @@ const dailyDove = defineCollection({
         part: z.number().int().min(1),
       })
       .optional(),
-    // "Around the Empire" — short updates from other cities, so the world feels
-    // inhabited while the main story runs.
+    // "Around the Empire" — what is happening elsewhere while the main story
+    // runs. `heading` renames it (Around the Kingdom, Around the Holy Land);
+    // `intro` carries a single paragraph where there are no city notes.
     aroundTheEmpire: z
-      .array(z.object({ city: z.string(), note: z.string() }))
+      .object({
+        heading: z.string().optional(),
+        intro: z.string().optional(),
+        notes: z
+          .array(z.object({ city: z.string(), note: z.string() }))
+          .optional(),
+      })
       .optional(),
+    // Why the Church remembers this — the standing closing note.
+    whyThisMatters: z.string().optional(),
+    // The standing disclosure that the reporting voice is a device: which parts
+    // of the article are literary and not preserved in the sources. Rendered
+    // inside the Historian's Notes, where a reader is already weighing evidence.
+    literaryFraming: z.string().optional(),
     // The standing departments this article runs. `kind` keys into DEPARTMENT
     // in src/lib/daily-dove.ts; the template orders them by DEPARTMENT_ORDER.
     departments: z

@@ -15,10 +15,12 @@ import { EVIDENCE, notesByLevel } from "../../lib/daily-dove";
 interface Props {
   intro?: string;
   entries: HistoriansNote[];
+  /** which parts of the article are literary device rather than record */
+  literaryFraming?: string;
   /** set for the side column — tighter measure, smaller type */
   compact?: boolean;
 }
-const { intro, entries, compact = false } = Astro.props;
+const { intro, entries, literaryFraming, compact = false } = Astro.props;
 // Grouped by level, strongest first — the section reads as a set of findings
 // rather than a flat list, and a reader can see at once how much of the story
 // rests on documents and how much on tradition.
@@ -78,6 +80,15 @@ const groups = notesByLevel(entries);
         </section>
       );
     })
+  }
+
+  {
+    literaryFraming && (
+      <div class="hframing">
+        <h3>Literary framing</h3>
+        <p>{literaryFraming}</p>
+      </div>
+    )
   }
 </section>
 
@@ -185,6 +196,33 @@ const groups = notesByLevel(entries);
   .hnote-src li::before {
     content: "— ";
     color: var(--gold-deep);
+  }
+
+  /* The paper's voice is a device, and this says which parts of the article
+     are that device rather than record. It sits inside the Historian's Notes
+     because that is where a reader is already weighing what to trust. */
+  .hframing {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(35, 76, 122, 0.35);
+  }
+  .hframing h3 {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--celest);
+    margin: 0 0 8px;
+  }
+  .hframing p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: pretty;
   }
 
   /* ---- in the side column ---- */

@@ -35,14 +35,15 @@ pullQuote:
   text: "“If Christ is not truly God, then how can He unite mankind to God?”"
   attribution: "— One bishop, remarking upon arriving in Nicaea"
 aroundTheEmpire:
-  - city: "Alexandria"
-    note: "Reports indicate that debate over Arius’s teaching continues to divide congregations despite repeated attempts by Bishop Alexander to restore unity."
-  - city: "Antioch"
-    note: "Clergy arriving from Syria express hope that a common confession of faith will finally bring peace to the churches."
-  - city: "Jerusalem"
-    note: "Pilgrims traveling to the Holy Places have begun discussing the council’s proceedings with growing interest, recognizing that its decisions may shape the future of the Church."
-  - city: "Rome"
-    note: "Representatives of Bishop Sylvester I have arrived to participate in the council on behalf of the Church of Rome."
+  notes:
+    - city: "Alexandria"
+      note: "Reports indicate that debate over Arius’s teaching continues to divide congregations despite repeated attempts by Bishop Alexander to restore unity."
+    - city: "Antioch"
+      note: "Clergy arriving from Syria express hope that a common confession of faith will finally bring peace to the churches."
+    - city: "Jerusalem"
+      note: "Pilgrims traveling to the Holy Places have begun discussing the council’s proceedings with growing interest, recognizing that its decisions may shape the future of the Church."
+    - city: "Rome"
+      note: "Representatives of Bishop Sylvester I have arrived to participate in the council on behalf of the Church of Rome."
 departments:
   - kind: "forum"
     voices:

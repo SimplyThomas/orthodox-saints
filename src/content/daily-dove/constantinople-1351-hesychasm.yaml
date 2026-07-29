@@ -34,14 +34,15 @@ pullQuote:
   text: "“If the saints truly share in God’s grace, perhaps holiness is closer than we often think.”"
   attribution: "— A young deacon"
 aroundTheEmpire:
-  - city: "Mount Athos"
-    note: "Monastic communities have reportedly received the council’s decision with profound gratitude, seeing it as the vindication of generations of ascetic practice."
-  - city: "Thessalonica"
-    note: "Clergy close to Archbishop Gregory Palamas welcomed the council’s judgment, describing it as a victory for the teaching of the Fathers."
-  - city: "Constantinople"
-    note: "Scholars continue discussing the distinction between God’s essence and energies, with many expecting the council’s decision to shape theological education for years to come."
-  - city: "The Imperial Court"
-    note: "Officials expressed hope that the synod’s ruling will finally bring peace to a controversy that has divided clergy and intellectuals alike."
+  notes:
+    - city: "Mount Athos"
+      note: "Monastic communities have reportedly received the council’s decision with profound gratitude, seeing it as the vindication of generations of ascetic practice."
+    - city: "Thessalonica"
+      note: "Clergy close to Archbishop Gregory Palamas welcomed the council’s judgment, describing it as a victory for the teaching of the Fathers."
+    - city: "Constantinople"
+      note: "Scholars continue discussing the distinction between God’s essence and energies, with many expecting the council’s decision to shape theological education for years to come."
+    - city: "The Imperial Court"
+      note: "Officials expressed hope that the synod’s ruling will finally bring peace to a controversy that has divided clergy and intellectuals alike."
 departments:
   - kind: "forum"
     voices:

@@ -511,9 +511,9 @@ test("dispatch plates take their colour from the era", async ({ page }) => {
     expect(await row.getAttribute("data-era")).toBeTruthy();
     await expect(row.locator(".erapill")).toBeVisible();
   }
-  // The 4th- and 5th-century councils share the Age of Councils band; the
-  // 14th-century Hesychast dispatch does not.
-  await expect(rows.filter({ hasText: "Arius Controversy" })).toHaveAttribute(
+  // The 5th-century councils share the Age of Councils band; the 14th-century
+  // Hesychast dispatch does not.
+  await expect(rows.filter({ hasText: "Peter Has Spoken" })).toHaveAttribute(
     "data-era",
     "councils",
   );

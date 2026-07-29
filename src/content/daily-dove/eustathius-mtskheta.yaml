@@ -1,0 +1,65 @@
+id: "eustathius-mtskheta"
+order: 12
+cat: "historical"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Mtskheta Edition"
+byline: "By Our Correspondent in Mtskheta"
+saint:
+  name: "Eustathius"
+  type: "Martyr"
+saintLabel: "Eustathius, Martyr of Mtskheta"
+kicker: "Breaking"
+headline: "Royal Official Refuses Sacred Fire"
+date: "Kingdom of Iberia · Fourth Century"
+location: "Mtskheta, Iberia"
+dek: "A court servant is executed after declaring loyalty to Christ before the king — and a kingdom watches itself choose between two worlds."
+summary: "Eustathius, a trusted servant of the king and once a devoted keeper of the sacred Persian fire, was led before the assembled court after refusing repeated orders to return to the religion of his fathers. His answer never changed: “I am a Christian.”"
+body:
+  - "The royal court gathered expecting another act of obedience. Instead, it witnessed an act of defiance that may be remembered for generations."
+  - "Eustathius, a trusted servant of the king and once a devoted keeper of the sacred Persian fire, was led before the assembled court this week after refusing repeated orders to return to the religion of his fathers. His answer never changed. “I am a Christian.” With those words, the fate of one of the kingdom’s most respected officials was sealed."
+  - "The events have stirred unusual discussion throughout Mtskheta, where the Christian faith has spread rapidly in recent years following the preaching of Saint Nino. Although the kingdom publicly embraced Christianity, many influential families and Persian officials have continued to defend the ancient Zoroastrian religion. Eustathius found himself standing at the fault line between those two worlds."
+  - "Born in Persia, he was raised to honor fire as sacred and eventually came west in the service of the royal administration. By all accounts, he was diligent, intelligent, and well respected. No one expected that the quiet official would one day abandon the faith of his ancestors."
+  - "Yet after arriving in Mtskheta, Eustathius encountered the Christian community. He listened to their teaching, observed their lives, and eventually asked to receive baptism. Friends later recalled that his conversion was neither sudden nor impulsive. It came after careful reflection and a growing conviction that Christ alone was worthy of worship."
+  - "News of his baptism soon reached those who regarded his conversion as more than a personal decision. For Persian authorities, it was an act of betrayal."
+  - "Eustathius was summoned and ordered to return to the worship of fire. Officials reminded him of his position, his responsibilities, and the consequences awaiting anyone who rejected the ancient religion. They offered him every opportunity to recant. He refused them all."
+  - "According to the ancient account preserved by the Church, the interrogations gave way to imprisonment, and imprisonment gave way to torture. Each new punishment was meant to accomplish what persuasion had failed to do. It never did."
+  - "Witnesses describe a man who answered each demand with remarkable composure. He did not mock his judges, nor did he answer them with anger. His resolve rested on a simple confession repeated again and again: he belonged to Christ."
+  - "As the proceedings stretched on, crowds gathered outside hoping to learn the outcome. Some pitied the prisoner. Others believed he had brought disaster upon himself by refusing to honor the religion of the empire from which he had come. Still others quietly admired a courage they could scarcely understand."
+  - "The sentence, when it finally came, surprised few. Eustathius was condemned to death. His execution was carried out publicly, ending the life of a man who had once served two kingdoms but ultimately chose the one he believed could never pass away."
+  - "For many in Mtskheta, the execution marks another chapter in the growing struggle between the old order and the Christian faith that has taken root across the kingdom. What began years ago with the preaching of a single woman has now reached the halls of government itself, where even royal officials are willing to surrender rank, security, and life rather than deny Christ."
+  - "The authorities may have intended the execution to discourage others. Judging by the conversations filling the streets today, it may accomplish the opposite."
+pullQuote:
+  text: "“I am a Christian.”"
+  attribution: "— Eustathius, before the assembled court"
+aroundTheEmpire:
+  heading: "Around the Kingdom"
+  intro: "Christian communities continue to grow throughout Iberia following the missionary work of Saint Nino. While King Mirian embraced Christianity, tensions remain in regions where Persian religious influence is still strong, particularly among officials connected to the Sasanian Empire."
+departments:
+  - kind: "whispers"
+    title: "Whispers in Mtskheta"
+    body:
+      - "Some now speak of Eustathius alongside the earliest martyrs, saying that his witness has strengthened believers throughout the kingdom. Others fear his death will deepen the growing divide between Christian Iberia and neighbouring Persia."
+whyThisMatters: "The martyrdom of Eustathius represents more than the death of one believer. His life reflects the profound religious transformation taking place in fourth-century Georgia, where Christianity spread from private homes to the royal court itself. His refusal to abandon Christ despite political pressure became a lasting symbol of the cost of discipleship in a kingdom caught between two civilizations."
+literaryFraming: "The descriptions of the royal court, the crowds, and the reporter’s observations are literary devices used to present the historical account as contemporary journalism. They are not preserved as eyewitness descriptions in the ancient sources."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Eustathius was born in Persia and was originally a follower of the Zoroastrian religion."
+    - level: "orthodox-tradition"
+      claim: "He came to Mtskheta, where he encountered Christianity and was baptized."
+    - level: "orthodox-tradition"
+      claim: "He refused repeated demands to return to the worship of fire."
+    - level: "orthodox-tradition"
+      claim: "He endured imprisonment and torture before being executed for confessing Christ."
+    - level: "orthodox-tradition"
+      claim: "He is commemorated by the Orthodox Church as one of the earliest martyrs of Georgia."
+sources:
+  - h: "Primary Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Martyr Eustathius of Mtskheta"
+      - "The Georgian Chronicles (Kartlis Tskhovreba), as reflected in the traditional account of his martyrdom"
+      - "The Synaxarion for July 29"
+  - h: "Historical Context"
+    items:
+      - "Modern scholarship on the Christianization of the Kingdom of Iberia (Georgia) and fourth-century Sasanian religious policy"

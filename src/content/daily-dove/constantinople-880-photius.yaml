@@ -33,14 +33,15 @@ pullQuote:
   text: "“This council is not merely about one bishop. It is about restoring peace among the churches.”"
   attribution: "— A delegate, after the day’s session"
 aroundTheEmpire:
-  - city: "Rome"
-    note: "News that papal representatives participated in the council has been welcomed by many clergy hoping for lasting peace between the two apostolic sees."
-  - city: "Bulgaria"
-    note: "Church leaders continue watching developments closely as questions of ecclesiastical jurisdiction remain important throughout the region."
-  - city: "Antioch"
-    note: "Bishops have expressed gratitude that one of the Church’s most visible disputes appears to be nearing resolution."
-  - city: "Alexandria"
-    note: "Clergy await copies of the council’s decisions as churches throughout the East begin receiving official reports."
+  notes:
+    - city: "Rome"
+      note: "News that papal representatives participated in the council has been welcomed by many clergy hoping for lasting peace between the two apostolic sees."
+    - city: "Bulgaria"
+      note: "Church leaders continue watching developments closely as questions of ecclesiastical jurisdiction remain important throughout the region."
+    - city: "Antioch"
+      note: "Bishops have expressed gratitude that one of the Church’s most visible disputes appears to be nearing resolution."
+    - city: "Alexandria"
+      note: "Clergy await copies of the council’s decisions as churches throughout the East begin receiving official reports."
 departments:
   - kind: "forum"
     voices:

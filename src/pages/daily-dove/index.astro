@@ -37,7 +37,8 @@ const leadCat = NEWS_CAT[lead.cat];
 // "In the order received" — the newest first, historical dispatches ranked by
 // the year in their dateline.
 const byRecency = all.slice().sort((a, b) => postRank(b) - postRank(a));
-const dispatches = byRecency.slice(0, 7);
+// The lead runs above; the feed carries the rest, with the archive behind it.
+const dispatches = byRecency.filter((n) => n.id !== lead.id).slice(0, 12);
 const centuries = centuriesIn(all);
 
 // The rail's desk index: each desk with how many accounts it holds and its two

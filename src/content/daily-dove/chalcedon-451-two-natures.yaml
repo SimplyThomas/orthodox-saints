@@ -33,14 +33,15 @@ pullQuote:
   text: "“Peter has spoken through Leo!”"
   attribution: "— The acclamation of the assembled bishops, after the reading of the Tome"
 aroundTheEmpire:
-  - city: "Constantinople"
-    note: "Clergy throughout the capital have welcomed reports that the council has reaffirmed both the Nicene faith and the teaching of St. Cyril concerning the Incarnation."
-  - city: "Rome"
-    note: "News of the council’s reception of Pope Leo’s Tome is expected to be greeted with thanksgiving among the clergy."
-  - city: "Alexandria"
-    note: "Reports indicate growing uncertainty as many await word concerning Patriarch Dioscorus and the council’s final decisions."
-  - city: "Jerusalem"
-    note: "Pilgrims visiting the Holy Places have begun discussing the council’s definition, recognizing its importance for the Church’s confession of Christ."
+  notes:
+    - city: "Constantinople"
+      note: "Clergy throughout the capital have welcomed reports that the council has reaffirmed both the Nicene faith and the teaching of St. Cyril concerning the Incarnation."
+    - city: "Rome"
+      note: "News of the council’s reception of Pope Leo’s Tome is expected to be greeted with thanksgiving among the clergy."
+    - city: "Alexandria"
+      note: "Reports indicate growing uncertainty as many await word concerning Patriarch Dioscorus and the council’s final decisions."
+    - city: "Jerusalem"
+      note: "Pilgrims visiting the Holy Places have begun discussing the council’s definition, recognizing its importance for the Church’s confession of Christ."
 departments:
   - kind: "forum"
     voices:

@@ -33,14 +33,15 @@ pullQuote:
   text: "“The faith confessed at Nicaea remains our foundation. But the questions raised since then must also be answered, so that the faithful are not left in confusion.”"
   attribution: "— One bishop, upon entering the council hall"
 aroundTheEmpire:
-  - city: "Alexandria"
-    note: "Clergy throughout Egypt have welcomed reports that the council is reaffirming the Nicene faith so vigorously defended by the late Archbishop Athanasius."
-  - city: "Antioch"
-    note: "News from Constantinople is being followed closely as the churches of Antioch continue to navigate longstanding divisions within their own episcopate."
-  - city: "Rome"
-    note: "Although the Bishop of Rome is not personally present, representatives remain in communication with the Eastern churches concerning the council’s proceedings."
-  - city: "Cappadocia"
-    note: "Many clergy have expressed gratitude that the theological work of the late Basil the Great continues to shape the Church’s confession of the Holy Spirit."
+  notes:
+    - city: "Alexandria"
+      note: "Clergy throughout Egypt have welcomed reports that the council is reaffirming the Nicene faith so vigorously defended by the late Archbishop Athanasius."
+    - city: "Antioch"
+      note: "News from Constantinople is being followed closely as the churches of Antioch continue to navigate longstanding divisions within their own episcopate."
+    - city: "Rome"
+      note: "Although the Bishop of Rome is not personally present, representatives remain in communication with the Eastern churches concerning the council’s proceedings."
+    - city: "Cappadocia"
+      note: "Many clergy have expressed gratitude that the theological work of the late Basil the Great continues to shape the Church’s confession of the Holy Spirit."
 departments:
   - kind: "forum"
     voices:

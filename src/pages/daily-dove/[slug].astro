@@ -190,6 +190,16 @@ const departments = (n.departments ?? [])
           )
         }
 
+        {/* why the Church remembers it */}
+        {
+          n.whyThisMatters && (
+            <section class="na-why">
+              <h2>Why this story matters</h2>
+              <p>{n.whyThisMatters}</p>
+            </section>
+          )
+        }
+
         {/* sources */}
         {
           n.sources && n.sources.length > 0 && (
@@ -230,6 +240,7 @@ const departments = (n.departments ?? [])
               <HistoriansNotes
                 intro={n.historiansNotes.intro}
                 entries={n.historiansNotes.entries}
+                literaryFraming={n.literaryFraming}
                 compact
               />
             ) : (
@@ -263,9 +274,9 @@ const departments = (n.departments ?? [])
         </div>
 
         {
-          n.aroundTheEmpire && n.aroundTheEmpire.length > 0 && (
+          n.aroundTheEmpire && (
             <div class="na-empire">
-              <AroundTheEmpire notes={n.aroundTheEmpire} />
+              <AroundTheEmpire data={n.aroundTheEmpire} />
             </div>
           )
         }

@@ -9,13 +9,14 @@
 
    These are held to the same standard as everything else in the paper: what
    goes here is either documented or accounted for in the Historian's Notes. */
-import type { EmpireNote } from "../../lib/daily-dove";
+import type { AroundTheEmpire } from "../../lib/daily-dove";
 
 interface Props {
-  notes: EmpireNote[];
-  heading?: string;
+  data: AroundTheEmpire;
 }
-const { notes, heading = "Around the Empire" } = Astro.props;
+const { data } = Astro.props;
+const heading = data.heading ?? "Around the Empire";
+const notes = data.notes ?? [];
 ---
 
 <section class="empire">
@@ -23,6 +24,8 @@ const { notes, heading = "Around the Empire" } = Astro.props;
     <h2>{heading}</h2>
   </div>
   <div class="empire-rule" aria-hidden="true"></div>
+
+  {data.intro && <p class="empire-intro">{data.intro}</p>}
 
   <ul class="empire-list">
     {
@@ -64,6 +67,18 @@ const { notes, heading = "Around the Empire" } = Astro.props;
     margin-bottom: 16px;
   }
 
+  .empire-intro {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .empire-intro + .empire-list {
+    margin-top: 15px;
+    padding-top: 14px;
+    border-top: 1px dotted rgba(168, 133, 42, 0.55);
+  }
   .empire-list {
     list-style: none;
     margin: 0;
