@@ -3,8 +3,8 @@
    facet clears it. Every row is already in the DOM — this only hides the ones
    that don't match, so the archive reads fine with JavaScript off. */
 
-type Facet = "cat" | "verify" | "century" | "region" | "saint";
-const FACETS: Facet[] = ["cat", "verify", "century", "region", "saint"];
+type Facet = "cat" | "verify" | "era" | "century" | "region" | "saint";
+const FACETS: Facet[] = ["cat", "verify", "era", "century", "region", "saint"];
 
 const rows = [...document.querySelectorAll<HTMLElement>(".arc-row")];
 const facetBtns = [...document.querySelectorAll<HTMLElement>(".arc-facet")];
@@ -20,6 +20,7 @@ if (rows.length && facetBtns.length) {
   const active: Record<Facet, string> = {
     cat: "",
     verify: "",
+    era: "",
     century: "",
     region: "",
     saint: "",

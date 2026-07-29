@@ -1,12 +1,13 @@
 ---
-/* A dispatch in the chronological feed: a wide row carrying its desk's colour,
-   with the thumbnail left and the account right. Dark by design — the feed sits
-   on the deep navy band, so the desks read as coloured plates against it. */
+/* A dispatch in the chronological feed: a wide row printed in the colour of its
+   era, thumbnail left and account right. Dark by design — the feed sits on the
+   deep navy band, so the plates read as colour against it, and a reader can
+   date a story from across the room. */
 import type { NewsItem } from "../../lib/daily-dove";
-import { NEWS_CAT } from "../../lib/daily-dove";
+import { eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
 import NewsThumb from "./NewsThumb.astro";
-import CatPill from "./CatPill.astro";
+import EraPill from "./EraPill.astro";
 import CenturyBadge from "./CenturyBadge.astro";
 import EvidenceDot from "./EvidenceDot.astro";
 import NewsMeta from "./NewsMeta.astro";
@@ -15,18 +16,19 @@ interface Props {
   n: NewsItem;
 }
 const { n } = Astro.props;
-const c = NEWS_CAT[n.cat];
+const era = eraOf(n.century);
 const motif =
   n.cat === "apparitions" || n.cat === "historical" ? "cross" : "dome";
 const tone = n.century <= 17 ? "blue" : n.cat === "icons" ? "ivory" : "blue";
-const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${c.ink} 76%, #000), color-mix(in srgb, ${c.ink} 55%, #000))`;
+const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000), color-mix(in srgb, ${era.ink} 55%, #000))`;
 ---
 
 <a
   class="drow"
   href={withBase(`daily-dove/${n.id}`)}
-  style={`background:${c.ink}`}
+  style={`background:${era.ink}`}
   data-cat={n.cat}
+  data-era={era.id}
 >
   <div class="drow-media">
     <NewsThumb saint={n.saint} tone={tone} motif={motif} bg={thumbBg} />
@@ -36,7 +38,7 @@ const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${c.ink} 76%, #000),
   </div>
   <div class="drow-body">
     <div class="drow-tags">
-      <CatPill cat={n.cat} onDark />
+      <EraPill century={n.century} onDark />
       <CenturyBadge century={n.century} color="var(--gold-soft)" />
     </div>
     <h3 class="drow-h">{n.headline}</h3>

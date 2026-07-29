@@ -14,6 +14,8 @@ import {
   loadPaper,
   ord,
   regionOf,
+  eraOf,
+  ERAS,
   NEWS_CATS,
   EVIDENCE,
   EVIDENCE_LIST,
@@ -43,6 +45,14 @@ const verOpts = EVIDENCE_LIST.filter(
   count: count((n) => n.evidence === k),
   swatch: EVIDENCE[k].dot,
 }));
+const eraOpts = ERAS.filter((e) =>
+  all.some((n) => eraOf(n.century).id === e.id),
+).map((e) => ({
+  key: e.id,
+  label: e.name,
+  count: count((n) => eraOf(n.century).id === e.id),
+  swatch: e.ink,
+}));
 const cenOpts = [...new Set(all.map((n) => n.century))]
   .sort((a, b) => a - b)
   .map((c) => ({
@@ -68,6 +78,7 @@ const saintOpts = Object.keys(saintCounts)
 const groups = [
   { facet: "cat", title: "Desk", options: catOpts },
   { facet: "verify", title: "Level of Evidence", options: verOpts },
+  { facet: "era", title: "Era", options: eraOpts },
   { facet: "century", title: "Century", options: cenOpts },
   { facet: "region", title: "Place", options: regOpts },
   { facet: "saint", title: "Saint", options: saintOpts },
@@ -171,6 +182,7 @@ const groups = [
                     data-cat={n.cat}
                     data-verify={n.evidence}
                     data-century={n.century}
+                    data-era={eraOf(n.century).id}
                     data-region={regionOf(n.location)}
                     data-saint={n.saint.name}
                   >

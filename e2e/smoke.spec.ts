@@ -500,6 +500,27 @@ test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
   await expect(noted).toHaveCount(2);
 });
 
+test("dispatch plates take their colour from the era", async ({ page }) => {
+  await page.goto("./daily-dove/");
+  const rows = page.locator(".cwn-river .drow");
+  // Every plate is tagged with its era and names it, so the colour is legible
+  // rather than decorative.
+  for (const row of await rows.all()) {
+    expect(await row.getAttribute("data-era")).toBeTruthy();
+    await expect(row.locator(".erapill")).toBeVisible();
+  }
+  // The 4th- and 5th-century councils share the Age of Councils band; the
+  // 14th-century Hesychast dispatch does not.
+  await expect(rows.filter({ hasText: "Arius Controversy" })).toHaveAttribute(
+    "data-era",
+    "councils",
+  );
+  await expect(rows.filter({ hasText: "Uncreated Light" })).toHaveAttribute(
+    "data-era",
+    "east",
+  );
+});
+
 test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   const resp = await page.goto("./daily-dove/archive/");
   expect(resp?.status()).toBe(200);

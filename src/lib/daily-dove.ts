@@ -291,6 +291,99 @@ export const EVIDENCE_LIST: EvidenceLevel[] = [
 ];
 
 /* ============================================================
+   The eras — the paper's colour system.
+
+   The desks (Healings, Relics, …) were drawn for a paper covering many
+   subjects. This one is organised by history, so the dispatch plates take
+   their colour from WHEN a story happened rather than what kind of story it
+   is: a reader learns six colours once and can then date a dispatch across
+   the room. Bands are the conventional divisions of Church history, and every
+   century from the 1st to the 21st falls in exactly one.
+   ============================================================ */
+
+export interface Era {
+  id: string;
+  /** first and last century in the band, inclusive */
+  from: number;
+  to: number;
+  /** short label for the plate pill */
+  name: string;
+  /** the fuller name, for the archive facet and tooltips */
+  full: string;
+  ink: string;
+  bg: string;
+}
+
+export const ERAS: Era[] = [
+  {
+    id: "martyrs",
+    from: 1,
+    to: 3,
+    name: "Age of Martyrs",
+    full: "The Age of the Martyrs · 1st–3rd century",
+    ink: "#8d3a2f",
+    bg: "rgba(141,58,47,.12)",
+  },
+  {
+    id: "councils",
+    from: 4,
+    to: 5,
+    name: "Age of Councils",
+    full: "The Age of the Councils · 4th–5th century",
+    ink: "#234C7A",
+    bg: "rgba(35,76,122,.12)",
+  },
+  {
+    id: "byzantium",
+    from: 6,
+    to: 10,
+    name: "Byzantine Centuries",
+    full: "The Byzantine Centuries · 6th–10th century",
+    ink: "#3d6157",
+    bg: "rgba(61,97,87,.14)",
+  },
+  {
+    id: "east",
+    from: 11,
+    to: 15,
+    name: "The Christian East",
+    full: "Hesychasts, Rus’ and the Christian East · 11th–15th century",
+    ink: "#4d3258",
+    bg: "rgba(77,50,88,.14)",
+  },
+  {
+    id: "ottoman",
+    from: 16,
+    to: 18,
+    name: "Ottoman Centuries",
+    full: "Under the Ottomans, and the missions · 16th–18th century",
+    ink: "#6b5326",
+    bg: "rgba(107,83,38,.14)",
+  },
+  {
+    id: "modern",
+    from: 19,
+    to: 21,
+    name: "The Modern Age",
+    full: "New martyrs and the modern age · 19th–21st century",
+    ink: "#1f5e54",
+    bg: "rgba(31,94,84,.13)",
+  },
+];
+
+export const ERA: Record<string, Era> = Object.fromEntries(
+  ERAS.map((e) => [e.id, e]),
+);
+
+/** The era a century falls in. Falls back to the last band, never undefined. */
+export function eraOf(century: number): Era {
+  return (
+    ERAS.find((e) => century >= e.from && century <= e.to) ??
+    ERAS[ERAS.length - 1]
+  );
+}
+
+/* ============================================================
    The departments — the paper's standing sections. Every article may carry any
    of these, in whatever order suits the story; Historian's Notes is not among
    them because it is not optional and always runs last (see historiansNotes on
@@ -385,7 +478,7 @@ export function regionOf(location: string): string {
   )
     return "Greece";
   if (
-    /constantinople|nicaea|ephesus|bithynia|smyrna|phrygia|colossae|chonae|blachernae/.test(
+    /constantinople|nicaea|nicomedia|chalcedon|ephesus|bithynia|smyrna|phrygia|colossae|chonae|blachernae/.test(
       s,
     )
   )

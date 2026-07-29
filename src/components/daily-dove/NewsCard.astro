@@ -1,14 +1,14 @@
 ---
-/* An account as a card: thumbnail on top under a desk-coloured rule, the
+/* An account as a card: thumbnail on top under a rule in its era's colour, the
    verification mark overlaid, then the badges, headline, meta and summary.
    Used by the filtered grid on /news and the related-articles row on an
    article page. */
 import type { NewsItem } from "../../lib/daily-dove";
-import { NEWS_CAT, regionOf } from "../../lib/daily-dove";
+import { NEWS_CAT, regionOf, eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
 import NewsThumb from "./NewsThumb.astro";
 import NewsMeta from "./NewsMeta.astro";
-import CatPill from "./CatPill.astro";
+import EraPill from "./EraPill.astro";
 import CenturyBadge from "./CenturyBadge.astro";
 import EvidenceDot from "./EvidenceDot.astro";
 
@@ -17,6 +17,7 @@ interface Props {
 }
 const { n } = Astro.props;
 const cat = NEWS_CAT[n.cat];
+const era = eraOf(n.century);
 const motif =
   n.cat === "apparitions" || n.cat === "historical" ? "cross" : "dome";
 const tone = n.century <= 17 ? "blue" : n.cat === "icons" ? "ivory" : "blue";
@@ -28,8 +29,9 @@ const haystack =
 <a
   class="news-feed-card"
   href={withBase(`daily-dove/${n.id}`)}
-  style={`border-top-color:${cat.ink}`}
+  style={`border-top-color:${era.ink}`}
   data-cat={n.cat}
+  data-era={era.id}
   data-century={n.century}
   data-verify={n.evidence}
   data-region={regionOf(n.location)}
@@ -44,7 +46,7 @@ const haystack =
   </div>
   <div class="nfc-body">
     <div class="nfc-tags">
-      <CatPill cat={n.cat} />
+      <EraPill century={n.century} />
       <CenturyBadge century={n.century} />
     </div>
     <h3 class="nfc-h">{n.headline}</h3>
