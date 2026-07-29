@@ -6,8 +6,6 @@
    rendered here; daily-dove.client.ts only switches between them, so the page
    works without JavaScript. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ByzCross from "../../components/icons/ByzCross.astro";
-import DomeMark from "../../components/icons/DomeMark.astro";
 import SearchGlyph from "../../components/icons/SearchGlyph.astro";
 import NewsPlate from "../../components/daily-dove/NewsPlate.astro";
 import NewsCard from "../../components/daily-dove/NewsCard.astro";
@@ -93,14 +91,7 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
         >
       </div>
       <a class="cwn-lead" href={withBase(`daily-dove/${lead.id}`)}>
-        <NewsPlate
-          saint={lead.saint}
-          tone="blue"
-          avatar={172}
-          slug={lead.plate}
-          motif="cross"
-          fill
-        />
+        <NewsPlate saint={lead.saint} slug={lead.plate} fill />
         <div class="cwn-lead-body">
           <div class="cwn-lead-tags">
             {lead.kicker && <span class="cwn-kicker">{lead.kicker}</span>}
@@ -261,7 +252,6 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
               {all.map((n) => <NewsCard n={n} />)}
             </div>
             <div class="cwn-empty" id="news-empty" hidden>
-              <ByzCross size={26} color="var(--line-gold)" stroke={2} />
               <p>No accounts match these filters yet.</p>
               <button type="button" class="btn btn--ghost" id="news-empty-clear"
                 >Clear filters</button
@@ -355,10 +345,6 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
           </RailModule>
 
           <a class="cwn-archive-cta" href={withBase("daily-dove/archive")}>
-            {/* domeMark's svg is width:100%, so it needs a box to sit in */}
-            <span class="cwn-archive-mark" aria-hidden="true">
-              <DomeMark w={46} color="var(--gold-soft)" />
-            </span>
             <h3>Browse the full archive</h3>
             <p>
               Every dispatch by century, saint, place, desk, and level of
@@ -900,10 +886,6 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
     border-radius: 4px;
     padding: 20px 22px;
     box-shadow: var(--shadow-card);
-  }
-  .cwn-archive-mark {
-    display: block;
-    width: 46px;
   }
   .cwn-archive-cta h3 {
     font-size: 21px;

@@ -4,8 +4,6 @@
    rendered server-side and the island only hides rows, so the full archive is
    readable without JavaScript. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import DomeMark from "../../components/icons/DomeMark.astro";
-import ByzCross from "../../components/icons/ByzCross.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
 import CatPill from "../../components/daily-dove/CatPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
@@ -104,9 +102,6 @@ const groups = [
 
     {/* ---------- HEADER BAND ---------- */}
     <section class="arc-head">
-      <div class="arc-dome" aria-hidden="true">
-        <DomeMark w={420} color="var(--gold)" />
-      </div>
       <div class="arc-head-inner">
         <div class="eyebrow on-blue">Browse the Archive</div>
         <h1>The Archive of Witnesses</h1>
@@ -240,7 +235,6 @@ const groups = [
               })
             }
             <div class="arc-empty" id="arc-empty" hidden>
-              <ByzCross size={26} color="var(--line-gold)" stroke={2} />
               <p>No accounts match these facets.</p>
               <button type="button" class="btn btn--ghost" id="arc-empty-clear"
                 >Clear all filters</button
@@ -278,14 +272,6 @@ const groups = [
     background: var(--byz-ink);
     overflow: hidden;
     border-bottom: 3px solid var(--gold);
-  }
-  .arc-dome {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.12;
-    pointer-events: none;
   }
   .arc-head-inner {
     position: relative;

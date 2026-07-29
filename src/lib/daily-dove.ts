@@ -136,7 +136,6 @@ export interface NewsItem {
   /** full article body paragraphs ([0] takes the drop-cap) */
   body?: string[];
   pullQuote?: { text: string; attribution: string };
-  caption?: string;
   /** the edition line beneath the nameplate, e.g. "Nicaea Edition" */
   edition?: string;
   /** who filed it — "By the Staff of The Daily Dove" */

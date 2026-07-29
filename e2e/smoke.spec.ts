@@ -406,8 +406,10 @@ test("a Daily Dove article carries its metadata bar and evidence", async ({
   // Category · Century · Location · Saint · Evidence
   await expect(page.locator(".na-meta .na-cell")).toHaveCount(5);
   await expect(page.locator(".na-meta")).toContainText("Evidence");
-  // Every real dispatch closes with the Historian's Notes, not the stand-in.
-  await expect(page.locator(".hnotes")).toBeVisible();
+  // The Historian's Notes runs in the side column, beside the story.
+  await expect(page.locator(".na-aside .hnotes")).toBeVisible();
+  // The paper carries no image slot.
+  await expect(page.locator(".na-figure")).toHaveCount(0);
   await expect(page.locator(".na-verify")).toHaveCount(0);
   await expect(page.locator(".na-pull")).toBeVisible();
   await expect(page.locator(".na-src")).toBeVisible();

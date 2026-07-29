@@ -5,8 +5,6 @@
    same thing in words. */
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ByzCross from "../../components/icons/ByzCross.astro";
-import NewsPlate from "../../components/daily-dove/NewsPlate.astro";
 import NewsCard from "../../components/daily-dove/NewsCard.astro";
 import RailModule from "../../components/daily-dove/RailModule.astro";
 import CatPill from "../../components/daily-dove/CatPill.astro";
@@ -108,49 +106,34 @@ const departments = (n.departments ?? [])
 
     {/* ---------- METADATA BAR ---------- */}
     <div class="na-metawrap">
+      {
+        /* A grid, not a flex row with separator spans — those left a rule
+          dangling in mid-air whenever the bar wrapped. The rules are now cell
+          borders, so they can only ever appear between two cells. */
+      }
       <div class="na-meta">
         <div class="na-cell">
           <div class="eyebrow">Category</div>
           <div class="na-cell-v">{cat.name}</div>
         </div>
-        <span class="na-cell-ln" aria-hidden="true"></span>
         <div class="na-cell">
-          <div class="eyebrow">Century</div>
-          <div class="na-cell-v">{ord(n.century)} · {n.date}</div>
+          <div class="eyebrow">Dateline</div>
+          <div class="na-cell-v">{n.date}</div>
         </div>
-        <span class="na-cell-ln" aria-hidden="true"></span>
         <div class="na-cell">
           <div class="eyebrow">Location</div>
           <div class="na-cell-v">{n.location}</div>
         </div>
-        <span class="na-cell-ln" aria-hidden="true"></span>
-        <div class="na-cell na-cell--grow">
-          <div class="eyebrow">Saint</div>
+        <div class="na-cell">
+          <div class="eyebrow">Subject</div>
           <div class="na-cell-v">{n.saintLabel || n.saint.name}</div>
         </div>
-        <span class="na-cell-ln" aria-hidden="true"></span>
         <div class="na-cell">
           <div class="eyebrow">Evidence</div>
           <EvidenceBadge level={n.evidence} />
         </div>
       </div>
     </div>
-
-    {/* ---------- HERO PLATE ---------- */}
-    <figure class="na-figure">
-      <NewsPlate
-        saint={n.saint}
-        tone="blue"
-        height={500}
-        avatar={196}
-        slug={n.plate || n.location.toUpperCase()}
-        motif={n.cat === "apparitions" || n.cat === "historical"
-          ? "cross"
-          : "dome"}
-        radius={5}
-      />
-      {n.caption && <figcaption>{n.caption}</figcaption>}
-    </figure>
 
     {/* ---------- BODY + ASIDE ---------- */}
     <div class="na-main">
@@ -207,48 +190,11 @@ const departments = (n.departments ?? [])
           )
         }
 
-        {/* the closing accounting — every Daily Dove article ends here */}
-        {
-          n.historiansNotes ? (
-            <HistoriansNotes
-              intro={n.historiansNotes.intro}
-              entries={n.historiansNotes.entries}
-            />
-          ) : (
-            /* placeholder articles predate the Historian's Notes; show the
-               story-level evidence rather than pretending to an accounting
-               that has not been written. */
-            <div
-              class="na-verify"
-              style={`background:${v.bg === "transparent" ? "var(--dove-parchment-2)" : v.bg};border:1px ${v.dashed ? "dashed" : "solid"} ${v.line}`}
-            >
-              <span
-                class="na-verify-sq"
-                style={
-                  v.dashed
-                    ? `border:3px solid ${v.dot};background:transparent`
-                    : `background:${v.dot};border:3px solid ${v.dot}`
-                }
-                aria-hidden="true"
-              />
-              <div>
-                <h3>On the evidence</h3>
-                <p>
-                  This report rests on <strong>{v.full.toLowerCase()}</strong>.
-                  Its full Historian’s Notes — each strand of the story set
-                  against what actually carries it — are still to be written.
-                </p>
-              </div>
-            </div>
-          )
-        }
-
         {/* sources */}
         {
           n.sources && n.sources.length > 0 && (
             <div class="na-src">
               <div class="na-src-head">
-                <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
                 <h3>Sources &amp; Documentation</h3>
               </div>
               <p class="na-src-lede">
@@ -277,6 +223,45 @@ const departments = (n.departments ?? [])
 
       {/* ---------- ASIDE ---------- */}
       <aside class="na-aside">
+        <div class="na-hnotes">
+          {/* the closing accounting — every Daily Dove article carries it */}
+          {
+            n.historiansNotes ? (
+              <HistoriansNotes
+                intro={n.historiansNotes.intro}
+                entries={n.historiansNotes.entries}
+                compact
+              />
+            ) : (
+              /* placeholder articles predate the Historian's Notes; show the
+               story-level evidence rather than pretending to an accounting
+               that has not been written. */
+              <div
+                class="na-verify"
+                style={`background:${v.bg === "transparent" ? "var(--dove-parchment-2)" : v.bg};border:1px ${v.dashed ? "dashed" : "solid"} ${v.line}`}
+              >
+                <span
+                  class="na-verify-sq"
+                  style={
+                    v.dashed
+                      ? `border:3px solid ${v.dot};background:transparent`
+                      : `background:${v.dot};border:3px solid ${v.dot}`
+                  }
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3>On the evidence</h3>
+                  <p>
+                    This report rests on <strong>{v.full.toLowerCase()}</strong>
+                    . Its full Historian’s Notes — each strand of the story set
+                    against what actually carries it — are still to be written.
+                  </p>
+                </div>
+              </div>
+            )
+          }
+        </div>
+
         {
           n.aroundTheEmpire && n.aroundTheEmpire.length > 0 && (
             <div class="na-empire">
@@ -296,7 +281,9 @@ const departments = (n.departments ?? [])
                         { name: s.name, type: s.type },
                         52,
                         65,
-                        { type: s.type },
+                        /* `awaiting` is the cross-less ground — the paper
+                           carries no cross ornament. */
+                        { type: s.type, awaiting: true },
                       )}
                     />
                     <div>

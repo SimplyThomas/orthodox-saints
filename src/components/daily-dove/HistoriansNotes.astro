@@ -11,22 +11,25 @@
    pleasure of the story in finding out. */
 import type { HistoriansNote } from "../../lib/daily-dove";
 import { EVIDENCE, notesByLevel } from "../../lib/daily-dove";
-import ByzCross from "../icons/ByzCross.astro";
 
 interface Props {
   intro?: string;
   entries: HistoriansNote[];
+  /** set for the side column — tighter measure, smaller type */
+  compact?: boolean;
 }
-const { intro, entries } = Astro.props;
+const { intro, entries, compact = false } = Astro.props;
 // Grouped by level, strongest first — the section reads as a set of findings
 // rather than a flat list, and a reader can see at once how much of the story
 // rests on documents and how much on tradition.
 const groups = notesByLevel(entries);
 ---
 
-<section class="hnotes" aria-labelledby="historians-notes">
+<section
+  class:list={["hnotes", compact && "hnotes--compact"]}
+  aria-labelledby="historians-notes"
+>
   <div class="hnotes-head">
-    <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
     <h2 id="historians-notes">Historian&rsquo;s Notes</h2>
     <span class="hnotes-ln" aria-hidden="true"></span>
   </div>
@@ -34,7 +37,9 @@ const groups = notesByLevel(entries);
   <p class="hnotes-lede">
     {
       intro ??
-        "The Daily Dove tells its stories in the voice of a paper that never existed. What follows is the plain accounting: which parts of the report above are documented, which belong to the tradition of the Church, and which are legend."
+        (compact
+          ? "Which parts of this report are documented, which belong to the tradition of the Church, and which are legend."
+          : "The Daily Dove tells its stories in the voice of a paper that never existed. What follows is the plain accounting: which parts of the report above are documented, which belong to the tradition of the Church, and which are legend.")
     }
   </p>
 
@@ -180,6 +185,49 @@ const groups = notesByLevel(entries);
   .hnote-src li::before {
     content: "— ";
     color: var(--gold-deep);
+  }
+
+  /* ---- in the side column ---- */
+  .hnotes--compact {
+    margin: 0;
+    padding: 18px 18px 20px;
+  }
+  .hnotes--compact .hnotes-head h2 {
+    font-size: 20px;
+  }
+  .hnotes--compact .hnotes-lede {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .hnotes--compact .hgroup {
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  .hnotes--compact .hgroup-head {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    align-items: flex-start;
+    margin-bottom: 9px;
+  }
+  .hnotes--compact .hgroup-mark {
+    width: 11px;
+    height: 11px;
+    margin-top: 2px;
+  }
+  .hnotes--compact .hgroup-list {
+    padding-left: 0;
+    gap: 11px;
+  }
+  .hnotes--compact .hnote-claim {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .hnotes--compact .hnote-note {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .hnotes--compact .hnote-src li {
+    font-size: 11.5px;
   }
 
   @media (max-width: 640px) {

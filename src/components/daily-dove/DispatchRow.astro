@@ -17,9 +17,6 @@ interface Props {
 }
 const { n } = Astro.props;
 const era = eraOf(n.century);
-const motif =
-  n.cat === "apparitions" || n.cat === "historical" ? "cross" : "dome";
-const tone = n.century <= 17 ? "blue" : n.cat === "icons" ? "ivory" : "blue";
 const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000), color-mix(in srgb, ${era.ink} 55%, #000))`;
 ---
 
@@ -31,7 +28,7 @@ const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000
   data-era={era.id}
 >
   <div class="drow-media">
-    <NewsThumb saint={n.saint} tone={tone} motif={motif} bg={thumbBg} />
+    <NewsThumb saint={n.saint} bg={thumbBg} />
     <span class="drow-verify">
       <EvidenceDot level={n.evidence} withLabel={false} />
     </span>

@@ -1,81 +1,68 @@
 ---
-/* Respectfully-framed image plate (a placeholder for a real photo/icon): a
-   tinted ground, a faint sacred watermark, the saint's icon centred, and a quiet
-   monospace slug naming what belongs here. Ready to swap in real photography. */
+/* The lead story's plate on the front page. No image and no cross ornament —
+   the subject's initial set large in the paper's serif, inside a thin gold
+   frame, with the slug line a paper prints under a picture. */
 import type { NewsSaintRef } from "../../lib/daily-dove";
-import { saintAvatar, domeMark, byzCross } from "../../lib/icons";
 
 interface Props {
   saint?: NewsSaintRef;
-  tone?: "blue" | "ivory";
   height?: number;
-  avatar?: number;
   slug?: string;
-  motif?: "dome" | "cross";
   radius?: number;
   fill?: boolean;
 }
-const {
-  saint,
-  tone = "blue",
-  height = 240,
-  avatar = 96,
-  slug,
-  motif = "dome",
-  radius = 0,
-  fill = false,
-} = Astro.props;
-
-const T =
-  tone === "ivory"
-    ? {
-        bg: "linear-gradient(150deg,#efe3cb,#e7d9bd)",
-        markOp: 0.08,
-        mark: "var(--byz)",
-        slug: "var(--ink-soft)",
-        line: "rgba(168,133,42,.5)",
-      }
-    : {
-        bg: "linear-gradient(150deg,#1b3a5c,#234C7A 60%,#1d4068)",
-        markOp: 0.14,
-        mark: "var(--gold)",
-        slug: "var(--gold-soft)",
-        line: "rgba(212,175,55,.4)",
-      };
-
-const watermark =
-  motif === "cross"
-    ? byzCross(
-        Math.min(height * 0.9, 150),
-        tone === "ivory" ? "#234C7A" : "#D4AF37",
-        1.4,
-      )
-    : domeMark(
-        Math.min(height * 2.1, 460),
-        tone === "ivory" ? "#234C7A" : "#D4AF37",
-      );
-
-const aw = avatar;
-const ah = Math.round(avatar * 1.24);
-const portrait = saint
-  ? saintAvatar({ name: saint.name, type: saint.type }, aw, ah, {
-      type: saint.type,
-    })
-  : "";
+const { saint, height = 240, slug, radius = 0, fill = false } = Astro.props;
+const initial = (saint?.name ?? "").trim().charAt(0).toUpperCase();
 ---
 
 <div
   class="news-plate"
-  style={`height:${fill ? "100%" : height + "px"};background:${T.bg};${radius ? "border-radius:" + radius + "px;" : ""}`}
+  style={`height:${fill ? "100%" : height + "px"}${radius ? `;border-radius:${radius}px` : ""}`}
 >
-  <div class="np-mark" style={`opacity:${T.markOp}`} set:html={watermark} />
-  <div class="np-frame" style={`border-color:${T.line}`}></div>
-  {portrait && <div class="np-icon" set:html={portrait} />}
+  <div class="np-frame" aria-hidden="true"></div>
   {
-    slug && (
-      <div class="np-slug" style={`color:${T.slug}`}>
-        {slug}
-      </div>
+    initial && (
+      <span class="np-initial" aria-hidden="true">
+        {initial}
+      </span>
     )
   }
+  {slug && <div class="np-slug">{slug}</div>}
 </div>
+
+<style>
+  .news-plate {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(150deg, #1b3a5c, #234c7a 60%, #1d4068);
+    min-height: 240px;
+  }
+  .np-frame {
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    pointer-events: none;
+  }
+  .np-initial {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(90px, 13vw, 170px);
+    line-height: 1;
+    color: rgba(245, 235, 216, 0.26);
+    user-select: none;
+  }
+  .np-slug {
+    position: absolute;
+    left: 20px;
+    bottom: 16px;
+    right: 20px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--gold-soft);
+    opacity: 0.85;
+  }
+</style>

@@ -549,7 +549,6 @@ const dailyDove = defineCollection({
     pullQuote: z
       .object({ text: z.string(), attribution: z.string() })
       .optional(),
-    caption: z.string().optional(),
     // The edition line beneath the nameplate — where this dispatch was filed
     // from, e.g. "Nicaea Edition".
     edition: z.string().optional(),

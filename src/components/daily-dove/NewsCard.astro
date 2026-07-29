@@ -18,9 +18,7 @@ interface Props {
 const { n } = Astro.props;
 const cat = NEWS_CAT[n.cat];
 const era = eraOf(n.century);
-const motif =
-  n.cat === "apparitions" || n.cat === "historical" ? "cross" : "dome";
-const tone = n.century <= 17 ? "blue" : n.cat === "icons" ? "ivory" : "blue";
+const eraBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 78%, #000), color-mix(in srgb, ${era.ink} 58%, #000))`;
 // The filter island matches against these without re-reading the DOM text.
 const haystack =
   `${n.headline} ${n.location} ${n.summary} ${n.saint.name} ${cat.name}`.toLowerCase();
@@ -39,7 +37,7 @@ const haystack =
   data-search={haystack}
 >
   <div class="nfc-media">
-    <NewsThumb saint={n.saint} tone={tone} motif={motif} height={176} />
+    <NewsThumb saint={n.saint} bg={eraBg} height={176} />
     <span class="nfc-verify">
       <EvidenceDot level={n.evidence} withLabel={false} />
     </span>

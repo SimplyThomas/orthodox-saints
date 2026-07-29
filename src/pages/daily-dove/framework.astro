@@ -10,7 +10,6 @@
 
    Unlisted: reachable at /daily-dove/framework, linked from nowhere. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ByzCross from "../../components/icons/ByzCross.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
 import DepartmentBlock from "../../components/daily-dove/DepartmentBlock.astro";
 import HistoriansNotes from "../../components/daily-dove/HistoriansNotes.astro";
@@ -104,7 +103,6 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
     </div>
 
     <div class="fw-warn">
-      <ByzCross size={15} color="var(--gold-deep)" stroke={2} />
       <p>
         <strong>This is a specimen, not a dispatch.</strong> Every slot below is filled
         with copy describing the slot. Nothing here reports any event, and no historical
@@ -188,11 +186,8 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
 
         {departments.map((run) => <DepartmentBlock run={run} />)}
 
-        <HistoriansNotes entries={notes} />
-
         <div class="na-src">
           <div class="na-src-head">
-            <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
             <h3>Sources &amp; Documentation</h3>
           </div>
           <p class="na-src-lede">
@@ -226,6 +221,10 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
       </div>
 
       <aside class="na-aside">
+        <div class="na-hnotes">
+          <HistoriansNotes entries={notes} compact />
+        </div>
+
         <div class="na-empire">
           <AroundTheEmpire notes={empire} />
         </div>

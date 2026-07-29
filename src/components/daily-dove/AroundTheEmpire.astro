@@ -10,7 +10,6 @@
    These are held to the same standard as everything else in the paper: what
    goes here is either documented or accounted for in the Historian's Notes. */
 import type { EmpireNote } from "../../lib/daily-dove";
-import ByzCross from "../icons/ByzCross.astro";
 
 interface Props {
   notes: EmpireNote[];
@@ -21,7 +20,6 @@ const { notes, heading = "Around the Empire" } = Astro.props;
 
 <section class="empire">
   <div class="empire-head">
-    <ByzCross size={15} color="var(--gold-deep)" stroke={2} />
     <h2>{heading}</h2>
   </div>
   <div class="empire-rule" aria-hidden="true"></div>
