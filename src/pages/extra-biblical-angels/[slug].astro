@@ -553,14 +553,18 @@ const citation = `${w.title} — Cloud of Witnesses.`;
     background: var(--ivory-2);
     border-bottom: 1px solid var(--line-gold);
   }
-  /* Aligned to the body grid below, not to --maxw: `.sv2 .sv-body` is
-     max-width 1280px and `.sv2 .sv-rail` pads clamp(22px, 3vw, 38px), so the
-     cards share a left edge with the rail beneath them. Changing either means
-     changing both. */
+  /* Aligned to the body grid below, not to --maxw. Every full-width `.sv2` band
+     — the hero inner, the actions ribbon, and the rail — is max-width 1280px on
+     the site-wide page gutter `clamp(16px, 4vw, 56px)`, so matching it here puts
+     "Who appears in this book" and the panel beneath it on the same left edge as
+     the rail. Use the gutter token, not a private value: this rule previously
+     carried the rail's own older `clamp(22px, 3vw, 38px)`, which #402 changed on
+     the rail and not here, leaving these two sections hanging ~13px left of the
+     column below them. */
   .wk-kinds-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 clamp(22px, 3vw, 38px);
+    padding: 0 clamp(16px, 4vw, 56px);
   }
   .wk-kind-grid {
     display: grid;
