@@ -10,14 +10,19 @@ interface Props {
   title?: string;
   /** suppress the strapline where space is tight */
   bare?: boolean;
+  /** lighten the department name so it holds up on the paper's dark stock */
+  onDark?: boolean;
 }
-const { kind, title, bare = false } = Astro.props;
+const { kind, title, bare = false, onDark = false } = Astro.props;
 const d = DEPARTMENT[kind];
 ---
 
 {
   d && (
-    <div class="dhead" style={`--dh-ink:${d.ink}`}>
+    <div
+      class:list={["dhead", onDark && "dhead--dark"]}
+      style={`--dh-ink:${d.ink}`}
+    >
       <span class="dhead-dm" aria-hidden="true" />
       <span class="dhead-name">{title ?? d.name}</span>
       <span class="dhead-ln" aria-hidden="true" />
@@ -64,6 +69,15 @@ const d = DEPARTMENT[kind];
     color: var(--ink-soft);
     white-space: nowrap;
   }
+  /* On dark stock the desk inks go muddy, so the name runs ivory and the
+     colour stays in the lozenge and the rule beneath. */
+  .dhead--dark .dhead-name {
+    color: var(--ivory);
+  }
+  .dhead--dark .dhead-blurb {
+    color: var(--celest-soft);
+  }
+
   @media (max-width: 640px) {
     .dhead-blurb {
       display: none;

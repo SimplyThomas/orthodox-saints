@@ -86,6 +86,23 @@ export interface DepartmentRun {
   voices?: { text: string; attribution?: string }[];
 }
 
+/* A short update from another city, for the "Around the Empire" sidebar. The
+   point is to make the world feel inhabited while the main story runs — the
+   Church is never only where the council is sitting. */
+export interface EmpireNote {
+  city: string;
+  note: string;
+}
+
+/* A major event is covered the way a paper would cover it: several dispatches
+   across several days, not one enormous article. `id` groups them, `part`
+   orders them. */
+export interface SeriesRef {
+  id: string;
+  name: string;
+  part: number;
+}
+
 /* One strand of the story set against the evidence that carries it. Every
    article closes with a run of these — the paper's whole reason for existing in
    this form. `claim` is what the article said; `note` is what actually stands
@@ -120,7 +137,13 @@ export interface NewsItem {
   body?: string[];
   pullQuote?: { text: string; attribution: string };
   caption?: string;
-  /** the standing departments this article runs, in order */
+  /** the edition line beneath the nameplate, e.g. "Nicaea Edition" */
+  edition?: string;
+  /** short updates from other cities — the "Around the Empire" sidebar */
+  aroundTheEmpire?: EmpireNote[];
+  /** the series this dispatch belongs to, if it covers an ongoing event */
+  series?: SeriesRef;
+  /** the standing departments this article runs */
   departments?: DepartmentRun[];
   /** the closing accounting — what is documented and what is tradition */
   historiansNotes?: { intro?: string; entries: HistoriansNote[] };
@@ -218,8 +241,8 @@ export const EVIDENCE: Record<EvidenceLevel, Evidence> = {
   "contemporary-witness": {
     id: "contemporary-witness",
     dot: "#234C7A",
-    name: "Contemporary witness",
-    full: "Reported by a witness of the time",
+    name: "Eyewitness account",
+    full: "Contemporary eyewitness account",
     ink: "#234C7A",
     bg: "rgba(35,76,122,.12)",
     line: "rgba(35,76,122,.42)",
@@ -282,25 +305,25 @@ export interface Department {
 
 export const DEPARTMENTS: Department[] = [
   {
-    id: "breaking",
-    name: "Breaking News",
-    blurb: "The event itself, as it reached us",
-    rule: "What happened, who was there, and how word travelled.",
-    ink: "#8d3a2f",
-  },
-  {
     id: "imperial",
     name: "Imperial Dispatch",
     blurb: "From the palace and the praetorium",
-    rule: "Edicts, appointments, and what the powers of the age had to say.",
+    rule: "Official announcements, decrees, and the actions of the imperial power.",
     ink: "#234C7A",
   },
   {
     id: "forum",
     name: "Voices from the Forum",
-    blurb: "What the faithful are saying",
-    rule: "Overheard among the people — the argument as ordinary folk had it.",
+    blurb: "How ordinary Christians received the news",
+    rule: "Illustrative voices — composites of how the faithful may have reacted, never words put in a real person's mouth.",
     ink: "#3d6157",
+  },
+  {
+    id: "whispers",
+    name: "Whispers Around the Council",
+    blurb: "The stories that circulated",
+    rule: "Famous accounts and later Orthodox traditions, always named as such rather than reported as fact.",
+    ink: "#b06a30",
   },
   {
     id: "marketplace",
@@ -310,19 +333,24 @@ export const DEPARTMENTS: Department[] = [
     ink: "#a9852a",
   },
   {
-    id: "rumor",
-    name: "Rumor Mill",
-    blurb: "Unconfirmed, and clearly marked so",
-    rule: "What was being said but never established. Flagged, never asserted.",
-    ink: "#b06a30",
-  },
-  {
     id: "fact-check",
     name: "Fact Check",
     blurb: "Setting one claim straight",
     rule: "A single popular claim weighed against what the sources actually say.",
     ink: "#6b5326",
   },
+];
+
+/* The order the article template runs its departments in, whatever order the
+   YAML happens to list them. Voices come before the Imperial Dispatch and the
+   Whispers last, so a reader meets the people, then the palace, then the
+   stories that grew up afterwards. */
+export const DEPARTMENT_ORDER = [
+  "forum",
+  "imperial",
+  "marketplace",
+  "whispers",
+  "fact-check",
 ];
 
 export const DEPARTMENT: Record<string, Department> = Object.fromEntries(
@@ -443,4 +471,31 @@ export async function loadPaper(): Promise<{
     all,
     byId: Object.fromEntries(all.map((n) => [n.id, n])),
   };
+}
+
+/* Group an article's Historian's Notes by level, strongest first, so the
+   closing section reads as a set of findings rather than a flat list. Levels
+   with nothing under them are dropped. */
+export function notesByLevel(
+  entries: HistoriansNote[],
+): { level: EvidenceLevel; entries: HistoriansNote[] }[] {
+  return EVIDENCE_LIST.map((level) => ({
+    level,
+    entries: entries.filter((e) => e.level === level),
+  })).filter((g) => g.entries.length > 0);
+}
+
+/* Every series in the paper, each with its dispatches in `part` order. Used to
+   show a reader where the article they are on sits in the run. */
+export function seriesIn(items: NewsItem[]): Map<string, NewsItem[]> {
+  const map = new Map<string, NewsItem[]>();
+  for (const n of items) {
+    if (!n.series) continue;
+    const run = map.get(n.series.id) ?? [];
+    run.push(n);
+    map.set(n.series.id, run);
+  }
+  for (const run of map.values())
+    run.sort((a, b) => (a.series!.part ?? 0) - (b.series!.part ?? 0));
+  return map;
 }

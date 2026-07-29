@@ -363,8 +363,13 @@ test("The Daily Dove front page: nameplate, evidence key, departments", async ({
 
   // Every standing department is listed. (Historian's Notes is not among them —
   // it closes every article rather than being an optional section.)
-  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(6);
-  await expect(page.locator(".dove-depts-grid")).toContainText("Rumor Mill");
+  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(5);
+  await expect(page.locator(".dove-depts-grid")).toContainText(
+    "Whispers Around the Council",
+  );
+  await expect(page.locator(".dove-depts-grid")).toContainText(
+    "Voices from the Forum",
+  );
   await expect(page.locator(".dove-depts-grid")).toContainText("Fact Check");
   await expect(page.locator(".dove-standfirst")).toContainText(
     "Historian’s Notes",
@@ -423,6 +428,30 @@ test("the old /news paths still resolve to The Daily Dove", async ({
   // Each article's old path redirects too, not just the section root.
   await page.goto("./news/nektarios-child/");
   await page.waitForURL(/\/daily-dove\/nektarios-child\/?$/);
+});
+
+test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/framework/");
+  expect(resp?.status()).toBe(200);
+  // It must say plainly that it is not a dispatch.
+  await expect(page.locator(".fw-warn")).toContainText(
+    "This is a specimen, not a dispatch",
+  );
+  // The series index, every department, and the aside columns.
+  await expect(page.locator(".snav .snav-item")).toHaveCount(4);
+  await expect(page.locator(".dblock")).toHaveCount(5);
+  await expect(page.locator(".empire .empire-item")).toHaveCount(5);
+  // Historian's Notes groups by level, one group per level.
+  await expect(page.locator(".hnotes .hgroup")).toHaveCount(5);
+  // The three standing source headings.
+  await expect(page.locator(".na-src")).toContainText("Primary Sources");
+  await expect(page.locator(".na-src")).toContainText("Orthodox Sources");
+  await expect(page.locator(".na-src")).toContainText(
+    "Modern Academic Sources",
+  );
+  // Voices and Whispers each carry their standing notice.
+  const noted = page.locator(".dblock--noted");
+  await expect(noted).toHaveCount(2);
 });
 
 test("Daily Dove archive narrows by facet and clears", async ({ page }) => {

@@ -1,0 +1,102 @@
+---
+/* AROUND THE EMPIRE — short dispatches from the other great cities, run beside
+   the main story.
+
+   The Church is never only where the council is sitting. While the bishops
+   argue at Nicaea, Alexandria is still Alexandria and the Antiochene docks are
+   still busy; this column keeps that world in view, so a reader feels the scale
+   of what is happening rather than watching a single room.
+
+   These are held to the same standard as everything else in the paper: what
+   goes here is either documented or accounted for in the Historian's Notes. */
+import type { EmpireNote } from "../../lib/daily-dove";
+import ByzCross from "../icons/ByzCross.astro";
+
+interface Props {
+  notes: EmpireNote[];
+  heading?: string;
+}
+const { notes, heading = "Around the Empire" } = Astro.props;
+---
+
+<section class="empire">
+  <div class="empire-head">
+    <ByzCross size={15} color="var(--gold-deep)" stroke={2} />
+    <h2>{heading}</h2>
+  </div>
+  <div class="empire-rule" aria-hidden="true"></div>
+
+  <ul class="empire-list">
+    {
+      notes.map((n) => (
+        <li class="empire-item">
+          <span class="empire-city">{n.city}</span>
+          <p class="empire-note">{n.note}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .empire {
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-top: 3px double var(--byz-deep);
+    border-radius: 3px;
+    padding: 18px 20px 20px;
+  }
+  .empire-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+  }
+  .empire-head h2 {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--byz-deep);
+    margin: 0;
+    line-height: 1.1;
+  }
+  .empire-rule {
+    height: 3px;
+    border-top: 1px solid var(--byz-deep);
+    border-bottom: 1px solid var(--byz-deep);
+    margin-bottom: 16px;
+  }
+
+  .empire-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 15px;
+  }
+  .empire-item {
+    padding-top: 14px;
+    border-top: 1px dotted rgba(168, 133, 42, 0.55);
+  }
+  .empire-item:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+  /* the city name set as a run-in dateline, the way a paper prints them */
+  .empire-city {
+    display: block;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    margin-bottom: 4px;
+  }
+  .empire-note {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: pretty;
+  }
+</style>

@@ -550,17 +550,33 @@ const dailyDove = defineCollection({
       .object({ text: z.string(), attribution: z.string() })
       .optional(),
     caption: z.string().optional(),
-    // The standing departments this article runs, in the order they appear.
-    // `kind` keys into DEPARTMENT in src/lib/daily-dove.ts.
+    // The edition line beneath the nameplate — where this dispatch was filed
+    // from, e.g. "Nicaea Edition".
+    edition: z.string().optional(),
+    // A major event is covered across several dispatches rather than one
+    // enormous article; `id` groups them and `part` orders them.
+    series: z
+      .object({
+        id: z.string(),
+        name: z.string(),
+        part: z.number().int().min(1),
+      })
+      .optional(),
+    // "Around the Empire" — short updates from other cities, so the world feels
+    // inhabited while the main story runs.
+    aroundTheEmpire: z
+      .array(z.object({ city: z.string(), note: z.string() }))
+      .optional(),
+    // The standing departments this article runs. `kind` keys into DEPARTMENT
+    // in src/lib/daily-dove.ts; the template orders them by DEPARTMENT_ORDER.
     departments: z
       .array(
         z.object({
           kind: z.enum([
-            "breaking",
-            "imperial",
             "forum",
+            "imperial",
+            "whispers",
             "marketplace",
-            "rumor",
             "fact-check",
           ]),
           title: z.string().optional(),
@@ -594,6 +610,8 @@ const dailyDove = defineCollection({
           .min(1),
       })
       .optional(),
+    // Standard headings: "Primary Sources", "Orthodox Sources",
+    // "Modern Academic Sources".
     sources: z
       .array(z.object({ h: z.string(), items: z.array(z.string()) }))
       .optional(),

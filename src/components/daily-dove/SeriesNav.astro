@@ -1,0 +1,142 @@
+---
+/* THE RUN OF DISPATCHES — a series index.
+
+   A council is not one article. It is bishops arriving, an emperor opening the
+   session, a phrase argued over for weeks, a creed approved, an exile ordered.
+   A paper would cover that across many days, and so does this one. This lists
+   the whole run and marks where the reader is standing in it. */
+import type { NewsItem } from "../../lib/daily-dove";
+import { withBase } from "../../lib/format";
+
+interface Props {
+  name: string;
+  run: NewsItem[];
+  /** slug of the dispatch being read, marked as the current one */
+  current?: string;
+}
+const { name, run, current } = Astro.props;
+---
+
+{
+  run.length > 1 && (
+    <nav class="snav" aria-label={`${name} — the run of dispatches`}>
+      <div class="snav-head">
+        <span class="eyebrow">The story so far</span>
+        <span class="snav-ln" aria-hidden="true" />
+        <span class="snav-count">
+          {run.length} dispatches · {name}
+        </span>
+      </div>
+
+      <ol class="snav-list">
+        {run.map((n) => {
+          const here = n.id === current;
+          return (
+            <li class:list={["snav-item", here && "snav-item--here"]}>
+              <span class="snav-part" aria-hidden="true">
+                {n.series?.part}
+              </span>
+              {here ? (
+                <span class="snav-title" aria-current="page">
+                  {n.headline}
+                </span>
+              ) : (
+                <a class="snav-title" href={withBase(`daily-dove/${n.id}`)}>
+                  {n.headline}
+                </a>
+              )}
+              <span class="snav-date">{n.date}</span>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  )
+}
+
+<style>
+  .snav {
+    border-top: 2px solid var(--byz-deep);
+    border-bottom: 1px solid var(--byz-deep);
+    padding: 14px 0 16px;
+    margin: 0 0 26px;
+  }
+  .snav-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .snav-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .snav-count {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .snav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 7px;
+    counter-reset: none;
+  }
+  .snav-item {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .snav-part {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11.5px;
+    color: var(--gold-deep);
+    text-align: right;
+  }
+  .snav-title {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    line-height: 1.3;
+    color: var(--byz);
+    text-decoration: none;
+    text-wrap: pretty;
+  }
+  a.snav-title:hover {
+    color: var(--gold-deep);
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .snav-item--here .snav-title {
+    color: var(--byz-deep);
+    font-weight: 600;
+  }
+  .snav-item--here .snav-part {
+    color: var(--byz-deep);
+    font-weight: 700;
+  }
+  .snav-date {
+    font-family: var(--text);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .snav-item {
+      grid-template-columns: 18px 1fr;
+    }
+    .snav-date {
+      grid-column: 2;
+    }
+  }
+</style>

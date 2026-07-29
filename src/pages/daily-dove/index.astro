@@ -61,6 +61,7 @@ const desks = NEWS_CATS.map((c) => {
     {/* ---------- NAMEPLATE ---------- */}
     <div class="dove-mastwrap">
       <DoveMasthead
+        onDark
         edition={`No. ${all.length} · The Living Archive`}
         folio="Est. Pentecost, A.D. 33"
       />
@@ -76,7 +77,7 @@ const desks = NEWS_CATS.map((c) => {
     {/* ---------- LEAD STORY ---------- */}
     <section class="cwn-featured">
       <div class="cwn-band-head">
-        <span class="eyebrow">The Lead Story</span>
+        <span class="eyebrow on-blue">The Lead Story</span>
         <span class="cwn-band-ln" aria-hidden="true"></span>
         <span class="cwn-band-when"
           >From the {leadCat.name.toLowerCase()} desk</span
@@ -140,19 +141,19 @@ const desks = NEWS_CATS.map((c) => {
     {/* ---------- THE EVIDENCE KEY ---------- */}
     <section class="cwn-legend" id="the-evidence">
       <div class="cwn-legend-intro">
-        <div class="eyebrow">How to read this paper</div>
+        <div class="eyebrow on-blue">How to read this paper</div>
         <p>
           The stories are told with relish. The evidence behind them is not.
         </p>
       </div>
       <span class="cwn-legend-rule" aria-hidden="true"></span>
-      <div class="cwn-legend-body"><EvidenceKey /></div>
+      <div class="cwn-legend-body"><EvidenceKey onDark /></div>
     </section>
 
     {/* ---------- THE DEPARTMENTS ---------- */}
     <section class="dove-depts">
       <div class="cwn-band-head">
-        <span class="eyebrow">Our Departments</span>
+        <span class="eyebrow on-blue">Our Departments</span>
         <span class="cwn-band-ln" aria-hidden="true"></span>
         <span class="cwn-band-when">Standing sections of the paper</span>
       </div>
@@ -160,7 +161,7 @@ const desks = NEWS_CATS.map((c) => {
         {
           DEPARTMENTS.map((d) => (
             <div class="dove-dept">
-              <DepartmentHead kind={d.id} bare />
+              <DepartmentHead kind={d.id} bare onDark />
               <p>{d.rule}</p>
             </div>
           ))
@@ -183,7 +184,7 @@ const desks = NEWS_CATS.map((c) => {
         }
       </div>
       <div class="cwn-refine">
-        <span class="eyebrow">Refine</span>
+        <span class="eyebrow on-blue">Refine</span>
         <select
           id="news-century"
           class="cwn-sel"
@@ -381,20 +382,22 @@ const desks = NEWS_CATS.map((c) => {
 </script>
 
 <style>
-  /* The paper's ground: a flat parchment warmer than the site's ivory, so the
-     section reads as printed stock the moment it loads. */
+  /* The paper is printed on dark stock. The "old newspaper" reading comes from
+     the rules, the nameplate and the small-caps furniture rather than from a
+     pale ground — which lets the desk-coloured dispatch plates below carry the
+     page instead of fighting a parchment top half. */
   .dove {
-    background: var(--dove-parchment);
+    background: var(--byz-ink);
   }
 
   /* ---------- nameplate ---------- */
   .dove-mastwrap {
-    padding: 10px 56px 22px;
+    padding: 10px 56px 26px;
   }
   .dove-standfirst {
     font-family: var(--serif);
     font-size: clamp(15px, 1.6vw, 19px);
-    color: var(--ink-soft);
+    color: var(--celest-soft);
     line-height: 1.55;
     max-width: 74ch;
     margin: 20px auto 0;
@@ -402,17 +405,17 @@ const desks = NEWS_CATS.map((c) => {
     text-wrap: pretty;
   }
   .dove-standfirst a {
-    color: var(--byz);
+    color: var(--gold-soft);
     text-decoration-color: var(--line-gold);
     text-underline-offset: 3px;
   }
   .dove-standfirst a:hover {
-    color: var(--gold-deep);
+    color: var(--gold);
   }
 
   /* ---------- the departments strip ---------- */
   .dove-depts {
-    padding: 30px 56px 8px;
+    padding: 32px 56px 8px;
   }
   .dove-depts-grid {
     display: grid;
@@ -421,7 +424,7 @@ const desks = NEWS_CATS.map((c) => {
   }
   .dove-dept p {
     font-size: 14px;
-    color: var(--ink-soft);
+    color: var(--celest-soft);
     line-height: 1.55;
     margin: 0;
     text-wrap: pretty;
@@ -441,15 +444,14 @@ const desks = NEWS_CATS.map((c) => {
   }
   .cwn-band-when {
     font-size: 12.5px;
-    color: var(--ink-soft);
+    color: var(--celest-soft);
     font-style: italic;
     font-family: var(--serif);
   }
 
   /* ---------- lead story ---------- */
   .cwn-featured {
-    background: var(--dove-parchment);
-    padding: 30px 56px 40px;
+    padding: 26px 56px 38px;
   }
   .cwn-lead {
     display: grid;
@@ -570,10 +572,12 @@ const desks = NEWS_CATS.map((c) => {
     display: flex;
     align-items: center;
     gap: 28px;
-    padding: 24px 56px;
-    border-top: 2px solid var(--byz-deep);
-    border-bottom: 1px solid var(--byz-deep);
-    background: var(--dove-parchment-2);
+    margin: 0 56px;
+    padding: 22px 26px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    background: linear-gradient(168deg, #16304c 0%, #122841 60%, #0e2036 100%);
+    box-shadow: var(--shadow-card);
     scroll-margin-top: 90px;
   }
   .cwn-legend-intro {
@@ -588,7 +592,7 @@ const desks = NEWS_CATS.map((c) => {
     font-family: var(--serif);
     font-style: italic;
     font-size: 14px;
-    color: var(--ink-soft);
+    color: var(--celest-soft);
     line-height: 1.35;
     margin: 0;
   }
@@ -613,6 +617,22 @@ const desks = NEWS_CATS.map((c) => {
     flex-wrap: wrap;
     margin-bottom: 14px;
   }
+  /* the filter row sits on the dark ground, so its controls invert */
+  .cwn-chiprow :global(.chip) {
+    background: rgba(245, 235, 216, 0.06);
+    border-color: rgba(212, 175, 55, 0.32);
+    color: var(--celest-soft);
+  }
+  .cwn-chiprow :global(.chip:hover) {
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+  .cwn-chiprow :global(.chip.on) {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--byz-ink);
+    font-weight: 600;
+  }
   .cwn-refine {
     display: flex;
     align-items: center;
@@ -625,31 +645,42 @@ const desks = NEWS_CATS.map((c) => {
     -webkit-appearance: none;
     font-family: var(--text);
     font-size: 14.5px;
-    color: var(--byz);
+    color: var(--ivory);
     background:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%235B7FA6' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>")
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23E6CD7E' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>")
         no-repeat right 14px center,
-      #fff;
-    border: 1px solid var(--line);
+      #16304c;
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 4px;
     padding: 0 38px 0 14px;
     height: 46px;
     cursor: pointer;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
   }
+  /* .search is a light-ground primitive; the wrapper carries the white, so it
+     has to be darkened here as well as the input inside it. */
   .cwn-search {
     min-width: 230px;
-    border-color: var(--line);
+    background: #16304c;
+    border-color: rgba(212, 175, 55, 0.3);
   }
   .cwn-clear {
     padding: 9px 18px;
     font-size: 13.5px;
+    color: var(--gold-soft);
+    border-color: rgba(212, 175, 55, 0.45);
+  }
+  .cwn-search :global(input) {
+    background: #16304c;
+    color: var(--ivory);
+  }
+  .cwn-search :global(input::placeholder) {
+    color: var(--celest-soft);
   }
 
   /* ---------- feed + rail ---------- */
   .cwn-bodyband {
     padding: 26px 56px 64px;
-    background: var(--byz-ink);
   }
   .cwn-grid {
     display: grid;
@@ -688,15 +719,15 @@ const desks = NEWS_CATS.map((c) => {
   .cwn-empty {
     text-align: center;
     padding: 70px 20px;
-    background: #fff;
-    border: 1px dashed var(--line-gold);
+    background: rgba(245, 235, 216, 0.04);
+    border: 1px dashed rgba(212, 175, 55, 0.4);
     border-radius: 5px;
   }
   .cwn-empty p {
     font-family: var(--serif);
     font-style: italic;
     font-size: 19px;
-    color: var(--ink-soft);
+    color: var(--celest-soft);
     margin: 14px 0;
   }
 
@@ -814,10 +845,10 @@ const desks = NEWS_CATS.map((c) => {
   }
 
   .cwn-mostread {
-    background: #fff;
-    border: 1px solid var(--line);
+    background: linear-gradient(168deg, #1c3a5c, #16304c);
+    border: 1px solid rgba(212, 175, 55, 0.28);
     border-radius: 4px;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
     overflow: hidden;
   }
   .cwn-mr-row {
@@ -827,7 +858,7 @@ const desks = NEWS_CATS.map((c) => {
     align-items: baseline;
   }
   .cwn-mr-row + .cwn-mr-row {
-    border-top: 1px solid var(--line);
+    border-top: 1px solid rgba(245, 235, 216, 0.12);
   }
   .cwn-mr-n {
     font-family: var(--serif);
@@ -842,7 +873,7 @@ const desks = NEWS_CATS.map((c) => {
     font-family: var(--serif);
     font-size: 17px;
     font-weight: 600;
-    color: var(--byz-deep);
+    color: var(--ivory);
     line-height: 1.22;
     margin: 0 0 5px;
   }

@@ -18,12 +18,26 @@ interface Props {
   /** links the nameplate home; omit on the front page itself */
   href?: string;
   small?: boolean;
+  /** set the plate in ivory and gold, for the paper's dark stock */
+  onDark?: boolean;
 }
-const { edition = "The Daily Dove", folio, href, small = false } = Astro.props;
+const {
+  edition = "The Daily Dove",
+  folio,
+  href,
+  small = false,
+  onDark = false,
+} = Astro.props;
 const Name = href ? "a" : "div";
 ---
 
-<header class:list={["dove-mast", small && "dove-mast--sm"]}>
+<header
+  class:list={[
+    "dove-mast",
+    small && "dove-mast--sm",
+    onDark && "dove-mast--dark",
+  ]}
+>
   <div class="dove-rule dove-rule--hair" aria-hidden="true"></div>
 
   <Name class="dove-plate" href={href ? withBase(href) : undefined}>
@@ -154,6 +168,24 @@ const Name = href ? "a" : "div";
   }
   .dove-mast--sm .dove-rule--double {
     margin-top: 10px;
+  }
+
+  /* ---- on the paper's dark stock ---- */
+  .dove-mast--dark .dove-name {
+    color: var(--ivory);
+  }
+  .dove-mast--dark a.dove-plate:hover .dove-name {
+    color: var(--gold-soft);
+  }
+  .dove-mast--dark .dove-rule--double {
+    border-top-color: var(--gold);
+    border-bottom-color: rgba(212, 175, 55, 0.45);
+  }
+  .dove-mast--dark .dove-motto {
+    color: var(--gold-soft);
+  }
+  .dove-mast--dark .dove-folio {
+    color: var(--celest-soft);
   }
 
   @media (max-width: 640px) {

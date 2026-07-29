@@ -84,6 +84,7 @@ const groups = [
     <div class="arc-mastwrap">
       <DoveMasthead
         small
+        onDark
         href="daily-dove"
         edition="The Archive"
         folio={`${rows.length} dispatches on file`}
@@ -253,12 +254,15 @@ const groups = [
   .arc {
     background: var(--dove-parchment);
   }
+  /* The nameplate sits on the same dark stock as the header band beneath it,
+     so the two read as one masthead rather than two headers. */
   .arc-mastwrap {
-    padding: 0 clamp(20px, 4vw, 56px) 22px;
+    background: var(--byz-ink);
+    padding: 0 clamp(20px, 4vw, 56px) 14px;
   }
   .arc-head {
     position: relative;
-    padding: 44px 56px 38px;
+    padding: 24px 56px 38px;
     background: var(--byz-ink);
     overflow: hidden;
     border-bottom: 3px solid var(--gold);

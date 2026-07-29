@@ -10,7 +10,7 @@
    of the Church, and which are frankly legend — and having lost none of the
    pleasure of the story in finding out. */
 import type { HistoriansNote } from "../../lib/daily-dove";
-import { EVIDENCE } from "../../lib/daily-dove";
+import { EVIDENCE, notesByLevel } from "../../lib/daily-dove";
 import ByzCross from "../icons/ByzCross.astro";
 
 interface Props {
@@ -18,6 +18,10 @@ interface Props {
   entries: HistoriansNote[];
 }
 const { intro, entries } = Astro.props;
+// Grouped by level, strongest first — the section reads as a set of findings
+// rather than a flat list, and a reader can see at once how much of the story
+// rests on documents and how much on tradition.
+const groups = notesByLevel(entries);
 ---
 
 <section class="hnotes" aria-labelledby="historians-notes">
@@ -34,14 +38,14 @@ const { intro, entries } = Astro.props;
     }
   </p>
 
-  <ol class="hnotes-list">
-    {
-      entries.map((n) => {
-        const e = EVIDENCE[n.level];
-        return (
-          <li class="hnote" style={`--hn-ink:${e.ink};--hn-dot:${e.dot}`}>
+  {
+    groups.map((g) => {
+      const e = EVIDENCE[g.level];
+      return (
+        <section class="hgroup" style={`--hn-ink:${e.ink}`}>
+          <h3 class="hgroup-head">
             <span
-              class="hnote-mark"
+              class="hgroup-mark"
               style={
                 e.dashed
                   ? `border:2.5px solid ${e.dot};background:transparent`
@@ -49,23 +53,27 @@ const { intro, entries } = Astro.props;
               }
               aria-hidden="true"
             />
-            <div class="hnote-body">
-              <p class="hnote-claim">{n.claim}</p>
-              <p class="hnote-level">{e.full}</p>
-              {n.note && <p class="hnote-note">{n.note}</p>}
-              {n.sources && n.sources.length > 0 && (
-                <ul class="hnote-src">
-                  {n.sources.map((s) => (
-                    <li>{s}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </li>
-        );
-      })
-    }
-  </ol>
+            {e.full}
+          </h3>
+          <ul class="hgroup-list">
+            {g.entries.map((n) => (
+              <li class="hnote">
+                <p class="hnote-claim">{n.claim}</p>
+                {n.note && <p class="hnote-note">{n.note}</p>}
+                {n.sources && n.sources.length > 0 && (
+                  <ul class="hnote-src">
+                    {n.sources.map((src) => (
+                      <li>{src}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })
+  }
 </section>
 
 <style>
@@ -105,30 +113,41 @@ const { intro, entries } = Astro.props;
     max-width: 68ch;
   }
 
-  .hnotes-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 18px;
+  .hgroup {
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid rgba(168, 133, 42, 0.32);
   }
-  .hnote {
-    display: grid;
-    grid-template-columns: 14px 1fr;
-    gap: 14px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(168, 133, 42, 0.28);
-  }
-  .hnote:first-child {
+  .hgroup:first-of-type {
     padding-top: 0;
+    margin-top: 0;
     border-top: none;
   }
-  .hnote-mark {
-    width: 14px;
-    height: 14px;
+  .hgroup-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--hn-ink);
+    margin: 0 0 12px;
+  }
+  .hgroup-mark {
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     box-sizing: border-box;
-    margin-top: 5px;
+    flex: 0 0 auto;
+  }
+  .hgroup-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 23px;
+    display: grid;
+    gap: 14px;
   }
   .hnote-claim {
     font-family: var(--serif);
@@ -137,15 +156,6 @@ const { intro, entries } = Astro.props;
     line-height: 1.35;
     margin: 0 0 3px;
     text-wrap: pretty;
-  }
-  .hnote-level {
-    font-family: var(--text);
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--hn-ink);
-    margin: 0;
   }
   .hnote-note {
     font-size: 14.5px;
