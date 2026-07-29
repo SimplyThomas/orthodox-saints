@@ -14,7 +14,6 @@ import NewsCard from "../../components/daily-dove/NewsCard.astro";
 import NewsMeta from "../../components/daily-dove/NewsMeta.astro";
 import DispatchRow from "../../components/daily-dove/DispatchRow.astro";
 import RailModule from "../../components/daily-dove/RailModule.astro";
-import CatPill from "../../components/daily-dove/CatPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
 import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
@@ -32,7 +31,6 @@ import {
   EVIDENCE_LIST,
   DEPARTMENTS,
   NEWS_THISDAY,
-  NEWS_MOSTREAD,
 } from "../../lib/daily-dove";
 
 const { featured: lead, all } = await loadPaper();
@@ -50,6 +48,17 @@ const desks = NEWS_CATS.map((c) => {
   const inDesk = byRecency.filter((n) => n.cat === c.id);
   return { cat: c, total: inDesk.length, recent: inDesk.slice(0, 2) };
 }).filter((d) => d.total > 0);
+
+// The filter bar only offers what the paper actually holds — an empty desk or
+// an unused level of evidence is a dead end, not a choice.
+const levels = EVIDENCE_LIST.filter((k) => all.some((n) => n.evidence === k));
+
+// The rail's reading list. This was "Most Read" while the section was
+// scaffolded, but the paper has no readership data, so a popularity claim is
+// one thing it cannot source — and sourcing is the whole point. It lists the
+// paper's own dispatches in the order they were filed instead. Turn it back
+// into a real Most Read once analytics can support it.
+const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
 ---
 
 <BaseLayout
@@ -176,9 +185,9 @@ const desks = NEWS_CATS.map((c) => {
           >All Articles</button
         >
         {
-          NEWS_CATS.map((c) => (
-            <button type="button" class="chip news-chip" data-cat={c.id}>
-              {c.short}
+          desks.map(({ cat }) => (
+            <button type="button" class="chip news-chip" data-cat={cat.id}>
+              {cat.short}
             </button>
           ))
         }
@@ -199,11 +208,7 @@ const desks = NEWS_CATS.map((c) => {
           aria-label="Filter by level of evidence"
         >
           <option value="">Any level of evidence</option>
-          {
-            EVIDENCE_LIST.map((k) => (
-              <option value={k}>{EVIDENCE[k].full}</option>
-            ))
-          }
+          {levels.map((k) => <option value={k}>{EVIDENCE[k].full}</option>)}
         </select>
         <div class="search cwn-search" role="search">
           <span class="ico" aria-hidden="true">
@@ -330,17 +335,20 @@ const desks = NEWS_CATS.map((c) => {
             </div>
           </RailModule>
 
-          <RailModule eyebrow="Most Read" onDark>
+          <RailModule eyebrow="Start Here" onDark>
             <div class="cwn-mostread">
               {
-                NEWS_MOSTREAD.map((m, i) => (
-                  <div class="cwn-mr-row">
+                startHere.map((m, i) => (
+                  <a class="cwn-mr-row" href={withBase(`daily-dove/${m.id}`)}>
                     <span class="cwn-mr-n">{i + 1}</span>
                     <div>
-                      <h4>{m.title}</h4>
-                      <CatPill cat={m.cat} short={false} size={10} />
+                      <h4>{m.headline}</h4>
+                      <CenturyBadge
+                        century={m.century}
+                        color="var(--gold-soft)"
+                      />
                     </div>
-                  </div>
+                  </a>
                 ))
               }
             </div>
@@ -856,6 +864,12 @@ const desks = NEWS_CATS.map((c) => {
     gap: 14px;
     padding: 14px 16px;
     align-items: baseline;
+    text-decoration: none;
+  }
+  .cwn-mr-row:hover h4 {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
   }
   .cwn-mr-row + .cwn-mr-row {
     border-top: 1px solid rgba(245, 235, 216, 0.12);

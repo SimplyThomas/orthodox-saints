@@ -377,18 +377,21 @@ test("The Daily Dove front page: nameplate, evidence key, departments", async ({
 
   // The rail keeps This Day in Orthodox History and Most Read.
   await expect(page.locator(".cwn-thisday")).toBeVisible();
-  await expect(page.locator(".cwn-mostread .cwn-mr-row")).toHaveCount(5);
+  // "Start Here" lists the paper's real dispatches, not a mock popularity list.
+  const startHere = page.locator(".cwn-mostread .cwn-mr-row");
+  expect(await startHere.count()).toBeGreaterThan(1);
+  await expect(startHere.first()).toHaveAttribute("href", /\/daily-dove\//);
 
   // A desk chip swaps the feed for the filtered card grid.
   await page
-    .locator(".cwn-chiprow .news-chip", { hasText: "Healings" })
+    .locator(".cwn-chiprow .news-chip", { hasText: "Historical" })
     .click();
   await expect(page.locator("#news-feed")).toBeHidden();
   await expect(page.locator("#news-results")).toBeVisible();
   const shown = page.locator("#news-cards .news-feed-card:visible");
   expect(await shown.count()).toBeGreaterThan(0);
   for (const card of await shown.all())
-    expect(await card.getAttribute("data-cat")).toBe("healings");
+    expect(await card.getAttribute("data-cat")).toBe("historical");
 
   await page.locator("#news-clear").click();
   await expect(page.locator("#news-feed")).toBeVisible();
@@ -397,15 +400,15 @@ test("The Daily Dove front page: nameplate, evidence key, departments", async ({
 test("a Daily Dove article carries its metadata bar and evidence", async ({
   page,
 }) => {
-  const resp = await page.goto("./daily-dove/nektarios-child/");
+  const resp = await page.goto("./daily-dove/nicaea-325-bishops-gather/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".na-h1")).toContainText("Saint Nektarios");
+  await expect(page.locator(".na-h1")).toContainText("Arius Controversy");
   // Category · Century · Location · Saint · Evidence
   await expect(page.locator(".na-meta .na-cell")).toHaveCount(5);
   await expect(page.locator(".na-meta")).toContainText("Evidence");
-  // Placeholder articles have no Historian's Notes yet, so the story-level
-  // evidence note stands in — and says so rather than faking an accounting.
-  await expect(page.locator(".na-verify")).toContainText("On the evidence");
+  // Every real dispatch closes with the Historian's Notes, not the stand-in.
+  await expect(page.locator(".hnotes")).toBeVisible();
+  await expect(page.locator(".na-verify")).toHaveCount(0);
   await expect(page.locator(".na-pull")).toBeVisible();
   await expect(page.locator(".na-src")).toBeVisible();
   // The nameplate links back to the front page.
@@ -426,8 +429,8 @@ test("the old /news paths still resolve to The Daily Dove", async ({
   await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
 
   // Each article's old path redirects too, not just the section root.
-  await page.goto("./news/nektarios-child/");
-  await page.waitForURL(/\/daily-dove\/nektarios-child\/?$/);
+  await page.goto("./news/nicaea-325-bishops-gather/");
+  await page.waitForURL(/\/daily-dove\/nicaea-325-bishops-gather\/?$/);
 });
 
 test("a council dispatch runs the full standard layout", async ({ page }) => {
@@ -505,8 +508,9 @@ test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   expect(before).toBeGreaterThan(4);
 
   // Picking a desk narrows the list and raises a removable chip.
+  // Match on the value, not the label — "4th Century" also matches "14th".
   await page
-    .locator('.arc-facet[data-facet="cat"]', { hasText: "Healings" })
+    .locator('.arc-facet[data-facet="century"][data-value="4"]')
     .click();
   await expect.poll(async () => rows.count()).toBeLessThan(before);
   await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(1);

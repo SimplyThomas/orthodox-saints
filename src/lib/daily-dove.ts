@@ -15,14 +15,12 @@
    Articles live as one validated YAML file per article in
    src/content/daily-dove/*.yaml (the `dailyDove` collection), read back via
    loadPaper(). Only the page furniture (NEWS_CATS, EVIDENCE, DEPARTMENTS,
-   NEWS_THISDAY, NEWS_MOSTREAD) and the small derived helpers
+   NEWS_THISDAY) and the small derived helpers
    (ord/regionOf/postRank/centuriesIn) live here.
 
-   NOTE: the 16 articles presently in the collection are placeholder editorial
-   copy carried over from the design mock — contemporary miracle reports, not
-   yet Daily Dove pieces. They render so the pages have something to show and
-   are to be replaced. Nothing here is authoritative until reviewed against the
-   Church's own discernment (CLAUDE.md §9). */
+   The mock placeholders the section was scaffolded on are gone; every article
+   in the collection is now a real dispatch. Nothing here is authoritative until
+   reviewed against the Church's own discernment (CLAUDE.md §9). */
 
 import { getCollection } from "astro:content";
 
@@ -422,31 +420,6 @@ export const NEWS_THISDAY = {
   title: "The Third Ecumenical Council opens at Ephesus",
   body: "Two hundred fathers gathered in the Church of the Virgin Mary to confess the Mother of God as Theotokos — “she who gives birth to God” — against the teaching of Nestorius.",
 };
-
-export const NEWS_MOSTREAD: { cat: string; title: string }[] = [
-  {
-    cat: "modern",
-    title:
-      "The night the lamp would not go out: a vigil for Saint Ephraim of Nea Makri",
-  },
-  {
-    cat: "relics",
-    title: "How the relics of Saint Nicholas came to rest — and to travel",
-  },
-  {
-    cat: "healings",
-    title: "A surgeon’s notes: three recoveries he could not account for",
-  },
-  {
-    cat: "icons",
-    title:
-      "What the commissions look for: discerning a true wonder from a wish",
-  },
-  {
-    cat: "america",
-    title: "The Aleut who would not betray the faith: Saint Peter the Martyr",
-  },
-];
 
 /* Article accessor over the `news` Content Collection (src/content/news/
    <slug>.yaml). The editorial articles now live as validated YAML — this reads
