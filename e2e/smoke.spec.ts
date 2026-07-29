@@ -342,21 +342,30 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("news index shows a coming-soon placeholder", async ({ page }) => {
+test("news index lists dispatches and opens an article", async ({ page }) => {
   const resp = await page.goto("./news/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".news-title")).toHaveText("Saints in the News");
-  await expect(page.locator(".news-soon-label")).toHaveText("Coming soon");
-  // The section is parked: none of the old archive UI renders.
-  await expect(page.locator(".np-lead")).toHaveCount(0);
-  await expect(page.locator(".np-river")).toHaveCount(0);
-  // The placeholder's actions point at live pages.
-  await expect(
-    page.locator(".news-actions a", { hasText: "Browse the saints" }),
-  ).toBeVisible();
-  await expect(
-    page.locator(".news-actions a", { hasText: "Find your patron" }),
-  ).toBeVisible();
+  await expect(page.locator(".np-h1")).toHaveText("Saints in the News");
+  // The lead story and the feed river render.
+  await expect(page.locator(".np-lead")).toBeVisible();
+  expect(
+    await page.locator(".np-river .news-feed-card").count(),
+  ).toBeGreaterThan(4);
+  // A category chip filters the river.
+  const before = await page
+    .locator(".np-river .news-feed-card:visible")
+    .count();
+  await page.locator(".np-hero .news-chip", { hasText: "Healings" }).click();
+  await expect
+    .poll(async () => page.locator(".np-river .news-feed-card:visible").count())
+    .toBeLessThan(before);
+
+  // The lead article opens at its own route with the full body + source box.
+  const article = await page.goto("./news/nektarios-child/");
+  expect(article?.status()).toBe(200);
+  await expect(page.locator(".na-h1")).toContainText("Saint Nektarios");
+  await expect(page.locator(".na-pull")).toBeVisible();
+  await expect(page.locator(".na-src")).toBeVisible();
 });
 
 test("calendar opens on the current month as a grid with today highlighted", async ({

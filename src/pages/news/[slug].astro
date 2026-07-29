@@ -9,17 +9,11 @@ import { withBase } from "../../lib/format";
 import { loadNews, NEWS_CAT } from "../../lib/news";
 
 export const getStaticPaths = (async () => {
-  // News is parked behind a "coming soon" page (news/index.astro), so emit no
-  // article routes — the sample/unverified accounts in the news collection must
-  // not ship. Drop the `.filter` to restore them once a real, verified feed
-  // exists.
   const { all } = await loadNews();
-  return all
-    .filter(() => false)
-    .map((n) => ({
-      params: { slug: n.id },
-      props: { n },
-    }));
+  return all.map((n) => ({
+    params: { slug: n.id },
+    props: { n },
+  }));
 }) satisfies GetStaticPaths;
 
 const { n } = Astro.props;
