@@ -56,15 +56,21 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
 │   ├── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
-│   └── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
+│   ├── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
+│   ├── heavenly_hosts.csv     ← SOURCE OF TRUTH for the Heavenly Hosts DB (one row per being, HH-####, 19 columns — §5b)
+│   ├── host_images.csv        ← host hero-portrait join (host_id,image_path,license,credit,source)
+│   └── host_depictions.csv    ← host icon-carousel join, MANY per host (same columns as saint_depictions)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── feastlib.py                ← the Feasts & Fasts pipeline (load/assign FF ids/validate/emit), orchestrated by build.py
+├── hostlib.py                 ← the Heavenly Hosts pipeline (mirrors feastlib), orchestrated by build.py — §5b
 ├── pascha.py                  ← Orthodox Pascha computus (Meeus Julian algorithm, 1900–2099)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
 │   ├── pages/                 ← routes: index, search, saint/[id], feast/[id], quiz, america,
 │   │                            calendar, feasts, calendar/[style].ics (iCal feeds),
+│   │                            nine-orders, host/[id], guardian-angels, biblical-encounters,
+│   │                            extra-biblical-angels(/[slug]), fallen-angels (§5b),
 │   │                            news (placeholder, unlinked from nav — #348),
 │   │                            witness/[slug], about, contribute, corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
@@ -73,7 +79,9 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
 │   ├── content/profiles/      ← per-saint YAML rich profiles (OS-####.yaml) — a data Content Collection
 │   ├── content/feasts/        ← per-feast YAML rich profiles (FF-####.yaml) — the `feasts` collection (§5a)
-│   ├── content.config.ts      ← the `profiles` + `feasts` collections + their Zod schemas (validated at build)
+│   ├── content/hosts/         ← per-being YAML rich profiles (HH-####.yaml) — the `hosts` collection (§5b)
+│   ├── content/apocrypha/     ← per-WORK YAML pages (1 Enoch, Shepherd of Hermas) — the `apocrypha` collection (§5b)
+│   ├── content.config.ts      ← the `profiles`/`feasts`/`hosts`/`apocrypha`/`news` collections + Zod schemas (validated at build)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
@@ -104,12 +112,15 @@ Everything in `public/` and `dist/` is generated and **must not be committed**.
 ## 3. Architecture / data flow
 
 ```
-data/saints.csv ──┐
-data/feasts.csv ──┼─► build.py (+feastlib) ─► (in-memory SQLite) ─► validate ─► EMIT:
-data/vocabulary.csv┘                                       ├─ public/data.json   (Astro build input)
-                                                           ├─ public/feasts.json (feasts + Pascha table 2020–2040)
-                                                           ├─ public/saints.sqlite (optional artifact)
-                                                           └─ dist/Orthodox_Saints_Database.xlsx (+ Feasts & Fasts sheet)
+data/saints.csv ────────┐
+data/feasts.csv ────────┤   build.py
+data/heavenly_hosts.csv ┼─► (+feastlib   ─► (in-memory SQLite) ─► validate ─► EMIT:
+data/vocabulary.csv ────┘    +hostlib)                    ├─ public/data.json   (Astro build input)
+                                                          ├─ public/feasts.json (feasts + Pascha table 2020–2040)
+                                                          ├─ public/hosts.json  (the bodiless powers — §5b)
+                                                          ├─ public/saints.sqlite (optional artifact)
+                                                          └─ dist/Orthodox_Saints_Database.xlsx
+                                                             (+ Feasts & Fasts and Heavenly Hosts sheets)
 src/ (Astro SSG)   ── imports public/data.json at BUILD TIME ──► _site/ (static HTML per page + per saint)
 GitHub Actions     ── python build.py → astro build → deploy _site/ ──► GitHub Pages
 ```
@@ -398,8 +409,8 @@ other CSVs.
 
 A **third** structured database, sibling to Saints (`OS-####`) and Feasts & Fasts
 (`FF-####`), cataloguing the **bodiless powers** — the nine angelic ranks, the
-named archangels, and (later) the individual angels of Scripture/Tradition and a
-marked set of the fallen. Angels are deliberately excluded from `data/saints.csv`
+named archangels, the individual angels of Scripture and Tradition, and a marked
+set of the **fallen**. Angels are deliberately excluded from `data/saints.csv`
 (§7); this is where the beings themselves are first-class records. Owned by
 **`hostlib.py`** (loaded/validated/emitted through `build.py`; `make validate`
 covers it), which mirrors `feastlib.py`. Design spec:
@@ -438,7 +449,11 @@ covers it), which mirrors `feastlib.py`. Design spec:
     `translation` MUST name a public-domain rendering — Hapgood's 1922 Service Book,
     ANF/NPNF, or anything explicitly `PD`/`CC0`. **A non-PD translation fails the
     build**, exactly like the saint-quote gate in `build.py` (§9); describe it and
-    link out instead.
+    link out instead. **A `Fallen` record never carries one** — the baptismal
+    renunciation and the exorcisms of the catechumenate are prayed *about* the
+    enemy, but the collapsed row they render into is headed "In the Church's
+    Prayer", and no page in this section should put a demon under that heading.
+    Describe them in `liturgicalTradition` instead.
   - **`faq`** (`question` / `answer[]`) is the Q&A block — the questions people put
     to a search engine. It is emitted as schema.org **FAQPage** JSON-LD, so keep the
     questions in the form a person would actually type.
@@ -460,20 +475,50 @@ covers it), which mirrors `feastlib.py`. Design spec:
   environments — resize with **node + sharp**.
 - Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and the section's
   frontend routes: **`/nine-orders`** (the Nine Orders overview: ranks by triad,
-  with per-triad epithets), the three **hubs** — **`/guardian-angels`** (Guardian
+  with per-triad epithets), the four **hubs** — **`/guardian-angels`** (Guardian
   Angels & Titled Figures), **`/biblical-encounters`** (angels tied to a specific
-  scriptural event, grouped by testament), **`/extra-biblical-angels`** (named
-  angels known only from Second Temple literature) — and **`/host/HH-####`**
+  scriptural event, grouped by testament), **`/extra-biblical-angels`** (the
+  apocryphal *works*, each with the beings drawn from it), **`/fallen-angels`**
+  (the fallen, grouped by source register) — and **`/host/HH-####`**
   (per-being pages: blue hero + face-cropped portrait, "Depictions & Icons"
   carousel, collapsible sections, left rail). A rank page auto-lists its **Named
   Angel** members as cards (the eight archangels on the Archangels page). Excluded
   from the patron quiz (angels are venerated, not intercessor-saints).
 - **Membership predicates live in `src/lib/hosts.ts` and nowhere else.** Each hub
-  is defined by exactly one exported predicate — `isBiblicalEncounter()` and
-  `isExtraBiblicalAngel()` (reserved Tags-column tokens, checked in that order),
-  and `isTitledFigure()` (the entity-type fallback, minus the two tagged sets).
-  The hub page, the `/host/HH-####` breadcrumb, and any catch-all listing all read
-  the same predicate; re-deriving membership inline is how the two drift apart.
+  is defined by exactly one exported predicate — **`isFallen()`** (the `Fallen`
+  Entity Type itself, and it **wins over every other test**),
+  `isBiblicalEncounter()` and `isExtraBiblicalAngel()` (reserved Tags-column
+  tokens, checked in that order), and `isTitledFigure()` (the entity-type
+  fallback, minus the tagged sets). The hub page, the `/host/HH-####` breadcrumb,
+  and any catch-all listing all read the same predicate; re-deriving membership
+  inline is how the two drift apart. `isFallen()`'s precedence is folded **into
+  `isBiblicalEncounter()`** rather than repeated in each caller — Abaddon is as
+  event-anchored as any angel of Revelation, but §9 keeps the fallen out of a
+  gallery of holy angels, and a rule stated once cannot disagree with itself.
+- **The Fallen (`/fallen-angels`) is the one section with extra discipline.** It
+  records beings the Church names and never venerates, so the ordinary rules are
+  tightened rather than reused:
+  - **The hub lists a being only when its PROFILE is visible** under the review
+    gate (`isFallen(h) && visibleProfiles[h.id]`), not merely when the CSV row
+    exists. Every other hub can list a bare record and let the page render a
+    stub, because a thin page about a holy angel is merely thin; here it would be
+    a page naming a demon with nothing said about it. An unreviewed record
+    therefore stays off the hub entirely and shows only on the previews.
+  - **Grouped by source register**, never by theme: Named in Scripture · Named in
+    the Deuterocanon · From Second Temple Literature. This is §5b's
+    source-fidelity commitment doing the page's information architecture.
+  - **No portrait, ever** — the hub renders the ashen monogram ground and never an
+    `<img>`, and the page suppresses the "Icon forthcoming" caption. No icon of a
+    demon is written. Chrome is ink, not the royal blue and gold.
+  - **Say only what the text says.** Scripture does not identify Abaddon with
+    Satan, nor Beelzebul with Satan, so neither record does. An Old-Testament
+    common noun (`abaddon`, `beliyya'al`) is **not** read back as a demon's name —
+    HH-0046 and HH-0055 are the paired worked example. Where the Fathers divide
+    (Genesis 6 on HH-0051), present both readings and assert neither.
+  - **Don't duplicate the apocrypha pages.** The twenty Watcher chiefs, Semjaza,
+    Azazel and the giants live on `/extra-biblical-angels/1-enoch`; HH-0051 is the
+    catalogue-level record that points there. A name in a list does not need its
+    own `HH-####`.
 - **`hostlib.py` is unit-tested** in `tests/test_hostlib.py` (triad derivation, id
   assignment, the validator's fail-loud rules, the licensing gate, and the image /
   depiction / profile joins) — the feastlib test pattern, run by `make test`.
@@ -488,7 +533,7 @@ covers it), which mirrors `feastlib.py`. Design spec:
     depictions carousel, "At a glance" rail with the source registers, and
     `sv-deep` collapsibles) for **every host** — the nine ranks, the named
     archangels, the Guardian Angels & Titled Figures, the Biblical Encounters,
-    and the Extra-Biblical Angels. A rank that owns named
+    the Extra-Biblical Angels, and the Fallen. A rank that owns named
     angels (the Archangels) renders them as a **member roster** band between the
     ribbon and the body: whoever lands on "the Archangels" is usually looking for
     Michael or Gabriel, so the way through comes before the essay about the order.
