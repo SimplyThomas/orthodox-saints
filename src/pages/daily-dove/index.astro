@@ -7,13 +7,13 @@
    works without JavaScript. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SearchGlyph from "../../components/icons/SearchGlyph.astro";
-import NewsPlate from "../../components/daily-dove/NewsPlate.astro";
 import NewsCard from "../../components/daily-dove/NewsCard.astro";
 import NewsMeta from "../../components/daily-dove/NewsMeta.astro";
 import DispatchRow from "../../components/daily-dove/DispatchRow.astro";
 import RailModule from "../../components/daily-dove/RailModule.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
+import EraPill from "../../components/daily-dove/EraPill.astro";
 import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
 import DepartmentHead from "../../components/daily-dove/DepartmentHead.astro";
@@ -91,33 +91,35 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
         >
       </div>
       <a class="cwn-lead" href={withBase(`daily-dove/${lead.id}`)}>
-        <NewsPlate saint={lead.saint} slug={lead.plate} fill />
-        <div class="cwn-lead-body">
-          <div class="cwn-lead-tags">
-            {lead.kicker && <span class="cwn-kicker">{lead.kicker}</span>}
-            <span class="cwn-lead-desk">
-              <i style={`background:${leadCat.ink}`} aria-hidden="true"></i>
-              {leadCat.name}
-            </span>
+        <div class="cwn-lead-tags">
+          {lead.kicker && <span class="cwn-kicker">{lead.kicker}</span>}
+          <EraPill century={lead.century} onDark />
+          <span class="cwn-lead-edition">{lead.edition}</span>
+        </div>
+        <div class="cwn-lead-cols">
+          <div class="cwn-lead-main">
+            <h2 class="cwn-lead-h">{lead.headline}</h2>
+            {lead.dek && <p class="cwn-lead-dek">{lead.dek}</p>}
+            <p class="cwn-lead-sum">{lead.summary}</p>
           </div>
-          <h2 class="cwn-lead-h">{lead.headline}</h2>
-          <div class="cwn-lead-meta">
+          <div class="cwn-lead-side">
             <NewsMeta
               date={lead.date}
               location={lead.location}
-              size={13.5}
+              size={13}
               color="#aebfd2"
             />
-            <CenturyBadge century={lead.century} color="var(--gold-soft)" />
-          </div>
-          {lead.dek && <p class="cwn-lead-dek">{lead.dek}</p>}
-          <p class="cwn-lead-sum">{lead.summary}</p>
-          <div class="cwn-lead-foot">
-            <span class="btn btn--gold cwn-lead-btn">
+            <span class="cwn-lead-verify">
+              <EvidenceDot level={lead.evidence} withLabel={false} />
+              <span class="cwn-lead-verify-label"
+                >{EVIDENCE[lead.evidence].full}</span
+              >
+            </span>
+            <span class="cwn-lead-read">
               Read the full account
               <svg
-                width="16"
-                height="16"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -125,12 +127,6 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
-              >
-            </span>
-            <span class="cwn-lead-verify">
-              <EvidenceDot level={lead.evidence} withLabel={false} />
-              <span class="cwn-lead-verify-label"
-                >{EVIDENCE[lead.evidence].full}</span
               >
             </span>
           </div>
@@ -447,26 +443,23 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
   .cwn-featured {
     padding: 26px 56px 38px;
   }
+  /* The lead is type, not a picture panel: the paper carries no images, and a
+     500px block with a letter in it only ever read as one waiting to arrive.
+     Its weight now comes from the headline and the era colour it prints on. */
   .cwn-lead {
-    display: grid;
-    grid-template-columns: 1.12fr 1fr;
-    background: linear-gradient(165deg, #234c7a 0%, #18324f 55%, #0f2238 100%);
+    display: block;
+    background: linear-gradient(165deg, #234c7a 0%, #18324f 60%, #0f2238 100%);
     border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 5px;
-    overflow: hidden;
+    border-left: 5px solid var(--gold);
+    border-radius: 4px;
     box-shadow: var(--shadow-card);
     text-decoration: none;
-    align-items: stretch;
-  }
-  .cwn-lead-body {
-    padding: 40px 44px;
-    display: flex;
-    flex-direction: column;
+    padding: 26px clamp(22px, 3vw, 36px) 28px;
   }
   .cwn-lead-tags {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -480,72 +473,58 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
     border-radius: 2px;
     padding: 5px 11px;
   }
-  .cwn-lead-desk {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
+  .cwn-lead-edition {
     font-family: var(--text);
     font-weight: 600;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--gold-soft);
-  }
-  .cwn-lead-desk i {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(245, 235, 216, 0.25);
-    display: inline-block;
+    letter-spacing: 0.18em;
+    color: var(--celest-soft);
   }
   .cwn-lead-h {
-    font-size: clamp(30px, 3.4vw, 46px);
+    font-size: clamp(28px, 3.1vw, 44px);
     color: var(--ivory);
-    line-height: 1.03;
-    margin: 0 0 16px;
+    line-height: 1.06;
+    margin: 0 0 12px;
     text-wrap: balance;
   }
   .cwn-lead:hover .cwn-lead-h {
     text-decoration: underline;
     text-decoration-color: var(--line-gold);
-    text-underline-offset: 3px;
-  }
-  .cwn-lead-meta {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
+    text-underline-offset: 4px;
   }
   .cwn-lead-dek {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 20px;
+    font-size: clamp(17px, 1.6vw, 20px);
     color: var(--gold-soft);
     line-height: 1.45;
-    margin: 12px 0 14px;
+    margin: 0 0 16px;
     text-wrap: pretty;
   }
+  /* the story runs against a narrow rail of metadata, the way a paper sets a
+     lead's furniture beside the copy rather than under it */
+  .cwn-lead-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 44px;
+    align-items: start;
+  }
+  .cwn-lead-side {
+    padding-left: 24px;
+    border-left: 1px solid rgba(245, 235, 216, 0.16);
+  }
   .cwn-lead-sum {
-    font-size: 14.5px;
+    font-size: 15px;
     color: #cdd9e6;
-    line-height: 1.65;
+    line-height: 1.7;
     margin: 0;
     text-wrap: pretty;
   }
-  .cwn-lead-foot {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding-top: 18px;
-    margin-top: auto;
-    border-top: 1px solid rgba(245, 235, 216, 0.16);
-    flex-wrap: wrap;
-  }
-  .cwn-lead-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
+  .cwn-lead-side {
+    display: grid;
+    gap: 13px;
+    justify-items: start;
   }
   .cwn-lead-verify {
     display: inline-flex;
@@ -555,10 +534,18 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
   .cwn-lead-verify-label {
     font-family: var(--text);
     font-weight: 600;
-    font-size: 11px;
+    font-size: 10.5px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--gold-soft);
+  }
+  .cwn-lead-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
   }
 
   /* ---------- the evidence key ---------- */
@@ -919,14 +906,6 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
       grid-template-columns: 1fr;
       gap: 34px;
     }
-    .cwn-lead {
-      grid-template-columns: 1fr;
-    }
-    /* Stacked, the plate's `fill` height collapses and the portrait spills its
-       gold frame. `fill` writes height:100% inline, so this has to outrank it. */
-    .cwn-lead :global(.news-plate) {
-      height: 340px !important;
-    }
     .cwn-legend {
       flex-direction: column;
       align-items: flex-start;
@@ -961,8 +940,15 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
       grid-template-columns: 1fr;
       gap: 18px;
     }
-    .cwn-lead-body {
-      padding: 26px 22px;
+    .cwn-lead-cols {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .cwn-lead-side {
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid rgba(245, 235, 216, 0.16);
     }
     .cwn-cardgrid {
       grid-template-columns: 1fr;

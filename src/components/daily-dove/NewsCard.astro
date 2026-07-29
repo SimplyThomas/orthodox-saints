@@ -1,12 +1,11 @@
 ---
-/* An account as a card: thumbnail on top under a rule in its era's colour, the
-   verification mark overlaid, then the badges, headline, meta and summary.
+/* An account as a card: a rule in its era's colour across the top, then the
+   badges, headline, meta and summary. All type — the paper carries no images.
    Used by the filtered grid on /news and the related-articles row on an
    article page. */
 import type { NewsItem } from "../../lib/daily-dove";
 import { NEWS_CAT, regionOf, eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
-import NewsThumb from "./NewsThumb.astro";
 import NewsMeta from "./NewsMeta.astro";
 import EraPill from "./EraPill.astro";
 import CenturyBadge from "./CenturyBadge.astro";
@@ -18,7 +17,6 @@ interface Props {
 const { n } = Astro.props;
 const cat = NEWS_CAT[n.cat];
 const era = eraOf(n.century);
-const eraBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 78%, #000), color-mix(in srgb, ${era.ink} 58%, #000))`;
 // The filter island matches against these without re-reading the DOM text.
 const haystack =
   `${n.headline} ${n.location} ${n.summary} ${n.saint.name} ${cat.name}`.toLowerCase();
@@ -36,16 +34,11 @@ const haystack =
   data-saint={n.saint.name}
   data-search={haystack}
 >
-  <div class="nfc-media">
-    <NewsThumb saint={n.saint} bg={eraBg} height={176} />
-    <span class="nfc-verify">
-      <EvidenceDot level={n.evidence} withLabel={false} />
-    </span>
-  </div>
   <div class="nfc-body">
     <div class="nfc-tags">
       <EraPill century={n.century} />
       <CenturyBadge century={n.century} />
+      <EvidenceDot level={n.evidence} withLabel={false} />
     </div>
     <h3 class="nfc-h">{n.headline}</h3>
     <NewsMeta date={n.date} location={n.location} size={12} />
@@ -81,18 +74,6 @@ const haystack =
   }
   .news-feed-card:hover {
     background: var(--paper);
-  }
-  .nfc-media {
-    position: relative;
-  }
-  .nfc-verify {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(251, 246, 234, 0.94);
-    border-radius: 4px;
-    padding: 4px 7px;
-    box-shadow: 0 2px 8px rgba(15, 34, 56, 0.18);
   }
   .nfc-body {
     padding: 17px 20px 19px;

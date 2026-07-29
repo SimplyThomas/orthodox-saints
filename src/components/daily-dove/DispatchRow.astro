@@ -1,12 +1,11 @@
 ---
-/* A dispatch in the chronological feed: a wide row printed in the colour of its
-   era, thumbnail left and account right. Dark by design — the feed sits on the
-   deep navy band, so the plates read as colour against it, and a reader can
-   date a story from across the room. */
+/* A dispatch in the chronological feed — a wide plate printed in the colour of
+   its era. All type: the paper carries no images, so the plate's weight comes
+   from the era colour and the gold rule down its edge, and a reader can date a
+   story from across the room without one. */
 import type { NewsItem } from "../../lib/daily-dove";
 import { eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
-import NewsThumb from "./NewsThumb.astro";
 import EraPill from "./EraPill.astro";
 import CenturyBadge from "./CenturyBadge.astro";
 import EvidenceDot from "./EvidenceDot.astro";
@@ -17,7 +16,6 @@ interface Props {
 }
 const { n } = Astro.props;
 const era = eraOf(n.century);
-const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000), color-mix(in srgb, ${era.ink} 55%, #000))`;
 ---
 
 <a
@@ -27,16 +25,13 @@ const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000
   data-cat={n.cat}
   data-era={era.id}
 >
-  <div class="drow-media">
-    <NewsThumb saint={n.saint} bg={thumbBg} />
-    <span class="drow-verify">
-      <EvidenceDot level={n.evidence} withLabel={false} />
-    </span>
-  </div>
   <div class="drow-body">
     <div class="drow-tags">
       <EraPill century={n.century} onDark />
       <CenturyBadge century={n.century} color="var(--gold-soft)" />
+      <span class="drow-ev">
+        <EvidenceDot level={n.evidence} withLabel={false} />
+      </span>
     </div>
     <h3 class="drow-h">{n.headline}</h3>
     <NewsMeta
@@ -65,30 +60,20 @@ const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000
 
 <style>
   .drow {
-    display: grid;
-    grid-template-columns: 196px 1fr;
+    display: block;
     text-decoration: none;
     border: 1px solid rgba(212, 175, 55, 0.3);
+    border-left: 5px solid var(--gold);
     border-radius: 4px;
-    overflow: hidden;
     box-shadow: var(--shadow-card);
-  }
-  .drow-media {
-    position: relative;
-  }
-  .drow-verify {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(251, 246, 234, 0.94);
-    border-radius: 4px;
-    padding: 4px 7px;
-    box-shadow: 0 2px 8px rgba(15, 34, 56, 0.18);
   }
   .drow-body {
     padding: 20px 26px 22px;
     display: flex;
     flex-direction: column;
+  }
+  .drow-ev {
+    display: inline-flex;
   }
   .drow-tags {
     display: flex;
@@ -127,12 +112,6 @@ const thumbBg = `linear-gradient(150deg, color-mix(in srgb, ${era.ink} 76%, #000
     margin-top: 14px;
   }
   @media (max-width: 720px) {
-    .drow {
-      grid-template-columns: 1fr;
-    }
-    .drow-media :global(.news-thumb) {
-      min-height: 180px;
-    }
     .drow-body {
       padding: 18px 20px 20px;
     }
