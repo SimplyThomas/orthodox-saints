@@ -14,6 +14,7 @@ import {
   regionOf,
   eraOf,
   ERAS,
+  WONDERS,
   NEWS_CATS,
   EVIDENCE,
   EVIDENCE_LIST,
@@ -42,6 +43,13 @@ const verOpts = EVIDENCE_LIST.filter(
   label: EVIDENCE[k].full,
   count: count((n) => n.evidence === k),
   swatch: EVIDENCE[k].dot,
+}));
+const wonderOpts = WONDERS.filter((w) =>
+  all.some((n) => n.miracles?.includes(w.id)),
+).map((w) => ({
+  key: w.id,
+  label: w.name,
+  count: count((n) => !!n.miracles?.includes(w.id)),
 }));
 const eraOpts = ERAS.filter((e) =>
   all.some((n) => eraOf(n.century).id === e.id),
@@ -74,6 +82,9 @@ const saintOpts = Object.keys(saintCounts)
   .map((s) => ({ key: s, label: s, count: saintCounts[s] }));
 
 const groups = [
+  // First, because a reader carrying a trouble should not have to scroll past
+  // five ways of sorting by date to find it.
+  { facet: "wonder", title: "Kind of help", options: wonderOpts },
   { facet: "cat", title: "Desk", options: catOpts },
   { facet: "verify", title: "Level of Evidence", options: verOpts },
   { facet: "era", title: "Era", options: eraOpts },
@@ -178,6 +189,7 @@ const groups = [
                     data-verify={n.evidence}
                     data-century={n.century}
                     data-era={eraOf(n.century).id}
+                    data-wonder={(n.miracles ?? []).join(" ")}
                     data-region={regionOf(n.location)}
                     data-saint={n.saint.name}
                   >

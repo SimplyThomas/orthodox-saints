@@ -579,6 +579,27 @@ const dailyDove = defineCollection({
           .optional(),
       })
       .optional(),
+    // What the account reports the saint helping with — the "Miracles" facet,
+    // so a reader carrying a particular trouble can refine the paper by it.
+    // Keys into WONDER in src/lib/daily-dove.ts. Tag only what the account
+    // actually reports; an empty list is honest, a padded one is not.
+    miracles: z
+      .array(
+        z.enum([
+          "healing",
+          "suffering",
+          "protection",
+          "assault",
+          "purity",
+          "provision",
+          "courage",
+          "family",
+          "enemies",
+          "prayer",
+          "relics",
+        ]),
+      )
+      .optional(),
     // Why the Church remembers this — the standing closing note.
     whyThisMatters: z.string().optional(),
     // The standing disclosure that the reporting voice is a device: which parts

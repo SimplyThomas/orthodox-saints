@@ -3,8 +3,20 @@
    facet clears it. Every row is already in the DOM — this only hides the ones
    that don't match, so the archive reads fine with JavaScript off. */
 
-type Facet = "cat" | "verify" | "era" | "century" | "region" | "saint";
-const FACETS: Facet[] = ["cat", "verify", "era", "century", "region", "saint"];
+type Facet =
+  "wonder" | "cat" | "verify" | "era" | "century" | "region" | "saint";
+const FACETS: Facet[] = [
+  "wonder",
+  "cat",
+  "verify",
+  "era",
+  "century",
+  "region",
+  "saint",
+];
+/* An article reports several kinds of help, so this one facet holds a token
+   list rather than a single value and has to be matched accordingly. */
+const MULTI: Facet[] = ["wonder"];
 
 const rows = [...document.querySelectorAll<HTMLElement>(".arc-row")];
 const facetBtns = [...document.querySelectorAll<HTMLElement>(".arc-facet")];
@@ -18,6 +30,7 @@ const emptyClearBtn = document.getElementById("arc-empty-clear");
 
 if (rows.length && facetBtns.length) {
   const active: Record<Facet, string> = {
+    wonder: "",
     cat: "",
     verify: "",
     era: "",
@@ -68,9 +81,13 @@ if (rows.length && facetBtns.length) {
 
     let shown = 0;
     for (const row of rows) {
-      const ok = FACETS.every(
-        (f) => active[f] === "" || row.dataset[f] === active[f],
-      );
+      const ok = FACETS.every((f) => {
+        if (active[f] === "") return true;
+        const v = row.dataset[f] ?? "";
+        return MULTI.includes(f)
+          ? v.split(" ").includes(active[f])
+          : v === active[f];
+      });
       row.hidden = !ok;
       if (ok) shown++;
     }

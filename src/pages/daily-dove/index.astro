@@ -28,6 +28,7 @@ import {
   EVIDENCE,
   EVIDENCE_LIST,
   DEPARTMENTS,
+  WONDERS,
   NEWS_THISDAY,
 } from "../../lib/daily-dove";
 
@@ -51,6 +52,12 @@ const desks = NEWS_CATS.map((c) => {
 // The filter bar only offers what the paper actually holds — an empty desk or
 // an unused level of evidence is a dead end, not a choice.
 const levels = EVIDENCE_LIST.filter((k) => all.some((n) => n.evidence === k));
+
+// The wonders actually reported somewhere in the paper. A reader arriving with a
+// trouble of their own can refine by it — see WONDERS for why this axis exists.
+const wonders = WONDERS.filter((w) =>
+  all.some((n) => n.miracles?.includes(w.id)),
+);
 
 // The rail's reading list. This was "Most Read" while the section was
 // scaffolded, but the paper has no readership data, so a popularity claim is
@@ -198,6 +205,20 @@ const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
           <option value="">Any level of evidence</option>
           {levels.map((k) => <option value={k}>{EVIDENCE[k].full}</option>)}
         </select>
+        {
+          wonders.length > 0 && (
+            <select
+              id="news-wonder"
+              class="cwn-sel"
+              aria-label="Refine by what the saint is asked for"
+            >
+              <option value="">Any kind of help</option>
+              {wonders.map((w) => (
+                <option value={w.id}>{w.name}</option>
+              ))}
+            </select>
+          )
+        }
         <div class="search cwn-search" role="search">
           <span class="ico" aria-hidden="true">
             <SearchGlyph size={17} color="var(--celest)" />

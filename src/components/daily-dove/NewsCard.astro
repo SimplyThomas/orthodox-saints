@@ -28,6 +28,7 @@ const haystack =
   style={`border-top-color:${era.ink}`}
   data-cat={n.cat}
   data-era={era.id}
+  data-miracles={(n.miracles ?? []).join(" ")}
   data-century={n.century}
   data-verify={n.evidence}
   data-region={regionOf(n.location)}

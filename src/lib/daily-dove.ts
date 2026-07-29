@@ -153,6 +153,8 @@ export interface NewsItem {
   comingUp?: { kicker?: string; title: string }[];
   /** short updates from elsewhere — the "Around the Empire" column */
   aroundTheEmpire?: AroundTheEmpire;
+  /** what the account reports the saint helping with — see WONDERS */
+  miracles?: string[];
   /** the standing "Why This Story Matters" note */
   whyThisMatters?: string;
   /** the standing disclosure that the reporting voice is a literary device */
@@ -301,6 +303,91 @@ export const EVIDENCE_LIST: EvidenceLevel[] = [
   "medieval-tradition",
   "legend",
 ];
+
+/* ============================================================
+   The wonders — what to look for when you are the one in need.
+
+   A reader does not always arrive wanting the fourth century. Often they arrive
+   carrying something: a sickness, a frightened child, work that will not come,
+   a night they cannot see the end of. This is the axis that lets them refine
+   the paper by that rather than by date — to find the accounts of saints the
+   Church has asked for help in exactly their trouble.
+
+   The terms name the NEED, not a guarantee. The Church asks the saints to pray;
+   it does not trade in outcomes, and the paper's wording should never suggest
+   otherwise. An article is tagged only where the account itself reports that
+   kind of help — never to fill the list out.
+   ============================================================ */
+
+export interface Wonder {
+  id: string;
+  /** the facet label — short enough for a chip */
+  name: string;
+  /** what a reader carrying this would be looking for */
+  blurb: string;
+}
+
+export const WONDERS: Wonder[] = [
+  {
+    id: "healing",
+    name: "Healing of body",
+    blurb: "Sickness, injury, and recoveries no one could account for.",
+  },
+  {
+    id: "suffering",
+    name: "Endurance in suffering",
+    blurb: "Long illness and pain borne without bitterness.",
+  },
+  {
+    id: "protection",
+    name: "Protection from harm",
+    blurb: "Danger on the road, at sea, and under threat.",
+  },
+  {
+    id: "assault",
+    name: "Deliverance from assault",
+    blurb: "Those preserved from violence and from those who meant them harm.",
+  },
+  {
+    id: "purity",
+    name: "Purity and chastity",
+    blurb: "Vows kept, and advances refused at cost.",
+  },
+  {
+    id: "provision",
+    name: "Provision in need",
+    blurb: "Water, food, shelter, and work when there was none.",
+  },
+  {
+    id: "courage",
+    name: "Courage to confess",
+    blurb: "Standing firm when it costs position, safety, or life.",
+  },
+  {
+    id: "family",
+    name: "Family and children",
+    blurb: "Households holding to the faith together.",
+  },
+  {
+    id: "enemies",
+    name: "Mercy toward enemies",
+    blurb: "Kindness shown to those who came to do harm.",
+  },
+  {
+    id: "prayer",
+    name: "The life of prayer",
+    blurb: "Stillness, the Jesus Prayer, and the vision of God.",
+  },
+  {
+    id: "relics",
+    name: "Wonders at the relics",
+    blurb: "Help sought and reported at a saint\u2019s tomb.",
+  },
+];
+
+export const WONDER: Record<string, Wonder> = Object.fromEntries(
+  WONDERS.map((w) => [w.id, w]),
+);
 
 /* ============================================================
    The eras — the paper's colour system.
@@ -483,6 +570,8 @@ export function regionOf(location: string): string {
   if (/athos/.test(s)) return "Mount Athos";
   if (/russia|petersburg|kiev|sarov|kursk|diveyevo|radonezh|crimea/.test(s))
     return "Russia & the Slavs";
+  if (/iberia|mtskheta|georgia|tbilisi/.test(s))
+    return "Georgia & the Caucasus";
   if (
     /greece|aegina|corfu|thessal|attica|evia|milesi|makri|tempe|lykovrysi|piraeus/.test(
       s,
@@ -490,12 +579,13 @@ export function regionOf(location: string): string {
   )
     return "Greece";
   if (
-    /constantinople|nicaea|nicomedia|chalcedon|ephesus|bithynia|smyrna|phrygia|colossae|chonae|blachernae/.test(
+    /constantinople|nicaea|nicomedia|chalcedon|ephesus|bithynia|smyrna|phrygia|colossae|chonae|blachernae|galatia|ancyra|gangra|cilicia|cappadocia/.test(
       s,
     )
   )
     return "Asia Minor & Byzantium";
-  if (/egypt|thebaid|desert|syria|cyrrhus|cappadocia|göreme|goreme/.test(s))
+  if (/jerusalem|judean|holy land|bethlehem/.test(s)) return "The Holy Land";
+  if (/egypt|thebaid|desert|syria|cyrrhus|antioch|edessa|göreme|goreme/.test(s))
     return "Egypt & the East";
   if (/italy|bari|rome/.test(s)) return "Italy & the West";
   if (/england|essex|tolleshunt|knights/.test(s)) return "Britain & the West";

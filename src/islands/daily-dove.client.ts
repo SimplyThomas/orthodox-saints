@@ -21,6 +21,9 @@ const centurySel = document.getElementById(
 const verifySel = document.getElementById(
   "news-verify",
 ) as HTMLSelectElement | null;
+const wonderSel = document.getElementById(
+  "news-wonder",
+) as HTMLSelectElement | null;
 const qInput = document.getElementById("news-q") as HTMLInputElement | null;
 const chips = [...document.querySelectorAll<HTMLElement>(".news-chip")];
 
@@ -31,13 +34,18 @@ if (feed && results && cards.length) {
     cat,
     century: centurySel?.value ?? "",
     verify: verifySel?.value ?? "",
+    wonder: wonderSel?.value ?? "",
     q: (qInput?.value ?? "").trim().toLowerCase(),
   });
 
   const apply = () => {
     const s = state();
     const filtering =
-      s.cat !== "all" || s.century !== "" || s.verify !== "" || s.q !== "";
+      s.cat !== "all" ||
+      s.century !== "" ||
+      s.verify !== "" ||
+      s.wonder !== "" ||
+      s.q !== "";
 
     // The chip row only ever reflects the desk, not the selects.
     for (const chip of chips) {
@@ -56,6 +64,8 @@ if (feed && results && cards.length) {
         (s.cat === "all" || card.dataset.cat === s.cat) &&
         (s.century === "" || card.dataset.century === s.century) &&
         (s.verify === "" || card.dataset.verify === s.verify) &&
+        (s.wonder === "" ||
+          (card.dataset.miracles ?? "").split(" ").includes(s.wonder)) &&
         (s.q === "" || (card.dataset.search ?? "").includes(s.q));
       card.hidden = !ok;
       if (ok) shown++;
@@ -79,6 +89,7 @@ if (feed && results && cards.length) {
     cat = "all";
     if (centurySel) centurySel.value = "";
     if (verifySel) verifySel.value = "";
+    if (wonderSel) wonderSel.value = "";
     if (qInput) qInput.value = "";
     apply();
   };
@@ -95,6 +106,7 @@ if (feed && results && cards.length) {
   }
   centurySel?.addEventListener("change", apply);
   verifySel?.addEventListener("change", apply);
+  wonderSel?.addEventListener("change", apply);
   qInput?.addEventListener("input", apply);
   clearBtn?.addEventListener("click", clearAll);
   emptyClearBtn?.addEventListener("click", clearAll);

@@ -523,6 +523,50 @@ test("dispatch plates take their colour from the era", async ({ page }) => {
   );
 });
 
+test("the paper can be refined by the kind of help asked for", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/");
+
+  // The refine row offers only kinds of help the paper actually reports.
+  const sel = page.locator("#news-wonder");
+  await expect(sel).toBeVisible();
+
+  // Choosing one switches to the filtered grid and narrows it to the accounts
+  // that report that help — this is the path for a reader arriving with a
+  // trouble rather than a date.
+  await sel.selectOption("provision");
+  await expect(page.locator("#news-feed")).toBeHidden();
+  const shown = page.locator("#news-cards .news-feed-card:visible");
+  expect(await shown.count()).toBeGreaterThan(0);
+  for (const card of await shown.all())
+    expect((await card.getAttribute("data-miracles"))?.split(" ")).toContain(
+      "provision",
+    );
+
+  await page.locator("#news-clear").click();
+  await expect(page.locator("#news-feed")).toBeVisible();
+});
+
+test("the archive leads with the kind of help asked for", async ({ page }) => {
+  await page.goto("./daily-dove/archive/");
+  // It is the first facet group, ahead of every way of sorting by date.
+  await expect(page.locator(".arc-fgroup .eyebrow").first()).toHaveText(
+    "Kind of help",
+  );
+
+  const rows = page.locator(".arc-row:visible");
+  const before = await rows.count();
+  await page
+    .locator('.arc-facet[data-facet="wonder"][data-value="courage"]')
+    .click();
+  await expect.poll(async () => rows.count()).toBeLessThan(before);
+  for (const row of await rows.all())
+    expect((await row.getAttribute("data-wonder"))?.split(" ")).toContain(
+      "courage",
+    );
+});
+
 test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   const resp = await page.goto("./daily-dove/archive/");
   expect(resp?.status()).toBe(200);
