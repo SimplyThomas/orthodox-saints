@@ -32,18 +32,7 @@ const Name = href ? "a" : "div";
       <span class="dove-ear-dm"></span>
     </span>
 
-    <span class="dove-name-wrap">
-      <img
-        class="dove-emblem"
-        src={withBase("dove-emblem.svg")}
-        alt=""
-        aria-hidden="true"
-        width="46"
-        height="46"
-        loading="eager"
-      />
-      <span class="dove-name">The Daily Dove</span>
-    </span>
+    <span class="dove-name">The Daily Dove</span>
 
     <span class="dove-ear dove-ear--r" aria-hidden="true">
       <span class="dove-ear-dm"></span>
@@ -84,18 +73,8 @@ const Name = href ? "a" : "div";
     text-decoration: none;
     padding: 20px 0 10px;
   }
-  .dove-name-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: clamp(10px, 1.6vw, 20px);
-    flex: 0 0 auto;
-  }
-  .dove-emblem {
-    width: clamp(34px, 4vw, 54px);
-    height: auto;
-    flex: 0 0 auto;
-  }
   .dove-name {
+    flex: 0 0 auto;
     font-family: var(--dove-plate);
     font-weight: 900;
     font-size: clamp(38px, 7vw, 92px);
@@ -169,9 +148,6 @@ const Name = href ? "a" : "div";
   }
   .dove-mast--sm .dove-name {
     font-size: clamp(26px, 3.4vw, 40px);
-  }
-  .dove-mast--sm .dove-emblem {
-    width: clamp(24px, 2.4vw, 30px);
   }
   .dove-mast--sm .dove-motto {
     font-size: clamp(12px, 1.1vw, 14px);

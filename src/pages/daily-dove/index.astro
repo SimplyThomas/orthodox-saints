@@ -60,22 +60,17 @@ const desks = NEWS_CATS.map((c) => {
   <div class="dove">
     {/* ---------- NAMEPLATE ---------- */}
     <div class="dove-mastwrap">
-      <div class="dome-bg" aria-hidden="true">
-        <DomeMark w={520} color="var(--byz)" />
-      </div>
-      <div class="dove-mastwrap-inner">
-        <DoveMasthead
-          edition={`No. ${all.length} · The Living Archive`}
-          folio="Est. Pentecost, A.D. 33"
-        />
-        <p class="dove-standfirst">
-          Two thousand years of Church history, reported as though a newspaper
-          had been there to cover it. Every story closes with the <a
-            href="#the-evidence">Historian&rsquo;s Notes</a
-          > &mdash; what is documented, what is the tradition of the Church, and what
-          is legend.
-        </p>
-      </div>
+      <DoveMasthead
+        edition={`No. ${all.length} · The Living Archive`}
+        folio="Est. Pentecost, A.D. 33"
+      />
+      <p class="dove-standfirst">
+        Two thousand years of Church history, reported as though a newspaper had
+        been there to cover it. Every story closes with the <a
+          href="#the-evidence">Historian&rsquo;s Notes</a
+        > &mdash; what is documented, what is the tradition of the Church, and what
+        is legend.
+      </p>
     </div>
 
     {/* ---------- LEAD STORY ---------- */}
@@ -394,20 +389,7 @@ const desks = NEWS_CATS.map((c) => {
 
   /* ---------- nameplate ---------- */
   .dove-mastwrap {
-    position: relative;
     padding: 10px 56px 22px;
-    overflow: hidden;
-  }
-  .dove-mastwrap .dome-bg {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.05;
-    pointer-events: none;
-  }
-  .dove-mastwrap-inner {
-    position: relative;
   }
   .dove-standfirst {
     font-family: var(--serif);
