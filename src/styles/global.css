@@ -5155,12 +5155,17 @@ a.sv-rail-chip:hover {
   max-width: 1280px;
   margin: 0 auto;
 }
+/* The rail's horizontal inset matches the site-wide page gutter
+   `clamp(16px, 4vw, 56px)` — the same one the hero and the actions ribbon use —
+   so the left edge runs unbroken from the breadcrumb down through the rail.
+   It previously carried its own narrower `clamp(22px, 3vw, 38px)`, which put
+   the rail's text ~13px left of everything above it. */
 .sv2 .sv-rail {
   display: block;
   background: var(--ivory-2);
   color: var(--ink);
   border-right: 1px solid var(--line-gold);
-  padding: 46px clamp(22px, 3vw, 38px) 56px;
+  padding: 46px clamp(16px, 4vw, 56px) 56px;
 }
 .sv2 .sv-main {
   max-width: none;

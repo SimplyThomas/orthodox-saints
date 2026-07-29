@@ -1,0 +1,108 @@
+id: HH-0048
+status: draft
+generated: "2026-07-28"
+sources:
+  - 1 Enoch 20:6 (as Saraqael) — R. H. Charles, The Book of Enoch (Oxford, public domain)
+  - The War Scroll (1QM) IX, Dead Sea Scrolls — the four names inscribed on the shields
+  - Orthodox tradition of the eight archangels (Menaion, Nov 8; the Synaxis of the Bodiless Powers)
+  - Catalogued for study, never for veneration — requires clergy/source review
+overview:
+  - "Sariel is an angel named in Second Temple Jewish literature and unknown to the biblical canon of the Orthodox Church. The Book of Enoch gives his name in the form Saraqael, listing him among the holy angels who watch and setting him over the spirits that transgress."
+  - "He appears again, and more strikingly, in the War Scroll of the Dead Sea community, where four names are to be inscribed on the shields of the sons of light — Michael, Gabriel, Sariel and Raphael. That list is worth noticing precisely because it differs from the one the Church came to keep: it shows that in the centuries around the Incarnation the naming of the great angels was still unsettled outside the Scriptures."
+  - "His name is read as “command of God” or “prince of God.” In later tradition he is sometimes identified with Uriel, one of the eight archangels Orthodoxy does venerate — an identification worth knowing about, but not a reason to treat the two as the same figure."
+  - He is not venerated by name in the Orthodox Church. He has no feast, no hymn, and no icon, and is catalogued here for study rather than devotion.
+historicalContext:
+  - "The two witnesses to Sariel come from the same world but not the same community. The Book of Enoch circulated widely in Second Temple Judaism and was known to early Christian writers; the War Scroll belonged to the sectarian library at Qumran and was unknown to anyone until its discovery in the twentieth century."
+  - That a name should stand among the four chief angels in one text and among six or seven in another is the ordinary condition of this literature. The lists do not agree with each other, and none of them is the Church's.
+orthodoxInterpretation:
+  - The Orthodox Church venerates eight archangels by name — Michael, Gabriel, Raphael, Uriel, Selaphiel, Jegudiel, Barachiel, and Jeremiel. Sariel is not among them.
+  - The identification of Sariel with Uriel is found in later tradition and is sometimes repeated in modern reference works. It should be handled carefully. Uriel is received by the Church under his own name; nothing follows for Sariel from the resemblance, and the two should not be silently merged.
+  - "As with the other names drawn from this literature, the Church's practice is to invoke angels by the names God has revealed. Sariel is recorded here as a matter of history."
+essentialsHeading: Where the name appears
+salvationHistory:
+  - heading: Among the angels who watch
+    body:
+      - "The twentieth chapter of the Book of Enoch names the holy angels who watch. Saraqael — the form the book uses — stands among them, in company with Uriel, Rufael, Raguel, Michael and Gabriel, and is set over the spirits that sin in the spirit."
+  - heading: On the shields of the sons of light
+    body:
+      - "The War Scroll of the Dead Sea community directs that four names be written on the shields carried into the eschatological battle: Michael, Gabriel, Sariel and Raphael. It is the earliest evidence that his name was reckoned among the very greatest — in that community, at least."
+  - heading: Identified with Uriel
+    body:
+      - "Later tradition sometimes treats Sariel and Uriel as one. The Church received Uriel; it did not receive Sariel. The identification is recorded here as a fact about the sources, not as a claim about the being."
+scripture:
+  - ref: 1 Enoch 20:6 (extra-biblical)
+    note: Named as Saraqael among the holy angels who watch, set over the spirits that transgress.
+  - ref: War Scroll (1QM) IX (extra-biblical)
+    note: One of four names inscribed on the shields of the sons of light, with Michael, Gabriel, and Raphael.
+sections:
+  - heading: A note on the name
+    body:
+      - "The forms vary considerably across the sources — Sariel, Saraqael, Saraqel, Suriel, Sarakiel. The Book of Enoch's Ethiopic gives Saraqael; the War Scroll gives Sariel. This page uses Sariel as the common English form and notes the variants rather than choosing between them."
+  - heading: Why the lists do not agree
+    body:
+      - Scripture names Michael and Gabriel, and the Book of Tobit names Raphael. Beyond that, the Second Temple writings name angels freely and inconsistently — four in the War Scroll, six or seven in the Book of Enoch, and other combinations elsewhere.
+      - The eight archangels of Orthodox tradition are not one of these lists tidied up. They come from the Church's own liturgical memory, which is why they, and not these, are the names the services use.
+faq:
+  - question: Is Sariel in the Bible?
+    answer:
+      - "No. He is named in the Book of Enoch and in the Dead Sea Scrolls, neither of which is Scripture for the Orthodox Church."
+  - question: Is Sariel the same as Uriel?
+    answer:
+      - Later tradition sometimes identifies them, and reference works often repeat it. The Orthodox Church venerates Uriel under his own name and has not received Sariel. Treating them as interchangeable goes further than the evidence allows.
+  - question: Why is he on the shields in the War Scroll?
+    answer:
+      - The Qumran community reckoned four angels as chief — Michael, Gabriel, Sariel and Raphael — and directed their names to be inscribed on the shields carried into the final battle. It reflects that community's angelology, not the Church's.
+  - question: Does Sariel have a feast day?
+    answer:
+      - No. He has no feast, commemoration, hymn, or icon in Orthodox tradition.
+authorities:
+  - level: Holy Scripture
+    note: Does not name him
+    sources:
+      - None
+  - level: Extra-Biblical
+    note: The only witnesses
+    sources:
+      - 1 Enoch 20:6 (as Saraqael)
+      - War Scroll (1QM) IX
+  - level: Liturgical Tradition
+    note: Records the eight, not him
+    sources:
+      - Menaion, November 8 — the Synaxis of the Bodiless Powers
+  - level: Academic
+    note: Text and commentary
+    sources:
+      - R. H. Charles, The Book of Enoch (Oxford)
+      - Editions of the Dead Sea Scrolls
+related:
+  - name: Archangel Uriel
+    note: Received by the Church under his own name; sometimes identified with Sariel in later tradition.
+    href: host/HH-0013
+  - name: Raguel
+    note: Named in the same chapter of the Book of Enoch, and likewise not received.
+    href: host/HH-0047
+  - name: Phanuel
+    note: The fourth angel of the Presence in the Book of Enoch.
+    href: host/HH-0049
+  - name: The Archangels
+    note: The rank, and the eight the Orthodox Church venerates by name.
+    href: host/HH-0008
+  - name: The Book of Enoch (1 Enoch)
+    note: The work that names him, with the beings drawn from it.
+    href: extra-biblical-angels/1-enoch
+reading:
+  - heading: Primary Sources
+    items:
+      - title: 1 Enoch 20:6
+        type: Extra-biblical — Second Temple literature
+      - title: War Scroll (1QM) IX
+        type: Extra-biblical — Dead Sea Scrolls
+  - heading: Text & Commentary
+    items:
+      - title: The Book of Enoch
+        author: R. H. Charles
+        type: Public domain
+  - heading: Orthodox Context
+    items:
+      - title: Synaxis of the Bodiless Powers (November 8)
+        type: Menaion
