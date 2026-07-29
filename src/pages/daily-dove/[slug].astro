@@ -165,6 +165,24 @@ const departments = (n.departments ?? [])
           }
         </div>
 
+        {
+          /* a Q&A feature — the questions are ours, the answers are the source */
+        }
+        {
+          n.interview && n.interview.length > 0 && (
+            <div class="na-interview">
+              {n.interview.map((t) => (
+                <div class="na-turn">
+                  <p class="na-q">{t.q}</p>
+                  {t.a.map((para) => (
+                    <p class="na-p">{para}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )
+        }
+
         {/* the standing departments, in the paper's own order */}
         {departments.map((run) => <DepartmentBlock run={run} />)}
 
@@ -196,6 +214,18 @@ const departments = (n.departments ?? [])
             <section class="na-why">
               <h2>Why this story matters</h2>
               <p>{n.whyThisMatters}</p>
+            </section>
+          )
+        }
+
+        {/* the paper's own editorial */}
+        {
+          n.editorsNotebook && (
+            <section class="na-notebook">
+              <h2>{n.editorsNotebook.heading ?? "Editor’s Notebook"}</h2>
+              {n.editorsNotebook.body.map((para) => (
+                <p>{para}</p>
+              ))}
             </section>
           )
         }

@@ -1,0 +1,65 @@
+id: "alexis-moscow-sarai"
+order: 42
+cat: "historical"
+century: 14
+evidence: "orthodox-tradition"
+edition: "Sarai Edition"
+byline: "By Our Correspondent at the Court of the Golden Horde"
+saint:
+  name: "Alexis"
+  type: "Hierarch"
+saintLabel: "Alexis, Metropolitan of Moscow"
+kicker: "Breaking"
+headline: "Queen Regains Sight After Metropolitan’s Prayer"
+date: "A.D. 1357"
+location: "Sarai, capital of the Golden Horde"
+dek: "The court of the Golden Horde witnessed an extraordinary recovery today after Alexis of Moscow prayed over the ailing Taydula Khatun."
+summary: "When the summons first arrived in Moscow, few believed it could end well. The queen had lost her sight, and the khan’s finest physicians had exhausted their remedies. Then someone suggested sending for a Christian bishop."
+miracles:
+  - "healing"
+  - "prayer"
+body:
+  - "When the summons first arrived in Moscow, few believed it could end well."
+  - "The messenger came from the court of the Golden Horde. Its request was as unexpected as it was urgent. Come quickly. The queen, Taydula Khatun, had lost her sight."
+  - "The finest physicians available to the khan had already exhausted their remedies. Herbalists had come and gone. Court healers offered conflicting advice. Days turned into weeks, and still darkness remained. Then someone suggested sending for a Christian bishop. Not just any bishop. Metropolitan Alexis of Moscow."
+  - "The journey itself was enough to discourage most men. Across forests, rivers, and open steppe, the metropolitan travelled toward Sarai, the capital of the Horde. Those accompanying him describe the journey as quiet. There were no promises of success. No public declarations that a miracle would occur. “He spent more time praying than speaking,” one member of the delegation recalled."
+  - "By the time Alexis reached the royal court, anticipation had spread well beyond the palace walls. Officials, soldiers, servants, and curious townspeople gathered wherever they could catch a glimpse of the metropolitan entering the residence."
+  - "Inside, the atmosphere was noticeably different. The bustling confidence expected of an imperial court had been replaced by anxious silence. The queen was led forward."
+  - "Witnesses describe Metropolitan Alexis asking first that prayers be offered to Christ. He then placed before the queen a vessel containing holy water, prayed earnestly, and made the sign of the Cross. No one moved. For several long moments, the room remained utterly still."
+  - "Then the queen blinked. Once. Twice. She turned toward the gathered court. “I can see.”"
+  - "Several attendants immediately burst into tears. Others fell to their knees. One palace official covered his face with both hands before quietly whispering, “Praise be to God.”"
+  - "The news escaped the palace almost as quickly as those present. By afternoon, crowds throughout Sarai were repeating the same astonishing report. “The queen’s sight has returned.”"
+  - "Despite the growing excitement, Metropolitan Alexis declined every attempt to praise him. According to those present, he insisted that any healing came through the mercy of Christ, not through his own power. His concern quickly shifted from celebration to thanksgiving. A service of prayer was offered before he prepared for the long journey home."
+  - "Before departing, this correspondent asked one elderly court servant what would remain in her memory long after today’s events. She did not mention the healing. She spoke instead of the man who prayed. “He looked at our queen,” she said quietly. “But all the while — he seemed to be looking toward heaven.”"
+pullQuote:
+  text: "“He looked at our queen. But all the while — he seemed to be looking toward heaven.”"
+  attribution: "— An elderly servant of the court at Sarai"
+aroundTheEmpire:
+  heading: "Around Sarai"
+  notes:
+    - city: "Royal Court"
+      note: "Officials report that Taydula Khatun continues to recover following today’s remarkable restoration of sight. Expressions of gratitude have been offered throughout the palace."
+    - city: "Road to Moscow"
+      note: "Travellers expect Metropolitan Alexis to begin the return journey in the coming days after completing his mission at the khan’s court."
+editorsNotebook:
+  body:
+    - "Kings possess armies. Queens command palaces. Neither could restore a pair of blind eyes."
+    - "Today, the most powerful court in the steppe was reminded that there are gifts no empire can command. They can only be received with thanksgiving."
+literaryFraming: "The reporter’s journey, the conversations among palace officials, and the dialogue surrounding the healing are fictionalised. The central event — the invitation to Sarai, the prayers of Metropolitan Alexis, and Taydula Khatun’s restoration of sight — is rooted in the traditional accounts preserved in his Life and later Russian chronicles."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Alexis, Metropolitan of Moscow (c. 1292–1378), travelled to the court of the Golden Horde at Sarai in 1357 at the request of Taydula Khatun, who had lost her sight."
+      note: "The traditional accounts state that after Alexis prayed and blessed her with holy water, her vision was restored. The event greatly increased his esteem at the Horde’s court and strengthened Moscow’s standing during a critical period."
+    - level: "contemporary-source"
+      claim: "Alexis was one of the most influential church leaders of medieval Rus’, serving as metropolitan during a period of political uncertainty."
+      note: "He helped guide the young Prince Dmitry (later Dmitry Donskoy), founded monasteries, promoted church building, and mediated disputes among princes."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Alexis, Metropolitan of Moscow"
+      - "Medieval Russian chronicles describing the journey to Sarai"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (February 12 and May 20 commemorations)"
+      - "Russian Orthodox liturgical texts for St Alexis of Moscow"

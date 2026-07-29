@@ -505,22 +505,30 @@ test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
 test("dispatch plates take their colour from the era", async ({ page }) => {
   await page.goto("./daily-dove/");
   const rows = page.locator(".cwn-river .drow");
-  // Every plate is tagged with its era and names it, so the colour is legible
-  // rather than decorative.
+  expect(await rows.count()).toBeGreaterThan(4);
+
+  // The six era bands, as defined in lib/daily-dove. Derived rather than
+  // pinned to particular headlines, so the assertion survives the feed
+  // changing as the paper grows.
+  const BANDS: [string, number, number][] = [
+    ["martyrs", 1, 3],
+    ["councils", 4, 5],
+    ["byzantium", 6, 10],
+    ["east", 11, 15],
+    ["ottoman", 16, 18],
+    ["modern", 19, 21],
+  ];
+
   for (const row of await rows.all()) {
-    expect(await row.getAttribute("data-era")).toBeTruthy();
+    const era = await row.getAttribute("data-era");
+    const century = Number(await row.getAttribute("data-century"));
+    expect(era).toBeTruthy();
+    // Every plate names its band, so the colour is legible not decorative.
     await expect(row.locator(".erapill")).toBeVisible();
+    // …and the band it claims is the one its century actually falls in.
+    const band = BANDS.find(([, from, to]) => century >= from && century <= to);
+    expect(era).toBe(band?.[0]);
   }
-  // The 5th-century councils share the Age of Councils band; the 14th-century
-  // Hesychast dispatch does not.
-  await expect(rows.filter({ hasText: "Peter Has Spoken" })).toHaveAttribute(
-    "data-era",
-    "councils",
-  );
-  await expect(rows.filter({ hasText: "Uncreated Light" })).toHaveAttribute(
-    "data-era",
-    "east",
-  );
 });
 
 test("the paper can be refined by the kind of help asked for", async ({

@@ -1,0 +1,66 @@
+id: "macarius-zhabyn"
+order: 27
+cat: "historical"
+century: 17
+evidence: "orthodox-tradition"
+edition: "Zhabyn Edition"
+byline: "By Our Correspondent"
+saint:
+  name: "Macarius"
+  type: "Monastic"
+saintLabel: "Macarius of Zhabyn"
+kicker: "Breaking"
+headline: "Enemy Soldier Left for Dead Receives Unexpected Aid from Local Abbot"
+date: "Early 17th Century"
+location: "Zhabyn, Russia"
+dek: "As war sweeps through the countryside, one monk chooses mercy over vengeance."
+summary: "The monastery had suffered greatly. Yet as the elderly abbot walked through the surrounding fields, his attention was drawn not to shattered walls but to a faint cry rising from the grass. A wounded soldier lay alone, his uniform marking him as one of the invading force."
+miracles:
+  - "enemies"
+  - "provision"
+body:
+  - "The smoke had only just begun to clear."
+  - "For days, villages throughout the region had endured the passage of armies. Fields lay trampled beneath horses’ hooves. Farmhouses stood abandoned, and the roads were littered with broken wagons, discarded weapons, and the quiet evidence of another campaign whose cost would be counted long after the soldiers marched on."
+  - "When the fighting finally moved elsewhere, the monks of Zhabyn Monastery emerged cautiously to assess the damage. Among them was their elderly abbot, Father Macarius."
+  - "The monastery had suffered greatly. Buildings were damaged, supplies scattered, and many feared the brethren themselves had not escaped the violence. Yet as Father Macarius walked through the surrounding fields, his attention was drawn not to shattered walls, but to a faint cry rising from the grass."
+  - "A wounded soldier lay alone. His uniform marked him as one of the invading force. The battle had passed him by. His companions had gone."
+  - "The monks accompanying the abbot hesitated. Only hours earlier, men wearing the same colours had brought destruction to their home. Some wondered whether they should simply continue walking. Father Macarius did not."
+  - "Without asking which army the man served, he knelt beside him. The soldier’s lips were cracked from thirst. His breathing came in shallow gasps. The old monk reached for the only thing he had to offer. Water."
+  - "Witnesses say Father Macarius gently raised the soldier’s head and held the vessel to his lips until he could drink. For several moments neither man spoke. Finally, the soldier opened his eyes. Realising who stood beside him, he reportedly stared in disbelief. According to the monastery’s tradition, he had expected anger. Instead, he found compassion."
+  - "One of the younger monks later recalled that the battlefield suddenly seemed strangely quiet. “It was as though,” he said, “the war had ended for those two men before it had ended for anyone else.”"
+  - "The soldier asked why he had been spared. Father Macarius answered simply. Because Christ had shown mercy first."
+  - "No record survives of everything said between them, but the monastery preserves that the encounter left a lasting impression upon the wounded man. Before the abbot departed, the soldier asked forgiveness for the destruction caused by the invading army and received the elder’s blessing."
+  - "Those who witnessed the meeting remembered not a triumphant victor standing over a defeated enemy, but two weary men brought together by suffering. One carried the wounds of battle. The other carried the wounds of seeing his monastery ravaged. Neither allowed bitterness to have the final word."
+  - "As evening settled over the monastery, the brothers returned to the difficult work of rebuilding. The battle would soon become another entry in the chronicles of princes and generals. The conversation in the field would not."
+  - "Yet it is that quieter encounter that continues to be remembered among those who knew Father Macarius. History often celebrates those who conquer. The monks of Zhabyn chose instead to remember the man who offered a cup of water."
+pullQuote:
+  text: "“It was as though the war had ended for those two men before it had ended for anyone else.”"
+  attribution: "— One of the younger monks"
+aroundTheEmpire:
+  heading: "Around the Frontier"
+  notes:
+    - city: "Zhabyn Monastery"
+      note: "The brethren have begun repairing damaged buildings following the recent military campaign. Despite heavy losses, the daily cycle of prayer has resumed."
+    - city: "Regional Roads"
+      note: "Travellers report increasing numbers of wounded soldiers from both armies seeking food and shelter as the conflict moves farther from the district."
+editorsNotebook:
+  body:
+    - "Wars have a way of teaching people to recognise uniforms before faces. Friend. Enemy. Ally. Invader."
+    - "The Gospel asks a different question. Not, “Whose side is he on?” But, “Who is your neighbour?” On a battlefield littered with reasons for hatred, one elderly monk answered that question with a cup of water."
+literaryFraming: "The descriptions of the battlefield, the monks’ reactions, and the dialogue are literary reconstructions. They are intended to dramatise the traditional account without altering its central historical themes."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Macarius of Zhabyn (1539–1623), founder and abbot of the Zhabyn Monastery, is remembered for his ascetic life, humility, and mercy."
+      note: "During the warfare that devastated the region in the early seventeenth century, tradition recounts that he encountered a wounded Polish soldier left behind after battle. Rather than treating him as an enemy, Macarius gave him water, comforted him, and spoke to him about repentance and God’s mercy. The soldier is said to have repented before his death."
+    - level: "orthodox-tradition"
+      claim: "The incident became one of the defining episodes of Macarius’ life."
+      note: "It illustrates Christ’s command to love one’s enemies even amid the violence of war."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Russian hagiographical accounts of the Life of St Macarius of Zhabyn"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Venerable Macarius of Zhabyn"
+      - "Orthodox Synaxaria (January 22 commemoration)"

@@ -112,6 +112,24 @@ export interface SeriesRef {
   part: number;
 }
 
+/* The editorial column — the paper speaking in its own voice about what it has
+   just reported. Distinct from "Why This Story Matters", which explains why the
+   Church remembers the event; this is the leader-writer's turn. */
+export interface EditorsNotebook {
+  heading?: string;
+  body: string[];
+}
+
+/* A feature built as an interview. Some sources are themselves a first-person
+   testimony — Motovilov's record of his conversation with St Seraphim is the
+   clearest case — and forcing that into breaking-news prose would lose the very
+   thing that makes it worth reading. The questions are the paper's device; the
+   answers are the source. */
+export interface InterviewTurn {
+  q: string;
+  a: string[];
+}
+
 /* One strand of the story set against the evidence that carries it. Every
    article closes with a run of these — the paper's whole reason for existing in
    this form. `claim` is what the article said; `note` is what actually stands
@@ -155,8 +173,12 @@ export interface NewsItem {
   aroundTheEmpire?: AroundTheEmpire;
   /** what the account reports the saint helping with — see WONDERS */
   miracles?: string[];
+  /** a Q&A feature, where the source is itself a first-person testimony */
+  interview?: InterviewTurn[];
   /** the standing "Why This Story Matters" note */
   whyThisMatters?: string;
+  /** the paper's own editorial on the story */
+  editorsNotebook?: EditorsNotebook;
   /** the standing disclosure that the reporting voice is a literary device */
   literaryFraming?: string;
   /** the series this dispatch belongs to, if it covers an ongoing event */

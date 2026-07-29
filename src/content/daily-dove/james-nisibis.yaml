@@ -1,0 +1,52 @@
+id: "james-nisibis"
+order: 20
+cat: "historical"
+century: 4
+evidence: "contemporary-witness"
+edition: "Nisibis Edition"
+byline: "By our correspondent in Nisibis"
+saint:
+  name: "James"
+  type: "Hierarch"
+saintLabel: "James, Bishop of Nisibis"
+kicker: "Breaking"
+headline: "Persian Siege Broken After Weeks Outside City Walls"
+date: "Circa AD 350"
+location: "Nisibis, Mesopotamia"
+dek: "Citizens credit their bishop’s prayers as Shapur’s army withdraws."
+summary: "For nearly two months the walls of Nisibis were all that stood between one of the greatest armies in the East and the people sheltering behind its gates. Soldiers on the ramparts say the elderly bishop walked the defences with neither sword nor armour. When a breach opened, he prayed."
+miracles:
+  - "protection"
+  - "provision"
+body:
+  - "For nearly two months, the walls of Nisibis have been all that stood between one of the greatest armies in the East and the people sheltering behind its gates."
+  - "Each morning began the same way. Dust rose on the horizon as Persian soldiers formed their ranks. Engineers dragged forward siege engines. Archers tested their bowstrings. Before the sun had reached its height, another assault would begin."
+  - "Inside the city, there was nowhere to escape the sound. Stone struck stone. Children cried. Merchants abandoned their stalls. Families rationed what little food remained while wondering how much longer the walls could endure."
+  - "Yet if fear spread through the streets, so too did another rumour. Their bishop had not stopped praying."
+  - "James, the elderly shepherd of Nisibis, had become a familiar sight along the city’s defences. Soldiers stationed on the ramparts say they often saw him walking the walls with neither sword nor armour, speaking quietly with the defenders before lifting his hands in prayer toward heaven."
+  - "The confidence surprised many. King Shapur II had assembled one of the most formidable armies in the Persian Empire, determined to wrest Nisibis from Roman control. After repeated assaults failed, his engineers altered the course of a nearby river, hoping to undermine the city’s defences and wash away its walls."
+  - "For a time, the plan appeared to succeed. A breach opened, and panic spread through the city. Residents hurried to reinforce the damaged section while expecting the final assault to come with the morning light. Instead, they awoke to find Bishop James already standing near the broken wall."
+  - "Ancient accounts agree on what happened next, though they describe it with different emphases. James did not organise a counterattack or urge the defenders into battle. Rather, he prayed that God would defend the city. Soon afterward, swarms of insects descended upon the Persian camp. Horses bolted. Pack animals panicked. Soldiers struggled to remain in formation as the creatures tormented both men and beasts."
+  - "Whether one describes them as gnats, flies, or stinging insects, the result was the same. The camp dissolved into confusion. What weeks of siegecraft had failed to accomplish, disorder achieved in a matter of hours. Before long, the Persian army began its withdrawal."
+  - "Those watching from the walls scarcely believed what they were seeing. “We expected one final assault,” said a baker whose home overlooked the western gate. “Instead, we watched them depart.” By sunset, the plain that had been filled with tents, banners, and siege engines stood nearly empty."
+  - "For the people of Nisibis, relief came slowly. Parents emerged from their homes carrying children who had spent weeks indoors. Craftsmen reopened workshops. The markets, silent for so long, filled once again with voices bargaining over bread, grain, and oil."
+  - "No victory procession wound through the streets. No triumphant general rode beneath laurel wreaths. The people gathered instead in the churches, where prayers of thanksgiving replaced the anxious petitions that had filled the city throughout the siege."
+  - "James himself has made no public claim regarding the events. Those close to the bishop say he attributes the city’s preservation entirely to God’s mercy rather than to any power of his own."
+  - "Whether future generations remember this victory for military strategy or divine intervention, one fact is beyond dispute. Nisibis still stands."
+pullQuote:
+  text: "“He never asked us whether we thought we could hold. He asked only whether we still trusted God.”"
+  attribution: "— A watchman, after the siege"
+literaryFraming: "The descriptions of daily life during the siege, the unnamed watchman, baker, and other townspeople, along with the dialogue and scene-setting, are literary reconstructions intended to immerse the reader in the historical event. They are not preserved as direct quotations in the historical sources."
+historiansNotes:
+  entries:
+    - level: "contemporary-witness"
+      claim: "The siege of Nisibis and Bishop James’s role in encouraging the city’s defenders are attested in early Christian sources."
+      note: "Especially the writings of Theodoret of Cyrrhus and the hymns of Ephrem the Syrian. These sources associate the city’s deliverance with James’s prayers."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Theodoret of Cyrrhus, Religious History"
+      - "Ephrem the Syrian, Hymns on Nisibis"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (January 13 commemoration)"

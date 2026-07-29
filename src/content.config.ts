@@ -600,8 +600,20 @@ const dailyDove = defineCollection({
         ]),
       )
       .optional(),
+    // A Q&A feature, for sources that are themselves first-person testimony.
+    // The questions are the paper's device; the answers come from the source.
+    interview: z
+      .array(z.object({ q: z.string(), a: z.array(z.string()).min(1) }))
+      .optional(),
     // Why the Church remembers this — the standing closing note.
     whyThisMatters: z.string().optional(),
+    // The paper's own editorial. `heading` defaults to "Editor's Notebook".
+    editorsNotebook: z
+      .object({
+        heading: z.string().optional(),
+        body: z.array(z.string()).min(1),
+      })
+      .optional(),
     // The standing disclosure that the reporting voice is a device: which parts
     // of the article are literary and not preserved in the sources. Rendered
     // inside the Historian's Notes, where a reader is already weighing evidence.
