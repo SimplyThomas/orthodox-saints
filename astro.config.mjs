@@ -70,6 +70,12 @@ export default defineConfig({
     "/visitors-catechumens": "/parish-resources",
     "/churches-bookstores": "/parish-resources",
     "/teachers-ministries": "/parish-resources",
+    // "Saints in the News" was rebranded as The Daily Dove and moved to
+    // /daily-dove. The section was never linked from the nav, but the old
+    // paths were reachable, so keep them resolving.
+    "/news": "/daily-dove",
+    "/news/archive": "/daily-dove/archive",
+    "/news/[slug]": "/daily-dove/[slug]",
   },
   // Emits sitemap-index.xml + sitemap-0.xml into _site/ (every static route,
   // including all /saint/OS-#### pages). Referenced from static/robots.txt.

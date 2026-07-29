@@ -1,0 +1,72 @@
+---
+/* A standing department head — the small ruled banner a newspaper runs above a
+   recurring section. Keyed to the department's own colour so Rumor Mill and
+   Imperial Dispatch are told apart before a word is read. */
+import { DEPARTMENT } from "../../lib/daily-dove";
+
+interface Props {
+  kind: string;
+  /** overrides the standing department name for this run */
+  title?: string;
+  /** suppress the strapline where space is tight */
+  bare?: boolean;
+}
+const { kind, title, bare = false } = Astro.props;
+const d = DEPARTMENT[kind];
+---
+
+{
+  d && (
+    <div class="dhead" style={`--dh-ink:${d.ink}`}>
+      <span class="dhead-dm" aria-hidden="true" />
+      <span class="dhead-name">{title ?? d.name}</span>
+      <span class="dhead-ln" aria-hidden="true" />
+      {!bare && <span class="dhead-blurb">{d.blurb}</span>}
+    </div>
+  )
+}
+
+<style>
+  .dhead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--dh-ink);
+    padding-bottom: 7px;
+  }
+  .dhead-dm {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    background: var(--dh-ink);
+    flex: 0 0 auto;
+  }
+  .dhead-name {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--dh-ink);
+    white-space: nowrap;
+  }
+  .dhead-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+    min-width: 10px;
+  }
+  .dhead-blurb {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .dhead-blurb {
+      display: none;
+    }
+  }
+</style>

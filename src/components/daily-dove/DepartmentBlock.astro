@@ -1,0 +1,112 @@
+---
+/* One department's run inside an article — the head, then either prose or a
+   set of attributed voices.
+
+   Rumor Mill carries an explicit standing notice. The paper is allowed to
+   report what people were saying; it is not allowed to let a reader mistake
+   that for what happened, and a colour dot at the foot of the article is not
+   enough when the gossip is this enjoyable to read. */
+import type { DepartmentRun } from "../../lib/daily-dove";
+import { DEPARTMENT } from "../../lib/daily-dove";
+import DepartmentHead from "./DepartmentHead.astro";
+
+interface Props {
+  run: DepartmentRun;
+}
+const { run } = Astro.props;
+const d = DEPARTMENT[run.kind];
+const unverified = run.kind === "rumor";
+---
+
+{
+  d && (
+    <section
+      class:list={["dblock", unverified && "dblock--unverified"]}
+      style={`--db-ink:${d.ink}`}
+    >
+      <DepartmentHead kind={run.kind} title={run.title} />
+
+      {unverified && (
+        <p class="dblock-notice">
+          Unconfirmed. What follows was being said at the time and is not
+          established by any source.
+        </p>
+      )}
+
+      {run.body?.map((para) => (
+        <p class="dblock-p">{para}</p>
+      ))}
+
+      {run.voices && run.voices.length > 0 && (
+        <ul class="dblock-voices">
+          {run.voices.map((v) => (
+            <li>
+              <p>{v.text}</p>
+              {v.attribution && <cite>{v.attribution}</cite>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+<style>
+  .dblock {
+    margin: 0 0 32px;
+  }
+  .dblock--unverified {
+    background: rgba(176, 106, 48, 0.06);
+    border: 1px dashed var(--db-ink);
+    border-radius: 4px;
+    padding: 18px 22px 4px;
+  }
+  .dblock-notice {
+    font-family: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--db-ink);
+    margin: 0 0 14px;
+    line-height: 1.5;
+  }
+  .dblock-p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+
+  /* Voices from the Forum / Marketplace Buzz — overheard, set as a column of
+     quiet quotations rather than a block of prose. */
+  .dblock-voices {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .dblock-voices li {
+    border-left: 3px solid var(--db-ink);
+    padding: 2px 0 2px 18px;
+  }
+  .dblock-voices p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--byz-deep);
+    line-height: 1.45;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .dblock-voices cite {
+    display: block;
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    margin-top: 7px;
+  }
+</style>

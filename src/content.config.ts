@@ -509,17 +509,28 @@ const newsSaintRef = z.object({
   note: z.string().optional(),
 });
 
-const news = defineCollection({
-  loader: glob({ pattern: "**/*.yaml", base: "./src/content/news" }),
+// The Daily Dove's evidence scale, strongest first. Mirrors EVIDENCE_LIST in
+// src/lib/daily-dove.ts — the article page and the Historian's Notes read the
+// colours and labels from there.
+const evidenceLevel = z.enum([
+  "contemporary-source",
+  "contemporary-witness",
+  "orthodox-tradition",
+  "medieval-tradition",
+  "legend",
+]);
+
+const dailyDove = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/daily-dove" }),
   schema: z.object({
-    id: z.string(), // slug, used for /news/[slug]
+    id: z.string(), // slug, used for /daily-dove/<slug>
     cat: z.string(),
-    // The century the account belongs to — drives the century badge, the
-    // homepage filter, and the archive facet.
+    // The century the account belongs to — keyed to its own dateline. Drives
+    // the century badge, the front-page filter, and the archive facet.
     century: z.number().int().min(1).max(21),
-    // Level of evidence behind the account, strongest (A, a primary historical
-    // source) to weakest (D, living oral tradition). See NEWS_VERIFY.
-    verify: z.enum(["A", "B", "C", "D"]),
+    // The strongest level the story as a whole rests on. Per-claim levels live
+    // in historiansNotes below, which is where the real accounting happens.
+    evidence: evidenceLevel,
     saint: newsSaintRef,
     headline: z.string(),
     date: z.string(),
@@ -539,6 +550,50 @@ const news = defineCollection({
       .object({ text: z.string(), attribution: z.string() })
       .optional(),
     caption: z.string().optional(),
+    // The standing departments this article runs, in the order they appear.
+    // `kind` keys into DEPARTMENT in src/lib/daily-dove.ts.
+    departments: z
+      .array(
+        z.object({
+          kind: z.enum([
+            "breaking",
+            "imperial",
+            "forum",
+            "marketplace",
+            "rumor",
+            "fact-check",
+          ]),
+          title: z.string().optional(),
+          body: z.array(z.string()).optional(),
+          voices: z
+            .array(
+              z.object({
+                text: z.string(),
+                attribution: z.string().optional(),
+              }),
+            )
+            .optional(),
+        }),
+      )
+      .optional(),
+    // The closing accounting: each strand of the story against the level of
+    // evidence that actually carries it. Every finished Daily Dove article has
+    // this; it is optional only because the placeholder articles predate it.
+    historiansNotes: z
+      .object({
+        intro: z.string().optional(),
+        entries: z
+          .array(
+            z.object({
+              level: evidenceLevel,
+              claim: z.string(),
+              note: z.string().optional(),
+              sources: z.array(z.string()).optional(),
+            }),
+          )
+          .min(1),
+      })
+      .optional(),
     sources: z
       .array(z.object({ h: z.string(), items: z.array(z.string()) }))
       .optional(),
@@ -546,4 +601,4 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { profiles, feasts, hosts, news, apocrypha };
+export const collections = { profiles, feasts, hosts, dailyDove, apocrypha };

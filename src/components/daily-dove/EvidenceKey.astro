@@ -1,0 +1,95 @@
+---
+/* The key to the five evidence levels. The paper is written to be enjoyed, so
+   the standard that keeps it honest is printed on the front page rather than
+   filed away on an about page — a reader meets it before the first story. */
+import { EVIDENCE, EVIDENCE_LIST } from "../../lib/daily-dove";
+
+interface Props {
+  /** stack into a single column, for the rail */
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<ul class:list={["ekey", compact && "ekey--compact"]}>
+  {
+    EVIDENCE_LIST.map((k) => {
+      const e = EVIDENCE[k];
+      return (
+        <li class="ekey-item">
+          <span
+            class="ekey-mark"
+            style={
+              e.dashed
+                ? `border:2.5px solid ${e.dot};background:transparent`
+                : `background:${e.dot};border:2.5px solid ${e.dot}`
+            }
+            aria-hidden="true"
+          />
+          <span class="ekey-text">
+            <span class="ekey-name" style={`color:${e.ink}`}>
+              {e.name}
+            </span>
+            <span class="ekey-full">{e.full}</span>
+          </span>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .ekey {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ekey--compact {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+  .ekey-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .ekey-mark {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    margin-top: 3px;
+  }
+  .ekey-name {
+    display: block;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.15;
+  }
+  .ekey-full {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+  @media (max-width: 1100px) {
+    .ekey {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+  }
+  @media (max-width: 620px) {
+    .ekey {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+</style>

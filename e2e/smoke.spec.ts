@@ -342,17 +342,33 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("news front page leads, verifies, and filters", async ({ page }) => {
-  const resp = await page.goto("./news/");
+test("The Daily Dove front page: nameplate, evidence key, departments", async ({
+  page,
+}) => {
+  const resp = await page.goto("./daily-dove/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".cwn-h1")).toHaveText("Cloud of Witnesses News");
+
+  // The nameplate and its motto — the paper's whole identity.
+  await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
+  await expect(page.locator(".dove-motto").first()).toHaveText(
+    "Reporting from the Church Since Pentecost",
+  );
 
   // The lead story and the chronological feed render.
   await expect(page.locator(".cwn-lead")).toBeVisible();
   expect(await page.locator(".cwn-river .drow").count()).toBeGreaterThan(4);
 
-  // The A–D standard is stated on the page, all four levels.
-  await expect(page.locator(".vlegend .vlegend-item")).toHaveCount(4);
+  // The five-level evidence scale is printed on the front page.
+  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
+
+  // Every standing department is listed. (Historian's Notes is not among them —
+  // it closes every article rather than being an optional section.)
+  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(6);
+  await expect(page.locator(".dove-depts-grid")).toContainText("Rumor Mill");
+  await expect(page.locator(".dove-depts-grid")).toContainText("Fact Check");
+  await expect(page.locator(".dove-standfirst")).toContainText(
+    "Historian’s Notes",
+  );
 
   // The rail keeps This Day in Orthodox History and Most Read.
   await expect(page.locator(".cwn-thisday")).toBeVisible();
@@ -369,26 +385,48 @@ test("news front page leads, verifies, and filters", async ({ page }) => {
   for (const card of await shown.all())
     expect(await card.getAttribute("data-cat")).toBe("healings");
 
-  // Clearing returns to the feed.
   await page.locator("#news-clear").click();
   await expect(page.locator("#news-feed")).toBeVisible();
 });
 
-test("news article carries its metadata bar and verification notice", async ({
+test("a Daily Dove article carries its metadata bar and evidence", async ({
   page,
 }) => {
-  const resp = await page.goto("./news/nektarios-child/");
+  const resp = await page.goto("./daily-dove/nektarios-child/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".na-h1")).toContainText("Saint Nektarios");
-  // Category · Century · Location · Saint · Verification
+  // Category · Century · Location · Saint · Evidence
   await expect(page.locator(".na-meta .na-cell")).toHaveCount(5);
-  await expect(page.locator(".na-verify")).toContainText("Verification Notice");
+  await expect(page.locator(".na-meta")).toContainText("Evidence");
+  // Placeholder articles have no Historian's Notes yet, so the story-level
+  // evidence note stands in — and says so rather than faking an accounting.
+  await expect(page.locator(".na-verify")).toContainText("On the evidence");
   await expect(page.locator(".na-pull")).toBeVisible();
   await expect(page.locator(".na-src")).toBeVisible();
+  // The nameplate links back to the front page.
+  await expect(page.locator("a.dove-plate")).toHaveAttribute(
+    "href",
+    /\/daily-dove\/?$/,
+  );
 });
 
-test("news archive narrows by facet and clears", async ({ page }) => {
-  const resp = await page.goto("./news/archive/");
+test("the old /news paths still resolve to The Daily Dove", async ({
+  page,
+}) => {
+  // Static hosting has no server-side 301, so Astro emits a meta-refresh page;
+  // wait for it to carry us across rather than reading the URL immediately.
+  const resp = await page.goto("./news/");
+  expect(resp?.status()).toBe(200);
+  await page.waitForURL(/\/daily-dove\/?$/);
+  await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
+
+  // Each article's old path redirects too, not just the section root.
+  await page.goto("./news/nektarios-child/");
+  await page.waitForURL(/\/daily-dove\/nektarios-child\/?$/);
+});
+
+test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/archive/");
   expect(resp?.status()).toBe(200);
   const rows = page.locator(".arc-row:visible");
   const before = await rows.count();

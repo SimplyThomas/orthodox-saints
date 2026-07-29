@@ -1,0 +1,183 @@
+---
+/* HISTORIAN'S NOTES — the section every Daily Dove article ends with, and the
+   reason the paper can be written the way it is.
+
+   The article above is allowed to be vivid: to overhear the marketplace, to
+   enjoy the palace intrigue, to tell the story the way the Church has told it.
+   This is where that is settled up. Each strand is named and set against the
+   level of evidence that actually carries it, so a reader closes the page
+   knowing exactly which parts are documented, which are the living tradition
+   of the Church, and which are frankly legend — and having lost none of the
+   pleasure of the story in finding out. */
+import type { HistoriansNote } from "../../lib/daily-dove";
+import { EVIDENCE } from "../../lib/daily-dove";
+import ByzCross from "../icons/ByzCross.astro";
+
+interface Props {
+  intro?: string;
+  entries: HistoriansNote[];
+}
+const { intro, entries } = Astro.props;
+---
+
+<section class="hnotes" aria-labelledby="historians-notes">
+  <div class="hnotes-head">
+    <ByzCross size={18} color="var(--gold-deep)" stroke={2} />
+    <h2 id="historians-notes">Historian&rsquo;s Notes</h2>
+    <span class="hnotes-ln" aria-hidden="true"></span>
+  </div>
+
+  <p class="hnotes-lede">
+    {
+      intro ??
+        "The Daily Dove tells its stories in the voice of a paper that never existed. What follows is the plain accounting: which parts of the report above are documented, which belong to the tradition of the Church, and which are legend."
+    }
+  </p>
+
+  <ol class="hnotes-list">
+    {
+      entries.map((n) => {
+        const e = EVIDENCE[n.level];
+        return (
+          <li class="hnote" style={`--hn-ink:${e.ink};--hn-dot:${e.dot}`}>
+            <span
+              class="hnote-mark"
+              style={
+                e.dashed
+                  ? `border:2.5px solid ${e.dot};background:transparent`
+                  : `background:${e.dot};border:2.5px solid ${e.dot}`
+              }
+              aria-hidden="true"
+            />
+            <div class="hnote-body">
+              <p class="hnote-claim">{n.claim}</p>
+              <p class="hnote-level">{e.full}</p>
+              {n.note && <p class="hnote-note">{n.note}</p>}
+              {n.sources && n.sources.length > 0 && (
+                <ul class="hnote-src">
+                  {n.sources.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        );
+      })
+    }
+  </ol>
+</section>
+
+<style>
+  .hnotes {
+    margin: 34px 0 0;
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-top: 3px solid var(--byz-deep);
+    border-radius: 4px;
+    padding: 26px 30px 28px;
+  }
+  .hnotes-head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 8px;
+  }
+  .hnotes-head h2 {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--byz-deep);
+    margin: 0;
+    white-space: nowrap;
+  }
+  .hnotes-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .hnotes-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    max-width: 68ch;
+  }
+
+  .hnotes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 18px;
+  }
+  .hnote {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(168, 133, 42, 0.28);
+  }
+  .hnote:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+  .hnote-mark {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+  .hnote-claim {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--byz-deep);
+    line-height: 1.35;
+    margin: 0 0 3px;
+    text-wrap: pretty;
+  }
+  .hnote-level {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--hn-ink);
+    margin: 0;
+  }
+  .hnote-note {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 8px 0 0;
+    text-wrap: pretty;
+  }
+  .hnote-src {
+    list-style: none;
+    margin: 9px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 5px;
+  }
+  .hnote-src li {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .hnote-src li::before {
+    content: "— ";
+    color: var(--gold-deep);
+  }
+
+  @media (max-width: 640px) {
+    .hnotes {
+      padding: 20px 18px 22px;
+    }
+    .hnotes-head h2 {
+      font-size: 21px;
+    }
+  }
+</style>

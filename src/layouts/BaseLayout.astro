@@ -93,6 +93,18 @@ const umamiSrc =
       rel="stylesheet"
     />
     {
+      /* The Daily Dove's nameplate face (--dove-plate). Loaded only on that
+        section's pages so the rest of the site carries no extra font weight. */
+    }
+    {
+      active === "daily-dove" && (
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap"
+          rel="stylesheet"
+        />
+      )
+    }
+    {
       import.meta.env.PROD && umamiWebsiteId && (
         <script defer src={umamiSrc} data-website-id={umamiWebsiteId} />
       )

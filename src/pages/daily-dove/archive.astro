@@ -1,0 +1,561 @@
+---
+/* The Archive of Witnesses — a scholarly faceted index of every account.
+   Facets combine (AND); clicking an active facet clears it. Every row is
+   rendered server-side and the island only hides rows, so the full archive is
+   readable without JavaScript. */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DomeMark from "../../components/icons/DomeMark.astro";
+import ByzCross from "../../components/icons/ByzCross.astro";
+import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
+import CatPill from "../../components/daily-dove/CatPill.astro";
+import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
+import { withBase } from "../../lib/format";
+import {
+  loadPaper,
+  ord,
+  regionOf,
+  NEWS_CATS,
+  EVIDENCE,
+  EVIDENCE_LIST,
+} from "../../lib/daily-dove";
+
+const { all } = await loadPaper();
+const rows = all.slice().sort((a, b) => a.century - b.century);
+
+const count = (pred: (n: (typeof all)[number]) => boolean) =>
+  all.filter(pred).length;
+
+// Every facet group is derived from the accounts themselves, so the rail never
+// offers a facet that would return nothing.
+const catOpts = NEWS_CATS.filter((c) => count((n) => n.cat === c.id) > 0).map(
+  (c) => ({
+    key: c.id,
+    label: c.name,
+    count: count((n) => n.cat === c.id),
+    swatch: c.ink,
+  }),
+);
+const verOpts = EVIDENCE_LIST.filter(
+  (k) => count((n) => n.evidence === k) > 0,
+).map((k) => ({
+  key: k,
+  label: EVIDENCE[k].full,
+  count: count((n) => n.evidence === k),
+  swatch: EVIDENCE[k].dot,
+}));
+const cenOpts = [...new Set(all.map((n) => n.century))]
+  .sort((a, b) => a - b)
+  .map((c) => ({
+    key: String(c),
+    label: `${ord(c)} Century`,
+    count: count((n) => n.century === c),
+  }));
+const regOpts = [...new Set(all.map((n) => regionOf(n.location)))]
+  .sort()
+  .map((r) => ({
+    key: r,
+    label: r,
+    count: count((n) => regionOf(n.location) === r),
+  }));
+const saintCounts: Record<string, number> = {};
+for (const n of all)
+  saintCounts[n.saint.name] = (saintCounts[n.saint.name] ?? 0) + 1;
+const saintOpts = Object.keys(saintCounts)
+  .sort((a, b) => saintCounts[b] - saintCounts[a] || a.localeCompare(b))
+  .slice(0, 9)
+  .map((s) => ({ key: s, label: s, count: saintCounts[s] }));
+
+const groups = [
+  { facet: "cat", title: "Desk", options: catOpts },
+  { facet: "verify", title: "Level of Evidence", options: verOpts },
+  { facet: "century", title: "Century", options: cenOpts },
+  { facet: "region", title: "Place", options: regOpts },
+  { facet: "saint", title: "Saint", options: saintOpts },
+];
+---
+
+<BaseLayout
+  active="daily-dove"
+  title="The Archive of Witnesses"
+  description="Two thousand years of dispatches — sortable by century, by saint, by place, by desk, and by the level of evidence behind each account."
+>
+  <div class="arc">
+    {/* ---------- NAMEPLATE ---------- */}
+    <div class="arc-mastwrap">
+      <DoveMasthead
+        small
+        href="daily-dove"
+        edition="The Archive"
+        folio={`${rows.length} dispatches on file`}
+      />
+    </div>
+
+    {/* ---------- HEADER BAND ---------- */}
+    <section class="arc-head">
+      <div class="arc-dome" aria-hidden="true">
+        <DomeMark w={420} color="var(--gold)" />
+      </div>
+      <div class="arc-head-inner">
+        <div class="eyebrow on-blue">Browse the Archive</div>
+        <h1>The Archive of Witnesses</h1>
+        <p>
+          Two thousand years of dispatches — sortable by century, by saint, by
+          place, by desk, and by the level of evidence behind each account.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- FACETS + RESULTS ---------- */}
+    <section class="arc-body">
+      <div class="arc-grid">
+        <aside class="arc-rail">
+          <div class="arc-rail-head">
+            <h2>Refine</h2>
+            <button type="button" class="arc-clear" id="arc-clear" hidden
+              >Clear all</button
+            >
+          </div>
+          {
+            groups.map((g) => (
+              <div class="arc-fgroup">
+                <div class="arc-fgroup-head">
+                  <span class="eyebrow">{g.title}</span>
+                  <span class="arc-fgroup-ln" aria-hidden="true" />
+                </div>
+                <div class="arc-fopts">
+                  {g.options.map((o) => (
+                    <button
+                      type="button"
+                      class="arc-facet"
+                      data-facet={g.facet}
+                      data-value={o.key}
+                    >
+                      {"swatch" in o && o.swatch && (
+                        <span
+                          class="arc-swatch"
+                          style={`background:${o.swatch}`}
+                          aria-hidden="true"
+                        />
+                      )}
+                      <span class="arc-flabel">{o.label}</span>
+                      <span class="arc-fcount">{o.count}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </aside>
+
+        <div>
+          <div class="arc-results-head">
+            <h2>
+              <span id="arc-count">{rows.length}</span>&#32;<span id="arc-noun"
+                >accounts</span
+              >
+            </h2>
+            <div class="arc-chips" id="arc-chips"></div>
+            <span class="arc-spacer"></span>
+            <span class="arc-sorted">Sorted by century</span>
+          </div>
+
+          <div class="arc-list" id="arc-list">
+            {
+              rows.map((n) => {
+                const v = EVIDENCE[n.evidence];
+                return (
+                  <a
+                    class="arc-row"
+                    href={withBase(`daily-dove/${n.id}`)}
+                    data-cat={n.cat}
+                    data-verify={n.evidence}
+                    data-century={n.century}
+                    data-region={regionOf(n.location)}
+                    data-saint={n.saint.name}
+                  >
+                    <span
+                      class="arc-vsq"
+                      title={v.full}
+                      style={
+                        v.dashed
+                          ? `border:3px solid ${v.dot};background:transparent`
+                          : `background:${v.dot};border:3px solid ${v.dot}`
+                      }
+                    >
+                      <span class="dd-sr">{v.full}</span>
+                    </span>
+                    <div class="arc-rowbody">
+                      <h3>{n.headline}</h3>
+                      <div class="arc-rowmeta">
+                        <CatPill cat={n.cat} />
+                        <CenturyBadge century={n.century} />
+                        <span class="arc-loc">
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z" />
+                            <circle cx="12" cy="10" r="2.4" />
+                          </svg>
+                          {n.location}
+                        </span>
+                      </div>
+                    </div>
+                    <svg
+                      class="arc-arrow"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--celest)"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                );
+              })
+            }
+            <div class="arc-empty" id="arc-empty" hidden>
+              <ByzCross size={26} color="var(--line-gold)" stroke={2} />
+              <p>No accounts match these facets.</p>
+              <button type="button" class="btn btn--ghost" id="arc-empty-clear"
+                >Clear all filters</button
+              >
+            </div>
+          </div>
+
+          <p class="arc-foot">
+            Showing <span id="arc-shown">{rows.length}</span> of {rows.length} sample
+            dispatches · the living archive grows toward many thousands.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  import "../../islands/daily-dove-archive.client";
+</script>
+
+<style>
+  .arc {
+    background: var(--dove-parchment);
+  }
+  .arc-mastwrap {
+    padding: 0 clamp(20px, 4vw, 56px) 22px;
+  }
+  .arc-head {
+    position: relative;
+    padding: 44px 56px 38px;
+    background: var(--byz-ink);
+    overflow: hidden;
+    border-bottom: 3px solid var(--gold);
+  }
+  .arc-dome {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .arc-head-inner {
+    position: relative;
+  }
+  .arc-head-inner .eyebrow {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .arc-head h1 {
+    font-size: clamp(34px, 4.4vw, 56px);
+    color: var(--ivory);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .arc-head p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 1.7vw, 20px);
+    color: var(--celest-soft);
+    max-width: 720px;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .arc-body {
+    padding: 36px 56px 64px;
+  }
+  .arc-grid {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 46px;
+    align-items: start;
+  }
+
+  /* ---- facet rail ---- */
+  .arc-rail-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .arc-rail-head h2 {
+    font-size: 24px;
+    color: var(--byz-deep);
+    margin: 0;
+  }
+  .arc-clear {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: var(--text);
+    font-size: 13px;
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+  .arc-fgroup {
+    margin-bottom: 26px;
+  }
+  .arc-fgroup-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .arc-fgroup-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .arc-fopts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .arc-facet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    padding: 8px 11px;
+    font-family: var(--text);
+    font-size: 14.5px;
+    color: var(--ink);
+    transition: all 0.15s;
+  }
+  .arc-facet:hover {
+    background: rgba(212, 175, 55, 0.1);
+  }
+  .arc-facet.on {
+    background: var(--byz);
+    color: var(--ivory);
+  }
+  .arc-swatch {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+  .arc-flabel {
+    flex: 1;
+    line-height: 1.2;
+  }
+  .arc-fcount {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+  .arc-facet.on .arc-fcount {
+    color: var(--gold-soft);
+  }
+
+  /* ---- results ---- */
+  .arc-results-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .arc-results-head h2 {
+    font-size: 26px;
+    color: var(--byz-deep);
+    margin: 0;
+  }
+  .arc-spacer {
+    flex: 1;
+  }
+  .arc-sorted {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--celest);
+  }
+  .arc-chips {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .arc-chips :global(.arc-chip) {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--text);
+    font-size: 13px;
+    color: var(--byz);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 8px 5px 13px;
+  }
+  .arc-chips :global(.arc-chip button) {
+    border: none;
+    background: var(--ivory-3);
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    color: var(--byz);
+    font-size: 12px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .arc-list {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+  }
+  .arc-row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 22px;
+    text-decoration: none;
+  }
+  .arc-row + .arc-row {
+    border-top: 1px solid var(--line);
+  }
+  .arc-row:hover {
+    background: var(--ivory-2);
+  }
+  /* the evidence dot, sized up to anchor the row */
+  .arc-vsq {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0 9px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+  }
+  .dd-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .arc-rowbody {
+    min-width: 0;
+  }
+  .arc-rowbody h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--byz-deep);
+    line-height: 1.16;
+    margin: 0 0 7px;
+  }
+  .arc-row:hover h3 {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .arc-rowmeta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .arc-loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .arc-loc svg {
+    opacity: 0.7;
+  }
+  .arc-arrow {
+    flex: 0 0 auto;
+  }
+  .arc-empty {
+    text-align: center;
+    padding: 70px 20px;
+  }
+  .arc-empty p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin: 14px 0;
+  }
+  .arc-foot {
+    text-align: center;
+    margin-top: 24px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 980px) {
+    .arc-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  @media (max-width: 860px) {
+    .arc-head,
+    .arc-body {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .arc-row {
+      grid-template-columns: 38px 1fr;
+    }
+    .arc-arrow {
+      display: none;
+    }
+  }
+</style>

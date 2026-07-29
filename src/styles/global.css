@@ -88,6 +88,12 @@
 
   --serif: "Cormorant Garamond", Georgia, serif;
   --text: "Spectral", Georgia, serif;
+  /* The Daily Dove nameplate only — the webfont is loaded just on that
+     section's pages (BaseLayout), so this falls back everywhere else. */
+  --dove-plate: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  /* the paper's ground: a warmer, flatter ivory than the site's --paper */
+  --dove-parchment: #f6f0e2;
+  --dove-parchment-2: #efe7d4;
 
   --radius: 5px;
   --maxw: 1240px;
