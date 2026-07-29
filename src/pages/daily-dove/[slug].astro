@@ -103,6 +103,7 @@ const departments = (n.departments ?? [])
       </div>
       <h1 class="na-h1">{n.headline}</h1>
       {n.dek && <p class="na-dek">{n.dek}</p>}
+      {n.byline && <p class="na-byline">{n.byline}</p>}
     </header>
 
     {/* ---------- METADATA BAR ---------- */}
@@ -183,6 +184,28 @@ const departments = (n.departments ?? [])
 
         {/* the standing departments, in the paper's own order */}
         {departments.map((run) => <DepartmentBlock run={run} />)}
+
+        {/* the paper's trailer — what runs in the next edition */}
+        {
+          n.comingUp && n.comingUp.length > 0 && (
+            <section class="na-coming">
+              <div class="na-coming-head">
+                <span class="eyebrow">Coming next in The Daily Dove</span>
+                <span class="na-coming-ln" aria-hidden="true" />
+              </div>
+              <ul>
+                {n.comingUp.map((c) => (
+                  <li>
+                    {c.kicker && (
+                      <span class="na-coming-kicker">{c.kicker}</span>
+                    )}
+                    <span class="na-coming-title">{c.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
 
         {/* the closing accounting — every Daily Dove article ends here */}
         {

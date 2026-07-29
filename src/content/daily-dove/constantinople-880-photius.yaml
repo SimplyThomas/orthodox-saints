@@ -1,0 +1,94 @@
+id: "constantinople-880-photius"
+order: 5
+cat: "historical"
+century: 9
+evidence: "contemporary-source"
+edition: "Constantinople Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "constantinople-880"
+  name: "The Council of Constantinople, 879–880"
+  part: 1
+saint:
+  name: "Photius"
+  type: "Hierarch"
+saintLabel: "The Council of 879–880"
+kicker: "Breaking"
+headline: "Photius Restored as Patriarch"
+date: "March, AD 880"
+location: "Constantinople"
+dek: "The council reconciles Rome and Constantinople, and reaffirms the ancient Creed."
+summary: "After years of division that strained relations between the Churches of East and West, bishops gathered in Constantinople have concluded a council that restores Patriarch Photius to his episcopal throne. The assembled fathers also declared that the Creed handed down by the Ecumenical Councils is to remain unchanged."
+plate: "ICON · THE COUNCIL OF CONSTANTINOPLE, A.D. 879–880"
+caption: "The Fathers of the Council of Constantinople, 879–880. — Image to be supplied"
+body:
+  - "After years of division that strained relations between the Churches of East and West, bishops gathered in Constantinople have concluded a council that restores Patriarch Photius to his episcopal throne and signals a remarkable reconciliation between the two great sees."
+  - "Representatives of Pope John VIII joined Eastern bishops in the imperial capital, where the council formally recognized Photius as the lawful Patriarch of Constantinople and sought to bring an end to the disputes that have troubled the Church for nearly a decade."
+  - "The proceedings have drawn clergy from across the Christian world, many expressing hope that the long season of rival patriarchs, mutual accusations, and ecclesiastical uncertainty may finally be coming to a close."
+  - "One of the council’s most significant acts was its solemn reaffirmation of the Nicene-Constantinopolitan Creed. The assembled fathers declared that the Creed handed down by the Ecumenical Councils is to remain unchanged, forbidding additions, omissions, or alterations to the Church’s common confession of faith."
+  - "Many bishops emphasized that the Creed belongs to the whole Church, not to any individual bishop, province, or kingdom."
+  - "As the council drew toward its conclusion, delegates exchanged the kiss of peace, and hopes for renewed communion between Rome and Constantinople appeared stronger than they had in years."
+  - "Yet some observers caution that the reconciliation remains fragile. The disagreements that led to this council did not arise overnight, and many recognize that restoring trust between churches often takes longer than restoring communion on paper."
+  - "For now, however, the atmosphere throughout Constantinople is one of cautious optimism. After years of uncertainty, the Church once again has a recognized patriarch, and bishops from East and West have departed the council speaking not of division, but of peace."
+pullQuote:
+  text: "“This council is not merely about one bishop. It is about restoring peace among the churches.”"
+  attribution: "— A delegate, after the day’s session"
+aroundTheEmpire:
+  - city: "Rome"
+    note: "News that papal representatives participated in the council has been welcomed by many clergy hoping for lasting peace between the two apostolic sees."
+  - city: "Bulgaria"
+    note: "Church leaders continue watching developments closely as questions of ecclesiastical jurisdiction remain important throughout the region."
+  - city: "Antioch"
+    note: "Bishops have expressed gratitude that one of the Church’s most visible disputes appears to be nearing resolution."
+  - city: "Alexandria"
+    note: "Clergy await copies of the council’s decisions as churches throughout the East begin receiving official reports."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“We’ve heard of councils condemning one another before. It is refreshing to hear one speaking of reconciliation.”"
+        attribution: "A merchant near the Forum of Constantine"
+      - text: "“Perhaps our children will remember these years for peace rather than controversy.”"
+        attribution: "A pilgrim visiting the capital"
+comingUp:
+  - kicker: "Special Report"
+    title: "The Creed Protected from Alteration — Why the Council Insists the Church’s Confession Must Remain Unchanged"
+  - kicker: "World News"
+    title: "East and West Reconcile — For Now. Can the Peace Last?"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "The council met in Constantinople in AD 879–880."
+    - level: "contemporary-source"
+      claim: "Patriarch Photius was restored."
+    - level: "contemporary-source"
+      claim: "Papal legates representing Pope John VIII participated in the council."
+    - level: "contemporary-source"
+      claim: "The council reaffirmed the Nicene-Constantinopolitan Creed and prohibited alterations to it."
+    - level: "contemporary-source"
+      claim: "The council restored communion between Rome and Constantinople at that time."
+      note: "The reconciliation was genuine as those present understood it. No one at the council foresaw the events of 1054."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary evidence."
+      sources:
+        - "Acts of the Council of Constantinople (879–880)"
+        - "Letters of Photius the Great"
+        - "Correspondence of Pope John VIII"
+        - "Imperial documents from the reign of Basil I"
+    - level: "orthodox-tradition"
+      claim: "Later Orthodox writers have often regarded this council as restoring the canonical order of the Church and defending the integrity of the Creed."
+      note: "Many Orthodox theologians also view it as having ecumenical significance, although its status has been understood differently in the Christian East and West over the centuries."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Acts of the Council of Constantinople (879–880)"
+      - "Letters of Photius the Great"
+      - "Letters of Pope John VIII"
+  - h: "Contemporary and Near-Contemporary Sources"
+    items:
+      - "Byzantine chronicles from the late ninth century"
+      - "Patriarchal correspondence preserved in the council’s acts"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Church"
+      - "The Orthodox Faith"
+      - "Orthodox studies on St. Photius and the Photian Council"

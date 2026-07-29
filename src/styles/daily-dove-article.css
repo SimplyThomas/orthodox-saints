@@ -420,3 +420,65 @@
     gap: 18px;
   }
 }
+
+/* ---------- byline ---------- */
+.na-byline {
+  font-family: var(--text);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  margin: 18px 0 0;
+}
+
+/* ---------- the trailer ---------- */
+.na-coming {
+  margin: 34px 0 0;
+  border-top: 2px solid var(--byz-deep);
+  border-bottom: 1px solid var(--byz-deep);
+  padding: 14px 0 16px;
+}
+.na-coming-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.na-coming-ln {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+.na-coming ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+.na-coming li {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+.na-coming-kicker {
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--byz-ink);
+  background: var(--gold);
+  border-radius: 2px;
+  padding: 4px 9px;
+  flex: 0 0 auto;
+}
+.na-coming-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--byz-deep);
+  line-height: 1.3;
+  text-wrap: pretty;
+}

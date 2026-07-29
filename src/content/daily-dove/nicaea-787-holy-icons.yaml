@@ -1,0 +1,90 @@
+id: "nicaea-787-holy-icons"
+order: 4
+cat: "historical"
+century: 8
+evidence: "contemporary-source"
+edition: "Nicaea Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "nicaea-787"
+  name: "The Seventh Council of Nicaea"
+  part: 1
+saint:
+  name: "Irene"
+  type: "Righteous"
+saintLabel: "The Fathers of the Seventh Council"
+kicker: "Breaking"
+headline: "Council Restores the Veneration of Holy Icons"
+date: "October, AD 787"
+location: "Nicaea"
+dek: "The Seventh Ecumenical Council rejects Iconoclasm and affirms that the honour shown to an icon passes to the person depicted."
+summary: "Bells rang throughout Nicaea as bishops concluded the Seventh Ecumenical Council with a declaration many faithful have awaited for generations: the holy icons of Christ, His Mother, the angels, and the saints are once again to be honoured throughout the churches of the Empire."
+plate: "ICON · THE SEVENTH ECUMENICAL COUNCIL, A.D. 787"
+caption: "The Fathers of the Seventh Ecumenical Council with the holy icons. — Image to be supplied"
+body:
+  - "Bells rang throughout Nicaea today as bishops concluded the Seventh Ecumenical Council with a declaration that many faithful have awaited for generations: the holy icons of Christ, His Mother, the angels, and the saints are once again to be honored throughout the churches of the Empire."
+  - "Meeting under the protection of Empress Irene and her young son, Emperor Constantine VI, the assembled bishops formally rejected the teachings of the Iconoclast movement, which for decades has opposed the use and veneration of sacred images."
+  - "The council declared that the honor shown to an icon passes to the person depicted and affirmed that Christians may reverence holy images with bows and kisses — not as acts of worship owed to God alone, but as expressions of honor directed toward Christ and His saints."
+  - "The decision follows years of division within the Empire. Beginning under Emperor Leo III and continuing under his successors, many churches saw their icons removed or destroyed. Numerous monasteries were closed, and many defenders of icons endured exile, imprisonment, or persecution."
+  - "The council emphasized that its decision does not introduce a new teaching but preserves the apostolic faith handed down through the Church and confirmed by the writings of the holy Fathers."
+  - "Central to the bishops’ reasoning was the mystery of the Incarnation. Because the eternal Son of God truly became man and was seen with human eyes, they declared, He may also be depicted in material form. To reject every image of Christ, they argued, risks calling into question the reality of His becoming flesh."
+  - "As today’s session concluded, many clergy embraced one another in thanksgiving. Several participants expressed hope that churches throughout the Empire will soon restore icons to their rightful place, allowing the faithful once again to pray before the sacred images that have long adorned Christian worship."
+  - "Yet even amid the celebration, many acknowledge that not everyone will welcome the council’s decision. Reports from several provinces indicate that supporters of Iconoclasm remain firmly opposed, suggesting that the debate over holy images may not be over."
+pullQuote:
+  text: "“The icon proclaims with paint what the Gospel proclaims with words.”"
+  attribution: "— One bishop, during the proceedings"
+aroundTheEmpire:
+  - city: "Constantinople"
+    note: "Churches throughout the capital are preparing for the gradual restoration of holy icons following news from the council."
+  - city: "Mount Olympus, Bithynia"
+    note: "Monastic communities that endured years of persecution have received word of the council with cautious optimism."
+  - city: "Asia Minor"
+    note: "Some military leaders known to favour Iconoclasm have reportedly expressed dissatisfaction with the council’s decision."
+  - city: "Rome"
+    note: "Representatives of the Bishop of Rome welcomed the council’s reaffirmation of the Church’s ancient practice regarding sacred images."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“My children have never seen the great icon that once stood in our church. Perhaps now they finally will.”"
+        attribution: "A woman from Nicomedia"
+      - text: "“I pray this brings peace. We’ve argued about these images for far too many years.”"
+        attribution: "A craftsman visiting Nicaea"
+comingUp:
+  - kicker: "Exclusive"
+    title: "Empress Irene Backs Restoration of Icons — How the Empire’s Most Powerful Woman Made the Council Possible"
+  - kicker: "Special Report"
+    title: "Iconoclast Opposition Continues — Will the Empire Accept the Council’s Decision?"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Empress Irene convened the Second Council of Nicaea in AD 787 after an earlier attempt in Constantinople was disrupted by iconoclast soldiers."
+    - level: "contemporary-source"
+      claim: "The council restored the veneration of holy icons and distinguished veneration (proskynesis) from the worship (latreia) due to God alone."
+    - level: "contemporary-source"
+      claim: "The bishops grounded their teaching in the Incarnation: because Christ truly became man, He may be depicted."
+    - level: "contemporary-source"
+      claim: "The council’s decree relied extensively on Scripture, earlier Fathers, and the Church’s continuous practice."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary and near-contemporary witnesses."
+      sources:
+        - "Acts of the Second Council of Nicaea (787)"
+        - "The council’s Definition of Faith"
+        - "John of Damascus, On the Divine Images"
+        - "Writings of Theodore the Studite, reflecting the continuing controversy"
+    - level: "orthodox-tradition"
+      claim: "Orthodox liturgical tradition celebrates the fathers of the Seventh Ecumenical Council as defenders of the Incarnation and of the proper veneration of holy icons."
+      note: "The council restored the practice in AD 787, but many churches did not see icons permanently restored until the Triumph of Orthodoxy in AD 843, after a second period of Iconoclasm. That later restoration is commemorated separately on the First Sunday of Great Lent."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Acts of the Second Council of Nicaea (787)"
+      - "Definition of Faith of the Seventh Ecumenical Council"
+      - "John of Damascus, On the Divine Images"
+  - h: "Contemporary and Near-Contemporary Sources"
+    items:
+      - "Theophanes the Confessor, Chronographia"
+      - "Writings of Theodore the Studite"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Church"
+      - "The Orthodox Faith"

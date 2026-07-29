@@ -553,6 +553,12 @@ const dailyDove = defineCollection({
     // The edition line beneath the nameplate — where this dispatch was filed
     // from, e.g. "Nicaea Edition".
     edition: z.string().optional(),
+    // "By the Staff of The Daily Dove".
+    byline: z.string().optional(),
+    // The trailer at the foot of the article — what runs next edition.
+    comingUp: z
+      .array(z.object({ kicker: z.string().optional(), title: z.string() }))
+      .optional(),
     // A major event is covered across several dispatches rather than one
     // enormous article; `id` groups them and `part` orders them.
     series: z
@@ -589,6 +595,8 @@ const dailyDove = defineCollection({
               }),
             )
             .optional(),
+          // A closing "Historical Note" weighing what the section reported.
+          note: z.string().optional(),
         }),
       )
       .optional(),

@@ -430,6 +430,49 @@ test("the old /news paths still resolve to The Daily Dove", async ({
   await page.waitForURL(/\/daily-dove\/nektarios-child\/?$/);
 });
 
+test("a council dispatch runs the full standard layout", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/nicaea-325-bishops-gather/");
+  expect(resp?.status()).toBe(200);
+
+  // Nameplate edition line and dateline.
+  await expect(page.locator(".dove-folio")).toContainText("Nicaea Edition");
+  await expect(page.locator(".dove-folio")).toContainText(
+    "Late Spring, AD 325",
+  );
+  await expect(page.locator(".na-byline")).toContainText(
+    "Staff of The Daily Dove",
+  );
+
+  // Around the Empire, the trailer, and the closing accounting.
+  await expect(page.locator(".empire .empire-item")).toHaveCount(4);
+  await expect(page.locator(".na-coming")).toContainText(
+    "Emperor Constantine Opens Historic Council",
+  );
+  await expect(page.locator(".hnotes .hgroup")).toHaveCount(3);
+  await expect(page.locator(".na-src")).toContainText("Primary Sources");
+
+  // Voices carries its standing notice that the quotations are illustrative.
+  await expect(page.locator(".dblock--noted")).toContainText(
+    "Illustrative voices",
+  );
+});
+
+test("Whispers Around the Council names itself as tradition", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/constantinople-1351-hesychasm/");
+  const whispers = page.locator(".dblock--noted", {
+    hasText: "Navel-Gazers",
+  });
+  // The notice runs before the stories, not after them.
+  await expect(whispers.locator(".dblock-notice")).toContainText(
+    "not established by contemporary record",
+  );
+  await expect(whispers.locator(".dblock-histnote")).toContainText(
+    "Historical Note",
+  );
+});
+
 test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
   const resp = await page.goto("./daily-dove/framework/");
   expect(resp?.status()).toBe(200);

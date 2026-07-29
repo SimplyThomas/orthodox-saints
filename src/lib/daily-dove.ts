@@ -84,6 +84,8 @@ export interface DepartmentRun {
   body?: string[];
   /** for Voices from the Forum / Marketplace Buzz — attributed snatches */
   voices?: { text: string; attribution?: string }[];
+  /** a closing "Historical Note:" — what the section just said, weighed */
+  note?: string;
 }
 
 /* A short update from another city, for the "Around the Empire" sidebar. The
@@ -139,6 +141,10 @@ export interface NewsItem {
   caption?: string;
   /** the edition line beneath the nameplate, e.g. "Nicaea Edition" */
   edition?: string;
+  /** who filed it — "By the Staff of The Daily Dove" */
+  byline?: string;
+  /** the paper's trailer: what runs in the next edition */
+  comingUp?: { kicker?: string; title: string }[];
   /** short updates from other cities — the "Around the Empire" sidebar */
   aroundTheEmpire?: EmpireNote[];
   /** the series this dispatch belongs to, if it covers an ongoing event */

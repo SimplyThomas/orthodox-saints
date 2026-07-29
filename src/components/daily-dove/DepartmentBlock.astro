@@ -54,6 +54,12 @@ const notice = NOTICE[run.kind];
           ))}
         </ul>
       )}
+
+      {run.note && (
+        <p class="dblock-histnote">
+          <span>Historical Note:</span> {run.note}
+        </p>
+      )}
     </section>
   )
 }
@@ -83,6 +89,25 @@ const notice = NOTICE[run.kind];
     line-height: 1.75;
     margin: 0 0 18px;
     text-wrap: pretty;
+  }
+
+  /* the section's own footnote, weighing what it just reported */
+  .dblock-histnote {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 18px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(168, 133, 42, 0.4);
+    text-wrap: pretty;
+  }
+  .dblock-histnote span {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--db-ink);
   }
 
   /* Voices from the Forum / Marketplace Buzz — overheard, set as a column of
