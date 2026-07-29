@@ -69,6 +69,11 @@ export const NAV: NavItem[] = [
         label: "Extra-Biblical Angels",
         href: withBase("extra-biblical-angels"),
       },
+      {
+        key: "fallen-angels",
+        label: "The Fallen",
+        href: withBase("fallen-angels"),
+      },
     ],
   },
   {
