@@ -1,5 +1,5 @@
 ---
-import { HOSTS, isFallen } from "../lib/hosts";
+import { HOSTS, isFallen, loadHostProfileMap } from "../lib/hosts";
 import { withBase } from "../lib/format";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
@@ -12,7 +12,15 @@ import EyebrowRule from "../components/EyebrowRule.astro";
 // exist for study and for the sober naming of what Scripture names — §9: they
 // carry no liturgical address, no feast, and no invocation of any kind.
 // HOSTS arrives sorted by hostlib._sort_key.
-const fallen = HOSTS.filter(isFallen);
+//
+// Listed only when the being's PROFILE is visible under the review gate. Every
+// other hub can list a bare record and let the page render a stub, because a
+// thin page about a holy angel is merely thin. Here it would be a page naming a
+// demon with nothing said about it — the one thing this section must never
+// ship. So an unreviewed record stays off the hub entirely until a person has
+// read it, and appears on the previews (PUBLIC_SHOW_DRAFTS) for that review.
+const visibleProfiles = await loadHostProfileMap();
+const fallen = HOSTS.filter((h) => isFallen(h) && visibleProfiles[h.id]);
 
 // Grouped by the register the being is actually known from, so a reader can
 // see at a glance which names Scripture gives and which come from later Jewish
