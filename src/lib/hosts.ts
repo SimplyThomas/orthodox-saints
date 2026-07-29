@@ -70,6 +70,20 @@ export const HOSTS: Host[] = raw.hosts;
 export const hostById: Map<string, Host> = new Map(HOSTS.map((h) => [h.id, h]));
 
 /**
+ * True when a host is a **fallen** being — the discriminator for the
+ * /fallen-angels hub. Unlike the other hubs this is the `entityType` itself,
+ * not a reserved tag: "Fallen" is already a controlled Entity Type term (§5b),
+ * so nothing needs tagging and a record can never be fallen in one place and
+ * not another. It takes precedence over every other membership test, because a
+ * fallen being may also be tied to a scriptural event (Abaddon of Revelation 9,
+ * Legion of Mark 5) and must file under the Fallen alone — §9: catalogued for
+ * study, never venerated, and never listed beside the holy angels.
+ */
+export function isFallen(h: Host): boolean {
+  return h.entityType === "Fallen";
+}
+
+/**
  * Reserved tag that routes a host to the **Biblical Encounters** hub instead of
  * the Guardian Angels & Titled Figures hub. Both sets carry the same
  * `entityType` ("Scriptural Angel" / "Collective"), so the discriminator is this
@@ -82,9 +96,16 @@ export const hostById: Map<string, Host> = new Map(HOSTS.map((h) => [h.id, h]));
  */
 export const BIBLICAL_ENCOUNTER_TAG = "Biblical Encounter";
 
-/** True when a host is an event-anchored Biblical Encounter (see the tag doc). */
+/**
+ * True when a host is an event-anchored Biblical Encounter (see the tag doc).
+ * A **fallen** being is excluded even when it carries the tag: Abaddon is as
+ * event-anchored as any angel of Revelation, but §9 keeps the fallen out of a
+ * gallery of holy angels, so it files under /fallen-angels alone. The exclusion
+ * lives here rather than in each caller so the hub and the breadcrumb cannot
+ * disagree about where a record belongs.
+ */
 export function isBiblicalEncounter(h: Host): boolean {
-  return (h.tags ?? []).includes(BIBLICAL_ENCOUNTER_TAG);
+  return !isFallen(h) && (h.tags ?? []).includes(BIBLICAL_ENCOUNTER_TAG);
 }
 
 /**

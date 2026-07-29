@@ -6,6 +6,7 @@ import {
   loadHostProfileMap,
   isBiblicalEncounter,
   isExtraBiblicalAngel,
+  isFallen,
   isTitledFigure,
 } from "../../lib/hosts";
 import { byId as saintById } from "../../lib/data";
@@ -45,7 +46,10 @@ const isHub = host.entityType === "Angelic Rank" && members.length > 0;
 // Breadcrumb target: a named angel goes back to its owning RANK page (e.g. an
 // archangel → the Archangels page); the guardian angels and titled scriptural
 // figures go back to their /guardian-angels hub; everything else (the ranks
-// themselves) goes to the Nine Orders index.
+// themselves) goes to the Nine Orders index. A FALLEN being is checked first —
+// it has no rank (St. Dionysius excludes the fallen from the celestial
+// hierarchy) and must lead back to /fallen-angels, never to a hub of holy
+// angels, even when it also carries the Biblical Encounter tag.
 const parentRank =
   host.entityType === "Named Angel" && host.order
     ? HOSTS.find(
@@ -54,7 +58,10 @@ const parentRank =
     : undefined;
 let backHref = "nine-orders";
 let backLabel = "The Nine Orders";
-if (parentRank) {
+if (isFallen(host)) {
+  backHref = "fallen-angels";
+  backLabel = "The Fallen";
+} else if (parentRank) {
   backHref = `host/${parentRank.id}`;
   backLabel = `The ${parentRank.name}`;
 } else if (isBiblicalEncounter(host)) {

@@ -458,21 +458,37 @@ covers it), which mirrors `feastlib.py`. Design spec:
   `data/image_permissions.csv`. Files self-hosted under `static/icons/hosts/` (open)
   or `static/icons/permission/<vendor>/` (permission). No pip/Pillow in some
   environments — resize with **node + sharp**.
-- Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and frontend routes
-  **`/nine-orders`** (the Nine Orders overview: ranks by triad, with per-triad
-  epithets) and **`/host/HH-####`** (per-being pages: blue hero + face-cropped
-  portrait, "Depictions & Icons" carousel, collapsible sections, left rail). A
-  rank page auto-lists its **Named Angel** members as cards (the eight archangels
-  on the Archangels page). Excluded from the patron quiz (angels are venerated,
-  not intercessor-saints).
-- **`/host/HH-####` renders one of two views**, exactly as `/saint/OS-####` picks
-  between `GroupSaintProfile` and `SaintView`:
+- Emits `public/hosts.json`, a "Heavenly Hosts" xlsx sheet, and the section's
+  frontend routes: **`/nine-orders`** (the Nine Orders overview: ranks by triad,
+  with per-triad epithets), the three **hubs** — **`/guardian-angels`** (Guardian
+  Angels & Titled Figures), **`/biblical-encounters`** (angels tied to a specific
+  scriptural event, grouped by testament), **`/extra-biblical-angels`** (named
+  angels known only from Second Temple literature) — and **`/host/HH-####`**
+  (per-being pages: blue hero + face-cropped portrait, "Depictions & Icons"
+  carousel, collapsible sections, left rail). A rank page auto-lists its **Named
+  Angel** members as cards (the eight archangels on the Archangels page). Excluded
+  from the patron quiz (angels are venerated, not intercessor-saints).
+- **Membership predicates live in `src/lib/hosts.ts` and nowhere else.** Each hub
+  is defined by exactly one exported predicate — `isBiblicalEncounter()` and
+  `isExtraBiblicalAngel()` (reserved Tags-column tokens, checked in that order),
+  and `isTitledFigure()` (the entity-type fallback, minus the two tagged sets).
+  The hub page, the `/host/HH-####` breadcrumb, and any catch-all listing all read
+  the same predicate; re-deriving membership inline is how the two drift apart.
+- **`hostlib.py` is unit-tested** in `tests/test_hostlib.py` (triad derivation, id
+  assignment, the validator's fail-loud rules, the licensing gate, and the image /
+  depiction / profile joins) — the feastlib test pattern, run by `make test`.
+- **`/host/HH-####` renders `HostSaintView` for every host.** The older catalogue
+  layout still sits in `host/[id].astro` behind `useSaintFormat`, but that flag is
+  now a constant `true`: every record carries a profile YAML, so the catalogue
+  markup is a dormant fallback for a future profile-less row, not a live branch.
+  (`HostSaintView` renders its own stub when a profile is missing, so the fallback
+  is belt-and-braces.) Do not reintroduce a per-section split.
   - **`HostSaintView`** — the full saint-page treatment (blue hero, gold-framed
     portrait or arched monogram, New/Old feast card, gold actions ribbon,
     depictions carousel, "At a glance" rail with the source registers, and
-    `sv-deep` collapsibles) for **the nine ranks, the named archangels, and the
-    Guardian Angels & Titled Figures** — every host that carries a real profile
-    and is reached from the section's own navigation. A rank that owns named
+    `sv-deep` collapsibles) for **every host** — the nine ranks, the named
+    archangels, the Guardian Angels & Titled Figures, the Biblical Encounters,
+    and the Extra-Biblical Angels. A rank that owns named
     angels (the Archangels) renders them as a **member roster** band between the
     ribbon and the body: whoever lands on "the Archangels" is usually looking for
     Michael or Gabriel, so the way through comes before the essay about the order.
@@ -497,16 +513,12 @@ covers it), which mirrors `feastlib.py`. Design spec:
     3. **Plain-language headings.** `historicalContext` → "How it reached us",
        `orthodoxInterpretation` → "What the Fathers taught", `liturgicalTradition`
        → "In the Church's services", `iconography` → "How it is shown in icons",
-       `historicalInfluence` → "Its mark on Orthodox life". The catalogue view
-       keeps the formal field names.
+       `historicalInfluence` → "Its mark on Orthodox life". The dormant catalogue
+       fallback keeps the formal field names.
     4. **The rail stays folded.** Its reference blocks (the three source
        registers + the related-beings/saints/feasts lists) are `<details>` with
        counts, closed except Holy Scripture. Left open they ran the full height
        of the page — a wall of citations beside an introductory article.
-  - **the catalogue layout in `host/[id].astro`** — only the **Extra-Biblical
-    Angels** (Raguel, Sariel, Phanuel), because they have no profile YAML at all
-    yet. Write them one and they should move over too. The split is
-    `!isExtraBiblicalAngel(host)`.
   **§9 in the hero.** The default monogram carries a small cross. That is right
   for a rank or an archangel, wrong for a scriptural *episode*, and plainly
   wrong for a **`Fallen`** being, which this catalogue records for study and
@@ -516,10 +528,8 @@ covers it), which mirrors `feastlib.py`. Design spec:
   the "Icon forthcoming" caption is suppressed for it (no icon of a demon is
   written for veneration; scriptural episodes keep the caption, since the
   Annunciation and Jacob's Ladder are classic icon subjects).
-  **`isTitledFigure()` in `src/lib/hosts.ts` is the single source of truth** for
-  the Guardian Angels & Titled Figures set: `/guardian-angels` lists exactly
-  these and the breadcrumb points at that hub for exactly these. Never re-derive
-  the membership inline — the two would drift.
+  The hero's section membership comes from the `src/lib/hosts.ts` predicates
+  above — never re-derived inline.
 
 ## 6. Saint identity & deduplication (critical)
 
