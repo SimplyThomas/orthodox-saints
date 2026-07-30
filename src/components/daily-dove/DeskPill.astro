@@ -1,6 +1,6 @@
 ---
 /* The department pill — the desk a dispatch is filed under, in that desk's own
-   colour. `onDark` swaps to an ivory-on-blue treatment for dark grounds.
+   colour, on the section's newsprint ground.
 
    Was CatPill, from when the paper filed under generic subject categories.
    Those are gone (see DEPARTMENTS in lib/daily-dove.ts): there is one
@@ -12,9 +12,8 @@ interface Props {
   desk: string;
   short?: boolean;
   size?: number;
-  onDark?: boolean;
 }
-const { desk, short = true, size = 10.5, onDark = false } = Astro.props;
+const { desk, short = true, size = 10.5 } = Astro.props;
 const d = DEPARTMENT[desk] ?? {
   name: desk,
   short: desk,
@@ -25,11 +24,9 @@ const d = DEPARTMENT[desk] ?? {
 
 <span
   class="deskpill"
-  style={`font-size:${size}px;color:${onDark ? "var(--ivory)" : d.ink};background:${onDark ? "rgba(245,235,216,.16)" : d.bg}`}
+  style={`font-size:${size}px;color:${d.ink};background:${d.bg}`}
 >
-  <i
-    style={onDark ? "background:var(--gold-soft)" : undefined}
-    aria-hidden="true"></i>
+  <i aria-hidden="true"></i>
   {short ? d.short : d.name}
 </span>
 

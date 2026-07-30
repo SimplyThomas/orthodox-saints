@@ -19,8 +19,6 @@ interface Props {
   /** links the nameplate home; omit on the front page itself */
   href?: string;
   small?: boolean;
-  /** set the plate in ivory and gold, for the paper's dark stock */
-  onDark?: boolean;
   /** overrides the standing subtitle — an era's own run name, say */
   motto?: string;
 }
@@ -29,19 +27,12 @@ const {
   folio,
   href,
   small = false,
-  onDark = false,
   motto = DOVE_SUBTITLE,
 } = Astro.props;
 const Name = href ? "a" : "div";
 ---
 
-<header
-  class:list={[
-    "dove-mast",
-    small && "dove-mast--sm",
-    onDark && "dove-mast--dark",
-  ]}
->
+<header class:list={["dove-mast", small && "dove-mast--sm"]}>
   <div class="dove-rule dove-rule--hair" aria-hidden="true"></div>
 
   <Name class="dove-plate" href={href ? withBase(href) : undefined}>
@@ -139,7 +130,10 @@ const Name = href ? "a" : "div";
     font-size: clamp(15px, 1.7vw, 23px);
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--gold-deep);
+    /* On newsprint the subtitle is set in ink, not gilt — a dulled gold on a
+       pale stock reads as a faded highlight rather than a second line of the
+       nameplate. The gilt stays on the rules. */
+    color: #46423a;
     letter-spacing: 0.34em;
     text-indent: 0.34em; /* balances the trailing letterspace */
     margin: 0;
@@ -180,24 +174,6 @@ const Name = href ? "a" : "div";
   }
   .dove-mast--sm .dove-rule--double {
     margin-top: 10px;
-  }
-
-  /* ---- on the paper's dark stock ---- */
-  .dove-mast--dark .dove-name {
-    color: var(--ivory);
-  }
-  .dove-mast--dark a.dove-plate:hover .dove-name {
-    color: var(--gold-soft);
-  }
-  .dove-mast--dark .dove-rule--double {
-    border-top-color: var(--gold);
-    border-bottom-color: rgba(212, 175, 55, 0.45);
-  }
-  .dove-mast--dark .dove-motto {
-    color: var(--gold-soft);
-  }
-  .dove-mast--dark .dove-folio {
-    color: var(--celest-soft);
   }
 
   @media (max-width: 640px) {

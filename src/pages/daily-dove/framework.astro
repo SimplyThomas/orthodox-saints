@@ -20,6 +20,7 @@ import DeskPill from "../../components/daily-dove/DeskPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import EvidenceBadge from "../../components/daily-dove/EvidenceBadge.astro";
 import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-paper.css";
 import "../../styles/daily-dove-article.css";
 import {
   DEPARTMENT,
@@ -97,11 +98,10 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
   title="The Daily Dove — dispatch framework"
   description="The reusable layout every Daily Dove dispatch follows. A specimen, not a dispatch."
 >
-  <article class="na">
+  <article class="dv na">
     <div class="na-mastwrap">
       <DoveMasthead
         small
-        onDark
         href="daily-dove"
         edition="Specimen Edition"
         folio="The standard dispatch layout"

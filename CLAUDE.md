@@ -684,7 +684,9 @@ rather than bend an existing one.
   tradition, not contemporary record) and Voices (illustrative composites —
   **never words in a real person's mouth** unless a primary source records them).
   The Historian's Desk is a column that is never optional and never authored as a
-  run: it is `historiansNotes` and always closes the sheet.
+  run: it is `historiansNotes` and always closes the sheet. **The columns are not
+  indexed on the front page** — a reader meets them where they actually appear,
+  inside a dispatch; listing them under "Our Departments" was inside-baseball.
   The earlier generic subject categories (Healings, Apparitions, Relics, Modern
   Saints, Orthodox America, Historical Reports) are **retired** — every dispatch
   had been filed under the same one, and the names read as blog tags. Do not
@@ -719,10 +721,29 @@ rather than bend an existing one.
   faceted browsing is `/daily-dove/archive`, which the era and topic sections
   link into with a `#<facet>-<value>` hash the archive island honours. A row of
   selects under the masthead is what made the page read as a dashboard.
+- **THE SECTION PRINTS ON NEWSPRINT — the whole of it, front page, archive and
+  dispatch pages alike.** The palette lives in `styles/daily-dove-paper.css`
+  (`.dv-*`, applied via a `dv` class on each page's root). The first build used
+  the site's navy as the ground and it was wrong here: on a dark stock every
+  panel needs a coloured fill to lift off the background, so the page filled with
+  competing blocks and read as busy. **The brand navy is not gone — it is an INK
+  now** (nameplate, headlines, the site header and footer above and below), and
+  the moment a dove section takes a navy *fill* again, everything around it needs
+  a fill to compete and the page re-crowds.
+  - Colour discipline: ink for type, a gilt hairline for rules, burgundy for the
+    second-colour marks a press would run (kickers, notices, the seal). Era inks
+    appear as a dot or a hairline, **never as a filled plate**.
+  - There is no `onDark` variant anywhere in this section any more. The props
+    existed while the ground was navy and were deleted rather than left as a
+    trap: ivory-on-newsprint is invisible, which is exactly the bug they caused.
+  - **Restraint is the feature, not an oversight.** Era entries are ruled lines,
+    the topic index is bare name-and-count, and the page carries one piece of
+    ornament (the headpiece under the nameplate). Each was tried the loud way
+    first — six saturated era plates with wax seals, an ornament band on every
+    section head, a blurb under every topic — and each cost more than it gave.
 - **Ornament is drawn, never sourced.** `components/daily-dove/ornament/`
   (`Headpiece` · `Fleuron` · `WaxSeal`) is hand-built SVG, and the paper's
-  textures/palette live in `styles/daily-dove-paper.css` (`.dv-*`: stock, cream,
-  parchment, aged gold, burgundy; laid-paper grain and foxing, both disabled
+  textures live alongside the palette (laid-paper grain and foxing, both disabled
   under `prefers-reduced-motion`/`prefers-contrast`). This keeps the visual layer
   clear of §9's image-licensing gate entirely. If real public-domain engravings
   are ever added, they go through a licensed join like `saint_images.csv` — never

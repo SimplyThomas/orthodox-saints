@@ -372,15 +372,12 @@ test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
   await expect(page.locator(".cwn-filters")).toHaveCount(0);
   await expect(page.locator("#news-q")).toHaveCount(0);
 
-  // The newsroom: six filing desks, and the columns that run inside them.
+  // The newsroom: the six desks a dispatch can be filed under. The columns
+  // that run inside a dispatch are met inside one, not indexed here.
   await expect(page.locator(".dove-deptlist .dept")).toHaveCount(6);
   await expect(page.locator(".dove-deptlist")).toContainText("Miracle Watch");
   await expect(page.locator(".dove-deptlist")).toContainText(
     "Persecution Report",
-  );
-  await expect(page.locator(".dove-columns li")).toHaveCount(4);
-  await expect(page.locator(".dove-columns")).toContainText(
-    "Voices from the Forum",
   );
 
   // The archive is a run of papers: one plate per age, each with its own

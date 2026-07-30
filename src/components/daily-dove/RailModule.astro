@@ -1,16 +1,15 @@
 ---
 /* Sidebar building block: a gold-ruled eyebrow above whatever the module holds.
-   `onDark` lightens the eyebrow for the news front page's dark body. */
+   The section prints on newsprint, so the eyebrow needs no on-dark variant. */
 interface Props {
   eyebrow: string;
-  onDark?: boolean;
 }
-const { eyebrow, onDark = false } = Astro.props;
+const { eyebrow } = Astro.props;
 ---
 
 <div class="rail-mod">
   <div class="rail-mod-head">
-    <span class:list={["eyebrow", onDark && "on-blue"]}>{eyebrow}</span>
+    <span class="eyebrow">{eyebrow}</span>
     <span class="rail-mod-ln" aria-hidden="true"></span>
   </div>
   <slot />

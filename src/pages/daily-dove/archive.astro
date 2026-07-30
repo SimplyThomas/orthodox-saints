@@ -8,6 +8,7 @@ import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
 import DeskPill from "../../components/daily-dove/DeskPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-paper.css";
 import {
   loadPaper,
   ord,
@@ -99,12 +100,11 @@ const groups = [
   title="The Archive of Witnesses"
   description="Two thousand years of dispatches — sortable by century, by saint, by place, by desk, and by the level of evidence behind each one."
 >
-  <div class="arc">
+  <div class="dv arc">
     {/* ---------- NAMEPLATE ---------- */}
     <div class="arc-mastwrap">
       <DoveMasthead
         small
-        onDark
         href="daily-dove"
         edition="The Archive"
         folio={`${rows.length} dispatches on file`}
@@ -270,20 +270,21 @@ const groups = [
 
 <style>
   .arc {
-    background: var(--dove-parchment);
+    background: var(--dv-stock, #f1eee4);
   }
-  /* The nameplate sits on the same dark stock as the header band beneath it,
-     so the two read as one masthead rather than two headers. */
+  /* Nameplate and section head print on one continuous sheet of newsprint, so
+     the two read as one masthead rather than two headers. Both were navy while
+     the front page was; they follow it onto the pale stock. */
   .arc-mastwrap {
-    background: var(--byz-ink);
+    background: var(--dv-stock, #f1eee4);
     padding: 0 clamp(20px, 4vw, 56px) 14px;
   }
   .arc-head {
     position: relative;
     padding: 24px 56px 38px;
-    background: var(--byz-ink);
+    background: var(--dv-stock, #f1eee4);
     overflow: hidden;
-    border-bottom: 3px solid var(--gold);
+    border-bottom: 2px solid var(--dv-ink, #1f1c17);
   }
   .arc-head-inner {
     position: relative;
@@ -294,7 +295,7 @@ const groups = [
   }
   .arc-head h1 {
     font-size: clamp(34px, 4.4vw, 56px);
-    color: var(--ivory);
+    color: var(--dv-navy, #18324f);
     line-height: 1;
     letter-spacing: -0.01em;
     margin: 0 0 14px;
@@ -303,7 +304,7 @@ const groups = [
     font-family: var(--serif);
     font-style: italic;
     font-size: clamp(16px, 1.7vw, 20px);
-    color: var(--celest-soft);
+    color: var(--dv-ink-3, #726d62);
     max-width: 720px;
     line-height: 1.45;
     margin: 0;

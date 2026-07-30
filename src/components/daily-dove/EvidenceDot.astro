@@ -12,9 +12,8 @@ interface Props {
   level: EvidenceLevel;
   withLabel?: boolean;
   size?: number;
-  onDark?: boolean;
 }
-const { level, withLabel = true, size = 11, onDark = false } = Astro.props;
+const { level, withLabel = true, size = 11 } = Astro.props;
 const e = EVIDENCE[level];
 ---
 
@@ -27,10 +26,7 @@ const e = EVIDENCE[level];
     aria-hidden="true"></span>
   {
     withLabel && (
-      <span
-        class="edot-label"
-        style={`font-size:${size}px;color:${onDark ? "var(--gold-soft)" : e.ink}`}
-      >
+      <span class="edot-label" style={`font-size:${size}px;color:${e.ink}`}>
         {e.name}
       </span>
     )

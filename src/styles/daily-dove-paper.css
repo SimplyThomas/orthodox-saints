@@ -13,32 +13,45 @@
    ============================================================ */
 
 /* ---------- the palette ----------
-   The dark navy stays; the brief was that the section had gone monochromatic,
-   not that the ground was wrong. What was missing was everything the navy is
-   supposed to contrast WITH — so cream, parchment, aged gold and a burgundy are
-   named here as first-class inks rather than mixed ad hoc at each call site. */
+   THIS SECTION PRINTS ON NEWSPRINT, NOT ON NAVY.
+
+   The dark ground was tried first and was wrong for this page: a newspaper is
+   overwhelmingly pale, and on a dark stock every panel had to be lifted off the
+   background with a fill, so the page filled up with competing coloured blocks
+   and read as busy. On newsprint the ground itself is the resting state, rules
+   do the dividing, and colour becomes an event rather than the medium.
+
+   The brand navy is NOT gone — it sets the nameplate, the headlines and the
+   site's own header and footer above and below. It is an ink here, not a
+   ground. Keep it that way: the moment a section takes a navy fill again, the
+   surrounding blocks need fills to compete with it and the page re-crowds.
+
+   Colour discipline: ink for type, one gilt hairline for rules, burgundy for
+   the second-colour marks a press would run (kickers, notices, seals). The era
+   inks appear only as a dot or a hairline — never as a filled plate. */
 .dv {
-  --dv-stock: #0f2238; /* the sheet — the site's byz-ink */
-  --dv-stock-2: #132a44; /* a panel raised off it */
-  --dv-stock-3: #0a1a2c; /* a well sunk into it */
-  --dv-cream: #f5ebd8; /* the ivory the paper prints in */
-  --dv-parchment: #e8dcc0; /* aged stock, for pulled-out sheets */
-  --dv-parchment-ink: #3a3020; /* type on parchment */
-  --dv-gold: #d4af37;
-  --dv-gold-aged: #b08d3f; /* gilt that has dulled — rules, hairlines */
-  --dv-gold-soft: #e6cd7e;
-  --dv-burgundy: #6d2026; /* the second colour of a two-colour press */
-  --dv-burgundy-soft: #a33f3f;
-  --dv-rule: rgba(212, 175, 55, 0.32);
-  --dv-rule-soft: rgba(245, 235, 216, 0.14);
-  --dv-muted: #9db2ca;
+  --dv-stock: #f1eee4; /* newsprint — warm, slightly grey, never white */
+  --dv-stock-2: #eae6d9; /* a panel set into the sheet */
+  --dv-stock-3: #e4dfd0; /* the deepest tint the page uses */
+
+  --dv-ink: #1f1c17; /* the black the press actually lays down */
+  --dv-ink-2: #46423a; /* body copy and secondary type */
+  --dv-ink-3: #726d62; /* datelines, counts, captions */
+
+  --dv-navy: #18324f; /* the brand blue, as an INK: nameplate + headlines */
+  --dv-burgundy: #7a2531; /* the second colour of a two-colour press */
+  --dv-gold-aged: #9a7c2e; /* gilt that has dulled — hairlines, small marks */
+
+  --dv-rule: rgba(31, 28, 23, 0.26); /* the rules that divide the page */
+  --dv-rule-soft: rgba(31, 28, 23, 0.13); /* column rules and dotted leaders */
 }
 
 /* ---------- printed textures ----------
-   Two SVG filters carried as data URIs: laid-paper grain, and the foxing of a
-   sheet that has been kept a long time. Both are decorative, both sit under the
-   copy at low opacity, and both are switched off for anyone who has asked for
-   reduced motion or a high-contrast display. */
+   Laid-paper grain and the foxing of a sheet that has been kept a long time.
+   Both are decorative, both sit under the copy at low opacity, and both are
+   switched off for anyone who has asked for reduced motion or more contrast.
+   On newsprint these matter more than they did on navy — the grain is most of
+   what stops a pale ground reading as a blank web page. */
 .dv-grain {
   position: relative;
   isolation: isolate;
@@ -50,8 +63,8 @@
   z-index: -1;
   pointer-events: none;
   opacity: 0.5;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23g)' opacity='.22'/></svg>");
-  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23g)' opacity='.3'/></svg>");
+  mix-blend-mode: multiply;
 }
 /* foxing — the soft brown blooms on a kept sheet. Large, slow, irregular. */
 .dv-foxed::after {
@@ -60,21 +73,21 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.5;
   background:
     radial-gradient(
       ellipse 40% 30% at 12% 8%,
-      rgba(176, 141, 63, 0.11),
+      rgba(154, 124, 46, 0.13),
       transparent 70%
     ),
     radial-gradient(
       ellipse 30% 45% at 92% 34%,
-      rgba(109, 32, 38, 0.09),
+      rgba(122, 37, 49, 0.08),
       transparent 70%
     ),
     radial-gradient(
       ellipse 45% 25% at 68% 96%,
-      rgba(176, 141, 63, 0.08),
+      rgba(154, 124, 46, 0.1),
       transparent 70%
     );
 }
@@ -87,9 +100,8 @@
 }
 
 /* ---------- rules ----------
-   A newspaper is held together by rules, not by gaps. These are the four the
-   section uses: a hairline, a double rule between major sections, a thick
-   section rule, and the vertical column rule that separates set columns. */
+   A newspaper is held together by rules, not by fills. On newsprint these do
+   nearly all the structural work the coloured panels used to do. */
 .dv-rule {
   height: 1px;
   background: var(--dv-rule);
@@ -99,12 +111,12 @@
 .dv-rule--double {
   height: 4px;
   background: none;
-  border-top: 2px solid var(--dv-gold);
+  border-top: 2px solid var(--dv-ink);
   border-bottom: 1px solid var(--dv-rule);
 }
 .dv-rule--thick {
   height: 3px;
-  background: var(--dv-gold-aged);
+  background: var(--dv-ink);
 }
 .dv-colrule {
   border-left: 1px solid var(--dv-rule-soft);
@@ -126,7 +138,7 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.24em;
-  color: var(--dv-gold-soft);
+  color: var(--dv-ink);
   white-space: nowrap;
   margin: 0;
 }
@@ -140,7 +152,7 @@
   font-family: var(--serif);
   font-style: italic;
   font-size: 13.5px;
-  color: var(--dv-muted);
+  color: var(--dv-ink-3);
   white-space: nowrap;
 }
 
@@ -152,7 +164,7 @@
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--dv-burgundy-soft);
+  color: var(--dv-burgundy);
 }
 
 /* a dropped capital, set into the first three lines the way a compositor does */
@@ -163,7 +175,7 @@
   font-size: 3.2em;
   line-height: 0.78;
   padding: 0.08em 0.1em 0 0;
-  color: var(--dv-gold);
+  color: var(--dv-navy);
 }
 
 /* the dateline that opens a story — "NICAEA, A.D. 325 —" in small caps */
@@ -173,7 +185,7 @@
   font-size: 0.86em;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--dv-gold-soft);
+  color: var(--dv-ink-3);
 }
 
 /* set copy in newspaper columns, with a rule between them */
@@ -198,19 +210,15 @@
   }
 }
 
-/* ---------- a pulled parchment sheet ----------
-   Used where the archive shows you an actual sheet rather than telling you
-   about one: the historical notices, the era plates, the archivist's card. */
+/* ---------- a boxed notice ----------
+   Where the archive shows you a set-apart sheet rather than telling you about
+   one: the classified notices and the archive card. A rule box and a tint, not
+   a coloured plate — on newsprint that is all the separation needed. */
 .dv-sheet {
   position: relative;
-  background: var(--dv-parchment);
-  color: var(--dv-parchment-ink);
-  border: 1px solid rgba(109, 32, 38, 0.22);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    var(--shadow-card);
-  /* torn-off top and bottom edge, cut into the sheet itself */
-  border-radius: 2px;
+  background: var(--dv-stock-2);
+  color: var(--dv-ink-2);
+  border: 1px solid var(--dv-rule);
 }
 .dv-sheet a {
   color: var(--dv-burgundy);

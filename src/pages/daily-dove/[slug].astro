@@ -17,6 +17,7 @@ import AroundTheEmpire from "../../components/daily-dove/AroundTheEmpire.astro";
 import SeriesNav from "../../components/daily-dove/SeriesNav.astro";
 import { saintAvatar } from "../../lib/icons";
 import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-paper.css";
 import "../../styles/daily-dove-article.css";
 import {
   loadPaper,
@@ -64,12 +65,11 @@ const departments = (n.departments ?? [])
   title={n.headline}
   description={n.dek || n.summary}
 >
-  <article class="na">
+  <article class="dv na">
     {/* ---------- NAMEPLATE ---------- */}
     <div class="na-mastwrap">
       <DoveMasthead
         small
-        onDark
         href="daily-dove"
         edition={n.edition ?? desk.name}
         folio={`${n.date} · ${n.location}`}

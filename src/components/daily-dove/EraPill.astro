@@ -7,16 +7,15 @@ import { eraOf } from "../../lib/daily-dove";
 interface Props {
   century: number;
   size?: number;
-  onDark?: boolean;
 }
-const { century, size = 10.5, onDark = false } = Astro.props;
+const { century, size = 10.5 } = Astro.props;
 const era = eraOf(century);
 ---
 
 <span
-  class:list={["erapill", onDark && "erapill--dark"]}
+  class="erapill"
   title={era.full}
-  style={`font-size:${size}px;color:${onDark ? "var(--gold-soft)" : era.ink};${onDark ? "" : `background:${era.bg}`}`}
+  style={`font-size:${size}px;color:${era.ink};background:${era.bg}`}
 >
   <i style={`background:${era.ink}`} aria-hidden="true"></i>
   {era.name}
@@ -41,19 +40,5 @@ const era = eraOf(century);
     border-radius: 50%;
     display: inline-block;
     flex: 0 0 auto;
-  }
-  /* On the paper's dark stock this is set as a standing label under a gilt
-     rule, not a filled chip. A grey rounded rectangle was the last obviously
-     modern component left on the front page — a newspaper labels a section with
-     type and a rule, never with a pill. The era's own ink stays in the dot, so
-     the six colours are still learnable at a glance. */
-  .erapill--dark {
-    padding: 0 0 3px;
-    border-radius: 0;
-    background: none;
-    border-bottom: 1px solid var(--line-gold);
-  }
-  .erapill--dark i {
-    box-shadow: 0 0 0 1px rgba(245, 235, 216, 0.34);
   }
 </style>
