@@ -12,6 +12,7 @@ import {
   isTitledFigure,
   isBiblicalEncounter,
   isExtraBiblicalAngel,
+  isFallen,
 } from "../lib/hosts";
 
 const ranks = HOSTS.filter((h) => h.entityType === "Angelic Rank");
@@ -22,6 +23,7 @@ const titled = HOSTS.filter(isTitledFigure);
 const encounters = HOSTS.filter(isBiblicalEncounter);
 const extra = HOSTS.filter(isExtraBiblicalAngel);
 const named = HOSTS.filter((h) => h.entityType === "Named Angel");
+const fallen = HOSTS.filter(isFallen);
 
 const cards: HubCard[] = [
   {
@@ -67,6 +69,16 @@ const cards: HubCard[] = [
     meta: `${encounters.length} encounters`,
   },
   {
+    // Recorded for study and never venerated (§5b/§9) — the card says so, and
+    // the section's own pages carry the same warning.
+    label: "The Fallen",
+    href: "fallen-angels",
+    eyebrow: "Recorded, never venerated",
+    blurb:
+      "The angels who fell, set down for study — what Scripture actually says, and what belongs to later legend.",
+    meta: `${fallen.length} entries`,
+  },
+  {
     label: "Extra-Biblical Encounters",
     href: "extra-biblical-angels",
     eyebrow: "Catalogued for study",
@@ -87,7 +99,7 @@ const cards: HubCard[] = [
     "The Church has always confessed that God made more than the world we can see. Before the visible creation He made the bodiless powers — the angels — who stand before Him, carry His messages, guard His people, and join without ceasing in the hymn the prophet Isaiah overheard.",
     "This section sets out what is actually taught about them, and on whose authority. Every entry keeps its sources apart rather than blending them: what Holy Scripture says, what the Deuterocanonical books add, what the Fathers and the Church’s own services hand down, and what belongs to later tradition or to writings the Church never received. Where a being is recorded for study rather than veneration, the page says so plainly.",
   ]}
-  cardsHeading={`Six ways in · ${HOSTS.length} beings catalogued`}
+  cardsHeading={`Seven ways in · ${HOSTS.length} beings catalogued`}
   cards={cards}
   plannedNote={`The section presently holds ${HOSTS.length} entries: ${ranks.length} angelic ranks, ${named.length} named angels, and ${encounters.length} scriptural encounters. It grows as each profile is written and reviewed.`}
 />

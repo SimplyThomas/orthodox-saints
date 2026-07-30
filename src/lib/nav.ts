@@ -55,8 +55,8 @@ export const NAV: NavItem[] = [
         key: "heavenly-hosts",
         label: "Heavenly Hosts",
         href: withBase("heavenly-hosts"),
-        // The hub owns the six host areas, which used to sit in the nav
-        // themselves. Their own `active` keys are untouched.
+        // The hub owns the host areas, which used to sit in the nav themselves
+        // — The Fallen among them (#404). Their own `active` keys are untouched.
         alsoActive: [
           "hosts",
           "nine-orders",
@@ -64,6 +64,7 @@ export const NAV: NavItem[] = [
           "guardian-angels",
           "biblical-encounters",
           "extra-biblical-angels",
+          "fallen-angels",
         ],
       },
     ],
