@@ -701,16 +701,15 @@ rather than bend an existing one.
   never a guarantee**: the Church asks the saints to pray, it does not trade in
   outcomes. Tag only what an account actually reports; an empty list is honest
   and a padded one destroys the facet's worth.
-- **Era colour, and the era EDITIONS.** Plates take their colour from
-  `eraOf(century)` — six bands from the Age of the Martyrs to the Modern Age —
-  with an EraPill naming the band, because a colour nobody can name is
-  decoration. Each `Era` also carries `motif` / `edition` / `strap` / `stock`:
-  the archive is a run of papers, so each age is allowed to look like a sheet
-  preserved from that age — its own headpiece motif (Chi-Rho for the catacombs,
-  a crescent-and-star for the Ottoman centuries), its own run name ("The
-  Conciliar Editions"), and its own paper stock. **Keep these subtle.** The
-  identity is constant and the age shows through it; the moment an era wears a
-  costume, the archive reads as a theme park.
+- **Era colour.** Plates take their colour from `eraOf(century)` — six bands
+  from the Age of the Martyrs to the Modern Age — with an EraPill naming the
+  band, because a colour nobody can name is decoration. `Era` carries nothing
+  beyond its range, name and ink: a per-era motif, run name ("The Conciliar
+  Editions"), strapline and paper stock were all built and **removed** with the
+  era plates and the browse-by-age section they were drawn for. Each age looking
+  like a sheet preserved from that age is a lovely idea that cost more than it
+  gave; if it returns, it needs a page that is actually about the eras, not four
+  fields riding on a colour lookup.
 - **The front page is a broadsheet, not a feed, and it is TWO columns.**
   `/daily-dove` is ordered the way a paper is ordered — nameplate → lead + one
   sidebar column → Also In This Edition → Latest Dispatches → **Archive** →
@@ -764,9 +763,9 @@ rather than bend an existing one.
     of ornament: a plain ruled band under the nameplate. It was tried loud first
     — six saturated era plates with wax seals, an engraved band with a per-era
     glyph on every section head, a blurb under every topic — and each cost more
-    than it gave. `Headpiece` is now a rule and two lozenges with **no glyph**;
-    `Era.motif` and `Era.stock` went with the plates. `Era.edition`/`strap` are
-    kept but currently unrendered (see the note on the type).
+    than it gave. `Headpiece` is now a rule and two lozenges with **no glyph**,
+    and `Era` is back to range/name/ink — `motif`, `stock`, `edition` and `strap`
+    all went with the plates rather than lingering as data nothing renders.
 - **Ornament is drawn, never sourced.** `components/daily-dove/ornament/`
   (`Headpiece` · `Fleuron` · `WaxSeal`) is hand-built SVG, and the paper's
   textures live alongside the palette (laid-paper grain and foxing, both disabled
@@ -937,8 +936,9 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
   missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
   The section was rebuilt as **The Living Archive** (§5c) after the first merge:
-  broadsheet front page, the newsroom departments as the single filing axis, per-era
-  editions, and a drawn ornament kit. Only Marketplace Buzz is thin (1 dispatch) —
+  broadsheet front page on newsprint, the newsroom departments as the single filing
+  axis, dispatch pills (when · who · what kind), and an archive with search, sort
+  and folding facets. Only Marketplace Buzz is thin (1 dispatch) —
   the desks are standing sections and are shown even when quiet, so that is a
   commissioning gap, not a bug.
 - **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
