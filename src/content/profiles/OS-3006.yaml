@@ -1,4 +1,4 @@
-id: OS-0343
+id: OS-3006
 liturgicalTitle: The Synaxis of the Venerable Elders of the Glinsk Hermitage
 overview:
   - The Synaxis of the Glinsk Elders is the common commemoration of the spiritual elders of the Glinsk Hermitage, a monastery long renowned in the Russian tradition for its eldership and the practice of the prayer of the heart. The synaxis is celebrated on September 9 (September 22 on the civil calendar); the hermitage's elders are also commemorated on February 21.
@@ -59,3 +59,12 @@ members:
     role: Elder
   - name: Anthony of Glinsk
     role: Elder
+  - name: Andronik (Lukash) of Glinsk
+    role: Elder
+    note: Glorified in 2010; entered Glinsk early in the twentieth century and returned after imprisonment to serve as a confessor.
+  - name: Seraphim (Romantsov) of Glinsk
+    role: Elder
+    note: Glorified in 2010; an elder and confessor of the hermitage after the Soviet camps.
+  - name: Seraphim (Mazhuga) of Glinsk
+    role: Elder
+    note: Glorified in 2010; schema-metropolitan, who carried the Glinsk eldership into the later twentieth century.

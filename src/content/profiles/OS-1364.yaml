@@ -52,10 +52,14 @@ timeline:
   - when: 1406/1407
     title: Glorification
     body: Proclaimed a saint by Patriarch Sava V, seven summers after his repose.
+works:
+  - title: Collected poetry of Patriarch Jefrem
+    desc: A substantial body of original poetry, preserved in a fourteenth-century manuscript of the Hilandar monastery on Mount Athos.
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Ephraim_of_Serbia
   - https://www.oca.org/saints/lives/2024/06/15
   - https://www.johnsanidopoulos.com/2019/08/synaxis-of-holy-serbian-hierarchs.html
+  - https://orthodoxwiki.org/Ephraem_of_Pec
 status: reviewed
 generated: "2026-06-22"

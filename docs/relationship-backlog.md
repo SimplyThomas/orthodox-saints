@@ -206,6 +206,18 @@ monastery"; kept as named candidates for documentation)
 ---
 
 ## Candidate Commemorated-With Groups
+
+> **Status.** Four candidates were promoted in #409 (the Holy Forefathers, the Thirteen Syrian
+> Fathers, the October-21 Confessors of Transylvania, the House of Nemanjić) and sixteen more in
+> #413 (#228): Sinai & Raithu · the hierarchs of Novgorod, Moscow and Perm · the Serbian hierarchs ·
+> the Serbian new martyrs of the Second World War · the Branković household · the April-24 Confessors
+> of Ardeal · the three Athonite new martyrs · the martyrs of Najran · the fathers of Dalmatos · the
+> saints of Kazan · Theonas, Symeon and Phorbinus · the Near and Far Caves of Kiev · the Glinsk elders.
+> Entries below that name one of those are done. **Two entries here are deliberately NOT groups:** the
+> English Benedictine Reform and the Boniface mission are historical circles, not commemorations, and
+> the taxonomy holds commemorations (CLAUDE.md §5). They belong in `related` cards or a future
+> non-liturgical collection.
+
 Specific **liturgical commemorations** to wire via `data/groups.csv` + `data/saint_groups.csv`
 when their members come into scope (NOT `related` templates).
 
