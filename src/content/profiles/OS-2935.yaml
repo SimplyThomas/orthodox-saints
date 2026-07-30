@@ -341,13 +341,21 @@ members:
     role: Of Capernaum
     note: Honored in tradition as the father of the Apostles James son of Alphaeus and Matthew.
   - name: Zacchaeus
-    saint_id: OS-2461
+    saint_id: OS-1033
     role: Bishop of Caesarea
     note: The tax-collector of Jericho who repented and received Christ (Luke 19); by tradition bishop of Caesarea.
   - name: Nymphas
     saint_id: OS-2451
     role: Of Laodicea
     note: Host of a house-church at Laodicea, greeted by Paul (Col. 4:15).
+  - name: Eubulus
+    saint_id: OS-2784
+    role: Fellow-labourer of Paul
+    note: Named by Paul among those with him as he awaited martyrdom at Rome (2 Tim. 4:21); commemorated on February 28 with the Apostle Nymphas.
+  - name: Publius
+    saint_id: OS-0819
+    role: Bishop of Athens
+    note: Successor of Dionysius the Areopagite at Athens and a martyr; the synaxarion numbers him among the Seventy.
 sections:
   - heading: A Note on the Lists
     body:
