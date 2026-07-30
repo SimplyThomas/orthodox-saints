@@ -612,3 +612,25 @@ so this register is a permanent historical record of corrections, not just an ac
   the survivor. **Priority:** Medium.
 - **Resolution (2026-07-06):** §6 merge — retired OS-2726 into OS-2252 (Peter I 'the Martyr', Archbishop of Alexandria, †311, Nov 25). Achillas (OS-2727) already links to OS-2252, so the companion-link asymmetry is resolved.
 
+
+## DI-047 — Mislinked companion card on OS-2581 (Crispus → Peter, note describes Paul)
+
+- **Status:** 🔶 OPEN (logged 2026-07-30) · **Saint IDs:** OS-2581, OS-0004, OS-2749
+- **Description:** OS-2581 (Apostle Crispus of the Seventy) carries a `companions` card whose `href` is
+  `saint/OS-0004` (Apostle Peter) but whose note reads "Paul converted and baptized him" — Crispus was the
+  ruler of the synagogue at Corinth baptized by **Paul** (Acts 18:8), not by Peter. Either the href should
+  be OS-2749 (Paul) or the note belongs to a different card.
+- **Recommended action:** Source-check and repoint the href to OS-2749, or rewrite the note to describe
+  Peter. Left untouched by the #228 reciprocity sweep rather than reciprocated, so the slip is not
+  duplicated onto Peter's page. **Priority:** Low.
+
+## DI-048 — Possible duplicate: Righteous Martha, mother of Symeon Stylites the Younger
+
+- **Status:** 🔶 OPEN (logged 2026-07-30) · **Saint IDs:** OS-0094, OS-2676
+- **Description:** OS-0094 "Righteous Martha, Mother of St. Symeon Stylites" and OS-2676 "Righteous Martha,
+  Mother of Symeon Stylites the Younger" both link to OS-1234 (Symeon Stylites the Younger of the Wonderful
+  Mountain) as their son. St Martha commemorated July 4 is the mother of Symeon the *Younger*; the mother of
+  Symeon the Elder is not separately venerated under that name, so the two rows look like one saint.
+- **Recommended action:** Source-check the feast days on both rows; if one saint, merge per §6 keeping the
+  lower ID. Surfaced by the #228 reciprocity sweep, which added the return card to both rows rather than
+  pre-judging the merge. **Priority:** Medium.
