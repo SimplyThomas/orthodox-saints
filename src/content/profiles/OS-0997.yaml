@@ -54,3 +54,10 @@ sources:
   - https://en.wikipedia.org/wiki/Saint_Pudens
 status: reviewed
 generated: "2026-06-19"
+related:
+  - name: "Apostle Zenas of the Seventy"
+    note: "Commemorated with Aristarchus and Mark on September 27."
+    href: saint/OS-1912
+  - name: "Apostle Mark of the Seventy"
+    note: "Commemorated with Aristarchus and Zenas on September 27."
+    href: saint/OS-1911

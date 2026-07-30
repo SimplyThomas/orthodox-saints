@@ -46,3 +46,10 @@ sources:
   - Synaxarion
   - https://en.wikipedia.org/wiki/John_of_Novgorod
 generated: "2026-06-19"
+related:
+  - name: "The Synaxis of the Holy Hierarchs of Novgorod"
+    note: "The synaxis of the Novgorod hierarchs, which arose from his apparition to Euthymius II."
+    href: saint/OS-2992
+  - name: "Euthymius of Novgorod"
+    note: "A later archbishop of his own see, to whom he appeared."
+    href: saint/OS-0810

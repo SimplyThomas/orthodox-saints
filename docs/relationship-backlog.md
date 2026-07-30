@@ -392,10 +392,23 @@ patronage facet), not the relationship network.
 > the debt accrued. Two edges were deliberately left open and logged as data issues instead:
 > **DI-047** (OS-2581's card points at Peter but describes Paul) and the three edges into the
 > Seventy-Apostles group OS-2935, whose reverse link already exists through `saint_groups.csv`.
-> **What remains is `related` — 1,061 asymmetric edges.** That is the bucket where the
-> intentionally one-directional links below (founder, inspiration, typology) actually live, so it
-> needs judgment per edge rather than a sweep, and was scoped out of #228 deliberately. Re-run the
-> scan before starting it; the count moves whenever profiles are authored.
+> **2026-07-30 — the `related` half is DONE too (#228, PR #414).** A fresh scan found **1,063**
+> one-directional `related` edges across 466 target profiles; **1,042** were closed with a return
+> card written from the other saint's side. The owner's call was to reciprocate everything, hubs
+> included — so St Anthony of the Kyiv Caves gained 35 return cards and St Theodosius 32, one for
+> each monk of the Lavra who names its founder, and the Apostle Paul 19. Where a forward note was
+> a bare "Fellow soldier-martyr", the return says the same in the other direction rather than
+> inventing a tie the sources do not carry.
+>
+> **The 21 edges left open all point at GROUP profiles** (OS-2934 the Twelve, OS-2935 the Seventy,
+> OS-2955 the saints of Alaska, OS-3004 the Near Caves). Their reverse link already exists, and in
+> a better form: the group's roster in `saint_groups.csv`, which renders on the group page. A
+> `related` card there would duplicate the roster. **DI-047 is resolved**: OS-2581's card pointing
+> at Peter while describing Paul was simply wrong and redundant — an accurate card to Paul already
+> stood in `related` — so the miscredited card was removed rather than repointed.
+>
+> All three buckets are now reciprocal. Re-run the scan after any batch of new profiles; the count
+> moves whenever profiles are authored.
 
 Reciprocity is **no longer tracked link-by-link**. **Intentionally one-directional links
 (founder, inspiration, typology) are preserved** and need no return link. For peer / teacher–
