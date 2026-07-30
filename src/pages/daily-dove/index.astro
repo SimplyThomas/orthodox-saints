@@ -6,12 +6,12 @@
    since Pentecost — so the page is ordered the way a paper is ordered, and its
    hierarchy is dramatic rather than even:
 
-     nameplate → the front page proper (lead + secondaries + briefs + margin)
-     → Also In This Edition → the latest dispatches at two weights → the
-     departments → the archive → the eras → the topics → the Historian's Desk
-     → and only then, folded shut at the foot, the key to how the paper is read.
+     nameplate → the front page proper (lead + one sidebar column) → Also In
+     This Edition → the latest dispatches at two weights → the archive → the
+     departments → the Historian's Desk → and only then, folded shut at the
+     foot, the key to how the paper is read.
 
-   Three rules earn most of the effect and are easy to undo by accident:
+   Four rules earn most of the effect and are easy to undo by accident:
 
    1. IT PRINTS ON NEWSPRINT. See the palette note in daily-dove-paper.css. The
       first build of this page used the site's navy as its ground, and every
@@ -20,17 +20,19 @@
       state and rules do the dividing.
 
    2. RESTRAINT IS THE FEATURE, NOT AN OVERSIGHT. Almost nothing here has a
-      fill; the era entries are ruled lines rather than plates, the topics are a
-      bare classified column, and there is one piece of ornament on the page
-      (the headpiece under the nameplate). Each of those was tried the loud way
-      first. If a section arrives wanting a coloured background, a badge and a
-      flourish, it will cost the page more than it gains.
+      fill, and the only ornament is the plain rule under the nameplate. The
+      loud version was tried first — coloured plates, a glyph on every band, a
+      badge per item — and cost more than it gave.
 
-   3. NOT EVERYTHING IS A CARD, AND NO FILTER BAR LIVES HERE. The lead is a
-      broadsheet block; the secondaries are ruled columns; the briefs are one
-      line each. Faceted browsing lives at /daily-dove/archive, which is built
-      for it — the era and topic sections link into it with a #<facet>-<value>
-      hash the archive island honours.
+   3. NOT EVERYTHING IS A CARD. The lead is a broadsheet block; the secondaries
+      are kicker-and-headline; the briefs are one line each.
+
+   4. NO BROWSING FURNITURE HERE. No filter bar, no browse-by-era, no
+      browse-by-topic. Refining is what a reader does once they are IN the
+      archive, and /daily-dove/archive is built for it — its facet rail offers
+      era, century, place, saint, desk, evidence and kind-of-help, and it also
+      honours a #<facet>-<value> hash for deep links. The front page's one job
+      is to be a front page: it leads with stories and points at the stacks.
 
    The page is fully static: the only interactive part is the key at the foot,
    which is a native <details>. */
@@ -53,8 +55,6 @@ import {
   FILING_DESKS,
   EVIDENCE,
   EVIDENCE_LIST,
-  ERAS,
-  WONDERS,
   DOVE_STANDFIRST,
   NEWS_THISDAY,
 } from "../../lib/daily-dove";
@@ -127,19 +127,13 @@ const desks = FILING_DESKS.map((d) => {
   };
 });
 
-/* The archive's own shape: how many sheets survive from each age, and from each
-   level of evidence. These are counts of what is actually filed — the page never
-   advertises a shelf that is empty. */
-const eras = ERAS.map((e) => ({
-  e,
-  total: all.filter((n) => eraOf(n.century).id === e.id).length,
-})).filter((x) => x.total > 0);
+/* The archive card quotes how many ages the paper's sheets span. Counted off
+   the dispatches themselves rather than off ERAS, so it can never advertise a
+   shelf that is empty. */
+const ageCount = new Set(all.map((n) => eraOf(n.century).id)).size;
 
-const topics = WONDERS.map((w) => ({
-  w,
-  total: all.filter((n) => n.miracles?.includes(w.id)).length,
-})).filter((x) => x.total > 0);
-
+/* The evidence ledger for the Historian's Desk — the archive's accounting of
+   itself. */
 const ledger = EVIDENCE_LIST.map((k) => ({
   k,
   ev: EVIDENCE[k],
@@ -433,6 +427,26 @@ const NOTICES = [
       </div>
     </section>
 
+    {/* ============ THE ARCHIVE ============ */}
+    <section class="dove-archive">
+      <a class="dv-sheet dv-foxed arch" href={withBase("daily-dove/archive")}>
+        <div class="arch-seal">
+          <WaxSeal mark="☦" size={58} color="var(--dv-stock)" />
+        </div>
+        <div class="arch-body">
+          <span class="dv-kicker">The Stacks</span>
+          <h2>Enter the Archive</h2>
+          <p>
+            Every sheet the paper has kept — {all.length} dispatches across {
+              ageCount
+            } ages of the Church — indexed by century, by place, by saint, by desk,
+            and by the level of evidence that carries it.
+          </p>
+          <span class="arch-cue">Enter the archive →</span>
+        </div>
+      </a>
+    </section>
+
     {
       /* ============ THE DEPARTMENTS ============
         The newsroom, listed as a masthead index. The columns that run inside
@@ -469,103 +483,6 @@ const NOTICES = [
           ))
         }
       </div>
-    </section>
-
-    {/* ============ THE ARCHIVE ============ */}
-    <section class="dove-archive">
-      <a class="dv-sheet dv-foxed arch" href={withBase("daily-dove/archive")}>
-        <div class="arch-seal">
-          <WaxSeal mark="☦" size={58} color="var(--dv-stock)" />
-        </div>
-        <div class="arch-body">
-          <span class="dv-kicker">The Stacks</span>
-          <h2>Enter the Archive</h2>
-          <p>
-            Every sheet the paper has kept — {all.length} dispatches across {
-              eras.length
-            } ages of the Church — indexed by century, by place, by saint, by desk,
-            and by the level of evidence that carries it.
-          </p>
-          <span class="arch-cue">Enter the archive →</span>
-        </div>
-      </a>
-    </section>
-
-    {
-      /* ============ BROWSE BY ERA ============
-        The archive's shelves. Each age keeps its own motif — the one place the
-        "a run of papers, not one paper" idea is stated outright — but these are
-        RULED ENTRIES, not plates. They were six filled colour blocks with wax
-        seals, and six saturated rectangles in a row was the single busiest
-        thing on the page. The era's ink now shows as a hairline and the motif;
-        that is enough to tell the six apart. */
-    }
-    <section class="dove-eras">
-      <div class="dove-secthead">
-        <h2>Browse the Archive by Age</h2>
-        <p>
-          The paper has been set in every century since the Apostles. Each age
-          left its own sheets, and its own way of printing them.
-        </p>
-      </div>
-
-      <div class="dove-eragrid">
-        {
-          eras.map(({ e, total }) => (
-            <a
-              class="era"
-              href={withBase(`daily-dove/archive#era-${e.id}`)}
-              style={`--era-ink:${e.ink}`}
-            >
-              <div class="era-orn">
-                <Headpiece
-                  era={e}
-                  color="var(--era-ink)"
-                  size={22}
-                  rules={false}
-                />
-              </div>
-              <h3>{e.name}</h3>
-              <span class="era-run">{e.edition}</span>
-              <p class="era-strap">{e.strap}</p>
-              <span class="era-foot">
-                <em>
-                  {ord(e.from)}–{ord(e.to)} century
-                </em>
-                <span class="era-n">{total} kept</span>
-              </span>
-            </a>
-          ))
-        }
-      </div>
-    </section>
-
-    {
-      /* ============ BROWSE BY TOPIC ============
-        A classified column, three across. Each entry carried a line of
-        explanation under it; eleven of those made a wall of small grey type
-        for an index whose whole job is to be scanned. The names carry it. */
-    }
-    <section class="dove-topics">
-      <div class="dove-secthead">
-        <h2>Browse by What Was Asked For</h2>
-        <p>
-          The Church asks the saints to pray; she does not trade in outcomes.
-          These are the troubles the accounts themselves report help in.
-        </p>
-      </div>
-      <ul class="dove-topiclist">
-        {
-          topics.map(({ w, total }) => (
-            <li>
-              <a href={withBase(`daily-dove/archive#wonder-${w.id}`)}>
-                <span class="topic-h">{w.name}</span>
-                <span class="topic-n">{total}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
     </section>
 
     {
@@ -1273,124 +1190,6 @@ const NOTICES = [
   .arch:hover h2 {
     text-decoration: underline;
     text-underline-offset: 4px;
-  }
-
-  /* ============ ERAS ============
-     Ruled entries, not plates. The era's ink is a hairline at the top and the
-     colour of its motif; there is no fill and no seal. */
-  .dove-eras {
-    padding: 56px var(--dv-pad) 0;
-  }
-  .dove-eragrid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 34px;
-  }
-  .era {
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0 20px;
-    border-top: 2px solid var(--era-ink);
-    min-width: 0;
-  }
-  .era-orn {
-    margin-bottom: 10px;
-  }
-  .era h3 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1.08;
-    color: var(--dv-navy);
-    margin: 0 0 4px;
-    text-wrap: pretty;
-  }
-  .era:hover h3 {
-    color: var(--dv-burgundy);
-  }
-  .era-run {
-    font-family: var(--text);
-    font-weight: 700;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--dv-ink-3);
-  }
-  .era-strap {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 14.5px;
-    line-height: 1.45;
-    color: var(--dv-ink-2);
-    margin: 10px 0 14px;
-    flex: 1;
-    text-wrap: pretty;
-  }
-  .era-foot {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 10px;
-    border-top: 1px solid var(--dv-rule-soft);
-  }
-  .era-foot em {
-    font-family: var(--serif);
-    font-size: 13.5px;
-    color: var(--dv-ink-3);
-  }
-  .era-n {
-    font-family: ui-monospace, Menlo, monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.06em;
-    color: var(--dv-ink-3);
-  }
-
-  /* ============ TOPICS ============
-     A bare classified column: name and count, nothing else. */
-  .dove-topics {
-    padding: 56px var(--dv-pad) 0;
-  }
-  .dove-topiclist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    columns: 3;
-    column-gap: 40px;
-  }
-  .dove-topiclist li {
-    break-inside: avoid;
-    border-bottom: 1px dotted var(--dv-rule-soft);
-  }
-  .dove-topiclist a {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 10px 0;
-    font-family: var(--serif);
-    font-size: 17.5px;
-    line-height: 1.25;
-    color: var(--dv-ink);
-  }
-  .dove-topiclist a:hover {
-    color: var(--dv-burgundy);
-  }
-  .topic-n {
-    font-family: ui-monospace, Menlo, monospace;
-    font-size: 10.5px;
-    color: var(--dv-ink-3);
-    flex: 0 0 auto;
-  }
-  @media (max-width: 1000px) {
-    .dove-topiclist {
-      columns: 2;
-    }
-  }
-  @media (max-width: 700px) {
-    .dove-topiclist {
-      columns: 1;
-    }
   }
 
   /* ============ THE HISTORIAN'S DESK ============ */

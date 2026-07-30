@@ -713,9 +713,10 @@ rather than bend an existing one.
   costume, the archive reads as a theme park.
 - **The front page is a broadsheet, not a feed, and it is TWO columns.**
   `/daily-dove` is ordered the way a paper is ordered — nameplate → lead + one
-  sidebar column → Also In This Edition → Latest Dispatches → Departments →
-  Archive → Browse by Age → Browse by Topic → Historian's Desk → the evidence
-  key, folded shut and **last**.
+  sidebar column → Also In This Edition → Latest Dispatches → **Archive** →
+  Departments → Historian's Desk → the evidence key, folded shut and **last**.
+  The archive card sits above the departments: once a reader has come to the end
+  of today's stories, the next thing to offer is the rest of them.
   - The top was three columns (lead · secondaries · margin) and that was the
     page's real busyness problem: three columns beside a lead cut the sheet into
     strips too narrow to read without a heading over every block, so the busiest
@@ -725,6 +726,13 @@ rather than bend an existing one.
   - The secondaries are **kicker + headline only** — no summary, no era pill. A
     second column is scanned for headlines; clamped grey copy trailing an
     ellipsis earned none of the room it took.
+  - **NO BROWSING FURNITURE ON THE FRONT PAGE.** No filter bar, and no
+    browse-by-era or browse-by-topic sections (both were built and removed).
+    Refining is what a reader does once they are *in* the archive, and
+    `/daily-dove/archive` is built for it — its facet rail already offers era,
+    century, place, saint, department, evidence and kind-of-help. The front
+    page's job is to lead with stories and point at the stacks. The archive
+    still honours a `#<facet>-<value>` hash so a filtered view stays linkable.
   - The lead runs `summary` + the opening of the dispatch's own `body`, and
     closes "Continued — read the dispatch in full". A dispatch's `body` restates
     its dek and summary at the top (house style — the dispatch page has to stand
@@ -752,11 +760,13 @@ rather than bend an existing one.
   - There is no `onDark` variant anywhere in this section any more. The props
     existed while the ground was navy and were deleted rather than left as a
     trap: ivory-on-newsprint is invisible, which is exactly the bug they caused.
-  - **Restraint is the feature, not an oversight.** Era entries are ruled lines,
-    the topic index is bare name-and-count, and the page carries one piece of
-    ornament (the headpiece under the nameplate). Each was tried the loud way
-    first — six saturated era plates with wax seals, an ornament band on every
-    section head, a blurb under every topic — and each cost more than it gave.
+  - **Restraint is the feature, not an oversight.** The page carries one piece
+    of ornament: a plain ruled band under the nameplate. It was tried loud first
+    — six saturated era plates with wax seals, an engraved band with a per-era
+    glyph on every section head, a blurb under every topic — and each cost more
+    than it gave. `Headpiece` is now a rule and two lozenges with **no glyph**;
+    `Era.motif` and `Era.stock` went with the plates. `Era.edition`/`strap` are
+    kept but currently unrendered (see the note on the type).
 - **Ornament is drawn, never sourced.** `components/daily-dove/ornament/`
   (`Headpiece` · `Fleuron` · `WaxSeal`) is hand-built SVG, and the paper's
   textures live alongside the palette (laid-paper grain and foxing, both disabled

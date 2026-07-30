@@ -366,19 +366,20 @@ export interface Era {
   ink: string;
   bg: string;
   /* ---- the era's own edition ----
-     The archive is a run of papers, not one paper, so each age is allowed to
-     look like a sheet preserved from that age. These stay deliberately small:
-     a motif in the headpiece, a warmth in the stock, a house line under the
-     nameplate. Anything louder would read as costume. */
-  /** which ornament the headpiece draws for this era — see Headpiece.astro */
-  motif:
-    "chi-rho" | "council-cross" | "vine" | "knot" | "crescent-star" | "rose";
-  /** the run's own name, for the edition line and the era index */
+     The archive is a run of papers, not one paper, so each age has its own run
+     name and its own line about what a paper of that age was reporting.
+
+     CURRENTLY UNRENDERED. These drove the front page's "Browse the Archive by
+     Age" section, which was removed: browsing by era is a refining move, and it
+     belongs to /daily-dove/archive, where the facet rail already offers it. The
+     copy is kept because it is authored content rather than plumbing — if the
+     archive ever labels its era facet with the run name, it is already written.
+     The `motif` and `stock` fields that sat here were plumbing for the deleted
+     era plates and the headpiece glyph, and went with them. */
+  /** the run's own name — "The Catacomb Editions" */
   edition: string;
   /** one line on what a paper of this age would have been reporting */
   strap: string;
-  /** the stock this era's sheets are printed on — a subtle warm/cool shift */
-  stock: string;
 }
 
 export const ERAS: Era[] = [
@@ -390,10 +391,8 @@ export const ERAS: Era[] = [
     full: "The Age of the Martyrs · 1st–3rd century",
     ink: "#8d3a2f",
     bg: "rgba(141,58,47,.12)",
-    motif: "chi-rho",
     edition: "The Catacomb Editions",
     strap: "Filed in secret, under a power that meant to end the Church.",
-    stock: "#2a1517",
   },
   {
     id: "councils",
@@ -403,11 +402,9 @@ export const ERAS: Era[] = [
     full: "The Age of the Councils · 4th–5th century",
     ink: "#234C7A",
     bg: "rgba(35,76,122,.12)",
-    motif: "council-cross",
     edition: "The Conciliar Editions",
     strap:
       "The age when the Church said aloud, and in writing, what she had always believed.",
-    stock: "#101f33",
   },
   {
     id: "byzantium",
@@ -417,11 +414,9 @@ export const ERAS: Era[] = [
     full: "The Byzantine Centuries · 6th–10th century",
     ink: "#3d6157",
     bg: "rgba(61,97,87,.14)",
-    motif: "vine",
     edition: "The Imperial Editions",
     strap:
       "A Christian empire, its capital, its monasteries, and the icons it fought over.",
-    stock: "#0f2420",
   },
   {
     id: "east",
@@ -431,11 +426,9 @@ export const ERAS: Era[] = [
     full: "Hesychasts, Rus’ and the Christian East · 11th–15th century",
     ink: "#4d3258",
     bg: "rgba(77,50,88,.14)",
-    motif: "knot",
     edition: "The Northern & Athonite Editions",
     strap:
       "The faith carried north to Rus’, and the stillness kept on the Holy Mountain.",
-    stock: "#1a1224",
   },
   {
     id: "ottoman",
@@ -445,11 +438,9 @@ export const ERAS: Era[] = [
     full: "Under the Ottomans, and the missions · 16th–18th century",
     ink: "#6b5326",
     bg: "rgba(107,83,38,.14)",
-    motif: "crescent-star",
     edition: "The Captivity Editions",
     strap:
       "A Church under another sovereign, keeping the faith at cost and sending out missions.",
-    stock: "#241d10",
   },
   {
     id: "modern",
@@ -459,11 +450,9 @@ export const ERAS: Era[] = [
     full: "New martyrs and the modern age · 19th–21st century",
     ink: "#1f5e54",
     bg: "rgba(31,94,84,.13)",
-    motif: "rose",
     edition: "The Modern Editions",
     strap:
       "New martyrs, new continents, and elders whose witnesses are still alive.",
-    stock: "#0d211d",
   },
 ];
 

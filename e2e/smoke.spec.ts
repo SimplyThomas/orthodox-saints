@@ -380,12 +380,12 @@ test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
     "Persecution Report",
   );
 
-  // The archive is a run of papers: one plate per age, each with its own
-  // edition name.
-  await expect(page.locator(".dove-eragrid .era")).toHaveCount(6);
-  await expect(page.locator(".dove-eragrid")).toContainText(
-    "The Catacomb Editions",
-  );
+  // NO BROWSING FURNITURE. Refining by era or by kind of help is what a reader
+  // does once they are in the archive, and the front page points them at it
+  // rather than reproducing its facets.
+  await expect(page.locator(".dove-eragrid")).toHaveCount(0);
+  await expect(page.locator(".dove-topiclist")).toHaveCount(0);
+  await expect(page.locator(".arch")).toBeVisible();
 
   // The Historian's Desk stands on the front page, with the archive's ledger.
   await expect(page.locator(".dove-hist h2")).toHaveText(
@@ -401,14 +401,13 @@ test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
   await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
 });
 
-test("the front page's era plates open the archive already filtered", async ({
+test("the archive opens already filtered from a #facet-value link", async ({
   page,
 }) => {
-  await page.goto("./daily-dove/");
-  await page.locator(".dove-eragrid .era").first().click();
-  await expect(page).toHaveURL(/\/daily-dove\/archive#era-martyrs$/);
-  // The archive island reads the hash, so the reader does not have to make the
-  // same choice twice.
+  // A shareable deep link into the stacks. Nothing on the front page emits one
+  // any more — the browse-by-era section was removed — but the capability is
+  // the archive's own and is what makes a filtered view linkable at all.
+  await page.goto("./daily-dove/archive#era-martyrs");
   await expect(page.locator("#arc-chips")).toContainText("Age of Martyrs");
   const rows = page.locator(".arc-row:visible");
   expect(await rows.count()).toBeGreaterThan(0);
@@ -558,14 +557,12 @@ test("dispatches claim the era their century actually falls in", async ({
 test("the paper can be refined by the kind of help asked for", async ({
   page,
 }) => {
-  // This path — a reader arriving with a trouble rather than a date — starts on
-  // the front page's "Browse by What Was Asked For" and lands on the archive
-  // already narrowed. The front page carries no filter controls of its own.
-  await page.goto("./daily-dove/");
-  await page
-    .locator(".dove-topiclist a", { hasText: "Provision in need" })
-    .click();
-  await expect(page).toHaveURL(/#wonder-provision$/);
+  // The path for a reader arriving with a trouble rather than a date. It lives
+  // entirely in the archive now — the front page's "Browse by What Was Asked
+  // For" section was removed, because refining is what you do once you are in
+  // the stacks, not on the way in.
+  await page.goto("./daily-dove/archive/");
+  await page.locator(".arc-facet", { hasText: "Provision in need" }).click();
 
   await expect(page.locator("#arc-chips")).toContainText("Provision in need");
   const shown = page.locator(".arc-row:visible");
