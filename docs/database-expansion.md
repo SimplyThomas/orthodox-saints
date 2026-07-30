@@ -241,8 +241,8 @@ _Held for a follow-up pass (uncertain individual glorification / hagiographer-wr
 
 - **St. Marcian the Emperor** (Feb 17, with St. Pulcheria) → `OS-2924`
 - **Venerable Anthusa, Abbess of Mantineon** (Jul 27, +759) → `OS-2925`
-- **St. Arsenije I, Archbishop of Serbia** (Oct 28) → `OS-2926`
-- **St. Paisije, Patriarch of Serbia** (Oct 3; glorified 2017) → `OS-2927`
+- **St. Arsenije I, Archbishop of Serbia** (Oct 28) → `OS-2926` — RETIRED as a duplicate of `OS-2094` (#228); the merged row is `OS-2094`.
+- **St. Paisije, Patriarch of Serbia** (Oct 3; glorified 2017) → `OS-2927` — RETIRED as a duplicate of `OS-2636` (#228); the merged row carries both the Oct 2 and Oct 3 dates.
 - **Martyrs Kodratos, Akakios & Stratonikos of Ptolemais** (Aug 17; Mar 4) → `OS-2928` (one group row — three undifferentiated soldier co-martyrs)
 
 _Paisije's feast is Oct 3 (O.S.), not the "Nov 3" earlier noted in the register._
