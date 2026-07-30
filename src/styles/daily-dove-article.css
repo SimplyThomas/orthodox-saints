@@ -10,14 +10,16 @@
    chrome (departments, Historian's Notes, Around the Empire, the series index)
    stays scoped inside those components. */
 .na {
-  background: var(--dove-parchment);
+  background: var(--dv-stock, #f1eee4);
 }
-/* The nameplate band carries the paper's dark stock down from the front
-     page; the reading column below stays light, because a long article set in
-     ivory on navy is a chore to read and reading is the whole point. */
+/* The nameplate band prints on the same newsprint as the sheet below it. It
+     used to carry a dark band down from the front page; the front page is
+     newsprint now, and a navy strip above pale copy read as a site header
+     bolted onto a newspaper rather than as the top of one. */
 .na-mastwrap {
-  background: var(--byz-ink);
+  background: var(--dv-stock, #f1eee4);
   padding: 0 clamp(20px, 4vw, 56px) 10px;
+  border-bottom: 2px solid var(--dv-ink, #1f1c17);
 }
 .na-serieswrap {
   max-width: 1100px;

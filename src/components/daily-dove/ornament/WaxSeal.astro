@@ -1,0 +1,85 @@
+---
+/* An archivist's seal — the scalloped wax disc pressed onto a filed sheet.
+
+   The paper uses it as its provenance mark: it sits on the era plates and the
+   archive notices, carrying the century in Roman numerals, so a reader's eye
+   reads "this sheet was filed and kept" before it reads any copy. Purely
+   decorative furniture; nothing that matters is stated only here. */
+interface Props {
+  /** short mark stamped into the wax — a century numeral, a letter */
+  mark?: string;
+  size?: number;
+  color?: string;
+  /** the wax itself; defaults to a burgundy that reads on the dark stock */
+  wax?: string;
+}
+const {
+  mark = "☦",
+  size = 54,
+  color = "var(--gold-soft)",
+  wax = "rgba(109,32,38,.9)",
+} = Astro.props;
+
+/* Twenty-four scallops around the rim — the ragged edge of pressed wax. */
+const scallops = Array.from({ length: 24 }, (_, i) => {
+  const a = (i / 24) * Math.PI * 2;
+  return `${(50 + Math.cos(a) * 45).toFixed(2)},${(50 + Math.sin(a) * 45).toFixed(2)}`;
+});
+---
+
+<span
+  class="seal"
+  style={`--seal-size:${size}px;--seal-wax:${wax};color:${color}`}
+>
+  <svg viewBox="0 0 100 100" aria-hidden="true">
+    <polygon
+      class="seal-wax"
+      points={scallops.join(" ")}
+      style="fill:var(--seal-wax)"></polygon>
+    <circle
+      cx="50"
+      cy="50"
+      r="37"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.4"
+      opacity=".75"></circle>
+    <circle
+      cx="50"
+      cy="50"
+      r="33"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="0.7"
+      opacity=".5"></circle>
+  </svg>
+  <span class="seal-mark">{mark}</span>
+</span>
+
+<style>
+  .seal {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: var(--seal-size);
+    height: var(--seal-size);
+    flex: 0 0 auto;
+  }
+  .seal svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* wax sits slightly proud of the sheet */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+  }
+  .seal-mark {
+    position: relative;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: calc(var(--seal-size) * 0.34);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: currentColor;
+  }
+</style>

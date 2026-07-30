@@ -1,0 +1,66 @@
+---
+/* The standing pill row under a dispatch's summary: WHEN · WHO · WHAT KIND.
+
+   One component rather than a hand-assembled row at each call site, because the
+   set is the point — a reader learns to read the three positions once and then
+   reads every dispatch the same way. Assembled inline in two places, they drift
+   within a week.
+
+   Order is deliberate and is the order the questions get asked: which age is
+   this from, whose story is it, and what was asked for.
+
+   The wonder pills are CAPPED. A dispatch can report five kinds of help, and
+   five dashed pills after the era and the saint is a badge rack rather than a
+   row — the rest are on the dispatch itself and in the archive's facets.
+
+   `plain` IS NOT COSMETIC — IT IS REQUIRED INSIDE A LINKED ROW. The archive
+   rows and the related-dispatch cards are each one big <a> wrapping the whole
+   row. An anchor inside an anchor is invalid HTML, and the browser does not
+   merely ignore it: it closes the outer anchor early, so the pills spill out of
+   the card and the card stops linking to its own dispatch. Anywhere the pills
+   sit inside a link, pass `plain` and let the row carry the click. */
+import type { NewsItem } from "../../lib/daily-dove";
+import EraPill from "./EraPill.astro";
+import SaintPill from "./SaintPill.astro";
+import WonderPill from "./WonderPill.astro";
+
+interface Props {
+  n: NewsItem;
+  size?: number;
+  /** how many kind-of-help pills to show at most */
+  maxWonders?: number;
+  /** no links out — REQUIRED when the pills sit inside a linked row */
+  plain?: boolean;
+  /** drop the era pill where the row already says when (the archive's century) */
+  showEra?: boolean;
+}
+const {
+  n,
+  size = 10.5,
+  maxWonders = 2,
+  plain = false,
+  showEra = true,
+} = Astro.props;
+const wonders = (n.miracles ?? []).slice(0, maxWonders);
+---
+
+<div class="dpills">
+  {showEra && <EraPill century={n.century} size={size} />}
+  <SaintPill
+    saint={n.saint}
+    subjects={n.subjects}
+    label={n.saintLabel}
+    size={size}
+    plain={plain}
+  />
+  {wonders.map((w) => <WonderPill wonder={w} size={size} plain={plain} />)}
+</div>
+
+<style>
+  .dpills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+</style>

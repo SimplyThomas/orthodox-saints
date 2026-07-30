@@ -7,20 +7,17 @@ import { eraOf } from "../../lib/daily-dove";
 interface Props {
   century: number;
   size?: number;
-  onDark?: boolean;
 }
-const { century, size = 10.5, onDark = false } = Astro.props;
+const { century, size = 10.5 } = Astro.props;
 const era = eraOf(century);
 ---
 
 <span
   class="erapill"
   title={era.full}
-  style={`font-size:${size}px;color:${onDark ? "var(--ivory)" : era.ink};background:${onDark ? "rgba(245,235,216,.16)" : era.bg}`}
+  style={`font-size:${size}px;color:${era.ink};background:${era.bg}`}
 >
-  <i
-    style={onDark ? "background:var(--gold-soft)" : `background:${era.ink}`}
-    aria-hidden="true"></i>
+  <i style={`background:${era.ink}`} aria-hidden="true"></i>
   {era.name}
 </span>
 

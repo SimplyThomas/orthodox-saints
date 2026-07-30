@@ -632,17 +632,21 @@ covers it), which mirrors `feastlib.py`. Design spec:
 
 ## 5c. The Daily Dove (`src/content/daily-dove/`, the `dailyDove` collection)
 
-**"Reporting from the Church Since Pentecost."** A historical newspaper: moments
-from two thousand years of Church history written as though a paper had been
-there to report them. Immersive and full of personality, but **never satire and
-never fiction** — the reporting voice is a device, the history under it is held
-to account. Routes: `/daily-dove`, `/daily-dove/archive`, `/daily-dove/<slug>`,
-and `/daily-dove/framework` (an unlisted specimen of the article layout — every
-slot filled with copy describing the slot, no history on it at all). The old
-`/news` paths redirect.
+**"The Living Archive."** Not one newspaper but an archive of them: a run of
+papers kept from Pentecost to the present, each sheet reporting its own age as
+though a paper had been there to cover it. Immersive and full of personality, but
+**never satire and never fiction** — the reporting voice is a device, the history
+under it is held to account. Routes: `/daily-dove`, `/daily-dove/archive`,
+`/daily-dove/<slug>`, and `/daily-dove/framework` (an unlisted specimen of the
+dispatch layout — every slot filled with copy describing the slot, no history on
+it at all). The old `/news` paths redirect.
 
-**THE EVIDENCE SCALE IS THE POINT.** Every article carries one of five levels,
-and every article closes with the **Historian's Notes**, where each strand of the
+**They are DISPATCHES, never "articles."** The word is load-bearing in the UI
+(Latest Dispatches, Read the dispatch, N dispatches on file) and in the prose
+here; a stray "article" reads as a blog and undoes the section's whole register.
+
+**THE EVIDENCE SCALE IS THE POINT.** Every dispatch carries one of five levels,
+and every dispatch closes at the **Historian's Desk**, where each strand of the
 story is set against the level that actually carries it. A reader must never
 have to guess which part of what they enjoyed is documented and which is the
 living tradition of the Church.
@@ -666,12 +670,27 @@ rather than bend an existing one.
   which parts of an article are device rather than record (the marketplace
   chatter, the unnamed watchman, the invented interview format). It renders
   inside the Historian's Notes, where a reader is already weighing what to trust.
-- **Departments** (`departments[]`, ordered by `DEPARTMENT_ORDER`, not YAML
-  order): Voices from the Forum · Imperial Dispatch · Marketplace Buzz ·
-  **Whispers Around the Council** · Fact Check. Two carry standing notices
-  *before* their content: Whispers (later tradition, not contemporary record)
-  and Voices (illustrative composites — **never words in a real person's mouth**
-  unless a primary source records them).
+- **THE DEPARTMENTS ARE THE ONE CLASSIFICATION AXIS.** `DEPARTMENTS` in
+  `src/lib/daily-dove.ts` is the newsroom: a single list whose entries are marked
+  `files` (a desk a dispatch is filed under — `desk:` in the YAML, exactly one,
+  enumerated in the Zod schema), `column` (a desk that also runs a box *inside*
+  another desk's dispatch — `departments[]`, ordered by `DEPARTMENT_ORDER`, not
+  YAML order), or both.
+  - **Filing desks:** Imperial Dispatch · Church Life · Miracle Watch ·
+    Persecution Report · Pilgrim's Journal · Marketplace Buzz.
+  - **Columns:** Voices from the Forum · Whispers Around the Council · Fact
+    Check · Historian's Desk (+ Imperial and Marketplace, which do both).
+  Two columns carry standing notices *before* their content: Whispers (later
+  tradition, not contemporary record) and Voices (illustrative composites —
+  **never words in a real person's mouth** unless a primary source records them).
+  The Historian's Desk is a column that is never optional and never authored as a
+  run: it is `historiansNotes` and always closes the sheet. **The columns are not
+  indexed on the front page** — a reader meets them where they actually appear,
+  inside a dispatch; listing them under "Our Departments" was inside-baseball.
+  The earlier generic subject categories (Healings, Apparitions, Relics, Modern
+  Saints, Orthodox America, Historical Reports) are **retired** — every dispatch
+  had been filed under the same one, and the names read as blog tags. Do not
+  reintroduce a second axis beside the departments.
 - **`aroundTheEmpire`** is the side column — `heading` renames it (Around the
   Kingdom, Around the Holy Land), `intro` carries the single-paragraph form.
   `interview[]` is for sources that are themselves first-person testimony;
@@ -684,11 +703,108 @@ rather than bend an existing one.
   and a padded one destroys the facet's worth.
 - **Era colour.** Plates take their colour from `eraOf(century)` — six bands
   from the Age of the Martyrs to the Modern Age — with an EraPill naming the
-  band, because a colour nobody can name is decoration.
+  band, because a colour nobody can name is decoration. `Era` carries nothing
+  beyond its range, name and ink: a per-era motif, run name ("The Conciliar
+  Editions"), strapline and paper stock were all built and **removed** with the
+  era plates and the browse-by-age section they were drawn for. Each age looking
+  like a sheet preserved from that age is a lovely idea that cost more than it
+  gave; if it returns, it needs a page that is actually about the eras, not four
+  fields riding on a colour lookup.
+- **The front page is a broadsheet, not a feed, and it is TWO columns.**
+  `/daily-dove` is ordered the way a paper is ordered — nameplate → lead + one
+  sidebar column → Also In This Edition → Latest Dispatches → **Archive** →
+  Departments → Historian's Desk → the evidence key, folded shut and **last**.
+  The archive card sits above the departments: once a reader has come to the end
+  of today's stories, the next thing to offer is the rest of them.
+  - The top was three columns (lead · secondaries · margin) and that was the
+    page's real busyness problem: three columns beside a lead cut the sheet into
+    strips too narrow to read without a heading over every block, so the busiest
+    thing on the page was the furniture explaining it. **Do not add a third.**
+    The one sidebar column carries the secondaries, the briefs, the pull quote
+    and This Day, read straight down.
+  - The secondaries are **kicker + headline only** — no summary, no era pill. A
+    second column is scanned for headlines; clamped grey copy trailing an
+    ellipsis earned none of the room it took.
+  - **NO BROWSING FURNITURE ON THE FRONT PAGE.** No filter bar, and no
+    browse-by-era or browse-by-topic sections (both were built and removed).
+    Refining is what a reader does once they are *in* the archive, and
+    `/daily-dove/archive` is built for it — its facet rail already offers era,
+    century, place, saint, department, evidence and kind-of-help. The front
+    page's job is to lead with stories and point at the stacks. The archive
+    still honours a `#<facet>-<value>` hash so a filtered view stays linkable.
+  - The lead runs `summary` + the opening of the dispatch's own `body`, and
+    closes "Continued — read the dispatch in full". A dispatch's `body` restates
+    its dek and summary at the top (house style — the dispatch page has to stand
+    alone), and the two halves are set in different spellings (UK front matter,
+    US body: *travelled/traveled*, *centres/centers*), so the page dedupes on a
+    **12-word set overlap at 0.7**, not on equality or a prefix. If a lead ever
+    prints the same paragraph twice, that threshold is where to look. Two rules hold the effect up: **not everything is a card** (the lead
+  is a broadsheet block with a drop cap and set columns, the briefs are one line
+  each, the notices are a classified column), and **no filter bar lives here** —
+  faceted browsing is `/daily-dove/archive`, which the era and topic sections
+  link into with a `#<facet>-<value>` hash the archive island honours. A row of
+  selects under the masthead is what made the page read as a dashboard.
+- **THE SECTION PRINTS ON NEWSPRINT — the whole of it, front page, archive and
+  dispatch pages alike.** The palette lives in `styles/daily-dove-paper.css`
+  (`.dv-*`, applied via a `dv` class on each page's root). The first build used
+  the site's navy as the ground and it was wrong here: on a dark stock every
+  panel needs a coloured fill to lift off the background, so the page filled with
+  competing blocks and read as busy. **The brand navy is not gone — it is an INK
+  now** (nameplate, headlines, the site header and footer above and below), and
+  the moment a dove section takes a navy *fill* again, everything around it needs
+  a fill to compete and the page re-crowds.
+  - Colour discipline: ink for type, a gilt hairline for rules, burgundy for the
+    second-colour marks a press would run (kickers, notices, the seal). Era inks
+    appear as a dot or a hairline, **never as a filled plate**.
+  - There is no `onDark` variant anywhere in this section any more. The props
+    existed while the ground was navy and were deleted rather than left as a
+    trap: ivory-on-newsprint is invisible, which is exactly the bug they caused.
+  - **Restraint is the feature, not an oversight.** The page carries one piece
+    of ornament: a plain ruled band under the nameplate. It was tried loud first
+    — six saturated era plates with wax seals, an engraved band with a per-era
+    glyph on every section head, a blurb under every topic — and each cost more
+    than it gave. `Headpiece` is now a rule and two lozenges with **no glyph**,
+    and `Era` is back to range/name/ink — `motif`, `stock`, `edition` and `strap`
+    all went with the plates rather than lingering as data nothing renders.
+- **Ornament is drawn, never sourced.** `components/daily-dove/ornament/`
+  (`Headpiece` · `Fleuron` · `WaxSeal`) is hand-built SVG, and the paper's
+  textures live alongside the palette (laid-paper grain and foxing, both disabled
+  under `prefers-reduced-motion`/`prefers-contrast`). This keeps the visual layer
+  clear of §9's image-licensing gate entirely. If real public-domain engravings
+  are ever added, they go through a licensed join like `saint_images.csv` — never
+  hotlinked, never unlicensed.
+- **The standing NOTICES** on the front page are period-styled classified ads,
+  and every one points at something this site genuinely offers (the quiz, the
+  calendar, the corrections form). An ad for a thing that does not exist is the
+  one place the conceit would tip into fiction.
+
+- **The archive (`/daily-dove/archive`) is where refining happens.** A search box
+  at the top, seven collapsible facet groups in the rail (first two open — the
+  kind of help someone arrived carrying, and the desk), and a sort dropdown over
+  the results. Everything ANDs: the query narrows whatever the facets already
+  left, and sorting is independent of both. All of it degrades — rows are
+  server-rendered in century order, so with JS off the archive is a complete,
+  sensibly-ordered list and the controls simply do nothing. Sort keys are emitted
+  as `data-sort*` attributes on each row rather than derived in the island, and
+  `data-saint` stays the *facet's* key (the bare first name it groups on) — do
+  not overload it for display sorting.
+- **Every dispatch carries a pill row: WHEN · WHO · WHAT KIND** (`DispatchPills`
+  → `EraPill` · `SaintPill` · `WonderPill`). Two rules on it:
+  - **`plain` is mandatory wherever the pills sit inside a linked row** (the
+    archive rows and the related-dispatch cards are each one big `<a>`). An
+    anchor inside an anchor is invalid and the browser closes the outer one
+    early, so the pills spill out and the row stops linking to its own dispatch.
+  - **`SaintPill` links by OS-#### id, and refuses to link for a collective.**
+    `saintLabel` usually just spells the person out ("Barlaam" → "Barlaam of
+    Khutyn") and should link, but on the council dispatches it names a *body* —
+    "The Fathers of the First Council" — while `subjects[0]` is one
+    representative father. It links only when the person's own name appears in
+    the label: 28 of 36 link, and the 8 that don't are the seven councils plus
+    Palladius, which carries no verified id.
 
 **THE JOINS ARE BY ID, NEVER BY NAME (§6 applies).** `subjects: [OS-####]` puts
-the article on a saint's page; `feasts: [FF-####]` puts it on the feast page and
-the calendar. The article subjects include a Callinicus, a Barlaam, a Parthenios
+the dispatch on a saint's page; `feasts: [FF-####]` puts it on the feast page and
+the calendar. The dispatch subjects include a Callinicus, a Barlaam, a Parthenios
 and a Michael who each share a first name with several other saints in the data —
 there are five Barlaams — so a name match would link the wrong man's page to the
 wrong man's martyrdom. Verify every id against the CSV before adding it, and
@@ -814,11 +930,17 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **The Daily Dove is built and unpublished.** 36 articles across nineteen
+- **The Daily Dove is built and unpublished.** 36 dispatches across nineteen
   centuries, linked from 34 saint pages, 3 feast pages and the calendar, and in the
-  nav. Held open: the Joseph the Sanctified article (which Joseph?), Palladius and
+  nav. Held open: the Joseph the Sanctified dispatch (which Joseph?), Palladius and
   the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
   missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
+  The section was rebuilt as **The Living Archive** (§5c) after the first merge:
+  broadsheet front page on newsprint, the newsroom departments as the single filing
+  axis, dispatch pills (when · who · what kind), and an archive with search, sort
+  and folding facets. Only Marketplace Buzz is thin (1 dispatch) —
+  the desks are standing sections and are shown even when quiet, so that is a
+  commissioning gap, not a bug.
 - **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
   promoted `→ reviewed`, so nearly all saints **and all 83 feasts are now public**; the 141
   `flagged` profiles stay hidden (resolve via #349). **Visibility is no longer the lever —

@@ -33,7 +33,7 @@ const profile = (await loadProfileMap())[saint.id];
 // OS-#### id from the article's `subjects` (never by name — see the note on
 // articlesBySaint), so a reader who lands on the saint can go straight to the
 // story, and the two halves of the site point at each other.
-const doveArticles = (await articlesBySaint()).get(saint.id) ?? [];
+const doveDispatches = (await articlesBySaint()).get(saint.id) ?? [];
 
 // Editorial review state — surfaced as a full-width band beneath the hero.
 const isReviewed = profile?.status === "reviewed";
@@ -1012,9 +1012,9 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
               )}
 
               {/* the paper's account of this saint */}
-              {doveArticles.length > 0 && (
+              {doveDispatches.length > 0 && (
                 <section class="sv-section">
-                  <DoveBand articles={doveArticles} />
+                  <DoveBand dispatches={doveDispatches} />
                 </section>
               )}
 

@@ -1,0 +1,54 @@
+---
+/* The department pill — the desk a dispatch is filed under, in that desk's own
+   colour, on the section's newsprint ground.
+
+   Was CatPill, from when the paper filed under generic subject categories.
+   Those are gone (see DEPARTMENTS in lib/daily-dove.ts): there is one
+   classification axis now, and it is the newsroom. */
+import { DEPARTMENT } from "../../lib/daily-dove";
+
+interface Props {
+  /** the department id a dispatch is filed under */
+  desk: string;
+  short?: boolean;
+  size?: number;
+}
+const { desk, short = true, size = 10.5 } = Astro.props;
+const d = DEPARTMENT[desk] ?? {
+  name: desk,
+  short: desk,
+  ink: "var(--byz)",
+  bg: "rgba(35,76,122,.10)",
+};
+---
+
+<span
+  class="deskpill"
+  style={`font-size:${size}px;color:${d.ink};background:${d.bg}`}
+>
+  <i aria-hidden="true"></i>
+  {short ? d.short : d.name}
+</span>
+
+<style>
+  .deskpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 9px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .deskpill i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+</style>

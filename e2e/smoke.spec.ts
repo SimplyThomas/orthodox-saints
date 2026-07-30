@@ -343,59 +343,210 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("The Daily Dove front page: nameplate, evidence key, departments", async ({
+test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
   page,
 }) => {
   const resp = await page.goto("./daily-dove/");
   expect(resp?.status()).toBe(200);
 
-  // The nameplate and its motto — the paper's whole identity.
+  // The nameplate and its standing subtitle — the paper's whole identity.
   await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
   await expect(page.locator(".dove-motto").first()).toHaveText(
-    "Reporting from the Church Since Pentecost",
+    "The Living Archive",
   );
-
-  // The lead story and the chronological feed render.
-  await expect(page.locator(".cwn-lead")).toBeVisible();
-  expect(await page.locator(".cwn-river .drow").count()).toBeGreaterThan(4);
-
-  // The five-level evidence scale is printed on the front page.
-  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
-
-  // Every standing department is listed. (Historian's Notes is not among them —
-  // it closes every article rather than being an optional section.)
-  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(5);
-  await expect(page.locator(".dove-depts-grid")).toContainText(
-    "Whispers Around the Council",
-  );
-  await expect(page.locator(".dove-depts-grid")).toContainText(
-    "Voices from the Forum",
-  );
-  await expect(page.locator(".dove-depts-grid")).toContainText("Fact Check");
   await expect(page.locator(".dove-standfirst")).toContainText(
-    "Historian’s Notes",
+    "as though a newspaper had been there",
   );
 
-  // The rail keeps This Day in Orthodox History and Most Read.
-  await expect(page.locator(".cwn-thisday")).toBeVisible();
-  // "Start Here" lists the paper's real dispatches, not a mock popularity list.
-  const startHere = page.locator(".cwn-mostread .cwn-mr-row");
-  expect(await startHere.count()).toBeGreaterThan(1);
-  await expect(startHere.first()).toHaveAttribute("href", /\/daily-dove\//);
+  // Dramatic hierarchy: one lead, two secondaries, a run of one-line briefs,
+  // and the tiny "Also In This Edition" notices. If these ever collapse into
+  // one repeated card the page has lost the rhythm it was rebuilt for.
+  await expect(page.locator(".fp-lead-h")).toBeVisible();
+  await expect(page.locator(".fp-sec")).toHaveCount(2);
+  expect(await page.locator(".fp-briefs li").count()).toBeGreaterThan(2);
+  expect(await page.locator(".dove-also-list li").count()).toBeGreaterThan(2);
+  expect(await page.locator(".lat-stack li").count()).toBeGreaterThan(2);
 
-  // A desk chip swaps the feed for the filtered card grid.
-  await page
-    .locator(".cwn-chiprow .news-chip", { hasText: "Historical" })
-    .click();
-  await expect(page.locator("#news-feed")).toBeHidden();
-  await expect(page.locator("#news-results")).toBeVisible();
-  const shown = page.locator("#news-cards .news-feed-card:visible");
-  expect(await shown.count()).toBeGreaterThan(0);
-  for (const card of await shown.all())
-    expect(await card.getAttribute("data-cat")).toBe("historical");
+  // NO FILTER BAR. Faceted browsing belongs to /daily-dove/archive; a row of
+  // selects under the masthead is what made this page read as an app.
+  await expect(page.locator(".cwn-filters")).toHaveCount(0);
+  await expect(page.locator("#news-q")).toHaveCount(0);
 
-  await page.locator("#news-clear").click();
-  await expect(page.locator("#news-feed")).toBeVisible();
+  // The newsroom: the six desks a dispatch can be filed under. The columns
+  // that run inside a dispatch are met inside one, not indexed here.
+  await expect(page.locator(".dove-deptlist .dept")).toHaveCount(6);
+  await expect(page.locator(".dove-deptlist")).toContainText("Miracle Watch");
+  await expect(page.locator(".dove-deptlist")).toContainText(
+    "Persecution Report",
+  );
+
+  // NO BROWSING FURNITURE. Refining by era or by kind of help is what a reader
+  // does once they are in the archive, and the front page points them at it
+  // rather than reproducing its facets.
+  await expect(page.locator(".dove-eragrid")).toHaveCount(0);
+  await expect(page.locator(".dove-topiclist")).toHaveCount(0);
+  await expect(page.locator(".arch")).toBeVisible();
+
+  // The Historian's Desk stands on the front page, with the archive's ledger.
+  await expect(page.locator(".dove-hist h2")).toHaveText(
+    "The Historian’s Desk",
+  );
+  expect(await page.locator(".hist-row").count()).toBeGreaterThan(1);
+
+  // The key to the evidence scale is LAST and FOLDED SHUT — a reader should
+  // fall into the paper before being handed a legend.
+  const key = page.locator("details.key");
+  await expect(key).not.toHaveAttribute("open", "");
+  await key.locator("summary").click();
+  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
+});
+
+test("a dispatch's saint pill links by id, and never for a collective", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/");
+  const pills = page.locator(".saintpill");
+  expect(await pills.count()).toBeGreaterThan(0);
+
+  // Whoever a dispatch is about is named, and where the subject is one person
+  // the pill is a link into that saint's own page — by OS-#### id, never by
+  // name (the corpus has five Barlaams and two Partheniuses).
+  const linked = page.locator("a.saintpill");
+  expect(await linked.count()).toBeGreaterThan(0);
+  for (const a of await linked.all())
+    expect(await a.getAttribute("href")).toMatch(/\/saint\/OS-\d{4,}\/?$/);
+
+  // …and never for a dispatch whose subject is a BODY. "The Fathers of the
+  // First Council" must not land on the one father who happens to be its first
+  // verified subject.
+  for (const a of await linked.all())
+    expect((await a.innerText()).toLowerCase()).not.toContain("the fathers of");
+});
+
+test("no dispatch pill is nested inside a linked row", async ({ page }) => {
+  // An <a> inside an <a> is invalid, and the browser does not merely ignore it:
+  // it closes the outer anchor early, so the pills spill out of the row and the
+  // row stops linking to its own dispatch. The archive rows and the related
+  // cards are each one big anchor, so their pills must be `plain`.
+  for (const url of [
+    "./daily-dove/archive/",
+    "./daily-dove/nicaea-325-bishops-gather/",
+  ]) {
+    await page.goto(url);
+    const nested = await page.evaluate(
+      () =>
+        [...document.querySelectorAll("a.arc-row, a.news-feed-card")].filter(
+          (row) => row.querySelector("a"),
+        ).length,
+    );
+    expect(nested, `nested anchors on ${url}`).toBe(0);
+
+    // …and the rows still link where they should.
+    const rows = page.locator("a.arc-row, a.news-feed-card");
+    if (await rows.count())
+      expect(await rows.first().getAttribute("href")).toMatch(/\/daily-dove\//);
+  }
+});
+
+test("the archive's search box narrows the rows and combines with a facet", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const visible = () => page.locator(".arc-row:visible").count();
+  const all = await visible();
+  expect(all).toBeGreaterThan(10);
+
+  // A word, not a category — how most people arrive at an archive.
+  await page.fill("#arc-q", "xenia");
+  await expect.poll(visible).toBeLessThan(all);
+  await expect(page.locator(".arc-row:visible h3").first()).toBeVisible();
+
+  // Terms match in any order: it is an AND over the row's haystack, not a
+  // substring match on the whole phrase.
+  const one = await visible();
+  await page.fill("#arc-q", "petersburg xenia");
+  await expect.poll(visible).toBe(one);
+
+  // The query ANDs with the facets rather than replacing them.
+  await page.fill("#arc-q", "council");
+  const q = await visible();
+  await page.locator(".arc-facet", { hasText: "Imperial Dispatch" }).click();
+  await expect.poll(visible).toBeLessThanOrEqual(q);
+
+  // Clear all resets the query as well as the facets.
+  await page.locator("#arc-clear").click();
+  await expect(page.locator("#arc-q")).toHaveValue("");
+  await expect.poll(visible).toBe(all);
+
+  // A query matching nothing shows the empty state rather than a blank page.
+  await page.fill("#arc-q", "zzzznope");
+  await expect(page.locator("#arc-empty")).toBeVisible();
+});
+
+test("the archive can be sorted, and the sort survives filtering", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const firstHeadline = async () =>
+    (await page.locator(".arc-row:visible h3").first().innerText()).trim();
+
+  // Default is century ascending — the right default for an archive that runs
+  // from the Apostles to the present.
+  await expect(page.locator("#arc-sort")).toHaveValue("century");
+  const earliest = await firstHeadline();
+
+  await page.selectOption("#arc-sort", "century-desc");
+  await expect.poll(firstHeadline).not.toBe(earliest);
+
+  // Every option reorders rather than silently doing nothing.
+  const seen = new Set<string>();
+  for (const v of ["name", "place", "desk", "evidence", "headline"]) {
+    await page.selectOption("#arc-sort", v);
+    seen.add(await firstHeadline());
+  }
+  expect(seen.size).toBeGreaterThan(1);
+
+  // Sorting and filtering are independent: narrowing keeps the chosen order.
+  await page.selectOption("#arc-sort", "name");
+  const sortedFirst = await firstHeadline();
+  await page.fill("#arc-q", "council");
+  await expect
+    .poll(() => page.locator(".arc-row:visible").count())
+    .toBeLessThan(36);
+  await page.fill("#arc-q", "");
+  await expect.poll(firstHeadline).toBe(sortedFirst);
+});
+
+test("the archive's facet groups fold, and the first two start open", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const groups = page.locator("details.arc-fgroup");
+  expect(await groups.count()).toBeGreaterThan(3);
+
+  // Seven groups open at once made a rail several screens tall.
+  await expect(groups.nth(0)).toHaveAttribute("open", "");
+  await expect(groups.nth(1)).toHaveAttribute("open", "");
+  await expect(groups.nth(2)).not.toHaveAttribute("open", "");
+
+  // A shut group still opens, and its facets still filter.
+  await groups.nth(2).locator("summary").click();
+  await expect(groups.nth(2)).toHaveAttribute("open", "");
+  await expect(groups.nth(2).locator(".arc-facet").first()).toBeVisible();
+});
+
+test("the archive opens already filtered from a #facet-value link", async ({
+  page,
+}) => {
+  // A shareable deep link into the stacks. Nothing on the front page emits one
+  // any more — the browse-by-era section was removed — but the capability is
+  // the archive's own and is what makes a filtered view linkable at all.
+  await page.goto("./daily-dove/archive#era-martyrs");
+  await expect(page.locator("#arc-chips")).toContainText("Age of Martyrs");
+  const rows = page.locator(".arc-row:visible");
+  expect(await rows.count()).toBeGreaterThan(0);
+  for (const row of await rows.all())
+    expect(await row.getAttribute("data-era")).toBe("martyrs");
 });
 
 test("a Daily Dove article carries its metadata bar and evidence", async ({
@@ -503,14 +654,18 @@ test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
   await expect(noted).toHaveCount(2);
 });
 
-test("dispatch plates take their colour from the era", async ({ page }) => {
-  await page.goto("./daily-dove/");
-  const rows = page.locator(".cwn-river .drow");
+test("dispatches claim the era their century actually falls in", async ({
+  page,
+}) => {
+  // Checked on the archive, which lists every dispatch on one page — the front
+  // page now shows an editorial selection rather than the whole run.
+  await page.goto("./daily-dove/archive/");
+  const rows = page.locator(".arc-row");
   expect(await rows.count()).toBeGreaterThan(4);
 
   // The six era bands, as defined in lib/daily-dove. Derived rather than
-  // pinned to particular headlines, so the assertion survives the feed
-  // changing as the paper grows.
+  // pinned to particular headlines, so the assertion survives the paper
+  // growing.
   const BANDS: [string, number, number][] = [
     ["martyrs", 1, 3],
     ["councils", 4, 5],
@@ -524,37 +679,41 @@ test("dispatch plates take their colour from the era", async ({ page }) => {
     const era = await row.getAttribute("data-era");
     const century = Number(await row.getAttribute("data-century"));
     expect(era).toBeTruthy();
-    // Every plate names its band, so the colour is legible not decorative.
-    await expect(row.locator(".erapill")).toBeVisible();
-    // …and the band it claims is the one its century actually falls in.
     const band = BANDS.find(([, from, to]) => century >= from && century <= to);
     expect(era).toBe(band?.[0]);
   }
+
+  // On the front page the colour is always named, never left as decoration.
+  await page.goto("./daily-dove/");
+  await expect(page.locator(".erapill").first()).toBeVisible();
 });
 
 test("the paper can be refined by the kind of help asked for", async ({
   page,
 }) => {
-  await page.goto("./daily-dove/");
+  // The path for a reader arriving with a trouble rather than a date. It lives
+  // entirely in the archive now — the front page's "Browse by What Was Asked
+  // For" section was removed, because refining is what you do once you are in
+  // the stacks, not on the way in.
+  await page.goto("./daily-dove/archive/");
+  await page.locator(".arc-facet", { hasText: "Provision in need" }).click();
 
-  // The refine row offers only kinds of help the paper actually reports.
-  const sel = page.locator("#news-wonder");
-  await expect(sel).toBeVisible();
-
-  // Choosing one switches to the filtered grid and narrows it to the accounts
-  // that report that help — this is the path for a reader arriving with a
-  // trouble rather than a date.
-  await sel.selectOption("provision");
-  await expect(page.locator("#news-feed")).toBeHidden();
-  const shown = page.locator("#news-cards .news-feed-card:visible");
-  expect(await shown.count()).toBeGreaterThan(0);
-  for (const card of await shown.all())
-    expect((await card.getAttribute("data-miracles"))?.split(" ")).toContain(
+  await expect(page.locator("#arc-chips")).toContainText("Provision in need");
+  const shown = page.locator(".arc-row:visible");
+  // Read the count into a number now: the locator is live, so re-reading it
+  // after the facet is cleared would just report the whole archive again.
+  const filtered = await shown.count();
+  expect(filtered).toBeGreaterThan(0);
+  for (const row of await shown.all())
+    expect((await row.getAttribute("data-wonder"))?.split(" ")).toContain(
       "provision",
     );
 
-  await page.locator("#news-clear").click();
-  await expect(page.locator("#news-feed")).toBeVisible();
+  // Clearing the facet restores the whole archive.
+  await page.locator("#arc-clear").click();
+  expect(await page.locator(".arc-row:visible").count()).toBeGreaterThan(
+    filtered,
+  );
 });
 
 test("the archive leads with the kind of help asked for", async ({ page }) => {
@@ -720,11 +879,16 @@ test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   const before = await rows.count();
   expect(before).toBeGreaterThan(4);
 
-  // Picking a desk narrows the list and raises a removable chip.
+  // Picking a facet narrows the list and raises a removable chip. The Century
+  // group folds shut by default, so open it the way a reader would.
   // Match on the value, not the label — "4th Century" also matches "14th".
-  await page
-    .locator('.arc-facet[data-facet="century"][data-value="4"]')
-    .click();
+  const century = page.locator(
+    '.arc-facet[data-facet="century"][data-value="4"]',
+  );
+  await century.evaluate((el) =>
+    el.closest("details")?.setAttribute("open", ""),
+  );
+  await century.click();
   await expect.poll(async () => rows.count()).toBeLessThan(before);
   await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(1);
 

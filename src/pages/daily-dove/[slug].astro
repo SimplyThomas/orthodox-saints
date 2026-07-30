@@ -7,7 +7,7 @@ import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NewsCard from "../../components/daily-dove/NewsCard.astro";
 import RailModule from "../../components/daily-dove/RailModule.astro";
-import CatPill from "../../components/daily-dove/CatPill.astro";
+import DeskPill from "../../components/daily-dove/DeskPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import EvidenceBadge from "../../components/daily-dove/EvidenceBadge.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
@@ -17,12 +17,13 @@ import AroundTheEmpire from "../../components/daily-dove/AroundTheEmpire.astro";
 import SeriesNav from "../../components/daily-dove/SeriesNav.astro";
 import { saintAvatar } from "../../lib/icons";
 import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-paper.css";
 import "../../styles/daily-dove-article.css";
 import {
   loadPaper,
   ord,
   seriesIn,
-  NEWS_CAT,
+  deskOf,
   EVIDENCE,
   DEPARTMENT_ORDER,
   NEWS_THISDAY,
@@ -37,13 +38,15 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { n } = Astro.props;
-const cat = NEWS_CAT[n.cat];
+const desk = deskOf(n);
 const v = EVIDENCE[n.evidence];
 const body = n.body && n.body.length ? n.body : [];
 // The pull-quote slots after the second paragraph.
 const pqAfter = 1;
 const { all } = await loadPaper();
-const related = all.filter((x) => x.id !== n.id && x.cat === n.cat).slice(0, 3);
+const related = all
+  .filter((x) => x.id !== n.id && x.desk === n.desk)
+  .slice(0, 3);
 
 // The run this dispatch belongs to, if it covers an ongoing event.
 const seriesRun = n.series ? (seriesIn(all).get(n.series.id) ?? []) : [];
@@ -62,14 +65,13 @@ const departments = (n.departments ?? [])
   title={n.headline}
   description={n.dek || n.summary}
 >
-  <article class="na">
+  <article class="dv na">
     {/* ---------- NAMEPLATE ---------- */}
     <div class="na-mastwrap">
       <DoveMasthead
         small
-        onDark
         href="daily-dove"
-        edition={n.edition ?? cat.name}
+        edition={n.edition ?? desk.name}
         folio={`${n.date} · ${n.location}`}
       />
     </div>
@@ -78,7 +80,7 @@ const departments = (n.departments ?? [])
     <div class="na-crumb">
       <a href={withBase("daily-dove")}>The Daily Dove</a>
       <span aria-hidden="true">›</span>
-      <a href={withBase("daily-dove/archive")}>{cat.name}</a>
+      <a href={withBase("daily-dove/archive")}>{desk.name}</a>
       <span aria-hidden="true">›</span>
       <span>{ord(n.century)} Century</span>
     </div>
@@ -95,7 +97,7 @@ const departments = (n.departments ?? [])
     {/* ---------- HEAD ---------- */}
     <header class="na-head">
       <div class="na-head-tags">
-        <CatPill cat={n.cat} short={false} size={11.5} />
+        <DeskPill desk={n.desk} short={false} size={11.5} />
         <span class="na-head-dot" aria-hidden="true"></span>
         <CenturyBadge century={n.century} size={11.5} />
       </div>
@@ -113,8 +115,8 @@ const departments = (n.departments ?? [])
       }
       <div class="na-meta">
         <div class="na-cell">
-          <div class="eyebrow">Category</div>
-          <div class="na-cell-v">{cat.name}</div>
+          <div class="eyebrow">Department</div>
+          <div class="na-cell-v">{desk.name}</div>
         </div>
         <div class="na-cell">
           <div class="eyebrow">Dateline</div>
@@ -308,8 +310,9 @@ const departments = (n.departments ?? [])
                   <h3>On the evidence</h3>
                   <p>
                     This report rests on <strong>{v.full.toLowerCase()}</strong>
-                    . Its full Historian’s Notes — each strand of the story set
-                    against what actually carries it — are still to be written.
+                    . Its full Historian’s Desk entry — each strand of the story
+                    set against what actually carries it — are still to be
+                    written.
                   </p>
                 </div>
               </div>
@@ -372,7 +375,7 @@ const departments = (n.departments ?? [])
         <section class="na-related">
           <div class="na-rel-head">
             <span class="eyebrow">
-              Related Articles · From the {cat.name} desk
+              More Dispatches · From the {desk.name} desk
             </span>
             <span class="na-rel-ln" aria-hidden="true" />
           </div>

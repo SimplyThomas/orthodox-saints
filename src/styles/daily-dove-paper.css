@@ -1,0 +1,225 @@
+/* THE DAILY DOVE — the archive's paper stock.
+
+   Shared physical properties of the sheets: the palette, the printed textures,
+   and the small typographic furniture (column rules, dropped capitals, kickers,
+   folio lines) that a newspaper has and a web page does not.
+
+   Kept out of global.css deliberately — none of this is a site primitive, it is
+   one section's material. Kept out of a component's <style> block equally
+   deliberately: the front page, the archive index and the era pages all print on
+   the same stock, and a scoped block would style whichever one it lived in.
+
+   Every selector is .dv-* and belongs to this section alone.
+   ============================================================ */
+
+/* ---------- the palette ----------
+   THIS SECTION PRINTS ON NEWSPRINT, NOT ON NAVY.
+
+   The dark ground was tried first and was wrong for this page: a newspaper is
+   overwhelmingly pale, and on a dark stock every panel had to be lifted off the
+   background with a fill, so the page filled up with competing coloured blocks
+   and read as busy. On newsprint the ground itself is the resting state, rules
+   do the dividing, and colour becomes an event rather than the medium.
+
+   The brand navy is NOT gone — it sets the nameplate, the headlines and the
+   site's own header and footer above and below. It is an ink here, not a
+   ground. Keep it that way: the moment a section takes a navy fill again, the
+   surrounding blocks need fills to compete with it and the page re-crowds.
+
+   Colour discipline: ink for type, one gilt hairline for rules, burgundy for
+   the second-colour marks a press would run (kickers, notices, seals). The era
+   inks appear only as a dot or a hairline — never as a filled plate. */
+.dv {
+  --dv-stock: #f1eee4; /* newsprint — warm, slightly grey, never white */
+  --dv-stock-2: #eae6d9; /* a panel set into the sheet */
+  --dv-stock-3: #e4dfd0; /* the deepest tint the page uses */
+
+  --dv-ink: #1f1c17; /* the black the press actually lays down */
+  --dv-ink-2: #46423a; /* body copy and secondary type */
+  --dv-ink-3: #726d62; /* datelines, counts, captions */
+
+  --dv-navy: #18324f; /* the brand blue, as an INK: nameplate + headlines */
+  --dv-burgundy: #7a2531; /* the second colour of a two-colour press */
+  --dv-gold-aged: #9a7c2e; /* gilt that has dulled — hairlines, small marks */
+
+  --dv-rule: rgba(31, 28, 23, 0.26); /* the rules that divide the page */
+  --dv-rule-soft: rgba(31, 28, 23, 0.13); /* column rules and dotted leaders */
+}
+
+/* ---------- printed textures ----------
+   Laid-paper grain and the foxing of a sheet that has been kept a long time.
+   Both are decorative, both sit under the copy at low opacity, and both are
+   switched off for anyone who has asked for reduced motion or more contrast.
+   On newsprint these matter more than they did on navy — the grain is most of
+   what stops a pale ground reading as a blank web page. */
+.dv-grain {
+  position: relative;
+  isolation: isolate;
+}
+.dv-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23g)' opacity='.3'/></svg>");
+  mix-blend-mode: multiply;
+}
+/* foxing — the soft brown blooms on a kept sheet. Large, slow, irregular. */
+.dv-foxed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    radial-gradient(
+      ellipse 40% 30% at 12% 8%,
+      rgba(154, 124, 46, 0.13),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 30% 45% at 92% 34%,
+      rgba(122, 37, 49, 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 45% 25% at 68% 96%,
+      rgba(154, 124, 46, 0.1),
+      transparent 70%
+    );
+}
+
+@media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
+  .dv-grain::before,
+  .dv-foxed::after {
+    display: none;
+  }
+}
+
+/* ---------- rules ----------
+   A newspaper is held together by rules, not by fills. On newsprint these do
+   nearly all the structural work the coloured panels used to do. */
+.dv-rule {
+  height: 1px;
+  background: var(--dv-rule);
+  border: 0;
+  margin: 0;
+}
+.dv-rule--double {
+  height: 4px;
+  background: none;
+  border-top: 2px solid var(--dv-ink);
+  border-bottom: 1px solid var(--dv-rule);
+}
+.dv-rule--thick {
+  height: 3px;
+  background: var(--dv-ink);
+}
+.dv-colrule {
+  border-left: 1px solid var(--dv-rule-soft);
+}
+
+/* ---------- furniture ----------
+   The small standing type a paper sets around its stories. */
+
+/* the section head: a kicker in caps, a rule out to the margin, an italic note */
+.dv-sect {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.dv-sect-h {
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--dv-ink);
+  white-space: nowrap;
+  margin: 0;
+}
+.dv-sect-ln {
+  flex: 1;
+  height: 1px;
+  background: var(--dv-rule);
+  align-self: center;
+}
+.dv-sect-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--dv-ink-3);
+  white-space: nowrap;
+}
+
+/* the kicker over a headline — the label a subeditor sets in the second colour */
+.dv-kicker {
+  display: inline-block;
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dv-burgundy);
+}
+
+/* a dropped capital, set into the first three lines the way a compositor does */
+.dv-drop::first-letter {
+  float: left;
+  font-family: var(--dove-plate);
+  font-weight: 900;
+  font-size: 3.2em;
+  line-height: 0.78;
+  padding: 0.08em 0.1em 0 0;
+  color: var(--dv-navy);
+}
+
+/* the dateline that opens a story — "NICAEA, A.D. 325 —" in small caps */
+.dv-dateline {
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: 0.86em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dv-ink-3);
+}
+
+/* set copy in newspaper columns, with a rule between them */
+.dv-cols-2 {
+  column-count: 2;
+  column-gap: 34px;
+  column-rule: 1px solid var(--dv-rule-soft);
+}
+.dv-cols-3 {
+  column-count: 3;
+  column-gap: 30px;
+  column-rule: 1px solid var(--dv-rule-soft);
+}
+.dv-cols-2 > :first-child,
+.dv-cols-3 > :first-child {
+  margin-top: 0;
+}
+@media (max-width: 900px) {
+  .dv-cols-2,
+  .dv-cols-3 {
+    column-count: 1;
+  }
+}
+
+/* ---------- a boxed notice ----------
+   Where the archive shows you a set-apart sheet rather than telling you about
+   one: the classified notices and the archive card. A rule box and a tint, not
+   a coloured plate — on newsprint that is all the separation needed. */
+.dv-sheet {
+  position: relative;
+  background: var(--dv-stock-2);
+  color: var(--dv-ink-2);
+  border: 1px solid var(--dv-rule);
+}
+.dv-sheet a {
+  color: var(--dv-burgundy);
+}

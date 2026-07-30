@@ -1,0 +1,56 @@
+---
+/* A headpiece — the engraved band a printer sets above a section: a rule
+   running in from each margin to a pair of small lozenges at the centre.
+
+   It used to carry a glyph between the lozenges, and each era of Church history
+   had its own (a Chi-Rho for the catacombs, a crescent-and-star for the Ottoman
+   centuries). That went with the era plates it was drawn for. What is left is
+   the band itself, which is what a printer's headpiece mostly is — a rule, and
+   a mark where the rule meets. If a motif ever comes back, it belongs here and
+   not inline at the call site. */
+interface Props {
+  color?: string;
+  /** rules run out to the margins on both sides (default) or neither */
+  rules?: boolean;
+}
+const { color = "var(--gold)", rules = true } = Astro.props;
+---
+
+<div class="hpiece" style={`color:${color}`} aria-hidden="true">
+  {rules && <span class="hpiece-ln hpiece-ln--l" />}
+  <span class="hpiece-dm"></span>
+  <span class="hpiece-dm"></span>
+  {rules && <span class="hpiece-ln hpiece-ln--r" />}
+</div>
+
+<style>
+  .hpiece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    width: 100%;
+  }
+  /* the rule thins as it leaves the centre, the way an engraved band does */
+  .hpiece-ln {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  .hpiece-ln--l {
+    background: linear-gradient(90deg, transparent, currentColor);
+  }
+  .hpiece-ln--r {
+    background: linear-gradient(270deg, transparent, currentColor);
+  }
+  .hpiece-dm {
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: currentColor;
+    flex: 0 0 auto;
+    opacity: 0.85;
+  }
+</style>
