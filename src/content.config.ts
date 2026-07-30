@@ -542,6 +542,12 @@ const dailyDove = defineCollection({
     // whose subject is a body rather than a person ("The Fathers of the
     // First Council").
     saintLabel: z.string().optional(),
+    // The saints this dispatch is about, by OS-#### id. This is the join that
+    // puts a link on their /saint page — and it is by ID, never by name,
+    // because the names collide badly: Callinicus of Cernica is not Callinicus
+    // of Gangra, and there are five Barlaams and two Partheniuses in the data.
+    // Every id here must be verified against data/saints.csv (CLAUDE.md §6).
+    subjects: z.array(z.string().regex(/^OS-\d{4,}$/)).optional(),
     kicker: z.string().optional(),
     dek: z.string().optional(),
     plate: z.string().optional(),

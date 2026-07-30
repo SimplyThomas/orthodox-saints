@@ -8,6 +8,8 @@ byline: "By Our Uglich Correspondent"
 saint:
   name: "Roman"
   type: "Righteous"
+subjects:
+  - "OS-0581"
 saintLabel: "Prince Roman Vladimirovich of Uglich"
 kicker: "Feature"
 headline: "Where Is the Prince?"

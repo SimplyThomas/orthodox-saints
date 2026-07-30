@@ -19,6 +19,7 @@ import SaintRoster from "./SaintRoster.astro";
 import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
+import { articlesBySaint } from "../lib/daily-dove";
 
 interface Props {
   saint: Saint;
@@ -26,6 +27,12 @@ interface Props {
 const { saint } = Astro.props;
 const m = toSaintView(saint);
 const profile = (await loadProfileMap())[saint.id];
+
+// The Daily Dove's account of this saint, if the paper has run one. Joined by
+// OS-#### id from the article's `subjects` (never by name — see the note on
+// articlesBySaint), so a reader who lands on the saint can go straight to the
+// story, and the two halves of the site point at each other.
+const doveArticles = (await articlesBySaint()).get(saint.id) ?? [];
 
 // Editorial review state — surfaced as a full-width band beneath the hero.
 const isReviewed = profile?.status === "reviewed";
@@ -848,6 +855,35 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
             <div class="sv-customs">
               <div class="eyebrow">Customs &amp; Traditions</div>
               <p>{m.customs}</p>
+            </div>
+          </section>
+        )
+      }
+
+      {/* the paper's account of this saint */}
+      {
+        doveArticles.length > 0 && (
+          <section class="sv-section">
+            <div class="sv-dove">
+              <div class="sv-dove-head">
+                <span class="eyebrow">In The Daily Dove</span>
+                <span class="sv-dove-ln" aria-hidden="true" />
+                <span class="sv-dove-note">
+                  Reported as the news of its day
+                </span>
+              </div>
+              <ul class="sv-dove-list">
+                {doveArticles.map((a) => (
+                  <li>
+                    <a href={withBase(`daily-dove/${a.id}`)}>
+                      <span class="sv-dove-edition">{a.edition}</span>
+                      <span class="sv-dove-h">{a.headline}</span>
+                      <span class="sv-dove-dek">{a.dek ?? a.summary}</span>
+                      <span class="sv-dove-date">{a.date}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         )

@@ -8,6 +8,8 @@ byline: "By Our Greek Correspondent"
 saint:
   name: "Luke"
   type: "Monastic"
+subjects:
+  - "OS-0612"
 saintLabel: "Luke of Hellas"
 kicker: "Feature"
 headline: "Mountain Hermit Draws Pilgrims from Across Greece"

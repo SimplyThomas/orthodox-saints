@@ -8,6 +8,8 @@ byline: "By Our Imperial Correspondent"
 saint:
   name: "Theodosius"
   type: "Righteous"
+subjects:
+  - "OS-1607"
 saintLabel: "Emperor Theodosius II"
 kicker: "Imperial Dispatch"
 headline: "Emperor Theodosius II Dies After Forty-Two-Year Reign"

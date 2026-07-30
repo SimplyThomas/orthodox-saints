@@ -8,6 +8,8 @@ byline: "By our correspondent in Nisibis"
 saint:
   name: "James"
   type: "Hierarch"
+subjects:
+  - "OS-0444"
 saintLabel: "James, Bishop of Nisibis"
 kicker: "Breaking"
 headline: "Persian Siege Broken After Weeks Outside City Walls"

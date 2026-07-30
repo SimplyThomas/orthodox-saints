@@ -8,6 +8,8 @@ byline: "By Our Correspondent in Mtskheta"
 saint:
   name: "Eustathius"
   type: "Martyr"
+subjects:
+  - "OS-1603"
 saintLabel: "Eustathius, Martyr of Mtskheta"
 kicker: "Breaking"
 headline: "Royal Official Refuses Sacred Fire"

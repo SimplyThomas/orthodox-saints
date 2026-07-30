@@ -8,6 +8,8 @@ byline: "By Our Chernigov Correspondent"
 saint:
   name: "Theodosius"
   type: "Hierarch"
+subjects:
+  - "OS-0342"
 saintLabel: "Theodosius, Archbishop of Chernigov"
 kicker: "Breaking"
 headline: "Cathedral Falls Silent as Archbishop’s Tomb Is Opened"

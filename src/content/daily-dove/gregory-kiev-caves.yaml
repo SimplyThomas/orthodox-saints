@@ -8,6 +8,8 @@ byline: "By Our Kiev Correspondent"
 saint:
   name: "Gregory"
   type: "Monastic"
+subjects:
+  - "OS-0407"
 saintLabel: "Gregory the Wonderworker of the Kiev Near Caves"
 kicker: "Breaking"
 headline: "Monastery Robbery Foiled by Unexpected Witness"

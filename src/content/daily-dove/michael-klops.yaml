@@ -8,6 +8,8 @@ byline: "By Our Novgorod Correspondent"
 saint:
   name: "Michael"
   type: "Fool-for-Christ"
+subjects:
+  - "OS-0431"
 saintLabel: "Blessed Michael of Klops"
 kicker: "Feature"
 headline: "Unknown Monk Arrives Without Name, Luggage, or Explanation"

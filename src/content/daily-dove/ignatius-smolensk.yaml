@@ -8,6 +8,8 @@ byline: "By Our Smolensk Correspondent"
 saint:
   name: "Ignatius"
   type: "Hierarch"
+subjects:
+  - "OS-0559"
 saintLabel: "Ignatius, Bishop of Smolensk"
 kicker: "Feature"
 headline: "Growing Crowds Gather Daily at Bishop’s Tomb"

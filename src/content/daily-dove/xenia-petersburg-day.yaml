@@ -8,6 +8,8 @@ byline: "By Our St Petersburg Correspondent"
 saint:
   name: "Xenia"
   type: "Fool-for-Christ"
+subjects:
+  - "OS-0047"
 saintLabel: "Blessed Xenia of St Petersburg"
 kicker: "Feature"
 headline: "The Woman Everyone Knows — but No One Can Explain"

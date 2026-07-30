@@ -126,7 +126,21 @@ const departments = (n.departments ?? [])
         </div>
         <div class="na-cell">
           <div class="eyebrow">Subject</div>
-          <div class="na-cell-v">{n.saintLabel || n.saint.name}</div>
+          <div class="na-cell-v">
+            {
+              /* Links to the saint's own page when the dispatch names exactly
+                one — the return leg of the join. */
+            }
+            {
+              n.subjects?.length === 1 ? (
+                <a href={withBase(`saint/${n.subjects[0]}`)}>
+                  {n.saintLabel || n.saint.name}
+                </a>
+              ) : (
+                n.saintLabel || n.saint.name
+              )
+            }
+          </div>
         </div>
         <div class="na-cell">
           <div class="eyebrow">Evidence</div>

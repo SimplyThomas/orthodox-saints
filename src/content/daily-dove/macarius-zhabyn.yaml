@@ -8,6 +8,8 @@ byline: "By Our Correspondent"
 saint:
   name: "Macarius"
   type: "Monastic"
+subjects:
+  - "OS-0515"
 saintLabel: "Macarius of Zhabyn"
 kicker: "Breaking"
 headline: "Enemy Soldier Left for Dead Receives Unexpected Aid from Local Abbot"

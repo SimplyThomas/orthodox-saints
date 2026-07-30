@@ -8,6 +8,8 @@ byline: "By Our Northern Russia Correspondent"
 saint:
   name: "Demetrius"
   type: "Monastic"
+subjects:
+  - "OS-0635"
 saintLabel: "Demetrius of Priluki"
 kicker: "Breaking"
 headline: "Beloved Abbot Leaves Moscow Without Farewell"

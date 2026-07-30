@@ -8,6 +8,8 @@ byline: "By Our Northern Correspondent"
 saint:
   name: "Cyril"
   type: "Monastic"
+subjects:
+  - "OS-0593"
 saintLabel: "Cyril of Novoezersk"
 kicker: "Feature"
 headline: "Boats Keep Arriving at a Tiny Island Monastery"

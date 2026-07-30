@@ -8,6 +8,8 @@ byline: "By Our Correspondent at the Court of the Golden Horde"
 saint:
   name: "Alexis"
   type: "Hierarch"
+subjects:
+  - "OS-0641"
 saintLabel: "Alexis, Metropolitan of Moscow"
 kicker: "Breaking"
 headline: "Queen Regains Sight After Metropolitan’s Prayer"

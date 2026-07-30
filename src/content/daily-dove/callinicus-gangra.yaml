@@ -8,6 +8,8 @@ byline: "By Our Correspondent in Ancyra"
 saint:
   name: "Callinicus"
   type: "Martyr"
+subjects:
+  - "OS-1599"
 saintLabel: "Callinicus, Martyr of Gangra"
 kicker: "Breaking"
 headline: "Condemned Preacher Gives Water to His Captors"

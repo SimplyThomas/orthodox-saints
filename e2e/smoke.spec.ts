@@ -575,6 +575,34 @@ test("the archive leads with the kind of help asked for", async ({ page }) => {
     );
 });
 
+test("a saint page links to the paper's account, and back again", async ({
+  page,
+}) => {
+  // St Xenia of St Petersburg — the paper has run a dispatch about her.
+  await page.goto("./saint/OS-0047/");
+  const band = page.locator(".sv-dove");
+  await expect(band).toBeVisible();
+  await expect(band).toContainText("In The Daily Dove");
+
+  const link = band.locator("a").first();
+  await expect(link).toHaveAttribute("href", /\/daily-dove\//);
+  await link.click();
+  await page.waitForURL(/\/daily-dove\//);
+
+  // …and the dispatch's Subject cell points back at her page. The join is by
+  // OS-#### id, so this round trip is the guard against it drifting.
+  const back = page.locator(".na-cell-v a").first();
+  await expect(back).toHaveAttribute("href", "/saint/OS-0047");
+  await back.click();
+  await page.waitForURL(/\/saint\/OS-0047\/?$/);
+});
+
+test("a saint with no dispatch shows no Daily Dove band", async ({ page }) => {
+  // St Basil the Great — no article about him yet, so nothing should appear.
+  await page.goto("./saint/OS-0021/");
+  await expect(page.locator(".sv-dove")).toHaveCount(0);
+});
+
 test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   const resp = await page.goto("./daily-dove/archive/");
   expect(resp?.status()).toBe(200);

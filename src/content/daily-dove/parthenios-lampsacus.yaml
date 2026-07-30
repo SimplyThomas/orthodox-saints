@@ -8,6 +8,8 @@ byline: "By Our Asia Minor Correspondent"
 saint:
   name: "Parthenios"
   type: "Hierarch"
+subjects:
+  - "OS-0611"
 saintLabel: "Parthenios, Bishop of Lampsacus"
 kicker: "Feature"
 headline: "“Something Has Changed in This City”"

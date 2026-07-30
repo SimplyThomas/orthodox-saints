@@ -156,6 +156,8 @@ export interface NewsItem {
   summary: string;
   /** names a body rather than a person in the article metadata bar */
   saintLabel?: string;
+  /** the OS-#### saints this dispatch is about — the join to their pages */
+  subjects?: string[];
   /** lead-story extras */
   kicker?: string;
   dek?: string;
@@ -699,5 +701,23 @@ export function seriesIn(items: NewsItem[]): Map<string, NewsItem[]> {
   }
   for (const run of map.values())
     run.sort((a, b) => (a.series!.part ?? 0) - (b.series!.part ?? 0));
+  return map;
+}
+
+/* Which dispatches concern which saint, keyed by OS-#### id. A saint page uses
+   this to offer the reader the paper's account of them; without it the two
+   halves of the site would sit side by side and never point at each other.
+
+   Keyed on the id and not the name on purpose. The article subjects include a
+   Callinicus, a Barlaam and a Parthenios who each share a name with several
+   other saints in the data, and a name match would cheerfully link the wrong
+   man's page to the wrong man's martyrdom. */
+export async function articlesBySaint(): Promise<Map<string, NewsItem[]>> {
+  const { all } = await loadPaper();
+  const map = new Map<string, NewsItem[]>();
+  for (const n of all)
+    for (const id of n.subjects ?? []) map.set(id, [...(map.get(id) ?? []), n]);
+  // Newest dispatch first within each saint, so a run reads top-down.
+  for (const run of map.values()) run.sort((a, b) => postRank(b) - postRank(a));
   return map;
 }

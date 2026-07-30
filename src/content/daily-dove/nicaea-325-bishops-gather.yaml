@@ -13,6 +13,8 @@ series:
 saint:
   name: "Athanasius"
   type: "Hierarch"
+subjects:
+  - "OS-0024"
 saintLabel: "The Fathers of the First Council"
 kicker: "Breaking"
 headline: "Bishops Gather Across Empire to Settle Arius Controversy"

@@ -8,6 +8,8 @@ byline: "By Our Pskov Correspondent"
 saint:
   name: "Gabriel"
   type: "Righteous"
+subjects:
+  - "OS-0636"
 saintLabel: "Prince Vsevolod-Gabriel of Pskov"
 kicker: "Breaking"
 headline: "Prince Refuses Credit After Stunning Victory"

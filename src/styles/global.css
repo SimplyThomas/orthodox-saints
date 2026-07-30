@@ -3314,6 +3314,90 @@ a.sv-rail-chip:hover {
 /* "Ideas for Celebrating This Day" — a warm, inviting family-ideas card,
    set apart from the plainer Customs card above it. Mirrors the feast page's
    celebration section. */
+/* ---- In The Daily Dove ----
+   The paper's account of this saint, joined by OS-#### id from the article's
+   `subjects`. Deliberately quiet: a reader came here for the saint, and this is
+   an offer to read the story, not a demand. */
+.sv-dove {
+  background: var(--dove-parchment-2);
+  border: 1px solid var(--line-gold);
+  border-left: 4px solid var(--byz-deep);
+  border-radius: 0 4px 4px 0;
+  padding: 20px 24px 22px;
+}
+.sv-dove-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sv-dove-ln {
+  flex: 1;
+  height: 1px;
+  background: var(--line-gold);
+}
+.sv-dove-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.sv-dove-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.sv-dove-list li + li {
+  padding-top: 14px;
+  border-top: 1px dotted rgba(168, 133, 42, 0.5);
+}
+.sv-dove-list a {
+  display: grid;
+  gap: 4px;
+  text-decoration: none;
+}
+.sv-dove-edition {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold-deep);
+}
+.sv-dove-h {
+  font-family: var(--serif);
+  font-size: 21px;
+  color: var(--byz-deep);
+  line-height: 1.2;
+  text-wrap: pretty;
+}
+.sv-dove-list a:hover .sv-dove-h {
+  text-decoration: underline;
+  text-decoration-color: var(--line-gold);
+  text-underline-offset: 3px;
+}
+.sv-dove-dek {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.sv-dove-date {
+  font-family: var(--text);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--celest);
+}
+@media (max-width: 640px) {
+  .sv-dove-note {
+    display: none;
+  }
+}
+
 .sv-celebrate {
   background: var(--ivory-2);
   border: 1px solid var(--line-gold);

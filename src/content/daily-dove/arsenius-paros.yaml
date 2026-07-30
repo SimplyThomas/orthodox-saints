@@ -8,6 +8,8 @@ byline: "By Our Paros Correspondent"
 saint:
   name: "Arsenius"
   type: "Monastic"
+subjects:
+  - "OS-0572"
 saintLabel: "Arsenius of Paros"
 kicker: "Feature"
 headline: "Ask Anyone on Paros About Father Arsenius, and You’ll Hear a Different Story"

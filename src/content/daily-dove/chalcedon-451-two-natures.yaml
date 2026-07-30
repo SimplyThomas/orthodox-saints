@@ -12,6 +12,8 @@ series:
 saint:
   name: "Leo"
   type: "Hierarch"
+subjects:
+  - "OS-0681"
 saintLabel: "The Fathers of the Fourth Council"
 kicker: "Breaking"
 headline: "“Peter Has Spoken Through Leo!” Echoes Through the Council Hall"

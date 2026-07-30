@@ -8,6 +8,8 @@ byline: "By Our Correspondent"
 saint:
   name: "Nikephoros"
   type: "Monastic"
+subjects:
+  - "OS-0389"
 saintLabel: "Nikephoros the Leper"
 kicker: "Feature"
 headline: "Inside Greece’s Leper Colony, the Sick Are Giving Hope to the Healthy"

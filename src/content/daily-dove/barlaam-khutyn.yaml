@@ -8,6 +8,8 @@ byline: "By Our Novgorod Correspondent"
 saint:
   name: "Barlaam"
   type: "Monastic"
+subjects:
+  - "OS-1420"
 saintLabel: "Barlaam of Khutyn"
 kicker: "Investigation"
 headline: "“The Serpent Is Gone,” Villagers Say"

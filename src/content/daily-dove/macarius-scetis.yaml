@@ -8,6 +8,8 @@ byline: "By Our Desert Correspondent"
 saint:
   name: "Macarius"
   type: "Monastic"
+subjects:
+  - "OS-0029"
 saintLabel: "Macarius the Great of Egypt"
 kicker: "Breaking"
 headline: "Murder Mystery Solved After Dead Man Reportedly Speaks"

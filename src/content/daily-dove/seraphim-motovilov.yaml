@@ -8,6 +8,8 @@ byline: "By the Editorial Staff"
 saint:
   name: "Seraphim"
   type: "Monastic"
+subjects:
+  - "OS-0043"
 saintLabel: "Seraphim of Sarov"
 kicker: "Weekend Feature"
 headline: "“I Thought I Was Looking Into the Sun”"

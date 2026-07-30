@@ -12,6 +12,8 @@ series:
 saint:
   name: "Irene"
   type: "Righteous"
+subjects:
+  - "OS-0722"
 saintLabel: "The Fathers of the Seventh Council"
 kicker: "Breaking"
 headline: "Council Restores the Veneration of Holy Icons"

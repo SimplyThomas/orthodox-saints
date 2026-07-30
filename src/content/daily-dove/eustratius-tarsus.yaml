@@ -8,6 +8,8 @@ byline: "By Our Provincial Correspondent"
 saint:
   name: "Eustratius"
   type: "Monastic"
+subjects:
+  - "OS-0421"
 saintLabel: "Eustratius the Wonderworker"
 kicker: "Feature"
 headline: "Pilgrims Continue Flocking to Remote Monastery Amid Reports of Healings"

@@ -552,3 +552,12 @@
 .na-notebook p:last-child {
   margin-bottom: 0;
 }
+
+.na-cell-v a {
+  color: var(--byz);
+  text-decoration-color: var(--line-gold);
+  text-underline-offset: 3px;
+}
+.na-cell-v a:hover {
+  color: var(--gold-deep);
+}

@@ -12,6 +12,8 @@ series:
 saint:
   name: "Gregory"
   type: "Hierarch"
+subjects:
+  - "OS-0022"
 saintLabel: "The Fathers of the Second Council"
 kicker: "Breaking"
 headline: "Council Confirms Divinity of the Holy Spirit"

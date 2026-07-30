@@ -12,6 +12,8 @@ series:
 saint:
   name: "Photius"
   type: "Hierarch"
+subjects:
+  - "OS-0603"
 saintLabel: "The Council of 879–880"
 kicker: "Breaking"
 headline: "Photius Restored as Patriarch"

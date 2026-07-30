@@ -12,6 +12,8 @@ series:
 saint:
   name: "Gregory"
   type: "Hierarch"
+subjects:
+  - "OS-0025"
 saintLabel: "The Hesychast Councils of 1341–1351"
 kicker: "Breaking"
 headline: "Monks Defend Experience of the Uncreated Light"

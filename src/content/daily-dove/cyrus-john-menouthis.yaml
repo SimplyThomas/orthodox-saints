@@ -8,6 +8,8 @@ byline: "By Our Alexandria Correspondent"
 saint:
   name: "Cyrus"
   type: "Unmercenary"
+subjects:
+  - "OS-0568"
 saintLabel: "The Holy Unmercenaries Cyrus and John"
 kicker: "Investigation"
 headline: "Can a Shrine Really Heal the Sick? Thousands Say Yes."
