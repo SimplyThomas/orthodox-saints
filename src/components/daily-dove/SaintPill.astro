@@ -22,8 +22,10 @@ interface Props {
   /** overrides the name, for a dispatch whose subject is a body not a person */
   label?: string;
   size?: number;
+  /** never link — REQUIRED when this sits inside a linked row (nested <a>) */
+  plain?: boolean;
 }
-const { saint, subjects, label, size = 10.5 } = Astro.props;
+const { saint, subjects, label, size = 10.5, plain = false } = Astro.props;
 const name = label ?? saint.name;
 
 /* Link only when the name on the pill IS the person the id points at.
@@ -48,7 +50,7 @@ const name = label ?? saint.name;
    one saint — that the collective labels cannot support. */
 const namesThePerson =
   !label || label.toLowerCase().includes(saint.name.toLowerCase());
-const id = namesThePerson ? subjects?.[0] : undefined;
+const id = !plain && namesThePerson ? subjects?.[0] : undefined;
 const Tag = id ? "a" : "span";
 ---
 
