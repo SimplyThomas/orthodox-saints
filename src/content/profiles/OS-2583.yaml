@@ -38,5 +38,10 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=Mary+mother+of+Mark+Jerusalem
   - https://en.wikipedia.org/wiki/John_Mark
   - https://en.wikipedia.org/wiki/Barnabas
+family:
+  figures:
+    - name: Mark the Evangelist
+      note: Her son, the evangelist whose Gospel records the preaching of Peter.
+      href: saint/OS-1061
 status: flagged
 generated: "2026-07-04"

@@ -59,5 +59,10 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Clotilde
   - https://en.wikipedia.org/wiki/Clovis_I
+family:
+  figures:
+    - name: St. Cloud of Nogent
+      note: Her grandson, whom she raised after his father's death and who ended his life a monk at Nogent.
+      href: saint/OS-0280
 status: flagged
 generated: "2026-07-04"

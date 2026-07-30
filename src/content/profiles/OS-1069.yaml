@@ -64,5 +64,13 @@ patronage:
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Simeon_of_Jerusalem
+family:
+  figures:
+    - name: Mary, the wife of Clopas
+      note: His mother, the myrrh-bearer who stood by the Cross.
+      href: saint/OS-1230
+    - name: Apostle Cleopas of the Seventy
+      note: His father by tradition, one of the two disciples met on the road to Emmaus.
+      href: saint/OS-2513
 status: reviewed
 generated: "2026-06-19"

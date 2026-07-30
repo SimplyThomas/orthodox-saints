@@ -43,5 +43,10 @@ sections:
 sources:
   - https://www.johnsanidopoulos.com/2017/11/saint-eucherius-bishop-of-lyon-449.html
   - https://en.wikipedia.org/wiki/Eucherius_of_Lyon
+family:
+  figures:
+    - name: Veranus of Vence
+      note: His son, later bishop of Vence.
+      href: saint/OS-0352
 status: flagged
 generated: "2026-07-03"

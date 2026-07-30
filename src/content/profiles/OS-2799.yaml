@@ -38,5 +38,10 @@ timeline:
 sources:
   - https://www.johnsanidopoulos.com/2015/10/saint-theosevios-of-arsinoe-in-cyprus.html
   - https://en.wikipedia.org/wiki/Theosebios_of_Arsinoe
+family:
+  figures:
+    - name: Saint Arkadios the Wonderworker, Bishop of Arsinoe
+      note: His brother by tradition, wonderworking bishop of Arsinoe in Cyprus.
+      href: saint/OS-1800
 status: flagged
 generated: "2026-07-04"

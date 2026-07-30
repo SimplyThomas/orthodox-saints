@@ -49,5 +49,16 @@ sources:
   - https://www.tertullian.org/fathers/gregory_macrina_1_life.htm
   - https://en.wikipedia.org/wiki/Macrina_the_Younger
   - https://www.johnsanidopoulos.com/2011/03/saturday-of-cheesefare-commemoration-of.html
+family:
+  figures:
+    - name: Basil the Great
+      note: His brother, Basil the Great, archbishop of Caesarea.
+      href: saint/OS-0021
+    - name: Righteous Emilia
+      note: His mother, Emilia.
+      href: saint/OS-0374
+    - name: Saint Peter of Sebaste
+      note: His brother, Peter, bishop of Sebaste.
+      href: saint/OS-0420
 status: flagged
 generated: "2026-07-03"

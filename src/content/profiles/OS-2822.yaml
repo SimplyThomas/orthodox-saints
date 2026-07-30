@@ -42,5 +42,10 @@ sources:
   - OrthodoxWiki
   - https://en.wikipedia.org/wiki/Saint_Non
   - https://orthodoxwiki.org/Non_of_Wales
+family:
+  figures:
+    - name: David of Wales
+      note: Her son, the patron of Wales.
+      href: saint/OS-0753
 status: flagged
 generated: "2026-07-04"

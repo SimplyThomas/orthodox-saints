@@ -50,5 +50,10 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Lupus_of_Troyes
   - https://www.johnsanidopoulos.com/2019/07/saint-lupus-confessor-bishop-of-troyes.html
+family:
+  figures:
+    - name: St. Vincent of Lerins
+      note: His brother by tradition, the monk of Lérins who wrote the Commonitorium.
+      href: saint/OS-1237
 status: reviewed
 generated: "2026-07-04"

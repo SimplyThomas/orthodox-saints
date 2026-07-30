@@ -39,5 +39,10 @@ patronage:
 sources:
   - https://www.johnsanidopoulos.com/2017/02/saints-george-bishop-of-mytilene-symeon.html
   - https://en.wikipedia.org/wiki/Symeon_Stylites_of_Lesbos
+family:
+  figures:
+    - name: St. Symeon Stylites of Lesbos
+      note: His younger brother, the stylite of Lesbos.
+      href: saint/OS-0097
 status: reviewed
 generated: "2026-07-03"

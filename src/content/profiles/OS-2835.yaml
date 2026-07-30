@@ -48,5 +48,10 @@ sources:
   - https://www.johnsanidopoulos.com/search?q=Anna+East+Anglia
   - https://en.wikipedia.org/wiki/Blythburgh
   - https://en.wikipedia.org/wiki/Jurmin
+family:
+  figures:
+    - name: Saint Etheldreda of Ely
+      note: His daughter, foundress and abbess of Ely.
+      href: saint/OS-1416
 status: reviewed
 generated: "2026-07-04"
