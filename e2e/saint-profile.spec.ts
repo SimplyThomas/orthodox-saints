@@ -1,4 +1,17 @@
+import { readFileSync } from "node:fs";
 import { test, expect } from "@playwright/test";
+
+// The carousel renders one card per data/saint_depictions.csv row, so the
+// expected counts are READ FROM THE BUILD rather than hard-coded — otherwise
+// every icon added to a saint breaks this test (it did: #367).
+// public/data.json is emitted by `python build.py`, which runs before the
+// Astro build in both `make web-build` and CI.
+type Depiction = { kind?: string };
+const RECORDS: { id: string; depictions?: Depiction[] }[] = JSON.parse(
+  readFileSync("public/data.json", "utf8"),
+);
+const depictionsOf = (id: string) =>
+  RECORDS.find((r) => r.id === id)?.depictions ?? [];
 
 test("Basil's page renders the rich profile biography", async ({ page }) => {
   const resp = await page.goto("./saint/OS-0021/");
@@ -212,11 +225,17 @@ test("the Theotokos page shows the Depictions & Icons carousel", async ({
   expect(resp?.status()).toBe(200);
   const deps = page.locator(".sv-deps");
   await expect(deps).toBeVisible();
-  // One card per data/saint_depictions.csv row for OS-0001 (18 vendor + 2 PD).
-  await expect(deps.locator(".sv-dep")).toHaveCount(20);
+  // One card per data/saint_depictions.csv row for OS-0001.
+  const rows = depictionsOf("OS-0001");
+  expect(rows.length).toBeGreaterThan(0);
+  await expect(deps.locator(".sv-dep")).toHaveCount(rows.length);
   // Permission cards carry the "shop" tone; PD masters the museum tone.
-  await expect(deps.locator(".sv-dep-tag--shop")).toHaveCount(18);
-  await expect(deps.locator(".sv-dep-tag--museum")).toHaveCount(2);
+  await expect(deps.locator(".sv-dep-tag--shop")).toHaveCount(
+    rows.filter((d) => d.kind === "shop").length,
+  );
+  await expect(deps.locator(".sv-dep-tag--museum")).toHaveCount(
+    rows.filter((d) => d.kind === "museum").length,
+  );
   // Each permission card links to its specific vendor icon page (grant condition).
   const vendorCard = deps
     .locator("a.sv-dep", {
