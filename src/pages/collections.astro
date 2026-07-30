@@ -24,46 +24,9 @@ const cards: HubCard[] = [
   },
 ];
 
-// Named, not yet built. Each is a real cut of the existing data rather than an
-// aspiration: the facets these would draw on are already in data/saints.csv.
-const planned = [
-  {
-    label: "Women Saints",
-    blurb: "Martyrs, matriarchs, abbesses, and the myrrh-bearers.",
-  },
-  {
-    label: "Child Saints",
-    blurb: "The young who confessed Christ, and those who died for Him.",
-  },
-  {
-    label: "Wonderworkers",
-    blurb: "Those through whose prayers God has worked signs.",
-  },
-  {
-    label: "Desert Fathers & Mothers",
-    blurb: "The ascetics of Egypt, Palestine, and Syria.",
-  },
-  {
-    label: "New Martyrs",
-    blurb: "Those who suffered under the Ottomans and the Soviets.",
-  },
-  {
-    label: "Physician Saints",
-    blurb: "The unmercenaries who healed and took no payment.",
-  },
-  {
-    label: "Military Saints",
-    blurb: "Soldiers and commanders who confessed Christ in the ranks.",
-  },
-  {
-    label: "Monastic Saints",
-    blurb: "Founders, abbots, hesychasts, and fools for Christ.",
-  },
-  {
-    label: "Missionaries & Enlighteners",
-    blurb: "Those who carried the faith to peoples who had not heard it.",
-  },
-];
+// The roadmap of collections in preparation is kept out of the page for now
+// (the `planned` prop on HubPage renders it) — restore by passing
+// `plannedHeading` / `plannedNote` / `planned` below. See git history for the list.
 ---
 
 <HubPage
@@ -78,7 +41,4 @@ const planned = [
   ]}
   cardsHeading="Open now"
   cards={cards}
-  plannedHeading="Collections in preparation"
-  plannedNote="Each of these is a cut of saints already in the database, waiting on enough depth in the facets it draws from to be worth opening. They are named here so you can see where the section is going."
-  planned={planned}
 />

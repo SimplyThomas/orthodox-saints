@@ -6025,6 +6025,95 @@ a.sv-rail-chip:hover {
   margin: 0;
 }
 
+/* ---------- collapsible "The Daily Dove" (day-specific) ----------
+   Same idiom as the customs panel above: the island fills the body with the
+   dispatches filed on THIS day's feasts and saints, so nothing here advertises
+   another day's news. Lives in the global sheet rather than the page's scoped
+   block because the island creates these nodes at runtime, where Astro's
+   scoped selectors would not reach them. */
+#calendar-page .cal-dove {
+  margin-top: 12px;
+  border: 1px solid var(--line-gold);
+  border-radius: 10px;
+  background: var(--dove-parchment-2, var(--paper));
+}
+#calendar-page .cal-dove summary {
+  font-family: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--byz-deep);
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style-position: inside;
+}
+#calendar-page .cal-dove summary:hover {
+  color: var(--byz);
+}
+#calendar-page .cal-dove-day {
+  font-weight: 400;
+  color: var(--gold-deep);
+}
+#calendar-page .cal-dove-body {
+  padding: 4px 18px 16px;
+}
+#calendar-page .cal-dove-item + .cal-dove-item {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-gold);
+}
+#calendar-page .cal-dove-head {
+  display: block;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--byz);
+  text-decoration: none;
+  text-wrap: pretty;
+}
+#calendar-page .cal-dove-head:hover {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--line-gold);
+  text-underline-offset: 3px;
+}
+#calendar-page .cal-dove-dek {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+#calendar-page .cal-dove-why {
+  font-family: var(--text);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 5px 0 0;
+}
+#calendar-page .cal-dove-empty {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+#calendar-page .cal-dove-foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 14px 18px 16px;
+  border-top: 1px solid var(--line-gold);
+}
+#calendar-page .cal-dove-count {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--gold-deep);
+}
+
 /* ---------- day panel ---------- */
 #calendar-page .cal-panel {
   background: var(--paper);

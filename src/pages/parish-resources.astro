@@ -6,7 +6,7 @@ import { withBase } from "../lib/format";
 
 // Parish Resources — implemented from the Claude Design mock
 // "Churches & Bookstores.html": a dark hero, a "why display them" pitch,
-// the nine-card QR gallery (color/B&W + per-row controls, download-all,
+// the QR-card gallery (color/B&W + per-row controls, download-all,
 // print sheet — wired by src/islands/parish-cards.client.ts), a four-step
 // guidance section, and a contact card. The card PNGs are self-hosted
 // under static/parish-cards/ and print as a clean two-up sheet.
@@ -16,7 +16,6 @@ const CARDS = [
   { base: "orthodox-calendar", name: "Orthodox Calendar" },
   { base: "Feast-Day", name: "Browse by Feast Day" },
   { base: "feast-fasts", name: "Feasts & Fasts" },
-  { base: "liturgical-living", name: "Liturgical Living" },
   { base: "patron-saint-quiz", name: "Patron Saint Quiz" },
   { base: "heavenly-hosts", name: "Heavenly Hosts" },
   { base: "icons-in-the-home", name: "Icons in the Home" },
@@ -137,7 +136,7 @@ const STEPS = [
       <div class="pc-wrap">
         <div class="pc-sec-head">
           <div class="eyebrow">The Cards</div>
-          <h2>Nine cards, one Cloud</h2>
+          <h2>Eight cards, one Cloud</h2>
           <p>
             Each points to a different corner of the site. Choose color or black
             &amp; white, download the ones you want, or print the whole set.
