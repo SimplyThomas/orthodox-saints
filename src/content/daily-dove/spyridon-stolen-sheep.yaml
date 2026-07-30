@@ -1,0 +1,67 @@
+id: "spyridon-stolen-sheep"
+order: 61
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Investigation"
+headline: "Missing Sheep Found After Flock Unexpectedly Identifies Alleged Thief"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "A suspect’s denials ended when the stolen animal began bleating from inside his own enclosure — and the bishop asked for restitution rather than punishment."
+summary: "What appeared to be an unsolved case of livestock theft came to an unexpected conclusion, with no accusation made and no penalty demanded."
+miracles:
+  - "enemies"
+body:
+  - "What appeared to be an unsolved case of livestock theft came to an unexpected conclusion yesterday after a missing sheep reportedly exposed its own hiding place, leading Bishop Spyridon of Trimythous to recover the animal without violence or accusation."
+  - "The matter began when a local shepherd reported that one of his sheep had disappeared overnight. Despite searching the nearby fields and questioning neighbors, no trace of the animal could be found."
+  - "Suspicion soon fell upon another man in the district, though no evidence could be produced."
+  - "Rather than inflaming the dispute, Bishop Spyridon agreed to accompany the shepherd in search of the missing animal."
+  - "Witnesses say the bishop stopped outside the suspect’s property and quietly asked God to reveal the truth if an injustice had indeed been done."
+  - "Moments later, a single sheep began bleating loudly from within an enclosed pen."
+  - "Those nearby exchanged puzzled glances. The sound continued."
+  - "When the enclosure was opened, the missing animal was reportedly found among the other man’s flock. The owner immediately recognized markings on the sheep, confirming that it was the one taken from his fold."
+  - "According to the account, the accused man — confronted not by angry neighbors but by an animal that would not be quiet — admitted the theft and begged the bishop’s forgiveness."
+  - "Witnesses say Spyridon demanded no punishment."
+  - "He instructed the man instead to restore what he had taken, be reconciled with his neighbor, and remember that nothing stays hidden before God."
+  - "The recovered sheep was returned safely to its owner, while the bishop urged both men to leave without bitterness, saying that a soul restored through repentance is of greater value than any flock."
+  - "There is a detail of this account worth noticing, and it is what the account leaves out. No curse was pronounced. No one was shamed before the district. The truth came to light through an ordinary animal doing an ordinary thing, and the man who had lied was given somewhere to go afterward."
+pullQuote:
+  text: "“A soul restored through repentance is of greater value than any flock.”"
+  attribution: "— Attributed to Bishop Spyridon, on refusing to press the matter"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Livestock theft is a persistent complaint in the district and a difficult one to prove, since a sheep taken at night and mixed into another flock by morning leaves little a magistrate can act upon."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“He knew the beast by its markings the moment the gate opened.”"
+        attribution: "A neighbour present at the enclosure"
+      - text: "“I expected the bishop to name him in front of us. He walked him inside instead.”"
+        attribution: "A member of the search party"
+literaryFraming: "The neighbours, the quoted onlookers, the note on livestock theft in the district, and the dateline reporting are literary devices. The underlying narrative — the theft, the bishop’s prayer, the bleating from the pen and the thief’s repentance — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "A stolen sheep bleated from its place of concealment, exposing the theft and allowing the animal to be recovered peacefully."
+      note: "Preserved in the traditional Life of St Spyridon as one of several accounts demonstrating discernment and providential care in bringing hidden wrongdoing to light. It is not documented in contemporary legal or historical records."
+    - level: "orthodox-tradition"
+      claim: "Spyridon required restitution and reconciliation rather than punishment."
+      note: "The episode is striking for what it does not contain: no curse, no public humiliation, no supernatural penalty. Truth comes to light through ordinary creation, and the thief is given the opportunity to repent. That emphasis on mercy after conviction is characteristic of many accounts preserved about this saint."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

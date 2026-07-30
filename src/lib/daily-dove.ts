@@ -631,6 +631,11 @@ export function regionOf(location: string): string {
     )
   )
     return "Greece";
+  // Cyprus stands on its own rather than folding into Greece or the East: the
+  // island has its own see and its own calendar, and the St Spyridon file alone
+  // files sixteen dispatches from it.
+  if (/cyprus|trimythous|salamis|paphos|nicosia|leucosia/.test(s))
+    return "Cyprus";
   if (
     /constantinople|nicaea|nicomedia|chalcedon|ephesus|bithynia|smyrna|phrygia|colossae|chonae|blachernae|galatia|ancyra|gangra|cilicia|cappadocia/.test(
       s,

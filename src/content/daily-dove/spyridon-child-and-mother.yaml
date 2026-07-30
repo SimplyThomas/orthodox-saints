@@ -1,0 +1,71 @@
+id: "spyridon-child-and-mother"
+order: 55
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Mother Dies of Joy as Child Returns to Life — Both Restored Through Bishop’s Prayer"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "Witnesses say the bishop raised a young boy from death, then knelt a second time when the child’s mother collapsed at the sight of him."
+summary: "Residents are struggling to describe what they saw: a deceased child restored to life, and moments later a second prayer offered over the mother who had died from the shock of seeing him."
+miracles:
+  - "healing"
+  - "family"
+body:
+  - "Residents of Trimythous are struggling to describe what they witnessed yesterday after Bishop Spyridon reportedly restored a deceased child to life, only to pray a second time moments later when the boy’s mother collapsed and died from overwhelming astonishment."
+  - "The events began when a local woman, overcome with grief after the death of her young son, carried the child to Bishop Spyridon and begged him to intercede before God."
+  - "Those present say the bishop was deeply moved by the mother’s anguish."
+  - "Kneeling beside the lifeless child, Spyridon prayed at length, asking Christ — the Lord who had Himself called the daughter of Jairus and Lazarus from death — to have mercy on the family."
+  - "Witnesses report that the child suddenly opened his eyes. The boy drew breath, sat upright, and was returned unharmed to his mother’s arms."
+  - "For a moment the crowd stood in silence before cries of thanksgiving filled the air."
+  - "Then the celebration turned once more to sorrow."
+  - "According to those present, the child’s mother, overwhelmed by the sight of her son alive again, collapsed where she stood. Despite every effort to revive her she died almost at once, her heart unable to bear the sudden flood of joy after such grief."
+  - "The crowd, moments earlier rejoicing, watched in disbelief as the bishop again knelt in prayer."
+  - "Without hesitation, Spyridon implored God a second time, asking that the family not be left divided by death after so great an act of mercy."
+  - "Witnesses say the woman soon stirred, opened her eyes, and embraced the son she had believed moments before she would never see again."
+  - "Many who were present wept openly. Others knelt where they stood."
+  - "As word of the event spread through Cyprus, those who know Bishop Spyridon noted that he quietly deflected every word of praise, insisting that no man commands life or death. The mercy, he told those gathered, belonged to Christ alone, who is the Resurrection and the Life."
+pullQuote:
+  text: "“Twice in one hour we saw a grave give something back.”"
+  attribution: "— A witness in the crowd at Trimythous"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Word of the event has travelled quickly along the roads inland, and households from neighbouring villages have begun arriving at Trimythous to ask the bishop’s prayers for their own sick."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I came to mourn with her. I stayed to see her carry him home.”"
+        attribution: "A neighbour of the family"
+      - text: "“He would not let us praise him. He kept pointing past us, upward.”"
+        attribution: "A man who stood near the bishop"
+literaryFraming: "The crowd, the quoted witnesses, the arrival of households from neighbouring villages, and the dateline reporting are literary devices. The underlying narrative — the raising of the child, the mother’s death from joy, and her restoration at a second prayer — is drawn from the traditional Life of St Spyridon, where the two form a single episode."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Spyridon restored a deceased child to life at the plea of the child’s mother."
+      note: "Preserved in the traditional Life of St Spyridon and handed down through Orthodox hagiographical tradition. It is not independently attested by contemporary sources."
+    - level: "orthodox-tradition"
+      claim: "The mother died from the shock of joy at seeing her son alive, and Spyridon prayed a second time and she was restored."
+      note: "In the received account the two raisings form one narrative rather than two separate episodes. The story illustrates recurring themes in Orthodox hagiography: God’s mercy toward the suffering, the power of humble intercessory prayer, and the conviction that a wonder points beyond the saint to Christ."
+    - level: "orthodox-tradition"
+      claim: "Spyridon refused all praise for what had happened."
+      note: "The saint’s deflection of honour is among the most consistently attested features of his Life."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

@@ -1,0 +1,78 @@
+id: "spyridon-corfu-processions"
+order: 70
+desk: "pilgrim"
+century: 21
+evidence: "contemporary-source"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Feature"
+headline: "Why Corfu Stops Four Times Every Year for One Saint"
+date: "The Present Day"
+location: "Corfu, Greece"
+dek: "Centuries after his repose, St Spyridon remains at the centre of the island’s public life through four solemn processions remembering deliverance from famine, plague, disease and invasion."
+summary: "On most islands, history is remembered in monuments. On Corfu it walks through the streets."
+miracles:
+  - "relics"
+  - "protection"
+body:
+  - "On most islands, history is remembered in monuments."
+  - "On Corfu, it walks through the streets."
+  - "Four times each year, businesses close, church bells ring, and thousands gather behind the incorrupt relics of St Spyridon as they are carried through the town in solemn procession."
+  - "The tradition stretches back centuries and commemorates four occasions on which the people of Corfu believed God delivered their island through the prayers of its patron."
+  - "One procession remembers relief from famine, after grain reached the island when the storehouses had nearly emptied."
+  - "Another gives thanks for the end of a deadly plague that had devastated families across the town."
+  - "A third commemorates deliverance from a second epidemic remembered in the island’s historical tradition."
+  - "The largest, each August, recalls the failed Ottoman siege of 1716, when Corfiots have long held that St Spyridon appeared to defend the city."
+  - "To a visitor, the ceremonies are striking for their scale. Civil authorities, military representatives, clergy, choirs and thousands of faithful accompany the relics through streets lined with residents and pilgrims. The town does not carry on around the procession; it stops for it."
+  - "For the people of Corfu, however, these are not historical reenactments."
+  - "They are annual acts of thanksgiving — which is a different thing, and the difference shows in how they are kept. Nobody is playing a part. The route is the route the relics actually took, and the crowd behind them is doing what the crowd behind them did."
+  - "More than sixteen centuries after a shepherd-bishop of Cyprus reposed in the Lord, an island he never saw in his lifetime continues to honor him not as a figure of the past but as a living intercessor whose prayers, the faithful here hold, have never ceased."
+pullQuote:
+  text: "“The town does not carry on around the procession. It stops for it.”"
+  attribution: "— From this correspondent’s notebook, on the August procession"
+whyThisMatters: "These are among the oldest continuously observed public processions in the Orthodox world, and they are the clearest surviving answer to a question the Church is often asked: what is a relic for? Not to be looked at. To be carried, by a whole city, when that city is asking for something."
+aroundTheEmpire:
+  heading: "Around the Island"
+  notes:
+    - city: "The Church of St Spyridon"
+      note: "The shrine in the old town is the focus of the island’s devotional life year-round, receiving pilgrims from across the Orthodox world."
+    - city: "The Old Town"
+      note: "Shops and offices along the processional route close for the duration. Schools in the town mark the August procession."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“My grandmother walked this. Her grandmother walked this. You do not ask why. You walk.”"
+        attribution: "A woman of the old town, on the August procession"
+      - text: "“Visitors ask which one is the important one. They are all the important one.”"
+        attribution: "A parishioner of the shrine"
+    note: "Historical Note: Illustrative composites. The processions themselves are documented; these particular speakers are not."
+literaryFraming: "The quoted residents and the correspondent’s notebook are literary devices. The four annual processions, their occasions and their conduct are documented features of the religious life of Corfu."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Corfu holds four major annual processions of the relics of St Spyridon, each commemorating a deliverance traditionally attributed to his intercession."
+      note: "These observances are defining features of the island’s religious and civic identity and are among the oldest continuously observed public processions in the Orthodox world. Their conduct is documented and ongoing."
+    - level: "orthodox-tradition"
+      claim: "Each procession commemorates a deliverance — from famine, from two epidemics, and from the siege of 1716 — attributed to the saint’s intercession."
+      note: "The underlying events are historically attested to varying degrees; the attribution of each deliverance to St Spyridon belongs to the tradition of the island. The 1716 siege is the best documented of the four occasions."
+    - level: "contemporary-source"
+      claim: "The relics have been kept on Corfu since the fifteenth century."
+      note: "They were brought from Constantinople after the fall of the city in 1453 and are venerated today in the Church of St Spyridon in the old town."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu"
+      - "Holy Metropolis of Corfu and Paxoi"
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Historical studies of the annual processions of St Spyridon on Corfu"

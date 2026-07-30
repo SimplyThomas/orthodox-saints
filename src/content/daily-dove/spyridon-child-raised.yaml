@@ -1,0 +1,67 @@
+id: "spyridon-child-raised"
+order: 57
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Messenger Arrives Too Late — Bishop’s Prayer Reverses Tragedy"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "A child had been pronounced dead before St Spyridon reached the house. Those inside say the mourning was already under way when he knelt down."
+summary: "Hope appeared lost when a messenger racing to summon the bishop arrived only after a gravely ill child had died. What the household reports next has emptied the street outside."
+miracles:
+  - "healing"
+  - "family"
+body:
+  - "Hope appeared lost yesterday when a messenger racing to summon Bishop Spyridon of Trimythous arrived only after a gravely ill child had died."
+  - "Neighbors had urged the family to seek the bishop’s prayers as the child’s condition worsened, but by the time word reached him and the journey could be made, mourning had already begun."
+  - "Those present say the home had fallen silent."
+  - "The child’s mother remained beside the small body, while relatives and neighbors gathered to console the family, believing nothing more could be done."
+  - "Witnesses report that Bishop Spyridon entered the house without haste or commotion. After comforting the parents, he knelt beside the child and began to pray."
+  - "No dramatic gestures were described."
+  - "No proclamation was made."
+  - "Only the quiet voice of the bishop asking Christ to show mercy."
+  - "Moments later, those in the room say the child’s chest began to rise. Color returned to the young face. The boy opened his eyes."
+  - "Mourners became witnesses to something few had thought possible. Parents who had been preparing for burial instead held their living son, while neighbors hurried into the street to spread word of what they had seen."
+  - "Those close to Bishop Spyridon say he accepted none of the praise that followed. He reminded those gathered that life belongs to God alone, and that a wonder serves not to glorify a man but to reveal the compassion and authority of Christ."
+  - "For many in Trimythous, the account has become a standing reminder that even when help appears to have arrived too late, God’s mercy is not bound by the limits of human expectation."
+pullQuote:
+  text: "“He did not ask us to move aside or to be quiet. He simply knelt down where the mother was sitting.”"
+  attribution: "— A relative, in the house at Trimythous"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Fever has been reported in several households in the district this season, and families in the outlying villages, far from any physician, increasingly send for the bishop when a child worsens."
+departments:
+  - kind: "whispers"
+    title: "Whispers Around the Town"
+    body:
+      - "Retellings differ on how late the messenger was, and on whether the bishop was told of the death before he arrived or found it on entering."
+      - "The tradition itself is consistent on the point that matters: the child was dead, Spyridon prayed, and the child lived. The rest is the town filling in what it did not see."
+literaryFraming: "The household, the quoted relative, the report of fever in the district, and the dateline reporting are literary devices. The underlying narrative — a child already dead when the bishop arrived, restored at his prayer — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  intro: "Orthodox tradition preserves more than one account of St Spyridon restoring the dead; this is a separate episode from the raising of the child and mother reported elsewhere in this archive."
+  entries:
+    - level: "orthodox-tradition"
+      claim: "A child died before Spyridon could be summoned, and was restored to life after the bishop prayed beside the body."
+      note: "One of the best-known of the several accounts of the saint restoring the dead. Later retellings vary on the delay of the messenger and on the apparent hopelessness of the situation, but the central account is consistent."
+    - level: "orthodox-tradition"
+      claim: "Spyridon claimed no power over death and refused the praise offered him."
+      note: "The narrative emphasises the saint’s humility: he neither claimed the work as his own nor treated it as anything but a prayer that Christ would have mercy on a grieving family."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

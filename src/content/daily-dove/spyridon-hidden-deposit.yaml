@@ -1,0 +1,64 @@
+id: "spyridon-hidden-deposit"
+order: 54
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Dead Woman Names Hiding Place Before Returning to Rest"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "A grieving owner had no witness and no evidence. Bishop Spyridon’s prayer at the graveside is said to have produced the only testimony left."
+summary: "A gathering that began at a grave ended in astonishment after the bishop reportedly restored a deceased woman to life long enough to answer a single question."
+miracles: []
+body:
+  - "A gathering that began at a grave ended in astonishment yesterday after Bishop Spyridon of Trimythous reportedly restored a deceased woman to life long enough to answer a question that had troubled an entire household."
+  - "According to those present, the matter began when a local woman entrusted valuable possessions to a friend for safekeeping. When she later asked for them to be returned, the friend denied ever receiving them."
+  - "With no witnesses and no evidence, the owner found herself unable to recover what had been entrusted."
+  - "Before the dispute could be resolved, the accused woman died unexpectedly."
+  - "Believing that any hope of recovering her property had been buried with her, the owner turned to Bishop Spyridon and pleaded for help."
+  - "Witnesses say the bishop accompanied her to the grave, where he knelt in prayer and asked God to reveal the truth."
+  - "What happened next left those standing nearby in silence."
+  - "The dead woman is said to have briefly returned to life. Asked where the property had been hidden, she named the exact place in which it had been concealed. Having given her answer, she returned to her rest."
+  - "Residents searched the place she had identified and found the property exactly where she had described."
+  - "The owner recovered everything that had been lost."
+  - "News of the event spread rapidly through Cyprus. Those close to Spyridon, however, insist his concern was never the recovery of the goods themselves, but the vindication of a woman whose honesty had been publicly doubted with no way of answering the charge."
+  - "For many who were present, the account has settled into a single sentence, repeated ever since in the town: what a human court could not establish, God did not leave hidden."
+pullQuote:
+  text: "“There was no one left to ask. So he asked her.”"
+  attribution: "— A resident, on what the bishop did at the graveside"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Disputes over goods left in trust are common in the district and notoriously difficult to settle: such arrangements are ordinarily made between friends, without written record or witness, and turn entirely on the word of the two parties."
+departments:
+  - kind: "whispers"
+    title: "Whispers Around the Town"
+    body:
+      - "The account has been retold with the persons reversed — the dead woman becoming the wronged owner rather than the one who concealed the goods, and in some versions a child taking her place altogether."
+      - "The earliest form of the tradition is clear on the point: the one briefly restored is the woman who had hidden the property. The reversal appears to be a later slip in transmission rather than a variant account."
+literaryFraming: "The quoted residents, the note on local practice in matters of trust, and the dateline reporting are literary devices. The underlying narrative is drawn from the traditional Life of St Spyridon and is not preserved in any contemporary account."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "At Spyridon’s prayer, a woman who had died was briefly restored to life and revealed where she had hidden property entrusted to her."
+      note: "One of the saint’s best-known accounts involving the raising of the dead, preserved in the traditional Life and the Orthodox Synaxaria. In the earliest form of the tradition, the person briefly restored is the woman who concealed the valuables; she named the hiding place and returned to death."
+    - level: "orthodox-tradition"
+      claim: "Later retellings vary in their details and sometimes confuse the individuals involved."
+      note: "The consistent element across the hagiographical tradition is that God revealed the truth through St Spyridon, restoring justice where no earthly witness remained. The purpose of the account is not the recovery of property but God’s concern for truth and for the vindication of the innocent."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

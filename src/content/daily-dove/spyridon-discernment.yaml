@@ -1,0 +1,66 @@
+id: "spyridon-discernment"
+order: 60
+desk: "church-life"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Faith & Ministry"
+headline: "Pilgrims Say Bishop ‘Knows the Heart’ Before a Word Is Spoken"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "A growing reputation for spiritual discernment is drawing crowds to the shepherd of Trimythous — and the bishop himself is doing his best to discourage the fascination."
+summary: "Long before they speak, many who come seeking the bishop’s counsel leave convinced that their deepest burdens were already known."
+miracles:
+  - "prayer"
+body:
+  - "Long before they speak, many who come seeking the counsel of Bishop Spyridon leave convinced that their deepest burdens were already known."
+  - "Travelers arriving from across Cyprus describe a pattern. Merchants wrestling with dishonesty, neighbors divided by resentment, and penitents burdened by hidden sins have all reported receiving guidance that seemed directed precisely at matters they had never disclosed aloud."
+  - "According to those who know the bishop, such moments are becoming common."
+  - "“He asks questions no stranger should know to ask,” one visitor reportedly observed."
+  - "Another described arriving prepared to conceal a long-held grievance, only to hear Spyridon speak about forgiveness before the subject had ever been mentioned."
+  - "Those close to the bishop reject any suggestion that he possesses unusual insight of his own."
+  - "They insist that whatever discernment he shows is received through prayer and the grace of the Holy Spirit, not through cleverness or a reader’s eye for a face."
+  - "The bishop himself has consistently discouraged fascination with the reports, urging those who seek him not to marvel at hidden knowledge but to turn their attention toward repentance and reconciliation with God."
+  - "It is worth saying what this dispatch is not. There is no single famous incident behind it, no one afternoon on which the bishop named a stranger’s secret before a crowd. What there is instead is a pattern running through the whole of his ministry — recurring often enough, and in accounts independent enough of one another, that the Church has remembered it as a trait rather than as an event."
+  - "As the stories continue to circulate, many have begun traveling to Trimythous less in search of wonders than in search of a shepherd whose counsel reaches past appearances and into the condition of a soul."
+pullQuote:
+  text: "“He asks questions no stranger should know to ask.”"
+  attribution: "— A visitor to Trimythous"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "The roads into Trimythous have grown busier this season. Innkeepers report visitors arriving from the coastal towns and from as far as the mainland, many of them staying only long enough to speak with the bishop once."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I rehearsed what I would tell him the whole way. I never used a word of it.”"
+        attribution: "A traveller from the coast"
+      - text: "“He is not reading us. He is praying, and then he speaks.”"
+        attribution: "A member of the bishop’s clergy"
+    note: "Historical Note: These voices are illustrative composites. The tradition records the gift rather than the conversations."
+literaryFraming: "This dispatch is deliberately built as a feature rather than as an incident report, because the tradition supports a characteristic and not a single episode. The travellers, the quoted visitors and clergy, the innkeepers’ reports and the dateline reporting are all literary devices."
+historiansNotes:
+  intro: "A note on why this dispatch reports no single event."
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Spiritual discernment — the perception of deception, of unspoken need, and of the hidden condition of a soul — is attributed to St Spyridon throughout his Life and later tradition."
+      note: "Unlike his better-known miracles, the tradition preserves no one universally recognised episode in which he publicly revealed a hidden sin. The gift is instead a recurring characteristic across many dispersed accounts. Because of that, it is more accurate to present the gift itself than to reconstruct a specific incident, which is what this dispatch does."
+    - level: "orthodox-tradition"
+      claim: "Spyridon discouraged attention to the gift and directed those who came to him toward repentance."
+      note: "Consistent with the saint’s refusal of honour throughout his Life. Individual anecdotes illustrating the gift vary considerably in detail and transmission."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

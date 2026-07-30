@@ -1,0 +1,74 @@
+id: "spyridon-emperor-healed"
+order: 58
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Antioch Edition"
+byline: "By Our Correspondent at the Imperial Court"
+series:
+  id: "spyridon-and-the-emperor"
+  name: "The Bishop and the Emperor"
+  part: 1
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Imperial Physicians Fail — Emperor Summons Humble Bishop From Cyprus"
+date: "In the Reign of Constantius II (337–361)"
+location: "Antioch, Syria"
+dek: "The court is stunned as St Spyridon reportedly restores Emperor Constantius to health after the royal doctors exhaust every remedy known to them."
+summary: "After weeks of unsuccessful treatment by the empire’s most respected physicians, the emperor is reported to have recovered following the arrival of a shepherd-bishop from Cyprus."
+miracles:
+  - "healing"
+body:
+  - "After weeks of unsuccessful treatment by the empire’s most respected physicians, Emperor Constantius II is reported to have recovered from a serious illness following the arrival of Bishop Spyridon of Trimythous, the shepherd from Cyprus whose reputation for holiness has spread far beyond his island."
+  - "Sources within the imperial court say the emperor’s condition had steadily worsened despite the efforts of the court physicians. As concern mounted through the palace, advisors reportedly urged Constantius to seek the prayers of the Cypriot bishop, whose wonders had become widely spoken of throughout the eastern provinces."
+  - "Although reluctant to leave his flock, Spyridon agreed to make the long journey."
+  - "Witnesses say the bishop arrived at court in the same plain woolen garments and woven shepherd’s cap for which he is already known at home. His appearance drew curious glances from attendants more accustomed to richly dressed dignitaries than village pastors."
+  - "According to the account, Spyridon was brought into the emperor’s chamber without ceremony."
+  - "Rather than prescribing medicines or examining the emperor’s condition, the bishop approached the bedside, prayed to Christ, and laid his hand upon the emperor."
+  - "Almost at once, witnesses say, Constantius felt relief."
+  - "By the following day the emperor was able to rise from his bed, astonishing members of the household who had feared the illness might prove fatal."
+  - "Court officials have described the recovery as remarkable. Those close to Spyridon insist the bishop claimed no credit for himself, and that he reminded everyone present that healing belongs to God alone and that he had come only as a servant offering prayer."
+  - "The emperor is said to have thanked the bishop generously before sending him home to Cyprus with honor. Yet those who accompanied Spyridon report that he left the palace much as he had entered it, carrying little interest in imperial favor and eager to return to the ordinary care of his people."
+  - "For many across the empire the episode has become a striking contrast between earthly power and spiritual authority. The emperor commands armies stretching across the Roman world, and sent for the prayers of a shepherd-bishop whose greatest wealth is his faith."
+pullQuote:
+  text: "“The physicians brought instruments. He brought nothing at all.”"
+  attribution: "— An attendant of the imperial household"
+aroundTheEmpire:
+  notes:
+    - city: "Antioch"
+      note: "The court has remained at Antioch through the emperor’s illness, and the business of the eastern provinces has slowed accordingly."
+    - city: "Cyprus"
+      note: "Trimythous is said to have been without its bishop for the duration of the journey, an absence his flock is reported to have felt keenly."
+departments:
+  - kind: "imperial"
+    title: "Imperial Dispatch"
+    body:
+      - "Constantius II, son of Constantine the Great, has ruled the eastern half of the empire since 337 and is a thoroughly documented figure of the age. He was a contemporary of the Cypriot bishop, and a summons of this kind lies well within the ordinary practice of the court."
+      - "What the palace archives do not record is the healing. That comes to us from the Church’s own memory of the saint, not from the imperial secretariat."
+literaryFraming: "The court sources, the quoted attendant, the note on the business of the provinces, and the dateline reporting are literary devices. The underlying narrative — the emperor’s illness, the summons to Cyprus, the prayer and the recovery — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Constantius II ruled the eastern Roman Empire from 337 to 361 and was a contemporary of Spyridon of Trimythous."
+      note: "Constantius II is a well-documented historical figure. The historical setting of the encounter is therefore secure, whatever is made of the healing itself."
+    - level: "orthodox-tradition"
+      claim: "Spyridon travelled to the imperial court, prayed over the ailing emperor, and Constantius recovered."
+      note: "Preserved in the traditional Life of St Spyridon and among the saint’s best-known encounters with the imperial court. Orthodox tradition adds that the emperor was directed to summon him by a dream. The healing is not recorded in surviving contemporary imperial sources; it is valued within the tradition as much for the bishop’s humility before the most powerful ruler in the world as for the recovery."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Standard historical accounts of the reign of Constantius II (337–361)"

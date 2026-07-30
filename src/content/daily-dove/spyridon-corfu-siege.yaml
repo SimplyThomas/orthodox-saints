@@ -1,0 +1,76 @@
+id: "spyridon-corfu-siege"
+order: 69
+desk: "imperial"
+century: 18
+evidence: "orthodox-tradition"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Breaking"
+headline: "Ottoman Fleet Withdraws After Mysterious Figure Reportedly Appears Above Corfu"
+date: "August 1716"
+location: "Corfu, Ionian Islands"
+dek: "Defenders say a robed bishop carrying a torch was seen during the final assault as the invading forces abandoned the siege."
+summary: "Against overwhelming odds the Venetian-held island has survived one of the largest Ottoman assaults in its history, and many of its defenders insist they know why."
+miracles:
+  - "protection"
+  - "relics"
+body:
+  - "Against overwhelming odds, the Venetian-held island of Corfu has survived one of the largest Ottoman assaults in its history, and many of its defenders insist they know why."
+  - "As Ottoman forces pressed their attack by land and sea, the clergy processed the incorrupt relics of St Spyridon through the city, asking God to spare the island."
+  - "Then came the storm."
+  - "Violent winds battered the Ottoman fleet while confusion spread through the besieging army. As panic mounted, reports began circulating among defenders and attackers alike that a towering bishop clothed in dark vestments had been seen upon the city’s walls, carrying a flaming torch and driving the invaders back."
+  - "Within days, the Ottoman army abandoned the siege and withdrew."
+  - "Military men will give other reasons, and this paper does not dismiss them. The weather was severe and came at the worst possible moment for a fleet at anchor. The supply lines were long. The Venetian defense, under a commander who knew his ground, was determined and well conducted. Any one of these would have counted; together they are a sufficient account of why a siege fails."
+  - "The people of Corfu have never regarded that as an answer to a different question."
+  - "They do not deny the storm. They say who sent it, and they say it was asked for by name."
+  - "Every year since, the island has commemorated the deliverance with one of its most solemn public processions — the largest of the four it keeps, held each August, following the same route the relics took when the guns were still firing."
+pullQuote:
+  text: "“We do not deny the storm. We say Who sent it.”"
+  attribution: "— A defender of the city, after the withdrawal"
+aroundTheEmpire:
+  heading: "Around the Island"
+  notes:
+    - city: "The Old Fortress"
+      note: "The garrison held the works through the heaviest of the bombardment. Losses on both sides through the summer were considerable."
+    - city: "The Anchorage"
+      note: "The Ottoman fleet is reported to have suffered badly in the weather, with vessels driven from their moorings during the worst of the blow."
+departments:
+  - kind: "imperial"
+    title: "Imperial Dispatch"
+    body:
+      - "The siege of 1716 is a matter of public record on both sides, and the withdrawal after it is one of the better-documented episodes of the Venetian–Ottoman wars in these islands."
+      - "The apparition on the walls is not. It comes to us from the religious tradition of Corfu, where it has been preserved for three centuries alongside the procession that commemorates the deliverance."
+literaryFraming: "The quoted defender, the notes from the fortress and the anchorage, and the dateline reporting are literary devices. The siege and its outcome are documented history; the reported appearance of the saint upon the walls is drawn from the tradition of Corfu."
+historiansNotes:
+  intro: "This dispatch runs a documented military event and an undocumented apparition side by side, and the two do not stand on the same ground."
+  entries:
+    - level: "contemporary-source"
+      claim: "Ottoman forces besieged Venetian-held Corfu in 1716 and withdrew without taking the island."
+      note: "The Siege of Corfu (1716) is a well-documented historical event. Contemporary military records document the failed siege; the weather, the supply position and the Venetian defence are the factors historians identify."
+    - level: "orthodox-tradition"
+      claim: "St Spyridon appeared during the siege, terrifying the Ottoman forces and contributing to their withdrawal."
+      note: "This belongs to the longstanding religious tradition of Corfu rather than to the military record. It has been preserved on the island for three centuries."
+    - level: "contemporary-source"
+      claim: "The annual August procession commemorating the deliverance continues today."
+      note: "It is the largest of the four annual processions of the saint’s relics and a documented part of the island’s civic and religious life."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Contemporary accounts of the 1716 Siege of Corfu"
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu"
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Local ecclesiastical tradition of Corfu"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Historical studies of the Venetian–Ottoman wars in the Ionian Islands"
