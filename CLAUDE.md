@@ -63,17 +63,25 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
 ├── src/                       ← THE FRONTEND (Astro static-site generator)
-│   ├── pages/                 ← routes: index, search, saint/[id], feast/[id], quiz, america,
+│   ├── pages/                 ← routes: index, search, saint/[id], feast/[id], quiz,
 │   │                            calendar, feasts, calendar/[style].ics (iCal feeds),
-│   │                            news (placeholder, unlinked from nav — #348),
-│   │                            witness/[slug], about, contribute, corrections, 404 (file-based)
+│   │                            daily-dove + daily-dove/[slug] + /archive (§5c),
+│   │                            collections, heavenly-hosts, about (the three hubs, §2a),
+│   │                            america, our-story, witness/[slug], contribute,
+│   │                            corrections, 404 (file-based)
 │   ├── layouts/BaseLayout.astro
 │   ├── components/            ← .astro components (header/footer/hero/finder/detail/icons…)
-│   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band)
+│   │                            HubPage.astro backs every landing page (§2a);
+│   │                            daily-dove/ holds the paper's own components (§5c)
+│   ├── islands/               ← the ONLY hydrated JS (finder, quiz, detail-modal, cloud-band,
+│   │                            daily-dove + daily-dove-archive)
 │   ├── lib/                   ← shared TS logic extracted from the old app.js (data/filter/quiz/…)
+│   │                            nav.ts is the single source of truth for the nav (§2a)
 │   ├── content/profiles/      ← per-saint YAML rich profiles (OS-####.yaml) — a data Content Collection
 │   ├── content/feasts/        ← per-feast YAML rich profiles (FF-####.yaml) — the `feasts` collection (§5a)
-│   ├── content.config.ts      ← the `profiles` + `feasts` collections + their Zod schemas (validated at build)
+│   ├── content/daily-dove/    ← one YAML per Daily Dove article — the `dailyDove` collection (§5c)
+│   ├── content.config.ts      ← the `profiles` + `feasts` + `hosts` + `dailyDove` + `apocrypha`
+│   │                            collections + their Zod schemas (validated at build)
 │   ├── styles/global.css      ← global styles (was web/styles.css)
 │   └── assets/logo.svg, logo-ivory.svg  ← wordmark (dark) + ivory recolor (masthead)
 ├── e2e/                       ← Playwright smoke tests (base-path, modal, quiz, saint page)
@@ -98,6 +106,48 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 
 **Source of truth is text** (`data/*.csv`), committed and reviewable in pull requests.
 Everything in `public/` and `dist/` is generated and **must not be committed**.
+
+---
+
+## 2a. Navigation & the landing hubs
+
+`src/lib/nav.ts` is the **single source of truth** for the primary navigation.
+`SiteHeader` renders from it, and `SiteFooter` derives its link columns from the
+same structure — so adding a page is a one-line edit there and both surfaces
+follow. Never hand-write nav markup in a component.
+
+Six top-level items, deliberately:
+
+| Item | Contents |
+|---|---|
+| **Home** | direct link |
+| **Explore** | Browse Saints · Patron Saint Quiz · **Collections** · **Heavenly Hosts** |
+| **Church Year** | The Calendar · Feasts & Fasts · The Movable Calendar |
+| **Orthodox Living** | Icons in the Home · Giving Icons · Liturgical Living · Parish Resources |
+| **The Daily Dove** | direct link (§5c) |
+| **About** | **About the Project** (the hub) + the nine informational pages |
+
+- **`alsoActive` on a NavLink** lets a hub own a family of pages in the active
+  highlight. `/nine-orders` and `/guardian-angels` light *Explore › Heavenly
+  Hosts*; `/america` lights *Explore › Collections*. Those pages keep their own
+  `active` keys — do NOT edit a page to pretend it is the hub, and do not
+  re-derive the family anywhere else; `isLinkActive()` is the one test.
+- **`FOOTER_FOLD` in SiteFooter** folds a top-level direct link into a sibling
+  column so it does not become a lonely one-link heading. The Daily Dove folds
+  into Church Year.
+- **About stays a dropdown.** Making it a direct link would collapse its footer
+  column from nine links to one, because the footer mirrors NAV children.
+
+**The three landing hubs — `/collections`, `/heavenly-hosts`, `/about` — all
+render through `src/components/HubPage.astro`.** Hero, optional running intro,
+a card grid, and an optional `planned` list of things named but not yet built.
+Add a hub by passing data, not by inventing another page; keeping them on one
+component is what makes them read as one family.
+
+`planned` matters and is not decoration: a hub with a single live card looks
+broken, while the same card beside a named roadmap reads as a section under
+construction — which is the truth. Every planned entry must be a real cut of
+data the site already holds, never an aspiration.
 
 ---
 
@@ -521,6 +571,78 @@ covers it), which mirrors `feastlib.py`. Design spec:
   these and the breadcrumb points at that hub for exactly these. Never re-derive
   the membership inline — the two would drift.
 
+## 5c. The Daily Dove (`src/content/daily-dove/`, the `dailyDove` collection)
+
+**"Reporting from the Church Since Pentecost."** A historical newspaper: moments
+from two thousand years of Church history written as though a paper had been
+there to report them. Immersive and full of personality, but **never satire and
+never fiction** — the reporting voice is a device, the history under it is held
+to account. Routes: `/daily-dove`, `/daily-dove/archive`, `/daily-dove/<slug>`,
+and `/daily-dove/framework` (an unlisted specimen of the article layout — every
+slot filled with copy describing the slot, no history on it at all). The old
+`/news` paths redirect.
+
+**THE EVIDENCE SCALE IS THE POINT.** Every article carries one of five levels,
+and every article closes with the **Historian's Notes**, where each strand of the
+story is set against the level that actually carries it. A reader must never
+have to guess which part of what they enjoyed is documented and which is the
+living tradition of the Church.
+
+| Level | Means |
+|---|---|
+| `contemporary-source` | verified by contemporary sources |
+| `contemporary-witness` | a contemporary eyewitness account |
+| `orthodox-tradition` | later Orthodox tradition |
+| `medieval-tradition` | medieval tradition |
+| `legend` | popular legend or unverified account |
+
+Drawn as coloured dots; the weakest two are **ringed rather than filled**, so the
+distinction survives greyscale and colour blindness. **Do not promote a level to
+flatter a story.** A martyrdom preserved in a Synaxarion is `orthodox-tradition`,
+not `contemporary-source`, however ancient — calling it green would break the one
+promise the paper makes. If a genuinely new category is needed, add a level
+rather than bend an existing one.
+
+- **`literaryFraming`** is a standing, required-in-practice disclosure naming
+  which parts of an article are device rather than record (the marketplace
+  chatter, the unnamed watchman, the invented interview format). It renders
+  inside the Historian's Notes, where a reader is already weighing what to trust.
+- **Departments** (`departments[]`, ordered by `DEPARTMENT_ORDER`, not YAML
+  order): Voices from the Forum · Imperial Dispatch · Marketplace Buzz ·
+  **Whispers Around the Council** · Fact Check. Two carry standing notices
+  *before* their content: Whispers (later tradition, not contemporary record)
+  and Voices (illustrative composites — **never words in a real person's mouth**
+  unless a primary source records them).
+- **`aroundTheEmpire`** is the side column — `heading` renames it (Around the
+  Kingdom, Around the Holy Land), `intro` carries the single-paragraph form.
+  `interview[]` is for sources that are themselves first-person testimony;
+  `editorsNotebook`, `whyThisMatters`, `comingUp` and `series` are the rest of
+  the furniture. `series` groups a run of dispatches on one event — a council is
+  never one article.
+- **`miracles[]`** is the "kind of help" facet (see `WONDERS`), naming a **need,
+  never a guarantee**: the Church asks the saints to pray, it does not trade in
+  outcomes. Tag only what an account actually reports; an empty list is honest
+  and a padded one destroys the facet's worth.
+- **Era colour.** Plates take their colour from `eraOf(century)` — six bands
+  from the Age of the Martyrs to the Modern Age — with an EraPill naming the
+  band, because a colour nobody can name is decoration.
+
+**THE JOINS ARE BY ID, NEVER BY NAME (§6 applies).** `subjects: [OS-####]` puts
+the article on a saint's page; `feasts: [FF-####]` puts it on the feast page and
+the calendar. The article subjects include a Callinicus, a Barlaam, a Parthenios
+and a Michael who each share a first name with several other saints in the data —
+there are five Barlaams — so a name match would link the wrong man's page to the
+wrong man's martyrdom. Verify every id against the CSV before adding it, and
+leave it unlinked when the right record does not exist. `articlesBySaint()` and
+`articlesByFeast()` build the reverse indexes; all three surfaces render the
+shared **`DoveBand`** component.
+
+**Nothing here is authoritative until reviewed against the Church's own
+discernment (§9).** The articles are supplied by the user; do not write new ones
+unasked.
+
+---
+
 ## 6. Saint identity & deduplication (critical)
 
 - **Saint ID is the primary key.** Format `OS-####`, zero-padded to 4+ digits.
@@ -633,6 +755,11 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
+- **The Daily Dove is built and unpublished.** 36 articles across nineteen
+  centuries, linked from 34 saint pages, 3 feast pages and the calendar, and in the
+  nav. Held open: the Joseph the Sanctified article (which Joseph?), Palladius and
+  the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
+  missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
 - **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
   promoted `→ reviewed`, so nearly all saints **and all 83 feasts are now public**; the 141
   `flagged` profiles stay hidden (resolve via #349). **Visibility is no longer the lever —
@@ -737,6 +864,14 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   seal is computed by `humanReviewedIds()` in `src/lib/saint-profiles.ts` (filters
   `humanReviewed === true`), NOT by `status`. Feast (`feasts`) and host (`hosts`) profiles
   share the same `status` gate.
+- **The Daily Dove** (§5c) is a fourth content collection, `dailyDove`, one YAML per
+  article in `src/content/daily-dove/`. It has **no `status` gate** — an article is
+  either written or it is not — but it carries its own accounting instead: every
+  claim pinned to an evidence level and reckoned in the Historian's Notes. Its
+  components live in `src/components/daily-dove/`, its two islands in
+  `src/islands/daily-dove*.client.ts`, and the article chrome in
+  `src/styles/daily-dove-article.css` (shared by the article page and the
+  framework specimen — a scoped `<style>` block would reach only one of them).
 - **Search is client-side and stays that way** — no browser storage, no backend. **One engine
   ranks every search box** (`src/lib/search.ts`, MiniSearch — the one search library): token-AND
   with prefix + typo tolerance, ranked by field boosts (name > Also Known As > name variants >
