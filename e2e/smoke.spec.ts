@@ -423,6 +423,118 @@ test("a dispatch's saint pill links by id, and never for a collective", async ({
     expect((await a.innerText()).toLowerCase()).not.toContain("the fathers of");
 });
 
+test("no dispatch pill is nested inside a linked row", async ({ page }) => {
+  // An <a> inside an <a> is invalid, and the browser does not merely ignore it:
+  // it closes the outer anchor early, so the pills spill out of the row and the
+  // row stops linking to its own dispatch. The archive rows and the related
+  // cards are each one big anchor, so their pills must be `plain`.
+  for (const url of [
+    "./daily-dove/archive/",
+    "./daily-dove/nicaea-325-bishops-gather/",
+  ]) {
+    await page.goto(url);
+    const nested = await page.evaluate(
+      () =>
+        [...document.querySelectorAll("a.arc-row, a.news-feed-card")].filter(
+          (row) => row.querySelector("a"),
+        ).length,
+    );
+    expect(nested, `nested anchors on ${url}`).toBe(0);
+
+    // …and the rows still link where they should.
+    const rows = page.locator("a.arc-row, a.news-feed-card");
+    if (await rows.count())
+      expect(await rows.first().getAttribute("href")).toMatch(/\/daily-dove\//);
+  }
+});
+
+test("the archive's search box narrows the rows and combines with a facet", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const visible = () => page.locator(".arc-row:visible").count();
+  const all = await visible();
+  expect(all).toBeGreaterThan(10);
+
+  // A word, not a category — how most people arrive at an archive.
+  await page.fill("#arc-q", "xenia");
+  await expect.poll(visible).toBeLessThan(all);
+  await expect(page.locator(".arc-row:visible h3").first()).toBeVisible();
+
+  // Terms match in any order: it is an AND over the row's haystack, not a
+  // substring match on the whole phrase.
+  const one = await visible();
+  await page.fill("#arc-q", "petersburg xenia");
+  await expect.poll(visible).toBe(one);
+
+  // The query ANDs with the facets rather than replacing them.
+  await page.fill("#arc-q", "council");
+  const q = await visible();
+  await page.locator(".arc-facet", { hasText: "Imperial Dispatch" }).click();
+  await expect.poll(visible).toBeLessThanOrEqual(q);
+
+  // Clear all resets the query as well as the facets.
+  await page.locator("#arc-clear").click();
+  await expect(page.locator("#arc-q")).toHaveValue("");
+  await expect.poll(visible).toBe(all);
+
+  // A query matching nothing shows the empty state rather than a blank page.
+  await page.fill("#arc-q", "zzzznope");
+  await expect(page.locator("#arc-empty")).toBeVisible();
+});
+
+test("the archive can be sorted, and the sort survives filtering", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const firstHeadline = async () =>
+    (await page.locator(".arc-row:visible h3").first().innerText()).trim();
+
+  // Default is century ascending — the right default for an archive that runs
+  // from the Apostles to the present.
+  await expect(page.locator("#arc-sort")).toHaveValue("century");
+  const earliest = await firstHeadline();
+
+  await page.selectOption("#arc-sort", "century-desc");
+  await expect.poll(firstHeadline).not.toBe(earliest);
+
+  // Every option reorders rather than silently doing nothing.
+  const seen = new Set<string>();
+  for (const v of ["name", "place", "desk", "evidence", "headline"]) {
+    await page.selectOption("#arc-sort", v);
+    seen.add(await firstHeadline());
+  }
+  expect(seen.size).toBeGreaterThan(1);
+
+  // Sorting and filtering are independent: narrowing keeps the chosen order.
+  await page.selectOption("#arc-sort", "name");
+  const sortedFirst = await firstHeadline();
+  await page.fill("#arc-q", "council");
+  await expect
+    .poll(() => page.locator(".arc-row:visible").count())
+    .toBeLessThan(36);
+  await page.fill("#arc-q", "");
+  await expect.poll(firstHeadline).toBe(sortedFirst);
+});
+
+test("the archive's facet groups fold, and the first two start open", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/archive/");
+  const groups = page.locator("details.arc-fgroup");
+  expect(await groups.count()).toBeGreaterThan(3);
+
+  // Seven groups open at once made a rail several screens tall.
+  await expect(groups.nth(0)).toHaveAttribute("open", "");
+  await expect(groups.nth(1)).toHaveAttribute("open", "");
+  await expect(groups.nth(2)).not.toHaveAttribute("open", "");
+
+  // A shut group still opens, and its facets still filter.
+  await groups.nth(2).locator("summary").click();
+  await expect(groups.nth(2)).toHaveAttribute("open", "");
+  await expect(groups.nth(2).locator(".arc-facet").first()).toBeVisible();
+});
+
 test("the archive opens already filtered from a #facet-value link", async ({
   page,
 }) => {
@@ -767,11 +879,16 @@ test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
   const before = await rows.count();
   expect(before).toBeGreaterThan(4);
 
-  // Picking a desk narrows the list and raises a removable chip.
+  // Picking a facet narrows the list and raises a removable chip. The Century
+  // group folds shut by default, so open it the way a reader would.
   // Match on the value, not the label — "4th Century" also matches "14th".
-  await page
-    .locator('.arc-facet[data-facet="century"][data-value="4"]')
-    .click();
+  const century = page.locator(
+    '.arc-facet[data-facet="century"][data-value="4"]',
+  );
+  await century.evaluate((el) =>
+    el.closest("details")?.setAttribute("open", ""),
+  );
+  await century.click();
   await expect.poll(async () => rows.count()).toBeLessThan(before);
   await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(1);
 

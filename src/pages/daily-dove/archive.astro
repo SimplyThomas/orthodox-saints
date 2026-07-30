@@ -5,7 +5,9 @@
    readable without JavaScript. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
+import SearchGlyph from "../../components/icons/SearchGlyph.astro";
 import DeskPill from "../../components/daily-dove/DeskPill.astro";
+import DispatchPills from "../../components/daily-dove/DispatchPills.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import { withBase } from "../../lib/format";
 import "../../styles/daily-dove-paper.css";
@@ -13,6 +15,7 @@ import {
   loadPaper,
   ord,
   regionOf,
+  deskOf,
   eraOf,
   ERAS,
   WONDERS,
@@ -120,6 +123,29 @@ const groups = [
           Two thousand years of dispatches — sortable by century, by saint, by
           place, by desk, and by the level of evidence behind each one.
         </p>
+
+        {
+          /* The search box sits at the TOP, above the facets, because most
+             people arrive at an archive with a word rather than a category —
+             a saint's name, a city, a phrase from a headline. It filters the
+             same rows the facets do and combines with them (AND), so a query
+             narrows whatever is already selected rather than resetting it.
+
+             No JS, no search: the input simply does nothing and every row stays
+             visible, which is the same graceful degradation the facets have. */
+        }
+        <div class="arc-searchwrap" role="search">
+          <label class="dd-sr" for="arc-q">Search the archive</label>
+          <span class="arc-searchico" aria-hidden="true">
+            <SearchGlyph size={18} color="var(--dv-ink-3)" />
+          </span>
+          <input
+            type="search"
+            id="arc-q"
+            placeholder="Search by saint, place, or headline…"
+            autocomplete="off"
+          />
+        </div>
       </div>
     </section>
 
@@ -134,12 +160,25 @@ const groups = [
             >
           </div>
           {
-            groups.map((g) => (
-              <div class="arc-fgroup">
-                <div class="arc-fgroup-head">
+            /* Each group folds. There are seven of them and the longest runs to
+               twenty-odd options, so open they made a rail several screens tall
+               and a reader had to scroll past five ways of sorting by date to
+               reach the one they wanted. The first two are open — the kind of
+               help someone arrived carrying, and the desk — and the rest are
+               shut with their counts showing, so the whole rail is legible at a
+               glance and any group is one click away.
+
+               <details> rather than a script: it survives with JS off, it is
+               keyboard-operable for free, and the facet buttons inside keep
+               working exactly as they did. */
+            groups.map((g, i) => (
+              <details class="arc-fgroup" open={i < 2}>
+                <summary class="arc-fgroup-head">
                   <span class="eyebrow">{g.title}</span>
                   <span class="arc-fgroup-ln" aria-hidden="true" />
-                </div>
+                  <span class="arc-fgroup-n">{g.options.length}</span>
+                  <span class="arc-fgroup-caret" aria-hidden="true" />
+                </summary>
                 <div class="arc-fopts">
                   {g.options.map((o) => (
                     <button
@@ -160,7 +199,7 @@ const groups = [
                     </button>
                   ))}
                 </div>
-              </div>
+              </details>
             ))
           }
         </aside>
@@ -174,11 +213,38 @@ const groups = [
             </h2>
             <div class="arc-chips" id="arc-chips"></div>
             <span class="arc-spacer"></span>
-            <span class="arc-sorted">Sorted by century</span>
+            {
+              /* Sorting, not just filtering. The list was fixed at century
+                 ascending, which is the right default for an archive that runs
+                 from the Apostles to the present but the wrong one for a reader
+                 looking up a name or a place.
+
+                 Server-rendered order stays century-ascending, so with no JS the
+                 list is still in a sensible order and the control simply does
+                 nothing — same graceful degradation as the facets and search. */
+            }
+            <label class="arc-sortwrap">
+              <span class="arc-sortlab">Sort</span>
+              <select id="arc-sort" class="arc-sortsel">
+                <option value="century">Century, earliest first</option>
+                <option value="century-desc">Century, latest first</option>
+                <option value="name">Saint, A–Z</option>
+                <option value="place">Place, A–Z</option>
+                <option value="desk">Department</option>
+                <option value="evidence">Strength of evidence</option>
+                <option value="headline">Headline, A–Z</option>
+              </select>
+            </label>
           </div>
 
           <div class="arc-list" id="arc-list">
             {
+              /* Each row carries its own sort keys as data attributes rather
+                 than the island deriving them. `data-saint` is the FACET's key
+                 (the bare first name it groups on) and must not change meaning,
+                 so display-name sorting gets `data-sortname` of its own; and
+                 evidence sorts by rank in EVIDENCE_LIST — strongest first —
+                 which is an ordering the island has no business knowing. */
               rows.map((n) => {
                 const v = EVIDENCE[n.evidence];
                 return (
@@ -192,6 +258,12 @@ const groups = [
                     data-wonder={(n.miracles ?? []).join(" ")}
                     data-region={regionOf(n.location)}
                     data-saint={n.saint.name}
+                    data-search={`${n.headline} ${n.saint.name} ${n.saintLabel ?? ""} ${n.location} ${n.summary} ${deskOf(n).name}`.toLowerCase()}
+                    data-sortname={(n.saintLabel ?? n.saint.name).toLowerCase()}
+                    data-sortplace={n.location.toLowerCase()}
+                    data-sortdesk={deskOf(n).name.toLowerCase()}
+                    data-sorthead={n.headline.toLowerCase()}
+                    data-vrank={EVIDENCE_LIST.indexOf(n.evidence)}
                   >
                     <span
                       class="arc-vsq"
@@ -209,6 +281,22 @@ const groups = [
                       <div class="arc-rowmeta">
                         <DeskPill desk={n.desk} />
                         <CenturyBadge century={n.century} />
+                        {/* Who it is about and what was asked for. `plain` is
+                             mandatory here: the whole row is one <a>, and an
+                             anchor inside an anchor makes the browser close the
+                             outer one early — the row would stop linking to its
+                             own dispatch. The saint and the kind of help are
+                             both facets in the rail beside this, so a reader who
+                             wants to pivot on either has a real control for it;
+                             these are labels, not a second set of filters.
+                             `showEra` is off because the century badge to the
+                             left already answers when. */}
+                        <DispatchPills
+                          n={n}
+                          plain
+                          showEra={false}
+                          maxWonders={1}
+                        />
                         <span class="arc-loc">
                           <svg
                             width="13"
@@ -310,6 +398,79 @@ const groups = [
     margin: 0;
   }
 
+  /* ---- the search box ---- */
+  .arc-searchwrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 560px;
+    margin: 22px 0 0;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--dv-rule, rgba(31, 28, 23, 0.26));
+    border-radius: 2px;
+  }
+  .arc-searchwrap:focus-within {
+    border-color: var(--dv-navy, #18324f);
+    background: #fff;
+  }
+  .arc-searchico {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+  .arc-searchwrap input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: none;
+    outline: none;
+    font-family: var(--text);
+    font-size: 15.5px;
+    color: var(--dv-ink, #1f1c17);
+    padding: 12px 0;
+  }
+  .arc-searchwrap input::placeholder {
+    color: var(--dv-ink-3, #726d62);
+  }
+
+  /* ---- the sort control ---- */
+  .arc-sortwrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 0 auto;
+  }
+  .arc-sortlab {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--dv-ink-3, #726d62);
+  }
+  .arc-sortsel {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--dv-ink, #1f1c17);
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23726d62' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>")
+        no-repeat right 2px center,
+      none;
+    border: 0;
+    border-bottom: 1px solid var(--dv-rule, rgba(31, 28, 23, 0.26));
+    border-radius: 0;
+    padding: 3px 20px 3px 0;
+    cursor: pointer;
+  }
+  .arc-sortsel:hover,
+  .arc-sortsel:focus {
+    border-bottom-color: var(--dv-navy, #18324f);
+    outline: none;
+  }
+
   .arc-body {
     padding: 36px 56px 64px;
   }
@@ -346,6 +507,40 @@ const groups = [
   .arc-fgroup {
     margin-bottom: 26px;
   }
+  /* ---- collapsible facet groups ---- */
+  .arc-fgroup > summary {
+    cursor: pointer;
+    list-style: none;
+  }
+  .arc-fgroup > summary::-webkit-details-marker {
+    display: none;
+  }
+  .arc-fgroup-n {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 10px;
+    color: var(--dv-ink-3, #726d62);
+    flex: 0 0 auto;
+  }
+  .arc-fgroup-caret {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--dv-ink-3, #726d62);
+    flex: 0 0 auto;
+  }
+  /* A plus that opens to a minus. The front page's key rotates its "+" 45° to
+     make an "×", which is fine there — here it would sit beside a count and a
+     "Clear all", where an × reads as "remove this facet" rather than "fold". */
+  .arc-fgroup-caret::after {
+    content: "+";
+  }
+  .arc-fgroup[open] > summary .arc-fgroup-caret::after {
+    content: "\2212"; /* true minus, not a hyphen */
+  }
+  .arc-fgroup > summary:hover .eyebrow {
+    color: var(--dv-burgundy, #7a2531);
+  }
+
   .arc-fgroup-head {
     display: flex;
     align-items: center;

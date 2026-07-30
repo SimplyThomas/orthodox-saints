@@ -779,6 +779,30 @@ rather than bend an existing one.
   calendar, the corrections form). An ad for a thing that does not exist is the
   one place the conceit would tip into fiction.
 
+- **The archive (`/daily-dove/archive`) is where refining happens.** A search box
+  at the top, seven collapsible facet groups in the rail (first two open — the
+  kind of help someone arrived carrying, and the desk), and a sort dropdown over
+  the results. Everything ANDs: the query narrows whatever the facets already
+  left, and sorting is independent of both. All of it degrades — rows are
+  server-rendered in century order, so with JS off the archive is a complete,
+  sensibly-ordered list and the controls simply do nothing. Sort keys are emitted
+  as `data-sort*` attributes on each row rather than derived in the island, and
+  `data-saint` stays the *facet's* key (the bare first name it groups on) — do
+  not overload it for display sorting.
+- **Every dispatch carries a pill row: WHEN · WHO · WHAT KIND** (`DispatchPills`
+  → `EraPill` · `SaintPill` · `WonderPill`). Two rules on it:
+  - **`plain` is mandatory wherever the pills sit inside a linked row** (the
+    archive rows and the related-dispatch cards are each one big `<a>`). An
+    anchor inside an anchor is invalid and the browser closes the outer one
+    early, so the pills spill out and the row stops linking to its own dispatch.
+  - **`SaintPill` links by OS-#### id, and refuses to link for a collective.**
+    `saintLabel` usually just spells the person out ("Barlaam" → "Barlaam of
+    Khutyn") and should link, but on the council dispatches it names a *body* —
+    "The Fathers of the First Council" — while `subjects[0]` is one
+    representative father. It links only when the person's own name appears in
+    the label: 28 of 36 link, and the 8 that don't are the seven councils plus
+    Palladius, which carries no verified id.
+
 **THE JOINS ARE BY ID, NEVER BY NAME (§6 applies).** `subjects: [OS-####]` puts
 the dispatch on a saint's page; `feasts: [FF-####]` puts it on the feast page and
 the calendar. The dispatch subjects include a Callinicus, a Barlaam, a Parthenios
