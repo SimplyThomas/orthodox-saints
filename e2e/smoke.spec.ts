@@ -606,8 +606,12 @@ test("a saint with no dispatch shows no Daily Dove band", async ({ page }) => {
 
 test("the calendar offers the paper beneath the key", async ({ page }) => {
   await page.goto("./calendar/");
-  const card = page.locator(".cal-dove");
-  await expect(card).toBeVisible();
+  const card = page.locator("#cal-dove");
+  // Collapsed by default, like the liturgical guide and Customs & Traditions
+  // beside it — the calendar itself stays the page.
+  expect(await card.evaluate((el: HTMLDetailsElement) => el.open)).toBe(false);
+  await card.locator("summary").click();
+  expect(await card.evaluate((el: HTMLDetailsElement) => el.open)).toBe(true);
 
   // The Sunday of the Fathers of the First Ecumenical Council leads, because it
   // carries the whole council run.

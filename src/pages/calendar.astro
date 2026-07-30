@@ -152,6 +152,7 @@ const doveDays = [...byFeast.entries()]
 // A couple of dispatches to show when no feast is involved at all, so the card
 // is never empty as the paper grows into parts of history the calendar does not
 // keep a day for.
+const doveTotal = (await loadPaper()).all.length;
 const doveLatest = (await loadPaper()).all
   .slice()
   .sort((a, b) => postRank(b) - postRank(a))
@@ -394,63 +395,63 @@ const swatch = (key: string) =>
       </details>
 
       {/* ——— The Daily Dove, beneath the key ——— */}
-      <section class="cal-dove">
-        <div class="cal-dove-head">
-          <span class="eyebrow">The Daily Dove</span>
-          <span class="cal-dove-ln" aria-hidden="true"></span>
-          <span class="cal-dove-note"
-            >Reporting from the Church Since Pentecost</span
+      <details class="cal-dove" id="cal-dove">
+        <summary>
+          The Daily Dove<span class="cal-dove-count"
+            >{doveTotal} dispatches</span
           >
-        </div>
-        <p class="cal-dove-lede">
-          Many of the days in this calendar keep the memory of an event the
-          Church still marks. The Daily Dove reports those events as the news of
-          their day, with the evidence behind every story set out plainly.
-        </p>
+        </summary>
+        <div class="cal-dove-body">
+          <p class="cal-dove-lede">
+            Many of the days in this calendar keep the memory of an event the
+            Church still marks. The Daily Dove reports those events as the news
+            of their day, with the evidence behind every story set out plainly.
+          </p>
 
-        {
-          doveDays.length > 0 && (
-            <ul class="cal-dove-days" role="list">
-              {doveDays.map((d) => (
-                <li>
-                  <a class="cal-dove-day" href={withBase(`feast/${d.id}`)}>
-                    <span class="cal-dove-dayname">{d.name}</span>
-                    <span class="cal-dove-ct">
-                      {d.articles.length}
-                      {d.articles.length === 1 ? " dispatch" : " dispatches"}
-                    </span>
-                  </a>
-                  <ul class="cal-dove-arts" role="list">
-                    {d.articles.map((a) => (
-                      <li>
-                        <a href={withBase(`daily-dove/${a.id}`)}>
-                          {a.headline}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
+          {
+            doveDays.length > 0 && (
+              <ul class="cal-dove-days" role="list">
+                {doveDays.map((d) => (
+                  <li>
+                    <a class="cal-dove-day" href={withBase(`feast/${d.id}`)}>
+                      <span class="cal-dove-dayname">{d.name}</span>
+                      <span class="cal-dove-ct">
+                        {d.articles.length}
+                        {d.articles.length === 1 ? " dispatch" : " dispatches"}
+                      </span>
+                    </a>
+                    <ul class="cal-dove-arts" role="list">
+                      {d.articles.map((a) => (
+                        <li>
+                          <a href={withBase(`daily-dove/${a.id}`)}>
+                            {a.headline}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+
+          <div class="cal-dove-foot">
+            <a class="btn btn--gold cal-dove-btn" href={withBase("daily-dove")}>
+              Read the paper
+            </a>
+            <ul class="cal-dove-latest" role="list">
+              {
+                doveLatest.map((a) => (
+                  <li>
+                    <a href={withBase(`daily-dove/${a.id}`)}>{a.headline}</a>
+                    <span class="cal-dove-when">{a.date}</span>
+                  </li>
+                ))
+              }
             </ul>
-          )
-        }
-
-        <div class="cal-dove-foot">
-          <a class="btn btn--gold cal-dove-btn" href={withBase("daily-dove")}>
-            Read the paper
-          </a>
-          <ul class="cal-dove-latest" role="list">
-            {
-              doveLatest.map((a) => (
-                <li>
-                  <a href={withBase(`daily-dove/${a.id}`)}>{a.headline}</a>
-                  <span class="cal-dove-when">{a.date}</span>
-                </li>
-              ))
-            }
-          </ul>
+          </div>
         </div>
-      </section>
+      </details>
 
       {
         /* ——— Customs & Traditions for the selected day (island-populated) ——— */
@@ -543,33 +544,39 @@ const swatch = (key: string) =>
 </BaseLayout>
 
 <style>
-  /* ——— The Daily Dove card, beneath the key ——— */
+  /* ——— The Daily Dove, beneath the key ———
+     Collapsed by default and built in the same idiom as its neighbours on this
+     page (the liturgical guide, Customs & Traditions): a details/summary row
+     rather than a standing card, so the calendar itself stays the page. */
   .cal-dove {
     max-width: var(--maxw);
-    margin: 0 auto 26px;
-    padding: 22px 26px 24px;
+    margin: 18px auto 26px;
     background: var(--dove-parchment-2);
     border: 1px solid var(--line-gold);
-    border-top: 3px solid var(--byz-deep);
-    border-radius: 4px;
+    border-radius: 10px;
   }
-  .cal-dove-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
+  .cal-dove > summary {
+    font-family: var(--text);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--byz-deep);
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style-position: inside;
   }
-  .cal-dove-ln {
-    flex: 1;
-    height: 1px;
-    background: var(--line-gold);
+  .cal-dove > summary:hover {
+    color: var(--byz);
   }
-  .cal-dove-note {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 13px;
-    color: var(--ink-soft);
-    white-space: nowrap;
+  .cal-dove-count {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold-deep);
+    margin-left: 10px;
+  }
+  .cal-dove-body {
+    padding: 2px 18px 18px;
   }
   .cal-dove-lede {
     font-size: 15px;
