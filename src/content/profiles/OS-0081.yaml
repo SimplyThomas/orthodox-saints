@@ -39,6 +39,7 @@ companions:
   - name: Germanus of Auxerre
     note: Bishop who recognized her vocation and encouraged her as a child at Nanterre
     commemorated: false
+    href: saint/OS-1616
   - name: Saint Lupus, Bishop of Troyes
     note: Who passed through Nanterre with Germanus and blessed her
     href: saint/OS-2689
@@ -48,9 +49,6 @@ companions:
   - name: Symeon the Stylite
     note: The Syrian pillar-saint with whom she is said to have corresponded
     href: saint/OS-0034
-  - name: St. Germanus of Auxerre
-    note: Who by tradition met her as a girl at Nanterre on his way to Britain and set her apart for God.
-    href: saint/OS-1616
 related:
   - name: Saint Brigid of Kildare
     note: Influential consecrated woman of the early Western Church

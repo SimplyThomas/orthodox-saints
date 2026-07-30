@@ -44,15 +44,11 @@ family:
   figures:
     - name: Jared
       note: Father of Enoch.
+      href: saint/OS-2531
     - name: Methuselah
       note: Son of Enoch; the longest-lived of the patriarchs.
+      href: saint/OS-2533
     - name: Noah
       note: Through Methuselah and Lamech, Enoch is an ancestor of Noah (Genesis 5).
-    - name: Righteous Forefather Jared
-      note: His father, in the genealogy of Christ.
-      href: saint/OS-2531
-    - name: Righteous Forefather Methuselah
-      note: His son, the longest-lived of the forefathers.
-      href: saint/OS-2533
 status: reviewed
 generated: "2026-06-21"

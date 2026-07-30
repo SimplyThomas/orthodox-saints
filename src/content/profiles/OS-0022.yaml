@@ -83,6 +83,7 @@ companions:
   - name: Theodosius I
     note: Emperor who installed him on the throne of Constantinople
     commemorated: false
+    href: saint/OS-0474
   - name: Maximus the Cynic
     note: Rival who intrigued against him for the see of Constantinople
     commemorated: false
@@ -95,9 +96,6 @@ companions:
   - name: Blessed Theosebia the Deaconess
     note: The blessed deaconess whom he eulogized in his Epistle 197 as an ornament of the Church.
     href: saint/OS-0427
-  - name: Right-believing Emperor Theodosius the Great
-    note: The emperor who on entering Constantinople in 380 confirmed him in the archiepiscopal throne.
-    href: saint/OS-0474
   - name: Hesychius the Presbyter of Jerusalem
     note: His disciple by tradition, later presbyter of Jerusalem.
     href: saint/OS-0894
