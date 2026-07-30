@@ -44,5 +44,10 @@ sources:
   - OrthodoxWiki
   - https://en.wikipedia.org/wiki/Fanchea
   - https://en.wikipedia.org/wiki/Enda_of_Aran
+family:
+  figures:
+    - name: St. Enda of Aran
+      note: Her brother, founder of the monastic settlement on Aran, whom she turned from warfare to the monastic life.
+      href: saint/OS-0861
 status: reviewed
 generated: "2026-07-04"

@@ -1,0 +1,56 @@
+id: OS-2988
+status: reviewed
+eyebrow: Synaxis · The Founders of Georgian Monasticism
+feastNote: May 7 — commemorated together · several of the Thirteen keep their own days besides
+overview:
+  - In the sixth century thirteen ascetics came from Syria into the kingdom of Kartli, sent, the tradition says, at the direction of the Theotokos and under the leadership of John of Zedazeni. They arrived to a land already Christian — Saint Nina had brought the faith two centuries before — but one with almost no monastic life of its own, and within a generation they had planted it across the country.
+  - Their foundations are still the great houses of Georgian monasticism. John settled on Mount Zedazeni above Mtskheta; Shio withdrew to the caves of Mgvime; David went into the barren wilderness of Gareji that still bears his name; Joseph took the see of Alaverdi, Abibus that of Nekresi, Jesse that of Tsilkani. Some became bishops and missionaries to the mountain peoples, and Abibus was martyred for overturning a Zoroastrian fire-altar.
+  - The Church of Georgia commemorates the Thirteen together on May 7, and several of them again on their own days. They are counted, with Saint Nina, among the founders of the Georgian Church — she gave it the faith, and they gave it the monastic life by which the faith was kept through the centuries that followed.
+facts:
+  - label: Type
+    value: Synaxis
+  - label: Commemorated
+    value: May 7
+  - label: Region
+    value: Syria → Georgia (Kartli and Kakheti)
+  - label: Era
+    value: Byzantine · 6th c.
+  - label: Veneration
+    value: Georgian · Pan-Orthodox
+virtues:
+  - Asceticism
+  - Obedience
+  - Zeal
+vocation:
+  - Monastics
+  - Missionaries
+  - Hierarchs
+patronage:
+  - The Church of Georgia
+  - Monastic founders
+  - Missionaries to a new land
+invokedFor:
+  - label: Beginning a Work
+    note: Those sent to build something where nothing yet stands
+  - label: Monastic Vocation
+    note: Those entering or founding the ascetic life
+  - label: The Land of Georgia
+    note: The Georgian Church and people
+timeline:
+  - when: 6th century
+    title: The journey from Syria
+    body: Thirteen ascetics leave Syria for Georgia under the leadership of John of Zedazeni.
+  - when: On arrival
+    title: Mount Zedazeni
+    body: John settles above Mtskheta, and from there sends his disciples out across the kingdom.
+  - when: Afterwards
+    title: The great foundations
+    body: Shio-Mgvime, Davit-Gareji, Alaverdi, Nekresi, Khirsa, Samtavisi, Iqalto and Breti are established.
+  - when: Later
+    title: Bishops and a martyr
+    body: Several of the Thirteen are consecrated bishops; Abibus of Nekresi is put to death by the Persians for overturning a fire-altar.
+sources:
+  - OCA Synaxarion (oca.org)
+  - https://orthodoxwiki.org/Thirteen_Syrian_Fathers
+  - https://en.wikipedia.org/wiki/Thirteen_Assyrian_Fathers
+generated: "2026-07-30"

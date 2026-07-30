@@ -65,5 +65,30 @@ family:
     - name: Righteous Lot
       note: His nephew, who journeyed with him from Ur and was delivered from Sodom.
       href: saint/OS-1985
+    - name: Righteous Job the Long-Suffering
+      note: Reckoned by tradition his descendant in the fifth generation.
+      href: saint/OS-1120
+    - name: Rebecca
+      note: The wife of his son Isaac, betrothed through the servant he sent to Haran.
+      href: saint/OS-2355
+    - name: Righteous Forefather Shem
+      note: His forefather, the son of Noah from whom his line descends through Arphaxad.
+      href: saint/OS-2535
+    - name: Righteous Forefather Eber
+      note: His forefather in the line of Shem, from whom the Hebrews take their name.
+      href: saint/OS-2539
+    - name: Righteous Forefather Serug
+      note: His great-grandfather in the line of Shem.
+      href: saint/OS-2542
+    - name: Nahor
+      note: His grandfather.
+      href: saint/OS-2543
+    - name: Terah
+      note: His father, who brought the family out of Ur of the Chaldees to Haran.
+      href: saint/OS-2544
+companions:
+  - name: Righteous Noah
+    note: An earlier forefather, commemorated with him among the Holy Forefathers before the Nativity.
+    href: saint/OS-2354
 status: reviewed
 generated: "2026-06-22"

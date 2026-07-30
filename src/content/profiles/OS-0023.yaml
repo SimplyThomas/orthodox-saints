@@ -74,6 +74,36 @@ companions:
   - name: Empress Eudoxia
     note: Whose enmity led to his exile
     commemorated: false
+  - name: Martyrs Juventinus & Maximinus
+    note: Martyrs under Julian whose memory he preserved in a panegyric preached at Antioch.
+    href: saint/OS-0227
+  - name: Monk-Martyr Telemachus
+    note: The monk whose death in the arena brought an end to the gladiatorial games.
+    href: saint/OS-0375
+  - name: Venerable Isidore of Pelusium
+    note: The ascetic of Pelusium who admired and defended him during his persecution.
+    href: saint/OS-0591
+  - name: John Cassian
+    note: Whom he ordained deacon and received as a disciple; later founder of monasteries in Gaul.
+    href: saint/OS-0741
+  - name: Saint Mark the Ascetic
+    note: His disciple by tradition, whom he tonsured a monk.
+    href: saint/OS-0782
+  - name: Theotimus of Tomis
+    note: Bishop of Tomis and his friend.
+    href: saint/OS-1031
+  - name: Martyrs Tigrius the Presbyter and Eutropius the Reader of Constantinople
+    note: Clergy of his church, who suffered in the persecution that followed his exile.
+    href: saint/OS-1372
+  - name: Proclus of Constantinople
+    note: His disciple in the synaxarion tradition, who as archbishop restored his relics to Constantinople.
+    href: saint/OS-2223
+  - name: Saint Philogonius, Bishop of Antioch
+    note: Bishop of Antioch, in whose honor he preached a panegyric in 386.
+    href: saint/OS-2395
+  - name: Patriarch Nektarios of Constantinople
+    note: Archbishops of Constantinople of his own time; Arsacius served as his archpresbyter and succeeded him after his exile.
+    href: saint/OS-2501
 related:
   - name: Basil the Great
     note: Fellow ecumenical teacher among the Three Holy Hierarchs

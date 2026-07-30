@@ -101,6 +101,12 @@ companions:
   - name: Arius
     note: The heretic he confronted at Nicaea (by tradition)
     commemorated: false
+  - name: Sylvester I of Rome
+    note: Pope of Rome in the days of the First Council.
+    href: saint/OS-0376
+  - name: Joseph the Hymnographer
+    note: To whom he appeared during his captivity, according to tradition.
+    href: saint/OS-0930
 related:
   - name: John the Merciful
     note: Fellow bishop renowned for almsgiving

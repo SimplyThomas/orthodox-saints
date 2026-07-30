@@ -42,6 +42,9 @@ family:
     - name: Saint Euphrosyne (Eudokia) of Moscow
       note: His wife, Grand Princess of Moscow, foundress of the Ascension Convent, commemorated May 17
       href: saint/OS-1193
+    - name: Blessed Michael of Klops
+      note: His kinsman, the fool-for-Christ of the Klopsky monastery near Novgorod.
+      href: saint/OS-0431
 companions:
   - name: St. Sergius of Radonezh
     note: The abbot who blessed Demetrios before the battle of Kulikovo, foretold his victory, and sent two of his monks to accompany the army.
@@ -55,6 +58,12 @@ companions:
   - name: St. Cyprian, Metropolitan of Moscow
     note: Metropolitan of Moscow during the latter part of his reign and his contemporary in the leadership of the Russian Church.
     href: saint/OS-1848
+  - name: Venerable Demetrius of Priluki
+    note: Said to have stood godfather to his children; founder of Priluki near Vologda.
+    href: saint/OS-0635
+  - name: Saint James the Wonderworker, Bishop of Rostov
+    note: Consecrated bishop of Rostov during his reign.
+    href: saint/OS-2261
 patronage:
   - Russia and the Russian land
   - Rulers and soldiers

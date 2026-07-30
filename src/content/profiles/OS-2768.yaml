@@ -33,5 +33,10 @@ sources:
   - https://en.wikipedia.org/wiki/Maubeuge_Abbey
   - https://en.wikipedia.org/wiki/Waltrude
   - https://en.wikipedia.org/wiki/Aldegonde
+family:
+  figures:
+    - name: St. Madalberta of Maubeuge
+      note: Her sister, who succeeded her as abbess of Maubeuge.
+      href: saint/OS-0282
 status: flagged
 generated: "2026-07-03"

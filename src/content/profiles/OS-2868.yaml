@@ -50,5 +50,9 @@ sources:
   - Wikipedia (Cyril of Scythopolis)
   - https://en.wikipedia.org/wiki/Cyril_of_Scythopolis
   - https://orthodoxwiki.org/index.php?search=Cyril+of+Scythopolis&title=Special%3ASearch
+companions:
+  - name: St. John the Silent
+    note: Whose life he recorded as a principal source.
+    href: saint/OS-0905
 status: reviewed
 generated: "2026-07-04"

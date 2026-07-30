@@ -49,5 +49,13 @@ sources:
   - https://en.wikipedia.org/wiki/Isidore_of_Seville
   - https://www.johnsanidopoulos.com/search?q=Florentina+Cartagena
   - https://www.oca.org/saints/lives/2025/06/20
+family:
+  figures:
+    - name: Leander of Seville
+      note: Her brother, archbishop of Seville, who composed a rule for her.
+      href: saint/OS-0734
+    - name: Saint Isidore of Seville
+      note: Her brother, archbishop of Seville and the last of the Latin Fathers.
+      href: saint/OS-0937
 status: flagged
 generated: "2026-07-04"

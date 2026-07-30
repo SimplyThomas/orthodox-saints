@@ -19,6 +19,15 @@ sections:
 companions:
   - name: The Serbian New Martyrs
     note: Commemorated among the Serbian hierarchs, clergy, and faithful who suffered during the Second World War.
+  - name: Nestor of Mileševa
+    note: Hieromartyr of Mileseva, martyred in the same persecution of 1941.
+    href: saint/OS-2641
+  - name: Budimir of Dobrun
+    note: Hieromartyr of Dobrun, numbered among the New Martyrs of Dabar-Bosnia.
+    href: saint/OS-2642
+  - name: New Martyrs of Dabar-Bosnia and Mileševa
+    note: The synaxis of New Martyrs among whom he is the leading figure.
+    href: saint/OS-2644
 related:
   - name: Hieromartyr Platon of Banja Luka
     note: Fellow Serbian hierarch (Bishop of Banja Luka) martyred in 1941 under the wartime persecution of the Independent State of Croatia.

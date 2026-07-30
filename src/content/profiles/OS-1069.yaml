@@ -57,6 +57,9 @@ companions:
   - name: Apostle James, Brother of the Lord
     note: First bishop of Jerusalem, whom Simeon succeeded
     href: saint/OS-2066
+  - name: Apostle Simon the Zealot
+    note: One of the Twelve, from whom Saint Demetrius of Rostov distinguishes him.
+    href: saint/OS-1137
 patronage:
   - Bishops and pastors who suffer for the faith
   - The Church of Jerusalem
@@ -64,5 +67,13 @@ patronage:
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Simeon_of_Jerusalem
+family:
+  figures:
+    - name: Mary, the wife of Clopas
+      note: His mother, the myrrh-bearer who stood by the Cross.
+      href: saint/OS-1230
+    - name: Apostle Cleopas of the Seventy
+      note: His father by tradition, one of the two disciples met on the road to Emmaus.
+      href: saint/OS-2513
 status: reviewed
 generated: "2026-06-19"

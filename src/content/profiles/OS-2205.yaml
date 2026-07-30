@@ -71,5 +71,18 @@ sources:
   - https://en.wikipedia.org/wiki/Nikon_of_Radonezh
   - https://orthodoxwiki.org/Nikon_of_Radonezh
   - https://www.oca.org/saints/lives/2025/11/17/103316-venerable-nikon-abbot-of-radonezh-disciple-of-venerable-sergius
+companions:
+  - name: St. Sergius of Radonezh
+    note: His elder, founder of the Trinity Lavra, whom he succeeded as abbot.
+    href: saint/OS-0042
+  - name: Andrew Rublev the Iconographer
+    note: The iconographer who lived under him and whom he commissioned to paint the Trinity.
+    href: saint/OS-1469
+  - name: Saints Athanasios and Theodosios of Cherepovets
+    note: Founders of Cherepovets, whose church was dedicated in part to him.
+    href: saint/OS-2258
+  - name: Venerable Savva, Igumen of Zvenigorod
+    note: Whom the brethren asked to lead the Lavra after his withdrawal in 1392.
+    href: saint/OS-2293
 status: reviewed
 generated: "2026-07-03"

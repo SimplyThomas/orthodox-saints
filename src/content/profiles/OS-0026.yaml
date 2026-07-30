@@ -93,6 +93,24 @@ companions:
   - name: Arius
     note: The heretic he left the desert to refute
     commemorated: false
+  - name: Confessors Zosimus the Hermit and Athanasius
+    note: Confessors of the same age — a hermit and the officer converted by his witness.
+    href: saint/OS-0388
+  - name: Saint Paul the Simple
+    note: His disciple, received into the desert in old age and famed for his simplicity and obedience.
+    href: saint/OS-0790
+  - name: Saint Serapion, Bishop of Thmuis
+    note: His disciple and companion, to whom he left one of his two sheepskin cloaks at his death.
+    href: saint/OS-0860
+  - name: Venerable Pior of Egypt
+    note: Described as his disciple; an ascetic of the Egyptian desert.
+    href: saint/OS-2732
+  - name: Venerable Cronius of Nitria
+    note: Who served him as a Greek interpreter; later an elder of Nitria.
+    href: saint/OS-2734
+  - name: St. Paphnutius the Confessor of Thebes
+    note: His disciple by tradition; a confessor of the Thebaid.
+    href: saint/OS-2736
 related:
   - name: Pachomius the Great
     note: Parallel founder of cenobitic monasticism

@@ -60,5 +60,15 @@ sources:
   - https://en.wikipedia.org/wiki/Cyriacus_the_Anchorite
   - https://www.oca.org/saints/lives/2024/09/29
   - https://en.wikipedia.org/wiki/Cyril_of_Scythopolis
+companions:
+  - name: Venerable Euthymius the Great
+    note: Who tonsured him as a youth and sent him on to Gerasimus.
+    href: saint/OS-0494
+  - name: Gerasimus of the Jordan
+    note: To whom Euthymius the Great sent him, and under whom he lived.
+    href: saint/OS-0766
+  - name: Martyr Petronia of Palestine
+    note: Commemorated on the same day, September 29.
+    href: saint/OS-2505
 status: reviewed
 generated: "2026-07-04"

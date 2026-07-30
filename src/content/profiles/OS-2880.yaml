@@ -58,5 +58,9 @@ sources:
   - https://orthodoxwiki.org/Varlaam_Monastery_%28Meteora%29
   - https://en.wikipedia.org/wiki/Meteora
   - https://www.johnsanidopoulos.com/2018/05/saints-and-feasts-of-may-17.html
+companions:
+  - name: Saint Savva of Ioannina
+    note: His elder, from whom he received the monastic schema in 1495.
+    href: saint/OS-0584
 status: reviewed
 generated: "2026-07-04"

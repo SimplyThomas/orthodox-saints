@@ -58,5 +58,9 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Adrian_of_Canterbury
   - https://sourcebooks.fordham.edu/basis/bede-book4.asp
+companions:
+  - name: Saint Theodore of Tarsus
+    note: Archbishop of Canterbury, whom he accompanied to England and with whom he founded its school.
+    href: saint/OS-1869
 status: reviewed
 generated: "2026-07-04"

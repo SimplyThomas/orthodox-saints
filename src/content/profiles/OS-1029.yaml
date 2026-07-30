@@ -22,6 +22,10 @@ works:
     desc: A collection of questions and answers giving pastoral and spiritual guidance to lay communities; also preserves an eyewitness account of the spread of Islam into Sinai and Egypt.
   - title: Hexaemeron
     desc: A commentary on the six days of creation in the Book of Genesis.
+companions:
+  - name: John Climacus
+    note: Abbot of Sinai and author of The Ladder of Divine Ascent.
+    href: saint/OS-0033
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

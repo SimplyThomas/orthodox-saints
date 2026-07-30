@@ -49,6 +49,12 @@ companions:
   - name: Saint George the God-Bearer of the Black Mountain
     note: Georgian elder on the Black Mountain near Antioch under whom George lived as a disciple after his pilgrimage to Jerusalem.
     href: saint/OS-1467
+  - name: Saint Arsen of Ninotsminda
+    note: Georgian monk and translator of Iveron, whose relics he later translated to the catholicon's ossuary.
+    href: saint/OS-1618
+  - name: Venerable Macarius the Faster of Khakhuli
+    note: Abbot of Khakhuli, to whom by tradition he came for his blessing.
+    href: saint/OS-2403
 related:
   - name: George Mtsire of Georgia
     note: His disciple and biographer, who composed the Life of George the Hagiorite.
@@ -74,5 +80,10 @@ sources:
   - https://en.wikipedia.org/wiki/George_the_Hagiorite
   - https://orthodoxwiki.org/George_the_Hagiorite
   - https://www.oca.org/saints/lives/2015/06/27/101801-venerable-george-the-hagiorite-of-mt-athos
+family:
+  figures:
+    - name: Saints George the Scribe and Savva of Khakhuli
+      note: His uncles, who raised and taught him at Khakhuli.
+      href: saint/OS-2392
 status: reviewed
 generated: "2026-06-19"

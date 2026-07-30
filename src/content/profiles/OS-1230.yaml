@@ -31,9 +31,13 @@ family:
     - name: Cleopas
       note: Husband — younger brother of Joseph the Betrothed, to whom Joseph gave her in marriage (distinct in Orthodox tradition from Cleopas of Emmaus)
       commemorated: false
+      href: saint/OS-2513
     - name: Hieromartyr Simeon, Kinsman of the Lord
       note: Son — the second bishop of Jerusalem, numbered among the Seventy
       href: saint/OS-1069
+    - name: Apostle James the Brother of the Lord
+      note: Her brother in the Orthodox reckoning of the Lord's kinsfolk; first bishop of Jerusalem.
+      href: saint/OS-2066
 companions:
   - name: Holy Myrrh-bearing Women
     note: Fellow Myrrh-bearer — among the women who followed Christ, stood by the Cross, and came to the tomb with spices
@@ -41,6 +45,15 @@ companions:
   - name: St. Mary Magdalene
     note: Fellow Myrrh-bearer named beside her at the Cross (John 19:25)
     href: saint/OS-0007
+  - name: Jesus Christ
+    note: The Lord, whose kinswoman she was reckoned and to whose tomb she came with spices.
+    href: saint/OS-0000
+  - name: The Most Holy Theotokos
+    note: Her kinswoman and childhood companion, the Most Holy Theotokos.
+    href: saint/OS-0001
+  - name: Joanna the Myrrh-bearer
+    note: Fellow myrrh-bearing woman, the wife of Chuza.
+    href: saint/OS-1435
 patronage: []
 status: reviewed
 generated: "2026-06-19"

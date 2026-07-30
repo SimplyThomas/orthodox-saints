@@ -42,5 +42,25 @@ sources:
   - https://en.wikipedia.org/wiki/Emmelia_of_Caesarea
   - https://en.wikipedia.org/wiki/Macrina_the_Elder
   - https://orthodoxwiki.org/Basil_the_Elder
+family:
+  figures:
+    - name: Basil the Great
+      note: His son, Basil the Great, archbishop of Caesarea.
+      href: saint/OS-0021
+    - name: Righteous Emilia
+      note: His wife, Emilia, with whom he raised a household of saints.
+      href: saint/OS-0374
+    - name: Saint Peter of Sebaste
+      note: His son, Peter, bishop of Sebaste.
+      href: saint/OS-0420
+    - name: Gregory of Nyssa
+      note: His son, Gregory, bishop of Nyssa.
+      href: saint/OS-0422
+    - name: Blessed Theosebia the Deaconess
+      note: Of his household of saints — the blessed deaconess honored with Saint Gregory of Nyssa.
+      href: saint/OS-0427
+    - name: Venerable Macrina the Younger
+      note: His daughter, Macrina the Younger, whose betrothal he arranged before his death.
+      href: saint/OS-1551
 status: reviewed
 generated: "2026-07-03"

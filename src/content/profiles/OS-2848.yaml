@@ -49,5 +49,10 @@ sources:
   - https://en.wikipedia.org/wiki/Caesarius_of_Arles
   - https://en.wikipedia.org/wiki/Regula_virginum
   - https://orthodoxwiki.org/Caesarius_of_Arles
+family:
+  figures:
+    - name: Saint Caesarius of Arles
+      note: Her brother, bishop of Arles, who set her over the convent he founded there.
+      href: saint/OS-1794
 status: reviewed
 generated: "2026-07-04"

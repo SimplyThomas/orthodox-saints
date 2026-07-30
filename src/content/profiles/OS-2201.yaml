@@ -56,5 +56,18 @@ celebration:
     - idea: 'Turn "collecting" into "giving": sort coins or toys to give away, since Matthew handled money before his calling.'
     - idea: Make a simple scroll or "Gospel book" craft, decorating the four evangelist symbols (Matthew's is the winged man).
     - idea: Keep a name-day for anyone named Matthew or Matthaios.
+companions:
+  - name: Jesus Christ
+    note: The Lord, who called him from the receipt of custom.
+    href: saint/OS-0000
+  - name: Apostle Andrew the First-Called
+    note: The First-Called of the apostles.
+    href: saint/OS-0003
+  - name: Apostle Peter
+    note: Chief of the apostles.
+    href: saint/OS-0004
+  - name: Apostle & Evangelist John the Theologian
+    note: Fellow apostle and evangelist, the Theologian.
+    href: saint/OS-0005
 status: reviewed
 generated: "2026-06-19"

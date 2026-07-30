@@ -76,6 +76,15 @@ companions:
     commemorated: false
   - name: Tsar Nicholas II
     note: Present with the imperial family at his 1903 glorification
+  - name: Seraphim of Vyritsa
+    note: Who took his name at the Great Schema and imitated his prayer upon a rock.
+    href: saint/OS-0859
+  - name: Venerable Moses of Optina
+    note: Whom he blessed to take up the monastic life; later abbot of Optina.
+    href: saint/OS-1374
+  - name: Venerable Schema-nun Martha of Diveyevo
+    note: Whom he received into the Diveyevo community and tonsured into the great schema.
+    href: saint/OS-1757
 related:
   - name: Sergius of Radonezh
     note: Father of Russian monasticism

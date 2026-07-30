@@ -36,9 +36,28 @@ family:
     - name: Apostle and Evangelist Matthew
       note: His brother; the tradition names James and Matthew (Levi) both as sons of Alphaeus.
       href: saint/OS-2201
+    - name: Apostle Alphaeus of the Seventy
+      note: His father, numbered among the Seventy.
+      href: saint/OS-1240
 related:
   - name: Synaxis of the Holy Twelve Apostles
     note: Commemorated among the Twelve in their joint synaxis.
     href: saint/OS-2934
+companions:
+  - name: Jesus Christ
+    note: The Lord, who called him among the Twelve.
+    href: saint/OS-0000
+  - name: Apostle Andrew the First-Called
+    note: The First-Called of the apostles.
+    href: saint/OS-0003
+  - name: Apostle Peter
+    note: Chief of the apostles.
+    href: saint/OS-0004
+  - name: Apostle & Evangelist John the Theologian
+    note: Fellow apostle of the Twelve, the Theologian and Evangelist.
+    href: saint/OS-0005
+  - name: Apostle James, son of Zebedee
+    note: A distinct apostle of the same name among the Twelve, the brother of John.
+    href: saint/OS-1081
 status: reviewed
 generated: "2026-06-19"

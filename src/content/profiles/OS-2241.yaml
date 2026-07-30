@@ -58,6 +58,16 @@ family:
     - name: Theodore Yaroslavich
       note: Elder brother of Alexander Nevsky; a pious prince of Novgorod who reposed in his youth.
       href: saint/OS-1294
+    - name: Blessed Dovmont, Prince of Pskov
+      note: Husband of his granddaughter Maria, daughter of his son Demetrius; the right-believing prince of Pskov.
+      href: saint/OS-1214
+companions:
+  - name: Venerable Anthony of Dymsk
+    note: Founder of the Dymsk monastery, which by some accounts he permitted.
+    href: saint/OS-0471
+  - name: Venerable Euphrosyne of Suzdal
+    note: Betrothed to his brother Prince Theodore.
+    href: saint/OS-1864
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

@@ -113,6 +113,10 @@ influence:
       kind: Church
       place: Hillsdale, Michigan
       note: "A new Orthodox Church in America mission named for St. Olga, which held its first Divine Liturgy in October 2025 — among the first communities in the Lower 48 dedicated to her."
+companions:
+  - name: Righteous Juliana of Lazarevo
+    note: Russian laywoman of hidden holiness, the merciful of Lazarevo.
+    href: saint/OS-0378
 status: reviewed
 humanReviewed: true
 generated: "2026-06-19"

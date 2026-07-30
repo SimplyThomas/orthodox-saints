@@ -70,6 +70,13 @@ family:
     - name: Polychronia
       note: Mother (traditional); a Christian of Palestine who raised him in the faith
       commemorated: false
+      href: saint/OS-1047
+    - name: Nina of Georgia
+      note: His kinswoman by the Georgian tradition, Equal-to-the-Apostles and enlightener of Georgia.
+      href: saint/OS-0039
+    - name: Zabulon and Sosanna
+      note: The parents of Saint Nina; Zabulon is reckoned his kinsman in the Georgian tradition.
+      href: saint/OS-1216
 companions:
   - name: Martyr Empress Alexandra
     note: Confessed Christ on witnessing his endurance and was martyred soon after
@@ -84,6 +91,33 @@ companions:
   - name: Diocletian
     note: Emperor who ordered his execution
     commemorated: false
+  - name: Martyr Basil of Ancyra
+    note: Presbyter and martyr of Ancyra under Julian the Apostate.
+    href: saint/OS-0373
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea in Cappadocia.
+    href: saint/OS-0382
+  - name: Confessors Zosimus the Hermit and Athanasius
+    note: Confessors of the same persecution; Athanasius was converted by the endurance of Zosimus.
+    href: saint/OS-0388
+  - name: Martyrs Victor, Zoticus, and their companions of Nicomedia
+    note: Martyrs moved to confess Christ by his endurance under torture.
+    href: saint/OS-1012
+  - name: Martyrs Christopher, Theonas, and Anthony at Rome
+    note: Soldiers converted by witnessing his steadfastness at his trial.
+    href: saint/OS-1018
+  - name: Agathangelus of Esphigmenou
+    note: New Martyr of Esphigmenou, first buried in a church at Smyrna dedicated to him.
+    href: saint/OS-1023
+  - name: Martyrs Isaac, Apollos, and Quadratus of Nicomedia
+    note: Martyrs moved to confess Christ by his sufferings.
+    href: saint/OS-1037
+  - name: St. Theodore the Sykeote, Bishop of Anastasiopolis
+    note: Who venerated him as his lifelong protector and guide in the ascetic life.
+    href: saint/OS-1039
+  - name: Martyrs Eusebius, Neon, Leontius, Longinus, and Companions at Nicomedia
+    note: The company moved by his endurance and wonders to confess Christ, martyred at Nicomedia.
+    href: saint/OS-1053
 related:
   - name: Demetrius of Thessalonica
     note: Fellow great-martyr and soldier-saint

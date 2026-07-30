@@ -51,6 +51,9 @@ family:
     - name: Righteous Macrina the Elder
       note: mother-in-law
       href: saint/OS-2474
+    - name: Blessed Theosebia the Deaconess
+      note: Of her household of saints — the blessed deaconess honored with Saint Gregory of Nyssa.
+      href: saint/OS-0427
 sections:
   - heading: A Household of Saints
     body:
@@ -77,6 +80,9 @@ companions:
   - name: Saint Monica
     note: mother of Augustine of Hippo
     href: saint/OS-1116
+  - name: Righteous Juliana of Lazarevo
+    note: Russian laywoman of hidden holiness, the merciful of Lazarevo.
+    href: saint/OS-0378
 patronage:
   - Mothers
   - Christian families

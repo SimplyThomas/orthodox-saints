@@ -90,6 +90,12 @@ companions:
   - name: The Most Holy Theotokos
     note: By tradition the first to be painted in icon by Luke
     href: saint/OS-0001
+  - name: Jesus Christ
+    note: The Lord, whose Gospel he wrote and whose acts among the apostles he recorded.
+    href: saint/OS-0000
+  - name: Apostles Nathanael, Apelles, Luke, and Clement of the Seventy
+    note: Apostles of the Seventy; their Luke (Loukios) is a distinct saint from the Evangelist.
+    href: saint/OS-1040
 related:
   - name: Apostle and Evangelist Matthew
     note: Fellow Evangelist

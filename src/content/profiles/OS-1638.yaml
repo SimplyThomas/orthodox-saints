@@ -49,5 +49,18 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2023/08/03/100493-holy-myrrhbearer-salome
   - https://en.wikipedia.org/wiki/Salome_(disciple)
+companions:
+  - name: Jesus Christ
+    note: The Lord, to whose tomb she came with spices.
+    href: saint/OS-0000
+  - name: Mary Magdalene
+    note: Fellow Myrrh-bearing Woman, first at the tomb.
+    href: saint/OS-0007
+  - name: Holy Myrrh-bearing Women
+    note: The women at the tomb, among whom she is numbered.
+    href: saint/OS-0076
+  - name: Joanna the Myrrh-bearer
+    note: Fellow myrrh-bearing woman, the wife of Chuza.
+    href: saint/OS-1435
 status: reviewed
 generated: "2026-06-19"

@@ -62,5 +62,19 @@ sources:
   - Wikipedia (Yaroslav the Wise)
   - https://en.wikipedia.org/wiki/Yaroslav_the_Wise
   - https://en.wikipedia.org/wiki/Saint_Sophia_Cathedral_in_Kyiv
+family:
+  figures:
+    - name: St. Vladimir, Enlightener of Rus'
+      note: His father, the Equal-to-the-Apostles who baptized the Rus'.
+      href: saint/OS-0040
+    - name: Passion-bearers Boris and Gleb
+      note: His younger brothers, the passion-bearers whose relics he gathered at Vyshgorod.
+      href: saint/OS-0236
+    - name: Anna of Novgorod
+      note: His wife, the Swedish-born princess Ingegerd, in monasticism Anna.
+      href: saint/OS-0629
+    - name: Vladimir Yaroslavich of Novgorod
+      note: His son, prince of Novgorod, who died two years before him.
+      href: saint/OS-1949
 status: reviewed
 generated: "2026-07-04"

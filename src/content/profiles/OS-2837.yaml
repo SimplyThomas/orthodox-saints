@@ -52,5 +52,9 @@ sources:
   - Wikipedia (Ecgwine)
   - https://en.wikipedia.org/wiki/Ecgwine_of_Worcester
   - https://en.wikipedia.org/wiki/Evesham_Abbey
+companions:
+  - name: Saint Aldhelm of Sherborne
+    note: Bishop of Sherborne and his friend, whose funeral route the crosses commemorate.
+    href: saint/OS-2707
 status: flagged
 generated: "2026-07-04"

@@ -51,5 +51,21 @@ sources:
   - https://en.wikipedia.org/wiki/Gregory_of_Khandzta
   - https://en.wikipedia.org/wiki/Giorgi_Merchule
   - https://en.wikipedia.org/wiki/Khandzta
+companions:
+  - name: Holy King Ashot of Georgia
+    note: The king who endowed his Klarjeti communities with lands.
+    href: saint/OS-0553
+  - name: Saint George Matskevereli of Georgia
+    note: Said to have contributed to the record of his life.
+    href: saint/OS-0924
+  - name: Saint Ephraim the Great of Atsquri
+    note: His disciple, later catholicos-bishop of Atsquri.
+    href: saint/OS-1001
+  - name: Venerable Michael of Parekhi
+    note: Of the same Tao-Klarjeti monastic revival, to which Parekhi belonged.
+    href: saint/OS-1249
+  - name: Saint Arsenius the Great, Catholicos of Georgia
+    note: His disciple, later catholicos of Georgia.
+    href: saint/OS-1907
 status: flagged
 generated: "2026-07-04"

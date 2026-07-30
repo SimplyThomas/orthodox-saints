@@ -67,5 +67,9 @@ family:
     - name: Saint Stephen of Dečani
       note: Her grandson, son of King Milutin.
       href: saint/OS-2182
+companions:
+  - name: Saint Daniel II, Archbishop of Serbia
+    note: Archbishop of Serbia, who recorded her life in his history of the Serbian kings.
+    href: saint/OS-2396
 status: reviewed
 generated: "2026-06-22"

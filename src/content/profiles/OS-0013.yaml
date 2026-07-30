@@ -67,6 +67,12 @@ companions:
   - name: Lyaeus
     note: The emperor's gladiator, slain by Nestor
     commemorated: false
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea in Cappadocia.
+    href: saint/OS-0382
+  - name: Martyrs Sergius and Bacchus
+    note: Soldier-martyrs of the same era, likewise honored as protectors.
+    href: saint/OS-1971
 related:
   - name: Great Martyr George
     note: Fellow great-martyr and soldier-saint

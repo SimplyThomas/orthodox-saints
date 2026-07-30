@@ -45,5 +45,9 @@ sources:
   - https://en.wikipedia.org/wiki/St_Asaph_Cathedral
   - https://en.wikipedia.org/wiki/Saint_Kentigern
   - https://en.wikipedia.org/wiki/Diocese_of_St_Asaph
+companions:
+  - name: St. Kentigern of Glasgow
+    note: Who left him in charge of the monastery at Llanelwy on returning to Strathclyde.
+    href: saint/OS-0454
 status: flagged
 generated: "2026-07-04"

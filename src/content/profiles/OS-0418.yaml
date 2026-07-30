@@ -49,6 +49,12 @@ patronage:
 companions:
   - name: Holy New Martyrs and Confessors of Solovetsky
     note: Monks of Philip's monastery who would later suffer under Soviet persecution in the same location
+  - name: Venerable Bassian and Jonah of Pertominsk
+    note: His disciples at Solovki, drowned in the White Sea and venerated at Pertominsk.
+    href: saint/OS-1339
+  - name: Saint Macarius, Metropolitan of Moscow
+    note: Metropolitan of Moscow before him, who gathered the Great Menaion Reader.
+    href: saint/OS-2437
 related:
   - name: Venerable Zosimas of Solovki
     note: "Same monastery: co-founder of the Solovetsky Monastery, where Philip was tonsured and which he later led as hegumen roughly a century afterward."

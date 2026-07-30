@@ -39,5 +39,9 @@ sections:
 patronage:
   - Georgia
   - Kakheti
+companions:
+  - name: Martyr Luarsab II, King of Kartli
+    note: King of Kartli, martyred under the same Shah Abbas of Persia.
+    href: saint/OS-1476
 status: reviewed
 generated: "2026-06-19"

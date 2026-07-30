@@ -79,5 +79,12 @@ family:
     - name: Naucratius
       note: "Brother: a sibling honored as a saint, who withdrew to the ascetic life and died young."
       href: saint/OS-2802
+companions:
+  - name: St. Gregory the Theologian
+    note: Fellow Cappadocian Father, the Theologian and archbishop of Constantinople.
+    href: saint/OS-0022
+  - name: Olympias the Deaconess
+    note: The deaconess of Constantinople who received and supported him there.
+    href: saint/OS-1577
 status: reviewed
 generated: "2026-06-22"

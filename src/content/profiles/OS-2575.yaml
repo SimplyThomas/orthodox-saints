@@ -40,5 +40,10 @@ sources:
   - https://en.wikipedia.org/wiki/Book_of_Ruth
   - https://www.johnsanidopoulos.com/search?q=Obed
   - https://en.wikipedia.org/wiki/Sunday_of_the_Holy_Forefathers
+family:
+  figures:
+    - name: Prophet-King David
+      note: His grandson, the prophet-king.
+      href: saint/OS-2421
 status: flagged
 generated: "2026-07-04"

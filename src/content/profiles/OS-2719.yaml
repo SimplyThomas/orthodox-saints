@@ -58,6 +58,9 @@ companions:
   - name: Saint Boniface
     note: Apostle of the Germans, who assisted Willibrord in the Frisian mission after 719.
     external: https://en.wikipedia.org/wiki/Saint_Boniface
+  - name: St. Sergius I, Pope of Rome
+    note: Pope who consecrated him bishop of the Frisians and sent him to evangelize Frisia.
+    href: saint/OS-0311
 reading:
   - heading: Reference
     items:

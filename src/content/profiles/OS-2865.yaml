@@ -38,5 +38,12 @@ sources:
   - https://en.wikipedia.org/wiki/Barsanuphius_of_Gaza
   - https://en.wikipedia.org/wiki/Dorotheus_of_Gaza
   - https://www.johnsanidopoulos.com/search/label/Seridos
+companions:
+  - name: Barsanuphius the Great
+    note: The recluse whose answers he transmitted and recorded as his intermediary.
+    href: saint/OS-0604
+  - name: Venerable Abba Dorotheus of Gaza
+    note: Who served in his monastery near Gaza.
+    href: saint/OS-1298
 status: flagged
 generated: "2026-07-04"

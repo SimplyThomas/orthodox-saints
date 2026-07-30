@@ -56,5 +56,14 @@ sources:
   - Wikipedia (Eustochium)
   - https://en.wikipedia.org/wiki/Eustochium
   - https://www.johnsanidopoulos.com/2017/09/saint-eustochium-daughter-of-saint-paula.html
+family:
+  figures:
+    - name: St. Paula of Rome
+      note: Her mother, with whom she founded the monasteries at Bethlehem.
+      href: saint/OS-0550
+companions:
+  - name: Saint Jerome of Stridon
+    note: Under whose direction she pursued the ascetic life at Bethlehem.
+    href: saint/OS-1362
 status: flagged
 generated: "2026-07-04"

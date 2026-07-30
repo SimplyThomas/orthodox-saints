@@ -60,5 +60,15 @@ sources:
   - https://en.wikipedia.org/wiki/Pambo_of_Nitria
   - https://en.wikipedia.org/wiki/Apophthegmata_Patrum
   - https://www.oca.org/saints/lives/2024/07/18
+companions:
+  - name: Macarius the Great
+    note: Fellow father of the Egyptian desert, of Scetis.
+    href: saint/OS-0029
+  - name: Moses the Black
+    note: Fellow father of the Egyptian desert.
+    href: saint/OS-0030
+  - name: Venerable Theodore of Pherme
+    note: Who received from him the word on showing pity to all.
+    href: saint/OS-2738
 status: reviewed
 generated: "2026-06-22"

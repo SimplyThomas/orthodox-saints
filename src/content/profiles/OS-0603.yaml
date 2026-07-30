@@ -11,6 +11,12 @@ family:
     - name: Saint Tarasius, Patriarch of Constantinople
       note: "Kinsman: a relative of Photius's iconophile family, and an earlier patriarch of Constantinople who presided over the Seventh Ecumenical Council."
       href: saint/OS-0722
+    - name: Saint Nicholas I Mystikos, Patriarch of Constantinople
+      note: His kinsman and disciple, who first served under him and later became patriarch of Constantinople.
+      href: saint/OS-2468
+    - name: Saint Sergius the Confessor of Constantinople
+      note: His father, a confessor under the iconoclasts.
+      href: saint/OS-2479
 companions:
   - name: Saint Ignatius, Patriarch of Constantinople
     note: "Contemporary: the rival patriarch whom Photius alternated with on the throne through the Photian conflict and with whom he was finally reconciled before succeeding him."
@@ -18,6 +24,9 @@ companions:
   - name: Saints Cyril and Methodius
     note: "Contemporary: as patriarch, Photius sponsored and dispatched the mission to the Slavs; Cyril had been his pupil and associate in Constantinople."
     href: saint/OS-0038
+  - name: Saint Stephen, Archbishop of Constantinople
+    note: Whom he ordained to the priesthood; later archbishop of Constantinople.
+    href: saint/OS-1195
 sections:
   - heading: Family and Early Life
     body:

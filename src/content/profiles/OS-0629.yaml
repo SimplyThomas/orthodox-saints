@@ -42,6 +42,12 @@ family:
     - name: Anna Yaroslavna
       note: Her daughter, who married King Henry I of France
       commemorated: false
+    - name: Princess Anna Vsevolodna
+      note: Her granddaughter, daughter of Vsevolod Yaroslavich, who founded and led a convent at Kiev.
+      href: saint/OS-2139
+    - name: Blessed Yaropolk, Prince of Vladimir-Volhynia
+      note: Her grandson through her son Izyaslav; a prince of Vladimir-Volhynia.
+      href: saint/OS-2230
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org)

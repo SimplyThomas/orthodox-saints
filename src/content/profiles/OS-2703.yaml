@@ -72,5 +72,15 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Wilfrid
   - https://orthodoxwiki.org/Wilfrid
+companions:
+  - name: St. Sergius I, Pope of Rome
+    note: Pope who upheld his appeal at the Roman synod and restored him to his see.
+    href: saint/OS-0311
+  - name: Saint Cedd of Lastingham
+    note: Fellow participant at the Synod of Whitby, on the side of the Celtic usages.
+    href: saint/OS-0403
+  - name: Saint Etheldreda of Ely
+    note: Whose vow of perpetual virginity he upheld, by Bede's account.
+    href: saint/OS-1416
 status: flagged
 generated: "2026-07-04"

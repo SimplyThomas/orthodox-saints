@@ -64,6 +64,15 @@ family:
     - name: Holy Myrrh-bearer Mary, the Wife of Cleopas
       note: A daughter of Joseph the Betrothed, and so his sister in the Orthodox reckoning of the Lord's kinsfolk.
       href: saint/OS-1230
+    - name: Jesus Christ
+      note: The Lord, whose brother he is called in the Gospel.
+      href: saint/OS-0000
+    - name: The Most Holy Theotokos
+      note: The Most Holy Theotokos, espoused to his father Joseph.
+      href: saint/OS-0001
+    - name: Apostle Justus of the Seventy
+      note: His brother, numbered among the Seventy.
+      href: saint/OS-2111
 companions:
   - name: Apostle Peter
     note: One of the three 'pillars' of the Church with James and John (Gal 2:9); with John he set James as bishop of Jerusalem after the Ascension.
@@ -74,6 +83,12 @@ companions:
   - name: Apostle Paul
     note: Named James among the 'pillars' (Gal 2:9), knew him personally, and consulted him at Jerusalem; with James and Peter he spoke at the Council of Jerusalem, where James's judgment proved decisive.
     href: saint/OS-2749
+  - name: First-Martyr & Archdeacon Stephen
+    note: The protomartyr, first of the Seven, of the Jerusalem Church he led.
+    href: saint/OS-0009
+  - name: Apostle James, son of Zebedee
+    note: A distinct apostle of the same name, the brother of John.
+    href: saint/OS-1081
 related:
   - name: Hieromartyr Simeon, Kinsman of the Lord, Bishop of Jerusalem
     note: A kinsman of the Lord (son of Cleopas) who succeeded James as second bishop of Jerusalem.

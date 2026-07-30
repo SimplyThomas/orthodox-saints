@@ -45,5 +45,14 @@ sources:
   - https://www.johnsanidopoulos.com/2019/01/saint-kentigern-first-bishop-of-glasgow.html
   - https://en.wikipedia.org/wiki/Culross
   - https://www.oca.org/saints/lives/2025/07/01
+family:
+  figures:
+    - name: St. Lolanus of Scotland
+      note: His nephew by tradition, as recorded in the Aberdeen Breviary.
+      href: saint/OS-0135
+companions:
+  - name: St. Kentigern of Glasgow
+    note: Whom he raised and educated among the Picts, and to whom he gave his name.
+    href: saint/OS-0454
 status: reviewed
 generated: "2026-07-04"

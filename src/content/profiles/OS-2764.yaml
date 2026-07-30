@@ -65,5 +65,19 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Judah_(son_of_Jacob)
   - https://en.wikipedia.org/wiki/Tribe_of_Judah
+family:
+  figures:
+    - name: Righteous Hezron
+      note: His descendant through Perez.
+      href: saint/OS-2347
+    - name: Righteous Patriarch Jacob
+      note: His father, the patriarch Jacob.
+      href: saint/OS-2349
+    - name: Righteous Foremother Leah
+      note: His mother, Leah.
+      href: saint/OS-2545
+    - name: Righteous Joseph the All-Comely
+      note: His younger half-brother, sold into Egypt, for whose life Judah pleaded.
+      href: saint/OS-2547
 status: reviewed
 generated: "2026-07-03"

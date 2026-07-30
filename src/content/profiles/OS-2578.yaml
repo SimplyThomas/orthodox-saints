@@ -37,5 +37,29 @@ sources:
   - New Testament
   - https://en.wikipedia.org/wiki/Philip_the_Apostle
   - https://www.oca.org/saints/lives/2024/11/14/103368-apostle-philip-of-the-twelve
+family:
+  figures:
+    - name: Saint Mariamne the Apostolic Virgin
+      note: His sister, who shared his apostolic labors and buried him at Hierapolis.
+      href: saint/OS-0673
+companions:
+  - name: Jesus Christ
+    note: The Lord, to whom he said, 'Lord, shew us the Father.'
+    href: saint/OS-0000
+  - name: John the Forerunner
+    note: The Forerunner, from whose circle the first disciples were drawn.
+    href: saint/OS-0002
+  - name: Apostle Andrew the First-Called
+    note: Fellow apostle of Bethsaida, the First-Called.
+    href: saint/OS-0003
+  - name: Apostle Peter
+    note: Chief of the apostles.
+    href: saint/OS-0004
+  - name: Apostle & Evangelist John the Theologian
+    note: Fellow apostle of the Twelve, the Theologian and Evangelist.
+    href: saint/OS-0005
+  - name: Apostle Bartholomew of the Twelve
+    note: Fellow apostle, whom he brought to Christ and with whom he preached at Hierapolis.
+    href: saint/OS-1330
 status: reviewed
 generated: "2026-07-04"
