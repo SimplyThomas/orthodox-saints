@@ -25,12 +25,18 @@ import {
   civilToChurch,
   type ChurchDate,
 } from "../lib/calendar-grid";
-import type { DayLiturgics, LitFeast, CalendarStyle } from "../lib/liturgical";
+import type {
+  ActiveObservance,
+  DayLiturgics,
+  LitFeast,
+  CalendarStyle,
+} from "../lib/liturgical";
 import {
   activeObservances,
   dayLiturgics,
   LITURGICAL_COLORS,
 } from "../lib/liturgical";
+import { withBase } from "../lib/format";
 import type { PaschaTable } from "../lib/feast-dates";
 
 const root = document.getElementById("calendar-page");
@@ -48,6 +54,8 @@ const styleNote = document.getElementById("cal-style-note");
 const litDataEl = document.getElementById("cal-lit-data");
 const customsBody = document.getElementById("cal-customs-body");
 const customsDayLabel = document.getElementById("cal-customs-day");
+const doveBody = document.getElementById("cal-dove-body");
+const doveDayLabel = document.getElementById("cal-dove-day");
 const styleBtns: Record<"new" | "old", HTMLElement | null> = {
   new: document.getElementById("cal-style-new"),
   old: document.getElementById("cal-style-old"),
@@ -109,6 +117,25 @@ if (root && app && source && grid && panel && monthLabel) {
     /* no saint customs — feast customs still render */
   }
 
+  // Daily Dove dispatches, keyed by the saint (OS-####) and the feast (FF-####)
+  // they were filed on. Both maps are sparse — only ids that actually carry a
+  // dispatch appear — so the day panel can answer "what did the paper file on
+  // this day" without shipping the paper itself.
+  interface DoveRef {
+    id: string;
+    headline: string;
+    dek?: string;
+  }
+  const parseDove = (elId: string): Record<string, DoveRef[]> => {
+    try {
+      return JSON.parse(document.getElementById(elId)?.textContent || "{}");
+    } catch {
+      return {};
+    }
+  };
+  const doveBySaint = parseDove("cal-dove-saints");
+  const doveByFeast = parseDove("cal-dove-feasts");
+
   let viewY = TODAY_Y;
   let viewM = TODAY_M;
   let selectedKey: string | null = null;
@@ -130,6 +157,25 @@ if (root && app && source && grid && panel && monthLabel) {
   };
 
   /* ---- liturgical resolution, cached per viewed month + style ---- */
+  const obsCache = new Map<string, ActiveObservance[]>();
+  /** The day's active observances — the Dove panel needs their feast ids, and
+      `litFor` derives the day's liturgics from the same list. */
+  function obsFor(m: number, d: number): ActiveObservance[] {
+    if (!litFeasts.length) return [];
+    const key = `${viewY}-${m}-${d}-${style}`;
+    let obs = obsCache.get(key);
+    if (!obs) {
+      obs = activeObservances(
+        litFeasts,
+        litPascha,
+        new Date(viewY, m - 1, d),
+        style,
+      );
+      obsCache.set(key, obs);
+    }
+    return obs;
+  }
+
   const litCache = new Map<string, DayLiturgics>();
   function litFor(m: number, d: number): DayLiturgics | null {
     if (!litFeasts.length) return null;
@@ -137,11 +183,7 @@ if (root && app && source && grid && panel && monthLabel) {
     let lit = litCache.get(key);
     if (!lit) {
       const date = new Date(viewY, m - 1, d);
-      lit = dayLiturgics(
-        activeObservances(litFeasts, litPascha, date, style),
-        date,
-        style,
-      );
+      lit = dayLiturgics(obsFor(m, d), date, style);
       litCache.set(key, lit);
     }
     return lit;
@@ -269,6 +311,74 @@ if (root && app && source && grid && panel && monthLabel) {
     }));
   }
 
+  /* ---- The Daily Dove panel (beneath Customs & Traditions) ----
+     Answers for the selected day only: the dispatches filed on the feasts kept
+     that day and on the saints commemorated that day, in that order — the same
+     feast-then-saint order the customs panel uses. A dispatch that belongs to
+     both is listed once, with both reasons named. */
+  interface DoveItem {
+    ref: DoveRef;
+    why: string[];
+  }
+
+  /** Union the day's feast dispatches and saint dispatches, deduped by id. */
+  function doveItemsFor(
+    obs: ActiveObservance[],
+    ul: HTMLUListElement | null,
+  ): DoveItem[] {
+    const out: DoveItem[] = [];
+    const seen = new Map<string, DoveItem>();
+    const add = (ref: DoveRef, why: string): void => {
+      const hit = seen.get(ref.id);
+      if (hit) {
+        if (!hit.why.includes(why)) hit.why.push(why);
+        return;
+      }
+      const item = { ref, why: [why] };
+      seen.set(ref.id, item);
+      out.push(item);
+    };
+    for (const o of obs)
+      for (const ref of doveByFeast[o.feast.id] ?? []) add(ref, o.feast.name);
+    ul?.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
+      const id = a.getAttribute("href")?.match(/OS-\d+/)?.[0];
+      if (!id) return;
+      for (const ref of doveBySaint[id] ?? [])
+        add(ref, a.textContent?.trim() || id);
+    });
+    return out;
+  }
+
+  function renderDove(items: DoveItem[], dayLabel: string): void {
+    if (!doveBody) return;
+    if (doveDayLabel) {
+      doveDayLabel.textContent = dayLabel ? ` — ${dayLabel}` : "";
+    }
+    if (!items.length) {
+      doveBody.replaceChildren(
+        el(
+          "p",
+          "cal-dove-empty",
+          "No dispatch has been filed on this day's commemorations.",
+        ),
+      );
+      return;
+    }
+    doveBody.replaceChildren(
+      ...items.map((it) => {
+        const box = el("div", "cal-dove-item");
+        const a = document.createElement("a");
+        a.className = "cal-dove-head";
+        a.href = withBase(`daily-dove/${it.ref.id}`);
+        a.textContent = it.ref.headline;
+        box.append(a);
+        if (it.ref.dek) box.append(el("p", "cal-dove-dek", it.ref.dek));
+        box.append(el("p", "cal-dove-why", `On ${it.why.join(" · ")}`));
+        return box;
+      }),
+    );
+  }
+
   function renderPanel(key: string): void {
     selectedKey = key;
     grid!
@@ -289,6 +399,7 @@ if (root && app && source && grid && panel && monthLabel) {
       );
       if (movableList) panel!.append(movableList.cloneNode(true));
       renderCustoms(saintCustomsFor(movableList), "Movable commemorations");
+      renderDove(doveItemsFor([], movableList), "Movable commemorations");
       return;
     }
 
@@ -307,6 +418,10 @@ if (root && app && source && grid && panel && monthLabel) {
     if (lit) panel!.append(litBlock(lit));
     renderCustoms(
       [...feastCustomItems(lit), ...saintCustomsFor(ul ?? null)],
+      `${MONTHS_FULL[m - 1]} ${d}`,
+    );
+    renderDove(
+      doveItemsFor(obsFor(m, d), ul ?? null),
       `${MONTHS_FULL[m - 1]} ${d}`,
     );
     if (ul && n) {

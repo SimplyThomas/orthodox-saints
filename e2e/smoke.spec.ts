@@ -814,9 +814,10 @@ test("the three landing hubs read as one family", async ({ page }) => {
       expect(await c.getAttribute("href")).toBeTruthy();
   }
 
-  // Collections names what is coming, so one card does not read as empty.
+  // Collections no longer publishes its roadmap — the section shows only what
+  // is actually open, so there is no "in preparation" list to render.
   await page.goto("./collections/");
-  expect(await page.locator(".hub-planned-grid li").count()).toBeGreaterThan(5);
+  expect(await page.locator(".hub-planned-grid li").count()).toBe(0);
 });
 
 test("Our Story moved off /about, which is now the hub", async ({ page }) => {
@@ -829,7 +830,9 @@ test("Our Story moved off /about, which is now the hub", async ({ page }) => {
   );
 });
 
-test("the calendar offers the paper beneath the key", async ({ page }) => {
+test("the calendar's Daily Dove panel answers for the selected day only", async ({
+  page,
+}) => {
   await page.goto("./calendar/");
   const card = page.locator("#cal-dove");
   // Collapsed by default, like the liturgical guide and Customs & Traditions
@@ -838,17 +841,29 @@ test("the calendar offers the paper beneath the key", async ({ page }) => {
   await card.locator("summary").click();
   expect(await card.evaluate((el: HTMLDetailsElement) => el.open)).toBe(true);
 
-  // The Sunday of the Fathers of the First Ecumenical Council leads, because it
-  // carries the whole council run.
-  const first = card.locator(".cal-dove-days > li").first();
-  await expect(first).toContainText("First Ecumenical Council");
-  expect(await first.locator(".cal-dove-arts a").count()).toBeGreaterThan(4);
+  await page.locator(".cal-app").waitFor({ state: "visible" });
+  await page.selectOption("#cal-month-picker", "2");
 
-  // Its rows link into the paper, and the card links to the front page.
-  await expect(first.locator(".cal-dove-arts a").first()).toHaveAttribute(
+  // February 10 keeps Charalampos and Barlaam of Khutyn, and the paper has
+  // filed on both — so the panel names that day and lists exactly its news.
+  await page.locator('#cal-grid .cal-cell[data-key="2-10"]').click();
+  await expect(card.locator("#cal-dove-day")).toContainText("February 10");
+  const items = card.locator(".cal-dove-item");
+  expect(await items.count()).toBe(2);
+  await expect(items.first().locator(".cal-dove-head")).toHaveAttribute(
     "href",
     /\/daily-dove\//,
   );
+  // Each dispatch says which of the day's commemorations it was filed on.
+  await expect(card.locator(".cal-dove-why").first()).toContainText(/^On /);
+
+  // A day the paper has not covered says so, rather than offering another
+  // day's news — this panel is day-specific, not an index of the whole paper.
+  await page.locator('#cal-grid .cal-cell[data-key="2-15"]').click();
+  await expect(card.locator(".cal-dove-empty")).toBeVisible();
+  expect(await card.locator(".cal-dove-item").count()).toBe(0);
+
+  // The standing link to the section stays, since it is navigation, not news.
   await expect(card.locator(".cal-dove-btn")).toHaveAttribute(
     "href",
     /\/daily-dove\/?$/,
