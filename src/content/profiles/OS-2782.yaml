@@ -47,5 +47,12 @@ sources:
   - https://en.wikipedia.org/wiki/Herman_of_Solovki
   - https://en.wikipedia.org/wiki/Solovetsky_Monastery
   - https://en.wikipedia.org/wiki/Zosimas_of_Solovki
+companions:
+  - name: Venerable Zosimas of Solovki
+    note: With whom he settled the Solovetsky Islands anew.
+    href: saint/OS-1011
+  - name: Venerable Sabbatius of Solovki
+    note: Whom he accompanied to the island and with whom he made its first settlement.
+    href: saint/OS-1910
 status: reviewed
 generated: "2026-07-03"

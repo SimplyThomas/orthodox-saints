@@ -38,5 +38,15 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2021/09/28/102744-venerable-herodion-abbot-of-iloezersk
   - https://ru.wikipedia.org/wiki/%D0%98%D1%80%D0%BE%D0%B4%D0%B8%D0%BE%D0%BD_%D0%98%D0%BB%D0%BE%D0%B5%D0%B7%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9
+companions:
+  - name: Venerable Cassian, Abbot of Komel
+    note: Fellow disciple of Cornelius of Komel, abbot of the Komel monastery.
+    href: saint/OS-1181
+  - name: Venerable Laurence, Abbot of Komel
+    note: Fellow disciple of Cornelius of Komel, abbot of the Komel monastery.
+    href: saint/OS-1182
+  - name: Venerable Cornelius, Abbot of Komel
+    note: His elder at Komel, whose disciple he was.
+    href: saint/OS-1205
 status: reviewed
 generated: "2026-07-04"

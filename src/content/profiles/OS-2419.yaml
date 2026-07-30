@@ -37,6 +37,10 @@ family:
       href: saint/OS-1886
 patronage:
   - Confessors who endured exile and torture for holy icons
+companions:
+  - name: Saint Michael the Confessor of Constantinople
+    note: With whom he and his brother Theophanes were sent on the mission to Leo the Armenian.
+    href: saint/OS-2384
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

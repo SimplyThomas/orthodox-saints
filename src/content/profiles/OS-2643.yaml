@@ -16,6 +16,12 @@ sections:
 companions:
   - name: New Martyrs of Dabar-Bosnia and Mileseva
     note: The grouping of Serbian clergy and monastics martyred in this region during the Second World War, among whom he is commemorated.
+  - name: Nestor of Mileševa
+    note: Abbot of a nearby monastery, martyred in 1941 and commemorated on the same feast.
+    href: saint/OS-2641
+  - name: New Martyrs of Dabar-Bosnia and Mileševa
+    note: The synaxis of New Martyrs among whom he is numbered.
+    href: saint/OS-2644
 patronage: []
 status: reviewed
 sources:

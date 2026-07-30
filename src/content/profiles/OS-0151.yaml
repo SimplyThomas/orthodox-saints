@@ -20,6 +20,12 @@ companions:
   - name: Hieromartyr Anthimus, Bishop of Nicomedia
     note: Bishop of the city, commemorated with this company; martyred by beheading
     href: saint/OS-0150
+  - name: Martyr Basilissa of Nicomedia
+    note: Martyr of Nicomedia, commemorated together with them on September 3.
+    href: saint/OS-0152
+  - name: The 20,000 Martyrs of Nicomedia
+    note: Distinct Nicomedian martyrs of the same persecution, commemorated separately.
+    href: saint/OS-2422
 status: reviewed
 humanReviewed: true
 sources:

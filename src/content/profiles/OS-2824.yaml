@@ -61,5 +61,9 @@ sources:
   - https://en.wikipedia.org/wiki/Cybi
   - https://en.wikipedia.org/wiki/Caer_Gybi_(fort)
   - https://en.wikipedia.org/wiki/St_Cybi%27s_Church,_Holyhead
+companions:
+  - name: Saint Seiriol of Wales
+    note: His contemporary and friend, with whom tradition says he met regularly.
+    href: saint/OS-0578
 status: flagged
 generated: "2026-07-04"

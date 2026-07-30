@@ -51,5 +51,9 @@ family:
     - name: St. Castor of Apt
       note: His brother by tradition; bishop of Apt.
       href: saint/OS-0130
+companions:
+  - name: St. Honoratus of Arles
+    note: Whom he encouraged to settle on the island of Lerins.
+    href: saint/OS-0468
 status: reviewed
 generated: "2026-07-04"

@@ -64,5 +64,9 @@ sources:
   - https://en.wikipedia.org/wiki/Abbey_of_Saint-Ouen
   - https://www.oca.org/saints/lives/2024/08/24
   - https://orthodoxwiki.org/Ouen_of_Rouen
+companions:
+  - name: Saint Eligius, Bishop of Noyon
+    note: His close friend and fellow bishop at the Merovingian court, whose Life he wrote.
+    href: saint/OS-2694
 status: reviewed
 generated: "2026-07-04"

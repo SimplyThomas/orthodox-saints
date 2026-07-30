@@ -55,5 +55,15 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Cyprian,_Metropolitan_of_Moscow
   - https://orthodoxwiki.org/Cyprian_of_Moscow
+companions:
+  - name: Saint Euthymius, Patriarch of Trnovo
+    note: Patriarch of Trnovo, whose work of Slavonic textual reform he carried into the lands of the Rus'.
+    href: saint/OS-0500
+  - name: Right-believing Demetrios Donskoy, Grand Prince of Moscow
+    note: Grand prince of Moscow, his contemporary in the leadership of the Russian lands.
+    href: saint/OS-1210
+  - name: Venerable Athanasius of Serpukhov
+    note: With whom he traveled to Constantinople.
+    href: saint/OS-1829
 status: reviewed
 generated: "2026-06-23"

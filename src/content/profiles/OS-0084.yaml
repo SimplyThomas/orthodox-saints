@@ -71,6 +71,27 @@ companions:
   - name: St. Benedict of Nursia
     note: Whose life Gregory preserved in his Dialogues, a principal historical source for the saint.
     href: saint/OS-0822
+  - name: St. John the Faster, Patriarch of Constantinople
+    note: Patriarch of Constantinople, whose use of the title 'Ecumenical Patriarch' he opposed.
+    href: saint/OS-0124
+  - name: St. Eleutherius of Spoleto
+    note: Who lived long in his monastery of Saint Andrew and is a chief witness of the Dialogues.
+    href: saint/OS-0253
+  - name: Martyrs Felix & Augebert
+    note: Whom he ransomed from slavery and prepared for the English mission.
+    href: saint/OS-0257
+  - name: Saint Eulogius, Archbishop of Alexandria
+    note: Archbishop of Alexandria, his close friend and correspondent, whom he praised as a voice of truth.
+    href: saint/OS-0654
+  - name: Leander of Seville
+    note: Archbishop of Seville, his lifelong friend, whom he met during his years at Constantinople.
+    href: saint/OS-0734
+  - name: 400 Martyrs Slain by the Lombards in Sicily
+    note: Martyrs whose account his Dialogues preserve.
+    href: saint/OS-0759
+  - name: Anastasius I of Antioch
+    note: Patriarch of Antioch, his friend and correspondent, whose restoration to his see he secured through the Emperor Maurice.
+    href: saint/OS-2675
 status: reviewed
 humanReviewed: true
 sources:

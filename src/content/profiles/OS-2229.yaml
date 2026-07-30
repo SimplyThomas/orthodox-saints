@@ -58,5 +58,9 @@ family:
     - name: Right-believing Princess Anna of Kashin
       note: His wife (Anna of Rostov), mother of their five children, who took monastic vows after his death and is herself venerated as a saint.
       href: saint/OS-1939
+companions:
+  - name: Saint Theoktistos, Archbishop of Novgorod
+    note: Archbishop of Novgorod, who mediated his conflict with the city.
+    href: saint/OS-2405
 status: reviewed
 generated: "2026-06-22"

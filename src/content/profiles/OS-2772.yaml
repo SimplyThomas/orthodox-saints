@@ -59,5 +59,9 @@ family:
     - name: St. Aethelburh of Kent
       note: Her daughter, who carried the faith to Northumbria as its queen.
       href: saint/OS-0309
+companions:
+  - name: St. Augustine of Canterbury
+    note: The apostle of the English, whose mission her Christian household at the royal court prepared.
+    href: saint/OS-1243
 status: reviewed
 generated: "2026-07-03"

@@ -44,5 +44,9 @@ patronage: []
 sources:
   - https://orthodoxwiki.org/Amphibalus
   - https://en.wikipedia.org/wiki/Amphibalus
+companions:
+  - name: Saint Alban, Protomartyr of Britain
+    note: The protomartyr of Britain, who sheltered him and was arrested in his place.
+    href: saint/OS-1408
 status: reviewed
 generated: "2026-07-03"

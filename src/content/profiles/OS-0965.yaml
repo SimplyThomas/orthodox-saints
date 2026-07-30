@@ -34,6 +34,12 @@ companions:
   - name: St. Patrick, Enlightener of Ireland
     note: By Western tradition commissioned for the Irish mission during Celestine's pontificate.
     href: saint/OS-0079
+  - name: Boniface I, Pope of Rome
+    note: His predecessor as bishop of Rome.
+    href: saint/OS-0207
+  - name: Saint Prosper of Aquitaine
+    note: Who appealed to him at Rome in 431 in defense of the Augustinian teaching on grace.
+    href: saint/OS-1493
 patronage:
   - Defenders of the title Theotokos
 status: reviewed

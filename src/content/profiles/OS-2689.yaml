@@ -55,5 +55,18 @@ family:
     - name: St. Vincent of Lerins
       note: His brother by tradition, the monk of Lérins who wrote the Commonitorium.
       href: saint/OS-1237
+companions:
+  - name: Genevieve of Paris
+    note: Whom he blessed at Nanterre, passing through with Germanus of Auxerre.
+    href: saint/OS-0081
+  - name: St. Memorius & Companions
+    note: Whom by tradition he sent to petition Attila, and who were martyred.
+    href: saint/OS-0277
+  - name: St. Honoratus of Arles
+    note: Founder of Lerins, under whom he was formed before becoming bishop of Troyes.
+    href: saint/OS-0468
+  - name: St. Germanus of Auxerre
+    note: Whom he accompanied on his first mission to Britain against Pelagianism.
+    href: saint/OS-1616
 status: reviewed
 generated: "2026-07-04"

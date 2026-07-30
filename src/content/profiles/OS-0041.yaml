@@ -41,6 +41,9 @@ companions:
   - name: Gregory
     note: The priest who accompanied her to Constantinople
     commemorated: false
+  - name: Venerable Sylvester of the Kiev Caves
+    note: Chronicler of the Kiev Caves, who recorded the beginnings of the faith in Rus'.
+    href: saint/OS-0377
 related:
   - name: Constantine the Great
     note: Equal-to-the-Apostles emperor and model of the Christian ruler

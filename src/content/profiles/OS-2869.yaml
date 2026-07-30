@@ -59,5 +59,9 @@ sources:
   - https://en.wikipedia.org/wiki/Elias_I_of_Jerusalem
   - https://en.wikipedia.org/wiki/John_the_Silent
   - https://en.wikipedia.org/wiki/Anastasius_I_(emperor)
+companions:
+  - name: St. John the Silent
+    note: Whose hidden episcopal rank he learned, and whom he directed to live in the Lavra.
+    href: saint/OS-0905
 status: reviewed
 generated: "2026-07-04"

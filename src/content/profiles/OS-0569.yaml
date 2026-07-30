@@ -34,6 +34,12 @@ sections:
 companions:
   - name: Monks of the Kiev Caves
     note: The fathers of the Kiev Caves monastery, whose prayers rescued Niketas from his spiritual delusion.
+  - name: Venerable Anthony the Roman of Novgorod
+    note: Whose founding of a monastery at Novgorod he blessed.
+    href: saint/OS-1633
+  - name: Saint Theoctistus, Bishop of Chernigov
+    note: Bishop of Chernigov, who as an elder of the Kiev Caves is said to have healed him through his prayers.
+    href: saint/OS-1648
 related:
   - name: St. Anthony of the Kyiv Caves
     note: Related as the founder of the Kiev Caves monastery where Niketas was tonsured and pursued the reclusive life.

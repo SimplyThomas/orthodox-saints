@@ -37,5 +37,12 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Pope_Peter_I_of_Alexandria
   - https://www.oca.org/saints/lives/2025/11/25/103394-hieromartyr-peter-archbishop-of-alexandria
+companions:
+  - name: The 3,628 Martyrs of Nicomedia
+    note: Whose coming forth to confess Christ his martyrdom by tradition occasioned.
+    href: saint/OS-0121
+  - name: Saint Achillas, Patriarch of Alexandria
+    note: His successor as patriarch of Alexandria.
+    href: saint/OS-2727
 status: reviewed
 generated: "2026-06-21"

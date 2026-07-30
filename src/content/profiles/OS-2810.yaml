@@ -51,5 +51,12 @@ sources:
   - https://en.wikipedia.org/wiki/Finnian_of_Clonard
   - https://en.wikipedia.org/wiki/Clonard_Abbey
   - https://en.wikipedia.org/wiki/Twelve_Apostles_of_Ireland
+companions:
+  - name: St. Kieran of Clonmacnoise
+    note: Who studied under him at the monastic school of Clonard.
+    href: saint/OS-0324
+  - name: Saint Columba of Iona
+    note: Numbered among the Twelve Apostles of Ireland whom he taught.
+    href: saint/OS-1320
 status: reviewed
 generated: "2026-07-04"

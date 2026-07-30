@@ -64,5 +64,9 @@ family:
     - name: St. Cloud of Nogent
       note: Her grandson, whom she raised after his father's death and who ended his life a monk at Nogent.
       href: saint/OS-0280
+companions:
+  - name: Genevieve of Paris
+    note: The patroness of Paris, of her own era in Frankish Gaul.
+    href: saint/OS-0081
 status: flagged
 generated: "2026-07-04"

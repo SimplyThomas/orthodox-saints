@@ -56,5 +56,9 @@ sources:
   - https://en.wikipedia.org/wiki/Guthlac_of_Crowland
   - https://orthodoxwiki.org/Guthlac_of_Crowland
   - https://en.wikipedia.org/wiki/Crowland_Abbey
+companions:
+  - name: St. Bettelin of Crowland
+    note: His disciple and attendant at Crowland.
+    href: saint/OS-0327
 status: flagged
 generated: "2026-07-04"

@@ -40,6 +40,24 @@ companions:
   - name: Saint Mariamne the Apostolic Virgin
     note: "Fellow missionary: sister of the Apostle Philip who, by tradition, accompanied Bartholomew and Philip in their preaching."
     href: saint/OS-0673
+  - name: Jesus Christ
+    note: The Lord, who saw him under the fig tree and called him.
+    href: saint/OS-0000
+  - name: Apostle Andrew the First-Called
+    note: The First-Called of the apostles.
+    href: saint/OS-0003
+  - name: Apostle Peter
+    note: Chief of the apostles.
+    href: saint/OS-0004
+  - name: Apostle & Evangelist John the Theologian
+    note: Fellow apostle of the Twelve, the Theologian and Evangelist.
+    href: saint/OS-0005
+  - name: Apostles Nathanael, Apelles, Luke, and Clement of the Seventy
+    note: Apostles of the Seventy; the tradition identifies the Nathanael of that commemoration with him.
+    href: saint/OS-1040
+  - name: Apostle Philip
+    note: Fellow apostle, who brought him to Christ and with whom he preached at Hierapolis.
+    href: saint/OS-2190
 patronage:
   - Tanners, leatherworkers, tailors, and bookbinders
 status: reviewed

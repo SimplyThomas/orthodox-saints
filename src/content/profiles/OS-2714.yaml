@@ -57,6 +57,15 @@ companions:
   - name: Saint Oswald of Worcester
     note: Bishop of Worcester and York who worked with Dunstan in the monastic reform.
     external: https://en.wikipedia.org/wiki/Oswald_of_Worcester
+  - name: St. Edward the Martyr, King of England
+    note: The young king whose reign he supported and whose murder he lamented.
+    href: saint/OS-0171
+  - name: Saint Aethelwold of Winchester
+    note: Formed as a monk under him at Glastonbury; a fellow leader of the English Benedictine reform.
+    href: saint/OS-2715
+  - name: Saint Oswald of Worcester
+    note: A fellow leader of the English Benedictine reform.
+    href: saint/OS-2716
 reading:
   - heading: Reference
     items:

@@ -101,6 +101,12 @@ companions:
   - name: Constantine VIII
     note: Byzantine co-emperor of his day
     commemorated: false
+  - name: Venerable Sylvester of the Kiev Caves
+    note: Chronicler of the Kiev Caves, who recorded his baptism of Rus'.
+    href: saint/OS-0377
+  - name: Saint Michael, First Metropolitan of Kiev
+    note: First metropolitan of Kiev, who led the mission his baptism inaugurated.
+    href: saint/OS-1366
 related:
   - name: Anna Porphyrogenita
     note: Byzantine princess who shared in his Christian rule

@@ -73,6 +73,12 @@ companions:
   - name: Apostle Paul
     note: A companion in the apostolic mission alongside Paul and Barnabas.
     href: saint/OS-2749
+  - name: Jesus Christ
+    note: The Lord, whose Gospel he wrote from the preaching of Peter.
+    href: saint/OS-0000
+  - name: Apostle and Evangelist Luke
+    note: Fellow evangelist, the physician and companion of Paul.
+    href: saint/OS-0006
 works:
   - title: The Gospel according to Mark
     desc: The second of the four canonical Gospels, associated by tradition with the preaching of the Apostle Peter at Rome.

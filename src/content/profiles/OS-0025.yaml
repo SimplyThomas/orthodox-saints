@@ -110,6 +110,21 @@ companions:
   - name: John VI Kantakouzenos
     note: Emperor who backed his cause
     commemorated: false
+  - name: Venerable Gregory the Byzantine
+    note: His elder at the Great Lavra, under whom he was trained in the hesychast life.
+    href: saint/OS-0955
+  - name: Venerable Niphon of Mount Athos
+    note: Athonite hesychast who stood with him in the controversy over the divine energies.
+    href: saint/OS-1357
+  - name: Venerable Nicholas Cabasilas
+    note: The lay theologian who supported his cause in the hesychast controversy.
+    href: saint/OS-1397
+  - name: Theoleptos of Philadelphia
+    note: Metropolitan of Philadelphia, from whom in his youth he received his first instruction in the hesychast life.
+    href: saint/OS-1430
+  - name: Venerable Gregory of Sinai
+    note: Fellow champion of hesychasm, who carried the Jesus Prayer from Sinai to Athos and the Balkans.
+    href: saint/OS-1671
 related:
   - name: Symeon the New Theologian
     note: Forerunner of the Hesychast tradition he defended

@@ -88,6 +88,36 @@ companions:
   - name: Emperor Valens
     note: Arian emperor he confronted
     commemorated: false
+  - name: Martyr Basil of Ancyra
+    note: Presbyter and martyr of Ancyra under Julian the Apostate.
+    href: saint/OS-0373
+  - name: Monk-Martyr Telemachus
+    note: The monk whose death in the arena brought an end to the gladiatorial games.
+    href: saint/OS-0375
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea whose story he preserved in a homily.
+    href: saint/OS-0382
+  - name: Righteous Caesarius
+    note: Brother of Gregory the Theologian and physician at the imperial court, whom he and Gregory urged to leave the world.
+    href: saint/OS-0801
+  - name: Sabbas the Goth
+    note: The Gothic martyr whose relics he obtained from Scythia Minor and honored as an athlete of Christ.
+    href: saint/OS-1000
+  - name: Betranion of Tomis
+    note: Bishop of Tomis, who sent him the relics of Sabbas the Goth.
+    href: saint/OS-1030
+  - name: Hieromartyr Eusebius, Bishop of Samosata
+    note: Fellow defender of Nicaea, whose efforts with Gregory of Nazianzus secured his election to Caesarea.
+    href: saint/OS-1405
+  - name: Hieromartyr Athenogenes and his Ten Disciples
+    note: Hieromartyr to whom the hymn Phos Hilaron is ascribed, whose antiquity he attested.
+    href: saint/OS-1535
+  - name: Martyr Julitta at Caesarea
+    note: Martyr of Caesarea, in whose honor he composed an encomium some seventy years after her death.
+    href: saint/OS-1615
+  - name: Great Martyr Mercurius
+    note: The great martyr before whose icon he prayed, by tradition, at the death of Julian the Apostate.
+    href: saint/OS-2247
 related:
   - name: John Chrysostom
     note: Fellow ecumenical teacher among the Three Holy Hierarchs

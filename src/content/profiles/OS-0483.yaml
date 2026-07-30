@@ -45,6 +45,10 @@ works:
     desc: A rendering into Georgian of works of the Areopagitic corpus.
   - title: Translation of the Ascetic Rules of Basil the Great
     desc: A Georgian rendering of Basil's ascetic legislation.
+companions:
+  - name: Venerable Arsenius of Iqalto
+    note: His younger contemporary and pupil, of the Iqalto academy in Georgia.
+    href: saint/OS-0609
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Jan 18

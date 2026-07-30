@@ -29,5 +29,9 @@ sources:
   - https://ru.wikipedia.org/wiki/%D0%95%D0%B2%D1%84%D1%80%D0%BE%D1%81%D0%B8%D0%BD_%D0%A1%D0%B8%D0%BD%D0%BE%D0%B7%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9
   - file:src/content/profiles/OS-0852.yaml
   - https://orthodoxwiki.org/index.php?title=Special:Search&search=Gury+Shalochsky
+companions:
+  - name: Venerable Euphrosynus of Blue Jay Lake (Sinozersky)
+    note: With whom by tradition he founded the Sinozero hermitage.
+    href: saint/OS-0852
 status: flagged
 generated: "2026-07-04"

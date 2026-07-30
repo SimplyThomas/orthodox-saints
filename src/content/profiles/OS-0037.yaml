@@ -118,6 +118,21 @@ companions:
   - name: Licinius
     note: Co-emperor and later rival
     commemorated: false
+  - name: Anthony the Great
+    note: The father of monks, with whom he corresponded.
+    href: saint/OS-0026
+  - name: Saint Parthenios, Bishop of Lampsacus
+    note: Bishop of Lampsacus, whose building of a church he authorized and funded by tradition.
+    href: saint/OS-0611
+  - name: Saint Agapitus the Confessor, Bishop of Synnada
+    note: The confessor-bishop to whom he sent an ailing servant to be healed.
+    href: saint/OS-0683
+  - name: Saint Hosius of Córdoba
+    note: The confessor of Cordoba who served at his court and whom he sent east to address the Arian dispute.
+    href: saint/OS-1789
+  - name: Martyr Zoticus the Keeper of Orphans
+    note: Who served at his court, and whose charitable houses in Constantinople he funded.
+    href: saint/OS-2432
 related:
   - name: Basil the Great
     note: Later defender of Nicene Orthodoxy

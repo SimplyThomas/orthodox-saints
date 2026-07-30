@@ -33,6 +33,10 @@ family:
       href: saint/OS-1221
 patronage:
   - Martyrs of the fourth-century persecutions in Pontus
+companions:
+  - name: Martyr Eusignius of Antioch
+    note: Who witnessed their martyrdom during his years of military service.
+    href: saint/OS-1642
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

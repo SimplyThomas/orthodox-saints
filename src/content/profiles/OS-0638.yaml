@@ -30,5 +30,15 @@ sources:
   - https://en.wikipedia.org/wiki/George_of_Kratovo
   - https://www.oca.org/saints/lives/2014/05/26/101537-greatmartyr-george-the-new-at-sofia-bulgaria
   - https://www.oca.org/saints/lives/2026/02/11/108005-saint-george-new-martyr-of-sofia
+companions:
+  - name: Great Martyr Nicholas of Sofia
+    note: A fellow New Martyr of Sofia, commemorated with him in the city's tradition.
+    href: saint/OS-1197
+  - name: New Martyr George the Newest of Sofia
+    note: Another New Martyr of Sofia bearing the same name, distinguished in the calendar.
+    href: saint/OS-2665
+  - name: New Martyr Onuphrius of Gabrovo
+    note: Bulgarian New Martyr under Ottoman rule.
+    href: saint/OS-2666
 status: reviewed
 generated: "2026-06-19"

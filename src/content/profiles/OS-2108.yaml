@@ -58,5 +58,9 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2023/10/29/103899-saint-serapion-of-zarzma
   - https://en.wikipedia.org/wiki/Zarzma_Monastery
+companions:
+  - name: Saint George Matskevereli of Georgia
+    note: Who witnessed his burial and helped to record his life.
+    href: saint/OS-0924
 status: flagged
 generated: "2026-07-04"

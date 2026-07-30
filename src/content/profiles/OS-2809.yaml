@@ -60,5 +60,9 @@ sources:
   - Wikipedia (Cainnech of Aghaboe)
   - https://en.wikipedia.org/wiki/Cainnech_of_Aghaboe
   - https://en.wikipedia.org/wiki/Twelve_Apostles_of_Ireland
+companions:
+  - name: Saint Columba of Iona
+    note: Whom by tradition he accompanied to the court of King Bridei of the Picts.
+    href: saint/OS-1320
 status: reviewed
 generated: "2026-07-04"

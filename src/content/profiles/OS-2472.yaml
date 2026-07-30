@@ -37,6 +37,27 @@ companions:
   - name: Saint Alexander, Patriarch of Constantinople
     note: Fellow defender of the Nicene faith against Arius, who supported Alexander of Alexandria at the First Ecumenical Council.
     href: saint/OS-1801
+  - name: Nicholas of Myra
+    note: Fellow father of Nicaea against Arius.
+    href: saint/OS-0019
+  - name: Spyridon of Trimythous
+    note: Fellow father of the Council of Nicaea.
+    href: saint/OS-0020
+  - name: Constantine the Great
+    note: The emperor who convened the Council of Nicaea.
+    href: saint/OS-0037
+  - name: Sylvester I of Rome
+    note: Pope of Rome at the time of the First Council.
+    href: saint/OS-0376
+  - name: Saint Eustathius, Archbishop of Antioch
+    note: Fellow champion of the Nicene faith, with whom he made common cause at the council.
+    href: saint/OS-0703
+  - name: Saint Niphon, Bishop of Constantia
+    note: Whom he consecrated bishop, being directed to him by a vision.
+    href: saint/OS-2406
+  - name: Saint Achillas, Patriarch of Alexandria
+    note: His predecessor as patriarch of Alexandria.
+    href: saint/OS-2727
 status: reviewed
 sources:
   - GOARCH calendar

@@ -48,5 +48,9 @@ family:
 patronage:
   - Hermits and solitaries
   - Monastics
+companions:
+  - name: Saint Joannicius of Devich
+    note: Who is said to have lived in his cave at the Black River.
+    href: saint/OS-1067
 status: reviewed
 generated: "2026-06-19"

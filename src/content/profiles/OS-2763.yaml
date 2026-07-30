@@ -59,5 +59,9 @@ family:
     - name: Saint Eanswythe, Abbess of Folkestone
       note: His granddaughter, first abbess of Folkestone.
       href: saint/OS-1813
+companions:
+  - name: St. Augustine of Canterbury
+    note: The apostle of the English, whose mission he received and whose see he established at Canterbury.
+    href: saint/OS-1243
 status: flagged
 generated: "2026-07-03"

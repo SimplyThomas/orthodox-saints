@@ -33,5 +33,12 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Isaiah
   - https://orthodoxwiki.org/Isaiah
+companions:
+  - name: Prophet Malachi
+    note: The last of the prophets, who foretold the coming of the Forerunner.
+    href: saint/OS-0381
+  - name: Righteous Hezekiah
+    note: The king of Judah to whom he announced both his coming death and the prolonging of his life.
+    href: saint/OS-1798
 status: reviewed
 generated: "2026-06-19"

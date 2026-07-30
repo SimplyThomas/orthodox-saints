@@ -42,5 +42,12 @@ sources:
   - https://www.johnsanidopoulos.com/2016/07/saint-basil-founder-of-vatheos-ryakos.html
   - https://en.wikipedia.org/wiki/Batheos_Rhyakos_Monastery
   - https://en.wikipedia.org/wiki/Trigleia
+companions:
+  - name: Venerable Luke, Abbot of Batheos Ryako
+    note: Abbot of the Deep Stream monastery he founded.
+    href: saint/OS-1818
+  - name: Saint Ignatius of Christ the Savior Monastery
+    note: Whom he trained in the monastic life at his Monastery of Christ the Savior.
+    href: saint/OS-1914
 status: reviewed
 generated: "2026-07-03"

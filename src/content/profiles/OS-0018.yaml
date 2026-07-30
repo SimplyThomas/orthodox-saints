@@ -58,6 +58,12 @@ companions:
   - name: Maximian
     note: Emperor under whom he was martyred
     commemorated: false
+  - name: Martyr Basil of Ancyra
+    note: Presbyter and martyr of Ancyra under Julian the Apostate.
+    href: saint/OS-0373
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea in Cappadocia.
+    href: saint/OS-0382
 related:
   - name: Theodore Stratelates
     note: The other Theodore, with whom he is paired throughout tradition

@@ -48,6 +48,15 @@ companions:
   - name: The Righteous Abibas
     note: "Fellow saint: son of Gamaliel, buried with Nicodemus at Caphargamala and uncovered with him in 415."
     href: saint/OS-1626
+  - name: Jesus Christ
+    note: The Lord, to whom he came by night and whom he helped to bury.
+    href: saint/OS-0000
+  - name: Mary Magdalene
+    note: First of the Myrrh-bearers, who shared in the Lord's burial.
+    href: saint/OS-0007
+  - name: Holy Myrrh-bearing Women
+    note: The women with whom he is numbered in preparing the Lord's body.
+    href: saint/OS-0076
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Nicodemus

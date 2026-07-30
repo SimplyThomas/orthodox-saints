@@ -50,5 +50,9 @@ sources:
   - OrthodoxWiki
   - https://en.wikipedia.org/wiki/Saint_Teilo
   - https://en.wikipedia.org/wiki/Llandeilo_Fawr
+companions:
+  - name: David of Wales
+    note: Whom by the tradition of his Life he accompanied on pilgrimage to Jerusalem.
+    href: saint/OS-0753
 status: flagged
 generated: "2026-07-04"

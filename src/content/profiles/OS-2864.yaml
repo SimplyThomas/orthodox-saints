@@ -30,5 +30,9 @@ sources:
   - https://en.wikipedia.org/wiki/Antony_of_Choziba
   - https://en.wikipedia.org/wiki/George_of_Choziba
   - https://en.wikipedia.org/wiki/Monastery_of_Choziba
+companions:
+  - name: Venerable George the Chozebite
+    note: His elder at Choziba, whose Life he composed.
+    href: saint/OS-0404
 status: reviewed
 generated: "2026-07-04"

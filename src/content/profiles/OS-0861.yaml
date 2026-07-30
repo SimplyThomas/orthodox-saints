@@ -34,6 +34,9 @@ companions:
   - name: St. Finnian of Moville
     note: Numbered in the tradition among the Irish saints associated with Aran; founder and first abbot of Moville in Ulster.
     href: saint/OS-0353
+  - name: Saint Gobnata of Ballyvourney
+    note: Whose monastic training the tradition associates with his settlement on Aran.
+    href: saint/OS-0639
 patronage:
   - Irish monasticism and the Aran Islands
 status: reviewed

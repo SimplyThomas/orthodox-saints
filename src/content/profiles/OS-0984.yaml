@@ -31,5 +31,9 @@ related:
   - name: St. Gregory the Dialogist
     note: Pope of Rome whose Dialogues are the principal surviving source for Isaac's life and miracles at Spoleto.
     href: saint/OS-0084
+companions:
+  - name: St. Eleutherius of Spoleto
+    note: Abbot of Spoleto, familiarly acquainted with him by Gregory's Dialogues.
+    href: saint/OS-0253
 status: reviewed
 generated: "2026-06-20"
