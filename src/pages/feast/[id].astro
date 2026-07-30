@@ -7,6 +7,8 @@ import { byId as saintById } from "../../lib/data";
 import { withBase } from "../../lib/format";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import FastPill from "../../components/FastPill.astro";
+import DoveBand from "../../components/daily-dove/DoveBand.astro";
+import { articlesByFeast } from "../../lib/daily-dove";
 
 const feastById = new Map(FEASTS.map((f) => [f.id, f]));
 
@@ -15,6 +17,11 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { feast: f } = Astro.props;
+
+// The paper's dispatches on this feast, joined by FF-#### id. The Church keeps
+// the memory of these events in her calendar, so this is where a reader looking
+// up the feast will also want the story.
+const doveArticles = (await articlesByFeast()).get(f.id) ?? [];
 const profiles = await loadFeastProfileMap();
 const p = profiles[f.id];
 
@@ -350,6 +357,18 @@ function sourceLink(s: string): { href: string | null; label: string } {
                 </div>
               </details>
             ))
+          }
+
+          {/* the paper's account of this feast, beneath the collapsibles */}
+          {
+            doveArticles.length > 0 && (
+              <div class="feast-dove">
+                <DoveBand
+                  articles={doveArticles}
+                  note="The events this feast remembers"
+                />
+              </div>
+            )
           }
 
           {
@@ -874,6 +893,9 @@ function sourceLink(s: string): { href: string | null; label: string } {
   }
   .celebrate-credit a {
     color: var(--byz);
+  }
+  .feast-dove {
+    margin: 26px 0 6px;
   }
   .fast-disclaimer {
     margin-top: 1.4rem;

@@ -580,7 +580,8 @@ test("a saint page links to the paper's account, and back again", async ({
 }) => {
   // St Xenia of St Petersburg — the paper has run a dispatch about her.
   await page.goto("./saint/OS-0047/");
-  const band = page.locator(".sv-dove");
+  // The saint, feast and calendar all render the shared DoveBand component.
+  const band = page.locator(".dove-band");
   await expect(band).toBeVisible();
   await expect(band).toContainText("In The Daily Dove");
 
@@ -600,7 +601,46 @@ test("a saint page links to the paper's account, and back again", async ({
 test("a saint with no dispatch shows no Daily Dove band", async ({ page }) => {
   // St Basil the Great — no article about him yet, so nothing should appear.
   await page.goto("./saint/OS-0021/");
-  await expect(page.locator(".sv-dove")).toHaveCount(0);
+  await expect(page.locator(".dove-band")).toHaveCount(0);
+});
+
+test("the calendar offers the paper beneath the key", async ({ page }) => {
+  await page.goto("./calendar/");
+  const card = page.locator(".cal-dove");
+  await expect(card).toBeVisible();
+
+  // The Sunday of the Fathers of the First Ecumenical Council leads, because it
+  // carries the whole council run.
+  const first = card.locator(".cal-dove-days > li").first();
+  await expect(first).toContainText("First Ecumenical Council");
+  expect(await first.locator(".cal-dove-arts a").count()).toBeGreaterThan(4);
+
+  // Its rows link into the paper, and the card links to the front page.
+  await expect(first.locator(".cal-dove-arts a").first()).toHaveAttribute(
+    "href",
+    /\/daily-dove\//,
+  );
+  await expect(card.locator(".cal-dove-btn")).toHaveAttribute(
+    "href",
+    /\/daily-dove\/?$/,
+  );
+});
+
+test("a feast page carries the dispatches it remembers", async ({ page }) => {
+  // Sunday of the Fathers of the First Ecumenical Council.
+  await page.goto("./feast/FF-0060/");
+  const band = page.locator(".dove-band");
+  await expect(band).toBeVisible();
+  await expect(band).toContainText("In The Daily Dove");
+  expect(await band.locator("li a").count()).toBeGreaterThan(4);
+  await expect(band.locator("li a").first()).toHaveAttribute(
+    "href",
+    /\/daily-dove\//,
+  );
+
+  // A feast with no dispatches shows no band — Exaltation of the Cross.
+  await page.goto("./feast/FF-0003/");
+  await expect(page.locator(".dove-band")).toHaveCount(0);
 });
 
 test("Daily Dove archive narrows by facet and clears", async ({ page }) => {

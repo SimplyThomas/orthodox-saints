@@ -7,6 +7,8 @@ import { feastDates, primaryRank, rankSlug, rankWeight } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { LITURGICAL_COLORS, FASTING_LEVELS } from "../lib/liturgical";
 import { litPayload } from "../lib/lit-payload";
+import { articlesByFeast, loadPaper, postRank } from "../lib/daily-dove";
+import { FEASTS } from "../lib/feasts";
 
 // Absolute .ics feed URLs for the "Subscribe" control (one per reckoning; the
 // island swaps to the one matching the active New/Old toggle).
@@ -131,6 +133,29 @@ const legendColors: { key: string; label: string; use: string }[] = [
   { key: "dark", label: "Dark", use: "the most solemn Passion services" },
 ];
 const legendFasting = Object.values(FASTING_LEVELS);
+
+// ——— The Daily Dove card, beneath the key ———
+// The calendar is where a reader is already thinking about a particular day, so
+// this is the natural place to offer the paper. Every feast that has dispatches
+// gets a row; the Sunday of the Fathers of the First Ecumenical Council carries
+// the whole council run and so leads.
+const byFeast = await articlesByFeast();
+const feastName = new Map(FEASTS.map((f) => [f.id, f.name]));
+const doveDays = [...byFeast.entries()]
+  .map(([id, articles]) => ({
+    id,
+    name: feastName.get(id) ?? id,
+    articles,
+  }))
+  .filter((d) => feastName.has(d.id))
+  .sort((a, b) => b.articles.length - a.articles.length);
+// A couple of dispatches to show when no feast is involved at all, so the card
+// is never empty as the paper grows into parts of history the calendar does not
+// keep a day for.
+const doveLatest = (await loadPaper()).all
+  .slice()
+  .sort((a, b) => postRank(b) - postRank(a))
+  .slice(0, 3);
 const swatch = (key: string) =>
   LITURGICAL_COLORS[key as keyof typeof LITURGICAL_COLORS];
 ---
@@ -368,6 +393,65 @@ const swatch = (key: string) =>
         </div>
       </details>
 
+      {/* ——— The Daily Dove, beneath the key ——— */}
+      <section class="cal-dove">
+        <div class="cal-dove-head">
+          <span class="eyebrow">The Daily Dove</span>
+          <span class="cal-dove-ln" aria-hidden="true"></span>
+          <span class="cal-dove-note"
+            >Reporting from the Church Since Pentecost</span
+          >
+        </div>
+        <p class="cal-dove-lede">
+          Many of the days in this calendar keep the memory of an event the
+          Church still marks. The Daily Dove reports those events as the news of
+          their day, with the evidence behind every story set out plainly.
+        </p>
+
+        {
+          doveDays.length > 0 && (
+            <ul class="cal-dove-days" role="list">
+              {doveDays.map((d) => (
+                <li>
+                  <a class="cal-dove-day" href={withBase(`feast/${d.id}`)}>
+                    <span class="cal-dove-dayname">{d.name}</span>
+                    <span class="cal-dove-ct">
+                      {d.articles.length}
+                      {d.articles.length === 1 ? " dispatch" : " dispatches"}
+                    </span>
+                  </a>
+                  <ul class="cal-dove-arts" role="list">
+                    {d.articles.map((a) => (
+                      <li>
+                        <a href={withBase(`daily-dove/${a.id}`)}>
+                          {a.headline}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+
+        <div class="cal-dove-foot">
+          <a class="btn btn--gold cal-dove-btn" href={withBase("daily-dove")}>
+            Read the paper
+          </a>
+          <ul class="cal-dove-latest" role="list">
+            {
+              doveLatest.map((a) => (
+                <li>
+                  <a href={withBase(`daily-dove/${a.id}`)}>{a.headline}</a>
+                  <span class="cal-dove-when">{a.date}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
       {
         /* ——— Customs & Traditions for the selected day (island-populated) ——— */
       }
@@ -459,6 +543,152 @@ const swatch = (key: string) =>
 </BaseLayout>
 
 <style>
+  /* ——— The Daily Dove card, beneath the key ——— */
+  .cal-dove {
+    max-width: var(--maxw);
+    margin: 0 auto 26px;
+    padding: 22px 26px 24px;
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-top: 3px solid var(--byz-deep);
+    border-radius: 4px;
+  }
+  .cal-dove-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .cal-dove-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .cal-dove-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .cal-dove-lede {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 78ch;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .cal-dove-days {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .cal-dove-day {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .cal-dove-dayname {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--byz-deep);
+    line-height: 1.2;
+  }
+  .cal-dove-day:hover .cal-dove-dayname {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .cal-dove-ct {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--gold-deep);
+    white-space: nowrap;
+  }
+  .cal-dove-arts {
+    list-style: none;
+    margin: 7px 0 0;
+    padding: 0 0 0 16px;
+    border-left: 2px solid rgba(212, 175, 55, 0.45);
+    display: grid;
+    gap: 5px;
+  }
+  .cal-dove-arts a {
+    font-family: var(--serif);
+    font-size: 15.5px;
+    color: var(--byz);
+    line-height: 1.35;
+    text-decoration: none;
+    text-wrap: pretty;
+  }
+  .cal-dove-arts a:hover {
+    color: var(--gold-deep);
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+
+  .cal-dove-foot {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line-gold);
+    flex-wrap: wrap;
+  }
+  .cal-dove-btn {
+    flex: 0 0 auto;
+  }
+  .cal-dove-latest {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1 1 320px;
+    display: grid;
+    gap: 6px;
+  }
+  .cal-dove-latest li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cal-dove-latest a {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--byz);
+    text-decoration: none;
+    text-wrap: pretty;
+  }
+  .cal-dove-latest a:hover {
+    color: var(--gold-deep);
+    text-decoration: underline;
+  }
+  .cal-dove-when {
+    font-family: var(--text);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--celest);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .cal-dove {
+      padding: 18px 18px 20px;
+    }
+    .cal-dove-note {
+      display: none;
+    }
+  }
+
   /* Subscribe control lives in the calendar bar and tracks the New/Old toggle;
      the island (calendar.client.ts) swaps its links + label to the active feed. */
   .cal-subscribe {

@@ -15,6 +15,8 @@ saint:
   type: "Hierarch"
 subjects:
   - "OS-0024"
+feasts:
+  - "FF-0060"
 saintLabel: "The Fathers of the First Council"
 kicker: "Breaking"
 headline: "Bishops Gather Across Empire to Settle Arius Controversy"

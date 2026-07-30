@@ -1,0 +1,169 @@
+---
+/* "In The Daily Dove" — the paper's dispatches on whatever page a reader has
+   landed on. Shared by the saint page, the feast page and the calendar, so all
+   three offer the story the same way and there is one place to change how it
+   reads.
+
+   Deliberately quiet. A reader came for the saint, the feast, or the date; this
+   is an offer to read the story afterwards, not a demand for their attention. */
+import type { NewsItem } from "../../lib/daily-dove";
+import { withBase } from "../../lib/format";
+
+interface Props {
+  articles: NewsItem[];
+  /** the standing note at the right of the head */
+  note?: string;
+  /** a closing line into the paper itself */
+  more?: string;
+}
+const {
+  articles,
+  note = "Reported as the news of its day",
+  more,
+} = Astro.props;
+---
+
+{
+  articles.length > 0 && (
+    <div class="dove-band">
+      <div class="dove-band-head">
+        <span class="eyebrow">In The Daily Dove</span>
+        <span class="dove-band-ln" aria-hidden="true" />
+        <span class="dove-band-note">{note}</span>
+      </div>
+
+      <ul class="dove-band-list">
+        {articles.map((a) => (
+          <li>
+            <a href={withBase(`daily-dove/${a.id}`)}>
+              <span class="dove-band-edition">{a.edition}</span>
+              <span class="dove-band-h">{a.headline}</span>
+              <span class="dove-band-dek">{a.dek ?? a.summary}</span>
+              <span class="dove-band-date">{a.date}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {more && (
+        <a class="dove-band-more" href={withBase("daily-dove")}>
+          {more}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .dove-band {
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-left: 4px solid var(--byz-deep);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px 22px;
+  }
+  .dove-band-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .dove-band-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .dove-band-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .dove-band-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .dove-band-list li + li {
+    padding-top: 14px;
+    border-top: 1px dotted rgba(168, 133, 42, 0.5);
+  }
+  .dove-band-list a {
+    display: grid;
+    gap: 4px;
+    text-decoration: none;
+  }
+  .dove-band-edition {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+  }
+  .dove-band-h {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--byz-deep);
+    line-height: 1.2;
+    text-wrap: pretty;
+  }
+  .dove-band-list a:hover .dove-band-h {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .dove-band-dek {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    text-align: justify;
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+  .dove-band-date {
+    font-family: var(--text);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--celest);
+  }
+  .dove-band-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-gold);
+    width: 100%;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--byz);
+    text-decoration: none;
+  }
+  .dove-band-more:hover {
+    color: var(--gold-deep);
+  }
+  @media (max-width: 640px) {
+    .dove-band-note {
+      display: none;
+    }
+  }
+</style>

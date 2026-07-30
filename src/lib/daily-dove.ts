@@ -158,6 +158,8 @@ export interface NewsItem {
   saintLabel?: string;
   /** the OS-#### saints this dispatch is about — the join to their pages */
   subjects?: string[];
+  /** the FF-#### feasts it belongs to — the join to the feast and the calendar */
+  feasts?: string[];
   /** lead-story extras */
   kicker?: string;
   dek?: string;
@@ -719,5 +721,19 @@ export async function articlesBySaint(): Promise<Map<string, NewsItem[]>> {
     for (const id of n.subjects ?? []) map.set(id, [...(map.get(id) ?? []), n]);
   // Newest dispatch first within each saint, so a run reads top-down.
   for (const run of map.values()) run.sort((a, b) => postRank(b) - postRank(a));
+  return map;
+}
+
+/* Which dispatches belong to which feast, keyed by FF-#### id. The Church keeps
+   the memory of these events in her calendar — the Fathers of the First Council
+   on the Sunday after Ascension, the Triumph of Orthodoxy on the first Sunday
+   of Lent — so the feast page is the other place a reader will come looking for
+   the story, and the calendar the place they will stumble on it. */
+export async function articlesByFeast(): Promise<Map<string, NewsItem[]>> {
+  const { all } = await loadPaper();
+  const map = new Map<string, NewsItem[]>();
+  for (const n of all)
+    for (const id of n.feasts ?? []) map.set(id, [...(map.get(id) ?? []), n]);
+  for (const run of map.values()) run.sort((a, b) => postRank(a) - postRank(b));
   return map;
 }

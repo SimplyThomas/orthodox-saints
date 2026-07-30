@@ -12,6 +12,8 @@ series:
 saint:
   name: "Cyril"
   type: "Hierarch"
+feasts:
+  - "FF-0060"
 saintLabel: "The Fathers of the Third Council"
 kicker: "Breaking"
 headline: "Crowds Fill Streets Crying “Theotokos!”"

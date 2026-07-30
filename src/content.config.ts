@@ -548,6 +548,10 @@ const dailyDove = defineCollection({
     // of Gangra, and there are five Barlaams and two Partheniuses in the data.
     // Every id here must be verified against data/saints.csv (CLAUDE.md §6).
     subjects: z.array(z.string().regex(/^OS-\d{4,}$/)).optional(),
+    // The feasts and fasts this dispatch belongs to, by FF-#### id. Same join
+    // discipline as `subjects`: by id, verified against data/feasts.csv. Puts
+    // the article on the feast's own page and on the calendar.
+    feasts: z.array(z.string().regex(/^FF-\d{4,}$/)).optional(),
     kicker: z.string().optional(),
     dek: z.string().optional(),
     plate: z.string().optional(),

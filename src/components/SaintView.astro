@@ -20,6 +20,7 @@ import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
 import { articlesBySaint } from "../lib/daily-dove";
+import DoveBand from "./daily-dove/DoveBand.astro";
 
 interface Props {
   saint: Saint;
@@ -1010,34 +1011,10 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                 </details>
               )}
 
-              {/* the paper's account of this saint — placed beneath the
-                  collapsibles, so a reader meets the saint's own record first
-                  and is offered the story afterwards */}
+              {/* the paper's account of this saint */}
               {doveArticles.length > 0 && (
                 <section class="sv-section">
-                  <div class="sv-dove">
-                    <div class="sv-dove-head">
-                      <span class="eyebrow">In The Daily Dove</span>
-                      <span class="sv-dove-ln" aria-hidden="true" />
-                      <span class="sv-dove-note">
-                        Reported as the news of its day
-                      </span>
-                    </div>
-                    <ul class="sv-dove-list">
-                      {doveArticles.map((a) => (
-                        <li>
-                          <a href={withBase(`daily-dove/${a.id}`)}>
-                            <span class="sv-dove-edition">{a.edition}</span>
-                            <span class="sv-dove-h">{a.headline}</span>
-                            <span class="sv-dove-dek">
-                              {a.dek ?? a.summary}
-                            </span>
-                            <span class="sv-dove-date">{a.date}</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <DoveBand articles={doveArticles} />
                 </section>
               )}
 
