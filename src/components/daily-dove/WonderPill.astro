@@ -1,0 +1,63 @@
+---
+/* What the account reports the saint helping with — one of the WONDERS.
+
+   This names a NEED, never a guarantee. The Church asks the saints to pray; she
+   does not trade in outcomes, and neither the label nor anything near it should
+   suggest otherwise (see the note over WONDERS in lib/daily-dove.ts). It is
+   tagged only where the account itself reports that kind of help, so a dispatch
+   with no pill is not a dispatch where nothing happened — it is one whose
+   sources do not say.
+
+   Links into the archive already narrowed to that need, which is the path for a
+   reader who arrived carrying something rather than looking for a date. */
+import { WONDER } from "../../lib/daily-dove";
+import { withBase } from "../../lib/format";
+
+interface Props {
+  /** a WONDERS id */
+  wonder: string;
+  size?: number;
+  /** render as plain text rather than a link into the archive */
+  plain?: boolean;
+}
+const { wonder, size = 10.5, plain = false } = Astro.props;
+const w = WONDER[wonder];
+const Tag = plain ? "span" : "a";
+---
+
+{
+  w && (
+    <Tag
+      class:list={["wonderpill", !plain && "wonderpill--link"]}
+      href={plain ? undefined : withBase(`daily-dove/archive#wonder-${w.id}`)}
+      style={`font-size:${size}px`}
+      title={w.blurb}
+    >
+      {w.name}
+    </Tag>
+  )
+}
+
+<style>
+  /* Quieter than the saint pill and quieter still than the era pill — this is
+     the third thing in the row, and it earns its place by being scannable, not
+     by shouting. Dotted edge so it reads as a facet rather than a category. */
+  .wonderpill {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 9px;
+    border: 1px dashed var(--dv-rule, rgba(31, 28, 23, 0.26));
+    border-radius: 2px;
+    color: var(--dv-ink-3, #726d62);
+    white-space: nowrap;
+  }
+  .wonderpill--link:hover {
+    border-style: solid;
+    border-color: var(--dv-burgundy, #7a2531);
+    color: var(--dv-burgundy, #7a2531);
+  }
+</style>

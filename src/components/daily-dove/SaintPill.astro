@@ -1,0 +1,104 @@
+---
+/* Who the dispatch is about.
+
+   The single most useful thing to know about a dispatch after its headline is
+   whose story it is, and until now that was only discoverable by opening it.
+
+   LINKED BY ID, NEVER BY NAME. `subjects` holds verified OS-#### ids; the
+   `saint.name` string is display copy only. The names in this corpus collide
+   badly — there are five Barlaams in the data, two Partheniuses, and a
+   Callinicus of Cernica who is not the Callinicus of Gangra who was martyred —
+   so resolving a link from the name would cheerfully send a reader to the wrong
+   man's page (CLAUDE.md §6, and the note on articlesBySaint()). Where a
+   dispatch carries no verified id the pill still prints the name; it simply
+   does not link. A wrong link is worse than no link. */
+import type { NewsSaintRef } from "../../lib/daily-dove";
+import { withBase } from "../../lib/format";
+
+interface Props {
+  saint: NewsSaintRef;
+  /** the dispatch's verified OS-#### subjects; the first is the principal one */
+  subjects?: string[];
+  /** overrides the name, for a dispatch whose subject is a body not a person */
+  label?: string;
+  size?: number;
+}
+const { saint, subjects, label, size = 10.5 } = Astro.props;
+const name = label ?? saint.name;
+
+/* Link only when the name on the pill IS the person the id points at.
+
+   `saintLabel` is a display override with two quite different uses in the data.
+   Usually it just spells the person out — `saint.name: "Barlaam"` shown as
+   "Barlaam of Khutyn", which is the same man and should link. But on the
+   council dispatches it names a BODY: "The Fathers of the First Council", where
+   `subjects[0]` is Athanasius, one representative father among hundreds. A pill
+   reading "The Fathers of the First Council" that lands on St Athanasius's page
+   tells the reader something false about both.
+
+   The person's own name is the test. Athanasius does not appear in "The Fathers
+   of the First Council", so that pill stays unlinked; Barlaam appears in
+   "Barlaam of Khutyn", so that one links. Joint records pass correctly too —
+   "The Holy Unmercenaries Cyrus and John" contains Cyrus and OS-0568 is the
+   joint commemoration, not one of the two.
+
+   The `subjects` ids are untouched by this: they remain the join that puts the
+   dispatch on each saint's own page, which is right in that direction even for
+   a council. It is only the reverse claim — that this dispatch is ABOUT that
+   one saint — that the collective labels cannot support. */
+const namesThePerson =
+  !label || label.toLowerCase().includes(saint.name.toLowerCase());
+const id = namesThePerson ? subjects?.[0] : undefined;
+const Tag = id ? "a" : "span";
+---
+
+<Tag
+  class:list={["saintpill", id && "saintpill--link"]}
+  href={id ? withBase(`saint/${id}`) : undefined}
+  style={`font-size:${size}px`}
+  title={id ? `Read about ${name}` : undefined}
+>
+  <svg
+    width={size + 2}
+    height={size + 2}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3.5v15M8 8h8M9.5 18.5h5"></path>
+  </svg>
+  {name}
+</Tag>
+
+<style>
+  /* A hairline pill, not a filled one. The era pill beside it already carries a
+     tint, and three coloured blocks in a row on newsprint is a badge rack. */
+  .saintpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 9px;
+    border: 1px solid var(--dv-rule, rgba(31, 28, 23, 0.26));
+    border-radius: 2px;
+    color: var(--dv-navy, #18324f);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .saintpill--link:hover {
+    border-color: var(--dv-navy, #18324f);
+    background: rgba(24, 50, 79, 0.06);
+  }
+  .saintpill svg {
+    flex: 0 0 auto;
+    opacity: 0.75;
+  }
+</style>

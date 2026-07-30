@@ -7,8 +7,7 @@ import type { NewsItem } from "../../lib/daily-dove";
 import { deskOf, regionOf, eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
 import NewsMeta from "./NewsMeta.astro";
-import EraPill from "./EraPill.astro";
-import CenturyBadge from "./CenturyBadge.astro";
+import DispatchPills from "./DispatchPills.astro";
 import EvidenceDot from "./EvidenceDot.astro";
 
 interface Props {
@@ -37,8 +36,7 @@ const haystack =
 >
   <div class="nfc-body">
     <div class="nfc-tags">
-      <EraPill century={n.century} />
-      <CenturyBadge century={n.century} />
+      <DispatchPills n={n} maxWonders={1} />
       <EvidenceDot level={n.evidence} withLabel={false} />
     </div>
     <h3 class="nfc-h">{n.headline}</h3>

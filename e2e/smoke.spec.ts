@@ -401,6 +401,28 @@ test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
   await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
 });
 
+test("a dispatch's saint pill links by id, and never for a collective", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/");
+  const pills = page.locator(".saintpill");
+  expect(await pills.count()).toBeGreaterThan(0);
+
+  // Whoever a dispatch is about is named, and where the subject is one person
+  // the pill is a link into that saint's own page — by OS-#### id, never by
+  // name (the corpus has five Barlaams and two Partheniuses).
+  const linked = page.locator("a.saintpill");
+  expect(await linked.count()).toBeGreaterThan(0);
+  for (const a of await linked.all())
+    expect(await a.getAttribute("href")).toMatch(/\/saint\/OS-\d{4,}\/?$/);
+
+  // …and never for a dispatch whose subject is a BODY. "The Fathers of the
+  // First Council" must not land on the one father who happens to be its first
+  // verified subject.
+  for (const a of await linked.all())
+    expect((await a.innerText()).toLowerCase()).not.toContain("the fathers of");
+});
+
 test("the archive opens already filtered from a #facet-value link", async ({
   page,
 }) => {

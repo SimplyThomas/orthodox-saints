@@ -38,7 +38,7 @@
    which is a native <details>. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NewsMeta from "../../components/daily-dove/NewsMeta.astro";
-import EraPill from "../../components/daily-dove/EraPill.astro";
+import DispatchPills from "../../components/daily-dove/DispatchPills.astro";
 import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
 import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
@@ -385,9 +385,7 @@ const NOTICES = [
                   color="var(--dv-ink-3)"
                 />
                 <p class="lat-sum">{n.summary}</p>
-                <span class="lat-tags">
-                  <EraPill century={n.century} />
-                </span>
+                <DispatchPills n={n} />
               </article>
             ))
           }
@@ -934,11 +932,6 @@ const NOTICES = [
     column-gap: 30px;
     column-rule: 1px solid var(--dv-rule-soft);
     text-wrap: pretty;
-  }
-  .lat-tags {
-    display: flex;
-    align-items: center;
-    gap: 11px;
   }
 
   /* the stack: one line each, ruled — the tail of the run */
