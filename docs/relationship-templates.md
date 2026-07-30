@@ -28,7 +28,7 @@ Cousin / Foster Parent. **See the Conflation Guard** (Standards) for Simon vs Si
 Cleopas. Related groups: `joachim-and-anna`, `family-of-the-forerunner`.
 
 ### The Twelve Apostles  · **Core**
-Peter OS-0004, Andrew OS-0003, James/Zebedee OS-1081, John OS-0005, Philip OS-2578, Bartholomew
+Peter OS-0004, Andrew OS-0003, James/Zebedee OS-1081, John OS-0005, Philip OS-2190, Bartholomew
 OS-1330, Thomas OS-1969, Matthew OS-2201, James/Alphaeus OS-1982, Jude (Thaddaeus) OS-1384,
 Simon the Zealot OS-1137, Matthias OS-1676.
 - Each Apostle lists the **other eleven** as **Fellow Apostle** under `companions` (brothers —
