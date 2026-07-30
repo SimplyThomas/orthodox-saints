@@ -1,0 +1,75 @@
+id: "spyridon-snake-to-gold"
+order: 50
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-farmers-loan"
+  name: "The Farmer’s Loan"
+  part: 1
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Local Bishop’s Unusual Collateral Secures Loan for Destitute Farmer"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "Witnesses claim a serpent became solid gold before an astonished lender’s eyes — and that the bishop instructed the farmer to pledge it, never to keep it."
+summary: "A farmer facing financial ruin has returned home with enough money to save his land after the bishop presented what witnesses describe as a living snake that instantly became a bar of gold."
+miracles:
+  - "provision"
+body:
+  - "A farmer facing financial ruin has reportedly returned home with enough money to save his land after Bishop Spyridon of Trimythous presented what witnesses describe as a living snake that instantly became a solid bar of gold."
+  - "The extraordinary exchange unfolded yesterday after the man, burdened by poverty and unable to purchase seed for the coming season, sought the bishop’s help. According to those familiar with the encounter, Spyridon listened quietly before stooping to the ground and lifting an ordinary snake."
+  - "What happened next has become the talk of the marketplace."
+  - "Before the eyes of the distressed farmer, the serpent is said to have hardened into a piece of gleaming gold."
+  - "Rather than urging the man to keep the treasure, the bishop instructed him to use it only as collateral for a loan. The gold would secure the money needed for seed and supplies, allowing him to work his fields until harvest. Once the debt was repaid, the collateral was to be returned."
+  - "The lender, presented with the remarkable pledge, reportedly accepted it without hesitation."
+  - "Those close to the bishop insist he neither celebrated the miracle nor accepted praise for himself. He reminded the grateful farmer, they say, that the gift had belonged to God from the beginning and would in due course be returned to its rightful Creator."
+  - "The instruction is the part of the account that has most occupied the town. A gift outright would have made the farmer rich for a season. A pledge redeemed at harvest leaves him with what he had before — his land, his labor, and a debt honorably discharged."
+  - "For many in Cyprus, the story has quickly become another example of the bishop’s remarkable reputation: not only for wonders, but for refusing to let a wonder distract anyone from trust in divine providence."
+  - "Whether the pledge will be redeemed, and what will become of it if it is, remains to be seen. The farmer has returned to his fields."
+pullQuote:
+  text: "“It was never his to keep. It was lent to him, as everything is.”"
+  attribution: "— One of those close to the bishop, on the terms of the pledge"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  notes:
+    - city: "Trimythous Market"
+      note: "Seed prices have risen sharply ahead of sowing, and several smallholders are reported to be seeking credit on terms they cannot easily meet."
+    - city: "The Countryside"
+      note: "Farmers who worked alongside Spyridon before his consecration say the bishop still knows the cost of a season’s seed to the measure."
+departments:
+  - kind: "marketplace"
+    title: "Marketplace Buzz"
+    voices:
+      - text: "“I have taken jewelry, tools, a donkey and once a fishing net. I have never taken a snake.”"
+        attribution: "A lender, on the pledge he is said to have accepted"
+      - text: "“If the bishop brings it, you take it. That is all there is to say.”"
+        attribution: "A grain seller in the square"
+    note: "Historical Note: The lender’s reaction is not recorded in any source. The tradition says only that the pledge was accepted."
+literaryFraming: "The marketplace conversation, the lender’s remarks, the reported comments of those close to the bishop, and the dateline reporting are literary devices. No contemporary account of this event survives; the underlying narrative — the snake turned to gold, the loan secured, the instruction to pledge rather than keep — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  intro: "Two strands run through this account, and they do not rest on the same ground."
+  entries:
+    - level: "contemporary-source"
+      claim: "Spyridon was Bishop of Trimythous in Cyprus in the fourth century and was present at the First Ecumenical Council."
+      note: "His episcopate and his presence at Nicaea are established in the historical record; he is among the bishops named in the early conciliar tradition."
+    - level: "orthodox-tradition"
+      claim: "Spyridon turned a snake into gold so that a destitute farmer could pledge it for a loan, and instructed him to redeem and return it after the harvest."
+      note: "The episode appears in the traditional Life of St Spyridon and is preserved in the Orthodox Synaxaria. It is one of his best-known acts of charity and is frequently retold in liturgical materials. Unlike his attendance at Nicaea, it survives through hagiographical transmission rather than contemporary record. Its emphasis throughout is theological rather than economic: wealth is a tool for mercy, never an end in itself."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

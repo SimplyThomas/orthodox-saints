@@ -1,0 +1,71 @@
+id: "spyridon-corfu-famine"
+order: 66
+desk: "marketplace"
+century: 16
+evidence: "orthodox-tradition"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Breaking"
+headline: "Relief Ships Arrive as Famine Breaks — Corfu Gives Thanks to St Spyridon"
+date: "A Year of Famine, in the Sixteenth Century"
+location: "Corfu, Ionian Islands"
+dek: "After months of hunger, islanders credit their patron as desperately needed grain reaches the harbour at last."
+summary: "Church bells rang throughout Corfu as ships carrying grain entered the harbour, bringing relief to an island that had nearly exhausted its reserves."
+miracles:
+  - "provision"
+  - "relics"
+body:
+  - "Church bells rang throughout Corfu today as ships carrying desperately needed grain entered the harbor, bringing relief to an island that has endured months of severe famine."
+  - "The shortage had left the storehouses nearly empty. The price of bread had climbed beyond the reach of many households, and residents feared starvation if supplies failed to arrive before the next harvest."
+  - "With no solution in sight, the clergy carried the incorrupt relics of St Spyridon through the streets in solemn procession, calling the faithful to repentance and to prayer."
+  - "According to the island’s tradition, help came sooner than anyone expected."
+  - "Merchant vessels loaded with grain reached Corfu shortly afterward, easing the crisis and restoring hope to a population that had nearly run out of reserves."
+  - "Residents have given thanks to God, believing that the arrival of food came through the prayers of their heavenly patron."
+  - "It should be said plainly what is and is not being claimed here. Grain ships sail for their own reasons, and the merchants who brought them were not consulted about the procession. What the island claims is not that a fleet was conjured, but that in a season when everything else failed, this did not — and that they had asked."
+  - "The deliverance is now commemorated in one of the annual processions the island keeps in honor of St Spyridon, and will be for as long as Corfu keeps them."
+pullQuote:
+  text: "“We had asked for bread. Then we stood on the mole and counted sails.”"
+  attribution: "— A resident of the town, at the harbour"
+aroundTheEmpire:
+  heading: "Around the Island"
+  notes:
+    - city: "The Harbour"
+      note: "Unloading began at once and continued through the day. Officials of the Venetian administration are said to have overseen the distribution."
+    - city: "The Villages"
+      note: "Inland settlements, furthest from the port and slowest to be supplied, had been the hardest pressed through the winter."
+departments:
+  - kind: "marketplace"
+    title: "Marketplace Buzz"
+    voices:
+      - text: "“The price of a measure fell by half between the morning and the evening.”"
+        attribution: "A trader at the town scales"
+      - text: "“There is grain enough. Now let us see who remembers what it cost to be without it.”"
+        attribution: "A baker of the town"
+    note: "Historical Note: The market talk is illustrative. The famine and the tradition of deliverance are what the sources preserve."
+literaryFraming: "The harbour scene, the quoted residents and traders, the notes from the villages, and the dateline reporting are literary devices. The underlying account — a severe famine, a procession of the relics, and the arrival of grain — is drawn from the local tradition of Corfu."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Corfu experienced periods of severe food shortage under Venetian rule."
+      note: "Shortages during the Venetian period are part of the documented history of the island."
+    - level: "orthodox-tradition"
+      claim: "The island’s deliverance from a sixteenth-century famine is attributed to the intercession of St Spyridon, following a procession of his relics."
+      note: "This is the local Corfiot tradition, preserved by the Church of Corfu and remembered in one of the four annual processions of the saint’s relics. The attribution of the deliverance belongs to that tradition rather than to independent documentation."
+    - level: "contemporary-source"
+      claim: "The annual procession commemorating this deliverance remains part of the island’s religious life."
+      note: "The processions are well documented and continue today."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu"
+      - "Historical traditions preserved by the Holy Metropolis of Corfu"
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

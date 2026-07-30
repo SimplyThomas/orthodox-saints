@@ -1,0 +1,80 @@
+id: "spyridon-shepherds-cap"
+order: 64
+desk: "church-life"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-the-shepherd"
+  name: "The Shepherd Who Stayed a Shepherd"
+  part: 2
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Human Interest"
+headline: "While Other Bishops Wore Silk, Spyridon Kept His Shepherd’s Cap"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "A defender of the poor, a father of the First Council, and a bishop whose prayers were sought by an emperor — dressed, still, like a countryman."
+summary: "Pilgrims arriving in Trimythous hoping to meet one of the most talked-about bishops in the Roman Empire often leave with the same observation: he still dresses like a shepherd."
+miracles: []
+body:
+  - "Pilgrims arriving in Trimythous hoping to meet one of the most talked-about bishops in the Roman Empire often leave with the same surprising observation."
+  - "He still dresses like a shepherd."
+  - "By the time accounts of Spyridon’s wonders had spread across the eastern Mediterranean, he had already become known as a defender of the poor, one of the fathers who sat at the great council at Nicaea, and a man whose prayers were sought at the imperial court. Yet residents insist remarkably little has changed about the bishop himself."
+  - "Each morning he can still be found walking the same dusty roads, greeting neighbors by name."
+  - "His clothing is equally unremarkable."
+  - "Rather than adopting the rich garments expected of a prominent churchman, Spyridon continues to wear the plain woolen robes of a country pastor. Most recognizable of all is his woven cap — a simple basket-like headdress made from reeds or palm fiber, of the kind any shepherd on this island might own."
+  - "Visitors unfamiliar with the bishop routinely mistake him for a laborer."
+  - "Those who know him smile at the mistake."
+  - "“He was ordinary,” one resident reportedly remarked, “until you saw how he loved.”"
+  - "Friends of the bishop say Spyridon has never regarded shepherding as work beneath his office. If anything, he holds that it prepared him for it. Watching over wandering sheep taught patience. Searching for strays taught persistence. Carrying injured lambs taught compassion."
+  - "The same hands that once guided a flock across these hills now bless the sick, comfort the grieving, and have been laid, so the reports from Antioch say, upon an emperor."
+  - "Yet the shepherd has not disappeared beneath the bishop."
+  - "Even as his reputation reaches distant provinces, Spyridon remains content to live among the people he serves, refusing the honors others believe should accompany so celebrated a man."
+  - "For the faithful of Cyprus, that consistency has begun to look like the most remarkable thing about him. Long before anyone calls him a saint, he has already worked out that the surest road to greatness is to stay small."
+pullQuote:
+  text: "“He was ordinary — until you saw how he loved.”"
+  attribution: "— A resident of Trimythous"
+whyThisMatters: "The woven cap outlived the man. It became so closely bound to St Spyridon that iconographers still paint him in it, and it remains the one feature by which he can be told apart at a glance from every other bishop in the Church’s calendar — a saint identified, permanently, by the trade he never gave up."
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "The see of Trimythous keeps no state, and the bishop is said to travel on foot where the distance allows it. Clergy arriving from the larger cities have been known to enquire after him twice before realising they have already been introduced."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I greeted him as a farmer and he answered as one. He let me finish before I learned my mistake.”"
+        attribution: "A visitor from Salamis"
+      - text: "“Take the cap off him and you could not find him in a crowd of bishops. That is rather the point.”"
+        attribution: "A priest of the district"
+  - kind: "fact-check"
+    title: "Fact Check"
+    body:
+      - "Was the cap an affectation — a bishop dressing down for effect? Nothing in the tradition suggests so. It is remembered as the headgear he already owned, of the kind worn across rural Cyprus, and simply never exchanged."
+literaryFraming: "The pilgrims, the quoted residents and clergy, the notes on the bishop’s travel, and the dateline reporting are literary devices. The underlying portrait — the plain dress, the woven shepherd’s cap, and a refusal of prestige that persisted through his years as bishop — is drawn from the Orthodox tradition and from the saint’s iconography."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Spyridon was Bishop of Trimythous and was among the fathers of the First Ecumenical Council at Nicaea in 325."
+      note: "His episcopate and his presence at the council are established in the historical record."
+    - level: "orthodox-tradition"
+      claim: "He worked as a shepherd and farmer before his election and kept the same simplicity of dress and life afterwards."
+      note: "The humility of St Spyridon is one of the most consistently attested themes in Orthodox tradition, supported by the traditional Life, the liturgical texts, and centuries of iconographic tradition. Later traditions embellish aspects of his daily life, but the central portrait is stable: he never embraced wealth or status despite becoming one of the most renowned bishops of the fourth century."
+    - level: "orthodox-tradition"
+      claim: "His woven shepherd’s cap became so closely associated with him that it remains a unique feature of his iconography across the Orthodox world."
+      note: "The kalathion is the standard mark by which St Spyridon is identified in icons. This is a documented feature of Orthodox iconographic practice; that the historical Spyridon wore precisely such a cap rests on the tradition rather than on a contemporary description."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Liturgical texts for St Spyridon the Wonderworker (December 12)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

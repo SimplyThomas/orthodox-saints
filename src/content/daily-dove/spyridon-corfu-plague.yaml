@@ -1,0 +1,69 @@
+id: "spyridon-corfu-plague"
+order: 67
+desk: "miracle-watch"
+century: 17
+evidence: "orthodox-tradition"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+series:
+  id: "spyridon-corfu-plague"
+  name: "The Plague at Corfu"
+  part: 1
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Breaking"
+headline: "Corfu Declares Deliverance as Deadly Plague Suddenly Ends"
+date: "1629"
+location: "Corfu, Ionian Islands"
+dek: "Island leaders credit the intercession of St Spyridon after an epidemic that emptied whole streets comes to an unexpected halt."
+summary: "Church bells rang across Corfu as residents poured into the streets in thanksgiving after a plague that had gripped the island abruptly subsided."
+miracles:
+  - "healing"
+  - "protection"
+  - "relics"
+body:
+  - "Church bells rang across Corfu today as residents poured into the streets in thanksgiving after a devastating plague that had gripped the island abruptly subsided — an event the people overwhelmingly attribute to the intercession of their patron, St Spyridon."
+  - "For weeks fear had settled over the island."
+  - "Homes were shuttered. Families remained indoors. Merchants abandoned their stalls as the disease spread from one quarter to the next, leaving physicians with few answers and many households in mourning."
+  - "With hope diminishing, the clergy brought forth the incorrupt relics of St Spyridon in solemn procession through the streets of the city."
+  - "Witnesses described an atmosphere of profound repentance and prayer as thousands followed behind the reliquary, pleading for God’s mercy upon the island."
+  - "According to the island’s tradition, the epidemic began to recede shortly afterward."
+  - "New infections declined rapidly, deaths became rare, and within a short time the outbreak had ended."
+  - "The people of Corfu have taken the timing as unmistakable."
+  - "Churches across the city have filled with worshippers offering thanksgiving, while the civic authorities have formally recognized the island’s deliverance."
+  - "A word about what a procession of this kind is, since it is easily misread from outside. It is not a rite performed upon a disease. Orthodox Christians understand it as a communal act of repentance and prayer — the whole city, together, asking God for mercy through the prayers of His saint. The relics are carried because the saint is asked, not because the box is thought to work."
+  - "Each year from now, Corfu will commemorate this deliverance with a procession carrying the relics through the same streets where a frightened generation once prayed for mercy — a remembrance that has become, for many here, less an anniversary than a standing act of gratitude."
+pullQuote:
+  text: "“We walked those streets in terror. We will walk them every year in thanks.”"
+  attribution: "— A resident of the town of Corfu"
+aroundTheEmpire:
+  heading: "Around the Island"
+  notes:
+    - city: "The Town"
+      note: "The quarantine measures imposed by the Venetian administration are expected to be lifted in stages as the physicians confirm the decline."
+    - city: "The Villages"
+      note: "Outlying settlements that had sealed their roads against travellers from the town have begun reopening them."
+literaryFraming: "The crowds, the quoted resident, the notes on quarantine and the villages, and the dateline reporting are literary devices. The underlying account — the epidemic, the procession of the relics, and the island’s attribution of its deliverance to St Spyridon — is drawn from the documented history and the living tradition of Corfu."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Plague struck Corfu during the Venetian period, and an annual commemoration of the island’s deliverance has been kept ever since."
+      note: "Several plague epidemics struck the island in this period; the outbreak of 1629 is the one most commonly associated with this tradition, though some local accounts connect the saint’s intercession with later epidemics as well. Both the outbreaks and the subsequent civic and ecclesiastical commemorations are documented."
+    - level: "orthodox-tradition"
+      claim: "The plague ended through the intercession of St Spyridon after his relics were carried in procession."
+      note: "The attribution belongs to Orthodox tradition and to the historical memory of the people of Corfu. The relics have been kept on the island since the fifteenth century."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Church of St Spyridon, Corfu — historical tradition and annual commemorations"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Historical studies of the plague epidemics and the processions of St Spyridon on Corfu"

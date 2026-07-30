@@ -1,0 +1,80 @@
+id: "spyridon-grain-hoarder"
+order: 52
+desk: "marketplace"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-cyprus-famine"
+  name: "The Cyprus Famine"
+  part: 1
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Marketplace"
+headline: "Grain Merchant Accused of Hoarding as Famine Grips Cyprus"
+date: "A Season of Famine"
+location: "Trimythous, Cyprus"
+dek: "Bishop Spyridon warns that wealth gained through starvation “will not remain,” as unexpected grain appears across the region overnight."
+summary: "Outrage is being directed at grain merchants accused of withholding their stores while families go hungry. One farmer, turned away at the door, sought the bishop’s help instead."
+miracles:
+  - "provision"
+body:
+  - "As famine continues to tighten its grip across Cyprus, growing outrage is being directed toward grain merchants accused of withholding their stores while desperate families struggle to feed themselves."
+  - "Among those seeking relief was a poor farmer who reportedly approached one of the region’s wealthiest grain dealers, hoping to purchase enough wheat to keep his household alive. Witnesses say the merchant refused to part with his stores unless payment was made in advance, despite knowing the man had neither money nor possessions left to offer."
+  - "Turned away empty-handed, the farmer sought help from Bishop Spyridon."
+  - "According to those present, the bishop did not begin by condemning the merchant. He encouraged the hungry man instead to trust that God had not forgotten him."
+  - "“The Lord,” Spyridon reportedly said, “will provide what is needed.”"
+  - "The following morning, residents awoke to an astonishing sight."
+  - "After heavy rains swept through the region overnight, one of the merchant’s large granaries had reportedly collapsed. Grain stored for profit spilled across the surrounding ground, flowing beyond the owner’s ability to recover it."
+  - "Before servants could gather the scattered wheat, hungry townspeople rushed to collect what they could carry. Among them was the same farmer who had been refused assistance only a day earlier."
+  - "Witnesses say Bishop Spyridon instructed the poor to take what they needed without fear."
+  - "By the end of the day, families who had gone without bread were once again able to fill their ovens, while the merchant’s carefully guarded surplus had largely disappeared."
+  - "Residents remain divided over the turn of events. Some describe the collapse as divine intervention. Others insist the torrential rain alone explains the destruction of the granary. Even so, many cannot ignore the timing, coming less than a day after the bishop publicly urged trust in providence and warned against profiting from another’s desperation."
+  - "For those who have watched the famine at close quarters, the greater wonder may not have been the falling walls, but the reminder that food was given to sustain life — not to become a weapon against the poor."
+pullQuote:
+  text: "“He would not sell a measure yesterday. Today the whole street is carrying it home.”"
+  attribution: "— A woman gathering wheat outside the ruined granary"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  notes:
+    - city: "The Harbour"
+      note: "No relief shipment has been announced. Traders report that grain prices across the island have climbed steadily since the failed harvest."
+    - city: "The Villages"
+      note: "Households in the outlying settlements are said to be grinding barley intended for animal feed, having nothing else left in store."
+departments:
+  - kind: "marketplace"
+    title: "Marketplace Buzz"
+    voices:
+      - text: "“A full granary in a hungry city is not wealth. It is a wager.”"
+        attribution: "A trader at the Trimythous scales"
+      - text: "“Prices double every week the rains hold off. Who can pay in advance now?”"
+        attribution: "A carter, waiting for work at the gate"
+    note: "Historical Note: The market talk here is illustrative. The tradition records the merchant’s refusal and the granary’s collapse, not the conversation of the stalls."
+  - kind: "fact-check"
+    title: "Fact Check"
+    body:
+      - "Was the merchant struck down? No. In every form of the account, the merchant loses his grain and nothing more. There is no curse, no illness, and no death in the tradition — a detail worth holding onto, since retellings sometimes supply one."
+literaryFraming: "The market conversation, the quoted residents, the harbour and village reports, and the dateline reporting are literary devices. The underlying narrative — the merchant’s refusal, Spyridon’s counsel to trust God, the storm, the collapsed granary and the gathering of the grain by the poor — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "During a famine in Cyprus, a wealthy grain merchant refused to sell to the poor without advance payment, and Spyridon assured a hungry farmer that God would provide."
+      note: "The episode is preserved in the traditional Life of St Spyridon and is among the saint’s most frequently cited miracles of mercy during famine."
+    - level: "orthodox-tradition"
+      claim: "A violent storm destroyed the merchant’s granary, and the stored grain was gathered by those in need."
+      note: "The tradition emphasises divine justice rather than punishment: the merchant is portrayed as having trusted his wealth more than God, while the poor were delivered through providence. The account echoes biblical condemnations of withholding food during scarcity (cf. Proverbs 11:26; Amos 8:4–6). It is not independently documented in contemporary records."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

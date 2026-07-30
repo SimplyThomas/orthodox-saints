@@ -1,0 +1,77 @@
+id: "spyridon-corfu-apparition"
+order: 68
+desk: "miracle-watch"
+century: 17
+evidence: "orthodox-tradition"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+series:
+  id: "spyridon-corfu-plague"
+  name: "The Plague at Corfu"
+  part: 2
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Breaking"
+headline: "Citizens Report Patron Saint Chasing Dark Figure Through Corfu Streets"
+date: "1629"
+location: "Corfu, Ionian Islands"
+dek: "As the plague tightens its grip, residents in separate quarters of the town describe the same nighttime sight — a bishop with the Holy Cross, and something fleeing before him."
+summary: "Frightened residents are sharing accounts of a nighttime apparition they believe marked the turning point in the island’s battle against the plague."
+miracles:
+  - "healing"
+  - "protection"
+  - "relics"
+body:
+  - "Amid one of the darkest chapters in this island’s history, frightened residents are sharing accounts of a nighttime apparition they believe marked the turning point in the battle against the plague."
+  - "Over recent evenings, citizens have reported seeing what they describe as the unmistakable figure of St Spyridon, the island’s patron, walking through the deserted streets after nightfall."
+  - "Witnesses say the bishop carried the Holy Cross in his hand and appeared to be pursuing a dark, shadow-like figure through the city."
+  - "“It fled before him,” one resident reportedly recalled. “Where the saint went, the darkness went back.”"
+  - "The reports spread quickly through neighborhoods already shaken by the disease. Families who had remained behind locked doors began sharing remarkably similar descriptions despite living in different quarters of the town."
+  - "Many understood the dark figure as the plague itself made visible."
+  - "The accounts are said to have continued over several nights, while the clergy called the faithful to repentance and carried the incorrupt relics of St Spyridon in solemn procession through the city."
+  - "Then came a change no one had dared expect."
+  - "According to the tradition, the epidemic began to subside. Deaths grew fewer, the number of the sick steadily declined, and hope returned to a population that had feared the island itself might not survive."
+  - "This paper reports the accounts as accounts. They cannot be checked — not now, and not by anyone who comes after us. What can be said is that they were told, that they were told in the same terms by people in different streets, and that a city which believed itself abandoned stopped believing it."
+  - "For the people of Corfu the two things have long since become inseparable in memory: the saint who protected this city while he was alive on Cyprus, and the saint who they hold came to its aid again — not as a memory, but as a living intercessor before God."
+pullQuote:
+  text: "“It fled before him. Where the saint went, the darkness went back.”"
+  attribution: "— A resident of Corfu, on what was seen after nightfall"
+aroundTheEmpire:
+  heading: "Around the Island"
+  intro: "The town had been under curfew for some weeks, and the streets after dark were empty but for the carts. It is worth noting that those reporting the sight were, almost without exception, watching from windows."
+departments:
+  - kind: "whispers"
+    title: "Whispers in the Streets"
+    body:
+      - "The accounts multiplied faster than they could be gathered, and the details firmed up as they travelled — the height of the figure, the colour of the vestments, the exact street."
+      - "That is what accounts do when a city is frightened, and saying so is not the same as dismissing them. It is only to note that the version told a month from now will be tidier than the version told last night, and that the tidier one will be the one that survives."
+    note: "Historical Note: Later Orthodox tradition, not contemporary record."
+literaryFraming: "The residents quoted here, the note on the curfew and the windows, and the dateline reporting are literary devices. The underlying account — reports that St Spyridon was seen at night with the Holy Cross, pursuing a dark figure understood to represent the plague — is drawn from the oral and ecclesiastical tradition of Corfu."
+historiansNotes:
+  intro: "This dispatch reports the same weeks as the preceding one in this series, and rests on markedly weaker ground. That difference is the whole reason for filing it separately."
+  entries:
+    - level: "contemporary-source"
+      claim: "Plague struck Corfu in this period, and the island’s deliverance has been commemorated annually ever since."
+      note: "The epidemic and the annual procession are historically well established."
+    - level: "orthodox-tradition"
+      claim: "Residents reported seeing St Spyridon at night, carrying the Holy Cross and driving a dark figure before him."
+      note: "This belongs to the traditional oral and ecclesiastical memory of Corfu, preserved alongside the historical procession and the thanksgiving for the end of the epidemic. The reported apparitions cannot be independently verified from contemporary documentation. They are recounted by clergy and faithful as expressions of the saint’s continuing intercession."
+    - level: "orthodox-tradition"
+      claim: "The Church receives such reports with reverence but does not treat them as doctrine."
+      note: "Orthodox Christianity teaches that the saints remain alive in Christ and pray for the faithful. Individual accounts of apparitions are received respectfully and are not dogmatic. The Church’s enduring witness rests not on proving phenomena but on thanksgiving for God’s mercy through the prayers of His saints."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu — local ecclesiastical tradition"
+      - "Holy Metropolis of Corfu"
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Corfiot historical and devotional accounts of the annual plague commemorations"

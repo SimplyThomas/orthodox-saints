@@ -1,0 +1,70 @@
+id: "spyridon-gold-to-snake"
+order: 51
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-farmers-loan"
+  name: "The Farmer’s Loan"
+  part: 2
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Golden Snake Comes Back to Life After Farmer Clears Debt"
+date: "After the Harvest"
+location: "Trimythous, Cyprus"
+dek: "A crowd watches in astonishment as Bishop Spyridon returns the redeemed collateral to the wilderness rather than to his own treasury."
+summary: "What began months ago as an extraordinary act of charity ended yesterday when the golden collateral used to rescue a struggling farmer reportedly turned back into a living snake and disappeared into the fields."
+miracles:
+  - "provision"
+body:
+  - "What began months ago as an extraordinary act of charity ended yesterday with a wonder that left witnesses speechless, as the golden collateral used to rescue a struggling farmer reportedly changed back into a living snake before disappearing into the fields."
+  - "Residents will remember the unusual loan arranged earlier this year, when Bishop Spyridon provided what appeared to be a solid piece of gold after transforming a serpent. The impoverished farmer used the metal as collateral to secure the funds needed to sow his crops, promising to return once the harvest was complete."
+  - "He kept that promise."
+  - "Following a successful growing season, the farmer redeemed the gold from the lender and brought it back to the bishop, grateful that both his family and his livelihood had been preserved."
+  - "Those gathered expected the bishop to accept the treasure."
+  - "Instead, witnesses say Spyridon carried the gold outside the city and knelt in prayer, offering thanks to God for providing what had been needed. Rising from prayer, he placed the gold upon the ground."
+  - "What happened next stunned everyone present."
+  - "The rigid metal is said to have softened, twisted, and begun to move. Within moments the gleaming object had become a living serpent once again. Without hesitation, the creature slipped into the grass and disappeared from sight."
+  - "The farmer, overcome with astonishment, reportedly stood in silence as the bishop simply watched the snake return to the wilderness."
+  - "Those who know Spyridon say his reaction was entirely characteristic. He offered no explanation beyond giving thanks to God, treating the moment not as a display of power but as evidence that the Creator remains Lord over all creation."
+  - "For many who witnessed the event, the lesson proved as memorable as the wonder itself. Gold had served its purpose only long enough to relieve a neighbor’s need. Once mercy had accomplished its work, creation quietly returned to the form God first gave it."
+pullQuote:
+  text: "“He did not take it. He gave it back — to the field it came from.”"
+  attribution: "— A witness, outside the city walls"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "The harvest across the district is reported good this season, and several households that borrowed against the spring sowing have now cleared their debts. Lenders in Trimythous say repayment has been unusually prompt."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I would have kept it. God forgive me, I would have kept it.”"
+        attribution: "A labourer, watching the snake go into the grass"
+      - text: "“He never wanted the gold. He wanted the man to have his fields.”"
+        attribution: "A neighbour of the farmer"
+literaryFraming: "The crowd’s reactions, the quoted remarks, the detail of the harvest across the district, and the dateline reporting are literary devices. The underlying narrative — the redeemed gold returned to the ground and restored to a serpent — is drawn from the traditional Life of St Spyridon and is not preserved in any contemporary account."
+historiansNotes:
+  intro: "This dispatch reports the conclusion of the episode covered earlier in this series."
+  entries:
+    - level: "orthodox-tradition"
+      claim: "After the farmer repaid his loan and returned the gold, Spyridon prayed and the gold became a snake again, which departed into the countryside."
+      note: "Orthodox tradition preserves this as the ending of one of St Spyridon’s best-known miracles. Rather than allowing the farmer to keep the gold permanently, the account insists that God provided exactly what was needed and no more. It appears in the traditional Lives and has been handed down through the Synaxaria as an illustration of charity, detachment from wealth, and providential care."
+    - level: "orthodox-tradition"
+      claim: "Spyridon accepted no praise for the wonder and gave thanks to God instead."
+      note: "The saint’s refusal of honour is among the most consistently attested features of his Life, recurring across nearly every episode preserved about him."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
