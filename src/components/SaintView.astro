@@ -860,73 +860,6 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
         )
       }
 
-      {/* the paper's account of this saint */}
-      {
-        doveArticles.length > 0 && (
-          <section class="sv-section">
-            <div class="sv-dove">
-              <div class="sv-dove-head">
-                <span class="eyebrow">In The Daily Dove</span>
-                <span class="sv-dove-ln" aria-hidden="true" />
-                <span class="sv-dove-note">
-                  Reported as the news of its day
-                </span>
-              </div>
-              <ul class="sv-dove-list">
-                {doveArticles.map((a) => (
-                  <li>
-                    <a href={withBase(`daily-dove/${a.id}`)}>
-                      <span class="sv-dove-edition">{a.edition}</span>
-                      <span class="sv-dove-h">{a.headline}</span>
-                      <span class="sv-dove-dek">{a.dek ?? a.summary}</span>
-                      <span class="sv-dove-date">{a.date}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )
-      }
-
-      {/* ideas for celebrating this day at home — inviting family ideas */}
-      {
-        profile?.celebration && (
-          <section class="sv-section">
-            <div class="sv-celebrate">
-              <div class="eyebrow">Ideas for Celebrating This Day</div>
-              {profile.celebration.intro && (
-                <p class="sv-celebrate-intro">{profile.celebration.intro}</p>
-              )}
-              <ul class="sv-celebrate-ideas">
-                {profile.celebration.ideas.map((it) => (
-                  <li>
-                    <span>{it.idea}</span>
-                    {it.detail && <span class="ci-detail"> {it.detail}</span>}
-                  </li>
-                ))}
-              </ul>
-              {profile.celebration.sources &&
-                profile.celebration.sources.length > 0 && (
-                  <p class="sv-celebrate-credit">
-                    Ideas gathered and adapted from Orthodox family resources —{" "}
-                    {profile.celebration.sources.map((s, i) => (
-                      <>
-                        {i > 0 && ", "}
-                        <a href={s.url} target="_blank" rel="noopener">
-                          {s.label}
-                        </a>
-                      </>
-                    ))}
-                    . These are optional, inviting ideas, not liturgical
-                    requirements.
-                  </p>
-                )}
-            </div>
-          </section>
-        )
-      }
-
       {/* in their own words — a collapsible of verbatim PD quotes */}
       {
         quoteList.length > 0 && (
@@ -1075,6 +1008,37 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                     ))}
                   </div>
                 </details>
+              )}
+
+              {/* the paper's account of this saint — placed beneath the
+                  collapsibles, so a reader meets the saint's own record first
+                  and is offered the story afterwards */}
+              {doveArticles.length > 0 && (
+                <section class="sv-section">
+                  <div class="sv-dove">
+                    <div class="sv-dove-head">
+                      <span class="eyebrow">In The Daily Dove</span>
+                      <span class="sv-dove-ln" aria-hidden="true" />
+                      <span class="sv-dove-note">
+                        Reported as the news of its day
+                      </span>
+                    </div>
+                    <ul class="sv-dove-list">
+                      {doveArticles.map((a) => (
+                        <li>
+                          <a href={withBase(`daily-dove/${a.id}`)}>
+                            <span class="sv-dove-edition">{a.edition}</span>
+                            <span class="sv-dove-h">{a.headline}</span>
+                            <span class="sv-dove-dek">
+                              {a.dek ?? a.summary}
+                            </span>
+                            <span class="sv-dove-date">{a.date}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </section>
               )}
 
               {hasInfluence && (
@@ -1465,14 +1429,52 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                 </details>
               )}
 
-              {m.notes && (
-                <section class="sv-section sv-notes-sec">
-                  <div class="sv-secthead">
-                    <span class="eyebrow">Notes</span>
+              {/* ideas for celebrating this day at home — inviting family ideas */}
+              {profile?.celebration && (
+                <section class="sv-section">
+                  <div class="sv-celebrate">
+                    <div class="eyebrow">Ideas for Celebrating This Day</div>
+                    {profile.celebration.intro && (
+                      <p class="sv-celebrate-intro">
+                        {profile.celebration.intro}
+                      </p>
+                    )}
+                    <ul class="sv-celebrate-ideas">
+                      {profile.celebration.ideas.map((it) => (
+                        <li>
+                          <span>{it.idea}</span>
+                          {it.detail && (
+                            <span class="ci-detail"> {it.detail}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                    {profile.celebration.sources &&
+                      profile.celebration.sources.length > 0 && (
+                        <p class="sv-celebrate-credit">
+                          Ideas gathered and adapted from Orthodox family
+                          resources —{" "}
+                          {profile.celebration.sources.map((s, i) => (
+                            <>
+                              {i > 0 && ", "}
+                              <a href={s.url} target="_blank" rel="noopener">
+                                {s.label}
+                              </a>
+                            </>
+                          ))}
+                          . These are optional, inviting ideas, not liturgical
+                          requirements.
+                        </p>
+                      )}
                   </div>
-                  <p class="sv-notes-text">{m.notes}</p>
                 </section>
               )}
+
+              {/* The Notes row is gone. It carried CSV-era metadata that read as
+                  a stray footer beneath the collapsibles and the paper's own
+                  account, and the same facts surface in the rail and the
+                  profile. `m.notes` is still on the record if it is wanted
+                  back — see this file's history for the markup. */}
 
               {m.sources && (
                 <div class="sv-after-sources">Sources: {m.sources}</div>
