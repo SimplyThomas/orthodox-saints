@@ -225,7 +225,16 @@ const NOTICES = [
         </div>
       </article>
 
-      {/* --- the second column: two secondary stories, then the briefs --- */}
+      {
+        /* --- the second column: two secondary stories, then the briefs ---
+           HEADLINES, NOT SUMMARIES. Each secondary used to stack four
+           treatments in a column a quarter of the measure wide — a desk label,
+           the headline, three clamped lines of grey summary trailing an
+           ellipsis, and a tinted era chip. That is more furniture than a
+           narrow column can carry, and the truncated copy earned none of it:
+           the headline is what a reader scans a second column for, and the
+           story itself is one click away. Kicker and headline only. */
+      }
       <div class="fp-second dv-colrule">
         <div class="dv-sect">
           <h2 class="dv-sect-h">More From This Edition</h2>
@@ -236,10 +245,6 @@ const NOTICES = [
             <a class="fp-sec" href={withBase(`daily-dove/${n.id}`)}>
               <span class="fp-sec-desk">{deskOf(n).name}</span>
               <h3 class="fp-sec-h">{n.headline}</h3>
-              <p class="fp-sec-sum">{n.summary}</p>
-              <span class="fp-sec-meta">
-                <EraPill century={n.century} />
-              </span>
             </a>
           ))
         }
@@ -254,7 +259,7 @@ const NOTICES = [
               briefs.map((n) => (
                 <li>
                   <a href={withBase(`daily-dove/${n.id}`)}>
-                    <span class="fp-brief-cen">{ord(n.century)} c.</span>
+                    <span class="fp-brief-cen">{ord(n.century)}&nbsp;c.</span>
                     <span class="fp-brief-h">{n.headline}</span>
                   </a>
                 </li>
@@ -737,8 +742,8 @@ const NOTICES = [
   }
   .fp-sec {
     display: block;
-    padding: 0 0 18px;
-    margin-bottom: 18px;
+    padding: 0 0 16px;
+    margin-bottom: 16px;
     border-bottom: 1px solid var(--dv-rule-soft);
   }
   .fp-sec-desk {
@@ -755,29 +760,11 @@ const NOTICES = [
     font-size: clamp(21px, 2vw, 27px);
     line-height: 1.12;
     color: var(--dv-navy);
-    margin: 6px 0 8px;
+    margin: 6px 0 0;
     text-wrap: pretty;
   }
   .fp-sec:hover .fp-sec-h {
     color: var(--dv-burgundy);
-  }
-  .fp-sec-sum {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--dv-ink-2);
-    margin: 0 0 10px;
-    /* three lines is a secondary's worth of copy; the rest is on the page */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-wrap: pretty;
-  }
-  .fp-sec-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
   }
 
   .fp-briefwrap {
@@ -797,12 +784,15 @@ const NOTICES = [
     padding: 9px 0;
     align-items: baseline;
   }
+  /* The century gutter. Wide enough that "19th c." never breaks — at 34px it
+     wrapped to two lines under every brief, which read as a layout fault. */
   .fp-brief-cen {
     font-family: ui-monospace, Menlo, monospace;
     font-size: 10px;
     letter-spacing: 0.06em;
     color: var(--dv-ink-3);
-    flex: 0 0 34px;
+    flex: 0 0 48px;
+    white-space: nowrap;
   }
   .fp-brief-h {
     font-family: var(--serif);
