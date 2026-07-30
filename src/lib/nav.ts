@@ -96,9 +96,10 @@ export const NAV: NavItem[] = [
         label: "Giving Icons",
         href: withBase("icon-gifts"),
       },
-      // Liturgical Living is built but not yet linked from the nav — the page
-      // still lives at /liturgical-living and is reachable from Parish
-      // Resources; restore this entry when the section is ready to announce.
+      // Liturgical Living is built but deliberately unannounced: this nav
+      // entry, its Parish Resources QR card, and its Project Status blurb were
+      // all pulled together, so the page is live at /liturgical-living but not
+      // linked from anywhere. Restore this entry when it is ready to announce.
       {
         key: "parish-resources",
         label: "Parish Resources",
