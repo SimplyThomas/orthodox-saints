@@ -1,0 +1,292 @@
+---
+/* THE DAILY DOVE — framework specimen.
+
+   Not an article, and deliberately not one: every slot here is filled with copy
+   that describes the slot rather than reporting any event. There is no history
+   on this page, invented or otherwise, so nothing can be mistaken for a
+   dispatch. It exists so the layout and styling of the standard article can be
+   reviewed before there is an article to review, and so that whoever writes the
+   first one can see exactly which slots are waiting for them.
+
+   Unlisted: reachable at /daily-dove/framework, linked from nowhere. */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
+import DepartmentBlock from "../../components/daily-dove/DepartmentBlock.astro";
+import HistoriansNotes from "../../components/daily-dove/HistoriansNotes.astro";
+import AroundTheEmpire from "../../components/daily-dove/AroundTheEmpire.astro";
+import SeriesNav from "../../components/daily-dove/SeriesNav.astro";
+import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
+import CatPill from "../../components/daily-dove/CatPill.astro";
+import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
+import EvidenceBadge from "../../components/daily-dove/EvidenceBadge.astro";
+import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-article.css";
+import {
+  DEPARTMENTS,
+  EVIDENCE_LIST,
+  type NewsItem,
+} from "../../lib/daily-dove";
+
+const SLOT = "[ slot ]";
+
+// A stand-in run, so the series index can be seen. The titles name the KIND of
+// dispatch a run is made of — they are not headlines about anything.
+const run = [1, 2, 3, 4].map(
+  (part) =>
+    ({
+      id: part === 2 ? "framework" : `framework-${part}`,
+      headline: [
+        "First dispatch — the event breaks",
+        "Second dispatch — the scene, reported from the room",
+        "Third dispatch — analysis of what is at stake",
+        "Fourth dispatch — the decision and what follows",
+      ][part - 1],
+      date: `Day ${part} of the coverage`,
+      series: { id: "framework", name: "A worked example", part },
+    }) as unknown as NewsItem,
+);
+
+const departments = DEPARTMENTS.map((d) => ({
+  kind: d.id,
+  body:
+    d.id === "forum" || d.id === "marketplace"
+      ? undefined
+      : [
+          `${d.name} runs here. ${d.rule} Set as body paragraphs, one per entry in the department's \`body\` array — this specimen shows two so the leading between them can be judged.`,
+          "A second paragraph, to show how the column sets at length and where the measure sits against the main story above it.",
+        ],
+  voices:
+    d.id === "forum" || d.id === "marketplace"
+      ? [
+          {
+            text: "[ A short line, as an ordinary Christian of the time might plausibly have put it. ]",
+            attribution:
+              "A described speaker — never a named historical person",
+          },
+          {
+            text: "[ A second voice, taking the other side of it. ]",
+            attribution: "Another described speaker",
+          },
+        ]
+      : undefined,
+}));
+
+const notes = EVIDENCE_LIST.map((level) => ({
+  level,
+  claim: `[ A claim the article made, restated in one line. ]`,
+  note: "What actually stands behind it, said plainly — this is the sentence that keeps the paper honest.",
+  sources: ["[ Citation ]", "[ Citation ]"],
+}));
+
+const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
+  (city) => ({
+    city,
+    note: `[ Two or three lines of what is happening in ${city} while the main story runs. ]`,
+  }),
+);
+---
+
+<BaseLayout
+  active="daily-dove"
+  title="The Daily Dove — article framework"
+  description="The reusable layout every Daily Dove article follows. A specimen, not an article."
+>
+  <article class="na">
+    <div class="na-mastwrap">
+      <DoveMasthead
+        small
+        onDark
+        href="daily-dove"
+        edition="Specimen Edition"
+        folio="The standard article layout"
+      />
+    </div>
+
+    <div class="fw-warn">
+      <p>
+        <strong>This is a specimen, not a dispatch.</strong> Every slot below is filled
+        with copy describing the slot. Nothing here reports any event, and no historical
+        claim is made on this page.
+      </p>
+    </div>
+
+    <div class="na-serieswrap">
+      <SeriesNav name="A worked example" run={run} current="framework" />
+    </div>
+
+    <header class="na-head">
+      <div class="na-head-tags">
+        <CatPill cat="historical" short={false} size={11.5} />
+        <span class="na-head-dot" aria-hidden="true"></span>
+        <CenturyBadge century={4} size={11.5} />
+      </div>
+      <h1 class="na-h1">The headline sets here, across two lines at most</h1>
+      <p class="na-dek">
+        The standfirst sets here in italics — one sentence saying what happened
+        and why it matters, written to carry a reader into the main story.
+      </p>
+    </header>
+
+    <div class="na-metawrap">
+      <div class="na-meta">
+        <div class="na-cell">
+          <div class="eyebrow">Category</div>
+          <div class="na-cell-v">Desk</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Century</div>
+          <div class="na-cell-v">Dateline</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Location</div>
+          <div class="na-cell-v">Where filed from</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell na-cell--grow">
+          <div class="eyebrow">Saint</div>
+          <div class="na-cell-v">Who the story turns on</div>
+        </div>
+        <span class="na-cell-ln" aria-hidden="true"></span>
+        <div class="na-cell">
+          <div class="eyebrow">Evidence</div>
+          <EvidenceBadge level="contemporary-source" />
+        </div>
+      </div>
+    </div>
+
+    <div class="na-main">
+      <div>
+        <div class="na-body">
+          <p class="na-p na-p--lead">
+            The main story opens here, in the reporter&rsquo;s voice — present
+            tense where it helps, and close enough to the event that a reader
+            feels they are standing in the room. This first paragraph sets in
+            italics as the lede.
+          </p>
+          <p class="na-p">
+            The body continues in the reading face. Paragraphs come from the
+            article&rsquo;s <code>body</code> array; this specimen shows enough of
+            them to judge the measure, the leading, and how a pull-quote breaks the
+            column.
+          </p>
+          <blockquote class="na-pull">
+            <p>
+              &ldquo;A pull-quote sets here — a line from the story worth
+              stopping a reader on.&rdquo;
+            </p>
+            <footer>&mdash; Its attribution</footer>
+          </blockquote>
+          <p class="na-p">
+            The column resumes after the quote and runs to the end of the main
+            story, at which point the standing departments begin.
+          </p>
+        </div>
+
+        {departments.map((run) => <DepartmentBlock run={run} />)}
+
+        <div class="na-src">
+          <div class="na-src-head">
+            <h3>Sources &amp; Documentation</h3>
+          </div>
+          <p class="na-src-lede">
+            Every article carries its sources, grouped under these three
+            standing headings.
+          </p>
+          <div class="na-src-grid">
+            {
+              [
+                "Primary Sources",
+                "Orthodox Sources",
+                "Modern Academic Sources",
+              ].map((h) => (
+                <div>
+                  <div class="eyebrow">{h}</div>
+                  <ul>
+                    <li>
+                      <span class="na-src-dm" aria-hidden="true" />
+                      <span>{SLOT}</span>
+                    </li>
+                    <li>
+                      <span class="na-src-dm" aria-hidden="true" />
+                      <span>{SLOT}</span>
+                    </li>
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <aside class="na-aside">
+        <div class="na-hnotes">
+          <HistoriansNotes entries={notes} compact />
+        </div>
+
+        <div class="na-empire">
+          <AroundTheEmpire data={{ notes: empire }} />
+        </div>
+
+        <div class="fw-key">
+          <div class="eyebrow">The evidence scale</div>
+          <EvidenceKey compact />
+        </div>
+      </aside>
+    </div>
+
+    <section class="fw-foot">
+      <p>
+        <span>Authoring reference:</span>
+        <a href={withBase("daily-dove")}>the front page</a> · <a
+          href={withBase("daily-dove/archive")}>the archive</a
+        >. The fields behind every slot above are defined in <code
+          >src/content.config.ts</code
+        > and <code>src/lib/daily-dove.ts</code>.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .fw-warn {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    max-width: 1100px;
+    margin: 22px auto 0;
+    padding: 14px clamp(20px, 4vw, 22px);
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px dashed var(--gold-deep);
+    border-radius: 4px;
+  }
+  .fw-warn p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .fw-key {
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-radius: 3px;
+    padding: 16px 18px 18px;
+  }
+  .fw-key .eyebrow {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .fw-foot {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px clamp(20px, 4vw, 40px) 64px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .fw-foot code {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 13px;
+    color: var(--byz);
+  }
+</style>

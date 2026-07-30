@@ -1,0 +1,47 @@
+---
+/* The era pill — the label for the colour a dispatch plate is printed in.
+   Without it the colour is decoration; with it a reader learns the six bands
+   once and can date a story before reading a word of it. */
+import { eraOf } from "../../lib/daily-dove";
+
+interface Props {
+  century: number;
+  size?: number;
+  onDark?: boolean;
+}
+const { century, size = 10.5, onDark = false } = Astro.props;
+const era = eraOf(century);
+---
+
+<span
+  class="erapill"
+  title={era.full}
+  style={`font-size:${size}px;color:${onDark ? "var(--ivory)" : era.ink};background:${onDark ? "rgba(245,235,216,.16)" : era.bg}`}
+>
+  <i
+    style={onDark ? "background:var(--gold-soft)" : `background:${era.ink}`}
+    aria-hidden="true"></i>
+  {era.name}
+</span>
+
+<style>
+  .erapill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 4px 9px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .erapill i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+</style>

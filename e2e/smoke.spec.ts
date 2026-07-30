@@ -191,10 +191,11 @@ test("quiz walks one question per screen to a circle of companions", async ({
   expect(await chip.getAttribute("href")).toContain(`${BASE}search?`);
 });
 
-test("about page tells the story; the footer carries the project contact", async ({
+test("Our Story tells the story; the footer carries the project contact", async ({
   page,
 }) => {
-  const resp = await page.goto("./about/");
+  // The article moved off /about when that became the About hub.
+  const resp = await page.goto("./our-story/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".ab-hero h1")).toHaveText("Our Story");
   // The conversation is now folded into the story as a numbered movement
@@ -342,21 +343,395 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("news index shows a coming-soon placeholder", async ({ page }) => {
+test("The Daily Dove front page: nameplate, evidence key, departments", async ({
+  page,
+}) => {
+  const resp = await page.goto("./daily-dove/");
+  expect(resp?.status()).toBe(200);
+
+  // The nameplate and its motto — the paper's whole identity.
+  await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
+  await expect(page.locator(".dove-motto").first()).toHaveText(
+    "Reporting from the Church Since Pentecost",
+  );
+
+  // The lead story and the chronological feed render.
+  await expect(page.locator(".cwn-lead")).toBeVisible();
+  expect(await page.locator(".cwn-river .drow").count()).toBeGreaterThan(4);
+
+  // The five-level evidence scale is printed on the front page.
+  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
+
+  // Every standing department is listed. (Historian's Notes is not among them —
+  // it closes every article rather than being an optional section.)
+  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(5);
+  await expect(page.locator(".dove-depts-grid")).toContainText(
+    "Whispers Around the Council",
+  );
+  await expect(page.locator(".dove-depts-grid")).toContainText(
+    "Voices from the Forum",
+  );
+  await expect(page.locator(".dove-depts-grid")).toContainText("Fact Check");
+  await expect(page.locator(".dove-standfirst")).toContainText(
+    "Historian’s Notes",
+  );
+
+  // The rail keeps This Day in Orthodox History and Most Read.
+  await expect(page.locator(".cwn-thisday")).toBeVisible();
+  // "Start Here" lists the paper's real dispatches, not a mock popularity list.
+  const startHere = page.locator(".cwn-mostread .cwn-mr-row");
+  expect(await startHere.count()).toBeGreaterThan(1);
+  await expect(startHere.first()).toHaveAttribute("href", /\/daily-dove\//);
+
+  // A desk chip swaps the feed for the filtered card grid.
+  await page
+    .locator(".cwn-chiprow .news-chip", { hasText: "Historical" })
+    .click();
+  await expect(page.locator("#news-feed")).toBeHidden();
+  await expect(page.locator("#news-results")).toBeVisible();
+  const shown = page.locator("#news-cards .news-feed-card:visible");
+  expect(await shown.count()).toBeGreaterThan(0);
+  for (const card of await shown.all())
+    expect(await card.getAttribute("data-cat")).toBe("historical");
+
+  await page.locator("#news-clear").click();
+  await expect(page.locator("#news-feed")).toBeVisible();
+});
+
+test("a Daily Dove article carries its metadata bar and evidence", async ({
+  page,
+}) => {
+  const resp = await page.goto("./daily-dove/nicaea-325-bishops-gather/");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator(".na-h1")).toContainText("Arius Controversy");
+  // Category · Century · Location · Saint · Evidence
+  await expect(page.locator(".na-meta .na-cell")).toHaveCount(5);
+  await expect(page.locator(".na-meta")).toContainText("Evidence");
+  // The Historian's Notes runs in the side column, beside the story.
+  await expect(page.locator(".na-aside .hnotes")).toBeVisible();
+  // The paper carries no image slot.
+  await expect(page.locator(".na-figure")).toHaveCount(0);
+  await expect(page.locator(".na-verify")).toHaveCount(0);
+  await expect(page.locator(".na-pull")).toBeVisible();
+  await expect(page.locator(".na-src")).toBeVisible();
+  // The nameplate links back to the front page.
+  await expect(page.locator("a.dove-plate")).toHaveAttribute(
+    "href",
+    /\/daily-dove\/?$/,
+  );
+});
+
+test("the old /news paths still resolve to The Daily Dove", async ({
+  page,
+}) => {
+  // Static hosting has no server-side 301, so Astro emits a meta-refresh page;
+  // wait for it to carry us across rather than reading the URL immediately.
   const resp = await page.goto("./news/");
   expect(resp?.status()).toBe(200);
-  await expect(page.locator(".news-title")).toHaveText("Saints in the News");
-  await expect(page.locator(".news-soon-label")).toHaveText("Coming soon");
-  // The section is parked: none of the old archive UI renders.
-  await expect(page.locator(".np-lead")).toHaveCount(0);
-  await expect(page.locator(".np-river")).toHaveCount(0);
-  // The placeholder's actions point at live pages.
-  await expect(
-    page.locator(".news-actions a", { hasText: "Browse the saints" }),
-  ).toBeVisible();
-  await expect(
-    page.locator(".news-actions a", { hasText: "Find your patron" }),
-  ).toBeVisible();
+  await page.waitForURL(/\/daily-dove\/?$/);
+  await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
+
+  // Each article's old path redirects too, not just the section root.
+  await page.goto("./news/nicaea-325-bishops-gather/");
+  await page.waitForURL(/\/daily-dove\/nicaea-325-bishops-gather\/?$/);
+});
+
+test("a council dispatch runs the full standard layout", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/nicaea-325-bishops-gather/");
+  expect(resp?.status()).toBe(200);
+
+  // Nameplate edition line and dateline.
+  await expect(page.locator(".dove-folio")).toContainText("Nicaea Edition");
+  await expect(page.locator(".dove-folio")).toContainText(
+    "Late Spring, AD 325",
+  );
+  await expect(page.locator(".na-byline")).toContainText(
+    "Staff of The Daily Dove",
+  );
+
+  // Around the Empire, the trailer, and the closing accounting.
+  await expect(page.locator(".empire .empire-item")).toHaveCount(4);
+  await expect(page.locator(".na-coming")).toContainText(
+    "Emperor Constantine Opens Historic Council",
+  );
+  await expect(page.locator(".hnotes .hgroup")).toHaveCount(3);
+  await expect(page.locator(".na-src")).toContainText("Primary Sources");
+
+  // Voices carries its standing notice that the quotations are illustrative.
+  await expect(page.locator(".dblock--noted")).toContainText(
+    "Illustrative voices",
+  );
+});
+
+test("Whispers Around the Council names itself as tradition", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/constantinople-1351-hesychasm/");
+  const whispers = page.locator(".dblock--noted", {
+    hasText: "Navel-Gazers",
+  });
+  // The notice runs before the stories, not after them.
+  await expect(whispers.locator(".dblock-notice")).toContainText(
+    "not established by contemporary record",
+  );
+  await expect(whispers.locator(".dblock-histnote")).toContainText(
+    "Historical Note",
+  );
+});
+
+test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/framework/");
+  expect(resp?.status()).toBe(200);
+  // It must say plainly that it is not a dispatch.
+  await expect(page.locator(".fw-warn")).toContainText(
+    "This is a specimen, not a dispatch",
+  );
+  // The series index, every department, and the aside columns.
+  await expect(page.locator(".snav .snav-item")).toHaveCount(4);
+  await expect(page.locator(".dblock")).toHaveCount(5);
+  await expect(page.locator(".empire .empire-item")).toHaveCount(5);
+  // Historian's Notes groups by level, one group per level.
+  await expect(page.locator(".hnotes .hgroup")).toHaveCount(5);
+  // The three standing source headings.
+  await expect(page.locator(".na-src")).toContainText("Primary Sources");
+  await expect(page.locator(".na-src")).toContainText("Orthodox Sources");
+  await expect(page.locator(".na-src")).toContainText(
+    "Modern Academic Sources",
+  );
+  // Voices and Whispers each carry their standing notice.
+  const noted = page.locator(".dblock--noted");
+  await expect(noted).toHaveCount(2);
+});
+
+test("dispatch plates take their colour from the era", async ({ page }) => {
+  await page.goto("./daily-dove/");
+  const rows = page.locator(".cwn-river .drow");
+  expect(await rows.count()).toBeGreaterThan(4);
+
+  // The six era bands, as defined in lib/daily-dove. Derived rather than
+  // pinned to particular headlines, so the assertion survives the feed
+  // changing as the paper grows.
+  const BANDS: [string, number, number][] = [
+    ["martyrs", 1, 3],
+    ["councils", 4, 5],
+    ["byzantium", 6, 10],
+    ["east", 11, 15],
+    ["ottoman", 16, 18],
+    ["modern", 19, 21],
+  ];
+
+  for (const row of await rows.all()) {
+    const era = await row.getAttribute("data-era");
+    const century = Number(await row.getAttribute("data-century"));
+    expect(era).toBeTruthy();
+    // Every plate names its band, so the colour is legible not decorative.
+    await expect(row.locator(".erapill")).toBeVisible();
+    // …and the band it claims is the one its century actually falls in.
+    const band = BANDS.find(([, from, to]) => century >= from && century <= to);
+    expect(era).toBe(band?.[0]);
+  }
+});
+
+test("the paper can be refined by the kind of help asked for", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/");
+
+  // The refine row offers only kinds of help the paper actually reports.
+  const sel = page.locator("#news-wonder");
+  await expect(sel).toBeVisible();
+
+  // Choosing one switches to the filtered grid and narrows it to the accounts
+  // that report that help — this is the path for a reader arriving with a
+  // trouble rather than a date.
+  await sel.selectOption("provision");
+  await expect(page.locator("#news-feed")).toBeHidden();
+  const shown = page.locator("#news-cards .news-feed-card:visible");
+  expect(await shown.count()).toBeGreaterThan(0);
+  for (const card of await shown.all())
+    expect((await card.getAttribute("data-miracles"))?.split(" ")).toContain(
+      "provision",
+    );
+
+  await page.locator("#news-clear").click();
+  await expect(page.locator("#news-feed")).toBeVisible();
+});
+
+test("the archive leads with the kind of help asked for", async ({ page }) => {
+  await page.goto("./daily-dove/archive/");
+  // It is the first facet group, ahead of every way of sorting by date.
+  await expect(page.locator(".arc-fgroup .eyebrow").first()).toHaveText(
+    "Kind of help",
+  );
+
+  const rows = page.locator(".arc-row:visible");
+  const before = await rows.count();
+  await page
+    .locator('.arc-facet[data-facet="wonder"][data-value="courage"]')
+    .click();
+  await expect.poll(async () => rows.count()).toBeLessThan(before);
+  for (const row of await rows.all())
+    expect((await row.getAttribute("data-wonder"))?.split(" ")).toContain(
+      "courage",
+    );
+});
+
+test("a saint page links to the paper's account, and back again", async ({
+  page,
+}) => {
+  // St Xenia of St Petersburg — the paper has run a dispatch about her.
+  await page.goto("./saint/OS-0047/");
+  // The saint, feast and calendar all render the shared DoveBand component.
+  const band = page.locator(".dove-band");
+  await expect(band).toBeVisible();
+  await expect(band).toContainText("In The Daily Dove");
+
+  const link = band.locator("a").first();
+  await expect(link).toHaveAttribute("href", /\/daily-dove\//);
+  await link.click();
+  await page.waitForURL(/\/daily-dove\//);
+
+  // …and the dispatch's Subject cell points back at her page. The join is by
+  // OS-#### id, so this round trip is the guard against it drifting.
+  const back = page.locator(".na-cell-v a").first();
+  await expect(back).toHaveAttribute("href", "/saint/OS-0047");
+  await back.click();
+  await page.waitForURL(/\/saint\/OS-0047\/?$/);
+});
+
+test("a saint with no dispatch shows no Daily Dove band", async ({ page }) => {
+  // St Basil the Great — no article about him yet, so nothing should appear.
+  await page.goto("./saint/OS-0021/");
+  await expect(page.locator(".dove-band")).toHaveCount(0);
+});
+
+test("the top nav is the six-item structure", async ({ page }) => {
+  await page.goto("./");
+  const top = page.locator("header nav > *");
+  await expect(top).toHaveCount(6);
+  const labels = (await top.allInnerTexts()).map((t) =>
+    t.split("\n")[0].trim(),
+  );
+  expect(labels).toEqual([
+    "Home",
+    "Explore",
+    "Church Year",
+    "Orthodox Living",
+    "The Daily Dove",
+    "About",
+  ]);
+});
+
+test("hub pages own their families in the nav highlight", async ({ page }) => {
+  // A deep hosts page lights Explore › Heavenly Hosts via `alsoActive`, with no
+  // edit to the page itself — the guard against those drifting apart.
+  for (const [url, href] of [
+    ["./nine-orders/", "/heavenly-hosts"],
+    ["./guardian-angels/", "/heavenly-hosts"],
+    ["./america/", "/collections"],
+  ] as const) {
+    await page.goto(url);
+    await expect(page.locator("header nav a.active")).toHaveAttribute(
+      "href",
+      href,
+    );
+  }
+});
+
+test("the three landing hubs read as one family", async ({ page }) => {
+  for (const [url, heading, minCards] of [
+    ["./collections/", "Collections", 1],
+    ["./heavenly-hosts/", "The Heavenly Hosts", 6],
+    ["./about/", "About Orthodox Saint Finder", 8],
+  ] as const) {
+    const resp = await page.goto(url);
+    expect(resp?.status()).toBe(200);
+    await expect(page.locator(".hosts-title")).toHaveText(heading);
+    expect(await page.locator(".hub-card").count()).toBeGreaterThanOrEqual(
+      minCards,
+    );
+    // Every card is a real link, not a placeholder.
+    for (const c of await page.locator(".hub-card").all())
+      expect(await c.getAttribute("href")).toBeTruthy();
+  }
+
+  // Collections names what is coming, so one card does not read as empty.
+  await page.goto("./collections/");
+  expect(await page.locator(".hub-planned-grid li").count()).toBeGreaterThan(5);
+});
+
+test("Our Story moved off /about, which is now the hub", async ({ page }) => {
+  await page.goto("./our-story/");
+  expect((await page.title()).length).toBeGreaterThan(0);
+  await page.goto("./about/");
+  await expect(page.locator(".hub-card").first()).toHaveAttribute(
+    "href",
+    "/our-story",
+  );
+});
+
+test("the calendar offers the paper beneath the key", async ({ page }) => {
+  await page.goto("./calendar/");
+  const card = page.locator("#cal-dove");
+  // Collapsed by default, like the liturgical guide and Customs & Traditions
+  // beside it — the calendar itself stays the page.
+  expect(await card.evaluate((el: HTMLDetailsElement) => el.open)).toBe(false);
+  await card.locator("summary").click();
+  expect(await card.evaluate((el: HTMLDetailsElement) => el.open)).toBe(true);
+
+  // The Sunday of the Fathers of the First Ecumenical Council leads, because it
+  // carries the whole council run.
+  const first = card.locator(".cal-dove-days > li").first();
+  await expect(first).toContainText("First Ecumenical Council");
+  expect(await first.locator(".cal-dove-arts a").count()).toBeGreaterThan(4);
+
+  // Its rows link into the paper, and the card links to the front page.
+  await expect(first.locator(".cal-dove-arts a").first()).toHaveAttribute(
+    "href",
+    /\/daily-dove\//,
+  );
+  await expect(card.locator(".cal-dove-btn")).toHaveAttribute(
+    "href",
+    /\/daily-dove\/?$/,
+  );
+});
+
+test("a feast page carries the dispatches it remembers", async ({ page }) => {
+  // Sunday of the Fathers of the First Ecumenical Council.
+  await page.goto("./feast/FF-0060/");
+  const band = page.locator(".dove-band");
+  await expect(band).toBeVisible();
+  await expect(band).toContainText("In The Daily Dove");
+  expect(await band.locator("li a").count()).toBeGreaterThan(4);
+  await expect(band.locator("li a").first()).toHaveAttribute(
+    "href",
+    /\/daily-dove\//,
+  );
+
+  // A feast with no dispatches shows no band — Exaltation of the Cross.
+  await page.goto("./feast/FF-0003/");
+  await expect(page.locator(".dove-band")).toHaveCount(0);
+});
+
+test("Daily Dove archive narrows by facet and clears", async ({ page }) => {
+  const resp = await page.goto("./daily-dove/archive/");
+  expect(resp?.status()).toBe(200);
+  const rows = page.locator(".arc-row:visible");
+  const before = await rows.count();
+  expect(before).toBeGreaterThan(4);
+
+  // Picking a desk narrows the list and raises a removable chip.
+  // Match on the value, not the label — "4th Century" also matches "14th".
+  await page
+    .locator('.arc-facet[data-facet="century"][data-value="4"]')
+    .click();
+  await expect.poll(async () => rows.count()).toBeLessThan(before);
+  await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(1);
+
+  // Clear all restores the full archive.
+  await page.locator("#arc-clear").click();
+  await expect.poll(async () => rows.count()).toBe(before);
+  await expect(page.locator(".arc-chips .arc-chip")).toHaveCount(0);
 });
 
 test("calendar opens on the current month as a grid with today highlighted", async ({
@@ -550,7 +925,7 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   // "The Calendar" without leaving the menu.
   const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
   await expect(calendar).toBeHidden();
-  await page.getByRole("button", { name: /The Church Year/ }).click();
+  await page.getByRole("button", { name: /Church Year/ }).click();
   await expect(calendar).toBeVisible();
   // Escape collapses the whole panel.
   await page.keyboard.press("Escape");

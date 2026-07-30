@@ -1,0 +1,99 @@
+id: "chalcedon-451-two-natures"
+order: 3
+cat: "historical"
+century: 5
+evidence: "contemporary-source"
+edition: "Chalcedon Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "chalcedon-451"
+  name: "The Fourth Council of Chalcedon"
+  part: 1
+saint:
+  name: "Leo"
+  type: "Hierarch"
+subjects:
+  - "OS-0681"
+feasts:
+  - "FF-0060"
+saintLabel: "The Fathers of the Fourth Council"
+kicker: "Breaking"
+headline: "“Peter Has Spoken Through Leo!” Echoes Through the Council Hall"
+date: "October, AD 451"
+location: "Chalcedon"
+dek: "Bishops receive the Tome of Leo as the council defines Christ’s two natures."
+summary: "A thunderous acclamation filled the Basilica of Saint Euphemia as the assembled fathers concluded the public reading of the Tome of Pope Leo I. The council approved a definition proclaiming Jesus Christ one and the same Son, acknowledged in two natures — without confusion, without change, without division, and without separation."
+plate: "ICON · THE FOURTH ECUMENICAL COUNCIL, A.D. 451"
+body:
+  - "A thunderous acclamation filled the Basilica of Saint Euphemia today as bishops assembled at the Fourth Ecumenical Council concluded the public reading of the Tome of Pope Leo I."
+  - "The declaration marked one of the most memorable moments of the council as hundreds of bishops examined Leo’s Christological teaching alongside the writings of St. Cyril of Alexandria and the decrees of the earlier ecumenical councils."
+  - "The council was convened by Emperor Marcian and Empress Pulcheria following years of unrest after the Second Council of Ephesus in AD 449 — a gathering later condemned by many bishops as deeply flawed because of procedural irregularities and violence against several participants."
+  - "The central question before the council has been how best to confess the mystery of Christ’s Incarnation. Following weeks of testimony, document readings, and careful examination of earlier fathers, the council approved a doctrinal definition proclaiming that Jesus Christ is one and the same Son, acknowledged in two natures, divine and human, without confusion, without change, without division, and without separation."
+  - "Council members repeatedly emphasized that they were not introducing a new doctrine but preserving the faith handed down from the Apostles and defended by earlier councils, particularly Nicaea and Ephesus."
+  - "Several bishops noted that Leo’s Tome was accepted only after being carefully compared with the writings of St. Cyril of Alexandria to ensure that the two were in harmony. “It agrees with the Fathers,” one bishop declared after the comparison was completed."
+  - "Although today’s acclamation has been widely celebrated within the council, not every participant has welcomed the outcome. Debate surrounding the leadership of Patriarch Dioscorus of Alexandria continues, and questions remain regarding how churches throughout Egypt and the East will receive the council’s definition."
+  - "For now, however, the assembly has spoken with remarkable unity on one point: Jesus Christ is fully God and fully man, one Person in two natures."
+pullQuote:
+  text: "“Peter has spoken through Leo!”"
+  attribution: "— The acclamation of the assembled bishops, after the reading of the Tome"
+aroundTheEmpire:
+  notes:
+    - city: "Constantinople"
+      note: "Clergy throughout the capital have welcomed reports that the council has reaffirmed both the Nicene faith and the teaching of St. Cyril concerning the Incarnation."
+    - city: "Rome"
+      note: "News of the council’s reception of Pope Leo’s Tome is expected to be greeted with thanksgiving among the clergy."
+    - city: "Alexandria"
+      note: "Reports indicate growing uncertainty as many await word concerning Patriarch Dioscorus and the council’s final decisions."
+    - city: "Jerusalem"
+      note: "Pilgrims visiting the Holy Places have begun discussing the council’s definition, recognizing its importance for the Church’s confession of Christ."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“Every council seems to remind us that words matter. The bishops aren’t arguing over mere phrases — they’re protecting the Gospel.”"
+        attribution: "A merchant visiting from Asia Minor"
+      - text: "“I’ve heard the same Scriptures all my life. Now I understand why the bishops speak so carefully about who Christ is.”"
+        attribution: "A pilgrim from Cappadocia"
+comingUp:
+  - kicker: "Breaking"
+    title: "Dioscorus Removed from Office — Why the Council Deposed the Patriarch of Alexandria"
+  - kicker: "Special Report"
+    title: "Egypt Reacts to Chalcedon’s Definition — Why Many Christians Remain Unconvinced"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Emperor Marcian convened the Council of Chalcedon in AD 451."
+    - level: "contemporary-source"
+      claim: "Pope Leo I’s Tome was publicly read before the council."
+    - level: "contemporary-source"
+      claim: "The bishops acclaimed, “Peter has spoken through Leo!” after the reading."
+    - level: "contemporary-source"
+      claim: "The council compared Leo’s Tome with the writings of St. Cyril of Alexandria before accepting it."
+    - level: "contemporary-source"
+      claim: "The council adopted the Chalcedonian Definition, confessing Christ as one Person in two natures."
+    - level: "contemporary-source"
+      claim: "The council deposed Dioscorus of Alexandria."
+      note: "The formal grounds included his refusal to appear after repeated summonses and his conduct during the Second Council of Ephesus (449), alongside the broader Christological controversy — not doctrine alone."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary and near-contemporary witnesses."
+      sources:
+        - "The Acts of the Council of Chalcedon"
+        - "Leo I, the Tome of Leo"
+        - "Letters of Emperor Marcian and Empress Pulcheria"
+        - "Near-contemporary ecclesiastical historians"
+    - level: "orthodox-tradition"
+      claim: "Orthodox tradition has consistently regarded Chalcedon as the Fourth Ecumenical Council."
+      note: "Its definition is celebrated as a faithful expression of the apostolic teaching concerning Christ, and later liturgical texts honour many of the bishops who defended this confession."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Acts of the Council of Chalcedon (451)"
+      - "The Tome of Leo"
+      - "Imperial letters of Emperor Marcian and Empress Pulcheria"
+  - h: "Contemporary and Near-Contemporary Histories"
+    items:
+      - "Evagrius Scholasticus, Ecclesiastical History"
+      - "Theodoret, Ecclesiastical History"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Church"
+      - "The Orthodox Faith"

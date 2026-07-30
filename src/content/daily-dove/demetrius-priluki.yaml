@@ -1,0 +1,69 @@
+id: "demetrius-priluki"
+order: 41
+cat: "historical"
+century: 14
+evidence: "orthodox-tradition"
+edition: "Moscow & Vologda Edition"
+byline: "By Our Northern Russia Correspondent"
+saint:
+  name: "Demetrius"
+  type: "Monastic"
+subjects:
+  - "OS-0635"
+saintLabel: "Demetrius of Priluki"
+kicker: "Breaking"
+headline: "Beloved Abbot Leaves Moscow Without Farewell"
+date: "Late 14th Century"
+location: "Moscow and Vologda"
+dek: "Crowds search for Father Demetrius after the renowned spiritual father quietly departs the capital in search of deeper solitude."
+summary: "The brethren gathered for the morning offices as they always had. One place, however, remained empty. There had been no public announcement, no procession, no farewell sermon."
+miracles:
+  - "prayer"
+  - "provision"
+  - "relics"
+body:
+  - "The monastery gates opened before dawn. The brethren gathered for the morning offices as they always had. One place, however, remained empty."
+  - "Father Demetrius was gone. There had been no public announcement. No procession. No farewell sermon. The abbot had quietly left Moscow, taking only what was necessary for the journey and entrusting the monastery to others."
+  - "By midday, rumours had spread throughout the city. Some feared he had fallen ill while travelling. Others wondered whether political troubles had forced his departure. The truth proved far simpler. “He wished to belong to God more than to his reputation,” one monk explained."
+  - "For years, Father Demetrius had become one of Moscow’s best-known spiritual fathers. Pilgrims crowded the monastery seeking his counsel. Princes respected his judgment. The poor knew they would never be turned away hungry. The very fame that honoured him had also begun to burden him."
+  - "Those close to the monastery say he often spoke of the danger that praise presents to the soul. “He came to love silence,” another brother recalled. “And Moscow no longer allowed him much of it.”"
+  - "Weeks later, this correspondent caught up with travellers heading north. They spoke of seeing the monk journeying through forests and villages, accompanied by only a few companions. There was no haste in his steps. Each evening he stopped wherever hospitality was offered, blessing those who welcomed him and praying with those who asked."
+  - "Eventually the trail led beyond the bustle of the capital to the quiet banks of the Vologda River. There, surrounded by dense forests and open meadows, Father Demetrius found what he had been seeking. Not another city. A wilderness."
+  - "When local villagers first encountered the monk, they assumed he would remain only a short while. Instead, they watched him begin clearing the land. Logs were gathered. A small wooden church rose from the clearing. One cell became several. Soon other monks arrived, asking to share the same life of prayer. The wilderness was becoming a monastery."
+  - "One elderly farmer laughed when asked whether he had expected such a thing. “We thought one monk had come.” He looked toward the growing community. “It seems he brought an entire future with him.”"
+  - "This afternoon the sound of axes echoed through the forest as brothers worked side by side, pausing only when the monastery bell called them to prayer. Father Demetrius could be found among them. Not directing the labour from a distance. Working. Carrying timber. Sharing the simplest meal."
+  - "The fame he had left behind in Moscow had not disappeared. It had simply followed him. Pilgrims are already beginning to arrive. Some travel seeking advice. Others simply wish to see whether the stories are true."
+  - "They are discovering what the people of Moscow learned long ago. Some men build monasteries. Others become the reason monasteries exist."
+pullQuote:
+  text: "“We thought one monk had come. It seems he brought an entire future with him.”"
+  attribution: "— An elderly farmer by the Vologda"
+aroundTheEmpire:
+  heading: "Around the North"
+  notes:
+    - city: "Vologda River"
+      note: "Construction continues on the new monastery founded by Father Demetrius. Local villagers have begun donating timber, food, and labour as the brotherhood grows."
+    - city: "Moscow"
+      note: "Pilgrims arriving at St Nicholas Monastery continue asking after the former abbot, though the brethren encourage visitors to rejoice that his ministry now blesses another corner of Rus’."
+editorsNotebook:
+  body:
+    - "Most people leave cities hoping to be forgotten. Very few discover that holiness cannot be hidden for long."
+    - "Father Demetrius fled applause. The wilderness answered with church bells."
+literaryFraming: "The discovery of Demetrius’ departure, the interviews with monks and villagers, and the reporter’s journey are fictionalised. They are based on the historical tradition that Demetrius voluntarily left his well-known position near Moscow to pursue a quieter ascetic life, ultimately founding the Priluki Monastery."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Demetrius of Priluki (d. 1392) was first a monk and abbot near Moscow, where he became widely respected for his ascetic life and spiritual wisdom."
+      note: "He enjoyed the friendship of Sergius of Radonezh, who encouraged his monastic labours. Seeking greater solitude, he travelled north to the Vologda region and founded the Spaso-Prilutsky Monastery on the banks of the Vologda River."
+    - level: "orthodox-tradition"
+      claim: "The monastery quickly became one of the principal spiritual centres of northern Rus’."
+      note: "During his lifetime and after his repose numerous miracles were attributed to his prayers, and his relics became a place of pilgrimage."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Demetrius of Priluki"
+      - "Medieval Russian monastic chronicles"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (February 11 commemoration)"
+      - "Russian Orthodox liturgical texts for St Demetrius of Priluki"
+      - "Historical accounts of the Spaso-Prilutsky Monastery"

@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "../components/icons/DomeMark.astro";
+import EyebrowRule from "../components/EyebrowRule.astro";
+---
+
+<BaseLayout
+  active="our-story"
+  title="Our Story"
+  description="The story behind Cloud of Witnesses — a searchable reference of the Orthodox saints, built by two newly illumined converts."
+>
+  <div class="about">
+    {/* ---------- hero ---------- */}
+    <section class="ab-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="inner">
+        <EyebrowRule label="About" />
+        <h1>Our Story</h1>
+        <p class="ab-lede">
+          Welcome to the little project we&rsquo;re calling A Cloud of
+          Witnesses.
+        </p>
+      </div>
+    </section>
+
+    {/* ---------- the story, in movements ---------- */}
+    <section class="ab-movements">
+      <div class="ab-col">
+        <div class="ab-move">
+          <div class="ab-rail">
+            <div class="ab-rail-head">
+              <span class="n">I</span><span class="ln" aria-hidden="true"
+              ></span>
+            </div>
+            <div class="eyebrow">The need we saw</div>
+          </div>
+          <div class="ab-prose">
+            <p>
+              <span class="ab-dropcap" aria-hidden="true">A</span>s newly
+              illumined Orthodox Christians, we&rsquo;ve spent the past year
+              searching for the Church, learning her history, and getting to
+              know the saints who have walked this path before us. Along the
+              way, we noticed something surprising: while there are many
+              wonderful Orthodox resources available, it can still be difficult
+              for English speakers to find information about the saints in one
+              place.
+            </p>
+            <p class="last">
+              Like many converts, we had more ideas than time, and a growing
+              list of ways we hoped to serve the Church. This project became one
+              of those simple &ldquo;see a need, fill a need&rdquo; moments.
+            </p>
+          </div>
+        </div>
+
+        <div class="ab-move">
+          <div class="ab-rail">
+            <div class="ab-rail-head">
+              <span class="n">II</span><span class="ln" aria-hidden="true"
+              ></span>
+            </div>
+            <div class="eyebrow">Our parish bookstore</div>
+          </div>
+          <div class="ab-prose">
+            <p>
+              Our parish has a wonderful bookstore. It&rsquo;s cozy, welcoming,
+              full of books, icons, prayer ropes, and all the little things that
+              help make a house feel more like an Orthodox home. More
+              importantly, it&rsquo;s cared for by a woman who has made all the
+              difference for countless newcomers to the Church.
+            </p>
+            <p class="last">
+              We might be a little biased because she is now our godmother, but
+              she truly has a gift for helping people find their footing in
+              Orthodoxy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- the conversation, told as part of the story ---------- */}
+    <section class="ab-movements ab-became">
+      <div class="ab-col">
+        <div class="ab-move">
+          <div class="ab-rail">
+            <div class="ab-rail-head">
+              <span class="n">III</span><span class="ln" aria-hidden="true"
+              ></span>
+            </div>
+            <div class="eyebrow">A conversation</div>
+          </div>
+          <div class="ab-prose">
+            <p>
+              A few weeks ago, our godmother asked us a simple question &mdash;
+              or really three of them: <em
+                >Where are you learning about the saints? How did you choose
+                your patron saints? And why are you buying so many icons?</em
+              >
+            </p>
+            <p>
+              The last question was easy. Because we love them. We&rsquo;ve been
+              alone for too long. Also, we watched a video about Saint
+              Gabriel&rsquo;s house and have apparently decided that icons
+              belong on ceilings too.
+            </p>
+            <p>
+              The first part was harder. We listed everything &mdash; Trisagion
+              Films, the film <em>Man of God</em> about Saint Nektarios, books, parish
+              recommendations, conversations with Orthodox friends. None of it felt
+              complete. Then one of us said, <em
+                >&ldquo;We should make a patron saint quiz.&rdquo;</em
+              > And the other replied, <em
+                >&ldquo;Well, first we&rsquo;d need a database for that.&rdquo;</em
+              >
+            </p>
+            <p class="last">And that was the beginning of this journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- what it became ---------- */}
+    <section class="ab-movements ab-became">
+      <div class="ab-col">
+        <div class="ab-move">
+          <div class="ab-rail">
+            <div class="ab-rail-head">
+              <span class="n">IV</span><span class="ln" aria-hidden="true"
+              ></span>
+            </div>
+            <div class="eyebrow">What it became</div>
+          </div>
+          <div class="ab-prose">
+            <p>
+              What started as a simple idea quickly turned into collecting feast
+              days, biographies, patronages, regions, traditions, names, and
+              stories from across the Orthodox world. The more we worked, the
+              more we realized how many saints there are &mdash; and how many
+              people are searching for them.
+            </p>
+            <p>
+              But it is built with love for the saints, gratitude for the
+              Church, and the hope that someone else might discover a heavenly
+              friend through it. If you notice anything that could be improved
+              &mdash; or would like to contribute research, corrections,
+              photographs, icons, or translations &mdash; we&rsquo;d love to
+              hear from you.
+            </p>
+            <p class="last">
+              After all, this project is being maintained by a married couple
+              surviving on the Jesus Prayer, far too much coffee, and the
+              prayers of the saints. Thank you for visiting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

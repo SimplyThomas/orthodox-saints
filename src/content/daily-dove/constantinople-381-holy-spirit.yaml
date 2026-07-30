@@ -1,0 +1,97 @@
+id: "constantinople-381-holy-spirit"
+order: 1
+cat: "historical"
+century: 4
+evidence: "contemporary-source"
+edition: "Constantinople Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "constantinople-381"
+  name: "The Second Council of Constantinople"
+  part: 1
+saint:
+  name: "Gregory"
+  type: "Hierarch"
+subjects:
+  - "OS-0022"
+feasts:
+  - "FF-0060"
+saintLabel: "The Fathers of the Second Council"
+kicker: "Breaking"
+headline: "Council Confirms Divinity of the Holy Spirit"
+date: "May, AD 381"
+location: "Constantinople"
+dek: "Bishops gather in Constantinople to reaffirm the faith of Nicaea — and to answer the questions that have arisen since."
+summary: "Nearly six decades after Nicaea, bishops from across the Eastern Roman Empire have assembled in the imperial capital to address lingering divisions. Building upon the Nicene Creed, they have affirmed that the Holy Spirit is “the Lord, the Giver of Life, who proceeds from the Father, who together with the Father and the Son is worshiped and glorified.”"
+plate: "ICON · THE SECOND ECUMENICAL COUNCIL, A.D. 381"
+body:
+  - "Nearly six decades after the landmark Council of Nicaea sought to settle the controversy surrounding the divinity of the Son of God, bishops from across the Eastern Roman Empire have once again assembled — this time in the imperial capital — to address lingering divisions that continue to trouble the Church."
+  - "Convened by Emperor Theodosius I, the council opened this week with a clear purpose: to restore unity among the churches and reaffirm the faith handed down by the Apostles. While the teachings of Arius were condemned at Nicaea in AD 325, new disputes have since arisen, particularly concerning the Holy Spirit."
+  - "At the heart of the debate are those commonly called the Pneumatomachians, or “Spirit Fighters,” who confess the divinity of the Father and the Son but deny that the Holy Spirit shares the same divine nature. Their teaching has spread throughout parts of the Empire, prompting renewed calls for the bishops to speak with one voice."
+  - "The council’s deliberations have already produced a significant development. Building upon the Nicene Creed, the assembled bishops have formally affirmed that the Holy Spirit is “the Lord, the Giver of Life, who proceeds from the Father, who together with the Father and the Son is worshiped and glorified.”"
+  - "For many attending the council, this declaration is more than a carefully crafted statement of doctrine. It is a confession of the Church’s worship itself. Christians throughout the Empire have long baptized in the name of the Father, the Son, and the Holy Spirit, glorifying all three Persons together in prayer and liturgy. The council’s work seeks to preserve that apostolic faith against teachings that would diminish the Holy Spirit’s divine glory."
+  - "Among those participating is Archbishop Gregory of Constantinople, widely respected for his theological defense of the Trinity. Gregory’s sermons delivered in this very city over recent months have played a significant role in strengthening Nicene teaching among the faithful, and many observers expect his influence to be felt throughout the council’s discussions."
+  - "Despite the encouraging progress, the atmosphere within the council remains far from settled. Disagreements over ecclesiastical leadership, episcopal jurisdiction, and longstanding regional rivalries continue to simmer beneath the surface. Several bishops have quietly expressed concern that political disputes could overshadow the theological work before them."
+  - "Nevertheless, hopes remain high that the council will bring greater clarity to the Church and lasting peace to the Empire. As the bishops continue their deliberations in Constantinople, Christians across the Roman world await the council’s final decisions with prayerful anticipation."
+pullQuote:
+  text: "“The faith confessed at Nicaea remains our foundation. But the questions raised since then must also be answered, so that the faithful are not left in confusion.”"
+  attribution: "— One bishop, upon entering the council hall"
+aroundTheEmpire:
+  notes:
+    - city: "Alexandria"
+      note: "Clergy throughout Egypt have welcomed reports that the council is reaffirming the Nicene faith so vigorously defended by the late Archbishop Athanasius."
+    - city: "Antioch"
+      note: "News from Constantinople is being followed closely as the churches of Antioch continue to navigate longstanding divisions within their own episcopate."
+    - city: "Rome"
+      note: "Although the Bishop of Rome is not personally present, representatives remain in communication with the Eastern churches concerning the council’s proceedings."
+    - city: "Cappadocia"
+      note: "Many clergy have expressed gratitude that the theological work of the late Basil the Great continues to shape the Church’s confession of the Holy Spirit."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“After all these years, I thought the matter had already been settled. Now I hear the bishops are debating the Holy Spirit as well.”"
+        attribution: "A merchant visiting from Bithynia"
+      - text: "“If this council brings peace to the churches, then every mile these bishops have traveled will have been worthwhile.”"
+        attribution: "A widow attending services near the capital"
+comingUp:
+  - kicker: "Exclusive"
+    title: "Gregory the Theologian Announces Sudden Resignation — Why One of the Church’s Greatest Defenders Is Leaving the Council"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Emperor Theodosius I convened the Council of Constantinople in AD 381."
+    - level: "contemporary-source"
+      claim: "The council reaffirmed the Nicene faith and expanded the Creed’s teaching concerning the Holy Spirit."
+    - level: "contemporary-source"
+      claim: "The council rejected the teachings of the Pneumatomachians, who denied the full divinity of the Holy Spirit."
+    - level: "contemporary-source"
+      claim: "Gregory Nazianzen presided over part of the council before resigning."
+    - level: "contemporary-source"
+      claim: "The council became recognized as the Second Ecumenical Council by the Orthodox Church."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary and near-contemporary witnesses."
+      sources:
+        - "Gregory Nazianzen, Oration 42 (his farewell address)"
+        - "Gregory Nazianzen, Theological Orations"
+        - "Socrates Scholasticus, Ecclesiastical History"
+        - "Sozomen, Ecclesiastical History"
+        - "Theodoret, Ecclesiastical History"
+    - level: "orthodox-tradition"
+      claim: "Few enduring popular traditions attach to this council."
+      note: "Unlike the First Council of Nicaea, its significance rests primarily on the well-documented theological decisions and the surviving writings of its participants."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Niceno-Constantinopolitan Creed"
+      - "Gregory Nazianzen, Oration 42"
+      - "Gregory Nazianzen, Theological Orations"
+      - "Canons of the First Council of Constantinople (381)"
+  - h: "Contemporary Histories"
+    items:
+      - "Socrates Scholasticus, Ecclesiastical History"
+      - "Sozomen, Ecclesiastical History"
+      - "Theodoret, Ecclesiastical History"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Church"
+      - "The Orthodox Faith"

@@ -1,0 +1,66 @@
+id: "roman-uglich"
+order: 33
+cat: "historical"
+century: 13
+evidence: "orthodox-tradition"
+edition: "Uglich Edition"
+byline: "By Our Uglich Correspondent"
+saint:
+  name: "Roman"
+  type: "Righteous"
+subjects:
+  - "OS-0581"
+saintLabel: "Prince Roman Vladimirovich of Uglich"
+kicker: "Feature"
+headline: "Where Is the Prince?"
+date: "Late 13th Century"
+location: "Uglich"
+dek: "Court officials look to the palace. The people of Uglich know to check the hospital, the poorhouse, or the latest church under construction."
+summary: "The council chamber waited. The prince was late. Messengers went to the palace and returned puzzled. Someone finally suggested looking elsewhere: “Try the almshouse.”"
+miracles:
+  - "provision"
+  - "family"
+  - "relics"
+body:
+  - "The council chamber waited. The prince was late."
+  - "Messengers were dispatched to the palace, only to return moments later with puzzled expressions. He had not spent the morning receiving ambassadors. He was not inspecting the city’s defences or reviewing the treasury."
+  - "Someone finally suggested looking elsewhere. “Try the almshouse.” The messenger sighed, as though he had heard the answer many times before. He had."
+  - "It was there, among the city’s poorest residents, that Prince Roman Vladimirovich of Uglich was eventually found. Not seated upon a throne. Not surrounded by guards. He was carrying a bowl of soup to an elderly man too weak to lift himself from his bed."
+  - "No announcement marked his arrival. No herald proclaimed his generosity. Several of those receiving care seemed scarcely surprised to see him. “He comes often,” one attendant explained. “Sometimes before sunrise.”"
+  - "The prince has become something of a mystery to his own court. Since the death of his wife years ago, those close to him say his priorities have changed dramatically. The lavish entertainments once expected of a ruler have quietly disappeared. Expenditures that might have furnished new halls or fortified noble estates now seem increasingly directed toward churches, hospitals, shelters for the poor, and the relief of widows and orphans."
+  - "Not everyone understands the transformation. A merchant outside the marketplace shrugged when asked about it. “I suppose every prince wishes to be remembered.” An elderly woman standing nearby shook her head. “No.” She smiled. “He wishes to remember us.”"
+  - "Throughout the afternoon, this correspondent followed the prince as he moved through the city with remarkably little ceremony. At a construction site, he spoke with stonemasons raising the walls of a new church. Rather than inspecting their progress from horseback, he climbed the unfinished steps to examine the work alongside them, asking whether they had enough timber to finish before winter."
+  - "From there he walked to the city’s infirmary. Several patients attempted to rise as he entered. He gently motioned for them to remain where they were. One young mother introduced him to her son, who had been recovering from a fever. The prince knelt beside the child’s bed. No speeches were given. No officials recorded the moment. He simply listened while the boy proudly described plans to return home before the spring planting."
+  - "Later, while leaving the infirmary, Roman paused to greet several beggars gathered outside the entrance. Instead of tossing coins hurriedly into waiting hands, he spoke with each person by name. “You noticed that too?” asked one of the nurses. She had been watching from the doorway. “He remembers everyone.”"
+  - "As evening approached, the bells of Uglich echoed across the river, calling the faithful to prayer. The prince quietly joined the growing crowd entering the church, taking his place among merchants, craftsmen, labourers, and widows. For a few moments, there was nothing to distinguish him except the deference others showed him. After the service, he slipped away before most people had reached the church doors."
+  - "Tomorrow’s council meeting will no doubt begin again. Someone will ask where the prince has gone. Those who know him best already have their answer. He is probably wherever someone has been forgotten."
+pullQuote:
+  text: "“I suppose every prince wishes to be remembered.” — “No. He wishes to remember us.”"
+  attribution: "— A merchant, and an elderly woman standing nearby"
+aroundTheEmpire:
+  heading: "Around Uglich"
+  notes:
+    - city: "Church Construction"
+      note: "Work continues on several churches sponsored by Prince Roman, whose patronage has supported both new construction and the repair of older sanctuaries throughout the principality."
+    - city: "City Infirmary"
+      note: "Staff report that the prince remains a frequent visitor, often arriving without advance notice to speak with the sick and distribute aid to families in need."
+editorsNotebook:
+  body:
+    - "History often praises rulers for expanding borders. Prince Roman appears more interested in expanding mercy."
+    - "One kind of kingdom is measured on maps. The other is measured by the people no one else notices."
+literaryFraming: "The council meeting, conversations in the city, and the reporter’s observations are fictionalised. They are designed to illustrate the consistent historical portrait of Prince Roman as a ruler whose daily life was marked by quiet acts of charity rather than courtly display."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Roman Vladimirovich, Prince of Uglich (1235–1285) was remembered as a devout and charitable ruler."
+      note: "After the death of his wife he devoted himself with increasing intensity to works of mercy, founding churches, caring for the poor, supporting widows and orphans, and regularly visiting the sick. His reputation for holiness grew not through military achievements but through his humility, generosity, and personal involvement in the lives of his people."
+    - level: "orthodox-tradition"
+      claim: "Orthodox tradition also remembers miracles associated with his relics after his repose, contributing to his veneration as a wonderworker."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Medieval Russian chronicles and hagiographical accounts of Prince Roman of Uglich"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (February 3 commemoration)"
+      - "Russian Orthodox liturgical texts honouring the Holy Right-Believing Prince Roman of Uglich"

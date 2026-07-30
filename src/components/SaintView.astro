@@ -19,6 +19,8 @@ import SaintRoster from "./SaintRoster.astro";
 import { themeBySlug, relatedThemeLinks } from "../lib/themes";
 import { groupBySlug, GROUP_TYPE_LABEL } from "../lib/groups";
 import { SAINTS } from "../lib/data";
+import { articlesBySaint } from "../lib/daily-dove";
+import DoveBand from "./daily-dove/DoveBand.astro";
 
 interface Props {
   saint: Saint;
@@ -26,6 +28,12 @@ interface Props {
 const { saint } = Astro.props;
 const m = toSaintView(saint);
 const profile = (await loadProfileMap())[saint.id];
+
+// The Daily Dove's account of this saint, if the paper has run one. Joined by
+// OS-#### id from the article's `subjects` (never by name — see the note on
+// articlesBySaint), so a reader who lands on the saint can go straight to the
+// story, and the two halves of the site point at each other.
+const doveArticles = (await articlesBySaint()).get(saint.id) ?? [];
 
 // Editorial review state — surfaced as a full-width band beneath the hero.
 const isReviewed = profile?.status === "reviewed";
@@ -853,44 +861,6 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
         )
       }
 
-      {/* ideas for celebrating this day at home — inviting family ideas */}
-      {
-        profile?.celebration && (
-          <section class="sv-section">
-            <div class="sv-celebrate">
-              <div class="eyebrow">Ideas for Celebrating This Day</div>
-              {profile.celebration.intro && (
-                <p class="sv-celebrate-intro">{profile.celebration.intro}</p>
-              )}
-              <ul class="sv-celebrate-ideas">
-                {profile.celebration.ideas.map((it) => (
-                  <li>
-                    <span>{it.idea}</span>
-                    {it.detail && <span class="ci-detail"> {it.detail}</span>}
-                  </li>
-                ))}
-              </ul>
-              {profile.celebration.sources &&
-                profile.celebration.sources.length > 0 && (
-                  <p class="sv-celebrate-credit">
-                    Ideas gathered and adapted from Orthodox family resources —{" "}
-                    {profile.celebration.sources.map((s, i) => (
-                      <>
-                        {i > 0 && ", "}
-                        <a href={s.url} target="_blank" rel="noopener">
-                          {s.label}
-                        </a>
-                      </>
-                    ))}
-                    . These are optional, inviting ideas, not liturgical
-                    requirements.
-                  </p>
-                )}
-            </div>
-          </section>
-        )
-      }
-
       {/* in their own words — a collapsible of verbatim PD quotes */}
       {
         quoteList.length > 0 && (
@@ -1039,6 +1009,13 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                     ))}
                   </div>
                 </details>
+              )}
+
+              {/* the paper's account of this saint */}
+              {doveArticles.length > 0 && (
+                <section class="sv-section">
+                  <DoveBand articles={doveArticles} />
+                </section>
               )}
 
               {hasInfluence && (
@@ -1429,14 +1406,52 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                 </details>
               )}
 
-              {m.notes && (
-                <section class="sv-section sv-notes-sec">
-                  <div class="sv-secthead">
-                    <span class="eyebrow">Notes</span>
+              {/* ideas for celebrating this day at home — inviting family ideas */}
+              {profile?.celebration && (
+                <section class="sv-section">
+                  <div class="sv-celebrate">
+                    <div class="eyebrow">Ideas for Celebrating This Day</div>
+                    {profile.celebration.intro && (
+                      <p class="sv-celebrate-intro">
+                        {profile.celebration.intro}
+                      </p>
+                    )}
+                    <ul class="sv-celebrate-ideas">
+                      {profile.celebration.ideas.map((it) => (
+                        <li>
+                          <span>{it.idea}</span>
+                          {it.detail && (
+                            <span class="ci-detail"> {it.detail}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                    {profile.celebration.sources &&
+                      profile.celebration.sources.length > 0 && (
+                        <p class="sv-celebrate-credit">
+                          Ideas gathered and adapted from Orthodox family
+                          resources —{" "}
+                          {profile.celebration.sources.map((s, i) => (
+                            <>
+                              {i > 0 && ", "}
+                              <a href={s.url} target="_blank" rel="noopener">
+                                {s.label}
+                              </a>
+                            </>
+                          ))}
+                          . These are optional, inviting ideas, not liturgical
+                          requirements.
+                        </p>
+                      )}
                   </div>
-                  <p class="sv-notes-text">{m.notes}</p>
                 </section>
               )}
+
+              {/* The Notes row is gone. It carried CSV-era metadata that read as
+                  a stray footer beneath the collapsibles and the paper's own
+                  account, and the same facts surface in the rail and the
+                  profile. `m.notes` is still on the record if it is wanted
+                  back — see this file's history for the markup. */}
 
               {m.sources && (
                 <div class="sv-after-sources">Sources: {m.sources}</div>

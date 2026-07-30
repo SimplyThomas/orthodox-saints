@@ -1,0 +1,388 @@
+---
+/* An account, read in full. The metadata bar states plainly what desk it comes
+   from, when and where it happened, whose account it is, and what level of
+   evidence stands behind it; the verification notice below the body says the
+   same thing in words. */
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NewsCard from "../../components/daily-dove/NewsCard.astro";
+import RailModule from "../../components/daily-dove/RailModule.astro";
+import CatPill from "../../components/daily-dove/CatPill.astro";
+import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
+import EvidenceBadge from "../../components/daily-dove/EvidenceBadge.astro";
+import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
+import DepartmentBlock from "../../components/daily-dove/DepartmentBlock.astro";
+import HistoriansNotes from "../../components/daily-dove/HistoriansNotes.astro";
+import AroundTheEmpire from "../../components/daily-dove/AroundTheEmpire.astro";
+import SeriesNav from "../../components/daily-dove/SeriesNav.astro";
+import { saintAvatar } from "../../lib/icons";
+import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-article.css";
+import {
+  loadPaper,
+  ord,
+  seriesIn,
+  NEWS_CAT,
+  EVIDENCE,
+  DEPARTMENT_ORDER,
+  NEWS_THISDAY,
+} from "../../lib/daily-dove";
+
+export const getStaticPaths = (async () => {
+  const { all } = await loadPaper();
+  return all.map((n) => ({
+    params: { slug: n.id },
+    props: { n },
+  }));
+}) satisfies GetStaticPaths;
+
+const { n } = Astro.props;
+const cat = NEWS_CAT[n.cat];
+const v = EVIDENCE[n.evidence];
+const body = n.body && n.body.length ? n.body : [];
+// The pull-quote slots after the second paragraph.
+const pqAfter = 1;
+const { all } = await loadPaper();
+const related = all.filter((x) => x.id !== n.id && x.cat === n.cat).slice(0, 3);
+
+// The run this dispatch belongs to, if it covers an ongoing event.
+const seriesRun = n.series ? (seriesIn(all).get(n.series.id) ?? []) : [];
+
+// Departments render in the paper's standing order, not YAML order.
+const departments = (n.departments ?? [])
+  .slice()
+  .sort(
+    (a, b) =>
+      DEPARTMENT_ORDER.indexOf(a.kind) - DEPARTMENT_ORDER.indexOf(b.kind),
+  );
+---
+
+<BaseLayout
+  active="daily-dove"
+  title={n.headline}
+  description={n.dek || n.summary}
+>
+  <article class="na">
+    {/* ---------- NAMEPLATE ---------- */}
+    <div class="na-mastwrap">
+      <DoveMasthead
+        small
+        onDark
+        href="daily-dove"
+        edition={n.edition ?? cat.name}
+        folio={`${n.date} · ${n.location}`}
+      />
+    </div>
+
+    {/* ---------- BREADCRUMB ---------- */}
+    <div class="na-crumb">
+      <a href={withBase("daily-dove")}>The Daily Dove</a>
+      <span aria-hidden="true">›</span>
+      <a href={withBase("daily-dove/archive")}>{cat.name}</a>
+      <span aria-hidden="true">›</span>
+      <span>{ord(n.century)} Century</span>
+    </div>
+
+    {/* ---------- THE RUN OF DISPATCHES ---------- */}
+    {
+      n.series && seriesRun.length > 1 && (
+        <div class="na-serieswrap">
+          <SeriesNav name={n.series.name} run={seriesRun} current={n.id} />
+        </div>
+      )
+    }
+
+    {/* ---------- HEAD ---------- */}
+    <header class="na-head">
+      <div class="na-head-tags">
+        <CatPill cat={n.cat} short={false} size={11.5} />
+        <span class="na-head-dot" aria-hidden="true"></span>
+        <CenturyBadge century={n.century} size={11.5} />
+      </div>
+      <h1 class="na-h1">{n.headline}</h1>
+      {n.dek && <p class="na-dek">{n.dek}</p>}
+      {n.byline && <p class="na-byline">{n.byline}</p>}
+    </header>
+
+    {/* ---------- METADATA BAR ---------- */}
+    <div class="na-metawrap">
+      {
+        /* A grid, not a flex row with separator spans — those left a rule
+          dangling in mid-air whenever the bar wrapped. The rules are now cell
+          borders, so they can only ever appear between two cells. */
+      }
+      <div class="na-meta">
+        <div class="na-cell">
+          <div class="eyebrow">Category</div>
+          <div class="na-cell-v">{cat.name}</div>
+        </div>
+        <div class="na-cell">
+          <div class="eyebrow">Dateline</div>
+          <div class="na-cell-v">{n.date}</div>
+        </div>
+        <div class="na-cell">
+          <div class="eyebrow">Location</div>
+          <div class="na-cell-v">{n.location}</div>
+        </div>
+        <div class="na-cell">
+          <div class="eyebrow">Subject</div>
+          <div class="na-cell-v">
+            {
+              /* Links to the saint's own page when the dispatch names exactly
+                one — the return leg of the join. */
+            }
+            {
+              n.subjects?.length === 1 ? (
+                <a href={withBase(`saint/${n.subjects[0]}`)}>
+                  {n.saintLabel || n.saint.name}
+                </a>
+              ) : (
+                n.saintLabel || n.saint.name
+              )
+            }
+          </div>
+        </div>
+        <div class="na-cell">
+          <div class="eyebrow">Evidence</div>
+          <EvidenceBadge level={n.evidence} />
+        </div>
+      </div>
+    </div>
+
+    {/* ---------- BODY + ASIDE ---------- */}
+    <div class="na-main">
+      <div>
+        <div class="na-body">
+          {
+            body.length > 0 ? (
+              body.map((para, i) => (
+                <>
+                  <p class:list={["na-p", i === 0 && "na-p--lead"]}>{para}</p>
+                  {i === pqAfter && n.pullQuote && (
+                    <blockquote class="na-pull">
+                      <p>{n.pullQuote.text}</p>
+                      <footer>{n.pullQuote.attribution}</footer>
+                    </blockquote>
+                  )}
+                </>
+              ))
+            ) : (
+              <>
+                <p class="na-p na-p--lead">{n.summary}</p>
+                <p class="na-note">
+                  This account is being documented; a fuller report — with the
+                  testimony and sources the Church’s discernment requires — will
+                  be published as it is verified.
+                </p>
+              </>
+            )
+          }
+        </div>
+
+        {
+          /* a Q&A feature — the questions are ours, the answers are the source */
+        }
+        {
+          n.interview && n.interview.length > 0 && (
+            <div class="na-interview">
+              {n.interview.map((t) => (
+                <div class="na-turn">
+                  <p class="na-q">{t.q}</p>
+                  {t.a.map((para) => (
+                    <p class="na-p">{para}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )
+        }
+
+        {/* the standing departments, in the paper's own order */}
+        {departments.map((run) => <DepartmentBlock run={run} />)}
+
+        {/* the paper's trailer — what runs in the next edition */}
+        {
+          n.comingUp && n.comingUp.length > 0 && (
+            <section class="na-coming">
+              <div class="na-coming-head">
+                <span class="eyebrow">Coming next in The Daily Dove</span>
+                <span class="na-coming-ln" aria-hidden="true" />
+              </div>
+              <ul>
+                {n.comingUp.map((c) => (
+                  <li>
+                    {c.kicker && (
+                      <span class="na-coming-kicker">{c.kicker}</span>
+                    )}
+                    <span class="na-coming-title">{c.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+
+        {/* why the Church remembers it */}
+        {
+          n.whyThisMatters && (
+            <section class="na-why">
+              <h2>Why this story matters</h2>
+              <p>{n.whyThisMatters}</p>
+            </section>
+          )
+        }
+
+        {/* the paper's own editorial */}
+        {
+          n.editorsNotebook && (
+            <section class="na-notebook">
+              <h2>{n.editorsNotebook.heading ?? "Editor’s Notebook"}</h2>
+              {n.editorsNotebook.body.map((para) => (
+                <p>{para}</p>
+              ))}
+            </section>
+          )
+        }
+
+        {/* sources */}
+        {
+          n.sources && n.sources.length > 0 && (
+            <div class="na-src">
+              <div class="na-src-head">
+                <h3>Sources &amp; Documentation</h3>
+              </div>
+              <p class="na-src-lede">
+                The Cloud of Witnesses reports nothing it cannot source. Each
+                account is held to the standard of the Church’s own discernment.
+              </p>
+              <div class="na-src-grid">
+                {n.sources.map((g) => (
+                  <div>
+                    <div class="eyebrow">{g.h}</div>
+                    <ul>
+                      {g.items.map((it) => (
+                        <li>
+                          <span class="na-src-dm" aria-hidden="true" />
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+
+      {/* ---------- ASIDE ---------- */}
+      <aside class="na-aside">
+        <div class="na-hnotes">
+          {/* the closing accounting — every Daily Dove article carries it */}
+          {
+            n.historiansNotes ? (
+              <HistoriansNotes
+                intro={n.historiansNotes.intro}
+                entries={n.historiansNotes.entries}
+                literaryFraming={n.literaryFraming}
+                compact
+              />
+            ) : (
+              /* placeholder articles predate the Historian's Notes; show the
+               story-level evidence rather than pretending to an accounting
+               that has not been written. */
+              <div
+                class="na-verify"
+                style={`background:${v.bg === "transparent" ? "var(--dove-parchment-2)" : v.bg};border:1px ${v.dashed ? "dashed" : "solid"} ${v.line}`}
+              >
+                <span
+                  class="na-verify-sq"
+                  style={
+                    v.dashed
+                      ? `border:3px solid ${v.dot};background:transparent`
+                      : `background:${v.dot};border:3px solid ${v.dot}`
+                  }
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3>On the evidence</h3>
+                  <p>
+                    This report rests on <strong>{v.full.toLowerCase()}</strong>
+                    . Its full Historian’s Notes — each strand of the story set
+                    against what actually carries it — are still to be written.
+                  </p>
+                </div>
+              </div>
+            )
+          }
+        </div>
+
+        {
+          n.aroundTheEmpire && (
+            <div class="na-empire">
+              <AroundTheEmpire data={n.aroundTheEmpire} />
+            </div>
+          )
+        }
+        {
+          n.relatedSaints && n.relatedSaints.length > 0 && (
+            <RailModule eyebrow="Related Saints">
+              <div class="na-rel-saints">
+                {n.relatedSaints.map((s) => (
+                  <div class="na-rel-saint">
+                    <div
+                      class="na-rel-av"
+                      set:html={saintAvatar(
+                        { name: s.name, type: s.type },
+                        52,
+                        65,
+                        /* `awaiting` is the cross-less ground — the paper
+                           carries no cross ornament. */
+                        { type: s.type, awaiting: true },
+                      )}
+                    />
+                    <div>
+                      <h4>{s.name}</h4>
+                      {s.epithet && <div class="na-rel-ep">{s.epithet}</div>}
+                      {s.note && <p>{s.note}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </RailModule>
+          )
+        }
+
+        <RailModule eyebrow="On This Day">
+          <div class="na-thisday">
+            <div class="na-thisday-top">
+              <span class="na-thisday-date">{NEWS_THISDAY.date}</span>
+              <span class="na-thisday-year">A.D. {NEWS_THISDAY.year}</span>
+            </div>
+            <h3>{NEWS_THISDAY.title}</h3>
+            <p>{NEWS_THISDAY.body}</p>
+          </div>
+        </RailModule>
+      </aside>
+    </div>
+
+    {/* ---------- RELATED ARTICLES ---------- */}
+    {
+      related.length > 0 && (
+        <section class="na-related">
+          <div class="na-rel-head">
+            <span class="eyebrow">
+              Related Articles · From the {cat.name} desk
+            </span>
+            <span class="na-rel-ln" aria-hidden="true" />
+          </div>
+          <div class="na-rel-grid">
+            {related.map((r) => (
+              <NewsCard n={r} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

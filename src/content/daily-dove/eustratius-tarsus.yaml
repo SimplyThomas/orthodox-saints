@@ -1,0 +1,64 @@
+id: "eustratius-tarsus"
+order: 28
+cat: "historical"
+century: 9
+evidence: "orthodox-tradition"
+edition: "Tarsus Province Edition"
+byline: "By Our Provincial Correspondent"
+saint:
+  name: "Eustratius"
+  type: "Monastic"
+subjects:
+  - "OS-0421"
+saintLabel: "Eustratius the Wonderworker"
+kicker: "Feature"
+headline: "Pilgrims Continue Flocking to Remote Monastery Amid Reports of Healings"
+date: "Ninth Century"
+location: "Tarsus Province"
+dek: "The quiet community led by Abbot Eustratius has become one of the region’s most talked-about destinations."
+summary: "The monastery is difficult to find, tucked among rocky hills well away from the crowded roads. Yet the narrow path leading to its gates grows busier each season — not with merchants or soldiers, but with the sick."
+miracles:
+  - "healing"
+  - "prayer"
+body:
+  - "It is difficult to find."
+  - "The monastery lies well away from the crowded roads, tucked among rocky hills where the only sounds for much of the day are wind through the pines and the steady rhythm of monastic prayer. Few travellers would stumble upon it by accident."
+  - "Yet despite its isolation, the narrow path leading to its gates grows busier with each passing season. Not with merchants. Not with soldiers. With the sick."
+  - "Some arrive supported by relatives after journeys lasting several days. Others come carried on wagons, too weak to walk the final stretch. Parents bring feverish children. Elderly men lean on staffs worn smooth from years of use. Women clutch written requests for prayers sent by family members unable to travel."
+  - "By sunset, many leave carrying something no one can easily measure. Hope."
+  - "At the centre of this quiet stream of pilgrims is Abbot Eustratius, the elder who has led the monastery for years with little interest in the reputation now surrounding it."
+  - "Those who expect a celebrated wonderworker are often surprised. The abbot receives visitors only after the Divine Services and the work of the monastery has been completed. He speaks softly, asks few questions, and spends little time discussing miracles. “He listens more than he talks,” one pilgrim observed after meeting him. “When he does speak, it is usually to remind you to trust Christ rather than to think about your illness.”"
+  - "The stories, however, continue to multiply. A shepherd from a neighbouring village says lingering pain that had plagued him for years disappeared after the abbot prayed over him. A mother insists her daughter’s fever broke before they reached home. Another family speaks not of a physical cure but of reconciliation after years of bitter division, calling it the greater miracle."
+  - "The monks keep no public register of these accounts. Nor does Eustratius encourage them. When asked about the growing number of reports, one of the senior brethren smiled politely. “Our father tells us that if people remember his name more than the name of Christ, then we have failed.”"
+  - "That humility appears to have done little to discourage visitors. If anything, it has strengthened their confidence. Pilgrims interviewed outside the monastery repeatedly expressed the same sentiment. They did not come because they expected guarantees. They came because they believed they would find a community that prayed without ceasing."
+  - "The monastery itself reflects that simplicity. There are no elaborate reception halls or grand accommodations for travellers. Guests join the brothers in prayer, eat the same modest meals, and wait patiently for their opportunity to speak with the abbot. Much of the day passes in silence, broken only by the chanting of the Psalms and the ringing of the semantron calling the monks to another service."
+  - "“It is strange,” one visitor admitted while preparing for the journey home. He looked back toward the church before continuing. “I came hoping to leave healthy. I think I am leaving peaceful.”"
+  - "Whether that peace itself should be counted among the monastery’s miracles may depend on whom one asks. For the brethren, the answer seems obvious."
+pullQuote:
+  text: "“Our father tells us that if people remember his name more than the name of Christ, then we have failed.”"
+  attribution: "— One of the senior brethren"
+aroundTheEmpire:
+  heading: "Around the Province"
+  notes:
+    - city: "Roads to the Monastery"
+      note: "Local villagers report seeing increasing numbers of pilgrims making the journey to Abbot Eustratius’ monastery, particularly on feast days and during major fasts."
+    - city: "Nearby Villages"
+      note: "Families continue sharing accounts of answered prayers after seeking the intercessions of the abbot, though Church authorities encourage gratitude without exaggeration and caution against sensationalism."
+editorsNotebook:
+  body:
+    - "Miracles draw crowds. Prayer sustains communities. Perhaps that is why this monastery remains quiet despite its growing fame."
+    - "The brothers do not seem interested in becoming known as a place where people come to be healed. They are simply trying to become a place where people learn to seek God. The healings, if they come, follow in His time."
+literaryFraming: "The monastery setting, individual pilgrims, conversations, and daily scenes are fictionalised to illustrate the type of ministry associated with St Eustratius. The article does not depict a specific recorded healing but rather presents the monastery as it might have appeared during the period when his reputation as a wonderworker spread."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Eustratius the Wonderworker was a ninth-century abbot in the region of Tarsus, known for the gift of healing and wonderworking."
+      note: "Details of his biography are limited. The Synaxaria consistently remember him as a holy abbot whose prayers brought healing to those who sought his help — which is why this article portrays the reputation rather than inventing a specific miracle."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Byzantine Synaxaria for St Eustratius the Wonderworker"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Church liturgical texts commemorating St Eustratius (January 9)"
+      - "Later Orthodox synaxarial compilations preserving his title as “the Wonderworker”"

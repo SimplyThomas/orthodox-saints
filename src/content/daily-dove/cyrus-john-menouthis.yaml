@@ -1,0 +1,69 @@
+id: "cyrus-john-menouthis"
+order: 32
+cat: "historical"
+century: 7
+evidence: "contemporary-witness"
+edition: "Menouthis Edition"
+byline: "By Our Alexandria Correspondent"
+saint:
+  name: "Cyrus"
+  type: "Unmercenary"
+subjects:
+  - "OS-0568"
+saintLabel: "The Holy Unmercenaries Cyrus and John"
+kicker: "Investigation"
+headline: "Can a Shrine Really Heal the Sick? Thousands Say Yes."
+date: "Early 7th Century"
+location: "Menouthis, near Alexandria"
+dek: "Our correspondent visits the sanctuary of Saints Cyrus and John, where pilgrims claim extraordinary recoveries continue to defy explanation."
+summary: "Physicians still practise throughout Alexandria, and many waiting in line today sought their help first. Yet when remedies fail, another road remains. It leads here."
+miracles:
+  - "healing"
+  - "relics"
+  - "suffering"
+body:
+  - "The line begins before dawn."
+  - "By the time the first rays of sunlight touch the marshes east of Alexandria, pilgrims are already gathering outside the sanctuary at Menouthis. Some lean heavily upon staffs. Others are carried by relatives. Parents cradle feverish children wrapped tightly against the morning air. Elderly women whisper prayers beneath their breath while merchants, soldiers, monks, and fishermen wait patiently beside them."
+  - "No one is here to admire the architecture. They have come because of two men who died generations ago."
+  - "Physicians still practise throughout Alexandria. Their skill is respected, and many of those waiting in line today sought their help first. Yet when remedies fail, another road remains. It leads here."
+  - "The shrine of Saints Cyrus and John has become one of the busiest places of pilgrimage in Egypt, drawing the afflicted from cities, villages, and distant provinces. The stories told along the road are remarkably consistent. “My brother walked again.” “My daughter’s fever left her.” “My neighbour returned simply to give thanks.”"
+  - "This correspondent spent several days speaking with pilgrims, clergy, and attendants at the sanctuary in an effort to understand why these reports continue to spread."
+  - "Inside the church, there is little of the spectacle one might expect. No public demonstrations. No promises shouted to the crowd. The sick pray. The clergy anoint them with oil, celebrate the Divine Mysteries, and invoke the intercessions of the holy martyrs. Then they wait."
+  - "One deacon, asked whether everyone who comes receives the healing they seek, answered with gentle honesty. “No.” He paused before continuing. “But no one leaves without having been prayed for.”"
+  - "That distinction matters to the people gathered here. Among them was an elderly fisherman from the Nile Delta who described returning to the shrine not because of a miracle he witnessed, but because of one he experienced. “I came asking to be made well,” he said. “When I left, my illness remained.” For a moment, he smiled. “But so did my fear.” He lifted his prayer rope. “That did not.”"
+  - "Not every story ends that way. Several pilgrims willingly shared accounts they believe cannot be explained by ordinary means. A mother from Alexandria spoke of a child whose violent seizures ceased after a night spent in prayer at the shrine. A soldier recovering from severe injuries credited his unexpected restoration to the intercessions of the holy martyrs. Others described dreams in which Cyrus and John appeared, urging them to trust Christ and return to the Church."
+  - "Church officials remain careful in their language. “The saints do not work apart from God,” one priest reminded visitors after the Divine Liturgy. “Every healing belongs to Christ. His servants simply pray.”"
+  - "That humility may explain why the crowds continue to grow. No one here is selling cures. No one claims certainty. Instead, the sanctuary offers something increasingly difficult to find in a suffering world. Hope without false promises."
+  - "As evening fell and the final prayers were offered, families slowly began preparing for the journey home. Some departed carrying walking sticks they no longer seemed to need. Others left exactly as they had arrived, their illnesses unchanged but their faces strangely peaceful."
+  - "Outside the church, one young boy tugged gently at his father’s sleeve. “Will we come again?” he asked. His father looked back toward the sanctuary. “If God wills,” he replied. Judging by the length of tomorrow morning’s line, many others have already decided the same."
+pullQuote:
+  text: "“I came asking to be made well. When I left, my illness remained. But so did my fear. That did not.”"
+  attribution: "— An elderly fisherman from the Nile Delta"
+aroundTheEmpire:
+  heading: "Around Alexandria"
+  notes:
+    - city: "Menouthis"
+      note: "Clergy at the sanctuary report an increasing number of pilgrims arriving from distant provinces, particularly those seeking prayers for chronic illnesses. Additional lodging has been arranged for families unable to return home immediately."
+    - city: "Alexandria Harbour"
+      note: "Sailors arriving from Cyprus and Asia Minor report that devotion to Saints Cyrus and John continues to spread beyond Egypt, with many travellers making the shrine their first destination upon reaching the city."
+editorsNotebook:
+  body:
+    - "The greatest testimony to a physician is often found in grateful patients. The greatest testimony to these physicians lies in something even more remarkable."
+    - "Neither has practised medicine on earth for centuries. Yet people continue making the journey."
+literaryFraming: "The reporter’s investigation, interviews, and individual pilgrims are fictionalised. However, they are modelled on the kinds of cases preserved in Sophronius’ collection and are intended to evoke the atmosphere of Menouthis as a major pilgrimage centre rather than to recount one specific miracle."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Cyrus of Alexandria was a physician who treated the sick without accepting payment; John the Soldier joined him in confessing Christ during the persecution under Diocletian. Both suffered martyrdom in the early fourth century."
+    - level: "contemporary-witness"
+      claim: "Their relics were later translated to the shrine at Menouthis near Alexandria, which became one of the most renowned healing sanctuaries of the Byzantine world."
+      note: "Numerous miracle accounts associated with the shrine were collected by Sophronius of Jerusalem in his Miracles of Cyrus and John, providing an unusually rich body of early testimony concerning healings attributed to their intercessions."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Sophronius of Jerusalem, Miracles of Cyrus and John"
+      - "Accounts of the translation of the relics of Saints Cyrus and John"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (January 31 commemoration)"
+      - "Liturgical texts for the Holy Unmercenaries Cyrus and John"

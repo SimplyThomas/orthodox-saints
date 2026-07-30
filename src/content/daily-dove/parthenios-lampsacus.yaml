@@ -1,0 +1,66 @@
+id: "parthenios-lampsacus"
+order: 36
+cat: "historical"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Lampsacus Edition"
+byline: "By Our Asia Minor Correspondent"
+saint:
+  name: "Parthenios"
+  type: "Hierarch"
+subjects:
+  - "OS-0611"
+saintLabel: "Parthenios, Bishop of Lampsacus"
+kicker: "Feature"
+headline: "“Something Has Changed in This City”"
+date: "Early 4th Century"
+location: "Lampsacus"
+dek: "As Bishop Parthenios’ ministry spreads through Lampsacus, residents report remarkable healings, deliverances, and a growing number of abandoned pagan shrines."
+summary: "The first stories were easy enough to dismiss. No city changes because of three stories. Lampsacus now has hundreds."
+miracles:
+  - "healing"
+  - "protection"
+  - "prayer"
+body:
+  - "The first stories were easy enough to dismiss."
+  - "A woman claimed her son had been freed from violent torment after the bishop prayed over him. A fisherman insisted the fever that had kept him from the sea for weeks vanished overnight. A merchant quietly removed the household idols from his home, saying he no longer feared the spirits they were meant to appease."
+  - "No city changes because of three stories. Lampsacus now has hundreds."
+  - "Walking through the marketplace, it is difficult to find anyone who has not heard the name of Bishop Parthenios. Some call him a healer. Others speak of him as a holy man whose prayers have driven unclean spirits from those long afflicted. His fellow clergy describe him differently. “He simply loves Christ,” one deacon said."
+  - "The bishop himself appears uncomfortable with the growing attention. When this correspondent arrived at the church shortly after sunrise, a line had already formed outside its doors. Families waited patiently beside travellers from neighbouring towns. Several carried relatives unable to walk without assistance. Others came with burdens no physician could diagnose. No admission fee was collected. No one promised a miracle."
+  - "The bishop emerged quietly after the Divine Liturgy, greeting each person with the same gentle attention. A frightened father approached first, carrying a young boy whose anguished cries echoed through the courtyard. Witnesses stepped back as Parthenios made the sign of the Cross and prayed aloud in the name of Christ."
+  - "The child gradually became still. His breathing slowed. Moments later, he looked up at his father with an expression those nearby said they had not seen in months. No applause followed. The bishop simply embraced the family and urged them to give thanks to God."
+  - "Throughout the morning, similar scenes unfolded. An elderly widow asked for prayers before undergoing treatment for a lingering illness. A labourer sought forgiveness after years spent consulting pagan diviners. A woman placed before the bishop a small wooden household idol. “I don’t need this anymore,” she said quietly. Parthenios accepted it without triumph. “The Lord has already given you something better,” he replied."
+  - "Those words seem to explain much of what is happening here. The bishop does not spend his days arguing against the old gods. He spends them introducing people to Christ."
+  - "The result has become impossible to ignore. Several temples that once drew regular worshippers now stand noticeably quieter. Baptisms have become increasingly common. Clergy report that many who first came seeking healing have remained to learn the Christian faith."
+  - "One elderly resident, asked how Lampsacus has changed since Parthenios became bishop, glanced across the city before answering. “We used to live afraid.” He smiled. “I don’t think we do anymore.”"
+  - "As evening settled over the harbour, the bishop disappeared once again into the church for prayer. Outside, another group of travellers had already arrived. Tomorrow, they said, they would wait their turn. Not because they had heard of a magician. Because they had heard of a shepherd."
+pullQuote:
+  text: "“We used to live afraid. I don’t think we do anymore.”"
+  attribution: "— An elderly resident of Lampsacus"
+aroundTheEmpire:
+  heading: "Around Lampsacus"
+  notes:
+    - city: "Harbour District"
+      note: "Travellers arriving from neighbouring cities report increasing interest in the Christian bishop whose ministry has drawn visitors from across the region."
+    - city: "Marketplace"
+      note: "Merchants say sales of household idols have declined noticeably in recent months, while requests for crosses and Christian books continue to grow."
+editorsNotebook:
+  body:
+    - "Fear builds profitable businesses. It fills temples. It keeps charms hanging above doorways. It convinces people they are never quite safe."
+    - "The ministry of Bishop Parthenios seems to be dismantling that economy one prayer at a time. Perhaps the greatest miracle is not that demons flee. Perhaps it is that ordinary people are beginning to live without fear."
+literaryFraming: "The day’s events, individual healings, conversations, and interviews are fictionalised. They are intended to portray the atmosphere of St Parthenios’ ministry by drawing together themes repeatedly found in his Life: healing, deliverance from demonic oppression, the conversion of pagans, and the decline of idolatry in Lampsacus."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Parthenios, Bishop of Lampsacus (4th century), was the son of a deacon and became renowned for his deep knowledge of Scripture despite little formal education."
+      note: "During the reign of Constantine the Great he was consecrated bishop of Lampsacus and became widely known for healing the sick, casting out demons, destroying pagan temples, and leading many people to Christ through his pastoral ministry."
+    - level: "orthodox-tradition"
+      claim: "Orthodox tradition consistently presents his miracles as expressions of Christ’s power and compassion rather than displays of personal greatness."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Parthenios of Lampsacus preserved in the Byzantine Synaxaria"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (February 7 commemoration)"
+      - "Liturgical texts for St Parthenios, Bishop of Lampsacus"

@@ -18,6 +18,12 @@ export interface NavLink {
   key: string;
   label: string;
   href: string;
+  /* Other page keys this item should light up for. A hub owns a family of
+     pages — Heavenly Hosts owns six, Collections owns Saints of America — and
+     without this a reader deep in that family sees nothing highlighted and
+     loses their place. Listing the keys here beats editing every page to
+     pretend it is the hub. */
+  alsoActive?: string[];
 }
 
 export interface NavItem {
@@ -32,66 +38,53 @@ export interface NavItem {
 export const NAV: NavItem[] = [
   { key: "home", label: "Home", href: withBase("") },
   {
-    key: "saints",
-    label: "The Saints",
+    key: "explore",
+    label: "Explore",
     children: [
-      { key: "search", label: "Browse & Search", href: withBase("search") },
+      { key: "search", label: "Browse Saints", href: withBase("search") },
       { key: "quiz", label: "Patron Saint Quiz", href: withBase("quiz") },
-      { key: "america", label: "Saints in America", href: withBase("america") },
-    ],
-  },
-  {
-    key: "hosts",
-    label: "Heavenly Hosts",
-    children: [
       {
-        key: "nine-orders",
-        label: "The Nine Orders",
-        href: withBase("nine-orders"),
+        key: "collections",
+        label: "Collections",
+        href: withBase("collections"),
+        // The hub owns every curated collection; Saints of America is the
+        // first, and more are named as in preparation on the page itself.
+        alsoActive: ["america"],
       },
       {
-        key: "archangels",
-        label: "Archangels",
-        href: withBase("host/HH-0008"),
-      },
-      {
-        key: "guardian-angels",
-        label: "Guardian Angels & Titled Figures",
-        href: withBase("guardian-angels"),
-      },
-      {
-        key: "biblical-encounters",
-        label: "Biblical Encounters",
-        href: withBase("biblical-encounters"),
-      },
-      {
-        key: "extra-biblical-angels",
-        label: "Extra-Biblical Angels",
-        href: withBase("extra-biblical-angels"),
-      },
-      {
-        key: "fallen-angels",
-        label: "The Fallen",
-        href: withBase("fallen-angels"),
+        key: "heavenly-hosts",
+        label: "Heavenly Hosts",
+        href: withBase("heavenly-hosts"),
+        // The hub owns the host areas, which used to sit in the nav themselves
+        // — The Fallen among them (#404). Their own `active` keys are untouched.
+        alsoActive: [
+          "hosts",
+          "nine-orders",
+          "archangels",
+          "guardian-angels",
+          "biblical-encounters",
+          "extra-biblical-angels",
+          "fallen-angels",
+        ],
       },
     ],
   },
   {
-    key: "feasts-fasts",
-    label: "The Church Year",
+    key: "church-year",
+    label: "Church Year",
     children: [
       { key: "calendar", label: "The Calendar", href: withBase("calendar") },
       { key: "feasts", label: "Feasts & Fasts", href: withBase("feasts") },
       {
         key: "moveable-calendar",
-        label: "The Moveable Calendar",
+        label: "The Movable Calendar",
         href: withBase("moveable-calendar"),
       },
     ],
   },
   {
-    key: "little-church",
-    label: "The Orthodox Home",
+    key: "orthodox-living",
+    label: "Orthodox Living",
     children: [
       {
         key: "icons",
@@ -100,21 +93,39 @@ export const NAV: NavItem[] = [
       },
       {
         key: "icon-gifts",
-        label: "Giving Icons as Gifts",
+        label: "Giving Icons",
         href: withBase("icon-gifts"),
+      },
+      {
+        key: "liturgical-living",
+        label: "Liturgical Living",
+        href: withBase("liturgical-living"),
+      },
+      {
+        key: "parish-resources",
+        label: "Parish Resources",
+        href: withBase("parish-resources"),
       },
     ],
   },
   {
-    key: "parish-resources",
-    label: "Parish Resources",
-    href: withBase("parish-resources"),
+    key: "daily-dove",
+    label: "The Daily Dove",
+    href: withBase("daily-dove"),
   },
   {
     key: "about",
     label: "About",
     children: [
-      { key: "our-story", label: "Our Story", href: withBase("about") },
+      // The hub leads the group: /about is now a landing page rather than the
+      // Our Story article, which moved to /our-story. Keeping About as a
+      // dropdown also keeps its footer column, which mirrors these children.
+      {
+        key: "about-hub",
+        label: "About the Project",
+        href: withBase("about"),
+      },
+      { key: "our-story", label: "Our Story", href: withBase("our-story") },
       { key: "mission", label: "Our Mission", href: withBase("mission") },
       {
         key: "editorial-standards",
@@ -143,8 +154,14 @@ export const NAV: NavItem[] = [
   },
 ];
 
-/** A top-level item is "active" when it IS the active key or contains it. */
+/* True when `active` names this item or anything the item owns — its own key,
+   a child's key, or a key a child claims via `alsoActive`. */
 export function isItemActive(item: NavItem, active: string): boolean {
   if (item.key === active) return true;
-  return (item.children ?? []).some((c) => c.key === active);
+  return (item.children ?? []).some((c) => isLinkActive(c, active));
+}
+
+/** True when `active` names this link or one of the pages it owns. */
+export function isLinkActive(link: NavLink, active: string): boolean {
+  return link.key === active || !!link.alsoActive?.includes(active);
 }

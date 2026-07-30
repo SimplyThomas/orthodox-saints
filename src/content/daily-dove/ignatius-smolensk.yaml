@@ -1,0 +1,65 @@
+id: "ignatius-smolensk"
+order: 30
+cat: "historical"
+century: 15
+evidence: "orthodox-tradition"
+edition: "Smolensk Edition"
+byline: "By Our Smolensk Correspondent"
+saint:
+  name: "Ignatius"
+  type: "Hierarch"
+subjects:
+  - "OS-0559"
+saintLabel: "Ignatius, Bishop of Smolensk"
+kicker: "Feature"
+headline: "Growing Crowds Gather Daily at Bishop’s Tomb"
+date: "Fifteenth Century"
+location: "Smolensk"
+dek: "Reports of answered prayers spread across the region as pilgrims seek the intercessions of the late Bishop Ignatius."
+summary: "Before sunrise, the first pilgrims are already waiting. The man buried there no longer preaches. Years have passed since Bishop Ignatius was laid to rest, yet his presence seems, in the minds of many who come here, strangely undiminished."
+miracles:
+  - "relics"
+  - "healing"
+  - "family"
+body:
+  - "Before sunrise, the first pilgrims are already waiting."
+  - "Some have travelled only a few miles from neighbouring villages. Others have spent days on muddy roads, carrying bundles of food, blankets, and the quiet hopes that accompany every difficult journey. By midmorning, the narrow path leading to the cathedral has become a steady procession of farmers, merchants, widows, soldiers, and parents leading children by the hand. All are walking toward the same destination. A simple tomb."
+  - "The man buried there no longer preaches. He no longer presides at the Divine Liturgy or settles disputes among the clergy. Years have passed since Bishop Ignatius of Smolensk was laid to rest, yet his presence seems, in the minds of many who come here, strangely undiminished."
+  - "When asked what brings them, few begin by speaking about miracles. “My daughter has been ill since winter,” one mother explained while gently adjusting the blanket wrapped around a sleeping child. “Someone in our village told me to come and ask the bishop’s prayers.”"
+  - "An elderly veteran stood several places behind her in the line. “I have no great request,” he said. “Only gratitude. I came last year asking for strength after my sickness. I returned because God was merciful.”"
+  - "Such conversations repeat themselves throughout the day. Not every pilgrim expects a dramatic cure. Some remain at the tomb only long enough to light a candle and whisper a prayer before quietly making room for the next person. Others linger in silence, their hands resting against the stone as clergy nearby continue reading the Psalter."
+  - "The atmosphere is remarkably restrained. There are no cries urging people to witness extraordinary signs. No one presses visitors to tell their stories. Even the clergy speak cautiously when asked about the growing reputation of the site. “We thank God for every act of mercy,” one priest said. “Whether healing comes to the body, the soul, or only as the strength to bear suffering, that belongs to Him.”"
+  - "Still, accounts continue to circulate. A merchant from Vitebsk credits his recovery from a lingering illness to the prayers he offered here. A father tells of his son’s unexpected improvement after the family made a pilgrimage to the bishop’s grave. Others describe finding reconciliation within divided households after asking for the saint’s intercessions."
+  - "None of these stories can be measured as easily as the growing number of footprints worn into the path approaching the tomb. Those are beyond dispute."
+  - "Throughout the afternoon, the line scarcely grows shorter. One monk charged with assisting visitors paused to watch another group arrive from the western road. “It has been like this for months,” he said quietly. “Every week we think the crowds will diminish.” He smiled. “Instead, someone returns home and tells another family.”"
+  - "As evening approached and the cathedral bells announced Vespers, the final pilgrims entered before the doors were closed for the night. Some carried canes. Some carried children. Many carried burdens invisible to everyone except themselves."
+  - "They left with those burdens still in their hands. Yet something in their faces suggested they no longer believed they carried them alone."
+pullQuote:
+  text: "“Whether healing comes to the body, the soul, or only as the strength to bear suffering, that belongs to Him.”"
+  attribution: "— A priest at the cathedral"
+aroundTheEmpire:
+  heading: "Around Smolensk"
+  notes:
+    - city: "Cathedral Precincts"
+      note: "Clergy report a steady increase in pilgrims seeking to pray at the tomb of Bishop Ignatius. Additional readers have been assigned to maintain continuous reading of the Psalms during the busiest days."
+    - city: "Western Roads"
+      note: "Local innkeepers note increased traffic from neighbouring towns as reports of answered prayers continue to spread through the region by word of mouth."
+editorsNotebook:
+  body:
+    - "A city usually grows famous because of its markets. Or its fortifications. Or its princes. Smolensk has become known for a grave."
+    - "Not because death is remarkable. Because hope refuses to stay buried there."
+literaryFraming: "The pilgrims, conversations, and scenes described in this article are fictionalised to portray the atmosphere surrounding a growing pilgrimage site. They are intended to reflect the tradition of local veneration without attributing specific undocumented miracles to St Ignatius."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "St Ignatius of Smolensk was remembered as a faithful bishop and shepherd of his flock."
+      note: "Orthodox tradition preserves that, following his repose, the faithful increasingly visited his tomb to seek his intercessions, and reports of healings and answered prayers contributed to the growth of his local veneration. As with many saints of the Orthodox Church, devotion at his tomb developed gradually through the testimony of pilgrims rather than through a single dramatic event."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Medieval accounts of the life and posthumous veneration of St Ignatius of Smolensk"
+      - "Early Russian synaxarial traditions"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Synaxaria (January commemoration)"
+      - "Russian Orthodox liturgical texts commemorating St Ignatius of Smolensk"

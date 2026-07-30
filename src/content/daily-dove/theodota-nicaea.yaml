@@ -1,0 +1,68 @@
+id: "theodota-nicaea"
+order: 13
+cat: "historical"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Nicaea Edition"
+byline: "By Our Correspondent in Nicaea"
+saint:
+  name: "Theodota"
+  type: "Martyr"
+subjects:
+  - "OS-1602"
+saintLabel: "Theodota and her three sons"
+kicker: "Breaking"
+headline: "Mother and Three Sons Refuse to Yield"
+date: "During the Reign of Emperor Diocletian"
+location: "Nicaea, Bithynia"
+dek: "Roman officials carry out executions after an entire family rejects the demand to sacrifice."
+summary: "Crowds gathered outside the governor’s tribunal expecting another routine hearing. By day’s end they had witnessed a mother standing beside her three sons as each chose death rather than deny Christ. Officials tried persuasion before punishment; the proposal divided neither the family nor their resolve."
+body:
+  - "Crowds gathered outside the governor’s tribunal yesterday expecting another routine hearing in the Empire’s campaign against the Christians. By day’s end, they had witnessed something few will soon forget: a mother standing beside her three sons as each chose death rather than deny Christ."
+  - "The woman was known as Theodota, a Christian widow whose quiet faith had long been recognized among believers in the city. With her stood her sons — Evodius, Hermogenes, and Callistus — still young enough that several onlookers later remarked they should have had their whole lives before them."
+  - "Instead, the family faced the same question that has echoed through courtrooms across the Empire since the latest imperial decrees were issued. Would they sacrifice to the gods? The answer came swiftly. No."
+  - "According to those present, officials first attempted persuasion rather than punishment. The children, they argued, need not suffer for the convictions of their mother. Their youth offered an opportunity for mercy, provided they would only place a pinch of incense upon the altar and acknowledge the gods of Rome."
+  - "The proposal divided neither the family nor their resolve. One by one, each son confessed Christ."
+  - "The courtroom, witnesses recalled, grew strangely quiet. Some watched with admiration. Others with disbelief. Parents standing among the crowd instinctively drew their own children closer, unable to imagine asking so much of them, or seeing such unwavering courage in return."
+  - "When promises failed, the threats began. Officials warned of torture. They warned of death. They warned that no one would remember the names of those who chose obstinacy over obedience. Still, the family remained united."
+  - "According to the ancient account preserved by the Church, the three brothers endured their sufferings without abandoning their confession of Christ. Their mother neither pleaded for their lives at the cost of their faith nor urged them to compromise. Instead, she encouraged them to remain steadfast, believing that death for Christ was not defeat but victory."
+  - "Only after her sons had completed their witness did Theodota herself face the sentence prepared for her. Those who expected grief to overcome her saw something different. Though she mourned as only a mother could, she did not abandon the hope that had sustained her throughout the ordeal. The same faith she had taught within her home carried her to the place of execution, where she joined her sons in martyrdom."
+  - "The authorities almost certainly intended the public executions to discourage Christians throughout Bithynia. Instead, believers leaving the tribunal spoke quietly of another lesson."
+  - "Empires possess the power to divide families through fear. Yesterday, fear divided no one. A mother and her children walked the same road together, each strengthening the other until the very end."
+pullQuote:
+  text: "Empires possess the power to divide families through fear. Yesterday, fear divided no one."
+  attribution: "— Overheard as believers left the tribunal"
+aroundTheEmpire:
+  intro: "Imperial officials continue enforcing the decrees requiring public sacrifice throughout the eastern provinces. Reports from neighbouring cities indicate that Christians of every age, including entire households, have been brought before local governors for examination."
+departments:
+  - kind: "whispers"
+    title: "Whispers in Nicaea"
+    body:
+      - "The execution of Theodota and her sons has become a source of encouragement among the Christian community. Several believers have remarked that while the authorities hoped to silence one family, their witness has already begun strengthening many others."
+whyThisMatters: "The story of Theodota is remembered not only because she suffered for Christ, but because she did so as a mother. The ancient Church saw in her family a powerful example of faith shared across generations, where parents and children encouraged one another to remain faithful even under the threat of death."
+literaryFraming: "The descriptions of the courtroom, the crowd, and the reporter’s observations are literary devices intended to present the traditional account as contemporary journalism. They are not preserved as eyewitness narratives in the ancient sources."
+miracles:
+  - "family"
+  - "courage"
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Theodota was a Christian widow."
+    - level: "orthodox-tradition"
+      claim: "She had three sons: Evodius, Hermogenes, and Callistus."
+    - level: "orthodox-tradition"
+      claim: "During the persecution under Emperor Diocletian, the family refused to sacrifice to the pagan gods."
+    - level: "orthodox-tradition"
+      claim: "The three sons endured torture and remained faithful to Christ."
+    - level: "orthodox-tradition"
+      claim: "Theodota encouraged them in their confession and was herself martyred after them."
+    - level: "orthodox-tradition"
+      claim: "The family is commemorated together by the Orthodox Church."
+sources:
+  - h: "Primary Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Martyr Theodota and her Three Sons"
+      - "The Synaxarion for July 29"
+  - h: "Historical Context"
+    items:
+      - "Early Christian martyr traditions from the Diocletian persecution in Bithynia"

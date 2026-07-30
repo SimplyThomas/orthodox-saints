@@ -1,0 +1,982 @@
+---
+/* THE DAILY DOVE — the front page.
+   Laid out as a paper's front page: the nameplate, the lead story, the key to
+   the evidence scale, the standing departments, a filter bar, then the
+   chronological feed beside the rail. The feed and the filtered grid are both
+   rendered here; daily-dove.client.ts only switches between them, so the page
+   works without JavaScript. */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SearchGlyph from "../../components/icons/SearchGlyph.astro";
+import NewsCard from "../../components/daily-dove/NewsCard.astro";
+import NewsMeta from "../../components/daily-dove/NewsMeta.astro";
+import DispatchRow from "../../components/daily-dove/DispatchRow.astro";
+import RailModule from "../../components/daily-dove/RailModule.astro";
+import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
+import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
+import EraPill from "../../components/daily-dove/EraPill.astro";
+import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
+import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
+import DepartmentHead from "../../components/daily-dove/DepartmentHead.astro";
+import { withBase } from "../../lib/format";
+import {
+  loadPaper,
+  ord,
+  postRank,
+  centuriesIn,
+  NEWS_CATS,
+  NEWS_CAT,
+  EVIDENCE,
+  EVIDENCE_LIST,
+  DEPARTMENTS,
+  WONDERS,
+  NEWS_THISDAY,
+} from "../../lib/daily-dove";
+
+const { featured: lead, all } = await loadPaper();
+const leadCat = NEWS_CAT[lead.cat];
+
+// "In the order received" — the newest first, historical dispatches ranked by
+// the year in their dateline.
+const byRecency = all.slice().sort((a, b) => postRank(b) - postRank(a));
+// The lead runs above; the feed carries the rest, with the archive behind it.
+const dispatches = byRecency.filter((n) => n.id !== lead.id).slice(0, 12);
+const centuries = centuriesIn(all);
+
+// The rail's desk index: each desk with how many accounts it holds and its two
+// most recent. Desks with nothing filed yet are left out rather than shown empty.
+const desks = NEWS_CATS.map((c) => {
+  const inDesk = byRecency.filter((n) => n.cat === c.id);
+  return { cat: c, total: inDesk.length, recent: inDesk.slice(0, 2) };
+}).filter((d) => d.total > 0);
+
+// The filter bar only offers what the paper actually holds — an empty desk or
+// an unused level of evidence is a dead end, not a choice.
+const levels = EVIDENCE_LIST.filter((k) => all.some((n) => n.evidence === k));
+
+// The wonders actually reported somewhere in the paper. A reader arriving with a
+// trouble of their own can refine by it — see WONDERS for why this axis exists.
+const wonders = WONDERS.filter((w) =>
+  all.some((n) => n.miracles?.includes(w.id)),
+);
+
+// The rail's reading list. This was "Most Read" while the section was
+// scaffolded, but the paper has no readership data, so a popularity claim is
+// one thing it cannot source — and sourcing is the whole point. It lists the
+// paper's own dispatches in the order they were filed instead. Turn it back
+// into a real Most Read once analytics can support it.
+const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
+---
+
+<BaseLayout
+  active="daily-dove"
+  title="The Daily Dove"
+  description="Reporting from the Church Since Pentecost — two thousand years of Church history told as the newspaper that never was, with the evidence behind every story set out plainly."
+>
+  <div class="dove">
+    {/* ---------- NAMEPLATE ---------- */}
+    <div class="dove-mastwrap">
+      <DoveMasthead
+        onDark
+        edition={`No. ${all.length} · The Living Archive`}
+        folio="Est. Pentecost, A.D. 33"
+      />
+      <p class="dove-standfirst">
+        Two thousand years of Church history, reported as though a newspaper had
+        been there to cover it. Every story closes with the <a
+          href="#the-evidence">Historian&rsquo;s Notes</a
+        > &mdash; what is documented, what is the tradition of the Church, and what
+        is legend.
+      </p>
+    </div>
+
+    {/* ---------- LEAD STORY ---------- */}
+    <section class="cwn-featured">
+      <div class="cwn-band-head">
+        <span class="eyebrow on-blue">The Lead Story</span>
+        <span class="cwn-band-ln" aria-hidden="true"></span>
+        <span class="cwn-band-when"
+          >From the {leadCat.name.toLowerCase()} desk</span
+        >
+      </div>
+      <a class="cwn-lead" href={withBase(`daily-dove/${lead.id}`)}>
+        <div class="cwn-lead-tags">
+          {lead.kicker && <span class="cwn-kicker">{lead.kicker}</span>}
+          <EraPill century={lead.century} onDark />
+          <span class="cwn-lead-edition">{lead.edition}</span>
+        </div>
+        <div class="cwn-lead-cols">
+          <div class="cwn-lead-main">
+            <h2 class="cwn-lead-h">{lead.headline}</h2>
+            {lead.dek && <p class="cwn-lead-dek">{lead.dek}</p>}
+            <p class="cwn-lead-sum">{lead.summary}</p>
+          </div>
+          <div class="cwn-lead-side">
+            <NewsMeta
+              date={lead.date}
+              location={lead.location}
+              size={13}
+              color="#aebfd2"
+            />
+            <span class="cwn-lead-verify">
+              <EvidenceDot level={lead.evidence} withLabel={false} />
+              <span class="cwn-lead-verify-label"
+                >{EVIDENCE[lead.evidence].full}</span
+              >
+            </span>
+            <span class="cwn-lead-read">
+              Read the full account
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
+              >
+            </span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    {/* ---------- THE EVIDENCE KEY ---------- */}
+    <section class="cwn-legend" id="the-evidence">
+      <div class="cwn-legend-intro">
+        <div class="eyebrow on-blue">How to read this paper</div>
+        <p>
+          The stories are told with relish. The evidence behind them is not.
+        </p>
+      </div>
+      <span class="cwn-legend-rule" aria-hidden="true"></span>
+      <div class="cwn-legend-body"><EvidenceKey onDark /></div>
+    </section>
+
+    {/* ---------- THE DEPARTMENTS ---------- */}
+    <section class="dove-depts">
+      <div class="cwn-band-head">
+        <span class="eyebrow on-blue">Our Departments</span>
+        <span class="cwn-band-ln" aria-hidden="true"></span>
+        <span class="cwn-band-when">Standing sections of the paper</span>
+      </div>
+      <div class="dove-depts-grid">
+        {
+          DEPARTMENTS.map((d) => (
+            <div class="dove-dept">
+              <DepartmentHead kind={d.id} bare onDark />
+              <p>{d.rule}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* ---------- FILTER BAR ---------- */}
+    <section class="cwn-filters">
+      <div class="cwn-chiprow">
+        <button type="button" class="chip news-chip on" data-cat="all"
+          >All Articles</button
+        >
+        {
+          desks.map(({ cat }) => (
+            <button type="button" class="chip news-chip" data-cat={cat.id}>
+              {cat.short}
+            </button>
+          ))
+        }
+      </div>
+      <div class="cwn-refine">
+        <span class="eyebrow on-blue">Refine</span>
+        <select
+          id="news-century"
+          class="cwn-sel"
+          aria-label="Filter by century"
+        >
+          <option value="">Any century</option>
+          {centuries.map((c) => <option value={c}>{ord(c)} Century</option>)}
+        </select>
+        <select
+          id="news-verify"
+          class="cwn-sel"
+          aria-label="Filter by level of evidence"
+        >
+          <option value="">Any level of evidence</option>
+          {levels.map((k) => <option value={k}>{EVIDENCE[k].full}</option>)}
+        </select>
+        {
+          wonders.length > 0 && (
+            <select
+              id="news-wonder"
+              class="cwn-sel"
+              aria-label="Refine by what the saint is asked for"
+            >
+              <option value="">Any kind of help</option>
+              {wonders.map((w) => (
+                <option value={w.id}>{w.name}</option>
+              ))}
+            </select>
+          )
+        }
+        <div class="search cwn-search" role="search">
+          <span class="ico" aria-hidden="true">
+            <SearchGlyph size={17} color="var(--celest)" />
+          </span>
+          <input
+            type="search"
+            id="news-q"
+            placeholder="Saint name…"
+            autocomplete="off"
+            aria-label="Search the accounts"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn--ghost cwn-clear"
+          id="news-clear"
+          hidden>Clear filters</button
+        >
+      </div>
+    </section>
+
+    {/* ---------- FEED + RAIL ---------- */}
+    <section class="cwn-bodyband">
+      <div class="cwn-grid">
+        <div>
+          {/* default view — the chronological feed */}
+          <div id="news-feed">
+            <div class="cwn-feed-head">
+              <h2>Latest Dispatches</h2>
+              <span class="cwn-band-ln" aria-hidden="true"></span>
+              <span class="cwn-feed-note">In the order received</span>
+            </div>
+            <div class="cwn-river">
+              {dispatches.map((n) => <DispatchRow n={n} />)}
+            </div>
+          </div>
+
+          {/* filtered view — every account as a card, shown by the island */}
+          <div id="news-results" hidden>
+            <div class="cwn-feed-head">
+              <h2>
+                <span id="news-count">{all.length}</span>
+                <span id="news-noun">accounts</span> found
+              </h2>
+              <span class="cwn-band-ln" aria-hidden="true"></span>
+              <span class="cwn-feed-note" id="news-scope">All desks</span>
+            </div>
+            <div class="cwn-cardgrid" id="news-cards">
+              {all.map((n) => <NewsCard n={n} />)}
+            </div>
+            <div class="cwn-empty" id="news-empty" hidden>
+              <p>No accounts match these filters yet.</p>
+              <button type="button" class="btn btn--ghost" id="news-empty-clear"
+                >Clear filters</button
+              >
+            </div>
+          </div>
+        </div>
+
+        {/* ---------- RAIL ---------- */}
+        <aside class="cwn-rail">
+          <RailModule eyebrow="Browse by Desk" onDark>
+            <div class="cwn-desks">
+              {
+                desks.map(({ cat, total, recent }) => (
+                  <div class="cwn-desk">
+                    <button
+                      type="button"
+                      class="cwn-deskhead news-chip"
+                      data-cat={cat.id}
+                    >
+                      <span
+                        class="cwn-deskdot"
+                        style={`background:${cat.ink}`}
+                        aria-hidden="true"
+                      />
+                      <span class="cwn-deskname">{cat.name}</span>
+                      <span class="cwn-deskcount">{total}</span>
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--gold-soft)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </button>
+                    {recent.length > 0 && (
+                      <div class="cwn-desksubs">
+                        {recent.map((n) => (
+                          <a
+                            class="cwn-desksub"
+                            href={withBase(`daily-dove/${n.id}`)}
+                          >
+                            {n.headline}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))
+              }
+            </div>
+          </RailModule>
+
+          {
+            /* kept from the earlier direction — the modules that earned their place */
+          }
+          <RailModule eyebrow="This Day in Orthodox History" onDark>
+            <div class="cwn-thisday">
+              <div class="cwn-thisday-top">
+                <span class="cwn-thisday-date">{NEWS_THISDAY.date}</span>
+                <span class="cwn-thisday-year">A.D. {NEWS_THISDAY.year}</span>
+              </div>
+              <h3>{NEWS_THISDAY.title}</h3>
+              <p>{NEWS_THISDAY.body}</p>
+            </div>
+          </RailModule>
+
+          <RailModule eyebrow="Start Here" onDark>
+            <div class="cwn-mostread">
+              {
+                startHere.map((m, i) => (
+                  <a class="cwn-mr-row" href={withBase(`daily-dove/${m.id}`)}>
+                    <span class="cwn-mr-n">{i + 1}</span>
+                    <div>
+                      <h4>{m.headline}</h4>
+                      <CenturyBadge
+                        century={m.century}
+                        color="var(--gold-soft)"
+                      />
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </RailModule>
+
+          <a class="cwn-archive-cta" href={withBase("daily-dove/archive")}>
+            <h3>Browse the full archive</h3>
+            <p>
+              Every dispatch by century, saint, place, desk, and level of
+              verification.
+            </p>
+            <span class="cwn-archive-cue">
+              Enter the archive
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
+              >
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  import "../../islands/daily-dove.client";
+</script>
+
+<style>
+  /* The paper is printed on dark stock. The "old newspaper" reading comes from
+     the rules, the nameplate and the small-caps furniture rather than from a
+     pale ground — which lets the desk-coloured dispatch plates below carry the
+     page instead of fighting a parchment top half. */
+  .dove {
+    background: var(--byz-ink);
+  }
+
+  /* ---------- nameplate ---------- */
+  .dove-mastwrap {
+    padding: 10px 56px 26px;
+  }
+  .dove-standfirst {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.6vw, 19px);
+    color: var(--celest-soft);
+    line-height: 1.55;
+    max-width: 74ch;
+    margin: 20px auto 0;
+    text-align: center;
+    text-wrap: pretty;
+  }
+  .dove-standfirst a {
+    color: var(--gold-soft);
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .dove-standfirst a:hover {
+    color: var(--gold);
+  }
+
+  /* ---------- the departments strip ---------- */
+  .dove-depts {
+    padding: 32px 56px 8px;
+  }
+  .dove-depts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px 34px;
+  }
+  .dove-dept p {
+    font-size: 14px;
+    color: var(--celest-soft);
+    line-height: 1.55;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ---------- shared band furniture ---------- */
+  .cwn-band-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .cwn-band-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .cwn-band-when {
+    font-size: 12.5px;
+    color: var(--celest-soft);
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  /* ---------- lead story ---------- */
+  .cwn-featured {
+    padding: 26px 56px 38px;
+  }
+  /* The lead is type, not a picture panel: the paper carries no images, and a
+     500px block with a letter in it only ever read as one waiting to arrive.
+     Its weight now comes from the headline and the era colour it prints on. */
+  .cwn-lead {
+    display: block;
+    background: linear-gradient(165deg, #234c7a 0%, #18324f 60%, #0f2238 100%);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-left: 5px solid var(--gold);
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    padding: 26px clamp(22px, 3vw, 36px) 28px;
+  }
+  .cwn-lead-tags {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .cwn-kicker {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--byz-ink);
+    background: var(--gold);
+    border-radius: 2px;
+    padding: 5px 11px;
+  }
+  .cwn-lead-edition {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--celest-soft);
+  }
+  .cwn-lead-h {
+    font-size: clamp(28px, 3.1vw, 44px);
+    color: var(--ivory);
+    line-height: 1.06;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .cwn-lead:hover .cwn-lead-h {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 4px;
+  }
+  .cwn-lead-dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(17px, 1.6vw, 20px);
+    color: var(--gold-soft);
+    line-height: 1.45;
+    margin: 0 0 16px;
+    text-wrap: pretty;
+  }
+  /* the story runs against a narrow rail of metadata, the way a paper sets a
+     lead's furniture beside the copy rather than under it */
+  .cwn-lead-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 44px;
+    align-items: start;
+  }
+  .cwn-lead-side {
+    padding-left: 24px;
+    border-left: 1px solid rgba(245, 235, 216, 0.16);
+  }
+  .cwn-lead-sum {
+    font-size: 15px;
+    color: #cdd9e6;
+    line-height: 1.7;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .cwn-lead-side {
+    display: grid;
+    gap: 13px;
+    justify-items: start;
+  }
+  .cwn-lead-verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cwn-lead-verify-label {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-soft);
+  }
+  .cwn-lead-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  /* ---------- the evidence key ---------- */
+  .cwn-legend {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0 56px;
+    padding: 22px 26px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    background: linear-gradient(168deg, #16304c 0%, #122841 60%, #0e2036 100%);
+    box-shadow: var(--shadow-card);
+    scroll-margin-top: 90px;
+  }
+  .cwn-legend-intro {
+    flex: 0 0 auto;
+    max-width: 190px;
+  }
+  .cwn-legend-intro .eyebrow {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cwn-legend-intro p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--celest-soft);
+    line-height: 1.35;
+    margin: 0;
+  }
+  .cwn-legend-rule {
+    width: 1px;
+    align-self: stretch;
+    background: var(--line-gold);
+  }
+  .cwn-legend-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ---------- filter bar ---------- */
+  .cwn-filters {
+    padding: 28px 56px 4px;
+  }
+  .cwn-chiprow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  /* the filter row sits on the dark ground, so its controls invert */
+  .cwn-chiprow :global(.chip) {
+    background: rgba(245, 235, 216, 0.06);
+    border-color: rgba(212, 175, 55, 0.32);
+    color: var(--celest-soft);
+  }
+  .cwn-chiprow :global(.chip:hover) {
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+  .cwn-chiprow :global(.chip.on) {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--byz-ink);
+    font-weight: 600;
+  }
+  .cwn-refine {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 4px;
+  }
+  .cwn-sel {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: var(--text);
+    font-size: 14.5px;
+    color: var(--ivory);
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23E6CD7E' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>")
+        no-repeat right 14px center,
+      #16304c;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    padding: 0 38px 0 14px;
+    height: 46px;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+  }
+  /* .search is a light-ground primitive; the wrapper carries the white, so it
+     has to be darkened here as well as the input inside it. */
+  .cwn-search {
+    min-width: 230px;
+    background: #16304c;
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  .cwn-clear {
+    padding: 9px 18px;
+    font-size: 13.5px;
+    color: var(--gold-soft);
+    border-color: rgba(212, 175, 55, 0.45);
+  }
+  .cwn-search :global(input) {
+    background: #16304c;
+    color: var(--ivory);
+  }
+  .cwn-search :global(input::placeholder) {
+    color: var(--celest-soft);
+  }
+
+  /* ---------- feed + rail ---------- */
+  .cwn-bodyband {
+    padding: 26px 56px 64px;
+  }
+  .cwn-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 46px;
+    align-items: start;
+  }
+  .cwn-feed-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .cwn-feed-head h2 {
+    font-size: 30px;
+    color: var(--ivory);
+    margin: 0;
+  }
+  .cwn-feed-note {
+    font-size: 13px;
+    color: var(--celest-soft);
+    font-style: italic;
+    font-family: var(--serif);
+    align-self: center;
+  }
+  .cwn-river {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cwn-cardgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .cwn-empty {
+    text-align: center;
+    padding: 70px 20px;
+    background: rgba(245, 235, 216, 0.04);
+    border: 1px dashed rgba(212, 175, 55, 0.4);
+    border-radius: 5px;
+  }
+  .cwn-empty p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--celest-soft);
+    margin: 14px 0;
+  }
+
+  /* ---------- rail ---------- */
+  .cwn-desks {
+    background: linear-gradient(168deg, #33564a 0%, #244338 55%, #1b3329 100%);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+  .cwn-desk {
+    padding: 15px 18px 16px;
+  }
+  .cwn-desk + .cwn-desk {
+    border-top: 1px solid rgba(245, 235, 216, 0.12);
+  }
+  .cwn-deskhead {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-bottom: 9px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+  }
+  .cwn-deskdot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(245, 235, 216, 0.22);
+    flex: 0 0 auto;
+  }
+  .cwn-deskname {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ivory);
+    line-height: 1;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .cwn-deskhead:hover .cwn-deskname {
+    color: var(--gold-soft);
+  }
+  .cwn-deskcount {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--gold-soft);
+  }
+  .cwn-desksubs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 18px;
+    border-left: 2px solid rgba(212, 175, 55, 0.4);
+  }
+  .cwn-desksub {
+    display: block;
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: rgba(245, 235, 216, 0.74);
+    line-height: 1.32;
+    text-wrap: pretty;
+    transition: color 0.15s;
+  }
+  .cwn-desksub:hover {
+    color: var(--ivory);
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+
+  .cwn-thisday {
+    background: var(--byz);
+    border-radius: 4px;
+    padding: 22px 22px 20px;
+    color: var(--ivory);
+    box-shadow: var(--shadow-card);
+  }
+  .cwn-thisday-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .cwn-thisday-date {
+    font-family: var(--serif);
+    font-size: 30px;
+    color: var(--gold-soft);
+    line-height: 1;
+  }
+  .cwn-thisday-year {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--celest-soft);
+  }
+  .cwn-thisday h3 {
+    font-size: 21px;
+    color: var(--ivory);
+    line-height: 1.18;
+    margin: 0 0 9px;
+  }
+  .cwn-thisday p {
+    font-size: 13.5px;
+    color: #cdd9e6;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cwn-mostread {
+    background: linear-gradient(168deg, #1c3a5c, #16304c);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+  .cwn-mr-row {
+    display: flex;
+    gap: 14px;
+    padding: 14px 16px;
+    align-items: baseline;
+    text-decoration: none;
+  }
+  .cwn-mr-row:hover h4 {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .cwn-mr-row + .cwn-mr-row {
+    border-top: 1px solid rgba(245, 235, 216, 0.12);
+  }
+  .cwn-mr-n {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 24px;
+  }
+  .cwn-mr-row h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ivory);
+    line-height: 1.22;
+    margin: 0 0 5px;
+  }
+
+  .cwn-archive-cta {
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 4px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-card);
+  }
+  .cwn-archive-cta h3 {
+    font-size: 21px;
+    color: var(--ivory);
+    line-height: 1.1;
+    margin: 8px 0 6px;
+  }
+  .cwn-archive-cta:hover h3 {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .cwn-archive-cta p {
+    font-size: 13px;
+    color: rgba(245, 235, 216, 0.74);
+    line-height: 1.55;
+    margin: 0 0 12px;
+  }
+  .cwn-archive-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-soft);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1080px) {
+    .cwn-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+    .cwn-legend {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .cwn-legend-intro {
+      max-width: none;
+    }
+    .cwn-legend-rule {
+      display: none;
+    }
+    .cwn-legend-body {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1000px) {
+    .dove-depts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 860px) {
+    .dove-mastwrap,
+    .cwn-featured,
+    .cwn-legend,
+    .dove-depts,
+    .cwn-filters,
+    .cwn-bodyband {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .dove-depts-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .cwn-lead-cols {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .cwn-lead-side {
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid rgba(245, 235, 216, 0.16);
+    }
+    .cwn-cardgrid {
+      grid-template-columns: 1fr;
+    }
+    .cwn-feed-head h2 {
+      font-size: 24px;
+    }
+  }
+</style>

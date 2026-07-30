@@ -1,0 +1,199 @@
+---
+/* THE DAILY DOVE nameplate.
+
+   Built the way a paper's front page is built: a thin rule, the standing
+   ears either side of the name, the name itself, the motto, then the double
+   rule and the folio line beneath. Playfair Display carries the nameplate —
+   an 18th-century transitional face, the type early newspapers actually set
+   their mastheads in. Blackletter would read more instantly as "newspaper"
+   but sits badly beside a Byzantine palette, and risks the parody register
+   the brief rules out. */
+import { withBase } from "../../lib/format";
+
+interface Props {
+  /** the folio line's left slot — an edition, a dateline, a section name */
+  edition?: string;
+  /** the folio line's right slot */
+  folio?: string;
+  /** links the nameplate home; omit on the front page itself */
+  href?: string;
+  small?: boolean;
+  /** set the plate in ivory and gold, for the paper's dark stock */
+  onDark?: boolean;
+}
+const {
+  edition = "The Daily Dove",
+  folio,
+  href,
+  small = false,
+  onDark = false,
+} = Astro.props;
+const Name = href ? "a" : "div";
+---
+
+<header
+  class:list={[
+    "dove-mast",
+    small && "dove-mast--sm",
+    onDark && "dove-mast--dark",
+  ]}
+>
+  <div class="dove-rule dove-rule--hair" aria-hidden="true"></div>
+
+  <Name class="dove-plate" href={href ? withBase(href) : undefined}>
+    <span class="dove-ear dove-ear--l" aria-hidden="true">
+      <span class="dove-ear-ln"></span>
+      <span class="dove-ear-dm"></span>
+    </span>
+
+    <span class="dove-name">The Daily Dove</span>
+
+    <span class="dove-ear dove-ear--r" aria-hidden="true">
+      <span class="dove-ear-dm"></span>
+      <span class="dove-ear-ln"></span>
+    </span>
+  </Name>
+
+  <p class="dove-motto">Reporting from the Church Since Pentecost</p>
+
+  <div class="dove-rule dove-rule--double" aria-hidden="true"></div>
+  <div class="dove-folio">
+    <span>{edition}</span>
+    <span class="dove-folio-mid" aria-hidden="true"></span>
+    {folio && <span>{folio}</span>}
+  </div>
+</header>
+
+<style>
+  .dove-mast {
+    text-align: center;
+    padding: 26px 0 0;
+  }
+  .dove-rule--hair {
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .dove-rule--double {
+    height: 4px;
+    border-top: 2px solid var(--byz-deep);
+    border-bottom: 1px solid var(--byz-deep);
+    margin-top: 16px;
+  }
+  .dove-plate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 3vw, 40px);
+    text-decoration: none;
+    padding: 20px 0 10px;
+  }
+  .dove-name {
+    flex: 0 0 auto;
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: clamp(38px, 7vw, 92px);
+    line-height: 0.95;
+    color: var(--byz-deep);
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+  }
+  a.dove-plate:hover .dove-name {
+    color: var(--gold-deep);
+  }
+
+  /* the standing ears — a rule running out to a gold lozenge each side */
+  .dove-ear {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .dove-ear--l {
+    justify-content: flex-end;
+  }
+  .dove-ear-ln {
+    height: 1px;
+    background: var(--line-gold);
+    flex: 1 1 auto;
+    min-width: 12px;
+  }
+  .dove-ear-dm {
+    width: 6px;
+    height: 6px;
+    transform: rotate(45deg);
+    background: var(--gold);
+    flex: 0 0 auto;
+  }
+
+  .dove-motto {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(14px, 1.5vw, 20px);
+    color: var(--celest);
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .dove-folio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0 0;
+    font-family: var(--text);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-soft);
+  }
+  .dove-folio-mid {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+
+  /* compact form for the article and archive pages */
+  .dove-mast--sm {
+    padding-top: 16px;
+  }
+  .dove-mast--sm .dove-plate {
+    padding: 10px 0 6px;
+  }
+  .dove-mast--sm .dove-name {
+    font-size: clamp(26px, 3.4vw, 40px);
+  }
+  .dove-mast--sm .dove-motto {
+    font-size: clamp(12px, 1.1vw, 14px);
+  }
+  .dove-mast--sm .dove-rule--double {
+    margin-top: 10px;
+  }
+
+  /* ---- on the paper's dark stock ---- */
+  .dove-mast--dark .dove-name {
+    color: var(--ivory);
+  }
+  .dove-mast--dark a.dove-plate:hover .dove-name {
+    color: var(--gold-soft);
+  }
+  .dove-mast--dark .dove-rule--double {
+    border-top-color: var(--gold);
+    border-bottom-color: rgba(212, 175, 55, 0.45);
+  }
+  .dove-mast--dark .dove-motto {
+    color: var(--gold-soft);
+  }
+  .dove-mast--dark .dove-folio {
+    color: var(--celest-soft);
+  }
+
+  @media (max-width: 640px) {
+    .dove-ear {
+      display: none;
+    }
+    .dove-name {
+      white-space: normal;
+    }
+  }
+</style>

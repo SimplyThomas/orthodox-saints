@@ -1,0 +1,73 @@
+---
+/* The evidence mark: a coloured dot, optionally named. The reader learns five
+   colours once — green a contemporary document, blue a contemporary witness,
+   gold later Orthodox tradition, orange medieval tradition, red frank legend —
+   and can then read the standing of any claim at a glance. The weakest two are
+   ringed rather than filled, so the distinction survives a black-and-white
+   print and anyone who does not see colour. */
+import type { EvidenceLevel } from "../../lib/daily-dove";
+import { EVIDENCE } from "../../lib/daily-dove";
+
+interface Props {
+  level: EvidenceLevel;
+  withLabel?: boolean;
+  size?: number;
+  onDark?: boolean;
+}
+const { level, withLabel = true, size = 11, onDark = false } = Astro.props;
+const e = EVIDENCE[level];
+---
+
+<span class="edot" title={e.full}>
+  <span
+    class="edot-mark"
+    style={e.dashed
+      ? `border:2px solid ${e.dot};background:transparent`
+      : `background:${e.dot};border:2px solid ${e.dot}`}
+    aria-hidden="true"></span>
+  {
+    withLabel && (
+      <span
+        class="edot-label"
+        style={`font-size:${size}px;color:${onDark ? "var(--gold-soft)" : e.ink}`}
+      >
+        {e.name}
+      </span>
+    )
+  }
+  <span class="dd-sr">Evidence: {e.full}</span>
+</span>
+
+<style>
+  .edot {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    position: relative;
+  }
+  .edot-mark {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+  .edot-label {
+    font-family: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .dd-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

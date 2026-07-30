@@ -1,0 +1,78 @@
+id: "seraphima-rome"
+order: 10
+cat: "historical"
+century: 2
+evidence: "orthodox-tradition"
+edition: "Rome Edition"
+byline: "By Our Correspondent in Rome"
+saint:
+  name: "Seraphima"
+  type: "Virgin-Martyr"
+subjects:
+  - "OS-1601"
+saintLabel: "Seraphima, Virgin-Martyr of Antioch"
+kicker: "Breaking"
+headline: "“They Fell Before They Touched Her”"
+date: "During the Reign of Emperor Hadrian"
+location: "Rome"
+dek: "Reports spread across Rome after two men collapse while attempting to assault a Christian virgin."
+summary: "Two men entered a room intending to dishonour a young Christian woman. Neither laid a hand upon her. Those present insist there was no struggle, no weapon, and no intervention by another person — and that the woman they had been sent to disgrace prayed for their recovery."
+body:
+  - "No one in the marketplace this morning seemed interested in grain prices, imperial taxes, or the latest spectacles in the arena. Every conversation eventually drifted toward the same astonishing report from a Roman household on the Aventine Hill."
+  - "Two men entered a room intending to dishonor a young Christian woman. Neither laid a hand upon her."
+  - "Before either could carry out the governor’s orders, both reportedly collapsed to the floor, overcome by a sudden and unexplained weakness. Those present insist there was no struggle, no weapon, and no intervention by another person. One moment the men advanced; the next, they were lying helpless at the feet of the very woman they had been sent to disgrace."
+  - "The woman at the center of the incident is Seraphima, a young virgin from Antioch in Syria whose quiet devotion to Christ has now become the subject of public conversation throughout the city."
+  - "Her story began far from Rome. Born in Antioch, she eventually entered the service of the noblewoman Sabina. Those who knew the household say Seraphima’s faith was not loud or confrontational. She simply lived it. Over time, that steadfast witness is said to have drawn Sabina herself toward Christianity, a development that eventually attracted the attention of Roman authorities during a period when followers of Christ were viewed with growing suspicion."
+  - "Officials summoned Seraphima and ordered her to offer sacrifice to the gods of Rome. She refused. Witnesses describe no hesitation, no attempt to negotiate, and no sign of fear. Her answer remained the same through repeated questioning: she would worship Christ alone."
+  - "When persuasion failed, the proceedings took a darker turn. Rather than carrying out an immediate sentence, officials reportedly ordered that the young woman first be publicly humiliated. Two young men were sent into the room where she was being held."
+  - "Those present describe both men suddenly losing their strength before reaching her. Some fell to their knees. Others say they collapsed entirely. No account suggests that Seraphima resisted them physically. Instead, witnesses consistently report something unexpected. She prayed. Not for vengeance. Not for deliverance. For them."
+  - "According to the ancient account preserved among the Christians, Seraphima asked God to restore the men who had been sent against her. They recovered immediately."
+  - "The remarkable incident did nothing to change the governor’s resolve. Officials again demanded that she sacrifice to the Roman gods. Again she refused. Having failed to break either her faith or her resolve, the authorities carried out the sentence of execution. Seraphima was beheaded."
+  - "For Rome, another execution may soon fade into memory. For the Christians gathering quietly in homes throughout the city, however, the death of the young woman from Antioch has already become something far greater than another name among the condemned. They speak of her not only because she endured suffering, but because compassion remained on her lips even toward those who sought to violate and kill her."
+  - "Long after the executioner’s sword fell silent, that may be the part of her witness that people remember most."
+pullQuote:
+  text: "She prayed. Not for vengeance. Not for deliverance. For them."
+  attribution: "— The account preserved among the Christians"
+aroundTheEmpire:
+  notes:
+    - city: "Antioch"
+      note: "Merchants arriving from Syria report that Christian communities continue to grow despite periodic local persecutions."
+    - city: "Jerusalem"
+      note: "Pilgrims continue to visit the places associated with the life, death, and resurrection of Christ, carrying news of the growing Church throughout the provinces."
+    - city: "Alexandria"
+      note: "Christian teachers quietly continue instructing catechumens despite increased scrutiny from local officials."
+departments:
+  - kind: "whispers"
+    title: "Whispers Around Rome"
+    body:
+      - "Many among the Christian community believe divine power prevented the assault on Seraphima. Others simply repeat the story as they heard it from those inside the household. Roman officials have offered no public explanation for the reported collapse of the two men."
+whyThisMatters: "Executions were meant to silence the Christian movement through fear and public shame. Yet stories like Seraphima’s often spread farther than the governor’s decrees. Her steadfast refusal to renounce Christ, her prayer for those sent to harm her, and the extraordinary events surrounding her imprisonment have already become part of the memory of the Church."
+literaryFraming: "The descriptions of the marketplace, the crowd’s reactions, and the reporter’s observations are literary devices created to immerse the reader in the historical setting. They are not preserved in the ancient sources."
+miracles:
+  - "assault"
+  - "purity"
+  - "protection"
+  - "enemies"
+  - "courage"
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Seraphima was a virgin from Antioch living in Rome."
+    - level: "orthodox-tradition"
+      claim: "She served the noblewoman Sabina and instructed her in the Christian faith."
+    - level: "orthodox-tradition"
+      claim: "She refused to sacrifice to the Roman gods."
+    - level: "orthodox-tradition"
+      claim: "Two young men sent to assault her were miraculously prevented from harming her."
+    - level: "orthodox-tradition"
+      claim: "Seraphima prayed for them, and they recovered."
+    - level: "orthodox-tradition"
+      claim: "She was beheaded during the reign of Emperor Hadrian."
+sources:
+  - h: "Primary Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Virgin Martyr Seraphima of Antioch"
+      - "Synaxarion for July 29"
+  - h: "Historical Context"
+    items:
+      - "Early Christian martyr traditions from the reign of Emperor Hadrian"

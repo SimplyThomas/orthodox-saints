@@ -1,0 +1,93 @@
+id: "ephesus-431-theotokos"
+order: 2
+cat: "historical"
+century: 5
+evidence: "contemporary-source"
+edition: "Ephesus Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "ephesus-431"
+  name: "The Third Council of Ephesus"
+  part: 1
+saint:
+  name: "Cyril"
+  type: "Hierarch"
+feasts:
+  - "FF-0060"
+saintLabel: "The Fathers of the Third Council"
+kicker: "Breaking"
+headline: "Crowds Fill Streets Crying “Theotokos!”"
+date: "June, AD 431"
+location: "Ephesus"
+dek: "Council affirms the Blessed Virgin Mary as the Mother of God; the city erupts in celebration."
+summary: "The streets of Ephesus rang with shouts of joy as bishops emerged from the Church of the Virgin, having formally affirmed that the Blessed Virgin Mary is rightly called Theotokos — “God-bearer.” Residents poured into the streets carrying lamps and torches despite the approaching night."
+plate: "ICON · THE THIRD ECUMENICAL COUNCIL, A.D. 431"
+body:
+  - "The streets of Ephesus rang with shouts of joy late yesterday as bishops emerged from the Church of the Virgin, having formally affirmed that the Blessed Virgin Mary is rightly called Theotokos — “God-bearer” or “Mother of God.”"
+  - "As word of the council’s decision spread through the city, residents poured into the streets carrying lamps and torches despite the approaching night. Contemporary letters describe crowds escorting the bishops through Ephesus with great rejoicing, offering thanks to God for what many regarded as the preservation of the apostolic faith."
+  - "The declaration came after days of intense debate surrounding the teachings of Nestorius, Archbishop of Constantinople. Nestorius had objected to the widespread use of the title Theotokos, preferring language that emphasized Christ’s humanity and suggesting the title Christotokos (“Mother of Christ”) as more appropriate."
+  - "Many bishops feared that such language divided Christ into two separate persons — one divine and one human — rather than confessing the one incarnate Son of God."
+  - "Leading the council was Cyril, Patriarch of Alexandria, who argued that because the eternal Son truly became man without ceasing to be God, the Virgin who bore Him in the flesh could rightly be called Theotokos. The title, he insisted, safeguards the Church’s confession that the child born in Bethlehem was none other than the eternal Word made flesh."
+  - "Following extensive deliberations, the assembled bishops declared Nestorius’s teaching contrary to the apostolic faith and formally deposed him from his episcopal office."
+  - "While the decision has been met with celebration throughout much of Ephesus, not all agree that the matter has been settled. Reports continue to circulate that several bishops from Antioch, delayed on their journey to the city, had not yet arrived when the council commenced. Their absence has already sparked questions about whether the proceedings began too soon and whether a rival gathering may yet be convened."
+  - "Even so, throughout the city the prevailing mood remains one of thanksgiving. Church bells sounded across Ephesus as families gathered in prayer, and many could be heard repeating the title that has become the focus of the council’s deliberations: “Holy Mary, Theotokos.”"
+pullQuote:
+  text: "“The question before us is not merely what we call the Virgin. It is who Jesus Christ truly is.”"
+  attribution: "— One bishop, as delegates departed the assembly"
+aroundTheEmpire:
+  notes:
+    - city: "Alexandria"
+      note: "Churches throughout Egypt have welcomed the council’s affirmation, with many clergy praising Patriarch Cyril’s defense of the Incarnation."
+    - city: "Constantinople"
+      note: "Supporters of Nestorius remain uncertain how the emperor will respond to news of the archbishop’s deposition."
+    - city: "Antioch"
+      note: "Delegates traveling from Syria are reportedly nearing Ephesus after delays along the route. Some observers question how their late arrival may affect the council’s reception."
+    - city: "Jerusalem"
+      note: "Pilgrims visiting the Holy Places have begun discussing the council’s decision, recognizing its importance for the Church’s confession of Christ."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“The whole city seemed to come alive. I’ve never heard so many voices praising God at once.”"
+        attribution: "A local artisan who watched the bishops leave the church by torchlight"
+      - text: "“Whatever the bishops decide, everyone agrees that the mystery of Christ is greater than our words can fully express.”"
+        attribution: "A merchant visiting from Cappadocia"
+comingUp:
+  - kicker: "Breaking"
+    title: "Nestorius Deposed — What Happens to the Archbishop of Constantinople Now?"
+  - kicker: "Special Report"
+    title: "Was the Council Opened Too Early? Antiochene Bishops Challenge the Proceedings"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Emperor Theodosius II convened the Council of Ephesus in AD 431."
+    - level: "contemporary-source"
+      claim: "Cyril of Alexandria presided over the opening sessions."
+    - level: "contemporary-source"
+      claim: "The council affirmed the title Theotokos for the Virgin Mary."
+    - level: "contemporary-source"
+      claim: "Nestorius was deposed by the council."
+    - level: "contemporary-source"
+      claim: "Contemporary letters describe public celebration in Ephesus after the council’s decision."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary evidence."
+      sources:
+        - "Cyril of Alexandria, letters and conciliar correspondence"
+        - "The surviving Acts of the Council of Ephesus"
+        - "Imperial correspondence preserved with the council documents"
+    - level: "orthodox-tradition"
+      claim: "The council is celebrated in Orthodox liturgical tradition as a decisive defense of the Incarnation and of the title Theotokos."
+      note: "While later writers often embellish the joy of the people of Ephesus, the existence of public celebration itself is attested in contemporary sources."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Acts of the Council of Ephesus (431)"
+      - "Letters of Cyril of Alexandria"
+      - "Imperial correspondence of Emperor Theodosius II related to the council"
+  - h: "Contemporary and Near-Contemporary Histories"
+    items:
+      - "Socrates Scholasticus, Ecclesiastical History"
+      - "Evagrius Scholasticus, Ecclesiastical History"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Church"
+      - "The Orthodox Faith"

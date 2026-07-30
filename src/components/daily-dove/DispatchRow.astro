@@ -1,0 +1,123 @@
+---
+/* A dispatch in the chronological feed — a wide plate printed in the colour of
+   its era. All type: the paper carries no images, so the plate's weight comes
+   from the era colour and the gold rule down its edge, and a reader can date a
+   story from across the room without one. */
+import type { NewsItem } from "../../lib/daily-dove";
+import { eraOf } from "../../lib/daily-dove";
+import { withBase } from "../../lib/format";
+import EraPill from "./EraPill.astro";
+import CenturyBadge from "./CenturyBadge.astro";
+import EvidenceDot from "./EvidenceDot.astro";
+import NewsMeta from "./NewsMeta.astro";
+
+interface Props {
+  n: NewsItem;
+}
+const { n } = Astro.props;
+const era = eraOf(n.century);
+---
+
+<a
+  class="drow"
+  href={withBase(`daily-dove/${n.id}`)}
+  style={`background:${era.ink}`}
+  data-cat={n.cat}
+  data-era={era.id}
+  data-century={n.century}
+>
+  <div class="drow-body">
+    <div class="drow-tags">
+      <EraPill century={n.century} onDark />
+      <CenturyBadge century={n.century} color="var(--gold-soft)" />
+      <span class="drow-ev">
+        <EvidenceDot level={n.evidence} withLabel={false} />
+      </span>
+    </div>
+    <h3 class="drow-h">{n.headline}</h3>
+    <NewsMeta
+      date={n.date}
+      location={n.location}
+      size={13}
+      color="rgba(245,235,216,.74)"
+    />
+    <p class="drow-sum">{n.summary}</p>
+    <span class="drow-read">
+      Read the account
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
+      >
+    </span>
+  </div>
+</a>
+
+<style>
+  .drow {
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-left: 5px solid var(--gold);
+    border-radius: 4px;
+    box-shadow: var(--shadow-card);
+  }
+  .drow-body {
+    padding: 20px 26px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  .drow-ev {
+    display: inline-flex;
+  }
+  .drow-tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .drow-h {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--ivory);
+    line-height: 1.13;
+    margin: 0 0 9px;
+    text-wrap: pretty;
+  }
+  .drow:hover .drow-h {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .drow-sum {
+    font-size: 14.5px;
+    color: rgba(245, 235, 216, 0.84);
+    line-height: 1.6;
+    margin: 10px 0 0;
+    text-wrap: pretty;
+  }
+  .drow-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-soft);
+    margin-top: 14px;
+  }
+  @media (max-width: 720px) {
+    .drow-body {
+      padding: 18px 20px 20px;
+    }
+    .drow-h {
+      font-size: 21px;
+    }
+  }
+</style>

@@ -1,0 +1,92 @@
+id: "nicaea-325-bishops-gather"
+featured: true
+order: 0
+cat: "historical"
+century: 4
+evidence: "contemporary-source"
+edition: "Nicaea Edition"
+byline: "By the Staff of The Daily Dove"
+series:
+  id: "nicaea-325"
+  name: "The First Council of Nicaea"
+  part: 1
+saint:
+  name: "Athanasius"
+  type: "Hierarch"
+subjects:
+  - "OS-0024"
+feasts:
+  - "FF-0060"
+saintLabel: "The Fathers of the First Council"
+kicker: "Breaking"
+headline: "Bishops Gather Across Empire to Settle Arius Controversy"
+date: "Late Spring, AD 325"
+location: "Nicaea, Bithynia"
+dek: "Bishops, priests, and deacons have travelled from every corner of the Roman Empire to the lakeside city of Nicaea, answering Emperor Constantine’s call to resolve a theological dispute that has spread from Alexandria to nearly every province."
+summary: "The controversy centres on the teachings of the Alexandrian presbyter Arius, whose preaching concerning the Son of God has divided clergy and faithful alike. More than two hundred bishops have answered the summons — among them confessors who still bear the scars of the persecutions under Diocletian."
+plate: "ICON · THE FIRST ECUMENICAL COUNCIL, A.D. 325"
+body:
+  - "Never before has the Christian Church witnessed a gathering quite like this one."
+  - "Bishops, priests, and deacons have traveled from every corner of the Roman Empire to the lakeside city of Nicaea, answering Emperor Constantine’s call to resolve a theological dispute that has spread from Alexandria to nearly every province of the Empire."
+  - "The controversy centers on the teachings of the Alexandrian presbyter Arius, whose preaching concerning the Son of God has divided clergy and faithful alike. Arius teaches that the Son, though exalted above all creation, was Himself created by the Father and therefore is not eternal in the same manner as the Father."
+  - "His supporters argue that this teaching preserves the uniqueness of God. His opponents insist that it undermines the very salvation proclaimed by the Gospel."
+  - "The question has become so contentious that congregations throughout the Empire have found themselves divided. Reports from Alexandria describe heated disputes among clergy and laypeople alike, while neighboring provinces have struggled to maintain peace amid conflicting teachings."
+  - "Seeking to restore unity to both Church and Empire, Emperor Constantine has invited the bishops to deliberate together in hopes of reaching a common confession of the apostolic faith. Contemporary accounts suggest that more than two hundred bishops have answered the summons, with many accompanied by priests, deacons, and theological advisors. Among those present are several confessors who still bear the scars of the persecutions under Emperor Diocletian, a visible reminder of the price many paid to preserve the Christian faith only a few years ago."
+  - "The gathering has also brought together many of the Church’s most respected leaders. Bishop Alexander of Alexandria has arrived with his young deacon Athanasius, whose keen defense of the Son’s eternal divinity has already drawn attention. Bishop Eustathius of Antioch and Bishop Hosius of Cordoba are also among the prominent participants expected to play significant roles in the proceedings."
+  - "While the atmosphere within the city remains respectful, conversations in inns, courtyards, and marketplaces reveal the seriousness of the issues before the council. Merchants speak of little else, pilgrims gather in small circles discussing the controversy, and visitors speculate about what declaration the bishops might ultimately issue."
+  - "Much now rests upon the deliberations that will take place over the coming weeks. For many gathered here, the question extends far beyond philosophical language. It concerns the identity of Jesus Christ Himself."
+pullQuote:
+  text: "“If Christ is not truly God, then how can He unite mankind to God?”"
+  attribution: "— One bishop, remarking upon arriving in Nicaea"
+aroundTheEmpire:
+  notes:
+    - city: "Alexandria"
+      note: "Reports indicate that debate over Arius’s teaching continues to divide congregations despite repeated attempts by Bishop Alexander to restore unity."
+    - city: "Antioch"
+      note: "Clergy arriving from Syria express hope that a common confession of faith will finally bring peace to the churches."
+    - city: "Jerusalem"
+      note: "Pilgrims traveling to the Holy Places have begun discussing the council’s proceedings with growing interest, recognizing that its decisions may shape the future of the Church."
+    - city: "Rome"
+      note: "Representatives of Bishop Sylvester I have arrived to participate in the council on behalf of the Church of Rome."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I have never seen so many bishops gathered in one city.”"
+        attribution: "A local innkeeper, while preparing rooms for newly arrived clergy"
+      - text: "“Everyone agrees Christ is Lord. The question now is what exactly that means.”"
+        attribution: "A merchant visiting from Nicomedia"
+comingUp:
+  - kicker: "Exclusive"
+    title: "Emperor Constantine Opens Historic Council — What Did He Tell the Bishops?"
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Emperor Constantine convened the Council of Nicaea in AD 325."
+    - level: "contemporary-source"
+      claim: "The principal issue before the council was the teaching of Arius concerning the Son of God."
+    - level: "contemporary-source"
+      claim: "Bishops from throughout the Roman Empire attended the council."
+    - level: "contemporary-source"
+      claim: "Bishop Alexander of Alexandria, the deacon Athanasius, Bishop Hosius of Cordoba, and many other leading churchmen were present."
+    - level: "contemporary-source"
+      claim: "The council sought to establish a common confession of the apostolic faith and restore ecclesiastical unity."
+    - level: "contemporary-witness"
+      claim: "The principal contemporary witnesses to the council."
+      sources:
+        - "Eusebius of Caesarea, Life of Constantine"
+        - "Athanasius of Alexandria, later writings defending the Nicene faith"
+        - "Constantine’s surviving correspondence concerning the council"
+    - level: "orthodox-tradition"
+      claim: "No later traditions are central to this report."
+      note: "These are addressed separately in “Whispers Around the Council: Did Bishop Nicholas Strike Arius?”"
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Life of Constantine"
+      - "Ecclesiastical History"
+      - "The Nicene Creed (AD 325)"
+      - "The surviving Canons of the First Council of Nicaea"
+  - h: "Orthodox Sources"
+    items:
+      - "The Orthodox Faith"
+      - "The Orthodox Church"

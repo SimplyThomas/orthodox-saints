@@ -1,0 +1,78 @@
+id: "theodosius-ii-death"
+order: 15
+cat: "historical"
+century: 5
+evidence: "contemporary-source"
+edition: "Constantinople Edition"
+byline: "By Our Imperial Correspondent"
+saint:
+  name: "Theodosius"
+  type: "Righteous"
+subjects:
+  - "OS-1607"
+feasts:
+  - "FF-0060"
+saintLabel: "Emperor Theodosius II"
+kicker: "Imperial Dispatch"
+headline: "Emperor Theodosius II Dies After Forty-Two-Year Reign"
+date: "AD 450"
+location: "Constantinople"
+dek: "A long reign remembered for a great council, new laws, and the defence of the Christian Empire."
+summary: "Church bells rang throughout the capital as news spread that the ruler of the Eastern Roman Empire for more than four decades has died following injuries sustained in a riding accident. He was seven years old when he inherited the throne."
+body:
+  - "Church bells rang throughout the capital this morning as news spread that Emperor Theodosius II, ruler of the Eastern Roman Empire for more than four decades, has died following injuries sustained in a riding accident."
+  - "The emperor was only seven years old when he inherited the throne after the death of his father, Arcadius. Few expected the quiet child to preside over one of the longest reigns in Roman history, and fewer still imagined that his government would leave such a lasting mark upon both the Empire and the Church."
+  - "Though military victories rarely defined his rule, councils did. When controversy erupted over the teaching of Nestorius, Archbishop of Constantinople, the emperor found himself responsible for resolving a dispute that threatened to divide Christians from Egypt to Syria. Rather than allowing rival bishops to settle the matter independently, Theodosius summoned an ecumenical council to meet at Ephesus in the summer of AD 431."
+  - "For weeks, bishops argued over a question that reached beyond words to the heart of the Christian faith itself. Could the Virgin Mary rightly be called Theotokos, the Mother of God? The debate filled churches, spilled into crowded streets, and drew the attention of the entire empire. Delegations arrived from every corner of the Christian world, each convinced that the future of orthodox teaching hung in the balance."
+  - "When the council concluded, Nestorius was deposed, and the bishops affirmed the ancient confession that the One born of Mary was truly God incarnate. Although controversy did not end overnight, many now regard the council as one of the defining moments of the emperor’s reign."
+  - "Theodosius was no theologian. Yet he understood that emperors could preserve peace only if the Church remained united."
+  - "His influence reached far beyond the council chamber. During his reign, jurists completed what has become known as the Theodosian Code, bringing together decades of imperial legislation into a single authoritative collection. Governors, judges, and magistrates across the empire now look to the code as the foundation for civil administration, bringing greater consistency to the administration of justice."
+  - "The capital itself also bears his imprint. The massive defensive walls rising west of Constantinople, strengthened and expanded during his reign, have already proven themselves among the greatest military works of the age. Travelers approaching the city speak of them with admiration, while enemies see little reason to test them."
+  - "Nor was the emperor indifferent to the spiritual life of the empire. Throughout his reign he supported the construction of churches, encouraged the preservation of holy relics, and maintained close relationships with many bishops and ascetics. Those closest to the imperial court often remarked upon his personal devotion, noting that he preferred prayer, study, and the reading of Scripture to the entertainments ordinarily associated with imperial life."
+  - "No reign of forty-two years passes without criticism. Some faulted the emperor for relying heavily upon powerful advisors, particularly his sister Pulcheria in earlier years and influential officials within the palace. Others believed he acted too cautiously during times of political unrest. Yet even many of his critics acknowledged that his greatest concern remained the preservation of the Christian Empire entrusted to his care."
+  - "His death now leaves the throne uncertain at a moment when pressures along the frontiers continue to mount."
+  - "For the Church, however, the memory of Theodosius II may endure less because he wore a crown than because he recognized the extraordinary responsibility that came with it. In an age of theological conflict and political instability, he used imperial authority not merely to govern provinces, but to gather bishops, preserve the law, and defend the faith as it had been received."
+  - "Few emperors leave behind monuments of stone, books of law, and decisions that continue shaping the life of the Church. Theodosius leaves all three."
+pullQuote:
+  text: "Few emperors leave behind monuments of stone, books of law, and decisions that continue shaping the life of the Church. Theodosius leaves all three."
+  attribution: "— From the capital, on the day of his death"
+aroundTheEmpire:
+  intro: "Court officials have announced that arrangements are underway for the succession. Bishops throughout the East have begun offering memorial prayers for the departed emperor, while imperial administrators prepare for the transfer of authority."
+departments:
+  - kind: "whispers"
+    title: "Whispers in Constantinople"
+    body:
+      - "Many clergy are remembering the emperor’s support of the Council of Ephesus and his patronage of churches throughout the capital. Others wonder how his successor will navigate the theological controversies that continue to shape the Christian world."
+whyThisMatters: "Theodosius II ruled during a period when the relationship between the Roman Empire and the Church was still taking shape. By convening the Third Ecumenical Council, overseeing the publication of the Theodosian Code, and strengthening Constantinople as both an imperial and Christian capital, his reign helped define the character of the Eastern Roman Empire for centuries to come."
+literaryFraming: "The narrative voice, descriptions of the capital, and the reporter’s observations are literary devices intended to present historical events in the style of a contemporary newspaper. They are not preserved as period journalism."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "Theodosius II became emperor in AD 408 at the age of seven."
+    - level: "contemporary-source"
+      claim: "He reigned for forty-two years, one of the longest reigns in Eastern Roman history."
+    - level: "contemporary-source"
+      claim: "He convened the Third Ecumenical Council at Ephesus in AD 431."
+    - level: "contemporary-source"
+      claim: "During his reign the Theodosian Code was compiled and promulgated."
+    - level: "contemporary-source"
+      claim: "The great land walls of Constantinople were constructed and expanded during his reign."
+    - level: "contemporary-source"
+      claim: "He died in AD 450 following injuries sustained in a riding accident."
+    - level: "orthodox-tradition"
+      claim: "The Orthodox Church commemorates Theodosius II as a right-believing emperor."
+      note: "For his support of the Church and his role in convening the Council of Ephesus, which affirmed the title Theotokos for the Virgin Mary and condemned the teaching of Nestorius."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "Socrates Scholasticus, Ecclesiastical History"
+      - "The Acts of the Council of Ephesus (AD 431)"
+      - "Codex Theodosianus (the Theodosian Code)"
+  - h: "Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Right-believing Emperor Theodosius II"
+      - "Synaxarion for July 29"
+  - h: "Historical Context"
+    items:
+      - "John Julius Norwich, Byzantium: The Early Centuries"
+      - "J. B. Bury, History of the Later Roman Empire"

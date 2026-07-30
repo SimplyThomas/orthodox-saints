@@ -1,0 +1,105 @@
+---
+/* Heavenly Hosts — the landing page.
+   The six areas used to sit in the nav themselves, which meant a visitor had to
+   already know the difference between the Nine Orders and the Biblical
+   Encounters before choosing one. This introduces the section first and then
+   offers the way in, with each card carrying a live count so a reader can see
+   what is actually there. */
+import HubPage from "../components/HubPage.astro";
+import type { HubCard } from "../components/HubPage.astro";
+import {
+  HOSTS,
+  isTitledFigure,
+  isBiblicalEncounter,
+  isExtraBiblicalAngel,
+  isFallen,
+} from "../lib/hosts";
+
+const ranks = HOSTS.filter((h) => h.entityType === "Angelic Rank");
+const archangels = HOSTS.filter(
+  (h) => h.entityType === "Named Angel" && h.order === "Archangels",
+);
+const titled = HOSTS.filter(isTitledFigure);
+const encounters = HOSTS.filter(isBiblicalEncounter);
+const extra = HOSTS.filter(isExtraBiblicalAngel);
+const named = HOSTS.filter((h) => h.entityType === "Named Angel");
+const fallen = HOSTS.filter(isFallen);
+
+const cards: HubCard[] = [
+  {
+    label: "The Nine Orders",
+    href: "nine-orders",
+    eyebrow: "The received hierarchy",
+    blurb:
+      "The nine ranks of the bodiless powers, set out in three triads — from the Seraphim nearest the throne to the Angels nearest ourselves.",
+    meta: `${ranks.length} ranks`,
+  },
+  {
+    label: "Archangels",
+    href: "host/HH-0008",
+    eyebrow: "Chief among the messengers",
+    blurb:
+      "Michael, Gabriel, Raphael and the rest of the archangels the Church names and asks to pray for us.",
+    meta: `${archangels.length} named`,
+  },
+  {
+    // Straight to the profile, not the roster: someone clicking "Guardian
+    // Angels" almost always wants to read about their own, and HH-0018 is a
+    // full profile in its own right.
+    label: "Guardian Angels",
+    href: "host/HH-0018",
+    eyebrow: "Known by office",
+    blurb:
+      "The angel given to watch over each of the faithful — what the Church prays, what the Fathers taught, and what may honestly be said.",
+  },
+  {
+    label: "Named Figures",
+    href: "guardian-angels",
+    eyebrow: "Known by title",
+    blurb:
+      "The titled figures of Scripture — the Angel of the Lord, the Commander of the Lord’s Army, and the angels of the seven churches.",
+    meta: `${titled.length} entries`,
+  },
+  {
+    label: "Biblical Encounters",
+    href: "biblical-encounters",
+    eyebrow: "Where they appear",
+    blurb:
+      "The moments Scripture records an angel meeting a human being: Jacob’s ladder, the Annunciation, the empty tomb.",
+    meta: `${encounters.length} encounters`,
+  },
+  {
+    // Recorded for study and never venerated (§5b/§9) — the card says so, and
+    // the section's own pages carry the same warning.
+    label: "The Fallen",
+    href: "fallen-angels",
+    eyebrow: "Recorded, never venerated",
+    blurb:
+      "The angels who fell, set down for study — what Scripture actually says, and what belongs to later legend.",
+    meta: `${fallen.length} entries`,
+  },
+  {
+    label: "Extra-Biblical Encounters",
+    href: "extra-biblical-angels",
+    eyebrow: "Catalogued for study",
+    blurb:
+      "The angels named in the Second Temple writings — Raguel, Sariel, Phanuel — recorded here for study, never for veneration.",
+    meta: `${extra.length} named`,
+  },
+];
+---
+
+<HubPage
+  active="heavenly-hosts"
+  eyebrow="The Bodiless Powers"
+  title="The Heavenly Hosts"
+  lede="What Scripture, Holy Tradition, and the early Orthodox sources teach about the angels."
+  description="The nine angelic orders, the named archangels, the guardian angels, and the angelic encounters of Scripture — what Scripture, Holy Tradition, and early Orthodox sources teach about the bodiless powers."
+  intro={[
+    "The Church has always confessed that God made more than the world we can see. Before the visible creation He made the bodiless powers — the angels — who stand before Him, carry His messages, guard His people, and join without ceasing in the hymn the prophet Isaiah overheard.",
+    "This section sets out what is actually taught about them, and on whose authority. Every entry keeps its sources apart rather than blending them: what Holy Scripture says, what the Deuterocanonical books add, what the Fathers and the Church’s own services hand down, and what belongs to later tradition or to writings the Church never received. Where a being is recorded for study rather than veneration, the page says so plainly.",
+  ]}
+  cardsHeading={`Seven ways in · ${HOSTS.length} beings catalogued`}
+  cards={cards}
+  plannedNote={`The section presently holds ${HOSTS.length} entries: ${ranks.length} angelic ranks, ${named.length} named angels, and ${encounters.length} scriptural encounters. It grows as each profile is written and reviewed.`}
+/>

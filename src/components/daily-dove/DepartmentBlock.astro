@@ -1,0 +1,149 @@
+---
+/* One department's run inside an article — the head, then either prose or a
+   set of attributed voices.
+
+   Two departments carry a standing notice, because a colour dot at the foot of
+   the article is not enough when the material is this enjoyable to read:
+
+   - Whispers Around the Council prints the famous stories — St Nicholas
+     striking Arius and its like. These are worth telling and are part of how
+     the Church remembers, but they are not contemporary reporting, and the
+     section says so before the first sentence rather than after the last.
+   - Voices from the Forum is illustrative: composites of how the faithful may
+     have received the news. No words are ever put in a real person's mouth
+     unless a primary source records them, and the notice makes that plain. */
+import type { DepartmentRun } from "../../lib/daily-dove";
+import { DEPARTMENT } from "../../lib/daily-dove";
+import DepartmentHead from "./DepartmentHead.astro";
+
+interface Props {
+  run: DepartmentRun;
+}
+const { run } = Astro.props;
+const d = DEPARTMENT[run.kind];
+const NOTICE: Record<string, string> = {
+  whispers:
+    "The accounts below circulated among the faithful and are told here as they were told. They are not established by contemporary record — see the Historian’s Notes for what stands behind each one.",
+  forum:
+    "Illustrative voices. These are composites of how ordinary Christians may have received the news, not quotations from named people, unless a primary source is cited.",
+};
+const notice = NOTICE[run.kind];
+---
+
+{
+  d && (
+    <section
+      class:list={["dblock", notice && "dblock--noted"]}
+      style={`--db-ink:${d.ink}`}
+    >
+      <DepartmentHead kind={run.kind} title={run.title} />
+
+      {notice && <p class="dblock-notice">{notice}</p>}
+
+      {run.body?.map((para) => (
+        <p class="dblock-p">{para}</p>
+      ))}
+
+      {run.voices && run.voices.length > 0 && (
+        <ul class="dblock-voices">
+          {run.voices.map((v) => (
+            <li>
+              <p>{v.text}</p>
+              {v.attribution && <cite>{v.attribution}</cite>}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {run.note && (
+        <p class="dblock-histnote">
+          <span>Historical Note:</span> {run.note}
+        </p>
+      )}
+    </section>
+  )
+}
+
+<style>
+  .dblock {
+    margin: 0 0 32px;
+  }
+  .dblock--noted {
+    background: color-mix(in srgb, var(--db-ink) 5%, transparent);
+    border: 1px dashed var(--db-ink);
+    border-radius: 4px;
+    padding: 18px 22px 6px;
+  }
+  .dblock-notice {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--db-ink);
+    margin: 0 0 16px;
+    line-height: 1.55;
+    text-wrap: pretty;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .dblock-p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin: 0 0 18px;
+    text-wrap: pretty;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  /* the section's own footnote, weighing what it just reported */
+  .dblock-histnote {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 18px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(168, 133, 42, 0.4);
+    text-wrap: pretty;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .dblock-histnote span {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--db-ink);
+  }
+
+  /* Voices from the Forum / Marketplace Buzz — overheard, set as a column of
+     quiet quotations rather than a block of prose. */
+  .dblock-voices {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .dblock-voices li {
+    border-left: 3px solid var(--db-ink);
+    padding: 2px 0 2px 18px;
+  }
+  .dblock-voices p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--byz-deep);
+    line-height: 1.45;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .dblock-voices cite {
+    display: block;
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    margin-top: 7px;
+  }
+</style>

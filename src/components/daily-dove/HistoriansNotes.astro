@@ -1,0 +1,283 @@
+---
+/* HISTORIAN'S NOTES — the section every Daily Dove article ends with, and the
+   reason the paper can be written the way it is.
+
+   The article above is allowed to be vivid: to overhear the marketplace, to
+   enjoy the palace intrigue, to tell the story the way the Church has told it.
+   This is where that is settled up. Each strand is named and set against the
+   level of evidence that actually carries it, so a reader closes the page
+   knowing exactly which parts are documented, which are the living tradition
+   of the Church, and which are frankly legend — and having lost none of the
+   pleasure of the story in finding out. */
+import type { HistoriansNote } from "../../lib/daily-dove";
+import { EVIDENCE, notesByLevel } from "../../lib/daily-dove";
+
+interface Props {
+  intro?: string;
+  entries: HistoriansNote[];
+  /** which parts of the article are literary device rather than record */
+  literaryFraming?: string;
+  /** set for the side column — tighter measure, smaller type */
+  compact?: boolean;
+}
+const { intro, entries, literaryFraming, compact = false } = Astro.props;
+// Grouped by level, strongest first — the section reads as a set of findings
+// rather than a flat list, and a reader can see at once how much of the story
+// rests on documents and how much on tradition.
+const groups = notesByLevel(entries);
+---
+
+<section
+  class:list={["hnotes", compact && "hnotes--compact"]}
+  aria-labelledby="historians-notes"
+>
+  <div class="hnotes-head">
+    <h2 id="historians-notes">Historian&rsquo;s Notes</h2>
+    <span class="hnotes-ln" aria-hidden="true"></span>
+  </div>
+
+  <p class="hnotes-lede">
+    {
+      intro ??
+        (compact
+          ? "Which parts of this report are documented, which belong to the tradition of the Church, and which are legend."
+          : "The Daily Dove tells its stories in the voice of a paper that never existed. What follows is the plain accounting: which parts of the report above are documented, which belong to the tradition of the Church, and which are legend.")
+    }
+  </p>
+
+  {
+    groups.map((g) => {
+      const e = EVIDENCE[g.level];
+      return (
+        <section class="hgroup" style={`--hn-ink:${e.ink}`}>
+          <h3 class="hgroup-head">
+            <span
+              class="hgroup-mark"
+              style={
+                e.dashed
+                  ? `border:2.5px solid ${e.dot};background:transparent`
+                  : `background:${e.dot};border:2.5px solid ${e.dot}`
+              }
+              aria-hidden="true"
+            />
+            {e.full}
+          </h3>
+          <ul class="hgroup-list">
+            {g.entries.map((n) => (
+              <li class="hnote">
+                <p class="hnote-claim">{n.claim}</p>
+                {n.note && <p class="hnote-note">{n.note}</p>}
+                {n.sources && n.sources.length > 0 && (
+                  <ul class="hnote-src">
+                    {n.sources.map((src) => (
+                      <li>{src}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })
+  }
+
+  {
+    literaryFraming && (
+      <div class="hframing">
+        <h3>Literary framing</h3>
+        <p>{literaryFraming}</p>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .hnotes {
+    margin: 34px 0 0;
+    background: var(--dove-parchment-2);
+    border: 1px solid var(--line-gold);
+    border-top: 3px solid var(--byz-deep);
+    border-radius: 4px;
+    padding: 26px 30px 28px;
+  }
+  .hnotes-head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 8px;
+  }
+  .hnotes-head h2 {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--byz-deep);
+    margin: 0;
+    white-space: nowrap;
+  }
+  .hnotes-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .hnotes-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    max-width: 68ch;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .hgroup {
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid rgba(168, 133, 42, 0.32);
+  }
+  .hgroup:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+  }
+  .hgroup-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--hn-ink);
+    margin: 0 0 12px;
+  }
+  .hgroup-mark {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+  }
+  .hgroup-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 23px;
+    display: grid;
+    gap: 14px;
+  }
+  .hnote-claim {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--byz-deep);
+    line-height: 1.35;
+    margin: 0 0 3px;
+    text-wrap: pretty;
+  }
+  .hnote-note {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 8px 0 0;
+    text-wrap: pretty;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .hnote-src {
+    list-style: none;
+    margin: 9px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 5px;
+  }
+  .hnote-src li {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .hnote-src li::before {
+    content: "— ";
+    color: var(--gold-deep);
+  }
+
+  /* The paper's voice is a device, and this says which parts of the article
+     are that device rather than record. It sits inside the Historian's Notes
+     because that is where a reader is already weighing what to trust. */
+  .hframing {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(35, 76, 122, 0.35);
+  }
+  .hframing h3 {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--celest);
+    margin: 0 0 8px;
+  }
+  .hframing p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ---- in the side column ---- */
+  .hnotes--compact {
+    margin: 0;
+    padding: 18px 18px 20px;
+  }
+  .hnotes--compact .hnotes-head h2 {
+    font-size: 20px;
+  }
+  .hnotes--compact .hnotes-lede {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .hnotes--compact .hgroup {
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  .hnotes--compact .hgroup-head {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    align-items: flex-start;
+    margin-bottom: 9px;
+  }
+  .hnotes--compact .hgroup-mark {
+    width: 11px;
+    height: 11px;
+    margin-top: 2px;
+  }
+  .hnotes--compact .hgroup-list {
+    padding-left: 0;
+    gap: 11px;
+  }
+  .hnotes--compact .hnote-claim {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .hnotes--compact .hnote-note {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .hnotes--compact .hnote-src li {
+    font-size: 11.5px;
+  }
+
+  @media (max-width: 640px) {
+    .hnotes {
+      padding: 20px 18px 22px;
+    }
+    .hnotes-head h2 {
+      font-size: 21px;
+    }
+  }
+</style>

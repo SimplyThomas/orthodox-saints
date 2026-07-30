@@ -509,11 +509,28 @@ const newsSaintRef = z.object({
   note: z.string().optional(),
 });
 
-const news = defineCollection({
-  loader: glob({ pattern: "**/*.yaml", base: "./src/content/news" }),
+// The Daily Dove's evidence scale, strongest first. Mirrors EVIDENCE_LIST in
+// src/lib/daily-dove.ts — the article page and the Historian's Notes read the
+// colours and labels from there.
+const evidenceLevel = z.enum([
+  "contemporary-source",
+  "contemporary-witness",
+  "orthodox-tradition",
+  "medieval-tradition",
+  "legend",
+]);
+
+const dailyDove = defineCollection({
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/daily-dove" }),
   schema: z.object({
-    id: z.string(), // slug, used for /news/[slug]
+    id: z.string(), // slug, used for /daily-dove/<slug>
     cat: z.string(),
+    // The century the account belongs to — keyed to its own dateline. Drives
+    // the century badge, the front-page filter, and the archive facet.
+    century: z.number().int().min(1).max(21),
+    // The strongest level the story as a whole rests on. Per-claim levels live
+    // in historiansNotes below, which is where the real accounting happens.
+    evidence: evidenceLevel,
     saint: newsSaintRef,
     headline: z.string(),
     date: z.string(),
@@ -521,6 +538,20 @@ const news = defineCollection({
     summary: z.string(),
     featured: z.boolean().optional().default(false),
     order: z.number(), // preserves the current NEWS array order
+    // Overrides the saint's name in the article metadata bar, for accounts
+    // whose subject is a body rather than a person ("The Fathers of the
+    // First Council").
+    saintLabel: z.string().optional(),
+    // The saints this dispatch is about, by OS-#### id. This is the join that
+    // puts a link on their /saint page — and it is by ID, never by name,
+    // because the names collide badly: Callinicus of Cernica is not Callinicus
+    // of Gangra, and there are five Barlaams and two Partheniuses in the data.
+    // Every id here must be verified against data/saints.csv (CLAUDE.md §6).
+    subjects: z.array(z.string().regex(/^OS-\d{4,}$/)).optional(),
+    // The feasts and fasts this dispatch belongs to, by FF-#### id. Same join
+    // discipline as `subjects`: by id, verified against data/feasts.csv. Puts
+    // the article on the feast's own page and on the calendar.
+    feasts: z.array(z.string().regex(/^FF-\d{4,}$/)).optional(),
     kicker: z.string().optional(),
     dek: z.string().optional(),
     plate: z.string().optional(),
@@ -528,7 +559,122 @@ const news = defineCollection({
     pullQuote: z
       .object({ text: z.string(), attribution: z.string() })
       .optional(),
-    caption: z.string().optional(),
+    // The edition line beneath the nameplate — where this dispatch was filed
+    // from, e.g. "Nicaea Edition".
+    edition: z.string().optional(),
+    // "By the Staff of The Daily Dove".
+    byline: z.string().optional(),
+    // The trailer at the foot of the article — what runs next edition.
+    comingUp: z
+      .array(z.object({ kicker: z.string().optional(), title: z.string() }))
+      .optional(),
+    // A major event is covered across several dispatches rather than one
+    // enormous article; `id` groups them and `part` orders them.
+    series: z
+      .object({
+        id: z.string(),
+        name: z.string(),
+        part: z.number().int().min(1),
+      })
+      .optional(),
+    // "Around the Empire" — what is happening elsewhere while the main story
+    // runs. `heading` renames it (Around the Kingdom, Around the Holy Land);
+    // `intro` carries a single paragraph where there are no city notes.
+    aroundTheEmpire: z
+      .object({
+        heading: z.string().optional(),
+        intro: z.string().optional(),
+        notes: z
+          .array(z.object({ city: z.string(), note: z.string() }))
+          .optional(),
+      })
+      .optional(),
+    // What the account reports the saint helping with — the "Miracles" facet,
+    // so a reader carrying a particular trouble can refine the paper by it.
+    // Keys into WONDER in src/lib/daily-dove.ts. Tag only what the account
+    // actually reports; an empty list is honest, a padded one is not.
+    miracles: z
+      .array(
+        z.enum([
+          "healing",
+          "suffering",
+          "protection",
+          "assault",
+          "purity",
+          "provision",
+          "courage",
+          "family",
+          "enemies",
+          "prayer",
+          "relics",
+        ]),
+      )
+      .optional(),
+    // A Q&A feature, for sources that are themselves first-person testimony.
+    // The questions are the paper's device; the answers come from the source.
+    interview: z
+      .array(z.object({ q: z.string(), a: z.array(z.string()).min(1) }))
+      .optional(),
+    // Why the Church remembers this — the standing closing note.
+    whyThisMatters: z.string().optional(),
+    // The paper's own editorial. `heading` defaults to "Editor's Notebook".
+    editorsNotebook: z
+      .object({
+        heading: z.string().optional(),
+        body: z.array(z.string()).min(1),
+      })
+      .optional(),
+    // The standing disclosure that the reporting voice is a device: which parts
+    // of the article are literary and not preserved in the sources. Rendered
+    // inside the Historian's Notes, where a reader is already weighing evidence.
+    literaryFraming: z.string().optional(),
+    // The standing departments this article runs. `kind` keys into DEPARTMENT
+    // in src/lib/daily-dove.ts; the template orders them by DEPARTMENT_ORDER.
+    departments: z
+      .array(
+        z.object({
+          kind: z.enum([
+            "forum",
+            "imperial",
+            "whispers",
+            "marketplace",
+            "fact-check",
+          ]),
+          title: z.string().optional(),
+          body: z.array(z.string()).optional(),
+          voices: z
+            .array(
+              z.object({
+                text: z.string(),
+                attribution: z.string().optional(),
+              }),
+            )
+            .optional(),
+          // A closing "Historical Note" weighing what the section reported.
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
+    // The closing accounting: each strand of the story against the level of
+    // evidence that actually carries it. Every finished Daily Dove article has
+    // this; it is optional only because the placeholder articles predate it.
+    historiansNotes: z
+      .object({
+        intro: z.string().optional(),
+        entries: z
+          .array(
+            z.object({
+              level: evidenceLevel,
+              claim: z.string(),
+              note: z.string().optional(),
+              sources: z.array(z.string()).optional(),
+            }),
+          )
+          .min(1),
+      })
+      .optional(),
+    // Standard headings: "Primary Sources", "Orthodox Sources",
+    // "Modern Academic Sources".
     sources: z
       .array(z.object({ h: z.string(), items: z.array(z.string()) }))
       .optional(),
@@ -536,4 +682,4 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { profiles, feasts, hosts, news, apocrypha };
+export const collections = { profiles, feasts, hosts, dailyDove, apocrypha };

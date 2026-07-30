@@ -1,0 +1,69 @@
+id: "callinicus-gangra"
+order: 11
+cat: "historical"
+century: 3
+evidence: "orthodox-tradition"
+edition: "Galatia Edition"
+byline: "By Our Correspondent in Ancyra"
+saint:
+  name: "Callinicus"
+  type: "Martyr"
+subjects:
+  - "OS-1599"
+saintLabel: "Callinicus, Martyr of Gangra"
+kicker: "Breaking"
+headline: "Condemned Preacher Gives Water to His Captors"
+date: "Circa AD 250 · During the Persecution of the Christians"
+location: "Ancyra, Galatia"
+dek: "A Christian prisoner bound for execution reportedly brings forth a spring in the barren wilderness — for the soldiers escorting him to the fire."
+summary: "Callinicus, a preacher from Cilicia, was driven on foot from Ancyra to Gangra in iron sandals lined with nails. When the soldiers guarding him ran out of water, they pleaded with the man whose suffering they were enforcing. According to the ancient account, he prayed, and water burst from a rock."
+body:
+  - "The road leading from Ancyra to Gangra has always been known for its unforgiving heat. Travelers prepare carefully before setting out, for once the city walls disappear behind them there is little shelter, little shade, and often little water."
+  - "Yesterday that lonely road became the setting for an event already being repeated from village to village across Galatia. The man at the center of the story was not a soldier or an imperial official. He was a condemned prisoner."
+  - "Callinicus, a Christian preacher originally from Cilicia, had spent years traveling through cities and villages proclaiming the Gospel of Jesus Christ. According to those who heard him, he was driven less by a desire to argue than by grief that so many people continued to worship idols without knowing the God he believed had come to save the world. His preaching won converts wherever he traveled, but it also drew the attention of Roman authorities determined to halt the spread of the Christian faith."
+  - "His arrest came in Ancyra, where Governor Sacerdonus, known for his severity toward Christians, ordered him brought to trial. Witnesses say the governor demanded only one thing: offer sacrifice to the gods, and your life will be spared. Callinicus declined."
+  - "Threats gave way to torture. His body was scourged with ox-hide whips until the flesh was torn. Iron hooks ripped into his back and shoulders, yet those present report that the prisoner neither cursed his executioners nor begged for mercy. Instead, he declared that suffering for Christ was no cause for fear, for the faithful receive strength in their trials and hope beyond death."
+  - "The governor, frustrated by the prisoner’s endurance, devised a more agonizing punishment. Iron sandals were fastened to Callinicus’s feet, each lined with sharp nails pointing inward. Rather than executing him immediately in Ancyra, Sacerdonus ordered that the wounded man be driven on foot to Gangra, where he would be burned alive. The journey itself became another instrument of torture."
+  - "As the procession crossed the dry countryside, the soldiers escorting the prisoner began to weaken under the relentless sun. Their water was exhausted, and no spring could be found. The men charged with guarding the condemned found themselves pleading with him for help."
+  - "The request might have seemed absurd. Why ask mercy from the man whose suffering you were enforcing? Yet according to the ancient account preserved by the Church, Callinicus did not refuse them. He prayed. Then, from a nearby rock, water burst forth."
+  - "The exhausted soldiers drank deeply. Their thirst was quenched, and astonishment replaced hostility. Some, moved by what they had witnessed, reportedly wished to release the man altogether. Fear of the punishment awaiting them, however, proved stronger than their sympathy. With evident reluctance, they resumed the march toward Gangra."
+  - "By the time they reached the city, the sentence could no longer be delayed. A great fire had been prepared. According to those who preserved the martyr’s memory, Callinicus did not have to be forced toward the flames. Having given thanks to God for counting him worthy to suffer for Christ, he entered the fire willingly. There he surrendered his life."
+  - "When the blaze had burned itself out, those who came to recover his remains found something they had not expected. Though the martyr had died, his body was said to have remained untouched by the flames. Christians reverently buried him, and news of both the miracle on the road and his steadfast witness soon spread throughout the surrounding provinces."
+  - "Empires often measure strength by the power to compel obedience. The memory of Callinicus tells a different story. Even while wearing iron shoes that tore into his flesh with every step, he chose to answer cruelty with mercy, offering life-giving water to the very men leading him toward death."
+pullQuote:
+  text: "Why ask mercy from the man whose suffering you were enforcing?"
+  attribution: "— On the road between Ancyra and Gangra"
+aroundTheEmpire:
+  intro: "Reports from several provinces indicate that local officials continue efforts to suppress Christian preaching. Despite these campaigns, travelers speak of Christian communities quietly growing in both cities and rural villages."
+departments:
+  - kind: "whispers"
+    title: "Whispers Along the Road"
+    body:
+      - "Travelers passing the route between Ancyra and Gangra have begun pointing to the spring associated with Callinicus’s final journey. Christians regard it as a sign of God’s mercy shown through His servant, while others remain skeptical of the reports."
+literaryFraming: "The descriptions of the landscape, the procession, and the narrative voice are literary devices intended to present the historical account as contemporary journalism. They are not preserved in the ancient sources."
+miracles:
+  - "provision"
+  - "enemies"
+  - "suffering"
+  - "courage"
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Callinicus was a native of Cilicia and preached Christ throughout the region."
+    - level: "orthodox-tradition"
+      claim: "He was arrested in Ancyra under Governor Sacerdonus."
+    - level: "orthodox-tradition"
+      claim: "He endured scourging, torture with iron hooks, and iron sandals lined with nails."
+    - level: "orthodox-tradition"
+      claim: "During the march to Gangra, he prayed and a spring of water flowed from a rock for the thirsty soldiers."
+    - level: "orthodox-tradition"
+      claim: "He was sentenced to be burned alive in Gangra."
+    - level: "orthodox-tradition"
+      claim: "According to the ancient tradition, his body remained unharmed by the flames after his martyrdom."
+sources:
+  - h: "Primary Orthodox Sources"
+    items:
+      - "Orthodox Church in America, Martyr Callinicus of Gangra in Asia Minor"
+  - h: "Traditional Orthodox Source"
+    items:
+      - "The Prologue of Ohrid, July 29"
