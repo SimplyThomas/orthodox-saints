@@ -1,0 +1,64 @@
+id: "spyridon-river-parts"
+order: 56
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Cyprus Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Floodwaters Recede Before Bishop Racing to Save Innocent Man"
+date: "In the Days of Bishop Spyridon"
+location: "Cyprus"
+dek: "Travellers report a swollen river opened a dry path after St Spyridon, hurrying to reach a condemned prisoner before sentence was carried out, refused to wait for the flood to fall."
+summary: "A bishop’s urgent journey to prevent what witnesses feared was the wrongful execution of an innocent man took an extraordinary turn at a crossing no one else would attempt."
+miracles:
+  - "protection"
+body:
+  - "A bishop’s urgent journey to prevent what witnesses feared would be the wrongful execution of an innocent man took an extraordinary turn yesterday when a river, swollen beyond its banks after days of heavy rain, reportedly opened a path for St Spyridon of Trimythous and his companion to cross."
+  - "The bishop had set out after receiving word that a prisoner faced imminent execution despite widespread claims of his innocence. Knowing that every hour mattered, Spyridon left at once, hoping to reach the authorities before the sentence could be carried out."
+  - "His route ended abruptly at a raging river."
+  - "Recent storms had turned a normally passable crossing into a torrent. Travelers had already abandoned hope of getting over, choosing instead to wait for the flood to subside."
+  - "Witnesses say Spyridon did not."
+  - "Standing at the river’s edge, the bishop raised his eyes in prayer and declared that no obstacle should prevent a journey undertaken for the sake of justice and mercy."
+  - "Those nearby report that, as he stepped forward, the waters drew back, leaving a dry passage where moments before the current had raged."
+  - "Spyridon and his companion crossed safely."
+  - "Onlookers remained on the opposite bank, watching in silence as the bishop continued his journey without pausing to look behind him."
+  - "Thanks to the crossing, Spyridon arrived before the sentence could be carried out. The tradition records that the prisoner’s life was spared, and that officials, shaken by the bishop’s arrival and by his reputation, agreed to reconsider the case."
+  - "For those who have since told the story, the wonder at the river is inseparable from what followed. The waters did not part to display power. They parted to hasten an act of mercy, and a man who was to have died that day did not."
+pullQuote:
+  text: "“He did not stop to see whether it would open. He walked at it.”"
+  attribution: "— A traveller waiting on the near bank"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Days of heavy rain have made several inland crossings impassable, and traffic along the roads to the provincial court has slowed to a halt. Travellers report waiting two and three days for the water to fall."
+departments:
+  - kind: "fact-check"
+    title: "Fact Check"
+    body:
+      - "Is this account meant to make Spyridon a second Moses? The parallels to the crossing of the Red Sea (Exodus 14) and of the Jordan (Joshua 3) are drawn deliberately by Orthodox writers, and have been for centuries."
+      - "But the tradition does not use them to elevate the saint. It uses them to say that the God who opened those waters is the same God, and that He opened this one for the sake of a condemned man nobody else was hurrying to save."
+literaryFraming: "The travellers on the bank, the quoted remark, the state of the roads, and the dateline reporting are literary devices. The underlying narrative — the journey to save a condemned man, the flooded river, the prayer and the crossing — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Spyridon learned that an innocent man was about to be executed and set out to intervene."
+      note: "Preserved in the traditional Life of St Spyridon. The account is consistent that the journey’s purpose, not the wonder along the way, is its subject."
+    - level: "orthodox-tradition"
+      claim: "A river swollen by heavy rain divided at the bishop’s prayer, allowing him and his companion to cross, and he reached the authorities in time."
+      note: "Orthodox writers have long noted the biblical parallels to Moses at the Red Sea and Joshua at the Jordan. The tradition’s purpose is not to portray Spyridon as a new Moses but to show God intervening when His servant acts out of love for justice and mercy. The event belongs to the saint’s longstanding hagiographical tradition rather than to contemporary documentation."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

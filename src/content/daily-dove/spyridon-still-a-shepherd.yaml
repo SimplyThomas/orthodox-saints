@@ -1,0 +1,70 @@
+id: "spyridon-still-a-shepherd"
+order: 63
+desk: "church-life"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-the-shepherd"
+  name: "The Shepherd Who Stayed a Shepherd"
+  part: 1
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Human Interest"
+headline: "Beloved Bishop Refuses to Give Up Shepherd’s Staff"
+date: "In the Days of Bishop Spyridon"
+location: "Trimythous, Cyprus"
+dek: "Despite a reputation now travelling across the empire, St Spyridon reportedly continues tending his own flock between pastoral duties."
+summary: "While bishops elsewhere are recognised by their attendants and processions, residents of Trimythous say theirs is more likely to be found walking behind a flock."
+miracles: []
+body:
+  - "While bishops elsewhere are often recognized by their attendants, their processions and their public standing, residents of Trimythous say theirs is more likely to be found walking behind a flock of sheep."
+  - "Years after being chosen to shepherd the Church, Bishop Spyridon continues to care for the animals he once tended as an ordinary farmer."
+  - "Visitors arriving in search of the renowned wonderworker are often surprised to find him repairing fences, leading sheep to pasture, or speaking with laborers in the fields rather than seated in a place of honor."
+  - "“It is difficult to know where the shepherd ends and the bishop begins,” one local resident remarked."
+  - "Those close to Spyridon say little changed after his election."
+  - "He continues to wear the simple woven cap that has become his unmistakable mark. His clothing remains plain, his home modest, and his day shaped as much by manual labor as by the business of the Church."
+  - "The contrast has grown sharper as pilgrims now travel from across the eastern empire seeking his prayers. Many arrive expecting a celebrated churchman and find instead a man carrying a staff."
+  - "According to those who know him, Spyridon sees no contradiction in it."
+  - "“The sheep still belong to God,” he reportedly tells those who ask why he keeps at the work."
+  - "Friends of the bishop say tending the flock reminds him that Christ Himself is the Good Shepherd, and that a bishop is first called to care for souls with the patience one shows a wandering animal."
+  - "It is not an idle comparison in this district. The work is unglamorous and mostly consists of walking: after strays, ahead of weather, back over ground already covered. A man who has done it for thirty years is unlikely to mistake a title for the job."
+  - "For the people of Cyprus, the image has become one of the defining memories of their bishop — a man whose reputation reached emperors without ever drawing him away from the ordinary work of serving both neighbor and flock."
+pullQuote:
+  text: "“It is difficult to know where the shepherd ends and the bishop begins.”"
+  attribution: "— A resident of Trimythous"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Trimythous is a small inland see, and the bishop’s household is reported to keep no attendants beyond what the work of the church requires. Visitors are advised to look for him in the fields before the residence."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I asked a man in the field where I might find the bishop. He put down the fencing and said, here.”"
+        attribution: "A pilgrim from the coast"
+      - text: "“He knows the animals by name. He knows us by name too.”"
+        attribution: "A labourer of the district"
+    note: "Historical Note: These voices are illustrative. The tradition records the saint’s manner of life, not the conversations of his neighbours."
+literaryFraming: "The visitors, the quoted residents and pilgrims, the note on the bishop’s household, and the dateline reporting are literary devices. The underlying portrait — a shepherd and farmer who continued to live with great simplicity after his consecration — is drawn from the Orthodox tradition surrounding St Spyridon."
+historiansNotes:
+  entries:
+    - level: "orthodox-tradition"
+      claim: "Spyridon was a shepherd and farmer before his consecration and continued to live with marked simplicity as bishop."
+      note: "Orthodox tradition consistently remembers this. Unlike many prominent church leaders of his era, he is described as retaining his manner of life after his election; his humility and refusal of worldly prestige are among the most consistently attested characteristics of his Life."
+    - level: "orthodox-tradition"
+      claim: "He continued personally tending sheep while serving as bishop."
+      note: "Individual anecdotes on the point vary between retellings. The broader portrait of a bishop who did not lay down manual work is stable across the tradition; the specific scenes are not documented events."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

@@ -1,0 +1,66 @@
+id: "spyridon-corfu-slippers"
+order: 71
+desk: "pilgrim"
+century: 21
+evidence: "contemporary-source"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Faith & Devotion"
+headline: "Church Replaces Saint’s Worn Slippers Once Again"
+date: "The Present Day"
+location: "Corfu, Greece"
+dek: "Clergy say the footwear adorning St Spyridon’s incorrupt relics continues to show signs of wear, renewing a custom beloved by pilgrims for centuries."
+summary: "The slippers have been changed again, and the old pair will be cut up and given away. How shoes worn by a man who reposed sixteen centuries ago wear out depends entirely on whom you ask."
+miracles:
+  - "relics"
+body:
+  - "The clergy of the Church of St Spyridon have once again replaced the slippers covering the feet of the island’s patron after they became visibly worn, continuing a custom that has endured for generations."
+  - "The simple velvet slippers, placed upon the incorrupt relics, are changed periodically as they become scuffed, creased and threadbare. The previous pair will now be carefully cut into small pieces and distributed to the faithful as blessings — a practice long cherished by Orthodox pilgrims visiting Corfu."
+  - "For many, however, the condition of the slippers raises a familiar question."
+  - "How do shoes worn by a saint who reposed more than sixteen centuries ago continue to wear out?"
+  - "The answer depends on whom you ask."
+  - "Pilgrims arriving from across the Orthodox world point to a tradition preserved on this island for centuries: that St Spyridon continues to intercede so actively for those who call upon him that he is mystically walking among the faithful — helping the sick, protecting sailors, comforting the suffering, delivering those in danger."
+  - "The clergy do not claim to explain it."
+  - "They invite visitors instead to see the worn slippers as a reminder that the saints remain living members of Christ’s Body and continue to pray for the Church after their earthly lives have ended."
+  - "It is worth separating carefully what is observed here from what is believed, because the shrine itself does. That the slippers wear and are periodically replaced is a matter of plain observation, and that the old pairs are cut and distributed is documented practice going back generations. That the wear comes from the saint’s own walking is the devotional reading the island has given it. The Church of Corfu offers the second without ever pretending it is the first."
+  - "Through the day, worshippers approached the shrine quietly, kissing the reliquary and offering prayers for the sick, for family hardships, for a decision that would not come. Many departed carrying a small fragment of the previous slippers — not as a charm, but as something to hold."
+  - "Whether one takes the worn footwear as an unexplained thing or as an image of ceaseless intercession, the replacement of the slippers has become among the most recognizable customs associated with this saint."
+  - "For countless pilgrims the message is simple. The shepherd of Trimythous has never stopped keeping his flock."
+pullQuote:
+  text: "“We do not explain the slippers. We only keep replacing them.”"
+  attribution: "— A clergyman of the shrine at Corfu"
+aroundTheEmpire:
+  heading: "Around the Island"
+  intro: "The shrine in the old town receives pilgrims year-round from across the Orthodox world, with the heaviest numbers around the saint’s feast on 12 December and the four annual processions."
+departments:
+  - kind: "fact-check"
+    title: "Fact Check"
+    body:
+      - "Are the distributed pieces of slipper regarded as relics in their own right? No. They are given and received as blessings — an object that has touched the shrine — which is a recognised category in Orthodox practice and a distinct one from the relics themselves."
+      - "Nor does the Church of Corfu teach that a fragment guarantees anything. What is asked for is the saint’s prayers, and the piece of cloth is a reminder to keep asking."
+literaryFraming: "The worshippers described here and the quoted clergyman are literary devices; the correspondent’s dateline is the paper’s standing conceit. The replacement of the slippers, the cutting and distribution of the old pairs, and the devotional tradition attached to them are documented features of the shrine."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "The slippers on the relics of St Spyridon are periodically replaced when worn, and the old pairs are cut into pieces and distributed to pilgrims as blessings."
+      note: "Both the replacement and the distribution are well-established, observable practices at the shrine on Corfu, where the incorrupt relics have been venerated since the fifteenth century."
+    - level: "orthodox-tradition"
+      claim: "The wear on the slippers is understood by many of the faithful as a sign of the saint’s continuing intercession — that he is mystically walking to help those who ask him."
+      note: "This interpretation belongs to the Church’s living devotional tradition rather than to any historical event that can be independently verified. Orthodox theology teaches that the saints remain alive in Christ and continue to intercede; the worn slippers are cherished as a visible expression of that belief."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu — longstanding liturgical and devotional tradition"
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "John Sanidopoulos, Mystagogy Resource Center — documentation of the Corfu tradition"

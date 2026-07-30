@@ -1,0 +1,75 @@
+id: "spyridon-granary-collapse"
+order: 53
+desk: "miracle-watch"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+series:
+  id: "spyridon-cyprus-famine"
+  name: "The Cyprus Famine"
+  part: 2
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Miracle Watch"
+headline: "Merchant’s Greed Exposed Overnight After Granary Bursts Open"
+date: "The Morning After the Storm"
+location: "Trimythous, Cyprus"
+dek: "Families gather scattered grain as the bishop’s warning against profiting from famine appears to come true — this dispatch follows the same night from the merchant’s door."
+summary: "One of the region’s wealthiest grain merchants awoke to find the storehouses he had kept shut throughout the famine broken open, their contents in the hands of the people he had refused to help."
+miracles:
+  - "provision"
+body:
+  - "One of the region’s wealthiest grain merchants awoke to disaster this morning after the storehouses he had kept tightly shut throughout the famine were found broken open, their contents scattered across the surrounding fields and into the hands of the very people he had refused to help."
+  - "The loss follows growing criticism of merchants accused of withholding grain while food shortages worsen across Cyprus."
+  - "Among those turned away in recent days was a local farmer who pleaded for enough wheat to keep his family alive. Witnesses say the merchant demanded payment in advance, refusing to release even a small portion of his considerable stores without immediate compensation."
+  - "With nowhere else to turn, the desperate man sought out Bishop Spyridon of Trimythous."
+  - "According to those present, the bishop expressed sorrow over the merchant’s hardened heart but urged the farmer not to despair."
+  - "“He who opens His hand and satisfies every living thing,” Spyridon reportedly said, “has not forgotten you.”"
+  - "That night, powerful storms swept across the countryside. By sunrise the merchant’s carefully guarded granary had collapsed. Walls that had protected his grain lay in heaps of broken stone and timber, while sacks of wheat had burst open, spilling their contents beyond recovery."
+  - "Word spread quickly."
+  - "Before laborers could reclaim the grain, hungry families arrived from every direction, gathering what they needed from the scattered harvest. Among them was the same farmer who had left the merchant’s door empty-handed the previous day."
+  - "Witnesses report that Bishop Spyridon encouraged the poor to take enough for their households, reminding them that food was given by God to preserve life, not to enrich those who would profit from another’s suffering."
+  - "The merchant has said nothing publicly, though neighbors say he has been left to reckon not only with his loss but with the growing conviction in the town that his downfall followed directly upon his refusal to show mercy."
+  - "Whether the collapse is read as judgment or as providence, it has become the most discussed event in Trimythous — with many observing that the grain accomplished its intended purpose only once it could no longer be hoarded."
+pullQuote:
+  text: "“The walls held against every storm for twenty years. They held until last night.”"
+  attribution: "— A neighbour of the merchant, surveying the ruin"
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  notes:
+    - city: "The Ruined Granary"
+      note: "Labourers spent the morning recovering what timber could be salvaged. Of the grain itself, little was left to gather by midday."
+    - city: "Trimythous"
+      note: "Bakers report that ovens were lit across the town for the first time in weeks."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“I do not rejoice at his ruin. But my children ate today.”"
+        attribution: "A mother, carrying wheat from the fields"
+      - text: "“Let no one say God struck him. God opened a door the man had bolted.”"
+        attribution: "An elderly resident, outside the church"
+literaryFraming: "The merchant’s neighbours, the quoted residents, the bakers’ report and the dateline reporting are literary devices, as is the choice to file the same night from the merchant’s side of the story. The underlying narrative is drawn from the traditional Life of St Spyridon; no contemporary account of the event survives."
+historiansNotes:
+  intro: "This dispatch covers the same night as the preceding one in this series, from the merchant’s side. Both rest on the same tradition."
+  entries:
+    - level: "orthodox-tradition"
+      claim: "The merchant’s granary collapsed in a storm and the grain was taken by the poor after he had refused to sell to them."
+      note: "Preserved in the traditional Life of St Spyridon and in the Orthodox Synaxaria. The emphasis of the tradition is not the merchant’s loss but God’s care for the hungry and the spiritual danger of valuing wealth above mercy. It is not attested in contemporary historical records."
+    - level: "orthodox-tradition"
+      claim: "Spyridon told the poor to take what they needed from the scattered grain."
+      note: "The instruction is part of the received account. The tradition is careful that the bishop neither predicted nor claimed the collapse; he had counselled trust, and left the outcome to God."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

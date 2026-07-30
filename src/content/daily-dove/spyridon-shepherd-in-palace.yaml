@@ -1,0 +1,90 @@
+id: "spyridon-shepherd-in-palace"
+order: 59
+desk: "imperial"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Antioch Edition"
+byline: "By Our Correspondent at the Imperial Court"
+series:
+  id: "spyridon-and-the-emperor"
+  name: "The Bishop and the Emperor"
+  part: 2
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Imperial Dispatch"
+headline: "Simple Shepherd Walks Into Palace, Walks Out After Healing Emperor"
+date: "In the Reign of Constantius II (337–361)"
+location: "Antioch, Syria"
+dek: "Imperial guards reportedly mistook the plainly dressed bishop for a beggar before Emperor Constantius ordered him brought into the royal chamber."
+summary: "Palace attendants expecting an influential bishop from Cyprus were met instead by a weathered shepherd in coarse wool and a woven cap. This dispatch follows the same visit from the palace steps."
+miracles:
+  - "healing"
+body:
+  - "Palace attendants expecting an influential bishop from Cyprus were met instead by a weathered shepherd wearing coarse wool garments and the simple woven cap for which he has become known throughout his island."
+  - "That man was Spyridon of Trimythous."
+  - "The bishop arrived at the imperial palace after Emperor Constantius II requested his prayers during a serious illness that had resisted every treatment the empire’s physicians could offer."
+  - "The contrast could scarcely have been greater."
+  - "Marble halls lined with polished columns, silk-clad officials, gilded armor and elaborate ceremony gave way to the footsteps of a man who had spent much of his life tending sheep before being chosen to shepherd Christ’s flock."
+  - "One palace servant reportedly failed to recognize the visitor’s standing and struck him, assuming the plainly dressed traveler had wandered where he did not belong."
+  - "Witnesses say Spyridon neither protested nor defended himself. He endured the insult in silence."
+  - "When word reached the emperor that the bishop had arrived, Constantius ordered him brought into the royal chamber at once."
+  - "There, according to the account, Spyridon offered neither medical advice nor political counsel. He stood beside the emperor, prayed, and placed his hand upon the ruler."
+  - "The emperor’s condition reportedly improved immediately."
+  - "Members of the court who had watched physicians exhaust every available remedy now saw the sovereign rise from his bed after the prayers of a man who possessed neither wealth nor earthly influence."
+  - "The irony was not lost on those in attendance. The emperor who commands legions across the Roman world had summoned a bishop whose most recognizable possession is the woven cap he refuses to exchange for anything finer."
+  - "After expressing his gratitude, Constantius reportedly offered gifts worthy of the imperial court. The Church’s memory is that Spyridon accepted only what could benefit others, distributing much of what he received to the poor before returning quietly to Cyprus."
+  - "By the time he departed, the shepherd looked much the same as when he had arrived. Only the emperor had changed."
+pullQuote:
+  text: "“He was struck at the door and said nothing. An hour later the emperor stood up.”"
+  attribution: "— An official present at the palace"
+aroundTheEmpire:
+  notes:
+    - city: "The Palace Steps"
+      note: "Attendants report that the visitor gave no name and made no complaint after the blow, waiting where he had been left until an official recognised who had been sent for."
+    - city: "The Treasury"
+      note: "Gifts prepared for the departing bishop are said to have been largely redirected, at his own request, to the relief of the poor."
+departments:
+  - kind: "forum"
+    voices:
+      - text: "“We took him for a countryman come to beg at the wrong gate.”"
+        attribution: "A palace servant"
+      - text: "“He wore what he wears at home. That was the whole of the offence.”"
+        attribution: "A member of the bishop’s party"
+  - kind: "fact-check"
+    title: "Fact Check"
+    body:
+      - "Did the servant who struck the bishop suffer for it? Not in the tradition. Spyridon is remembered for enduring the blow without answer — the point of the episode — and no version known to us punishes the man who dealt it."
+editorsNotebook:
+  body:
+    - "A paper covering the palace learns to measure a visitor by his escort. This one arrived without one and was handled accordingly."
+    - "It is worth saying plainly what the court found so difficult to read: nothing about the man changed between the blow at the door and the summons to the chamber. Only what the palace knew about him did."
+literaryFraming: "The palace servants and officials quoted here, the notes from the steps and the treasury, and the dateline reporting are literary devices, as is the decision to file the same visit twice from two vantage points. The underlying narrative — the bishop’s plain dress, the servant’s blow, the healing and the redistribution of the emperor’s gifts — is drawn from the traditional Life of St Spyridon."
+historiansNotes:
+  intro: "This dispatch covers the same visit as the preceding one in this series, from outside the emperor’s chamber."
+  entries:
+    - level: "contemporary-source"
+      claim: "Constantius II ruled the eastern Roman Empire during Spyridon’s lifetime."
+      note: "The historical setting of the encounter is well established, whatever is made of the healing."
+    - level: "orthodox-tradition"
+      claim: "A palace servant, judging Spyridon by his appearance, struck him before realising whom he had struck."
+      note: "Several versions of the tradition preserve the episode. Orthodox writers have long pointed to it as an illustration of Christ’s teaching that greatness is found in holiness and humility rather than in status."
+    - level: "orthodox-tradition"
+      claim: "Spyridon healed the emperor by prayer and gave away the gifts offered him in return."
+      note: "Transmitted through Orthodox hagiographical sources for centuries. The miraculous details are not independently attested by surviving contemporary sources."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — Life of St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
+  - h: "Modern Academic Sources"
+    items:
+      - "Standard historical accounts of the reign of Constantius II (337–361)"

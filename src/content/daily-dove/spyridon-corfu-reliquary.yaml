@@ -1,0 +1,71 @@
+id: "spyridon-corfu-reliquary"
+order: 72
+desk: "pilgrim"
+century: 21
+evidence: "contemporary-source"
+edition: "Corfu Edition"
+byline: "By Our Correspondent on Corfu"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Faith & Devotion"
+headline: "Church Opens Reliquary as Pilgrims Gather to Venerate St Spyridon"
+date: "The Present Day"
+location: "Corfu, Greece"
+dek: "Pilgrims speak of warmth, of suppleness, and of a saint they believe has never ceased interceding — while the clergy of the shrine decline every sensational explanation offered them."
+summary: "As the silver reliquary was opened for veneration this week, pilgrims gathered around one of the Orthodox world’s most revered relics. Sixteen centuries on, the shepherd of Trimythous still draws a queue."
+miracles:
+  - "relics"
+body:
+  - "As the clergy carefully opened the silver reliquary of St Spyridon for veneration this week, pilgrims once again gathered around one of the Orthodox world’s most revered relics."
+  - "For centuries the body of the fourth-century bishop has stood at the heart of this island’s spiritual life, drawing visitors from around the world who come seeking the prayers of the shepherd of Trimythous."
+  - "Many leave with the same impression."
+  - "“He does not seem like someone who has been at rest for sixteen centuries,” one pilgrim remarked quietly after venerating the relics."
+  - "It has long been observed among the faithful that the body appears supple rather than rigid. Clergy serving the shrine have likewise preserved the tradition that the relics retain an unexpected softness, and that observation has contributed to the devotion surrounding the saint as much as any single wonder attributed to him."
+  - "There is another custom here that has become equally well known."
+  - "When the reliquary proves unexpectedly difficult to open, many locals smile and repeat a familiar saying."
+  - "“The saint isn’t here today.”"
+  - "According to the island’s tradition, St Spyridon hastens to those who ask his prayers and returns when his unseen work is finished. The saying is offered with affection rather than as a claim, and it reflects the conviction of generations of Corfiots that their patron has never ceased caring for his people."
+  - "The clergy themselves avoid sensational explanations, and they are asked for them constantly."
+  - "They invite pilgrims instead to see the relics as a testimony to the communion of the saints — the Church’s belief that those who have fallen asleep in Christ are alive in Him and continue to pray for the faithful."
+  - "Through the day, worshippers approached the shrine with prayers for healing, for reconciliation, for strength. Some left carrying small icons or a fragment of blessed slipper. Others simply stayed a while in front of the reliquary and said nothing at all."
+  - "For them the greatest wonder was not whether the body felt warm, or whether the shrine opened easily."
+  - "It was the confidence that the shepherd who once walked the hills of Cyprus still prays before the throne of God — which is where this long series of dispatches has been heading since a farmer in Trimythous first came to a bishop with nothing to offer and was sent home with a snake turned to gold."
+pullQuote:
+  text: "“He does not seem like someone who has been at rest for sixteen centuries.”"
+  attribution: "— A pilgrim, after venerating the relics"
+whyThisMatters: "This is the last dispatch in the paper’s St Spyridon file, and it ends deliberately without a wonder. The Orthodox conviction underneath every story in the series is not that a fourth-century bishop performed remarkable acts, but that death did not end his ministry — and a queue of ordinary people at a reliquary on a Tuesday says that more plainly than any miracle report could."
+aroundTheEmpire:
+  heading: "Around the Island"
+  intro: "The shrine stands in the narrow streets of the old town and is open through the day. The relics are also venerated at the four annual processions and on the saint’s feast, 12 December."
+departments:
+  - kind: "whispers"
+    title: "Whispers at the Shrine"
+    body:
+      - "Visitors trade accounts of warmth felt at the reliquary, and of the lid that would not lift on a particular morning. The stories are told gently and are meant kindly."
+      - "The shrine neither confirms nor collects them. They belong to the devotional life of the place rather than to its record, and the clergy are notably careful not to let a good story do the work that prayer is meant to do."
+    note: "Historical Note: Devotional testimony, not documented phenomena."
+literaryFraming: "The pilgrims and the quoted visitor are literary devices, as is the correspondent’s dateline. The opening of the reliquary for veneration, the customs described, and the sayings attached to them are documented features of the shrine on Corfu."
+historiansNotes:
+  entries:
+    - level: "contemporary-source"
+      claim: "The incorrupt relics of St Spyridon are preserved on Corfu and are publicly venerated, the reliquary being opened for veneration."
+      note: "The relics have been kept on the island since the fifteenth century and remain among the most venerated in the Orthodox Church. The practice of opening the reliquary is ongoing and documented."
+    - level: "orthodox-tradition"
+      claim: "Clergy and pilgrims have described the relics as unusually supple, and many visitors have reported warmth."
+      note: "These observations belong to the shrine’s longstanding devotional tradition and are reported by many witnesses. They have not been subjected to scientific investigation and are not formally defined by the Church."
+    - level: "orthodox-tradition"
+      claim: "When the reliquary is difficult to open, the saint is said to be “away helping someone.”"
+      note: "A beloved Corfiot saying that expresses the island’s confidence in the saint’s continuing intercession. It is not a doctrinal claim about the physical movement of the relics, and local traditions of this kind are received with reverence while being distinguished from the Church’s dogmatic teaching."
+sources:
+  - h: "Orthodox Sources"
+    items:
+      - "Church of St Spyridon, Corfu"
+      - "Holy Metropolis of Corfu and Paxoi"
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"

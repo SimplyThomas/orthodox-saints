@@ -1,0 +1,67 @@
+id: "spyridon-relics-incorrupt"
+order: 65
+desk: "church-life"
+century: 4
+evidence: "orthodox-tradition"
+edition: "Trimythous Edition"
+byline: "By Our Correspondent in Cyprus"
+saint:
+  name: "Spyridon"
+  type: "Hierarch"
+  epithet: "the Wonderworker"
+subjects:
+  - "OS-0020"
+saintLabel: "Spyridon, Bishop of Trimythous"
+kicker: "Church News"
+headline: "Tomb Opened, Bishop’s Body Found Remarkably Preserved"
+date: "Some Years After the Repose of the Bishop"
+location: "Trimythous, Cyprus"
+dek: "Clergy and faithful report that years after his repose, the body of St Spyridon shows none of the decay the grave ordinarily works."
+summary: "Those gathered to open the bishop’s tomb made a discovery that has astonished the faithful across Cyprus — and clergy are careful about what they will and will not conclude from it."
+miracles:
+  - "relics"
+body:
+  - "Years after the repose of Bishop Spyridon of Trimythous, those gathered to open his tomb made a discovery that has astonished the faithful throughout Cyprus."
+  - "The bishop’s body was found remarkably preserved, showing none of the ordinary signs of corruption expected after so long in the grave."
+  - "Word spread quickly among the neighboring churches, where many have taken the preservation of the relics as a visible testimony to the holiness of the shepherd who spent his life caring for the poor, defending the Orthodox faith at the great council, and interceding for the people who came to him."
+  - "Clergy have been careful in what they claim. The incorrupt state of the bishop’s body is not being treated as a curiosity, nor as a proof, but as a cause for thanksgiving to God."
+  - "That reserve is deliberate, and it reflects the Church’s settled teaching: incorruption is not by itself evidence of sanctity. It is understood as one of several signs by which God may choose to honor a holy man or woman, and the Church does not reason backward from the sign to the verdict."
+  - "Pilgrims have nevertheless begun traveling to pray at the tomb, seeking the intercessions of a bishop whose earthly ministry has ended but whose care for the Church, many believe, has not."
+  - "Reports of prayers answered have multiplied, and devotion to the saint continues to spread beyond the island."
+  - "The preservation of these relics may in time prove providential in a way no one now gathered at the tomb intends. A body that does not decay is a body that can be carried, and Cyprus is not a peaceful island in every generation."
+  - "For many of the faithful, the quiet witness of this tomb speaks as clearly as the wonders that marked the bishop’s lifetime. Even in death, the shepherd has not left the flock."
+pullQuote:
+  text: "“It is not a proof. It is a mercy, and we will thank God for it as one.”"
+  attribution: "— A member of the clergy, at the opening of the tomb"
+whyThisMatters: "What was found in this tomb determined the whole later history of the saint’s veneration. Because the relics were preserved, they could be moved — first to Constantinople as Arab incursions reached Cyprus in the seventh century, and then to Corfu after the fall of the capital in 1453, where they remain and where the island still keeps four processions a year in their honour."
+aroundTheEmpire:
+  heading: "Around Cyprus"
+  intro: "Trimythous has begun receiving visitors from the coastal towns who had known the bishop only by report. The small church that holds the tomb is said to be unequal to the numbers now arriving on the days of commemoration."
+departments:
+  - kind: "whispers"
+    title: "Whispers Around the Tomb"
+    body:
+      - "Accounts of what exactly was seen when the tomb was opened have already begun to differ in the retelling, and they will differ further."
+      - "The earliest surviving sources do not give a detailed contemporary description of the opening. What survives is the settled memory of the Church that the body was found incorrupt — which is a different kind of witness, and should be received as one."
+literaryFraming: "The gathering at the tomb, the quoted clergyman, the reports of visitors, and the dateline reporting are literary devices. The account of the finding itself is drawn from later Orthodox tradition rather than from any contemporary description."
+historiansNotes:
+  entries:
+    - level: "medieval-tradition"
+      claim: "The tomb of St Spyridon was opened some years after his repose and his body was found incorrupt."
+      note: "The earliest surviving sources do not provide a detailed contemporary account of the opening of the tomb. Later Orthodox tradition consistently records that the body was found incorrupt, and this is the form in which the event reaches us."
+    - level: "contemporary-source"
+      claim: "The relics were removed from Cyprus to Constantinople following the Arab incursions of the seventh century, and taken to Corfu after the fall of the city in 1453."
+      note: "The translations are part of the documented history of the relics, which are among the most famous in Christendom and are today venerated in the Church of St Spyridon on Corfu."
+    - level: "orthodox-tradition"
+      claim: "Orthodox theology does not regard incorruption as proof of sainthood."
+      note: "It is understood as one of several possible signs by which God may honour certain holy men and women — a point the Church has been consistent about, and one worth stating wherever incorrupt relics are reported."
+sources:
+  - h: "Primary Sources"
+    items:
+      - "The Life of St Spyridon of Trimythous (traditional Greek hagiography)"
+  - h: "Orthodox Sources"
+    items:
+      - "The Great Synaxaristes (Greek Orthodox tradition)"
+      - "Church of St Spyridon, Corfu — historical tradition regarding the relics"
+      - "Orthodox Church in America — St Spyridon the Wonderworker"
+      - "Greek Orthodox Archdiocese of America — St Spyridon the Wonderworker"
