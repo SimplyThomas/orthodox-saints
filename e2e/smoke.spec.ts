@@ -191,10 +191,11 @@ test("quiz walks one question per screen to a circle of companions", async ({
   expect(await chip.getAttribute("href")).toContain(`${BASE}search?`);
 });
 
-test("about page tells the story; the footer carries the project contact", async ({
+test("Our Story tells the story; the footer carries the project contact", async ({
   page,
 }) => {
-  const resp = await page.goto("./about/");
+  // The article moved off /about when that became the About hub.
+  const resp = await page.goto("./our-story/");
   expect(resp?.status()).toBe(200);
   await expect(page.locator(".ab-hero h1")).toHaveText("Our Story");
   // The conversation is now folded into the story as a numbered movement
@@ -604,6 +605,71 @@ test("a saint with no dispatch shows no Daily Dove band", async ({ page }) => {
   await expect(page.locator(".dove-band")).toHaveCount(0);
 });
 
+test("the top nav is the six-item structure", async ({ page }) => {
+  await page.goto("./");
+  const top = page.locator("header nav > *");
+  await expect(top).toHaveCount(6);
+  const labels = (await top.allInnerTexts()).map((t) =>
+    t.split("\n")[0].trim(),
+  );
+  expect(labels).toEqual([
+    "Home",
+    "Explore",
+    "Church Year",
+    "Orthodox Living",
+    "The Daily Dove",
+    "About",
+  ]);
+});
+
+test("hub pages own their families in the nav highlight", async ({ page }) => {
+  // A deep hosts page lights Explore › Heavenly Hosts via `alsoActive`, with no
+  // edit to the page itself — the guard against those drifting apart.
+  for (const [url, href] of [
+    ["./nine-orders/", "/heavenly-hosts"],
+    ["./guardian-angels/", "/heavenly-hosts"],
+    ["./america/", "/collections"],
+  ] as const) {
+    await page.goto(url);
+    await expect(page.locator("header nav a.active")).toHaveAttribute(
+      "href",
+      href,
+    );
+  }
+});
+
+test("the three landing hubs read as one family", async ({ page }) => {
+  for (const [url, heading, minCards] of [
+    ["./collections/", "Collections", 1],
+    ["./heavenly-hosts/", "The Heavenly Hosts", 6],
+    ["./about/", "About Orthodox Saint Finder", 8],
+  ] as const) {
+    const resp = await page.goto(url);
+    expect(resp?.status()).toBe(200);
+    await expect(page.locator(".hosts-title")).toHaveText(heading);
+    expect(await page.locator(".hub-card").count()).toBeGreaterThanOrEqual(
+      minCards,
+    );
+    // Every card is a real link, not a placeholder.
+    for (const c of await page.locator(".hub-card").all())
+      expect(await c.getAttribute("href")).toBeTruthy();
+  }
+
+  // Collections names what is coming, so one card does not read as empty.
+  await page.goto("./collections/");
+  expect(await page.locator(".hub-planned-grid li").count()).toBeGreaterThan(5);
+});
+
+test("Our Story moved off /about, which is now the hub", async ({ page }) => {
+  await page.goto("./our-story/");
+  expect((await page.title()).length).toBeGreaterThan(0);
+  await page.goto("./about/");
+  await expect(page.locator(".hub-card").first()).toHaveAttribute(
+    "href",
+    "/our-story",
+  );
+});
+
 test("the calendar offers the paper beneath the key", async ({ page }) => {
   await page.goto("./calendar/");
   const card = page.locator("#cal-dove");
@@ -859,7 +925,7 @@ test("on mobile the nav collapses into a hamburger dropdown", async ({
   // "The Calendar" without leaving the menu.
   const calendar = page.locator(".nav-menu a", { hasText: "The Calendar" });
   await expect(calendar).toBeHidden();
-  await page.getByRole("button", { name: /The Church Year/ }).click();
+  await page.getByRole("button", { name: /Church Year/ }).click();
   await expect(calendar).toBeVisible();
   // Escape collapses the whole panel.
   await page.keyboard.press("Escape");

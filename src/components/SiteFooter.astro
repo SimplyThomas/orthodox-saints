@@ -8,9 +8,10 @@ import { withBase } from "../lib/format";
 // via the brand wordmark above.) A top-level direct link with no dropdown would
 // otherwise become a lonely single-link column, so instead we fold it into a
 // sibling column's link list rather than give it its own heading — currently
-// Parish Resources joins "The Orthodox Home".
+// The Daily Dove joins "Church Year", the calendar being where the paper is
+// offered on the site itself.
 const FOOTER_FOLD: Record<string, string> = {
-  "parish-resources": "little-church",
+  "daily-dove": "church-year",
 };
 const cols = NAV.filter(
   (item) => item.key !== "home" && !(item.key in FOOTER_FOLD),

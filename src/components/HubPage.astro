@@ -1,0 +1,337 @@
+---
+/* A landing page: hero, a short introduction, and a grid of cards.
+
+   Shared by Collections, Heavenly Hosts and About so the three read as one
+   family rather than three separately-invented pages, and so the next hub is a
+   data change instead of a design job.
+
+   `planned` cards are the point of the thing. A hub with one card looks
+   unfinished; a hub with one card and a named list of what is coming looks
+   deliberate, and tells a visitor the section is being built rather than
+   abandoned. They are rendered unlinked and plainly marked. */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DomeMark from "./icons/DomeMark.astro";
+import EyebrowRule from "./EyebrowRule.astro";
+import { withBase } from "../lib/format";
+
+export interface HubCard {
+  label: string;
+  href: string;
+  blurb: string;
+  /** small line above the label — a count, a category, a dateline */
+  eyebrow?: string;
+  /** small line under the blurb — "6 named angels", "12 saints" */
+  meta?: string;
+}
+
+interface Props {
+  active: string;
+  title: string;
+  eyebrow: string;
+  lede: string;
+  /** running prose beneath the hero, before the cards */
+  intro?: string[];
+  cards: HubCard[];
+  /** heading above the live cards, when a `planned` list follows */
+  cardsHeading?: string;
+  /** named but not yet built — rendered unlinked and marked */
+  planned?: { label: string; blurb?: string }[];
+  plannedHeading?: string;
+  plannedNote?: string;
+  description?: string;
+}
+const {
+  active,
+  title,
+  eyebrow,
+  lede,
+  intro = [],
+  cards,
+  cardsHeading,
+  planned = [],
+  plannedHeading = "In preparation",
+  plannedNote,
+  description,
+} = Astro.props;
+---
+
+<BaseLayout active={active} title={title} description={description ?? lede}>
+  <div class="wrap hub">
+    <header class="hosts-hero">
+      <div class="dome-bg" aria-hidden="true">
+        <DomeMark w={460} color="var(--byz)" />
+      </div>
+      <div class="hosts-hero-inner">
+        <EyebrowRule label={eyebrow} />
+        <h1 class="hosts-title">{title}</h1>
+        <p class="hosts-lede">{lede}</p>
+      </div>
+    </header>
+
+    {
+      intro.length > 0 && (
+        <section class="hub-intro">
+          {intro.map((p) => (
+            <p>{p}</p>
+          ))}
+        </section>
+      )
+    }
+
+    {
+      cardsHeading && (
+        <div class="hub-secthead">
+          <span class="eyebrow">{cardsHeading}</span>
+          <span class="hub-ln" aria-hidden="true" />
+        </div>
+      )
+    }
+
+    <div class="hub-grid">
+      {
+        cards.map((c) => (
+          <a class="hub-card" href={withBase(c.href)}>
+            {c.eyebrow && <span class="hub-card-eb">{c.eyebrow}</span>}
+            <h2>{c.label}</h2>
+            <p>{c.blurb}</p>
+            <span class="hub-card-foot">
+              {c.meta && <span class="hub-card-meta">{c.meta}</span>}
+              <span class="hub-card-cue">
+                Open
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      planned.length > 0 && (
+        <section class="hub-planned">
+          <div class="hub-secthead">
+            <span class="eyebrow">{plannedHeading}</span>
+            <span class="hub-ln" aria-hidden="true" />
+          </div>
+          {plannedNote && <p class="hub-planned-note">{plannedNote}</p>}
+          <ul class="hub-planned-grid" role="list">
+            {planned.map((p) => (
+              <li>
+                <span class="hub-planned-label">{p.label}</span>
+                {p.blurb && <span class="hub-planned-blurb">{p.blurb}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  /* Matches the other hub pages (/nine-orders, /guardian-angels,
+     /extra-biblical-angels), which each define .wrap page-scoped. */
+  .wrap {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+  /* Page hero — the shared hosts-hero treatment. Scoped styles do not reach a
+     child component's markup, so the hero rules live here rather than being
+     inherited from whichever page happened to define them. */
+  .hosts-hero {
+    position: relative;
+    text-align: center;
+    padding: var(--hero-pad-top) 0 26px;
+    overflow: hidden;
+  }
+  .hosts-hero .dome-bg {
+    opacity: 0.07;
+  }
+  .hosts-hero-inner {
+    position: relative;
+  }
+  .hosts-title {
+    font-size: var(--page-title-size);
+    color: var(--byz-deep);
+    line-height: 1;
+    margin: 14px 0 14px;
+    font-weight: 600;
+  }
+  .hosts-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--page-lede-size);
+    color: var(--celest);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .hub-intro {
+    max-width: 74ch;
+    margin: 0 auto 34px;
+  }
+  .hub-intro p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin: 0 0 14px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .hub-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .hub-secthead {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+  }
+  .hub-ln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+
+  /* auto-fit, so one card does not stretch across the page and the grid keeps
+     its shape as collections are added */
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .hub-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--byz);
+    border-radius: 5px;
+    padding: 22px 24px 20px;
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  .hub-card:hover {
+    border-top-color: var(--gold);
+    box-shadow: var(--shadow-card);
+  }
+  .hub-card-eb {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    margin-bottom: 8px;
+  }
+  .hub-card h2 {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--byz-deep);
+    line-height: 1.12;
+    margin: 0 0 9px;
+    text-wrap: balance;
+  }
+  .hub-card:hover h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .hub-card p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .hub-card-foot {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 16px;
+    flex-wrap: wrap;
+  }
+  .hub-card-meta {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .hub-card-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--byz);
+  }
+
+  /* ---- named but not yet built ---- */
+  .hub-planned {
+    margin-top: 44px;
+  }
+  .hub-planned-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 74ch;
+  }
+  .hub-planned-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .hub-planned-grid li {
+    display: grid;
+    gap: 3px;
+    background: var(--paper);
+    border: 1px dashed var(--line-gold);
+    border-radius: 5px;
+    padding: 14px 16px;
+  }
+  .hub-planned-label {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--celest);
+    line-height: 1.2;
+  }
+  .hub-planned-blurb {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 560px) {
+    .hub-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

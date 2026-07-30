@@ -1,0 +1,84 @@
+---
+/* Collections — the landing page for curated sets of saints.
+   One collection exists today (Saints of America), so the page names the ones
+   being prepared as well. A hub with a single card looks broken; a hub with a
+   single card and a named roadmap looks like a section under construction,
+   which is the truth. Adding a collection is a card in `cards` below. */
+import HubPage from "../components/HubPage.astro";
+import type { HubCard } from "../components/HubPage.astro";
+import { SAINTS } from "../lib/data";
+
+// Live count so the card reports the real size of the collection.
+const americaCount = SAINTS.filter((s) =>
+  (s.tradition ?? []).some((t) => /america/i.test(t)),
+).length;
+
+const cards: HubCard[] = [
+  {
+    label: "Saints of America",
+    href: "america",
+    eyebrow: "The first collection",
+    blurb:
+      "The saints of the North American Church — the Alaskan mission, the martyrs and missionaries, and the hierarchs who planted Orthodoxy on this continent.",
+    meta: americaCount > 0 ? `${americaCount} saints` : undefined,
+  },
+];
+
+// Named, not yet built. Each is a real cut of the existing data rather than an
+// aspiration: the facets these would draw on are already in data/saints.csv.
+const planned = [
+  {
+    label: "Women Saints",
+    blurb: "Martyrs, matriarchs, abbesses, and the myrrh-bearers.",
+  },
+  {
+    label: "Child Saints",
+    blurb: "The young who confessed Christ, and those who died for Him.",
+  },
+  {
+    label: "Wonderworkers",
+    blurb: "Those through whose prayers God has worked signs.",
+  },
+  {
+    label: "Desert Fathers & Mothers",
+    blurb: "The ascetics of Egypt, Palestine, and Syria.",
+  },
+  {
+    label: "New Martyrs",
+    blurb: "Those who suffered under the Ottomans and the Soviets.",
+  },
+  {
+    label: "Physician Saints",
+    blurb: "The unmercenaries who healed and took no payment.",
+  },
+  {
+    label: "Military Saints",
+    blurb: "Soldiers and commanders who confessed Christ in the ranks.",
+  },
+  {
+    label: "Monastic Saints",
+    blurb: "Founders, abbots, hesychasts, and fools for Christ.",
+  },
+  {
+    label: "Missionaries & Enlighteners",
+    blurb: "Those who carried the faith to peoples who had not heard it.",
+  },
+];
+---
+
+<HubPage
+  active="collections"
+  eyebrow="Curated Sets"
+  title="Collections"
+  lede="Ways into the communion of saints, gathered by calling, place, and life."
+  description="Curated collections of Orthodox saints — gathered by calling, place, and life, beginning with the Saints of America."
+  intro={[
+    "There are more than two thousand saints in this database, which is a difficult number to meet all at once. A collection is a smaller door: a set of saints gathered because they shared a calling, a country, a manner of life, or a way of suffering — small enough to read through, and coherent enough to be worth reading.",
+    "Each collection stands on the same facets that drive the rest of the site, so nothing here is a separate list to be maintained by hand. As those facets fill out across the database, the collections drawn from them get better.",
+  ]}
+  cardsHeading="Open now"
+  cards={cards}
+  plannedHeading="Collections in preparation"
+  plannedNote="Each of these is a cut of saints already in the database, waiting on enough depth in the facets it draws from to be worth opening. They are named here so you can see where the section is going."
+  planned={planned}
+/>
