@@ -139,6 +139,8 @@
   line-height: 1.75;
   margin: 0 0 22px;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 .na-p--lead {
   font-family: var(--serif);
@@ -157,6 +159,8 @@
   border-left: 3px solid var(--line-gold);
   padding-left: 18px;
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 .na-pull {
   margin: 4px 0 34px;
@@ -498,6 +502,8 @@
   line-height: 1.65;
   margin: 0;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* ---------- a Q&A feature ---------- */
@@ -548,6 +554,8 @@
   margin: 0 0 12px;
   max-width: 62ch;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 .na-notebook p:last-child {
   margin-bottom: 0;

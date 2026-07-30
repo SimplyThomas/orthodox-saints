@@ -3237,6 +3237,8 @@ a.sv-rail-chip:hover {
   font-size: 0.88rem;
   line-height: 1.45;
   color: var(--ink-soft);
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-quote {
   margin: 0;
@@ -3310,6 +3312,8 @@ a.sv-rail-chip:hover {
   color: var(--byz-deep);
   margin: 0;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 /* "Ideas for Celebrating This Day" — a warm, inviting family-ideas card,
    set apart from the plainer Customs card above it. Mirrors the feast page's
@@ -3384,6 +3388,8 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
   line-height: 1.55;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-dove-date {
   font-family: var(--text);
@@ -3416,6 +3422,8 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
   margin: 0 0 14px;
   line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-celebrate-ideas {
   list-style: none;
@@ -3431,6 +3439,8 @@ a.sv-rail-chip:hover {
   font-size: 17px;
   line-height: 1.55;
   color: var(--byz-deep);
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-celebrate-ideas li::before {
   content: "☦";
@@ -3460,6 +3470,8 @@ a.sv-rail-chip:hover {
   line-height: 1.62;
   color: var(--ink-soft);
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 /* Contributions & Legacy — full-width band beneath the rail + story columns */
 .sv-legacy-title {
@@ -3503,6 +3515,8 @@ a.sv-rail-chip:hover {
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink);
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-legacy-card p:last-child {
   margin-bottom: 0;
@@ -3515,6 +3529,8 @@ a.sv-rail-chip:hover {
   font-size: 15.5px;
   line-height: 1.6;
   color: var(--ink-soft);
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-inf-meta {
   margin: -2px 0 8px;
@@ -3593,6 +3609,8 @@ a.sv-rail-chip:hover {
   line-height: 1.62;
   color: var(--celest-soft);
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 .sv-fam-intro {
   line-height: 1.6;
@@ -4984,6 +5002,8 @@ a.sv-rail-chip:hover {
   margin: 2px 0 22px;
   max-width: 680px;
   text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
 }
 .sv2 .sv-relrow {
   display: grid;
