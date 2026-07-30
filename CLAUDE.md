@@ -632,17 +632,21 @@ covers it), which mirrors `feastlib.py`. Design spec:
 
 ## 5c. The Daily Dove (`src/content/daily-dove/`, the `dailyDove` collection)
 
-**"Reporting from the Church Since Pentecost."** A historical newspaper: moments
-from two thousand years of Church history written as though a paper had been
-there to report them. Immersive and full of personality, but **never satire and
-never fiction** — the reporting voice is a device, the history under it is held
-to account. Routes: `/daily-dove`, `/daily-dove/archive`, `/daily-dove/<slug>`,
-and `/daily-dove/framework` (an unlisted specimen of the article layout — every
-slot filled with copy describing the slot, no history on it at all). The old
-`/news` paths redirect.
+**"The Living Archive."** Not one newspaper but an archive of them: a run of
+papers kept from Pentecost to the present, each sheet reporting its own age as
+though a paper had been there to cover it. Immersive and full of personality, but
+**never satire and never fiction** — the reporting voice is a device, the history
+under it is held to account. Routes: `/daily-dove`, `/daily-dove/archive`,
+`/daily-dove/<slug>`, and `/daily-dove/framework` (an unlisted specimen of the
+dispatch layout — every slot filled with copy describing the slot, no history on
+it at all). The old `/news` paths redirect.
 
-**THE EVIDENCE SCALE IS THE POINT.** Every article carries one of five levels,
-and every article closes with the **Historian's Notes**, where each strand of the
+**They are DISPATCHES, never "articles."** The word is load-bearing in the UI
+(Latest Dispatches, Read the dispatch, N dispatches on file) and in the prose
+here; a stray "article" reads as a blog and undoes the section's whole register.
+
+**THE EVIDENCE SCALE IS THE POINT.** Every dispatch carries one of five levels,
+and every dispatch closes at the **Historian's Desk**, where each strand of the
 story is set against the level that actually carries it. A reader must never
 have to guess which part of what they enjoyed is documented and which is the
 living tradition of the Church.
@@ -666,12 +670,25 @@ rather than bend an existing one.
   which parts of an article are device rather than record (the marketplace
   chatter, the unnamed watchman, the invented interview format). It renders
   inside the Historian's Notes, where a reader is already weighing what to trust.
-- **Departments** (`departments[]`, ordered by `DEPARTMENT_ORDER`, not YAML
-  order): Voices from the Forum · Imperial Dispatch · Marketplace Buzz ·
-  **Whispers Around the Council** · Fact Check. Two carry standing notices
-  *before* their content: Whispers (later tradition, not contemporary record)
-  and Voices (illustrative composites — **never words in a real person's mouth**
-  unless a primary source records them).
+- **THE DEPARTMENTS ARE THE ONE CLASSIFICATION AXIS.** `DEPARTMENTS` in
+  `src/lib/daily-dove.ts` is the newsroom: a single list whose entries are marked
+  `files` (a desk a dispatch is filed under — `desk:` in the YAML, exactly one,
+  enumerated in the Zod schema), `column` (a desk that also runs a box *inside*
+  another desk's dispatch — `departments[]`, ordered by `DEPARTMENT_ORDER`, not
+  YAML order), or both.
+  - **Filing desks:** Imperial Dispatch · Church Life · Miracle Watch ·
+    Persecution Report · Pilgrim's Journal · Marketplace Buzz.
+  - **Columns:** Voices from the Forum · Whispers Around the Council · Fact
+    Check · Historian's Desk (+ Imperial and Marketplace, which do both).
+  Two columns carry standing notices *before* their content: Whispers (later
+  tradition, not contemporary record) and Voices (illustrative composites —
+  **never words in a real person's mouth** unless a primary source records them).
+  The Historian's Desk is a column that is never optional and never authored as a
+  run: it is `historiansNotes` and always closes the sheet.
+  The earlier generic subject categories (Healings, Apparitions, Relics, Modern
+  Saints, Orthodox America, Historical Reports) are **retired** — every dispatch
+  had been filed under the same one, and the names read as blog tags. Do not
+  reintroduce a second axis beside the departments.
 - **`aroundTheEmpire`** is the side column — `heading` renames it (Around the
   Kingdom, Around the Holy Land), `intro` carries the single-paragraph form.
   `interview[]` is for sources that are themselves first-person testimony;
@@ -682,13 +699,42 @@ rather than bend an existing one.
   never a guarantee**: the Church asks the saints to pray, it does not trade in
   outcomes. Tag only what an account actually reports; an empty list is honest
   and a padded one destroys the facet's worth.
-- **Era colour.** Plates take their colour from `eraOf(century)` — six bands
-  from the Age of the Martyrs to the Modern Age — with an EraPill naming the
-  band, because a colour nobody can name is decoration.
+- **Era colour, and the era EDITIONS.** Plates take their colour from
+  `eraOf(century)` — six bands from the Age of the Martyrs to the Modern Age —
+  with an EraPill naming the band, because a colour nobody can name is
+  decoration. Each `Era` also carries `motif` / `edition` / `strap` / `stock`:
+  the archive is a run of papers, so each age is allowed to look like a sheet
+  preserved from that age — its own headpiece motif (Chi-Rho for the catacombs,
+  a crescent-and-star for the Ottoman centuries), its own run name ("The
+  Conciliar Editions"), and its own paper stock. **Keep these subtle.** The
+  identity is constant and the age shows through it; the moment an era wears a
+  costume, the archive reads as a theme park.
+- **The front page is a broadsheet, not a feed.** `/daily-dove` is ordered the
+  way a paper is ordered — nameplate → lead + secondaries + briefs + margin →
+  Also In This Edition → Latest Dispatches → Departments → Archive → Browse by
+  Age → Browse by Topic → Historian's Desk → the evidence key, folded shut and
+  **last**. Two rules hold the effect up: **not everything is a card** (the lead
+  is a broadsheet block with a drop cap and set columns, the briefs are one line
+  each, the notices are a classified column), and **no filter bar lives here** —
+  faceted browsing is `/daily-dove/archive`, which the era and topic sections
+  link into with a `#<facet>-<value>` hash the archive island honours. A row of
+  selects under the masthead is what made the page read as a dashboard.
+- **Ornament is drawn, never sourced.** `components/daily-dove/ornament/`
+  (`Headpiece` · `Fleuron` · `WaxSeal`) is hand-built SVG, and the paper's
+  textures/palette live in `styles/daily-dove-paper.css` (`.dv-*`: stock, cream,
+  parchment, aged gold, burgundy; laid-paper grain and foxing, both disabled
+  under `prefers-reduced-motion`/`prefers-contrast`). This keeps the visual layer
+  clear of §9's image-licensing gate entirely. If real public-domain engravings
+  are ever added, they go through a licensed join like `saint_images.csv` — never
+  hotlinked, never unlicensed.
+- **The standing NOTICES** on the front page are period-styled classified ads,
+  and every one points at something this site genuinely offers (the quiz, the
+  calendar, the corrections form). An ad for a thing that does not exist is the
+  one place the conceit would tip into fiction.
 
 **THE JOINS ARE BY ID, NEVER BY NAME (§6 applies).** `subjects: [OS-####]` puts
-the article on a saint's page; `feasts: [FF-####]` puts it on the feast page and
-the calendar. The article subjects include a Callinicus, a Barlaam, a Parthenios
+the dispatch on a saint's page; `feasts: [FF-####]` puts it on the feast page and
+the calendar. The dispatch subjects include a Callinicus, a Barlaam, a Parthenios
 and a Michael who each share a first name with several other saints in the data —
 there are five Barlaams — so a name match would link the wrong man's page to the
 wrong man's martyrdom. Verify every id against the CSV before adding it, and
@@ -814,11 +860,16 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **The Daily Dove is built and unpublished.** 36 articles across nineteen
+- **The Daily Dove is built and unpublished.** 36 dispatches across nineteen
   centuries, linked from 34 saint pages, 3 feast pages and the calendar, and in the
-  nav. Held open: the Joseph the Sanctified article (which Joseph?), Palladius and
+  nav. Held open: the Joseph the Sanctified dispatch (which Joseph?), Palladius and
   the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
   missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
+  The section was rebuilt as **The Living Archive** (§5c) after the first merge:
+  broadsheet front page, the newsroom departments as the single filing axis, per-era
+  editions, and a drawn ornament kit. Only Marketplace Buzz is thin (1 dispatch) —
+  the desks are standing sections and are shown even when quiet, so that is a
+  commissioning gap, not a bug.
 - **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
   promoted `→ reviewed`, so nearly all saints **and all 83 feasts are now public**; the 141
   `flagged` profiles stay hidden (resolve via #349). **Visibility is no longer the lever —

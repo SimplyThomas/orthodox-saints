@@ -1,11 +1,11 @@
 ---
-/* The Archive of Witnesses — a scholarly faceted index of every account.
+/* The Archive of Witnesses — a scholarly faceted index of every dispatch.
    Facets combine (AND); clicking an active facet clears it. Every row is
    rendered server-side and the island only hides rows, so the full archive is
    readable without JavaScript. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
-import CatPill from "../../components/daily-dove/CatPill.astro";
+import DeskPill from "../../components/daily-dove/DeskPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import { withBase } from "../../lib/format";
 import {
@@ -15,7 +15,7 @@ import {
   eraOf,
   ERAS,
   WONDERS,
-  NEWS_CATS,
+  FILING_DESKS,
   EVIDENCE,
   EVIDENCE_LIST,
 } from "../../lib/daily-dove";
@@ -26,16 +26,16 @@ const rows = all.slice().sort((a, b) => a.century - b.century);
 const count = (pred: (n: (typeof all)[number]) => boolean) =>
   all.filter(pred).length;
 
-// Every facet group is derived from the accounts themselves, so the rail never
+// Every facet group is derived from the dispatches themselves, so the rail never
 // offers a facet that would return nothing.
-const catOpts = NEWS_CATS.filter((c) => count((n) => n.cat === c.id) > 0).map(
-  (c) => ({
-    key: c.id,
-    label: c.name,
-    count: count((n) => n.cat === c.id),
-    swatch: c.ink,
-  }),
-);
+const catOpts = FILING_DESKS.filter(
+  (c) => count((n) => n.desk === c.id) > 0,
+).map((c) => ({
+  key: c.id,
+  label: c.name,
+  count: count((n) => n.desk === c.id),
+  swatch: c.ink,
+}));
 const verOpts = EVIDENCE_LIST.filter(
   (k) => count((n) => n.evidence === k) > 0,
 ).map((k) => ({
@@ -85,7 +85,7 @@ const groups = [
   // First, because a reader carrying a trouble should not have to scroll past
   // five ways of sorting by date to find it.
   { facet: "wonder", title: "Kind of help", options: wonderOpts },
-  { facet: "cat", title: "Desk", options: catOpts },
+  { facet: "cat", title: "Department", options: catOpts },
   { facet: "verify", title: "Level of Evidence", options: verOpts },
   { facet: "era", title: "Era", options: eraOpts },
   { facet: "century", title: "Century", options: cenOpts },
@@ -97,7 +97,7 @@ const groups = [
 <BaseLayout
   active="daily-dove"
   title="The Archive of Witnesses"
-  description="Two thousand years of dispatches — sortable by century, by saint, by place, by desk, and by the level of evidence behind each account."
+  description="Two thousand years of dispatches — sortable by century, by saint, by place, by desk, and by the level of evidence behind each one."
 >
   <div class="arc">
     {/* ---------- NAMEPLATE ---------- */}
@@ -118,7 +118,7 @@ const groups = [
         <h1>The Archive of Witnesses</h1>
         <p>
           Two thousand years of dispatches — sortable by century, by saint, by
-          place, by desk, and by the level of evidence behind each account.
+          place, by desk, and by the level of evidence behind each one.
         </p>
       </div>
     </section>
@@ -169,7 +169,7 @@ const groups = [
           <div class="arc-results-head">
             <h2>
               <span id="arc-count">{rows.length}</span>&#32;<span id="arc-noun"
-                >accounts</span
+                >dispatches</span
               >
             </h2>
             <div class="arc-chips" id="arc-chips"></div>
@@ -185,7 +185,7 @@ const groups = [
                   <a
                     class="arc-row"
                     href={withBase(`daily-dove/${n.id}`)}
-                    data-cat={n.cat}
+                    data-cat={n.desk}
                     data-verify={n.evidence}
                     data-century={n.century}
                     data-era={eraOf(n.century).id}
@@ -207,7 +207,7 @@ const groups = [
                     <div class="arc-rowbody">
                       <h3>{n.headline}</h3>
                       <div class="arc-rowmeta">
-                        <CatPill cat={n.cat} />
+                        <DeskPill desk={n.desk} />
                         <CenturyBadge century={n.century} />
                         <span class="arc-loc">
                           <svg
@@ -247,7 +247,7 @@ const groups = [
               })
             }
             <div class="arc-empty" id="arc-empty" hidden>
-              <p>No accounts match these facets.</p>
+              <p>No dispatches match these facets.</p>
               <button type="button" class="btn btn--ghost" id="arc-empty-clear"
                 >Clear all filters</button
               >

@@ -496,12 +496,11 @@ const apocrypha = defineCollection({
   schema: apocryphaSchema,
 });
 
-// "Saints in the News" editorial articles (src/content/news/<slug>.yaml). Mirrors
-// the NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/news.ts
+// The Daily Dove's dispatches (src/content/daily-dove/<slug>.yaml). Mirrors the
+// NewsItem/NewsSaintRef/NewsSourceGroup interfaces in src/lib/daily-dove.ts
 // field-for-field, plus ordering/featured metadata. The page furniture
-// (NEWS_CATS, NEWS_THISDAY, …) stays in lib/news.ts — it is page config, not
-// editorial content. Content is sample copy from the design mock (see the header
-// of lib/news.ts); the migration keeps it byte-identical.
+// (DEPARTMENTS, ERAS, EVIDENCE, NEWS_THISDAY, …) stays in lib/daily-dove.ts —
+// it is page config, not editorial content.
 const newsSaintRef = z.object({
   name: z.string(),
   type: z.string(),
@@ -524,7 +523,18 @@ const dailyDove = defineCollection({
   loader: glob({ pattern: "**/*.yaml", base: "./src/content/daily-dove" }),
   schema: z.object({
     id: z.string(), // slug, used for /daily-dove/<slug>
-    cat: z.string(),
+    // The newsroom department that files this dispatch — exactly one. Keys into
+    // DEPARTMENT in src/lib/daily-dove.ts; only the desks marked `files` there
+    // may appear, since Voices from the Forum and the Historian's Desk are
+    // columns that run inside a dispatch rather than file one.
+    desk: z.enum([
+      "imperial",
+      "church-life",
+      "miracle-watch",
+      "persecution",
+      "pilgrim",
+      "marketplace",
+    ]),
     // The century the account belongs to — keyed to its own dateline. Drives
     // the century badge, the front-page filter, and the archive facet.
     century: z.number().int().min(1).max(21),

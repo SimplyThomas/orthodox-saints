@@ -4,7 +4,7 @@
    Used by the filtered grid on /news and the related-articles row on an
    article page. */
 import type { NewsItem } from "../../lib/daily-dove";
-import { NEWS_CAT, regionOf, eraOf } from "../../lib/daily-dove";
+import { deskOf, regionOf, eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
 import NewsMeta from "./NewsMeta.astro";
 import EraPill from "./EraPill.astro";
@@ -15,18 +15,18 @@ interface Props {
   n: NewsItem;
 }
 const { n } = Astro.props;
-const cat = NEWS_CAT[n.cat];
+const desk = deskOf(n);
 const era = eraOf(n.century);
 // The filter island matches against these without re-reading the DOM text.
 const haystack =
-  `${n.headline} ${n.location} ${n.summary} ${n.saint.name} ${cat.name}`.toLowerCase();
+  `${n.headline} ${n.location} ${n.summary} ${n.saint.name} ${desk.name}`.toLowerCase();
 ---
 
 <a
   class="news-feed-card"
   href={withBase(`daily-dove/${n.id}`)}
   style={`border-top-color:${era.ink}`}
-  data-cat={n.cat}
+  data-cat={n.desk}
   data-era={era.id}
   data-miracles={(n.miracles ?? []).join(" ")}
   data-century={n.century}
@@ -45,7 +45,7 @@ const haystack =
     <NewsMeta date={n.date} location={n.location} size={12} />
     <p class="nfc-sum">{n.summary}</p>
     <span class="nfc-read">
-      Read the account
+      Read the dispatch
       <svg
         width="14"
         height="14"

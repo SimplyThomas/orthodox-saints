@@ -1,11 +1,11 @@
 ---
 /* THE DAILY DOVE — framework specimen.
 
-   Not an article, and deliberately not one: every slot here is filled with copy
+   Not a dispatch, and deliberately not one: every slot here is filled with copy
    that describes the slot rather than reporting any event. There is no history
    on this page, invented or otherwise, so nothing can be mistaken for a
-   dispatch. It exists so the layout and styling of the standard article can be
-   reviewed before there is an article to review, and so that whoever writes the
+   dispatch. It exists so the layout and styling of the standard dispatch can be
+   reviewed before there is a dispatch to review, and so that whoever writes the
    first one can see exactly which slots are waiting for them.
 
    Unlisted: reachable at /daily-dove/framework, linked from nowhere. */
@@ -16,13 +16,14 @@ import HistoriansNotes from "../../components/daily-dove/HistoriansNotes.astro";
 import AroundTheEmpire from "../../components/daily-dove/AroundTheEmpire.astro";
 import SeriesNav from "../../components/daily-dove/SeriesNav.astro";
 import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
-import CatPill from "../../components/daily-dove/CatPill.astro";
+import DeskPill from "../../components/daily-dove/DeskPill.astro";
 import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
 import EvidenceBadge from "../../components/daily-dove/EvidenceBadge.astro";
 import { withBase } from "../../lib/format";
 import "../../styles/daily-dove-article.css";
 import {
-  DEPARTMENTS,
+  DEPARTMENT,
+  DEPARTMENT_ORDER,
   EVIDENCE_LIST,
   type NewsItem,
 } from "../../lib/daily-dove";
@@ -46,7 +47,12 @@ const run = [1, 2, 3, 4].map(
     }) as unknown as NewsItem,
 );
 
-const departments = DEPARTMENTS.map((d) => ({
+/* Only the desks that actually run INSIDE a dispatch belong in the specimen.
+   DEPARTMENTS is the whole newsroom — six of its entries are filing desks, and
+   Church Life or Pilgrim's Journal can no more be authored as a department run
+   than the front page can. DEPARTMENT_ORDER is the authorable set, in the order
+   the template runs them, and it is what the Zod schema enumerates. */
+const departments = DEPARTMENT_ORDER.map((id) => DEPARTMENT[id]).map((d) => ({
   kind: d.id,
   body:
     d.id === "forum" || d.id === "marketplace"
@@ -73,7 +79,7 @@ const departments = DEPARTMENTS.map((d) => ({
 
 const notes = EVIDENCE_LIST.map((level) => ({
   level,
-  claim: `[ A claim the article made, restated in one line. ]`,
+  claim: `[ A claim the dispatch made, restated in one line. ]`,
   note: "What actually stands behind it, said plainly — this is the sentence that keeps the paper honest.",
   sources: ["[ Citation ]", "[ Citation ]"],
 }));
@@ -88,8 +94,8 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
 
 <BaseLayout
   active="daily-dove"
-  title="The Daily Dove — article framework"
-  description="The reusable layout every Daily Dove article follows. A specimen, not an article."
+  title="The Daily Dove — dispatch framework"
+  description="The reusable layout every Daily Dove dispatch follows. A specimen, not a dispatch."
 >
   <article class="na">
     <div class="na-mastwrap">
@@ -98,7 +104,7 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
         onDark
         href="daily-dove"
         edition="Specimen Edition"
-        folio="The standard article layout"
+        folio="The standard dispatch layout"
       />
     </div>
 
@@ -116,7 +122,7 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
 
     <header class="na-head">
       <div class="na-head-tags">
-        <CatPill cat="historical" short={false} size={11.5} />
+        <DeskPill desk="imperial" short={false} size={11.5} />
         <span class="na-head-dot" aria-hidden="true"></span>
         <CenturyBadge century={4} size={11.5} />
       </div>
@@ -130,7 +136,7 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
     <div class="na-metawrap">
       <div class="na-meta">
         <div class="na-cell">
-          <div class="eyebrow">Category</div>
+          <div class="eyebrow">Department</div>
           <div class="na-cell-v">Desk</div>
         </div>
         <span class="na-cell-ln" aria-hidden="true"></span>
@@ -167,7 +173,7 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
           </p>
           <p class="na-p">
             The body continues in the reading face. Paragraphs come from the
-            article&rsquo;s <code>body</code> array; this specimen shows enough of
+            dispatch&rsquo;s <code>body</code> array; this specimen shows enough of
             them to judge the measure, the leading, and how a pull-quote breaks the
             column.
           </p>
@@ -191,7 +197,7 @@ const empire = ["Alexandria", "Antioch", "Jerusalem", "Rome", "Caesarea"].map(
             <h3>Sources &amp; Documentation</h3>
           </div>
           <p class="na-src-lede">
-            Every article carries its sources, grouped under these three
+            Every dispatch carries its sources, grouped under these three
             standing headings.
           </p>
           <div class="na-src-grid">

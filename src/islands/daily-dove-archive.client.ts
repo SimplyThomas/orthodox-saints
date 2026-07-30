@@ -93,7 +93,7 @@ if (rows.length && facetBtns.length) {
     }
 
     if (countEl) countEl.textContent = String(shown);
-    if (nounEl) nounEl.textContent = shown === 1 ? "account" : "accounts";
+    if (nounEl) nounEl.textContent = shown === 1 ? "dispatch" : "dispatches";
     if (shownEl) shownEl.textContent = String(shown);
     if (emptyEl) emptyEl.hidden = shown > 0;
     if (clearBtn) clearBtn.hidden = !filtering;
@@ -118,5 +118,31 @@ if (rows.length && facetBtns.length) {
   clearBtn?.addEventListener("click", clearAll);
   emptyClearBtn?.addEventListener("click", clearAll);
 
+  /* Arriving from the front page with a facet already chosen.
+     The front page offers editorial ways in — "Browse the Archive by Age",
+     "Browse by What Was Asked For" — and each of those links here with a
+     #<facet>-<value> hash. Without this the reader would land on an unfiltered
+     archive and have to make the choice a second time, which is exactly the
+     dead end the front page was trying to spare them.
+
+     Only facets the rail actually offers are honoured, so a stale or hand-typed
+     hash falls through to the full archive rather than emptying it. */
+  const fromHash = () => {
+    const raw = decodeURIComponent(location.hash.replace(/^#/, ""));
+    if (!raw) return;
+    const facet = FACETS.find((f) => raw.startsWith(`${f}-`));
+    if (!facet) return;
+    const value = raw.slice(facet.length + 1);
+    const known = facetBtns.some(
+      (b) => b.dataset.facet === facet && b.dataset.value === value,
+    );
+    if (!known) return;
+    for (const f of FACETS) active[f] = "";
+    active[facet] = value;
+    apply();
+  };
+  window.addEventListener("hashchange", fromHash);
+
   apply();
+  fromHash();
 }

@@ -1,39 +1,37 @@
-/* THE DAILY DOVE — "Reporting from the Church Since Pentecost."
+/* THE DAILY DOVE — The Living Archive.
 
-   A historical newspaper: moments from two thousand years of Church history
-   written as though a paper had existed to report them at the time. Immersive
-   and full of personality, but never satire and never fiction — the reporting
-   voice is a device, the history underneath it is held to account.
+   Not one newspaper but an archive of them: a run of papers kept from Pentecost
+   to the present, each sheet reporting its own age as though a paper had been
+   there to cover it. Immersive and full of personality, but never satire and
+   never fiction — the reporting voice is a device, the history underneath it is
+   held to account.
 
    That accounting is this module's centre of gravity. Every claim in every
-   article carries an EVIDENCE level, and every article closes with the
-   Historian's Notes, where each strand of the story is set against the level
+   dispatch carries an EVIDENCE level, and every dispatch closes at the
+   Historian's Desk, where each strand of the story is set against the level
    that actually supports it. A reader must never have to guess which part of
    what they just enjoyed is documented and which belongs to the living
    tradition of the Church.
 
-   Articles live as one validated YAML file per article in
-   src/content/daily-dove/*.yaml (the `dailyDove` collection), read back via
-   loadPaper(). Only the page furniture (NEWS_CATS, EVIDENCE, DEPARTMENTS,
-   NEWS_THISDAY) and the small derived helpers
-   (ord/regionOf/postRank/centuriesIn) live here.
+   Dispatches — never "articles"; the paper files dispatches — live as one
+   validated YAML file each in src/content/daily-dove/*.yaml (the `dailyDove`
+   collection), read back via loadPaper(). Only the page furniture (DEPARTMENTS,
+   EVIDENCE, ERAS, WONDERS, NEWS_THISDAY) and the small derived helpers
+   (ord/regionOf/postRank/centuriesIn/deskOf/eraOf) live here.
 
-   The mock placeholders the section was scaffolded on are gone; every article
-   in the collection is now a real dispatch. Nothing here is authoritative until
-   reviewed against the Church's own discernment (CLAUDE.md §9). */
+   Every dispatch in the collection is a real one. Nothing here is authoritative
+   until reviewed against the Church's own discernment (CLAUDE.md §9). */
 
 import { getCollection } from "astro:content";
 
-export interface NewsCat {
-  id: string;
-  name: string;
-  /** short label for the filter chips, where the full desk name is too wide */
-  short: string;
-  blurb: string;
-  ink: string;
-  bg: string;
-  count: number;
-}
+/* The paper's identity. "The Living Archive" is the standing subtitle: the
+   section is not one newspaper frozen at a date but a run of them, kept from
+   Pentecost forward, and the nameplate should say so before a word of copy
+   does. The old motto ("Reporting from the Church Since Pentecost") explained
+   the conceit; this one simply asserts it. */
+export const DOVE_SUBTITLE = "The Living Archive";
+export const DOVE_STANDFIRST =
+  "Two thousand years of the Church’s story, preserved as though a newspaper had been there to report every major moment — eyewitness accounts, chronicles, and traditions from every age.";
 
 /* ============================================================
    The evidence scale — the paper's defining commitment.
@@ -144,7 +142,8 @@ export interface HistoriansNote {
 export interface NewsItem {
   /** slug — used for /daily-dove/<slug> */
   id: string;
-  cat: string;
+  /** the department that files it — keys into DEPARTMENT */
+  desk: string;
   /** the century the account belongs to (badge, filter, archive facet) */
   century: number;
   /** the strongest level the story as a whole rests on — see EVIDENCE */
@@ -194,77 +193,6 @@ export interface NewsItem {
   sources?: NewsSourceGroup[];
   relatedSaints?: NewsSaintRef[];
 }
-
-/* Category desks — muted Byzantine tones, one per subject. */
-export const NEWS_CATS: NewsCat[] = [
-  {
-    id: "healings",
-    name: "Healings",
-    short: "Healings",
-    blurb: "Medical recoveries and physical healings.",
-    ink: "#3d6157",
-    bg: "rgba(61,97,87,.12)",
-    count: 64,
-  },
-  {
-    id: "apparitions",
-    name: "Apparitions",
-    short: "Apparitions",
-    blurb: "Appearances of the saints and the holy angels.",
-    ink: "#4A6F96",
-    bg: "rgba(74,111,150,.14)",
-    count: 38,
-  },
-  {
-    id: "icons",
-    name: "Wonderworking Icons",
-    short: "Icons",
-    blurb: "Myrrh-streaming, weeping, and miracle-working icons.",
-    ink: "#a9852a",
-    bg: "rgba(212,175,55,.16)",
-    count: 51,
-  },
-  {
-    id: "relics",
-    name: "Relics",
-    short: "Relics",
-    blurb: "Discoveries, incorrupt relics, healings, and pilgrimages.",
-    ink: "#8d3a2f",
-    bg: "rgba(141,58,47,.10)",
-    count: 47,
-  },
-  {
-    id: "modern",
-    name: "Modern Saints",
-    short: "Modern Saints",
-    blurb: "Miracles involving contemporary saints.",
-    ink: "#234C7A",
-    bg: "rgba(35,76,122,.10)",
-    count: 73,
-  },
-  {
-    id: "america",
-    name: "Orthodox America",
-    short: "America",
-    blurb: "Miracles and events of Orthodoxy in North America.",
-    ink: "#1f5e54",
-    bg: "rgba(31,94,84,.12)",
-    count: 29,
-  },
-  {
-    id: "historical",
-    name: "Historical Reports",
-    short: "Historical",
-    blurb: "Ancient accounts presented as archived dispatches.",
-    ink: "#6b5326",
-    bg: "rgba(107,83,38,.12)",
-    count: 112,
-  },
-];
-
-export const NEWS_CAT: Record<string, NewsCat> = Object.fromEntries(
-  NEWS_CATS.map((c) => [c.id, c]),
-);
 
 /* The evidence scale. Every claim the paper makes is pinned to one of these,
    and the Historian's Notes at the foot of each article says which. The order
@@ -437,6 +365,20 @@ export interface Era {
   full: string;
   ink: string;
   bg: string;
+  /* ---- the era's own edition ----
+     The archive is a run of papers, not one paper, so each age is allowed to
+     look like a sheet preserved from that age. These stay deliberately small:
+     a motif in the headpiece, a warmth in the stock, a house line under the
+     nameplate. Anything louder would read as costume. */
+  /** which ornament the headpiece draws for this era — see Headpiece.astro */
+  motif:
+    "chi-rho" | "council-cross" | "vine" | "knot" | "crescent-star" | "rose";
+  /** the run's own name, for the edition line and the era index */
+  edition: string;
+  /** one line on what a paper of this age would have been reporting */
+  strap: string;
+  /** the stock this era's sheets are printed on — a subtle warm/cool shift */
+  stock: string;
 }
 
 export const ERAS: Era[] = [
@@ -448,6 +390,10 @@ export const ERAS: Era[] = [
     full: "The Age of the Martyrs · 1st–3rd century",
     ink: "#8d3a2f",
     bg: "rgba(141,58,47,.12)",
+    motif: "chi-rho",
+    edition: "The Catacomb Editions",
+    strap: "Filed in secret, under a power that meant to end the Church.",
+    stock: "#2a1517",
   },
   {
     id: "councils",
@@ -457,6 +403,11 @@ export const ERAS: Era[] = [
     full: "The Age of the Councils · 4th–5th century",
     ink: "#234C7A",
     bg: "rgba(35,76,122,.12)",
+    motif: "council-cross",
+    edition: "The Conciliar Editions",
+    strap:
+      "The age when the Church said aloud, and in writing, what she had always believed.",
+    stock: "#101f33",
   },
   {
     id: "byzantium",
@@ -466,6 +417,11 @@ export const ERAS: Era[] = [
     full: "The Byzantine Centuries · 6th–10th century",
     ink: "#3d6157",
     bg: "rgba(61,97,87,.14)",
+    motif: "vine",
+    edition: "The Imperial Editions",
+    strap:
+      "A Christian empire, its capital, its monasteries, and the icons it fought over.",
+    stock: "#0f2420",
   },
   {
     id: "east",
@@ -475,6 +431,11 @@ export const ERAS: Era[] = [
     full: "Hesychasts, Rus’ and the Christian East · 11th–15th century",
     ink: "#4d3258",
     bg: "rgba(77,50,88,.14)",
+    motif: "knot",
+    edition: "The Northern & Athonite Editions",
+    strap:
+      "The faith carried north to Rus’, and the stillness kept on the Holy Mountain.",
+    stock: "#1a1224",
   },
   {
     id: "ottoman",
@@ -484,6 +445,11 @@ export const ERAS: Era[] = [
     full: "Under the Ottomans, and the missions · 16th–18th century",
     ink: "#6b5326",
     bg: "rgba(107,83,38,.14)",
+    motif: "crescent-star",
+    edition: "The Captivity Editions",
+    strap:
+      "A Church under another sovereign, keeping the faith at cost and sending out missions.",
+    stock: "#241d10",
   },
   {
     id: "modern",
@@ -493,6 +459,11 @@ export const ERAS: Era[] = [
     full: "New martyrs and the modern age · 19th–21st century",
     ink: "#1f5e54",
     bg: "rgba(31,94,84,.13)",
+    motif: "rose",
+    edition: "The Modern Editions",
+    strap:
+      "New martyrs, new continents, and elders whose witnesses are still alive.",
+    stock: "#0d211d",
   },
 ];
 
@@ -509,59 +480,152 @@ export function eraOf(century: number): Era {
 }
 
 /* ============================================================
-   The departments — the paper's standing sections. Every article may carry any
-   of these, in whatever order suits the story; Historian's Notes is not among
-   them because it is not optional and always runs last (see historiansNotes on
-   the article schema).
+   The departments — the newsroom desks.
+
+   A newspaper is not a stream of posts under generic categories; it is a set of
+   standing desks, each with a beat, a house voice, and an editor who would
+   fight you for the column inches. These replace the old subject categories
+   ("Healings", "Modern Saints") that read as blog tags and gave the front page
+   its dashboard feeling.
+
+   Two kinds sit in one list on purpose, because a real paper's desks do both:
+
+   - `files` — the desk a dispatch is filed under. Exactly one per dispatch.
+   - `column` — the desk also runs a box INSIDE other desks' dispatches
+     (a DepartmentRun, keyed by the same id).
+
+   Imperial and Marketplace do both: the palace desk files the council reports
+   and also contributes the edict box partway down someone else's story.
+   Historian's Desk is a column only, and never optional — every dispatch closes
+   with it (see historiansNotes on the article schema), which is why it carries
+   no run of its own in DEPARTMENT_ORDER.
    ============================================================ */
 
 export interface Department {
   id: string;
   name: string;
+  /** short label for chips and facet rows, where the full name is too wide */
+  short: string;
   /** the standing strapline under the department head */
   blurb: string;
   /** what this department is for, in the paper's own voice */
   rule: string;
   ink: string;
+  /** tinted ground for the desk's pill */
+  bg: string;
+  /** dispatches are filed under this desk */
+  files?: boolean;
+  /** this desk also runs a box inside other dispatches */
+  column?: boolean;
 }
 
 export const DEPARTMENTS: Department[] = [
   {
     id: "imperial",
     name: "Imperial Dispatch",
+    short: "Imperial",
     blurb: "From the palace and the praetorium",
-    rule: "Official announcements, decrees, and the actions of the imperial power.",
+    rule: "Edicts, emperors, and councils — the acts of the powers of this world where they touch the Church.",
     ink: "#234C7A",
+    bg: "rgba(35,76,122,.12)",
+    files: true,
+    column: true,
   },
   {
-    id: "forum",
-    name: "Voices from the Forum",
-    blurb: "How ordinary Christians received the news",
-    rule: "Illustrative voices — composites of how the faithful may have reacted, never words put in a real person's mouth.",
+    id: "church-life",
+    name: "Church Life",
+    short: "Church Life",
+    blurb: "Foundations, missions and the ordinary week",
+    rule: "Monasteries founded, churches dedicated, missionary journeys, ordinations, and the translation of relics.",
     ink: "#3d6157",
+    bg: "rgba(61,97,87,.14)",
+    files: true,
   },
   {
-    id: "whispers",
-    name: "Whispers Around the Council",
-    blurb: "The stories that circulated",
-    rule: "Famous accounts and later Orthodox traditions, always named as such rather than reported as fact.",
-    ink: "#b06a30",
+    id: "miracle-watch",
+    name: "Miracle Watch",
+    short: "Miracles",
+    blurb: "What cannot be accounted for",
+    rule: "Healings, wonderworking icons, incorrupt relics, and interventions no one present could explain.",
+    ink: "#a9852a",
+    bg: "rgba(212,175,55,.16)",
+    files: true,
+  },
+  {
+    id: "persecution",
+    name: "Persecution Report",
+    short: "Persecution",
+    blurb: "Trials, prisons and the witness of blood",
+    rule: "Tribunals, martyrdoms, confessors under interrogation, exiles, and what was said before the magistrate.",
+    ink: "#8d3a2f",
+    bg: "rgba(141,58,47,.12)",
+    files: true,
+  },
+  {
+    id: "pilgrim",
+    name: "Pilgrim’s Journal",
+    short: "Pilgrimage",
+    blurb: "Filed from the road",
+    rule: "Shrines, holy places, the roads that reach them, and what a traveller finds on arriving.",
+    ink: "#4d3258",
+    bg: "rgba(77,50,88,.14)",
+    files: true,
   },
   {
     id: "marketplace",
     name: "Marketplace Buzz",
+    short: "Marketplace",
     blurb: "Talk among the stalls",
-    rule: "Trade, travel, and the small human detail the chroniclers left out.",
-    ink: "#a9852a",
+    rule: "Trade, ships, food, taxes, and the small human detail the chroniclers left out.",
+    ink: "#6b5326",
+    bg: "rgba(107,83,38,.14)",
+    files: true,
+    column: true,
+  },
+  {
+    id: "forum",
+    name: "Voices from the Forum",
+    short: "Forum",
+    blurb: "How ordinary Christians received the news",
+    rule: "Illustrative voices — composites of how the faithful may have reacted, never words put in a real person’s mouth.",
+    ink: "#1f5e54",
+    bg: "rgba(31,94,84,.13)",
+    column: true,
+  },
+  {
+    id: "whispers",
+    name: "Whispers Around the Council",
+    short: "Whispers",
+    blurb: "The stories that circulated",
+    rule: "Famous accounts and later Orthodox traditions, always named as such rather than reported as fact.",
+    ink: "#b06a30",
+    bg: "rgba(176,106,48,.14)",
+    column: true,
   },
   {
     id: "fact-check",
     name: "Fact Check",
+    short: "Fact Check",
     blurb: "Setting one claim straight",
     rule: "A single popular claim weighed against what the sources actually say.",
-    ink: "#6b5326",
+    ink: "#7a5a14",
+    bg: "rgba(122,90,20,.14)",
+    column: true,
+  },
+  {
+    id: "historians-desk",
+    name: "Historian’s Desk",
+    short: "Historian’s Desk",
+    blurb: "What is documented, and what is not",
+    rule: "Runs at the foot of every dispatch: what contemporary sources say, what Orthodox tradition adds, what is medieval, and what is frankly legend.",
+    ink: "#4A6F96",
+    bg: "rgba(74,111,150,.14)",
+    column: true,
   },
 ];
+
+/** The desks a dispatch can be filed under, in the paper's running order. */
+export const FILING_DESKS: Department[] = DEPARTMENTS.filter((d) => d.files);
 
 /* The order the article template runs its departments in, whatever order the
    YAML happens to list them. Voices come before the Imperial Dispatch and the
@@ -578,6 +642,12 @@ export const DEPARTMENT_ORDER = [
 export const DEPARTMENT: Record<string, Department> = Object.fromEntries(
   DEPARTMENTS.map((d) => [d.id, d]),
 );
+
+/** The desk a dispatch is filed under. Falls back to Church Life — the paper's
+    general desk — rather than throwing on an unknown id. */
+export function deskOf(n: NewsItem): Department {
+  return DEPARTMENT[n.desk] ?? DEPARTMENT["church-life"];
+}
 
 /** 1 → "1st", 4 → "4th", 21 → "21st". */
 export function ord(n: number): string {

@@ -9,6 +9,7 @@
    but sits badly beside a Byzantine palette, and risks the parody register
    the brief rules out. */
 import { withBase } from "../../lib/format";
+import { DOVE_SUBTITLE } from "../../lib/daily-dove";
 
 interface Props {
   /** the folio line's left slot — an edition, a dateline, a section name */
@@ -20,6 +21,8 @@ interface Props {
   small?: boolean;
   /** set the plate in ivory and gold, for the paper's dark stock */
   onDark?: boolean;
+  /** overrides the standing subtitle — an era's own run name, say */
+  motto?: string;
 }
 const {
   edition = "The Daily Dove",
@@ -27,6 +30,7 @@ const {
   href,
   small = false,
   onDark = false,
+  motto = DOVE_SUBTITLE,
 } = Astro.props;
 const Name = href ? "a" : "div";
 ---
@@ -54,7 +58,7 @@ const Name = href ? "a" : "div";
     </span>
   </Name>
 
-  <p class="dove-motto">Reporting from the Church Since Pentecost</p>
+  <p class="dove-motto">{motto}</p>
 
   <div class="dove-rule dove-rule--double" aria-hidden="true"></div>
   <div class="dove-folio">
@@ -126,12 +130,18 @@ const Name = href ? "a" : "div";
     flex: 0 0 auto;
   }
 
+  /* The standing subtitle. Not an italic motto explaining the joke any more —
+     it names what the section IS, so it is set as a second line of the
+     nameplate: letterspaced small caps, the way a paper sets its sub-title
+     under the plate. */
   .dove-motto {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(14px, 1.5vw, 20px);
-    color: var(--celest);
-    letter-spacing: 0.04em;
+    font-size: clamp(15px, 1.7vw, 23px);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    letter-spacing: 0.34em;
+    text-indent: 0.34em; /* balances the trailing letterspace */
     margin: 0;
   }
 
@@ -164,7 +174,9 @@ const Name = href ? "a" : "div";
     font-size: clamp(26px, 3.4vw, 40px);
   }
   .dove-mast--sm .dove-motto {
-    font-size: clamp(12px, 1.1vw, 14px);
+    font-size: clamp(11px, 1.1vw, 13px);
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
   }
   .dove-mast--sm .dove-rule--double {
     margin-top: 10px;

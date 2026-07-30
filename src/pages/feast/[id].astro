@@ -21,7 +21,7 @@ const { feast: f } = Astro.props;
 // The paper's dispatches on this feast, joined by FF-#### id. The Church keeps
 // the memory of these events in her calendar, so this is where a reader looking
 // up the feast will also want the story.
-const doveArticles = (await articlesByFeast()).get(f.id) ?? [];
+const doveDispatches = (await articlesByFeast()).get(f.id) ?? [];
 const profiles = await loadFeastProfileMap();
 const p = profiles[f.id];
 
@@ -361,10 +361,10 @@ function sourceLink(s: string): { href: string | null; label: string } {
 
           {/* the paper's account of this feast, beneath the collapsibles */}
           {
-            doveArticles.length > 0 && (
+            doveDispatches.length > 0 && (
               <div class="feast-dove">
                 <DoveBand
-                  articles={doveArticles}
+                  dispatches={doveDispatches}
                   note="The events this feast remembers"
                 />
               </div>

@@ -343,59 +343,80 @@ test("Father Seraphim Rose has a comprehensive, sourced profile — still set ap
   await page.waitForURL(/\/america\/?$/);
 });
 
-test("The Daily Dove front page: nameplate, evidence key, departments", async ({
+test("The Daily Dove front page is a broadsheet, not a dashboard", async ({
   page,
 }) => {
   const resp = await page.goto("./daily-dove/");
   expect(resp?.status()).toBe(200);
 
-  // The nameplate and its motto — the paper's whole identity.
+  // The nameplate and its standing subtitle — the paper's whole identity.
   await expect(page.locator(".dove-name").first()).toHaveText("The Daily Dove");
   await expect(page.locator(".dove-motto").first()).toHaveText(
-    "Reporting from the Church Since Pentecost",
+    "The Living Archive",
+  );
+  await expect(page.locator(".dove-standfirst")).toContainText(
+    "as though a newspaper had been there",
   );
 
-  // The lead story and the chronological feed render.
-  await expect(page.locator(".cwn-lead")).toBeVisible();
-  expect(await page.locator(".cwn-river .drow").count()).toBeGreaterThan(4);
+  // Dramatic hierarchy: one lead, two secondaries, a run of one-line briefs,
+  // and the tiny "Also In This Edition" notices. If these ever collapse into
+  // one repeated card the page has lost the rhythm it was rebuilt for.
+  await expect(page.locator(".fp-lead-h")).toBeVisible();
+  await expect(page.locator(".fp-sec")).toHaveCount(2);
+  expect(await page.locator(".fp-briefs li").count()).toBeGreaterThan(2);
+  expect(await page.locator(".dove-also-list li").count()).toBeGreaterThan(2);
+  expect(await page.locator(".lat-stack li").count()).toBeGreaterThan(2);
 
-  // The five-level evidence scale is printed on the front page.
-  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
+  // NO FILTER BAR. Faceted browsing belongs to /daily-dove/archive; a row of
+  // selects under the masthead is what made this page read as an app.
+  await expect(page.locator(".cwn-filters")).toHaveCount(0);
+  await expect(page.locator("#news-q")).toHaveCount(0);
 
-  // Every standing department is listed. (Historian's Notes is not among them —
-  // it closes every article rather than being an optional section.)
-  await expect(page.locator(".dove-depts-grid .dove-dept")).toHaveCount(5);
-  await expect(page.locator(".dove-depts-grid")).toContainText(
-    "Whispers Around the Council",
+  // The newsroom: six filing desks, and the columns that run inside them.
+  await expect(page.locator(".dove-deptlist .dept")).toHaveCount(6);
+  await expect(page.locator(".dove-deptlist")).toContainText("Miracle Watch");
+  await expect(page.locator(".dove-deptlist")).toContainText(
+    "Persecution Report",
   );
-  await expect(page.locator(".dove-depts-grid")).toContainText(
+  await expect(page.locator(".dove-columns li")).toHaveCount(4);
+  await expect(page.locator(".dove-columns")).toContainText(
     "Voices from the Forum",
   );
-  await expect(page.locator(".dove-depts-grid")).toContainText("Fact Check");
-  await expect(page.locator(".dove-standfirst")).toContainText(
-    "Historian’s Notes",
+
+  // The archive is a run of papers: one plate per age, each with its own
+  // edition name.
+  await expect(page.locator(".dove-eragrid .era")).toHaveCount(6);
+  await expect(page.locator(".dove-eragrid")).toContainText(
+    "The Catacomb Editions",
   );
 
-  // The rail keeps This Day in Orthodox History and Most Read.
-  await expect(page.locator(".cwn-thisday")).toBeVisible();
-  // "Start Here" lists the paper's real dispatches, not a mock popularity list.
-  const startHere = page.locator(".cwn-mostread .cwn-mr-row");
-  expect(await startHere.count()).toBeGreaterThan(1);
-  await expect(startHere.first()).toHaveAttribute("href", /\/daily-dove\//);
+  // The Historian's Desk stands on the front page, with the archive's ledger.
+  await expect(page.locator(".dove-hist h2")).toHaveText(
+    "The Historian’s Desk",
+  );
+  expect(await page.locator(".hist-row").count()).toBeGreaterThan(1);
 
-  // A desk chip swaps the feed for the filtered card grid.
-  await page
-    .locator(".cwn-chiprow .news-chip", { hasText: "Historical" })
-    .click();
-  await expect(page.locator("#news-feed")).toBeHidden();
-  await expect(page.locator("#news-results")).toBeVisible();
-  const shown = page.locator("#news-cards .news-feed-card:visible");
-  expect(await shown.count()).toBeGreaterThan(0);
-  for (const card of await shown.all())
-    expect(await card.getAttribute("data-cat")).toBe("historical");
+  // The key to the evidence scale is LAST and FOLDED SHUT — a reader should
+  // fall into the paper before being handed a legend.
+  const key = page.locator("details.key");
+  await expect(key).not.toHaveAttribute("open", "");
+  await key.locator("summary").click();
+  await expect(page.locator(".ekey .ekey-item")).toHaveCount(5);
+});
 
-  await page.locator("#news-clear").click();
-  await expect(page.locator("#news-feed")).toBeVisible();
+test("the front page's era plates open the archive already filtered", async ({
+  page,
+}) => {
+  await page.goto("./daily-dove/");
+  await page.locator(".dove-eragrid .era").first().click();
+  await expect(page).toHaveURL(/\/daily-dove\/archive#era-martyrs$/);
+  // The archive island reads the hash, so the reader does not have to make the
+  // same choice twice.
+  await expect(page.locator("#arc-chips")).toContainText("Age of Martyrs");
+  const rows = page.locator(".arc-row:visible");
+  expect(await rows.count()).toBeGreaterThan(0);
+  for (const row of await rows.all())
+    expect(await row.getAttribute("data-era")).toBe("martyrs");
 });
 
 test("a Daily Dove article carries its metadata bar and evidence", async ({
@@ -503,14 +524,18 @@ test("the Daily Dove framework specimen shows every slot", async ({ page }) => {
   await expect(noted).toHaveCount(2);
 });
 
-test("dispatch plates take their colour from the era", async ({ page }) => {
-  await page.goto("./daily-dove/");
-  const rows = page.locator(".cwn-river .drow");
+test("dispatches claim the era their century actually falls in", async ({
+  page,
+}) => {
+  // Checked on the archive, which lists every dispatch on one page — the front
+  // page now shows an editorial selection rather than the whole run.
+  await page.goto("./daily-dove/archive/");
+  const rows = page.locator(".arc-row");
   expect(await rows.count()).toBeGreaterThan(4);
 
   // The six era bands, as defined in lib/daily-dove. Derived rather than
-  // pinned to particular headlines, so the assertion survives the feed
-  // changing as the paper grows.
+  // pinned to particular headlines, so the assertion survives the paper
+  // growing.
   const BANDS: [string, number, number][] = [
     ["martyrs", 1, 3],
     ["councils", 4, 5],
@@ -524,37 +549,43 @@ test("dispatch plates take their colour from the era", async ({ page }) => {
     const era = await row.getAttribute("data-era");
     const century = Number(await row.getAttribute("data-century"));
     expect(era).toBeTruthy();
-    // Every plate names its band, so the colour is legible not decorative.
-    await expect(row.locator(".erapill")).toBeVisible();
-    // …and the band it claims is the one its century actually falls in.
     const band = BANDS.find(([, from, to]) => century >= from && century <= to);
     expect(era).toBe(band?.[0]);
   }
+
+  // On the front page the colour is always named, never left as decoration.
+  await page.goto("./daily-dove/");
+  await expect(page.locator(".erapill").first()).toBeVisible();
 });
 
 test("the paper can be refined by the kind of help asked for", async ({
   page,
 }) => {
+  // This path — a reader arriving with a trouble rather than a date — starts on
+  // the front page's "Browse by What Was Asked For" and lands on the archive
+  // already narrowed. The front page carries no filter controls of its own.
   await page.goto("./daily-dove/");
+  await page
+    .locator(".dove-topiclist a", { hasText: "Provision in need" })
+    .click();
+  await expect(page).toHaveURL(/#wonder-provision$/);
 
-  // The refine row offers only kinds of help the paper actually reports.
-  const sel = page.locator("#news-wonder");
-  await expect(sel).toBeVisible();
-
-  // Choosing one switches to the filtered grid and narrows it to the accounts
-  // that report that help — this is the path for a reader arriving with a
-  // trouble rather than a date.
-  await sel.selectOption("provision");
-  await expect(page.locator("#news-feed")).toBeHidden();
-  const shown = page.locator("#news-cards .news-feed-card:visible");
-  expect(await shown.count()).toBeGreaterThan(0);
-  for (const card of await shown.all())
-    expect((await card.getAttribute("data-miracles"))?.split(" ")).toContain(
+  await expect(page.locator("#arc-chips")).toContainText("Provision in need");
+  const shown = page.locator(".arc-row:visible");
+  // Read the count into a number now: the locator is live, so re-reading it
+  // after the facet is cleared would just report the whole archive again.
+  const filtered = await shown.count();
+  expect(filtered).toBeGreaterThan(0);
+  for (const row of await shown.all())
+    expect((await row.getAttribute("data-wonder"))?.split(" ")).toContain(
       "provision",
     );
 
-  await page.locator("#news-clear").click();
-  await expect(page.locator("#news-feed")).toBeVisible();
+  // Clearing the facet restores the whole archive.
+  await page.locator("#arc-clear").click();
+  expect(await page.locator(".arc-row:visible").count()).toBeGreaterThan(
+    filtered,
+  );
 });
 
 test("the archive leads with the kind of help asked for", async ({ page }) => {

@@ -14,13 +14,11 @@ const era = eraOf(century);
 ---
 
 <span
-  class="erapill"
+  class:list={["erapill", onDark && "erapill--dark"]}
   title={era.full}
-  style={`font-size:${size}px;color:${onDark ? "var(--ivory)" : era.ink};background:${onDark ? "rgba(245,235,216,.16)" : era.bg}`}
+  style={`font-size:${size}px;color:${onDark ? "var(--gold-soft)" : era.ink};${onDark ? "" : `background:${era.bg}`}`}
 >
-  <i
-    style={onDark ? "background:var(--gold-soft)" : `background:${era.ink}`}
-    aria-hidden="true"></i>
+  <i style={`background:${era.ink}`} aria-hidden="true"></i>
   {era.name}
 </span>
 
@@ -43,5 +41,19 @@ const era = eraOf(century);
     border-radius: 50%;
     display: inline-block;
     flex: 0 0 auto;
+  }
+  /* On the paper's dark stock this is set as a standing label under a gilt
+     rule, not a filled chip. A grey rounded rectangle was the last obviously
+     modern component left on the front page — a newspaper labels a section with
+     type and a rule, never with a pill. The era's own ink stays in the dot, so
+     the six colours are still learnable at a glance. */
+  .erapill--dark {
+    padding: 0 0 3px;
+    border-radius: 0;
+    background: none;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .erapill--dark i {
+    box-shadow: 0 0 0 1px rgba(245, 235, 216, 0.34);
   }
 </style>

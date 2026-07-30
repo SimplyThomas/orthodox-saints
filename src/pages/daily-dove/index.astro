@@ -1,982 +1,1786 @@
 ---
-/* THE DAILY DOVE — the front page.
-   Laid out as a paper's front page: the nameplate, the lead story, the key to
-   the evidence scale, the standing departments, a filter bar, then the
-   chronological feed beside the rail. The feed and the filtered grid are both
-   rendered here; daily-dove.client.ts only switches between them, so the page
-   works without JavaScript. */
+/* THE DAILY DOVE — the front page of The Living Archive.
+
+   Set as a broadsheet front page, not as a feed of cards. The governing idea is
+   that a visitor is unfolding today's sheet out of an archive that has been kept
+   since Pentecost — so the page is ordered the way a paper is ordered, and its
+   hierarchy is dramatic rather than even:
+
+     nameplate → the front page proper (lead + secondaries + briefs + margin)
+     → a pull quote across the measure → the latest dispatches, set at three
+     different weights → the departments → the archive → the eras → the topics
+     → the Historian's Desk → and only then, folded shut at the foot, the key to
+     how the paper is read.
+
+   Two rules earn most of the effect and are easy to undo by accident:
+
+   1. NOT EVERYTHING IS A CARD. The lead is a broadsheet block; the secondaries
+      are ruled columns; the briefs are one line each; the notices are a
+      classified column. If a new section arrives as a fourth grid of equal
+      rectangles, the rhythm is gone and the page is a dashboard again.
+
+   2. NO FILTER BAR HERE. Faceted browsing lives at /daily-dove/archive, which
+      is built for it. A row of selects under the masthead broke the illusion
+      harder than anything else on the page, and the front page now offers
+      editorial ways in instead — by era, by topic, by desk.
+
+   The page is fully static: the only interactive part is the key at the foot,
+   which is a native <details>. */
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SearchGlyph from "../../components/icons/SearchGlyph.astro";
-import NewsCard from "../../components/daily-dove/NewsCard.astro";
 import NewsMeta from "../../components/daily-dove/NewsMeta.astro";
-import DispatchRow from "../../components/daily-dove/DispatchRow.astro";
-import RailModule from "../../components/daily-dove/RailModule.astro";
-import CenturyBadge from "../../components/daily-dove/CenturyBadge.astro";
-import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
 import EraPill from "../../components/daily-dove/EraPill.astro";
+import EvidenceDot from "../../components/daily-dove/EvidenceDot.astro";
 import EvidenceKey from "../../components/daily-dove/EvidenceKey.astro";
 import DoveMasthead from "../../components/daily-dove/DoveMasthead.astro";
-import DepartmentHead from "../../components/daily-dove/DepartmentHead.astro";
+import Headpiece from "../../components/daily-dove/ornament/Headpiece.astro";
+import Fleuron from "../../components/daily-dove/ornament/Fleuron.astro";
+import WaxSeal from "../../components/daily-dove/ornament/WaxSeal.astro";
 import { withBase } from "../../lib/format";
+import "../../styles/daily-dove-paper.css";
 import {
   loadPaper,
   ord,
   postRank,
-  centuriesIn,
-  NEWS_CATS,
-  NEWS_CAT,
+  eraOf,
+  deskOf,
+  DEPARTMENTS,
+  FILING_DESKS,
   EVIDENCE,
   EVIDENCE_LIST,
-  DEPARTMENTS,
+  ERAS,
   WONDERS,
+  DOVE_STANDFIRST,
   NEWS_THISDAY,
 } from "../../lib/daily-dove";
 
 const { featured: lead, all } = await loadPaper();
-const leadCat = NEWS_CAT[lead.cat];
+const leadDesk = deskOf(lead);
+const leadEra = eraOf(lead.century);
 
-// "In the order received" — the newest first, historical dispatches ranked by
-// the year in their dateline.
-const byRecency = all.slice().sort((a, b) => postRank(b) - postRank(a));
-// The lead runs above; the feed carries the rest, with the archive behind it.
-const dispatches = byRecency.filter((n) => n.id !== lead.id).slice(0, 12);
-const centuries = centuriesIn(all);
+/* The sheet is set in descending weight. Newest first — historical dispatches
+   ranked by the year in their dateline — then cut into four bands, each of
+   which is set differently below. */
+const byRecency = all
+  .slice()
+  .sort((a, b) => postRank(b) - postRank(a))
+  .filter((n) => n.id !== lead.id);
 
-// The rail's desk index: each desk with how many accounts it holds and its two
-// most recent. Desks with nothing filed yet are left out rather than shown empty.
-const desks = NEWS_CATS.map((c) => {
-  const inDesk = byRecency.filter((n) => n.cat === c.id);
-  return { cat: c, total: inDesk.length, recent: inDesk.slice(0, 2) };
-}).filter((d) => d.total > 0);
+const secondaries = byRecency.slice(0, 2); // ruled columns beside the lead
+const briefs = byRecency.slice(2, 7); // one-line notices under them
+const alsoIn = byRecency.slice(7, 12); // the "Also In This Edition" list
+const latest = byRecency.slice(12, 20); // the run below the fold
 
-// The filter bar only offers what the paper actually holds — an empty desk or
-// an unused level of evidence is a dead end, not a choice.
-const levels = EVIDENCE_LIST.filter((k) => all.some((n) => n.evidence === k));
+/* The desks, each with what it holds. A desk with nothing filed is still shown
+   — it is a standing department of the paper, not a tag that happens to have
+   entries, and a newsroom does not hide a desk because it had a quiet week. */
+const desks = FILING_DESKS.map((d) => {
+  const filed = byRecency.filter((n) => n.desk === d.id);
+  return {
+    d,
+    total: all.filter((n) => n.desk === d.id).length,
+    latest: filed[0],
+  };
+});
+/* Only the desks that never file a dispatch of their own. Imperial and
+   Marketplace are `column` too, but they are already standing above as filing
+   desks, and this strip's closing note says in so many words that what follows
+   files nothing — listing them here would make the page contradict itself. */
+const columns = DEPARTMENTS.filter((d) => d.column && !d.files);
 
-// The wonders actually reported somewhere in the paper. A reader arriving with a
-// trouble of their own can refine by it — see WONDERS for why this axis exists.
-const wonders = WONDERS.filter((w) =>
-  all.some((n) => n.miracles?.includes(w.id)),
-);
+/* The archive's own shape: how many sheets survive from each age, and from each
+   level of evidence. These are counts of what is actually filed — the page never
+   advertises a shelf that is empty. */
+const eras = ERAS.map((e) => ({
+  e,
+  total: all.filter((n) => eraOf(n.century).id === e.id).length,
+})).filter((x) => x.total > 0);
 
-// The rail's reading list. This was "Most Read" while the section was
-// scaffolded, but the paper has no readership data, so a popularity claim is
-// one thing it cannot source — and sourcing is the whole point. It lists the
-// paper's own dispatches in the order they were filed instead. Turn it back
-// into a real Most Read once analytics can support it.
-const startHere = all.slice().sort((a, b) => postRank(a) - postRank(b));
+const topics = WONDERS.map((w) => ({
+  w,
+  total: all.filter((n) => n.miracles?.includes(w.id)).length,
+})).filter((x) => x.total > 0);
+
+const ledger = EVIDENCE_LIST.map((k) => ({
+  k,
+  ev: EVIDENCE[k],
+  total: all.filter((n) => n.evidence === k).length,
+})).filter((x) => x.total > 0);
+
+/* Roman numerals for the wax seals — a century is stamped, not printed. */
+function roman(n: number): string {
+  const t: [number, string][] = [
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"],
+  ];
+  let out = "";
+  for (const [v, s] of t)
+    while (n >= v) {
+      out += s;
+      n -= v;
+    }
+  return out;
+}
+
+/* The standing notices — the classified column a paper runs down its margin.
+   Written in the period register, but every one of them points at something
+   this site genuinely offers. A notice advertising a thing that does not exist
+   would be the one place the conceit tipped over into fiction. */
+const NOTICES = [
+  {
+    head: "Wanted: A Patron",
+    body: "Persons seeking an intercessor in sickness, in travel, in work, or in any trouble whatsoever may consult the Finder. No charge. All hours.",
+    cue: "Consult the Finder",
+    href: "quiz",
+  },
+  {
+    head: "The Calendar of the Church",
+    body: "Every day's commemorations, reckoned by the New Calendar and the Old, with the fasts marked and the Great Feasts set in gold.",
+    cue: "Read today's date",
+    href: "calendar",
+  },
+  {
+    head: "Corrections Invited",
+    body: "The proprietors solicit the notice of any reader who finds an error of fact in these columns. Corrections are received gratefully and published.",
+    cue: "Write to the paper",
+    href: "corrections",
+  },
+];
 ---
 
 <BaseLayout
   active="daily-dove"
-  title="The Daily Dove"
-  description="Reporting from the Church Since Pentecost — two thousand years of Church history told as the newspaper that never was, with the evidence behind every story set out plainly."
+  title="The Daily Dove — The Living Archive"
+  description="The Living Archive: two thousand years of the Church's story, preserved as though a newspaper had been there to report every major moment — with the evidence behind every dispatch set out plainly."
 >
-  <div class="dove">
-    {/* ---------- NAMEPLATE ---------- */}
-    <div class="dove-mastwrap">
+  <div class="dv dove">
+    {/* ============ NAMEPLATE ============ */}
+    {
+      /* The folio line. A paper numbers its volume by its run, and this one has
+         been running a century per volume since Pentecost — so the volume IS the
+         current century (21) and the number is the count of sheets kept. */
+    }
+    <div class="dove-mastwrap dv-grain">
       <DoveMasthead
         onDark
-        edition={`No. ${all.length} · The Living Archive`}
-        folio="Est. Pentecost, A.D. 33"
+        edition={`Vol. ${roman(21)} · No. ${all.length}`}
+        folio="Kept since Pentecost, A.D. 33"
       />
-      <p class="dove-standfirst">
-        Two thousand years of Church history, reported as though a newspaper had
-        been there to cover it. Every story closes with the <a
-          href="#the-evidence">Historian&rsquo;s Notes</a
-        > &mdash; what is documented, what is the tradition of the Church, and what
-        is legend.
-      </p>
+      <p class="dove-standfirst">{DOVE_STANDFIRST}</p>
+      <div class="dove-mastorn">
+        <Headpiece color="var(--dv-gold-aged)" size={22} />
+      </div>
     </div>
 
-    {/* ---------- LEAD STORY ---------- */}
-    <section class="cwn-featured">
-      <div class="cwn-band-head">
-        <span class="eyebrow on-blue">The Lead Story</span>
-        <span class="cwn-band-ln" aria-hidden="true"></span>
-        <span class="cwn-band-when"
-          >From the {leadCat.name.toLowerCase()} desk</span
-        >
-      </div>
-      <a class="cwn-lead" href={withBase(`daily-dove/${lead.id}`)}>
-        <div class="cwn-lead-tags">
-          {lead.kicker && <span class="cwn-kicker">{lead.kicker}</span>}
-          <EraPill century={lead.century} onDark />
-          <span class="cwn-lead-edition">{lead.edition}</span>
+    {
+      /* ============ THE FRONT PAGE ============
+        Lead, secondaries, briefs and the margin, in one broadsheet grid. */
+    }
+    <section class="dove-front">
+      {/* --- the lead --- */}
+      <article class="fp-lead">
+        {lead.kicker && <span class="dv-kicker">{lead.kicker}</span>}
+        <a class="fp-lead-link" href={withBase(`daily-dove/${lead.id}`)}>
+          <h2 class="fp-lead-h">{lead.headline}</h2>
+        </a>
+        {lead.dek && <p class="fp-lead-dek">{lead.dek}</p>}
+
+        <div class="fp-lead-byline">
+          <span class="fp-lead-desk">{leadDesk.name}</span>
+          <Fleuron size={11} color="var(--dv-gold-aged)" />
+          <NewsMeta
+            date={lead.date}
+            location={lead.location}
+            size={12.5}
+            color="var(--dv-muted)"
+          />
         </div>
-        <div class="cwn-lead-cols">
-          <div class="cwn-lead-main">
-            <h2 class="cwn-lead-h">{lead.headline}</h2>
-            {lead.dek && <p class="cwn-lead-dek">{lead.dek}</p>}
-            <p class="cwn-lead-sum">{lead.summary}</p>
+
+        <hr class="dv-rule dv-rule--double fp-lead-rule" />
+
+        <p class="fp-lead-sum dv-drop">{lead.summary}</p>
+
+        <div class="fp-lead-foot">
+          <a class="fp-read" href={withBase(`daily-dove/${lead.id}`)}>
+            Read the dispatch in full
+            <span aria-hidden="true">→</span>
+          </a>
+          <span class="fp-lead-ev">
+            <EvidenceDot level={lead.evidence} withLabel={false} />
+            <span>{EVIDENCE[lead.evidence].full}</span>
+          </span>
+        </div>
+      </article>
+
+      {/* --- the second column: two secondary stories, then the briefs --- */}
+      <div class="fp-second dv-colrule">
+        <div class="dv-sect">
+          <h2 class="dv-sect-h">More From This Edition</h2>
+          <span class="dv-sect-ln"></span>
+        </div>
+        {
+          secondaries.map((n) => (
+            <a class="fp-sec" href={withBase(`daily-dove/${n.id}`)}>
+              <span class="fp-sec-desk">{deskOf(n).name}</span>
+              <h3 class="fp-sec-h">{n.headline}</h3>
+              <p class="fp-sec-sum">{n.summary}</p>
+              <span class="fp-sec-meta">
+                <EraPill century={n.century} onDark />
+                <EvidenceDot level={n.evidence} withLabel={false} />
+              </span>
+            </a>
+          ))
+        }
+
+        <div class="fp-briefwrap">
+          <div class="dv-sect fp-briefhead">
+            <h2 class="dv-sect-h">In Brief</h2>
+            <span class="dv-sect-ln"></span>
           </div>
-          <div class="cwn-lead-side">
-            <NewsMeta
-              date={lead.date}
-              location={lead.location}
-              size={13}
-              color="#aebfd2"
-            />
-            <span class="cwn-lead-verify">
-              <EvidenceDot level={lead.evidence} withLabel={false} />
-              <span class="cwn-lead-verify-label"
-                >{EVIDENCE[lead.evidence].full}</span
-              >
-            </span>
-            <span class="cwn-lead-read">
-              Read the full account
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
-              >
-            </span>
+          <ul class="fp-briefs">
+            {
+              briefs.map((n) => (
+                <li>
+                  <a href={withBase(`daily-dove/${n.id}`)}>
+                    <span class="fp-brief-cen">{ord(n.century)} c.</span>
+                    <span class="fp-brief-h">{n.headline}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      {
+        /* --- the margin: the archivist's note, a notice, the day in history --- */
+      }
+      <aside class="fp-margin dv-colrule">
+        <div class="fp-marginnote">
+          <WaxSeal mark={roman(leadEra.to)} size={46} />
+          <p>
+            <span class="fp-marginnote-h">From the archivist.</span>
+            {" "}This sheet is filed under <em>{leadEra.edition}</em>. {
+              leadEra.strap
+            }
+          </p>
+        </div>
+
+        {
+          lead.pullQuote && (
+            <blockquote class="fp-margin-q">
+              <p>{lead.pullQuote.text}</p>
+              <cite>{lead.pullQuote.attribution}</cite>
+            </blockquote>
+          )
+        }
+
+        <div class="fp-thisday">
+          <span class="dv-kicker">This Day in the Archive</span>
+          <div class="fp-thisday-date">
+            <span>{NEWS_THISDAY.date}</span>
+            <em>A.D. {NEWS_THISDAY.year}</em>
           </div>
+          <h3>{NEWS_THISDAY.title}</h3>
+          <p>{NEWS_THISDAY.body}</p>
+        </div>
+      </aside>
+    </section>
+
+    {
+      /* ============ ALSO IN THIS EDITION ============
+        A single ruled strip of tiny notices across the measure — the row of
+        one-line pointers a front page runs at its foot. */
+    }
+    <section class="dove-also">
+      <div class="dove-also-lab">
+        <Fleuron size={12} color="var(--dv-gold-aged)" />
+        <span>Also In This Edition</span>
+      </div>
+      <ul class="dove-also-list">
+        {
+          alsoIn.map((n) => (
+            <li>
+              <a href={withBase(`daily-dove/${n.id}`)}>
+                {n.headline}
+                <em>{deskOf(n).short}</em>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    {
+      /* ============ LATEST DISPATCHES ============
+        Set at two weights: the first two as ruled features across two columns,
+        the rest as a stack of one-line entries with the notice column beside
+        them. Deliberately NOT a grid of equal cards. */
+    }
+    <section class="dove-latest">
+      <div class="dv-sect">
+        <h2 class="dv-sect-h">Latest Dispatches</h2>
+        <span class="dv-sect-ln"></span>
+        <span class="dv-sect-note">In the order received</span>
+      </div>
+
+      <div class="dove-latest-grid">
+        <div class="dove-latest-main">
+          {
+            latest.slice(0, 2).map((n) => {
+              const era = eraOf(n.century);
+              return (
+                <article class="lat-feature" style={`--lat-ink:${era.ink}`}>
+                  <span class="lat-desk">{deskOf(n).name}</span>
+                  <a href={withBase(`daily-dove/${n.id}`)}>
+                    <h3>{n.headline}</h3>
+                  </a>
+                  <NewsMeta
+                    date={n.date}
+                    location={n.location}
+                    size={12}
+                    color="var(--dv-muted)"
+                  />
+                  <p class="lat-sum">{n.summary}</p>
+                  <span class="lat-tags">
+                    <EraPill century={n.century} onDark />
+                    <EvidenceDot level={n.evidence} withLabel={false} />
+                  </span>
+                </article>
+              );
+            })
+          }
+
+          <ul class="lat-stack">
+            {
+              latest.slice(2).map((n) => (
+                <li style={`--lat-ink:${eraOf(n.century).ink}`}>
+                  <a href={withBase(`daily-dove/${n.id}`)}>
+                    <span class="lat-stack-cen">{ord(n.century)}</span>
+                    <span class="lat-stack-body">
+                      <span class="lat-stack-h">{n.headline}</span>
+                      <span class="lat-stack-meta">
+                        {n.location} · {deskOf(n).short}
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        {/* the classified column — standing notices, set as small ads */}
+        <aside class="dove-notices">
+          <div class="dove-notices-head">
+            <Headpiece color="var(--dv-burgundy-soft)" size={18} />
+            <span>Notices</span>
+            <Headpiece color="var(--dv-burgundy-soft)" size={18} />
+          </div>
+          {
+            NOTICES.map((ad) => (
+              <a class="dv-sheet notice" href={withBase(ad.href)}>
+                <h3>{ad.head}</h3>
+                <p>{ad.body}</p>
+                <span class="notice-cue">{ad.cue} →</span>
+              </a>
+            ))
+          }
+        </aside>
+      </div>
+    </section>
+
+    {
+      /* ============ THE DEPARTMENTS ============
+        The newsroom, listed as a masthead index: the desks that file, then the
+        columns that run inside other desks' dispatches. */
+    }
+    <section class="dove-depts">
+      <div class="dove-secthead">
+        <Headpiece color="var(--dv-gold-aged)" size={24} />
+        <h2>Our Departments</h2>
+        <p>Every dispatch is filed by a desk. Each desk keeps its own beat.</p>
+      </div>
+
+      <div class="dove-deptlist">
+        {
+          desks.map(({ d, total, latest: recent }) => (
+            <article class="dept" style={`--dept-ink:${d.ink}`}>
+              <header>
+                <span class="dept-dm" aria-hidden="true" />
+                <h3>{d.name}</h3>
+                <span class="dept-n">{total}</span>
+              </header>
+              <p class="dept-strap">{d.blurb}</p>
+              <p class="dept-rule">{d.rule}</p>
+              {recent && (
+                <a
+                  class="dept-latest"
+                  href={withBase(`daily-dove/${recent.id}`)}
+                >
+                  <span>Latest:</span> {recent.headline}
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="dove-columns">
+        <span class="dove-columns-lab">Running Columns</span>
+        <ul>
+          {
+            columns.map((c) => (
+              <li style={`--col-ink:${c.ink}`}>
+                <strong>{c.name}</strong>
+                <span>{c.blurb}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="dove-columns-note">
+          These do not file dispatches of their own — they run <em>inside</em> them,
+          the way a paper drops an edict box or a street interview into the middle
+          of a council report.
+        </p>
+      </div>
+    </section>
+
+    {/* ============ THE ARCHIVE ============ */}
+    <section class="dove-archive">
+      <a class="dv-sheet dv-foxed arch" href={withBase("daily-dove/archive")}>
+        <div class="arch-seal">
+          <WaxSeal mark="☦" size={62} wax="rgba(109,32,38,.92)" />
+        </div>
+        <div class="arch-body">
+          <span class="dv-kicker">The Stacks</span>
+          <h2>Enter the Archive</h2>
+          <p>
+            Every sheet the paper has kept — {all.length} dispatches across
+            {" "}{eras.length} ages of the Church — indexed by century, by place,
+            by saint, by desk, and by the level of evidence that carries it.
+          </p>
+          <span class="arch-cue">Enter the archive →</span>
         </div>
       </a>
     </section>
 
-    {/* ---------- THE EVIDENCE KEY ---------- */}
-    <section class="cwn-legend" id="the-evidence">
-      <div class="cwn-legend-intro">
-        <div class="eyebrow on-blue">How to read this paper</div>
+    {
+      /* ============ BROWSE BY ERA ============
+        The archive's shelves. Each plate carries its own age's motif and a
+        wax seal stamped with the century the run closes at — the one place the
+        "run of papers, not one paper" idea is stated outright. */
+    }
+    <section class="dove-eras">
+      <div class="dove-secthead">
+        <Headpiece color="var(--dv-gold-aged)" size={24} />
+        <h2>Browse the Archive by Age</h2>
         <p>
-          The stories are told with relish. The evidence behind them is not.
+          The paper has been set in every century since the Apostles. Each age
+          left its own sheets, and its own way of printing them.
         </p>
       </div>
-      <span class="cwn-legend-rule" aria-hidden="true"></span>
-      <div class="cwn-legend-body"><EvidenceKey onDark /></div>
-    </section>
 
-    {/* ---------- THE DEPARTMENTS ---------- */}
-    <section class="dove-depts">
-      <div class="cwn-band-head">
-        <span class="eyebrow on-blue">Our Departments</span>
-        <span class="cwn-band-ln" aria-hidden="true"></span>
-        <span class="cwn-band-when">Standing sections of the paper</span>
-      </div>
-      <div class="dove-depts-grid">
+      <div class="dove-eragrid">
         {
-          DEPARTMENTS.map((d) => (
-            <div class="dove-dept">
-              <DepartmentHead kind={d.id} bare onDark />
-              <p>{d.rule}</p>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
-    {/* ---------- FILTER BAR ---------- */}
-    <section class="cwn-filters">
-      <div class="cwn-chiprow">
-        <button type="button" class="chip news-chip on" data-cat="all"
-          >All Articles</button
-        >
-        {
-          desks.map(({ cat }) => (
-            <button type="button" class="chip news-chip" data-cat={cat.id}>
-              {cat.short}
-            </button>
-          ))
-        }
-      </div>
-      <div class="cwn-refine">
-        <span class="eyebrow on-blue">Refine</span>
-        <select
-          id="news-century"
-          class="cwn-sel"
-          aria-label="Filter by century"
-        >
-          <option value="">Any century</option>
-          {centuries.map((c) => <option value={c}>{ord(c)} Century</option>)}
-        </select>
-        <select
-          id="news-verify"
-          class="cwn-sel"
-          aria-label="Filter by level of evidence"
-        >
-          <option value="">Any level of evidence</option>
-          {levels.map((k) => <option value={k}>{EVIDENCE[k].full}</option>)}
-        </select>
-        {
-          wonders.length > 0 && (
-            <select
-              id="news-wonder"
-              class="cwn-sel"
-              aria-label="Refine by what the saint is asked for"
+          eras.map(({ e, total }) => (
+            <a
+              class="era dv-grain"
+              href={withBase(`daily-dove/archive#era-${e.id}`)}
+              style={`--era-ink:${e.ink};--era-stock:${e.stock}`}
             >
-              <option value="">Any kind of help</option>
-              {wonders.map((w) => (
-                <option value={w.id}>{w.name}</option>
-              ))}
-            </select>
-          )
+              <div class="era-orn">
+                <Headpiece era={e} color="var(--dv-gold-aged)" size={26} />
+              </div>
+              <span class="era-seal">
+                <WaxSeal mark={roman(e.to)} size={40} />
+              </span>
+              <h3>{e.name}</h3>
+              <span class="era-run">{e.edition}</span>
+              <p class="era-strap">{e.strap}</p>
+              <span class="era-foot">
+                <em>
+                  {ord(e.from)}–{ord(e.to)} century
+                </em>
+                <span class="era-n">{total} kept</span>
+              </span>
+            </a>
+          ))
         }
-        <div class="search cwn-search" role="search">
-          <span class="ico" aria-hidden="true">
-            <SearchGlyph size={17} color="var(--celest)" />
-          </span>
-          <input
-            type="search"
-            id="news-q"
-            placeholder="Saint name…"
-            autocomplete="off"
-            aria-label="Search the accounts"
-          />
-        </div>
-        <button
-          type="button"
-          class="btn btn--ghost cwn-clear"
-          id="news-clear"
-          hidden>Clear filters</button
-        >
       </div>
     </section>
 
-    {/* ---------- FEED + RAIL ---------- */}
-    <section class="cwn-bodyband">
-      <div class="cwn-grid">
-        <div>
-          {/* default view — the chronological feed */}
-          <div id="news-feed">
-            <div class="cwn-feed-head">
-              <h2>Latest Dispatches</h2>
-              <span class="cwn-band-ln" aria-hidden="true"></span>
-              <span class="cwn-feed-note">In the order received</span>
-            </div>
-            <div class="cwn-river">
-              {dispatches.map((n) => <DispatchRow n={n} />)}
-            </div>
-          </div>
+    {
+      /* ============ BROWSE BY TOPIC ============
+        Set as a classified column, three across — a reader carrying a trouble
+        of their own reads down it the way one reads small ads. */
+    }
+    <section class="dove-topics">
+      <div class="dove-secthead">
+        <Headpiece color="var(--dv-gold-aged)" size={24} />
+        <h2>Browse by What Was Asked For</h2>
+        <p>
+          The Church asks the saints to pray; she does not trade in outcomes.
+          These are the troubles the accounts themselves report help in.
+        </p>
+      </div>
+      <ul class="dove-topiclist">
+        {
+          topics.map(({ w, total }) => (
+            <li>
+              <a href={withBase(`daily-dove/archive#wonder-${w.id}`)}>
+                <span class="topic-h">
+                  {w.name}
+                  <em>{total}</em>
+                </span>
+                <span class="topic-b">{w.blurb}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-          {/* filtered view — every account as a card, shown by the island */}
-          <div id="news-results" hidden>
-            <div class="cwn-feed-head">
-              <h2>
-                <span id="news-count">{all.length}</span>
-                <span id="news-noun">accounts</span> found
-              </h2>
-              <span class="cwn-band-ln" aria-hidden="true"></span>
-              <span class="cwn-feed-note" id="news-scope">All desks</span>
-            </div>
-            <div class="cwn-cardgrid" id="news-cards">
-              {all.map((n) => <NewsCard n={n} />)}
-            </div>
-            <div class="cwn-empty" id="news-empty" hidden>
-              <p>No accounts match these filters yet.</p>
-              <button type="button" class="btn btn--ghost" id="news-empty-clear"
-                >Clear filters</button
-              >
-            </div>
-          </div>
+    {
+      /* ============ THE HISTORIAN'S DESK ============
+        The department that runs at the foot of every dispatch, given its own
+        standing at the foot of the front page. The ledger below is the archive's
+        own accounting of itself: how much of what it holds is documented. */
+    }
+    <section class="dove-hist">
+      <div class="hist-inner">
+        <div class="hist-lede">
+          <span class="dv-kicker">Standing Department</span>
+          <h2>The Historian’s Desk</h2>
+          <p>
+            Every dispatch in this archive is told with relish. None of it is
+            told without an account of where it comes from. At the foot of each
+            sheet, this desk sets out what contemporary sources actually say,
+            what the later tradition of the Church adds, what is medieval, and
+            what is frankly legend — strand by strand, and never blurred
+            together.
+          </p>
+          <p class="hist-p2">
+            A reader should be able to enjoy the whole of a story and still know
+            exactly which part of it would stand up in a footnote. That is the
+            entire reason the paper is set this way.
+          </p>
         </div>
 
-        {/* ---------- RAIL ---------- */}
-        <aside class="cwn-rail">
-          <RailModule eyebrow="Browse by Desk" onDark>
-            <div class="cwn-desks">
-              {
-                desks.map(({ cat, total, recent }) => (
-                  <div class="cwn-desk">
-                    <button
-                      type="button"
-                      class="cwn-deskhead news-chip"
-                      data-cat={cat.id}
-                    >
-                      <span
-                        class="cwn-deskdot"
-                        style={`background:${cat.ink}`}
-                        aria-hidden="true"
-                      />
-                      <span class="cwn-deskname">{cat.name}</span>
-                      <span class="cwn-deskcount">{total}</span>
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--gold-soft)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                      >
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </button>
-                    {recent.length > 0 && (
-                      <div class="cwn-desksubs">
-                        {recent.map((n) => (
-                          <a
-                            class="cwn-desksub"
-                            href={withBase(`daily-dove/${n.id}`)}
-                          >
-                            {n.headline}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))
-              }
-            </div>
-          </RailModule>
-
+        <div class="hist-ledger">
+          <div class="hist-ledger-head">
+            <Fleuron size={12} color="var(--dv-gold-aged)" />
+            <span>What the archive holds</span>
+          </div>
           {
-            /* kept from the earlier direction — the modules that earned their place */
-          }
-          <RailModule eyebrow="This Day in Orthodox History" onDark>
-            <div class="cwn-thisday">
-              <div class="cwn-thisday-top">
-                <span class="cwn-thisday-date">{NEWS_THISDAY.date}</span>
-                <span class="cwn-thisday-year">A.D. {NEWS_THISDAY.year}</span>
+            ledger.map(({ ev, total }) => (
+              <div class="hist-row" style={`--hr-ink:${ev.dot}`}>
+                <span class="hist-dot" />
+                <span class="hist-lab">{ev.full}</span>
+                <span class="hist-n">{total}</span>
               </div>
-              <h3>{NEWS_THISDAY.title}</h3>
-              <p>{NEWS_THISDAY.body}</p>
-            </div>
-          </RailModule>
-
-          <RailModule eyebrow="Start Here" onDark>
-            <div class="cwn-mostread">
-              {
-                startHere.map((m, i) => (
-                  <a class="cwn-mr-row" href={withBase(`daily-dove/${m.id}`)}>
-                    <span class="cwn-mr-n">{i + 1}</span>
-                    <div>
-                      <h4>{m.headline}</h4>
-                      <CenturyBadge
-                        century={m.century}
-                        color="var(--gold-soft)"
-                      />
-                    </div>
-                  </a>
-                ))
-              }
-            </div>
-          </RailModule>
-
-          <a class="cwn-archive-cta" href={withBase("daily-dove/archive")}>
-            <h3>Browse the full archive</h3>
-            <p>
-              Every dispatch by century, saint, place, desk, and level of
-              verification.
-            </p>
-            <span class="cwn-archive-cue">
-              Enter the archive
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg
-              >
-            </span>
-          </a>
-        </aside>
+            ))
+          }
+          <p class="hist-foot">
+            Counted by the strongest level each dispatch as a whole rests on.
+            Within a dispatch, individual claims are weighed one at a time.
+          </p>
+        </div>
       </div>
+    </section>
+
+    {
+      /* ============ HOW TO READ THIS PAPER ============
+        Folded shut, and last. It was the third thing on the page before, which
+        asked a visitor to learn a legend before reading a word — the reverse of
+        how anyone picks up a newspaper. Fall into the illusion first; the key is
+        here for whoever wants it. */
+    }
+    <section class="dove-key">
+      <details class="key">
+        <summary>
+          <span class="key-orn" aria-hidden="true">
+            <Fleuron size={13} color="var(--dv-gold-aged)" />
+          </span>
+          <span class="key-h">How to Read This Paper</span>
+          <span class="key-note"
+            >The marks beside every dispatch, explained</span
+          >
+          <span class="key-caret" aria-hidden="true">+</span>
+        </summary>
+        <div class="key-body">
+          <p class="key-intro">
+            The stories are told with relish. The evidence behind them is not.
+            Every dispatch carries one of these marks, and closes with the
+            Historian’s Desk setting out which parts of it rest on which.
+          </p>
+          <EvidenceKey onDark />
+        </div>
+      </details>
     </section>
   </div>
 </BaseLayout>
 
-<script>
-  import "../../islands/daily-dove.client";
-</script>
-
 <style>
-  /* The paper is printed on dark stock. The "old newspaper" reading comes from
-     the rules, the nameplate and the small-caps furniture rather than from a
-     pale ground — which lets the desk-coloured dispatch plates below carry the
-     page instead of fighting a parchment top half. */
+  /* ============================================================
+     The sheet.
+     The dark navy is kept — it is the paper's stock — but it is no longer the
+     only colour on the page: parchment sheets, burgundy notices, aged gilt
+     rules and the era inks all print on it. See daily-dove-paper.css for the
+     palette these read from.
+     ============================================================ */
   .dove {
-    background: var(--byz-ink);
+    background: var(--dv-stock);
+    /* the whole section is set to a broadsheet measure */
+    --dv-pad: clamp(20px, 4vw, 56px);
+  }
+  .dove :global(a) {
+    text-decoration: none;
   }
 
   /* ---------- nameplate ---------- */
   .dove-mastwrap {
-    padding: 10px 56px 26px;
+    padding: 10px var(--dv-pad) 30px;
   }
   .dove-standfirst {
     font-family: var(--serif);
-    font-size: clamp(15px, 1.6vw, 19px);
-    color: var(--celest-soft);
-    line-height: 1.55;
-    max-width: 74ch;
-    margin: 20px auto 0;
+    font-size: clamp(16px, 1.7vw, 21px);
+    color: var(--dv-cream);
+    opacity: 0.86;
+    line-height: 1.5;
+    max-width: 68ch;
+    margin: 22px auto 0;
     text-align: center;
     text-wrap: pretty;
   }
-  .dove-standfirst a {
-    color: var(--gold-soft);
-    text-decoration-color: var(--line-gold);
-    text-underline-offset: 3px;
-  }
-  .dove-standfirst a:hover {
-    color: var(--gold);
+  .dove-mastorn {
+    max-width: 420px;
+    margin: 20px auto 0;
   }
 
-  /* ---------- the departments strip ---------- */
-  .dove-depts {
-    padding: 32px 56px 8px;
-  }
-  .dove-depts-grid {
+  /* ============ THE FRONT PAGE ============
+     Three columns of very different weight. The lead takes roughly half the
+     measure, the secondaries a quarter, the margin the rest — the proportions a
+     broadsheet actually uses, rather than three equal thirds. */
+  .dove-front {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px 34px;
-  }
-  .dove-dept p {
-    font-size: 14px;
-    color: var(--celest-soft);
-    line-height: 1.55;
-    margin: 0;
-    text-wrap: pretty;
-  }
-
-  /* ---------- shared band furniture ---------- */
-  .cwn-band-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
-  }
-  .cwn-band-ln {
-    flex: 1;
-    height: 1px;
-    background: var(--line-gold);
-  }
-  .cwn-band-when {
-    font-size: 12.5px;
-    color: var(--celest-soft);
-    font-style: italic;
-    font-family: var(--serif);
-  }
-
-  /* ---------- lead story ---------- */
-  .cwn-featured {
-    padding: 26px 56px 38px;
-  }
-  /* The lead is type, not a picture panel: the paper carries no images, and a
-     500px block with a letter in it only ever read as one waiting to arrive.
-     Its weight now comes from the headline and the era colour it prints on. */
-  .cwn-lead {
-    display: block;
-    background: linear-gradient(165deg, #234c7a 0%, #18324f 60%, #0f2238 100%);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-left: 5px solid var(--gold);
-    border-radius: 4px;
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-    padding: 26px clamp(22px, 3vw, 36px) 28px;
-  }
-  .cwn-lead-tags {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 14px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .cwn-kicker {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--byz-ink);
-    background: var(--gold);
-    border-radius: 2px;
-    padding: 5px 11px;
-  }
-  .cwn-lead-edition {
-    font-family: var(--text);
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--celest-soft);
-  }
-  .cwn-lead-h {
-    font-size: clamp(28px, 3.1vw, 44px);
-    color: var(--ivory);
-    line-height: 1.06;
-    margin: 0 0 12px;
-    text-wrap: balance;
-  }
-  .cwn-lead:hover .cwn-lead-h {
-    text-decoration: underline;
-    text-decoration-color: var(--line-gold);
-    text-underline-offset: 4px;
-  }
-  .cwn-lead-dek {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(17px, 1.6vw, 20px);
-    color: var(--gold-soft);
-    line-height: 1.45;
-    margin: 0 0 16px;
-    text-wrap: pretty;
-  }
-  /* the story runs against a narrow rail of metadata, the way a paper sets a
-     lead's furniture beside the copy rather than under it */
-  .cwn-lead-cols {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 250px;
-    gap: 44px;
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr) minmax(0, 0.82fr);
+    gap: 0 34px;
+    padding: 8px var(--dv-pad) 0;
     align-items: start;
   }
-  .cwn-lead-side {
-    padding-left: 24px;
-    border-left: 1px solid rgba(245, 235, 216, 0.16);
+
+  /* --- the lead --- */
+  .fp-lead {
+    min-width: 0;
+    padding-right: 34px;
+    border-right: 1px solid var(--dv-rule-soft);
   }
-  .cwn-lead-sum {
-    font-size: 15px;
-    color: #cdd9e6;
-    line-height: 1.7;
-    margin: 0;
+  .fp-lead-h {
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: clamp(34px, 4.6vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--dv-cream);
+    margin: 8px 0 0;
+    text-wrap: balance;
+  }
+  .fp-lead-link:hover .fp-lead-h {
+    color: var(--dv-gold-soft);
+  }
+  .fp-lead-dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 1.9vw, 25px);
+    line-height: 1.34;
+    color: var(--dv-gold-soft);
+    margin: 14px 0 0;
     text-wrap: pretty;
   }
-  .cwn-lead-side {
-    display: grid;
-    gap: 13px;
-    justify-items: start;
+  .fp-lead-byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
   }
-  .cwn-lead-verify {
+  .fp-lead-desk {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-gold-soft);
+  }
+  .fp-lead-rule {
+    margin: 16px 0 18px;
+  }
+  /* the lead's copy is set in two columns with a dropped capital — the single
+     strongest signal on the page that this is a printed sheet and not a card */
+  .fp-lead-sum {
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: 1.72;
+    color: var(--dv-cream);
+    opacity: 0.92;
+    margin: 0;
+    column-count: 2;
+    column-gap: 32px;
+    column-rule: 1px solid var(--dv-rule-soft);
+    text-wrap: pretty;
+  }
+  .fp-lead-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--dv-rule-soft);
+  }
+  .fp-read {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--dv-gold);
+  }
+  .fp-read:hover {
+    color: var(--dv-gold-soft);
+  }
+  .fp-lead-ev {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-  }
-  .cwn-lead-verify-label {
     font-family: var(--text);
-    font-weight: 600;
     font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold-soft);
-  }
-  .cwn-lead-read {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
     font-weight: 600;
-    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--dv-muted);
   }
 
-  /* ---------- the evidence key ---------- */
-  .cwn-legend {
+  /* --- secondary column --- */
+  .fp-second {
+    min-width: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+  .fp-sec {
+    display: block;
+    padding: 0 0 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+  }
+  .fp-sec-desk {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-burgundy-soft);
+  }
+  .fp-sec-h {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(21px, 2vw, 27px);
+    line-height: 1.12;
+    color: var(--dv-cream);
+    margin: 6px 0 8px;
+    text-wrap: pretty;
+  }
+  .fp-sec:hover .fp-sec-h {
+    color: var(--dv-gold-soft);
+  }
+  .fp-sec-sum {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--dv-muted);
+    margin: 0 0 10px;
+    /* three lines is a secondary's worth of copy; the rest is on the page */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-wrap: pretty;
+  }
+  .fp-sec-meta {
     display: flex;
     align-items: center;
-    gap: 28px;
-    margin: 0 56px;
-    padding: 22px 26px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 4px;
-    background: linear-gradient(168deg, #16304c 0%, #122841 60%, #0e2036 100%);
-    box-shadow: var(--shadow-card);
-    scroll-margin-top: 90px;
+    gap: 10px;
   }
-  .cwn-legend-intro {
-    flex: 0 0 auto;
-    max-width: 190px;
+
+  .fp-briefwrap {
+    margin-top: 4px;
   }
-  .cwn-legend-intro .eyebrow {
+  .fp-briefs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .fp-briefs li + li {
+    border-top: 1px dotted var(--dv-rule-soft);
+  }
+  .fp-briefs a {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    align-items: baseline;
+  }
+  .fp-brief-cen {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--dv-gold-aged);
+    flex: 0 0 34px;
+  }
+  .fp-brief-h {
+    font-family: var(--serif);
+    font-size: 15.5px;
+    line-height: 1.28;
+    color: var(--dv-cream);
+    opacity: 0.85;
+    text-wrap: pretty;
+  }
+  .fp-briefs a:hover .fp-brief-h {
+    opacity: 1;
+    color: var(--dv-gold-soft);
+  }
+
+  /* --- the margin --- */
+  .fp-margin {
+    min-width: 0;
+    padding-left: 26px;
+  }
+  .fp-marginnote {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+  }
+  .fp-marginnote p {
+    font-family: var(--serif);
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--dv-muted);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .fp-marginnote-h {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dv-gold-soft);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
-  .cwn-legend-intro p {
+
+  /* a pull quote set in the margin, the way a paper hangs one */
+  .fp-margin-q {
+    margin: 0 0 22px;
+    padding: 4px 0 18px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+  }
+  .fp-margin-q p {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 14px;
-    color: var(--celest-soft);
-    line-height: 1.35;
+    font-size: clamp(18px, 1.9vw, 23px);
+    line-height: 1.32;
+    color: var(--dv-cream);
+    margin: 0 0 10px;
+    text-wrap: pretty;
+  }
+  /* No decorative opening quote here: the pullQuote copy carries its own
+     quotation marks, and a pseudo-element one printed a second mark beside
+     them. The burgundy rule above the quote does the marking instead. */
+  .fp-margin-q {
+    border-top: 2px solid var(--dv-burgundy-soft);
+    padding-top: 16px;
+  }
+  .fp-margin-q cite {
+    font-family: var(--text);
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dv-gold-aged);
+  }
+
+  .fp-thisday h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.18;
+    color: var(--dv-cream);
+    margin: 8px 0 8px;
+    text-wrap: pretty;
+  }
+  .fp-thisday p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--dv-muted);
     margin: 0;
+    text-wrap: pretty;
   }
-  .cwn-legend-rule {
-    width: 1px;
-    align-self: stretch;
-    background: var(--line-gold);
+  .fp-thisday-date {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin-top: 6px;
   }
-  .cwn-legend-body {
-    flex: 1;
+  .fp-thisday-date span {
+    font-family: var(--serif);
+    font-size: 27px;
+    color: var(--dv-gold-soft);
+    line-height: 1;
+  }
+  .fp-thisday-date em {
+    font-family: var(--text);
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dv-muted);
+  }
+
+  /* ============ ALSO IN THIS EDITION ============ */
+  .dove-also {
+    margin: 34px var(--dv-pad) 0;
+    padding: 16px 0;
+    border-top: 3px solid var(--dv-gold-aged);
+    border-bottom: 1px solid var(--dv-rule);
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+  .dove-also-lab {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-gold-soft);
+    padding-top: 3px;
+  }
+  .dove-also-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 4px 28px;
+  }
+  .dove-also-list a {
+    display: block;
+    padding: 5px 0;
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--dv-cream);
+    opacity: 0.82;
+    text-wrap: pretty;
+  }
+  .dove-also-list a:hover {
+    opacity: 1;
+    color: var(--dv-gold-soft);
+  }
+  .dove-also-list em {
+    display: block;
+    font-family: var(--text);
+    font-style: normal;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--dv-gold-aged);
+    margin-top: 2px;
+  }
+
+  /* ============ LATEST DISPATCHES ============ */
+  .dove-latest {
+    padding: 44px var(--dv-pad) 0;
+  }
+  .dove-latest-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 40px;
+    align-items: start;
+  }
+  .dove-latest-main {
     min-width: 0;
   }
 
-  /* ---------- filter bar ---------- */
-  .cwn-filters {
-    padding: 28px 56px 4px;
+  /* the two features: two columns of copy under a coloured rule */
+  .lat-feature {
+    padding: 0 0 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+    border-top: 3px solid var(--lat-ink);
+    padding-top: 15px;
   }
-  .cwn-chiprow {
+  .lat-desk {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-gold-aged);
+  }
+  .lat-feature h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(24px, 2.5vw, 33px);
+    line-height: 1.1;
+    color: var(--dv-cream);
+    margin: 7px 0 10px;
+    text-wrap: balance;
+  }
+  .lat-feature a:hover h3 {
+    color: var(--dv-gold-soft);
+  }
+  .lat-sum {
+    font-size: 14.5px;
+    line-height: 1.66;
+    color: var(--dv-muted);
+    margin: 12px 0 12px;
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid var(--dv-rule-soft);
+    text-wrap: pretty;
+  }
+  .lat-tags {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  /* the stack: one line each, ruled — the tail of the run */
+  .lat-stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--dv-rule);
+  }
+  .lat-stack li {
+    border-bottom: 1px solid var(--dv-rule-soft);
+  }
+  .lat-stack a {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 13px 0 13px 12px;
+    border-left: 3px solid var(--lat-ink);
+  }
+  .lat-stack a:hover {
+    background: rgba(245, 235, 216, 0.035);
+  }
+  .lat-stack-cen {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--dv-gold-aged);
+    flex: 0 0 40px;
+  }
+  .lat-stack-body {
+    min-width: 0;
+  }
+  .lat-stack-h {
+    display: block;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.24;
+    color: var(--dv-cream);
+    opacity: 0.9;
+    text-wrap: pretty;
+  }
+  .lat-stack a:hover .lat-stack-h {
+    opacity: 1;
+    color: var(--dv-gold-soft);
+  }
+  .lat-stack-meta {
+    display: block;
+    font-family: var(--text);
+    font-size: 11.5px;
+    color: var(--dv-muted);
+    margin-top: 3px;
+  }
+
+  /* --- the notices column --- */
+  .dove-notices-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--dv-burgundy-soft);
+  }
+  .notice {
+    display: block;
+    padding: 16px 18px 15px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .notice h3 {
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 1.1;
+    color: var(--dv-burgundy);
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .notice p {
+    font-family: var(--serif);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--dv-parchment-ink);
+    margin: 0 0 10px;
+    text-wrap: pretty;
+  }
+  .notice-cue {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dv-burgundy);
+    border-top: 1px solid rgba(109, 32, 38, 0.28);
+    padding-top: 9px;
+    display: block;
+  }
+  .notice:hover {
+    background: #f0e7d2;
+  }
+  .notice:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ============ section heads ============ */
+  .dove-secthead {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 30px;
+  }
+  .dove-secthead h2 {
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.06;
+    color: var(--dv-cream);
+    margin: 16px 0 10px;
+    text-wrap: balance;
+  }
+  .dove-secthead p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--dv-muted);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ============ DEPARTMENTS ============ */
+  .dove-depts {
+    padding: 58px var(--dv-pad) 0;
+  }
+  .dove-deptlist {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 3px solid var(--dv-gold-aged);
+  }
+  .dept {
+    padding: 20px 22px 22px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+    border-right: 1px solid var(--dv-rule-soft);
+    min-width: 0;
+  }
+  .dept:nth-child(3n) {
+    border-right: none;
+  }
+  .dept header {
     display: flex;
     align-items: center;
     gap: 9px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--dept-ink);
+    margin-bottom: 10px;
   }
-  /* the filter row sits on the dark ground, so its controls invert */
-  .cwn-chiprow :global(.chip) {
-    background: rgba(245, 235, 216, 0.06);
-    border-color: rgba(212, 175, 55, 0.32);
-    color: var(--celest-soft);
+  .dept-dm {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    background: var(--dept-ink);
+    flex: 0 0 auto;
+    /* the desk inks go muddy on navy, so each is lifted by a gilt ring */
+    box-shadow: 0 0 0 1.5px rgba(212, 175, 55, 0.5);
   }
-  .cwn-chiprow :global(.chip:hover) {
-    border-color: var(--gold);
-    color: var(--gold-soft);
-  }
-  .cwn-chiprow :global(.chip.on) {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--byz-ink);
-    font-weight: 600;
-  }
-  .cwn-refine {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-bottom: 4px;
-  }
-  .cwn-sel {
-    appearance: none;
-    -webkit-appearance: none;
+  .dept h3 {
     font-family: var(--text);
-    font-size: 14.5px;
-    color: var(--ivory);
-    background:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23E6CD7E' stroke-width='2'><path d='M2 4l4 4 4-4'/></svg>")
-        no-repeat right 14px center,
-      #16304c;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 4px;
-    padding: 0 38px 0 14px;
-    height: 46px;
-    cursor: pointer;
-    box-shadow: var(--shadow-card);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--dv-cream);
+    margin: 0;
+    flex: 1;
+    min-width: 0;
   }
-  /* .search is a light-ground primitive; the wrapper carries the white, so it
-     has to be darkened here as well as the input inside it. */
-  .cwn-search {
-    min-width: 230px;
-    background: #16304c;
-    border-color: rgba(212, 175, 55, 0.3);
+  .dept-n {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    color: var(--dv-gold-soft);
   }
-  .cwn-clear {
-    padding: 9px 18px;
+  .dept-strap {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--dv-gold-soft);
+    margin: 0 0 7px;
+  }
+  .dept-rule {
     font-size: 13.5px;
-    color: var(--gold-soft);
-    border-color: rgba(212, 175, 55, 0.45);
+    line-height: 1.55;
+    color: var(--dv-muted);
+    margin: 0;
+    text-wrap: pretty;
   }
-  .cwn-search :global(input) {
-    background: #16304c;
-    color: var(--ivory);
+  .dept-latest {
+    display: block;
+    margin-top: 11px;
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--dv-cream);
+    opacity: 0.8;
+    text-wrap: pretty;
   }
-  .cwn-search :global(input::placeholder) {
-    color: var(--celest-soft);
+  .dept-latest span {
+    font-family: var(--text);
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--dv-gold-aged);
+  }
+  .dept-latest:hover {
+    opacity: 1;
+    color: var(--dv-gold-soft);
   }
 
-  /* ---------- feed + rail ---------- */
-  .cwn-bodyband {
-    padding: 26px 56px 64px;
+  .dove-columns {
+    margin-top: 26px;
+    padding: 20px 24px 18px;
+    border: 1px solid var(--dv-rule);
+    border-left: 3px solid var(--dv-burgundy-soft);
+    background: var(--dv-stock-3);
   }
-  .cwn-grid {
+  .dove-columns-lab {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--dv-burgundy-soft);
+  }
+  .dove-columns ul {
+    list-style: none;
+    margin: 12px 0 12px;
+    padding: 0;
     display: grid;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px 26px;
+  }
+  .dove-columns li {
+    padding-left: 12px;
+    border-left: 2px solid var(--col-ink);
+  }
+  .dove-columns strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--dv-cream);
+    line-height: 1.2;
+  }
+  .dove-columns span {
+    font-size: 13px;
+    color: var(--dv-muted);
+  }
+  .dove-columns-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--dv-muted);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ============ THE ARCHIVE ============ */
+  .dove-archive {
+    padding: 56px var(--dv-pad) 0;
+  }
+  .arch {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 34px;
+  }
+  .arch-seal {
+    flex: 0 0 auto;
+  }
+  .arch-body {
+    min-width: 0;
+  }
+  .arch h2 {
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.02;
+    color: var(--dv-burgundy);
+    margin: 8px 0 10px;
+  }
+  .arch p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--dv-parchment-ink);
+    margin: 0 0 12px;
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+  .arch .dv-kicker {
+    color: var(--dv-burgundy-soft);
+  }
+  .arch-cue {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--dv-burgundy);
+  }
+  .arch:hover h2 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* ============ ERAS ============ */
+  .dove-eras {
+    padding: 58px var(--dv-pad) 0;
+  }
+  .dove-eragrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  /* each plate prints on its own age's stock — a shift of a few degrees of hue,
+     enough that the six read as different sheets side by side, not enough to
+     break the paper's identity */
+  .era {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 20px;
+    background: var(--era-stock);
+    border: 1px solid var(--dv-rule);
+    border-top: 3px solid var(--era-ink);
+    box-shadow: var(--shadow-card);
+    min-width: 0;
+  }
+  .era-orn {
+    max-width: 180px;
+    margin-bottom: 16px;
+  }
+  .era-seal {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    opacity: 0.9;
+  }
+  .era h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.08;
+    color: var(--dv-cream);
+    margin: 0 0 5px;
+    padding-right: 46px;
+    text-wrap: pretty;
+  }
+  .era:hover h3 {
+    color: var(--dv-gold-soft);
+  }
+  .era-run {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--dv-gold-aged);
+  }
+  .era-strap {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: var(--dv-muted);
+    margin: 11px 0 16px;
+    flex: 1;
+    text-wrap: pretty;
+  }
+  .era-foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 11px;
+    border-top: 1px solid var(--dv-rule-soft);
+  }
+  .era-foot em {
+    font-family: var(--serif);
+    font-size: 13.5px;
+    color: var(--dv-muted);
+  }
+  .era-n {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--dv-gold-soft);
+  }
+
+  /* ============ TOPICS ============ */
+  .dove-topics {
+    padding: 58px var(--dv-pad) 0;
+  }
+  .dove-topiclist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* a classified column: three across, ruled, read top to bottom */
+    columns: 3;
+    column-gap: 34px;
+    column-rule: 1px solid var(--dv-rule-soft);
+  }
+  .dove-topiclist li {
+    break-inside: avoid;
+    border-bottom: 1px dotted var(--dv-rule-soft);
+  }
+  .dove-topiclist a {
+    display: block;
+    padding: 11px 0;
+  }
+  .topic-h {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17.5px;
+    color: var(--dv-cream);
+    line-height: 1.2;
+  }
+  .dove-topiclist a:hover .topic-h {
+    color: var(--dv-gold-soft);
+  }
+  .topic-h em {
+    font-family: ui-monospace, Menlo, monospace;
+    font-style: normal;
+    font-size: 10.5px;
+    color: var(--dv-gold-aged);
+    flex: 0 0 auto;
+  }
+  .topic-b {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--dv-muted);
+    margin-top: 3px;
+    text-wrap: pretty;
+  }
+  @media (max-width: 1000px) {
+    .dove-topiclist {
+      columns: 2;
+    }
+  }
+  @media (max-width: 700px) {
+    .dove-topiclist {
+      columns: 1;
+    }
+  }
+
+  /* ============ THE HISTORIAN'S DESK ============ */
+  .dove-hist {
+    margin-top: 58px;
+    padding: 46px var(--dv-pad);
+    background: var(--dv-stock-3);
+    border-top: 1px solid var(--dv-rule);
+    border-bottom: 1px solid var(--dv-rule);
+  }
+  .hist-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     gap: 46px;
     align-items: start;
   }
-  .cwn-feed-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 22px;
+  .hist-lede h2 {
+    font-family: var(--dove-plate);
+    font-weight: 900;
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1.02;
+    color: var(--dv-cream);
+    margin: 10px 0 16px;
   }
-  .cwn-feed-head h2 {
-    font-size: 30px;
-    color: var(--ivory);
-    margin: 0;
+  .hist-lede p {
+    font-size: 16px;
+    line-height: 1.72;
+    color: var(--dv-cream);
+    opacity: 0.86;
+    margin: 0 0 14px;
+    max-width: 62ch;
+    text-wrap: pretty;
   }
-  .cwn-feed-note {
-    font-size: 13px;
-    color: var(--celest-soft);
-    font-style: italic;
-    font-family: var(--serif);
-    align-self: center;
-  }
-  .cwn-river {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .cwn-cardgrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-  .cwn-empty {
-    text-align: center;
-    padding: 70px 20px;
-    background: rgba(245, 235, 216, 0.04);
-    border: 1px dashed rgba(212, 175, 55, 0.4);
-    border-radius: 5px;
-  }
-  .cwn-empty p {
+  .hist-p2 {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 19px;
-    color: var(--celest-soft);
-    margin: 14px 0;
+    font-size: 17px !important;
+    color: var(--dv-gold-soft) !important;
+    opacity: 1 !important;
   }
-
-  /* ---------- rail ---------- */
-  .cwn-desks {
-    background: linear-gradient(168deg, #33564a 0%, #244338 55%, #1b3329 100%);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 4px;
-    box-shadow: var(--shadow-card);
-    overflow: hidden;
+  .hist-ledger {
+    border: 1px solid var(--dv-rule);
+    border-top: 3px solid var(--dv-gold-aged);
+    padding: 18px 20px 16px;
+    background: var(--dv-stock);
   }
-  .cwn-desk {
-    padding: 15px 18px 16px;
-  }
-  .cwn-desk + .cwn-desk {
-    border-top: 1px solid rgba(245, 235, 216, 0.12);
-  }
-  .cwn-deskhead {
+  .hist-ledger-head {
     display: flex;
     align-items: center;
     gap: 9px;
-    width: 100%;
-    margin-bottom: 9px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-align: left;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-gold-soft);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--dv-rule-soft);
+    margin-bottom: 4px;
   }
-  .cwn-deskdot {
+  .hist-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--dv-rule-soft);
+  }
+  .hist-dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(245, 235, 216, 0.22);
+    background: var(--hr-ink);
+    box-shadow: 0 0 0 2px rgba(245, 235, 216, 0.16);
     flex: 0 0 auto;
   }
-  .cwn-deskname {
-    font-family: var(--serif);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ivory);
-    line-height: 1;
+  .hist-lab {
     flex: 1;
-    transition: color 0.15s;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--dv-cream);
+    opacity: 0.88;
+    line-height: 1.25;
   }
-  .cwn-deskhead:hover .cwn-deskname {
-    color: var(--gold-soft);
-  }
-  .cwn-deskcount {
+  .hist-n {
     font-family: ui-monospace, Menlo, monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    color: var(--gold-soft);
-  }
-  .cwn-desksubs {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-left: 18px;
-    border-left: 2px solid rgba(212, 175, 55, 0.4);
-  }
-  .cwn-desksub {
-    display: block;
-    text-decoration: none;
-    font-family: var(--serif);
-    font-size: 14px;
-    color: rgba(245, 235, 216, 0.74);
-    line-height: 1.32;
-    text-wrap: pretty;
-    transition: color 0.15s;
-  }
-  .cwn-desksub:hover {
-    color: var(--ivory);
-    text-decoration: underline;
-    text-decoration-color: var(--line-gold);
-    text-underline-offset: 3px;
-  }
-
-  .cwn-thisday {
-    background: var(--byz);
-    border-radius: 4px;
-    padding: 22px 22px 20px;
-    color: var(--ivory);
-    box-shadow: var(--shadow-card);
-  }
-  .cwn-thisday-top {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .cwn-thisday-date {
-    font-family: var(--serif);
-    font-size: 30px;
-    color: var(--gold-soft);
-    line-height: 1;
-  }
-  .cwn-thisday-year {
     font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--celest-soft);
+    color: var(--dv-gold-soft);
   }
-  .cwn-thisday h3 {
-    font-size: 21px;
-    color: var(--ivory);
-    line-height: 1.18;
-    margin: 0 0 9px;
-  }
-  .cwn-thisday p {
-    font-size: 13.5px;
-    color: #cdd9e6;
-    line-height: 1.6;
-    margin: 0;
+  .hist-foot {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--dv-muted);
+    margin: 12px 0 0;
+    text-wrap: pretty;
   }
 
-  .cwn-mostread {
-    background: linear-gradient(168deg, #1c3a5c, #16304c);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 4px;
-    box-shadow: var(--shadow-card);
-    overflow: hidden;
+  /* ============ THE KEY, FOLDED ============ */
+  .dove-key {
+    padding: 34px var(--dv-pad) 64px;
   }
-  .cwn-mr-row {
+  .key {
+    border: 1px solid var(--dv-rule);
+    background: var(--dv-stock-2);
+  }
+  .key summary {
     display: flex;
-    gap: 14px;
-    padding: 14px 16px;
-    align-items: baseline;
-    text-decoration: none;
-  }
-  .cwn-mr-row:hover h4 {
-    text-decoration: underline;
-    text-decoration-color: var(--line-gold);
-    text-underline-offset: 3px;
-  }
-  .cwn-mr-row + .cwn-mr-row {
-    border-top: 1px solid rgba(245, 235, 216, 0.12);
-  }
-  .cwn-mr-n {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 600;
-    color: var(--gold);
-    line-height: 1;
-    flex-shrink: 0;
-    width: 24px;
-  }
-  .cwn-mr-row h4 {
-    font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--ivory);
-    line-height: 1.22;
-    margin: 0 0 5px;
-  }
-
-  .cwn-archive-cta {
-    display: block;
-    text-decoration: none;
-    background: linear-gradient(168deg, #4d3258 0%, #3a2543 55%, #2c1c33 100%);
-    border: 1px solid rgba(212, 175, 55, 0.28);
-    border-radius: 4px;
-    padding: 20px 22px;
-    box-shadow: var(--shadow-card);
-  }
-  .cwn-archive-cta h3 {
-    font-size: 21px;
-    color: var(--ivory);
-    line-height: 1.1;
-    margin: 8px 0 6px;
-  }
-  .cwn-archive-cta:hover h3 {
-    text-decoration: underline;
-    text-decoration-color: var(--line-gold);
-    text-underline-offset: 3px;
-  }
-  .cwn-archive-cta p {
-    font-size: 13px;
-    color: rgba(245, 235, 216, 0.74);
-    line-height: 1.55;
-    margin: 0 0 12px;
-  }
-  .cwn-archive-cue {
-    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gold-soft);
+    gap: 12px;
+    padding: 15px 20px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .key summary::-webkit-details-marker {
+    display: none;
+  }
+  .key-orn {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+  .key-h {
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--dv-gold-soft);
+  }
+  .key-note {
+    flex: 1;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--dv-muted);
+    min-width: 0;
+  }
+  .key-caret {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 17px;
+    color: var(--dv-gold-aged);
+    flex: 0 0 auto;
+  }
+  .key[open] .key-caret {
+    transform: rotate(45deg);
+  }
+  .key summary:hover .key-h {
+    color: var(--dv-gold);
+  }
+  .key-body {
+    padding: 4px 20px 22px;
+    border-top: 1px solid var(--dv-rule-soft);
+  }
+  .key-intro {
+    font-family: var(--serif);
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--dv-muted);
+    margin: 16px 0 18px;
+    max-width: 72ch;
+    text-wrap: pretty;
   }
 
-  /* ---------- responsive ---------- */
-  @media (max-width: 1080px) {
-    .cwn-grid {
-      grid-template-columns: 1fr;
-      gap: 34px;
+  /* ============ responsive ============ */
+  @media (max-width: 1180px) {
+    .dove-front {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
     }
-    .cwn-legend {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
+    .fp-margin {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      border-left: none;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 3px solid var(--dv-gold-aged);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
     }
-    .cwn-legend-intro {
-      max-width: none;
+    .fp-marginnote,
+    .fp-margin-q {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
-    .cwn-legend-rule {
-      display: none;
+    .dove-eragrid,
+    .dove-deptlist {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .cwn-legend-body {
-      width: 100%;
+    .dept:nth-child(3n) {
+      border-right: 1px solid var(--dv-rule-soft);
+    }
+    .dept:nth-child(2n) {
+      border-right: none;
     }
   }
   @media (max-width: 1000px) {
-    .dove-depts-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .dove-latest-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 34px;
+    }
+    .hist-inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 30px;
     }
   }
   @media (max-width: 860px) {
-    .dove-mastwrap,
-    .cwn-featured,
-    .cwn-legend,
-    .dove-depts,
-    .cwn-filters,
-    .cwn-bodyband {
-      padding-left: 20px;
-      padding-right: 20px;
+    .dove-front {
+      grid-template-columns: minmax(0, 1fr);
     }
-    .dove-depts-grid {
-      grid-template-columns: 1fr;
+    .fp-lead {
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--dv-rule-soft);
+      margin-bottom: 26px;
+    }
+    .fp-lead-sum {
+      column-count: 1;
+    }
+    .lat-sum {
+      column-count: 1;
+    }
+    .dove-also {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+    .dove-eragrid,
+    .dove-deptlist {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .dept,
+    .dept:nth-child(3n),
+    .dept:nth-child(2n) {
+      border-right: none;
+    }
+    .arch {
+      flex-direction: column;
+      align-items: flex-start;
       gap: 18px;
     }
-    .cwn-lead-cols {
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .key summary {
+      flex-wrap: wrap;
     }
-    .cwn-lead-side {
-      padding-left: 0;
-      padding-top: 16px;
-      border-left: none;
-      border-top: 1px solid rgba(245, 235, 216, 0.16);
-    }
-    .cwn-cardgrid {
-      grid-template-columns: 1fr;
-    }
-    .cwn-feed-head h2 {
-      font-size: 24px;
+    .key-note {
+      flex-basis: 100%;
     }
   }
 </style>
