@@ -47,3 +47,10 @@ patronage: []
 status: reviewed
 humanReviewed: true
 generated: "2026-06-19"
+related:
+  - name: "Martyrs Anicetus and Photius of Nicomedia and those with them"
+    note: "Fellow martyrs of Nicomedia in the same Diocletianic persecution."
+    href: saint/OS-1692
+  - name: "Martyrs Eustace, Thespesius, and Anatolius of Nicea"
+    note: "Three brothers of Nicaea whom he baptized, martyred in the same persecution as himself."
+    href: saint/OS-2226

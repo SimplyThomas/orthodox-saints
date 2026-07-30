@@ -32,6 +32,9 @@ companions:
 related:
   - name: Michael Psellus
     note: The Constantinopolitan philosopher under whom Theophylact studied in his formation as a scholar and teacher of rhetoric.
+  - name: "Saint John Chimchimeli the Philosopher"
+    note: "Who translated his commentaries on Mark and Luke into Georgian."
+    href: saint/OS-0633
 works:
   - title: Commentaries on the Gospels, Acts, and the Pauline Epistles
     desc: New Testament exegesis founded on the homilies of Saint John Chrysostom.
