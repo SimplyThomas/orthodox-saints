@@ -711,11 +711,27 @@ rather than bend an existing one.
   Conciliar Editions"), and its own paper stock. **Keep these subtle.** The
   identity is constant and the age shows through it; the moment an era wears a
   costume, the archive reads as a theme park.
-- **The front page is a broadsheet, not a feed.** `/daily-dove` is ordered the
-  way a paper is ordered — nameplate → lead + secondaries + briefs + margin →
-  Also In This Edition → Latest Dispatches → Departments → Archive → Browse by
-  Age → Browse by Topic → Historian's Desk → the evidence key, folded shut and
-  **last**. Two rules hold the effect up: **not everything is a card** (the lead
+- **The front page is a broadsheet, not a feed, and it is TWO columns.**
+  `/daily-dove` is ordered the way a paper is ordered — nameplate → lead + one
+  sidebar column → Also In This Edition → Latest Dispatches → Departments →
+  Archive → Browse by Age → Browse by Topic → Historian's Desk → the evidence
+  key, folded shut and **last**.
+  - The top was three columns (lead · secondaries · margin) and that was the
+    page's real busyness problem: three columns beside a lead cut the sheet into
+    strips too narrow to read without a heading over every block, so the busiest
+    thing on the page was the furniture explaining it. **Do not add a third.**
+    The one sidebar column carries the secondaries, the briefs, the pull quote
+    and This Day, read straight down.
+  - The secondaries are **kicker + headline only** — no summary, no era pill. A
+    second column is scanned for headlines; clamped grey copy trailing an
+    ellipsis earned none of the room it took.
+  - The lead runs `summary` + the opening of the dispatch's own `body`, and
+    closes "Continued — read the dispatch in full". A dispatch's `body` restates
+    its dek and summary at the top (house style — the dispatch page has to stand
+    alone), and the two halves are set in different spellings (UK front matter,
+    US body: *travelled/traveled*, *centres/centers*), so the page dedupes on a
+    **12-word set overlap at 0.7**, not on equality or a prefix. If a lead ever
+    prints the same paragraph twice, that threshold is where to look. Two rules hold the effect up: **not everything is a card** (the lead
   is a broadsheet block with a drop cap and set columns, the briefs are one line
   each, the notices are a classified column), and **no filter bar lives here** —
   faceted browsing is `/daily-dove/archive`, which the era and topic sections

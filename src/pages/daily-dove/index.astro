@@ -62,6 +62,46 @@ import {
 const { featured: lead, all } = await loadPaper();
 const leadDesk = deskOf(lead);
 
+/* The lead's copy.
+
+   A front page lead runs down the page; showing only the one-paragraph summary
+   left it stopping after four lines with the sidebar running on far below it.
+   So the summary is followed by the opening of the dispatch itself, and the
+   reader is sent inside for the rest — which is exactly what "continued on
+   page 4" always meant.
+
+   The catch: a dispatch's `body` restates its own dek and summary at the top
+   (that is the house style — the article has to stand alone on its own page),
+   so appending body paragraphs naively prints the same two paragraphs twice.
+   They are not byte-identical either, because the dispatch pages are set in US
+   spelling and the front matter in UK — "travelled"/"traveled",
+   "centres"/"centers" — so an equality check or a prefix match both miss it.
+
+   Compare the first dozen words as a set instead and call it a duplicate at
+   70% overlap. A one-word spelling difference scores ~0.9 and is caught; two
+   genuinely different paragraphs score far below the threshold. */
+const shingle = (s: string) =>
+  new Set(
+    s
+      .toLowerCase()
+      .replace(/[^a-z\s]/g, "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 12),
+  );
+const echoes = (a: string, b: string) => {
+  const [x, y] = [shingle(a), shingle(b)];
+  if (!x.size || !y.size) return false;
+  const shared = [...x].filter((w) => y.has(w)).length;
+  return shared / Math.max(x.size, y.size) >= 0.7;
+};
+
+const alreadyShown = [lead.dek, lead.summary].filter(Boolean) as string[];
+const leadCopy = [
+  lead.summary,
+  ...(lead.body ?? []).filter((p) => !alreadyShown.some((s) => echoes(p, s))),
+].slice(0, 4);
+
 /* The sheet is set in descending weight. Newest first — historical dispatches
    ranked by the year in their dateline — then cut into four bands, each of
    which is set differently below. */
@@ -211,11 +251,17 @@ const NOTICES = [
 
         <hr class="dv-rule dv-rule--double fp-lead-rule" />
 
-        <p class="fp-lead-sum dv-drop">{lead.summary}</p>
+        <div class="fp-lead-sum">
+          {
+            leadCopy.map((p, i) => (
+              <p class={i === 0 ? "dv-drop" : undefined}>{p}</p>
+            ))
+          }
+        </div>
 
         <div class="fp-lead-foot">
           <a class="fp-read" href={withBase(`daily-dove/${lead.id}`)}>
-            Read the dispatch in full
+            Continued — read the dispatch in full
             <span aria-hidden="true">→</span>
           </a>
           <span class="fp-lead-ev">
@@ -267,15 +313,15 @@ const NOTICES = [
             }
           </ul>
         </div>
-      </div>
 
-      {
-        /* --- the margin ---
-           Two items only. It carried a third (an archivist's note with its own
-           wax seal) and that was one voice too many beside a pull quote: the
-           era entries below already say which run a sheet belongs to. */
-      }
-      <aside class="fp-margin dv-colrule">
+        {
+          /* --- the sidebar furniture, in the same column ---
+             The pull quote and This Day used to hold a third column of their
+             own. Three columns beside a lead this size chopped the top of the
+             page into narrow strips, and each strip then needed its own heading
+             to explain itself. One column carries all of it: stories, then
+             briefs, then the two standing pieces, read straight down. */
+        }
         {
           lead.pullQuote && (
             <blockquote class="fp-margin-q">
@@ -294,7 +340,7 @@ const NOTICES = [
           <h3>{NEWS_THISDAY.title}</h3>
           <p>{NEWS_THISDAY.body}</p>
         </div>
-      </aside>
+      </div>
     </section>
 
     {
@@ -633,13 +679,20 @@ const NOTICES = [
   }
 
   /* ============ THE FRONT PAGE ============
-     Three columns of very different weight. The lead takes roughly half the
-     measure, the secondaries a quarter, the margin the rest — the proportions a
-     broadsheet actually uses, rather than three equal thirds. */
+     TWO columns, not three. The lead takes about two thirds of the measure and
+     one sidebar column takes the rest.
+
+     It was three (lead · secondaries · margin) and that was the top of the
+     page's real problem: three columns beside a lead this size cut the sheet
+     into narrow strips, and a strip that narrow needs a heading over every
+     block in it just to be legible — so the busiest part of the page was the
+     furniture explaining it. One sidebar column is wide enough that a headline
+     sets in two lines instead of four, and everything in it reads straight
+     down without a label per item. */
   .dove-front {
     display: grid;
-    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr) minmax(0, 0.82fr);
-    gap: 0 34px;
+    grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+    gap: 0 40px;
     padding: 8px var(--dv-pad) 0;
     align-items: start;
   }
@@ -647,7 +700,7 @@ const NOTICES = [
   /* --- the lead --- */
   .fp-lead {
     min-width: 0;
-    padding-right: 34px;
+    padding-right: 40px;
     border-right: 1px solid var(--dv-rule-soft);
   }
   .fp-lead-h {
@@ -693,15 +746,20 @@ const NOTICES = [
   /* the lead's copy is set in two columns with a dropped capital — the single
      strongest signal on the page that this is a printed sheet and not a card */
   .fp-lead-sum {
+    column-count: 2;
+    column-gap: 32px;
+    column-rule: 1px solid var(--dv-rule-soft);
+  }
+  .fp-lead-sum p {
     font-family: var(--text);
     font-size: 16px;
     line-height: 1.7;
     color: var(--dv-ink-2);
-    margin: 0;
-    column-count: 2;
-    column-gap: 32px;
-    column-rule: 1px solid var(--dv-rule-soft);
+    margin: 0 0 1em;
     text-wrap: pretty;
+  }
+  .fp-lead-sum p:last-child {
+    margin-bottom: 0;
   }
   .fp-lead-foot {
     display: flex;
@@ -805,15 +863,11 @@ const NOTICES = [
     color: var(--dv-burgundy);
   }
 
-  /* --- the margin --- */
-  .fp-margin {
-    min-width: 0;
-    padding-left: 26px;
-  }
-  /* a pull quote set in the margin, the way a paper hangs one */
+  /* --- the sidebar furniture, at the foot of the one sidebar column --- */
+  /* a pull quote hung under the briefs, the way a paper hangs one */
   .fp-margin-q {
-    margin: 0 0 22px;
-    padding: 14px 0 20px;
+    margin: 26px 0 24px;
+    padding: 16px 0 20px;
     border-top: 2px solid var(--dv-burgundy);
     border-bottom: 1px solid var(--dv-rule-soft);
   }
@@ -1489,22 +1543,10 @@ const NOTICES = [
   @media (max-width: 1180px) {
     .dove-front {
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 0 30px;
     }
-    .fp-margin {
-      grid-column: 1 / -1;
-      padding-left: 0;
-      border-left: none;
-      margin-top: 26px;
-      padding-top: 22px;
-      border-top: 2px solid var(--dv-ink);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 28px;
-    }
-    .fp-margin-q {
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
+    .fp-lead {
+      padding-right: 30px;
     }
     .dove-eragrid,
     .dove-deptlist {
