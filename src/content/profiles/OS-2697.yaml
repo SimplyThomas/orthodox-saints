@@ -59,5 +59,9 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Philibert_of_Jumi%C3%A8ges
   - https://en.wikipedia.org/wiki/Jumi%C3%A8ges_Abbey
+companions:
+  - name: Saint Regulus (Reol) of Reims
+    note: Formed under him at Rebais; later archbishop of Reims.
+    href: saint/OS-0168
 status: reviewed
 generated: "2026-07-04"

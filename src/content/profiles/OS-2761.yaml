@@ -49,5 +49,18 @@ sources:
   - https://en.wikipedia.org/wiki/John_Moschus
   - https://www.oca.org/saints/lives/2025/03/11/100759-blessed-john-moschus
   - https://www.johnsanidopoulos.com/search?q=John+Moschus
+companions:
+  - name: Sophronius of Jerusalem
+    note: His close companion and fellow monk, to whom he dedicated The Spiritual Meadow.
+    href: saint/OS-0809
+  - name: Venerable Pimen of Palestine
+    note: Whose life he set down in The Spiritual Meadow.
+    href: saint/OS-1791
+  - name: Saint Christopher of Palestine
+    note: Whose account is preserved in his Spiritual Meadow.
+    href: saint/OS-1804
+  - name: John the Merciful
+    note: Patriarch of Alexandria, whom he assisted with Sophronius in defending the Chalcedonian faith.
+    href: saint/OS-2184
 status: reviewed
 generated: "2026-07-03"

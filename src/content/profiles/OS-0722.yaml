@@ -35,6 +35,9 @@ family:
     - name: St. Photius the Great
       note: "Kinsman: a relative of Tarasius who later became Patriarch of Constantinople."
       href: saint/OS-0603
+    - name: Saint Sergius the Confessor of Constantinople
+      note: His nephew by tradition, a confessor of Constantinople.
+      href: saint/OS-2479
 companions:
   - name: St. Theodore the Studite
     note: "Contemporary and critic: leader of the rigorist monastic party who opposed Tarasius's leniency toward repentant iconoclasts and in the Moechian controversy."
@@ -42,6 +45,24 @@ companions:
   - name: St. Nikephoros the Confessor
     note: "Successor: followed Tarasius as Patriarch of Constantinople and likewise defended the holy icons."
     href: saint/OS-1273
+  - name: Saint George, Bishop of Amastris
+    note: Whom he consecrated bishop of Amastris.
+    href: saint/OS-0704
+  - name: Theophylactus of Nicomedia
+    note: Whom he tonsured and later consecrated bishop of Nicomedia.
+    href: saint/OS-0793
+  - name: Theophanes the Confessor of Sigriane
+    note: Fellow restorer of the icons and chronicler, of the age of the Second Council of Nicaea.
+    href: saint/OS-0814
+  - name: Venerable Anthusa of Constantinople
+    note: Whom he tonsured, after which she entered the monastery of Saint Euphemia.
+    href: saint/OS-0986
+  - name: Saint Michael the Confessor, Bishop of Synnada
+    note: Whom he tonsured and consecrated bishop of Synnada; a confessor of the icons.
+    href: saint/OS-1226
+  - name: Saint Paul the New, Patriarch of Constantinople
+    note: His predecessor on the patriarchal throne, who recommended him as successor.
+    href: saint/OS-1802
 patronage:
   - Defenders of holy icons and peacemakers for Church unity
 status: reviewed

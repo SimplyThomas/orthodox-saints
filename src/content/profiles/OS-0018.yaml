@@ -58,6 +58,12 @@ companions:
   - name: Maximian
     note: Emperor under whom he was martyred
     commemorated: false
+  - name: Martyr Basil of Ancyra
+    note: Presbyter and martyr of Ancyra under Julian the Apostate.
+    href: saint/OS-0373
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea in Cappadocia.
+    href: saint/OS-0382
 related:
   - name: Theodore Stratelates
     note: The other Theodore, with whom he is paired throughout tradition
@@ -94,6 +100,14 @@ celebration:
   sources:
     - label: Ascetic Life of Motherhood
       url: https://www.asceticlifeofmotherhood.com/koliva
+family:
+  figures:
+    - name: Martyrs Eutropius, Cleonicus, and Basiliscus
+      note: The three kinsmen-martyrs of Amasea commemorated March 3, of whom Basiliscus was his nephew.
+      href: saint/OS-0762
+    - name: Martyr Basiliscus, Bishop of Comana
+      note: His nephew by tradition, later bishop and martyr at Comana.
+      href: saint/OS-1221
 status: reviewed
 humanReviewed: true
 generated: "2026-06-18"

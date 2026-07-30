@@ -80,6 +80,12 @@ companions:
   - name: Sons of the Prophets
     note: The prophetic company who witnessed his ascent
     commemorated: false
+  - name: Prophet Malachi
+    note: The last of the prophets, whose closing prophecy names him.
+    href: saint/OS-0381
+  - name: Holy Prophet Micah
+    note: Numbered by tradition among his disciples; Micaiah son of Imlah, who withstood Ahab.
+    href: saint/OS-0394
 related:
   - name: John the Forerunner
     note: Came in the spirit and power of Elijah

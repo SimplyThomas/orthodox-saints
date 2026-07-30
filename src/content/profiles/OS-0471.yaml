@@ -49,6 +49,12 @@ companions:
   - name: St. Alexander Nevsky
     note: "Princely patron (by tradition): some accounts credit Prince Alexander Nevsky with granting permission to found the Dymsk monastery (c. 1243), though the dating sits uneasily with the earlier repose date some sources give for Anthony."
     href: saint/OS-2241
+  - name: St. Xenophon of Robeika
+    note: Fellow disciple of Barlaam of Khutyn, who likewise founded a monastery near Novgorod.
+    href: saint/OS-0544
+  - name: Venerable Constantine and Cosmas, Abbots of Kosinsk
+    note: Formed under him at Khutyn before departing to found their own house at Kosinsk.
+    href: saint/OS-1600
 patronage: []
 sources:
   - OCA Synaxarion (oca.org), Jan 17

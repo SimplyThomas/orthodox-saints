@@ -132,6 +132,45 @@ companions:
   - name: Simon Magus
     note: Whom he rebuked at Samaria
     commemorated: false
+  - name: The Most Holy Theotokos
+    note: The Most Holy Theotokos, with whom he received the Spirit at Pentecost.
+    href: saint/OS-0001
+  - name: John the Forerunner
+    note: The Forerunner and Baptist, from whose circle at the Jordan he was brought to Christ.
+    href: saint/OS-0002
+  - name: First-Martyr & Archdeacon Stephen
+    note: The protomartyr, first of the Seven whom the Twelve appointed.
+    href: saint/OS-0009
+  - name: Priscus of Capua
+    note: Whom by tradition he appointed first bishop of Capua.
+    href: saint/OS-0098
+  - name: St. Candida the Elder of Naples
+    note: Whom he healed, converted and baptized at Naples on his way to Rome.
+    href: saint/OS-0202
+  - name: Apostle Onesiphorus
+    note: Evodius succeeded him in the see of Antioch that he established.
+    href: saint/OS-0263
+  - name: Hieromartyrs Marcellus, Philagrius, and Pancratius
+    note: Whom by tradition he baptized, ordained and sent as bishops to Sicily.
+    href: saint/OS-0623
+  - name: Apostles Aristarchus, Pudens, and Trophimus of the Seventy
+    note: Apostles of the Seventy; he baptized Pudens and by tradition lodged at his house in Rome.
+    href: saint/OS-0997
+  - name: Martyrs Basilissa and Anastasia of Rome
+    note: Whom he converted with Paul, and who by tradition buried his body after his martyrdom.
+    href: saint/OS-0998
+  - name: Zacchaeus the Publican
+    note: The publican of Jericho who accompanied him after the Ascension and whom he appointed bishop.
+    href: saint/OS-1033
+  - name: Hieromartyr Pancratius, Bishop of Taormina
+    note: Whose household he baptized, and whom with Paul he consecrated bishop of Taormina.
+    href: saint/OS-1499
+  - name: Hieromartyr Apollinaris, Bishop of Ravenna
+    note: His disciple, whom he consecrated and sent to Ravenna.
+    href: saint/OS-1570
+  - name: Apostle James the Brother of the Lord
+    note: One of the three pillars of the Church with him and John (Gal 2:9), set over the Church of Jerusalem.
+    href: saint/OS-2066
 related:
   - name: Linus of Rome
     note: Of the apostolic succession at Rome

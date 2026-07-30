@@ -67,6 +67,22 @@ works:
     desc: A rule of common monastic life that ordered the worship, labor, and discipline of the Studion and influenced monasteries across the Orthodox East.
   - title: Letters and Catecheses
     desc: Numerous letters against the iconoclasts and catechetical instructions to his monks.
+companions:
+  - name: Venerable Peter & Paul of Nicaea
+    note: To Peter of Nicaea he addressed four of his letters.
+    href: saint/OS-0349
+  - name: Theophanes the Confessor of Sigriane
+    note: Fellow confessor of the icons under Leo V, and chronicler of the age.
+    href: saint/OS-0814
+  - name: Venerable Peter of Atroe
+    note: Wonderworking ascetic of Atroa and confessor of the icons.
+    href: saint/OS-1835
+  - name: Venerable Thaddeus the Confessor of the Studion
+    note: His disciple at the Stoudios monastery, who suffered for the icons.
+    href: saint/OS-2428
+  - name: Venerable John of Cathares the Confessor
+    note: Whom the tradition records among his disciples; a confessor of the icons.
+    href: saint/OS-2465
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

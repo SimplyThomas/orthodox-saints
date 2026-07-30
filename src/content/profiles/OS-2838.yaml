@@ -47,5 +47,9 @@ sources:
   - https://en.wikipedia.org/wiki/Marcella_of_Rome
   - https://en.wikipedia.org/wiki/Paula_of_Rome
   - https://en.wikipedia.org/wiki/Jerome
+companions:
+  - name: Saint Jerome of Stridon
+    note: Under whose guidance she gathered an ascetic circle at Rome.
+    href: saint/OS-1362
 status: reviewed
 generated: "2026-07-04"

@@ -31,5 +31,10 @@ sources:
   - https://en.wikipedia.org/wiki/Dentelin_of_Mons
   - https://en.wikipedia.org/wiki/Waltrude
   - https://en.wikipedia.org/wiki/Vincent_Madelgarius
+family:
+  figures:
+    - name: St. Madalberta of Maubeuge
+      note: His sister, abbess of Maubeuge.
+      href: saint/OS-0282
 status: flagged
 generated: "2026-07-03"

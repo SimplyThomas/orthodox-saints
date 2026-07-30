@@ -43,5 +43,17 @@ sections:
 sources:
   - https://www.johnsanidopoulos.com/2017/11/saint-eucherius-bishop-of-lyon-449.html
   - https://en.wikipedia.org/wiki/Eucherius_of_Lyon
+family:
+  figures:
+    - name: Veranus of Vence
+      note: His son, later bishop of Vence.
+      href: saint/OS-0352
+companions:
+  - name: St. Honoratus of Arles
+    note: Founder of Lerins, whose community he joined before becoming bishop of Lyon.
+    href: saint/OS-0468
+  - name: St. Vincent of Lerins
+    note: Fellow monk of Lerins, whom he praised for his eloquence and learning.
+    href: saint/OS-1237
 status: flagged
 generated: "2026-07-03"

@@ -54,5 +54,9 @@ sources:
   - https://en.wikipedia.org/wiki/Othmar
   - https://en.wikipedia.org/wiki/Saint_Othmar
   - https://en.wikipedia.org/wiki/Abbey_of_Saint_Gall
+companions:
+  - name: Gall of Switzerland
+    note: The hermit at whose cell the Abbey of Saint Gall was established in 719.
+    href: saint/OS-2512
 status: flagged
 generated: "2026-07-03"

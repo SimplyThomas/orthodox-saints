@@ -75,5 +75,12 @@ sources:
   - Wikipedia (Fursa)
   - https://en.wikipedia.org/wiki/Fursa
   - https://www.johnsanidopoulos.com/2018/01/the-history-of-saint-fursey-enlightener.html
+companions:
+  - name: Felix of Burgundy
+    note: Bishop of the East Angles, alongside whom he labored in many conversions.
+    href: saint/OS-0798
+  - name: Venerable Botolph of Iken
+    note: Whom by tradition he educated, with his brother.
+    href: saint/OS-1378
 status: flagged
 generated: "2026-07-04"

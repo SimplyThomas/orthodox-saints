@@ -78,6 +78,93 @@ companions:
   - name: Apostle Peter
     note: Jointly commemorated June 29 as the Chief Apostles
     href: saint/OS-0004
+  - name: Jesus Christ
+    note: The Lord, who called him on the road to Damascus.
+    href: saint/OS-0000
+  - name: The Most Holy Theotokos
+    note: The Most Holy Theotokos, Mother of the Lord.
+    href: saint/OS-0001
+  - name: Apostle Andrew the First-Called
+    note: The First-Called of the apostles.
+    href: saint/OS-0003
+  - name: Apostle & Evangelist John the Theologian
+    note: Apostle and Evangelist, a pillar of the Church with Peter and James.
+    href: saint/OS-0005
+  - name: First-Martyr & Archdeacon Stephen
+    note: The protomartyr, at whose stoning he stood guarding the garments of the witnesses.
+    href: saint/OS-0009
+  - name: Lazarus the Four-Days-Dead
+    note: Whom by tradition he co-ordained bishop of Kition with Barnabas.
+    href: saint/OS-0078
+  - name: St. Phoebe the Deaconess
+    note: The deaconess whom he commends in Romans 16:1-2, and who by tradition carried that epistle to Rome.
+    href: saint/OS-0148
+  - name: Apostle Onesiphorus
+    note: Onesiphorus sought him out and refreshed him in his imprisonment at Rome.
+    href: saint/OS-0263
+  - name: Apostles Apelles, Lucius & Clement
+    note: Apostles of the Seventy whom he greets and names among his fellow-workers.
+    href: saint/OS-0344
+  - name: Apostle Onesimus of the Seventy
+    note: Whom he converted and baptized, and for whom he wrote the Epistle to Philemon.
+    href: saint/OS-0662
+  - name: Apostle Aristobulus of the Seventy
+    note: Who by tradition accompanied him in his preaching, as did his brother Barnabas.
+    href: saint/OS-0831
+  - name: Artemon, Bishop of Seleucia
+    note: Whom he ordained first bishop of Seleucia in Pisidia.
+    href: saint/OS-0873
+  - name: Apostle Sosthenes of the Seventy
+    note: Who was beaten before Gallio at Corinth in his defense, and whom he names in 1 Corinthians.
+    href: saint/OS-0903
+  - name: Apostle Herodion of the Seventy
+    note: Whom he greets as a kinsman in Romans 16:11.
+    href: saint/OS-0961
+  - name: Apostles Aristarchus, Pudens, and Trophimus of the Seventy
+    note: Fellow-laborers and fellow-prisoners who accompanied him.
+    href: saint/OS-0997
+  - name: Martyrs Basilissa and Anastasia of Rome
+    note: Whom he converted with Peter, and who by tradition buried the apostles' bodies.
+    href: saint/OS-0998
+  - name: Mark the Evangelist
+    note: A companion in the apostolic mission, with Barnabas.
+    href: saint/OS-1061
+  - name: Apostles Jason and Sosipater of Corfu
+    note: His disciples, whom he names among his kinsmen in the Epistle to the Romans.
+    href: saint/OS-1072
+  - name: Saint Lydia of Philippi
+    note: The seller of purple at Philippi, converted by his riverside preaching and baptized with her household.
+    href: saint/OS-1218
+  - name: The Holy Apostle Carpus of the Seventy
+    note: Whom he names in 2 Timothy 4:13, and with whom he left his cloak and books at Troas.
+    href: saint/OS-1239
+  - name: Apostles Fortunatus, Achaicus, and Stephanas of the Seventy
+    note: Fellow-laborers who refreshed his spirit at Corinth.
+    href: saint/OS-1368
+  - name: Hieromartyr Pancratius, Bishop of Taormina
+    note: Whom, with the Apostle Peter, he consecrated bishop of Taormina.
+    href: saint/OS-1499
+  - name: Apostle Aquila of the Seventy
+    note: His fellow tentmaker and disciple, whom by tradition he appointed a bishop.
+    href: saint/OS-1527
+  - name: Hieromartyr Eutyches
+    note: With whom he is said to have preached in the early mission.
+    href: saint/OS-1767
+  - name: Martyr Sebastiana of Heraclea
+    note: His disciple, brought to the faith through his preaching.
+    href: saint/OS-1849
+  - name: Righteous Xanthippe and Polyxena
+    note: Sisters of Spain, who first heard the Gospel through his preaching.
+    href: saint/OS-1892
+  - name: Apostle Mark of the Seventy
+    note: Who accompanied him as assistant on the first missionary journey.
+    href: saint/OS-1911
+  - name: Apostle James the Brother of the Lord
+    note: Named among the pillars of the Church (Gal 2:9), whom he consulted at Jerusalem.
+    href: saint/OS-2066
+  - name: Holy Apostle Lucius of Cyrene
+    note: Named with him among the prophets and teachers at Antioch (Acts 13:1).
+    href: saint/OS-2743
 related:
   - name: Righteous Gamaliel
     note: The renowned teacher of the Law in Jerusalem under whom Saul was trained as a Pharisee.
@@ -114,5 +201,10 @@ celebration:
   sources:
     - label: Orthodox Motherhood
       url: https://www.orthodoxmotherhood.com/5-simple-ways-observe-apostles-fast/
+family:
+  figures:
+    - name: Apostle Andronicus of the Seventy and Junia
+      note: His kinsfolk and fellow prisoners, whom he names in Romans 16:7.
+      href: saint/OS-1192
 status: reviewed
 generated: "2026-06-18"

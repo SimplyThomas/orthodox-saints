@@ -56,5 +56,13 @@ sources:
   - https://en.wikipedia.org/wiki/Fulgentius_of_Cartagena
   - https://en.wikipedia.org/wiki/Leander_of_Seville
   - https://en.wikipedia.org/wiki/Isidore_of_Seville
+family:
+  figures:
+    - name: Leander of Seville
+      note: His brother, archbishop of Seville.
+      href: saint/OS-0734
+    - name: Saint Isidore of Seville
+      note: His brother, archbishop of Seville and the last of the Latin Fathers.
+      href: saint/OS-0937
 status: reviewed
 generated: "2026-07-04"

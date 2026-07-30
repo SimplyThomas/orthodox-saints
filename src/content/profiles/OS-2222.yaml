@@ -52,5 +52,15 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://en.wikipedia.org/wiki/Gregory_of_Dekapolis
   - https://orthodoxwiki.org/Gregory_the_Decapolite
+companions:
+  - name: Joseph the Hymnographer
+    note: His disciple, whom he brought to Constantinople and with whom he defended the holy icons.
+    href: saint/OS-0930
+  - name: Venerable John, Disciple of Gregory of Decapolis
+    note: His disciple, whom he tonsured at Thessalonica.
+    href: saint/OS-0980
+  - name: Venerable Hilarion the New, Abbot of the Dalmatian Monastery
+    note: Who was formed under him at the Dalmatus monastery.
+    href: saint/OS-1301
 status: reviewed
 generated: "2026-07-03"

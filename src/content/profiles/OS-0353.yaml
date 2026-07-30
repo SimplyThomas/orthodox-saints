@@ -23,6 +23,9 @@ companions:
   - name: St. Columba of Iona
     note: His pupil at Movilla, traditionally linked to the dispute over the copied psalter.
     href: saint/OS-1320
+  - name: St. Enda of Aran
+    note: Founder of the monastic settlement on Aran, with whom the tradition associates him.
+    href: saint/OS-0861
 patronage:
   - Honored as a patron of Ulster.
 status: reviewed

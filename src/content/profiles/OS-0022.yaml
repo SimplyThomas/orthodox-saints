@@ -83,9 +83,34 @@ companions:
   - name: Theodosius I
     note: Emperor who installed him on the throne of Constantinople
     commemorated: false
+    href: saint/OS-0474
   - name: Maximus the Cynic
     note: Rival who intrigued against him for the see of Constantinople
     commemorated: false
+  - name: St. Ephraim the Syrian
+    note: Deacon and hymnographer of Edessa, a contemporary teacher of the Church against the Arians.
+    href: saint/OS-0031
+  - name: Righteous Emilia
+    note: Mother of Basil the Great and of the Cappadocian household of saints.
+    href: saint/OS-0374
+  - name: Blessed Theosebia the Deaconess
+    note: The blessed deaconess whom he eulogized in his Epistle 197 as an ornament of the Church.
+    href: saint/OS-0427
+  - name: Hesychius the Presbyter of Jerusalem
+    note: His disciple by tradition, later presbyter of Jerusalem.
+    href: saint/OS-0894
+  - name: Saint Jerome of Stridon
+    note: Who studied Scripture under him at Constantinople; translator of the Latin Scriptures.
+    href: saint/OS-1362
+  - name: Hieromartyr Eusebius, Bishop of Samosata
+    note: Fellow Nicene hierarch, with whom he secured the election of Basil the Great in 370.
+    href: saint/OS-1405
+  - name: Olympias the Deaconess
+    note: The deaconess who received and supported him during his time at Constantinople.
+    href: saint/OS-1577
+  - name: Patriarch Nektarios of Constantinople
+    note: Nectarius succeeded him on the throne of Constantinople at the Second Ecumenical Council in 381.
+    href: saint/OS-2501
 related:
   - name: John Chrysostom
     note: Fellow ecumenical teacher among the Three Holy Hierarchs

@@ -38,6 +38,12 @@ companions:
   - name: Varus the notary
     note: His servant, who by tradition witnessed his martyrdom and set down the account of his sufferings.
     commemorated: false
+  - name: Martyr Basil of Ancyra
+    note: Presbyter and martyr of Ancyra under Julian the Apostate.
+    href: saint/OS-0373
+  - name: Martyr Gordius of Caesarea
+    note: Soldier-martyr of Caesarea in Cappadocia.
+    href: saint/OS-0382
 related:
   - name: Great Martyr Theodore the Recruit
     note: The other Theodore, the soldier-martyr Theodore Tyro, with whom he is paired throughout tradition and whom modern scholarship debates may be one and the same figure.

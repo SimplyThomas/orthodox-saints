@@ -346,8 +346,14 @@ when their members come into scope (NOT `related` templates).
   OS-0289, OS-0533, OS-0830, OS-0962, OS-1773, OS-2080, OS-2150, OS-2302, OS-2405…); OS-0628
   exists only as an AKA-list collective.
 
-**Created so far:** `twelve-apostles` · `sunday-after-nativity` · `optina-elders` ·
-`martyrs-of-nicomedia` (plus the v1.0 standing groups).
+**Created so far:** `twelve-apostles` · `seventy-apostles` · `sunday-after-nativity` ·
+`optina-elders` · `martyrs-of-nicomedia` · `holy-family-of-cappadocia` (plus the v1.0 standing
+groups) — and, from the #228 promotion pass (2026-07-30): **`holy-forefathers`** (OS-2987, an
+*open* synaxis on `era:Old Testament`, so every saint of the Old Covenant joins automatically),
+**`thirteen-syrian-fathers-georgia`** (OS-2988, all thirteen wired), **`confessors-of-transylvania`**
+(OS-2989, the Oct 21 five — note this is *not* the Apr 24 Ardeal group below, which is still open),
+and **`house-of-nemanjic`** (OS-2990, eleven members across four generations). The Cappadocian
+household gained Theosebia OS-0427 and Naucratius OS-2802 in the same pass.
 
 ---
 
@@ -365,6 +371,20 @@ patronage facet), not the relationship network.
 ---
 
 ## Retroactive Review (milestone-based reciprocity sweeps)
+
+> **2026-07-30 — the `family` and `companions` halves of this sweep are DONE (#228).** They were
+> not walked cluster by cluster from the lists below; a graph scan of all 2,875 profiles found
+> **every** one-directional edge and closed it — 187 `family` cards and 1,005 `companions` cards,
+> each written from the other saint's side rather than copied from the forward note. Both buckets
+> are now fully reciprocal, so the cluster lists in this section survive only as a record of how
+> the debt accrued. Two edges were deliberately left open and logged as data issues instead:
+> **DI-047** (OS-2581's card points at Peter but describes Paul) and the three edges into the
+> Seventy-Apostles group OS-2935, whose reverse link already exists through `saint_groups.csv`.
+> **What remains is `related` — 1,061 asymmetric edges.** That is the bucket where the
+> intentionally one-directional links below (founder, inspiration, typology) actually live, so it
+> needs judgment per edge rather than a sweep, and was scoped out of #228 deliberately. Re-run the
+> scan before starting it; the count moves whenever profiles are authored.
+
 Reciprocity is **no longer tracked link-by-link**. **Intentionally one-directional links
 (founder, inspiration, typology) are preserved** and need no return link. For peer / teacher–
 disciple clusters, complete reciprocity within-batch when both ends are in range; otherwise sweep
@@ -717,6 +737,8 @@ the out-of-range halves at the next hundred-milestone. Outstanding clusters to s
 - OS-0001/0000/2360/2752 ← OS-2750; OS-0037/2099 ← OS-2751; OS-0002/0001/2750 ← OS-2752
 - OS-1135 ← OS-2753; OS-1333 ← OS-2754; OS-1683 ← OS-2755
 
-## 🏁 RELATIONSHIP AUTHORING COMPLETE (OS-0000 → OS-2755). The reciprocity sweep above (accumulated across
-all 28 milestones) is the main remaining within-network polish; the group-taxonomy candidates and the
-Database-Expansion backlog are the principal follow-on streams.
+## 🏁 RELATIONSHIP AUTHORING COMPLETE (OS-0000 → OS-2755). The per-batch reciprocity lists above are
+superseded: `family` and `companions` were swept to full reciprocity on 2026-07-30 (#228 — see the
+banner under *Retroactive Review*), and the lists are kept only as a record. The remaining polish is
+the **`related` bucket** (1,061 asymmetric edges, where the intentional one-way links live) and the
+rest of the group-taxonomy candidates; the Database-Expansion backlog is the other follow-on stream.

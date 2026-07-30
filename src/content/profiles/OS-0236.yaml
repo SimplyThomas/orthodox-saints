@@ -38,6 +38,22 @@ family:
       commemorated: false
 patronage:
   - Patrons of Russia; models of humility and non-resistance
+companions:
+  - name: Venerable Sylvester of the Kiev Caves
+    note: Chronicler of the Kiev Caves, who recorded their passion.
+    href: saint/OS-0377
+  - name: Saint Cyril, Bishop of Turov
+    note: Bishop of Turov, tonsured in a monastery dedicated to them.
+    href: saint/OS-1073
+  - name: Venerable Constantine, Prince of Murom
+    note: Who dedicated one of his churches at Murom to them.
+    href: saint/OS-1219
+  - name: Venerable Moses the Hungarian of the Kiev Caves
+    note: Who with his brothers served in Prince Boris's retinue before his murder.
+    href: saint/OS-1581
+  - name: Saint Theoktistos, Archbishop of Novgorod
+    note: Archbishop of Novgorod, who consecrated a cathedral dedicated to them.
+    href: saint/OS-2405
 status: reviewed
 sources:
   - Synaxarion

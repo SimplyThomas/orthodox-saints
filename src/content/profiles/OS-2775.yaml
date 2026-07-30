@@ -51,5 +51,10 @@ sources:
   - https://en.wikipedia.org/wiki/Eucherius_of_Lyon
   - https://en.wikipedia.org/wiki/Veranus_of_Vence
   - https://en.wikipedia.org/wiki/Council_of_Orange_(441)
+family:
+  figures:
+    - name: Veranus of Vence
+      note: His brother, educated with him at Lérins and later bishop of Vence.
+      href: saint/OS-0352
 status: reviewed
 generated: "2026-07-03"

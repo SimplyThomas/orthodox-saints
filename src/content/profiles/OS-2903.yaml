@@ -40,5 +40,10 @@ sources:
   - Wikipedia (Scholastica)
   - https://en.wikipedia.org/wiki/Scholastica
   - https://orthodoxwiki.org/Scholastica
+family:
+  figures:
+    - name: St. Benedict of Nursia
+      note: Her brother, founder of Monte Cassino, with whom she is buried.
+      href: saint/OS-0822
 status: flagged
 generated: "2026-07-04"

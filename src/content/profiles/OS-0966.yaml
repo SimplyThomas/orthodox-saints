@@ -29,5 +29,9 @@ sources:
   - OCA Synaxarion (oca.org), Lives of the Saints
   - https://www.oca.org/saints/lives/2021/04/09
   - https://www.oca.org/saints/all-lives/2021/04/09
+companions:
+  - name: Martyr Eupsychios of Caesarea
+    note: A distinct martyr of the same name and city, venerated on a separate day.
+    href: saint/OS-0264
 status: reviewed
 generated: "2026-06-19"

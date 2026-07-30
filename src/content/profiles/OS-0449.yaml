@@ -83,10 +83,25 @@ family:
     - name: Vukan Nemanjić
       note: "Brother: the eldest son of Stefan Nemanja and Prince of Zeta, one of the feuding brothers Sava reconciled."
       commemorated: false
+    - name: Saint Vladislav of Serbia
+      note: His nephew, King Vladislav, who translated his relics to Mileševa.
+      href: saint/OS-1900
+    - name: Saint Stephen Uroš I of Serbia
+      note: His nephew, King Stephen Uroš I of Serbia.
+      href: saint/OS-2634
 companions:
   - name: St. Arsenije I Sremac of Serbia
     note: "Disciple and successor: Sava's loyal pupil, whom he appointed to the archbishopric of Serbia before his final pilgrimage."
     href: saint/OS-2926
+  - name: St. Eustathius I, Archbishop of Serbia
+    note: Archbishop of Serbia in the succession he began.
+    href: saint/OS-0386
+  - name: Saint Nikodemos, Archbishop of Serbia
+    note: Archbishop of Serbia, who fulfilled his Typikon and his wishes.
+    href: saint/OS-1146
+  - name: Saint Macarius, Patriarch of Serbia
+    note: Patriarch who renewed the Serbian Church, reckoned its most important primate after him.
+    href: saint/OS-1807
 related:
   - name: Venerable Savva the Sanctified
     note: "Namesake: the sixth-century Palestinian abbot in whose honor Rastko took the monastic name Sava; at Mar Saba Sava received the crosier of St. Sabbas."

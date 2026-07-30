@@ -59,5 +59,10 @@ sources:
   - https://en.wikipedia.org/wiki/Seaxburh_of_Ely
   - https://en.wikipedia.org/wiki/Eorcenberht
   - https://en.wikipedia.org/wiki/Minster-in-Sheppey
+family:
+  figures:
+    - name: Saint Etheldreda of Ely
+      note: Her sister, foundress of Ely, whose relics she translated in 695.
+      href: saint/OS-1416
 status: flagged
 generated: "2026-07-04"

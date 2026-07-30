@@ -42,5 +42,10 @@ sources:
   - https://en.wikipedia.org/wiki/Aldegonde
   - https://en.wikipedia.org/wiki/Maubeuge_Abbey
   - https://en.wikipedia.org/wiki/Aldetrude
+family:
+  figures:
+    - name: St. Madalberta of Maubeuge
+      note: Her niece, whom she instructed at Maubeuge.
+      href: saint/OS-0282
 status: reviewed
 generated: "2026-07-03"

@@ -57,5 +57,19 @@ sources:
   - https://en.wikipedia.org/wiki/Gregory_of_Nazianzus_the_Elder
   - https://www.johnsanidopoulos.com/2018/01/saint-gregory-elder-bishop-of-nazianzus.html
   - https://en.wikipedia.org/wiki/Hypsistarians
+family:
+  figures:
+    - name: St. Gregory the Theologian
+      note: His son, Gregory the Theologian, archbishop of Constantinople.
+      href: saint/OS-0022
+    - name: Righteous Gorgonia
+      note: His daughter, Gorgonia.
+      href: saint/OS-0719
+    - name: Righteous Caesarius
+      note: His son, Caesarius, physician at the imperial court.
+      href: saint/OS-0801
+    - name: Righteous Nonna
+      note: His wife, Nonna, who brought him to the faith.
+      href: saint/OS-1647
 status: reviewed
 generated: "2026-07-03"

@@ -55,5 +55,10 @@ sources:
   - OCA Synaxarion (oca.org)
   - https://en.wikipedia.org/wiki/Chad_of_Mercia
   - https://orthodoxwiki.org/Chad_of_Lichfield
+family:
+  figures:
+    - name: Saint Cedd of Lastingham
+      note: His elder brother, founder of Lastingham, whom he succeeded as its abbot.
+      href: saint/OS-0403
 status: reviewed
 generated: "2026-07-04"

@@ -42,5 +42,10 @@ sources:
   - https://en.wikipedia.org/wiki/Jesse_(biblical_figure)
   - https://en.wikipedia.org/wiki/Tree_of_Jesse
   - https://en.wikipedia.org/wiki/Sunday_of_the_Holy_Forefathers
+family:
+  figures:
+    - name: Prophet-King David
+      note: His son, the prophet-king anointed by Samuel.
+      href: saint/OS-2421
 status: reviewed
 generated: "2026-07-04"

@@ -40,5 +40,9 @@ sources:
   - https://www.holytrinityorthodox.com/calendar/los/July/16-03.htm
   - https://www.crkvenikalendar.com/zitije_en.php?pok=0&id=ZBAK
   - /home/tom/saints-db/src/content/profiles/OS-1537.yaml
+companions:
+  - name: Martyr Antiochus the Physician of Sebaste
+    note: At whose beheading milk flowed, moving him to confess Christ.
+    href: saint/OS-1537
 status: flagged
 generated: "2026-07-04"

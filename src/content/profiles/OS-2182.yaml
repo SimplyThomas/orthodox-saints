@@ -45,6 +45,9 @@ family:
     - name: St. Helen of Serbia
       note: Grandmother (Helen of Anjou), mother of King Milutin
       href: saint/OS-2118
+    - name: Venerable Dragutin of Serbia
+      note: His uncle, King Dragutin, brother of his father Milutin.
+      href: saint/OS-2117
 related:
   - name: Venerable Symeon the Myrrh-gusher of Serbia
     note: Founder of the Nemanjić dynasty (St. Stefan Nemanja), Stephen's forefather in the royal house.
@@ -55,6 +58,10 @@ related:
 patronage:
   - Healing of blindness and eye afflictions
   - Those who suffer unjust accusation and persecution
+companions:
+  - name: Saint Nikodemos, Archbishop of Serbia
+    note: Abbot of Hilandar, who helped secure his return from exile and reconciliation with King Milutin.
+    href: saint/OS-1146
 status: reviewed
 sources:
   - OCA Synaxarion (oca.org), Lives of the Saints

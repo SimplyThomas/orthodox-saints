@@ -55,5 +55,9 @@ sources:
   - Vema (Saints Nektarios and Theophanes of Barlaam, May 17)
   - https://www.johnsanidopoulos.com/2017/05/saints-nektarios-and-theophanes.html
   - https://en.wikipedia.org/wiki/Meteora
+companions:
+  - name: Saint Savva of Ioannina
+    note: His elder, under whom he was formed at Lake Ioannina.
+    href: saint/OS-0584
 status: flagged
 generated: "2026-07-04"

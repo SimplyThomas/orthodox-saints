@@ -35,5 +35,9 @@ sources:
   - https://en.wikipedia.org/wiki/Medikion_Monastery
   - https://en.wikipedia.org/wiki/Nicetas_of_Medikion
   - https://www.oca.org/saints/lives/2024/10/26
+companions:
+  - name: Niketas the Confessor of Medikion
+    note: His fellow monk of the Medikion monastery and companion in the struggle for the icons.
+    href: saint/OS-0925
 status: flagged
 generated: "2026-07-04"

@@ -50,5 +50,16 @@ sources:
   - https://en.wikipedia.org/wiki/Brychan
   - https://en.wikipedia.org/wiki/Brycheiniog
   - https://catholicsaints.info/saint-brychan/
+family:
+  figures:
+    - name: St. Kingsmark
+      note: By tradition the husband of one of his granddaughters.
+      href: saint/OS-0308
+    - name: Saint Endellion, Recluse of Cornwall
+      note: His daughter, recluse of Cornwall.
+      href: saint/OS-1080
+    - name: Martyr Nectan of Hartland
+      note: His son, martyred at Hartland.
+      href: saint/OS-1376
 status: flagged
 generated: "2026-07-04"
