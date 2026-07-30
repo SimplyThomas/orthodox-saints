@@ -84,3 +84,10 @@ companions:
     href: saint/OS-1416
 status: flagged
 generated: "2026-07-04"
+related:
+  - name: "Saint Agathon, Pope of Rome"
+    note: "The pope who convened the Lateran synod that upheld his cause and left him to name the bishops of his divided see."
+    href: saint/OS-0700
+  - name: "Saint Willibrord, Enlightener of Frisia"
+    note: "Given as a child oblate at his Ripon, where his influence shaped him."
+    href: saint/OS-2719

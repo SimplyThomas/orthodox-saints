@@ -118,3 +118,10 @@ companions:
 status: reviewed
 humanReviewed: true
 generated: "2026-06-18"
+related:
+  - name: "St. Matrona of Moscow"
+    note: "The blind eldress of Moscow, a healer of the same Soviet years."
+    href: saint/OS-0048
+  - name: "Holy Unmercenaries Cosmas and Damian of Asia"
+    note: "The unmercenary physicians whose calling he took up as surgeon and archbishop."
+    href: saint/OS-0036
