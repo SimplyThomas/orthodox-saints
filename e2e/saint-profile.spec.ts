@@ -247,3 +247,64 @@ test("the Theotokos page shows the Depictions & Icons carousel", async ({
     "https://theophanyworks.com/icon-of-the-holy-protection-of-the-mother-of-god-usa-21st-c-00vmt019/",
   );
 });
+
+test("a saint with a long Daily Dove file folds it behind a compact index", async ({
+  page,
+}) => {
+  // OS-0020 (St Spyridon) carries the paper's longest run on one saint, which
+  // is what the fold exists for: three dispatches lead in full, the rest sit
+  // behind one <details> as a one-line-each index grouped by era.
+  const resp = await page.goto("./saint/OS-0020/");
+  expect(resp?.status()).toBe(200);
+  const band = page.locator(".dove-band");
+  await expect(band.locator(".dove-band-ct")).toHaveText("23 dispatches");
+  await expect(band.locator(".dove-band-list > li")).toHaveCount(3);
+
+  // The remainder is collapsed on arrival — that is the whole point.
+  const rest = band.locator(".dove-band-rest");
+  await expect(rest.locator(".dbx-list a")).toHaveCount(20);
+  await expect(rest.locator(".dbx-list a").first()).not.toBeVisible();
+
+  // Native disclosure: no island, so it must work with the summary alone.
+  await rest.locator("summary").click();
+  await expect(rest.locator(".dbx-list a").first()).toBeVisible();
+
+  // Opening it must not run the page down — the index is a fixed window that
+  // scrolls within itself, so twenty rows stay inside a capped pane.
+  const pane = await rest.locator(".dove-band-idx").evaluate((el) => ({
+    clientH: el.clientHeight,
+    scrollH: el.scrollHeight,
+    overflowY: getComputedStyle(el).overflowY,
+  }));
+  expect(pane.overflowY).toBe("auto");
+  expect(pane.clientH).toBeLessThanOrEqual(420);
+  // …and there is genuinely more list below the fold of the pane.
+  expect(pane.scrollH).toBeGreaterThan(pane.clientH + 20);
+  // Era groups head the index, each row tagged with the desk that filed it.
+  expect(await rest.locator(".dbx-era").count()).toBeGreaterThanOrEqual(2);
+  await expect(rest.locator(".dbx-desk").first()).not.toBeEmpty();
+
+  // A row links to its own dispatch, and the foot links into the archive
+  // pre-filtered to this saint's file.
+  await expect(rest.locator(".dbx-list a").first()).toHaveAttribute(
+    "href",
+    /\/daily-dove\/spyridon-/,
+  );
+  await expect(band.locator(".dove-band-arch")).toHaveAttribute(
+    "href",
+    /\/daily-dove\/archive#saint-Spyridon$/,
+  );
+});
+
+test("a saint with a short Daily Dove file is left unfolded", async ({
+  page,
+}) => {
+  // The fold must not fire on the ordinary case: OS-0067 (Charalampos) has a
+  // single dispatch and should still show it outright.
+  const resp = await page.goto("./saint/OS-0067/");
+  expect(resp?.status()).toBe(200);
+  const band = page.locator(".dove-band");
+  await expect(band.locator(".dove-band-list > li")).toHaveCount(1);
+  await expect(band.locator(".dove-band-rest")).toHaveCount(0);
+  await expect(band.locator(".dove-band-ct")).toHaveCount(0);
+});

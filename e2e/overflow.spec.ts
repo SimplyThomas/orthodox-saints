@@ -108,3 +108,36 @@ test("depictions carousel scrolls rather than hiding its extra cards", async ({
     .evaluate((el) => getComputedStyle(el).display);
   expect(arrowDisplay).not.toBe("none");
 });
+
+test("the Daily Dove index does not scroll sideways once opened", async ({
+  page,
+}) => {
+  // The fold's compact index is the one part of a saint page that is not in the
+  // DOM's visible layout on arrival, so the FIXTURES loop above cannot see it.
+  // Its dateline column caused 80px of sideways scroll before it was capped.
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("./saint/OS-0020/");
+  const rest = page.locator("details.dove-band-rest");
+  await expect(rest).toHaveCount(1);
+  await rest.locator("summary").click();
+  await expect(rest.locator(".dbx-list a").first()).toBeVisible();
+
+  const scrolls = await page.evaluate(() => {
+    const de = document.documentElement;
+    return de.scrollWidth - de.clientWidth;
+  });
+  expect(scrolls, `page scrolls ${scrolls}px sideways`).toBeLessThanOrEqual(1);
+
+  // The pane is a vertical scroller, so `overflow-x: hidden` would now clip a
+  // wide row away before it could reach the document — checking the page alone
+  // no longer proves anything. Measure the pane's own horizontal scroll too.
+  const pane = await rest.locator(".dove-band-idx").evaluate((el) => ({
+    sideways: el.scrollWidth - el.clientWidth,
+    overflowX: getComputedStyle(el).overflowX,
+  }));
+  expect(pane.overflowX).toBe("hidden");
+  expect(
+    pane.sideways,
+    `index pane scrolls ${pane.sideways}px sideways`,
+  ).toBeLessThanOrEqual(1);
+});
