@@ -268,6 +268,18 @@ test("a saint with a long Daily Dove file folds it behind a compact index", asyn
   // Native disclosure: no island, so it must work with the summary alone.
   await rest.locator("summary").click();
   await expect(rest.locator(".dbx-list a").first()).toBeVisible();
+
+  // Opening it must not run the page down — the index is a fixed window that
+  // scrolls within itself, so twenty rows stay inside a capped pane.
+  const pane = await rest.locator(".dove-band-idx").evaluate((el) => ({
+    clientH: el.clientHeight,
+    scrollH: el.scrollHeight,
+    overflowY: getComputedStyle(el).overflowY,
+  }));
+  expect(pane.overflowY).toBe("auto");
+  expect(pane.clientH).toBeLessThanOrEqual(420);
+  // …and there is genuinely more list below the fold of the pane.
+  expect(pane.scrollH).toBeGreaterThan(pane.clientH + 20);
   // Era groups head the index, each row tagged with the desk that filed it.
   expect(await rest.locator(".dbx-era").count()).toBeGreaterThanOrEqual(2);
   await expect(rest.locator(".dbx-desk").first()).not.toBeEmpty();

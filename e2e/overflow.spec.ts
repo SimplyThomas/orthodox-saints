@@ -127,4 +127,17 @@ test("the Daily Dove index does not scroll sideways once opened", async ({
     return de.scrollWidth - de.clientWidth;
   });
   expect(scrolls, `page scrolls ${scrolls}px sideways`).toBeLessThanOrEqual(1);
+
+  // The pane is a vertical scroller, so `overflow-x: hidden` would now clip a
+  // wide row away before it could reach the document — checking the page alone
+  // no longer proves anything. Measure the pane's own horizontal scroll too.
+  const pane = await rest.locator(".dove-band-idx").evaluate((el) => ({
+    sideways: el.scrollWidth - el.clientWidth,
+    overflowX: getComputedStyle(el).overflowX,
+  }));
+  expect(pane.overflowX).toBe("hidden");
+  expect(
+    pane.sideways,
+    `index pane scrolls ${pane.sideways}px sideways`,
+  ).toBeLessThanOrEqual(1);
 });
