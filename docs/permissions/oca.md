@@ -76,27 +76,44 @@ downloadable artifact as though it were public domain.
 
 ## Terms as implemented
 
-Not yet implemented — the grant is recorded here first so the terms are settled
-before any text is ingested. When it is built, these are the requirements it must
-satisfy:
+The grant is carried in the data as a **revocable permission token**, never folded
+into the public-domain gates it has to pass. A permission is not a license, and the
+two must stay distinguishable so a revocation can be executed mechanically rather
+than by memory.
 
-- Every reproduced text is attributed to the Orthodox Church in America on the page
-  where it appears, with a link to its oca.org source page.
-- The copyright gates that currently admit only public-domain translations —
-  `PD_TRANSLATION_RE` in `build.py` (saint quotes) and `PD_TRANSLATION` in
-  `src/content.config.ts` (host-profile `prayers`) — must admit an explicit OCA
-  permission token rather than being loosened generally. A permission is not a
-  license, and the two must stay distinguishable in the data so a revocation can be
-  executed mechanically.
-- OCA-sourced text is excluded from, or clearly marked in, the bulk artifacts
+- **The registry** is `data/text_permissions.csv`, `source_slug` **`oca`** — the
+  sibling of `data/image_permissions.csv`, and a **separate file on purpose**: the
+  OCA granted its texts and said plainly it cannot grant its icons, so a text grant
+  must never be reachable from the image gate.
+- **Hymn texts** live in `data/saint_hymns.csv` with `translation = Permission:oca`.
+  `build.py`'s `validate_saint_hymns()` resolves that token against the registry and
+  **requires a `source_url`** — condition (a) is attribution *and* a link back, so a
+  permission text with nowhere to link cannot honour the terms it was given under.
+  The alternative arm of the same gate still accepts a genuinely public-domain
+  translation, unchanged.
+- **The attribution renders beside the text**, not in a page-level footnote: the
+  saint page's "In the Church's hymns" block prints the registry's `attribution`
+  line as a link to the hymn's own oca.org page. The credit is the condition the
+  text is used under, so it travels with the text.
+- **`status=revoked` is the kill-switch.** `to_record()` drops every hymn whose
+  source is unknown or revoked, so the text stops shipping without touching a single
+  saint row, and validation warns (rather than fails) listing what to delete.
+
+Still to do as the grant is used further:
+
+- OCA-sourced text should be excluded from, or clearly marked in, the bulk artifacts
   (`dist/Orthodox_Saints_Database.xlsx`, `public/saints.sqlite`), which are
-  redistributable in a way a web page is not.
+  redistributable in a way a web page is not. Not yet needed — no OCA text reaches
+  them today — but it must be settled before it does.
+- Lives-of-the-saints text (the other half of the grant) has no join table yet;
+  everything in `Brief Life` and the profile prose remains our own wording.
 
 ## To revoke (if permission is ever withdrawn, or the site ceases to be free)
 
-1. Remove every row/field carrying the OCA permission token; the build's gates then
-   reject anything left behind.
-2. Delete the OCA-sourced text from the profile YAML that carries it.
+1. Set `status=revoked` for `oca` in `data/text_permissions.csv`. The build then
+   excludes every OCA text from output and warns, listing the rows to delete.
+2. Delete the `Permission:oca` rows from `data/saint_hymns.csv` (and any later join
+   table), and any OCA-sourced text from the profile YAML that carries it.
 3. Set this record's status to `revoked`, with the date and reason.
 4. Run `make validate` and confirm clean, then redeploy so the edge cache is purged.
 

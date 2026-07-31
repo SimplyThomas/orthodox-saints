@@ -54,6 +54,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── image_permissions.csv  ← vendor-permission registry (vendor_slug,vendor_name,attribution,homepage,granted,status,terms)
 │   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── saint_hymns.csv        ← hymn-text join, MANY per saint (saint_id,kind,tone,text,translation,source_url)
+│   ├── text_permissions.csv   ← TEXT-permission registry, sibling of image_permissions (source_slug,source_name,attribution,homepage,granted,status,terms)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
 │   ├── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
 │   ├── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
@@ -318,6 +320,32 @@ detail page, add one row to `data/saint_quotes.csv`
   `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
+
+**Saint hymns (the "In the Church's hymns" block).** Column 18 *Hymn / Apolytikion* stays
+a **derived search link**; the hymn **itself** lives in `data/saint_hymns.csv`
+(`saint_id,kind,tone,text,translation,source_url`) — **many rows per saint**, rendered in
+file order (a troparion reads before its kontakion):
+- `kind` ∈ `Troparion` · `Kontakion` · `Apolytikion` · `Megalynarion` · `Ikos` ·
+  `Exapostilarion` · `Sticheron`. `tone` (optional) is `1`–`8`, `Plagal of the
+  First`…`Fourth`, or `Grave` — the Slavic numbering and the Greek names both pass, a
+  typo fails. `text` holds the hymn **verbatim**; stanzas split on **`||`**, NOT the usual
+  `"; "` (hymns are full of semicolons, and one split on its own punctuation is mangled).
+  The ` / ` phrase breaks the service books print are kept in the data and rendered as
+  line breaks.
+- **`translation` is the §9 gate**, and takes one of two forms: an accepted
+  **public-domain** source (same `ANF`/`NPNF`/`(PD)`/`CC0` test as saint quotes) **or** a
+  **`Permission:<source_slug>`** token resolved against `data/text_permissions.csv`. A
+  copyrighted hymn translation still **fails the build** — link out instead.
+- `data/text_permissions.csv` (`source_slug,source_name,attribution,homepage,granted,
+  status,terms`) is the **sibling of `image_permissions.csv`, and deliberately a separate
+  file**: the OCA granted us its *texts* and stated it cannot grant its *icons*, so a text
+  grant must never be reachable from the image gate. Same kill-switch — set
+  `status=revoked` and every hymn from that source stops shipping (warned, not failed).
+- A permission hymn **requires a `source_url`**: every grant so far is conditioned on
+  crediting and linking the rights-holder's own page, so one with nowhere to link cannot
+  honour its terms. The build joins the hymns as `hymns[]` (permission rows gain
+  `permission`/`rightsHolder`/`attribution`; PD rows keep `translation`), and
+  `SaintView` renders the credit **beside the hymn**, never as a page footnote.
 
 **Saint depictions (the "Depictions & Icons" carousel).** The saint page's redesign
 carries a horizontal carousel of *additional* icons (the single hero portrait still comes

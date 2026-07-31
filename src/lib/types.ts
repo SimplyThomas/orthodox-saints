@@ -17,6 +17,26 @@ export interface VendorLink {
 /** One "Depictions & Icons" carousel card (data/saint_depictions.csv).
    `permission` cards (active vendor) carry vendor/attribution; open-license
    cards carry license/credit. `source` is the per-card outbound link. */
+/** One hymn of a saint's own service, reproduced verbatim. build.py has already
+    cleared it through the §9 gate, so exactly one of the two rights fields is
+    set: `permission` (a revocable grant, carrying the rights-holder's required
+    attribution line) or `translation` (a public-domain rendering). A hymn from a
+    revoked source never reaches the frontend — it is dropped at build. */
+export interface SaintHymn {
+  /** Troparion | Kontakion | Apolytikion | … (build.py's HYMN_KINDS) */
+  kind: string;
+  /** stanzas in order; " / " inside one marks a phrase break, as printed */
+  text: string[];
+  /** the tone: "1"–"8", "Plagal of the First"…, or "Grave" */
+  tone?: string;
+  /** the rights-holder's page — required for a permission hymn (§9) */
+  source?: string;
+  permission?: boolean;
+  rightsHolder?: string;
+  attribution?: string;
+  translation?: string;
+}
+
 export interface SaintDepiction {
   image: string;
   /** card tone: museum (default) | iconographer | shop */
@@ -82,6 +102,9 @@ export interface Saint {
   imageVendorHome?: string;
   /** "Depictions & Icons" carousel cards (data/saint_depictions.csv); absent → no carousel */
   depictions?: SaintDepiction[];
+  /** the saint's own hymns (data/saint_hymns.csv), in file order; absent → the
+      page falls back to the derived "Hymn / Apolytikion" search link alone */
+  hymns?: SaintHymn[];
   /** verified public-domain quote from the saint; absent → no quote block */
   quote?: string;
   /** quote citation, present only when `quote` is */

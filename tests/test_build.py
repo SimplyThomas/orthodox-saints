@@ -951,6 +951,170 @@ class SaintQuoteTests(unittest.TestCase):
                          "\n".join(errs))
 
 
+class SaintHymnTests(unittest.TestCase):
+    """data/saint_hymns.csv: the §9 reproduction gate (a public-domain
+    translation OR a Permission:<source> grant), validation, and the join."""
+
+    GRANTS = {"oca": {"name": "Orthodox Church in America",
+                      "attribution": "Text used with permission of the OCA.",
+                      "status": "active"},
+              "gone": {"name": "Former Source", "attribution": "…",
+                       "status": "revoked"}}
+
+    def _run(self, rows_csv, permissions=None):
+        """Validate a synthetic saint_hymns.csv. Returns (errors, warnings)."""
+        import csv as _csv
+        import tempfile
+        from pathlib import Path
+
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = tmp / "saint_hymns.csv"
+        with csv_path.open("w", encoding="utf-8", newline="") as fh:
+            w = _csv.DictWriter(fh, fieldnames=build.SAINT_HYMNS_HEADER)
+            w.writeheader()
+            w.writerows(rows_csv)
+        old_csv = build.SAINT_HYMNS_CSV
+        try:
+            build.SAINT_HYMNS_CSV = csv_path
+            return build.validate_saint_hymns(
+                {"OS-0001", "OS-0002"},
+                self.GRANTS if permissions is None else permissions)
+        finally:
+            build.SAINT_HYMNS_CSV = old_csv
+
+    def _h(self, **over):
+        row = {"saint_id": "OS-0001", "kind": "Troparion", "tone": "8",
+               "text": "O holy father, pray to Christ our God to save our souls!",
+               "translation": "Permission:oca", "source_url": "https://oca.org/x"}
+        row.update(over)
+        return row
+
+    # ---- the gate ----------------------------------------------------------
+    def test_permission_row_validates(self):
+        errs, _ = self._run([self._h()])
+        self.assertEqual(errs, [])
+
+    def test_public_domain_row_validates_without_a_grant(self):
+        errs, _ = self._run([self._h(translation="Hapgood 1922 (PD)")])
+        self.assertEqual(errs, [])
+
+    def test_copyrighted_translation_errors(self):
+        errs, _ = self._run([self._h(translation="St Vladimir's Seminary Press, 1998")])
+        self.assertTrue(any("neither an accepted public-domain source" in e
+                            for e in errs), errs)
+
+    def test_empty_translation_errors(self):
+        errs, _ = self._run([self._h(translation="")])
+        self.assertTrue(any("empty translation" in e for e in errs), errs)
+
+    def test_unknown_permission_source_errors(self):
+        errs, _ = self._run([self._h(translation="Permission:nobody")])
+        self.assertTrue(any("not in data/text_permissions.csv" in e
+                            for e in errs), errs)
+
+    def test_permission_row_requires_a_source_url(self):
+        # The grant's condition is attribution + a link back; a permission hymn
+        # with nowhere to link cannot honour the terms it was given under.
+        errs, _ = self._run([self._h(source_url="")])
+        self.assertTrue(any("requires a 'source_url'" in e for e in errs), errs)
+
+    def test_public_domain_row_without_source_only_warns(self):
+        errs, warns = self._run([self._h(translation="NPNF2 (PD)", source_url="")])
+        self.assertEqual(errs, [])
+        self.assertTrue(any("cannot be verified" in w for w in warns), warns)
+
+    def test_revoked_source_warns_rather_than_failing(self):
+        errs, warns = self._run([self._h(translation="Permission:gone")])
+        self.assertEqual(errs, [])
+        self.assertTrue(any("REVOKED" in w for w in warns), warns)
+
+    # ---- the ordinary column rules -----------------------------------------
+    def test_unknown_saint_id_errors(self):
+        errs, _ = self._run([self._h(saint_id="OS-9999")])
+        self.assertTrue(any("matches no saint" in e for e in errs), errs)
+
+    def test_unknown_kind_errors(self):
+        errs, _ = self._run([self._h(kind="Anthem")])
+        self.assertTrue(any("is not one of" in e for e in errs), errs)
+
+    def test_bad_tone_errors_but_blank_tone_is_fine(self):
+        errs, _ = self._run([self._h(tone="Tone 8")])
+        self.assertTrue(any("must be 1–8" in e for e in errs), errs)
+        errs, _ = self._run([self._h(tone="")])
+        self.assertEqual(errs, [])
+        errs, _ = self._run([self._h(tone="Plagal of the Fourth")])
+        self.assertEqual(errs, [])
+
+    def test_empty_text_errors(self):
+        errs, _ = self._run([self._h(text="")])
+        self.assertTrue(any("empty text" in e for e in errs), errs)
+
+    def test_many_hymns_per_saint_are_expected(self):
+        errs, _ = self._run([self._h(), self._h(kind="Kontakion", tone="3")])
+        self.assertEqual(errs, [])
+
+    def test_same_kind_and_opening_twice_is_a_duplicate(self):
+        errs, _ = self._run([self._h(), self._h()])
+        self.assertTrue(any("duplicate Troparion row" in e for e in errs), errs)
+
+    def test_stanzas_split_on_the_separator_not_on_punctuation(self):
+        # A hymn is full of semicolons; splitting on the usual "; " would mangle
+        # it, so stanzas break only on HYMN_STANZA_SEP.
+        got = build.hymn_stanzas("First; still first.||Second stanza.|| ")
+        self.assertEqual(got, ["First; still first.", "Second stanza."])
+
+    # ---- the join ----------------------------------------------------------
+    def _record(self, hymn_rows, permissions=None):
+        return build.to_record(
+            valid_row(), vendors=[], name_variants={}, images={}, quotes={},
+            hymns={"OS-0001": hymn_rows},
+            text_permissions=self.GRANTS if permissions is None else permissions)
+
+    def test_join_carries_the_grant_attribution(self):
+        rec = self._record([{"kind": "Troparion", "tone": "8",
+                             "text": ["Rejoice!"], "translation": "Permission:oca",
+                             "source": "https://oca.org/x"}])
+        self.assertEqual(len(rec["hymns"]), 1)
+        h = rec["hymns"][0]
+        self.assertEqual(h["kind"], "Troparion")
+        self.assertEqual(h["text"], ["Rejoice!"])
+        self.assertEqual(h["tone"], "8")
+        self.assertTrue(h["permission"])
+        self.assertEqual(h["rightsHolder"], "Orthodox Church in America")
+        self.assertEqual(h["attribution"], "Text used with permission of the OCA.")
+        self.assertNotIn("translation", h)
+
+    def test_join_keeps_the_translation_for_a_public_domain_hymn(self):
+        rec = self._record([{"kind": "Kontakion", "tone": "", "text": ["Rejoice!"],
+                             "translation": "Hapgood 1922 (PD)", "source": ""}])
+        h = rec["hymns"][0]
+        self.assertEqual(h["translation"], "Hapgood 1922 (PD)")
+        self.assertNotIn("permission", h)
+        self.assertNotIn("tone", h)
+
+    def test_revoked_source_is_dropped_from_the_record(self):
+        # Flipping status=revoked is the whole kill-switch: the text stops
+        # shipping without touching any saint row.
+        rec = self._record([{"kind": "Troparion", "tone": "8", "text": ["Rejoice!"],
+                             "translation": "Permission:gone", "source": "https://x"}])
+        self.assertNotIn("hymns", rec)
+
+    def test_no_hymns_key_when_absent(self):
+        rec = build.to_record(valid_row(), vendors=[], name_variants={},
+                              images={}, quotes={}, hymns={}, text_permissions={})
+        self.assertNotIn("hymns", rec)
+
+    def test_committed_hymn_and_permission_files_validate(self):
+        perm_errs, _ = build.validate_text_permissions()
+        self.assertEqual(perm_errs, [], "committed text_permissions.csv has errors:\n"
+                         + "\n".join(perm_errs))
+        errs, _ = build.validate_saint_hymns(
+            {r["Saint ID"].strip() for r in build.load_saints()[1]},
+            build.load_text_permissions())
+        self.assertEqual(errs, [], "committed saint_hymns.csv has errors:\n"
+                         + "\n".join(errs))
+
+
 class GroupTaxonomyTests(unittest.TestCase):
     """data/groups.csv + data/saint_groups.csv loaders, validation, and join."""
 

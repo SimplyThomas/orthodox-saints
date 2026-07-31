@@ -196,6 +196,10 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
 // "In their own words" — a curated profile `quotes` array (multiple, verbatim
 // PD) wins; otherwise the single sourced quote from saint_quotes.csv. Gender
 // picks the possessive for the section label.
+// The saint's own hymns (data/saint_hymns.csv). Column 18 stays a derived search
+// link in the actions ribbon; this is the hymn itself.
+const hymns = saint.hymns ?? [];
+
 const quoteList = profile?.quotes?.length
   ? profile.quotes.map((q) => ({
       text: q.text,
@@ -858,6 +862,90 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
               <p>{m.customs}</p>
             </div>
           </section>
+        )
+      }
+
+      {
+        /* in the Church's hymns — the saint's own troparion / kontakion, verbatim.
+          Distinct from the quote block below: these are the words the Church
+          sings ABOUT the saint, not the saint's own. build.py has already
+          cleared every hymn through the §9 gate and dropped any whose grant was
+          revoked, so rendering one only has to honour its attribution. */
+      }
+      {
+        hymns.length > 0 && (
+          <details class="sv-deep sv-hymns">
+            <summary class="sv-deep-sum">
+              <span class="eyebrow sv-deep-eb">
+                In the Church&rsquo;s hymns
+              </span>
+              {hymns.length > 1 && (
+                <span class="sv-deep-ct">{hymns.length} hymns</span>
+              )}
+              <span class="sv-deep-rule" />
+              <span class="sv-deep-state">
+                <span class="sv-deep-show">Read</span>
+                <span class="sv-deep-hide">Hide</span>
+              </span>
+              <svg
+                class="sv-chev"
+                width="15"
+                height="15"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="var(--gold-deep)"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+            <div class="sv-hymn-list">
+              {hymns.map((h) => (
+                <figure class="sv-hymn">
+                  <figcaption class="sv-hymn-head">
+                    <span class="sv-hymn-kind">{h.kind}</span>
+                    {h.tone && (
+                      <span class="sv-hymn-tone">
+                        {/^\d+$/.test(h.tone) ? `Tone ${h.tone}` : h.tone}
+                      </span>
+                    )}
+                  </figcaption>
+                  <blockquote class="sv-hymn-text">
+                    {h.text.map((stanza) => (
+                      <p>
+                        {/* " / " is the phrase break as the service books print
+                            it — shown as a line break, never edited out. */}
+                        {stanza.split(" / ").map((phrase, i) => (
+                          <Fragment>
+                            {i > 0 && <br />}
+                            {phrase}
+                          </Fragment>
+                        ))}
+                      </p>
+                    ))}
+                  </blockquote>
+                  {/* The credit is the condition the text is used under, so it
+                      renders with the hymn and never in a page-level footnote. */}
+                  <p class="sv-hymn-credit">
+                    {h.source ? (
+                      <a
+                        href={h.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {h.attribution || h.translation || "Source"}
+                      </a>
+                    ) : (
+                      (h.attribution ?? h.translation)
+                    )}
+                  </p>
+                </figure>
+              ))}
+            </div>
+          </details>
         )
       }
 

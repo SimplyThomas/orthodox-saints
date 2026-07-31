@@ -4642,6 +4642,64 @@ a.sv-rail-chip:hover {
   color: var(--ink-soft);
 }
 
+/* "In the Church's hymns" — the saint's own troparion/kontakion, verbatim.
+   Deliberately NOT styled as a pull-quote like sv-words above: a hymn is a
+   sung text with its own line breaks, so it is set upright and ragged with a
+   gold spine, and the oversized quote mark is left to the saint's own words.
+   The credit is the licence condition, so it sits with the hymn, not in a
+   page footnote (§9, docs/permissions/oca.md). */
+.sv2 .sv-hymn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.sv2 .sv-hymn {
+  margin: 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--line-gold);
+}
+.sv2 .sv-hymn-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.sv2 .sv-hymn-tone {
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.sv2 .sv-hymn-text {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.9vw, 19px);
+  line-height: 1.62;
+  color: var(--byz-deep);
+  text-wrap: pretty;
+}
+.sv2 .sv-hymn-text p {
+  margin: 0 0 0.7em;
+}
+.sv2 .sv-hymn-text p:last-child {
+  margin-bottom: 0;
+}
+.sv2 .sv-hymn-credit {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.sv2 .sv-hymn-credit a {
+  color: var(--gold-deep);
+  text-decoration: none;
+}
+.sv2 .sv-hymn-credit a:hover {
+  color: var(--byz);
+  text-decoration: underline;
+}
+
 /* ---- reference apparatus (light) ---- */
 .sv2 .sv-after {
   margin-top: 44px;

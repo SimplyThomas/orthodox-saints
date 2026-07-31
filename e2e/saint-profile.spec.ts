@@ -7,11 +7,20 @@ import { test, expect } from "@playwright/test";
 // public/data.json is emitted by `python build.py`, which runs before the
 // Astro build in both `make web-build` and CI.
 type Depiction = { kind?: string };
-const RECORDS: { id: string; depictions?: Depiction[] }[] = JSON.parse(
-  readFileSync("public/data.json", "utf8"),
-);
+type Hymn = {
+  kind: string;
+  text: string[];
+  tone?: string;
+  source?: string;
+  permission?: boolean;
+  attribution?: string;
+  translation?: string;
+};
+const RECORDS: { id: string; depictions?: Depiction[]; hymns?: Hymn[] }[] =
+  JSON.parse(readFileSync("public/data.json", "utf8"));
 const depictionsOf = (id: string) =>
   RECORDS.find((r) => r.id === id)?.depictions ?? [];
+const firstWithHymns = () => RECORDS.find((r) => r.hymns?.length);
 
 test("Basil's page renders the rich profile biography", async ({ page }) => {
   const resp = await page.goto("./saint/OS-0021/");
@@ -307,4 +316,49 @@ test("a saint with a short Daily Dove file is left unfolded", async ({
   await expect(band.locator(".dove-band-list > li")).toHaveCount(1);
   await expect(band.locator(".dove-band-rest")).toHaveCount(0);
   await expect(band.locator(".dove-band-ct")).toHaveCount(0);
+});
+
+// The hymn block reproduces text under a permission grant, so the assertion
+// that matters is not "a hymn rendered" but "the credit rendered WITH it and
+// links back" — that pairing is the condition the text is used under (§9,
+// docs/permissions/oca.md). Driven off the build like the carousel above, so
+// adding hymns never breaks this.
+test("a saint with hymns shows the text and its required attribution", async ({
+  page,
+}) => {
+  const rec = firstWithHymns();
+  test.skip(
+    !rec,
+    "no saint carries a hymn yet (data/saint_hymns.csv is empty)",
+  );
+  const hymns = rec!.hymns!;
+
+  const resp = await page.goto(`./saint/${rec!.id}/`);
+  expect(resp?.status()).toBe(200);
+  const block = page.locator(".sv-hymns");
+  await expect(block).toBeVisible();
+  await expect(block.locator(".sv-hymn")).toHaveCount(hymns.length);
+  // The block ships collapsed like the other deep-dives; open it to read.
+  await block.locator("summary").click();
+
+  const first = block.locator(".sv-hymn").first();
+  const h = hymns[0];
+  await expect(first.locator(".sv-hymn-kind")).toHaveText(h.kind);
+  if (h.tone && /^\d+$/.test(h.tone)) {
+    await expect(first.locator(".sv-hymn-tone")).toHaveText(`Tone ${h.tone}`);
+  }
+  // Verbatim: the phrase-break slashes become <br>, the words are untouched.
+  const rendered = (await first.locator(".sv-hymn-text").innerText())
+    .replace(/\s+/g, " ")
+    .trim();
+  const expected = h.text.join(" ").replace(/ \/ /g, " ").replace(/\s+/g, " ");
+  expect(rendered).toBe(expected);
+
+  // The credit is non-negotiable, and a permission hymn must link its source.
+  const credit = first.locator(".sv-hymn-credit");
+  await expect(credit).toHaveText(h.attribution ?? h.translation ?? "");
+  if (h.permission) {
+    expect(h.source, "a permission hymn must carry a source URL").toBeTruthy();
+    await expect(credit.locator("a")).toHaveAttribute("href", h.source!);
+  }
 });
