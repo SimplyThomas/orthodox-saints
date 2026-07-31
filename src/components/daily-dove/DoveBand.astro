@@ -5,8 +5,19 @@
    reads.
 
    Deliberately quiet. A reader came for the saint, the feast, or the date; this
-   is an offer to read the story afterwards, not a demand for their attention. */
+   is an offer to read the story afterwards, not a demand for their attention.
+
+   Which is exactly why the band FOLDS once a saint has a real file. Three
+   dispatches read as an offer; twenty-three read as the page changing the
+   subject — the St Spyridon run alone would have run longer than the profile it
+   sits inside. Past the threshold the band leads with the paper's first few in
+   full and puts the remainder behind one `<details>`, opening to a compact
+   index: one line each, grouped by era, tagged with the desk that filed it.
+
+   Native `<details>`, no island — the fold has to survive with JS off, since a
+   collapsed list nobody can open is worse than a long one. */
 import type { NewsItem } from "../../lib/daily-dove";
+import { deskOf, eraOf } from "../../lib/daily-dove";
 import { withBase } from "../../lib/format";
 
 interface Props {
@@ -15,12 +26,50 @@ interface Props {
   note?: string;
   /** a closing line into the paper itself */
   more?: string;
+  /** how many run in full before the rest fold away */
+  collapseAfter?: number;
 }
 const {
   dispatches,
   note = "Reported as the news of its day",
   more,
+  collapseAfter = 3,
 } = Astro.props;
+
+/* Fold only when it actually buys something. Hiding a single dispatch behind a
+   disclosure costs a click and saves four lines, so the threshold is one clear
+   of the cut rather than exactly on it. */
+const folds = dispatches.length > collapseAfter + 1;
+const lead = folds ? dispatches.slice(0, collapseAfter) : dispatches;
+const rest = folds ? dispatches.slice(collapseAfter) : [];
+
+/* The remainder, grouped by era in the order the paper files them. Era rather
+   than desk: on a saint's page the useful question is when — his own lifetime,
+   then whatever happened afterwards at his shrine — and the era inks are a
+   colour the reader has already learnt to read across this section. The desk
+   still rides on every row, so the departments are not displaced, only joined. */
+const eraGroups: {
+  id: string;
+  name: string;
+  ink: string;
+  items: NewsItem[];
+}[] = [];
+for (const d of rest) {
+  const era = eraOf(d.century);
+  const g = eraGroups.find((x) => x.id === era.id);
+  if (g) g.items.push(d);
+  else eraGroups.push({ id: era.id, name: era.name, ink: era.ink, items: [d] });
+}
+/* A single group needs no heading — it would label the whole list with one word
+   and buy the reader nothing. */
+const showEraHeads = eraGroups.length > 1;
+
+/* "Browse the whole file in the archive." Offered only when every dispatch here
+   names the same saint, because the archive's Saint facet groups on the bare
+   first name (see the note on `data-saint` in archive.astro) and a mixed band
+   would link to a wider set than the one being shown. */
+const names = new Set(dispatches.map((d) => d.saint.name));
+const archiveName = names.size === 1 ? [...names][0] : null;
 ---
 
 {
@@ -28,12 +77,15 @@ const {
     <div class="dove-band">
       <div class="dove-band-head">
         <span class="eyebrow">In The Daily Dove</span>
+        {folds && (
+          <span class="dove-band-ct">{dispatches.length} dispatches</span>
+        )}
         <span class="dove-band-ln" aria-hidden="true" />
         <span class="dove-band-note">{note}</span>
       </div>
 
       <ul class="dove-band-list">
-        {dispatches.map((a) => (
+        {lead.map((a) => (
           <li>
             <a href={withBase(`daily-dove/${a.id}`)}>
               <span class="dove-band-edition">{a.edition}</span>
@@ -44,6 +96,78 @@ const {
           </li>
         ))}
       </ul>
+
+      {folds && (
+        <details class="dove-band-rest">
+          <summary>
+            <span class="dove-band-restlbl">
+              The other {rest.length} dispatches
+            </span>
+            <span class="dove-band-restln" aria-hidden="true" />
+            <svg
+              class="dove-band-chev"
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+
+          <div class="dove-band-idx">
+            {eraGroups.map((g) => (
+              <div class="dbx-grp">
+                {showEraHeads && (
+                  <h4 class="dbx-era" style={`--era-ink:${g.ink}`}>
+                    <span class="dbx-eradot" aria-hidden="true" />
+                    {g.name}
+                    <span class="dbx-eran">{g.items.length}</span>
+                  </h4>
+                )}
+                <ul class="dbx-list">
+                  {g.items.map((a) => (
+                    <li>
+                      <a href={withBase(`daily-dove/${a.id}`)}>
+                        <span class="dbx-desk">{deskOf(a).short}</span>
+                        <span class="dbx-h">{a.headline}</span>
+                        <span class="dbx-date">{a.date}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {archiveName && (
+            <a
+              class="dove-band-arch"
+              href={`${withBase("daily-dove/archive")}#saint-${encodeURIComponent(archiveName)}`}
+            >
+              Browse the {archiveName} file in the archive
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          )}
+        </details>
+      )}
 
       {more && (
         <a class="dove-band-more" href={withBase("daily-dove")}>
@@ -85,6 +209,18 @@ const {
     flex: 1;
     height: 1px;
     background: var(--line-gold);
+  }
+  .dove-band-ct {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-deep);
+    border: 1px solid var(--line-gold);
+    border-radius: 999px;
+    padding: 2px 9px;
+    white-space: nowrap;
   }
   .dove-band-note {
     font-family: var(--serif);
@@ -144,6 +280,143 @@ const {
     letter-spacing: 0.1em;
     color: var(--celest);
   }
+  /* ---- the fold ---- */
+  .dove-band-rest {
+    margin-top: 16px;
+    border-top: 1px solid var(--line-gold);
+  }
+  .dove-band-rest > summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0 2px;
+    cursor: pointer;
+    list-style: none;
+    color: var(--byz);
+  }
+  .dove-band-rest > summary::-webkit-details-marker {
+    display: none;
+  }
+  .dove-band-rest > summary:hover {
+    color: var(--gold-deep);
+  }
+  .dove-band-restlbl {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .dove-band-restln {
+    flex: 1;
+    height: 1px;
+    background: var(--line-gold);
+  }
+  .dove-band-chev {
+    flex: none;
+    transition: transform 0.18s ease;
+  }
+  .dove-band-rest[open] .dove-band-chev {
+    transform: rotate(180deg);
+  }
+
+  /* ---- the compact index ---- */
+  .dove-band-idx {
+    display: grid;
+    gap: 18px;
+    padding-top: 14px;
+  }
+  .dbx-era {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 7px;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--era-ink, var(--ink-soft));
+  }
+  .dbx-eradot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--era-ink, var(--ink-soft));
+    flex: none;
+  }
+  .dbx-eran {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+  .dbx-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* The trailing column is capped rather than `auto`: a dateline can run long
+     ("In the Reign of Constantius II (337–361)"), and an uncapped nowrap column
+     pushes the row past the viewport instead of wrapping. */
+  .dbx-list a {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr) minmax(0, 132px);
+    align-items: baseline;
+    gap: 4px 14px;
+    padding: 6px 0;
+    border-top: 1px dotted rgba(168, 133, 42, 0.4);
+    text-decoration: none;
+  }
+  .dbx-list li:first-child a {
+    border-top: 0;
+  }
+  .dbx-desk {
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--gold-deep);
+  }
+  .dbx-h {
+    font-family: var(--serif);
+    font-size: 15.5px;
+    line-height: 1.32;
+    color: var(--byz-deep);
+    text-wrap: pretty;
+  }
+  .dbx-list a:hover .dbx-h {
+    text-decoration: underline;
+    text-decoration-color: var(--line-gold);
+    text-underline-offset: 3px;
+  }
+  .dbx-date {
+    font-family: var(--text);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    line-height: 1.35;
+    color: var(--celest);
+    text-wrap: pretty;
+  }
+  .dove-band-arch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line-gold);
+    width: 100%;
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--byz);
+    text-decoration: none;
+  }
+  .dove-band-arch:hover {
+    color: var(--gold-deep);
+  }
+
   .dove-band-more {
     display: inline-flex;
     align-items: center;
@@ -164,6 +437,26 @@ const {
   @media (max-width: 640px) {
     .dove-band-note {
       display: none;
+    }
+    /* The index row stops being a table and becomes a stacked entry: a fixed
+       desk column at this width leaves the headline about nine characters to
+       wrap in. Desk and date share the trailing line so the headline keeps the
+       full measure. */
+    .dbx-list a {
+      grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+      gap: 3px 10px;
+      padding: 9px 0;
+    }
+    .dbx-h {
+      order: 1;
+      grid-column: 1 / -1;
+    }
+    .dbx-desk {
+      order: 2;
+    }
+    .dbx-date {
+      order: 3;
+      text-align: right;
     }
   }
 </style>
