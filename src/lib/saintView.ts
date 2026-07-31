@@ -140,9 +140,14 @@ export function toSaintView(s: Saint): SaintViewModel {
   if (s.tradition.length) facts.push(["Veneration", s.tradition.join(" · ")]);
   if (s.gender) facts.push(["Gender", s.gender]);
 
+  // `hymn` (column 18) is a derived Google search — a way to go LOOK for the
+  // troparion. Once the hymn itself is on the page (data/saint_hymns.csv), that
+  // link is a dead end offering less than the thing above it, so it is dropped
+  // rather than left to compete. Filtered here, not in the component, so every
+  // consumer of the model agrees on when the link is worth showing.
   const links: SaintViewLink[] = (
     [
-      ["Hymn / Apolytikion", s.hymn, "hymn"],
+      ["Hymn / Apolytikion", s.hymns?.length ? "" : s.hymn, "hymn"],
       ["Icon gallery", s.icon, "icon"],
       ["Video / Media", s.video, "video"],
     ] as [string, string, SaintViewLink["kind"]][]

@@ -196,6 +196,10 @@ const citation = `${m.honorificName}. Cloud of Witnesses.`;
 // "In their own words" — a curated profile `quotes` array (multiple, verbatim
 // PD) wins; otherwise the single sourced quote from saint_quotes.csv. Gender
 // picks the possessive for the section label.
+// The saint's own hymns (data/saint_hymns.csv). Column 18 stays a derived search
+// link in the actions ribbon; this is the hymn itself.
+const hymns = saint.hymns ?? [];
+
 const quoteList = profile?.quotes?.length
   ? profile.quotes.map((q) => ({
       text: q.text,
@@ -409,6 +413,63 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
           }
         </div>
       </div>
+
+      {
+        /* the Church's hymns — the saint's own troparion / kontakion, verbatim,
+          set in the hero beneath the feast card. These are the words the Church
+          sings ABOUT the saint (distinct from the saint's own words, which stay
+          a deep-dive further down), and they belong beside the feast because
+          they are what is sung ON it. build.py has already cleared every hymn
+          through the §9 gate and dropped any whose grant was revoked, so
+          rendering one only has to honour its attribution. */
+      }
+      {
+        hymns.length > 0 && (
+          <div class="sv-hymns">
+            {hymns.map((h) => (
+              <figure class="sv-hymn">
+                <figcaption class="sv-hymn-head">
+                  <span class="sv-hymn-kind">{h.kind}</span>
+                  {h.tone && (
+                    <span class="sv-hymn-tone">
+                      {/^\d+$/.test(h.tone) ? `Tone ${h.tone}` : h.tone}
+                    </span>
+                  )}
+                </figcaption>
+                <blockquote class="sv-hymn-text">
+                  {h.text.map((stanza) => (
+                    <p>
+                      {/* " / " is the phrase break as the service books print
+                          it — shown as a line break, never edited out. */}
+                      {stanza.split(" / ").map((phrase, i) => (
+                        <Fragment>
+                          {i > 0 && <br />}
+                          {phrase}
+                        </Fragment>
+                      ))}
+                    </p>
+                  ))}
+                </blockquote>
+                {/* The credit is the condition the text is used under, so it
+                    renders with the hymn and never in a page-level footnote. */}
+                <p class="sv-hymn-credit">
+                  {h.source ? (
+                    <a
+                      href={h.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {h.attribution || h.translation || "Source"}
+                    </a>
+                  ) : (
+                    (h.attribution ?? h.translation)
+                  )}
+                </p>
+              </figure>
+            ))}
+          </div>
+        )
+      }
     </div>
   </section>
 

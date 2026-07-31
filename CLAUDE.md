@@ -54,6 +54,8 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── image_permissions.csv  ← vendor-permission registry (vendor_slug,vendor_name,attribution,homepage,granted,status,terms)
 │   ├── saint_depictions.csv   ← icon-carousel join, MANY per saint (saint_id,image_path,license,credit,source,kind,tag,title,era,by)
 │   ├── saint_quotes.csv       ← verified PD-quote join (saint_id,quote,work,locus,translation,source_url)
+│   ├── saint_hymns.csv        ← hymn-text join, MANY per saint (saint_id,kind,tone,text,translation,source_url)
+│   ├── text_permissions.csv   ← TEXT-permission registry, sibling of image_permissions (source_slug,source_name,attribution,homepage,granted,status,terms)
 │   ├── groups.csv             ← group taxonomy: definitions (slug,name,type,description,feast,sort)
 │   ├── saint_groups.csv       ← group membership join (group_slug,saint_id,role,order)
 │   ├── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
@@ -318,6 +320,32 @@ detail page, add one row to `data/saint_quotes.csv`
   `work` and `locus` (e.g. `§54.3`) are the citation shown on the page. Saints without a
   row simply render no quote block. The build joins the quote into the record as `quote`
   (+ `quoteWork`/`quoteLocus`/`quoteTranslation`/`quoteSource`).
+
+**Saint hymns (the "In the Church's hymns" block).** Column 18 *Hymn / Apolytikion* stays
+a **derived search link**; the hymn **itself** lives in `data/saint_hymns.csv`
+(`saint_id,kind,tone,text,translation,source_url`) — **many rows per saint**, rendered in
+file order (a troparion reads before its kontakion):
+- `kind` ∈ `Troparion` · `Kontakion` · `Apolytikion` · `Megalynarion` · `Ikos` ·
+  `Exapostilarion` · `Sticheron`. `tone` (optional) is `1`–`8`, `Plagal of the
+  First`…`Fourth`, or `Grave` — the Slavic numbering and the Greek names both pass, a
+  typo fails. `text` holds the hymn **verbatim**; stanzas split on **`||`**, NOT the usual
+  `"; "` (hymns are full of semicolons, and one split on its own punctuation is mangled).
+  The ` / ` phrase breaks the service books print are kept in the data and rendered as
+  line breaks.
+- **`translation` is the §9 gate**, and takes one of two forms: an accepted
+  **public-domain** source (same `ANF`/`NPNF`/`(PD)`/`CC0` test as saint quotes) **or** a
+  **`Permission:<source_slug>`** token resolved against `data/text_permissions.csv`. A
+  copyrighted hymn translation still **fails the build** — link out instead.
+- `data/text_permissions.csv` (`source_slug,source_name,attribution,homepage,granted,
+  status,terms`) is the **sibling of `image_permissions.csv`, and deliberately a separate
+  file**: the OCA granted us its *texts* and stated it cannot grant its *icons*, so a text
+  grant must never be reachable from the image gate. Same kill-switch — set
+  `status=revoked` and every hymn from that source stops shipping (warned, not failed).
+- A permission hymn **requires a `source_url`**: every grant so far is conditioned on
+  crediting and linking the rights-holder's own page, so one with nowhere to link cannot
+  honour its terms. The build joins the hymns as `hymns[]` (permission rows gain
+  `permission`/`rightsHolder`/`attribution`; PD rows keep `translation`), and
+  `SaintView` renders the credit **beside the hymn**, never as a page footnote.
 
 **Saint depictions (the "Depictions & Icons" carousel).** The saint page's redesign
 carries a horizontal carousel of *additional* icons (the single hero portrait still comes
@@ -914,7 +942,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 ## 8. Sourcing strategy — DECIDED: single spine, then merge by identity
 
 ### The spine
-**OCA daily Synaxarion (oca.org)** — used for Phase 1 (now complete). Used **only as a reference for facts**; write our own brief lives and short prayers, never reproduce its wording (§9). No single synaxarion covers the full pan-Orthodox calendar; Phase 2 adds breadth from other recensions.
+**OCA daily Synaxarion (oca.org)** — used for Phase 1 (now complete). Everything in the data today was written **from OCA as a reference for facts**, in our own words. As of 2026-07-30 the OCA has additionally **granted permission to reproduce its text** (lives of the saints and liturgical texts) under two conditions — attribution to oca.org, and a site that stays free (§9, `docs/permissions/oca.md`). Reproducing an OCA text is now allowed **where it is deliberately quoted and attributed as theirs**; keep writing our own briefs and short prayers rather than pasting theirs into fields that read as our composition. No single synaxarion covers the full pan-Orthodox calendar; Phase 2 adds breadth from other recensions.
 
 ### Two-phase plan
 - **Phase 1 — Walk the spine (Jan 1 → Dec 31).** COMPLETE.
@@ -977,7 +1005,9 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 ## 9. Guardrails (non-negotiable)
 
 - **Copyright.** Never reproduce hymns, troparia, kontakia, or any copyrighted
-  translation — **link out** instead (the derived Hymn search URL does this). Images:
+  translation — **link out** instead (the derived Hymn search URL does this). The one
+  exception is the **OCA text grant** below; everything not covered by it stays
+  link-only. Images:
   only public-domain or openly-licensed; a source link is **not** permission. When in
   doubt, omit the image and use the simple cross masthead. Saint portraits added via
   `data/saint_images.csv` are enforced at build time — only `PD`/`PD-art`/`PD-old`/`CC0`/
@@ -995,6 +1025,21 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   revoke a vendor: set its `status=revoked` (the build then excludes every image from that
   vendor and warns), then `rm -rf static/icons/permission/<vendor_slug>/` and drop the
   matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/`.
+- **The OCA text grant (`docs/permissions/oca.md`).** The Orthodox Church in America has
+  granted permission to reproduce **the lives of the saints** (Fr. Kyle Parrott, Director
+  of Communications, 2026-07-18) and **the liturgical texts** (Fr. Phillip, Department of
+  Liturgical Music and Translations, 2026-07-30) on two conditions that govern both
+  grants: **(a) attribution to oca.org** on every reproduced text, with a link to its
+  source page, and **(b) the site stays free — no paywalls, no add-on services.**
+  - **Condition (b) binds the whole site, not the OCA pages.** A paid tier, a
+    members-only area, or a subscription would **void the grant**. Read that record
+    before any monetization work, however unrelated it looks.
+  - **Text only. Icons are explicitly NOT granted** — the OCA does not hold the icons'
+    copyrights and said so. Nothing above is loosened; keep sourcing portraits from
+    Wikimedia. Liturgical *music* (settings, scores, recordings) is also uncovered.
+  - Like the vendor image grants this is a **revocable courtesy, not a license**: it must
+    be carried in the data as an explicit permission token — never relabelled `PD`, never
+    relicensed, never emitted into a redistributable artifact as though it were open.
 - **Canonization caution.** If a person's formal glorification is uncertain (recently
   reposed elders, locally-venerated figures, "repose of…" entries), **skip and note it**
   rather than assert sainthood. Flag these to the user.

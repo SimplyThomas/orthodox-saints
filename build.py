@@ -64,6 +64,7 @@ VENDORS_CSV = DATA / "vendors.csv"
 NAME_VARIANTS_CSV = DATA / "name_variants.csv"
 SAINT_IMAGES_CSV = DATA / "saint_images.csv"
 SAINT_QUOTES_CSV = DATA / "saint_quotes.csv"
+SAINT_HYMNS_CSV = DATA / "saint_hymns.csv"
 GROUPS_CSV = DATA / "groups.csv"
 SAINT_GROUPS_CSV = DATA / "saint_groups.csv"
 RETIRED_IDS_CSV = DATA / "retired_ids.csv"
@@ -182,6 +183,84 @@ SAINT_QUOTES_HEADER = ["saint_id", "quote", "work", "locus", "translation", "sou
 PD_TRANSLATION_RE = re.compile(r"\b(PD|PD-old|CC0|ANF|NPNF1?|NPNF2)\b", re.IGNORECASE)
 
 
+# Text-permission registry (data/text_permissions.csv). The sibling of the image
+# registry above, for the OTHER kind of grant: a rights-holder who has permitted
+# us to reproduce their *words* (CLAUDE.md §9, docs/permissions/oca.md). It is a
+# separate file on purpose — the Orthodox Church in America granted its texts and
+# stated plainly that it cannot grant its icons, so a text grant must never be
+# reachable from the image gate. Same shape and same kill-switch: flip `status`
+# to `revoked` and the build stops publishing every text from that source.
+TEXT_PERMISSIONS_CSV = DATA / "text_permissions.csv"
+TEXT_PERMISSIONS_HEADER = [
+    "source_slug", "source_name", "attribution", "homepage", "granted", "status", "terms"
+]
+
+
+def load_text_permissions() -> dict[str, dict[str, str]]:
+    """source_slug -> {name, attribution, homepage, granted, status, terms}.
+    Empty if the file is absent. Loads ALL rows (incl. revoked) so callers can
+    decide; validation enforces correctness separately."""
+    out: dict[str, dict[str, str]] = {}
+    if not TEXT_PERMISSIONS_CSV.exists():
+        return out
+    with TEXT_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != TEXT_PERMISSIONS_HEADER:
+            sys.exit(f"FATAL: {TEXT_PERMISSIONS_CSV} header must be "
+                     f"{TEXT_PERMISSIONS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            slug = (row.get("source_slug") or "").strip()
+            if not slug:
+                continue
+            out[slug] = {
+                "name": (row.get("source_name") or "").strip(),
+                "attribution": (row.get("attribution") or "").strip(),
+                "homepage": (row.get("homepage") or "").strip(),
+                "granted": (row.get("granted") or "").strip(),
+                "status": (row.get("status") or "").strip(),
+                "terms": (row.get("terms") or "").strip(),
+            }
+    return out
+
+
+def validate_text_permissions() -> tuple[list[str], list[str]]:
+    """Validate data/text_permissions.csv: valid slug, known status, a name and
+    attribution, and no duplicate slugs. Mirrors validate_image_permissions()."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not TEXT_PERMISSIONS_CSV.exists():
+        return errors, warnings
+    with TEXT_PERMISSIONS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != TEXT_PERMISSIONS_HEADER:
+            return ([f"text_permissions.csv header must be "
+                     f"{TEXT_PERMISSIONS_HEADER}, got {reader.fieldnames!r}"], warnings)
+        seen: set[str] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            slug = (row.get("source_slug") or "").strip()
+            status = (row.get("status") or "").strip()
+            where = f"text_permissions.csv line {i}"
+            if not slug:
+                errors.append(f"{where}: empty source_slug.")
+            elif not SLUG_RE.match(slug):
+                errors.append(f"{where}: source_slug {slug!r} is not kebab-case.")
+            elif slug in seen:
+                errors.append(f"{where}: duplicate source_slug {slug!r}.")
+            else:
+                seen.add(slug)
+            if not (row.get("source_name") or "").strip():
+                errors.append(f"{where} ({slug}): empty source_name.")
+            if not (row.get("attribution") or "").strip():
+                errors.append(f"{where} ({slug}): empty attribution — a permission "
+                              "grant's whole condition is that the text is credited.")
+            if status not in PERMISSION_STATUSES:
+                errors.append(f"{where} ({slug}): status {status!r} must be one of "
+                              f"{sorted(PERMISSION_STATUSES)}.")
+    return errors, warnings
+
+
 def translation_ok(t: str) -> bool:
     """True if the translation names an accepted public-domain source — the
     Ante-/Nicene-and-Post-Nicene-Fathers series (ANF / NPNF / NPNF1 / NPNF2),
@@ -189,6 +268,33 @@ def translation_ok(t: str) -> bool:
     translation (e.g. a Philokalia or SVS Press edition) has no such marker and
     fails, keeping copyrighted translations out of the data (§9)."""
     return bool(PD_TRANSLATION_RE.search(t or ""))
+
+
+# Saint hymns (data/saint_hymns.csv) join to saints by Saint ID — MANY rows per
+# saint (a troparion and a kontakion, sometimes more), rendered in file order.
+# Column 18 "Hymn / Apolytikion" stays a derived *search link*; this is the hymn
+# ITSELF, and it may only be reproduced under one of the two regimes §9 allows:
+#   * a public-domain translation, gated by translation_ok() exactly as saint
+#     quotes are; or
+#   * a `Permission:<source_slug>` token resolved against the text-permission
+#     registry — a revocable grant, never relabelled as an open license.
+# The permission arm REQUIRES a source_url: every grant so far is conditioned on
+# crediting and linking the rights-holder's own page, so a permission hymn with
+# nowhere to link cannot honour the terms it was given under.
+SAINT_HYMNS_HEADER = ["saint_id", "kind", "tone", "text", "translation", "source_url"]
+# Hymn genres we render. Deliberately short: extend it when a real source needs a
+# genre, rather than leaving the column free text and discovering six spellings.
+HYMN_KINDS = {"Troparion", "Kontakion", "Apolytikion", "Megalynarion",
+              "Ikos", "Exapostilarion", "Sticheron"}
+# The Slavic use numbers the eight tones; the Greek names the plagal four and the
+# grave tone. Both appear in English sources, so both pass — anything else is a
+# typo worth failing on.
+HYMN_TONE_RE = re.compile(
+    r"^([1-8]|Plagal of the (First|Second|Third|Fourth)|Grave)$", re.IGNORECASE)
+# Stanza separator inside the `text` cell. NOT the usual "; " multi-separator —
+# hymn texts are full of semicolons, and a hymn split on its own punctuation is
+# a mangled hymn. Empty stanzas are dropped on load.
+HYMN_STANZA_SEP = "||"
 
 # The canonical 26-column header, exact and in order (CLAUDE.md §5).
 HEADER = [
@@ -513,6 +619,19 @@ def validate(header: list[str], rows: list[dict[str, str]],
     quote_errors, quote_warnings = validate_saint_quotes(_img_valid_ids)
     errors.extend(quote_errors)
     warnings.extend(quote_warnings)
+
+    # Hymn texts (data/saint_hymns.csv) carry their own permission registry —
+    # a text grant is not an image grant (the OCA gave us one and explicitly
+    # could not give the other), so the two registries never share a lookup.
+    text_permissions = load_text_permissions()
+    tperm_errors, tperm_warnings = validate_text_permissions()
+    errors.extend(tperm_errors)
+    warnings.extend(tperm_warnings)
+
+    hymn_errors, hymn_warnings = validate_saint_hymns(_img_valid_ids | _group_ids,
+                                                      text_permissions)
+    errors.extend(hymn_errors)
+    warnings.extend(hymn_warnings)
 
     # Group profiles (a synaxis / household / …) are also served at /saint/[id]
     # and carry a rich OS-####.yaml, but their IDs live in groups.csv, not
@@ -1169,6 +1288,134 @@ def validate_saint_quotes(valid_ids: set[str]) -> tuple[list[str], list[str]]:
 
 
 # --------------------------------------------------------------------------- #
+# Saint hymns (data/saint_hymns.csv). The troparia and kontakia themselves, MANY
+# rows per saint, joined into the record as `hymns` and rendered on the saint
+# page. Every row passes one of the two §9 regimes — a public-domain translation
+# or a `Permission:<source>` token against data/text_permissions.csv — so a
+# copyrighted hymn translation can never deploy, and a revoked grant can be
+# executed by flipping one field.
+# --------------------------------------------------------------------------- #
+def load_saint_hymns() -> dict[str, list[dict[str, str | list[str]]]]:
+    """saint_id -> ordered list of {kind, tone, text[], translation, source}.
+    Empty if the file is absent. Like depictions and unlike quotes this is MANY
+    rows per saint, kept in file order (a troparion reads before its kontakion)."""
+    out: dict[str, list[dict[str, str | list[str]]]] = {}
+    if not SAINT_HYMNS_CSV.exists():
+        return out
+    with SAINT_HYMNS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_HYMNS_HEADER:
+            sys.exit(f"FATAL: {SAINT_HYMNS_CSV} header must be "
+                     f"{SAINT_HYMNS_HEADER}, got {reader.fieldnames!r}")
+        for row in reader:
+            sid = (row.get("saint_id") or "").strip()
+            if not sid:
+                continue
+            out.setdefault(sid, []).append({
+                "kind": (row.get("kind") or "").strip(),
+                "tone": (row.get("tone") or "").strip(),
+                "text": hymn_stanzas(row.get("text") or ""),
+                "translation": (row.get("translation") or "").strip(),
+                "source": (row.get("source_url") or "").strip(),
+            })
+    return out
+
+
+def hymn_stanzas(text: str) -> list[str]:
+    """Split a hymn cell into stanzas on HYMN_STANZA_SEP, dropping empties."""
+    return [s.strip() for s in text.split(HYMN_STANZA_SEP) if s.strip()]
+
+
+def validate_saint_hymns(valid_ids: set[str],
+                         permissions: dict[str, dict[str, str]] | None = None
+                         ) -> tuple[list[str], list[str]]:
+    """Validate data/saint_hymns.csv: known saint, a known kind, a well-formed
+    tone, hymn text present, and the §9 reproduction gate — a public-domain
+    translation OR a Permission:<source> token resolved against the text-permission
+    registry (a revoked source warns and is excluded from output, exactly as a
+    revoked image vendor is). Many rows per saint are expected; only the same kind
+    with the same opening line twice is a duplicate."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not SAINT_HYMNS_CSV.exists():
+        return errors, warnings
+    if permissions is None:
+        permissions = load_text_permissions()
+    with SAINT_HYMNS_CSV.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != SAINT_HYMNS_HEADER:
+            return ([f"saint_hymns.csv header must be {SAINT_HYMNS_HEADER}, "
+                     f"got {reader.fieldnames!r}"], warnings)
+        seen: set[tuple[str, str, str]] = set()
+        for i, row in enumerate(reader, 2):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            sid = (row.get("saint_id") or "").strip()
+            kind = (row.get("kind") or "").strip()
+            tone = (row.get("tone") or "").strip()
+            stanzas = hymn_stanzas(row.get("text") or "")
+            translation = (row.get("translation") or "").strip()
+            source = (row.get("source_url") or "").strip()
+            where = f"saint_hymns.csv line {i}"
+            opening = (stanzas[0][:60] if stanzas else "")
+
+            if not sid:
+                errors.append(f"{where}: empty saint_id.")
+            elif not ID_RE.match(sid):
+                errors.append(f"{where}: saint_id {sid!r} is not an OS-#### id.")
+            elif sid not in valid_ids:
+                errors.append(f"{where}: saint_id {sid!r} matches no saint or group.")
+            elif (sid, kind, opening) in seen:
+                errors.append(f"{where}: duplicate {kind or 'hymn'} row for {sid}.")
+            seen.add((sid, kind, opening))
+
+            if not stanzas:
+                errors.append(f"{where} ({sid}): empty text — no hymn to render.")
+            if not kind:
+                errors.append(f"{where} ({sid}): empty kind (Troparion / Kontakion / …).")
+            elif kind not in HYMN_KINDS:
+                errors.append(f"{where} ({sid}): kind {kind!r} is not one of "
+                              f"{sorted(HYMN_KINDS)}.")
+            if tone and not HYMN_TONE_RE.match(tone):
+                errors.append(f"{where} ({sid}): tone {tone!r} must be 1–8, "
+                              "'Plagal of the First'…'Plagal of the Fourth', or 'Grave'.")
+
+            # The §9 reproduction gate — the whole point of this table.
+            slug = permission_slug(translation)
+            if not translation:
+                errors.append(f"{where} ({sid}): empty translation. A hymn must name "
+                              "its public-domain translation or a "
+                              "Permission:<source> grant (§9).")
+            elif slug is not None:
+                grant = permissions.get(slug)
+                if grant is None:
+                    errors.append(f"{where} ({sid}): permission source {slug!r} is not "
+                                  "in data/text_permissions.csv.")
+                elif grant.get("status") == "revoked":
+                    warnings.append(f"{where} ({sid}): source {slug!r} permission is "
+                                    "REVOKED — hymn excluded from output; delete the "
+                                    "row from data/saint_hymns.csv.")
+                elif not source:
+                    errors.append(f"{where} ({sid}): a permission hymn requires a "
+                                  "'source_url' crediting and linking the "
+                                  f"rights-holder's page — the condition {slug!r} "
+                                  "granted it under (§9).")
+            elif not translation_ok(translation):
+                errors.append(f"{where} ({sid}): translation {translation!r} names "
+                              "neither an accepted public-domain source (ANF / NPNF / "
+                              "(PD) / CC0) nor a Permission:<source> grant. "
+                              "Copyrighted hymn translations must not be reproduced "
+                              "(§9) — link out instead.")
+
+            if source and not source.lower().startswith(("http://", "https://")):
+                warnings.append(f"{where} ({sid}): source_url {source!r} is not a URL.")
+            elif not source and slug is None:
+                warnings.append(f"{where} ({sid}): no 'source_url' — the hymn's "
+                                "wording cannot be verified against its source.")
+    return errors, warnings
+
+
+# --------------------------------------------------------------------------- #
 # Group taxonomy (data/groups.csv + data/saint_groups.csv). Groups re-link the
 # members of a collective commemoration; the join references any saint row
 # (individual OR still-collective), so the taxonomy ships independently of the
@@ -1631,7 +1878,9 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               saint_groups: dict[str, list[str]] | None = None,
               groups_by_slug: dict[str, dict] | None = None,
               permissions: dict[str, dict[str, str]] | None = None,
-              depictions: dict[str, list[dict[str, str]]] | None = None) -> dict:
+              depictions: dict[str, list[dict[str, str]]] | None = None,
+              hymns: dict[str, list[dict[str, str | list[str]]]] | None = None,
+              text_permissions: dict[str, dict[str, str]] | None = None) -> dict:
     """Transform one saints.csv row into one public/data.json record.
 
     Joins in everything keyed by the saint's ID — portrait (+thumb), quote,
@@ -1659,6 +1908,10 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
         permissions = load_image_permissions()
     if depictions is None:
         depictions = load_saint_depictions()
+    if hymns is None:
+        hymns = load_saint_hymns()
+    if text_permissions is None:
+        text_permissions = load_text_permissions()
     rec: dict = {}
     for col, key in JSON_KEYS.items():
         val = r[col]
@@ -1729,6 +1982,35 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
             rec["quoteTranslation"] = q["translation"]
         if q.get("source"):
             rec["quoteSource"] = q["source"]
+    # The hymns themselves (data/saint_hymns.csv) — a troparion, a kontakion,
+    # sometimes more, in file order. A permission hymn carries the grant's
+    # attribution line so the page can credit the rights-holder without the
+    # frontend needing the registry; a PD hymn carries its translation instead.
+    # A hymn from an unknown or revoked source is dropped here, which is what
+    # makes a revocation a one-field edit (§9, docs/permissions/oca.md).
+    sung: list[dict] = []
+    for h in hymns.get(r["Saint ID"].strip(), []):
+        stanzas = h.get("text") or []
+        if not stanzas:
+            continue
+        item: dict = {"kind": h.get("kind") or "Troparion", "text": stanzas}
+        if h.get("tone"):
+            item["tone"] = h["tone"]
+        if h.get("source"):
+            item["source"] = h["source"]
+        slug = permission_slug(str(h.get("translation") or ""))
+        if slug is not None:
+            grant = text_permissions.get(slug)
+            if not grant or grant.get("status") == "revoked":
+                continue  # unknown / revoked source → the hymn does not ship
+            item["permission"] = True
+            item["rightsHolder"] = grant.get("name", "")
+            item["attribution"] = grant.get("attribution", "")
+        elif h.get("translation"):
+            item["translation"] = h["translation"]
+        sung.append(item)
+    if sung:
+        rec["hymns"] = sung
     # Search haystack: name + aka + brief + notes + customs + all facet values.
     facets = []
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
@@ -1826,6 +2108,8 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
     groups_by_slug = {g["slug"]: g for g in groups}
     permissions = load_image_permissions()
     depictions = load_saint_depictions()
+    hymns = load_saint_hymns()
+    text_permissions = load_text_permissions()
     # Dynamic (rule-based) group membership — merge into the reverse index BEFORE
     # building records so a member saint shows "Member of <open synaxis>".
     by_id = {r["Saint ID"].strip(): r for r in rows}
@@ -1836,7 +2120,8 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
             if slug not in lst:
                 lst.append(slug)
     records = [to_record(r, vendors, name_variants, images, quotes,
-                         saint_groups, groups_by_slug, permissions, depictions)
+                         saint_groups, groups_by_slug, permissions, depictions,
+                         hymns, text_permissions)
                for r in rows]
     # Group saint-profiles: one record per group carrying its own OS-#### id.
     members_by_group = group_members_detail(by_id)
