@@ -335,11 +335,12 @@ test("a saint with hymns shows the text and its required attribution", async ({
 
   const resp = await page.goto(`./saint/${rec!.id}/`);
   expect(resp?.status()).toBe(200);
-  const block = page.locator(".sv-hymns");
+  // The hymns sit in the hero beneath the feast card, open on arrival — not
+  // behind a disclosure, so no click is needed to read them.
+  const block = page.locator(".sv-hero .sv-hymns");
   await expect(block).toBeVisible();
   await expect(block.locator(".sv-hymn")).toHaveCount(hymns.length);
-  // The block ships collapsed like the other deep-dives; open it to read.
-  await block.locator("summary").click();
+  await expect(page.locator(".sv-fday")).toBeVisible();
 
   const first = block.locator(".sv-hymn").first();
   const h = hymns[0];
@@ -361,4 +362,25 @@ test("a saint with hymns shows the text and its required attribution", async ({
     expect(h.source, "a permission hymn must carry a source URL").toBeTruthy();
     await expect(credit.locator("a")).toHaveAttribute("href", h.source!);
   }
+
+  // The derived "Hymn / Apolytikion" Google search is a way to go LOOK for the
+  // troparion; with the troparion right there it offers strictly less, so the
+  // actions ribbon drops it.
+  await expect(
+    page.locator('.sv-reslinks a[data-umami-event-kind="hymn"]'),
+  ).toHaveCount(0);
+});
+
+test("a saint without hymns keeps the Hymn / Apolytikion search link", async ({
+  page,
+}) => {
+  // The converse of the test above — the link must only disappear when it is
+  // genuinely superseded, not for everyone.
+  const rec = RECORDS.find((r) => !r.hymns?.length && r.id === "OS-0021");
+  expect(rec, "OS-0021 is expected to carry no hymn row").toBeTruthy();
+  await page.goto("./saint/OS-0021/");
+  await expect(page.locator(".sv-hymns")).toHaveCount(0);
+  await expect(
+    page.locator('.sv-reslinks a[data-umami-event-kind="hymn"]'),
+  ).toHaveCount(1);
 });
