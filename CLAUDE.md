@@ -914,7 +914,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 ## 8. Sourcing strategy — DECIDED: single spine, then merge by identity
 
 ### The spine
-**OCA daily Synaxarion (oca.org)** — used for Phase 1 (now complete). Used **only as a reference for facts**; write our own brief lives and short prayers, never reproduce its wording (§9). No single synaxarion covers the full pan-Orthodox calendar; Phase 2 adds breadth from other recensions.
+**OCA daily Synaxarion (oca.org)** — used for Phase 1 (now complete). Everything in the data today was written **from OCA as a reference for facts**, in our own words. As of 2026-07-30 the OCA has additionally **granted permission to reproduce its text** (lives of the saints and liturgical texts) under two conditions — attribution to oca.org, and a site that stays free (§9, `docs/permissions/oca.md`). Reproducing an OCA text is now allowed **where it is deliberately quoted and attributed as theirs**; keep writing our own briefs and short prayers rather than pasting theirs into fields that read as our composition. No single synaxarion covers the full pan-Orthodox calendar; Phase 2 adds breadth from other recensions.
 
 ### Two-phase plan
 - **Phase 1 — Walk the spine (Jan 1 → Dec 31).** COMPLETE.
@@ -977,7 +977,9 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 ## 9. Guardrails (non-negotiable)
 
 - **Copyright.** Never reproduce hymns, troparia, kontakia, or any copyrighted
-  translation — **link out** instead (the derived Hymn search URL does this). Images:
+  translation — **link out** instead (the derived Hymn search URL does this). The one
+  exception is the **OCA text grant** below; everything not covered by it stays
+  link-only. Images:
   only public-domain or openly-licensed; a source link is **not** permission. When in
   doubt, omit the image and use the simple cross masthead. Saint portraits added via
   `data/saint_images.csv` are enforced at build time — only `PD`/`PD-art`/`PD-old`/`CC0`/
@@ -995,6 +997,21 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   revoke a vendor: set its `status=revoked` (the build then excludes every image from that
   vendor and warns), then `rm -rf static/icons/permission/<vendor_slug>/` and drop the
   matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/`.
+- **The OCA text grant (`docs/permissions/oca.md`).** The Orthodox Church in America has
+  granted permission to reproduce **the lives of the saints** (Fr. Kyle Parrott, Director
+  of Communications, 2026-07-18) and **the liturgical texts** (Fr. Phillip, Department of
+  Liturgical Music and Translations, 2026-07-30) on two conditions that govern both
+  grants: **(a) attribution to oca.org** on every reproduced text, with a link to its
+  source page, and **(b) the site stays free — no paywalls, no add-on services.**
+  - **Condition (b) binds the whole site, not the OCA pages.** A paid tier, a
+    members-only area, or a subscription would **void the grant**. Read that record
+    before any monetization work, however unrelated it looks.
+  - **Text only. Icons are explicitly NOT granted** — the OCA does not hold the icons'
+    copyrights and said so. Nothing above is loosened; keep sourcing portraits from
+    Wikimedia. Liturgical *music* (settings, scores, recordings) is also uncovered.
+  - Like the vendor image grants this is a **revocable courtesy, not a license**: it must
+    be carried in the data as an explicit permission token — never relabelled `PD`, never
+    relicensed, never emitted into a redistributable artifact as though it were open.
 - **Canonization caution.** If a person's formal glorification is uncertain (recently
   reposed elders, locally-venerated figures, "repose of…" entries), **skip and note it**
   rather than assert sainthood. Flag these to the user.
