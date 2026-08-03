@@ -448,6 +448,19 @@ def harvest(delay: float, force: bool, no_fetch: bool, limit: int) -> int:
     have = existing_images()
     rejects = load_rejects()
 
+    # A reject that matches no product is a typo, and a typo here fails OPEN:
+    # the match quietly comes back as a proposal. Eight of the first twenty were
+    # hand-written from the URL pattern and every one of them was wrong, so this
+    # is checked rather than trusted.
+    if rejects:
+        urls = {p["url"] for p in products}
+        stale = sorted(rejects - urls)
+        if stale:
+            print(f"  WARNING: {len(stale)} reject(s) match no product "
+                  f"(typo? renamed?):", file=sys.stderr)
+            for u in stale:
+                print(f"    {u}", file=sys.stderr)
+
     rows, tally = [], {}
     for p in products:
         route = classify(p["title"], p["sku"])
@@ -682,14 +695,27 @@ def download(delay: float) -> int:
             continue
         stem = rid if r["decision"].strip().lower() == "accept" else \
             f"{rid}-{slugify(TITLE_NOISE.sub('', r['product_title']))[:40]}"
-        dest = DEST_DIR / f"{stem}.jpg"
+        # Festal icons go in a feasts/ subfolder, hosts and saints flat — which
+        # is exactly how the Theophany Works files are already laid out. Ids are
+        # unambiguous either way (FF-/HH-/OS-), so this is about matching the
+        # existing shelf rather than about correctness.
+        out_dir = DEST_DIR / "feasts" if r.get("db") == "feast" else DEST_DIR
+        dest = out_dir / f"{stem}.jpg"
         if dest.name in used:
-            dest = DEST_DIR / f"{stem}-{r.get('sku','x').lower()}.jpg"
+            dest = out_dir / f"{stem}-{r.get('sku','x').lower()}.jpg"
         used.add(dest.name)
         if dest.exists():
             print(f"  have {dest.name}")
         else:
-            cache_name = f"img-{stem}.bin"
+            # Key the cache off the FINAL name, not `stem`. Several products
+            # can share a stem — a record's cards all clean to the same title
+            # ("Annunciation Icon" four times) and only `dest` gets the SKU
+            # suffix that separates them. Keying on stem meant products 2..n
+            # read product 1's cached bytes, so four different Annunciation
+            # icons became four copies of the first, each still linking to its
+            # own product page. A wrong image under a right link is exactly the
+            # failure this script is otherwise built to avoid.
+            cache_name = f"img-{dest.stem}.bin"
             body = fetch_binary(url, cache_name, delay)
             if body is None or not resize(body, dest):
                 failed += 1

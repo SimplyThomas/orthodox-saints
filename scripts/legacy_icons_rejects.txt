@@ -50,3 +50,101 @@ https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/
 # The two ARCHANGELS onto OS-0808, Michael the New Martyr. This is a hosts
 # record (HH-####), not a saint, and belongs in host_images.csv.
 https://legacyicons.com/st-michael-and-st-gabriel-clark-icon-set-y030/
+
+# --- A specific commemoration matched onto a GENERIC feast row ---
+# "All Saints of Mount Athos" onto FF-0064, the Sunday of All Saints of the
+# LOCAL Church. That Sunday is whichever local church you are in; wiring an
+# Athonite synaxis as its icon would quietly make the site answer "Athos".
+https://legacyicons.com/all-saints-of-mount-athos-xixc-icon-f270/
+
+# --- Right saint, wrong episode ---
+# "Saint Theodore and the Princess" onto FF-0033, the Saturday of St Theodore
+# the Recruit. That Saturday commemorates the miracle of the kollyva; this is
+# the dragon-and-princess legend. Same saint, a different story, and the feast
+# icon has to be of the feast.
+https://legacyicons.com/saint-theodore-and-the-princess-icon-f346/
+
+# --- A composite of MANY feasts onto ONE feast ---
+# The "Great Feasts" icons are twelve-panel composites of the whole festal year.
+# They matched FF-0001 (Pascha) because the Resurrection sits at their centre,
+# but they would sit just as well on any of the twelve — which is the argument
+# against filing them under one. If the site ever wants a festal-year image,
+# it needs a home of its own, not a card on Pascha.
+https://legacyicons.com/great-feasts-xxic-icon-f223/
+https://legacyicons.com/great-feasts-xviiic-icon-f208/
+
+# --- A saint's PORTRAIT onto that saint's FEAST ---
+# A Deesis portrait of the Forerunner onto FF-0020, the Beheading. Same person,
+# but a feast's carousel should show the feast; the portrait belongs on his
+# saint row. Same rule that rejected "Theodore and the Princess" above.
+https://legacyicons.com/saint-john-the-baptist-deesis-icon-s432/
+
+# ============================================================================
+# From the fourth batch — working the `ambiguous` pile by hand.
+# ============================================================================
+
+# --- The alt text gave it away ---
+# "The Holy Unmercenary Physicians" had matched OS-1474, Cosmas and Damian of
+# Rome. The card's own alt text reads "holy unmercenary WOMEN with blue
+# background" — so it is not those two men at all. The women unmercenaries have
+# no row yet; recorded as a gap rather than wired to the wrong one.
+https://legacyicons.com/the-holy-unmercenary-physicians-fiorenzo-s701/
+
+# --- A multi-saint icon onto one member's row (see the earlier group) ---
+# Aquila and Priscilla are TWO rows here, OS-1527 and OS-2580; the icon shows
+# the couple and belongs to neither alone.
+https://legacyicons.com/apostles-aquila-and-priscilla-whirledge-icon-s660/
+# Abraham, Isaac and Jacob onto OS-2348, Isaac alone.
+https://legacyicons.com/three-patriarchs-abraham-isaac-and-jacob-sinai-icon-s501/
+
+# --- Wrong saint entirely; the score was a coincidence of common names ---
+# "Four Evangelists" onto OS-0078, Lazarus the Four-Days-Dead. The only thing
+# these share is the word "four".
+https://legacyicons.com/four-evangelists-illumination-icon-s129/
+# "Saint Zlata of Bulgaria" onto OS-0156, King Tervel of Bulgaria. Shared
+# country, different people. Zlata has no row — recorded as a gap.
+https://legacyicons.com/saint-zlata-of-bulgaria-whirledge-icon-s673/
+# "Saint Chloe of Corinth" onto OS-0570, Martyrs Victorinus and companions.
+# Chloe has no row — recorded as a gap.
+https://legacyicons.com/saint-chloe-of-corinth-xxic-icon-s571/
+# "Saint Joasaph, PRINCE OF INDIA" (of Barlaam-and-Joasaph) onto OS-0224,
+# Ioasaph BISHOP OF BELGOROD. Different men, and the transliteration hides it.
+https://legacyicons.com/saint-joasaph-prince-of-india-athos-icon-s519/
+# "Saint Kyriakos the Hermit" onto OS-0110, Giles of Nimes. Nothing in common.
+https://legacyicons.com/saint-kyriakos-the-hermit-athos-icon-s523/
+
+# ============================================================================
+# From the fifth batch — the tail of the ambiguous and weak piles.
+# Several of these are the SAME saint's namesake, one row away from right,
+# which is exactly the kind of near-miss that gets waved through.
+# ============================================================================
+
+# "Saint Kieran of Saighir (Whirledge) Icon - S720"
+# onto OS-0324, Kieran of CLONMACNOISE. Two of the Twelve
+# Apostles of Ireland; Saighir is the elder. Saighir has no row (gap).
+https://legacyicons.com/saint-kieran-of-saighir-whirledge-icon-s720/
+
+# "Saint Ia of Beijing (Whirledge) Icon - S674"
+# onto OS-1823, Ia of PERSIA (+362). Ia of Beijing died in the
+# Boxer Rebellion in 1900. Beijing has no row (gap).
+https://legacyicons.com/saint-ia-of-beijing-whirledge-icon-s674/
+
+# "Saint Theodora the Armenian of Constantinople (Whirledge) Icon - S669"
+# onto OS-2435, Theodora of Constantinople. The Armenian has
+# no row (gap).
+https://legacyicons.com/saint-theodora-the-armenian-of-constantinople-whirledge-icon-s669/
+
+# "Archbishop Dmitri of Dallas (Grygorenko) Icon - S704"
+# onto OS-1084, Ignatius Brianchaninov. Abp Dmitri (+2011) is
+# not glorified (§9) and gets no row at all.
+https://legacyicons.com/archbishop-dmitri-of-dallas-grygorenko-icon-s704/
+
+# "Patron Saints of Livestock (XIXc) Icon - S560"
+# onto OS-0215, Anthimus the Blind. The title names a patronage,
+# not a person; the icon is of Florus and Laurus.
+https://legacyicons.com/patron-saints-of-livestock-xixc-icon-s560/
+
+# "Three Pillars of Orthodoxy Icon - S470"
+# onto OS-2485, the Three Virgin-Martyrs of Chios. Shared word
+# 'three', nothing else.
+https://legacyicons.com/three-pillars-of-orthodoxy-icon-s470/
