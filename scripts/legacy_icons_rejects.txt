@@ -50,3 +50,31 @@ https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/
 # The two ARCHANGELS onto OS-0808, Michael the New Martyr. This is a hosts
 # record (HH-####), not a saint, and belongs in host_images.csv.
 https://legacyicons.com/st-michael-and-st-gabriel-clark-icon-set-y030/
+
+# --- A specific commemoration matched onto a GENERIC feast row ---
+# "All Saints of Mount Athos" onto FF-0064, the Sunday of All Saints of the
+# LOCAL Church. That Sunday is whichever local church you are in; wiring an
+# Athonite synaxis as its icon would quietly make the site answer "Athos".
+https://legacyicons.com/all-saints-of-mount-athos-xixc-icon-f270/
+
+# --- Right saint, wrong episode ---
+# "Saint Theodore and the Princess" onto FF-0033, the Saturday of St Theodore
+# the Recruit. That Saturday commemorates the miracle of the kollyva; this is
+# the dragon-and-princess legend. Same saint, a different story, and the feast
+# icon has to be of the feast.
+https://legacyicons.com/saint-theodore-and-the-princess-icon-f346/
+
+# --- A composite of MANY feasts onto ONE feast ---
+# The "Great Feasts" icons are twelve-panel composites of the whole festal year.
+# They matched FF-0001 (Pascha) because the Resurrection sits at their centre,
+# but they would sit just as well on any of the twelve — which is the argument
+# against filing them under one. If the site ever wants a festal-year image,
+# it needs a home of its own, not a card on Pascha.
+https://legacyicons.com/great-feasts-xxic-icon-f223/
+https://legacyicons.com/great-feasts-xviiic-icon-f208/
+
+# --- A saint's PORTRAIT onto that saint's FEAST ---
+# A Deesis portrait of the Forerunner onto FF-0020, the Beheading. Same person,
+# but a feast's carousel should show the feast; the portrait belongs on his
+# saint row. Same rule that rejected "Theodore and the Princess" above.
+https://legacyicons.com/saint-john-the-baptist-deesis-icon-s432/

@@ -682,14 +682,27 @@ def download(delay: float) -> int:
             continue
         stem = rid if r["decision"].strip().lower() == "accept" else \
             f"{rid}-{slugify(TITLE_NOISE.sub('', r['product_title']))[:40]}"
-        dest = DEST_DIR / f"{stem}.jpg"
+        # Festal icons go in a feasts/ subfolder, hosts and saints flat — which
+        # is exactly how the Theophany Works files are already laid out. Ids are
+        # unambiguous either way (FF-/HH-/OS-), so this is about matching the
+        # existing shelf rather than about correctness.
+        out_dir = DEST_DIR / "feasts" if r.get("db") == "feast" else DEST_DIR
+        dest = out_dir / f"{stem}.jpg"
         if dest.name in used:
-            dest = DEST_DIR / f"{stem}-{r.get('sku','x').lower()}.jpg"
+            dest = out_dir / f"{stem}-{r.get('sku','x').lower()}.jpg"
         used.add(dest.name)
         if dest.exists():
             print(f"  have {dest.name}")
         else:
-            cache_name = f"img-{stem}.bin"
+            # Key the cache off the FINAL name, not `stem`. Several products
+            # can share a stem — a record's cards all clean to the same title
+            # ("Annunciation Icon" four times) and only `dest` gets the SKU
+            # suffix that separates them. Keying on stem meant products 2..n
+            # read product 1's cached bytes, so four different Annunciation
+            # icons became four copies of the first, each still linking to its
+            # own product page. A wrong image under a right link is exactly the
+            # failure this script is otherwise built to avoid.
+            cache_name = f"img-{dest.stem}.bin"
             body = fetch_binary(url, cache_name, delay)
             if body is None or not resize(body, dest):
                 failed += 1
