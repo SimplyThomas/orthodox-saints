@@ -18,7 +18,7 @@ title is a shop's copy, not a calendar.
 
 ---
 
-## A. Saints we do not have — verified absent (5)
+## A. Saints we do not have — verified absent (6)
 
 Each was searched by name, epithet, and plausible transliteration. The near-misses that
 made each one worth double-checking are noted, because they are the reason a name search
@@ -31,17 +31,23 @@ alone would have said "we have this."
 | 3 | **Ia of Beijing**, martyr | Jun 11 (1900) | Among the **222 Chinese Martyrs** of the Boxer Rebellion, glorified 1902 | **OS-1823 is Ia of *Persia*** (Sep 11, †362) — a different saint. This is the trap that makes the pair worth a §6 documented-distinct Notes cross-reference if both land |
 | 4 | **Kieran (Ciarán) of Saighir**, bishop | Mar 5 | One of the Twelve Apostles of Ireland, pre-schism Western | **OS-0324 is Kieran of *Clonmacnoise*** (Sep 9, †c.549) — the *younger* Ciarán. Saighir is the elder. Same trap as above |
 | 5 | **Theodora the Armenian of Constantinople** | to verify | Needs sourcing before adding — the vendor's title is the only lead | **OS-0637 is Theodora the Empress**, Restorer of the Icons (Feb 11). Not her |
+| 6 | **Hilda of Whitby**, abbess | Nov 17 | †680, abbess of Whitby and host of its Synod — **pre-schism Western**, in scope | **OS-0167 is Hereswith of Northumbria — her SISTER**, whose `Also Known As` literally reads "sister of St. Hilda of Whitby". That phrase is the only reason a name search finds Hilda at all, and it is why the harvester mis-filed her icon onto Hereswith's row (now in `scripts/legacy_icons_rejects.txt`) |
 
 Products: [Rodrigo S723](https://legacyicons.com/saint-rodrigo-whirledge-icon-s723/) ·
 [Djan Darada S688](https://legacyicons.com/saint-djan-darada-of-ethiopia-whirledge-icon-s688/) ·
 [Ia of Beijing S674](https://legacyicons.com/saint-ia-of-beijing-whirledge-icon-s674/) ·
 [Kieran of Saighir S720](https://legacyicons.com/saint-kieran-of-saighir-whirledge-icon-s720/) ·
-[Theodora the Armenian S669](https://legacyicons.com/saint-theodora-the-armenian-of-constantinople-whirledge-icon-s669/)
+[Theodora the Armenian S669](https://legacyicons.com/saint-theodora-the-armenian-of-constantinople-whirledge-icon-s669/) ·
+[Hilda of Whitby S582](https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/)
 
-Three of the five are **name-collision traps** — Ia, Kieran, and Theodora each have a
-same-name saint already in the data. Add them with a Notes cross-reference to the other
-id, per the §6 documented-distinct convention, or the duplicate-name warning will be
-re-investigated forever.
+Four of the six are **name-collision traps** — Ia, Kieran, Theodora and Hilda each sit
+beside a same-name (or same-family) saint already in the data. Add them with a Notes
+cross-reference to the other id, per the §6 documented-distinct convention, or the
+duplicate-name warning will be re-investigated forever.
+
+Hilda is the sharpest illustration of why this list needed checking by hand rather than
+by name search. She is *findable* in `saints.csv` — but only as a phrase inside her
+sister's `Also Known As`, describing a saint who is not there.
 
 ---
 
