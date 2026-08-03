@@ -335,9 +335,16 @@ test("a saint with hymns shows the text and its required attribution", async ({
 
   const resp = await page.goto(`./saint/${rec!.id}/`);
   expect(resp?.status()).toBe(200);
-  // The hymns sit in the hero beneath the feast card, open on arrival — not
-  // behind a disclosure, so no click is needed to read them.
-  const block = page.locator(".sv-hero .sv-hymns");
+  // The hymns are a folded `sv-deep` collapsible opening the reference
+  // apparatus, so the summary states the count and a click reveals them.
+  const deep = page.locator("details.sv-hymns-deep");
+  await expect(deep).toHaveCount(1);
+  await expect(deep.locator(".sv-deep-ct")).toHaveText(
+    `${hymns.length} ${hymns.length === 1 ? "hymn" : "hymns"}`,
+  );
+  const block = deep.locator(".sv-hymns");
+  await expect(block).not.toBeVisible();
+  await deep.locator("summary").click();
   await expect(block).toBeVisible();
   await expect(block.locator(".sv-hymn")).toHaveCount(hymns.length);
   await expect(page.locator(".sv-fday")).toBeVisible();
@@ -363,12 +370,17 @@ test("a saint with hymns shows the text and its required attribution", async ({
     await expect(credit.locator("a")).toHaveAttribute("href", h.source!);
   }
 
-  // The derived "Hymn / Apolytikion" Google search is a way to go LOOK for the
-  // troparion; with the troparion right there it offers strictly less, so the
-  // actions ribbon drops it.
+  // The derived Google searches are ways to go LOOK for a troparion or an icon
+  // elsewhere. With the real thing on the page they offer strictly less, so the
+  // tiles are dropped rather than left to compete: the hymn search always here,
+  // and the icon search whenever the saint has a portrait or a carousel.
   await expect(
     page.locator('.sv-reslinks a[data-umami-event-kind="hymn"]'),
   ).toHaveCount(0);
+  const hasImagery = !!rec!.image || (rec!.depictions?.length ?? 0) > 0;
+  await expect(
+    page.locator('.sv-reslinks a[data-umami-event-kind="icon"]'),
+  ).toHaveCount(hasImagery ? 0 : 1);
 });
 
 test("a saint without hymns keeps the Hymn / Apolytikion search link", async ({

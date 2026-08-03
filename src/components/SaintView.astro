@@ -155,6 +155,7 @@ const hasRelated = relatedCards.length > 0;
 const hasRelatedThemes = themeLinks.length > 0;
 const hasCommemorated = memberGroups.length > 0;
 const hasAfter =
+  (saint.hymns?.length ?? 0) > 0 ||
   hasTimeline ||
   hasLegacy ||
   hasInfluence ||
@@ -224,10 +225,6 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
   icon: {
     sub: "Browse icons and imagery elsewhere",
     icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg>`,
-  },
-  video: {
-    sub: "Homilies, talks, and documentaries",
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg>`,
   },
 };
 ---
@@ -414,8 +411,6 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
           }
         </div>
       </div>
-
-      <SaintHymns hymns={hymns} />
     </div>
   </section>
 
@@ -937,6 +932,9 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
         hasAfter && (
           <div class="sv-after">
             <div class="sv-after-inner">
+              {/* what the Church sings about them, before the apparatus */}
+              <SaintHymns hymns={hymns} />
+
               {hasTimeline && (
                 <details class="sv-deep">
                   <summary class="sv-deep-sum">
@@ -1413,11 +1411,42 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                 </details>
               )}
 
-              {/* ideas for celebrating this day at home — inviting family ideas */}
+              {/* ideas for celebrating this day at home — inviting family
+                  ideas, folded like its neighbours so the story column stays a
+                  story and the ideas are there for whoever wants them */}
               {profile?.celebration && (
-                <section class="sv-section">
+                <details class="sv-deep sv-celebrate-deep">
+                  <summary class="sv-deep-sum">
+                    <span class="eyebrow sv-deep-eb">
+                      Ideas for Celebrating This Day
+                    </span>
+                    <span class="sv-deep-ct">
+                      {profile.celebration.ideas.length}{" "}
+                      {profile.celebration.ideas.length === 1
+                        ? "idea"
+                        : "ideas"}
+                    </span>
+                    <span class="sv-deep-rule" />
+                    <span class="sv-deep-state">
+                      <span class="sv-deep-show">Show</span>
+                      <span class="sv-deep-hide">Hide</span>
+                    </span>
+                    <svg
+                      class="sv-chev"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="var(--gold-deep)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </summary>
                   <div class="sv-celebrate">
-                    <div class="eyebrow">Ideas for Celebrating This Day</div>
                     {profile.celebration.intro && (
                       <p class="sv-celebrate-intro">
                         {profile.celebration.intro}
@@ -1451,7 +1480,7 @@ const RES_META: Record<string, { sub: string; icon: string }> = {
                         </p>
                       )}
                   </div>
-                </section>
+                </details>
               )}
 
               {/* The Notes row is gone. It carried CSV-era metadata that read as
