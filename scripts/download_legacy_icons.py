@@ -100,6 +100,9 @@ MAX_DIM = 800           # ingest resize, CLAUDE.md §5
 THUMB_WIDTH = 200
 THUMB_MAX_HEIGHT = 250
 JPEG_QUALITY = 80
+# Trim the white photographic sweep and drop shadow around the mounted plaque.
+# See _resize_node for what this does and does not touch — the watermark stays.
+TRIM_STAGING = True
 
 # --------------------------------------------------------------------------- #
 # Name folding — shared idiom with scripts/download_saint_hymns.py.
@@ -502,43 +505,68 @@ def harvest(delay: float, force: bool, no_fetch: bool, limit: int) -> int:
 # Download (only what a human accepted)
 # --------------------------------------------------------------------------- #
 def _resize_node(raw: bytes, dest: Path, thumb: Path) -> bool:
-    """Resize via node+sharp — the documented fallback where Pillow is absent
-    (CLAUDE.md §5b). Same geometry as scripts/download_saint_icons.py:
-    scale width to <=800, then TOP-crop height, which is what keeps the face."""
+    """Trim the product staging, then fit into 800x800 — via node+sharp, the
+    documented path where Pillow is absent (CLAUDE.md §5b).
+
+    Two deliberate differences from scripts/download_saint_icons.py, both
+    specific to this vendor's photography:
+
+    * TRIM FIRST. Legacy Icons photographs the mounted plaque on a white sweep
+      with a drop shadow. Trimming that staging is what makes the icon fill the
+      hero frame instead of floating in a white box. The trim stops at the
+      plaque's own red edge, so it removes only the photograph's background —
+      NOT the icon, and NOT the "LEGACY ICONS" watermark, which stays fully
+      intact. Removing their mark from an image used under a revocable courtesy
+      would be indefensible; removing the white around it is just cropping.
+      If the trim would eat more than half the area, it is treated as a
+      misfire and the untrimmed image is kept.
+
+    * FIT INSIDE 800x800 rather than scaling width and TOP-CROPPING height. The
+      top crop exists for photographs, where the face sits near the top and the
+      bottom is background. These are whole icon panels: a trimmed plaque runs
+      about 4:5, so a width-scale-then-crop would cut the bottom fifth off
+      every one — Mary of Egypt loses her blessing hand. Fitting inside the box
+      honours the same <=800px ceiling with nothing cut off, and matches what
+      the shipped Theophany files actually are (OS-0012 is 432x648).
+    """
     dest.parent.mkdir(parents=True, exist_ok=True)
     thumb.parent.mkdir(parents=True, exist_ok=True)
     src = dest.with_suffix(".orig.tmp")
     src.write_bytes(raw)
     js = r"""
 const sharp = require('sharp');
-// slice(-7), not slice(2): `node -e` puts no script path in argv[1], so a
+// slice(-8), not slice(2): `node -e` puts no script path in argv[1], so a
 // fixed offset silently drops `src` and sharp then reports the DEST missing.
-const [src, dest, thumb, MAX, TW, TH, Q] = process.argv.slice(-7);
+const [src, dest, thumb, MAX, TW, TH, Q, TRIM] = process.argv.slice(-8);
+const q = Number(Q);
 (async () => {
-  const base = sharp(src).rotate();
-  const meta = await base.metadata();
-  const w = Math.min(Number(MAX), meta.width);
-  const buf = await sharp(src).rotate()
-      .resize({ width: w, withoutEnlargement: true })
-      .jpeg({ quality: Number(Q), mozjpeg: true }).toBuffer();
-  const m2 = await sharp(buf).metadata();
-  const crop = (b, h) => sharp(b).extract({ left: 0, top: 0, width: m2.width, height: h });
-  if (m2.height > Number(MAX)) await crop(buf, Number(MAX)).jpeg({ quality: Number(Q) }).toFile(dest);
-  else require('fs').writeFileSync(dest, buf);
-  const tb = await sharp(dest).resize({ width: Number(TW), withoutEnlargement: true })
-      .jpeg({ quality: Number(Q) }).toBuffer();
-  const m3 = await sharp(tb).metadata();
-  if (m3.height > Number(TH)) await sharp(tb)
-      .extract({ left: 0, top: 0, width: m3.width, height: Number(TH) })
-      .jpeg({ quality: Number(Q) }).toFile(thumb);
-  else require('fs').writeFileSync(thumb, tb);
+  let buf = await sharp(src).rotate().toBuffer();
+  const m0 = await sharp(buf).metadata();
+  if (TRIM === '1') {
+    try {
+      const t = await sharp(buf).trim({ threshold: 12 }).toBuffer();
+      const m1 = await sharp(t).metadata();
+      // Sanity gate: a trim that swallows more than half the picture has
+      // locked onto something other than the backdrop. Keep the original.
+      if (m1.width * m1.height >= 0.5 * m0.width * m0.height) buf = t;
+      else console.error('  trim rejected (would remove >50% of the image)');
+    } catch (e) { console.error('  trim skipped: ' + e.message); }
+  }
+  await sharp(buf)
+      .resize({ width: Number(MAX), height: Number(MAX), fit: 'inside',
+                withoutEnlargement: true })
+      .jpeg({ quality: q, mozjpeg: true }).toFile(dest);
+  await sharp(dest)
+      .resize({ width: Number(TW), height: Number(TH), fit: 'inside',
+                withoutEnlargement: true })
+      .jpeg({ quality: q }).toFile(thumb);
 })().catch(e => { console.error(String(e)); process.exit(1); });
 """
     try:
         r = subprocess.run(
             ["node", "-e", js, "--", str(src), str(dest), str(thumb),
              str(MAX_DIM), str(THUMB_WIDTH), str(THUMB_MAX_HEIGHT),
-             str(JPEG_QUALITY)],
+             str(JPEG_QUALITY), "1" if TRIM_STAGING else "0"],
             capture_output=True, text=True, timeout=120, cwd=str(ROOT),
         )
     except (subprocess.TimeoutExpired, FileNotFoundError) as e:
@@ -552,32 +580,48 @@ const [src, dest, thumb, MAX, TW, TH, Q] = process.argv.slice(-7);
     return True
 
 
+def _fit(img, box_w: int, box_h: int):
+    """Scale to fit inside the box, never enlarging. See _resize_node for why
+    this replaces the usual scale-width-then-top-crop for this vendor."""
+    scale = min(box_w / img.width, box_h / img.height, 1.0)
+    if scale >= 1.0:
+        return img
+    from PIL import Image                          # noqa: PLC0415
+    return img.resize((max(1, round(img.width * scale)),
+                       max(1, round(img.height * scale))), Image.LANCZOS)
+
+
 def resize(raw: bytes, dest: Path) -> bool:
     thumb = (THUMBS / dest.relative_to(ICONS).parent / dest.name).with_suffix(".jpg")
     try:
-        from PIL import Image, ImageOps           # noqa: PLC0415
-        from io import BytesIO                    # noqa: PLC0415
+        from PIL import Image, ImageChops, ImageOps   # noqa: PLC0415
+        from io import BytesIO                        # noqa: PLC0415
     except ImportError:
         return _resize_node(raw, dest, thumb)
     try:
         img = ImageOps.exif_transpose(Image.open(BytesIO(raw)))
         if img.mode != "RGB":
             img = img.convert("RGB")
-        w, h = img.size
-        if w > MAX_DIM:
-            img = img.resize((MAX_DIM, round(h * MAX_DIM / w)), Image.LANCZOS)
-        if img.height > MAX_DIM:
-            img = img.crop((0, 0, img.width, MAX_DIM))
+        if TRIM_STAGING:
+            # Same trim as the node path: difference against the corner colour
+            # (the white sweep), bounded, with the >50% sanity gate.
+            bg = Image.new("RGB", img.size, img.getpixel((0, 0)))
+            diff = ImageChops.add(ImageChops.difference(img, bg),
+                                  Image.new("RGB", img.size, (0, 0, 0)))
+            bbox = diff.point(lambda p: 255 if p > 12 else 0).convert("L").getbbox()
+            if bbox:
+                area = (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
+                if area >= 0.5 * img.width * img.height:
+                    img = img.crop(bbox)
+                else:
+                    print("  trim rejected (would remove >50% of the image)",
+                          file=sys.stderr)
         dest.parent.mkdir(parents=True, exist_ok=True)
-        img.save(dest, "JPEG", quality=JPEG_QUALITY, optimize=True)
-        t = img.copy()
-        if t.width > THUMB_WIDTH:
-            t = t.resize((THUMB_WIDTH, round(t.height * THUMB_WIDTH / t.width)),
-                         Image.LANCZOS)
-        if t.height > THUMB_MAX_HEIGHT:
-            t = t.crop((0, 0, t.width, THUMB_MAX_HEIGHT))
+        _fit(img, MAX_DIM, MAX_DIM).save(dest, "JPEG", quality=JPEG_QUALITY,
+                                         optimize=True)
         thumb.parent.mkdir(parents=True, exist_ok=True)
-        t.save(thumb, "JPEG", quality=JPEG_QUALITY, optimize=True)
+        _fit(Image.open(dest), THUMB_WIDTH, THUMB_MAX_HEIGHT).save(
+            thumb, "JPEG", quality=JPEG_QUALITY, optimize=True)
         return True
     except Exception as e:                        # noqa: BLE001
         print(f"  resize failed for {dest.name}: {e}", file=sys.stderr)

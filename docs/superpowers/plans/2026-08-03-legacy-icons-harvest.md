@@ -29,8 +29,30 @@ Established 2026-08-03 by inspection; re-verify before a long run.
 | Structured data | BreadcrumbList only — **no JSON-LD Product schema**; parse `og:image` + `<title>` |
 
 **The image path segment is resizable** (`/1280x1280/` → any dimensions), but fetch at
-1280 and run our own `save_resized()` — the CDN's resize does not top-crop, and
-top-cropping is what preserves the face (CLAUDE.md §5).
+1280 and resize locally — we trim before scaling, and the CDN cannot do that.
+
+### Their photography is staged, and that shapes the ingest
+
+Legacy Icons photographs the **mounted plaque on a white sweep with a drop shadow**, and
+every image carries a **"LEGACY ICONS" watermark** across the middle. This is not
+Theophany Works, whose files are edge-to-edge icon art (the shipped `OS-0012.jpg` is a
+bare 432×648 panel). Two ingest rules follow, both implemented in
+`scripts/download_legacy_icons.py` and decided 2026-08-03:
+
+- **Trim the staging, keep the watermark.** The trim stops at the plaque's own red edge,
+  so it removes the photographic backdrop and nothing else. **The watermark stays fully
+  intact** — stripping a vendor's mark from an image used under a revocable courtesy
+  would be indefensible; cropping the white around it is just cropping. A trim that
+  would remove more than half the area is treated as a misfire and discarded.
+- **Fit inside 800×800 instead of scale-width-then-top-crop.** The house top-crop
+  (CLAUDE.md §5) exists for photographs, where the face is near the top and the bottom is
+  background. These are whole icon panels at roughly 4:5, so the top crop would cut the
+  bottom fifth off every one — Mary of Egypt loses her blessing hand. Fitting inside the
+  box honours the same ≤800px ceiling with nothing cut.
+
+Worth raising with Dean eventually: whether they hold unwatermarked or unstaged art.
+Not a blocker — the trimmed images are good — but it would close the gap with the
+Theophany files.
 
 ### robots.txt — read this before writing a fetch loop
 
@@ -185,5 +207,9 @@ still small enough to check by eye.
 - [x] Run against the empty registry row (2026-08-03) — validation stays clean and the
       row round-trips. This proves the plumbing, **not** the kill-switch: with zero
       Legacy images there is nothing for it to drop.
-- [ ] Re-run the moment the first batch of images is wired. That is the run that
-      actually tests the promise.
+- [x] **Re-run against a real wired image (OS-1365, 2026-08-03) — the switch works.**
+      `status=revoked` → the build warns `saint_images.csv line 146 (OS-1365): vendor
+      'legacy-icons' permission is REVOKED — image excluded from output`, names the file
+      to delete, and `public/data.json` emits `image: None` for that saint. Back to
+      `active` → the image and its `imageVendor: Legacy Icons` attribution return. The
+      promise to Dean is now tested, not asserted.
