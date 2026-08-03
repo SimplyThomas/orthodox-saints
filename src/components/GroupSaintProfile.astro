@@ -102,10 +102,6 @@ const links = [
     label: "Icon gallery",
     href: `https://www.google.com/search?tbm=isch&q=${q(saint.name + " orthodox icon")}`,
   },
-  {
-    label: "Video / Media",
-    href: `https://www.youtube.com/results?search_query=${q(saint.name + " orthodox")}`,
-  },
 ];
 
 // Hero portrait: a self-hosted icon fills the frame; otherwise a monogram drawn
@@ -147,7 +143,13 @@ const storyLabel =
       ? "About the household"
       : "About the group";
 const citation = `${saint.name}. Cloud of Witnesses.`;
-const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
+const hasAfter =
+  (saint.hymns?.length ?? 0) > 0 ||
+  hasTimeline ||
+  hasLegacy ||
+  hasReading ||
+  !!notes ||
+  !!sources;
 ---
 
 <div
@@ -306,8 +308,6 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
           </div>
         </div>
       </div>
-
-      <SaintHymns hymns={saint.hymns ?? []} />
     </div>
   </section>
 
@@ -555,6 +555,9 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
         hasAfter && (
           <div class="sv-after">
             <div class="sv-after-inner">
+              {/* what the Church sings about them, before the apparatus */}
+              <SaintHymns hymns={saint.hymns ?? []} />
+
               {hasTimeline && (
                 <details class="sv-deep">
                   <summary class="sv-deep-sum">
