@@ -1031,8 +1031,10 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   `dist/image_review.csv` + `dist/icon_contact_sheet.html` — all `needs_review`; nothing
   ships until a human verifies each (right saint, right license) and promotes it into
   `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
-  do not clean it away.** Separately, the user is awaiting permission from icon vendors;
-  vendor imagery stays links-only until granted.
+  do not clean it away.** Separately, **two vendors have granted permission** —
+  **Theophany Works** (2026-06-17/23, ~240 images wired) and **Legacy Icons**
+  (2026-08-03, registry row recorded, **no images sourced yet**); every other vendor
+  stays links-only until granted. Each grant is recorded under `docs/permissions/`.
 - Authoring aids: `make find` (search-before-add); `python build.py --no-xlsx` (assign IDs +
   emit `data.json` on host Python, no Docker); a "wrong column?" hint on misplaced vocab
   terms; feast day-of-month range validation; duplicate-name warnings with the
