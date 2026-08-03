@@ -10,10 +10,22 @@ import { primaryRank, firstFeast, feastDates, centuryLabel } from "./saints";
 import { oldCalendarDay } from "./calendar-grid";
 import { MONTHS, MONTHS_FULL } from "./format";
 
+/** The label for the hymns collapsible and the tile that jumps to it: the
+    kinds actually present, in the order they are sung — "Troparion &
+    Kontakion" for the usual pair, plain "Troparion" for a saint who has only
+    that one. Naming a kontakion on a page carrying none would be a small lie
+    in a section whose whole point is verbatim text. */
+export function hymnLabel(hymns: { kind: string }[] | undefined): string {
+  const kinds = [...new Set((hymns ?? []).map((h) => h.kind))];
+  if (kinds.length === 0) return "Hymns";
+  if (kinds.length === 1) return kinds[0];
+  return `${kinds.slice(0, -1).join(", ")} & ${kinds[kinds.length - 1]}`;
+}
+
 export interface SaintViewLink {
   label: string;
   href: string;
-  kind: "hymn" | "icon" | "video";
+  kind: "hymn" | "icon";
 }
 
 export interface SaintViewModel {
@@ -140,16 +152,23 @@ export function toSaintView(s: Saint): SaintViewModel {
   if (s.tradition.length) facts.push(["Veneration", s.tradition.join(" · ")]);
   if (s.gender) facts.push(["Gender", s.gender]);
 
-  // `hymn` (column 18) is a derived Google search — a way to go LOOK for the
-  // troparion. Once the hymn itself is on the page (data/saint_hymns.csv), that
-  // link is a dead end offering less than the thing above it, so it is dropped
-  // rather than left to compete. Filtered here, not in the component, so every
-  // consumer of the model agrees on when the link is worth showing.
+  // Columns 18 and 19 are derived Google searches — ways to go LOOK for a
+  // troparion or an icon somewhere else. Once we hold the thing itself, the
+  // search offers strictly less than what is already on the page, so the tile
+  // is dropped rather than left to compete with it: the hymns collapsible for
+  // `hymn`, and a hero portrait or a depictions carousel for `icon`. Decided
+  // here, not in the component, so every consumer of the model agrees on when
+  // a link is worth showing.
+  //
+  // Column 25 (the YouTube search) is not offered at all. It was never a link
+  // to anything we had vetted — it handed a reader an unfiltered search on a
+  // saint's name, which is the one place this site cannot vouch for what comes
+  // back. The column stays in the data; the page just stops pointing at it.
+  const hasImagery = !!s.image || (s.depictions?.length ?? 0) > 0;
   const links: SaintViewLink[] = (
     [
       ["Hymn / Apolytikion", s.hymns?.length ? "" : s.hymn, "hymn"],
-      ["Icon gallery", s.icon, "icon"],
-      ["Video / Media", s.video, "video"],
+      ["Icon gallery", hasImagery ? "" : s.icon, "icon"],
     ] as [string, string, SaintViewLink["kind"]][]
   )
     .filter(([, href]) => href)

@@ -3339,20 +3339,13 @@ a.sv-rail-chip:hover {
   text-align: justify;
   hyphens: auto;
 }
-/* "Ideas for Celebrating This Day" — a warm, inviting family-ideas card,
-   set apart from the plainer Customs card above it. Mirrors the feast page's
-   celebration section. */
+/* "Ideas for Celebrating This Day" — inviting family ideas, inside a folded
+   `sv-deep` collapsible. It was a filled card with its own heading; the summary
+   row now frames it, and a card inside a disclosure double-framed the same
+   content. The feast page keeps its own card treatment (scoped `celebrate-*`
+   styles there), where it is a section rather than one row among several. */
 .sv-celebrate {
-  background: var(--ivory-2);
-  border: 1px solid var(--line-gold);
-  border-radius: 10px;
-  padding: 24px 26px;
-  box-shadow: var(--shadow-soft);
-}
-.sv-celebrate .eyebrow {
-  margin-bottom: 12px;
-  display: block;
-  color: var(--gold-deep);
+  padding: 4px 0 6px;
 }
 .sv-celebrate-intro {
   font-family: var(--serif);
@@ -3364,15 +3357,13 @@ a.sv-rail-chip:hover {
   hyphens: auto;
 }
 .sv-celebrate-ideas {
-  list-style: none;
+  list-style: disc;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 22px;
   display: grid;
   gap: 10px;
 }
 .sv-celebrate-ideas li {
-  position: relative;
-  padding-left: 26px;
   font-family: var(--serif);
   font-size: 17px;
   line-height: 1.55;
@@ -3380,13 +3371,8 @@ a.sv-rail-chip:hover {
   text-align: justify;
   hyphens: auto;
 }
-.sv-celebrate-ideas li::before {
-  content: "☦";
-  position: absolute;
-  left: 0;
-  top: 1px;
+.sv-celebrate-ideas li::marker {
   color: var(--gold-deep);
-  font-size: 0.85em;
 }
 .sv-celebrate-ideas .ci-detail {
   color: var(--ink-soft);
@@ -3986,25 +3972,24 @@ a.sv-rail-chip:hover {
   color: var(--celest-soft);
 }
 
-/* ---- HYMNS (hero, beneath the feast card) ----
-   The troparion/kontakion sits ON the dark hero ground, so it is ivory-on-blue
-   and NOT the light-body treatment the quote block uses — the two were built
-   for different grounds and the light one is invisible here.
-   It deliberately borrows the feast card's frame (same faint white fill, same
-   gold hairline) so the two read as one stack: the day, then what is sung on
-   it. A hymn is a sung text with its own line breaks, so it is set upright and
-   ragged rather than as a centred pull-quote. The credit is the licence
-   condition, so it stays with the hymn (§9, docs/permissions/oca.md). */
+/* ---- HYMNS (a `sv-deep` collapsible, opening the reference apparatus) ----
+   This block has lived in two other places: on the dark hero under the feast
+   card, and as its own paper band below the depictions carousel. Both put four
+   hymns in front of a reader who came for the life, so it is folded now and
+   costs one row until asked for. The ground here is the body's, so the type is
+   ink — the original ivory-on-navy set would be invisible.
+
+   A hymn is a sung text with its own line breaks, so it stays upright and
+   ragged rather than a centred pull-quote, and the measure is held near 70
+   characters so the phrase breaks the service books print survive as line
+   breaks instead of rewrapping. The credit is the licence condition, so it
+   stays with its hymn (§9, docs/permissions/oca.md). */
 .sv2 .sv-hymns {
-  width: 100%;
-  margin: 10px 0 0;
-  padding: 15px 24px 17px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 7px;
+  max-width: 68ch;
+  padding: 4px 0 8px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 .sv2 .sv-hymn {
   margin: 0;
@@ -4012,30 +3997,29 @@ a.sv-rail-chip:hover {
 /* A second hymn is ruled off from the first rather than merely spaced — a
    kontakion following a troparion should not read as its next stanza. */
 .sv2 .sv-hymn + .sv-hymn {
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
 }
 .sv2 .sv-hymn-head {
   display: flex;
   align-items: baseline;
-  justify-content: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-soft);
+  color: var(--gold-deep);
 }
 .sv2 .sv-hymn-tone {
   font-size: 9.5px;
   letter-spacing: 0.13em;
-  color: var(--celest-soft);
+  color: var(--celest);
 }
 .sv2 .sv-hymn-text {
-  margin: 11px 0 0;
+  margin: 9px 0 0;
   font-family: var(--serif);
   font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.62;
-  color: var(--ivory);
+  color: var(--ink);
   text-wrap: pretty;
 }
 .sv2 .sv-hymn-text p {
@@ -4045,18 +4029,18 @@ a.sv-rail-chip:hover {
   margin-bottom: 0;
 }
 .sv2 .sv-hymn-credit {
-  margin: 11px 0 0;
+  margin: 10px 0 0;
   font-size: 9.5px;
   letter-spacing: 0.06em;
   line-height: 1.6;
-  color: var(--celest-soft);
+  color: var(--ink-soft);
 }
 .sv2 .sv-hymn-credit a {
-  color: var(--gold-soft);
+  color: var(--byz);
   text-decoration: none;
 }
 .sv2 .sv-hymn-credit a:hover {
-  color: var(--gold);
+  color: var(--gold-deep);
   text-decoration: underline;
 }
 

@@ -1,8 +1,15 @@
 ---
 /* The Church's hymns — a troparion, a kontakion, sometimes more, verbatim.
    These are the words the Church SINGS about the saint (distinct from the
-   saint's own words, which stay a deep-dive further down), so they belong
-   beside the feast card: they are what is sung ON it.
+   saint's own words, which are the quotes collapsible above).
+
+   It is a `sv-deep` collapsible in the reference apparatus, opening the run
+   that Timeline and Contributions & Legacy continue. It has been in two other
+   places: under the hero's feast card (a hymn is what is sung ON the feast) and
+   then as its own band below the depictions carousel. Both put four hymns —
+   Moses the Black, Cyprian of Carthage — in front of a reader who came for the
+   life. Folded shut it costs one row, and the count on the summary tells anyone
+   who wants them that they are there.
 
    Shared by SaintView and GroupSaintProfile. A synaxis is sung to as a body —
    the Fathers of the Kiev Far Caves have a troparion of their own — and one
@@ -12,54 +19,84 @@
    whose grant was revoked, so rendering one only has to honour its
    attribution. */
 import type { SaintHymn } from "../lib/types";
+import { hymnLabel } from "../lib/saintView";
 
 interface Props {
   hymns: SaintHymn[];
 }
 
 const { hymns } = Astro.props;
+// Named for what is actually here — see hymnLabel().
+const label = hymnLabel(hymns);
 ---
 
 {
   hymns.length > 0 && (
-    <div class="sv-hymns">
-      {hymns.map((h) => (
-        <figure class="sv-hymn">
-          <figcaption class="sv-hymn-head">
-            <span class="sv-hymn-kind">{h.kind}</span>
-            {h.tone && (
-              <span class="sv-hymn-tone">
-                {/^\d+$/.test(h.tone) ? `Tone ${h.tone}` : h.tone}
-              </span>
-            )}
-          </figcaption>
-          <blockquote class="sv-hymn-text">
-            {h.text.map((stanza) => (
-              <p>
-                {/* " / " is the phrase break as the service books print it —
-                    shown as a line break, never edited out. */}
-                {stanza.split(" / ").map((phrase, i) => (
-                  <Fragment>
-                    {i > 0 && <br />}
-                    {phrase}
-                  </Fragment>
-                ))}
-              </p>
-            ))}
-          </blockquote>
-          {/* The credit is the condition the text is used under, so it renders
-              with the hymn and never in a page-level footnote. */}
-          <p class="sv-hymn-credit">
-            {h.source ? (
-              <a href={h.source} target="_blank" rel="noopener noreferrer">
-                {h.attribution || h.translation || "Source"}
-              </a>
-            ) : (
-              (h.attribution ?? h.translation)
-            )}
-          </p>
-        </figure>
-      ))}
-    </div>
+    <details class="sv-deep sv-hymns-deep" id="hymns">
+      <summary class="sv-deep-sum">
+        <span class="eyebrow sv-deep-eb">{label}</span>
+        <span class="sv-deep-ct">
+          {hymns.length} {hymns.length === 1 ? "hymn" : "hymns"}
+        </span>
+        <span class="sv-deep-rule" />
+        <span class="sv-deep-state">
+          <span class="sv-deep-show">Read</span>
+          <span class="sv-deep-hide">Hide</span>
+        </span>
+        <svg
+          class="sv-chev"
+          width="15"
+          height="15"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="var(--gold-deep)"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 6l4 4 4-4" />
+        </svg>
+      </summary>
+      <div class="sv-hymns">
+        {hymns.map((h) => (
+          <figure class="sv-hymn">
+            <figcaption class="sv-hymn-head">
+              <span class="sv-hymn-kind">{h.kind}</span>
+              {h.tone && (
+                <span class="sv-hymn-tone">
+                  {/^\d+$/.test(h.tone) ? `Tone ${h.tone}` : h.tone}
+                </span>
+              )}
+            </figcaption>
+            <blockquote class="sv-hymn-text">
+              {h.text.map((stanza) => (
+                <p>
+                  {/* " / " is the phrase break as the service books print it —
+                      shown as a line break, never edited out. */}
+                  {stanza.split(" / ").map((phrase, i) => (
+                    <Fragment>
+                      {i > 0 && <br />}
+                      {phrase}
+                    </Fragment>
+                  ))}
+                </p>
+              ))}
+            </blockquote>
+            {/* The credit is the condition the text is used under, so it
+                renders with the hymn and never in a page-level footnote. */}
+            <p class="sv-hymn-credit">
+              {h.source ? (
+                <a href={h.source} target="_blank" rel="noopener noreferrer">
+                  {h.attribution || h.translation || "Source"}
+                </a>
+              ) : (
+                (h.attribution ?? h.translation)
+              )}
+            </p>
+          </figure>
+        ))}
+      </div>
+    </details>
   )
 }
