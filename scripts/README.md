@@ -7,6 +7,7 @@ these are needed to build or deploy the site — the operational pipeline is
 | Script | What it does | Needs | Cadence |
 |--------|--------------|-------|---------|
 | `download_saint_icons.py` | Bulk-fetch openly-licensed saint icons from Wikimedia Commons into `static/icons/` + a review queue in `dist/` | `pip install requests Pillow python-dotenv` (authoring-only, not in requirements.txt); optional Wikimedia bot creds in `.env` | One-time bulk pass done; re-run for new saints (`--force` to refetch). See `ICON_DOWNLOAD_README.md`. |
+| `download_saint_hymns.py` | Harvests troparia/kontakia from oca.org (one page per calendar day) into the **propose-only** review queue `dist/hymn_review.csv`; never writes `data/saint_hymns.csv` | stdlib + `curl` | **Held.** Runs under the OCA text grant (`docs/permissions/oca.md`), which covers the text and is *not* consent to crawl. An unthrottled first attempt tripped their WAF and got this machine IP-blocked. **Read the script header before running, and start with `--days 5`.** |
 | `make_icon_contact_sheet.py` | HTML contact sheet for reviewing the downloaded-icon queue | stdlib only | With the downloader. |
 | `make_icon_thumbs.py` | ~200 px avatar thumbs under `static/icons/thumbs/` | Pillow | **After any manually-added icon** (the downloader emits thumbs itself). |
 | `make_og_image.mjs` | Regenerates `static/og-default.png` (1200×630 share card) | `npx playwright install chromium` | Only after a wordmark/tagline change. |
