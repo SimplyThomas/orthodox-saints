@@ -61,10 +61,12 @@ intercession." — is used as the masthead tagline and the `<meta name="descript
 │   ├── feasts.csv             ← SOURCE OF TRUTH for the Feasts & Fasts DB (one row per feast/fast, FF-####, 19 columns — §5a)
 │   ├── heavenly_hosts.csv     ← SOURCE OF TRUTH for the Heavenly Hosts DB (one row per being, HH-####, 19 columns — §5b)
 │   ├── host_images.csv        ← host hero-portrait join (host_id,image_path,license,credit,source)
-│   └── host_depictions.csv    ← host icon-carousel join, MANY per host (same columns as saint_depictions)
+│   ├── host_depictions.csv    ← host icon-carousel join, MANY per host (same columns as saint_depictions)
+│   └── lectionary/<year>.csv  ← the daily lectionary, HARVESTED not authored (§5d)
 ├── build.py                   ← the build tool (CSV → SQLite → validate → artifacts)
 ├── feastlib.py                ← the Feasts & Fasts pipeline (load/assign FF ids/validate/emit), orchestrated by build.py
 ├── hostlib.py                 ← the Heavenly Hosts pipeline (mirrors feastlib), orchestrated by build.py — §5b
+├── lectionarylib.py           ← the daily-lectionary pipeline (load/validate/emit), orchestrated by build.py — §5d
 ├── pascha.py                  ← Orthodox Pascha computus (Meeus Julian algorithm, 1900–2099)
 ├── package.json               ← Astro frontend deps + scripts (Node 24+)
 ├── astro.config.mjs           ← Astro config (site: orthodoxsaintfinder.com, outDir:_site)
@@ -174,6 +176,7 @@ data/heavenly_hosts.csv ┼─► (+feastlib   ─► (in-memory SQLite) ─► 
 data/vocabulary.csv ────┘    +hostlib)                    ├─ public/data.json   (Astro build input)
                                                           ├─ public/feasts.json (feasts + Pascha table 2020–2040)
                                                           ├─ public/hosts.json  (the bodiless powers — §5b)
+                                                          ├─ public/lectionary/<year>.json (the daily readings — §5d)
                                                           ├─ public/saints.sqlite (optional artifact)
                                                           └─ dist/Orthodox_Saints_Database.xlsx
                                                              (+ Feasts & Fasts and Heavenly Hosts sheets)
@@ -208,6 +211,9 @@ Use the Makefile targets (or the underlying python directly):
   **lack a real icon** by a data-derived priority score, so each icon batch (§5 "Saint
   portraits") is self-directing — run it and paste the top N into the batch prompt instead
   of hand-picking. Local authoring aid only; writes no files and is not a CI gate.
+- `python scripts/harvest_lectionary.py` → refresh/extend the daily lectionary (§5d).
+  Authoring aid, hits the network, writes `data/lectionary/<year>.csv`; the build
+  itself stays offline. See `docs/lectionary.md`.
 - `make feast-batch N=10` / `make feast-run` / `make feast-status` / `make feast-stop`
   → the feastgen pipeline (§5a): rank profile-less feasts / run the resumable bulk
   generator / inspect / stop. Same auth + limit handling as profilegen.
@@ -844,6 +850,46 @@ shared **`DoveBand`** component.
 discernment (§9).** The articles are supplied by the user; do not write new ones
 unasked.
 
+## 5d. The daily lectionary (`data/lectionary/<year>.csv`)
+
+The scripture **appointed to be read** on each day, shown in the `/calendar`
+day panel beneath the liturgical block. Full rationale, format and limits:
+**`docs/lectionary.md`** — read it before touching any of this.
+
+- **HARVESTED, not authored** — the one dataset here that is. Reckoning the day
+  is a large piece of liturgical computation (the movable Paschal cycle shifted
+  each autumn by the **Lukan jump**, interleaved with the fixed Menaion cycle),
+  so `scripts/harvest_lectionary.py` pulls a resolved table from
+  **orthocal.info** (MIT, Brian Glass) and the CSVs are **committed as source
+  of truth**. `build.py` therefore stays fully offline, like every other CSV.
+  Re-run the script only to extend the range or refresh; it is the only part of
+  the pipeline that touches the network.
+- **There is no single Orthodox lectionary, and the site must never present
+  one.** Byzantine-Greek and Slavic usage diverge on ~2 days in 3. The New/Old
+  toggle selects the usage (**New → `greek`**, **Old → `slavic`**), the panel
+  **names** it, and it states that a parish's own bulletin is authoritative.
+  The OCA (Slavic usage on the New calendar) falls between the columns and the
+  note says so — do not quietly relabel a usage to make the toggle look tidier.
+- **References only, never scripture text** (§9). Which pericope is appointed
+  is a fact of the Church's ordering; a *translation* is somebody's copyright.
+  We cite and link out. Nothing in `data/lectionary/` holds scripture text.
+- **The reading cells split on `||`, NOT the house `"; "`** — same lesson as
+  hymn stanzas (§5). One appointed reading routinely spans discontinuous
+  passages printed semicolon-separated (`Micah 4.6-7; 5.2-4` is ONE reading),
+  and a book name can carry parentheses (`Jeremiah (Baruch 3.35-4.4)`), so
+  `"; "` and `(...)` would tear real citations in half. ` :: ` labels a
+  service, ` ~ ` names the commemoration a reading belongs to. The harvester
+  **fails loudly** if a source string ever contains one of those tokens.
+- `lectionarylib.py` validates fail-loud (real dates, known usage, no
+  duplicates, **every civil day in both usages**, contiguous years) and emits
+  `public/lectionary/<year>.json`; the island fetches one shard per year
+  visited. Outside the harvested range (2020–2040) the block simply does not
+  appear — **no readings rather than a guess**. Unit-tested in
+  `tests/test_lectionarylib.py` and `src/lib/lectionary.test.ts`.
+- **Only the Slavic side is independently verified** (against oca.org: 15 of
+  16 sample dates exact, one differing by a single verse). goarch.org blocks
+  automated requests, so the Greek side rests on orthocal alone. Nothing here
+  has clergy review.
 ---
 
 ## 6. Saint identity & deduplication (critical)

@@ -7,6 +7,10 @@ import { feastDates, primaryRank, rankSlug, rankWeight } from "../lib/saints";
 import { splitName } from "../lib/names";
 import { LITURGICAL_COLORS, FASTING_LEVELS } from "../lib/liturgical";
 import { litPayload } from "../lib/lit-payload";
+import {
+  lectionaryDataTemplate,
+  lectionaryYears,
+} from "../lib/lectionary-data";
 import { articlesByFeast, articlesBySaint, loadPaper } from "../lib/daily-dove";
 
 // Absolute .ics feed URLs for the "Subscribe" control (one per reckoning; the
@@ -88,6 +92,15 @@ const totalEntries =
 // shifts fixed feasts and their colors together. Same inline-JSON pattern
 // as the /feasts island (~12 KB).
 const litJson = JSON.stringify(litPayload({ customs: true }));
+
+/* The daily lectionary ships as one shard per harvested year, fetched by the
+   island when the reader lands on a month in that year (lib/lectionary-data).
+   The page carries only the year list and a URL template — {year} is the one
+   substitution — so navigating two decades of calendar costs one ~30 KB fetch
+   per year actually visited, and a year outside the range simply shows no
+   readings rather than a guess. */
+const lectYears = lectionaryYears();
+const lectSrcTemplate = withBase(lectionaryDataTemplate());
 
 // Saint-level customs, keyed by saint id, for the customs panel. Only saints
 // that actually carry a Customs & Traditions cell are included (sparse — a few
@@ -192,7 +205,12 @@ const swatch = (key: string) =>
     </section>
 
     {/* interactive month grid — revealed by the island on enhancement */}
-    <div class="cal-app" hidden>
+    <div
+      class="cal-app"
+      hidden
+      data-lectionary-years={lectYears.join(",")}
+      data-lectionary-src={lectSrcTemplate}
+    >
       <div class="cal-bar">
         <div class="cal-month-label" id="cal-month-label"></div>
         <div

@@ -28,9 +28,12 @@ Map of this file (sections in execution order, each under a dashed banner):
     to_record()         one CSV row -> one JSON record (joins images, quotes,
                         groups, themes, name variants, search haystack)
     emit_*()            write public/data.json, groups.json, themes.json,
-                        feasts.json (via feastlib), saints.sqlite, dist/*.xlsx
+                        feasts.json (via feastlib), lectionary/<year>.json
+                        (via lectionarylib), saints.sqlite, dist/*.xlsx
 Feasts & Fasts (data/feasts.csv) is loaded/validated/emitted by feastlib.py,
-orchestrated from main().
+Heavenly Hosts by hostlib.py, and the daily lectionary
+(data/lectionary/<year>.csv) by lectionarylib.py — all orchestrated from
+main().
 """
 
 from __future__ import annotations
@@ -48,6 +51,7 @@ from pathlib import Path
 
 import feastlib
 import hostlib
+import lectionarylib
 import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
@@ -2273,6 +2277,7 @@ def main() -> int:
     header, rows = load_saints()
     f_header, f_rows = feastlib.load_feasts()
     h_header, h_rows = hostlib.load_hosts()
+    lect = lectionarylib.load_lectionary()
 
     # The priority report is a read-only authoring aid: validate quietly so the
     # ranking reflects the committed data, but never write files or assign IDs.
@@ -2314,6 +2319,9 @@ def main() -> int:
     h_errors, h_warnings = hostlib.validate(h_rows, vocab, saint_ids, feast_ids)
     errors.extend(h_errors)
     warnings.extend(h_warnings)
+    l_errors, l_warnings = lectionarylib.validate(lect)
+    errors.extend(l_errors)
+    warnings.extend(l_warnings)
 
     # Finder-coverage nudges are bulk and low-signal; summarize them. Other
     # warnings (e.g. possible duplicate saints) are surfaced individually.
@@ -2330,8 +2338,12 @@ def main() -> int:
             print(f"  ERROR: {e}", file=sys.stderr)
         return 1
 
+    lect_years = sorted(lect)
+    lect_note = (f", lectionary {lect_years[0]}-{lect_years[-1]}"
+                 if lect_years else "")
     print(f"VALIDATION CLEAN — {len(rows)} saints, {len(f_rows)} feasts, "
-          f"{len(h_rows)} hosts, {len(warnings)} warning(s), 0 errors.")
+          f"{len(h_rows)} hosts{lect_note}, {len(warnings)} warning(s), "
+          "0 errors.")
 
     report_coverage(rows)
 
@@ -2347,6 +2359,7 @@ def main() -> int:
     emit_groups_json(rows)
     feastlib.emit_feasts_json(f_rows)
     hostlib.emit_hosts_json(h_rows)
+    lectionarylib.emit_lectionary_json(lect)
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
         emit_xlsx(header, rows, vocab, f_header, f_rows, h_header, h_rows)

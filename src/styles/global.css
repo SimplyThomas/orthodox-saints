@@ -5963,6 +5963,99 @@ a.sv-rail-chip:hover {
   border: 1px solid rgba(35, 76, 122, 0.18);
 }
 
+/* ---------- day panel: the appointed readings ----------
+   Citations only, each linking out to the passage (§9 — a translation is
+   somebody's copyright). Epistle and Gospel lead; Vespers, Matins and the
+   Hours fold away, except on a day with no Liturgy, where the Vespers
+   readings ARE the day's readings and the resolver promotes them. */
+#calendar-page .cal-read {
+  border-bottom: 1px solid var(--line-gold);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#calendar-page .cal-read-head {
+  font-family: var(--text);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--byz-deep);
+  margin: 0;
+}
+#calendar-page .cal-read-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 3px 0 0;
+  line-height: 1.4;
+}
+#calendar-page .cal-read-label {
+  font-family: var(--text);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 9px 0 2px;
+}
+#calendar-page .cal-read-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#calendar-page .cal-read-item {
+  margin: 0 0 3px;
+  line-height: 1.45;
+}
+#calendar-page .cal-read-ref {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--byz-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-gold);
+}
+#calendar-page a.cal-read-ref:hover,
+#calendar-page a.cal-read-ref:focus-visible {
+  color: var(--byz);
+  border-bottom-color: currentColor;
+}
+/* why this passage is read today: the saint or feast it belongs to, or the
+   service it is read at. Absent means the continuous daily cycle. */
+#calendar-page .cal-read-for {
+  font-family: var(--text);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  margin-left: 7px;
+}
+#calendar-page .cal-read-note {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 3px 0 0;
+  line-height: 1.4;
+}
+#calendar-page .cal-read-trad {
+  font-family: var(--text);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--byz-deep);
+  margin: 10px 0 0;
+}
+#calendar-page .cal-read-more {
+  margin-top: 8px;
+}
+#calendar-page .cal-read-more summary {
+  font-family: var(--text);
+  font-size: 12px;
+  color: var(--byz-deep);
+  cursor: pointer;
+}
+#calendar-page .cal-read-more summary:hover {
+  color: var(--byz);
+}
+
 /* ---------- collapsible "Liturgical Colors & Fasting Guide" ---------- */
 #calendar-page .cal-lit-legend {
   margin-top: 18px;
