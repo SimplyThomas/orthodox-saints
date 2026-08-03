@@ -448,6 +448,19 @@ def harvest(delay: float, force: bool, no_fetch: bool, limit: int) -> int:
     have = existing_images()
     rejects = load_rejects()
 
+    # A reject that matches no product is a typo, and a typo here fails OPEN:
+    # the match quietly comes back as a proposal. Eight of the first twenty were
+    # hand-written from the URL pattern and every one of them was wrong, so this
+    # is checked rather than trusted.
+    if rejects:
+        urls = {p["url"] for p in products}
+        stale = sorted(rejects - urls)
+        if stale:
+            print(f"  WARNING: {len(stale)} reject(s) match no product "
+                  f"(typo? renamed?):", file=sys.stderr)
+            for u in stale:
+                print(f"    {u}", file=sys.stderr)
+
     rows, tally = [], {}
     for p in products:
         route = classify(p["title"], p["sku"])
