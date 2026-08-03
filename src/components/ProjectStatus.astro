@@ -63,20 +63,23 @@ const STATUS_CARDS: StatusCard[] = [
     title: "Saint Database",
     span: 2,
     desc: [
-      "Over 2,700 saints currently have profiles.",
+      "Over 2,900 saints currently have profiles.",
       "We are systematically reviewing every saint page to expand biographies, improve historical accuracy, add citations, and correct errors.",
+      "Saint pages now carry the Church's own hymns — the troparion and kontakion appointed for the day — reproduced with the kind permission of the Orthodox Church in America, and growing as we walk the calendar.",
       "Progress updates are posted weekly.",
     ],
     checklist: [
-      ["done", "2,700+ saint profiles"],
+      ["done", "2,900+ saint profiles"],
       ["done", "Core database complete"],
       ["done", "Search completed"],
       ["done", "Daily commemorations"],
+      ["done", "Icons on the saints' pages"],
+      ["wip", "Troparia & kontakia, day by day"],
       ["wip", "Biography expansion"],
     ],
     milestone: {
       label: "This week:",
-      text: "The first 500 profiles have been reviewed and are being worked on.",
+      text: "Hymns for the saints of August and September, and a fresh wave of icons across the database.",
     },
     note: [
       "We are actively working through the group profiles and synaxes, correcting and expanding information as we go.",
@@ -94,7 +97,7 @@ const STATUS_CARDS: StatusCard[] = [
     ribbon: "In Progress",
     desc: [
       "One of the largest expansions of A Cloud of Witnesses is a comprehensive Orthodox encyclopedia dedicated to the holy angels and heavenly powers.",
-      "The first pages of this section are now live, and it remains under active development as one of the project’s highest priorities.",
+      "The section is now largely built — every being in it has its own page — and it remains under active development as one of the project’s highest priorities.",
     ],
     upcomingLabel: "Section progress",
     checklist: [
@@ -105,18 +108,20 @@ const STATUS_CARDS: StatusCard[] = [
       ["done", "Angels throughout Holy Scripture"],
       ["done", "Revelation angelology"],
       [
-        "plan",
+        "done",
         "Second Temple Jewish literature (distinguished from canonical Scripture)",
       ],
-      ["plan", "Early Christian angelology"],
+      ["done", "Early Christian angelology"],
+      ["done", "A page for every being in the section"],
+      ["done", "Cross-linked encyclopedia articles"],
       ["plan", "Interactive hierarchy of the Heavenly Hosts"],
-      ["plan", "Cross-linked encyclopedia articles"],
     ],
     futureGoals: [
-      "Individual angel profiles",
       "Interactive visual hierarchy",
       "Timeline of angelic appearances in Scripture",
-      "Rich cross-linking between saints, Scripture, and angelic events",
+    ],
+    note: [
+      "The Fallen is now part of the section: the beings the Church names and never venerates, grouped by the source that names them, recorded for study and shown with no icon.",
     ],
   },
   {
@@ -125,12 +130,16 @@ const STATUS_CARDS: StatusCard[] = [
     iconImage: "home-icons/contributors-icon.png",
     status: "progress",
     title: "Contributors",
+    span: 2,
     desc: [
       "We are looking for Orthodox iconographers and monasteries to obtain permission to feature their icons on the website. If you would like to work with us please reach out.",
+      "Legacy Icons has agreed to work with us, joining Theophany Works — their icons now appear on saint pages with a credit and a link back to the artisans behind them.",
+      "The Orthodox Church in America has granted permission to reproduce the lives of the saints and the liturgical texts from oca.org, on the condition that every text is attributed to them and this site stays free to all.",
     ],
     collab: [
       { name: "Theophany Works", url: "https://www.theophanyworks.com" },
       { name: "Legacy Icons", url: "https://legacyicons.com/" },
+      { name: "The Orthodox Church in America", url: "https://www.oca.org" },
     ],
     note: "Please contact us at contact@orthodoxsaintfinder.com to join the cloud.",
   },
@@ -152,15 +161,18 @@ const STATUS_CARDS: StatusCard[] = [
       ["done", "Feast information"],
       ["done", "Fast information"],
       ["done", "Moveable Paschal calendar"],
-      ["todo", "Customs and traditions"],
+      ["done", "Customs and traditions"],
+      ["done", "The day's appointed scripture readings"],
+      ["done", "Subscribable calendar feeds (New & Old)"],
     ],
     milestone: {
       label: "This week:",
-      text: "The Old Calendar toggle, liturgical colors, and tradition-based fasting guidance are live on the calendar.",
+      text: "The day panel now carries the customs kept on that day, and the scripture appointed to be read.",
     },
     note: [
       "Every calendar day is now tinted with a liturgical color commonly used in Orthodox practice, with a Liturgical Colors & Fasting Guide explaining each one.",
       "Fasting follows Greek Orthodox (GOARCH) practice in the New Calendar view and Russian Orthodox practice in the Old Calendar view — with notes to speak with your parish priest, including the American Thanksgiving allowance at the start of the Nativity Fast.",
+      "The whole year has been walked for customs and traditions — feast by feast, saint by saint, including the movable cycle from Great Lent to Pentecost.",
       "Saint pages show each feast day in both reckonings.",
     ],
   },
@@ -172,6 +184,7 @@ const STATUS_CARDS: StatusCard[] = [
     title: "The Orthodox Home",
     desc: [
       "Icons in the Home is now available with an interactive guide to creating an Orthodox home. The page is currently undergoing review as we continue expanding its content.",
+      "Giving Icons joins it — help choosing an icon as a gift for a baptism, a nameday, a wedding, or a new home.",
     ],
   },
   {
@@ -197,17 +210,50 @@ const STATUS_CARDS: StatusCard[] = [
       "Every card is free to download and print — no account, no cost. If your parish needs a custom size or a feast-day graphic, reach out and we'll prepare it.",
     ],
   },
+  {
+    id: "dove",
+    icon: "news",
+    status: "progress",
+    title: "The Daily Dove",
+    span: 2,
+    ribbon: "New",
+    desc: [
+      "A newspaper that has been running since Pentecost. Each dispatch reports the events of its own century as though a paper had been there to cover it — the martyrdoms, the councils, the miracles, the pilgrim roads.",
+      "It is a reporting voice, never fiction: every dispatch closes at the Historian's Desk, where each strand of the story is set against the evidence that actually carries it — a contemporary source, an eyewitness, later Orthodox tradition, or popular legend — and says plainly which parts are the paper's own device.",
+    ],
+    upcomingLabel: "What's on the page",
+    checklist: [
+      ["done", "Dispatches across nineteen centuries"],
+      ["done", "The Historian's Desk on every dispatch"],
+      ["done", "An archive with search, sorting, and filters"],
+      ["done", "Linked from the saints, feasts, and calendar it reports"],
+      ["plan", "New dispatches as the calendar turns"],
+    ],
+    note: [
+      "The longest file so far follows St Spyridon from Trimythous to Corfu across twenty-three dispatches.",
+    ],
+  },
 ];
 
 /* ---- weekly updates timeline (add a new entry to the top) ---- */
 const TIMELINE = [
   {
     period: "August 2026",
-    items: ["Partnered with Legacy Icons"],
+    items: [
+      "Partnered with Legacy Icons",
+      "Added many more icons to the saints' pages",
+      "Began printing the troparia and kontakia on saint pages, with the permission of the Orthodox Church in America",
+    ],
   },
   {
     period: "July 2026",
     items: [
+      "Received permission from the Orthodox Church in America to reproduce the lives of the saints and the liturgical texts",
+      "Launched The Daily Dove — the Church's history reported as a newspaper",
+      "Completed the Heavenly Hosts section, including The Fallen",
+      "Added the daily scripture readings and a whole year of customs to the calendar",
+      "Published subscribable calendar feeds for the New and Old calendars",
+      "Reviewed and corrected the group profiles and synaxes",
       "Added the new Parish Resources section",
       "Published the first Heavenly Hosts pages",
       "Updated feast and fast information",
