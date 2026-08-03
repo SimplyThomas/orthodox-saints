@@ -1,0 +1,65 @@
+---
+/* The Church's hymns — a troparion, a kontakion, sometimes more, verbatim.
+   These are the words the Church SINGS about the saint (distinct from the
+   saint's own words, which stay a deep-dive further down), so they belong
+   beside the feast card: they are what is sung ON it.
+
+   Shared by SaintView and GroupSaintProfile. A synaxis is sung to as a body —
+   the Fathers of the Kiev Far Caves have a troparion of their own — and one
+   implementation is what keeps the §9 credit identical on both pages.
+
+   build.py has already cleared every hymn through the §9 gate and dropped any
+   whose grant was revoked, so rendering one only has to honour its
+   attribution. */
+import type { SaintHymn } from "../lib/types";
+
+interface Props {
+  hymns: SaintHymn[];
+}
+
+const { hymns } = Astro.props;
+---
+
+{
+  hymns.length > 0 && (
+    <div class="sv-hymns">
+      {hymns.map((h) => (
+        <figure class="sv-hymn">
+          <figcaption class="sv-hymn-head">
+            <span class="sv-hymn-kind">{h.kind}</span>
+            {h.tone && (
+              <span class="sv-hymn-tone">
+                {/^\d+$/.test(h.tone) ? `Tone ${h.tone}` : h.tone}
+              </span>
+            )}
+          </figcaption>
+          <blockquote class="sv-hymn-text">
+            {h.text.map((stanza) => (
+              <p>
+                {/* " / " is the phrase break as the service books print it —
+                    shown as a line break, never edited out. */}
+                {stanza.split(" / ").map((phrase, i) => (
+                  <Fragment>
+                    {i > 0 && <br />}
+                    {phrase}
+                  </Fragment>
+                ))}
+              </p>
+            ))}
+          </blockquote>
+          {/* The credit is the condition the text is used under, so it renders
+              with the hymn and never in a page-level footnote. */}
+          <p class="sv-hymn-credit">
+            {h.source ? (
+              <a href={h.source} target="_blank" rel="noopener noreferrer">
+                {h.attribution || h.translation || "Source"}
+              </a>
+            ) : (
+              (h.attribution ?? h.translation)
+            )}
+          </p>
+        </figure>
+      ))}
+    </div>
+  )
+}

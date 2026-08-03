@@ -1108,8 +1108,11 @@ class SaintHymnTests(unittest.TestCase):
         perm_errs, _ = build.validate_text_permissions()
         self.assertEqual(perm_errs, [], "committed text_permissions.csv has errors:\n"
                          + "\n".join(perm_errs))
+        # Groups are saint-profiles too, and a synaxis is sung to as a body, so
+        # the id pool here is the same union the build validates against.
         errs, _ = build.validate_saint_hymns(
-            {r["Saint ID"].strip() for r in build.load_saints()[1]},
+            {r["Saint ID"].strip() for r in build.load_saints()[1]}
+            | {g["saint_id"].strip() for g in build.load_groups() if g.get("saint_id")},
             build.load_text_permissions())
         self.assertEqual(errs, [], "committed saint_hymns.csv has errors:\n"
                          + "\n".join(errs))
