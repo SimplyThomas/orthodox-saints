@@ -14,6 +14,12 @@
 # Rejecting here says only "not this row." Several of these are perfectly good
 # icons that simply need a different destination, and a couple point at saints
 # missing from the data entirely (see docs/data-gaps-from-legacy-icons.md).
+#
+# A reject is RETIRED when the right row appears. Hilda of Whitby, Zlata of
+# Meglen, Ioasaph of India, Ciaran of Saighir and Ia of Beijing were all
+# rejected here for want of a row to file them under; those rows were added as
+# OS-3007..OS-3017 and the five entries have been removed, not commented out.
+# A stale reject is a permanently hidden icon.
 
 # --- Generic titles that name nobody ---
 # "Warrior Saints (XVIIc)" had matched Peresvet & Oslyabya (OS-0290). Neither
@@ -41,10 +47,6 @@ https://legacyicons.com/saints-peter-paul-olga-and-xenia-icon-s384/
 # so there is no row for him and there should not be one.
 https://legacyicons.com/saint-edward-the-confessor-king-of-england-icon-s467/
 #
-# Hilda of Whitby onto OS-0167, Hereswith of Northumbria — her SISTER. The
-# match came off Hereswith's Also Known As, which literally reads "sister of
-# St. Hilda of Whitby". Hilda is missing from saints.csv; recorded as a gap.
-https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/
 
 # --- Wrong database ---
 # The two ARCHANGELS onto OS-0808, Michael the New Martyr. This is a hosts
@@ -101,15 +103,9 @@ https://legacyicons.com/three-patriarchs-abraham-isaac-and-jacob-sinai-icon-s501
 # "Four Evangelists" onto OS-0078, Lazarus the Four-Days-Dead. The only thing
 # these share is the word "four".
 https://legacyicons.com/four-evangelists-illumination-icon-s129/
-# "Saint Zlata of Bulgaria" onto OS-0156, King Tervel of Bulgaria. Shared
-# country, different people. Zlata has no row — recorded as a gap.
-https://legacyicons.com/saint-zlata-of-bulgaria-whirledge-icon-s673/
 # "Saint Chloe of Corinth" onto OS-0570, Martyrs Victorinus and companions.
 # Chloe has no row — recorded as a gap.
 https://legacyicons.com/saint-chloe-of-corinth-xxic-icon-s571/
-# "Saint Joasaph, PRINCE OF INDIA" (of Barlaam-and-Joasaph) onto OS-0224,
-# Ioasaph BISHOP OF BELGOROD. Different men, and the transliteration hides it.
-https://legacyicons.com/saint-joasaph-prince-of-india-athos-icon-s519/
 # "Saint Kyriakos the Hermit" onto OS-0110, Giles of Nimes. Nothing in common.
 https://legacyicons.com/saint-kyriakos-the-hermit-athos-icon-s523/
 
@@ -119,19 +115,11 @@ https://legacyicons.com/saint-kyriakos-the-hermit-athos-icon-s523/
 # which is exactly the kind of near-miss that gets waved through.
 # ============================================================================
 
-# "Saint Kieran of Saighir (Whirledge) Icon - S720"
-# onto OS-0324, Kieran of CLONMACNOISE. Two of the Twelve
-# Apostles of Ireland; Saighir is the elder. Saighir has no row (gap).
-https://legacyicons.com/saint-kieran-of-saighir-whirledge-icon-s720/
-
-# "Saint Ia of Beijing (Whirledge) Icon - S674"
-# onto OS-1823, Ia of PERSIA (+362). Ia of Beijing died in the
-# Boxer Rebellion in 1900. Beijing has no row (gap).
-https://legacyicons.com/saint-ia-of-beijing-whirledge-icon-s674/
-
 # "Saint Theodora the Armenian of Constantinople (Whirledge) Icon - S669"
-# onto OS-2435, Theodora of Constantinople. The Armenian has
-# no row (gap).
+# onto OS-2435, Theodora of Constantinople. She is neither: "the Armenian of
+# Constantinople" is Empress THEODORA the Restorer of the Icons (OS-0637), who
+# was Armenian by descent and already has a portrait. Rejected as a HERO match;
+# it is a fair candidate for a depiction card on OS-0637.
 https://legacyicons.com/saint-theodora-the-armenian-of-constantinople-whirledge-icon-s669/
 
 # "Archbishop Dmitri of Dallas (Grygorenko) Icon - S704"
