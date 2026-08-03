@@ -1111,6 +1111,18 @@ a.qz-comp {
   line-height: 1.15;
   color: var(--sw-tx, var(--ink));
 }
+/* the ribbon leads to the feast's own page — the arrow says so on hover */
+.sotd-lit-name .arr {
+  color: var(--sw-ac, var(--gold-deep));
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.14s;
+  display: inline-block;
+}
+.sotd-lit:hover .sotd-lit-name .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
 .sotd-lit-season {
   font-size: 12px;
   color: var(--sw-tx, var(--ink-soft));
@@ -1331,6 +1343,18 @@ a.qz-comp {
   font-size: 18px;
   line-height: 1.15;
   color: var(--sw-tx, var(--ink));
+}
+/* the ribbon leads to the feast's own page — the arrow says so on hover */
+.sotd-lit-name .arr {
+  color: var(--sw-ac, var(--gold-deep));
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.14s;
+  display: inline-block;
+}
+.sotd-lit:hover .sotd-lit-name .arr {
+  opacity: 1;
+  transform: translateX(0);
 }
 .sotd-lit-season {
   font-size: 12px;

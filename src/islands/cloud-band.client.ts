@@ -74,6 +74,9 @@ function initCloudBand(SAINTS: CardSaint[]) {
 
     // The liturgical context ribbon (Great Feast / fast season), tinted with
     // the day's resolved color. Returns "" when the day carries neither.
+    // The lead IS a Feasts & Fasts record, so the ribbon links to that feast's
+    // own page (/feast/FF-####) rather than dumping the reader on the calendar
+    // — the calendar stays one tap away in the card head below.
     function litRibbon(hl: DayHighlight, lit: DayLiturgics | null): string {
       if (!hl.feast && !hl.season) return "";
       const ck = lit && lit.color !== "neutral" ? lit.color : "gold";
@@ -86,12 +89,12 @@ function initCloudBand(SAINTS: CardSaint[]) {
           ? `<span class="sotd-lit-season">during ${esc(hl.season.name.replace(/^The /, "the "))}</span>`
           : "";
       return `
-        <a class="sotd-lit lc-${ck}" href="${esc(withBase(style === "old" ? "calendar?style=old" : "calendar"))}"
+        <a class="sotd-lit lc-${ck}" href="${esc(withBase(`feast/${lead.id}`))}"
            style="--sw-bg:${pal.background};--sw-ac:${pal.accent};--sw-tx:${pal.text}">
           <span class="sotd-lit-bar" aria-hidden="true"></span>
           <span class="sotd-lit-body">
             <span class="sotd-lit-kick">${esc(lead.label)}</span>
-            <span class="sotd-lit-name">${esc(lead.name)}</span>
+            <span class="sotd-lit-name">${esc(lead.name)}<span class="arr" aria-hidden="true"> →</span></span>
             ${trailer}
           </span>
         </a>`;
