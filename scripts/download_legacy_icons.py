@@ -76,6 +76,10 @@ DATA = ROOT / "data"
 DIST = ROOT / "dist"
 CACHE = DIST / "legacy_icons"
 REVIEW = DIST / "legacy_icons_review.csv"
+# Rejected matches, COMMITTED (unlike the queue, which lives in git-ignored
+# dist/ and is rebuilt from scratch on every harvest). Without this a match a
+# human examined and threw out is simply re-proposed next run.
+REJECTS = Path(__file__).resolve().parent / "legacy_icons_rejects.txt"
 ICONS = ROOT / "static" / "icons"
 DEST_DIR = ICONS / "permission" / "legacy-icons"
 THUMBS = ICONS / "thumbs"
@@ -319,6 +323,14 @@ def load_rows(fname: str) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def load_rejects() -> set[str]:
+    """Product URLs a human has rejected. Empty if the file is absent."""
+    if not REJECTS.exists():
+        return set()
+    return {ln.strip() for ln in REJECTS.read_text(encoding="utf-8").splitlines()
+            if ln.strip() and not ln.lstrip().startswith("#")}
+
+
 def build_pool(rows: list[dict], id_col: str, name_col: str,
                aka_col: str) -> list[tuple[str, str, set[str], set[str]]]:
     """(id, name, name_tokens, name+aka_tokens) for every record."""
@@ -434,6 +446,7 @@ def harvest(delay: float, force: bool, no_fetch: bool, limit: int) -> int:
                         "Also Known As")
     pools = {"saint": saints, "host": hosts, "feast": feasts}
     have = existing_images()
+    rejects = load_rejects()
 
     rows, tally = [], {}
     for p in products:
@@ -445,7 +458,13 @@ def harvest(delay: float, force: bool, no_fetch: bool, limit: int) -> int:
             "product_url": p["url"], "image_url": p["image_url"],
             "alt_text": p["alt"],
         })
-        if route.startswith("skip-"):
+        if p["url"] in rejects:
+            # Examined by a human and thrown out. Clear the guess as well as
+            # skipping it — leaving the wrong target_id in place invites
+            # someone to "fix" the decision without re-checking the match.
+            row["decision"] = "skip"
+            row["confidence"] = "rejected"
+        elif route.startswith("skip-"):
             row["decision"] = "skip"
             row["confidence"] = route
         elif route in ("christ", "theotokos"):

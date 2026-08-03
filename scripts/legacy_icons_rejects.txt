@@ -1,0 +1,52 @@
+# Legacy Icons — product matches a human has REJECTED.
+#
+# One product URL per line. scripts/download_legacy_icons.py marks any listed
+# product `decision=skip, confidence=rejected` and clears its guessed target, so
+# a wrong match stays rejected across re-harvests.
+#
+# This file exists because rejections kept coming back. The review queue lives
+# in git-ignored dist/, so re-running the harvest rebuilt it from scratch and
+# re-proposed matches that had already been examined and thrown out — "Warrior
+# Saints" and "Eugene of Sebaste" were both re-proposed for a second batch
+# within an hour of being rejected from the first. A judgment call that is not
+# written down is a judgment call you make again.
+#
+# Rejecting here says only "not this row." Several of these are perfectly good
+# icons that simply need a different destination, and a couple point at saints
+# missing from the data entirely (see docs/data-gaps-from-legacy-icons.md).
+
+# --- Generic titles that name nobody ---
+# "Warrior Saints (XVIIc)" had matched Peresvet & Oslyabya (OS-0290). Neither
+# the title nor the alt text names a single saint.
+https://legacyicons.com/warrior-saints-xviic-icon-s371/
+
+# --- One member of a multi-saint row, which the row is not about ---
+# Solo Eugene onto OS-2341, the FIVE-martyr row of Eustratius, Auxentius,
+# Eugene, Mardarius and Orestes. Eustratius is the principal, not Eugene.
+https://legacyicons.com/saint-eugene-of-sebaste-xxc-icon-s477/
+# Solo Martha onto OS-1280, "Martha AND Mary, the Sisters of Lazarus".
+https://legacyicons.com/saint-martha-the-sister-of-lazarus-icon-s497/
+#
+# (Contrast: Cecilia S578 -> OS-2231 "Cecilia of Rome and those with her", and
+# Clement S299 -> OS-0518 "Clement of Ancyra and Martyr Agathangelus", are both
+# ACCEPTED. The named saint is the principal of the row and heads its title.)
+
+# --- A many-saint icon onto a single-saint row ---
+# Four saints (Peter, Paul, Olga, Xenia) onto OS-0147, one Xenia.
+https://legacyicons.com/saints-peter-paul-olga-and-xenia-icon-s384/
+
+# --- Different saint of the same name ---
+# Edward the CONFESSOR onto OS-0171, Edward the MARTYR (+978). Two different
+# kings. The Confessor died in 1066 — post-schism Western, out of scope (§1) —
+# so there is no row for him and there should not be one.
+https://legacyicons.com/saint-edward-the-confessor-king-of-england-icon-s467/
+#
+# Hilda of Whitby onto OS-0167, Hereswith of Northumbria — her SISTER. The
+# match came off Hereswith's Also Known As, which literally reads "sister of
+# St. Hilda of Whitby". Hilda is missing from saints.csv; recorded as a gap.
+https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/
+
+# --- Wrong database ---
+# The two ARCHANGELS onto OS-0808, Michael the New Martyr. This is a hosts
+# record (HH-####), not a saint, and belongs in host_images.csv.
+https://legacyicons.com/st-michael-and-st-gabriel-clark-icon-set-y030/
