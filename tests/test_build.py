@@ -754,8 +754,16 @@ class SaintDepictionTests(unittest.TestCase):
         self.assertTrue(any("REVOKED" in w for w in warns))
 
     def test_committed_depictions_file_validates(self):
-        errs, _ = build.validate_saint_depictions(
-            {r["Saint ID"].strip() for r in build.load_saints()[1]})
+        # Same union as test_committed_image_file_validates above, and for the
+        # same reason: a group is a saint-profile, so it may carry depiction
+        # cards as well as a portrait, and validate() passes saints | groups.
+        # This harness took saints alone, which was invisible only for as long
+        # as no group had a card — the Chief Apostles Peter and Paul (OS-2938)
+        # are the first, and they made it fail.
+        valid = {r["Saint ID"].strip() for r in build.load_saints()[1]}
+        valid |= {g["saint_id"].strip() for g in build.load_groups()
+                  if g.get("saint_id", "").strip()}
+        errs, _ = build.validate_saint_depictions(valid)
         self.assertEqual(errs, [], "committed saint_depictions.csv has errors:\n" +
                          "\n".join(errs))
 
