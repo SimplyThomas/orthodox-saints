@@ -142,3 +142,26 @@ banner. At the 2026-07-18 parish launch nearly all profiles were promoted to `re
 `humanReviewed: true` flag now marks the entries a person has personally vetted (the
 **dove seal** in the finder/quiz). See [`docs/maintenance.md`](maintenance.md) for the
 review workflow.
+
+## `data/lectionary/<year>.csv` — the daily readings (harvested, not authored)
+
+The only dataset here you do **not** hand-edit. Which Epistle and Gospel are
+appointed on a day is a large piece of liturgical computation (the movable
+Paschal cycle, shifted each autumn by the Lukan jump, interleaved with the
+fixed cycle of feasts and saints), so `scripts/harvest_lectionary.py` pulls a
+resolved table from [orthocal.info](https://orthocal.info) (MIT) and the CSVs
+are committed as source of truth — the build itself stays offline.
+
+Two rows per civil date, one per **usage**: `greek` (shown under the calendar's
+New toggle) and `slavic` (Old toggle). They differ on roughly two days in
+three, and that is normal — **there is no single Orthodox lectionary**, so the
+page names the usage it is showing and defers to the parish bulletin.
+
+Reading cells split on **`||`**, not the house `"; "` — one appointed reading
+routinely spans discontinuous passages printed semicolon-separated
+(`Micah 4.6-7; 5.2-4` is ONE reading). ` :: ` labels a service, ` ~ ` names the
+commemoration a reading belongs to.
+
+**References only, never scripture text** — a citation is a fact of the
+Church's ordering, a translation is somebody's copyright. Full rationale,
+format, verification and limits: [`docs/lectionary.md`](lectionary.md).

@@ -24,6 +24,7 @@ import { loadProfileMap } from "../lib/saint-profiles";
 import { esc, withBase, MONTHS, MONTHS_FULL } from "../lib/format";
 import { oldCalendarDay } from "../lib/calendar-grid";
 import SaintRoster from "./SaintRoster.astro";
+import SaintHymns from "./SaintHymns.astro";
 
 interface Props {
   saint: Saint;
@@ -305,6 +306,8 @@ const hasAfter = hasTimeline || hasLegacy || hasReading || !!notes || !!sources;
           </div>
         </div>
       </div>
+
+      <SaintHymns hymns={saint.hymns ?? []} />
     </div>
   </section>
 

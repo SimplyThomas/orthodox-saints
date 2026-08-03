@@ -28,9 +28,12 @@ Map of this file (sections in execution order, each under a dashed banner):
     to_record()         one CSV row -> one JSON record (joins images, quotes,
                         groups, themes, name variants, search haystack)
     emit_*()            write public/data.json, groups.json, themes.json,
-                        feasts.json (via feastlib), saints.sqlite, dist/*.xlsx
+                        feasts.json (via feastlib), lectionary/<year>.json
+                        (via lectionarylib), saints.sqlite, dist/*.xlsx
 Feasts & Fasts (data/feasts.csv) is loaded/validated/emitted by feastlib.py,
-orchestrated from main().
+Heavenly Hosts by hostlib.py, and the daily lectionary
+(data/lectionary/<year>.csv) by lectionarylib.py — all orchestrated from
+main().
 """
 
 from __future__ import annotations
@@ -48,6 +51,7 @@ from pathlib import Path
 
 import feastlib
 import hostlib
+import lectionarylib
 import themes as themes_mod
 
 ROOT = Path(__file__).resolve().parent
@@ -1988,29 +1992,7 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     # frontend needing the registry; a PD hymn carries its translation instead.
     # A hymn from an unknown or revoked source is dropped here, which is what
     # makes a revocation a one-field edit (§9, docs/permissions/oca.md).
-    sung: list[dict] = []
-    for h in hymns.get(r["Saint ID"].strip(), []):
-        stanzas = h.get("text") or []
-        if not stanzas:
-            continue
-        item: dict = {"kind": h.get("kind") or "Troparion", "text": stanzas}
-        if h.get("tone"):
-            item["tone"] = h["tone"]
-        if h.get("source"):
-            item["source"] = h["source"]
-        slug = permission_slug(str(h.get("translation") or ""))
-        if slug is not None:
-            grant = text_permissions.get(slug)
-            if not grant or grant.get("status") == "revoked":
-                continue  # unknown / revoked source → the hymn does not ship
-            item["permission"] = True
-            item["rightsHolder"] = grant.get("name", "")
-            item["attribution"] = grant.get("attribution", "")
-        elif h.get("translation"):
-            item["translation"] = h["translation"]
-        sung.append(item)
-    if sung:
-        rec["hymns"] = sung
+    attach_hymns(rec, r["Saint ID"].strip(), hymns, text_permissions)
     # Search haystack: name + aka + brief + notes + customs + all facet values.
     facets = []
     for col in CONTROLLED + FREE_MULTI + ["Brief Life", "Notes", "Customs & Traditions"]:
@@ -2055,9 +2037,52 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     return rec
 
 
+def attach_hymns(rec: dict, sid: str,
+                 hymns: dict[str, list[dict[str, str | list[str]]]],
+                 text_permissions: dict[str, dict[str, str]]) -> None:
+    """Join data/saint_hymns.csv onto a record as `hymns` — a troparion, a
+    kontakion, sometimes more, in file order.
+
+    A permission hymn carries the grant's attribution line so the page can
+    credit the rights-holder without the frontend needing the registry; a PD
+    hymn carries its translation instead. A hymn from an unknown or revoked
+    source is dropped here, which is what makes a revocation a one-field edit
+    (§9, docs/permissions/oca.md).
+
+    Shared by saints and groups: a synaxis is sung to as a body — the Fathers
+    of the Kiev Far Caves have a troparion of their own — and the hymn
+    validator already accepts a group's OS-####, so the join has to as well or
+    those rows pass review and then silently never render."""
+    sung: list[dict] = []
+    for h in hymns.get(sid, []):
+        stanzas = h.get("text") or []
+        if not stanzas:
+            continue
+        item: dict = {"kind": h.get("kind") or "Troparion", "text": stanzas}
+        if h.get("tone"):
+            item["tone"] = h["tone"]
+        if h.get("source"):
+            item["source"] = h["source"]
+        slug = permission_slug(str(h.get("translation") or ""))
+        if slug is not None:
+            grant = text_permissions.get(slug)
+            if not grant or grant.get("status") == "revoked":
+                continue  # unknown / revoked source → the hymn does not ship
+            item["permission"] = True
+            item["rightsHolder"] = grant.get("name", "")
+            item["attribution"] = grant.get("attribution", "")
+        elif h.get("translation"):
+            item["translation"] = h["translation"]
+        sung.append(item)
+    if sung:
+        rec["hymns"] = sung
+
+
 def group_record(g: dict, members: list[dict[str, str]],
                  images: dict[str, dict[str, str]] | None = None,
-                 permissions: dict[str, dict[str, str]] | None = None) -> dict:
+                 permissions: dict[str, dict[str, str]] | None = None,
+                 hymns: dict[str, list[dict[str, str | list[str]]]] | None = None,
+                 text_permissions: dict[str, dict[str, str]] | None = None) -> dict:
     """A group rendered as a saint-shaped record for public/data.json, so it
     flows into /saint/<id>, the finder, the calendar and the sitemap unchanged
     (only the quiz filters it out). `profile_type: "group"` steers the frontend
@@ -2090,6 +2115,9 @@ def group_record(g: dict, members: list[dict[str, str]],
     attach_image(rec, g["saint_id"].strip(),
                  load_saint_images() if images is None else images,
                  load_image_permissions() if permissions is None else permissions)
+    attach_hymns(rec, g["saint_id"].strip(),
+                 load_saint_hymns() if hymns is None else hymns,
+                 load_text_permissions() if text_permissions is None else text_permissions)
     return rec
 
 
@@ -2132,7 +2160,7 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
             for sid in ids if sid in by_id
         ]
     records.extend(group_record(g, members_by_group.get(g["slug"], []),
-                                images, permissions)
+                                images, permissions, hymns, text_permissions)
                    for g in groups if g.get("saint_id"))
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
@@ -2273,6 +2301,7 @@ def main() -> int:
     header, rows = load_saints()
     f_header, f_rows = feastlib.load_feasts()
     h_header, h_rows = hostlib.load_hosts()
+    lect = lectionarylib.load_lectionary()
 
     # The priority report is a read-only authoring aid: validate quietly so the
     # ranking reflects the committed data, but never write files or assign IDs.
@@ -2314,6 +2343,9 @@ def main() -> int:
     h_errors, h_warnings = hostlib.validate(h_rows, vocab, saint_ids, feast_ids)
     errors.extend(h_errors)
     warnings.extend(h_warnings)
+    l_errors, l_warnings = lectionarylib.validate(lect)
+    errors.extend(l_errors)
+    warnings.extend(l_warnings)
 
     # Finder-coverage nudges are bulk and low-signal; summarize them. Other
     # warnings (e.g. possible duplicate saints) are surfaced individually.
@@ -2330,8 +2362,12 @@ def main() -> int:
             print(f"  ERROR: {e}", file=sys.stderr)
         return 1
 
+    lect_years = sorted(lect)
+    lect_note = (f", lectionary {lect_years[0]}-{lect_years[-1]}"
+                 if lect_years else "")
     print(f"VALIDATION CLEAN — {len(rows)} saints, {len(f_rows)} feasts, "
-          f"{len(h_rows)} hosts, {len(warnings)} warning(s), 0 errors.")
+          f"{len(h_rows)} hosts{lect_note}, {len(warnings)} warning(s), "
+          "0 errors.")
 
     report_coverage(rows)
 
@@ -2347,6 +2383,7 @@ def main() -> int:
     emit_groups_json(rows)
     feastlib.emit_feasts_json(f_rows)
     hostlib.emit_hosts_json(h_rows)
+    lectionarylib.emit_lectionary_json(lect)
     print(f"  wrote public/data.json ({len(records)} records)")
     if not args.no_xlsx:
         emit_xlsx(header, rows, vocab, f_header, f_rows, h_header, h_rows)
