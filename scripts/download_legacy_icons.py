@@ -546,10 +546,17 @@ const q = Number(Q);
     try {
       const t = await sharp(buf).trim({ threshold: 12 }).toBuffer();
       const m1 = await sharp(t).metadata();
-      // Sanity gate: a trim that swallows more than half the picture has
-      // locked onto something other than the backdrop. Keep the original.
-      if (m1.width * m1.height >= 0.5 * m0.width * m0.height) buf = t;
-      else console.error('  trim rejected (would remove >50% of the image)');
+      // Sanity gate: catch a trim that locked onto a small detail (the
+      // watermark, an inscription) rather than the backdrop. The first cut of
+      // this demanded the result keep >=50% of the AREA, which was wrong: a
+      // narrow icon panel legitimately fills only ~45% of a square 1280x1280
+      // product frame, so it rejected three good trims in the first batch of
+      // 40 (Cyrus & John, Jude, Philip of Moscow) and shipped them with the
+      // white sweep still on. Judge by absolute size instead — a real panel is
+      // never a couple of hundred pixels across.
+      if (m1.width >= 200 && m1.height >= 200 &&
+          m1.width * m1.height >= 0.15 * m0.width * m0.height) buf = t;
+      else console.error(`  trim rejected (${m1.width}x${m1.height} is too small to be the panel)`);
     } catch (e) { console.error('  trim skipped: ' + e.message); }
   }
   await sharp(buf)
@@ -604,18 +611,19 @@ def resize(raw: bytes, dest: Path) -> bool:
             img = img.convert("RGB")
         if TRIM_STAGING:
             # Same trim as the node path: difference against the corner colour
-            # (the white sweep), bounded, with the >50% sanity gate.
+            # (the white sweep), bounded, with the same absolute-size gate.
             bg = Image.new("RGB", img.size, img.getpixel((0, 0)))
             diff = ImageChops.add(ImageChops.difference(img, bg),
                                   Image.new("RGB", img.size, (0, 0, 0)))
             bbox = diff.point(lambda p: 255 if p > 12 else 0).convert("L").getbbox()
             if bbox:
-                area = (bbox[2] - bbox[0]) * (bbox[3] - bbox[1])
-                if area >= 0.5 * img.width * img.height:
+                bw, bh = bbox[2] - bbox[0], bbox[3] - bbox[1]
+                if (bw >= 200 and bh >= 200
+                        and bw * bh >= 0.15 * img.width * img.height):
                     img = img.crop(bbox)
                 else:
-                    print("  trim rejected (would remove >50% of the image)",
-                          file=sys.stderr)
+                    print(f"  trim rejected ({bw}x{bh} is too small to be "
+                          "the panel)", file=sys.stderr)
         dest.parent.mkdir(parents=True, exist_ok=True)
         _fit(img, MAX_DIM, MAX_DIM).save(dest, "JPEG", quality=JPEG_QUALITY,
                                          optimize=True)
