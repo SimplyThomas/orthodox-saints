@@ -428,11 +428,17 @@ covers it). Emits `public/feasts.json` (records + a resolved Pascha table
 **Frontend (shipped):** the `/feasts` + `/fasts` index (#278) and per-feast
 **`/feast/[id]` detail pages** (`src/pages/feast/[id].astro`, PR #352) — themed
 like the saint/host pages (rich prose from the `feasts` collection), linked from
-the index, calendar, moveable-calendar, and the "Coming up next" island. All 83
-feast profiles are `reviewed`/public. **Festal imagery is not wired yet** (#350):
-the page reads optional `image`/`depictions` on the `Feast` type and shows an
-"Icon forthcoming" placeholder until a `data/feast_images.csv`/`feast_depictions.csv`
-+ feastlib join is built. Two subscribable **iCal feeds** — `/calendar/new.ics` and
+the index, calendar, moveable-calendar, and the "Coming up next" island. 83 of the
+84 feast profiles are `reviewed`/public (FF-0084 carries its catalogue record only).
+**Festal imagery IS wired** (#350): `data/feast_images.csv` (one hero per feast) and
+`data/feast_depictions.csv` (many carousel cards) join through `feastlib.py` under the
+**same §9 licensing gate as the saints' portraits** — an open license or a
+`Permission:<vendor_slug>` token; a feast without a row shows the "Icon forthcoming"
+placeholder. Vendor icons are sourced from a CURATED manifest,
+`scripts/feast_icon_manifest.csv` (feast_id, hero|card, product URL), because a feast
+icon's subject is decided by a human, not matched by name — `scripts/download_feast_icons.py`
+fetches and resizes, `scripts/wire_feast_icons.py` merges the proposals into the two
+CSVs. Two subscribable **iCal feeds** — `/calendar/new.ics` and
 `/calendar/old.ics` (New/Old calendar) — carry the feasts + fasts plus one aggregated
 "commemorations of the day" event, reckoned +13 for the Old calendar (movable feasts
 stay shared); built at deploy time by `src/lib/ical.ts` (RFC 5545 serializer) +

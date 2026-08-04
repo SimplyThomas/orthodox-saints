@@ -79,9 +79,9 @@ const relatedSaints = f.relatedSaints ?? [];
 const relatedFeasts = f.relatedFeasts ?? [];
 
 // Hero festal icon + "Depictions & Icons" carousel — self-hosted, validated
-// festal images join here (data/feast_images.csv, data/feast_depictions.csv)
-// once collected; until then the frame shows a placeholder and the carousel is
-// omitted. Same render shape as the saint/host pages so icons drop in later.
+// festal images joined from data/feast_images.csv and data/feast_depictions.csv.
+// A feast with no row still renders: the frame shows a placeholder and the
+// carousel is omitted. Same render shape as the saint/host pages.
 const heroImage: string | null = f.image ?? null;
 const depictions = f.depictions ?? [];
 
@@ -127,20 +127,44 @@ function sourceLink(s: string): { href: string | null; label: string } {
             </div>
             <div class="feast-icon-cap">
               {
-                heroImage ? (
-                  f.imageSource ? (
-                    <a
-                      href={f.imageSource}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {f.imageCredit || "source"}
-                    </a>
-                  ) : (
-                    f.imageCredit
-                  )
-                ) : (
+                !heroImage ? (
                   "Icon forthcoming"
+                ) : f.imagePermission ? (
+                  /* A vendor grant is a revocable courtesy, and its condition is
+                     the credit itself (CLAUDE.md §9). Say it in full here, exactly
+                     as SaintView does for the same vendors' saint portraits — a
+                     bare linked vendor name is a weaker claim than the grant we
+                     were actually given. */
+                  <>
+                    {f.imageAttribution}
+                    {f.imageSource && (
+                      <>
+                        {" "}
+                        Original icon:{" "}
+                        <a
+                          href={f.imageSource}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-umami-event="Icon Click"
+                          data-umami-event-vendor={f.imageVendor}
+                          data-umami-event-feast={f.id}
+                          data-umami-event-source="hero"
+                        >
+                          {f.imageVendor || "source"}
+                        </a>
+                      </>
+                    )}
+                  </>
+                ) : f.imageSource ? (
+                  <a
+                    href={f.imageSource}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {f.imageCredit || "source"}
+                  </a>
+                ) : (
+                  f.imageCredit
                 )
               }
             </div>
