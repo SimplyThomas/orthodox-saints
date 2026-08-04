@@ -18,36 +18,66 @@ title is a shop's copy, not a calendar.
 
 ---
 
-## A. Saints we do not have — verified absent (6)
+## A. Saints we did not have — **ALL ELEVEN NOW ADDED** ✅
 
-Each was searched by name, epithet, and plausible transliteration. The near-misses that
-made each one worth double-checking are noted, because they are the reason a name search
-alone would have said "we have this."
+Added on 2026-08-03 with blank ids, as **OS-3007 … OS-3017**. Every feast day, century
+and repose was verified against sources before writing, and each row carries them in
+`Sources`. Nothing here has clergy review (§9).
 
-| # | Saint | Feast | Why in scope | Watch out for |
-|---|---|---|---|---|
-| 1 | **Rodrigo (Roderick) of Córdoba**, martyr | Mar 13 | †857, one of the Martyrs of Córdoba under the Umayyad emirate — **pre-schism Western**, squarely in scope (§1) | Nothing similar in the data at all |
-| 2 | **Djan Darada of Ethiopia** — the Ethiopian eunuch of Acts 8, baptized by the Apostle Philip | Aug 27 (Ethiopian tradition) | A **scriptural** figure. Confirm which calendars commemorate him before choosing a feast date | Not *Moses the Ethiopian* (OS-0030), who is a different man entirely |
-| 3 | **Ia of Beijing**, martyr | Jun 11 (1900) | Among the **222 Chinese Martyrs** of the Boxer Rebellion, glorified 1902 | **OS-1823 is Ia of *Persia*** (Sep 11, †362) — a different saint. This is the trap that makes the pair worth a §6 documented-distinct Notes cross-reference if both land |
-| 4 | **Kieran (Ciarán) of Saighir**, bishop | Mar 5 | One of the Twelve Apostles of Ireland, pre-schism Western | **OS-0324 is Kieran of *Clonmacnoise*** (Sep 9, †c.549) — the *younger* Ciarán. Saighir is the elder. Same trap as above |
-| 5 | **Theodora the Armenian of Constantinople** | to verify | Needs sourcing before adding — the vendor's title is the only lead | **OS-0637 is Theodora the Empress**, Restorer of the Icons (Feb 11). Not her |
-| 6 | **Hilda of Whitby**, abbess | Nov 17 | †680, abbess of Whitby and host of its Synod — **pre-schism Western**, in scope | **OS-0167 is Hereswith of Northumbria — her SISTER**, whose `Also Known As` literally reads "sister of St. Hilda of Whitby". That phrase is the only reason a name search finds Hilda at all, and it is why the harvester mis-filed her icon onto Hereswith's row (now in `scripts/legacy_icons_rejects.txt`) |
+| id | Saint | Feast | Note |
+|---|---|---|---|
+| **OS-3007** | Hilda, Abbess of Whitby | Nov 17 | †680; sister of St Hereswith (OS-0167) |
+| **OS-3008** | Ciarán of Saighir, Bishop of Ossory | Mar 5 | †c.530; the **elder** Ciarán |
+| **OS-3009** | Martyr Roderick of Córdoba | Mar 13 | †857; Mozarab priest, martyred with Salomon |
+| **OS-3010** | New Martyr Ia of Beijing | Jun 11 | †1900; the mission-school teacher, "twice-martyred" |
+| **OS-3011** | Great Martyr Zlata of Meglen | Oct 13; Oct 18 | †1795; two dates because the Churches differ |
+| **OS-3012** | Abercius, Bishop of Hierapolis | Oct 22 | †c.167; Equal-to-the-Apostles |
+| **OS-3013** | Hieromartyr Eleutherius of Illyricum | Dec 15 | †c.120; with his mother Anthia |
+| **OS-3014** | New Hieromartyr Philoumenos of Jacob's Well | Nov 16 | †1979; glorified by Jerusalem, 2009 |
+| **OS-3015** | Venerable Barlaam the Desert-Dweller | Nov 19; Aug 26 | Slavic and Greek dates |
+| **OS-3016** | Venerable Ioasaph, Prince of India | Nov 19; Aug 26 | split from Barlaam per §7 |
+| **OS-3017** | Righteous Djan Darada the Ethiopian Eunuch | Jan 4; Jun 17; Aug 27 | Acts 8 |
 
-Products: [Rodrigo S723](https://legacyicons.com/saint-rodrigo-whirledge-icon-s723/) ·
-[Djan Darada S688](https://legacyicons.com/saint-djan-darada-of-ethiopia-whirledge-icon-s688/) ·
-[Ia of Beijing S674](https://legacyicons.com/saint-ia-of-beijing-whirledge-icon-s674/) ·
-[Kieran of Saighir S720](https://legacyicons.com/saint-kieran-of-saighir-whirledge-icon-s720/) ·
-[Theodora the Armenian S669](https://legacyicons.com/saint-theodora-the-armenian-of-constantinople-whirledge-icon-s669/) ·
-[Hilda of Whitby S582](https://legacyicons.com/saint-hilda-of-whitby-whirledge-icon-s582/)
+### Two corrections to this document's own earlier claims
 
-Four of the six are **name-collision traps** — Ia, Kieran, Theodora and Hilda each sit
-beside a same-name (or same-family) saint already in the data. Add them with a Notes
-cross-reference to the other id, per the §6 documented-distinct convention, or the
-duplicate-name warning will be re-investigated forever.
+**"Theodora the Armenian of Constantinople" was never missing.** She is the Empress
+Theodora who restored the icons — **OS-0637**, already in the data with a portrait, and
+Armenian by descent, which is what the vendor's title was recording. This document listed
+her as verified-absent on the strength of the product title alone, which is exactly the
+mistake the rest of it warns against. The icon is a candidate *depiction card* for
+OS-0637, not a new row.
 
-Hilda is the sharpest illustration of why this list needed checking by hand rather than
-by name search. She is *findable* in `saints.csv` — but only as a phrase inside her
-sister's `Also Known As`, describing a saint who is not there.
+**Djan Darada is in scope after all.** The earlier note hedged him as an Ethiopian-tradition
+figure, and Ethiopian Tewahedo commemoration would indeed be out of scope (§1). But he is
+commemorated in the **Eastern** Orthodox Church too, on Jan 4, Jun 17 and Aug 27, and
+Irenaeus already records him preaching in Ethiopia. He is added.
+
+### The name-collision pairs, now cross-referenced both ways (§6)
+
+Three of the new rows sit beside a same-name saint, and one beside a sister. The
+reciprocal Notes were written onto the **existing** rows too, so the link is findable
+from either end rather than only from the newcomer:
+
+| New | Existing | Relationship |
+|---|---|---|
+| OS-3010 Ia of **Beijing** (†1900) | OS-1823 Ia of **Persia** (†362) | different martyrs, 1,500 years apart |
+| OS-3008 Ciarán of **Saighir** (Mar 5) | OS-0324 Kieran of **Clonmacnoise** (Sep 9) | the elder and the younger |
+| OS-3016 Ioasaph, **Prince of India** | OS-0224 Ioasaph, **Bishop of Belgorod** | unrelated; the transliteration hides it |
+| OS-3007 **Hilda** of Whitby | OS-0167 **Hereswith** of Northumbria | sisters |
+
+Hilda remains the sharpest illustration of why this list had to be checked by hand. She
+was *findable* in `saints.csv` all along — but only as a phrase inside her sister's
+`Also Known As`, describing a saint who was not in the file.
+
+### Still open — named, not added
+
+Three more surfaced during the icon batches and are **not** added, because a vendor's
+product title is not evidence that the Church commemorates someone on a given day:
+
+- **Zlata's fellow candidates:** *Chloe of Corinth* (1 Cor 1:11), *Valentine of Silistria*,
+  and the **women unmercenaries** ("The Holy Unmercenary Physicians", whose alt text reads
+  "holy unmercenary women"). Each needs a feast date from a synaxarion before it can
+  become a row.
 
 ---
 
