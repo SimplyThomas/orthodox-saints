@@ -5245,6 +5245,433 @@ export const WITNESSES: Witness[] = [
       "She has not been glorified and nothing here suggests otherwise; this is a record, not a veneration. But a database of the Orthodox Church in America that names its bishops and theologians and omits the woman who wrote its history and taught its children would be telling the story wrong.",
     ],
   },
+  {
+    slug: "iakovos-coucouzis",
+    name: "Archbishop Iakovos (Coucouzis)",
+    epithet: "",
+    role: "Archbishop of America",
+    years: "1911 – 2005",
+    place: "New York",
+    bio: [
+      "Primate of the Greek Orthodox Archdiocese of North and South America for thirty-seven years, and the most publicly visible Orthodox hierarch in American history. On 15 March 1965 he walked beside Dr Martin Luther King Jr at Selma, and the photograph of the two of them ran on the cover of Life.",
+      "He founded the standing conference of Orthodox bishops in the Americas, built Hellenic College beside Holy Cross, and presided over the Ligonier meeting of 1994. He was retired under pressure in 1996 and reposed in 2005.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Iakovos (Coucouzis) of America",
+        url: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        label:
+          "Greek Orthodox Archdiocese — Remembering Selma Fifty Years Later",
+        url: "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        label:
+          'Orthodox Christian Laity — "Why I supported Martin Luther King in Selma"',
+        url: "https://ocl.org/archbishop-iakovos-supported-martin-luther-king-selma/",
+      },
+      {
+        label: "Wikipedia — Archbishop Iakovos of America",
+        url: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+    ],
+    secularName: "Demetrios A. Coucouzis",
+    jurisdiction: "Greek Orthodox Archdiocese of America",
+    railFacts: [
+      ["Lived", "29 Jul 1911 – 10 Apr 2005"],
+      ["Born", "Imvros"],
+      ["Trained", "Halki; Harvard Divinity (STM, 1945)"],
+      ["Primate", "1959 – 1996, thirty-seven years"],
+      ["Selma", "15 March 1965"],
+      ["Founded", "SCOBA; Hellenic College"],
+      ["Tradition", "Greek Orthodox Archdiocese"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor: "Marching at Selma, and making Orthodoxy visible in America",
+    overview: [
+      "Archbishop Iakovos (1911–2005) led the Greek Orthodox Archdiocese of North and South America from 1959 to 1996 — the longest primacy in its history — and was, for most of that time, the face of Orthodox Christianity to the American public. He was born <strong>Demetrios Coucouzis</strong> on 29 July 1911 on the island of <strong>Imvros</strong>, then still Ottoman and later Turkish, entered the Patriarchal school at <strong>Halki</strong> at fifteen, and was ordained deacon in 1934 with the name Iakovos.",
+      "He came to America to serve, was ordained priest at Lowell, Massachusetts in 1940, took a master's in sacred theology at <strong>Harvard Divinity School</strong> in 1945 and became a citizen in 1950. Consecrated bishop in 1954, he spent 1955 to 1959 in Geneva as the Ecumenical Patriarch's representative to the <strong>World Council of Churches</strong>, and in 1959 carried Patriarch Athenagoras's greeting to Pope John XXIII — the first Greek Orthodox hierarch to meet a Pope in some three and a half centuries.",
+      "Enthroned as archbishop on 1 April 1959, he set out to make the Orthodox Church a recognized part of American religious life rather than an immigrant enclave. Asked near the end what he had accomplished, he answered that it was to have the Orthodox Church accepted by the family of religions in the United States.",
+    ],
+    sections: [
+      {
+        heading: "Selma, 15 March 1965",
+        body: [
+          "Eight days after the beating of marchers at the Edmund Pettus Bridge, Iakovos flew to <strong>Selma, Alabama</strong>, and stood beside <strong>Dr Martin Luther King Jr</strong> at the memorial service for the Rev. James Reeb, a Unitarian minister beaten to death in the street. The photograph of the two men together ran on the cover of <em>Life</em> on 26 March 1965.",
+          "It cost him. Letters came from parishioners telling him he had no business there; some withheld their giving. His own account of why he went is worth having in his words rather than paraphrase — he said he had gone because he had seen his own people persecuted, and could not look away from another people being persecuted in the country that had received him.",
+          "The image did something a hundred sermons could not: it placed an Orthodox archbishop, in his rason and his panagia, inside the central American moral argument of the century. For a Church still widely mistaken for a national club, that was the beginning of visibility.",
+        ],
+      },
+      {
+        heading: "Thirty-seven years of building",
+        body: [
+          "The institutional record is long. He founded the <strong>Standing Conference of Canonical Orthodox Bishops in the Americas</strong> in the year of his enthronement and led it until he retired — the first durable body through which the jurisdictions acted together. He reorganized <strong>Holy Cross</strong> seminary and founded <strong>Hellenic College</strong> beside it, and established the <strong>St Photios National Shrine</strong> at St Augustine, Florida, marking the first Greek settlement in the New World.",
+          "He was decorated by two countries and several presidents — the <strong>Presidential Medal of Freedom</strong> from President Carter in 1980, the Ellis Island Medal of Honor in 1986 — and was received at the White House by administrations of both parties. None of that was vanity: it was the same project as Selma, conducted in a quieter register.",
+        ],
+      },
+      {
+        heading: "Ligonier, and the end of his primacy",
+        body: [
+          "In November 1994 the Orthodox bishops of North America met at <strong>Ligonier, Pennsylvania</strong>, and issued statements about their common life on this continent — including a rejection of the idea that they were a 'diaspora' whose real centre lay elsewhere. Iakovos presided.",
+          "The meeting was not welcomed at the Phanar. Within two years, on his eighty-fifth birthday in July 1996, Iakovos retired; the accounts agree that the retirement was pressed on him, and connect it to Ligonier and to a fear that he might move toward an American patriarchate. His relations with Patriarch Bartholomew had been strained for some time.",
+          "He had critics from the other direction too. His ecumenical involvement — the World Council of Churches, the meetings with popes — drew sharp public rebuke from traditionalists, most famously from Metropolitan Philaret of ROCOR in 1969. Both criticisms are part of the record and are set down here as such.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1911",
+        title: "Born on Imvros",
+        body: "Demetrios Coucouzis is born on 29 July 1911 on the island of Imvros.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1934",
+        title: "Halki, and ordination as deacon",
+        body: "He completes the Patriarchal Theological School of Halki and is ordained deacon, taking the name Iakovos.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1940–50",
+        title: "America",
+        body: "Ordained priest at Lowell, Massachusetts in 1940; takes a master's in sacred theology at Harvard Divinity School in 1945; becomes a United States citizen in 1950.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1955–59",
+        title: "Geneva and Rome",
+        body: "He represents the Ecumenical Patriarch at the World Council of Churches, and in 1959 carries Patriarch Athenagoras's greeting to Pope John XXIII.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1959",
+        title: "Enthroned as Archbishop of America",
+        body: "Enthroned on 1 April 1959, and founds the standing conference of Orthodox bishops in the Americas the same year.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1965",
+        title: "Selma",
+        body: "On 15 March he stands beside Dr Martin Luther King Jr at the memorial for the Rev. James Reeb; the photograph runs on the cover of Life on 26 March.",
+        source:
+          "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        when: "1980",
+        title: "Presidential Medal of Freedom",
+        body: "President Carter awards him the Presidential Medal of Freedom.",
+        source: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+      {
+        when: "1994",
+        title: "The Ligonier meeting",
+        body: "He presides over the gathering of North American Orthodox bishops at Ligonier, Pennsylvania, which declares that the Church here is not a diaspora.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1996",
+        title: "Retirement",
+        body: "He retires on his eighty-fifth birthday, under pressure from the Ecumenical Patriarchate, after thirty-seven years as primate.",
+        source: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+      {
+        when: "2005",
+        title: "Repose",
+        body: "He reposes on 10 April 2005; the funeral is served at Holy Trinity Cathedral in New York and he is buried at Holy Cross in Brookline.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Remembering Selma Fifty Years Later",
+        detail:
+          "The Greek Orthodox Archdiocese's own account of 15 March 1965 and the Life cover.",
+        source:
+          "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        title: '"Why I supported Martin Luther King in Selma"',
+        detail:
+          "Iakovos's own explanation, reprinted by Orthodox Christian Laity.",
+        source:
+          "https://ocl.org/archbishop-iakovos-supported-martin-luther-king-selma/",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Theodosius (Lazor)",
+        note: "His OCA counterpart for two decades, and a fellow participant at Ligonier in 1994.",
+        href: "witness/theodosius-lazor",
+      },
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "The Antiochian primate of the same generation, and another of the Ligonier bishops.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Fr. Alexander Schmemann",
+        note: "Whose argument that the Church in America is not a diaspora is the theology behind the Ligonier statement.",
+        href: "witness/alexander-schmemann",
+      },
+    ],
+    significance: [
+      "Archbishop Iakovos is the largest single figure in twentieth-century American Orthodoxy measured by public presence, and Selma is why. Before 1965 the Orthodox Church in the United States was, to most Americans, an ethnic institution they had no occasion to think about; the photograph on the cover of Life put an Orthodox bishop into the country's central moral argument, at cost to himself and against the wishes of many of his own people.",
+      "The rest of his record — SCOBA, Hellenic College, the shrine at St Augustine, Ligonier — is one long argument that the Church on this continent is native to it and not a colony of somewhere else. That argument is what ended his primacy. He is not glorified, and nothing here implies veneration; what it records is a bishop who spent thirty-seven years insisting that Orthodoxy in America was American.",
+    ],
+  },
+  {
+    slug: "theodosius-lazor",
+    name: "Metropolitan Theodosius (Lazor)",
+    epithet: "",
+    role: "Primate of the OCA",
+    years: "1933 – 2020",
+    place: "Canonsburg, Pennsylvania",
+    bio: [
+      "The first American-born primate of the Orthodox Church in America, who as a young Bishop of Alaska headed the delegation that brought home the Tomos of Autocephaly in 1970 and then hosted the glorification of St Herman — the first saint of North America entered into the calendar.",
+      "He led the OCA from 1977 to 2002. The financial misconduct later uncovered in its central administration began during those years, and that belongs to the record as much as the rest.",
+    ],
+    sources: [
+      {
+        label:
+          "Orthodox Church in America — In Memoriam: Metropolitan Theodosius (Lazor)",
+        url: "https://www.oca.org/in-memoriam/his-beatitude-metropolitan-theodosius-lazor",
+      },
+      {
+        label:
+          "Orthodox Church in America — Past Primates: Metropolitan Theodosius",
+        url: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        label: "Wikipedia — Theodosius (Lazor)",
+        url: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+    ],
+    secularName: "Frank Lazor",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "27 Oct 1933 – 19 Oct 2020"],
+      ["Born", "Canonsburg, Pennsylvania"],
+      ["First", "American-born OCA primate"],
+      ["Bishop of Alaska", "from 1967"],
+      ["Autocephaly", "led the 1970 delegation to Moscow"],
+      ["Primate", "1977 – 2002"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "Bringing home the Tomos of Autocephaly and glorifying the first American saint",
+    overview: [
+      "Metropolitan Theodosius (1933–2020), born Frank Lazor at Canonsburg, Pennsylvania, was primate of the <strong>Orthodox Church in America</strong> from 1977 to 2002 and the first American-born man to hold that office. He was elected diocesan Bishop of Sitka and Alaska in November 1967, at thirty-four.",
+      "Two things happened in 1970 that shaped the rest of the American Church. In May he headed the delegation that travelled to Moscow to receive the <strong>Tomos of Autocephaly</strong> from the Russian Church — the document by which the metropolia became a self-governing Church. And in Alaska that summer he hosted the <strong>glorification of St Herman</strong>, the Valaam monk of the first mission, whose cause he had himself set in motion. It was the first time a saint of North America was entered into the Orthodox calendar.",
+      "He was moved to Pittsburgh and Western Pennsylvania in 1972 and elected Metropolitan of All America and Canada at the Fifth All-American Council in Montreal on 25 October 1977. He led the Church for twenty-five years, retiring in 2002, and reposed on 19 October 2020 in the town where he was born.",
+    ],
+    sections: [
+      {
+        heading: "1970 — autocephaly and St Herman",
+        body: [
+          "The Tomos of Autocephaly ended a long argument about what the Russian metropolia in America actually was. Granted by the Church of Russia in 1970 and never recognized by Constantinople, it declared the Orthodox Church in America self-governing — a decision still contested between the Churches, and one whose consequences the American Church has lived inside ever since. Theodosius, then Bishop of Alaska, headed the delegation that went to Moscow to receive it.",
+          "Weeks later he was back in Alaska for the glorification of <strong>St Herman</strong>. That mattered in a particular way: a Church arguing that it was native to this continent glorified a saint of this continent, in the place where he had lived, within weeks of claiming its independence. The two acts say the same thing. Theodosius had initiated the process that led to the glorification.",
+        ],
+      },
+      {
+        heading: "Twenty-five years as primate",
+        body: [
+          "His primacy covered the OCA's institutional middle age: the settling of its diocesan structures, the growth of St Vladimir's and St Tikhon's, further glorifications of North American saints, and the steady work of a small autocephalous Church with large claims. He took part in the <strong>Ligonier</strong> meeting of 1994 alongside Archbishop Iakovos and Metropolitan Philip.",
+          "He retired in 2002 in poor health, having led the Church for a quarter of a century.",
+        ],
+      },
+      {
+        heading: "The scandal that followed",
+        body: [
+          "In the years after his retirement, an accounting crisis broke in the OCA's central administration: allegations, subsequently substantiated in large part, that funds given to the Church had been misappropriated over a long period. The misconduct is dated by the Church's own later investigations to years that fall within his primacy, and the failure of oversight is part of what was found.",
+          "This page does not adjudicate that. It records it because a memorial that told only the first half of the story — Moscow, Alaska, St Herman — would be a flattering account rather than a true one, and because the man who forced the accounting, Archbishop Job of Chicago, has a page in this same section.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1933",
+        title: "Born at Canonsburg",
+        body: "Frank Lazor is born on 27 October 1933 in Canonsburg, Pennsylvania.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1967",
+        title: "Bishop of Sitka and Alaska",
+        body: "Elected diocesan bishop on 17 November 1967, at thirty-four.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "May 1970",
+        title: "The Tomos of Autocephaly",
+        body: "He heads the delegation that travels to Moscow to receive the Tomos by which the Orthodox Church in America becomes self-governing.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1970",
+        title: "The glorification of St Herman",
+        body: "He hosts the glorification in Alaska of the monk Herman of Valaam — the first North American saint entered into the Orthodox calendar, on a cause he had himself initiated.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1977",
+        title: "Elected Metropolitan",
+        body: "Elected Metropolitan of All America and Canada at the Fifth All-American Council in Montreal on 25 October 1977, the first American-born primate of the Church.",
+        source: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        when: "1994",
+        title: "Ligonier",
+        body: "He takes part in the meeting of North American Orthodox bishops at Ligonier, Pennsylvania.",
+      },
+      {
+        when: "2002",
+        title: "Retirement",
+        body: "He retires after twenty-five years as primate.",
+        source: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        when: "2020",
+        title: "Repose",
+        body: "He reposes on 19 October 2020 at Canonsburg, Pennsylvania.",
+        source:
+          "https://www.oca.org/in-memoriam/his-beatitude-metropolitan-theodosius-lazor",
+      },
+    ],
+    related: [
+      {
+        name: "St Herman of Alaska",
+        note: "The first saint of North America, glorified in 1970 on a cause Theodosius set in motion.",
+        href: "saint/OS-0044",
+      },
+      {
+        name: "Archbishop Job (Osacky)",
+        note: "The bishop who pressed the accounting of the administration Theodosius had led.",
+        href: "witness/job-osacky",
+      },
+      {
+        name: "Archbishop Iakovos (Coucouzis)",
+        note: "His Greek Archdiocese counterpart for most of his primacy, and a fellow bishop at Ligonier.",
+        href: "witness/iakovos-coucouzis",
+      },
+    ],
+    significance: [
+      "Metropolitan Theodosius stands at the point where the Orthodox Church in America became, formally, an American Church: he carried home the Tomos that declared it self-governing and he glorified the first saint of this continent, both within a few months of each other, both while he was Bishop of Alaska and not yet forty.",
+      "His primacy is also the period the OCA's later financial reckoning reaches back into, and this page says so. He is not glorified and no veneration is implied here. What is recorded is a man whose best work was done early and in public, and whose administration was found wanting afterwards — which is a more ordinary shape for a life than memorials usually allow.",
+    ],
+  },
+  {
+    slug: "job-osacky",
+    name: "Archbishop Job (Osacky)",
+    epithet: "",
+    role: "Archbishop of Chicago",
+    years: "1946 – 2009",
+    place: "Chicago and the Midwest",
+    bio: [
+      "Archbishop of Chicago and the Midwest, remembered above all for asking aloud, in a room of bishops who would not, whether the allegations of financial misconduct in his Church's central administration were true.",
+      "He gave episcopal cover to the reporting that made the accounting unavoidable, and he admitted in penitence that his own first instinct had been to treat it as somebody else's problem. He reposed suddenly in 2009, at sixty-three.",
+    ],
+    sources: [
+      {
+        label:
+          "Orthodox Church in America — In Memoriam: Archbishop Job of Chicago and the Midwest",
+        url: "https://www.oca.org/in-memoriam/his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest",
+      },
+      {
+        label: "Wikipedia — Job (Osacky)",
+        url: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        label: "American Orthodox Institute — In Memoriam: Archbishop Job",
+        url: "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+    ],
+    secularName: "Richard John Osacky",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "18 Mar 1946 – 18 Dec 2009"],
+      ["Trained", "Northern Illinois; St Tikhon's, 1970"],
+      ["Diocese", "Chicago and the Midwest"],
+      ["Known for", "Forcing the accounting of 2005–08"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor: "Asking the question the other bishops would not ask",
+    overview: [
+      "Archbishop Job (1946–2009), born Richard John Osacky, was Archbishop of Chicago and the Midwest in the Orthodox Church in America. He studied at Northern Illinois University and graduated from <strong>St Tikhon's Seminary</strong> in 1970, serving first as a cantor and youth director in Pennsylvania.",
+      "He is remembered for one thing above the rest. When allegations surfaced that money given to the Church had been misappropriated within its central administration, Job was the bishop who asked publicly and in the Synod whether they were true — a question his brother bishops were, by the accounts of the period, unwilling to put. He then extended the protection of his diocese to the layman whose reporting was keeping the matter in the open.",
+      "He reposed suddenly on 18 December 2009, at sixty-three, before the process he had forced was finished.",
+    ],
+    sections: [
+      {
+        heading: "The question",
+        body: [
+          "The crisis that broke in the Orthodox Church in America in the middle 2000s concerned the misappropriation of funds — including money given for missions and for charity — within the central administration in Syosset. What made it a crisis rather than a scandal was the response: for a long period the allegations were not investigated, and those raising them were treated as the problem.",
+          "Job's contribution was not investigative. It was that he asked, on the record and in the Synod, whether the allegations were true or false, and would not be moved off the question. In a hierarchical Church, a bishop willing to say aloud what others will not is worth more than a dossier; the accounting that followed, and the eventual independent investigation, are traceable to the point at which the question could no longer be avoided.",
+          "He also gave <strong>Mark Stokoe</strong>, the layman whose site was reporting the matter continuously, the standing of a diocesan officer within the Diocese of the Midwest. Without that protection the reporting would very likely have been shut down.",
+        ],
+      },
+      {
+        heading: "His own admission",
+        body: [
+          "The detail that gives the rest its weight is that Job did not claim to have been right from the beginning. He admitted afterwards, penitentially, that when the situation was first put to him around 1999 and 2000 his own reaction had been that it was the central administration's problem and no business of his diocese.",
+          "That admission is why this page can be written without embarrassment. A man who says he was slow, and then acts, is a more usable example than one who is described as having always seen clearly. It is also a plain instance of the thing the Church actually asks of people, which is repentance rather than a clean record.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1946",
+        title: "Born",
+        body: "Richard John Osacky is born on 18 March 1946.",
+        source: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        when: "1970",
+        title: "St Tikhon's Seminary",
+        body: "He graduates from St Tikhon's Seminary in South Canaan, Pennsylvania, and serves as cantor and youth director at St John the Baptist, Black Lick.",
+        source: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        when: "1999–2000",
+        title: "First told",
+        body: "The financial situation in the central administration is put to him; by his own later admission he treats it as the administration's problem rather than his own.",
+        source:
+          "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+      {
+        when: "2005–08",
+        title: "The accounting",
+        body: "He asks in the Synod whether the allegations are true, and gives episcopal protection to the reporting that keeps the matter in the open until an investigation follows.",
+        source:
+          "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+      {
+        when: "2009",
+        title: "Repose",
+        body: "He reposes suddenly on 18 December 2009, aged sixty-three.",
+        source:
+          "https://www.oca.org/in-memoriam/his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Theodosius (Lazor)",
+        note: "Primate for the years the later accounting reaches back into.",
+        href: "witness/theodosius-lazor",
+      },
+      {
+        name: "Fr. Thomas Hopko",
+        note: "A voice of the same Church in the same period, who wrote and spoke on its integrity.",
+        href: "witness/thomas-hopko",
+      },
+    ],
+    significance: [
+      "Archbishop Job is in this section for an unglamorous reason: institutions do not correct themselves, and somebody with standing has to be willing to be difficult. In the Orthodox Church in America's financial crisis he was that person, at a cost to his relations with his brother bishops that those who knew him did not think was small.",
+      "He is not glorified, and this page implies no veneration. It records a bishop who was slow, said so, and then did the thing anyway — and who died before he could see it finished.",
+    ],
+  },
 ];
 
 export const witnessBySlug: Map<string, Witness> = new Map(

@@ -21,6 +21,10 @@
 >    Word* and the Platina skete were founded by the two of them together, and
 >    that cannot honestly be written any other way.
 >
+> **Tier 2 is now complete too** — Iakovos, Theodosius and Job are live, taking the
+> section to twenty. Only Tier 3 (international) remains, and it needs the scope
+> decision, not more research.
+>
 > The lesson is the one the document already states about vendor titles, turned
 > on itself: a name and a year in a list are not a verified record.
 
@@ -98,9 +102,9 @@ links, and the first three carry no complications at all.
 
 | Candidate | Reposed | Why |
 |---|---|---|
-| **Archbishop Iakovos (Coucouzis) of America** | 2005 | Primate of the Greek Archdiocese for 37 years and the most publicly visible Orthodox hierarch in American history — he marched at Selma beside Dr King in 1965 and appeared on the cover of *Life*. His absence is the largest single hole in this section. ⚠️ Not to be confused with **St Iakovos (Tsalikis) of Evia**, who *was* glorified in 2017 and is already OS-2585. |
-| **Metropolitan Theodosius (Lazor)** | 2020 | OCA primate 1977–2002; presided over the glorifications of St Herman, St Innocent and others — the very saints this database carries. |
-| **Archbishop Job (Osacky)** | 2009 | OCA Midwest; a central figure in the accountability crisis of the 2000s, remembered for insisting on transparency at real cost to himself. |
+| ~~**Archbishop Iakovos (Coucouzis) of America**~~ ✅ **ADDED** `/witness/iakovos-coucouzis` | 2005 | Primate of the Greek Archdiocese for 37 years and the most publicly visible Orthodox hierarch in American history — he marched at Selma beside Dr King in 1965 and appeared on the cover of *Life*. His absence is the largest single hole in this section. ⚠️ Not to be confused with **St Iakovos (Tsalikis) of Evia**, who *was* glorified in 2017 and is already OS-2585. |
+| ~~**Metropolitan Theodosius (Lazor)**~~ ✅ **ADDED** `/witness/theodosius-lazor` | 2020 | OCA primate 1977–2002; presided over the glorifications of St Herman, St Innocent and others — the very saints this database carries. |
+| ~~**Archbishop Job (Osacky)**~~ ✅ **ADDED** `/witness/job-osacky` | 2009 | OCA Midwest; a central figure in the accountability crisis of the 2000s, remembered for insisting on transparency at real cost to himself. |
 | ~~**Constance Tarasar**~~ ✅ **ADDED** `/witness/constance-tarasar` | **2014** (not 2023) | OCA educator and historian; among the first women to teach at St Vladimir's and a principal chronicler of the American Church's own story. Would be the second woman in the section. |
 
 ---
