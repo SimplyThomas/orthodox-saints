@@ -960,10 +960,6 @@ export const WITNESSES: Witness[] = [
         href: "saint/OS-0044",
       },
       {
-        name: "Father Herman Podmoshensky",
-        note: "Co-founder, with Eugene Rose, of the St Herman Brotherhood, The Orthodox Word, and the Platina monastery.",
-      },
-      {
         name: "Elder Ephraim of Arizona",
         note: "A contemporary who, in the same era, planted Athonite monasticism across North America.",
         href: "witness/ephraim-of-arizona",
@@ -5060,6 +5056,193 @@ export const WITNESSES: Witness[] = [
     significance: [
       "Metropolitan Antony Bashir's thirty years are the hinge on which Antiochian Orthodoxy in North America turns from an immigrant chaplaincy into an American church. The consolidation was administrative and dull to describe; its consequence was that there was something solid enough, by the 1980s, to receive two thousand evangelical converts at once without breaking.",
       "The language question is where his judgment shows most clearly. Bashir moved on English early, against the instincts of many of his own people, because he could see what would happen to a church whose grandchildren could not follow its services. He is not glorified and nothing here implies veneration; what is recorded is a bishop who understood translation — of books, and of a whole church — as a work of preservation rather than of loss.",
+    ],
+  },
+  {
+    slug: "constance-tarasar",
+    name: "Dr. Constance Tarasar",
+    epithet: "",
+    role: "Educator & Historian",
+    years: "1938 – 2014",
+    place: "Minneapolis, Minnesota",
+    bio: [
+      "The first woman admitted to a degree programme at St Vladimir's Orthodox Theological Seminary, who graduated in 1965 with a thesis on the place of women in the Church and returned to teach there for more than thirty years.",
+      "General editor of Orthodox America 1794–1976, the first substantial history of the Orthodox Church on this continent, and the author of much of the religious-education curriculum a generation of American Orthodox children were taught from. She reposed at Minneapolis in 2014.",
+    ],
+    sources: [
+      {
+        label:
+          "St Vladimir's Seminary — Dr. Constance Tarasar, Alumna and Education Pioneer, Reposes",
+        url: "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        label: "Canadian Orthodox History Project — Constance J. Tarasar",
+        url: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        label:
+          "Diocese of the Midwest (OCA) — In Memoriam: Dr. Constance Tarasar",
+        url: "https://domoca.org/news_141111_1/",
+      },
+      {
+        label:
+          "Biola University — Christian Educators of the 20th Century: Constance Tarasar",
+        url: "https://www.biola.edu/talbot/ce20/database/constance-tarasar",
+      },
+    ],
+    secularName: "Constance J. Tarasar",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "3 Feb 1938 – 7 Nov 2014"],
+      ["Born", "Minneapolis, Minnesota"],
+      ["First woman", "in a St Vladimir's degree programme"],
+      ["Graduated", "1965, thesis on women in the Church"],
+      ["Taught", "St Vladimir's, from 1970"],
+      ["Doctorate", "Ed.D., 1989"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "The first woman to take a degree at St Vladimir's, and the American Church's own historian",
+    overview: [
+      "Constance J. Tarasar (1938–2014) was an American Orthodox educator, historian and theologian, and the first woman admitted to a degree programme at <strong>St Vladimir's Orthodox Theological Seminary</strong>. She was born on 3 February 1938 in Minneapolis to a banker and a homemaker, both active at St Mary's Cathedral there, and took her first degree in English education at the University of Minnesota.",
+      "She entered St Vladimir's in the early 1960s and graduated in <strong>1965</strong>, writing an extended thesis on the place of women in the Orthodox Church, historically and theologically — a subject nobody had asked her to take up. Fr <strong>Alexander Schmemann</strong> taught her there and remained her mentor for the rest of his life. She returned to the seminary as a lecturer in Christian education in 1970 and taught for over three decades, retiring in 2003.",
+      "Her work outside the classroom shaped what American Orthodox children actually learned. She was executive secretary of the <strong>Orthodox Christian Education Commission</strong>, directed the religious-education departments of two jurisdictions, and produced curriculum on a scale her colleagues described as immense. In 1975 she was general editor of <em>Orthodox America 1794–1976</em>, the first substantial history of the Church on this continent. She reposed at Minneapolis on 7 November 2014.",
+    ],
+    sections: [
+      {
+        heading: "The first woman through the door",
+        body: [
+          "When Tarasar enrolled at St Vladimir's she was the first woman to be admitted to one of its degree programmes — not to a certificate or an auditor's place, but to the degree itself. She graduated in 1965, and the thesis she chose to write was on the role of women in the Orthodox Church, examined through its history and its theology.",
+          "That was not a safe subject in 1965 and it was not assigned to her. It is worth noticing what she did with the position afterwards: she did not leave and she did not campaign. She came back in 1970 as a lecturer and spent thirty-three years teaching, which meant that for most of a generation every student who passed through that seminary was taught by a woman. A later dean said simply that she had served as a real leader and model for the women students.",
+        ],
+      },
+      {
+        heading: "The curriculum nobody notices",
+        body: [
+          "Tarasar's largest body of work is also the least visible: the church-school curriculum used across North American parishes for decades. As executive secretary of the <strong>Orthodox Christian Education Commission</strong> — a body endorsed across jurisdictions — and as head of religious education for the Orthodox Church in America and, for a period, for the Antiochian Archdiocese, she wrote, commissioned and edited an enormous quantity of teaching material.",
+          "It is the kind of labour that leaves no monument. A parish that has good church-school books does not know whose they are. Late in her career she helped adapt Orthodox curricula for use in Eastern Europe after the fall of the communist regimes, and worked on bringing Orthodox education online. In 1989 she completed an Ed.D. and was, by her seminary's account, the first Orthodox Christian educator in the United States to hold a doctorate in the field.",
+        ],
+      },
+      {
+        heading: "Orthodox America 1794–1976",
+        body: [
+          "For the bicentennial of the United States and the two-hundredth anniversary approaching of the Alaskan mission, the Orthodox Church in America commissioned a history of itself. Tarasar was its <strong>general editor</strong>, with John H. Erickson as associate editor and contributions from Alexander Schmemann, Leonid Kishkovsky and others; it appeared in 1975.",
+          "<em>Orthodox America 1794–1976</em> was the first serious attempt to tell the whole story of the Orthodox Church on this continent in one volume, and it remains a standard reference for the period it covers. Much of what a page like this one can say about the American Church rests, at some remove, on the work she organized.",
+        ],
+      },
+      {
+        heading: "Agapia, 1976",
+        body: [
+          "In September 1976 the World Council of Churches convened the first international consultation of Orthodox women, at the monastery of <strong>Agapia in Romania</strong>. Tarasar represented the United States and edited the resulting report, <em>Orthodox Women: Their Role and Participation in the Orthodox Church</em>, published at Geneva.",
+          "Agapia is remembered as the point at which Orthodox women from across the traditional Orthodox countries and the diaspora addressed the question together for the first time. That the American delegate and the editor of its record was the same woman who had written a seminary thesis on the subject eleven years earlier is not a coincidence; it is a career.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1938",
+        title: "Born in Minneapolis",
+        body: "Constance J. Tarasar is born on 3 February 1938, to a family active at St Mary's Cathedral, Minneapolis.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "1965",
+        title: "Graduates from St Vladimir's",
+        body: "The first woman admitted to a degree programme at the seminary graduates, having written her thesis on the role of women in the Orthodox Church. Fr Alexander Schmemann was her teacher and remained her mentor.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        when: "1970",
+        title: "Returns to teach",
+        body: "She joins the faculty as lecturer in Christian education, beginning thirty-three years of teaching.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "1975",
+        title: "Orthodox America 1794–1976",
+        body: "As general editor she brings out the first substantial history of the Orthodox Church in America, with John H. Erickson as associate editor.",
+      },
+      {
+        when: "1976",
+        title: "The consultation at Agapia",
+        body: "She represents the United States at the first international consultation of Orthodox women, at Agapia in Romania, and edits the World Council of Churches report that follows.",
+      },
+      {
+        when: "1989",
+        title: "Doctorate in education",
+        body: "She completes an Ed.D., by her seminary's account the first Orthodox Christian educator in the United States to hold a doctorate in the field.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "2003",
+        title: "Retirement",
+        body: "She retires from teaching and returns to Minneapolis.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "2014",
+        title: "Repose",
+        body: "She reposes on 7 November 2014; the funeral is served at St Mary's Cathedral, Minneapolis, on 12 November.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+    ],
+    worksBy: [
+      {
+        title:
+          "Orthodox America 1794–1976: Development of the Orthodox Church in America",
+        detail:
+          "General editor, with John H. Erickson as associate editor; the first substantial one-volume history of Orthodoxy on this continent (1975).",
+      },
+      {
+        title:
+          "Orthodox Women: Their Role and Participation in the Orthodox Church",
+        detail:
+          "Editor of the World Council of Churches report on the 1976 consultation at Agapia, Romania.",
+      },
+      {
+        title:
+          "Church-school curriculum for the Orthodox Christian Education Commission",
+        detail:
+          "Decades of teaching material for North American parishes, most of it published without her name on the cover.",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Dr. Constance Tarasar, Alumna and Education Pioneer, Reposes",
+        detail: "St Vladimir's Seminary's own memorial notice.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        title: "Christian Educators of the 20th Century — Constance Tarasar",
+        detail:
+          "Biola University's reference database entry on her educational work.",
+        source: "https://www.biola.edu/talbot/ce20/database/constance-tarasar",
+      },
+    ],
+    related: [
+      {
+        name: "Fr. Alexander Schmemann",
+        note: "Her teacher at St Vladimir's and lifelong mentor, and a contributor to the history she edited.",
+        href: "witness/alexander-schmemann",
+      },
+      {
+        name: "Fr. Thomas Hopko",
+        note: "A colleague of the same seminary generation, whose catechetical work ran alongside her own.",
+        href: "witness/thomas-hopko",
+      },
+      {
+        name: "Mother Alexandra",
+        note: "The other woman in this section: a princess of Romania who founded the Monastery of the Transfiguration in Pennsylvania.",
+        href: "witness/mother-alexandra",
+      },
+    ],
+    significance: [
+      "Constance Tarasar's significance is easy to state and easy to underrate. She was the first woman to take a degree at an American Orthodox seminary, and then she stayed for thirty-three years, so that a whole generation of clergy and teachers were formed by a woman scholar without that being remarkable. She wrote the church-school books, and she edited the first real history of the Church on this continent — two kinds of work that shape what people know while leaving the author invisible.",
+      "She has not been glorified and nothing here suggests otherwise; this is a record, not a veneration. But a database of the Orthodox Church in America that names its bishops and theologians and omits the woman who wrote its history and taught its children would be telling the story wrong.",
     ],
   },
 ];
