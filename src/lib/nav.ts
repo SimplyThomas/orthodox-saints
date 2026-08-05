@@ -49,7 +49,7 @@ export const NAV: NavItem[] = [
         href: withBase("collections"),
         // The hub owns every curated collection; Saints of America is the
         // first, and more are named as in preparation on the page itself.
-        alsoActive: ["america"],
+        alsoActive: ["america", "witnesses"],
       },
       {
         key: "heavenly-hosts",

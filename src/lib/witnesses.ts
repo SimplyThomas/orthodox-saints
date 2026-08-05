@@ -3671,6 +3671,7 @@ export const WITNESSES: Witness[] = [
           {
             label: "Metropolitan Antony (Bashir)",
             sub: "Who ordained him priest in 1959, and whom he succeeded in 1966",
+            href: "witness/antony-bashir",
           },
           {
             label: "Metropolitan Philip (Saliba)",
@@ -3838,6 +3839,7 @@ export const WITNESSES: Witness[] = [
       {
         name: "Fr Peter Gillquist",
         note: "The convert leader whose Evangelical Orthodox community the Metropolitan received in 1987.",
+        href: "witness/peter-gillquist",
       },
       {
         name: "Antiochian Orthodox Christian Archdiocese of North America",
@@ -4691,6 +4693,373 @@ export const WITNESSES: Witness[] = [
     significance: [
       "Father Michael Gelsinger occupies a modest but genuine place in the story of Orthodox Christianity in America: a scholarly convert who insisted, decades ahead of the broad movement, that the Church's worship could and should be sung in English. His Orthodox Hymns in English (1939) and his translations helped seed the first complete English settings of the Divine Liturgy, and elements of his hymnody are still in parish use — a quiet, durable legacy carried on by later generations.",
       "His life also runs through the tangled institutional history of early American Orthodoxy — the failed American Orthodox Catholic Church under Archbishop Aftimios and the wartime federation of jurisdictions — episodes historians still debate and which are recounted here without endorsement. Across both his scholarship and his church politics, the same aim recurs: a united, indigenous, English-speaking American Orthodoxy that would only take fuller shape after his repose in 1980, when the former professor had become the Hieromonk Theodore.",
+    ],
+  },
+  {
+    slug: "peter-gillquist",
+    name: "Fr. Peter Gillquist",
+    epithet: "",
+    role: "Priest & Missionary",
+    years: "1938 – 2012",
+    place: "Bloomington, Indiana",
+    bio: [
+      "A Campus Crusade for Christ regional director who spent two decades leading a company of evangelicals out of the house-church movement and into the ancient Church, and who in 1987 brought some two thousand of them into the Antiochian Archdiocese — the largest single reception of converts in American Orthodox history.",
+      "He wrote Becoming Orthodox, the book that has carried more English-speaking enquirers toward Orthodoxy than any other of its kind, and directed the Orthodox Study Bible from its beginning. He reposed of melanoma in 2012.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Peter Gillquist",
+        url: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        label:
+          "Antiochian Archdiocese — Retrospective on the EOC Reception (1987)",
+        url: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        label: "Antiochian Archdiocese — AGAIN interviews Fr. Peter Gillquist",
+        url: "http://ww1.antiochian.org/content/becoming-orthodox-being-orthodox-again-interviews-fr-peter-gillquist",
+      },
+      {
+        label:
+          "Journey to Orthodoxy — Met. Joseph marks the 30th anniversary of the reception",
+        url: "https://journeytoorthodoxy.com/2017/02/metropolitan-joseph-commemorates-30th-anniversary-eoc-reception-antiochian-archdiocese/",
+      },
+    ],
+    secularName: "Peter Edward Gillquist",
+    jurisdiction: "Antiochian Orthodox Christian Archdiocese",
+    railFacts: [
+      ["Lived", "1938 – 2012"],
+      ["Born", "Minneapolis, Minnesota"],
+      ["Came from", "Campus Crusade for Christ"],
+      ["Received", "1987, with c. 2,000 others"],
+      ["Served", "Missions & Evangelism, Antiochian Archdiocese"],
+      ["Best known for", "Becoming Orthodox"],
+      ["Tradition", "Antiochian"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "Leading two thousand evangelicals into the Orthodox Church in 1987",
+    overview: [
+      "Peter Edward Gillquist (1938–2012) was an American priest of the Antiochian Orthodox Christian Archdiocese, and the central figure in the twenty-year journey that carried a body of evangelical Protestants out of parachurch ministry and into the Orthodox Church. Born in Minneapolis and educated at the University of Minnesota, he took graduate work at Dallas Theological Seminary and Wheaton College and joined the full-time staff of <strong>Campus Crusade for Christ</strong> in the 1960s, beginning at Notre Dame and rising to regional director.",
+      "In 1973 he and a group of fellow Crusade staff left to build a network of house churches, searching — as he later described it — for the church of the New Testament by reading their way back through the centuries. The search took them through the Fathers and the councils to the conclusion that the Church they were looking for had never ceased to exist. Their body was organized in 1979 as the <strong>Evangelical Orthodox Church</strong>, a name that stated the destination before they had arrived at it.",
+      "The arrival came in 1987, when Gillquist led seventeen parishes and roughly two thousand people into the Antiochian Archdiocese under Metropolitan Philip (Saliba). He spent the rest of his life on the work that followed from it: chairman of the archdiocesan Department of Missions and Evangelism, chairman of Conciliar Press, and project director of the <strong>Orthodox Study Bible</strong>. He reposed of melanoma on 1 July 2012 at Bloomington, Indiana, where his son serves as a priest.",
+    ],
+    sections: [
+      {
+        heading: "From Campus Crusade to a search for the ancient Church",
+        body: [
+          "Gillquist came to faith as a student and went to work for <strong>Campus Crusade for Christ</strong>, then among the most effective evangelical ministries in the United States. He began its work at Notre Dame and became a regional director — a career of considerable promise in the world he had grown up in.",
+          "In 1973 he and several colleagues left it. What they were after was not a better method but a missing thing: the church described in the Acts of the Apostles, with its bishops, its sacraments and its continuity. They built a network of house churches and set about reading the Christian centuries in order, beginning at the first, to find where the church they knew had come from — and, as they gradually concluded, where it had parted company with the one that had been there all along.",
+        ],
+      },
+      {
+        heading: "The Evangelical Orthodox Church and the years of waiting",
+        body: [
+          "By 1979 the network had adopted liturgical worship, ordained clergy on the pattern they had found in the Fathers, and named itself the <strong>Evangelical Orthodox Church</strong>. It was an unusual position: a body convinced of Orthodoxy's claims, worshipping as Orthodox, and belonging to no Orthodox jurisdiction.",
+          "The attempts to resolve that were not quick and were not painless. An approach to one jurisdiction ended with a delegation travelling overseas to meet a patriarch and returning empty-handed. The account Gillquist gives of those years in <em>Becoming Orthodox</em> is candid about the discouragement of them, and it is part of why the book has been useful to enquirers: it does not present conversion as a tidy process.",
+        ],
+      },
+      {
+        heading: "1987 — the reception",
+        body: [
+          "The resolution came through the Antiochians. Patriarch Ignatius IV of Antioch had visited the archdiocese in 1985, and the conversations that followed led to <strong>Metropolitan Philip (Saliba)</strong>, who agreed to receive the whole body. The receptions took place through the early months of <strong>1987</strong>, the largest of them in the Los Angeles area on 8 February, where Metropolitan Philip chrismated the greater number himself.",
+          "Seventeen parishes and roughly two thousand people came in, and were organized as the Antiochian Evangelical Orthodox Mission. It remains the single largest reception of converts in the history of American Orthodoxy, and it changed the composition of the archdiocese: a Middle-Eastern immigrant church took in, at one stroke, a large body of American evangelicals, most of whose clergy were re-ordained and went on serving.",
+        ],
+      },
+      {
+        heading: "Becoming Orthodox and the Orthodox Study Bible",
+        body: [
+          "<em>Becoming Orthodox: A Journey to the Ancient Christian Faith</em> tells that story from the inside. It has stayed in print for decades and remains the book most often handed to an English-speaking enquirer, precisely because it is written by someone who arrived from outside and remembers what was strange.",
+          "Gillquist also served as project director of the <strong>Orthodox Study Bible</strong>, the first English study Bible produced from an Orthodox standpoint — the New Testament and Psalms in 1993, the complete edition with the Old Testament in 2008. Whatever the scholarly arguments about it, it put an Orthodox reading of Scripture into the hands of ordinary English-speaking readers who had no other access to one.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1938",
+        title: "Born in Minneapolis",
+        body: "Peter Edward Gillquist is born on 13 July 1938 in Minneapolis, Minnesota.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1960s",
+        title: "Campus Crusade for Christ",
+        body: "After a journalism degree from the University of Minnesota and graduate study at Dallas Theological Seminary and Wheaton, he joins Campus Crusade full-time, beginning at Notre Dame and becoming a regional director.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1973",
+        title: "The house-church network",
+        body: "He and colleagues leave Campus Crusade and establish a network of house churches, later the New Covenant Apostolic Order, and begin working their way back through the Christian centuries.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1979",
+        title: "The Evangelical Orthodox Church",
+        body: "The body formally organizes as the Evangelical Orthodox Church, worshipping liturgically while belonging to no canonical jurisdiction.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1987",
+        title: "Received into the Antiochian Archdiocese",
+        body: "Seventeen parishes and some two thousand people are received under Metropolitan Philip (Saliba); the largest reception, in the Los Angeles area, falls on 8 February.",
+        source: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        when: "1993 & 2008",
+        title: "The Orthodox Study Bible",
+        body: "As project director he sees the New Testament and Psalms into print in 1993 and the complete edition, with the Old Testament, in 2008.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "2012",
+        title: "Repose",
+        body: "He reposes of melanoma on 1 July 2012 at Bloomington, Indiana.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+    ],
+    worksBy: [
+      {
+        title: "Becoming Orthodox: A Journey to the Ancient Christian Faith",
+        detail:
+          "The account of the twenty-year road from Campus Crusade to the Antiochian Archdiocese, and the book most often given to English-speaking enquirers.",
+      },
+      {
+        title: "The Orthodox Study Bible (project director)",
+        detail:
+          "New Testament and Psalms, 1993; the complete edition with the Old Testament, 2008.",
+      },
+      {
+        title: "Metropolitan Philip: His Life and His Dreams",
+        detail:
+          "A biography of the hierarch who received his people into the Church.",
+      },
+      {
+        title: "Love Is Now · The Physical Side of Being Spiritual",
+        detail: "Books from his evangelical years and after.",
+      },
+    ],
+    worksAbout: [
+      {
+        title:
+          "Retrospective on the EOC Reception into the Antiochian Archdiocese",
+        detail:
+          "The archdiocese's own account of the 1987 receptions and what followed them.",
+        source: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        title: "Thirtieth anniversary of the reception (2017)",
+        detail:
+          "Metropolitan Joseph marks three decades since the 1987 reception.",
+        source:
+          "https://journeytoorthodoxy.com/2017/02/metropolitan-joseph-commemorates-30th-anniversary-eoc-reception-antiochian-archdiocese/",
+      },
+    ],
+    family: {
+      members: [
+        {
+          relation: "Wife",
+          name: "Marilyn Gillquist",
+          note: "Married in 1960; they had six children.",
+        },
+      ],
+    },
+    related: [
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "The Antiochian primate who received the Evangelical Orthodox Church in 1987 and made Gillquist's later work possible.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Metropolitan Antony (Bashir)",
+        note: "Philip's predecessor, whose decades of English-language publishing prepared the archdiocese that could receive two thousand American converts.",
+        href: "witness/antony-bashir",
+      },
+      {
+        name: "Fr. Michael Gelsinger",
+        note: "An earlier convert priest of the same archdiocese, who argued for English-language Orthodox worship decades before it was common.",
+        href: "witness/michael-gelsinger",
+      },
+    ],
+    significance: [
+      "Fr Peter Gillquist's importance is not that he converted, but that he brought a community with him and then stayed to do the unglamorous work of settling it. The 1987 reception remains the largest of its kind in American Orthodox history, and the parishes founded out of it are ordinary parishes now — which is the point. A movement that had spent fourteen years outside any jurisdiction ended inside one, under a bishop, with its clergy re-ordained.",
+      "Through Becoming Orthodox and the Orthodox Study Bible he then became, for a great many English-speaking readers, the voice that first explained the Orthodox Church in terms they already understood. He is not glorified and this page implies no veneration; it records a priest whose particular gift was translation in the widest sense — carrying a thing intact from one language, and one world, into another.",
+    ],
+  },
+  {
+    slug: "antony-bashir",
+    name: "Metropolitan Antony (Bashir)",
+    epithet: "",
+    role: "Metropolitan & Translator",
+    years: "1898 – 1966",
+    place: "Brooklyn, New York",
+    bio: [
+      "Primate of the Antiochian Archdiocese of North America for thirty years, who took a scattered immigrant jurisdiction and made it an organized American church — and who insisted on English in its services and its press decades before that was a settled question.",
+      "A translator by gift as much as by office: Kahlil Gibran entrusted him with the Arabic rendering of all his English books, including The Prophet. He reposed in 1966 and was succeeded by Metropolitan Philip (Saliba).",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Anthony (Bashir) of New York",
+        url: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        label:
+          "Antiochian Archdiocese — Lest We Forget: The Legacy of Metropolitan Antony Bashir",
+        url: "http://ww1.antiochian.org/lest-we-forget-legacy-metropolitan-antony-bashir",
+      },
+      {
+        label:
+          "Canadian Orthodox History Project — Metropolitan Antony (Bashir)",
+        url: "https://orthodoxcanada.ca/Metropolitan_Antony_(Bashir)",
+      },
+      {
+        label:
+          "The Kahlil Gibran Collective — An Arabic Garment for The Prophet",
+        url: "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+    ],
+    secularName: "Antony Bashir",
+    jurisdiction: "Antiochian Orthodox Christian Archdiocese",
+    railFacts: [
+      ["Lived", "1898 – 1966"],
+      ["Born", "Douma, Lebanon"],
+      ["Trained", "Balamand Seminary, 1911–16"],
+      ["To America", "1922"],
+      ["Consecrated", "19 April 1936"],
+      ["Led", "the Archdiocese, 1936–1966"],
+      ["Tradition", "Antiochian"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor:
+      "Making an immigrant jurisdiction into an English-speaking American church",
+    overview: [
+      "Antony Bashir (1898–1966) was Archbishop and Metropolitan of the Antiochian Orthodox Christian Archdiocese of North America from 1936 until his death — thirty years in which a scattered network of immigrant parishes became a coherent American jurisdiction. He was born on 15 March 1898 at <strong>Douma, in Lebanon</strong>, studied at the Orthodox seminary of Balamand from 1911 to 1916, was ordained deacon in 1916, and read law and taught Arabic literature at the American University of Beirut.",
+      "He came to America in 1922 with a patriarchal delegation and stayed. For thirteen years he worked among the Syrian and Lebanese parishes of the continent — organizing societies, building churches, raising money — and was made archimandrite in 1923. On the death of Metropolitan Victor he administered the archdiocese, and on <strong>19 April 1936</strong> he was consecrated archbishop at St Nicholas Cathedral in Brooklyn.",
+      "What he did with the next three decades was to build institutions and to change the language. He put the archdiocesan magazine, <em>The Word</em>, into English; he received converts and ordained them; he was among the founders of the standing conference of Orthodox bishops in the Americas; and in 1958 he was authorized to establish the Western Rite within the Antiochian patriarchate. He reposed on 15 February 1966.",
+    ],
+    sections: [
+      {
+        heading: "An immigrant church, made American",
+        body: [
+          "The archdiocese Bashir inherited in 1936 was not in good order. Antiochian Orthodoxy in North America had been split for years between rival claimants, and its parishes were immigrant congregations held together largely by their own energy. What is credited to him, in his own archdiocese's account and in the historical literature alike, is the unglamorous work of consolidation: bringing the splintered parishes into one administratively sound and financially solvent body.",
+          "The deeper change was linguistic. Bashir understood early that a church which served only in Arabic would lose the generation born in America, and he acted on it — shifting <em>The Word</em> into English, encouraging English in the services, and receiving and ordaining American converts at a time when several jurisdictions treated converts as an oddity. Fr Michael Gelsinger's 1938 <em>Handbook for Orthodox Sunday Schools</em> went out with Bashir's blessing; his <em>Orthodox Hymns in English</em> was published by Bashir's archdiocese the year after.",
+        ],
+      },
+      {
+        heading: "Gibran's translator",
+        body: [
+          "Bashir's other life was literary. <strong>Kahlil Gibran</strong>, the Lebanese-American poet whose <em>The Prophet</em> became one of the best-selling books of the century, entrusted him with the Arabic translation of all his English works — <em>The Madman</em>, <em>The Forerunner</em>, <em>The Prophet</em>, <em>Sand and Foam</em>, <em>Jesus the Son of Man</em> and <em>The Earth Gods</em>.",
+          "It is an unusual line on a hierarch's record, and it belongs on this one, because the same faculty is at work in both halves of his life. A man who could carry Gibran's English back into Arabic without losing him was the same man who understood what it would cost the Church to stay in a language its grandchildren did not speak.",
+        ],
+      },
+      {
+        heading: "Institutions",
+        body: [
+          "Bashir was among the hierarchs behind the <strong>Standing Conference of Canonical Orthodox Bishops in the Americas</strong>, the first durable structure through which the jurisdictions in North America acted together rather than separately — a recurring aspiration in American Orthodox history and, in this instance, one that lasted.",
+          "In <strong>1958</strong> the Patriarch of Antioch, in consultation with the other autocephalous churches, authorized him to establish the <strong>Western Rite</strong> within the archdiocese: Orthodox parishes worshipping according to Western liturgical forms. It remains a debated provision, and it is recorded here as history. In 1961 he ordained a group of former members of a Western religious society who had come into the Church under it.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1898",
+        title: "Born at Douma",
+        body: "Antony Bashir is born on 15 March 1898 in Douma, Lebanon.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1911–16",
+        title: "Balamand",
+        body: "He studies at the Orthodox theological seminary of Balamand, and is ordained deacon in 1916; he later reads law and teaches Arabic literature at the American University of Beirut.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1922",
+        title: "To America",
+        body: "He arrives with the patriarchal delegation led by Metropolitan Gerasimos Messara of Beirut, and remains, serving the Syrian and Lebanese parishes of the continent.",
+        source: "https://orthodoxcanada.ca/Metropolitan_Antony_(Bashir)",
+      },
+      {
+        when: "1936",
+        title: "Consecrated archbishop",
+        body: "On 19 April 1936 he is consecrated at St Nicholas Cathedral in Brooklyn, and begins thirty years as primate of the archdiocese.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1938–39",
+        title: "English in print",
+        body: "He blesses the Gelsingers' Handbook for Orthodox Sunday Schools, and his archdiocese publishes Orthodox Hymns in English the following year.",
+        source: "https://www.orthodoxhistory.org/tag/michael-gelsinger/",
+      },
+      {
+        when: "1958",
+        title: "The Western Rite",
+        body: "The Patriarch of Antioch authorizes him to establish the Western Rite within the archdiocese.",
+        source:
+          "https://www.stgregoryoc.org/article/article-archive/metropolitan-anthony-bashir-on-the-western-rite/",
+      },
+      {
+        when: "1966",
+        title: "Repose",
+        body: "He reposes on 15 February 1966, and is succeeded by Metropolitan Philip (Saliba).",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+    ],
+    worksBy: [
+      {
+        title: "Arabic translations of Kahlil Gibran",
+        detail:
+          "The Madman, The Forerunner, The Prophet, Sand and Foam, Jesus the Son of Man and The Earth Gods — the Arabic rendering of Gibran's English works, entrusted to him by the author.",
+        source:
+          "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+      {
+        title: "The Word (as publisher)",
+        detail:
+          "The archdiocesan magazine, which he moved into English — for many parishes the first Orthodox reading matter in the language of their children.",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Lest We Forget: The Legacy of Metropolitan Antony Bashir",
+        detail: "The archdiocese's own memorial account of his thirty years.",
+        source:
+          "http://ww1.antiochian.org/lest-we-forget-legacy-metropolitan-antony-bashir",
+      },
+      {
+        title: "An Arabic Garment for The Prophet",
+        detail:
+          "The Kahlil Gibran Collective on Bashir's translations and his relationship with the poet.",
+        source:
+          "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "Ordained by Bashir and his successor as primate, who carried the same English-language conviction into the next generation.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Fr. Michael Gelsinger",
+        note: "The convert classicist whose English hymnody Bashir blessed and whose archdiocese published it.",
+        href: "witness/michael-gelsinger",
+      },
+      {
+        name: "Fr. Peter Gillquist",
+        note: "Received with two thousand others in 1987 into the archdiocese Bashir had spent thirty years making capable of receiving them.",
+        href: "witness/peter-gillquist",
+      },
+      {
+        name: "St Raphael of Brooklyn",
+        note: "The pioneering Syrian-Antiochian bishop of the same American mission, glorified in 2000.",
+        href: "saint/OS-0055",
+      },
+    ],
+    significance: [
+      "Metropolitan Antony Bashir's thirty years are the hinge on which Antiochian Orthodoxy in North America turns from an immigrant chaplaincy into an American church. The consolidation was administrative and dull to describe; its consequence was that there was something solid enough, by the 1980s, to receive two thousand evangelical converts at once without breaking.",
+      "The language question is where his judgment shows most clearly. Bashir moved on English early, against the instincts of many of his own people, because he could see what would happen to a church whose grandchildren could not follow its services. He is not glorified and nothing here implies veneration; what is recorded is a bishop who understood translation — of books, and of a whole church — as a work of preservation rather than of loss.",
     ],
   },
 ];
