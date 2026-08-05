@@ -1875,6 +1875,57 @@ def attach_image(rec: dict, sid: str, images: dict[str, dict[str, str]],
             rec["imageSource"] = img["source"]
 
 
+def attach_depictions(rec: dict, sid: str,
+                      depictions: dict[str, list[dict[str, str]]],
+                      permissions: dict[str, dict[str, str]]) -> None:
+    """Join data/saint_depictions.csv onto one record as `depictions` — the
+    detail page's "Depictions & Icons" carousel, many per subject, in file order.
+
+    Keyed by OS-#### like attach_image(), so a GROUP carries its cards too: a
+    synaxis is exactly the kind of subject that has several surviving icons
+    (a manuscript miniature beside a modern Greek panel), and its page is a
+    /saint/<id> page like any other.
+
+    Each card carries its presentation (kind/tag/title/era/by) plus its rights:
+    a permission card (active vendor) gets permission/vendor/attribution, an
+    open-license one keeps license/credit. A revoked vendor's card is dropped,
+    like the hero image. `source` is the per-card outbound link (a grant
+    condition for permission cards: each links to its specific icon page)."""
+    deps = depictions.get(sid)
+    if not deps:
+        return
+    cards: list[dict] = []
+    for d in deps:
+        if not d.get("path"):
+            continue
+        card: dict = {
+            "image": d["path"],
+            "kind": d.get("kind") or "museum",
+            "title": d.get("title", ""),
+        }
+        for k in ("tag", "era", "by"):
+            if d.get(k):
+                card[k] = d[k]
+        if d.get("source"):
+            card["source"] = d["source"]
+        slug = permission_slug(d.get("license", ""))
+        if slug is not None:
+            vendor = permissions.get(slug)
+            if not vendor or vendor.get("status") == "revoked":
+                continue  # unknown / revoked vendor → exclude the depiction
+            card["permission"] = True
+            card["vendor"] = vendor.get("name", "")
+            card["attribution"] = vendor.get("attribution", "")
+        else:
+            if d.get("license"):
+                card["license"] = d["license"]
+            if d.get("credit"):
+                card["credit"] = d["credit"]
+        cards.append(card)
+    if cards:
+        rec["depictions"] = cards
+
+
 def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
               name_variants: dict[str, list[str]] | None = None,
               images: dict[str, dict[str, str]] | None = None,
@@ -1933,45 +1984,7 @@ def to_record(r: dict[str, str], vendors: list[dict[str, str]] | None = None,
     rec["about"] = [work_link(t, r["Name"]) for t in rec["about"]]
     rec["vendors"] = vendor_links(r["Name"], vendors)
     attach_image(rec, r["Saint ID"].strip(), images, permissions)
-    # Additional depictions (data/saint_depictions.csv) — the saint page's
-    # "Depictions & Icons" carousel. Many per saint, in file order. Each carries
-    # the card presentation (kind/tag/title/era/by) plus its rights: a permission
-    # depiction (active vendor) gets permission/vendor/attribution; an open-license
-    # one keeps license/credit. A revoked vendor's depiction is dropped (like the
-    # hero image). `source` is the per-card outbound link (grant condition for
-    # permission cards: each links to its specific icon page).
-    deps = depictions.get(r["Saint ID"].strip())
-    if deps:
-        cards: list[dict] = []
-        for d in deps:
-            if not d.get("path"):
-                continue
-            card: dict = {
-                "image": d["path"],
-                "kind": d.get("kind") or "museum",
-                "title": d.get("title", ""),
-            }
-            for k in ("tag", "era", "by"):
-                if d.get(k):
-                    card[k] = d[k]
-            if d.get("source"):
-                card["source"] = d["source"]
-            slug = permission_slug(d.get("license", ""))
-            if slug is not None:
-                vendor = permissions.get(slug)
-                if not vendor or vendor.get("status") == "revoked":
-                    continue  # unknown / revoked vendor → exclude the depiction
-                card["permission"] = True
-                card["vendor"] = vendor.get("name", "")
-                card["attribution"] = vendor.get("attribution", "")
-            else:
-                if d.get("license"):
-                    card["license"] = d["license"]
-                if d.get("credit"):
-                    card["credit"] = d["credit"]
-            cards.append(card)
-        if cards:
-            rec["depictions"] = cards
+    attach_depictions(rec, r["Saint ID"].strip(), depictions, permissions)
     # Verified public-domain quote (data/saint_quotes.csv), if one exists. The
     # detail page renders `quote` with a citation; `quoteSource` links the PD
     # source so the wording is verifiable (§9). Saints without one render nothing.
@@ -2082,16 +2095,18 @@ def group_record(g: dict, members: list[dict[str, str]],
                  images: dict[str, dict[str, str]] | None = None,
                  permissions: dict[str, dict[str, str]] | None = None,
                  hymns: dict[str, list[dict[str, str | list[str]]]] | None = None,
-                 text_permissions: dict[str, dict[str, str]] | None = None) -> dict:
+                 text_permissions: dict[str, dict[str, str]] | None = None,
+                 depictions: dict[str, list[dict[str, str]]] | None = None) -> dict:
     """A group rendered as a saint-shaped record for public/data.json, so it
     flows into /saint/<id>, the finder, the calendar and the sitemap unchanged
     (only the quiz filters it out). `profile_type: "group"` steers the frontend
     to the GroupSaintProfile layout instead of SaintView. Facet arrays stay
     empty — a group is not an intercessor, so it never pollutes a facet filter.
 
-    A group may carry its own portrait in data/saint_images.csv keyed by its
-    OS-#### (e.g. an icon of Joachim and Anna on the household's page), joined
-    by the same attach_image() the saints use."""
+    A group may carry its own portrait in data/saint_images.csv and its own
+    carousel cards in data/saint_depictions.csv, both keyed by its OS-#### (e.g.
+    an icon of Joachim and Anna on the household's page), joined by the same
+    attach_image() / attach_depictions() the saints use."""
     rec: dict = {}
     for key in JSON_KEYS.values():
         rec[key] = [] if key in ARRAY_KEYS else ""
@@ -2112,9 +2127,12 @@ def group_record(g: dict, members: list[dict[str, str]],
     member_names = " ".join(m["name"] for m in members if m.get("name"))
     rec["search"] = " ".join(p for p in (g["name"], g["description"],
                                          member_names) if p).strip()
+    perms = load_image_permissions() if permissions is None else permissions
     attach_image(rec, g["saint_id"].strip(),
-                 load_saint_images() if images is None else images,
-                 load_image_permissions() if permissions is None else permissions)
+                 load_saint_images() if images is None else images, perms)
+    attach_depictions(rec, g["saint_id"].strip(),
+                      load_saint_depictions() if depictions is None else depictions,
+                      perms)
     attach_hymns(rec, g["saint_id"].strip(),
                  load_saint_hymns() if hymns is None else hymns,
                  load_text_permissions() if text_permissions is None else text_permissions)
@@ -2160,7 +2178,8 @@ def emit_data_json(rows: list[dict[str, str]]) -> list[dict]:
             for sid in ids if sid in by_id
         ]
     records.extend(group_record(g, members_by_group.get(g["slug"], []),
-                                images, permissions, hymns, text_permissions)
+                                images, permissions, hymns, text_permissions,
+                                depictions)
                    for g in groups if g.get("saint_id"))
     records.sort(key=lambda x: x["feastSort"])
     PUBLIC.mkdir(exist_ok=True)
