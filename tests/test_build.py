@@ -1270,6 +1270,38 @@ class GroupTaxonomyTests(unittest.TestCase):
             [], images=images, permissions=perms)
         self.assertNotIn("image", rec)  # no image key at all -> monogram fallback
 
+    def test_group_record_joins_its_own_depictions(self):
+        # A synaxis survives in several icons, so a group carries carousel cards
+        # keyed by its own OS-#### exactly as a saint does. Validation always
+        # accepted these rows; before this join they were silently dropped from
+        # the record and never reached the page.
+        deps = {"OS-2935": [{"path": "icons/OS-2935-miniature.jpg",
+                             "license": "PD-art", "credit": "", "kind": "museum",
+                             "tag": "Public domain", "title": "The Seventy Disciples",
+                             "era": "15th c.", "by": "Greek menologion",
+                             "source": "https://example.test/file"}]}
+        rec = build.group_record(
+            {"slug": "seventy-apostles", "saint_id": "OS-2935",
+             "name": "The Seventy Apostles", "type": "synaxis",
+             "description": "d", "feast": "Jan 4", "sort": "20"},
+            [], images={}, permissions={}, depictions=deps)
+        self.assertEqual(len(rec["depictions"]), 1)
+        card = rec["depictions"][0]
+        self.assertEqual(card["image"], "icons/OS-2935-miniature.jpg")
+        self.assertEqual(card["license"], "PD-art")
+        self.assertEqual(card["title"], "The Seventy Disciples")
+
+    def test_group_record_drops_revoked_vendor_depiction(self):
+        deps = {"OS-2939": [{"path": "icons/permission/gone/card.jpg",
+                             "license": "Permission:gone", "credit": "",
+                             "kind": "shop", "title": "T", "source": "s"}]}
+        rec = build.group_record(
+            {"slug": "g", "saint_id": "OS-2939", "name": "G", "type": "household",
+             "description": "d", "feast": "", "sort": "1"},
+            [], images={}, permissions={"gone": {"name": "Gone", "status": "revoked"}},
+            depictions=deps)
+        self.assertNotIn("depictions", rec)
+
     def test_image_valid_ids_union_does_not_poison_group_collision_check(self):
         # Regression: admitting group ids to the image/depiction id set must not
         # mutate the saints-only set validate_groups() uses to detect an id that

@@ -370,6 +370,10 @@ rendered in file order:
   links to its `source` (a permission card's specific vendor icon page). Self-host + resize
   images exactly as for portraits (§5 portraits bullet); permission files live under
   `static/icons/permission/<vendor_slug>/`.
+- **A GROUP carries cards too**, keyed by its own `OS-####` — `attach_depictions()` is shared
+  by `to_record()` and `group_record()`, and `GroupSaintProfile` renders the same carousel a
+  saint page does. A synaxis is exactly the subject that survives in several icons (a
+  manuscript miniature beside a modern panel), so don't re-add a saints-only assumption here.
 
 **Group taxonomy (collective commemorations).** Two join files (same pattern as the image/
 quote joins) re-link the members of a collective commemoration and make group membership a

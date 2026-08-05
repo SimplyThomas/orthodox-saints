@@ -125,6 +125,16 @@ const showCredit =
   !!saint.image &&
   !!(saint.imageCredit || saint.imageLicense || saint.imagePermission);
 
+// "Depictions & Icons" (data/saint_depictions.csv keyed by the group's OS-####).
+// A synaxis is exactly the subject that survives in several icons — a manuscript
+// miniature beside a modern panel — so the same carousel SaintView and
+// HostSaintView show. build.py already dropped any revoked-vendor card.
+const depictions = saint.depictions ?? [];
+const depImg = (raw: string) => {
+  const clean = String(raw).replace(/['"\\)\s<>]/g, "");
+  return esc(/^(https?:)?\/\//.test(clean) ? clean : withBase(clean));
+};
+
 const overview = profile?.overview ?? [];
 const invokedFor = profile?.invokedFor ?? [];
 const patronage = profile?.patronage ?? [];
@@ -457,6 +467,79 @@ const hasAfter =
       </button>
     </div>
   </div>
+
+  {/* ══════════════ DEPICTIONS & ICONS ══════════════ */}
+  {
+    depictions.length > 0 && (
+      <section class="sv-deps" aria-label="Depictions and icons">
+        <div class="sv-deps-inner">
+          <div class="sv-deps-head">
+            <div class="sv-deps-headings">
+              <div class="eyebrow sv-deps-eb">Depictions &amp; Icons</div>
+              <p class="sv-deps-sub">
+                How the Church has written this commemoration across the
+                centuries — museum masters, hand-painted commissions, and icons
+                you can order today.
+              </p>
+            </div>
+          </div>
+          <div class="sv-deps-viewport">
+            <div class="sv-deps-track">
+              {depictions.map((d) => {
+                const inner = (
+                  <>
+                    <div class="sv-dep-frame">
+                      <div class="sv-dep-mat">
+                        <div
+                          class="sv-dep-img"
+                          style={`background-image:url('${depImg(d.image)}')`}
+                        />
+                      </div>
+                    </div>
+                    <div class="sv-dep-meta">
+                      {d.tag && (
+                        <span class={`sv-dep-tag sv-dep-tag--${d.kind}`}>
+                          {d.tag}
+                        </span>
+                      )}
+                      <div class="sv-dep-title">
+                        {d.title}
+                        {d.era && <span class="sv-dep-era"> · {d.era}</span>}
+                      </div>
+                      {(d.attribution || d.by) && (
+                        <div class="sv-dep-by">
+                          <span>{d.attribution || d.by}</span>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
+                /* Each card links to its source — for a permission card that
+                   link to the vendor's own icon page is a condition of the
+                   grant (§9), so it ships with the card or not at all. */
+                return d.source ? (
+                  <a
+                    href={d.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="sv-dep sv-dep--link"
+                    data-umami-event="Icon Click"
+                    data-umami-event-vendor={d.vendor ?? d.by ?? d.kind}
+                    data-umami-event-saint={saint.id}
+                    data-umami-event-source="carousel"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div class="sv-dep">{inner}</div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   {/* ══════════════ BODY ══════════════ */}
   <div class="sv-body">
