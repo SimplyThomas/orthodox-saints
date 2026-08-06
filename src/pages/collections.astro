@@ -7,6 +7,7 @@
 import HubPage from "../components/HubPage.astro";
 import type { HubCard } from "../components/HubPage.astro";
 import { SAINTS } from "../lib/data";
+import { WITNESSES } from "../lib/witnesses";
 
 // Live count so the card reports the real size of the collection.
 const americaCount = SAINTS.filter((s) =>
@@ -21,6 +22,14 @@ const cards: HubCard[] = [
     blurb:
       "The saints of the North American Church — the Alaskan mission, the martyrs and missionaries, and the hierarchs who planted Orthodoxy on this continent.",
     meta: americaCount > 0 ? `${americaCount} saints` : undefined,
+  },
+  {
+    label: "Witnesses of Our Time",
+    href: "witnesses",
+    eyebrow: "A memorial collection",
+    blurb:
+      "Orthodox Christians of the last hundred years held in living memory but not formally glorified \u2014 teachers, hierarchs, monastics and converts, remembered without any claim of sainthood.",
+    meta: `${WITNESSES.length} witnesses`,
   },
 ];
 

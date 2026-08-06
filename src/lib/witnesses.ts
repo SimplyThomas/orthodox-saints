@@ -960,10 +960,6 @@ export const WITNESSES: Witness[] = [
         href: "saint/OS-0044",
       },
       {
-        name: "Father Herman Podmoshensky",
-        note: "Co-founder, with Eugene Rose, of the St Herman Brotherhood, The Orthodox Word, and the Platina monastery.",
-      },
-      {
         name: "Elder Ephraim of Arizona",
         note: "A contemporary who, in the same era, planted Athonite monasticism across North America.",
         href: "witness/ephraim-of-arizona",
@@ -3671,6 +3667,7 @@ export const WITNESSES: Witness[] = [
           {
             label: "Metropolitan Antony (Bashir)",
             sub: "Who ordained him priest in 1959, and whom he succeeded in 1966",
+            href: "witness/antony-bashir",
           },
           {
             label: "Metropolitan Philip (Saliba)",
@@ -3838,6 +3835,7 @@ export const WITNESSES: Witness[] = [
       {
         name: "Fr Peter Gillquist",
         note: "The convert leader whose Evangelical Orthodox community the Metropolitan received in 1987.",
+        href: "witness/peter-gillquist",
       },
       {
         name: "Antiochian Orthodox Christian Archdiocese of North America",
@@ -4691,6 +4689,987 @@ export const WITNESSES: Witness[] = [
     significance: [
       "Father Michael Gelsinger occupies a modest but genuine place in the story of Orthodox Christianity in America: a scholarly convert who insisted, decades ahead of the broad movement, that the Church's worship could and should be sung in English. His Orthodox Hymns in English (1939) and his translations helped seed the first complete English settings of the Divine Liturgy, and elements of his hymnody are still in parish use — a quiet, durable legacy carried on by later generations.",
       "His life also runs through the tangled institutional history of early American Orthodoxy — the failed American Orthodox Catholic Church under Archbishop Aftimios and the wartime federation of jurisdictions — episodes historians still debate and which are recounted here without endorsement. Across both his scholarship and his church politics, the same aim recurs: a united, indigenous, English-speaking American Orthodoxy that would only take fuller shape after his repose in 1980, when the former professor had become the Hieromonk Theodore.",
+    ],
+  },
+  {
+    slug: "peter-gillquist",
+    name: "Fr. Peter Gillquist",
+    epithet: "",
+    role: "Priest & Missionary",
+    years: "1938 – 2012",
+    place: "Bloomington, Indiana",
+    bio: [
+      "A Campus Crusade for Christ regional director who spent two decades leading a company of evangelicals out of the house-church movement and into the ancient Church, and who in 1987 brought some two thousand of them into the Antiochian Archdiocese — the largest single reception of converts in American Orthodox history.",
+      "He wrote Becoming Orthodox, the book that has carried more English-speaking enquirers toward Orthodoxy than any other of its kind, and directed the Orthodox Study Bible from its beginning. He reposed of melanoma in 2012.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Peter Gillquist",
+        url: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        label:
+          "Antiochian Archdiocese — Retrospective on the EOC Reception (1987)",
+        url: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        label: "Antiochian Archdiocese — AGAIN interviews Fr. Peter Gillquist",
+        url: "http://ww1.antiochian.org/content/becoming-orthodox-being-orthodox-again-interviews-fr-peter-gillquist",
+      },
+      {
+        label:
+          "Journey to Orthodoxy — Met. Joseph marks the 30th anniversary of the reception",
+        url: "https://journeytoorthodoxy.com/2017/02/metropolitan-joseph-commemorates-30th-anniversary-eoc-reception-antiochian-archdiocese/",
+      },
+    ],
+    secularName: "Peter Edward Gillquist",
+    jurisdiction: "Antiochian Orthodox Christian Archdiocese",
+    railFacts: [
+      ["Lived", "1938 – 2012"],
+      ["Born", "Minneapolis, Minnesota"],
+      ["Came from", "Campus Crusade for Christ"],
+      ["Received", "1987, with c. 2,000 others"],
+      ["Served", "Missions & Evangelism, Antiochian Archdiocese"],
+      ["Best known for", "Becoming Orthodox"],
+      ["Tradition", "Antiochian"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "Leading two thousand evangelicals into the Orthodox Church in 1987",
+    overview: [
+      "Peter Edward Gillquist (1938–2012) was an American priest of the Antiochian Orthodox Christian Archdiocese, and the central figure in the twenty-year journey that carried a body of evangelical Protestants out of parachurch ministry and into the Orthodox Church. Born in Minneapolis and educated at the University of Minnesota, he took graduate work at Dallas Theological Seminary and Wheaton College and joined the full-time staff of <strong>Campus Crusade for Christ</strong> in the 1960s, beginning at Notre Dame and rising to regional director.",
+      "In 1973 he and a group of fellow Crusade staff left to build a network of house churches, searching — as he later described it — for the church of the New Testament by reading their way back through the centuries. The search took them through the Fathers and the councils to the conclusion that the Church they were looking for had never ceased to exist. Their body was organized in 1979 as the <strong>Evangelical Orthodox Church</strong>, a name that stated the destination before they had arrived at it.",
+      "The arrival came in 1987, when Gillquist led seventeen parishes and roughly two thousand people into the Antiochian Archdiocese under Metropolitan Philip (Saliba). He spent the rest of his life on the work that followed from it: chairman of the archdiocesan Department of Missions and Evangelism, chairman of Conciliar Press, and project director of the <strong>Orthodox Study Bible</strong>. He reposed of melanoma on 1 July 2012 at Bloomington, Indiana, where his son serves as a priest.",
+    ],
+    sections: [
+      {
+        heading: "From Campus Crusade to a search for the ancient Church",
+        body: [
+          "Gillquist came to faith as a student and went to work for <strong>Campus Crusade for Christ</strong>, then among the most effective evangelical ministries in the United States. He began its work at Notre Dame and became a regional director — a career of considerable promise in the world he had grown up in.",
+          "In 1973 he and several colleagues left it. What they were after was not a better method but a missing thing: the church described in the Acts of the Apostles, with its bishops, its sacraments and its continuity. They built a network of house churches and set about reading the Christian centuries in order, beginning at the first, to find where the church they knew had come from — and, as they gradually concluded, where it had parted company with the one that had been there all along.",
+        ],
+      },
+      {
+        heading: "The Evangelical Orthodox Church and the years of waiting",
+        body: [
+          "By 1979 the network had adopted liturgical worship, ordained clergy on the pattern they had found in the Fathers, and named itself the <strong>Evangelical Orthodox Church</strong>. It was an unusual position: a body convinced of Orthodoxy's claims, worshipping as Orthodox, and belonging to no Orthodox jurisdiction.",
+          "The attempts to resolve that were not quick and were not painless. An approach to one jurisdiction ended with a delegation travelling overseas to meet a patriarch and returning empty-handed. The account Gillquist gives of those years in <em>Becoming Orthodox</em> is candid about the discouragement of them, and it is part of why the book has been useful to enquirers: it does not present conversion as a tidy process.",
+        ],
+      },
+      {
+        heading: "1987 — the reception",
+        body: [
+          "The resolution came through the Antiochians. Patriarch Ignatius IV of Antioch had visited the archdiocese in 1985, and the conversations that followed led to <strong>Metropolitan Philip (Saliba)</strong>, who agreed to receive the whole body. The receptions took place through the early months of <strong>1987</strong>, the largest of them in the Los Angeles area on 8 February, where Metropolitan Philip chrismated the greater number himself.",
+          "Seventeen parishes and roughly two thousand people came in, and were organized as the Antiochian Evangelical Orthodox Mission. It remains the single largest reception of converts in the history of American Orthodoxy, and it changed the composition of the archdiocese: a Middle-Eastern immigrant church took in, at one stroke, a large body of American evangelicals, most of whose clergy were re-ordained and went on serving.",
+        ],
+      },
+      {
+        heading: "Becoming Orthodox and the Orthodox Study Bible",
+        body: [
+          "<em>Becoming Orthodox: A Journey to the Ancient Christian Faith</em> tells that story from the inside. It has stayed in print for decades and remains the book most often handed to an English-speaking enquirer, precisely because it is written by someone who arrived from outside and remembers what was strange.",
+          "Gillquist also served as project director of the <strong>Orthodox Study Bible</strong>, the first English study Bible produced from an Orthodox standpoint — the New Testament and Psalms in 1993, the complete edition with the Old Testament in 2008. Whatever the scholarly arguments about it, it put an Orthodox reading of Scripture into the hands of ordinary English-speaking readers who had no other access to one.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1938",
+        title: "Born in Minneapolis",
+        body: "Peter Edward Gillquist is born on 13 July 1938 in Minneapolis, Minnesota.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1960s",
+        title: "Campus Crusade for Christ",
+        body: "After a journalism degree from the University of Minnesota and graduate study at Dallas Theological Seminary and Wheaton, he joins Campus Crusade full-time, beginning at Notre Dame and becoming a regional director.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1973",
+        title: "The house-church network",
+        body: "He and colleagues leave Campus Crusade and establish a network of house churches, later the New Covenant Apostolic Order, and begin working their way back through the Christian centuries.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1979",
+        title: "The Evangelical Orthodox Church",
+        body: "The body formally organizes as the Evangelical Orthodox Church, worshipping liturgically while belonging to no canonical jurisdiction.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "1987",
+        title: "Received into the Antiochian Archdiocese",
+        body: "Seventeen parishes and some two thousand people are received under Metropolitan Philip (Saliba); the largest reception, in the Los Angeles area, falls on 8 February.",
+        source: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        when: "1993 & 2008",
+        title: "The Orthodox Study Bible",
+        body: "As project director he sees the New Testament and Psalms into print in 1993 and the complete edition, with the Old Testament, in 2008.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+      {
+        when: "2012",
+        title: "Repose",
+        body: "He reposes of melanoma on 1 July 2012 at Bloomington, Indiana.",
+        source: "https://orthodoxwiki.org/Peter_Gillquist",
+      },
+    ],
+    worksBy: [
+      {
+        title: "Becoming Orthodox: A Journey to the Ancient Christian Faith",
+        detail:
+          "The account of the twenty-year road from Campus Crusade to the Antiochian Archdiocese, and the book most often given to English-speaking enquirers.",
+      },
+      {
+        title: "The Orthodox Study Bible (project director)",
+        detail:
+          "New Testament and Psalms, 1993; the complete edition with the Old Testament, 2008.",
+      },
+      {
+        title: "Metropolitan Philip: His Life and His Dreams",
+        detail:
+          "A biography of the hierarch who received his people into the Church.",
+      },
+      {
+        title: "Love Is Now · The Physical Side of Being Spiritual",
+        detail: "Books from his evangelical years and after.",
+      },
+    ],
+    worksAbout: [
+      {
+        title:
+          "Retrospective on the EOC Reception into the Antiochian Archdiocese",
+        detail:
+          "The archdiocese's own account of the 1987 receptions and what followed them.",
+        source: "http://ww1.antiochian.org/node/17077",
+      },
+      {
+        title: "Thirtieth anniversary of the reception (2017)",
+        detail:
+          "Metropolitan Joseph marks three decades since the 1987 reception.",
+        source:
+          "https://journeytoorthodoxy.com/2017/02/metropolitan-joseph-commemorates-30th-anniversary-eoc-reception-antiochian-archdiocese/",
+      },
+    ],
+    family: {
+      members: [
+        {
+          relation: "Wife",
+          name: "Marilyn Gillquist",
+          note: "Married in 1960; they had six children.",
+        },
+      ],
+    },
+    related: [
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "The Antiochian primate who received the Evangelical Orthodox Church in 1987 and made Gillquist's later work possible.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Metropolitan Antony (Bashir)",
+        note: "Philip's predecessor, whose decades of English-language publishing prepared the archdiocese that could receive two thousand American converts.",
+        href: "witness/antony-bashir",
+      },
+      {
+        name: "Fr. Michael Gelsinger",
+        note: "An earlier convert priest of the same archdiocese, who argued for English-language Orthodox worship decades before it was common.",
+        href: "witness/michael-gelsinger",
+      },
+    ],
+    significance: [
+      "Fr Peter Gillquist's importance is not that he converted, but that he brought a community with him and then stayed to do the unglamorous work of settling it. The 1987 reception remains the largest of its kind in American Orthodox history, and the parishes founded out of it are ordinary parishes now — which is the point. A movement that had spent fourteen years outside any jurisdiction ended inside one, under a bishop, with its clergy re-ordained.",
+      "Through Becoming Orthodox and the Orthodox Study Bible he then became, for a great many English-speaking readers, the voice that first explained the Orthodox Church in terms they already understood. He is not glorified and this page implies no veneration; it records a priest whose particular gift was translation in the widest sense — carrying a thing intact from one language, and one world, into another.",
+    ],
+  },
+  {
+    slug: "antony-bashir",
+    name: "Metropolitan Antony (Bashir)",
+    epithet: "",
+    role: "Metropolitan & Translator",
+    years: "1898 – 1966",
+    place: "Brooklyn, New York",
+    bio: [
+      "Primate of the Antiochian Archdiocese of North America for thirty years, who took a scattered immigrant jurisdiction and made it an organized American church — and who insisted on English in its services and its press decades before that was a settled question.",
+      "A translator by gift as much as by office: Kahlil Gibran entrusted him with the Arabic rendering of all his English books, including The Prophet. He reposed in 1966 and was succeeded by Metropolitan Philip (Saliba).",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Anthony (Bashir) of New York",
+        url: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        label:
+          "Antiochian Archdiocese — Lest We Forget: The Legacy of Metropolitan Antony Bashir",
+        url: "http://ww1.antiochian.org/lest-we-forget-legacy-metropolitan-antony-bashir",
+      },
+      {
+        label:
+          "Canadian Orthodox History Project — Metropolitan Antony (Bashir)",
+        url: "https://orthodoxcanada.ca/Metropolitan_Antony_(Bashir)",
+      },
+      {
+        label:
+          "The Kahlil Gibran Collective — An Arabic Garment for The Prophet",
+        url: "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+    ],
+    secularName: "Antony Bashir",
+    jurisdiction: "Antiochian Orthodox Christian Archdiocese",
+    railFacts: [
+      ["Lived", "1898 – 1966"],
+      ["Born", "Douma, Lebanon"],
+      ["Trained", "Balamand Seminary, 1911–16"],
+      ["To America", "1922"],
+      ["Consecrated", "19 April 1936"],
+      ["Led", "the Archdiocese, 1936–1966"],
+      ["Tradition", "Antiochian"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor:
+      "Making an immigrant jurisdiction into an English-speaking American church",
+    overview: [
+      "Antony Bashir (1898–1966) was Archbishop and Metropolitan of the Antiochian Orthodox Christian Archdiocese of North America from 1936 until his death — thirty years in which a scattered network of immigrant parishes became a coherent American jurisdiction. He was born on 15 March 1898 at <strong>Douma, in Lebanon</strong>, studied at the Orthodox seminary of Balamand from 1911 to 1916, was ordained deacon in 1916, and read law and taught Arabic literature at the American University of Beirut.",
+      "He came to America in 1922 with a patriarchal delegation and stayed. For thirteen years he worked among the Syrian and Lebanese parishes of the continent — organizing societies, building churches, raising money — and was made archimandrite in 1923. On the death of Metropolitan Victor he administered the archdiocese, and on <strong>19 April 1936</strong> he was consecrated archbishop at St Nicholas Cathedral in Brooklyn.",
+      "What he did with the next three decades was to build institutions and to change the language. He put the archdiocesan magazine, <em>The Word</em>, into English; he received converts and ordained them; he was among the founders of the standing conference of Orthodox bishops in the Americas; and in 1958 he was authorized to establish the Western Rite within the Antiochian patriarchate. He reposed on 15 February 1966.",
+    ],
+    sections: [
+      {
+        heading: "An immigrant church, made American",
+        body: [
+          "The archdiocese Bashir inherited in 1936 was not in good order. Antiochian Orthodoxy in North America had been split for years between rival claimants, and its parishes were immigrant congregations held together largely by their own energy. What is credited to him, in his own archdiocese's account and in the historical literature alike, is the unglamorous work of consolidation: bringing the splintered parishes into one administratively sound and financially solvent body.",
+          "The deeper change was linguistic. Bashir understood early that a church which served only in Arabic would lose the generation born in America, and he acted on it — shifting <em>The Word</em> into English, encouraging English in the services, and receiving and ordaining American converts at a time when several jurisdictions treated converts as an oddity. Fr Michael Gelsinger's 1938 <em>Handbook for Orthodox Sunday Schools</em> went out with Bashir's blessing; his <em>Orthodox Hymns in English</em> was published by Bashir's archdiocese the year after.",
+        ],
+      },
+      {
+        heading: "Gibran's translator",
+        body: [
+          "Bashir's other life was literary. <strong>Kahlil Gibran</strong>, the Lebanese-American poet whose <em>The Prophet</em> became one of the best-selling books of the century, entrusted him with the Arabic translation of all his English works — <em>The Madman</em>, <em>The Forerunner</em>, <em>The Prophet</em>, <em>Sand and Foam</em>, <em>Jesus the Son of Man</em> and <em>The Earth Gods</em>.",
+          "It is an unusual line on a hierarch's record, and it belongs on this one, because the same faculty is at work in both halves of his life. A man who could carry Gibran's English back into Arabic without losing him was the same man who understood what it would cost the Church to stay in a language its grandchildren did not speak.",
+        ],
+      },
+      {
+        heading: "Institutions",
+        body: [
+          "Bashir was among the hierarchs behind the <strong>Standing Conference of Canonical Orthodox Bishops in the Americas</strong>, the first durable structure through which the jurisdictions in North America acted together rather than separately — a recurring aspiration in American Orthodox history and, in this instance, one that lasted.",
+          "In <strong>1958</strong> the Patriarch of Antioch, in consultation with the other autocephalous churches, authorized him to establish the <strong>Western Rite</strong> within the archdiocese: Orthodox parishes worshipping according to Western liturgical forms. It remains a debated provision, and it is recorded here as history. In 1961 he ordained a group of former members of a Western religious society who had come into the Church under it.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1898",
+        title: "Born at Douma",
+        body: "Antony Bashir is born on 15 March 1898 in Douma, Lebanon.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1911–16",
+        title: "Balamand",
+        body: "He studies at the Orthodox theological seminary of Balamand, and is ordained deacon in 1916; he later reads law and teaches Arabic literature at the American University of Beirut.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1922",
+        title: "To America",
+        body: "He arrives with the patriarchal delegation led by Metropolitan Gerasimos Messara of Beirut, and remains, serving the Syrian and Lebanese parishes of the continent.",
+        source: "https://orthodoxcanada.ca/Metropolitan_Antony_(Bashir)",
+      },
+      {
+        when: "1936",
+        title: "Consecrated archbishop",
+        body: "On 19 April 1936 he is consecrated at St Nicholas Cathedral in Brooklyn, and begins thirty years as primate of the archdiocese.",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+      {
+        when: "1938–39",
+        title: "English in print",
+        body: "He blesses the Gelsingers' Handbook for Orthodox Sunday Schools, and his archdiocese publishes Orthodox Hymns in English the following year.",
+        source: "https://www.orthodoxhistory.org/tag/michael-gelsinger/",
+      },
+      {
+        when: "1958",
+        title: "The Western Rite",
+        body: "The Patriarch of Antioch authorizes him to establish the Western Rite within the archdiocese.",
+        source:
+          "https://www.stgregoryoc.org/article/article-archive/metropolitan-anthony-bashir-on-the-western-rite/",
+      },
+      {
+        when: "1966",
+        title: "Repose",
+        body: "He reposes on 15 February 1966, and is succeeded by Metropolitan Philip (Saliba).",
+        source: "https://orthodoxwiki.org/Anthony_(Bashir)_of_New_York",
+      },
+    ],
+    worksBy: [
+      {
+        title: "Arabic translations of Kahlil Gibran",
+        detail:
+          "The Madman, The Forerunner, The Prophet, Sand and Foam, Jesus the Son of Man and The Earth Gods — the Arabic rendering of Gibran's English works, entrusted to him by the author.",
+        source:
+          "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+      {
+        title: "The Word (as publisher)",
+        detail:
+          "The archdiocesan magazine, which he moved into English — for many parishes the first Orthodox reading matter in the language of their children.",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Lest We Forget: The Legacy of Metropolitan Antony Bashir",
+        detail: "The archdiocese's own memorial account of his thirty years.",
+        source:
+          "http://ww1.antiochian.org/lest-we-forget-legacy-metropolitan-antony-bashir",
+      },
+      {
+        title: "An Arabic Garment for The Prophet",
+        detail:
+          "The Kahlil Gibran Collective on Bashir's translations and his relationship with the poet.",
+        source:
+          "https://www.kahlilgibran.com/74-an-arabic-garment-for-the-prophet.html",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "Ordained by Bashir and his successor as primate, who carried the same English-language conviction into the next generation.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Fr. Michael Gelsinger",
+        note: "The convert classicist whose English hymnody Bashir blessed and whose archdiocese published it.",
+        href: "witness/michael-gelsinger",
+      },
+      {
+        name: "Fr. Peter Gillquist",
+        note: "Received with two thousand others in 1987 into the archdiocese Bashir had spent thirty years making capable of receiving them.",
+        href: "witness/peter-gillquist",
+      },
+      {
+        name: "St Raphael of Brooklyn",
+        note: "The pioneering Syrian-Antiochian bishop of the same American mission, glorified in 2000.",
+        href: "saint/OS-0055",
+      },
+    ],
+    significance: [
+      "Metropolitan Antony Bashir's thirty years are the hinge on which Antiochian Orthodoxy in North America turns from an immigrant chaplaincy into an American church. The consolidation was administrative and dull to describe; its consequence was that there was something solid enough, by the 1980s, to receive two thousand evangelical converts at once without breaking.",
+      "The language question is where his judgment shows most clearly. Bashir moved on English early, against the instincts of many of his own people, because he could see what would happen to a church whose grandchildren could not follow its services. He is not glorified and nothing here implies veneration; what is recorded is a bishop who understood translation — of books, and of a whole church — as a work of preservation rather than of loss.",
+    ],
+  },
+  {
+    slug: "constance-tarasar",
+    name: "Dr. Constance Tarasar",
+    epithet: "",
+    role: "Educator & Historian",
+    years: "1938 – 2014",
+    place: "Minneapolis, Minnesota",
+    bio: [
+      "The first woman admitted to a degree programme at St Vladimir's Orthodox Theological Seminary, who graduated in 1965 with a thesis on the place of women in the Church and returned to teach there for more than thirty years.",
+      "General editor of Orthodox America 1794–1976, the first substantial history of the Orthodox Church on this continent, and the author of much of the religious-education curriculum a generation of American Orthodox children were taught from. She reposed at Minneapolis in 2014.",
+    ],
+    sources: [
+      {
+        label:
+          "St Vladimir's Seminary — Dr. Constance Tarasar, Alumna and Education Pioneer, Reposes",
+        url: "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        label: "Canadian Orthodox History Project — Constance J. Tarasar",
+        url: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        label:
+          "Diocese of the Midwest (OCA) — In Memoriam: Dr. Constance Tarasar",
+        url: "https://domoca.org/news_141111_1/",
+      },
+      {
+        label:
+          "Biola University — Christian Educators of the 20th Century: Constance Tarasar",
+        url: "https://www.biola.edu/talbot/ce20/database/constance-tarasar",
+      },
+    ],
+    secularName: "Constance J. Tarasar",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "3 Feb 1938 – 7 Nov 2014"],
+      ["Born", "Minneapolis, Minnesota"],
+      ["First woman", "in a St Vladimir's degree programme"],
+      ["Graduated", "1965, thesis on women in the Church"],
+      ["Taught", "St Vladimir's, from 1970"],
+      ["Doctorate", "Ed.D., 1989"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "The first woman to take a degree at St Vladimir's, and the American Church's own historian",
+    overview: [
+      "Constance J. Tarasar (1938–2014) was an American Orthodox educator, historian and theologian, and the first woman admitted to a degree programme at <strong>St Vladimir's Orthodox Theological Seminary</strong>. She was born on 3 February 1938 in Minneapolis to a banker and a homemaker, both active at St Mary's Cathedral there, and took her first degree in English education at the University of Minnesota.",
+      "She entered St Vladimir's in the early 1960s and graduated in <strong>1965</strong>, writing an extended thesis on the place of women in the Orthodox Church, historically and theologically — a subject nobody had asked her to take up. Fr <strong>Alexander Schmemann</strong> taught her there and remained her mentor for the rest of his life. She returned to the seminary as a lecturer in Christian education in 1970 and taught for over three decades, retiring in 2003.",
+      "Her work outside the classroom shaped what American Orthodox children actually learned. She was executive secretary of the <strong>Orthodox Christian Education Commission</strong>, directed the religious-education departments of two jurisdictions, and produced curriculum on a scale her colleagues described as immense. In 1975 she was general editor of <em>Orthodox America 1794–1976</em>, the first substantial history of the Church on this continent. She reposed at Minneapolis on 7 November 2014.",
+    ],
+    sections: [
+      {
+        heading: "The first woman through the door",
+        body: [
+          "When Tarasar enrolled at St Vladimir's she was the first woman to be admitted to one of its degree programmes — not to a certificate or an auditor's place, but to the degree itself. She graduated in 1965, and the thesis she chose to write was on the role of women in the Orthodox Church, examined through its history and its theology.",
+          "That was not a safe subject in 1965 and it was not assigned to her. It is worth noticing what she did with the position afterwards: she did not leave and she did not campaign. She came back in 1970 as a lecturer and spent thirty-three years teaching, which meant that for most of a generation every student who passed through that seminary was taught by a woman. A later dean said simply that she had served as a real leader and model for the women students.",
+        ],
+      },
+      {
+        heading: "The curriculum nobody notices",
+        body: [
+          "Tarasar's largest body of work is also the least visible: the church-school curriculum used across North American parishes for decades. As executive secretary of the <strong>Orthodox Christian Education Commission</strong> — a body endorsed across jurisdictions — and as head of religious education for the Orthodox Church in America and, for a period, for the Antiochian Archdiocese, she wrote, commissioned and edited an enormous quantity of teaching material.",
+          "It is the kind of labour that leaves no monument. A parish that has good church-school books does not know whose they are. Late in her career she helped adapt Orthodox curricula for use in Eastern Europe after the fall of the communist regimes, and worked on bringing Orthodox education online. In 1989 she completed an Ed.D. and was, by her seminary's account, the first Orthodox Christian educator in the United States to hold a doctorate in the field.",
+        ],
+      },
+      {
+        heading: "Orthodox America 1794–1976",
+        body: [
+          "For the bicentennial of the United States and the two-hundredth anniversary approaching of the Alaskan mission, the Orthodox Church in America commissioned a history of itself. Tarasar was its <strong>general editor</strong>, with John H. Erickson as associate editor and contributions from Alexander Schmemann, Leonid Kishkovsky and others; it appeared in 1975.",
+          "<em>Orthodox America 1794–1976</em> was the first serious attempt to tell the whole story of the Orthodox Church on this continent in one volume, and it remains a standard reference for the period it covers. Much of what a page like this one can say about the American Church rests, at some remove, on the work she organized.",
+        ],
+      },
+      {
+        heading: "Agapia, 1976",
+        body: [
+          "In September 1976 the World Council of Churches convened the first international consultation of Orthodox women, at the monastery of <strong>Agapia in Romania</strong>. Tarasar represented the United States and edited the resulting report, <em>Orthodox Women: Their Role and Participation in the Orthodox Church</em>, published at Geneva.",
+          "Agapia is remembered as the point at which Orthodox women from across the traditional Orthodox countries and the diaspora addressed the question together for the first time. That the American delegate and the editor of its record was the same woman who had written a seminary thesis on the subject eleven years earlier is not a coincidence; it is a career.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1938",
+        title: "Born in Minneapolis",
+        body: "Constance J. Tarasar is born on 3 February 1938, to a family active at St Mary's Cathedral, Minneapolis.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "1965",
+        title: "Graduates from St Vladimir's",
+        body: "The first woman admitted to a degree programme at the seminary graduates, having written her thesis on the role of women in the Orthodox Church. Fr Alexander Schmemann was her teacher and remained her mentor.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        when: "1970",
+        title: "Returns to teach",
+        body: "She joins the faculty as lecturer in Christian education, beginning thirty-three years of teaching.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "1975",
+        title: "Orthodox America 1794–1976",
+        body: "As general editor she brings out the first substantial history of the Orthodox Church in America, with John H. Erickson as associate editor.",
+      },
+      {
+        when: "1976",
+        title: "The consultation at Agapia",
+        body: "She represents the United States at the first international consultation of Orthodox women, at Agapia in Romania, and edits the World Council of Churches report that follows.",
+      },
+      {
+        when: "1989",
+        title: "Doctorate in education",
+        body: "She completes an Ed.D., by her seminary's account the first Orthodox Christian educator in the United States to hold a doctorate in the field.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "2003",
+        title: "Retirement",
+        body: "She retires from teaching and returns to Minneapolis.",
+        source: "https://orthodoxcanada.ca/Constance_J_Tarasar",
+      },
+      {
+        when: "2014",
+        title: "Repose",
+        body: "She reposes on 7 November 2014; the funeral is served at St Mary's Cathedral, Minneapolis, on 12 November.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+    ],
+    worksBy: [
+      {
+        title:
+          "Orthodox America 1794–1976: Development of the Orthodox Church in America",
+        detail:
+          "General editor, with John H. Erickson as associate editor; the first substantial one-volume history of Orthodoxy on this continent (1975).",
+      },
+      {
+        title:
+          "Orthodox Women: Their Role and Participation in the Orthodox Church",
+        detail:
+          "Editor of the World Council of Churches report on the 1976 consultation at Agapia, Romania.",
+      },
+      {
+        title:
+          "Church-school curriculum for the Orthodox Christian Education Commission",
+        detail:
+          "Decades of teaching material for North American parishes, most of it published without her name on the cover.",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Dr. Constance Tarasar, Alumna and Education Pioneer, Reposes",
+        detail: "St Vladimir's Seminary's own memorial notice.",
+        source:
+          "https://www.svots.edu/alumni-news/dr-constance-tarasar-alumna-and-education-pioneer-reposes",
+      },
+      {
+        title: "Christian Educators of the 20th Century — Constance Tarasar",
+        detail:
+          "Biola University's reference database entry on her educational work.",
+        source: "https://www.biola.edu/talbot/ce20/database/constance-tarasar",
+      },
+    ],
+    related: [
+      {
+        name: "Fr. Alexander Schmemann",
+        note: "Her teacher at St Vladimir's and lifelong mentor, and a contributor to the history she edited.",
+        href: "witness/alexander-schmemann",
+      },
+      {
+        name: "Fr. Thomas Hopko",
+        note: "A colleague of the same seminary generation, whose catechetical work ran alongside her own.",
+        href: "witness/thomas-hopko",
+      },
+      {
+        name: "Mother Alexandra",
+        note: "The other woman in this section: a princess of Romania who founded the Monastery of the Transfiguration in Pennsylvania.",
+        href: "witness/mother-alexandra",
+      },
+    ],
+    significance: [
+      "Constance Tarasar's significance is easy to state and easy to underrate. She was the first woman to take a degree at an American Orthodox seminary, and then she stayed for thirty-three years, so that a whole generation of clergy and teachers were formed by a woman scholar without that being remarkable. She wrote the church-school books, and she edited the first real history of the Church on this continent — two kinds of work that shape what people know while leaving the author invisible.",
+      "She has not been glorified and nothing here suggests otherwise; this is a record, not a veneration. But a database of the Orthodox Church in America that names its bishops and theologians and omits the woman who wrote its history and taught its children would be telling the story wrong.",
+    ],
+  },
+  {
+    slug: "iakovos-coucouzis",
+    name: "Archbishop Iakovos (Coucouzis)",
+    epithet: "",
+    role: "Archbishop of America",
+    years: "1911 – 2005",
+    place: "New York",
+    bio: [
+      "Primate of the Greek Orthodox Archdiocese of North and South America for thirty-seven years, and the most publicly visible Orthodox hierarch in American history. On 15 March 1965 he walked beside Dr Martin Luther King Jr at Selma, and the photograph of the two of them ran on the cover of Life.",
+      "He founded the standing conference of Orthodox bishops in the Americas, built Hellenic College beside Holy Cross, and presided over the Ligonier meeting of 1994. He was retired under pressure in 1996 and reposed in 2005.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Iakovos (Coucouzis) of America",
+        url: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        label:
+          "Greek Orthodox Archdiocese — Remembering Selma Fifty Years Later",
+        url: "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        label:
+          'Orthodox Christian Laity — "Why I supported Martin Luther King in Selma"',
+        url: "https://ocl.org/archbishop-iakovos-supported-martin-luther-king-selma/",
+      },
+      {
+        label: "Wikipedia — Archbishop Iakovos of America",
+        url: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+    ],
+    secularName: "Demetrios A. Coucouzis",
+    jurisdiction: "Greek Orthodox Archdiocese of America",
+    railFacts: [
+      ["Lived", "29 Jul 1911 – 10 Apr 2005"],
+      ["Born", "Imvros"],
+      ["Trained", "Halki; Harvard Divinity (STM, 1945)"],
+      ["Primate", "1959 – 1996, thirty-seven years"],
+      ["Selma", "15 March 1965"],
+      ["Founded", "SCOBA; Hellenic College"],
+      ["Tradition", "Greek Orthodox Archdiocese"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor: "Marching at Selma, and making Orthodoxy visible in America",
+    overview: [
+      "Archbishop Iakovos (1911–2005) led the Greek Orthodox Archdiocese of North and South America from 1959 to 1996 — the longest primacy in its history — and was, for most of that time, the face of Orthodox Christianity to the American public. He was born <strong>Demetrios Coucouzis</strong> on 29 July 1911 on the island of <strong>Imvros</strong>, then still Ottoman and later Turkish, entered the Patriarchal school at <strong>Halki</strong> at fifteen, and was ordained deacon in 1934 with the name Iakovos.",
+      "He came to America to serve, was ordained priest at Lowell, Massachusetts in 1940, took a master's in sacred theology at <strong>Harvard Divinity School</strong> in 1945 and became a citizen in 1950. Consecrated bishop in 1954, he spent 1955 to 1959 in Geneva as the Ecumenical Patriarch's representative to the <strong>World Council of Churches</strong>, and in 1959 carried Patriarch Athenagoras's greeting to Pope John XXIII — the first Greek Orthodox hierarch to meet a Pope in some three and a half centuries.",
+      "Enthroned as archbishop on 1 April 1959, he set out to make the Orthodox Church a recognized part of American religious life rather than an immigrant enclave. Asked near the end what he had accomplished, he answered that it was to have the Orthodox Church accepted by the family of religions in the United States.",
+    ],
+    sections: [
+      {
+        heading: "Selma, 15 March 1965",
+        body: [
+          "Eight days after the beating of marchers at the Edmund Pettus Bridge, Iakovos flew to <strong>Selma, Alabama</strong>, and stood beside <strong>Dr Martin Luther King Jr</strong> at the memorial service for the Rev. James Reeb, a Unitarian minister beaten to death in the street. The photograph of the two men together ran on the cover of <em>Life</em> on 26 March 1965.",
+          "It cost him. Letters came from parishioners telling him he had no business there; some withheld their giving. His own account of why he went is worth having in his words rather than paraphrase — he said he had gone because he had seen his own people persecuted, and could not look away from another people being persecuted in the country that had received him.",
+          "The image did something a hundred sermons could not: it placed an Orthodox archbishop, in his rason and his panagia, inside the central American moral argument of the century. For a Church still widely mistaken for a national club, that was the beginning of visibility.",
+        ],
+      },
+      {
+        heading: "Thirty-seven years of building",
+        body: [
+          "The institutional record is long. He founded the <strong>Standing Conference of Canonical Orthodox Bishops in the Americas</strong> in the year of his enthronement and led it until he retired — the first durable body through which the jurisdictions acted together. He reorganized <strong>Holy Cross</strong> seminary and founded <strong>Hellenic College</strong> beside it, and established the <strong>St Photios National Shrine</strong> at St Augustine, Florida, marking the first Greek settlement in the New World.",
+          "He was decorated by two countries and several presidents — the <strong>Presidential Medal of Freedom</strong> from President Carter in 1980, the Ellis Island Medal of Honor in 1986 — and was received at the White House by administrations of both parties. None of that was vanity: it was the same project as Selma, conducted in a quieter register.",
+        ],
+      },
+      {
+        heading: "Ligonier, and the end of his primacy",
+        body: [
+          "In November 1994 the Orthodox bishops of North America met at <strong>Ligonier, Pennsylvania</strong>, and issued statements about their common life on this continent — including a rejection of the idea that they were a 'diaspora' whose real centre lay elsewhere. Iakovos presided.",
+          "The meeting was not welcomed at the Phanar. Within two years, on his eighty-fifth birthday in July 1996, Iakovos retired; the accounts agree that the retirement was pressed on him, and connect it to Ligonier and to a fear that he might move toward an American patriarchate. His relations with Patriarch Bartholomew had been strained for some time.",
+          "He had critics from the other direction too. His ecumenical involvement — the World Council of Churches, the meetings with popes — drew sharp public rebuke from traditionalists, most famously from Metropolitan Philaret of ROCOR in 1969. Both criticisms are part of the record and are set down here as such.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1911",
+        title: "Born on Imvros",
+        body: "Demetrios Coucouzis is born on 29 July 1911 on the island of Imvros.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1934",
+        title: "Halki, and ordination as deacon",
+        body: "He completes the Patriarchal Theological School of Halki and is ordained deacon, taking the name Iakovos.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1940–50",
+        title: "America",
+        body: "Ordained priest at Lowell, Massachusetts in 1940; takes a master's in sacred theology at Harvard Divinity School in 1945; becomes a United States citizen in 1950.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1955–59",
+        title: "Geneva and Rome",
+        body: "He represents the Ecumenical Patriarch at the World Council of Churches, and in 1959 carries Patriarch Athenagoras's greeting to Pope John XXIII.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1959",
+        title: "Enthroned as Archbishop of America",
+        body: "Enthroned on 1 April 1959, and founds the standing conference of Orthodox bishops in the Americas the same year.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1965",
+        title: "Selma",
+        body: "On 15 March he stands beside Dr Martin Luther King Jr at the memorial for the Rev. James Reeb; the photograph runs on the cover of Life on 26 March.",
+        source:
+          "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        when: "1980",
+        title: "Presidential Medal of Freedom",
+        body: "President Carter awards him the Presidential Medal of Freedom.",
+        source: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+      {
+        when: "1994",
+        title: "The Ligonier meeting",
+        body: "He presides over the gathering of North American Orthodox bishops at Ligonier, Pennsylvania, which declares that the Church here is not a diaspora.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+      {
+        when: "1996",
+        title: "Retirement",
+        body: "He retires on his eighty-fifth birthday, under pressure from the Ecumenical Patriarchate, after thirty-seven years as primate.",
+        source: "https://en.wikipedia.org/wiki/Archbishop_Iakovos_of_America",
+      },
+      {
+        when: "2005",
+        title: "Repose",
+        body: "He reposes on 10 April 2005; the funeral is served at Holy Trinity Cathedral in New York and he is buried at Holy Cross in Brookline.",
+        source: "https://orthodoxwiki.org/Iakovos_(Coucouzis)_of_America",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Remembering Selma Fifty Years Later",
+        detail:
+          "The Greek Orthodox Archdiocese's own account of 15 March 1965 and the Life cover.",
+        source:
+          "https://www.goarch.org/whats-new/-/asset_publisher/rlvS19snJYAk/content/remembering-selma-50-years-later-archbishop-iakovos-and-rev-dr-martin-luther-king",
+      },
+      {
+        title: '"Why I supported Martin Luther King in Selma"',
+        detail:
+          "Iakovos's own explanation, reprinted by Orthodox Christian Laity.",
+        source:
+          "https://ocl.org/archbishop-iakovos-supported-martin-luther-king-selma/",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Theodosius (Lazor)",
+        note: "His OCA counterpart for two decades, and a fellow participant at Ligonier in 1994.",
+        href: "witness/theodosius-lazor",
+      },
+      {
+        name: "Metropolitan Philip (Saliba)",
+        note: "The Antiochian primate of the same generation, and another of the Ligonier bishops.",
+        href: "witness/philip-saliba",
+      },
+      {
+        name: "Fr. Alexander Schmemann",
+        note: "Whose argument that the Church in America is not a diaspora is the theology behind the Ligonier statement.",
+        href: "witness/alexander-schmemann",
+      },
+    ],
+    significance: [
+      "Archbishop Iakovos is the largest single figure in twentieth-century American Orthodoxy measured by public presence, and Selma is why. Before 1965 the Orthodox Church in the United States was, to most Americans, an ethnic institution they had no occasion to think about; the photograph on the cover of Life put an Orthodox bishop into the country's central moral argument, at cost to himself and against the wishes of many of his own people.",
+      "The rest of his record — SCOBA, Hellenic College, the shrine at St Augustine, Ligonier — is one long argument that the Church on this continent is native to it and not a colony of somewhere else. That argument is what ended his primacy. He is not glorified, and nothing here implies veneration; what it records is a bishop who spent thirty-seven years insisting that Orthodoxy in America was American.",
+    ],
+  },
+  {
+    slug: "theodosius-lazor",
+    name: "Metropolitan Theodosius (Lazor)",
+    epithet: "",
+    role: "Primate of the OCA",
+    years: "1933 – 2020",
+    place: "Canonsburg, Pennsylvania",
+    bio: [
+      "The first American-born primate of the Orthodox Church in America, who as a young Bishop of Alaska headed the delegation that brought home the Tomos of Autocephaly in 1970 and then hosted the glorification of St Herman — the first saint of North America entered into the calendar.",
+      "He led the OCA from 1977 to 2002. The financial misconduct later uncovered in its central administration began during those years, and that belongs to the record as much as the rest.",
+    ],
+    sources: [
+      {
+        label:
+          "Orthodox Church in America — In Memoriam: Metropolitan Theodosius (Lazor)",
+        url: "https://www.oca.org/in-memoriam/his-beatitude-metropolitan-theodosius-lazor",
+      },
+      {
+        label:
+          "Orthodox Church in America — Past Primates: Metropolitan Theodosius",
+        url: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        label: "Wikipedia — Theodosius (Lazor)",
+        url: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+    ],
+    secularName: "Frank Lazor",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "27 Oct 1933 – 19 Oct 2020"],
+      ["Born", "Canonsburg, Pennsylvania"],
+      ["First", "American-born OCA primate"],
+      ["Bishop of Alaska", "from 1967"],
+      ["Autocephaly", "led the 1970 delegation to Moscow"],
+      ["Primate", "1977 – 2002"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "Bringing home the Tomos of Autocephaly and glorifying the first American saint",
+    overview: [
+      "Metropolitan Theodosius (1933–2020), born Frank Lazor at Canonsburg, Pennsylvania, was primate of the <strong>Orthodox Church in America</strong> from 1977 to 2002 and the first American-born man to hold that office. He was elected diocesan Bishop of Sitka and Alaska in November 1967, at thirty-four.",
+      "Two things happened in 1970 that shaped the rest of the American Church. In May he headed the delegation that travelled to Moscow to receive the <strong>Tomos of Autocephaly</strong> from the Russian Church — the document by which the metropolia became a self-governing Church. And in Alaska that summer he hosted the <strong>glorification of St Herman</strong>, the Valaam monk of the first mission, whose cause he had himself set in motion. It was the first time a saint of North America was entered into the Orthodox calendar.",
+      "He was moved to Pittsburgh and Western Pennsylvania in 1972 and elected Metropolitan of All America and Canada at the Fifth All-American Council in Montreal on 25 October 1977. He led the Church for twenty-five years, retiring in 2002, and reposed on 19 October 2020 in the town where he was born.",
+    ],
+    sections: [
+      {
+        heading: "1970 — autocephaly and St Herman",
+        body: [
+          "The Tomos of Autocephaly ended a long argument about what the Russian metropolia in America actually was. Granted by the Church of Russia in 1970 and never recognized by Constantinople, it declared the Orthodox Church in America self-governing — a decision still contested between the Churches, and one whose consequences the American Church has lived inside ever since. Theodosius, then Bishop of Alaska, headed the delegation that went to Moscow to receive it.",
+          "Weeks later he was back in Alaska for the glorification of <strong>St Herman</strong>. That mattered in a particular way: a Church arguing that it was native to this continent glorified a saint of this continent, in the place where he had lived, within weeks of claiming its independence. The two acts say the same thing. Theodosius had initiated the process that led to the glorification.",
+        ],
+      },
+      {
+        heading: "Twenty-five years as primate",
+        body: [
+          "His primacy covered the OCA's institutional middle age: the settling of its diocesan structures, the growth of St Vladimir's and St Tikhon's, further glorifications of North American saints, and the steady work of a small autocephalous Church with large claims. He took part in the <strong>Ligonier</strong> meeting of 1994 alongside Archbishop Iakovos and Metropolitan Philip.",
+          "He retired in 2002 in poor health, having led the Church for a quarter of a century.",
+        ],
+      },
+      {
+        heading: "The scandal that followed",
+        body: [
+          "In the years after his retirement, an accounting crisis broke in the OCA's central administration: allegations, subsequently substantiated in large part, that funds given to the Church had been misappropriated over a long period. The misconduct is dated by the Church's own later investigations to years that fall within his primacy, and the failure of oversight is part of what was found.",
+          "This page does not adjudicate that. It records it because a memorial that told only the first half of the story — Moscow, Alaska, St Herman — would be a flattering account rather than a true one, and because the man who forced the accounting, Archbishop Job of Chicago, has a page in this same section.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1933",
+        title: "Born at Canonsburg",
+        body: "Frank Lazor is born on 27 October 1933 in Canonsburg, Pennsylvania.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1967",
+        title: "Bishop of Sitka and Alaska",
+        body: "Elected diocesan bishop on 17 November 1967, at thirty-four.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "May 1970",
+        title: "The Tomos of Autocephaly",
+        body: "He heads the delegation that travels to Moscow to receive the Tomos by which the Orthodox Church in America becomes self-governing.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1970",
+        title: "The glorification of St Herman",
+        body: "He hosts the glorification in Alaska of the monk Herman of Valaam — the first North American saint entered into the Orthodox calendar, on a cause he had himself initiated.",
+        source: "https://en.wikipedia.org/wiki/Theodosius_(Lazor)",
+      },
+      {
+        when: "1977",
+        title: "Elected Metropolitan",
+        body: "Elected Metropolitan of All America and Canada at the Fifth All-American Council in Montreal on 25 October 1977, the first American-born primate of the Church.",
+        source: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        when: "1994",
+        title: "Ligonier",
+        body: "He takes part in the meeting of North American Orthodox bishops at Ligonier, Pennsylvania.",
+      },
+      {
+        when: "2002",
+        title: "Retirement",
+        body: "He retires after twenty-five years as primate.",
+        source: "https://www.oca.org/holy-synod/past-primates/theodosius-lazor",
+      },
+      {
+        when: "2020",
+        title: "Repose",
+        body: "He reposes on 19 October 2020 at Canonsburg, Pennsylvania.",
+        source:
+          "https://www.oca.org/in-memoriam/his-beatitude-metropolitan-theodosius-lazor",
+      },
+    ],
+    related: [
+      {
+        name: "St Herman of Alaska",
+        note: "The first saint of North America, glorified in 1970 on a cause Theodosius set in motion.",
+        href: "saint/OS-0044",
+      },
+      {
+        name: "Archbishop Job (Osacky)",
+        note: "The bishop who pressed the accounting of the administration Theodosius had led.",
+        href: "witness/job-osacky",
+      },
+      {
+        name: "Archbishop Iakovos (Coucouzis)",
+        note: "His Greek Archdiocese counterpart for most of his primacy, and a fellow bishop at Ligonier.",
+        href: "witness/iakovos-coucouzis",
+      },
+    ],
+    significance: [
+      "Metropolitan Theodosius stands at the point where the Orthodox Church in America became, formally, an American Church: he carried home the Tomos that declared it self-governing and he glorified the first saint of this continent, both within a few months of each other, both while he was Bishop of Alaska and not yet forty.",
+      "His primacy is also the period the OCA's later financial reckoning reaches back into, and this page says so. He is not glorified and no veneration is implied here. What is recorded is a man whose best work was done early and in public, and whose administration was found wanting afterwards — which is a more ordinary shape for a life than memorials usually allow.",
+    ],
+  },
+  {
+    slug: "job-osacky",
+    name: "Archbishop Job (Osacky)",
+    epithet: "",
+    role: "Archbishop of Chicago",
+    years: "1946 – 2009",
+    place: "Chicago and the Midwest",
+    bio: [
+      "Archbishop of Chicago and the Midwest, remembered above all for asking aloud, in a room of bishops who would not, whether the allegations of financial misconduct in his Church's central administration were true.",
+      "He gave episcopal cover to the reporting that made the accounting unavoidable, and he admitted in penitence that his own first instinct had been to treat it as somebody else's problem. He reposed suddenly in 2009, at sixty-three.",
+    ],
+    sources: [
+      {
+        label:
+          "Orthodox Church in America — In Memoriam: Archbishop Job of Chicago and the Midwest",
+        url: "https://www.oca.org/in-memoriam/his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest",
+      },
+      {
+        label: "Wikipedia — Job (Osacky)",
+        url: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        label: "American Orthodox Institute — In Memoriam: Archbishop Job",
+        url: "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+    ],
+    secularName: "Richard John Osacky",
+    jurisdiction: "Orthodox Church in America",
+    railFacts: [
+      ["Lived", "18 Mar 1946 – 18 Dec 2009"],
+      ["Trained", "Northern Illinois; St Tikhon's, 1970"],
+      ["Diocese", "Chicago and the Midwest"],
+      ["Known for", "Forcing the accounting of 2005–08"],
+      ["Tradition", "Orthodox Church in America"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor: "Asking the question the other bishops would not ask",
+    overview: [
+      "Archbishop Job (1946–2009), born Richard John Osacky, was Archbishop of Chicago and the Midwest in the Orthodox Church in America. He studied at Northern Illinois University and graduated from <strong>St Tikhon's Seminary</strong> in 1970, serving first as a cantor and youth director in Pennsylvania.",
+      "He is remembered for one thing above the rest. When allegations surfaced that money given to the Church had been misappropriated within its central administration, Job was the bishop who asked publicly and in the Synod whether they were true — a question his brother bishops were, by the accounts of the period, unwilling to put. He then extended the protection of his diocese to the layman whose reporting was keeping the matter in the open.",
+      "He reposed suddenly on 18 December 2009, at sixty-three, before the process he had forced was finished.",
+    ],
+    sections: [
+      {
+        heading: "The question",
+        body: [
+          "The crisis that broke in the Orthodox Church in America in the middle 2000s concerned the misappropriation of funds — including money given for missions and for charity — within the central administration in Syosset. What made it a crisis rather than a scandal was the response: for a long period the allegations were not investigated, and those raising them were treated as the problem.",
+          "Job's contribution was not investigative. It was that he asked, on the record and in the Synod, whether the allegations were true or false, and would not be moved off the question. In a hierarchical Church, a bishop willing to say aloud what others will not is worth more than a dossier; the accounting that followed, and the eventual independent investigation, are traceable to the point at which the question could no longer be avoided.",
+          "He also gave <strong>Mark Stokoe</strong>, the layman whose site was reporting the matter continuously, the standing of a diocesan officer within the Diocese of the Midwest. Without that protection the reporting would very likely have been shut down.",
+        ],
+      },
+      {
+        heading: "His own admission",
+        body: [
+          "The detail that gives the rest its weight is that Job did not claim to have been right from the beginning. He admitted afterwards, penitentially, that when the situation was first put to him around 1999 and 2000 his own reaction had been that it was the central administration's problem and no business of his diocese.",
+          "That admission is why this page can be written without embarrassment. A man who says he was slow, and then acts, is a more usable example than one who is described as having always seen clearly. It is also a plain instance of the thing the Church actually asks of people, which is repentance rather than a clean record.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1946",
+        title: "Born",
+        body: "Richard John Osacky is born on 18 March 1946.",
+        source: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        when: "1970",
+        title: "St Tikhon's Seminary",
+        body: "He graduates from St Tikhon's Seminary in South Canaan, Pennsylvania, and serves as cantor and youth director at St John the Baptist, Black Lick.",
+        source: "https://en.wikipedia.org/wiki/Job_(Osacky)",
+      },
+      {
+        when: "1999–2000",
+        title: "First told",
+        body: "The financial situation in the central administration is put to him; by his own later admission he treats it as the administration's problem rather than his own.",
+        source:
+          "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+      {
+        when: "2005–08",
+        title: "The accounting",
+        body: "He asks in the Synod whether the allegations are true, and gives episcopal protection to the reporting that keeps the matter in the open until an investigation follows.",
+        source:
+          "https://www.aoiusa.org/in-memoriam-his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest/",
+      },
+      {
+        when: "2009",
+        title: "Repose",
+        body: "He reposes suddenly on 18 December 2009, aged sixty-three.",
+        source:
+          "https://www.oca.org/in-memoriam/his-eminence-archbishop-job-archbishop-of-chicago-and-the-midwest",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Theodosius (Lazor)",
+        note: "Primate for the years the later accounting reaches back into.",
+        href: "witness/theodosius-lazor",
+      },
+      {
+        name: "Fr. Thomas Hopko",
+        note: "A voice of the same Church in the same period, who wrote and spoke on its integrity.",
+        href: "witness/thomas-hopko",
+      },
+    ],
+    significance: [
+      "Archbishop Job is in this section for an unglamorous reason: institutions do not correct themselves, and somebody with standing has to be willing to be difficult. In the Orthodox Church in America's financial crisis he was that person, at a cost to his relations with his brother bishops that those who knew him did not think was small.",
+      "He is not glorified, and this page implies no veneration. It records a bishop who was slow, said so, and then did the thing anyway — and who died before he could see it finished.",
     ],
   },
 ];
