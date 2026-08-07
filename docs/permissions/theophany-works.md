@@ -5,6 +5,12 @@
 Rodriguez (Theophany Works)
 **Requested by:** Shelby Krug, on behalf of A Cloud of Witnesses / OrthodoxSaintFinder.com
 **Status:** active — full grant (the vendor reviewed a live sample page and approved)
+**Standard terms:** [`AGREEMENT.md`](AGREEMENT.md) — written after this grant was
+given, and describing it rather than changing it. See `emails.md` template 2 for
+the note that puts the arrangement on record with the vendor.
+**In use as of 2026-08-07:** 268 images across 282 placements — 120 saint portraits,
+121 saint carousel cards, 13 feast portraits, 19 feast cards, 4 angel portraits,
+5 angel cards.
 
 ## Grant
 

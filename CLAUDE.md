@@ -1044,9 +1044,12 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   ships until a human verifies each (right saint, right license) and promotes it into
   `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
   do not clean it away.** Separately, **two vendors have granted permission** —
-  **Theophany Works** (2026-06-17/23, ~240 images wired) and **Legacy Icons**
-  (2026-08-03, registry row recorded, **no images sourced yet**); every other vendor
-  stays links-only until granted. Each grant is recorded under `docs/permissions/`.
+  **Theophany Works** (2026-06-17/23, 268 images / 282 placements) and **Legacy Icons**
+  (2026-08-03, 254 images / 267 placements); every other vendor stays links-only until
+  granted. Each grant is recorded under `docs/permissions/`, whose **`README.md` is the
+  register's runbook** (add / revoke / count) and whose **`AGREEMENT.md` is the standard
+  plain-language terms we send a publisher** — written after both grants, describing them
+  rather than changing them. `emails.md` holds the ask / confirm / revoke wording.
 - Authoring aids: `make find` (search-before-add); `python build.py --no-xlsx` (assign IDs +
   emit `data.json` on host Python, no Docker); a "wrong column?" hint on misplaced vocab
   terms; feast day-of-month range validation; duplicate-name warnings with the
@@ -1084,7 +1087,13 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   vendor icon page, which the saint page links — often a condition of the grant). To
   revoke a vendor: set its `status=revoked` (the build then excludes every image from that
   vendor and warns), then `rm -rf static/icons/permission/<vendor_slug>/` and drop the
-  matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/`.
+  matching `saint_images.csv` rows. Each grant is recorded under `docs/permissions/` —
+  **read its `README.md` before asking a new publisher or acting on a revocation**, and
+  send them `docs/permissions/AGREEMENT.md`, the standard terms (what we do with an image,
+  what we never do, how to revoke). Those terms bind us as much as the vendor: they promise
+  we never redistribute or offer downloads, never train models on the images, never emit
+  them into the xlsx/sqlite artifacts, and **that the site stays free** — the same
+  obligation the OCA grant below carries, now owed to every image publisher too.
 - **The OCA text grant (`docs/permissions/oca.md`).** The Orthodox Church in America has
   granted permission to reproduce **the lives of the saints** (Fr. Kyle Parrott, Director
   of Communications, 2026-07-18) and **the liturgical texts** (Fr. Phillip, Department of
