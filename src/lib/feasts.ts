@@ -117,7 +117,11 @@ export function dedicationClass(dedication: string): string {
 }
 
 /** The island's payload: only what today/upcoming need, kept small enough to
-    inline (≈20 KB for 83 feasts — not worth a hashed-payload endpoint). */
+    inline (≈20 KB for 83 feasts — not worth a hashed-payload endpoint).
+    `forefeast`/`apodosis` ride along so the island can resolve what is KEPT
+    today through the shared lib/liturgical resolver (a superset of its
+    LitFeast) — an afterfeast is as much "today" as the feast itself, and
+    re-deriving that here would let /feasts and the home card disagree. */
 export interface IslandFeast {
   id: string;
   name: string;
@@ -129,6 +133,8 @@ export interface IslandFeast {
   brief: string;
   begins: DateToken;
   ends?: DateToken;
+  forefeast?: DateToken;
+  apodosis?: DateToken;
 }
 
 export function islandFeasts(): IslandFeast[] {
@@ -143,5 +149,7 @@ export function islandFeasts(): IslandFeast[] {
     brief: f.brief,
     begins: f.begins,
     ...(f.ends ? { ends: f.ends } : {}),
+    ...(f.forefeast ? { forefeast: f.forefeast } : {}),
+    ...(f.apodosis ? { apodosis: f.apodosis } : {}),
   }));
 }

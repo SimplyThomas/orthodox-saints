@@ -1066,70 +1066,6 @@ a.qz-comp {
   color: var(--ivory);
 }
 
-/* Liturgical context ribbon above the saint headline (Great Feast / fast
-   season). Tinted with the day's resolved liturgical color via --sw-* vars. */
-.sotd-lit {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  background: var(--sw-bg, var(--paper));
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  margin-bottom: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  transition:
-    transform 0.14s,
-    box-shadow 0.14s;
-}
-.sotd-lit:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
-}
-.sotd-lit-bar {
-  flex: none;
-  width: 5px;
-  background: var(--sw-ac, var(--gold-deep));
-}
-.sotd-lit-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 9px 14px;
-  min-width: 0;
-}
-.sotd-lit-kick {
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--sw-ac, var(--gold-deep));
-}
-.sotd-lit-name {
-  font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.15;
-  color: var(--sw-tx, var(--ink));
-}
-/* the ribbon leads to the feast's own page — the arrow says so on hover */
-.sotd-lit-name .arr {
-  color: var(--sw-ac, var(--gold-deep));
-  opacity: 0;
-  transform: translateX(-3px);
-  transition: all 0.14s;
-  display: inline-block;
-}
-.sotd-lit:hover .sotd-lit-name .arr {
-  opacity: 1;
-  transform: translateX(0);
-}
-.sotd-lit-season {
-  font-size: 12px;
-  color: var(--sw-tx, var(--ink-soft));
-  opacity: 0.85;
-  margin-top: 2px;
-}
-
 .sotd-card-head h3 {
   font-family: var(--serif);
   font-weight: 600;
@@ -1299,52 +1235,54 @@ a.qz-comp {
   color: var(--ivory);
 }
 
-/* Liturgical context ribbon above the saint headline (Great Feast / fast
-   season). Tinted with the day's resolved liturgical color via --sw-* vars. */
+/* Liturgical context ribbon above the saint headline — what the Church keeps
+   today. Tinted with the day's resolved liturgical color via --sw-* vars.
+   It carries several links (the lead feast, plus a chip per other observance),
+   so the ribbon itself is never an <a>: an anchor inside an anchor closes the
+   outer one early and the chips stop linking to their own feasts. */
 .sotd-lit {
   display: flex;
   align-items: stretch;
   gap: 0;
   background: var(--sw-bg, var(--paper));
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  margin-bottom: 12px;
+  border: 1px solid var(--sw-ac, var(--line));
+  border-radius: 5px;
+  margin-bottom: 14px;
   overflow: hidden;
-  text-decoration: none;
-  transition:
-    transform 0.14s,
-    box-shadow 0.14s;
-}
-.sotd-lit:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
 }
 .sotd-lit-bar {
   flex: none;
-  width: 5px;
+  width: 6px;
   background: var(--sw-ac, var(--gold-deep));
 }
 .sotd-lit-body {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  padding: 9px 14px;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 13px 18px 14px;
   min-width: 0;
 }
 .sotd-lit-kick {
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--sw-ac, var(--gold-deep));
 }
 .sotd-lit-name {
   font-family: var(--serif);
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 22px;
   line-height: 1.15;
   color: var(--sw-tx, var(--ink));
+  text-decoration: none;
 }
-/* the ribbon leads to the feast's own page — the arrow says so on hover */
+.sotd-lit-name:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* the headline leads to the feast's own page — the arrow says so on hover */
 .sotd-lit-name .arr {
   color: var(--sw-ac, var(--gold-deep));
   opacity: 0;
@@ -1352,15 +1290,52 @@ a.qz-comp {
   transition: all 0.14s;
   display: inline-block;
 }
-.sotd-lit:hover .sotd-lit-name .arr {
+.sotd-lit-name:hover .arr {
   opacity: 1;
   transform: translateX(0);
 }
-.sotd-lit-season {
-  font-size: 12px;
-  color: var(--sw-tx, var(--ink-soft));
-  opacity: 0.85;
-  margin-top: 2px;
+/* The other things kept today (a fast season, a fast day) and the day's
+   fasting rule — for most visitors the most actionable line on the card, so
+   it reads as chips rather than the grey half-sentence it used to be. */
+.sotd-lit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.sotd-lit-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sw-tx, var(--ink));
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--sw-ac, var(--line));
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition:
+    background 0.14s,
+    box-shadow 0.14s;
+}
+.sotd-lit-chip:hover {
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.sotd-lit-chip .k {
+  font-family: var(--text);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sw-ac, var(--gold-deep));
+}
+/* the fasting pill sits in the same row; match the chips' height */
+.sotd-lit-tags .ff-fast {
+  font-size: 12.5px;
+  padding: 6px 14px;
 }
 
 /* ============================================================
@@ -7057,6 +7032,114 @@ a.sv-rail-chip:hover {
 }
 .ff-today-cal:hover svg {
   transform: translateX(3px);
+}
+/* ---- what the Church keeps today (feasts, fasts, afterfeasts) ----
+   The saints of the day were never the whole answer on THIS page: the
+   "coming up next" card below looks only ahead, so without this block a feast
+   falling today was named nowhere on the Feasts & Fasts page. */
+.ff-today-kept {
+  padding: 18px 30px 4px;
+}
+.ff-today-kept[hidden] {
+  display: none;
+}
+.ff-kept-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.ff-kept-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--byz-deep);
+  margin: 0;
+}
+.ff-kept-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ff-kept-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line-gold);
+  border-radius: 6px;
+  padding: 13px 16px 14px;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+a.ff-kept-link:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card);
+}
+.ff-kept--great .ff-kept-link {
+  border-left-color: var(--gold);
+}
+.ff-kept--fast .ff-kept-link {
+  border-left-color: rgba(120, 104, 150, 0.6);
+}
+.ff-kept--observance .ff-kept-link {
+  border-left-color: var(--line);
+}
+.ff-kept-kick {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.ff-kept--fast .ff-kept-kick {
+  color: #5a4a72;
+}
+.ff-kept-name {
+  display: block;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--byz-deep);
+  margin-top: 3px;
+}
+.ff-kept-name .arr {
+  color: var(--gold-deep);
+  opacity: 0;
+  margin-left: 5px;
+  transition: all 0.14s;
+  display: inline-block;
+  transform: translateX(-3px);
+}
+a.ff-kept-link:hover .ff-kept-name .arr {
+  opacity: 1;
+  transform: translateX(0);
+}
+.ff-kept-brief {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ff-today-sub {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--byz-deep);
+  margin: 0;
+  padding: 20px 30px 0;
 }
 .ff-today-saints {
   display: grid;
