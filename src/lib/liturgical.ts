@@ -694,6 +694,11 @@ export interface DayHighlight {
   feast: DayFeast | null;
   /** an active fasting season / fast-free week, for context, if any */
   season: DayFeast | null;
+  /** a single penitential day kept today (the Beheading of the Forerunner is
+      the year's only one). It is not a festal banner and it is not a season,
+      so without its own slot it fell out of the highlight entirely and a
+      surface asking "what is kept today?" answered nothing. */
+  fastDay: DayFeast | null;
 }
 
 const FESTAL_CATEGORY_RANK: Record<string, number> = {
@@ -703,10 +708,17 @@ const FESTAL_CATEGORY_RANK: Record<string, number> = {
   Observance: 1,
 };
 
-function festalLabel(f: LitFeast, role: ObservanceRole): string {
+/** The short banner label for one observance kept on a day — "Great Feast of
+    the Lord", "Afterfeast", "Fast Season". Shared by every surface that names
+    what is kept today (the home ribbon, the /feasts "kept today" card) so the
+    two never word the same day differently. */
+export function observanceLabel(f: LitFeast, role: ObservanceRole): string {
   if (role === "forefeast") return "Forefeast";
   if (role === "afterfeast") return "Afterfeast";
   if (role === "leavetaking") return "Leave-taking";
+  if (f.category === "Fast Season") return "Fast Season";
+  if (f.category === "Fast-Free Week") return "Fast-Free Week";
+  if (f.category === "Fast Day") return "Fast Day";
   if (f.category === "Feast of Feasts") return "Feast of Feasts";
   const great = f.category === "Great Feast";
   if (f.dedication === "Theotokos")
@@ -729,53 +741,69 @@ const SEASON_DISPLAY_NAMES: Record<string, string> = {
   "FF-0021": "The Twelve Days of Christmas",
 };
 
-/** Pull the day's leading festal feast and any active fasting season out of
-    its observances. The feast is the highest-scoring festal record — a feast
-    kept on the day outranks its own fore-/afterfeast, and a higher category
-    outranks a lower one. Fast Days (single penitential days) are not surfaced
-    as a festal banner; they belong to the fasting layer. */
-export function dayHighlight(observances: ActiveObservance[]): DayHighlight {
-  const roleRank = (r: ObservanceRole): number =>
-    r === "day" || r === "span"
+/** The name to print for an observance kept today. Exported so a list of the
+    day's observances reads the same as the headline drawn from it — printing
+    a row's formal Name in one place and its reader-facing name in the other
+    makes the two look like different seasons. */
+export function observanceName(f: LitFeast): string {
+  return SEASON_DISPLAY_NAMES[f.id] ?? f.name;
+}
+
+/** How prominently one observance reads on the day it is kept. Three tiers,
+    because they answer different questions and must not be mixed: the festal
+    records (what feast is it?), then a single Fast Day, then the season
+    running underneath (a fast season / fast-free week is context, never the
+    day's own commemoration). Within a tier a record kept ON the day outranks
+    its own fore-/afterfeast, and a higher category outranks a lower one. */
+function observanceRank(o: ActiveObservance): number {
+  const roleRank =
+    o.role === "day" || o.role === "span"
       ? 3
-      : r === "afterfeast" || r === "leavetaking"
+      : o.role === "afterfeast" || o.role === "leavetaking"
         ? 2
         : 1;
+  const cat = o.feast.category;
+  if (cat === "Fast Season" || cat === "Fast-Free Week")
+    return 1000 + roleRank * 10 + (cat === "Fast Season" ? 2 : 1);
+  if (cat === "Fast Day") return 2000 + roleRank * 10;
+  const catRank = FESTAL_CATEGORY_RANK[cat];
+  if (!catRank) return 0; // an uncategorized row: listed last, never a lead
+  return 3000 + roleRank * 10 + catRank;
+}
 
-  let feast: { o: ActiveObservance; score: number } | null = null;
-  let season: { o: ActiveObservance; score: number } | null = null;
+/** A day's observances in the order every "kept today" surface shows them.
+    The home card takes its lead from the front of this order and the /feasts
+    "kept today" list renders the whole of it, so a headline and a list can
+    never disagree about what leads a day. */
+export function sortObservances(
+  observances: ActiveObservance[],
+): ActiveObservance[] {
+  return [...observances].sort((a, b) => observanceRank(b) - observanceRank(a));
+}
 
-  for (const o of observances) {
-    const cat = o.feast.category;
-    if (cat === "Fast Season" || cat === "Fast-Free Week") {
-      const score = roleRank(o.role);
-      if (!season || score > season.score) season = { o, score };
-      continue;
-    }
-    const catRank = FESTAL_CATEGORY_RANK[cat];
-    if (!catRank) continue; // Fast Day, etc. — not a festal banner
-    const score = roleRank(o.role) * 10 + catRank;
-    if (!feast || score > feast.score) feast = { o, score };
-  }
+/** Pull the day's leading festal feast, any active fasting season, and any
+    single fast day out of its observances — the top of each tier of
+    `sortObservances`. A Fast Day keeps its own slot rather than joining the
+    festal ones, so a surface may lead with it without it ever colouring a day
+    as festal. */
+export function dayHighlight(observances: ActiveObservance[]): DayHighlight {
+  const sorted = sortObservances(observances);
+  const top = (test: (o: ActiveObservance) => boolean): DayFeast | null => {
+    const o = sorted.find(test);
+    return o
+      ? {
+          id: o.feast.id,
+          name: observanceName(o.feast),
+          label: observanceLabel(o.feast, o.role),
+        }
+      : null;
+  };
+  const cat = (o: ActiveObservance): string => o.feast.category;
 
   return {
-    feast: feast
-      ? {
-          id: feast.o.feast.id,
-          name: feast.o.feast.name,
-          label: festalLabel(feast.o.feast, feast.o.role),
-        }
-      : null,
-    season: season
-      ? {
-          id: season.o.feast.id,
-          name: SEASON_DISPLAY_NAMES[season.o.feast.id] ?? season.o.feast.name,
-          label:
-            season.o.feast.category === "Fast-Free Week"
-              ? "Fast-Free Week"
-              : "Fast Season",
-        }
-      : null,
+    feast: top((o) => !!FESTAL_CATEGORY_RANK[cat(o)]),
+    season: top((o) => cat(o) === "Fast Season" || cat(o) === "Fast-Free Week"),
+    fastDay: top((o) => cat(o) === "Fast Day"),
   };
 }
 
