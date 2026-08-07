@@ -21,9 +21,14 @@
 >    Word* and the Platina skete were founded by the two of them together, and
 >    that cannot honestly be written any other way.
 >
-> **Tier 2 is now complete too** — Iakovos, Theodosius and Job are live, taking the
-> section to twenty. Only Tier 3 (international) remains, and it needs the scope
-> decision, not more research.
+> **ALL THREE TIERS ARE NOW BUILT.** Tier 2 (Iakovos, Theodosius, Job) and Tier 3
+> (Bloom, Ware, Aimilianos, Lossky, Gillet, Dobrev, Rodionov) followed, taking the
+> section to **twenty-seven**. **The scope question below is answered: the section
+> was widened to the whole Church in living memory on 2026-08-07.** `/america`
+> keeps its own curated American roster of eleven, so the widening cost that page
+> nothing; `/witnesses` is where the international entries live. The two Tier-3
+> entries marked *verify* (Lossky, Gillet) were checked and are not canonized.
+> This document is now spent apart from its cautions.
 >
 > The lesson is the one the document already states about vendor titles, turned
 > on itself: a name and a year in a list are not a verified record.
@@ -115,13 +120,13 @@ Listed with glorification status **verified**, because this is where the traps a
 
 | Candidate | Reposed | Canonized? | Note |
 |---|---|---|---|
-| **Metropolitan Anthony (Bloom) of Sourozh** | 2003 | ✅ verified **not** canonized | Widely regarded as a saint in Britain and Russia; *Beginning to Pray* shaped a generation. |
-| **Metropolitan Kallistos (Ware) of Diokleia** | 2022 | ✅ verified **not** canonized | *The Orthodox Church* and *The Orthodox Way* are how most English speakers first met Orthodoxy — including many of this site's visitors. |
-| **Elder Aimilianos of Simonopetra** | 2019 | ✅ verified **not** canonized | Widely venerated; renewed Simonopetra and Ormylia. |
-| **Vladimir Lossky** | 1958 | verify | Lay theologian of the Paris school; *The Mystical Theology of the Eastern Church*. |
-| **Fr Lev Gillet** | 1980 | verify | "A monk of the Eastern Church". |
-| **Evgeny Rodionov** | 1996 | not glorified | ⚠️ **The most sensitive name on this list.** A Russian conscript killed in Chechnya, said to have refused to remove his cross. Enormously venerated popularly; the Moscow Patriarchate has repeatedly declined to glorify him, and the account rests on his mother's testimony. A page would have to say all of that plainly. |
-| **Dobri Dobrev** | 2018 | not glorified | The Bulgarian beggar who gave away everything he collected to restore churches. Beloved, uncontroversial, and easy to source. |
+| ~~**Metropolitan Anthony (Bloom) of Sourozh**~~ ✅ **ADDED** `/witness/anthony-bloom` | 2003 | re-verified **not** canonized | Widely regarded as a saint in Britain and Russia; *Beginning to Pray* shaped a generation. |
+| ~~**Metropolitan Kallistos (Ware) of Diokleia**~~ ✅ **ADDED** `/witness/kallistos-ware` | 2022 | re-verified **not** canonized | *The Orthodox Church* and *The Orthodox Way* are how most English speakers first met Orthodoxy — including many of this site's visitors. |
+| ~~**Elder Aimilianos of Simonopetra**~~ ✅ **ADDED** `/witness/aimilianos-simonopetra` | 2019 | re-verified **not** canonized | Widely venerated; renewed Simonopetra and Ormylia. |
+| ~~**Vladimir Lossky**~~ ✅ **ADDED** `/witness/vladimir-lossky` | 1958 | **verified** not canonized | Lay theologian of the Paris school; *The Mystical Theology of the Eastern Church*. |
+| ~~**Fr Lev Gillet**~~ ✅ **ADDED** `/witness/lev-gillet` | 1980 | **verified** not canonized | "A monk of the Eastern Church". |
+| ~~**Evgeny Rodionov**~~ ✅ **ADDED** `/witness/evgeny-rodionov` | 1996 | not glorified — Moscow has declined; the page says so | ⚠️ **The most sensitive name on this list.** A Russian conscript killed in Chechnya, said to have refused to remove his cross. Enormously venerated popularly; the Moscow Patriarchate has repeatedly declined to glorify him, and the account rests on his mother's testimony. A page would have to say all of that plainly. |
+| ~~**Dobri Dobrev**~~ ✅ **ADDED** `/witness/dobri-dobrev` | 2018 | not glorified | The Bulgarian beggar who gave away everything he collected to restore churches. Beloved, uncontroversial, and easy to source. |
 
 ---
 
