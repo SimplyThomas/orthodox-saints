@@ -174,7 +174,7 @@ const description =
         <div class="ff-today-head">
           <div>
             <div class="eyebrow" id="ff-today-date">Today</div>
-            <h2>Saints commemorated today</h2>
+            <h2>Commemorated today</h2>
           </div>
           <a class="ff-today-cal" href={calendarHref}>
             <svg
@@ -203,11 +203,24 @@ const description =
             >
           </a>
         </div>
-        <div class="ff-today-saints" id="ff-today-saints">
-          <p class="ff-today-empty">
-            Open <a href={calendarHref}>the liturgical calendar</a> to see today's
-            commemorations.
-          </p>
+        {
+          /* The feasts and fasts KEPT today — island-filled, because a
+             build-time new Date() would freeze it to deploy day. This is the
+             Feasts & Fasts page, so the day's own feast has to be here: the
+             "coming up next" card below deliberately looks only ahead, and
+             without this block a feast falling today was named nowhere. */
+        }
+        <div class="ff-today-kept" id="ff-today-kept" hidden></div>
+        <div class="ff-today-saints-wrap">
+          <h3 class="ff-today-sub" id="ff-today-sub">
+            Saints commemorated today
+          </h3>
+          <div class="ff-today-saints" id="ff-today-saints">
+            <p class="ff-today-empty">
+              Open <a href={calendarHref}>the liturgical calendar</a> to see today's
+              commemorations.
+            </p>
+          </div>
         </div>
       </section>
 
