@@ -154,7 +154,17 @@ def fetch_day(month: int, day: int, delay: float, force: bool) -> str | None:
 
 
 def strip_tags(s: str) -> str:
-    s = re.sub(r"<[^>]+>", "", s)
+    # Footnote markers first: oca.org prints them as <sup>1</sup> inside the
+    # hymn, and deleting only the tags leaves the digit welded to the previous
+    # word — "crushes the head of the Enemy,1 /" would ship as the hymn's own
+    # text. The note itself lives after an <hr> below the hymn and never enters
+    # this string, so the marker has nothing to point at here anyway.
+    s = re.sub(r"<sup\b[^>]*>.*?</sup>", "", s, flags=re.I | re.S)
+    # Tags become a SPACE, not nothing. oca.org closes and reopens a paragraph
+    # between a podoben rubric and the hymn it belongs to, and deleting the tags
+    # outright produced "(Podoben: “…”)The universe rejoices" — two words fused
+    # across a structural boundary. The \s+ collapse below tidies the rest.
+    s = re.sub(r"<[^>]+>", " ", s)
     return re.sub(r"\s+", " ", htmllib.unescape(s)).strip()
 
 
