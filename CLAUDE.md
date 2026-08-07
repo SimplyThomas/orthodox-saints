@@ -1014,17 +1014,19 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
   merge is the full Greek (GOARCH) calendar.**
 - **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **The Daily Dove is built and unpublished.** 36 dispatches across nineteen
-  centuries, linked from 34 saint pages, 3 feast pages and the calendar, and in the
+- **The Daily Dove is built and unpublished.** 64 dispatches across nineteen
+  centuries, linked from 37 saint pages, 3 feast pages and the calendar, and in the
   nav. Held open: the Joseph the Sanctified dispatch (which Joseph?), Palladius and
   the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
   missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
   The section was rebuilt as **The Living Archive** (§5c) after the first merge:
   broadsheet front page on newsprint, the newsroom departments as the single filing
   axis, dispatch pills (when · who · what kind), and an archive with search, sort
-  and folding facets. Only Marketplace Buzz is thin (1 dispatch) —
-  the desks are standing sections and are shown even when quiet, so that is a
-  commissioning gap, not a bug.
+  and folding facets. Two multi-part **files** have since landed: St Spyridon
+  (23 dispatches, #416) and St Lucia of Syracuse (5). Marketplace Buzz is still
+  the thinnest desk (4) — the desks are standing sections and are shown even when
+  quiet, so that is a commissioning gap, not a bug. The Lucia file is the archive's
+  first use of the **`medieval-tradition`** evidence level; `legend` is still unused.
 - **Status: LAUNCHED for the parish 2026-07-18 (PR #352).** Every `draft` profile was
   promoted `→ reviewed`, so nearly all saints **and all 83 feasts are now public**; the 141
   `flagged` profiles stay hidden (resolve via #349). **Visibility is no longer the lever —
