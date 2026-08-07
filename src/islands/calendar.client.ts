@@ -40,6 +40,7 @@ import { withBase } from "../lib/format";
 import type { PaschaTable } from "../lib/feast-dates";
 import type { LectionaryYear, Reading } from "../lib/lectionary";
 import {
+  LECTIONARY_SOURCE,
   PARISH_CAVEAT,
   TRADITIONS,
   passageNote,
@@ -355,6 +356,19 @@ if (root && app && source && grid && panel && monthLabel) {
     box.append(el("p", "cal-read-trad", tradition.label));
     box.append(el("p", "cal-read-note", tradition.note));
     box.append(el("p", "cal-read-note", PARISH_CAVEAT));
+
+    // Whose reckoning this is. The table is harvested, not ours (§5d), and
+    // its MIT licence asks the notice to travel with it.
+    const credit = el("p", "cal-read-src");
+    credit.append(document.createTextNode(LECTIONARY_SOURCE.before));
+    const srcLink = document.createElement("a");
+    srcLink.href = LECTIONARY_SOURCE.href;
+    srcLink.target = "_blank";
+    srcLink.rel = "noopener noreferrer";
+    srcLink.textContent = LECTIONARY_SOURCE.name;
+    credit.append(srcLink, document.createTextNode(LECTIONARY_SOURCE.after));
+    box.append(credit);
+
     return box;
   }
 

@@ -1043,7 +1043,14 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   `dist/image_review.csv` + `dist/icon_contact_sheet.html` — all `needs_review`; nothing
   ships until a human verifies each (right saint, right license) and promotes it into
   `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
-  do not clean it away.** Separately, **two vendors have granted permission** —
+  do not clean it away.** **That backlog is smaller than it sounds, and the standing "656
+  images await review" caveat overstates it:** the queue is *candidates*, not shipped
+  images. Of the 298 saint portraits live today, **273 are vendor-permission and only 23
+  are open-license** (9 PD, 8 PD-art, 3 PD-old, 2 CC-BY-SA-4.0, 2 CC-BY-2.0, 1 CC0). All
+  18 CC-BY/CC-BY-SA rows across every join carry both a `credit` and a `source`, and
+  `SaintView` renders credit + licence + source link, so **attribution is complete** —
+  what the 23 still want is provenance/clergy review, not licence work. Audited 2026-08-07.
+  Separately, **two vendors have granted permission** —
   **Theophany Works** (2026-06-17/23, 268 images / 282 placements) and **Legacy Icons**
   (2026-08-03, 254 images / 267 placements); every other vendor stays links-only until
   granted. Each grant is recorded under `docs/permissions/`, whose **`README.md` is the

@@ -13,8 +13,14 @@ guide is the short version; the full operating contract is in [`CLAUDE.md`](CLAU
 - **Don't invent facts.** Honest stubs and blanks are fine; fabrication is not. Keep
   `Sources` filled on every row. Tag `Life Experience` only when the saint's life supports
   it — these are pastoral facets, never clinical claims.
-- **Respect copyright.** Never paste hymns/troparia or copyrighted translations, and don't
-  add unlicensed images — the build derives link-out search URLs instead.
+- **Respect copyright.** Don't paste a copyrighted translation and don't add an unlicensed
+  image — the build derives link-out search URLs instead. Reproducing a text or an image is
+  allowed only where it passes a gate the build enforces: a genuinely **public-domain**
+  source (ANF/NPNF, an explicit `(PD)`, `CC0`), an **open licence** (`PD*`, `CC0`,
+  `CC-BY*`, `CC-BY-SA*` — the last two need a credit), or a **`Permission:<slug>` token**
+  resolved against `data/image_permissions.csv` / `data/text_permissions.csv`. Anything
+  else fails validation, which is the point. A source link is not permission. See
+  [`docs/permissions/README.md`](docs/permissions/README.md).
 - **Saint IDs are permanent.** Add new rows with a **blank** Saint ID; the build assigns
   the next `OS-####` and writes it back. Never hand-pick, reuse, or renumber IDs.
 
@@ -47,6 +53,26 @@ operating contract (sourcing strategy, guardrails, edge cases) is
 4. Commit with a clear message and open a PR. Fill in the PR checklist.
 5. CI (`validate`: unit tests + data validation) must pass. Then squash-merge.
    Deploy to GitHub Pages happens automatically on `main`.
+
+## Licensing your contribution
+
+The project publishes its own data as **CC0 1.0** (public domain) and its code as **MIT**
+— see [`LICENSE-data`](LICENSE-data) and [`LICENSE`](LICENSE). For that to be true of the
+whole, it has to be true of each part.
+
+**By opening a pull request you agree that:**
+
+- your contribution is **your own work**, or is material you have the right to contribute;
+- your **data** contributions are released under **CC0 1.0**, and your **code**
+  contributions under the **MIT License**, on the same terms as the rest of the project;
+- you have **not** pasted in text or images belonging to someone else, unless they pass one
+  of the gates in "Respect copyright" above — and if it is permission-based rather than
+  openly licensed, you have said so in the PR so it can be recorded in
+  [`docs/permissions/`](docs/permissions/) and revoked cleanly later.
+
+No CLA to sign and nothing to send — opening the PR is the agreement. If any of it does not
+hold for something you want to add, say so in the PR description rather than leaving it to
+be discovered; a contribution we cannot license is worse than one we do not have.
 
 ## Standing caveat
 

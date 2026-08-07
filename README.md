@@ -100,8 +100,20 @@ strategy, guardrails, and authoring conventions).
 ## Licenses
 
 - **Code:** MIT — see [`LICENSE`](LICENSE).
-- **Data** (`data/` and derived artifacts): dedicated to the public domain under
-  Creative Commons Zero 1.0 (CC0 1.0) — see [`LICENSE-data`](LICENSE-data). Use it freely,
-  even commercially, with no attribution required (a link back is appreciated). The CC0
-  dedication covers only data authored here; linked third-party material (hymn
-  translations, icon images, vendor photos) is not included.
+- **Data we authored** — the saints, feasts, hosts, vocabulary, groups, and name-variant
+  tables, plus our own profile prose: dedicated to the public domain under Creative
+  Commons Zero 1.0 (CC0 1.0). Use it freely, even commercially, with no attribution
+  required (a link back is appreciated).
+- **Some of `data/` is NOT ours to give away**, and the dedication does not reach it:
+  hymn texts held under a revocable permission from the OCA (`data/saint_hymns.csv`), the
+  join rows for vendor-permission images, and the daily lectionary, which is harvested
+  from the MIT-licensed [orthocal.info](https://orthocal.info) rather than authored here.
+  **Read [`LICENSE-data`](LICENSE-data) before reusing anything from `data/`** — it lists
+  exactly what is dedicated and what is not, file by file.
+- **Permissions** granted to this project (two icon publishers, and the OCA for text) are
+  revocable courtesies, not licences, and do not travel to you with a copy of this
+  repository. They are recorded in [`docs/permissions/`](docs/permissions/) — see its
+  [`README`](docs/permissions/README.md) for how each is enforced and revoked, and
+  [`AGREEMENT.md`](docs/permissions/AGREEMENT.md) for the terms we offer a publisher.
+- **Something of yours here without permission?** Write to contact@orthodoxsaintfinder.com
+  and it comes down — see [Rights & takedown](docs/permissions/README.md#revoking).
