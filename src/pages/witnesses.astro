@@ -14,7 +14,11 @@ import { withBase } from "../lib/format";
 
 /* Ordered by repose, most recent last — the section reads as a century of the
    Church's memory rather than as a ranking. A witness with no years sorts to
-   the end rather than to 1900. */
+   the end rather than to 1900.
+
+   The roster was America-only until August 2026 and is now the whole Church in
+   living memory; /america keeps its own curated American subset, so this page is
+   the only place the international entries are listed. */
 const reposeYear = (w: (typeof WITNESSES)[number]): number => {
   const tail = w.reposedYear || (w.years.split("–").pop() || "").trim();
   const n = Number.parseInt(tail, 10);
@@ -38,8 +42,9 @@ const withProfile = witnesses.filter((w) => w.overview?.length).length;
       <h1>Witnesses of Our Time</h1>
       <p class="wt-lede">
         Orthodox Christians of the last hundred years whom the faithful hold in
-        living memory — teachers, missionaries, hierarchs, monastics and
-        converts who shaped the Church in our own age.
+        living memory — teachers, missionaries, hierarchs, monastics, scholars
+        and almsgivers, from America, Britain, France, Greece, Russia and the
+        Balkans, who shaped the Church in our own age.
       </p>
       <p class="wt-count">
         {witnesses.length} witnesses · {withProfile} with full memorial pages
