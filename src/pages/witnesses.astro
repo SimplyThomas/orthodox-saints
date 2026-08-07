@@ -1,0 +1,206 @@
+---
+/* Witnesses of Our Time — the index for the memorial section.
+   Until now the only way into /witness/<slug> was the curated carousel on
+   /america, which shows a subset; several witnesses had pages reachable from
+   nowhere but a cross-reference. This page lists every one of them.
+
+   §9/§11: these people are NOT glorified. Nothing here uses a liturgical
+   address, and no feast, veneration or intercession is implied or offered.
+   The banner below says so in the reader's own words, not in a footnote. */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { WITNESSES } from "../lib/witnesses";
+import { witnessAvatar } from "../lib/icons";
+import { withBase } from "../lib/format";
+
+/* Ordered by repose, most recent last — the section reads as a century of the
+   Church's memory rather than as a ranking. A witness with no years sorts to
+   the end rather than to 1900. */
+const reposeYear = (w: (typeof WITNESSES)[number]): number => {
+  const tail = w.reposedYear || (w.years.split("–").pop() || "").trim();
+  const n = Number.parseInt(tail, 10);
+  return Number.isFinite(n) ? n : 9999;
+};
+const witnesses = [...WITNESSES].sort(
+  (a, b) => reposeYear(a) - reposeYear(b) || a.name.localeCompare(b.name),
+);
+
+const withProfile = witnesses.filter((w) => w.overview?.length).length;
+---
+
+<BaseLayout
+  active="collections"
+  title="Witnesses of Our Time"
+  description="Orthodox Christians of the last hundred years held in living memory but not formally glorified — remembered here without any claim of sainthood."
+>
+  <section class="wt-hero">
+    <div class="wrap">
+      <p class="wt-eyebrow">A memorial collection</p>
+      <h1>Witnesses of Our Time</h1>
+      <p class="wt-lede">
+        Orthodox Christians of the last hundred years whom the faithful hold in
+        living memory — teachers, missionaries, hierarchs, monastics and
+        converts who shaped the Church in our own age.
+      </p>
+      <p class="wt-count">
+        {witnesses.length} witnesses · {withProfile} with full memorial pages
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap wt-notice-wrap">
+    <aside class="wt-notice">
+      <h2>These are not saints, and this is not veneration</h2>
+      <p>
+        Not one of the people on this page has been formally glorified by the
+        Orthodox Church. They are kept deliberately apart from the database of
+        saints: they carry no feast day, no troparion, and no intercession, they
+        are never addressed in prayer here, and they do not appear in the saint
+        finder or the patron quiz.
+      </p>
+      <p>
+        What this section offers instead is memory. These are people whose lives
+        the Church has not judged, and whose stories are recent enough that many
+        who knew them are still living. Where a record is complicated, it is
+        written that way rather than tidied. If any of them is one day
+        glorified, their entry belongs in the saints database and will be moved
+        there.
+      </p>
+    </aside>
+  </section>
+
+  <section class="wrap wt-grid-wrap">
+    <ul class="wt-grid">
+      {
+        witnesses.map((w) => (
+          <li>
+            <a class="wt-card" href={withBase(`witness/${w.slug}`)}>
+              <div class="wt-portrait" set:html={witnessAvatar(w, 84, 104)} />
+              <div class="wt-body">
+                <h3>{w.name}</h3>
+                {w.epithet && <p class="wt-epithet">{w.epithet}</p>}
+                <p class="wt-years">{w.years}</p>
+                <p class="wt-role">{w.role}</p>
+                <p class="wt-bio">{w.bio[0]}</p>
+                <span class="wt-tag">Not glorified</span>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .wt-hero {
+    padding: 2.5rem 0 1.25rem;
+    text-align: center;
+  }
+  .wt-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--muted, #7a7a7a);
+    margin: 0 0 0.4rem;
+  }
+  .wt-hero h1 {
+    margin: 0 0 0.5rem;
+  }
+  .wt-lede {
+    max-width: 46rem;
+    margin: 0 auto 0.6rem;
+    color: var(--muted, #555);
+  }
+  .wt-count {
+    font-size: 0.85rem;
+    color: var(--muted, #7a7a7a);
+    margin: 0;
+  }
+
+  .wt-notice-wrap {
+    margin: 1rem auto 2rem;
+  }
+  .wt-notice {
+    border: 1px solid var(--rule, #d8d2c4);
+    border-left-width: 4px;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    max-width: 52rem;
+    margin: 0 auto;
+    background: var(--card, transparent);
+  }
+  .wt-notice h2 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+  }
+  .wt-notice p {
+    margin: 0 0 0.6rem;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+  .wt-notice p:last-child {
+    margin-bottom: 0;
+  }
+
+  .wt-grid {
+    list-style: none;
+    margin: 0 0 3rem;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  }
+  .wt-card {
+    display: flex;
+    gap: 0.9rem;
+    height: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--rule, #d8d2c4);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .wt-card:hover,
+  .wt-card:focus-visible {
+    border-color: var(--accent, #b08d3f);
+  }
+  .wt-portrait {
+    flex: 0 0 auto;
+  }
+  .wt-body {
+    min-width: 0;
+  }
+  .wt-body h3 {
+    margin: 0 0 0.15rem;
+    font-size: 1.02rem;
+  }
+  .wt-epithet,
+  .wt-years,
+  .wt-role {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--muted, #6f6f6f);
+  }
+  .wt-role {
+    margin-bottom: 0.4rem;
+  }
+  .wt-bio {
+    margin: 0 0 0.5rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .wt-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--rule, #d8d2c4);
+    border-radius: 999px;
+    color: var(--muted, #6f6f6f);
+  }
+</style>
