@@ -37,15 +37,29 @@ church's server.
 *** BEFORE YOU RUN THIS, READ THIS PARAGRAPH. ***
 
 An earlier version of this script fetched all 366 days in one go while every
-request was failing, and that burst tripped oca.org's WAF and got the machine
-IP-blocked — from the site of the people who granted us the permission. The
-grant covers the TEXT; it is not consent to crawl their server. So:
+single request was failing, and we read that as having tripped a rate limiter
+and earned an IP block. That diagnosis was WRONG, and the correction is worth
+recording because it shaped this whole file.
+
+On 2026-08-07 the OCA's technical manager confirmed our address was on no block
+list and asked what user agent we send. Testing against
+/saints/troparia/2015/08/07 from 76.104.36.100: our full UA returned a bare
+nginx 403, the same request with the trailing word "harvest" removed returned
+200, and "Mozilla/5.0 harvest" was refused too. It was a substring match on that
+one word, from any client, on every request — never a rate limit, never an IP
+ban. The word is gone from UA below; do not reintroduce it, or any synonym a
+blocklist would read as a scraper ("scrape", "crawler", "spider", "bot").
+
+The politeness brakes below are NOT part of that mistake and stay as they are.
+The grant covers the TEXT; it is not consent to crawl their server. So:
 
   * Start with `--days 5`, confirm the pages parse, and only then widen.
   * The default delay is deliberately slow. Do not lower it.
   * If it aborts on consecutive failures, WAIT. Do not re-run, do not swap HTTP
     client, do not route around it. Three refusals in a row mean they are
-    refusing us, and the courteous reading is the correct one.
+    refusing us, and the courteous reading is the correct one. (Read the
+    response first, though — ours said 403 for a reason we could have found in
+    one request and instead guessed at for months.)
   * If a full harvest is ever wanted, ask the OCA first. They have been
     generous; a note costs one email and is faster than being blocked.
 
@@ -60,10 +74,11 @@ import argparse
 import csv
 import html as htmllib
 import re
-import subprocess
 import sys
 import time
 import unicodedata
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -72,8 +87,12 @@ DIST = ROOT / "dist"
 CACHE = DIST / "oca_troparia"
 OUT_CSV = DIST / "hymn_review.csv"
 
+# Identifies us honestly and gives them somewhere to write. Keep it plain: the
+# word "harvest" used to sit on the end of this string and oca.org's nginx 403'd
+# every request that carried it (see the docstring). Say who we are, not what we
+# are doing to their server.
 UA = ("CloudOfWitnesses/1.0 (+https://orthodoxsaintfinder.com; "
-      "contact@orthodoxsaintfinder.com) permission-granted text harvest")
+      "contact@orthodoxsaintfinder.com)")
 # The year in the URL only selects which movable feasts land on the day; the
 # fixed-calendar commemorations we join against are the same every year.
 YEAR = 2015
@@ -131,23 +150,26 @@ def fetch_day(month: int, day: int, delay: float, force: bool) -> str | None:
     if path.exists() and not force:
         return path.read_text(encoding="utf-8", errors="replace")
     url = BASE.format(y=YEAR, m=month, d=day)
-    # Fetched via curl, not urllib: oca.org sits behind a WAF that 403s urllib
-    # on TLS/HTTP-2 fingerprint alone — identical URL and User-Agent, curl 200,
-    # urllib 403. curl is an ordinary HTTP client and we still identify
-    # ourselves honestly in the UA; nothing here disguises who is calling.
+    # Plain urllib. This used to shell out to curl, on the belief that oca.org
+    # fingerprinted urllib's TLS and 403'd it regardless of headers. It does
+    # not: with the same UA both clients get 200, and both get 403 if the UA
+    # carries "harvest". The 403 was always the UA, never the client.
+    req = urllib.request.Request(
+        url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
     try:
-        proc = subprocess.run(
-            ["curl", "-sS", "--fail", "--max-time", "30",
-             "-A", UA, "-H", "Accept: text/html,*/*;q=0.8", url],
-            capture_output=True, text=True, timeout=45)
-    except (OSError, subprocess.TimeoutExpired) as e:       # noqa: BLE001
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as e:
+        # Print the status: a 403 here is a message about us, not weather.
+        print(f"  {month:02d}-{day:02d}: HTTP {e.code} {e.reason}",
+              file=sys.stderr)
+        return None
+    except (urllib.error.URLError, OSError, TimeoutError) as e:  # noqa: BLE001
         print(f"  {month:02d}-{day:02d}: {e}", file=sys.stderr)
         return None
-    if proc.returncode != 0 or not proc.stdout:
-        print(f"  {month:02d}-{day:02d}: curl failed "
-              f"({proc.stderr.strip()[:80]})", file=sys.stderr)
+    if not body:
+        print(f"  {month:02d}-{day:02d}: empty response", file=sys.stderr)
         return None
-    body = proc.stdout
     path.write_text(body, encoding="utf-8")
     time.sleep(delay)                    # only sleep on a real request
     return body
@@ -267,11 +289,11 @@ def main() -> int:
 
     rows: list[dict] = []
     stats = {"pages": 0, "commemorations": 0, "hymns": 0}
-    # Two brakes, both learned the hard way. The first version of this script
-    # ground through all 366 days while every single request 403'd, and that
-    # burst is what tripped oca.org's WAF and got this machine blocked — from
-    # the site of the people who granted us the permission in the first place.
-    # A request that fails 360 times is not a retry strategy.
+    # Two brakes. The first version of this script ground through all 366 days
+    # while every single request 403'd — 366 refusals from the site of the
+    # people who granted us the permission, for a reason printed in the very
+    # first response. A request that fails 360 times is not a retry strategy,
+    # whatever the cause turns out to be.
     consecutive = 0
     fetched = 0
     stop_fetching = False
@@ -293,12 +315,13 @@ def main() -> int:
                         # Stop fetching, keep parsing whatever is cached. Do NOT
                         # retry, change client, or route around it: three in a
                         # row means they are refusing us, and the answer is to
-                        # wait, not to knock harder.
+                        # read why, not to knock harder.
                         stop_fetching = True
                         print("\n*** ABORTING FETCH: 3 consecutive failures.\n"
-                              "    oca.org is refusing requests. Do not re-run "
-                              "immediately — wait for the block to lapse.\n"
-                              "    Parsing the cached pages only.\n",
+                              "    oca.org is refusing requests. Read the "
+                              "status printed above before re-running — a 403\n"
+                              "    is a message about this client, not "
+                              "congestion. Parsing the cached pages only.\n",
                               file=sys.stderr)
             else:
                 body = None

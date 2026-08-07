@@ -108,6 +108,74 @@ Still to do as the grant is used further:
 - Lives-of-the-saints text (the other half of the grant) has no join table yet;
   everything in `Brief Life` and the profile prose remains our own wording.
 
+## Server access — separate from the grant, and not to be confused with it
+
+**Permission to use the texts is not permission to crawl the server.** The two are
+independent, and this project has already muddled them once.
+
+### The 403s (2026-06 → 2026-08-07)
+
+An early run of `scripts/download_saint_hymns.py` fetched all 366 day-pages in one
+pass while **every** request returned 403. We read that as a burst having tripped a
+rate limiter and earned an IP ban, wrote that account into the script, and stopped
+harvesting — falling back to the manual daily walk, where each day's troparia are
+pasted in by hand and joined to `OS-####` by us.
+
+That diagnosis was wrong in both halves, and it cost roughly two months of a
+workflow that did not need to be manual.
+
+### What it actually was
+
+Asked about the blocks, V. Rev. John Schroedel (Technical Manager, OCA) replied on
+2026-08-07 that our address appeared on no block list, and asked what user agent we
+were sending — noting the OCA also blocks by user agent. Testing from
+`76.104.36.100` against `/saints/troparia/2015/08/07`:
+
+| Request | Result |
+|---|---|
+| `CloudOfWitnesses/1.0 (+…; contact@…) permission-granted text harvest` | **403** |
+| curl default UA | 200 |
+| `CloudOfWitnesses/1.0` | 200 |
+| `CloudOfWitnesses/1.0 (+…; contact@…)` | 200 |
+| `CloudOfWitnesses/1.0 permission-granted text` | 200 |
+| `CloudOfWitnesses/1.0 harvest` | **403** |
+| `Mozilla/5.0 harvest` | **403** |
+| urllib, clean UA / UA with `harvest` | 200 / **403** |
+
+The trigger is a substring match on the single word **`harvest`**, from any client.
+The response is a bare nginx 403 (146 bytes, no Cloudflare headers) — their origin,
+refusing on the user-agent string, on every request independently. There was never a
+rate limit and never an IP block.
+
+A second belief fell with it: the script had shelled out to `curl` because `urllib`
+was thought to be fingerprinted at the TLS layer. It is not. Both clients behave
+identically; the earlier comparison must have used unlike UA strings. `fetch_day()`
+is back on `urllib` and now prints the HTTP status, which is what would have made
+this a one-request diagnosis instead of a two-month assumption.
+
+### Standing rules
+
+- **Never put `harvest` in the User-Agent**, nor `scrape`, `crawler`, `spider`, or
+  `bot`. Identify who is calling, not what is being done to their server. The UA is
+  now `CloudOfWitnesses/1.0 (+https://orthodoxsaintfinder.com; contact@…)`.
+- **Read the response body and status before theorising.** A 403 is a message about
+  this client. Ours said so from the first request.
+- **The politeness brakes stay** — sequential fetches, 4s default delay, on-disk
+  cache, abort after 3 consecutive failures. Note that because the block was never
+  rate-based, we still have **no measurement** of what the OCA considers too fast.
+  That is a reason to keep the slow default, not to relax it.
+- **Ask before a full pass.** Fr. John wrote: "One page per day should be no problem.
+  In general, if you throttle requests to a reasonable level and cache responses, you
+  shouldn't have a problem."
+
+### Open question
+
+"One page per day" is **ambiguous and has not been resolved.** We described the job
+as one page per *calendar day* (366 pages, once, four seconds apart); he may have
+meant a rate of one request per twenty-four hours. Both readings are natural. Until
+he confirms, do not run the full 366-page pass — the generous reading is exactly the
+kind of assumption that produced the last incident.
+
 ## To revoke (if permission is ever withdrawn, or the site ceases to be free)
 
 1. Set `status=revoked` for `oca` in `data/text_permissions.csv`. The build then
@@ -125,6 +193,10 @@ Department of Liturgical Music and Translations (2026-07-30), granted by reply f
 Fr. Phillip the same day, copying Fr. Kyle. Personal contact details are
 intentionally omitted from this public record; the original correspondence is
 retained privately by the site owner.
+
+Server-access correspondence with V. Rev. John Schroedel, Technical Manager,
+2026-08-07 (see "Server access" above), same convention: the reply is quoted where it
+sets a rule, personal contact details omitted.
 
 ## Standing caveat
 
