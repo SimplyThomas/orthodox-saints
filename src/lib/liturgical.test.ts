@@ -4,6 +4,7 @@ import {
   activeObservances,
   dayHighlight,
   dayLiturgics,
+  observanceLabel,
   resolveTokenCivil,
 } from "./liturgical";
 
@@ -495,6 +496,32 @@ describe("precedence, fallbacks, and honesty", () => {
   });
 });
 
+describe("observanceLabel — one wording, shared by every 'today' surface", () => {
+  const byId = (id: string): LitFeast => F.find((f) => f.id === id)!;
+
+  it("labels a role before it labels a category", () => {
+    expect(observanceLabel(byId("FF-0005"), "afterfeast")).toBe("Afterfeast");
+    expect(observanceLabel(byId("FF-0005"), "forefeast")).toBe("Forefeast");
+    expect(observanceLabel(byId("FF-0005"), "leavetaking")).toBe(
+      "Leave-taking",
+    );
+  });
+
+  it("labels the fasting categories, which the festal wording never covered", () => {
+    expect(observanceLabel(byId("FF-0017"), "span")).toBe("Fast Season");
+    expect(observanceLabel(byId("FF-0020"), "day")).toBe("Fast Day");
+  });
+
+  it("keeps the festal wording it already had", () => {
+    expect(observanceLabel(byId("FF-0005"), "day")).toBe(
+      "Great Feast of the Lord",
+    );
+    expect(observanceLabel(byId("FF-0003"), "day")).toBe(
+      "Great Feast — Holy Cross",
+    );
+  });
+});
+
 describe("dayHighlight — leading festal feast + fast season", () => {
   const hi = (y: number, m: number, d: number, style: "new" | "old" = "new") =>
     dayHighlight(activeObservances(F, PASCHA, new Date(y, m - 1, d), style));
@@ -546,6 +573,18 @@ describe("dayHighlight — leading festal feast + fast season", () => {
     const h = hi(2026, 10, 21);
     expect(h.feast).toBeNull();
     expect(h.season).toBeNull();
+    expect(h.fastDay).toBeNull();
+  });
+
+  it("a Fast Day gets its own slot — never a festal banner, never dropped", () => {
+    // The Beheading (Aug 29) is the year's only Fast Day outside a season. It
+    // must not be promoted to `feast` (it is penitential, not festal), but a
+    // surface asking "what is kept today?" has to be able to name it.
+    const h = hi(2026, 8, 29);
+    expect(h.feast).toBeNull();
+    expect(h.season).toBeNull();
+    expect(h.fastDay?.id).toBe("FF-0020");
+    expect(h.fastDay?.label).toBe("Fast Day");
   });
 
   it("Old-style shifts the feast onto its civil day (Dormition on Aug 28)", () => {
