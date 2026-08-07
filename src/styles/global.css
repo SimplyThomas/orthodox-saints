@@ -6026,6 +6026,16 @@ a.sv-rail-chip:hover {
   color: var(--byz-deep);
   margin: 10px 0 0;
 }
+/* Source credit for the harvested lectionary — quieter than the parish
+   caveat above it: the caveat changes how a reader uses the page, the credit
+   only says whose reckoning it is. */
+#calendar-page .cal-read-src {
+  font-family: var(--text);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+  line-height: 1.4;
+}
 #calendar-page .cal-read-more {
   margin-top: 8px;
 }

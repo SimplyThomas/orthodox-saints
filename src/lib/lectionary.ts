@@ -216,3 +216,18 @@ export function passageNote(ref: string): string | null {
     — so the page states its own limits rather than implying authority. */
 export const PARISH_CAVEAT =
   "Readings vary by jurisdiction and parish, and a parish may transfer or add a commemoration. Your parish's own bulletin is authoritative.";
+
+/** Source credit for the harvested lectionary — see docs/lectionary.md.
+    Reckoning the day is a large piece of liturgical computation that we did
+    not do: the table is resolved by orthocal.info, which is MIT-licensed, and
+    MIT asks that its notice travel with the work. Crediting it in the panel
+    that displays it satisfies that and is plain courtesy besides — a reader
+    should be able to see whose reckoning they are reading. Naming it here
+    rather than in the island keeps it beside PARISH_CAVEAT, the other thing
+    the panel says about its own limits. */
+export const LECTIONARY_SOURCE = {
+  before: "Readings reckoned by ",
+  name: "orthocal.info",
+  href: "https://orthocal.info",
+  after: " (Brian Glass), used under the MIT License.",
+} as const;

@@ -99,12 +99,25 @@ than by memory.
   source is unknown or revoked, so the text stops shipping without touching a single
   saint row, and validation warns (rather than fails) listing what to delete.
 
-Still to do as the grant is used further:
+**The redistributable-artifact question is settled** (audited 2026-08-07). OCA text
+reaches none of them, and the reasons are structural rather than incidental:
+`emit_xlsx()` writes only the source CSV columns, which carry no hymn text;
+`public/` is not Astro's `publicDir` (that is `static/`), so `public/data.json` is a
+build input and never deploys; and neither the spreadsheet nor the SQLite file is
+offered for download anywhere on the site.
 
-- OCA-sourced text should be excluded from, or clearly marked in, the bulk artifacts
-  (`dist/Orthodox_Saints_Database.xlsx`, `public/saints.sqlite`), which are
-  redistributable in a way a web page is not. Not yet needed — no OCA text reaches
-  them today — but it must be settled before it does.
+The real exposure was **the repository itself**, and it has been fixed. `LICENSE-data`
+dedicated "the database content in the `data/` directory and artifacts derived from
+it" to **CC0** — public domain, commercial use, no attribution — while its carve-out
+paragraph rested on a claim that the OCA grant had made false ("the site links out to
+them and never reproduces them"). Since all 495 rows of `data/saint_hymns.csv` are
+`Permission:oca`, the repo was telling the world that OCA's permitted text was public
+domain: exactly the relabelling §9 forbids. `LICENSE-data` is now split into what is
+dedicated and what is not, naming this file and this grant explicitly, and stating that
+the permission is non-transferable and does not travel to a reuser with a copy of the
+CSV.
+
+Still to do as the grant is used further:
 - Lives-of-the-saints text (the other half of the grant) has no join table yet;
   everything in `Brief Life` and the profile prose remains our own wording.
 

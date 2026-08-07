@@ -1,35 +1,138 @@
-Data Dedication — Creative Commons Zero 1.0 Universal (CC0 1.0)
+Data Licensing — Cloud of Witnesses (orthodoxsaintfinder.com)
 
-This dedication applies to the database content in the `data/` directory
-(`data/saints.csv` and `data/vocabulary.csv`) and to artifacts derived from it
-(e.g. `public/data.json`, the Excel export). The project's source code is
-licensed separately under the MIT License (see `LICENSE`).
+The project's source code is licensed separately under the MIT License (see
+`LICENSE`). This file governs the contents of the `data/` directory and the
+artifacts built from it.
+
+Most of that data is our own work and is dedicated to the public domain. Some
+of it is NOT ours to give away, and this file exists to keep the two apart. A
+blanket dedication over `data/` would purport to place another party's material
+in the public domain, which we cannot do and have promised not to do (see
+`docs/permissions/`).
+
+Read the exclusions in Part 2 before reusing anything from `data/`.
+
+
+=============================================================================
+PART 1 — DEDICATED TO THE PUBLIC DOMAIN (CC0 1.0)
+=============================================================================
 
 To the greatest extent permitted by law, Thomas Krug and contributors have
-waived all copyright and related or neighboring rights to this database content
-and dedicated it to the public domain worldwide. You may copy, modify,
-distribute, and use the data, even for commercial purposes, all without asking
+waived all copyright and related or neighboring rights to the files listed
+below, and dedicated them to the public domain worldwide. You may copy,
+modify, distribute, and use them, even for commercial purposes, without asking
 permission and without any obligation of attribution.
+
+  data/saints.csv             the saints table: facts, our own brief lives,
+                              and our composed (public-domain) short prayers
+  data/feasts.csv             the feasts & fasts table
+  data/heavenly_hosts.csv     the heavenly hosts table
+  data/vocabulary.csv         the controlled vocabulary
+  data/name_variants.csv      given-name equivalence groups
+  data/groups.csv             the group taxonomy
+  data/saint_groups.csv       group membership
+  data/retired_ids.csv        retired identifier ledger
+  data/vendors.csv            icon-vendor link templates
+
+Also dedicated: the rich profile prose we authored in `src/content/profiles/`,
+`src/content/feasts/`, `src/content/hosts/`, and `src/content/daily-dove/`,
+and the parts of `public/data.json`, `public/feasts.json`, and
+`public/hosts.json` derived from the files listed above.
 
 Attribution is not required, but is appreciated — a link back to the project
 helps others find and improve it.
-
-Scope:
-  - This dedication covers only the structured data authored by this project:
-    facts, the controlled vocabulary, our own brief lives, and our composed
-    (public-domain) short prayers.
-  - It does NOT grant any rights in third-party material that the project merely
-    links to — hymn/troparion translations, icon images, vendor product photos,
-    or external biographies. Those remain the property of their owners; the site
-    links out to them and never reproduces them.
-  - This dataset is a work in progress and is NOT an authoritative or official
-    liturgical resource; it awaits review by competent clergy and sources.
 
 Full legal text: Creative Commons CC0 1.0 Universal Public Domain Dedication —
   https://creativecommons.org/publicdomain/zero/1.0/legalcode
 Human-readable summary —
   https://creativecommons.org/publicdomain/zero/1.0/
 
-To the extent possible under law, the authors have waived all copyright and
-related or neighboring rights to this work. This work is published from the
-United States.
+
+=============================================================================
+PART 2 — NOT DEDICATED. THIRD-PARTY MATERIAL.
+=============================================================================
+
+The following are in `data/` for the site to build from, but are NOT covered
+by Part 1 and are NOT public domain. They carry the rights of their owners.
+Nothing in this file grants you any right to them.
+
+--- 2a. Text used by PERMISSION, not by licence ---
+
+  data/saint_hymns.csv        every row whose `translation` column is a
+                              `Permission:<slug>` token
+
+At the time of writing, all rows of this file are `Permission:oca` — hymn
+translations reproduced by the permission of the Orthodox Church in America
+(oca.org), granted 2026-07-18 and 2026-07-30. That permission is a REVOCABLE
+COURTESY, NOT A LICENCE. It is:
+
+  - conditioned on attribution to oca.org and on this site remaining free,
+  - non-transferable — it was given to this project, and does not travel to
+    you with a copy of the file,
+  - revocable at any time, on which the material is removed from this project.
+
+Do not treat this text as public domain, do not redistribute it, and do not
+rely on its presence here as permission of any kind. If you want to reproduce
+it, ask the OCA yourself. Terms: `docs/permissions/oca.md`.
+
+--- 2b. Image metadata for images used by PERMISSION ---
+
+  data/saint_images.csv       rows whose `license` column is a
+  data/saint_depictions.csv   `Permission:<vendor>` token
+  data/feast_images.csv
+  data/feast_depictions.csv
+  data/host_images.csv
+  data/host_depictions.csv
+  data/image_permissions.csv  the registry of those grants
+
+The image FILES themselves are not in this repository's `data/` directory and
+are not covered by any licence here; they are used on the site under revocable,
+non-transferable, per-vendor permissions recorded in `docs/permissions/`. The
+rows above are the join metadata — paths, credits, and source links. They are
+published so the arrangement is auditable and reversible, not so the images can
+be reused. The `Permission:` token is precisely the marker that a row is NOT
+openly licensed.
+
+Rows in the same files carrying a genuine open licence (PD, PD-art, PD-old,
+CC0, CC-BY*, CC-BY-SA*) are covered by that licence and by its terms — for
+CC-BY and CC-BY-SA that means attribution, which the site renders beside the
+image and which you would owe as well.
+
+--- 2c. Harvested data belonging to another project ---
+
+  data/lectionary/*.csv       the daily lectionary
+  public/lectionary/*.json    and the artifacts built from it
+
+This is HARVESTED, not authored here (see `docs/lectionary.md`). The table is
+reckoned by orthocal.info (Brian Glass), which is MIT-licensed:
+
+  https://github.com/brianglass/orthocal-python
+
+We committed the harvested output so the build stays offline. It is not ours
+to place in the public domain, and we do not. Use it under orthocal's MIT
+licence and retain that project's copyright notice.
+
+--- 2d. Material we only link to ---
+
+Hymn and prayer translations, external biographies, vendor product photography,
+and any other source cited in a `Sources` column remain the property of their
+owners. The site links out to them. A link is not a grant.
+
+
+=============================================================================
+PART 3 — STANDING CAVEATS
+=============================================================================
+
+This dataset is a work in progress and is NOT an authoritative or official
+liturgical resource. It awaits review by competent clergy and sources. Accuracy
+is not warranted, and a reuser should verify before relying on it — especially
+for the obscure Western and New-Martyr entries.
+
+Reproducing a text is not the same as endorsing its placement here. Permission
+was given to reproduce; the selection, framing, and accuracy remain ours.
+
+If you believe material of yours appears here without permission, write to
+contact@orthodoxsaintfinder.com and it will be removed — see
+`docs/permissions/README.md` for how a takedown is executed.
+
+This work is published from the United States.

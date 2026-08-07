@@ -4,6 +4,12 @@
 **Granted:** 2026-08-03, by Dean Hunt (CMO | COO, Legacy Icons)
 **Requested by:** Shelby Krug, on behalf of A Cloud of Witnesses / OrthodoxSaintFinder.com
 **Status:** active — full grant, on the same terms as Theophany Works
+**Standard terms:** [`AGREEMENT.md`](AGREEMENT.md) — written after this grant was
+given, and describing it rather than changing it. See `emails.md` template 2 for
+the note that puts the arrangement on record with the vendor.
+**In use as of 2026-08-07:** 254 images across 267 placements — 153 saint portraits,
+4 saint carousel cards, 18 feast portraits, 74 feast cards, 2 angel portraits,
+16 angel cards.
 
 ## Grant
 
