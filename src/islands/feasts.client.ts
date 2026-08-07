@@ -1,18 +1,21 @@
-/* Feasts & Fasts island — adds the two clock-dependent features a static
-   build can't pre-render (a build-time new Date() freezes to deploy day):
+/* Feasts & Fasts island — adds the clock-dependent features a static build
+   can't pre-render (a build-time new Date() freezes to deploy day):
 
-   1. Today's commemorations — fetches the same content-hashed card payload
-      the home cloud-band uses (browser-cached across pages) and lists the
-      saints whose feast string carries today's "Mon D".
+   1. Today's commemorations — the feasts and fasts KEPT today (resolved
+      through the shared lib/liturgical layer, so this page and the home
+      "Today" card never word the same day differently), plus the saints whose
+      feast string carries today's "Mon D" (from the same content-hashed card
+      payload the home cloud-band uses, browser-cached across pages).
    2. The "coming up next" card — resolves every feast's date tokens against
       the visitor's clock (lib/feast-dates + the Pascha table shipped in the
-      inline #ff-data payload) and renders the nearest feast/fast,
+      inline #ff-data payload) and renders the nearest feast/fast STILL AHEAD,
       data-driven from the CSV fields (no hand-authored copy to go stale).
+      It deliberately looks only forward; today belongs to (1).
    3. Tab filtering for the pre-rendered sections.
 
    With JS disabled the pre-rendered lists stay fully readable; the today
-   section shows its calendar link fallback and the upcoming card stays
-   hidden. */
+   section shows its calendar link fallback and the kept-today and upcoming
+   cards stay hidden. */
 
 import {
   type DateToken,
@@ -20,6 +23,13 @@ import {
   daysUntil,
   nextOccurrence,
 } from "../lib/feast-dates";
+import {
+  activeObservances,
+  dayLiturgics,
+  observanceLabel,
+  observanceName,
+  sortObservances,
+} from "../lib/liturgical";
 import { MONTHS, MONTHS_FULL, WEEKDAYS, withBase } from "../lib/format";
 import { monogramLetter, splitName } from "../lib/names";
 
@@ -34,6 +44,8 @@ interface IslandFeast {
   brief: string;
   begins: DateToken;
   ends?: DateToken;
+  forefeast?: DateToken;
+  apodosis?: DateToken;
 }
 
 interface CardSaint {
@@ -47,6 +59,7 @@ const root = document.getElementById("feasts-page");
 const dataEl = document.getElementById("ff-data");
 const todaySec = document.getElementById("ff-today");
 const todayDateEl = document.getElementById("ff-today-date");
+const todayKeptEl = document.getElementById("ff-today-kept");
 const todaySaintsEl = document.getElementById("ff-today-saints");
 const upcomingSec = document.getElementById("ff-upcoming");
 
@@ -55,6 +68,35 @@ function el(tag: string, className: string, text?: string): HTMLElement {
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+/* The fasting-discipline vocab → the global .ff-fast--* badge tone. Mirrors
+   fastTone() in lib/feasts, which an island can't import (it reads
+   feasts.json off disk at build time). */
+const FAST_TONE: Record<string, string> = {
+  "Fast-Free": "free",
+  "Strict Fast": "strict",
+  "Fish Allowed": "fish",
+  "Dairy Allowed": "dairy",
+  "Wine & Oil": "wine",
+};
+
+function fastPill(tone: string, label: string, extra = ""): HTMLElement {
+  return el("span", `ff-fast ff-fast--${tone}${extra}`, label);
+}
+
+/** Pill for a feast's own recorded `Fasting Discipline` vocab term. */
+function disciplinePill(discipline: string, extra = ""): HTMLElement {
+  return fastPill(FAST_TONE[discipline] ?? "varies", discipline, extra);
+}
+
+/** A feast's own page — built from the id's integer part so the href never
+    carries raw DOM text (#ff-data is DOM-sourced; CodeQL js/xss-through-dom).
+    Returns "" for an id that isn't a well-formed FF-####. */
+function feastHref(id: string): string {
+  const n = Number(id.replace(/^FF-/, ""));
+  if (!id.startsWith("FF-") || !Number.isInteger(n) || n < 0) return "";
+  return withBase(`feast/FF-${String(n).padStart(4, "0")}`);
 }
 
 if (root && dataEl && todaySec && upcomingSec) {
@@ -120,34 +162,15 @@ if (root && dataEl && todaySec && upcomingSec) {
     const { feast, date, days } = next;
 
     // The whole card links through to the feast's detail page (the highest-
-    // traffic path into it). feast.id is DOM-sourced (#ff-data), so reduce it to
-    // its integer part and rebuild the canonical FF-#### id — the href is then
-    // derived from a number, never raw DOM text (CodeQL js/xss-through-dom).
+    // traffic path into it).
     const top = el("a", "ff-up-top") as HTMLAnchorElement;
-    const idNum = Number(feast.id.replace(/^FF-/, ""));
-    if (feast.id.startsWith("FF-") && Number.isInteger(idNum) && idNum >= 0) {
-      top.href = withBase(`feast/FF-${String(idNum).padStart(4, "0")}`);
-    }
+    const href = feastHref(feast.id);
+    if (href) top.href = href;
     const left = el("div", "");
     const eb = el("div", "ff-up-eb");
     eb.append(el("span", "pulse"));
     eb.append(el("span", "eyebrow", eyebrow));
-    if (feast.fasting) {
-      const pill = el(
-        "span",
-        `ff-fast ff-fast--${
-          {
-            "Fast-Free": "free",
-            "Strict Fast": "strict",
-            "Fish Allowed": "fish",
-            "Dairy Allowed": "dairy",
-            "Wine & Oil": "wine",
-          }[feast.fasting] ?? "varies"
-        } on-ivory`,
-        feast.fasting,
-      );
-      eb.append(pill);
-    }
+    if (feast.fasting) eb.append(disciplinePill(feast.fasting, " on-ivory"));
     left.append(eb);
     left.append(el("h2", "ff-up-name", feast.name));
     left.append(el("div", "ff-up-leads", feast.brief));
@@ -241,6 +264,50 @@ if (root && dataEl && todaySec && upcomingSec) {
     todayDateEl.textContent = `Today · ${WEEKDAYS[now.getDay()]}, ${
       MONTHS_FULL[now.getMonth()]
     } ${now.getDate()}`;
+  }
+
+  /* ── the feasts & fasts KEPT today ──
+     Resolved through lib/liturgical, the same layer the /calendar day panel
+     and the home "Today" card use, so a day is never described two ways. The
+     page follows the New (Revised Julian) reckoning, like the rest of the
+     feasts data. */
+  if (todayKeptEl) {
+    // sortObservances is the same order the home card's lead comes off, so
+    // the first card here and the home ribbon always name the same thing
+    const kept = sortObservances(activeObservances(feasts, pascha, now, "new"));
+
+    if (kept.length) {
+      // activeObservances narrows to the shared LitFeast, so the page's own
+      // fields (kind, brief) come back off the payload by id
+      const byId = new Map(feasts.map((f) => [f.id, f]));
+      const lit = dayLiturgics(kept, now, "new");
+
+      const head = el("div", "ff-kept-head");
+      head.append(el("h3", "ff-kept-title", "Kept today"));
+      // the resolved fasting rule for the day — the reason most visitors are
+      // on this page at all
+      if (lit.fasting)
+        head.append(fastPill(lit.fasting.key, lit.fasting.label, " on-ivory"));
+      todayKeptEl.append(head);
+
+      const list = el("ul", "ff-kept-list");
+      for (const o of kept) {
+        const full = byId.get(o.feast.id);
+        const li = el("li", `ff-kept ff-kept--${full?.kind ?? "observance"}`);
+        const href = feastHref(o.feast.id);
+        const a = el(href ? "a" : "div", "ff-kept-link");
+        if (href) (a as HTMLAnchorElement).href = href;
+        a.append(el("span", "ff-kept-kick", observanceLabel(o.feast, o.role)));
+        const name = el("span", "ff-kept-name", observanceName(o.feast));
+        name.append(el("span", "arr", "→"));
+        a.append(name);
+        if (full?.brief) a.append(el("p", "ff-kept-brief", full.brief));
+        li.append(a);
+        list.append(li);
+      }
+      todayKeptEl.append(list);
+      todayKeptEl.hidden = false;
+    }
   }
   const AVATAR_TONE = (rank: string[]): string => {
     const r = rank.join(" ");

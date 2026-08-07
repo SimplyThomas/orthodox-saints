@@ -24,6 +24,7 @@ import {
   dayLiturgics,
   LITURGICAL_COLORS,
 } from "../lib/liturgical";
+import type { DayFeast } from "../lib/liturgical";
 
 const home = document.getElementById("home");
 if (home && home.dataset.cardSrc) {
@@ -72,32 +73,51 @@ function initCloudBand(SAINTS: CardSaint[]) {
         ? "old"
         : "new";
 
-    // The liturgical context ribbon (Great Feast / fast season), tinted with
-    // the day's resolved color. Returns "" when the day carries neither.
-    // The lead IS a Feasts & Fasts record, so the ribbon links to that feast's
-    // own page (/feast/FF-####) rather than dumping the reader on the calendar
-    // — the calendar stays one tap away in the card head below.
+    // The liturgical context ribbon — what the Church keeps today, above the
+    // day's saints. The lead IS a Feasts & Fasts record, so it links to that
+    // feast's own page (/feast/FF-####) rather than dumping the reader on the
+    // calendar — the calendar stays one tap away in the card head below.
+    //
+    // The fast used to ride here as a grey half-sentence ("during Dormition
+    // Fast") and read as a footnote, which is backwards: for most visitors
+    // whether today is a fast is the single most actionable thing on the card.
+    // It is now a chip of its own beside the day's fasting rule, and each chip
+    // is its own link — so the ribbon is a <div> of links, never one <a>
+    // wrapping others (an anchor inside an anchor closes the outer one early).
     function litRibbon(hl: DayHighlight, lit: DayLiturgics | null): string {
-      if (!hl.feast && !hl.season) return "";
+      const lead = hl.feast ?? hl.fastDay ?? hl.season;
+      if (!lead) return "";
       const ck = lit && lit.color !== "neutral" ? lit.color : "gold";
       const pal = LITURGICAL_COLORS[ck];
-      const lead = hl.feast ?? hl.season!;
-      // the season heads its own line as a lead, but rides mid-sentence in the
-      // trailer — "during the Twelve Days of Christmas", not "during The …"
-      const trailer =
-        hl.feast && hl.season
-          ? `<span class="sotd-lit-season">during ${esc(hl.season.name.replace(/^The /, "the "))}</span>`
-          : "";
+
+      // Everything kept today that is not already the lead, plus the day's
+      // resolved fasting rule — the "so what do I do today?" line.
+      const chips: string[] = [];
+      const chip = (f: DayFeast): string =>
+        `<a class="sotd-lit-chip" href="${esc(withBase(`feast/${f.id}`))}"
+            ><span class="k">${esc(f.label)}</span>${esc(f.name)}</a>`;
+      for (const other of [hl.fastDay, hl.season]) {
+        if (other && other.id !== lead.id) chips.push(chip(other));
+      }
+      if (lit?.fasting) {
+        chips.push(
+          `<span class="ff-fast ff-fast--${esc(lit.fasting.key)} on-ivory">${esc(
+            lit.fasting.label,
+          )}</span>`,
+        );
+      }
+
       return `
-        <a class="sotd-lit lc-${ck}" href="${esc(withBase(`feast/${lead.id}`))}"
+        <div class="sotd-lit lc-${ck}"
            style="--sw-bg:${pal.background};--sw-ac:${pal.accent};--sw-tx:${pal.text}">
           <span class="sotd-lit-bar" aria-hidden="true"></span>
-          <span class="sotd-lit-body">
-            <span class="sotd-lit-kick">${esc(lead.label)}</span>
-            <span class="sotd-lit-name">${esc(lead.name)}<span class="arr" aria-hidden="true"> →</span></span>
-            ${trailer}
-          </span>
-        </a>`;
+          <div class="sotd-lit-body">
+            <span class="sotd-lit-kick">Kept today · ${esc(lead.label)}</span>
+            <a class="sotd-lit-name" href="${esc(withBase(`feast/${lead.id}`))}"
+              >${esc(lead.name)}<span class="arr" aria-hidden="true"> →</span></a>
+            ${chips.length ? `<div class="sotd-lit-tags">${chips.join("")}</div>` : ""}
+          </div>
+        </div>`;
     }
 
     // One saint row: small avatar (real icon when available), name, rank tag,
@@ -133,7 +153,7 @@ function initCloudBand(SAINTS: CardSaint[]) {
 
       // Liturgical context, resolved against the civil date under this style.
       const civilDate = new Date(ty, tm - 1, td);
-      let hl: DayHighlight = { feast: null, season: null };
+      let hl: DayHighlight = { feast: null, season: null, fastDay: null };
       let lit: DayLiturgics | null = null;
       if (litFeasts.length) {
         const obs = activeObservances(litFeasts, litPascha, civilDate, style);
