@@ -4,8 +4,14 @@
    saints dataset (data/saints.csv / public/data.json): these people must never
    surface in the finder, the patron quiz, or the home shuffle, and are never
    given a liturgical address, feast, or intercession (CLAUDE.md §9, canonization
-   caution). They appear only on the Saints of America page and on their own
-   memorial pages (/witness/<slug>).
+   caution). They are listed on /witnesses, appear on their own memorial pages
+   (/witness/<slug>), and the America-linked subset is also carried in the
+   curated carousel on the Saints of America page.
+
+   SCOPE: the section was America-only until 2026-08, when it was widened to the
+   whole Church in living memory. /america keeps its curated American roster, so
+   widening cost that page nothing; the international entries reach readers
+   through the /witnesses index instead.
 
    If and when any of these is formally glorified, they should be MOVED into the
    canonical dataset at that time and removed from here.
@@ -5670,6 +5676,928 @@ export const WITNESSES: Witness[] = [
     significance: [
       "Archbishop Job is in this section for an unglamorous reason: institutions do not correct themselves, and somebody with standing has to be willing to be difficult. In the Orthodox Church in America's financial crisis he was that person, at a cost to his relations with his brother bishops that those who knew him did not think was small.",
       "He is not glorified, and this page implies no veneration. It records a bishop who was slow, said so, and then did the thing anyway — and who died before he could see it finished.",
+    ],
+  },
+  {
+    slug: "anthony-bloom",
+    name: "Metropolitan Anthony (Bloom)",
+    epithet: "of Sourozh",
+    role: "Metropolitan & Writer on Prayer",
+    years: "1914 – 2003",
+    place: "London",
+    bio: [
+      "A surgeon in the French army and a volunteer in the Resistance who was secretly tonsured a monk in 1943 and told, since no monastery was open to him, to keep eight hours of prayer a day while going on with his medical work.",
+      "He came to Britain in 1948 and spent half a century there, building the Russian diocese and becoming, through the BBC and through Beginning to Pray, the writer who taught more English speakers to pray than any other Orthodox voice of the century.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Anthony (Bloom) of Sourozh",
+        url: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        label: "Diocese of Sourozh — Metropolitan Anthony born 110 years ago",
+        url: "https://www.sourozh.org/maineng/2024/6/19/metropolitan-anthony-bloom-of-sourozh-was-born-110-years-ago.html",
+      },
+      {
+        label:
+          "Avril Pyman, Metropolitan Anthony of Sourozh: A Life (Lutterworth)",
+        url: "https://www.lutterworth.com/product/metropolitan-anthony-of-sourozh-a-life/",
+      },
+    ],
+    secularName: "Andrei Borisovich Bloom",
+    jurisdiction: "Russian Orthodox Church, Diocese of Sourozh",
+    railFacts: [
+      ["Lived", "6 Jun 1914 – 4 Aug 2003"],
+      ["Born", "Lausanne, Switzerland"],
+      ["Trained", "Medicine, University of Paris"],
+      ["War", "Army surgeon; French Resistance"],
+      ["Tonsured", "secretly, 1943"],
+      ["In Britain", "from 1948, for fifty-five years"],
+      ["Tradition", "Russian (Moscow Patriarchate)"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor: "Teaching a generation of English speakers how to pray",
+    overview: [
+      "Metropolitan Anthony of Sourozh (1914–2003) was born <strong>Andrei Bloom</strong> at Lausanne on 6 June 1914, the son of a member of the Russian imperial diplomatic service; his mother was a sister of the composer <strong>Scriabin</strong>. His childhood was spent in Russia and Persia, and after the revolution the family made its way, in 1923, to Paris and to the poverty of the emigration.",
+      "He was an atheist as a boy. The account he gave of his conversion is famously abrupt: irritated into checking whether Christianity had anything in it, he sat down to read St Mark's Gospel — choosing it because it was the shortest — and became aware, before he had finished, of the presence of Christ in the room. He did not stop his medical training. He read physics, chemistry and biology and took his doctorate in medicine at the University of Paris.",
+      "During the war he served as a <strong>surgeon in the French army</strong> and, in its middle years, worked with the <strong>Resistance</strong>. In 1943 he was secretly tonsured a monk; there was no monastery to enter, so his spiritual father told him to keep eight hours of prayer a day and go on operating. He was ordained priest in 1948 and sent to Britain, where he stayed for the rest of his life — bishop in 1957, and from 1966 metropolitan.",
+    ],
+    sections: [
+      {
+        heading: "A monk with a scalpel",
+        body: [
+          "The shape of his early life is the thing worth noticing. He was tonsured under the German occupation, in a country at war, with no monastery available and no prospect of one; the instruction he was given was to live the monastic day inside a surgeon's. He kept it. When he was finally free to be a priest full-time he was already thirty-four and had spent a decade praying in the intervals of a hospital timetable.",
+          "That is why his writing on prayer sounds the way it does. It is addressed to people with jobs and interruptions and no natural gift for stillness, because it was worked out by one — and it never suggests that the reader's ordinary life is the obstacle.",
+        ],
+      },
+      {
+        heading: "Sourozh",
+        body: [
+          "He arrived in London in 1948 as chaplain to the <strong>Fellowship of St Alban and St Sergius</strong>, and over the following decades built the Russian Orthodox presence in Britain from a small émigré chaplaincy into a diocese with a substantial English-speaking membership. He was consecrated bishop in 1957 and became metropolitan and exarch of the Moscow Patriarchate in Western Europe in 1966, resigning the exarchate in 1974 while remaining diocesan bishop.",
+          "His position was never simple. He served under a Patriarchate operating within the Soviet state, in a country full of émigrés who had fled it, and he was outspoken enough to be a difficulty for Moscow more than once. The tensions of that arrangement, and the disputes that broke over the diocese after his death, are part of the record and are not tidied away here.",
+        ],
+      },
+      {
+        heading: "Beginning to Pray",
+        body: [
+          "He was a broadcaster before he was an author. His talks on the BBC reached an audience with no Orthodox connection at all, and the books were largely made from them — <em>Living Prayer</em>, <em>School for Prayer</em>, and the one that has outlasted the rest, <em>Beginning to Pray</em>.",
+          "Its opening move is characteristic and still startling: he begins with the absence of God, with what to do when prayer produces nothing, and refuses the pretence that a beginner should feel anything in particular. Because it starts there, the book has been usable by people at the very edge of belief, and it has stayed in print for more than fifty years in a market that discards most things in five.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1914",
+        title: "Born at Lausanne",
+        body: "Andrei Bloom is born on 6 June 1914 to a Russian diplomatic family; his mother is a sister of the composer Scriabin.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "1923",
+        title: "Paris",
+        body: "After Russia and Persia and the upheaval of the revolution, the family settles in Paris, where he is educated.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "1939–45",
+        title: "Surgeon and resistant",
+        body: "He serves as a surgeon in the French army and works for a period with the French Resistance.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "1943",
+        title: "Secretly tonsured",
+        body: "Tonsured a monk with the name Anthony. With no monastery to enter, he is told to keep eight hours of prayer a day and continue in medicine.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "1948",
+        title: "Priest, and to Britain",
+        body: "Ordained priest and sent to England as chaplain to the Fellowship of St Alban and St Sergius.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "1957–66",
+        title: "Bishop, then metropolitan",
+        body: "Consecrated bishop in 1957; metropolitan and exarch of the Moscow Patriarchate in Western Europe from 1966, resigning the exarchate in 1974.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+      {
+        when: "2003",
+        title: "Repose",
+        body: "He reposes in London on 4 August 2003, after fifty-five years in Britain.",
+        source: "https://orthodoxwiki.org/Anthony_(Bloom)_of_Sourozh",
+      },
+    ],
+    worksBy: [
+      {
+        title: "Beginning to Pray",
+        detail:
+          "The modern classic, which opens with the absence of God rather than with method.",
+      },
+      {
+        title: "Living Prayer · School for Prayer · God and Man",
+        detail: "Largely made from his broadcast talks.",
+      },
+    ],
+    worksAbout: [
+      {
+        title: "Avril Pyman, Metropolitan Anthony of Sourozh: A Life",
+        detail: "The full-length biography.",
+        source:
+          "https://www.lutterworth.com/product/metropolitan-anthony-of-sourozh-a-life/",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Kallistos (Ware)",
+        note: "The other voice through which most English speakers met Orthodoxy, and a fellow bishop in Britain.",
+        href: "witness/kallistos-ware",
+      },
+      {
+        name: "Archimandrite Lev Gillet",
+        note: "Another figure of the Paris emigration who came to Britain through the Fellowship of St Alban and St Sergius.",
+        href: "witness/lev-gillet",
+      },
+      {
+        name: "Vladimir Lossky",
+        note: "A contemporary of the same Paris emigration who likewise remained under the Moscow Patriarchate.",
+        href: "witness/vladimir-lossky",
+      },
+    ],
+    significance: [
+      "Metropolitan Anthony is the reason a great many English speakers have any idea what Orthodox prayer is. He wrote for beginners, from the position of a beginner, and he never pretended that a life of work and interruption disqualifies anyone — a conviction earned in the years when his own monastic rule had to be kept between operations.",
+      "He is not glorified, and this page implies no veneration, though many in Britain and Russia speak of him as a saint. What is recorded is a surgeon who prayed eight hours a day because there was no monastery to be had, and then spent fifty years telling other people it could be done.",
+    ],
+  },
+  {
+    slug: "kallistos-ware",
+    name: "Metropolitan Kallistos (Ware)",
+    epithet: "of Diokleia",
+    role: "Bishop & Theologian",
+    years: "1934 – 2022",
+    place: "Oxford",
+    bio: [
+      "An Anglican schoolboy who wandered into a Russian vigil in London, was received into the Orthodox Church at twenty-four, and became the first Englishman consecrated an Orthodox bishop since the Great Schism.",
+      "His The Orthodox Church (1963) and The Orthodox Way (1979) are how most of the English-speaking world first met Orthodoxy, and he was a translator of the Philokalia and the service books into English. He taught at Oxford for thirty-five years and reposed there in 2022.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Kallistos (Ware) of Diokleia",
+        url: "https://orthodoxwiki.org/Kallistos_(Ware)_of_Diokleia",
+      },
+      {
+        label:
+          "St Vladimir's Seminary — In Memoriam: Metropolitan Kallistos (Ware)",
+        url: "https://www.svots.edu/headlines/memoriam-metropolitan-kallistos-ware",
+      },
+      {
+        label: "Greek Orthodox Archdiocese — Remembering Kallistos Ware",
+        url: "https://www.goarch.org/-/remembering-kallistos-ware-revered-orthodox-theologian-religion-news-service-2022",
+      },
+      {
+        label: "Wikipedia — Kallistos Ware",
+        url: "https://en.wikipedia.org/wiki/Kallistos_Ware",
+      },
+    ],
+    secularName: "Timothy Richard Ware",
+    jurisdiction: "Ecumenical Patriarchate",
+    railFacts: [
+      ["Lived", "11 Sep 1934 – 24 Aug 2022"],
+      ["Born", "Bath, Somerset"],
+      ["Educated", "Westminster; Magdalen College, Oxford"],
+      ["Received", "1958, aged twenty-four"],
+      ["Bishop", "1982 — first Englishman since the Schism"],
+      ["Taught", "Oxford, 1966–2001"],
+      ["Tradition", "Ecumenical Patriarchate"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor:
+      "The two books through which the English-speaking world met Orthodoxy",
+    overview: [
+      "Metropolitan Kallistos (1934–2022) was born <strong>Timothy Ware</strong> at Bath on 11 September 1934, educated at Westminster School and Magdalen College, Oxford, where he took a double first in classics and then read theology. He was brought up Anglican; the encounter that turned him came in his teens, when he stepped by chance into a Russian all-night vigil in London and found a church that seemed to him almost empty and entirely full.",
+      "He was received into the Orthodox Church in <strong>1958</strong>, at twenty-four. In 1966 he was tonsured a monk at the monastery of St John the Theologian on <strong>Patmos</strong>, taking the name Kallistos, was ordained priest, and was appointed Spalding Lecturer in Eastern Orthodox Studies at Oxford — a post he held for thirty-five years. In 1982 he was consecrated titular Bishop of Diokleia, the first Englishman to be made an Orthodox bishop since the eleventh century; he was raised to metropolitan in 2007.",
+      "He wrote <em>The Orthodox Church</em> as a layman in 1963, at twenty-nine. It has never been out of print. Its companion, <em>The Orthodox Way</em>, followed in 1979. Between them they have done more to explain Orthodoxy in English than any other books of the century, and he spent the rest of his life as the person English-speaking enquirers wrote to.",
+    ],
+    sections: [
+      {
+        heading: "The two books",
+        body: [
+          "<em>The Orthodox Church</em> is a history and a description; <em>The Orthodox Way</em> is an account of the faith as something to be lived. Their durability comes from an unusual combination: they are written by a convert, who remembers what needs explaining, and by a scholar of the first rank, who will not simplify to the point of falsehood.",
+          "He revised <em>The Orthodox Church</em> repeatedly over five decades as the world it described changed — the fall of the Soviet Union above all — which is why a book from 1963 is still handed to enquirers today rather than being a period piece.",
+        ],
+      },
+      {
+        heading: "Translator",
+        body: [
+          "Less visible but arguably weightier is the translation work. With G. E. H. Palmer and Philip Sherrard he produced the English <strong>Philokalia</strong>, the great anthology of hesychast writing, over volumes spanning decades — the first time that body of text was available in readable English at all.",
+          "With Mother Mary he translated the <strong>Festal Menaion</strong> and the <strong>Lenten Triodion</strong>, the service books for the feasts and for Great Lent. English-speaking parishes have been serving out of those translations for fifty years. It is the sort of work whose success is measured by how little anyone thinks about it.",
+        ],
+      },
+      {
+        heading: "Oxford, and the questions he would not close",
+        body: [
+          "He taught at Oxford from 1966 to 2001 and served the Greek parish there for over three decades. Generations of students, Orthodox and not, passed through his supervision, and a striking number of the English-speaking Orthodox clergy and academics of the following generation were formed by him.",
+          "He was known for holding open questions the Church has not settled, and for saying so plainly rather than pretending to a consensus that did not exist — on the possibility of universal salvation, on the place of women in the Church's ministry, on the relation of Orthodoxy to other Christians. Some found this an unbecoming latitude in a bishop. It is part of why he was trusted by people outside the Church, and it belongs in any honest account of him.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1934",
+        title: "Born at Bath",
+        body: "Timothy Richard Ware is born on 11 September 1934 and brought up in the Church of England.",
+        source: "https://en.wikipedia.org/wiki/Kallistos_Ware",
+      },
+      {
+        when: "1958",
+        title: "Received into the Orthodox Church",
+        body: "At twenty-four he is received into Orthodoxy, having first encountered it as a schoolboy at a Russian vigil in London.",
+        source: "https://orthodoxwiki.org/Kallistos_(Ware)_of_Diokleia",
+      },
+      {
+        when: "1963",
+        title: "The Orthodox Church",
+        body: "Published while he is still a layman, aged twenty-nine; it has remained in print ever since.",
+        source: "https://en.wikipedia.org/wiki/Kallistos_Ware",
+      },
+      {
+        when: "1966",
+        title: "Monk, priest, and Oxford lecturer",
+        body: "Tonsured at St John the Theologian on Patmos with the name Kallistos, ordained priest, and appointed Spalding Lecturer at Oxford.",
+        source: "https://orthodoxwiki.org/Kallistos_(Ware)_of_Diokleia",
+      },
+      {
+        when: "1979",
+        title: "The Orthodox Way",
+        body: "The companion volume: the faith described as something lived rather than surveyed.",
+      },
+      {
+        when: "1982",
+        title: "Bishop of Diokleia",
+        body: "Consecrated titular bishop — the first Englishman consecrated an Orthodox bishop since the Great Schism.",
+        source: "https://orthodoxwiki.org/Kallistos_(Ware)_of_Diokleia",
+      },
+      {
+        when: "2022",
+        title: "Repose",
+        body: "He reposes at Oxford on 24 August 2022, aged eighty-seven.",
+        source:
+          "https://www.svots.edu/headlines/memoriam-metropolitan-kallistos-ware",
+      },
+    ],
+    worksBy: [
+      {
+        title: "The Orthodox Church (1963)",
+        detail:
+          "Written as a layman; revised across five decades and still the standard introduction.",
+      },
+      {
+        title: "The Orthodox Way (1979)",
+        detail: "The companion volume on the faith as lived.",
+      },
+      {
+        title:
+          "The Philokalia (translator, with G. E. H. Palmer and Philip Sherrard)",
+        detail:
+          "The English translation of the hesychast anthology, volume by volume over decades.",
+      },
+      {
+        title:
+          "The Festal Menaion · The Lenten Triodion (translator, with Mother Mary)",
+        detail:
+          "The service books English-speaking parishes have been using for fifty years.",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Anthony (Bloom)",
+        note: "The other voice through which most English speakers met Orthodoxy; a fellow bishop in Britain for four decades.",
+        href: "witness/anthony-bloom",
+      },
+      {
+        name: "Fr. John Meyendorff",
+        note: "A scholar of the same generation, working the same patristic and Byzantine ground from America.",
+        href: "witness/john-meyendorff",
+      },
+      {
+        name: "Fr. Georges Florovsky",
+        note: "Whose neo-patristic programme shaped the theological world Ware entered.",
+        href: "witness/georges-florovsky",
+      },
+    ],
+    significance: [
+      "If a person in the English-speaking world knows anything about the Orthodox Church, there is a fair chance they know it from Kallistos Ware. Two books written before he was forty-five have carried more enquirers into Orthodoxy than any programme of mission, and the service books and the Philokalia he translated are what English-speaking parishes and monasteries actually pray from.",
+      "He is not glorified and no veneration is implied here. He also held certain questions open that others would have preferred closed, and said so from a bishop's chair; that is recorded rather than smoothed. The plain fact of his life is that a schoolboy who walked into the wrong church by accident spent the next sixty-four years making a door for other people to walk through on purpose.",
+    ],
+  },
+  {
+    slug: "aimilianos-simonopetra",
+    name: "Elder Aimilianos (Vafeidis)",
+    epithet: "of Simonopetra",
+    role: "Abbot & Spiritual Father",
+    years: "1934 – 2019",
+    place: "Mount Athos",
+    bio: [
+      "Abbot of Simonopetra on Mount Athos from 1974 to 2000, who brought a young brotherhood from the emptying monasteries of Meteora to a Holy Mountain then near collapse, and left it full.",
+      "He founded the great women's community at Ormylia in Chalkidiki and its medical centre, and his talks on the monastic life have circulated far beyond monasteries. He reposed in 2019 after long illness.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Aimilianos (Vafeidis)",
+        url: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        label:
+          "Orthodox Christian Laity — Elder Aimilianos of Simonopetra Reposes",
+        url: "https://ocl.org/elder-aimilianos-of-simonopetra-reposes-in-the-lord/",
+      },
+      {
+        label: "Ormylia Monastery — Elder Aimilianos",
+        url: "https://www.ormyliamonastery.com/en/elder-aimilianos/",
+      },
+      {
+        label:
+          "Pemptousia — Elder Aimilianos Simonopetritis Has Departed This Life",
+        url: "https://pemptousia.com/2019/05/elder-aimilianos-simonopetritis-has-departed-this-life/",
+      },
+    ],
+    jurisdiction: "Ecumenical Patriarchate · Mount Athos",
+    railFacts: [
+      ["Lived", "1934 – 9 May 2019"],
+      ["Studied", "Theology, University of Athens, 1959"],
+      ["First", "at Meteora"],
+      ["To Athos", "1973, with his brotherhood"],
+      ["Abbot of Simonopetra", "1974 – 2000"],
+      ["Founded", "the convent at Ormylia"],
+      ["Tradition", "Greek · Athonite"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor: "Refilling Simonopetra, and founding Ormylia",
+    overview: [
+      "Elder Aimilianos (Vafeidis) was born in October 1934 and took his degree in theology at the University of Athens in 1959. He began his monastic life not on Athos but at <strong>Meteora</strong>, in Thessaly, where he gathered a young brotherhood at a time when Greek monasticism was widely assumed to be dying.",
+      "In 1973 he brought that brotherhood to <strong>Simonopetra</strong> on the Holy Mountain, and from 1974 to 2000 he was its abbot. The Athos he arrived on was at its lowest point in centuries — houses with a handful of ageing monks, buildings falling down. The arrival of educated young communities like his is the beginning of the recovery that has continued since.",
+      "He also founded and guided the convent of the Annunciation at <strong>Ormylia</strong> in Chalkidiki, which grew to well over a hundred nuns and became one of the largest women's monasteries in Greece, together with the medical and social centre attached to it. He was ill for many years before his repose on 9 May 2019.",
+    ],
+    sections: [
+      {
+        heading: "A brotherhood before a monastery",
+        body: [
+          "The order of events matters. Aimilianos did not inherit a community; he formed one, among young men in a country where monasticism was regarded as a museum piece, and only then took it to Athos. Simonopetra received a living brotherhood rather than a few recruits.",
+          "That pattern — a formed community arriving with an abbot who had already shaped it — is much of why the Athonite revival of the 1970s took hold as fast as it did, and it is the same pattern by which Elder Ephraim would later plant monasteries across North America.",
+        ],
+      },
+      {
+        heading: "Ormylia",
+        body: [
+          "Athos admits no women, and an Athonite elder guiding a women's community at a distance is an old arrangement, but rarely on this scale. The convent of the Annunciation at Ormylia grew under his direction into a community of more than a hundred and twenty nuns.",
+          "Beside it he established a centre for social support and medical prevention and research, run by the community — a monastery in the classic mould, with a hospital function attached, in a country where such provision was thin.",
+        ],
+      },
+      {
+        heading: "The talks",
+        body: [
+          "His catecheses to his monks, transcribed and published, have travelled well beyond monasteries. They are unusual for the genre in that they are addressed to people who have chosen an extreme life and yet are almost entirely free of severity; the recurring subject is joy, and the freedom of a person who has stopped negotiating with God.",
+          "He is widely venerated in Greece and on the Holy Mountain, and has not been canonized. This page records him; it does not anticipate the Church.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1934",
+        title: "Birth",
+        body: "Born in October 1934.",
+        source: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        when: "1959",
+        title: "Theology at Athens",
+        body: "He takes his degree in theology from the University of Athens.",
+        source: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        when: "1960s",
+        title: "Meteora",
+        body: "He begins monastic life at Meteora and gathers a young brotherhood there.",
+        source: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        when: "1973",
+        title: "To Simonopetra",
+        body: "He brings his brotherhood to Simonopetra on Mount Athos, then near its lowest ebb.",
+        source: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        when: "1974–2000",
+        title: "Abbot",
+        body: "He serves as abbot of Simonopetra for twenty-six years, and founds and guides the convent of the Annunciation at Ormylia.",
+        source: "https://orthodoxwiki.org/Aimilianos_(Vafeidis)",
+      },
+      {
+        when: "2019",
+        title: "Repose",
+        body: "After many years of illness he reposes on 9 May 2019.",
+        source:
+          "https://ocl.org/elder-aimilianos-of-simonopetra-reposes-in-the-lord/",
+      },
+    ],
+    related: [
+      {
+        name: "Elder Ephraim of Arizona",
+        note: "Who carried the same Athonite renewal to North America, by the same method of planting formed communities.",
+        href: "witness/ephraim-of-arizona",
+      },
+      {
+        name: "St Joseph the Hesychast",
+        note: "The Athonite elder at the root of the twentieth-century hesychast revival Aimilianos belongs to.",
+        href: "saint/OS-2584",
+      },
+    ],
+    significance: [
+      "Elder Aimilianos is one of the handful of men who turned the twentieth-century decline of Athos around. He did it by forming a brotherhood before he had a monastery to put it in, and the community he brought to Simonopetra in 1973 is a large part of why the Holy Mountain today is full of young monks rather than empty buildings.",
+      "Ormylia is the other half of the record: a women's community of more than a hundred, with a medical centre attached, guided from a mountain no woman may set foot on. He is widely venerated and is not glorified; nothing here anticipates a judgment the Church has not made.",
+    ],
+  },
+  {
+    slug: "vladimir-lossky",
+    name: "Vladimir Lossky",
+    epithet: "",
+    role: "Lay Theologian",
+    years: "1903 – 1958",
+    place: "Paris",
+    bio: [
+      "A layman of the Russian emigration in Paris whose Mystical Theology of the Eastern Church (1944) put the apophatic tradition and the doctrine of deification back at the centre of how Orthodoxy explains itself.",
+      "He remained under the Moscow Patriarchate through the bitter jurisdictional quarrels of the emigration, opposed Bulgakov's sophiology in the controversy of the 1930s, and died at fifty-four with most of his work unfinished.",
+    ],
+    sources: [
+      {
+        label: "Wikipedia — Vladimir Lossky",
+        url: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+      {
+        label:
+          "St Vladimir's Seminary Press — The Mystical Theology of the Eastern Church",
+        url: "https://svspress.com/mystical-theology-of-the-eastern-church-the/",
+      },
+    ],
+    secularName: "Vladimir Nikolaievich Lossky",
+    jurisdiction: "Russian Orthodox Church (Moscow Patriarchate), in France",
+    railFacts: [
+      ["Lived", "8 Jun 1903 – 7 Feb 1958"],
+      ["Born", "Göttingen, Germany"],
+      ["Father", "the philosopher Nikolai Lossky"],
+      ["Exiled", "from Russia, 1922"],
+      ["Wrote", "Mystical Theology, 1944"],
+      ["Status", "a layman all his life"],
+      ["Tradition", "Russian, in the emigration"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor: "Putting deification and the apophatic way back at the centre",
+    overview: [
+      "Vladimir Nikolaievich Lossky (1903–1958) was born at Göttingen on 8 June 1903, the son of the philosopher <strong>Nikolai Lossky</strong>. The family was expelled from Soviet Russia in 1922, among the intellectuals put out of the country on the so-called philosophers' ships, and after a period in Prague he settled in <strong>Paris</strong>, where he studied medieval history under Étienne Gilson and spent the rest of his life.",
+      "He was never ordained and never held a chair in a Western university. He taught dogmatic theology in the Orthodox institutes of the emigration and worked, in the words of his own generation, as a theologian of the Church rather than of the academy — which in the Paris of that period meant a life of small salaries and large arguments.",
+      "His <em>Essai sur la théologie mystique de l'Église d'Orient</em> appeared in 1944, under the occupation, and in English as <em>The Mystical Theology of the Eastern Church</em>. It is short and it changed the terms: it presented Orthodoxy not as Western theology with different customs but as a tradition organized around the unknowability of God's essence and the real participation of human beings in His energies. He died suddenly on 7 February 1958, at fifty-four.",
+    ],
+    sections: [
+      {
+        heading: "The Mystical Theology",
+        body: [
+          "The book's argument is that the negative or <strong>apophatic</strong> way is not a decorative flourish in Eastern theology but its structure: that God is unknowable in essence, known in His energies, and that <strong>deification</strong> — the real participation of the creature in the divine life — is the point of the whole Christian scheme rather than a rarefied extra.",
+          "Written in occupied Paris and published in 1944, it reached English in the 1950s and has been the standard entry to Orthodox dogmatic theology ever since. Almost every subsequent English-language account of Palamas, of the essence–energies distinction, and of theosis is downstream of it.",
+        ],
+      },
+      {
+        heading: "The quarrels he did not avoid",
+        body: [
+          "Lossky was at the centre of the <strong>sophiology controversy</strong> of the 1930s, in which he opposed the theological system of Fr Sergius Bulgakov and was among those who pressed the Moscow Patriarchate to examine it. The dispute was bitter, it divided the Paris emigration, and Lossky's part in it is remembered by some as courage and by others as the harshness of a young man.",
+          "He also stayed under the <strong>Moscow Patriarchate</strong> when much of the Russian emigration would not — a position that cost him friendships and looked, to many exiles, like accommodation with a Church captive to the Soviet state. Both of these belong in the record; a page that gave only the book would be giving half a man.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1903",
+        title: "Born at Göttingen",
+        body: "Born 8 June 1903, son of the philosopher Nikolai Lossky.",
+        source: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+      {
+        when: "1922",
+        title: "Expelled from Russia",
+        body: "The family is put out of Soviet Russia with the exiled intelligentsia; after Prague he settles in Paris.",
+        source: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+      {
+        when: "1930s",
+        title: "The sophiology controversy",
+        body: "He opposes Fr Sergius Bulgakov's sophiology in the dispute that divides the Russian emigration.",
+        source: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+      {
+        when: "1944",
+        title: "Essai sur la théologie mystique de l'Église d'Orient",
+        body: "Published in occupied Paris; in English as The Mystical Theology of the Eastern Church.",
+        source: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+      {
+        when: "1958",
+        title: "Repose",
+        body: "He dies in Paris on 7 February 1958, aged fifty-four, with much of his work unfinished.",
+        source: "https://en.wikipedia.org/wiki/Vladimir_Lossky",
+      },
+    ],
+    worksBy: [
+      {
+        title: "The Mystical Theology of the Eastern Church (1944)",
+        detail:
+          "The short book that reorganized how Orthodoxy is explained in Western languages.",
+        source:
+          "https://svspress.com/mystical-theology-of-the-eastern-church-the/",
+      },
+      {
+        title: "The Vision of God · In the Image and Likeness of God",
+        detail: "Collected and posthumous work.",
+      },
+    ],
+    related: [
+      {
+        name: "Fr. Georges Florovsky",
+        note: "The other architect of the neo-patristic turn, working the same ground from a different temperament.",
+        href: "witness/georges-florovsky",
+      },
+      {
+        name: "Fr. John Meyendorff",
+        note: "Who carried the study of Palamas and the essence–energies distinction forward in America.",
+        href: "witness/john-meyendorff",
+      },
+      {
+        name: "Metropolitan Anthony (Bloom)",
+        note: "A contemporary of the same Paris emigration who also remained under the Moscow Patriarchate.",
+        href: "witness/anthony-bloom",
+      },
+    ],
+    significance: [
+      "Vladimir Lossky wrote one short book that determined how the Orthodox Church would be explained in Western languages for the rest of the century. Deification, the essence–energies distinction, the apophatic way: these are commonplaces of English-language Orthodox writing now, and they are commonplaces because of him.",
+      "He was a layman throughout, he died at fifty-four, and he was a combatant in disputes that left lasting wounds. He is not glorified, and nothing here implies veneration — but a section recording the Church in living memory that omitted the man who gave it its vocabulary would be incomplete.",
+    ],
+  },
+  {
+    slug: "lev-gillet",
+    name: "Archimandrite Lev Gillet",
+    epithet: "“A Monk of the Eastern Church”",
+    role: "Priest & Spiritual Writer",
+    years: "1893 – 1980",
+    place: "London",
+    bio: [
+      "A French Catholic who met Orthodoxy among Russian prisoners of war, entered the Church in 1928, and became rector of the first French-speaking Orthodox parish in the world.",
+      "He published almost everything he wrote under the name “A Monk of the Eastern Church”, spent his last forty years in London with the Fellowship of St Alban and St Sergius, and left books on the Name of Jesus and the Church's year that are still read.",
+    ],
+    sources: [
+      {
+        label: "OrthodoxWiki: Lev Gillet",
+        url: "https://orthodoxwiki.org/Lev_Gillet",
+      },
+      {
+        label:
+          "Orthodox Church in America — Love without Limits: Archimandrite Lev Gillet",
+        url: "https://www.oca.org/reflections/archimandrite-lev-gillet",
+      },
+      {
+        label: "Wikipedia — Lev Gillet",
+        url: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+    ],
+    secularName: "Louis Gillet",
+    jurisdiction: "Ecumenical Patriarchate, in France and Britain",
+    railFacts: [
+      ["Lived", "8 Aug 1893 – 29 Mar 1980"],
+      ["Born", "Saint-Marcellin, Isère, France"],
+      ["Prisoner of war", "1914–17, with Russian captives"],
+      ["Received", "into Orthodoxy, May 1928"],
+      ["First", "French-language Orthodox parish, 1928"],
+      ["In London", "from 1938"],
+      ["Tradition", "Western European Orthodoxy"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor:
+      "The first French-language Orthodox parish, and the Jesus Prayer in the West",
+    overview: [
+      "Louis Gillet was born on 8 August 1893 at Saint-Marcellin in the Isère and studied philosophy in Paris. Taken prisoner in the first months of the <strong>First World War</strong>, he spent three years in captivity alongside British and Russian soldiers, and it was there — among Russian prisoners, in a prison camp — that he first met the Orthodox tradition that would take the rest of his life.",
+      "He became a Benedictine, then a Studite monk under Metropolitan Andrey Sheptytsky in Galicia, taking final vows as <strong>Lev</strong> in 1925. Disappointed in his hope that the Catholic Church would meet Orthodoxy on equal terms, he was received into the Orthodox Church at Paris in <strong>May 1928</strong>, and in November of that year became rector of <strong>Sainte-Geneviève-de-Paris</strong>, the first Orthodox parish anywhere to serve in French.",
+      "In 1938 he moved to London to work with the <strong>Fellowship of St Alban and St Sergius</strong>, the Anglican–Orthodox society, and remained in England for the last forty-two years of his life. He signed his books <em>A Monk of the Eastern Church</em>, and for many years few of his readers knew who he was.",
+    ],
+    sections: [
+      {
+        heading: "The parish that served in French",
+        body: [
+          "Orthodoxy in Western Europe between the wars was the religion of exiles, served in Slavonic and Greek for people who had lost their countries. Gillet's parish of Sainte-Geneviève was the first anywhere to serve in <strong>French</strong> — that is, the first to be addressed to the people of the country rather than to those washed up in it.",
+          "It was a small and precarious undertaking and it did not make him popular in every quarter. But the principle it established — that the Orthodox Church in Western Europe is a Western European church, in the local language — is now taken for granted from Paris to London to Antwerp, and it began with him.",
+        ],
+      },
+      {
+        heading: "A Monk of the Eastern Church",
+        body: [
+          "The pseudonym was not modesty as a pose; it was a working method. He wanted the books to be received as the voice of the tradition rather than of a personality, and he kept it up for decades.",
+          "The books themselves are unusually warm for their period: <em>On the Invocation of the Name of Jesus</em>, which put the Jesus Prayer within reach of Western readers with no monastic context at all; <em>The Year of Grace of the Lord</em>, a walk through the Church's calendar; <em>Jesus: A Dialogue with the Saviour</em>. The recurring theme, and the title under which a later collection appeared, is love without limits.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1893",
+        title: "Born in the Isère",
+        body: "Louis Gillet is born on 8 August 1893 at Saint-Marcellin, France.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+      {
+        when: "1914–17",
+        title: "Prisoner of war",
+        body: "Captured in the first year of the war, he spends three years in captivity with British and Russian prisoners and is drawn to the Orthodoxy of the Russians.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+      {
+        when: "1925",
+        title: "Studite vows as Lev",
+        body: "He makes his final vows at the Studite monastery of Univ in Galicia, taking the name Lev.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+      {
+        when: "1928",
+        title: "Orthodoxy, and the first French parish",
+        body: "Received into the Orthodox Church at Paris in May, and in November made rector of Sainte-Geneviève-de-Paris, the first French-language Orthodox parish.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+      {
+        when: "1938",
+        title: "To London",
+        body: "He moves to England to work with the Fellowship of St Alban and St Sergius, and remains there for the rest of his life.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+      {
+        when: "1980",
+        title: "Repose",
+        body: "He reposes on 29 March 1980 in London.",
+        source: "https://en.wikipedia.org/wiki/Lev_Gillet",
+      },
+    ],
+    worksBy: [
+      {
+        title: "On the Invocation of the Name of Jesus",
+        detail:
+          "The book that put the Jesus Prayer within reach of Western readers outside a monastery.",
+      },
+      {
+        title: "The Year of Grace of the Lord",
+        detail: "A commentary on the Church's calendar, feast by feast.",
+      },
+      {
+        title: "Jesus: A Dialogue with the Saviour · Love Without Limits",
+        detail: "Published, like the rest, as “A Monk of the Eastern Church”.",
+      },
+    ],
+    related: [
+      {
+        name: "Metropolitan Anthony (Bloom)",
+        note: "A fellow figure of the Paris emigration who also came to Britain through the Fellowship of St Alban and St Sergius.",
+        href: "witness/anthony-bloom",
+      },
+      {
+        name: "Metropolitan Kallistos (Ware)",
+        note: "Who belonged to the same Anglican–Orthodox world in Britain a generation later.",
+        href: "witness/kallistos-ware",
+      },
+    ],
+    significance: [
+      "Fr Lev Gillet established the principle that the Orthodox Church in Western Europe belongs to Western Europe and prays in its languages — not as a theory but by serving the first French-language Orthodox parish in 1928, when the idea was strange to almost everyone.",
+      "Under a pseudonym he then wrote some of the gentlest devotional books the tradition has produced in a Western language, and put the Jesus Prayer into the hands of readers who would never see a monastery. He is not glorified and this page implies no veneration; it records a Frenchman who found Orthodoxy in a prison camp and spent fifty years making it speak his own language.",
+    ],
+  },
+  {
+    slug: "dobri-dobrev",
+    name: "Elder Dobri Dobrev",
+    epithet: "“the Saint of Bailovo”",
+    role: "Almsgiver",
+    years: "1914 – 2018",
+    place: "Bailovo, Bulgaria",
+    bio: [
+      "A Bulgarian villager who from about the age of eighty-five walked some twenty kilometres to Sofia to beg in the streets, and gave every coin away to churches and monasteries while living on a pension of a few dozen lev a month.",
+      "His donations to the cathedral of St Alexander Nevsky are the largest in its history. He reposed in 2018, aged 103, and the people of his country had been calling him a saint for years.",
+    ],
+    sources: [
+      {
+        label:
+          "OrthoChristian — Fifth anniversary of the repose of Bulgaria's beloved Elder Dobri",
+        url: "https://orthochristian.com/150988.html",
+      },
+      {
+        label:
+          "American Carpatho-Russian Diocese — Grandpa Dobri of Bulgaria (1914–2018): A Saint?",
+        url: "https://www.acrod.org/orthodox-christianity/articles/saints/grandpadobri",
+      },
+      {
+        label: "Wikipedia — Dobri Dobrev",
+        url: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+    ],
+    secularName: "Dobri Dimitrov Dobrev",
+    jurisdiction: "Bulgarian Orthodox Church",
+    railFacts: [
+      ["Lived", "20 Jul 1914 – 13 Feb 2018"],
+      ["Born", "Bailovo, Bulgaria"],
+      ["Father", "killed in the First World War"],
+      ["Gave away", "over 80,000 lev in all"],
+      ["To St Alexander Nevsky", "35,700 lev — its largest gift"],
+      ["Lived on", "a small state pension"],
+      ["Tradition", "Bulgarian"],
+      ["Era", "Modern · 20th–21st c."],
+    ],
+    knownFor: "Begging in Sofia for twenty years and keeping none of it",
+    overview: [
+      "Dobri Dimitrov Dobrev was born on 20 July 1914 in the village of <strong>Bailovo</strong>, east of Sofia. His father was killed in the First World War and his mother raised the children alone. He married in 1940, had four children and outlived two of them, and worked an ordinary life; his hearing was damaged by bombing during the second war.",
+      "Around the year 2000, in his middle eighties, he gave away his possessions and moved into a small annexe beside the parish church of Ss Cyril and Methodius in his village. From there he began walking the twenty-odd kilometres to <strong>Sofia</strong> to stand outside the churches of the capital in a homespun coat and beg.",
+      "He kept nothing. Over the remaining years he gave away more than <strong>80,000 lev</strong> — including 35,700 to the cathedral of <strong>St Alexander Nevsky</strong>, the largest single donation in the history of that hundred-year-old church, and 25,000 to the monastery at Eleshnitsa. He lived on his state pension, which came to a few dozen lev a month. He reposed on 13 February 2018, aged 103.",
+    ],
+    sections: [
+      {
+        heading: "The arithmetic",
+        body: [
+          "It is worth setting the numbers beside each other, because they are the whole argument. His pension was of the order of eighty lev a month. The gift to the Alexander Nevsky cathedral was 35,700 lev. He was in his nineties for most of the walking.",
+          "Nothing in the record suggests a plan or a campaign. He begged, he handed the money to churches, and he went home; when Bulgarian television found him and the country discovered what he had been doing, he did not become an institution or a foundation. He carried on standing outside the churches.",
+        ],
+      },
+      {
+        heading: "A saint by acclamation",
+        body: [
+          "Bulgarians called him <em>the Saint of Bailovo</em> long before he died, which is how the word ordinarily starts — not from a synod but from people who cannot think of a better one. Since 2019 the Liturgy has been served at Bailovo on the anniversary of his repose.",
+          "He has not been canonized, and this page does not anticipate the Bulgarian Church. It records a man whose life makes an argument that needs no interpretation, which is rare enough to be worth keeping.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1914",
+        title: "Born at Bailovo",
+        body: "Born 20 July 1914; his father is killed in the First World War.",
+        source: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+      {
+        when: "1940",
+        title: "Marriage",
+        body: "He marries and has four children, two of whom he outlives.",
+        source: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+      {
+        when: "c. 2000",
+        title: "He gives everything away",
+        body: "In his middle eighties he donates his possessions to the Church and moves into an annexe beside the village church of Ss Cyril and Methodius.",
+        source: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+      {
+        when: "2000s",
+        title: "Begging in Sofia",
+        body: "He walks some twenty kilometres to the capital to beg outside its churches, giving away everything he collects.",
+        source: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+      {
+        when: "2009",
+        title: "The largest gift in the cathedral's history",
+        body: "His donations to the cathedral of St Alexander Nevsky reach 35,700 lev, the largest in its hundred-year history; a further 25,000 goes to the Eleshnitsa monastery.",
+        source: "https://en.wikipedia.org/wiki/Dobri_Dobrev",
+      },
+      {
+        when: "2018",
+        title: "Repose",
+        body: "He reposes on 13 February 2018, aged 103. From the following year the Liturgy is served at Bailovo on the anniversary.",
+        source: "https://orthochristian.com/150988.html",
+      },
+    ],
+    related: [
+      {
+        name: "St John the Almsgiver",
+        note: "The patriarch of Alexandria whose name is a byword for this kind of giving.",
+      },
+      {
+        name: "Elder Aimilianos of Simonopetra",
+        note: "A contemporary of the same Balkan Orthodoxy, remembered for a different kind of poverty.",
+        href: "witness/aimilianos-simonopetra",
+      },
+    ],
+    significance: [
+      "Elder Dobri is in this section because his life is legible without commentary. A man in his nineties walking twenty kilometres to beg, and handing every coin to churches he would never worship in, is the Gospel's teaching on almsgiving performed at a scale that cannot be explained away as sentiment.",
+      "He has not been canonized by the Bulgarian Church and nothing here implies veneration. But the country had been calling him a saint for a decade before he died, and that popular judgment — right or premature — is itself part of the record of Orthodoxy in living memory.",
+    ],
+  },
+  {
+    slug: "evgeny-rodionov",
+    name: "Evgeny Rodionov",
+    epithet: "",
+    role: "Soldier",
+    years: "1977 – 1996",
+    place: "Chechnya",
+    bio: [
+      "A nineteen-year-old Russian conscript beheaded in Chechen captivity in 1996, by the account of his captors after refusing to remove his baptismal cross or renounce Christ.",
+      "He is venerated by very many Russians and has NOT been glorified: the Moscow Patriarchate has repeatedly declined, citing the want of evidence about how he died. His memory has also been enlisted in causes that are not the Church's. All of that is set out on this page.",
+    ],
+    sources: [
+      {
+        label: "Wikipedia — Yevgeny Rodionov",
+        url: "https://en.wikipedia.org/wiki/Yevgeny_Rodionov",
+      },
+      {
+        label:
+          "Orthodox Christianity Then and Now — Russian Church Reticent Over Canonization of Evgeny Rodionov",
+        url: "https://www.johnsanidopoulos.com/2011/01/russian-church-reticent-over.html",
+      },
+      {
+        label: "OrthoChristian — Evgeny Rodionov the Warrior, 1977–1996",
+        url: "https://orthochristian.com/42598.html",
+      },
+    ],
+    secularName: "Yevgeny Aleksandrovich Rodionov",
+    jurisdiction: "Russian Orthodox Church (popular veneration only)",
+    railFacts: [
+      ["Lived", "23 May 1977 – 23 May 1996"],
+      ["Was", "a conscript border guard"],
+      ["Captured", "13 February 1996"],
+      ["Held", "about a hundred days"],
+      ["Killed", "on his nineteenth birthday, near Bamut"],
+      ["Glorified", "NO — Moscow has declined"],
+      ["Tradition", "Russian (popular veneration)"],
+      ["Era", "Modern · 20th c."],
+    ],
+    knownFor: "A contested martyrdom, venerated by many and canonized by none",
+    overview: [
+      "Yevgeny Rodionov (1977–1996) was a Russian border guard, conscripted at eighteen, who was captured with three comrades near the Chechen border on <strong>13 February 1996</strong>. He was held for about a hundred days in a cellar, beaten and starved, and killed on <strong>23 May 1996</strong>, his nineteenth birthday, near the village of Bamut.",
+      "According to the account given afterwards by his captors, he was told to take off the baptismal cross he wore around his neck and accept Islam, and refused; he was beheaded. His mother, <strong>Lyubov Rodionova</strong>, went to Chechnya, searched for him for months, paid for information, and brought his body home.",
+      "He has <strong>not been glorified</strong>. The Moscow Patriarchate has considered the case more than once and declined, on the ground that the circumstances of his death are not sufficiently established — the account rests on the statements of those who killed him and on what his mother was told. He is nevertheless venerated very widely in Russia: icons of him are painted and sold, chapels are dedicated, and he is spoken of as a new martyr in ordinary speech.",
+    ],
+    sections: [
+      {
+        heading: "Why the Church has not glorified him",
+        body: [
+          "The Russian Church's reticence is not indifference to a soldier's death. Glorification requires that the Church be able to say what happened and why, and here it cannot: the only witnesses to the demand and the refusal are the men who committed the killing, relayed at second hand. A martyr is someone who died for Christ rather than someone who died at the hands of people of another religion, and the difference is exactly what the evidence does not settle.",
+          "There is a second reticence, less often stated. Rodionov's image has been taken up in Russia by nationalist and militarist currents, and in some hands the veneration has become an argument about Islam and about war rather than about a boy in a cellar. A Church asked to canonize under that pressure has reason to move slowly.",
+        ],
+      },
+      {
+        heading: "What can be said",
+        body: [
+          "What is not in dispute: that he was nineteen, that he was captured and held for about a hundred days, that he was killed, that he had been baptized and wore his cross, and that his mother would not stop looking for him. Those facts do not require the contested parts to be moving.",
+          "This page takes no position on whether he should be glorified. It exists because he is one of the most venerated non-canonized people in the Orthodox world, and a section recording exactly that category would be dishonest to leave him out of — provided it says plainly, as this does, that the Church has not spoken and that there are reasons.",
+        ],
+      },
+    ],
+    timeline: [
+      {
+        when: "1977",
+        title: "Born",
+        body: "Yevgeny Aleksandrovich Rodionov is born on 23 May 1977.",
+        source: "https://en.wikipedia.org/wiki/Yevgeny_Rodionov",
+      },
+      {
+        when: "13 Feb 1996",
+        title: "Captured",
+        body: "A conscript border guard, he is taken prisoner with three comrades near the Chechen border.",
+        source: "https://en.wikipedia.org/wiki/Yevgeny_Rodionov",
+      },
+      {
+        when: "Feb–May 1996",
+        title: "A hundred days",
+        body: "He is held in a cellar, beaten and starved, with his fellow captives.",
+        source: "https://en.wikipedia.org/wiki/Yevgeny_Rodionov",
+      },
+      {
+        when: "23 May 1996",
+        title: "Killed near Bamut",
+        body: "He is beheaded on his nineteenth birthday. His captors later said he had refused to remove his cross or renounce his faith.",
+        source: "https://en.wikipedia.org/wiki/Yevgeny_Rodionov",
+      },
+      {
+        when: "After 1996",
+        title: "His mother's search, and popular veneration",
+        body: "Lyubov Rodionova recovers his body from Chechnya. Icons are painted and chapels dedicated; the Moscow Patriarchate declines to glorify him, citing insufficient evidence about his death.",
+        source:
+          "https://www.johnsanidopoulos.com/2011/01/russian-church-reticent-over.html",
+      },
+    ],
+    family: {
+      members: [
+        {
+          relation: "Mother",
+          name: "Lyubov Rodionova",
+          note: "Who went to Chechnya, searched for months, and brought her son's body home — and who is the source for much of what is said about him.",
+        },
+      ],
+    },
+    related: [
+      {
+        name: "The New Martyrs and Confessors of Russia",
+        note: "The glorified twentieth-century martyrs of the Russian Church, whose canonizations rested on documented evidence of the kind Rodionov's case lacks.",
+      },
+    ],
+    significance: [
+      "Evgeny Rodionov is the clearest illustration of what this section is for. He is venerated by enormous numbers of Orthodox Christians, painted on icons, and called a martyr in ordinary Russian speech — and he has not been canonized, because the Church cannot establish what happened in that cellar and will not glorify on the strength of what his killers said afterwards.",
+      "Keeping him here, with that stated, is the honest position: neither pretending the veneration does not exist nor joining it. His memory has also been used for purposes well outside the Church, which is part of the record and part of the reason for caution.",
     ],
   },
 ];
