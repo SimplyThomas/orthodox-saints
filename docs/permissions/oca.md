@@ -160,21 +160,31 @@ this a one-request diagnosis instead of a two-month assumption.
   now `CloudOfWitnesses/1.0 (+https://orthodoxsaintfinder.com; contact@…)`.
 - **Read the response body and status before theorising.** A 403 is a message about
   this client. Ours said so from the first request.
-- **The politeness brakes stay** — sequential fetches, 4s default delay, on-disk
-  cache, abort after 3 consecutive failures. Note that because the block was never
-  rate-based, we still have **no measurement** of what the OCA considers too fast.
-  That is a reason to keep the slow default, not to relax it.
-- **Ask before a full pass.** Fr. John wrote: "One page per day should be no problem.
-  In general, if you throttle requests to a reasonable level and cache responses, you
-  shouldn't have a problem."
+- **The politeness brakes stay** — sequential fetches, the agreed delay, on-disk
+  cache, abort after 3 consecutive failures.
+- **12 seconds between requests is the OCA's own number, not ours.** See below. It is
+  a floor, not a target: `--delay` may be raised, never lowered.
 
-### Open question
+### The agreed rate (settled 2026-08-07)
 
-"One page per day" is **ambiguous and has not been resolved.** We described the job
-as one page per *calendar day* (366 pages, once, four seconds apart); he may have
-meant a rate of one request per twenty-four hours. Both readings are natural. Until
-he confirms, do not run the full 366-page pass — the generous reading is exactly the
-kind of assumption that produced the last incident.
+The ambiguity in "one page per day" was put back to Fr. John directly, describing the
+job as 366 pages in a single pass, four seconds apart. He replied:
+
+> "Can you space this out a bit more, maybe once every 12 seconds?"
+
+That settles both halves. **A full 366-page pass is acceptable**, and **12 seconds is
+the spacing they asked for** — so the script's default `--delay` is now `12.0`. A
+complete harvest therefore takes about 75 minutes, which is the correct trade: their
+server's comfort against our convenience, decided by them.
+
+This number came from asking rather than inferring, and that is the durable lesson of
+this whole episode. Both prior beliefs about oca.org — the IP ban and the TLS
+fingerprint — were confident inferences from a failure nobody had read, and they cost
+two months. One email settled what months of theorising did not.
+
+If a future job needs a different pattern (a second pass, a different section of the
+site, anything materially heavier), **ask again**. The grant is a courtesy and so is
+this rate; neither is a standing entitlement to whatever we decide is reasonable.
 
 ## To revoke (if permission is ever withdrawn, or the site ceases to be free)
 

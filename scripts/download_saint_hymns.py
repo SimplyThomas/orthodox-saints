@@ -30,9 +30,9 @@ How it works, and why this way:
      by risk instead of reading 2,900 rows equally.
 
 Cached HTML lives under dist/oca_troparia/ so re-runs are free and re-parsing
-never re-fetches. Politeness: one request at a time, with a delay, and a
-descriptive User-Agent — a grant to use the texts is not a licence to hammer a
-church's server.
+never re-fetches. Politeness: one request at a time, 12 seconds apart at the
+OCA's own request, and a descriptive User-Agent — a grant to use the texts is
+not a licence to hammer a church's server.
 
 *** BEFORE YOU RUN THIS, READ THIS PARAGRAPH. ***
 
@@ -54,20 +54,25 @@ The politeness brakes below are NOT part of that mistake and stay as they are.
 The grant covers the TEXT; it is not consent to crawl their server. So:
 
   * Start with `--days 5`, confirm the pages parse, and only then widen.
-  * The default delay is deliberately slow. Do not lower it.
+  * THE 12-SECOND DELAY IS THEIRS, NOT OURS. Asked how to pace a full pass, Fr.
+    John replied: "Can you space this out a bit more, maybe once every 12
+    seconds?" That is the default below. It is a FLOOR — raise it freely, never
+    lower it. A full 366-page pass therefore takes about 75 minutes; let it.
   * If it aborts on consecutive failures, WAIT. Do not re-run, do not swap HTTP
     client, do not route around it. Three refusals in a row mean they are
     refusing us, and the courteous reading is the correct one. (Read the
     response first, though — ours said 403 for a reason we could have found in
     one request and instead guessed at for months.)
-  * If a full harvest is ever wanted, ask the OCA first. They have been
-    generous; a note costs one email and is faster than being blocked.
+  * A full pass is agreed. Anything materially heavier — a second pass, another
+    section of the site — is a fresh question for the OCA. Both the grant and
+    the rate are courtesies, not entitlements. Asking took one email and settled
+    what two months of inference got wrong.
 
 Usage:
     python3 scripts/download_saint_hymns.py --days 5     # ALWAYS start here
-    python3 scripts/download_saint_hymns.py              # full calendar
+    python3 scripts/download_saint_hymns.py              # full calendar, ~75 min
     python3 scripts/download_saint_hymns.py --no-fetch   # re-parse the cache only
-    python3 scripts/download_saint_hymns.py --delay 8.0  # be slower still
+    python3 scripts/download_saint_hymns.py --delay 20   # be slower still
 """
 
 import argparse
@@ -93,6 +98,9 @@ OUT_CSV = DIST / "hymn_review.csv"
 # are doing to their server.
 UA = ("CloudOfWitnesses/1.0 (+https://orthodoxsaintfinder.com; "
       "contact@orthodoxsaintfinder.com)")
+# Seconds between requests, at the OCA's own request (2026-08-07). A floor,
+# enforced in main(); --delay may raise it but not go under it.
+MIN_DELAY = 12.0
 # The year in the URL only selects which movable feasts land on the day; the
 # fixed-calendar commemorations we join against are the same every year.
 YEAR = 2015
@@ -267,8 +275,11 @@ def score(ctok: set[str], name: set[str], full: set[str]) -> float:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--delay", type=float, default=4.0,
-                    help="seconds between requests (default 4.0)")
+    # 12s is the OCA's own request (2026-08-07), not a guess of ours. Floor, not
+    # target: raise it freely, never lower it. See the header note.
+    ap.add_argument("--delay", type=float, default=12.0,
+                    help="seconds between requests (default 12.0, the rate the "
+                         "OCA asked for; raise but never lower)")
     ap.add_argument("--days", type=int, default=0, metavar="N",
                     help="fetch at most N new days this run (0 = no limit). "
                          "ALWAYS use a small N first — see the header note.")
@@ -277,6 +288,14 @@ def main() -> int:
     ap.add_argument("--force", action="store_true",
                     help="re-fetch days already cached")
     args = ap.parse_args()
+
+    # The floor is enforced, not merely documented. 12s is what the OCA asked
+    # for; a promise about someone else's server should not be one careless
+    # flag away from being broken.
+    if args.delay < MIN_DELAY:
+        print(f"--delay {args.delay:g} is below the {MIN_DELAY:g}s the OCA "
+              f"asked for; using {MIN_DELAY:g}s.", file=sys.stderr)
+        args.delay = MIN_DELAY
 
     saints = load_saints()
     # Index saints by the days they are commemorated, so each OCA commemoration
