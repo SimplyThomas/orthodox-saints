@@ -1,13 +1,17 @@
 ---
-import { SAINTS } from "../lib/data";
+import { FINDER_SAINTS } from "../lib/data";
 import { FACETS, OPEN_BY_DEFAULT, facetCounts } from "../lib/filter";
 import { themesByGroup } from "../lib/themes";
 
 // Facet option counts are computed across all saints at build time (static).
+// FINDER_SAINTS, not SAINTS: the finder browses the cross-listed archangels too
+// (lib/host-finder), so deriving options from the saints alone would never offer
+// "Archangel" as a Rank and would silently drop all eight the moment any facet
+// was ticked. The sidebar must count exactly the set the island filters.
 // "themes" is excluded here — it is a curated cross-cut rendered as the bespoke
 // grouped "Browse by Theme" block below, not a flat list of slugs.
 const groups = FACETS.filter((f) => f.key !== "themes")
-  .map((f) => ({ facet: f, options: facetCounts(SAINTS, f.key) }))
+  .map((f) => ({ facet: f, options: facetCounts(FINDER_SAINTS, f.key) }))
   .filter((g) => g.options.length > 0);
 
 // Curated themes, grouped by family (only families with populated themes).
