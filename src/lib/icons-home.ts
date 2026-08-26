@@ -6,7 +6,12 @@
    angelic feasts are out of scope, §7) resolves to null and renders the
    not-yet-in-database fallback the mockup already provides. */
 
-import { byId } from "./data";
+import { existsSync } from "node:fs";
+
+import { byId, SAINTS } from "./data";
+import { FEASTS } from "./feasts";
+import { HOSTS } from "./hosts";
+import { iconThumbPath } from "./icons";
 
 /* slug → canonical OS-#### (resolved against data/saints.csv by name/AKA). */
 const SLUG_TO_ID: Record<string, string> = {
@@ -219,6 +224,288 @@ export function linkSaint(
 ): ResolvedSaint | null {
   if (slug && SLUG_TO_ID[slug]) return resolveById(SLUG_TO_ID[slug]);
   return resolveById(CORE_TO_ID[nameCore(name)] ?? null);
+}
+
+/* =====================================================================
+   ICON ART — the actual icon each recommendation card is about
+   =====================================================================
+   The cards name icons ("The Wedding at Cana") and saints ("St Spyridon"),
+   and until now showed only the saint's small avatar — or a diamond
+   placeholder for every subject that is not a database row. This resolver
+   puts the REAL icon on the card.
+
+   WHERE THE PICTURES COME FROM. Nothing new is licensed here: every image is
+   one this site already ships under §9 — a vendor-permission icon (Theophany
+   Works / Legacy Icons) or an open-licence portrait — looked up by path in
+   the records the Python build emits. That matters for revocation: set a
+   vendor `status=revoked` in data/image_permissions.csv and build.py drops
+   its images from data.json / hosts.json / feasts.json, the lookup below
+   misses, and these cards fall back to the placeholder. No second registry
+   to remember, no orphaned grant.
+
+   THE GRANT'S CONDITIONS TRAVEL WITH THE PICTURE: `source` is the vendor's
+   own icon page (each placement must link to it) and `vendor`/`attribution`
+   are the visible credit. A caller that renders `image` without them is
+   breaking the permission, so they are returned together, never separately.
+
+   Theophany Works is preferred over Legacy Icons wherever both stock the
+   subject, and an explicit `IH_ART` entry beats both — the auto-pick knows
+   which saint an icon shows, not which icon a card is TALKING about (the
+   Abraham card wants his portrait, not the Sacrifice of Isaac). */
+
+export interface IhArt {
+  /** static-relative path of the full image */
+  image: string;
+  /** the ~200 px avatar thumb, when one exists on disk */
+  thumb?: string;
+  /** the icon's own title — shown in the caption, so a card never implies a
+      picture is something it is not */
+  title?: string;
+  /** the vendor's icon page. A permission grant REQUIRES the link (§9) */
+  source?: string;
+  vendor?: string;
+  attribution?: string;
+  permission?: boolean;
+  license?: string;
+  credit?: string;
+}
+
+/* path → the art record, built once from everything the build emitted:
+   saints (incl. Christ OS-0000 and the Theotokos OS-0001), the bodiless
+   powers, and the feasts. Later mentions of the same file fill in fields the
+   first one lacked — a feast depiction carries a title but no vendor, a hero
+   carries the vendor but no title. */
+const ART_INDEX = new Map<string, IhArt>();
+
+function addArt(a: IhArt): void {
+  if (!a.image) return;
+  const cur = ART_INDEX.get(a.image);
+  if (!cur) {
+    ART_INDEX.set(a.image, a);
+    return;
+  }
+  for (const k of Object.keys(a) as (keyof IhArt)[]) {
+    if (cur[k] === undefined && a[k] !== undefined) {
+      (cur as Record<string, unknown>)[k] = a[k];
+    }
+  }
+}
+
+interface ImageBearer {
+  image?: string;
+  imageThumb?: string;
+  imageLicense?: string;
+  imageCredit?: string;
+  imageSource?: string;
+  imageVendor?: string;
+  imageAttribution?: string;
+  imagePermission?: boolean;
+  depictions?: {
+    image: string;
+    title?: string;
+    source?: string;
+    vendor?: string;
+    attribution?: string;
+    permission?: boolean;
+    license?: string;
+    credit?: string;
+  }[];
+}
+
+function indexRecord(r: ImageBearer): void {
+  if (r.image) {
+    addArt({
+      image: r.image,
+      thumb: r.imageThumb,
+      source: r.imageSource,
+      vendor: r.imageVendor,
+      attribution: r.imageAttribution,
+      permission: r.imagePermission,
+      license: r.imageLicense,
+      credit: r.imageCredit,
+    });
+  }
+  for (const d of r.depictions || []) {
+    addArt({
+      image: d.image,
+      title: d.title,
+      source: d.source,
+      vendor: d.vendor,
+      attribution: d.attribution,
+      permission: d.permission,
+      license: d.license,
+      credit: d.credit,
+    });
+  }
+}
+
+for (const s of SAINTS) indexRecord(s as ImageBearer);
+for (const h of HOSTS) indexRecord(h as ImageBearer);
+for (const f of FEASTS) indexRecord(f as ImageBearer);
+
+/* A feast depiction is emitted without vendor/attribution, so back-fill both
+   from the vendor slug in its own path — the permission is per VENDOR, and
+   the saints' rows already carry that vendor's wording. */
+const VENDOR_BY_SLUG = new Map<
+  string,
+  { vendor: string; attribution?: string }
+>();
+for (const a of ART_INDEX.values()) {
+  const slug = a.image.match(/permission\/([^/]+)\//)?.[1];
+  if (slug && a.vendor && !VENDOR_BY_SLUG.has(slug)) {
+    VENDOR_BY_SLUG.set(slug, { vendor: a.vendor, attribution: a.attribution });
+  }
+}
+for (const a of ART_INDEX.values()) {
+  const slug = a.image.match(/permission\/([^/]+)\//)?.[1];
+  const v = slug ? VENDOR_BY_SLUG.get(slug) : undefined;
+  if (!v) continue;
+  a.permission = true;
+  a.vendor ??= v.vendor;
+  a.attribution ??= v.attribution;
+}
+
+/* The ingest pipeline writes a ~200 px thumb beside each icon, but only a
+   hero portrait carries `imageThumb` in the data. Derive it for depictions —
+   checking the file, because a thumb that is merely assumed 404s. */
+const thumbSeen = new Map<string, string | undefined>();
+function artThumb(image: string): string | undefined {
+  if (!image.startsWith("icons/")) return undefined;
+  if (!thumbSeen.has(image)) {
+    const rel = iconThumbPath(image).replace(/\.[^./]+$/, ".jpg");
+    thumbSeen.set(image, existsSync(`static/${rel}`) ? rel : undefined);
+  }
+  return thumbSeen.get(image);
+}
+
+/* Theophany Works first, then Legacy Icons, then an open-licence portrait —
+   the site's own order of preference among the granted vendors (§9). */
+const VENDOR_RANK: Record<string, number> = {
+  "Theophany Works": 0,
+  "Legacy Icons": 1,
+};
+function artRank(a: IhArt): number {
+  return a.vendor ? (VENDOR_RANK[a.vendor] ?? 2) : 3;
+}
+
+/** THE CURATED PICKS — subject (nameCore) → image path. Everything not listed
+ *  falls through to the saint's own portrait, so this map holds only the two
+ *  cases the auto-pick cannot get right: an icon SUBJECT that is nobody's
+ *  portrait (the Hospitality of Abraham, the Wedding at Cana, the Guardian
+ *  Angel), and a saint whose best-ranked image shows the wrong thing for this
+ *  card. Keys are nameCore() output — rank words already stripped. */
+const IH_ART: Record<string, string> = {
+  // Christ and the Theotokos — the two icons every card begins with.
+  "jesus christ": "icons/permission/theophany-works/OS-0000-sinai.jpg",
+  "christ the savior":
+    "icons/permission/theophany-works/OS-0000-pantocrator.jpg",
+  "christ the teacher":
+    "icons/permission/theophany-works/OS-0000-enthroned-in-glory.jpg",
+  theotokos: "icons/permission/theophany-works/OS-0001-odigitria.jpg",
+  // The bodiless powers (HH-####, never in saints.csv — §7).
+  "guardian angel": "icons/permission/theophany-works/guardian-angel-boy.jpg",
+  michael: "icons/permission/theophany-works/michael-standing-hero.jpg",
+  raphael: "icons/permission/legacy-icons/HH-0012-archangel-raphael-icon.jpg",
+  // Icons of a scene, which no saint record would ever resolve to.
+  "hospitality of abraham":
+    "icons/permission/theophany-works/abraham-hospitality-21st-c.jpg",
+  "wedding at cana": "icons/permission/theophany-works/wedding-at-cana.jpg",
+  "flight into egypt":
+    "icons/permission/theophany-works/flight-to-egypt-decani.jpg",
+  cross:
+    "icons/permission/legacy-icons/feasts/FF-0003-exaltation-of-the-cross-old-believer-icon-f1.jpg",
+  // Abraham and Sarah are the hosts at Mamre, so the pair's card takes the
+  // scene and the subject's card takes the Trinity composition above.
+  "abraham and sarah":
+    "icons/permission/theophany-works/abraham-hospitality.jpg",
+  // Saints whose top-ranked image shows a scene rather than the saint.
+  "abraham the forefather": "icons/permission/legacy-icons/OS-1984.jpg",
+  "joseph the betrothed": "icons/permission/legacy-icons/OS-0075.jpg",
+  // Saints with a better icon than their hero portrait for this page.
+  "joachim and anna": "icons/permission/theophany-works/OS-0011-stjoan01.jpg",
+  "george the trophy bearer":
+    "icons/permission/theophany-works/OS-0012-stge03.jpg",
+  // Sourced for these cards (scripts/subject_icon_manifest.csv). Legacy Icons
+  // stocks each of these subjects and Theophany Works does not, so the
+  // vendor order gives way to having the right picture at all.
+  "mystical supper":
+    "icons/permission/legacy-icons/OS-0000-mystical-supper-whirledge-icon-f386.jpg",
+  // No vendor sells a "Christ Blessing the Bread". This is the icon of the
+  // same act — its own inscription reads "the Blessing of the Five Loaves" —
+  // and the caption names it, so nothing is passed off as something else.
+  "christ blessing the bread":
+    "icons/permission/legacy-icons/OS-0000-feeding-of-the-5000-athos-icon-f231.jpg",
+  "christ among the teachers":
+    "icons/permission/legacy-icons/OS-0000-christ-as-a-youth-in-the-temple-decani-icon-.jpg",
+  "theotokos the unfading bloom":
+    "icons/permission/legacy-icons/OS-0001-theotokos-the-unfading-flower-icon-t173.jpg",
+  "martha of bethany":
+    "icons/permission/legacy-icons/OS-1280-saint-martha-the-sister-of-lazarus-icon-s497.jpg",
+  "aquila and priscilla":
+    "icons/permission/legacy-icons/OS-1527-apostles-aquila-and-priscilla-whirledge-icon.jpg",
+  paradise:
+    "icons/permission/legacy-icons/OS-2524-adam-naming-the-animals-meteora-icon-f262.jpg",
+  // Raphael holding his own words from Tobit 12, standing over the fish of
+  // that journey. Tobias is not in it — hence this card and not the pairing.
+  "tobit and raphael":
+    "icons/permission/legacy-icons/HH-0012-archangel-raphael-icon-s391.jpg",
+  // Zechariah the Priest has no icon at either vendor (the Zechariah they
+  // sell is the Prophet of the Twelve, a different man — §6). Elizabeth's own
+  // icon carries the couple's card.
+  "zechariah and elizabeth": "icons/permission/legacy-icons/OS-2752.jpg",
+
+  /* DELIBERATELY BLANK — the record now has an icon, and it is the wrong one
+     to put on this card. Blank suppresses the fallback; deleting the line
+     turns the picture back on. */
+  // Both sisters share one row (OS-1280) and the only icon either vendor
+  // sells of it is Martha alone. A card headed "St Mary of Bethany" must not
+  // show Martha's face (§6 — the join is by identity, not by row).
+  "mary of bethany": "",
+  // The Church's icon of this commemoration is the massacre itself, now on
+  // OS-2425's carousel where the page around it gives it context. At avatar
+  // size, beside "Children's Room", it is only slain infants.
+  "innocents of bethlehem": "",
+};
+
+/** The icon a card is about: an explicit `art` path, then the curated subject
+ *  map, then the saint's own images ranked by vendor. Null is a normal
+ *  outcome — a vigil lamp is not an icon, and plenty of saints have no icon
+ *  on the site yet; the card then renders its placeholder. */
+export function resolveArt(
+  name: string,
+  opts: { art?: string; slug?: string | null } = {},
+): IhArt | null {
+  const key = nameCore(name);
+  // "" is a deliberate suppression, not a missing entry: this subject has an
+  // icon it must not borrow. Distinguish it from undefined before defaulting.
+  if (opts.art === undefined && key in IH_ART && IH_ART[key] === "")
+    return null;
+  const pinned = opts.art ?? IH_ART[key];
+  if (pinned) {
+    const a = ART_INDEX.get(pinned);
+    // A pinned path that is missing means the image was pulled (a revoked
+    // vendor) — fall through to the saint rather than render a broken frame.
+    if (a) return { ...a, thumb: a.thumb ?? artThumb(a.image) };
+  }
+  const s = linkSaint(name, opts.slug);
+  if (!s) return null;
+  const own = byId.get(s.id);
+  if (!own) return null;
+  const cands: IhArt[] = [];
+  if (own.image) {
+    const a = ART_INDEX.get(own.image);
+    if (a) cands.push(a);
+  }
+  for (const d of own.depictions || []) {
+    const a = ART_INDEX.get(d.image);
+    if (a) cands.push(a);
+  }
+  if (!cands.length) return null;
+  // Stable sort: the hero portrait leads its vendor's depictions.
+  const best = cands
+    .map((a, i) => ({ a, i }))
+    .sort((x, y) => artRank(x.a) - artRank(y.a) || x.i - y.i)[0].a;
+  return { ...best, thumb: best.thumb ?? artThumb(best.image) };
 }
 
 /* =====================================================================
@@ -452,6 +739,11 @@ export interface IhEntry {
   n: string;
   sub?: string;
   why: string;
+  /** Pin this card to one icon (a static-relative path already licensed on
+      this site — see resolveArt). Only needed when the card wants a different
+      icon from the one its subject resolves to: the children's room asks for
+      "Suffer the little children", not the Pantocrator. */
+  art?: string;
   footLabel?: string;
   foot?: string;
   footLabel2?: string;
@@ -1243,6 +1535,7 @@ export const IH_CHILDREN: IhRichCard = {
       entries: [
         {
           n: "Jesus Christ",
+          art: "icons/permission/theophany-works/OS-0000-suffer-the-children.jpg",
           why: "Christ is the center of every Christian life. His icon reminds children that they belong to Him and are called to grow in faith, love, and holiness.",
           footLabel: "Traditions",
           foot: "Universal throughout the Orthodox world.",
@@ -1250,6 +1543,7 @@ export const IH_CHILDREN: IhRichCard = {
         {
           n: "The Theotokos",
           sub: "Mother of God",
+          art: "icons/permission/theophany-works/OS-0001-glykophilousa-21st-c.jpg",
           why: "The Mother of God is regarded as a special protector of children and families — her icon is among the most common in Orthodox nurseries and children’s rooms.",
           footLabel: "Traditions",
           foot: "Universal throughout the Orthodox world.",

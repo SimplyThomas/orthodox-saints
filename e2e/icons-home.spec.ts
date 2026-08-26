@@ -77,3 +77,30 @@ test("the FAQ accordion opens one answer at a time", async ({ page }) => {
   await expect(items.first().locator(".ih-faq-a")).toBeHidden();
   await expect(page.locator('.ih-faq-q[aria-expanded="true"]')).toHaveCount(1);
 });
+
+test("recommendation cards show the icon they name, credited and linked", async ({
+  page,
+}) => {
+  await page.goto("./icons-home/");
+  await page.locator('[data-room="dining"]').click();
+  const card = page.locator('.ih-card-shell[data-card="dining"]');
+  await expect(card).toBeVisible();
+
+  // The Wedding at Cana is an icon subject, not a saint record: it had no
+  // picture at all before, and now carries the icon the card is about.
+  const cana = card.locator(".ih-art", {
+    has: page.locator('img[alt="The Wedding at Cana"]'),
+  });
+  await expect(cana).toBeVisible();
+  // §9: a vendor-permission image must link to that icon's own page, and the
+  // vendor must be visibly credited beside it.
+  await expect(cana).toHaveAttribute("href", /theophanyworks\.com\/.+/);
+  await expect(
+    card.locator(".ih-art-credit", { hasText: "Theophany Works" }).first(),
+  ).toBeVisible();
+
+  // Every plate is credited — a picture with no credit line is a broken grant.
+  const plates = await card.locator(".ih-art").count();
+  expect(plates).toBeGreaterThanOrEqual(5);
+  await expect(card.locator(".ih-art-credit")).toHaveCount(plates);
+});
