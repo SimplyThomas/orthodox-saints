@@ -18,8 +18,10 @@ import {
   IH_TRADITIONS,
   resolveSaint,
   linkSaint,
+  resolveArt,
   type IhRichCard,
   type IhEntry,
+  type IhArt,
   type ResolvedSaint,
 } from "../lib/icons-home";
 
@@ -85,6 +87,56 @@ function marker(s: ResolvedSaint | null, w: number, h: number): string {
   return `<span style="flex:0 0 auto;width:${w}px;height:${h}px;border-radius:6px;background:var(--ivory-2);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;transform:rotate(45deg);background:var(--gold)"></span></span>`;
 }
 
+/* ---------- the actual icon a card is about ----------
+   Every one of these is an image the site already ships under §9 — a
+   vendor-permission icon or an open-licence portrait — so the plate and the
+   caption are written as a pair and rendered as a pair. The caption is not
+   decoration: the two vendor grants are conditioned on a visible credit and a
+   link to that icon's own page, so a plate whose art carries a `source` is
+   always wrapped in that link, and the caption always names the icon and who
+   it belongs to. Landscape scenes (the Wedding at Cana) and portrait panels
+   share one fixed WIDTH and keep their own aspect — cover-cropping a scene to
+   a portrait frame cuts the picture in half. */
+const ART_W = 84;
+
+function artLink(a: IhArt, inner: string, cls = "", style = ""): string {
+  if (!a.source)
+    return `<span${style ? ` style="${style}"` : ""}>${inner}</span>`;
+  return `<a${cls ? ` class="${cls}"` : ""} href="${esc(a.source)}" target="_blank" rel="noopener noreferrer" data-umami-event="Icon Click" data-umami-event-vendor="${esc(a.vendor || a.credit || "source")}" data-umami-event-source="icons-home"${style ? ` style="${style}"` : ""}>${inner}</a>`;
+}
+
+function artPlate(a: IhArt, alt: string): string {
+  const src = withBase(a.thumb || a.image);
+  const img = `<img src="${esc(src)}" alt="${esc(a.title || alt)}" title="${esc(a.title || alt)}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:4px;background:#efe3cb" />`;
+  const plate = `<span style="display:block;width:${ART_W}px;padding:2px;background:var(--gold-deep);border-radius:6px">${img}</span>`;
+  return artLink(
+    a,
+    plate,
+    "ih-art",
+    "flex:0 0 auto;display:block;text-decoration:none",
+  );
+}
+
+function artCredit(a: IhArt): string {
+  const cap =
+    "font-size:11.5px;color:var(--ink-soft);line-height:1.45;margin-top:11px";
+  if (a.permission) {
+    // The grant's own default wording, the same sentence the saint pages
+    // carry: the publisher is named in full and the link goes to that icon's
+    // own page, never to a homepage or a search.
+    const link = artLink(a, `Original icon: View on ${esc(a.vendor || "")}`);
+    return `<div class="ih-art-credit" style="${cap}">${esc(a.attribution || "")} ${link}</div>`;
+  }
+  const who =
+    a.credit ||
+    (/^(PD|CC0)/i.test(a.license || "") ? "public domain" : "source");
+  const lic =
+    a.license && a.credit
+      ? ` <span style="opacity:.8">${esc(a.license)}</span>`
+      : "";
+  return `<div class="ih-art-credit" style="${cap}">Icon &middot; ${artLink(a, esc(who))}${lic}</div>`;
+}
+
 function chip(label: string): string {
   return `<span style="font-size:12px;color:var(--byz);background:var(--paper);border:1px solid var(--line-gold);border-radius:20px;padding:3px 11px">${esc(label)}</span>`;
 }
@@ -120,7 +172,10 @@ function entryHtml(e: IhEntry): string {
   const best = e.bestFor
     ? `<div style="margin-top:12px"><div class="eyebrow" style="font-size:11px;margin-bottom:7px">Best for</div><div style="display:flex;flex-wrap:wrap;gap:5px 7px">${e.bestFor.map(chip).join("")}</div></div>`
     : "";
-  return `<div style="background:var(--ivory);border:1px solid var(--line-gold);border-radius:9px;padding:18px 20px;display:flex;flex-direction:column"><div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:9px">${marker(s, 42, 52)}<div style="text-align:left"><div style="font-family:var(--serif);font-size:21px;color:var(--byz-deep);line-height:1.08">${slink(e.n, s, sub)}</div>${dbline}</div></div><p style="font-size:15px;color:var(--ink);line-height:1.58;margin:0;text-align:left">${esc(e.why)}</p>${foot}${foot2}${best}</div>`;
+  const art = resolveArt(e.n, { art: e.art, slug: e.id });
+  const left = art ? artPlate(art, e.n) : marker(s, 42, 52);
+  const credit = art ? artCredit(art) : "";
+  return `<div style="background:var(--ivory);border:1px solid var(--line-gold);border-radius:9px;padding:18px 20px;display:flex;flex-direction:column"><div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:9px">${left}<div style="text-align:left"><div style="font-family:var(--serif);font-size:21px;color:var(--byz-deep);line-height:1.08">${slink(e.n, s, sub)}</div>${dbline}</div></div><p style="font-size:15px;color:var(--ink);line-height:1.58;margin:0;text-align:left">${esc(e.why)}</p>${foot}${foot2}${best}${credit}</div>`;
 }
 
 /* ---------- a full rich card (everything inside .ih-card) ---------- */
@@ -172,21 +227,26 @@ function entrywayCardHtml(): string {
     foot: string;
     avatar?: string;
   }) => {
-    const left = o.avatar
-      ? saintAvatar(
-          {
-            name: resolveSaint(o.avatar)!.name,
-            image: resolveSaint(o.avatar)!.image,
-            type: resolveSaint(o.avatar)!.type,
-          },
-          48,
-          60,
-        )
-      : `<span style="flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--ivory-2);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--gold-deep)">${o.idx}</span>`;
+    // The icon itself where we have one; the saint's portrait next; the
+    // numbered bullet only when the threshold names something we cannot show.
+    const art = resolveArt(o.n, { slug: o.avatar });
+    const left = art
+      ? artPlate(art, o.n)
+      : o.avatar
+        ? saintAvatar(
+            {
+              name: resolveSaint(o.avatar)!.name,
+              image: resolveSaint(o.avatar)!.image,
+              type: resolveSaint(o.avatar)!.type,
+            },
+            48,
+            60,
+          )
+        : `<span style="flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--ivory-2);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--gold-deep)">${o.idx}</span>`;
     const sub = o.sub
       ? ` <span style="font-style:italic;color:var(--celest);font-size:18px">&nbsp;&mdash; ${esc(o.sub)}</span>`
       : "";
-    return `<div style="display:flex;gap:16px;align-items:flex-start">${left}<div style="text-align:left"><div style="font-family:var(--serif);font-size:23px;color:var(--byz-deep);line-height:1.08">${slink(o.n, linkSaint(o.n), sub)}</div><p style="font-size:15.5px;color:var(--ink);line-height:1.6;margin:6px 0 7px">${esc(o.why)}</p><div style="font-size:12.5px;color:var(--ink-soft)"><span class="eyebrow" style="font-size:11px">${esc(o.footLabel)}</span>&nbsp; ${esc(o.foot)}</div></div></div>`;
+    return `<div style="display:flex;gap:16px;align-items:flex-start">${left}<div style="text-align:left"><div style="font-family:var(--serif);font-size:23px;color:var(--byz-deep);line-height:1.08">${slink(o.n, linkSaint(o.n), sub)}</div><p style="font-size:15.5px;color:var(--ink);line-height:1.6;margin:6px 0 7px">${esc(o.why)}</p><div style="font-size:12.5px;color:var(--ink-soft)"><span class="eyebrow" style="font-size:11px">${esc(o.footLabel)}</span>&nbsp; ${esc(o.foot)}</div>${art ? artCredit(art) : ""}</div></div>`;
   };
   const nick = resolveSaint("nicholas");
   const header = `<div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><span style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--ivory-2);border:1px solid var(--line-gold)">${ihGlyph("door")}</span><div class="eyebrow">The Threshold</div></div><h3 style="font-size:38px;color:var(--byz-deep);line-height:1.03;margin-bottom:14px">Front Door &amp; Entryway</h3><p style="font-size:17.5px;color:var(--ink);line-height:1.66;margin:0 0 30px;max-width:820px;text-align:left">${esc(D.intro)}</p>`;
@@ -836,6 +896,25 @@ const johnQuoteLede =
       border-color 0.15s;
   }
   .ihp .ih-slink:hover {
+    color: var(--gold-deep);
+    border-bottom-color: var(--gold);
+  }
+  /* the icon a card is about, and the credit that must travel with it (§9) */
+  .ihp .ih-art {
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
+  }
+  .ihp .ih-art:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 14px rgba(15, 34, 56, 0.16);
+  }
+  .ihp .ih-art-credit a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-gold);
+  }
+  .ihp .ih-art-credit a:hover {
     color: var(--gold-deep);
     border-bottom-color: var(--gold);
   }
