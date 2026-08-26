@@ -1,5 +1,5 @@
 ---
-import { SAINTS } from "../lib/data";
+import { FINDER_SAINTS } from "../lib/data";
 import { QUIZ, optionsFor } from "../lib/quiz";
 import type { QuizOptionGroup } from "../lib/quiz";
 import EyebrowRule from "./EyebrowRule.astro";
@@ -12,7 +12,9 @@ const questions = QUIZ.map((g, i) => ({
   group: g,
   i,
   // Plain questions only: curated questions render from group.optionGroups.
-  options: g.optionGroups ? [] : optionsFor(SAINTS, g.key).slice(0, 28),
+  // FINDER_SAINTS is the set the quiz actually scores against (it includes the
+  // cross-listed archangels), so the offered options are counted over it too.
+  options: g.optionGroups ? [] : optionsFor(FINDER_SAINTS, g.key).slice(0, 28),
 }));
 
 // A plain question's flat option list is presented as a single unlabeled group
