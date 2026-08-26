@@ -1045,18 +1045,26 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
   do not clean it away.** **That backlog is smaller than it sounds, and the standing "656
   images await review" caveat overstates it:** the queue is *candidates*, not shipped
-  images. Of the 298 saint portraits live today, **273 are vendor-permission and only 23
+  images. Of the 299 saint portraits live today, **274 are vendor-permission and only 23
   are open-license** (9 PD, 8 PD-art, 3 PD-old, 2 CC-BY-SA-4.0, 2 CC-BY-2.0, 1 CC0). All
   18 CC-BY/CC-BY-SA rows across every join carry both a `credit` and a `source`, and
   `SaintView` renders credit + licence + source link, so **attribution is complete** —
   what the 23 still want is provenance/clergy review, not licence work. Audited 2026-08-07.
   Separately, **two vendors have granted permission** —
   **Theophany Works** (2026-06-17/23, 268 images / 282 placements) and **Legacy Icons**
-  (2026-08-03, 254 images / 267 placements); every other vendor stays links-only until
+  (2026-08-03, 263 images / 277 placements); every other vendor stays links-only until
   granted. Each grant is recorded under `docs/permissions/`, whose **`README.md` is the
   register's runbook** (add / revoke / count) and whose **`AGREEMENT.md` is the standard
   plain-language terms we send a publisher** — written after both grants, describing them
   rather than changing them. `emails.md` holds the ask / confirm / revoke wording.
+- **Sourcing one known icon (`scripts/download_subject_icons.py`).** The OS-####/HH-####
+  sibling of the feast downloader, for when a human has already decided that THIS product
+  is THIS record — a subject that is nobody's portrait (the Mystical Supper), or a name
+  the data cannot disambiguate. Curate `scripts/subject_icon_manifest.csv`
+  (record_id, hero|card, product URL, note), run the script, paste the proposed rows from
+  `dist/subject_icon_rows.csv` into the image/depiction joins. Propose-only, 10s between
+  requests, cached under `dist/subject_icons/`. Neither vendor allows `/search.php`, so
+  find a product by walking their category pages at `?limit=100`, never by searching.
 - Authoring aids: `make find` (search-before-add); `python build.py --no-xlsx` (assign IDs +
   emit `data.json` on host Python, no Docker); a "wrong column?" hint on misplaced vocab
   terms; feast day-of-month range validation; duplicate-name warnings with the
