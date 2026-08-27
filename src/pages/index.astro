@@ -5,6 +5,10 @@ import CloudBand from "../components/CloudBand.astro";
 import ProjectStatus from "../components/ProjectStatus.astro";
 import { cardDataPath } from "../lib/card-payload";
 import { litPayload } from "../lib/lit-payload";
+import {
+  lectionaryDataTemplate,
+  lectionaryYears,
+} from "../lib/lectionary-data";
 import { withBase } from "../lib/format";
 
 // The home page is a landing page: hero search (submits to /search), saint of
@@ -18,10 +22,23 @@ const cardSrc = withBase(cardDataPath());
 // can headline a Great Feast / fast season and its liturgical color, and honor
 // the Old/New reckoning — resolved client-side against the visitor's real date.
 const litJson = JSON.stringify(litPayload());
+
+/* The day's appointed readings, under the Today card — the same block the
+   /calendar day panel shows, from the same year shards (lib/lectionary-data,
+   docs/lectionary.md). The page ships only the harvested year list and a URL
+   template; the island fetches the one shard the visitor's real "today" falls
+   in, after first paint, and shows nothing at all outside the range. */
+const lectYears = lectionaryYears();
+const lectSrcTemplate = withBase(lectionaryDataTemplate());
 ---
 
 <BaseLayout active="home">
-  <div id="home" data-card-src={cardSrc}>
+  <div
+    id="home"
+    data-card-src={cardSrc}
+    data-lectionary-years={lectYears.join(",")}
+    data-lectionary-src={lectSrcTemplate}
+  >
     <HomeHero />
     <CloudBand />
     <ProjectStatus />
