@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Turn dist/legacy_icons_rows.csv into host/feast image + depiction rows.
+"""Turn dist/legacy_icons_rows.csv into image + depiction rows.
 
 Companion to scripts/download_legacy_icons.py. That script proposes and fetches;
-this one writes the proposals into the host/feast joins, which have more columns
-than the saint join and so are worth doing by rule rather than by hand.
+this one writes the proposals into the joins.
+
+It began as host/feast only, on the reasoning that those two have more columns
+than the saint join and so are worth doing by rule rather than by hand. That
+holds for five rows and not for three hundred: the saint join takes the same
+shape, and typing it out is where a wrong id gets in. All four files are
+written here now. The `christ` routing bucket is the saint join too — OS-0000
+and OS-0001 are saint rows like any other.
 
 Usage:  python3 scripts/legacy_icons_rows.py .
 
@@ -38,6 +44,9 @@ ICONOGRAPHERS = {
     "whirledge", "koufos", "clark", "fiorenzo", "stryzhak", "poulakis",
     "davidovskiy", "grygorenko", "chimev", "kratovo",
 }
+# Which join each routing bucket writes into. `christ` is not a fourth
+# database — OS-0000 and OS-0001 are rows in saints.csv.
+TABLE = {"saint": "saint", "christ": "saint", "host": "host", "feast": "feast"}
 SKU_TAIL = re.compile(r"\s*-\s*[A-Z]{1,2}\d{2,4}\s*$")
 PAREN = re.compile(r"\s*\(([^)]{1,28})\)")
 
@@ -70,10 +79,22 @@ def main() -> int:
     raw = {r["product_url"]: r["product_title"]
            for r in csv.DictReader(review.open(encoding="utf-8"))}
     out: dict[str, list] = {}
+    # Seed the label set from what the carousels ALREADY hold, not just from
+    # this run. The rule below is "one card per distinct label per record", and
+    # a run that only remembers itself re-adds a card the file has carried
+    # since the last batch.
     labels: set = set()
+    for db in sorted(set(TABLE.values())):
+        p_ = ROOT / "data" / f"{db}_depictions.csv"
+        if not p_.exists():
+            continue
+        for row in csv.reader(p_.open(encoding="utf-8-sig")):
+            if len(row) >= 10 and row[0] and row[0] != f"{db}_id":
+                labels.add((row[0], row[7], row[8], row[9]))
     for r in rows:
-        db, rid = r["db"], r["id"]
-        if db not in ("host", "feast"):
+        db, rid = TABLE.get(r["db"]), r["id"]
+        if db is None:
+            print(f"  SKIP (unknown db {r['db']!r}): {rid}", file=sys.stderr)
             continue
         if r["kind"] == "accept":
             out.setdefault(f"{db}_images", []).append(
