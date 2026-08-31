@@ -6,20 +6,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DomeMark from "../components/icons/DomeMark.astro";
 import EyebrowRule from "../components/EyebrowRule.astro";
 
-// Extra-Biblical Angels — the hub. Each apocryphal / Second Temple *work* (1
-// Enoch, the Shepherd of Hermas, …) gets a card linking to its own page, where
-// the book's story and the beings drawn from it live. Works arrive sorted by
-// order/slug. Everything here is catalogued for study, never venerated (§9).
+// Extra-Biblical Angels — the hub. Each *work* gets a card linking to its own
+// page, where the book's story and the beings drawn from it live. The books are
+// a mixed library, not one tradition: Jewish apocalypses (1 Enoch, 4 Ezra),
+// early Christian apocrypha (the Shepherd of Hermas, the Gospel of Nicodemus)
+// and later Eastern Christian works (the Testament of Adam) all sit here, which
+// is why the copy below says "books" rather than "Jewish writings". Works arrive
+// sorted by order/slug. Everything here is catalogued for study, never
+// venerated (§9).
 const works = await loadWorks();
 
-// How many extra-biblical named angels are already catalogued (a small hub stat).
+// How many of the beings these books name hold a record of their own (HH-####).
+// Most do not: an angel named in one recension of one pseudepigraphon is not
+// thereby an angel of the Church (§5b), so this number stays deliberately small
+// and the note below explains the relationship rather than just printing it.
 const namedCount = HOSTS.filter(isExtraBiblicalAngel).length;
 ---
 
 <BaseLayout
   active="extra-biblical-angels"
   title="Extra-Biblical Angels"
-  description="Angelic figures known from Tradition and the Second Temple writings beyond the biblical canon — the works that name them, catalogued for study."
+  description="The books outside the biblical canon that describe the unseen world — Jewish apocalypses, early Christian apocrypha and later Eastern Christian writings — each with the beings drawn from it, catalogued for study."
 >
   <div class="wrap">
     <header class="hosts-hero">
@@ -30,20 +37,23 @@ const namedCount = HOSTS.filter(isExtraBiblicalAngel).length;
         <EyebrowRule label="Heavenly Hosts" />
         <h1 class="hosts-title">Extra-Biblical Angels</h1>
         <p class="hosts-lede">
-          The angels named beyond the biblical canon — and the books that
-          preserve them.
+          The books outside the canon that describe the unseen world — and what
+          may honestly be drawn from each.
         </p>
       </div>
     </header>
 
     <section class="ebx-intro">
       <p class="intro-body">
-        Alongside the Scriptures, the Church inherited a body of older Jewish
-        writings — the Book of Enoch, the Shepherd of Hermas, and their kind —
-        that name and describe angels not found in the received canon. These
-        works were never numbered among the Scriptures, yet they shaped the way
-        the early Church spoke of the heavenly hosts. Each is gathered here by
-        the <em>book</em>, with its own story and the beings drawn from it —
+        Alongside the Scriptures the Church inherited a library of other books —
+        Jewish apocalypses such as the Book of Enoch, early Christian works such
+        as the Shepherd of Hermas and the Gospel of Nicodemus, and later Eastern
+        Christian writings such as the Testament of Adam. None was numbered
+        among the Scriptures, though one or two sit close enough to the edge
+        that the answer differs by language and tradition. They shaped how the
+        early Church spoke of the angels, the fall, the descent into Hades and
+        the age to come. Each is gathered here by the <em>book</em> — its own story,
+        the beings drawn from it, and the register every claim actually rests on —
         <strong>catalogued for study, never for veneration.</strong>
       </p>
     </section>
@@ -73,11 +83,11 @@ const namedCount = HOSTS.filter(isExtraBiblicalAngel).length;
     </div>
 
     {
-      namedCount > 0 && (
+      works.length > 0 && (
         <p class="ebx-note">
-          {namedCount} extra-biblical named{" "}
-          {namedCount === 1 ? "angel is" : "angels are"} catalogued across these
-          works.
+          {works.length} {works.length === 1 ? "book is" : "books are"}{" "}
+          catalogued here. Most of the beings they name belong to the books
+          alone; {namedCount} of them hold a record among the Heavenly Hosts.
         </p>
       )
     }

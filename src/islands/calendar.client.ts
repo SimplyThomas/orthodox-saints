@@ -38,17 +38,7 @@ import {
 } from "../lib/liturgical";
 import { withBase } from "../lib/format";
 import type { PaschaTable } from "../lib/feast-dates";
-import type { LectionaryYear, Reading } from "../lib/lectionary";
-import {
-  LECTIONARY_SOURCE,
-  PARISH_CAVEAT,
-  TRADITIONS,
-  passageNote,
-  passageUrl,
-  readingGroups,
-  readingsFor,
-  traditionFor,
-} from "../lib/lectionary";
+import { readingsBlock, shardFetcher } from "../lib/readings-block";
 
 const root = document.getElementById("calendar-page");
 const app = document.querySelector<HTMLElement>(".cal-app");
@@ -266,111 +256,10 @@ if (root && app && source && grid && panel && monthLabel) {
      rendered synchronously, so the block is filled in when its shard lands —
      `renderToken` drops a late arrival whose day the reader has already
      navigated away from. */
-  const lectYears = new Set(
-    (app!.dataset.lectionaryYears ?? "")
-      .split(",")
-      .map((y) => Number(y.trim()))
-      .filter(Boolean),
+  const lectShard = shardFetcher(
+    app!.dataset.lectionarySrc ?? "",
+    app!.dataset.lectionaryYears ?? "",
   );
-  const lectTemplate = app!.dataset.lectionarySrc ?? "";
-  const lectShards = new Map<number, Promise<LectionaryYear | null>>();
-
-  function lectShard(year: number): Promise<LectionaryYear | null> {
-    if (!lectTemplate || !lectYears.has(year)) return Promise.resolve(null);
-    let shard = lectShards.get(year);
-    if (!shard) {
-      shard = fetch(lectTemplate.replace("{year}", String(year)))
-        .then((r) => (r.ok ? (r.json() as Promise<LectionaryYear>) : null))
-        .catch(() => null); // offline or a missing shard: show no readings
-      lectShards.set(year, shard);
-    }
-    return shard;
-  }
-
-  /** One citation: a link out to the passage, plus why it is read today. */
-  function readingRow(reading: Reading): HTMLElement {
-    const row = el("li", "cal-read-item");
-    const url = passageUrl(reading.ref);
-    if (url) {
-      const a = document.createElement("a");
-      a.className = "cal-read-ref";
-      a.href = url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = reading.ref;
-      row.append(a);
-    } else {
-      row.append(el("span", "cal-read-ref", reading.ref));
-    }
-    // A named commemoration means this is the saint's or feast's own reading
-    // rather than the continuous daily cycle — the reader should see which.
-    const aside = [reading.service, reading.for].filter(Boolean).join(" · ");
-    if (aside) row.append(el("span", "cal-read-for", aside));
-    const note = passageNote(reading.ref);
-    if (note) row.append(el("span", "cal-read-note", note));
-    return row;
-  }
-
-  function readingsBlock(
-    shard: LectionaryYear | null,
-    date: Date,
-  ): HTMLElement | null {
-    const day = readingsFor(shard, date, style);
-    const groups = readingGroups(day);
-    if (!groups.length) return null;
-
-    const box = el("div", "cal-read");
-    box.append(el("h3", "cal-read-head", "Readings for the day"));
-    if (day?.title) box.append(el("p", "cal-read-title", day.title));
-
-    const primary = groups.filter((g) => g.primary);
-    const rest = groups.filter((g) => !g.primary);
-
-    for (const group of primary) {
-      box.append(el("h4", "cal-read-label", group.label));
-      const ul = el("ul", "cal-read-list");
-      for (const r of group.readings) ul.append(readingRow(r));
-      box.append(ul);
-    }
-
-    if (rest.length) {
-      const count = rest.reduce((n, g) => n + g.readings.length, 0);
-      const details = document.createElement("details");
-      details.className = "cal-read-more";
-      const summary = document.createElement("summary");
-      summary.textContent = `Also read this day (${count})`;
-      details.append(summary);
-      for (const group of rest) {
-        details.append(el("h4", "cal-read-label", group.label));
-        const ul = el("ul", "cal-read-list");
-        for (const r of group.readings) ul.append(readingRow(r));
-        details.append(ul);
-      }
-      box.append(details);
-    }
-
-    // Name the usage. There is no single Orthodox lectionary, and a reader
-    // whose parish reads something else deserves to know why rather than
-    // conclude the page is wrong.
-    const tradition = TRADITIONS[traditionFor(style)];
-    box.append(el("p", "cal-read-trad", tradition.label));
-    box.append(el("p", "cal-read-note", tradition.note));
-    box.append(el("p", "cal-read-note", PARISH_CAVEAT));
-
-    // Whose reckoning this is. The table is harvested, not ours (§5d), and
-    // its MIT licence asks the notice to travel with it.
-    const credit = el("p", "cal-read-src");
-    credit.append(document.createTextNode(LECTIONARY_SOURCE.before));
-    const srcLink = document.createElement("a");
-    srcLink.href = LECTIONARY_SOURCE.href;
-    srcLink.target = "_blank";
-    srcLink.rel = "noopener noreferrer";
-    srcLink.textContent = LECTIONARY_SOURCE.name;
-    credit.append(srcLink, document.createTextNode(LECTIONARY_SOURCE.after));
-    box.append(credit);
-
-    return box;
-  }
 
   /** Reserve the readings' place in the panel now and fill it when the shard
       lands, so a slow fetch cannot drop the block below the saints list.
@@ -382,7 +271,7 @@ if (root && app && source && grid && panel && monthLabel) {
     const date = new Date(viewY, m - 1, d);
     void lectShard(viewY).then((shard) => {
       if (!slot.isConnected) return;
-      const block = readingsBlock(shard, date);
+      const block = readingsBlock(shard, date, style);
       if (block) slot.replaceChildren(block);
     });
     return slot;
