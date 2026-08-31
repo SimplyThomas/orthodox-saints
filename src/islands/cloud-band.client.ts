@@ -25,6 +25,7 @@ import {
   LITURGICAL_COLORS,
 } from "../lib/liturgical";
 import type { DayFeast } from "../lib/liturgical";
+import { readingsBlock, shardFetcher } from "../lib/readings-block";
 
 const home = document.getElementById("home");
 if (home && home.dataset.cardSrc) {
@@ -48,6 +49,12 @@ function initCloudBand(SAINTS: CardSaint[]) {
      the /calendar page uses rides above it as a colored banner. The Old/New
      toggle re-reckons which church date the visitor's civil "today" maps to. */
   const host = document.getElementById("sotd");
+  // The daily lectionary ships as one shard per harvested year; the page
+  // carries only the year list and a URL template (see docs/lectionary.md).
+  const lectShard = shardFetcher(
+    home?.dataset.lectionarySrc ?? "",
+    home?.dataset.lectionaryYears ?? "",
+  );
   if (host) {
     const now = new Date();
     const tm = now.getMonth() + 1;
@@ -204,7 +211,22 @@ function initCloudBand(SAINTS: CardSaint[]) {
             </a>
           </div>
           ${body}
-        </div>`;
+        </div>
+        <div class="sotd-read-slot"></div>`;
+
+      // The day's appointed readings, filled in when the year's shard lands.
+      // The slot is placed synchronously so a slow fetch cannot land the block
+      // somewhere else on the page; renderSotd() replaces the card's innerHTML
+      // on a toggle, which detaches the old slot, so `isConnected` is the
+      // staleness test and a late shard never fills a card that is gone.
+      const slot = host!.querySelector<HTMLElement>(".sotd-read-slot");
+      if (slot) {
+        void lectShard(ty).then((shard) => {
+          if (!slot.isConnected) return;
+          const block = readingsBlock(shard, civilDate, style);
+          if (block) slot.replaceChildren(block);
+        });
+      }
 
       // Wire the reckoning toggle (re-renders this card; URL rides ?style).
       host!

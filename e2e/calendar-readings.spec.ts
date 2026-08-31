@@ -58,3 +58,45 @@ test.describe("calendar readings", () => {
     await expect(link).toHaveAttribute("target", "_blank");
   });
 });
+
+/* The same block also rides under the home page's "Today" card, built by the
+   shared lib/readings-block so the two surfaces cannot drift. Like the
+   calendar's own tests above, these read the visitor's real "today" and so
+   assume it falls inside the harvested range (2020-2040). */
+test.describe("home readings", () => {
+  test("the Today band shows the day's readings, named by usage", async ({
+    page,
+  }) => {
+    await page.goto("./");
+
+    const readings = page.locator(".sotd-read-slot .cal-read");
+    await expect(readings).toBeVisible();
+    await expect(readings.locator(".cal-read-head")).toHaveText(
+      "Readings for the day",
+    );
+    expect(await readings.locator(".cal-read-ref").count()).toBeGreaterThan(0);
+    await expect(readings.locator(".cal-read-trad")).toHaveText(
+      "Byzantine-Greek usage",
+    );
+
+    // The readings follow the card's own reckoning toggle, as on the calendar.
+    await page.locator('.sotd-cal button[data-style="old"]').click();
+    await expect(page.locator(".sotd-read-slot .cal-read-trad")).toHaveText(
+      "Slavic usage",
+    );
+  });
+
+  test("the readings sit below the day's saints, not above them", async ({
+    page,
+  }) => {
+    await page.goto("./");
+    await expect(page.locator(".sotd-read-slot .cal-read")).toBeVisible();
+
+    const order = await page
+      .locator("#sotd")
+      .evaluate((el) => Array.from(el.children).map((c) => c.className));
+    const cardIndex = order.findIndex((c) => c.includes("sotd-card"));
+    const readIndex = order.findIndex((c) => c.includes("sotd-read-slot"));
+    expect(readIndex).toBeGreaterThan(cardIndex);
+  });
+});

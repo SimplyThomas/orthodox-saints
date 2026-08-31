@@ -5,6 +5,7 @@
    Encounters before choosing one. This introduces the section first and then
    offers the way in, with each card carrying a live count so a reader can see
    what is actually there. */
+import { loadWorks } from "../lib/apocrypha";
 import HubPage from "../components/HubPage.astro";
 import type { HubCard } from "../components/HubPage.astro";
 import {
@@ -24,6 +25,10 @@ const encounters = HOSTS.filter(isBiblicalEncounter);
 const extra = HOSTS.filter(isExtraBiblicalAngel);
 const named = HOSTS.filter((h) => h.entityType === "Named Angel");
 const fallen = HOSTS.filter(isFallen);
+// The extra-biblical section is a shelf of BOOKS, not a handful of angel
+// records: `extra` counts the three beings tagged Extra-Biblical Angel, which
+// badly undersells a hub holding a dozen-plus works. Count the works.
+const extraWorks = await loadWorks();
 
 const cards: HubCard[] = [
   {
@@ -83,8 +88,8 @@ const cards: HubCard[] = [
     href: "extra-biblical-angels",
     eyebrow: "Catalogued for study",
     blurb:
-      "The angels named in the Second Temple writings — Raguel, Sariel, Phanuel — recorded here for study, never for veneration.",
-    meta: `${extra.length} named`,
+      "The books outside the canon that describe the unseen world — Jewish apocalypses, early Christian apocrypha — and the beings drawn from each. Recorded for study, never for veneration.",
+    meta: `${extraWorks.length} books · ${extra.length} named`,
   },
 ];
 ---
