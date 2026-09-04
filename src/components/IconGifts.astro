@@ -141,10 +141,15 @@ const DEFAULT_ITEM =
           {
             /* The grant's condition is that each image links back to its own
                icon page, so every icon above is named here and linked
-               individually — the vendor is credited once, not four times. */
+               individually — the vendor is credited once, not four times.
+               The lead carries the §9 permission wording, matching the
+               attribution string in data/image_permissions.csv that
+               SaintView prints beside a hero portrait. */
             heroCredits.length > 0 && (
               <p class="ig-credit">
-                <span class="ig-credit-lead">Icons: {heroVendor}</span>
+                <span class="ig-credit-lead">
+                  Icons used with permission from {heroVendor}:
+                </span>
                 {heroCredits.map((h, n) => (
                   <>
                     {n > 0 && <span aria-hidden="true"> · </span>}

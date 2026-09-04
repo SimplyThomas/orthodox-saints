@@ -1007,18 +1007,22 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   - **If absent:** add a new row (blank ID → build assigns).
 
 ### Current status & next action
-- Data: **2,790 saints**; IDs run to **OS-2805**. **PHASE 1 (the spine walk) IS COMPLETE** —
+- Data: **2,954 saints**; IDs run to **OS-3052**. **PHASE 1 (the spine walk) IS COMPLETE** —
   the whole fixed calendar Jan 1 → Dec 31. **PHASE 2 (merge by identity) is well underway:**
   modern Greek/Athonite glorifications (#136), Romanian (#138), Serbian (#140), Georgian
   (#143), Bulgarian (#145), Antiochian (#146), Western pre-schism (#147), and
-  Alexandria/African (#148–149) have all landed, each in its own PR. **The main outstanding
-  merge is the full Greek (GOARCH) calendar.**
-- **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv`. See §6 for the retirement process.
-- **The Daily Dove is built and unpublished.** 64 dispatches across nineteen
-  centuries, linked from 37 saint pages, 3 feast pages and the calendar, and in the
-  nav. Held open: the Joseph the Sanctified dispatch (which Joseph?), Palladius and
-  the Ephesus council unlinked for want of the right record, and Cyril of Alexandria
-  missing from `data/saints.csv` altogether. Nothing here has clergy review (§9).
+  Alexandria/African (#148–149) have all landed, each in its own PR. August 2026 added the
+  eleven saints the Legacy Icons harvest exposed (#430, OS-3007..OS-3017), the recent
+  canonizations (#432, OS-3018..OS-3043) with profiles for all of them (#433/#455), and the
+  nine sons of Jacob who were missing (#451). **The main outstanding merge is still the full
+  Greek (GOARCH) calendar.**
+- **Retired IDs** (removed duplicates; never reused): tracked in `data/retired_ids.csv` (54 rows). See §6 for the retirement process.
+- **The Daily Dove is published** — live at `/daily-dove` and in the nav. 64 dispatches
+  across nineteen centuries, linked from 37 saint pages, 3 feast pages and the calendar.
+  Held open: the Joseph the Sanctified dispatch (which Joseph? — OS-2748 Joseph Samakos
+  of Crete IS now in the data, so that join may be answerable), Palladius and the Ephesus
+  council unlinked for want of the right record, and Cyril of Alexandria missing from
+  `data/saints.csv` altogether. Nothing here has clergy review (§9).
   The section was rebuilt as **The Living Archive** (§5c) after the first merge:
   broadsheet front page on newsprint, the newsroom departments as the single filing
   axis, dispatch pills (when · who · what kind), and an archive with search, sort
@@ -1033,11 +1037,14 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   the dove is.** Two independent axes now: `status` controls visibility (almost everything is
   `reviewed`), and the separate `humanReviewed: true` flag earns the **dove seal** (a person
   vetted the entry against sources, §9). The ongoing human lever is setting `humanReviewed`
-  while walking the daily synaxarion — that grows trust in what is already public. Then enrich
+  while walking the daily synaxarion — that grows trust in what is already public;
+  229 profiles carry the dove today, against 2,774 `reviewed` and the 141 `flagged`. Then enrich
   relatability/background facets (**Vocation**, Life Experience) — *not* Intercessions-first
   (§10). Phase 2 (GOARCH merge) is still the main breadth gap.
-- **Phase-2 gaps:** Joseph Samakos the Sanctified (Jan 22) is still missing. (Arsenius of
-  Paros has landed.)
+- **Phase-2 gaps:** none of the individually-named ones are outstanding — Joseph Samakos
+  the Sanctified landed as OS-2748 (Jan 22 repose; Aug 29 translation of relics) and
+  Arsenius of Paros before him. The gap is the GOARCH calendar as a whole, not a list of
+  names.
 - **Icon pipeline status:** the Wikimedia Commons downloader (`scripts/`, PR #142) fetched
   **~656 candidate portraits** into `static/icons/` (untracked), with the review queue in
   `dist/image_review.csv` + `dist/icon_contact_sheet.html` — all `needs_review`; nothing
@@ -1045,14 +1052,15 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
   `data/saint_images.csv` (§5, §9). **The queue metadata lives in git-ignored `dist/` —
   do not clean it away.** **That backlog is smaller than it sounds, and the standing "656
   images await review" caveat overstates it:** the queue is *candidates*, not shipped
-  images. Of the 299 saint portraits live today, **274 are vendor-permission and only 23
+  images. Of the 306 saint portraits live today, **281 are vendor-permission and only 25
   are open-license** (9 PD, 8 PD-art, 3 PD-old, 2 CC-BY-SA-4.0, 2 CC-BY-2.0, 1 CC0). All
   18 CC-BY/CC-BY-SA rows across every join carry both a `credit` and a `source`, and
   `SaintView` renders credit + licence + source link, so **attribution is complete** —
-  what the 23 still want is provenance/clergy review, not licence work. Audited 2026-08-07.
+  what the 25 still want is provenance/clergy review, not licence work. Audited 2026-09-04.
   Separately, **two vendors have granted permission** —
   **Theophany Works** (2026-06-17/23, 268 images / 282 placements) and **Legacy Icons**
-  (2026-08-03, 263 images / 277 placements); every other vendor stays links-only until
+  (2026-08-03, 670 images / 684 placements after the #454 batch — 327 of their catalogue
+  products remain unplaced); every other vendor stays links-only until
   granted. Each grant is recorded under `docs/permissions/`, whose **`README.md` is the
   register's runbook** (add / revoke / count) and whose **`AGREEMENT.md` is the standard
   plain-language terms we send a publisher** — written after both grants, describing them
@@ -1141,7 +1149,7 @@ These conventions apply to all data authoring and Phase-2 enrichment work.
 
 ## 10. Quality bar
 
-- **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now: Intercessions ~18.6%, Vocation ~21.7%, Life Experience ~56%, Region ~97%, Brief Life ~99.9%. Since the 2026-07-18 launch (PR #352) drafts DO ship — profiles are public and the **`humanReviewed` dove** (§5, §11) is the trust lever, not the visibility gate. Prioritize marking `humanReviewed` on vetted entries and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
+- **No single facet is "the engine" — discovery is multi-path (§1).** The finder/quiz read the **CSV controlled-vocab facets, not profile prose**, so generating profiles does NOT raise facet coverage — enrichment is a *separate* lever. Coverage now (2026-09-04): Intercessions 17.4%, Vocation 21.9%, Life Experience 53.5%, Virtue 66.6%, Region 97.2%, Brief Life 99.9%. The three thin facets slipped slightly across August because 46 new saints landed faster than their facets did — a moving denominator, not a regression. Since the 2026-07-18 launch (PR #352) drafts DO ship — profiles are public and the **`humanReviewed` dove** (§5, §11) is the trust lever, not the visibility gate. Prioritize marking `humanReviewed` on vetted entries and the relatability/background facets (**Vocation**, Life Experience) ahead of Intercessions, which serves only the affliction path. Fill wherever sources support it; don't fabricate.
 - Minimum for any row: Name, Rank, Gender, Short Prayer, Sources (the build-enforced
   `REQUIRED` set). A Feast Day and Era/Century are **strongly expected** and present on
   nearly every saint — but a handful of genuinely-commemorated saints have no fixed (or only
