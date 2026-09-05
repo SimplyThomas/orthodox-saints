@@ -28,15 +28,21 @@ test.describe("calendar readings", () => {
       "Byzantine-Greek usage",
     );
 
-    // The readings sit with the liturgical block, above the day's saints.
+    // The readings sit with the liturgical block in the panel, and the day's
+    // saints run full width below it.
     const panel = page.locator("#cal-panel");
     const order = await panel.evaluate((el) =>
       Array.from(el.children).map((c) => c.className),
     );
     const readIndex = order.findIndex((c) => c.includes("cal-read-slot"));
-    const listIndex = order.findIndex((c) => c.includes("cal-list"));
+    const litIndex = order.findIndex((c) => c.includes("cal-lit"));
     expect(readIndex).toBeGreaterThan(-1);
-    if (listIndex > -1) expect(readIndex).toBeLessThan(listIndex);
+    if (litIndex > -1) expect(litIndex).toBeLessThan(readIndex);
+    // The commemorations list is no longer inside the panel.
+    await expect(panel.locator(".cal-list")).toHaveCount(0);
+    await expect(
+      page.locator("#cal-commems .cal-list li").first(),
+    ).toBeVisible();
   });
 
   test("the Old Calendar toggle switches to Slavic usage", async ({ page }) => {
