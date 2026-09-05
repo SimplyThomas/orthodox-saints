@@ -324,6 +324,21 @@ const swatch = (key: string) =>
         <aside class="cal-panel" id="cal-panel" aria-live="polite"></aside>
       </div>
 
+      {
+        /* The day's commemorations run FULL WIDTH beneath the grid + panel, in
+           columns. A busy day carries 30+ saints; inside the sidebar that list
+           ran far past the grid and pushed the liturgical, Dove and customs
+           panels below the fold. Wide + multi-column, the same day reads at a
+           glance. */
+      }
+      <section class="cal-commems" id="cal-commems" aria-live="polite">
+        <div class="cal-commems-head">
+          <h2 id="cal-commems-title">Commemorations</h2>
+          <span class="cal-commems-count" id="cal-commems-count"></span>
+        </div>
+        <div class="cal-commems-body" id="cal-commems-body"></div>
+      </section>
+
       <div class="cal-foot">
         {
           movable.length > 0 && (

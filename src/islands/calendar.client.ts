@@ -55,6 +55,9 @@ const styleNote = document.getElementById("cal-style-note");
 const litDataEl = document.getElementById("cal-lit-data");
 const customsBody = document.getElementById("cal-customs-body");
 const customsDayLabel = document.getElementById("cal-customs-day");
+const commemsBody = document.getElementById("cal-commems-body");
+const commemsTitle = document.getElementById("cal-commems-title");
+const commemsCount = document.getElementById("cal-commems-count");
 const doveBody = document.getElementById("cal-dove-body");
 const doveDayLabel = document.getElementById("cal-dove-day");
 const styleBtns: Record<"new" | "old", HTMLElement | null> = {
@@ -407,6 +410,29 @@ if (root && app && source && grid && panel && monthLabel) {
     );
   }
 
+  /** The day's saint list, rendered full-width beneath the grid rather than in
+      the sidebar panel — see the note in calendar.astro. The list itself is a
+      clone of the pre-rendered source <ul>, so the no-JS fallback stays the
+      single source of the markup. */
+  function renderCommems(
+    ul: HTMLUListElement | null,
+    title: string,
+    n: number,
+  ): void {
+    if (!commemsBody) return;
+    if (commemsTitle) commemsTitle.textContent = title;
+    if (commemsCount) commemsCount.textContent = n ? plural(n) : "";
+    if (ul && n) {
+      const clone = ul.cloneNode(true) as HTMLUListElement;
+      clone.classList.add("cal-list--cols");
+      commemsBody.replaceChildren(clone);
+    } else {
+      commemsBody.replaceChildren(
+        el("p", "cal-panel-empty", "No commemoration recorded for this day."),
+      );
+    }
+  }
+
   function renderPanel(key: string): void {
     selectedKey = key;
     grid!
@@ -425,7 +451,7 @@ if (root && app && source && grid && panel && monthLabel) {
           "Commemorations tied to Pascha rather than a fixed date — their day shifts each year.",
         ),
       );
-      if (movableList) panel!.append(movableList.cloneNode(true));
+      renderCommems(movableList, "Movable commemorations", n);
       renderCustoms(saintCustomsFor(movableList), "Movable commemorations");
       renderDove(doveItemsFor([], movableList), "Movable commemorations");
       return;
@@ -453,13 +479,7 @@ if (root && app && source && grid && panel && monthLabel) {
       doveItemsFor(obsFor(m, d), ul ?? null),
       `${MONTHS_FULL[m - 1]} ${d}`,
     );
-    if (ul && n) {
-      panel!.append(ul.cloneNode(true));
-    } else {
-      panel!.append(
-        el("p", "cal-panel-empty", "No commemoration recorded for this day."),
-      );
-    }
+    renderCommems(ul ?? null, `${MONTHS_FULL[m - 1]} ${d}`, n);
   }
 
   function defaultSelection(): string {

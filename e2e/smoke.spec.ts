@@ -960,7 +960,7 @@ test("selecting a calendar day shows its commemorations and links out", async ({
     /is-selected/,
   );
 
-  const link = page.locator(".cal-panel .cal-list li a").first();
+  const link = page.locator("#cal-commems .cal-list li a").first();
   const href = await link.getAttribute("href");
   expect(href).toMatch(/\/saint\/OS-\d{4,}$/);
   await link.click();
@@ -968,7 +968,7 @@ test("selecting a calendar day shows its commemorations and links out", async ({
   await expect(page.locator("#saint-detail")).toBeVisible();
 });
 
-test("calendar movable-cycle button loads commemorations into the panel", async ({
+test("calendar movable-cycle button loads the movable commemorations", async ({
   page,
 }) => {
   await page.goto("./calendar/");
@@ -976,7 +976,7 @@ test("calendar movable-cycle button loads commemorations into the panel", async 
   await expect(page.locator(".cal-panel .cal-panel-head .d")).toHaveText(
     "Movable",
   );
-  await expect(page.locator(".cal-panel .cal-list li").first()).toBeVisible();
+  await expect(page.locator("#cal-commems .cal-list li").first()).toBeVisible();
 });
 
 test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
@@ -986,7 +986,7 @@ test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
   // New Calendar reading: church Dec 6 (St. Nicholas) falls on civil Dec 6.
   await page.selectOption("#cal-month-picker", "12");
   await page.click('#cal-grid [data-key="12-6"]');
-  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+  await expect(page.locator("#cal-commems")).toContainText("Nicholas");
 
   // Old Calendar: the same church date now falls on civil Dec 19, and the
   // panel + cells carry the church-date label.
@@ -998,7 +998,7 @@ test("Old Calendar toggle shifts fixed feasts 13 civil days later", async ({
   await expect(page.locator(".cal-panel .cal-panel-head .lbl")).toContainText(
     "Dec 6 on the Church Calendar",
   );
-  await expect(page.locator(".cal-panel")).toContainText("Nicholas");
+  await expect(page.locator("#cal-commems")).toContainText("Nicholas");
 
   // The mode deep-links: ?style=old restores Old Calendar without a click.
   await page.goto("./calendar/?style=old");

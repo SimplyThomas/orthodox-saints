@@ -6355,9 +6355,44 @@ a.cal-read-ref:focus-visible {
   color: var(--ink-soft);
   margin: 0;
 }
-#calendar-page .cal-panel .cal-list {
-  max-height: 60vh;
-  overflow: auto;
+/* ---------- the day's commemorations (full width, beneath the grid) ---------- */
+#calendar-page .cal-commems {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-gold);
+}
+#calendar-page .cal-commems-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+#calendar-page .cal-commems-head h2 {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--byz-deep);
+  margin: 0;
+  line-height: 1.1;
+}
+#calendar-page .cal-commems-count {
+  font-family: var(--text);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--gold-deep);
+}
+/* Columns, not one tall stack: a busy day carries 30+ names and the list is
+   scanned, not read straight through. CSS columns rather than a grid — a grid
+   row is as tall as its tallest wrapped name, which leaves ragged gaps down a
+   list of very uneven lengths; columns pack. Each name is kept whole. */
+#calendar-page .cal-list--cols {
+  columns: 240px 4;
+  column-gap: 22px;
+}
+#calendar-page .cal-list--cols li {
+  break-inside: avoid;
 }
 
 /* ---------- shared saint list (panel + source) ---------- */
