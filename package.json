@@ -28,13 +28,13 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
     "astro-eslint-parser": "^2.1.0",
-    "eslint": "^10.11.0",
+    "eslint": "^10.12.0",
     "eslint-plugin-astro": "^2.1.1",
-    "globals": "^17.12.0",
+    "globals": "^17.13.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.70.1",
+    "typescript-eslint": "^8.71.0",
     "vitest": "^4.1.11"
   }
 }
