@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.0",
+    "astro": "^7.4.2",
     "minisearch": "^7.2.0"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2",
+    "typescript-eslint": "^8.72.0",
     "vitest": "^4.1.12"
   }
 }
