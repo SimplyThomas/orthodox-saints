@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.4",
+    "astro": "^7.4.7",
     "minisearch": "^7.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "^1.64.1",
+    "@playwright/test": "^1.65.0",
     "astro-eslint-parser": "^2.1.0",
     "eslint": "^10.14.0",
     "eslint-plugin-astro": "^2.1.1",
