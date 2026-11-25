@@ -20,8 +20,8 @@
     "test:unit:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.5",
-    "astro": "^7.4.12",
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^7.4.13",
     "minisearch": "^7.2.0"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "prettier": "^3.10.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.2",
+    "typescript-eslint": "^8.73.0",
     "vitest": "^4.1.12"
   }
 }
